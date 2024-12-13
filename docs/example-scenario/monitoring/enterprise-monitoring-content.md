@@ -128,7 +128,7 @@ The following considerations apply to this solution.
 
 ### Availability
 
-[Azure availability zones](/azure/availability-zones/az-overview) protect applications and data from datacenter failures by relying on the availability of other zones in the region. Availability zones help provide resilience for Monitor features like Application Insights that rely on a Log Analytics workspace. Workspaces linked to availability zones remain active and operational even if a specific datacenter isn't available.
+[Azure availability zones](/azure/reliability/availability-zones-overview) protect applications and data from datacenter failures by relying on the availability of other zones in the region. Availability zones help provide resilience for Monitor features like Application Insights that rely on a Log Analytics workspace. Workspaces linked to availability zones remain active and operational even if a specific datacenter isn't available.
 
 See [Regions and Availability Zones in Azure](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for the Azure regions that support availability zones. Monitor currently supports availability zones in regions East US 2 and West US 2.
 
@@ -213,7 +213,7 @@ Monitor is a constellation of different interconnected services that work togeth
 
 #### Logic Apps integration service environment (ISE)
 
-An integration service environment (ISE) environment keeps dedicated storage and other resources separate from the global, multi-tenant Logic Apps service. For more information, see [Connect to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)](/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview).
+An integration service environment (ISE) environment keeps dedicated storage and other resources separate from the global, multi-customer Logic Apps service. For more information, see [Connect to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)](/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview).
 
 #### Log Analytics gateway
 

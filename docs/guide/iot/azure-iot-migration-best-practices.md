@@ -5,8 +5,8 @@ author: armandoblanco
 ms.author: armbla
 ms.date: 06/07/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom: arb-iot
 products:
   - azure-iot
@@ -48,7 +48,7 @@ One of the first steps in migration is to analyze your IoT solution.
 
 - Understand and audit your existing IoT solution
 
-  It's essential to understand the business and technical requirements, performance, long-term growth, and important factors of your operation. This knowledge helps establish the minimum base of requirements for your platform.Use the [Well-Architected Framework for IoT](/azure/architecture/framework/iot/iot-overview) to understand the best practices when designing a solution.
+  It's essential to understand the business and technical requirements, performance, long-term growth, and important factors of your operation. This knowledge helps establish the minimum base of requirements for your platform. Use the [Well-Architected Framework for IoT](/azure/architecture/framework/iot/iot-overview) to understand the best practices when designing a solution.
 
 - Obtain key information about your IoT solution
 
@@ -149,6 +149,5 @@ Other contributors:
 
 ## Related resources
 
-- [Azure IoT reference architecture](../../reference-architectures/iot.yml)
 - [Choose an analytical data store](../../data-guide/technology-choices/analytical-data-stores.md)
-- [Get started with Azure IoT solutions](../../reference-architectures/iot/iot-architecture-overview.md)
+- [IoT architectures](/azure/architecture/browse/?azure_categories=iot)

@@ -5,8 +5,8 @@ author: martinekuan
 ms.author: pnp
 ms.date: 07/26/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - windows-server
   - office-exchange-server
@@ -49,9 +49,8 @@ For information about solutions in which Azure services integrate with the other
 |[Azure files secured by AD DS](../example-scenario/hybrid/azure-files-on-premises-authentication.yml)|Provide high-security file access with on-premises Windows Server Active Directory Domain Services (AD DS) and DNS.| Hybrid|
 |[Create an AD DS resource forest](../reference-architectures/identity/adds-forest.yml)|Learn how to create a separate Active Directory domain on Azure that's trusted by domains in your on-premises Active Directory forest.| Identity|
 |[Deploy AD DS in an Azure virtual network](../reference-architectures/identity/adds-extend-domain.yml)|Use this reference architecture to extend an on-premises Active Directory domain to Azure to provide distributed authentication services.| Identity|
-|[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-disaster-recovery.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Azure Site Recovery integrates with Windows Server-based apps and roles, including Active Directory Domain Services.|Hybrid|
+|[Enable VM protection in Azure Site Recovery](/azure-stack/operator/protect-virtual-machines) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Azure Site Recovery integrates with Windows Server-based apps and roles, including Active Directory Domain Services.|Hybrid|
 |[Extend on-premises AD FS to Azure](../reference-architectures/identity/adfs.yml) |Implement a highly secure hybrid network architecture by using Active Directory Federation Services (AD FS) authorization on Azure.|Identity|
-|[Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml)|Deliver highly available intranet capability and share hybrid workloads with Microsoft 365 by using SharePoint servers, Microsoft Entra ID, and SQL Server. Windows Server hosts Active Directory services for service and machine accounts.| Hybrid|
 |[Integrate on-premises Active Directory with Azure](../reference-architectures/identity/index.yml) |Compare options for integrating your on-premises Active Directory environment with an Azure network.|Identity|
 |[Multiple forests with AD DS and Microsoft Entra ID](../example-scenario/azure-virtual-desktop/multi-forest.yml)|Create multiple Active Directory forests by using Azure Virtual Desktop.|Virtual Desktop|
 |[Multiple forests with AD DS, Microsoft Entra ID, and Microsoft Entra Domain Services](../example-scenario/azure-virtual-desktop/multi-forest-azure-managed.yml) |Create multiple Active Directory forests by using Azure Virtual Desktop and AD DS.|Virtual Desktop|
@@ -62,8 +61,8 @@ For information about solutions in which Azure services integrate with the other
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Back up files and apps on Azure Stack Hub](../hybrid/azure-stack-backup.yml)|Learn about an optimized approach to backing up and restoring files and applications of VM-based user workloads that are hosted on Azure Stack Hub. Includes backup and restore of Exchange Server servers and databases.| Hybrid|
-|[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-disaster-recovery.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes a discussion of disaster recovery for Exchange workloads.|Hybrid|
+|[Back up files and apps on Azure Stack Hub](/azure/backup/backup-mabs-files-applications-azure-stack)|Learn about an optimized approach to backing up and restoring files and applications of VM-based user workloads that are hosted on Azure Stack Hub. Includes backup and restore of Exchange Server servers and databases.| Hybrid|
+|[Enable VM protection in Azure Site Recovery](/azure-stack/operator/protect-virtual-machines) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes a discussion of disaster recovery for Exchange workloads.|Hybrid|
 |[Enhanced-security hybrid messaging - client access](../example-scenario/hybrid/secure-hybrid-messaging-client.yml)|Enhance your security in a client access scenario by using Microsoft Entra multifactor authentication. Discusses scenarios for Exchange Online and Exchange on-premises.| Hybrid|
 |[Enhanced-security hybrid messaging - mobile access](../example-scenario/hybrid/secure-hybrid-messaging-mobile.yml)|Enhance your security in a mobile access scenario by using Microsoft Entra multifactor authentication. Discusses scenarios for Exchange Online and Exchange on-premises.|Hybrid|
 |[Enhanced-security hybrid messaging - web access](../example-scenario/hybrid/secure-hybrid-messaging-web.yml) |Enhance your security in a web access scenario by using Microsoft Entra multifactor authentication. Discusses scenarios for Exchange Online and Exchange on-premises.|Hybrid|
@@ -79,27 +78,22 @@ For information about solutions in which Azure services integrate with the other
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Back up files and apps on Azure Stack Hub](../hybrid/azure-stack-backup.yml)|Learn about an optimized approach to backing up and restoring files and applications of VM-based user workloads that are hosted on Azure Stack Hub. Includes backup and restore of SharePoint farms and front-end web server content and restore of SharePoint databases, web apps, files, list items, and search components.|Hybrid|
-|[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-disaster-recovery.yml)|Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes information about disaster recovery for SharePoint workloads.| Hybrid|
+|[Back up files and apps on Azure Stack Hub](/azure/backup/backup-mabs-files-applications-azure-stack)|Learn about an optimized approach to backing up and restoring files and applications of VM-based user workloads that are hosted on Azure Stack Hub. Includes backup and restore of SharePoint farms and front-end web server content and restore of SharePoint databases, web apps, files, list items, and search components.|Hybrid|
+|[Enable VM protection in Azure Site Recovery](/azure-stack/operator/protect-virtual-machines)|Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes information about disaster recovery for SharePoint workloads.| Hybrid|
 |[Highly available SharePoint farm](../solution-ideas/articles/highly-available-sharepoint-farm.yml) |Deploy a highly available SharePoint farm for intranet capabilities that uses Microsoft Entra ID, a SQL Server Always On instance, and SharePoint resources.|Web|
-|[Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml)|Deliver highly available intranet capability and share hybrid workloads with Microsoft 365 by using SharePoint servers, Microsoft Entra ID, and SQL Server.|Hybrid|
 |[Multitier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml) |Learn how to create a resilient multitier web application that's built for high availability and disaster recovery on Azure. Applies to applications like SharePoint.|Networking|
-|[On-premises data gateway for Logic Apps](../hybrid/gateway-logic-apps.yml) |Review a reference architecture that illustrates a logic app that runs in Azure and connects to on-premises resources like SharePoint Server.|Hybrid|
 
 ## SQL Server
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Back up files and apps on Azure Stack Hub](../hybrid/azure-stack-backup.yml) |Learn about an optimized approach to backing up and restoring files and applications of VM-based user workloads that are hosted on Azure Stack Hub. Includes backup and restore of SQL Server instances and their databases.|Hybrid|
+|[Back up files and apps on Azure Stack Hub](/azure/backup/backup-mabs-files-applications-azure-stack) |Learn about an optimized approach to backing up and restoring files and applications of VM-based user workloads that are hosted on Azure Stack Hub. Includes backup and restore of SQL Server instances and their databases.|Hybrid|
 |[Data integration with Logic Apps and SQL Server](../example-scenario/integration/logic-apps-data-integration.yml) |Automate data integration tasks by using Azure Logic Apps. Configure API calls to trigger tasks like storing data in an on-premises SQL Server database.|Integration|
-|[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-disaster-recovery.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes information about disaster recovery for SQL Server workloads.|Hybrid|
+|[Enable VM protection in Azure Site Recovery](/azure-stack/operator/protect-virtual-machines) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes information about disaster recovery for SQL Server workloads.|Hybrid|
 |[Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse) |Learn how to implement an ELT pipeline that moves data from an on-premises SQL Server database into Azure Synapse Analytics and transforms the data for analysis.|Integration|
-|[Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml) |Deliver highly available intranet capability and share hybrid workloads with Microsoft 365 by using SharePoint servers, Microsoft Entra ID, and SQL Server.|Hybrid|
 |[Loan credit risk and default modeling](../example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml) |Learn how SQL Server 2016 with R Services can help lenders issue fewer unprofitable loans by predicting borrower credit risk and default probability.|Databases|
 |[Mainframe access to Azure databases](../solution-ideas/articles/mainframe-access-azure-databases.yml) |Give mainframe applications access to Azure data without changing code. Use Microsoft Service for DRDA to run Db2 SQL statements on a SQL Server database.|Mainframe|
-|[Manage data across your Azure SQL estate with Azure Purview](../solution-ideas/articles/azure-purview-sql-estate-architecture.yml) |Improve your organization's governance process by using Azure Purview in your Azure SQL estate.|Analytics|
 |[Micro Focus Enterprise Server on Azure VMs](../example-scenario/mainframe/micro-focus-server.yml)|Optimize, modernize, and streamline IBM z/OS mainframe applications by using Micro Focus Enterprise Server 6.0 on Azure VMs. This solution uses a SQL Server IaaS database in an Always On cluster.| Mainframe|
-|[On-premises data gateway for Logic Apps](../hybrid/gateway-logic-apps.yml)|Review a reference architecture that illustrates a logic app that runs in Azure and connects to on-premises resources like SQL Server.| Hybrid|
 |[Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](../hybrid/azure-arc-sql-server.yml) |Learn how to use Azure Arc for the management, maintenance, and monitoring of SQL Server instances in on-premises and multicloud environments.|Databases|
 |[Plan deployment for updating Windows VMs on Azure](../example-scenario/wsus/index.yml)|Learn best practices for configuring your environment for Windows Server Update Services (WSUS). SQL Server is the recommended database for servers that support a high number of client computers.|Management|
 |[SQL Server 2008 R2 failover cluster on Azure](../example-scenario/sql-failover/sql-failover-2008r2.yml) |Learn how to rehost SQL Server 2008 R2 failover clusters on Azure virtual machines. |Databases|
@@ -113,8 +107,8 @@ For information about solutions in which Azure services integrate with the other
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Azure files secured by AD DS](../example-scenario/hybrid/azure-files-on-premises-authentication.yml) |Provide high-security file access with on-premises Windows Server AD DS and DNS.|Hybrid|
-|[Back up files and apps on Azure Stack Hub](../hybrid/azure-stack-backup.yml) |Learn about an optimized approach to backing up and restoring files and applications of VM-based user workloads that are hosted on Azure Stack Hub. Supports backup and restore of various resources on VMs that run Windows Server. |Hybrid|
-|[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-disaster-recovery.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes information about providing disaster recovery for Azure Stack Hub VMs that run Windows Server operating systems.|Hybrid|
+|[Back up files and apps on Azure Stack Hub](/azure/backup/backup-mabs-files-applications-azure-stack) |Learn about an optimized approach to backing up and restoring files and applications of VM-based user workloads that are hosted on Azure Stack Hub. Supports backup and restore of various resources on VMs that run Windows Server. |Hybrid|
+|[Enable VM protection in Azure Site Recovery](/azure-stack/operator/protect-virtual-machines) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes information about providing disaster recovery for Azure Stack Hub VMs that run Windows Server operating systems.|Hybrid|
 |[Plan deployment for updating Windows VMs on Azure](../example-scenario/wsus/index.yml)|Learn best practices for configuring your environment for WSUS.|Management|
 |[Run SAP NetWeaver in Windows on Azure](/azure/architecture/guide/sap/sap-netweaver)|Learn proven practices for running SAP NetWeaver in a Windows environment on Azure.|SAP|
 |[SQL Server 2008 R2 failover cluster on Azure](../example-scenario/sql-failover/sql-failover-2008r2.yml) |Learn how to rehost SQL Server 2008 R2 failover clusters on Azure virtual machines. Use the Azure shared disks feature and a Windows Server 2008 R2 failover cluster to replicate your on-premises deployment on Azure.|Databases|

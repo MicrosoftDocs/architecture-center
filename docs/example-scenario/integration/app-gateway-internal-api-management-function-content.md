@@ -3,7 +3,7 @@ APIs have become increasingly prominent in how companies and customers access se
 With the help of Azure Application Gateway, it's now possible to protect and restrict the access of APIs that are served through Azure API Management. This article describes a solution where you can manage both internal and external APIs through a single API Management instance. You can maintain a secure posture from being exposed directly through the internet, but instead it's accessed through an Application Gateway.
 
 > [!NOTE]
-> This architecture is used as the foundation of the [Azure API Management landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) in the Cloud Adoption Framework.
+> This architecture is used as the foundation of the guidance for [Azure API Management in Azure landing zones](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) in the Cloud Adoption Framework.
 
 ## Architecture
 
@@ -62,7 +62,7 @@ For the backend services that the API Management instance connects to, several a
 
 - [**Azure App Service**](/azure/app-service/overview) is a fully managed HTTP-based service that builds, deploys, and scales web apps. .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python are all supported. Applications can run and scale in either Windows or Linux-based environments. 
 - [**Azure Kubernetes Service**](/azure/aks/intro-kubernetes) offers fully managed Kubernetes clusters for an integrated continuous integration and continuous delivery (CI/CD) experience, governance, and security.
-- [**Azure Logic Apps**](/azure/logic-apps/logic-apps-overview) is a cloud-based platform that creates and runs automated workflows. An example reference architecture can be found at [Basic enterprise integration on Azure](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration). 
+- [**Azure Logic Apps**](/azure/logic-apps/logic-apps-overview) is a cloud-based platform that creates and runs automated workflows. An example reference architecture can be found at [Basic enterprise integration on Azure](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration).
 - [**Azure Container Apps**](/azure/container-apps/overview) enables you to run microservices and containerized applications on a serverless platform. 
 
 For multi-region deployments, consider using [**Azure Front Door**](/azure/frontdoor/front-door-overview) to provide fast, reliable, and secure access between your users and your applications' static and dynamic web content.
@@ -114,43 +114,43 @@ This architecture is available on [GitHub](https://github.com/Azure/apim-landing
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
- - [Pete Messina](https://www.linkedin.com/in/peter-messina-93512414/) | Senior Cloud Solution Architect
- - [Anthony Nevico](https://www.linkedin.com/in/anthonynevico/) | Senior Cloud Solution Architect
- 
+- [Pete Messina](https://www.linkedin.com/in/peter-messina-93512414/) | Senior Cloud Solution Architect
+- [Anthony Nevico](https://www.linkedin.com/in/anthonynevico/) | Senior Cloud Solution Architect
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-* This same architecture is used as the foundation of the [Azure API Management landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) in the Cloud Adoption Framework.
-* [CI/CD for API Management using Azure Resource Manager templates](/azure/api-management/devops-api-development-templates)
-* [Intro to API Management](/training/modules/introduction-to-azure-api-management/)
-* [Manage APIs with APIM](/training/modules/publish-manage-apis-with-azure-api-management/)
-* [API Management Resources for getting started](https://azure.microsoft.com/services/api-management#documentation)
+- Cloud Adoption Framework guidance for [Azure API Management in Azure landing zones](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator)
+- [CI/CD for API Management using Azure Resource Manager templates](/azure/api-management/devops-api-development-templates)
+- [Intro to API Management](/training/modules/introduction-to-azure-api-management/)
+- [Manage APIs with APIM](/training/modules/publish-manage-apis-with-azure-api-management/)
+- [API Management Resources for getting started](https://azure.microsoft.com/services/api-management#documentation)
 
 See these key resources:
-* [Azure landing zone accelerator](https://github.com/Azure/Enterprise-Scale)
-* [API Ops](https://github.com/Azure/apiops)
-* [Azure API Management documentation](/azure/api-management/api-management-terminology)
-* [Azure API Management key concepts](/azure/api-management/api-management-key-concepts)
-* [Application Gateway documentation](/azure/application-gateway/overview)
-* [Azure API Management landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator)
+
+- [API Ops](https://github.com/Azure/apiops)
+- [Azure API Management documentation](/azure/api-management/api-management-terminology)
+- [Azure API Management key concepts](/azure/api-management/api-management-key-concepts)
+- [Application Gateway documentation](/azure/application-gateway/overview)
 
 Learn more about these key services:
-* [Azure Functions overview](/azure/azure-functions/functions-overview)
-* [Azure Private DNS zones](/azure/dns/private-dns-privatednszone)
-* [Azure Application Insights overview](/azure/azure-monitor/app/app-insights-overview)
-* [Azure Log Analytics overview](/azure/azure-monitor/logs/log-analytics-overview)
-* [Azure Virtual Machines overview](/azure/virtual-machines/windows/overview)
-* [Azure Key Vault concepts](/azure/key-vault/general/basic-concepts)
-* [Azure Bastion overview](/azure/bastion/bastion-overview)
+
+- [Azure Functions overview](/azure/azure-functions/functions-overview)
+- [Azure Private DNS zones](/azure/dns/private-dns-privatednszone)
+- [Azure Application Insights overview](/azure/azure-monitor/app/app-insights-overview)
+- [Azure Log Analytics overview](/azure/azure-monitor/logs/log-analytics-overview)
+- [Azure Virtual Machines overview](/azure/virtual-machines/windows/overview)
+- [Azure Key Vault concepts](/azure/key-vault/general/basic-concepts)
+- [Azure Bastion overview](/azure/bastion/bastion-overview)
 
 ## Related resources
 
-* [Use API Gateways in microservices](/azure/architecture/microservices/design/gateway)
-* [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
-* [Basic enterprise integration on Azure](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration)
-* [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis)
+- [Use API Gateways in microservices](/azure/architecture/microservices/design/gateway)
+- [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
+- [Basic enterprise integration on Azure](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration)
+- [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis)

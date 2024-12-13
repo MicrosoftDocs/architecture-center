@@ -1,6 +1,6 @@
 <!-- cSpell:ignore newsfeeds njray Redlock -->
 
-This example scenario describes a pipeline for mass ingestion and near real-time analysis of documents coming from public RSS news feeds.  It uses [Azure Cognitive Services](/azure/cognitive-services/what-are-cognitive-services) to provide useful insights based on text translation, facial recognition, and sentiment detection. Specifically, image and natural language processing steps are connected together in a messaging pipeline based on [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview). The output of the pipeline is a notification containing the insight or analysis.
+This example scenario describes a pipeline for mass ingestion and near real-time analysis of documents coming from public RSS news feeds. It uses [Azure Cognitive Services](/azure/cognitive-services/what-are-cognitive-services) to provide useful insights based on text translation, facial recognition, and sentiment detection. Specifically, image and natural language processing steps are connected together in a messaging pipeline based on [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview). The output of the pipeline is a notification containing the insight or analysis.
 
 ## Architecture
 
@@ -15,9 +15,9 @@ The data flows through the solution as follows:
 
 2. A generator or ingestion process inserts the article and any associated images into an Azure Cosmos DB [Collection][collection].
 
-3. A notification triggers an ingest function in Azure Functions that stores the article text in Azure Cosmos DB and the article images (if any) in Azure Blob Storage.  The article is then passed to the next queue.
+3. A notification triggers an ingest function in Azure Functions that stores the article text in Azure Cosmos DB and the article images (if any) in Azure Blob Storage. The article is then passed to the next queue.
 
-4. A translate function is triggered by the queue event. It uses the [Translate Text API][translate-text] of Azure Cognitive Services to detect the language, translate if necessary, and collect the sentiment, key phrases, and entities from the body and the title. Then it passes the article to the next queue.
+4. A translate function is triggered by the queue event. It uses the [Translate Text API][translate-text] of Azure AI services to detect the language, translate if necessary, and collect the sentiment, key phrases, and entities from the body and the title. Then it passes the article to the next queue.
 
 5. A detect function is triggered from the queued article. It uses the [Computer Vision][vision] service to detect objects, landmarks, and written words in the associated image, then passes the article to the next queue.
 
@@ -31,15 +31,15 @@ At each processing step, the function writes the results to Azure Cosmos DB. Ult
 
 The following list of Azure components is used in this example.
 
-- [Azure Storage][storage] is used to hold raw image and video files associated with an article. A secondary storage account is created with Azure App Service and is used to host the Azure Function code and logs.
+- [Azure Storage][storage] is used to hold raw image and video files associated with an article. A secondary storage account is created with Azure App Service and is used to host the Azure function code and logs.
 
-- [Azure Cosmos DB][cosmos-db] holds article text, image, and video tracking information. The results of the Cognitive Services steps are also stored here.
+- [Azure Cosmos DB][cosmos-db] holds article text, image, and video tracking information. The results of the Azure AI services steps are also stored here.
 
 - [Azure Functions][functions] executes the function code used to respond to queue messages and transform the incoming content. [Azure App Service][aas] hosts the function code and processes the records serially. This scenario includes five functions: Ingest, Transform, Detect Object, Face, and Notify.
 
 - [Azure Service Bus][service-bus] hosts the Azure Service Bus queues used by the functions.
 
-- [Azure Cognitive Services][acs] provides the AI for the pipeline based on implementations of the [Computer Vision][vision] service, [Face API][face], and [Translate Text][translate-text] machine translation service.
+- [Azure AI services][acs] provides the AI for the pipeline based on implementations of the [Computer Vision][vision] service, [Face API][face], and [Translate Text][translate-text] machine translation service.
 
 - [Azure Application Insights][aai] provides analytics to help you diagnose issues and to understand functionality of your application.
 
@@ -72,16 +72,25 @@ While this scenario is based on processing of RSS feeds, it's relevant to any do
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-For simplicity, this example scenario uses only a few of the available APIs and services from Azure Cognitive Services. For example, text in images can be analyzed using the [Text Analytics API][text-analytics]. The target language in this scenario is assumed to be English, but you can change the input to any [supported language][language].
+For simplicity, this example scenario uses only a few of the available APIs and services from Azure AI services. For example, text in images can be analyzed using the [Text Analytics API][text-analytics]. The target language in this scenario is assumed to be English, but you can change the input to any [supported language][language].
 
-### Scalability
+### Security
 
-Azure Functions scaling depends on the [hosting plan][plan] you use. This solution assumes a [Consumption plan][plan-c], in which compute power is automatically allocated to the functions when required. You pay only when your functions are running. Another option is to use a [Dedicated plan][plan-ded], which allows you to scale between tiers to allocate a different amount of resources.
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-With Azure Cosmos DB, the key is to distribute your workload roughly evenly among a sufficiently large number of [partition keys][keys]. There's no limit to the total amount of data that a container can store or to the total amount of
-[throughput][throughput] that a container can support.
+Azure Cosmos DB uses a secured connection and shared access signature through the C\# SDK provided by Microsoft. There are no other externally facing surface areas. Learn more about security [best practices][db-practices] for Azure Cosmos DB.
 
-### Management and logging
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+Azure Cosmos DB is powerful but incurs the greatest [cost][db-cost] in this deployment. You can use another storage solution by refactoring the Azure Functions code provided.
+
+Pricing for Azure Functions varies depending on the [plan][function-plan] it runs in.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 This solution uses [Application Insights][aai] to collect performance and logging information. An instance of Application Insights is created with the deployment in the same resource group as the other services needed for this deployment.
 
@@ -93,19 +102,13 @@ To view the logs generated by the solution:
 
 3. From the **Application Insights** section, navigate to **Investigate\\Search** and search the data.
 
-### Security
+### Performance Efficiency
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Azure Cosmos DB uses a secured connection and shared access signature through the C\# SDK provided by Microsoft. There are no other externally facing surface areas. Learn more about security [best practices][db-practices] for Azure Cosmos DB.
+Azure Functions scaling depends on the [hosting plan][plan] you use. This solution assumes a [Consumption plan][plan-c], in which compute power is automatically allocated to the functions when required. You pay only when your functions are running. Another option is to use a [Dedicated plan][plan-ded], which allows you to scale between tiers to allocate a different amount of resources.
 
-### Cost optimization
-
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
-Azure Cosmos DB is powerful but incurs the greatest [cost][db-cost] in this deployment. You can use another storage solution by refactoring the Azure Functions code provided.
-
-Pricing for Azure Functions varies depending on the [plan][function-plan] it runs in.
+With Azure Cosmos DB, the key is to distribute your workload roughly evenly among a sufficiently large number of [partition keys][keys]. There's no limit to the total amount of data that a container can store or to the total amount of [throughput][throughput] that a container can support.
 
 ## Deploy this scenario
 

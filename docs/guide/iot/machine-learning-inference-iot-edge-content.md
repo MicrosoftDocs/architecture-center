@@ -2,7 +2,7 @@ AI on the edge is one of the most popular edge scenarios. Implementations of thi
 
 You can improve AI accuracy by updating the AI model, but in some scenarios the edge device network environment isn't good. For example, in the wind power and oil industries, equipment might be located in the desert or the ocean.
 
-IoT Edge module twins are used to implement the dynamically loaded AI model. IoT Edge modules are based on Docker. An image for an IoT Edge module in an AI environment typically has a size of at least 1 GB, so incrementally updating the AI model is important in a narrow-bandwidth network. That consideration is the main focus of this article. The idea is to create an IoT Edge AI module that can load TensorFlow Lite or Open Neural Network Exchange (ONNX) object detection models. You can also enable the module as a web API so that you can use it to benefit other applications or modules.
+IoT Edge module twins are used to implement the dynamically loaded AI model. IoT Edge modules are based on Docker. An image for an IoT Edge module in an AI environment typically has a size of at least 1 GB, so incrementally updating the AI model is important in a narrow-bandwidth network. That consideration is the main focus of this article. The idea is to create an IoT Edge AI module that can load LiteRT (formerly TensorFlow Lite) or Open Neural Network Exchange (ONNX) object detection models. You can also enable the module as a web API so that you can use it to benefit other applications or modules.
 
 The solution described in this article can help you in these ways:
 
@@ -11,7 +11,7 @@ The solution described in this article can help you in these ways:
 - Create and manage an AI model repository in an IoT edge device's local storage.
 - Achieve almost zero downtime when the edge device switches AI models.
 
-*[TensorFlow](https://www.tensorflow.org) is a trademark of Google Inc. No endorsement is implied by the use of this mark.*
+*[TensorFlow and LiteRT](https://www.tensorflow.org) are a trademark of Google Inc. No endorsement is implied by the use of this mark.*
 
 ## Architecture
 
@@ -21,30 +21,28 @@ The solution described in this article can help you in these ways:
 
 ### Dataflow
 
-1. The AI model is uploaded to Azure Blob Storage or a web service. The model can be a pre-trained TensorFlow Lite or ONNX model or a model created in Azure Machine Learning. The IoT Edge module can access this model and download it to the edge device later. If you need better security, consider using private endpoint connections between Blob Storage and the edge device.
+1. The AI model is uploaded to Azure Blob Storage or a web service. The model can be a pre-trained LiteRT or ONNX model or a model created in Azure Machine Learning. The IoT Edge module can access this model and download it to the edge device later. If you need better security, consider using private endpoint connections between Blob Storage and the edge device.
 2. Azure IoT Hub syncs device module twins automatically with AI model information. The sync occurs even if IoT Edge has been offline. (In some cases, IoT devices are connected to networks at scheduled hourly, daily, or weekly times to save power or reduce network traffic.)
 3. The loader module monitors the updates of the module twins via API. When it detects an update, it gets the machine learning model SAS token and then downloads the AI model.
     - For more information, see [Create SAS token for a container or blob](/azure/storage/blobs/sas-service-create).
     - You can use the **ExpiresOn** property to set the expiration date of resources. If your device will be offline for a long time, you can extend the expiration time.
 4. The loader module saves the AI model in the shared local storage of the IoT Edge module. You need to configure the shared local storage in the IoT Edge deployment JSON file.
-5. The loader module loads the AI model from local storage via the TensorFlow Lite or ONNX API.
+5. The loader module loads the AI model from local storage via the LiteRT or ONNX API.
 6. The loader module starts a web API that receives the binary photo via POST request and returns the results in a JSON file.
 
 To update the AI model, you can upload the new version to Blob Storage and sync the device module twins again for an incremental update. There's no need to update the whole IoT Edge module image.
 
 ## Scenario details
 
-In this solution, an IoT Edge module is used to download an AI model and then enable machine learning inference. You can use pre-trained TensorFlow Lite or ONNX models in this solution.
+In this solution, an IoT Edge module is used to download an AI model and then enable machine learning inference. You can use pre-trained LiteRT or ONNX models in this solution.
 
-The next two sections clarify some concepts about machine learning inference modules, TensorFlow Lite, and ONNX.
+### LiteRT
 
-### TensorFlow Lite
-
-- A **.tflite* file is a pre-trained AI model. You can download one from [TensorFlow.org](https://www.tensorflow.org/lite/examples/object_detection/overview). It's a generic AI model that you can use in cross-platform applications like iOS and Android. For more information about metadata and associated fields (for example, `labels.txt`) see [Read the metadata from models](https://www.tensorflow.org/lite/models/convert/metadata#read_the_metadata_from_models).
+- A `.tflite` file is a pre-trained AI model. You can download one from [TensorFlow.org](https://www.tensorflow.org/lite/examples/object_detection/overview). It's a generic AI model that you can use in cross-platform applications like iOS and Android. LiteRT supports models from TensorFlow, PyTorch, JAX, and Keras. For more information about metadata and associated fields (for example, `labels.txt`) see [Read the metadata from models](https://www.tensorflow.org/lite/models/convert/metadata#read_the_metadata_from_models).
 - An object detection model is trained to detect the presence and location of multiple classes of objects. For example, a model might be trained with images that contain various pieces of fruit, along with a label that specifies the class of fruit that they represent (for example, apple) and data that specifies where each object appears in the image.
 
   When an image is provided to the model, it outputs a list of the objects that it detects, the location of a bounding box for each object, and a score that indicates the confidence of the detection.
-- If you want to build or custom-tune an AI model, see [TensorFlow Lite Model Maker](https://www.tensorflow.org/lite/models/modify/model_maker).
+- If you want to build or custom-tune an AI model, see [LiteRT Model Maker](https://www.tensorflow.org/lite/models/modify/model_maker).
 - You can get more free pre-trained detection models, with various latency and precision characteristics, at [Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf1_detection_zoo.md#mobile-models). Each model uses the input and output signatures shown in the following code samples.
 
 ### ONNX
@@ -59,7 +57,7 @@ The ONNX community [provides tools](https://onnx.ai/supported-tools.html) to hel
 
 ## Download trained AI models
 
-To download trained AI models, we recommend that you use device twins to receive notifications when a new model is ready. Even if the device is offline, the message can be cached in IoT Hub until the edge device comes back online. The message will be  synchronized automatically.
+To download trained AI models, we recommend that you use device twins to receive notifications when a new model is ready. Even if the device is offline, the message can be cached in IoT Hub until the edge device comes back online. The message will be synchronized automatically.
 
 Following is an example of Python code that registers notifications for the device twins and then downloads the AI model in a ZIP file. It also performs further operations on the downloaded file.
 
@@ -107,7 +105,7 @@ async def twin_patch_handler(patch):
             local_model_path = targeDir + "/tiny-yolov3-11.onnx"
             local_labelmap_path = targeDir + "/coco_classes.txt"
 
-            # TensorFlow flite
+            # LiteRT
             # local_model_path = targeDir + "/ssd_mobilenet_v1_1_metadata_1.tflite"
             # local_labelmap_path = targeDir + "/labelmap.txt"
 
@@ -129,11 +127,11 @@ async def twin_patch_handler(patch):
 
 ## Inference
 
-After the AI model is downloaded, the next step is to use the model on the edge device. You can dynamically load the model and perform object detection on edge devices. The following code example shows how to use the TensorFlow Lite AI model to detect objects on edge devices.
+After the AI model is downloaded, the next step is to use the model on the edge device. You can dynamically load the model and perform object detection on edge devices. The following code example shows how to use the LiteRT AI model to detect objects on edge devices.
 
 The code performs these tasks:
 
-1. Dynamically load the TensorFlow Lite AI model.
+1. Dynamically load the LiteRT AI model.
 2. Perform image standardization.
 3. Detect objects.
 4. Compute detection scores.
@@ -279,7 +277,7 @@ Principal author:
 
 Other contributor:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+- [Freddy Ayala](https://www.linkedin.com/in/freddyayala/)  | Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -295,6 +293,6 @@ Other contributor:
 
 ## Related resources
 
-- [IoT architecture design](../../reference-architectures/iot/iot-architecture-overview.md)
-- [Choose an IoT solution in Azure](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)
+- [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
+- [Choose an IoT solution in Azure](/azure/iot/iot-services-and-technologies)
 - [AI architecture design](../../data-guide/big-data/ai-overview.md)

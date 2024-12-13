@@ -31,7 +31,7 @@ Here's a visual representation of the TDSP lifecycle:
 
 [![Diagram that shows the stages of the TDSP lifecycle.](./media/lifecycle/tdsp-lifecycle2.png)](./media/lifecycle/tdsp-lifecycle2.png)
 
-For more information about the goals, tasks, and documentation artifacts for each stage, see [The TDSP lifecycle](lifecycle.md).
+For more information about the goals, tasks, and documentation artifacts for each stage, see The [TDSP lifecycle](lifecycle.md).
 
 These tasks and artifacts align with project roles, such as:
 
@@ -194,7 +194,7 @@ These capabilities help data scientists perform complex analytics directly withi
 ##### Recommended Azure resources for big data clusters
 
 - [Apache Spark in Machine Learning](/azure/machine-learning/apache-spark-azure-ml-concepts): Machine Learning integration with Azure Synapse Analytics provides easy access to distributed computation resources through the Apache Spark framework.
-- [Synapse Analytics](/azure/synapse-analytics/): Comprehensive documentation for Synapse Analytics, which integrates big data and data warehousing.
+- [Azure Synapse Analytics](/azure/synapse-analytics/): Comprehensive documentation for Azure Synapse Analytics, which integrates big data and data warehousing.
 
 In summary, big data clusters, whether SQL or Spark, are crucial for the TDSP, because they provide the computational power and scalability necessary to efficiently handle vast amounts of data. Big data clusters enable data scientists to perform complex queries and advanced analytics on large datasets that facilitate deep insights, and accurate model development. When you use distributed computing, these clusters enable rapid data processing and analysis, which accelerates the overall data science workflow. Big data clusters also support seamless integration with various data sources and tools, which enhances the ability to ingest, process, and analyze data from multiple environments. Big data clusters also promote collaboration and reproducibility by providing a unified platform where teams can effectively share resources, workflows, and results.
 
@@ -245,7 +245,7 @@ With AI or ML solutions, Microsoft promotes [responsible AI tools](/azure/machin
 
 ## Peer-reviewed citations
 
-The TDSP is a well-established methodology that teams use across Microsoft engagements. The TDSP is documented and studied in peer-reviewed literature. The citations provide an opportunity to investigate the TDSP features and applications. For more information and a list of citations, see [The TDSP lifecycle](lifecycle.md).
+The TDSP is a well-established methodology that teams use across Microsoft engagements. The TDSP is documented and studied in peer-reviewed literature. The citations provide an opportunity to investigate the TDSP features and applications. For more information and a list of citations, see The [TDSP lifecycle](lifecycle.md).
 
 ## Related resources
 

@@ -6,8 +6,8 @@ author: paolosalvatori
 ms.author: paolos
 ms.date: 11/22/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
   - arb-containers

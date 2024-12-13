@@ -98,5 +98,4 @@ Principal authors:
 ## Related resources
 
 - [Event-driven architecture style](../../guide/architecture-styles/event-driven.yml)
-- [Partitioning in Azure Event Hubs and Kafka](../../reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml)
 - [Apache Kafka open-source scenarios on Azure](../../guide/apache-scenarios.md#apache-kafka)

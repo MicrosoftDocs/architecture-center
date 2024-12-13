@@ -192,4 +192,4 @@ Principal authors:
 - [Mainframe and midrange data replication to Azure using Qlik](./mainframe-midrange-data-replication-azure-qlik.yml)
 - [Mainframe and midrange data replication to Azure using RDRS](./mainframe-data-replication-azure-rdrs.yml)
 - [Migrate a mainframe data tier to Azure by using mLogica LIBER*IRIS](./mainframe-data-replication-azure-data-platform.yml)
-- [Mainframe modernization using Model9](./mainframe-modernization-model9.yml)
+- [Mainframe modernization using BMC AMI Cloud](./mainframe-modernization-bmc-ami-cloud.yml)

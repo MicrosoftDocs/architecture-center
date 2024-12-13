@@ -6,8 +6,8 @@ author: martinekuan
 ms.author: pnp
 ms.date: 07/26/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom: fcp 
 keywords:
   - Azure
@@ -58,13 +58,6 @@ The following articles provide detailed analysis of architectures created and re
 |[Unreal Pixel Streaming](/gaming/azure/reference-architectures/unreal-pixel-streaming-in-azure?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)|Deploy Unreal Engine's Pixel Streaming technology on Azure. You can use this Epic Games technology to stream remotely deployed interactive 3D applications through a browser.|
 |[Deploy Unreal Pixel Streaming](/gaming/azure/reference-architectures/unreal-pixel-streaming-deploying?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)|Deploy the Unreal Pixel Streaming package on an Azure GPU virtual machine or on multiple virtual machines. |
 |[Unreal Pixel Streaming at scale](/gaming/azure/reference-architectures/unreal-pixel-streaming-at-scale?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)|Deploy Unreal Engine's Pixel Streaming technology at scale on Azure.|
-
-### Rendering
-
-| Architecture | Summary |
-| ------- | ------- |
-|[3D video rendering](/azure/architecture/example-scenario/infrastructure/video-rendering)|Use Azure Batch to run large-scale 3D video rendering jobs.|
-|[Digital image-based modeling](/azure/architecture/example-scenario/infrastructure/image-modeling)|Perform image-based modeling for your game's visual effects.|
 
 ## Related resources
 

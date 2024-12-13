@@ -17,11 +17,11 @@ This baseline architecture is based on the [Basic web application architecture](
 Many components of this architecture are the same as the [basic web application architecture](./basic-web-app.yml#components). The following list highlights only the changes to the basic architecture.
 
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer 7 (HTTP/S) load balancer and web traffic manager. It uses URL path-based routing to distribute incoming traffic across availability zones and offloads encryption to improve application performance.
-- [Web Application Firewall (WAF)](https://azure.microsoft.com/products/web-application-firewall/) is a cloud-native service that protects web apps from common exploits such as SQL injection and cross-site scripting. WAF provides visibility into the traffic to and from your web application, enabling you to monitor and secure your application.
-- [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) is a service that securely stores and manages secrets, encryption keys, and certificates. It centralizes the management of sensitive information.
-- [Azure virtual network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is a service that enables you to create isolated and secure private virtual networks in Azure. For a web application on App Service, you need a virtual network subnet to use private endpoints for network-secure communication between resources.
-- [Private Link](https://azure.microsoft.com/products/private-link/) makes it possible for clients to access Azure platform as a service (PaaS) services directly from private virtual networks without using public IP addressing.
-- [Azure DNS](https://azure.microsoft.com/services/dns) is a hosting service for DNS domains that provides name resolution using Microsoft Azure infrastructure. Private DNS zones provide a way to map a service's fully qualified domain name (FQDN) to a private endpoint's IP address.
+- [Web Application Firewall (WAF)](/azure/web-application-firewall/overview) is a cloud-native service that protects web apps from common exploits such as SQL injection and cross-site scripting. WAF provides visibility into the traffic to and from your web application, enabling you to monitor and secure your application.
+- [Azure Key Vault](/azure/key-vault/general/overview) is a service that securely stores and manages secrets, encryption keys, and certificates. It centralizes the management of sensitive information.
+- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is a service that enables you to create isolated and secure private virtual networks in Azure. For a web application on App Service, you need a virtual network subnet to use private endpoints for network-secure communication between resources.
+- [Private Link](/azure/private-link/private-link-overview) makes it possible for clients to access Azure platform as a service (PaaS) services directly from private virtual networks without using public IP addressing.
+- [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains that provides name resolution using Microsoft Azure infrastructure. Private DNS zones provide a way to map a service's fully qualified domain name (FQDN) to a private endpoint's IP address.
 
 ## Networking
 
@@ -120,7 +120,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-The baseline App Services architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide zonal redundancy for [supporting services](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support) when two or more instances are deployed in [supporting regions](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support). When one zone experiences downtime, the other zones may still be unaffected.
+The baseline App Services architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide zonal redundancy for [supporting services](/azure/reliability/availability-zones-service-support) when two or more instances are deployed in [supporting regions](/azure/reliability/availability-zones-region-support). When one zone experiences downtime, the other zones may still be unaffected.
 
 The architecture also ensures enough instances of Azure services to meet demand. The following sections provide reliability guidance for key services in the architecture. This way, availability zones help you achieve reliability by providing high availability and fault tolerance.
 

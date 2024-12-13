@@ -1,4 +1,4 @@
-Once you have generated the embeddings for your chunks, the next step is to generate the index in the vector database and experiment to determine the optimal searches to perform. When you're experimenting with information retrieval, there are several areas to consider, including configuration options for the search index, the types of searches you should perform, and your reranking strategy. This article covers these three topics.
+Once you generate the embeddings for your chunks, the next step is to generate the index in the vector database and experiment to determine the optimal searches to perform. When you're experimenting with information retrieval, there are several areas to consider, including configuration options for the search index, the types of searches you should perform, and your reranking strategy. This article covers these three topics.
 
 > This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
 
@@ -43,7 +43,7 @@ Search platforms generally support full text and vector searches. Some platforms
 > You should perform the same [cleaning operations](./rag-enrichment-phase.yml#cleaning) you performed on chunks before embedding the query. For example, if you lowercased every word in your embedded chunk, you should lowercase every word in the query before embedding.
 
 > [!NOTE]
-> You can perform a vector search against multiple vector fields in the same query. In Azure AI Search, that is technically a hybrid search. For more information see that section.
+> You can perform a vector search against multiple vector fields in the same query. In Azure AI Search, that is technically a hybrid search. For more information, see that section.
 
 ```python
 embedding = embedding_model.generate_embedding(
@@ -122,13 +122,81 @@ You can, of course, run multiple queries, such as a vector search and a keyword 
 - You're using a search platform that doesn't support hybrid searches. You would follow this option to perform your own hybrid search.
 - You want to run full text searches against different queries. For example, you might extract keywords from the query and run a full text search against your keywords metadata field. You might then extract entities and run a query against the entities metadata field.
 - You want to control the reranking process yourself.
-- The query requires [multiple subqueries](#multiple-subqueries) to be run to retrieve grounding data from multiple sources.
+- The query requires [decomposed subqueries](#decomposition) to be run to retrieve grounding data from multiple sources.
 
-### Multiple subqueries
+### Query translation
 
-Some prompts are complex and require more than one collection of data to ground the model. For example, the query "How do electric cars work and how do they compare to ICE vehicles?" likely require grounding data from multiple sources.
+Query translation is an optional step in the information retrieval phase of a RAG solution. In the translation step, a query is transformed or translated into a form that is optimized to retrieve better results. There are many forms of query translation including the four addressed in this article: augmentation, decomposition, rewriting, and Hypothetical Document Embeddings (HyDE).
 
-It's good practice to determine whether the query requires multiple searches before running any searches. If you deem multiple subqueries are required, you can run [manual multiple queries](#manual-multiple) for all the queries. Use a large language model to determine whether multiple subqueries are required. The following prompt is taken from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompts.py) that is used to categorize a query as simple or complex, with complex requiring multiple queries:
+#### Query augmentation
+
+Query augmentation is a translation step where the goal is to make the query simpler, more usable, and to enhance the context. You should consider augmentation if your query is too small or vague. For example, consider the query: "Compare the earnings of Microsoft." That query is vague. You did not mention time frames, or time units to compare and only specified earnings. Now consider an augmented version of the query: "Compare the earnings and revenue of Microsoft current year vs last year by quarter." The new query is clear and specific.
+
+When you're augmenting a query, you maintain the original query, but add more context. There's no harm in augmenting a query as long as you don't remove or alter the original query and you don't change the nature of the query.
+
+You can use a language model to augment your query. Not all queries can be augmented, however. If you have a context, you can pass it along to your language model to augment the query. If you don't have a context, you have to determine if there's information in your language model that can be useful in augmenting the query. For example, if you're using a large language model like one of the GPT models, you can determine if there's information readily available on the internet about the query. If so, you can use the model to augment the query. Otherwise, you shouldn't augment the query.
+
+The following prompt is taken from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/) that shows a language model being used to augment a query.
+
+```text
+Input Processing:
+
+Analyze the input query to identify the core concept or topic.
+Check if any context is provided with the query.
+If context is provided, use it as the primary basis for augmentation and explanation.
+If no context is provided, determine the likely domain or field (e.g., science, technology, history, arts, etc.) based on the query.
+
+Query Augmentation:
+If context is provided:
+
+Use the given context to frame the query more specifically.
+Identify any additional aspects of the topic not covered in the provided context that would enrich the explanation.
+
+If no context is provided, expand the original query by adding the following elements, as applicable:
+
+Include definitions about every word (adjective, noun etc) and meaning of each keyword, concept and phrase including synonyms and antonyms.
+Include historical context or background information if relevant.
+Identify key components or sub-topics within the main concept.
+Request information on practical applications or real-world relevance.
+Ask for comparisons with related concepts or alternatives, if applicable.
+Inquire about current developments or future prospects in the field.
+
+Additional Guidelines:
+
+Prioritize information from provided context when available.
+Adapt your language to suit the complexity of the topic, but aim for clarity.
+Define technical terms or jargon when first introduced.
+Use examples to illustrate complex ideas when appropriate.
+If the topic is evolving, mention that your information might not reflect the very latest developments.
+For scientific or technical topics, briefly mention the level of scientific consensus if relevant.
+Use markdown formatting for better readability when appropriate.
+
+Example Input-Output:
+Example 1 (With provided context):
+Input: "Explain the impact of the Gutenberg Press"
+Context provided: "The query is part of a discussion about revolutionary inventions in medieval Europe and their long-term effects on society and culture."
+Augmented Query: "Explain the impact of the Gutenberg Press in the context of revolutionary inventions in medieval Europe. Cover its role in the spread of information, its effects on literacy and education, its influence on the Reformation, and its long-term impact on European society and culture. Compare it to other medieval inventions in terms of societal influence."
+Example 2 (Without provided context):
+Input: "Explain CRISPR technology"
+Augmented Query: "Explain CRISPR technology in the context of genetic engineering and its potential applications in medicine and biotechnology. Cover its discovery, how it works at a molecular level, its current uses in research and therapy, ethical considerations surrounding its use, and potential future developments in the field."
+Now, provide a comprehensive explanation based on the appropriate augmented query.
+
+Context: {context}
+
+Query: {query}
+
+Augmented Query:
+```
+
+Notice there are examples for when context is and isn't present.
+
+#### Decomposition
+
+Some queries are complex and require more than one collection of data to ground the model. For example, the query "How do electric cars work and how do they compare to ICE vehicles?" likely requires grounding data from multiple sources. One source might describe how electric cars work, where another compares them to internal combustion engine (ICE) vehicles.
+
+Decomposition is the process of breaking down a complex query into multiple smaller and simpler subqueries. You run each of the decomposed queries independently and aggregate the top results of all the decomposed queries as an accumulated context. You then run the original query, passing the accumulated context to the language model.
+
+It's good practice to determine whether the query requires multiple searches before running any searches. If you deem multiple subqueries are required, you can run [manual multiple queries](#manual-multiple) for all the queries. Use a language model to determine whether multiple subqueries are recommended. The following prompt is taken from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py) that is used to categorize a query as simple or complex, with complex requiring multiple queries:
 
 ```text
 Consider the given question to analyze and determine if it falls into one of these categories:
@@ -154,42 +222,132 @@ Example output:
 }
 ```
 
-A large language model can also be used to extract subqueries from a complex query. The following prompt is taken from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompts.py) that converts a complex query into multiple subqueries.
+A language model can also be used to decompose a complex query. The following prompt is taken from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/) that decomposes a complex query.
 
 ```text
-Your task is to take a question as input and generate maximum 3 sub-questions that cover all aspects of the original question. The output should be in strict JSON format, with the sub-questions contained in an array.
-Here are the requirements:
-1. Analyze the original question and identify the key aspects or components.
-2. Generate sub-questions that address each aspect of the original question.
-3. Ensure that the sub-questions collectively cover the entire scope of the original question.
-4. Format the output as a JSON object with a single key "questions" that contains an array of the generated sub-questions.
-5. Each sub-question should be a string within the "questions" array.
-6. The JSON output should be valid and strictly formatted.
-7. Ensure that the generated JSON is 100 percent structurally correct, with proper nesting, comma placement, and quotation marks. The JSON should be formatted with proper indentation for readability.
-8. There should not be any comma after last element in the array.
+Analyze the following query:
 
-Example input question:
-What are the main causes of deforestation, and how can it be mitigated?
+For each query, follow these specific instructions:
+- Expand the query to be clear, complete, fully qualified and concise.
+- Identify the main elements of the sentence: typically a subject, an action or relationship, and an object or complement. Determine which element is being asked about or emphasized (usually the unknown or focus of the question). Invert the sentence structure: Make the original object or complement the new subject. Transform the original subject into a descriptor or qualifier. Adjust the verb or relationship to fit the new structure.
+- Break the query down into a set sub-queries with clear, complete, fully qualified, concise and self-contained propositions.
+- Include an addition sub-query using one more rule: Identify the main subject and object. Swap their positions in the sentence. Adjust the wording to make the new sentence grammatically correct and meaningful. Ensure the new sentence asks about the original subject.
+- Express each idea or fact as a standalone statement that can be understood with help of given context.
+- Break down the query into ordered sub-questions, from least to most dependent.
+- The most independent sub-question does not requires or dependend on the answer to any other sub-question or prior knowledge.
+- Try having a complete sub-question having all information only from base query. There is no additional context or information available.
+- Separate complex ideas into multiple simpler propositions when appropriate.
+- Decontextualize each proposition by adding necessary modifiers to nouns or entire sentences. Replace pronouns (e.g., "it", "he", "she", "they", "this", "that") with the full name of the entities they refer to.
+- if you still need more question, the sub-question is not relevant and should be removed.
 
-Example output:
-{
-  "questions": [
-    "What are the primary human activities that contribute to deforestation?",
-    "How does agriculture play a role in deforestation?",
-    "What is the impact of logging and timber harvesting on deforestation?",
-    "How do urbanization and infrastructure development contribute to deforestation?",
-    "What are the environmental consequences of deforestation?",
-    "What are some effective strategies for reducing deforestation?",
-    "How can reforestation and afforestation help mitigate the effects of deforestation?",
-    "What role can governments and policies play in preventing deforestation?",
-    "How can individuals and communities contribute to reducing deforestation?"
-  ]
-}
+
+Provide your analysis in the following YAML format strictly adhering to the structure below and do not output anything extra including the language itself:
+
+type: interdependent
+queries:
+- [First query or sub-query]
+- [Second query or sub-query, if applicable]
+- [Third query or sub-query, if applicable]
+- ...
+
+Examples:
+
+1. Query: "What is the capital of France?"
+type: interdependent
+queries:
+    - What is the capital of France?
+
+2. Query: "Who is the current CEO of the company that created the iPhone?"
+type: interdependent
+queries:
+    - Which company created the iPhone?
+    - Who is the current CEO of the Apple(identified in the previous question) company ?
+
+3. Query: "What is the population of New York City and what is the tallest building in Tokyo?"
+type: multiple_independent
+queries:
+    - What is the population of New York City?
+    - What is the tallest building in Tokyo?
+
+Now, analyze the following query:
+
+{query}
 ```
+
+#### Rewriting
+
+An input query may not be in the optimal form to retrieve grounding data. Using a language model to rewrite the query is a common practice to achieve better results. The following are some challenges that you can address by rewriting a query:
+
+- Vagueness
+- Missing keywords
+- Unneeded words
+- Unclear semantically
+
+The following prompt, taken from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/), addresses the listed challenges by using a language model to rewrite the query.
+
+```text
+Rewrite the given query to optimize it for both keyword-based and semantic similarity search methods. Follow these guidelines:
+
+Identify the core concepts and intent of the original query.
+Expand the query by including relevant synonyms, related terms, and alternate phrasings.
+Maintain the original meaning and intent of the query.
+Include specific keywords that are likely to appear in relevant documents.
+Incorporate natural language phrasing to capture semantic meaning.
+Include domain-specific terminology if applicable to the query's context.
+Ensure the rewritten query covers both broad and specific aspects of the topic.
+Remove any ambiguous or unnecessary words that might confuse the search.
+Combine all elements into a single, coherent paragraph that flows naturally.
+Aim for a balance between keyword richness and semantic clarity.
+
+Provide the rewritten query as a single paragraph that incorporates various search aspects (e.g. keyword-focused, semantically-focused, domain-specific).
+
+query: {original_query}
+```
+
+#### HyDE
+
+[Hypothetical Document Embeddings (HyDE)](https://towardsdatascience.com/how-to-use-hyde-for-better-llm-rag-retrieval-a0aa5d0e23e8) is an alternate information retrieval technique used in RAG solutions. Rather than converting a query into embeddings and using those embeddings to find the closest matches in a vector database, HyDE uses a language model to generate answers from the query. These answers are then converted into embeddings, which are used to find the closest matches. This process enables HyDE to perform answer-to-answer embedding similarity searches.
+
+### Combining query translations into a pipeline
+
+You're not limited to choosing one query translation. In practice, multiple, or even all of these translations can be used in conjunction. The following diagram illustrates an example of how these translations can be combined into a pipeline.
+
+:::image type="complex" source="./_images/rag-query-transformation.svg" lightbox="./_images/rag-query-transformation.svg" alt-text="Diagram that shows a RAG pipeline with query transformers.":::
+    The diagram shows a pipeline with four steps. The original query is passed to the first step, a box called query augmenter. The query augmenter outputs the original query and an augmented query. The augmented query is passed to the second step, a box called query decomposer. The query decomposer outputs the original query, an augmented query, and four decomposed queries. The decomposed queries are passed to the third step. The third step has a foreach block. Behind the foreach block are three substeps: Query rewriter, query executor, and reranker. The output of step 3 is the original query, an augmented query, four decomposed queries, and the accumulated context. The original query and the accumulated context are passed to the fourth step. The fourth step has three substeps: Query rewriter, query executor, and reranker. The result of step 4 is the final result.
+:::image-end:::
+*Figure 1: RAG pipeline with query transformers*
+
+The diagram is numbered for notable steps in this pipeline:
+
+1. The original query is passed to the optional query augmenter step. This step outputs the original query and the augmented query.
+1. The augmented query is passed to the optional query decomposer step. This step outputs the original query, the augmented query, and the decomposed queries.
+1. Each decomposed query is passed through three substeps. Once all of the decomposed queries are run through the substeps, the step outputs the original query, the augmented query, the decomposed queries, and an accumulated context. The accumulated context is the aggregation of the top N results from all of the decomposed queries being processed through the substeps.
+
+    1. The optional query rewriter rewrites the decomposed query.
+    1. The rewritten query, if it was rewritten, or the original query is executed against the search index. The query can be executed using any of the search types: vector, full text, hybrid, or manual multiple. It can also be executed using advanced query capabilities such as HyDE.
+    1. The results are reranked. The top *N* reranked results are added to the accumulated context.
+1. The original query, along with the accumulated context, are run through the same three substeps as each decomposed query was. The only difference is that there's only one query run and the top *N* results are returned to the caller.
+
+### Passing images in queries
+
+Some multimodal models such as GPT-4V and GPT-4o can interpret images. If you're using these models, you can choose whether you want to avoid chunking your images and pass the image as part of the prompt to the multimodal model. You should experiment to determine how this approach performs compared to chunking the images with and without passing additional context. You should also compare the difference in cost between the approaches and do a cost-benefit analysis.
 
 ### Filtering
 
-Fields in the search store that are configured as filterable can be used to filter queries. Consider filtering on keywords and entities for queries that use those fields to help narrow down the result. Filtering allows you to retrieve only the data that satisfies certain conditions from an index by eliminating irrelevant data. This improves the overall performance of the query with more relevant results. As with every decision, it's important to experiment and test. Queries might not have keywords or wrong keywords, abbreviations, or acronyms. You need to take these cases into consideration.
+Fields in the search store that are configured as filterable can be used to filter queries. Consider filtering on keywords and entities for queries that use those fields to help narrow down the result. Filtering allows you to retrieve only the data that satisfies certain conditions from an index by eliminating irrelevant data. Filtering improves the overall performance of the query with more relevant results. As with every decision, it's important to experiment and test. Queries might not have keywords or wrong keywords, abbreviations, or acronyms. You need to take these cases into consideration.
+
+### Weighting
+
+Some search platforms, such as Azure AI Search, support the ability to influence the ranking of results based on criteria, including weighting fields. 
+
+> [!NOTE]
+> This section discusses the weighting capabilities in Azure AI Search. If you're using a different data platform, research the weighting capabilities of that platform.
+
+Azure AI Search supports scoring profiles that contain [parameters for weighted fields and functions for numeric data](/azure/search/index-add-scoring-profiles#key-points-about-scoring-profiles). Currently, scoring profiles only apply to nonvector fields, while support for vector and hybrid search is in preview. You can create multiple scoring profiles on an index and optionally choose to use one on a per-query basis.
+
+Choosing which fields to weight depends upon the type of query and the use case. For example, if you determine that the query is keyword-centric, such as "Where is Microsoft headquartered?", you would want a scoring profile that weights entity or keyword fields higher. You may also use different profiles for different users, allow users to choose their focus, or choose profiles based on the application.
+
+We recommend that in production systems, you only maintain profiles that you actively use in production.
 
 ### Reranking
 
@@ -198,16 +356,16 @@ Reranking allows you to run one or more queries, aggregate the results, and rank
 - You performed [manual multiple searches](#manual-multiple) and you want to aggregate the results and rank them.
 - Vector and keyword searches aren't always accurate. You can increase the count of documents returned from your search, potentially including some valid results that would otherwise be ignored, and use reranking to evaluate the results.
 
-You can use a large language model or cross-encoder to perform reranking. Some platforms, like Azure AI Search have proprietary methods to rerank results. You can evaluate these options for your data to determine what works best for your scenario. The following sections provide details on these methods.
+You can use a language model or cross-encoder to perform reranking. Some platforms, like Azure AI Search have proprietary methods to rerank results. You can evaluate these options for your data to determine what works best for your scenario. The following sections provide details on these methods.
 
-#### Large language model reranking
+#### Language model reranking
 
-The following is a sample large language model prompt from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompts.py) that reranks results.
+The following is a sample language model prompt from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py) that reranks results.
 
 ```text
 A list of documents is shown below. Each document has a number next to it along with a summary of the document. A question is also provided.
 Respond with the numbers of the documents you should consult to answer the question, in order of relevance, as well as the relevance score as json string based on json format as shown in the schema section. The relevance score is a number from 1–10 based on how relevant you think the document is to the question. The relevance score can be repetitive. Don't output any additional text or explanation or metadata apart from json string. Just output the json string and strip rest every other text. Strictly remove any last comma from the nested json elements if it's present.
-Don't include any documents that are not relevant to the question. There should exactly be one documents element.
+Don't include any documents that aren't relevant to the question. There should exactly be one documents element.
 Example format:
 Document 1:
 content of document 1
@@ -234,7 +392,7 @@ schema:
 
 #### Cross-encoder reranking
 
-The following example from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/reranking/reranker.py) uses the [CrossEncoder provided by Hugging Face](https://huggingface.co/sentence-transformers) to load the Roberta model. It then iterates over each chunk and uses the model to calculate similarity, giving them a value. We sort results and return the top N.
+The following example from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/reranking/reranker.py) uses the [CrossEncoder provided by Hugging Face](https://huggingface.co/sentence-transformers) to load the Roberta model. It then iterates over each chunk and uses the model to calculate similarity, giving them a value. We sort results and return the top N.
 
 ```python
 from sentence_transformers import CrossEncoder
@@ -287,7 +445,7 @@ You should test both positive and negative examples. For the positive examples, 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Large language model end to end evaluation phase](./rag-llm-evaluation-phase.yml)
+> [Language model end to end evaluation phase](./rag-llm-evaluation-phase.yml)
 
 ## Related resources
 

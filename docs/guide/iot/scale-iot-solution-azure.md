@@ -1,12 +1,12 @@
 ---
-title: Scale out an Azure IoT solution to support millions of devices
-description: Learn how to scale out your Azure IoT solution to support millions of devices.
+title: Scale out an Azure IoT Hub-based solution to support millions of devices
+description: Learn how to scale out your Azure IoT Hub-based solution to support millions of devices.
 author: MikeBazMSFT
 ms.author: micbaz
-ms.date: 06/17/2024
+ms.date: 12/10/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom: arb-iot
 products:
 - azure-iot
@@ -16,15 +16,18 @@ categories:
 - iot
 ---
 
-# Scale out an Azure IoT solution to support millions of devices
+# Scale out an Azure IoT Hub solution to support millions of devices
 
-This article describes how to scale an Internet of Things (IoT) solution with a scale-out pattern. The scale-out pattern solves scaling challenges by adding instances to a deployment, rather than increasing instance size. The implementation guidance here shows you how to scale an IoT solution with millions of devices and account for the service and subscription limits in Azure. The article outlines the low-touch and zero-touch deployment models of the scale-out pattern that you can adopt depending on your needs. For more information, see these articles:
+This article describes how to scale an Internet of Things (IoT) solution with a scale-out pattern on the Azure IoT Hub platform. The scale-out pattern solves scaling challenges by adding instances to a deployment, rather than increasing instance size. The implementation guidance here shows you how to scale an IoT solution with millions of devices and account for the service and subscription limits in Azure. The article outlines the low-touch and zero-touch deployment models of the scale-out pattern that you can adopt depending on your needs. For more information, see these articles:
 
 - [Best practices for large-scale Microsoft Azure IoT device deployments](/azure/iot-dps/concepts-deploy-at-scale)
 - [Azure IoT Hub](/azure/iot-hub/)
 - [Azure IoT Hub device provisioning service (DPS)](/azure/iot-dps/)
 
 :::image type="content" source="media/iot-steps-high-res.png" alt-text="A diagram that shows the main steps you follow when scaling out your Azure IoT solution." lightbox="media/iot-steps-high-res.png" border="false":::
+
+> [!NOTE]
+> This document does not cover the [Azure IoT Operations](/azure/iot-operations/overview-iot-operations) platform, which scales based on the hosting Kubernetes platform configuration.
 
 ## Gather requirements
 
@@ -66,9 +69,8 @@ The requirements for your solution drive the necessary size and number of IoT hu
 
 ### Azure IoT Hub device provisioning service
 
-Azure IoT Hub device provisioning service (DPS) is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention. It has a soft limit of [10 DPS instances per Azure subscription](/azure/iot-dps/about-iot-dps#quotas-and-limits). You can adjust this limit on a case-by-case basis, but changing the limit might require [proper governance procedures](https://aka.ms/FTAISVGovernance) to be in place for Azure subscription management.
-
-It also has a [soft limit of 1 million registrations](/azure/iot-dps/about-iot-dps#quotas-and-limits) per service instance. Although it's a [soft limit](/azure/azure-resource-manager/management/azure-subscription-service-limits#managing-limits), the service has a hard limit as well. Just like with the IoT hub device limits, you should design with the soft limit as your design limit to avoid issues in the future.
+Azure IoT Hub device provisioning service (DPS) is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention. It has a hard limit of [10 DPS instances per Azure subscription](/azure/iot-dps/about-iot-dps#quotas-and-limits).
+The service also has a [hard limit of 1 million registrations](/azure/iot-dps/about-iot-dps#quotas-and-limits) per service instance. You must address service limits in your workload design limit to avoid issues in the future.
 
 Service instances for DPS are geographically located, but [by default](/azure/iot-dps/virtual-network-support#private-endpoint-limitations) have a global public endpoint. Specific instances are accessed through [ID scope](/azure/iot-dps/concepts-service#id-scope). Because instances are in specific regions and each instance has its own ID scope, you should be able to configure ID scope for your devices.
 
@@ -100,7 +102,7 @@ Because of the "many devices booting at once" scenario, cloud service concerns c
 
 Beyond network and quota issues, it’s also necessary to consider Azure service outages. They could be service outages or regional outages. Whereas some services (such as IoT Hub) are geo-redundant, other services (such as DPS) store their data in a single region. Although it might seem like it restricts regional redundancy, it’s important to realize that you can link a single IoT hub to multiple DPS instances.
 
-If regional redundancy is a concern, use the [geode pattern](/azure/architecture/patterns/geodes), which is where you host a heterogeneous group of resources across different geographies. Similarly, a *deployment stamp* (also known as a *scale stamp*) applies this pattern to operate multiple workloads or tenants. For more information, see [Deployment stamp patterns](/azure/architecture/patterns/deployment-stamp). The article includes [IoT-specific examples](/azure/architecture/example-scenario/iot/application-stamps) for deployment stamps and references them in the [multitenant documentation](/azure/architecture/guide/multitenant/approaches/iot).
+If regional redundancy is a concern, use the [geode pattern](/azure/architecture/patterns/geodes), which is where you host a heterogeneous group of resources across different geographies. Similarly, a *deployment stamp* (also known as a *scale stamp*) applies this pattern to operate multiple workloads or tenants. For more information, see [Deployment stamp patterns](/azure/architecture/patterns/deployment-stamp).
 
 **Understand device location impact.** When architects select components, they must also understand that most Azure services are [regional](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#select-geography:~:text=Data%20storage%20for%20regional%20services), even the ones like DPS with global endpoints. [Exceptions](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#more-information:~:text=Data%20storage%20for%20non%2Dregional%20services) include [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) and Microsoft Entra ID. So the decisions you make for device location, data location, and metadata location (data about data: for example, Azure resource groups) are important inputs in your design.
 
@@ -172,7 +174,7 @@ There are other possible variations not detailed in this article. For example, y
 
 **General DPS provisioning guidance:** You should apply the following recommendations to your DPS deployment, which represent general best practices for this Azure service:
 
-**Don’t provision on every boot**. The [DPS documentation](/azure/iot-dps/how-to-reprovision#send-a-provisioning-request-from-the-device) specifies that the best practice isn't to provision on every boot. For small use cases, it might seem reasonable to provision at every boot because that’s the shortest path to deployment. However, when scaling up to millions of devices, DPS can become a bottleneck, given [its default limit of 1,000 registrations per minute per service instance](/azure/iot-dps/about-iot-dps#quotas-and-limits). Even device registration status lookup can be a bottleneck because it has a limit of 5 to 10 polling operations per second. Provisioning results are usually a static mapping to an IoT hub. So, unless your requirements include automated reprovisioning requests, it's best to perform them only on demand. Although this limit is a soft limit and you can increase it on a case-by-case basis by [contacting Microsoft Support](/azure/iot-dps/about-iot-dps#quotas-and-limits), the increase isn't to the scale of tens of thousands of devices per minute. So scaling out to multiple DPS instances might be the only way to support such scenarios, depending on the anticipated traffic.
+**Don't provision on every boot**. The [DPS documentation](/azure/iot-dps/how-to-reprovision#send-a-provisioning-request-from-the-device) specifies that the best practice isn't to provision on every boot. For small use cases, it might seem reasonable to provision at every boot because that’s the shortest path to deployment. However, when scaling up to millions of devices, DPS can become a bottleneck, given [its hard limit of 1,000 registrations per minute per service instance](/azure/iot-dps/about-iot-dps#quotas-and-limits). Even device registration status lookup can be a bottleneck because it has a limit of 5 to 10 polling operations per second. Provisioning results are usually a static mapping to an IoT hub. So, unless your requirements include automated reprovisioning requests, it's best to perform them only on demand. If you anticipate more traffic, scaling out to multiple DPS instances might be the only way to support such scenarios.
 
 **Use a staggered provisioning schedule**. One recommendation for mitigating some of the time-based limitations is using a [staggered provisioning schedule](/azure/iot-dps/concepts-deploy-at-scale#device-deployment-using-a-staggered-provisioning-schedule). For an initial provisioning, depending on the deployment requirements, this schedule might be based on a random offset of a few seconds, or it might be a maximum of many minutes. 
 

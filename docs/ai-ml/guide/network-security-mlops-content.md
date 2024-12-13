@@ -29,17 +29,17 @@ The architecture diagram shows a sample MLOps solution.
 
 The sample MLOps solution consists of these components:
 
-- Data storage: [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) for data storage.
-- Model training, validation, and registration: [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) workspace
-- Model deployment: [Azure Machine Learning endpoints](/azure/machine-learning/concept-endpoints) and [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)
-- Model monitor: [Azure Monitor](https://azure.microsoft.com/services/monitor) for Application Insights
-- MLOps pipelines: [Azure DevOps](https://azure.microsoft.com/services/devops/) and [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
+- Data storage: [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) for data storage.
+- Model training, validation, and registration: [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) workspace
+- Model deployment: [Azure Machine Learning endpoints](/azure/machine-learning/concept-endpoints) and [Azure Kubernetes Service](/azure/well-architected/service-guides/azure-kubernetes-service)
+- Model monitor: [Azure Monitor](/azure/azure-monitor/overview) for Application Insights
+- MLOps pipelines: [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 
 This example scenario also uses the following services to help protect the MLOps solution:
 
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
-- [Azure Policy](https://azure.microsoft.com/products/azure-policy/)
-- [Virtual Network](https://azure.microsoft.com/services/virtual-network/)
+- [Azure Key Vault](/azure/key-vault/general/overview)
+- [Azure Policy](/azure/governance/policy/overview)
+- [Virtual Network](/azure/virtual-network/virtual-networks-overview)
 
 ## Scenario details
 
@@ -105,13 +105,13 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Security
 
-Security provides more assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides more assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Consider how to help secure your MLOps solution beginning with the architecture design. Development environments might not need significant security, but it's important in the staging and production environments.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Configuring Virtual Network is free of charge, but there are charges for the other services that your scenario might require, such as private links, DNS zones, and virtual network peering. The following table describes the charges for those services and others that might be required.
 
@@ -125,9 +125,9 @@ Configuring Virtual Network is free of charge, but there are charges for the oth
 | ExpressRoute    | Charges are for ExpressRoute and ExpressRoute Gateways. |
 | Azure Bastion   | Billing involves a combination of hourly pricing that is based on SKU, scale units, and data transfer rates. |
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 To streamline continuous integration and continuous delivery (CI/CD), the best practice is to use tools and services for infrastructure as code (IaC), such as Terraform or Azure Resource Manager templates, Azure DevOps, and Azure Pipelines.
 
@@ -472,12 +472,11 @@ Other contributors:
 
 - [Terraform on Azure documentation](/azure/developer/terraform)
 - [Azure Machine Learning Enterprise Terraform Examples](https://github.com/microsoft/azureml-terraform-examples)
-- [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2)
+- [Azure MLOps v2 GitHub repository](https://github.com/Azure/mlops-v2)
 - [Azure Virtual Network pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-network/)
 - [Pricing for Azure DevOps](https://azure.microsoft.com/en-us/pricing/details/devops/azure-devops-services)
 
 ## Related resources
 
-- [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](/azure/architecture/ai-ml/guide/mlops-technical-paper)
 - [Secure an Azure Machine Learning workspace with virtual networks](/azure/machine-learning/how-to-secure-workspace-vnet)
 - [Azure Pipelines agents](/azure/devops/pipelines/agents/agents)

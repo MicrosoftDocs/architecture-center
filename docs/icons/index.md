@@ -5,8 +5,9 @@ description: Icons for use in building architecture diagrams for Azure
 ms.author: robbag
 author: RobBagby
 ms.reviewer: chkittel
-ms.date: 07/12/2024
-ms.service: architecture-center
+ms.date: 11/07/2024
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 azureCategories: developer-tools
 categories: developer-tools
 products: azure
@@ -32,9 +33,9 @@ To learn more about communicating design intent, see [Architecture design diagra
 - Don't distort or change icon shape in any way.
 - Don't use Microsoft product icons to represent your product or service.
 
-## Example architecture diagram
+## Example architecture diagrams
 
-![Example architecture diagram showing multiple services connected together with numbered steps.](../browse/thumbs/advanced-analytics-on-big-data.png)
+![Diagram that shows real-time analytics on big data architecture.](./images/real-time-analytics.png)
 
 [Browse all Azure architectures](../browse/index.yml) to view other examples.
 
@@ -42,6 +43,7 @@ To learn more about communicating design intent, see [Architecture design diagra
 
 |Month|Change description|
 |--------------|--------------|
+|November 2024|Added 10 new icons such as Azure AI Studio, Azure landing zone, Azure VPN client, and Azure Managed Redis.|
 |July 2024|Rebranded more Microsoft Entra ID icons. Added new icons such as AI Content Safety, AKS Automatic, Application Gateway for Containers, and Azure Monitor Pipeline.|
 |February 2024|Over 40 new icons for various services and components such as AI (including Azure OpenAI), Azure Operator, Microsoft Entra ID, and Azure networking.|
 |August 2023|Added new Microsoft Entra ID icon. Reorganized folder structure of some icons.|
@@ -62,7 +64,11 @@ I agree to the above terms.
 </div>
 
  > [!div class="button"]
- > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V19.zip)
+ > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V20.zip)
+
+## Use in Microsoft Visio
+
+The icons are not provided in Visio stencil format. The icons are provided as general purpose SVG files. You can drag and drop these icons into many diagraming and drawing tools, including Visio. There are no plans to provide these icons as Visio stencils.
 
 ## More icon sets from Microsoft
 

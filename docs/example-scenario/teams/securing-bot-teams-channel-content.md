@@ -368,8 +368,6 @@ Principal author:
 
 - Review the [Bot Framework SDK Documentation](/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0) to start building bots.
 
-- See [Bots Secured Behind a Firewall & Teams](https://blog.botframework.com/2020/11/23/bots-secured-behind-a-firewall-teams).
-
 ## Related resources
 
 - Visit the [Azure Architecture Center](../../browse/index.yml) to review related architectures and guides.
@@ -379,7 +377,5 @@ Principal author:
 - [Microsoft Entra IDaaS in Security Operations - Azure Example Scenarios](../aadsec/azure-ad-security.yml)
 
 - [Threat indicators for cyber threat intelligence in Microsoft Sentinel - Azure Example Scenarios](../data/sentinel-threat-intelligence.yml)
-
-- [Confidential computing on a healthcare platform - Azure Example Scenarios](../confidential/healthcare-inference.yml)
 
 - [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)

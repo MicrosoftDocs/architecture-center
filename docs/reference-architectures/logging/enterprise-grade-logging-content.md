@@ -14,8 +14,8 @@ This reference architecture describes how to achieve enterprise-grade logging on
 
 ### Components
 
-- [Event Hubs](https://azure.microsoft.com/products/event-hubs)
-- [Azure Data Explorer](https://azure.microsoft.com/products/data-explorer)
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs)
+- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview)
 - [Azure Event Hubs data connection to Azure Data Explorer](/azure/data-explorer/ingest-data-event-hub-overview)
 
 ### Alternatives
@@ -139,7 +139,7 @@ This scenario relies on the availability of the Event Hubs and Azure Data Explor
 
 If there's an Event Hubs outage, you could lose data. To avoid data loss, choose the right Event Hubs tier for your needs. As a backup mechanism, you could insert collected log data into blob storage and ingest the blob storage data to a Kusto cluster. For more information, see [Ingest multi-lined JSON records](/azure/data-explorer/ingest-json-formats?tabs=kusto-query-language#ingest-multi-lined-json-records).
 
-[Azure availability zones](/azure/availability-zones/az-overview#availability-zones) are unique physical locations within an Azure region that can help protect Azure Data Explorer compute clusters and data from partial region failure.
+[Azure availability zones](/azure/reliability/availability-zones-overview) are unique physical locations within an Azure region that can help protect Azure Data Explorer compute clusters and data from partial region failure.
 
 ### Security
 
@@ -281,6 +281,5 @@ Principal author:
 ## Related resources
 
 - [Big data analytics with Azure Data Explorer](../../solution-ideas/articles/big-data-azure-data-explorer.yml)
-- [Azure Data Explorer monitoring](../../solution-ideas/articles/monitor-azure-data-explorer.yml)
-- [Long term security log retention with Azure Data Explorer](../../example-scenario/security/security-log-retention-azure-data-explorer.yml)
-- [Real time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
+
+

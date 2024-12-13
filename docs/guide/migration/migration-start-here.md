@@ -5,8 +5,8 @@ author: martinekuan
 ms.author: pnp
 ms.date: 08/11/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-migrate
   - azure-database-migration
@@ -84,7 +84,7 @@ The following sections provide links to reference architectures in a few high-le
 
 ### Oracle migrations
 
-- [Oracle database migration to Azure](../../databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml)
+- [Migrate an Oracle database to Azure](../../databases/idea/topic-migrate-oracle-azure.yml)
 
 ### Migrations of banking systems
 
@@ -101,7 +101,6 @@ Get the latest updates on [Azure migration services and features](https://azure.
 
 Following are some additional migration architectures to consider:
 
-- [Migrate an e-commerce solution to Azure](../../industries/retail/migrate-ecommerce-solution.md)
 - [Lift and shift to containers with AKS](/azure/cloud-adoption-framework/migrate/)
 - [Migrate a monolithic application to microservices using domain-driven design](../../microservices/migrate-monolith.yml)
 - [Support matrix for migration of physical servers, AWS VMs, and GCP VMs](/azure/migrate/migrate-support-matrix-physical-migration?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)

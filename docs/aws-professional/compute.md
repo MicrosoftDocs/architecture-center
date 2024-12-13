@@ -6,8 +6,8 @@ categories: azure
 ms.author: kobilevi
 ms.date: 06/24/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 azureCategories:
   - compute
   - networking
@@ -52,9 +52,7 @@ Principal author:
 
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Microservices architecture on Azure Kubernetes Service](../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-- [CI/CD pipeline for container-based workloads](../guide/aks/aks-cicd-github-actions-and-gitops.yml)
-- [Cross-cloud scaling with Azure Functions](../solution-ideas/articles/cross-cloud-scaling.yml)
-- [Run a Linux VM on Azure](../reference-architectures/n-tier/linux-vm.yml)
+- [Run a Linux virtual machine on Azure](../reference-architectures/n-tier/linux-vm.yml)
 - [Basic web application](../web-apps/app-service/architectures/basic-web-app.yml)
 - [Baseline App Service web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 - [Active-passive multiregion App Service web application](../web-apps/app-service/architectures/multi-region.yml)

@@ -24,11 +24,11 @@ This reference architecture uses [Azure Integration Services][integration-servic
 
 ### Components
 
-- [Integration Services](https://azure.microsoft.com/products/category/integration) is a collection of services that you can use to integrate applications, data, and processes.
-- [Logic Apps](https://azure.microsoft.com/products/logic-apps) is a serverless platform for building enterprise workflows that integrate applications, data, and services.
-- [API Management](https://azure.microsoft.com/products/api-management) is a managed service for publishing catalogs of HTTP APIs. You can use it to promote the reuse and discoverability of your APIs and to deploy an API gateway to proxy API requests.
-- [Azure DNS](https://azure.microsoft.com/products/dns) is a hosting service for DNS domains.
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is a cloud-based identity and access management service. Enterprise employees can use Microsoft Entra ID to access external and internal resources.
+- [Integration Services](/azure/logic-apps/azure-integration-services-choose-capabilities) is a collection of services that you can use to integrate applications, data, and processes.
+- [Logic Apps](/azure/logic-apps/logic-apps-overview) is a serverless platform for building enterprise workflows that integrate applications, data, and services.
+- [API Management](/azure/well-architected/service-guides/api-management/reliability) is a managed service for publishing catalogs of HTTP APIs. You can use it to promote the reuse and discoverability of your APIs and to deploy an API gateway to proxy API requests.
+- [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Enterprise employees can use Microsoft Entra ID to access external and internal resources.
 
 ## Scenario details
 
@@ -201,7 +201,7 @@ You're charged for all API Management instances when they're running. If you hav
 
 #### Logic Apps
 
-Logic Apps uses a [serverless](/azure/logic-apps/logic-apps-serverless-overview) model. Billing is calculated based on action and connector execution. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+Logic Apps uses a serverless model. Billing is calculated based on action and connector execution. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 

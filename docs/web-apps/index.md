@@ -5,8 +5,8 @@ author: robbagby
 ms.author: robbag
 ms.date: 06/14/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-app-service
   - azure-web-application-firewall
@@ -53,7 +53,6 @@ Consider these patterns, guidelines, and architectures as you plan and implement
 - [Multi-region active-passive web application](app-service/architectures/multi-region.yml)
 - [Common web application architectures](/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures)
 - [Design principles for Azure applications](../guide/design-principles/index.md)
-- [Design and implementation patterns - Cloud Design Patterns](../patterns/category/design-implementation.md)
 - [Enterprise deployment using App Services Environment](../web-apps/app-service-environment/architectures/ase-standard-deployment.yml)
 - [High availability enterprise deployment using App Services Environment](../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
 
@@ -77,13 +76,6 @@ The following sections, organized by category, provide links to sample web app a
 - [Intelligent product search engine for e-commerce](../example-scenario/apps/ecommerce-search.yml)
 - [E-commerce website running in secured App Service Environment](../web-apps/idea/ecommerce-website-running-in-secured-ase.yml)
 - [Scalable e-commerce web app](../web-apps/idea/scalable-ecommerce-web-app.yml)
-- [Scalable Sitecore marketing website](../web-apps/hosting-applications/digital-marketing-sitecore.yml)
-
-### Healthcare
-
-- [Clinical insights with Microsoft Cloud for Healthcare](../example-scenario/mch-health/medical-data-insights.yml)
-- [Consumer health portal on Azure](../example-scenario/digital-health/health-portal.yml)
-- [Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml)
 
 ### Modernization
 
@@ -104,7 +96,6 @@ The following sections, organized by category, provide links to sample web app a
 ### Scalability
 
 - [Baseline web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
-- [Scalable Umbraco CMS web app](../web-apps/hosting-applications/medium-umbraco-web-app.yml)
 
 ### Security
 
@@ -114,7 +105,6 @@ The following sections, organized by category, provide links to sample web app a
 ### SharePoint
 
 - [Highly available SharePoint farm](../solution-ideas/articles/highly-available-sharepoint-farm.yml)
-- [Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml)
 
 ## Stay current with web development
 

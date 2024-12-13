@@ -36,9 +36,9 @@ Microsoft Entra ID offers several capabilities for direct integration with AWS:
 
 Other advanced Microsoft Entra features can provide extra layers of control for the most sensitive AWS accounts. Microsoft Entra ID P2 licenses include these advanced features:
 
-- **Privileged Identity Management (PIM)** to provide advanced controls for all delegated roles within Azure and Microsoft 365. For example, instead of an administrator always using the Global Admin role, they have permission to activate the role on demand. This permission deactivates after a set time limit (one hour, for example). PIM logs all activations and has other controls that can further restrict the activation capabilities. PIM further protects your identity architecture by ensuring extra layers of governance and protection before administrators can make changes.
+- **Privileged Identity Management (PIM)** to provide advanced controls for all delegated roles within Azure and Microsoft 365. For example, instead of a user administrator being statically assigned the User Administrator role, they have permission to activate the role on demand. This permission deactivates after a set time limit (one hour, for example). PIM logs all activations and has other controls that can further restrict the activation capabilities. PIM further protects your identity architecture by ensuring extra layers of governance and protection before privileged users can make changes.
 
-  [You can expand PIM to any delegated permission by controlling access to custom groups](/azure/active-directory/privileged-identity-management/concept-pim-for-groups), such as the ones you created for access to AWS roles. For more information about deploying PIM, see [Deploy Microsoft Entra Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-deployment-plan).
+  You can expand [PIM to any delegated permission by controlling access to custom groups](/entra/id-governance/privileged-identity-management/concept-pim-for-groups), such as the ones you created for access to AWS roles. For more information about deploying PIM, see [Plan a Privileged Identity Management deployment](/entra/id-governance/privileged-identity-management/pim-deployment-plan).
 
 - **Advanced Identity Protection** increases Microsoft Entra sign-in security by monitoring user or session risk. User risk defines the potential of the credentials being compromised, such as the user ID and password appearing in a publicly released breach list. Session risk determines whether the sign-in activity comes from a risky location, IP address, or other indicator of compromise. Both detection types draw on Microsoft's comprehensive threat intelligence capabilities.
 
@@ -50,7 +50,7 @@ Other advanced Microsoft Entra features can provide extra layers of control for 
 
 ## Scenario details
 
-Amazon Web Services (AWS) accounts that support critical workloads and highly sensitive information need strong identity protection and access control. AWS identity management is enhanced when combined with Microsoft Entra ID. Microsoft Entra ID is a cloud-based, comprehensive, centralized identity and access management solution that can help secure and protect AWS accounts and environments. Microsoft Entra ID provides centralized *single sign-on (SSO)* and strong authentication through *multi-factor authentication (MFA)* and *Conditional Access* policies. Microsoft Entra ID supports AWS identity management, role-based identities, and access control.
+Amazon Web Services (AWS) accounts that support critical workloads and highly sensitive information need strong identity protection and access control. AWS identity management is enhanced when combined with Microsoft Entra ID. Microsoft Entra ID is a cloud-based, comprehensive, centralized identity and access management solution that can help secure and protect AWS accounts and environments. Microsoft Entra ID provides centralized *single sign-on (SSO)* and strong authentication through *multifactor authentication (MFA)* and *Conditional Access* policies. Microsoft Entra ID supports AWS identity management, role-based identities, and access control.
 
 Many organizations that use AWS already rely on Microsoft Entra ID for Microsoft 365 or hybrid cloud identity management and access protection. These organizations can quickly and easily use Microsoft Entra ID with their AWS accounts, often without extra cost. Other, [advanced Microsoft Entra features](./aws-azure-ad-security.yml#advanced-azure-ad-identity-management-with-aws-accounts) like Privileged Identity Management (PIM) and Advanced Identity Protection can help protect the most sensitive AWS accounts.
 
@@ -66,7 +66,7 @@ The following principles and guidelines are important for any cloud security sol
 
 - Continually review current accounts to ensure identity and permission governance and control.
 
-- Follow [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) and [zero trust](https://www.microsoft.com/security/business/zero-trust) principles. Make sure that each user can access only the specific resources they require, from trusted devices and known locations. Reduce the permissions of every administrator and developer to provide only the rights they need for the role they're performing. Review regularly.
+- Follow [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) and [Zero Trust](https://www.microsoft.com/security/business/zero-trust) principles. Make sure that each user can access only the specific resources they require, from trusted devices and known locations. Reduce the permissions of every administrator and developer to provide only the rights they need for the role they're performing. Review regularly.
 
 - Continuously monitor platform configuration changes, especially if they provide opportunities for privilege escalation or attack persistence.
 
@@ -268,7 +268,7 @@ Because you're using two roles, perform these extra steps:
 
 1. Confirm that the provisioning agent can see at least two roles:
 
-   :::image type="content" source="media/see-roles.png" alt-text="Screenshot of the two roles in Azure AD.":::
+   :::image type="content" source="media/see-roles.png" alt-text="Screenshot of the two roles in Microsoft Entra ID.":::
 
 1. Go to **Users and groups** and select **Add User**.
 
@@ -346,7 +346,7 @@ You might need to create several Conditional Access policies to meet business ne
 
 Once you enable Conditional Access, you can impose other controls such as PAM and just-in-time (JIT) provisioning. For more information, see [What is automated SaaS app user provisioning in Microsoft Entra ID](/azure/active-directory/app-provisioning/user-provisioning).
 
-If you have Defender for Cloud Apps, you can use Conditional Access to configure Defender for Cloud Apps session policies. For more information, see [Configure Microsoft Entra session policies for AWS activities](../../guide/aws/aws-azure-security-solutions.yml#configure-defender-for-cloud-apps-monitoring-policies-for-aws-activities).
+If you have Defender for Cloud Apps, you can use Conditional Access to configure Defender for Cloud Apps session policies. For more information, see [Configure Microsoft Entra session policies for AWS activities](../../guide/aws/aws-azure-security-solutions.yml#microsoft-defender-for-cloud-apps).
 
 ## Next steps
 

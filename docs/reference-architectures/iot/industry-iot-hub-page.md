@@ -4,7 +4,7 @@ titleSuffix: Azure Reference Architectures
 description: See example Azure IoT solutions and scenarios for environmental, facilities, manufacturing, retail, and transportation industries.
 author: falloutxay
 manager: lizross
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: reference-architecture
 ms.topic: reference-architecture
 ms.date: 07/09/2024
@@ -21,15 +21,11 @@ products:
 
 This article provides an overview of industry-specific internet-of-things (IoT) reference architectures and example solutions.
 
-The following Azure IoT solutions and example scenarios address unique business challenges for specific industries. For overall IoT patterns and guides that apply across industry verticals, see [Get started with Azure IoT solutions](iot-architecture-overview.md). 
+The following Azure IoT solutions and example scenarios address unique business challenges for specific industries. For overall IoT patterns and guides that apply across industry verticals, see [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
 
 ## Automotive and transportation
 
-- [Process real-time vehicle data using IoT](../../example-scenario/data/realtime-analytics-vehicle-iot.yml). Vehicle data ingestion, processing, and visualization are key capabilities of connected car solutions. Capturing and analyzing real-time vehicle data provides valuable insights to create new solutions.
-
 - [Real-time asset tracking for vehicles](../../solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml). Azure IoT Central and other Azure services track and manage vehicles and other assets in real time.
-
-- [Railway health system with IoT Edge](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml). Edge computing enables fast, consistent responses with reduced dependency on cloud connectivity and resources. The intelligent edge brings data processing and storage close to the data source in this train maintenance and safety solution.
 
 - [Automated guided vehicles fleet control](../../example-scenario/iot/automated-guided-vehicles-fleet-control.yml). Automated guided vehicles (AGVs) are an important part of just-in-time manufacturing and automated shop-floor logistics. In this example, AGVs deliver parts to automotive assembly lines.
 
@@ -39,23 +35,13 @@ The following Azure IoT solutions and example scenarios address unique business 
 
 - [Project 15 Open Platform IoT sustainability](../../solution-ideas/articles/project-15-iot-sustainability.yml). Open Platform open-source software connects to the cloud and securely manages devices for scientific and conservation projects. This architecture is a reference for building open-source, end-to-end IoT solutions.
 
-## Facilities and real estate
-
-- [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml). Smart places are physical environments, like buildings, campuses, and cities, that bring together connected devices and data sources. Azure Digital Twins stores digital representations of physical environments to use for monitoring, analysis, and management.
-
 ## Manufacturing
 
 - [Condition monitoring for industrial IoT](../../solution-ideas/articles/condition-monitoring.yml). Condition monitoring helps manufacturers discover anomalies before they become critical. In this solution, IoT devices connect to the cloud through OPC UA and Azure industrial IoT components.
 
-- [Predictive maintenance for industrial IoT](../../solution-ideas/articles/iot-predictive-maintenance.yml). Predictive maintenance diagnoses and predicts malfunctions and maintenance needs in OPC UA connected equipment. This solution uses mixed reality and digital twins technologies to optimize production in real time.
-
 - [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml). Industries use computer vision and ML for safety and quality assurance applications. This example shows an end-to-end approach to IoT computer vision that improves processes over time.
-
-## Retail
-
-- [Video capture and analytics for retail](../../networking/idea/video-analytics.yml). Retailers like grocery stores can monitor storefront events and take immediate actions to improve customer experience. On-premises IoT Edge devices analyze video data in real time to detect and address issues like empty shelf space or long customer queues.
 
 ## Next steps
 
-- [What is Azure IIoT?](/azure/industrial-iot/overview-what-is-industrial-iot)
-- [Internet of things (IoT) architecture design](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
+- [Implement the Azure Industrial IoT reference solution architecture](/azure/iot/tutorial-iot-industrial-solution-architecture)
+- [IoT architectures](/azure/architecture/browse/?azure_categories=iot)

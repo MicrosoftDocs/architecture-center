@@ -10,8 +10,8 @@ categories:
 ms.author: robbag
 ms.date: 09/20/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 azureCategories: 
   - devops
   - hybrid
@@ -112,3 +112,4 @@ You can use the following options to deploy and manage applications or workloads
 | [Azure Spring Apps landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator) | Azure Spring Apps landing zone accelerator is intended for an application team that builds and deploys Spring Boot applications in a typical landing enterprise zone design. As the workload owner, use architectural guidance provided in this accelerator to achieve your target technical state with confidence. |
 | [Enterprise-scale landing zone for Citrix on Azure](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/landing-zone-citrix/citrix-enterprise-scale-landing-zone) | Design guidelines for the Cloud Adoption Framework for Citrix Cloud in an Azure enterprise-scale landing zone cover for many design areas. |
 | [Azure Container Apps Landing Zone Accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/container-apps/landing-zone-accelerator) | This Azure Container Apps landing zone accelerator outlines the strategic design path and defines the target technical state for deploying Azure Container Apps. It is owned and operated by a dedicated workload team. |
+| [Landing Zone for Red Hat Enterprise Linux (RHEL) on Azure](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-enterprise-linux/landing-zone-accelerator) | The Landing Zone for Red Hat Enterprise Linux (RHEL) on Azure is an open-source collection of architectural guidance and reference implementation recommendations used accelerate the migration and deployment of RHEL-based workloads to Microsoft Azure. |

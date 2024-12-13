@@ -6,8 +6,6 @@ items:
       items: 
       - name: Low-latency network for industry
         href: idea/low-latency-network.yml
-      - name: Video capture and analytics for retail
-        href: idea/video-analytics.yml
       - name: IoT network for healthcare facilities
         href: idea/healthcare-network.yml        
     - name: Design architectures
@@ -27,9 +25,7 @@ items:
         - name: Azure DNS Private Resolver
           href: architecture/azure-dns-private-resolver.yml
       - name: Network security
-        items: 
-        - name: Implement an open-source jump server
-          href: architecture/apache-guacamole.yml        
+        items:        
         - name: TIC 3.0 compliance
           href: architecture/trusted-internet-connections.yml          
     - name: Apply guidance

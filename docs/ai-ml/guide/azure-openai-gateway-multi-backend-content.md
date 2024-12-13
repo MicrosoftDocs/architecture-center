@@ -353,12 +353,14 @@ While not specific to multiple back ends, each region's gateway implementation s
 
 ## Gateway implementations
 
-Azure doesn't offer a turn-key solution or reference architecture for building such a gateway. As mentioned in the [introduction article](./azure-openai-gateway-guide.yml#implementation-options), your workload team must build and operate this gateway. Following are some examples of community-supported sample implementations covering some of the previously mentioned use cases. Consider referencing these GitHub samples when you build your own proof of concept.
+Azure doesn't offer a turn-key solution or reference architecture for building such a gateway that focus on routing traffic across multiple backends. As mentioned in the [introduction article](./azure-openai-gateway-guide.yml#implementation-options), your workload team must build and operate this gateway. Following are some examples of community-supported sample implementations covering some of the previously mentioned use cases. Consider referencing these GitHub samples when you build your own proof of concept.
 
 | Implementation       | Example |
 | :------------------- | :------ |
-| Azure API Management | [Smart load balancing for Azure OpenAI using Azure API Management](https://github.com/Azure-Samples/openai-apim-lb) - This GitHub repo contains sample policy code and instructions to deploy into your subscription.<br><br>[Scaling Azure OpenAI using Azure API Management](https://github.com/Azure/aoai-apim/) - This GitHub repo contains sample policy code and instructions for PTU and consumption spillover.<br/><br/>There are also some community supported API Management policies in the [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) repository. |
+| Azure API Management | [Smart load balancing for Azure OpenAI using Azure API Management](https://github.com/Azure-Samples/openai-apim-lb) - This GitHub repo contains sample policy code and instructions to deploy into your subscription.<br><br>[Scaling Azure OpenAI using Azure API Management](https://github.com/Azure/aoai-apim/) - This GitHub repo contains sample policy code and instructions for PTU and consumption spillover.<br/><br/>The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) contains example API Management policies along with a load-testing setup for testing the behavior of the policies. |
 | Custom code          | [Smart load balancing for Azure OpenAI using Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb)<br/><br/>This GitHub repo contains sample C# code and instructions to build the container and deploy into your subscription. |
+
+The Cloud Adoption Framework for Azure also contains guidance on implementing an [Azure API Management landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) for generative AI scenarios, including this multi-backend scenario. If your workload exists in an application landing zone, be sure to refer to this guidance for implementation considerations and recommendations.
 
 ## Next steps
 
@@ -368,4 +370,3 @@ Having a gateway implementation for your workload provides benefits beyond the t
 
 - [Azure OpenAI Service](https://azure.microsoft.com/products/cognitive-services/openai-service/)
 - [API gateway in Azure API Management](/azure/api-management/api-management-gateways-overview)
-- [Azure OpenAI API Management policies](https://github.com/CrewAakash/aoai-apim-policies)

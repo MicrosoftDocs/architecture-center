@@ -2,7 +2,7 @@
 author: svchandramohan
 ms.author: schandra
 ms.topic: include
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ---
 
 | Type | AWS Service | Azure Service | Description |
@@ -15,10 +15,8 @@ ms.service: architecture-center
 
 ### Database architectures
 
-<ul class="grid">
-
-[!INCLUDE [Gaming using Azure Cosmos DB](../../includes/cards/gaming-using-cosmos-db.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Gaming by using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db) | Elastically scale your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale. |
 
 [view all](/azure/architecture/browse/#databases)

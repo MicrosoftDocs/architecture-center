@@ -17,23 +17,23 @@ The architecture meets infrastructure requirements in the following ways:
 - A container-hosting platform is used to deploy highly available workloads across availability zones. We recommend Azure Red Hat OpenShift.
 - A fully managed database service functions as the back-end database for the OMS system. Sterling OMS currently supports IBM Db2, Oracle Database, and PostgreSQL. We recommend Azure Database for PostgreSQL with the flexible server option.
 - A scalable and highly available setup provides an environment for running a message broker like IBM MQ that's compliant with the Java Message Service (JMS) API. The diagram doesn't include this setup. Depending on your requirements, it might be within your cluster or external to your cluster.
-- Private endpoints isolate and secure network traffic to all connected services.
+- Private endpoints isolate and help secure network traffic to all connected services.
 - Additional, optional Azure virtual machines (VMs) are used for management and development purposes.
 - Premium and standard Azure Files shares provide storage for log files and other application configuration data.
 
 ### Components
 
-- [Azure Red Hat OpenShift](https://azure.microsoft.com/products/openshift) provides highly available, fully managed OpenShift clusters on demand. These clusters are monitored and operated jointly by Microsoft and Red Hat.
+- [Azure Red Hat OpenShift](/azure/openshift/intro-openshift) provides highly available, fully managed OpenShift clusters on demand. These clusters are monitored and operated jointly by Microsoft and Red Hat.
 
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Virtual networks are used for communication between nodes, Azure services, and hybrid connectivity needs.
+- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block for private networks in Azure. Virtual networks are used for communication between nodes, Azure services, and hybrid connectivity needs.
 
-- [Azure Files](https://azure.microsoft.com/services/storage/files) provides fully managed file shares in the cloud that are accessible via the SMB and NFS protocols. In this solution, Azure Files hosts the stateful data for the databases and systems that are inside the cluster.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) provides fully managed file shares in the cloud that are accessible via the SMB and NFS protocols. In this solution, Azure Files hosts the stateful data for the databases and systems that are inside the cluster.
 
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) is a fully managed service that provides secure and seamless RDP and SSH access to VMs without any exposure through public IP addresses. In this solution, Azure Bastion is optional. You can use Azure Bastion and a subnet to securely access any of the worker nodes or optional jump box machines.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed service that provides seamless, enhanced security RDP and SSH access to VMs without any exposure through public IP addresses. In this solution, Azure Bastion is optional. You can use Azure Bastion and a subnet to provide enhanced-security access to any of the worker nodes or optional jump box machines.
 
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/products/postgresql) is a fully managed relational database service that's based on the PostgreSQL database engine. Azure Database for PostgreSQL offers predictable performance and dynamic scalability, and is appropriate for business-critical workloads. Its [flexible server deployment model](/azure/postgresql/flexible-server/overview) provides granular control and flexibility over database management functions and configuration settings.
+- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service that's based on the PostgreSQL database engine. Azure Database for PostgreSQL offers predictable performance and dynamic scalability, and is appropriate for business-critical workloads. Its [flexible server deployment model](/azure/postgresql/flexible-server/overview) provides granular control and flexibility over database management functions and configuration settings.
 
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) is an infrastructure as a service (IaaS) offer. You can use Virtual Machines to deploy on-demand, scalable computing resources. This solution uses [Linux VMs in Azure](https://azure.microsoft.com/services/virtual-machines/linux) to provide a jump box for management of your OMS Azure-based resources and services.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) offer. You can use Virtual Machines to deploy on-demand, scalable computing resources. This solution uses [Linux VMs in Azure](../../reference-architectures/n-tier/linux-vm.yml) to provide a jump box for management of your OMS Azure-based resources and services.
 
 ### Alternatives
 
@@ -88,7 +88,7 @@ Before you proceed with your deployment, answer the following questions about yo
 
 ### Sterling OMS
 
-Sterling OMS version 10.0.2209.0 has been tested on Azure. We recommend that you use the latest version of Sterling OMS. At the time of writing, that version is 10.0.2209.0.
+Sterling OMS version 10.0.2209.0 has been tested on Azure. We recommend that you use the latest version of Sterling OMS. 
 
 Before deploying your Azure resources to support your Sterling OMS environment, familiarize yourself with the following requirements:
 
@@ -103,7 +103,7 @@ Sterling OMS has been tested with Azure Red Hat OpenShift version 4.10.15. Befor
 
 - Decide on a domain. When you deploy Azure Red Hat OpenShift, specify a domain name that gets appended to all services that get deployed in your cluster.
 - Determine your API and ingress visibility. Decide how you want your OpenShift cluster API (for management) and ingress (for deployed applications and services) to be internet-facing. If you use private connectivity to hide your API or ingress, you can only reach these endpoints from a machine that can reach the network where you deploy your service.
-- Calculate your master and worker VM sizes and counts. In Azure Red Hat OpenShift, the master count is a fixed number, with a minimum recommended size. Your worker nodes, which run your application workloads like Sterling OMS, are sized separately. When you deploy your instance, consider the required number of worker nodes in your cluster, plus the appropriate size of each. You might need to do some testing and validation to determine the correct numbers and sizes. These values depend on the number of agents in your deployment and the number of pods for each agent type that you run. After deploying, you can adjust these values when you need to scale.
+- Calculate your control and worker VM sizes and counts. In Azure Red Hat OpenShift, the control count is a fixed number, with a minimum recommended size. Your worker nodes, which run your application workloads like Sterling OMS, are sized separately. When you deploy your instance, consider the required number of worker nodes in your cluster, plus the appropriate size of each. You might need to do some testing and validation to determine the correct numbers and sizes. These values depend on the number of agents in your deployment and the number of pods for each agent type that you run. After deploying, you can adjust these values when you need to scale.
 
 For more information, see [Before Your Begin for Azure Red Hat OpenShift](/azure/openshift/tutorial-create-cluster#before-you-begin).
 
@@ -247,9 +247,9 @@ IBM offers specialized services to help you with installation. Contact your IBM 
 
 Principal authors:
 
-- [David Baumgarten](https://www.linkedin.com/in/baumgarten-david) | Principal Cloud Solution Architect
-- [Drew Furgiuele](https://www.linkedin.com/in/pittfurg) | Senior Cloud Solution Architect
-- [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis) | Principal Cloud Solution Architect
+- [David Baumgarten](https://www.linkedin.com/in/baumgarten-david) | Principal Architect
+- [Drew Furgiuele](https://www.linkedin.com/in/pittfurg) | Senior Architect
+- [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis) | Chief Architect
 
 Other contributors:
 
@@ -279,4 +279,4 @@ Other contributors:
 
 - [Deploy IBM Maximo Application Suite on Azure](../../example-scenario/apps/deploy-ibm-maximo-application-suite.yml)
 - [Deploy a Java application with JBoss EAP on an ARO cluster](/azure/developer/java/ee/jboss-eap-on-aro)
-- [Oracle on Azure architecture design](../../solution-ideas/articles/oracle-on-azure-start-here.md)
+

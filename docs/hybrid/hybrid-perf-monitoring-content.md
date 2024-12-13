@@ -34,11 +34,11 @@ This reference architecture shows how to use Azure Monitor to monitor the perfor
 
 The architecture consists of the following components:
 
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines)
-- [Azure Monitor](https://azure.microsoft.com/products/monitor)
-- [Azure Policy](https://azure.microsoft.com/products/azure-policy)
-- [Azure Event Hubs](https://azure.microsoft.com/products/event-hubs)
-- [Azure Storage](https://azure.microsoft.com/product-categories/storage)
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines)
+- [Azure Monitor](/azure/azure-monitor/overview)
+- [Azure Policy](/azure/governance/policy/overview)
+- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs)
+- [Azure Storage](/azure/storage/common/storage-introduction)
 
 ## Recommendations
 
@@ -198,11 +198,7 @@ Learn more about the component technologies:
 
 ## Related resources
 
-Explore related architectures:
-
 - [Serverless event processing](../reference-architectures/serverless/event-processing.yml)
-- [Azure Data Explorer monitoring](../solution-ideas/articles/monitor-azure-data-explorer.yml)
-- [Monitor a microservices application in AKS](/azure/architecture/microservices/logging-monitoring)
 
 [architectural-diagram]: ./images/hybrid-perf-monitoring.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-perf-monitoring.vsdx

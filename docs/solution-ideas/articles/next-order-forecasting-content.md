@@ -143,7 +143,7 @@ Follow [MLOps guidelines](/azure/machine-learning/concept-model-management-and-d
 Here are some resources to consider:
 
 - [MLOps v2](../../data-guide/technology-choices/machine-learning-operations-v2.md)
-- [Azure MLOps v2 solution accelerator](https://github.com/Azure/mlops-v2)
+- [Azure MLOps v2 GitHub repository](https://github.com/Azure/mlops-v2)
 
 ### Performance efficiency
 
@@ -186,9 +186,4 @@ Other contributors:
 ## Related resources
 
 - [Many models machine learning at scale with Azure Machine Learning](../../ai-ml/idea/many-models-machine-learning-azure-machine-learning.yml)
-- [Solutions for the energy and environment industries](../../industries/energy-environment.md)
-- [Oil and gas tank level forecasting](../../solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml)
-- [Demand forecasting for shipping and distribution](../../solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml) 
-- [Forecast energy and power demand with machine learning](../../solution-ideas/articles/forecast-energy-power-demand.yml)
-- [Interactive price analytics using transaction history data](../../solution-ideas/articles/interactive-price-analytics.yml)
-- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)
+- [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)

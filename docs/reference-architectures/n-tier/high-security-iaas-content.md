@@ -16,7 +16,7 @@ Microsoft provides Basic *distributed denial of service (DDoS)* protection as pa
 
 Many IaaS applications consist of multiple tiers, such as a web tier, business tier, and data tier, which are hosted across multiple VMs. Key aspects of deploying *n-tier* app architectures on Azure VMs include:
 
-- **High availability (HA)**. HA apps must be available more than 99.9% of the time. Placing in-tier VMs in different Azure [availability zones](/azure/availability-zones/az-overview) ensures HA, because availability zones span one or more datacenters, providing resiliency through resistance to datacenter failure. Regions that don't support availability zones can use [availability sets](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy), which distribute VMs across multiple isolated hardware nodes.
+- **High availability (HA)**. HA apps must be available more than 99.9% of the time. Placing in-tier VMs in different Azure [availability zones](/azure/reliability/availability-zones-overview) ensures HA, because availability zones span one or more datacenters, providing resiliency through resistance to datacenter failure. Regions that don't support availability zones can use [availability sets](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy), which distribute VMs across multiple isolated hardware nodes.
 - **Load balancing**. [Load balancers](/azure/load-balancer/load-balancer-get-started-internet-arm-cli) distribute traffic among VMs, to balance load and for resiliency when a VM fails. You don't need load balancers if the application manages load balancing and the individual VMs are known to the caller.
 - **Virtual networks**. [Virtual networks](/azure/virtual-network/) and subnets segment your network, enabling easier security management and advanced routing.
 - **Domain Name System (DNS)**. [Azure DNS](/azure/dns/) provides a highly available and secure DNS service. A [private zone](/azure/dns/private-dns-overview) in Azure DNS lets you use custom domains inside your virtual networks.
@@ -105,7 +105,7 @@ Hybrid architectures connect on-premises networks with public clouds like Azure.
 
 - **Public endpoint over the internet**. You can rely on identity, transport level security (HTTPS), and the application gateway to protect the application, potentially in combination with a firewall. However, for highly sensitive workloads, exposing a public endpoint over the internet isn't recommended.
 - **Azure or third-party VPN gateway**. You can connect an on-premises network to Azure by using an [Azure VPN gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager). Traffic still travels over the internet, but over an encrypted tunnel that uses TLS. You can also run a third-party gateway in a VM, if you have specific requirements not supported by the Azure VPN gateway.
-- **ExpressRoute**. [ExpressRoute](../hybrid-networking/expressroute.yml) connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure, and provides scalability and a reliable service-level agreement (SLA).
+- **ExpressRoute**. ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure, and provides scalability and a reliable service-level agreement (SLA).
   - [ExpressRoute with VPN failover](../hybrid-networking/expressroute-vpn-failover.yml). This option uses ExpressRoute in normal conditions, but fails over to a VPN connection if there's a loss of connectivity in the ExpressRoute circuit, providing higher availability.
   - [VPN over ExpressRoute](/azure/expressroute/site-to-site-vpn-over-microsoft-peering). This option is the best for highly sensitive workloads. ExpressRoute provides a private circuit with scalability and reliability, and VPN provides an additional layer of protection that terminates the encrypted connection in a specific Azure virtual network.
 
@@ -123,7 +123,7 @@ To deploy more applications, you can use a [hub-spoke network topology](../../ne
 
 ## Multi-region deployment
 
-Business continuity and disaster recovery might require deploying your application across multiple Azure regions, which can impact data residency and security. For a reference architecture for multi-region deployments, see [Run an N-tier application in multiple Azure regions for high availability](../../reference-architectures/n-tier/multi-region-sql-server.yml).
+Business continuity and disaster recovery might require deploying your application across multiple Azure regions, which can impact data residency and security.
 
 ### Regional pairs
 

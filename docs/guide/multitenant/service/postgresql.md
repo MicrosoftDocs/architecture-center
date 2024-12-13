@@ -6,8 +6,8 @@ author: PlagueHO
 ms.author: dascottr
 ms.date: 07/18/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure
   - azure-resource-manager
@@ -60,7 +60,7 @@ Solutions that need a very high level of scale can use Azure Cosmos DB for Postg
 
 More information:
 
-- [Design a multi-tenant database using Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/tutorial-design-database-multi-tenant)
+- [Design a multitenant database using Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/tutorial-design-database-multi-tenant)
 - [Distributed tables](/azure/cosmos-db/postgresql/concepts-nodes#type-1-distributed-tables)
 - Choosing a [distribution column](/azure/cosmos-db/postgresql/howto-choose-distribution-column) in a distributed table.
 - A guide to using [Citus for multitenant applications](https://docs.citusdata.com/en/v10.2/use_cases/multi_tenant.html).

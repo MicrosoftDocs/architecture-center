@@ -5,8 +5,9 @@ author: rickliev
 ms.author: rickliev
 ms.date: 06/07/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
+ms.custom: arb-telco
 products:
   - azure-stack-edge
   - azure-arc
@@ -162,6 +163,5 @@ Other contributor:
 
 ## Related resources
 
-- [Solutions for the telecommunications industry](../../industries/telecommunications.md)
 - [Edge Workload Configuration pattern](../../patterns/edge-workload-configuration.md)
 - [Build a private 5G network](build-private-5g-network.md)

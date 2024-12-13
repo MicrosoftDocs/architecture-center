@@ -7,7 +7,7 @@ metadata:
   ms.author: ajananth
   ms.date: 06/07/2024
   ms.topic: example-scenario
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom:
     - fcp
@@ -26,4 +26,4 @@ products:
   - azure-cache-redis
 thumbnailUrl: /azure/architecture/browse/thumbs/open-source-data-engine-stream-processing-architecture-thumbnail.png
 content: |
-   [!include[](open-source-data-engine-stream-processing-content.md)]
+   [!INCLUDE[](open-source-data-engine-stream-processing-content.md)]

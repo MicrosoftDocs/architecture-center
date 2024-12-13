@@ -6,8 +6,8 @@ author: martinekuan
 ms.author: robbag
 ms.date: 07/26/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom: fcp 
 keywords:
   - Azure
@@ -66,4 +66,3 @@ The following articles provide detailed analysis of architectures created and re
 The following are other ideas that you can use as a starting point for your travel and hospitality solution.
 
 - [Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
-- [Facilities management powered by mixed reality and IoT](../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)

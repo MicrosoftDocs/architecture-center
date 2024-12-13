@@ -24,7 +24,7 @@ After the machine-learning team has deployed the machine-learning model as an AP
 
 > [!NOTE]
 >
->- You can use various tools, such as Azure DevOps Pipelines and GitHub Actions, when implementing a [CI/CD pipeline](/azure/architecture/microservices/ci-cd).
+>- You can use various tools, such as Azure Pipelines and GitHub Actions, when implementing a [CI/CD pipeline](/azure/architecture/microservices/ci-cd).
 >
 >- The specific business requirements of your use case for analytics could require different services or features that aren't considered in this design.
 
@@ -32,23 +32,23 @@ After the machine-learning team has deployed the machine-learning model as an AP
 
 The following components are used as part of this design:
 
-- [Azure Databricks](https://azure.microsoft.com/services/databricks): An analytics service for big data that's easy to use, facilitates collaboration, and is based on Apache Spark. Azure Databricks is designed for data science and data engineering.
+- [Azure Databricks](/azure/databricks/introduction): An analytics service for big data that's easy to use, facilitates collaboration, and is based on Apache Spark. Azure Databricks is designed for data science and data engineering.
 
-- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service): A service that provides simplified deployment and management of Kubernetes by offloading the operational overhead to Azure.
+- [Azure Kubernetes Service](/azure/well-architected/service-guides/azure-kubernetes-service): A service that provides simplified deployment and management of Kubernetes by offloading the operational overhead to Azure.
 
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry): A private registry service for managing container images and artifacts. This service is based on the open-source Docker.
+- [Azure Container Registry](/azure/container-registry/container-registry-intro): A private registry service for managing container images and artifacts. This service is based on the open-source Docker.
 
-- [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage): A service that provides scalable storage that's optimized for massive amounts of unstructured data. [Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) offers file system semantics, file-level security, and scale.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction): A service that provides scalable storage that's optimized for massive amounts of unstructured data. Data Lake Storage Gen2 offers file system semantics, file-level security, and scale.
 
-- [Azure Monitor](https://azure.microsoft.com/services/monitor): A comprehensive solution for collecting, analyzing, and acting on telemetry from your workloads.
+- [Azure Monitor](/azure/azure-monitor/overview): A comprehensive solution for collecting, analyzing, and acting on telemetry from your workloads.
 
 - [MLflow](/azure/databricks/applications/mlflow): An open-source solution that's integrated within Databricks for managing the machine-learning lifecycle from end to end.
 
-- [Azure API Management](https://azure.microsoft.com/services/api-management): A fully managed service that helps customers to publish, secure, transform, maintain, and monitor APIs.
+- [Azure API Management](/azure/api-management/api-management-key-concepts): A fully managed service that helps customers to publish, secure, transform, maintain, and monitor APIs.
 
-- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway): A load balancer for web traffic that enables you to manage traffic to your web applications.
+- [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway): A load balancer for web traffic that enables you to manage traffic to your web applications.
 
-- [Azure DevOps](https://azure.microsoft.com/services/devops) or [GitHub](https://azure.microsoft.com/products/github): Solutions for implementing DevOps practices to enforce automation and compliance with your workload development and deployment pipelines.
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) or [GitHub](https://docs.github.com/en/get-started/start-your-journey/about-github-and-git): Solutions for implementing DevOps practices to enforce automation and compliance with your workload development and deployment pipelines.
 
 ## Scenario details
 
@@ -84,7 +84,9 @@ Before you implement this solution, some factors you might want to consider incl
 
 - Specific business requirements for your analytics use case could require the use of services or features that aren't considered in this design.
 
-### Cost optimization
+### Cost Optimization
+
+Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 All services deployed in this solution use a consumption-based pricing model. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for a specific scenario. For other considerations, see [Cost optimization](/azure/architecture/framework/cost) in the Well-Architected Framework.
 

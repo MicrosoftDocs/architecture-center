@@ -8,12 +8,12 @@ This article provides a basic architecture intended for learning about running w
 
 ## Architecture
 
-:::image type="complex" source="../_images/basic-app-service-architecture-flow.svg" lightbox="../_images/basic-app-service-architecture-flow.png" alt-text="Diagram that shows a basic App Service architecture.":::
+:::image type="complex" source="../_images/basic-app-service-architecture-flow.svg" lightbox="../_images/basic-app-service-architecture-flow.svg" alt-text="Diagram that shows a basic App Service architecture." border="false":::
     The diagram shows an Azure App Service connecting directly to an Azure SQL Database. The diagram also shows Azure App Insights and Azure Monitor.
 :::image-end:::
 *Figure 1: Basic Azure App Service architecture*
 
-*Download a [Visio file](https://arch-center.azureedge.net/web-app-services-basic.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/basic-app-service-architecture-flow.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -24,9 +24,9 @@ This article provides a basic architecture intended for learning about running w
 
 ### Components
 
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory/) is a cloud-based identity and access management service. It provides a single identity control plane to manage permissions and roles for users accessing your web application. It integrates with App Service and simplifies authentication and authorization for web apps.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. It provides a single identity control plane to manage permissions and roles for users accessing your web application. It integrates with App Service and simplifies authentication and authorization for web apps.
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building, deploying, and scaling web applications.
-- [Azure Monitor](https://azure.microsoft.com/products/monitor/) is a monitoring service that collects, analyzes, and acts on telemetry data across your deployment.
+- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring service that collects, analyzes, and acts on telemetry data across your deployment.
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a managed relational database service for relational data.
 
 ## Recommendations and considerations
@@ -48,7 +48,10 @@ Because this architecture isn't designed for production deployments, the followi
 
 See how to overcome these reliability concerns in the [reliability section in the Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#reliability).
 
-If this workload will eventually require a multi-region active-active or active-passive architecture, see [Highly available multi-region web application](./multi-region.yml) for guidance on deploying your App Service-hosted workload across multiple regions.
+If this workload will eventually require a multi-region active-active or active-passive architecture, see the following resources:
+
+- [Multi-region App Service app approaches for disaster recovery](../../guides/multi-region-app-service/multi-region-app-service.yml) for guidance on deploying your App Service-hosted workload across multiple regions.
+- [Highly available multi-region web application](./multi-region.yml) for a reference architecture that follows an active-passive approach.
 
 ### Security
 
@@ -153,6 +156,7 @@ The guidance is backed by an [example implementation](https://github.com/Azure-S
 
 - [Baseline zone-redundant web application](baseline-zone-redundant.yml)
 - [Highly available multi-region web application](multi-region.yml)
+- [Multi-region App Service app approaches for disaster recovery](../../guides/multi-region-app-service/multi-region-app-service.yml)
 
 Product documentation:
 

@@ -187,5 +187,4 @@ Principal author:
 ## Related resources
 
 - [Multi-tier web application built for HA/DR](../infrastructure/multi-tier-app-disaster-recovery.yml)
-- [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml)
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)

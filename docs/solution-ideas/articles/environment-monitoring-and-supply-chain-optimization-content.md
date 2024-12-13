@@ -18,13 +18,13 @@ This article describes a warehouse management scenario that monitors environment
 
 1. Device data is sent to Azure IoT Central. Customers use the solution for controlling and monitoring the devices.
 
-1. Modeling of the supply chain and warehouse facilities using Azure Digital Twins. This is a live executing environment where applications can ingest data to gain visibility on the status of the supply chain. Digital Twins integrates natively with Azure Event Hub, which other applications interact with to retrieve data from the twin.
+1. Modeling of the supply chain and warehouse facilities using Azure Digital Twins. This is a live executing environment where applications can ingest data to gain visibility on the status of the supply chain. Digital Twins integrates natively with Azure Event Hubs, which other applications interact with to retrieve data from the twin.
 
 1. Temporal and spatial data required by ML models is obtained from the external data sources.
 
 1. Key data is stored in Azure data solutions. Blob storage is used for ML training data. Azure Cosmos DB is used for scored data and key performance indexes.
 
-1. Telemetry data is ingested from IoT Central via Event Hub to ensure decoupling of the data ingestion and consumption. Azure Functions is used to combine external data sources and telemetry data, and then analyze this data set for any anomalies. The data is surfaced through Digital Twins.
+1. Telemetry data is ingested from IoT Central via Event Hubs to ensure decoupling of the data ingestion and consumption. Azure Functions is used to combine external data sources and telemetry data, and then analyze this data set for any anomalies. The data is surfaced through Digital Twins.
 
 1. Azure Databricks performs data transformations required for training the ML models.
 
@@ -45,8 +45,6 @@ This article describes a warehouse management scenario that monitors environment
 - [Azure Databricks](https://azure.microsoft.com/services/databricks) is a data analytics platform optimized for the Microsoft Azure cloud services platform. It's used for transforming, manipulating, and normalizing data so that it can be properly consumed by the machine learning pipeline.
 
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is used to create wildfire prediction models. The models provide the intelligence required to assess the risk of a wildfire. Input from multiple data sources is required to train the model for accuracy. These sources can include satellite imagery, historical data, local soil conditions, and weather data. Based on the predicated wildfire area from the model, the Supply Chain and Logistics Solution can reroute trucks.
-
-For more detailed discussions, see the [Azure IoT reference architecture](../../reference-architectures/iot.yml) to understand and explore the various implementation choices available.
 
 ## Scenario details
 
@@ -123,8 +121,4 @@ Principal author:
 
 ## Related resources
 
-- [Azure IoT reference architecture](../../reference-architectures/iot.yml) 
-- [Process real-time vehicle data using IoT](../../example-scenario/data/realtime-analytics-vehicle-iot.yml): A reference architecture for ingesting real-time vehicle data for analysis, including route optimization.
-- [IoT monitor and manage loops](../../example-scenario/iot/monitor-manage-loop.yml) is a design pattern describing a supervisory system that continually monitors a physical system controlled by a set of networked IoT devices.
-- [IoT analyze and optimize loops](../../example-scenario/iot/analyze-optimize-loop.yml) is a design pattern enabling the generation and application of business optimization insights to physical systems controlled by software by sourcing telemetry, refining it, and combining it with enterprise data sources to generate insights.
-- [IoT using Azure Cosmos DB](./iot-using-cosmos-db.yml) describes an example architecture for using Azure Cosmos DB to ingest device telemetry data at high rates and can serve indexed queries back with low latency and high availability.
+- [IoT architectures](/azure/architecture/browse/?azure_categories=iot)

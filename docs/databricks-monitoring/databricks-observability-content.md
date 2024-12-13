@@ -5,7 +5,7 @@
 >
 > Databricks has contributed an updated version to support Azure Databricks Runtimes 11.0 (Spark 3.3.x) and above on the `l4jv2` branch at: <https://github.com/mspnp/spark-monitoring/tree/l4jv2>.
 >
-> Please note that the 11.0 release is not backwards compatible due to the different logging systems used in the Databricks Runtimes. Be sure to use the correct build for your Databricks Runtime. The library and GitHub repository are in maintenance mode. There are no plans for further releases, and issue support will be best-effort only. For any additional questions regarding the library or the roadmap for monitoring and logging of your Azure Databricks environments, please contact [azure-spark-monitoring-help@databricks.com](mailto:azure-spark-monitoring-help@databricks.com).
+> Please note that the 11.0 release is not backward compatible due to the different logging systems used in the Databricks Runtimes. Be sure to use the correct build for your Databricks Runtime. The library and GitHub repository are in maintenance mode. There are no plans for further releases, and issue support will be best-effort only. For any additional questions regarding the library or the roadmap for monitoring and logging of your Azure Databricks environments, please contact [azure-spark-monitoring-help@databricks.com](mailto:azure-spark-monitoring-help@databricks.com).
 
 This solution demonstrates observability patterns and metrics to improve the processing performance of a big data system that uses Azure Databricks.
 
@@ -19,19 +19,19 @@ This solution demonstrates observability patterns and metrics to improve the pro
 
 The solution involves the following steps:
 
-1. The server sends a large GZIP file that's grouped by customer to the **Source** folder in Azure Data Lake Storage (ADLS).
+1. The server sends a large GZIP file that's grouped by customer to the **Source** folder in Azure Data Lake Storage.
 
-2. ADLS then sends a successfully extracted customer file to Azure Event Grid, which turns the customer file data into several messages.
+2. Data Lake Storage then sends a successfully extracted customer file to Azure Event Grid, which turns the customer file data into several messages.
 
 3. Azure Event Grid sends the messages to the Azure Queue Storage service, which stores them in a queue.
 
 4. Azure Queue Storage sends the queue to the Azure Databricks data analytics platform for processing.
 
-5. Azure Databricks unpacks and processes queue data into a processed file that it sends back to ADLS:
+5. Azure Databricks unpacks and processes queue data into a processed file that it sends back to Data Lake Storage:
 
     1. If the processed file is valid, it goes in the **Landing** folder.
 
-    1. Otherwise, the file goes in the **Bad** folder tree. Initially, the file goes in the **Retry** subfolder, and ADLS attempts customer file processing again (step 2). If a pair of retry attempts still leads to Azure Databricks returning processed files that aren't valid, the processed file goes in the **Failure** subfolder.
+    1. Otherwise, the file goes in the **Bad** folder tree. Initially, the file goes in the **Retry** subfolder, and Data Lake Storage attempts customer file processing again (step 2). If a pair of retry attempts still leads to Azure Databricks returning processed files that aren't valid, the processed file goes in the **Failure** subfolder.
 
 6. As Azure Databricks unpacks and processes data in the previous step, it also sends application logs and metrics to Azure Monitor for storage.
 
@@ -42,9 +42,9 @@ The solution involves the following steps:
 - [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a set of capabilities dedicated to big data analytics.
 - [Azure Event Grid](/azure/event-grid/overview) allows a developer to easily build applications with event-based architectures.
 - [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction) is a service for storing large numbers of messages. It allows access to messages from anywhere in the world through authenticated calls using HTTP or HTTPS. You can use queues to create a backlog of work to process asynchronously.
-- [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) is a data analytics platform optimized for the Azure cloud platform. One of the two environments Azure Databricks offers for developing data-intensive applications is [Azure Databricks Workspace](/azure/databricks/scenarios/what-is-azure-databricks-ws), an Apache Spark-based unified analytics engine for large-scale data processing.
+- [Azure Databricks](/azure/databricks/introduction) is a data analytics platform optimized for the Azure cloud platform. One of the two environments Azure Databricks offers for developing data-intensive applications is [Azure Databricks Workspace](/azure/databricks/scenarios/what-is-azure-databricks-ws), an Apache Spark-based unified analytics engine for large-scale data processing.
 - [Azure Monitor](/azure/azure-monitor/overview) collects and analyzes app telemetry, such as performance metrics and activity logs.
-- [Azure Log Analytics](/azure/azure-monitor/log-query/log-analytics-overview) is a tool used to edit and run log queries with data.
+- [Azure Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a tool used to edit and run log queries with data.
 
 ## Scenario details
 
@@ -79,9 +79,9 @@ Keep these points in mind when considering this architecture:
 
 - A queue message in Azure Queue Storage can be up to 64 KB in size. A queue may contain millions of queue messages, up to the total capacity limit of a storage account.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
@@ -228,11 +228,11 @@ The following sections contain the typical metrics used in this scenario for mon
 | Name | Measurement | Units |
 |------|-------------|-------|
 | Stream throughput | Average input rate over average processed rate per minute | Rows per minute |
-| Job duration | Average ended Spark job duration per minute | Duration(s) per minute |
+| Job duration | Average ended Spark job duration per minute | Durations per minute |
 | Job count | Average number of ended Spark jobs per minute | Number of jobs per minute |
-| Stage duration | Average completed stages duration per minute | Duration(s) per minute |
+| Stage duration | Average completed stages duration per minute | Durations per minute |
 | Stage count | Average number of completed stages per minute | Number of stages per minute |
-| Task duration | Average finished tasks duration per minute | Duration(s) per minute |
+| Task duration | Average finished tasks duration per minute | Durations per minute |
 | Task count | Average number of finished tasks per minute | Number of tasks per minute |
 
 ##### Spark job running status
@@ -274,7 +274,7 @@ If you look further into those 40 seconds, you see the data below for stages:
 
 At the 19:30 mark, there are two stages: an orange stage of 10 seconds, and a green stage at 30 seconds. Monitor whether a stage spikes, because a spike indicates a delay in a stage.
 
-Investigate when a certain stage is running slowly. In the partitioning scenario, there are typically at least two stages: one stage to read a file, and the other stage to shuffle, partition, and write the file.  If you have high stage latency mostly in the writing stage, you might have a bottleneck problem during partitioning.
+Investigate when a certain stage is running slowly. In the partitioning scenario, there are typically at least two stages: one stage to read a file, and the other stage to shuffle, partition, and write the file. If you have high stage latency mostly in the writing stage, you might have a bottleneck problem during partitioning.
 
 :::image type="content" source="_images/databricks-observability-task-latency-per-stage.png" alt-text="Task latency per stage chart for performance tuning, at the 90th percentile. The chart measures latency (0.032-16 seconds) while the app is running.":::
 

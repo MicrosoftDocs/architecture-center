@@ -7,9 +7,10 @@ metadata:
   ms.date: 07/12/2024
   ms.topic: conceptual
   ms.collection: ce-skilling-ai-copilot
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.service: azure-architecture-center
+  ms.subservice: architecture-guide
   ai-usage: ai-assisted
+  ms.custom: arb-aiml
 azureCategories:
   - ai-machine-learning
 products:

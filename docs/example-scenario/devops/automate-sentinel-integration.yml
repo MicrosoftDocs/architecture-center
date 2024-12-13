@@ -2,12 +2,12 @@
 metadata:
   title: Automate Sentinel integration with Azure DevOps
   titleSuffix: Azure Example Scenarios
-  description: Automate your Microsoft Sentinel integration and deployment with Azure DevOps for your Security Operation Center. 
-  author: martinekuan
-  ms.author: pnp
+  description: Automate your Microsoft Sentinel integration and deployment with Azure DevOps for your Security Operation Center.
+  author: brandonmartinez
+  ms.author: brmar
   ms.date: 06/08/2022
   ms.topic: example-scenario
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom: arb-devops
 azureCategories:
@@ -19,7 +19,7 @@ products:
   - defender-for-cloud
   - microsoft-sentinel
 name: Automate Sentinel integration with Azure DevOps
-summary: Automate your Microsoft Sentinel integration and deployment with Azure DevOps for your Security Operation Center. 
+summary: Automate your Microsoft Sentinel integration and deployment with Azure DevOps for your Security Operation Center.
 thumbnailUrl: /azure/architecture/browse/thumbs/mitre-attack-in-sentinel-artifacts-dev.png
 content: |
-  [!include[](automate-sentinel-integration-content.md)]
+  [!INCLUDE[](automate-sentinel-integration-content.md)]

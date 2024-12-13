@@ -1,4 +1,6 @@
-This article shows how to set up improved-security private connectivity to a multitenant web app or function app from an on-premises network or from within an Azure virtual network. It also shows how to set up improved-security connectivity between the app and other Azure PaaS services over Azure Private Link, without using the public internet.
+This article shows how to set up improved-security private connectivity to an App Service web app or a function app from an on-premises network or from within an Azure virtual network. It also shows how to set up improved-security connectivity between the app and other Azure PaaS services over Azure Private Link, without using the public internet.
+
+In this article, Azure App Service refers to the pricing tiers where there is shared infrastructure with other App Service customers, such as Basic, Standard, and the Premium tiers. App Service Environment deploys directly into your virtual network with dedicated supporting infrastructure and uses Isolated pricing tiers and is not the focus of this article.
 
 ## Architecture
 
@@ -46,8 +48,8 @@ This article shows how to set up improved-security private connectivity to a mul
 ### Components
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications and function apps, allowing autoscale and high availability without requiring you to manage infrastructure.
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a general-purpose relational-database managed service that supports relational data, spatial data, JSON, and XML.
-- [Azure Storage account](https://azure.microsoft.com/product-categories/storage) provides a unique namespace for Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. It contains all Azure Storage data objects: blobs, file shares, queues, tables, and disks.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a general-purpose relational-database managed service that supports relational data, spatial data, JSON, and XML.
+- [Azure Storage account](/azure/well-architected/service-guides/storage-accounts/reliability) provides a unique namespace for Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. It contains all Azure Storage data objects: blobs, file shares, queues, tables, and disks.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) is a service for securely storing and accessing API keys, passwords, certificates, cryptographic keys, or any other secrets used by cloud apps and services.
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks through virtual networks.
 - [Azure Private Link](https://azure.microsoft.com/services/private-link) provides a private endpoint in a virtual network for connectivity to Azure PaaS services like Azure Storage and SQL Database, or to customer or partner services.
@@ -58,15 +60,15 @@ This article shows how to set up improved-security private connectivity to a mul
 
 ### Alternatives
 
-For private connectivity, an alternative approach is to use [App Service Environment](/azure/app-service/environment/intro) to host the web application in an isolated environment. For the database, you can natively deploy [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) in a virtual network, so you don't need VNet Integration or private endpoints. These offerings are typically more expensive because they provide single-tenant isolated deployment and other features.
+For private connectivity, an alternative approach is to use [App Service Environment](/azure/app-service/environment/overview) to host the web application in an isolated environment. App Service Environment avoids shared [hosting infrastructure](/azure/app-service/environment/ase-multi-tenant-comparison#hosting) between App Service customers. For the database, you can natively deploy [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) in a virtual network, so you don't need virtual network Integration or private endpoints. These offerings are typically more expensive because they provide single-tenant isolated deployment and other features.
 
-If you have an App Service Environment but aren't using SQL Managed Instance, you can still use a private endpoint for private connectivity to an Azure SQL database. If you already have SQL Managed Instance but are using multitenant App Service, you can still use regional VNet Integration to connect to the SQL Managed Instance private address.
+If you have an App Service Environment but aren't using SQL Managed Instance, you can still use a private endpoint for private connectivity to an Azure SQL database. If you already have SQL Managed Instance but are using an App Service, you can still use regional VNet Integration to connect to the SQL Managed Instance private address.
 
 For some other Azure services, like Key Vault or Storage, there's no alternative to using private endpoints for highly secure and private connections from Web Apps.
 
 ## Potential use cases
 
-- Access a multitenant web app or function app privately with improved security over its [private endpoint](/azure/private-link/private-endpoint-overview) from an on-premises network or from within Azure virtual networks.
+- Access an App Service web app or function app privately with improved security over its [private endpoint](/azure/private-link/private-endpoint-overview) from an on-premises network or from within Azure virtual networks.
 - Connect from a web app or function app to Azure platform as a service (PaaS) offerings:
    - Another web app
    - SQL Database
@@ -101,7 +103,7 @@ An important security consideration in this scenario is the configuration of the
 
 Without using private connectivity, you can add [firewall rules](/azure/azure-sql/database/firewall-create-server-level-portal-quickstart) that allow inbound traffic from specified IP address ranges only. Another approach is to [allow Azure services](/azure/azure-sql/database/network-access-controls-overview#allow-azure-services) to access the server. This approach locks down the firewall to allow only traffic from within Azure. But this traffic includes all Azure regions and other customers.
 
-You can also add a more restrictive firewall rule to allow only your app's [outbound IP addresses](/azure/app-service/overview-inbound-outbound-ips#find-outbound-ips) to access the database. But because App Service is a multitenant service, these IP addresses are shared with and allow traffic from other customers on the same [deployment stamp](/azure/architecture/patterns/deployment-stamp), which uses the same outbound IP addresses.
+You can also add a more restrictive firewall rule to allow only your app's [outbound IP addresses](/azure/app-service/overview-inbound-outbound-ips#find-outbound-ips) to access the database. But these IP addresses are shared with multiple App Services and allow traffic from other customers on the same [deployment stamp](/azure/architecture/patterns/deployment-stamp), which uses the same outbound IP addresses.
 
 Using private connectivity through the virtual network provides these firewall options to help prevent others from accessing the database:
 - Create a [virtual network rule](/azure/azure-sql/database/vnet-service-endpoint-rule-overview) that allows traffic only from the regional subnet delegated by VNet Integration, *VNet Integration Subnet* in this example. The delegated subnet must have a [service endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) configured for *Microsoft.Sql* so the database can identify traffic from that subnet.
@@ -119,9 +121,9 @@ When you create a private endpoint, *VNet Integration Subnet* can access the ser
 
 ### Availability
 
-Private Link support for App Service, Azure SQL Database, Azure Storage, and Azure Key Vault is available in all public regions. To check availability in other regions, see [Azure Private Link availability](/azure/private-link/availability)
+Private Link support for App Service, Azure SQL Database, Azure Storage, and Azure Key Vault is available in all public regions. To check availability in other regions, see [Azure Private Link availability](/azure/private-link/availability).
 
-Private Link introduces another component and availability consideration into the architecture. The Private Link service has a [high-availability SLA](https://azure.microsoft.com/support/legal/sla/private-link). You need to take this SLA into account when you calculate the composite SLA of the entire solution.
+Private Link introduces another component and availability consideration into the architecture. The Private Link service has a [high-availability SLA](https://azure.microsoft.com/support/legal/sla/private-link). You need to take this SLA into account when you calculate the composite SLO of the entire solution.
 
 ### Scalability
 
@@ -153,7 +155,7 @@ The Azure Private Link service that enables the private endpoints for PaaS servi
 
 Azure Private DNS zone costs are based on the number of DNS zones hosted in Azure and the number of received DNS queries.
 
-To explore the cost of running this scenario, see the [Azure pricing calculator estimate](https://azure.com/e/004f18af0e4344d7acbabfc212930138). All the services described in this article are preconfigured with reasonable default values for a small-scale application. To see how the pricing would change for your use case, change the appropriate variables to match your expected usage.
+To explore the cost of running this scenario, see the [Azure pricing calculator estimate](https://azure.com/e/0e2073f20d324e568797b74f56906308). All the services described in this article are preconfigured with reasonable default values for a small-scale application. To see how the pricing would change for your use case, change the appropriate variables to match your expected usage.
 
 ## Contributors
 
@@ -171,7 +173,7 @@ Principal author:
 - See the steps to configure [Azure Firewall application rules to inspect traffic destined to private endpoints in various network topologies](/azure/private-link/inspect-traffic-with-azure-firewall).
 - For more information on inbound and outbound scenarios for App Service, and which features to use in which case, see the [App Service networking features overview](/azure/app-service/networking-features).
 - For more information about private endpoints for Azure Web Apps, see [Using Private Endpoints for Azure Web Apps](/azure/app-service/networking/private-endpoint).
-- For more information about integrating multitenant web apps with Azure Virtual Network, see [Integrate your app with an Azure virtual network](/azure/app-service/web-sites-integrate-with-vnet).
+- For more information about integrating App Service web apps with Azure Virtual Network, see [Integrate your app with an Azure virtual network](/azure/app-service/web-sites-integrate-with-vnet).
 - The FQDN of some of the PaaS services might resolve automatically to a public IP address. For information about overriding the DNS configuration to connect to the private endpoint, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
 
 ## Related resources

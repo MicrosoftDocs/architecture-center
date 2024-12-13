@@ -1,12 +1,12 @@
 ---
 title: Networking architecture design
 description: Learn about sample architectures, solutions, and guides that can help you explore the various networking services in Azure.
-author: martinekuan
-ms.author: martinek
+author: RobBagby
+ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-virtual-network
   - azure-virtual-wan
@@ -91,7 +91,6 @@ The following sections, organized by category, provide links to sample networkin
 - [Hub-and-spoke network topology with Azure Virtual WAN](../networking/architecture/hub-spoke-vwan-architecture.yml)
 
 ### Multi-region networking
-- [Multi-region N-tier application](../reference-architectures/n-tier/multi-region-sql-server.yml)
 - [Multi-region load balancing with Azure Traffic Manager and Application Gateway](../high-availability/reference-architecture-traffic-manager-application-gateway.yml)
 
 ## Stay current with networking

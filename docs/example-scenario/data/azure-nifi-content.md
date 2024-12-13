@@ -46,10 +46,10 @@ Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademar
 
 - [Azure Data Factory][Data Factory] provides an alternative to this solution.
 - Instead of Key Vault, you can use a comparable service to store system secrets.
-- [Apache Airflow](https://airflow.apache.org). See [how Airflow and NiFi are different](https://algoscale.com/blog/airflow-and-nifi-data-integration-tools).
+- [Apache Airflow](https://airflow.apache.org). For more information, see [How Airflow and NiFi are different](https://algoscale.com/blog/airflow-and-nifi-data-integration-tools).
 - It is possible to use a supported enterprise NiFi alternative like [Cloudera Apache NiFi](https://www.cloudera.com/products/open-source/apache-hadoop/apache-nifi.html). The Cloudera offering is available through the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/cloudera.cloudera-data-platform-public-cloud-contact).
 
-## Scenario details 
+## Scenario details
 
 In this scenario, NiFi runs in a clustered configuration across Azure Virtual Machines in a scale set. But most of this article's recommendations also apply to scenarios that run NiFi in single-instance mode on a single virtual machine (VM). The best practices in this article demonstrate a scalable, high-availability, and secure deployment.
 
@@ -71,7 +71,7 @@ As a result, this solution applies to many areas:
 
 - NiFi can run on a standalone basis on small-footprint devices. In such cases, NiFi makes it possible to process edge data and move that data to larger NiFi instances or clusters in the cloud. NiFi helps filter, transform, and prioritize edge data in motion, ensuring reliable and efficient data flows.
 
-- Industrial IoT (IIoT) solutions manage the flow of data from the edge to the data center. That flow starts with data acquisition from industrial control systems and equipment. The data then moves to data management solutions and MDWs. NiFi offers capabilities that make it well suited for data acquisition and movement:
+- Industrial IoT (IIoT) solutions manage the flow of data from the edge to the datacenter. That flow starts with data acquisition from industrial control systems and equipment. The data then moves to data management solutions and MDWs. NiFi offers capabilities that make it well suited for data acquisition and movement:
 
   - Edge data processing functionality
   - Support for protocols that IoT gateways and devices use
@@ -116,7 +116,7 @@ The following sections provide a detailed outline of how to configure the NiFi V
 
 This table lists recommended VM sizes to start with. For most general-purpose data flows, Standard_D16s_v3 is best. But each data flow in NiFi has different requirements. Test your flow and resize as needed based on the flow's actual requirements.
 
-Consider enabling accelerated networking on the VMs to increase network performance. For more information, see [Networking for Azure virtual machine scale sets][Networking for Azure virtual machine scale sets - Accelerated Networking].
+Consider enabling Accelerated Networking on the VMs to increase network performance. For more information, see [Networking for Azure virtual machine scale sets][Networking for Azure virtual machine scale sets - Accelerated Networking].
 
 | VM size | vCPU | Memory in GB | Max uncached data disk throughput in I/O operations per second (IOPS) per MBps* | Max network interfaces (NICs) / Expected network bandwidth (Mbps) |
 |---|---|---|---|---|
@@ -125,9 +125,9 @@ Consider enabling accelerated networking on the VMs to increase network performa
 | Standard_D32s_v3 | 32 | 128 | 51,200/768 | 8/16,000 |
 | Standard_M16m | 16 | 437.5 | 10,000/250 | 8/4,000|
 
-\* Disable data disk write caching for all data disks that you use on NiFi nodes.
+`*` Disable data disk write caching for all data disks that you use on NiFi nodes.
 
-\*\* We recommend this SKU for most general-purpose data flows. Azure VM SKUs with similar vCPU and memory configurations should also be adequate.
+`**` We recommend this SKU for most general-purpose data flows. Azure VM SKUs with similar vCPU and memory configurations should also be adequate.
 
 #### VM operating system (OS)
 
@@ -167,7 +167,7 @@ Consider these factors when you configure the data disks for NiFi:
 
 The following table shows the types of managed disks that are currently available in Azure. You can use NiFi with any of these disk types. But for high-throughput data flows, we recommend Premium SSD.
 
-| | Ultra Disk (NVM Express (NVMe)) | Premium SSD | Standard SSD | Standard HDD |
+| | Ultra Disk Storage (NVM Express (NVMe)) | Premium SSD | Standard SSD | Standard HDD |
 | --- | --- | --- | --- | ---|
 | **Disk type** | SSD | SSD | SSD | HDD |
 | **Max disk size** | 65,536 GB | 32,767 GB | 32,767 GB | 32,767 GB |
@@ -229,7 +229,7 @@ You can use this reporting task to offload provenance events to cost-effective, 
 
 You can also use this task with volatile, in-memory provenance storage. In many scenarios, you can then achieve a throughput increase. But this approach is risky if you need to preserve event data. Ensure that volatile storage meets your durability requirements for provenance events. For more information, see [Provenance Repository][NiFi System Administrators Guide - Provenance Repository] in the Apache NiFi System Administrator's Guide.
 
-Before using this process, create a log analytics workspace in your Azure subscription. It's best to set up the workspace in the same region as your workload.
+Before using this process, create a Log Analytics workspace in your Azure subscription. It's best to set up the workspace in the same region as your workload.
 
 To configure the provenance reporting task:
 
@@ -244,14 +244,14 @@ The following screenshot shows the properties menu for this reporting task:
 
 Two properties are required:
 
-- The log analytics workspace ID
-- The log analytics workspace key
+- The Log Analytics workspace ID
+- The Log Analytics workspace key
 
 You can find these values in the Azure portal by navigating to your Log Analytics workspace.
 
 Other options are also available for customizing and filtering the provenance events that the system sends.
 
-### Security 
+### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
@@ -329,7 +329,7 @@ The following sections show how to secure deployments in these ways:
 
 To improve security, use Azure disk encryption. For a detailed procedure, see [Encrypt OS and attached data disks in a virtual machine scale set with the Azure CLI][Encrypt OS and attached data disks in a virtual machine scale set with the Azure CLI]. That document also contains instructions on providing your own encryption key. The following steps outline a basic example for NiFi that work for most deployments:
 
-1. To turn on disk encryption in an existing Key Vault instance, use the following Azure CLI command:
+1. To turn on disk encryption in an existing Key Vault instance, use the following the Azure CLI command:
 
    ```azurecli
    az keyvault create --resource-group myResourceGroup --name myKeyVaultName --enabled-for-disk-encryption
@@ -341,7 +341,7 @@ To improve security, use Azure disk encryption. For a detailed procedure, see [E
    az vmss encryption enable --resource-group myResourceGroup --name myScaleSet --disk-encryption-keyvault myKeyVaultID --volume-type DATA
    ```
 
-1. You can optionally use a key encryption key (KEK). Use the following Azure CLI command to encrypt with a KEK:
+1. You can optionally use a key encryption key (KEK). Use the following the Azure CLI command to encrypt with a KEK:
 
    ```azurecli
    az vmss encryption enable --resource-group myResourceGroup --name  myScaleSet  \
@@ -512,7 +512,7 @@ Use a [health probe][Application Gateway health monitoring overview] to monitor 
 
 There are two key health probes to consider. Together they provide a regular heartbeat on the overall health of every node in the cluster. Configure the first health probe to point to the path `/NiFi`. This probe determines the health of the NiFi user interface on each node. Configure a second health probe for the path `/nifi-api/controller/cluster`. This probe indicates whether each node is currently healthy and joined to the overall cluster.
 
-You have two options for configuring the application gateway's front-end IP address:
+You have two options for configuring the application gateway front-end IP address:
 
 - With a public IP address
 - With a private subnet IP address
@@ -934,9 +934,7 @@ For more information, see the following resources:
 ## Related resources
 
 - [Helm-based deployments for Apache NiFi][Helm-based deployments for Apache NiFi]
-- [Azure Data Explorer monitoring][Azure Data Explorer monitoring]
-- [Hybrid extract, transform, load (ETL) with Azure Data Factory][Hybrid ETL with Azure Data Factory]
-- [DataOps for the modern data warehouse][DataOps for the modern data warehouse]
+- [DataOps for the modern data warehouse](/azure/architecture/databases/architecture/dataops-mdw)
 - [Data warehousing and analytics][Data warehousing and analytics]
 
 [Apache NiFi]: https://nifi.apache.org
@@ -947,10 +945,9 @@ For more information, see the following resources:
 [Apache ZooKeeper general information]: https://cwiki.apache.org/confluence/display/ZOOKEEPER/Index
 [Apache ZooKeeper Releases]: https://zookeeper.apache.org/releases.html
 [Application Gateway health monitoring overview]: /azure/application-gateway/application-gateway-probe-overview
-[Availability Zones]: /azure/availability-zones/az-overview#availability-zones
+[Availability Zones]: /azure/reliability/availability-zones-overview
 [Microsoft Entra ID]: https://azure.microsoft.com/services/active-directory
 [Azure Application Gateway documentation]: /azure/application-gateway
-[Azure Data Explorer monitoring]: ../../solution-ideas/articles/monitor-azure-data-explorer.yml
 [Azure DevOps]: https://azure.microsoft.com/services/devops
 [Azure Key Vault]: /azure/key-vault
 [Azure Monitor and Azure Data Explorer query differences]: /azure/azure-monitor/log-query/data-explorer-difference

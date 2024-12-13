@@ -1,20 +1,20 @@
 ### YamlMime:Architecture
 metadata:
-  title: Hybrid Cross-Cluster Scaling with Azure Arc for the workloads deployed on Azure Stack HCI
+  title: Hybrid Cross-Cluster Scaling with Azure Arc for the workloads deployed on Azure Local
   description: Perform cross-cluster scaling of on-premises workloads by using Azure Arc, Traffic Manager, or Front Door and then deploy by using Azure Pipelines.
   author: vidyann
   ms.author: vinara
   ms.reviewer: mabhavsar
   ms.date: 09/14/2023
   ms.topic: reference-architecture
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - storage
   ms.custom:
     - arb-hybrid
-name: Hybrid Cross-Cluster Scaling with Azure Arc for the workloads deployed on Azure Stack HCI
+name: Hybrid Cross-Cluster Scaling with Azure Arc for the workloads deployed on Azure Local
 azureCategories:
   - hybrid
   - storage

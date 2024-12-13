@@ -5,8 +5,8 @@ author: martinekuan
 ms.author: robbag
 ms.date: 06/16/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-attestation
   - azure-purview
@@ -70,7 +70,7 @@ The following sections provide links to reference architectures in some key mana
 - [Enterprise-scale disaster recovery](../../solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml)
 - [SMB disaster recovery with Azure Site Recovery](../../solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml)
 - [SMB disaster recovery with Double-Take DR](../../solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml)
-- [Use Azure Stack HCI stretched clusters for disaster recovery](../../hybrid/azure-stack-hci-dr.yml)
+- [Use Azure Local stretched clusters for disaster recovery](../../hybrid/azure-local-dr.yml)
 
 ### High availability
 
@@ -91,8 +91,8 @@ The following sections provide links to reference architectures in some key mana
 ### Hybrid management
 
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
-- [Back up files and applications on Azure Stack Hub](../../hybrid/azure-stack-backup.yml)
-- [Disaster recovery for Azure Stack Hub virtual machines](../../hybrid/azure-stack-vm-disaster-recovery.yml)
+- [Back up files and applications on Azure Stack Hub](/azure/backup/backup-mabs-files-applications-azure-stack)
+- [Enable virtual machine protection in Azure Site Recovery](/azure-stack/operator/protect-virtual-machines)
 - [Hybrid availability and performance monitoring](../../hybrid/hybrid-perf-monitoring.yml)
 - [Manage configurations for Azure Arc-enabled servers](../../hybrid/azure-arc-hybrid-config.yml)
 

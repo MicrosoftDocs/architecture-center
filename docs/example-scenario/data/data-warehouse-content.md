@@ -86,8 +86,8 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 Review a [pricing sample for a data warehousing scenario][calculator] via the Azure pricing calculator. Adjust the values to see how your requirements affect your costs.
 
 - [Azure Synapse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2) allows you to scale your compute and storage levels independently. Compute resources are charged per hour, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs will increase as you ingest more data.
-- [Data Factory](https://azure.microsoft.com/pricing/details/data-factory) costs are based on the number of read/write operations, monitoring operations, and orchestration activities performed in a workload. Your Data Factory costs will increase with each additional data stream and the amount of data processed by each one.
-- [Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services) is available in developer, basic, and standard tiers. Instances are priced based on query processing units (QPUs) and available memory. To keep your costs lower, minimize the number of queries you run, how much data they process, and how often they run.
+- [Data Factory](https://azure.microsoft.com/pricing/details/data-factory) costs are based on the number of read/write operations, monitoring operations, and orchestration activities performed in a workload. Your data factory costs will increase with each additional data stream and the amount of data processed by each one.
+- [Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services) is available in Developer, Basic, and Standard tiers. Instances are priced based on query processing units (QPUs) and available memory. To keep your costs lower, minimize the number of queries you run, how much data they process, and how often they run.
 - [Power BI](https://powerbi.microsoft.com/pricing) has different product options for different requirements. [Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded) provides an Azure-based option for embedding Power BI functionality inside your applications. A Power BI Embedded instance is included in the pricing sample above.
 
 ## Contributors
@@ -115,7 +115,3 @@ Principal author:
 <!-- links -->
 
 [calculator]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
-
-## Related resources
-
-- [Enterprise data warehouse](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse)

@@ -2,12 +2,12 @@
 metadata:
   title: Conditional Access design principles and dependencies
   description: Learn design principles and dependencies for a Conditional Access scenario that's based on Zero trust. 
-  author: clajes
-  ms.author: clajes
+  author: RobBagby
+  ms.author: pnp
   ms.date: 05/24/2024
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.service: azure-architecture-center
+  ms.subservice: architecture-guide
   ms.custom: fcp
 products:
   - entra-id

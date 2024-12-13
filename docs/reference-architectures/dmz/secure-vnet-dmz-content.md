@@ -21,7 +21,7 @@ The architecture consists of the following aspects:
     > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes to implement the forwarding rules that direct traffic back through the on-premises network.
 
 - **Gateway**. The gateway provides connectivity between the routers in the on-premises network and the virtual network. The gateway is placed in its own subnet.
-- **Azure Firewall**. [Azure Firewall](/azure/firewall/) is a managed firewall as a service. The Firewall instance is placed in its own subnet.
+- **Azure Firewall**. [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a managed firewall as a service. The Firewall instance is placed in its own subnet.
 
 - **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. 
 
@@ -31,7 +31,7 @@ The architecture consists of the following aspects:
 
 ## Potential use cases
 
-This architecture requires a connection to your on-premises datacenter, using either a [VPN gateway][ra-vpn] or an [ExpressRoute][ra-expressroute] connection. Typical uses for this architecture include:
+This architecture requires a connection to your on-premises datacenter, using either a [VPN gateway][ra-vpn-failover] or an ExpressRoute connection. Typical uses for this architecture include:
 
 - Hybrid applications where workloads run partly on-premises and partly in Azure.
 - Infrastructure that requires granular control over traffic entering an Azure virtual network from an on-premises datacenter.
@@ -167,7 +167,7 @@ Bastion billing is comparable to a basic, low-level virtual machine configured a
 
 #### Azure Virtual Network
 
-Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. For example, VMs in the same virtual network that talk to each other don't incur network traffic charges.
+Azure Virtual Network is free. Every subscription is allowed to create up to 1,000 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. For example, VMs in the same virtual network that talk to each other don't incur network traffic charges.
 
 #### Internal load balancer
 
@@ -239,15 +239,14 @@ For detailed information and additional deployment options, see the Azure Resour
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances
 [getting-started-with-azure-security]: /azure/security/azure-security-getting-started
-[guidance-expressroute-availability]: ../hybrid-networking/expressroute.yml#availability
-[guidance-expressroute-scalability]: ../hybrid-networking/expressroute.yml#scalability
-[guidance-expressroute-security]: ../hybrid-networking/expressroute.yml#security
+[guidance-expressroute-availability]: ../hybrid-networking/expressroute-vpn-failover.yml#availability
+[guidance-expressroute-scalability]: ../hybrid-networking/expressroute-vpn-failover.yml#scalability
+[guidance-expressroute-security]: ../hybrid-networking/expressroute-vpn-failover.yml#security
 [guidance-vpn-gateway-availability]: /azure/expressroute/expressroute-howto-coexist-resource-manager#availability-considerations
 [guidance-vpn-gateway-devops]: /azure/expressroute/expressroute-howto-coexist-resource-manager#devops-considerations
 [guidance-vpn-gateway-scalability]: /azure/expressroute/expressroute-howto-coexist-resource-manager#scalability-considerations
 [guidance-vpn-gateway-security]: /azure/expressroute/expressroute-howto-coexist-resource-manager#security-considerations
 [nsg]: /azure/virtual-network/security-overview
-[ra-expressroute]: ../hybrid-networking/expressroute.yml
 [ra-vpn-failover]: ../hybrid-networking/expressroute-vpn-failover.yml
 [ra-vpn]: /azure/expressroute/expressroute-howto-coexist-resource-manager
 [rbac-custom-roles]: /azure/role-based-access-control/custom-roles

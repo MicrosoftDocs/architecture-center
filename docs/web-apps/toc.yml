@@ -25,23 +25,7 @@ items:
         - name: Standard deployment
           href: app-service-environment/architectures/ase-standard-deployment.yml
         - name: High availability deployment
-          href: app-service-environment/architectures/ase-high-availability-deployment.yml            
-      - name: Host web apps with Azure Spring Apps
-        items:
-        - name: Get started
-          href: spring-apps/index.md
-        - name: Baseline
-          href: spring-apps/architectures/spring-apps-multi-zone.yml
-        - name: Baseline in multiple regions
-          href: spring-apps/architectures/spring-apps-multi-region.yml
-        - name: Baseline in landing zones
-          href: spring-apps/architectures/spring-apps-landing-zone.yml
-        - name: Guides
-          items:
-          - name: Spring Apps through a reverse proxy
-            href: spring-apps/guides/spring-cloud-reverse-proxy.yml
-          - name: Blue/green deployments for applications
-            href: spring-apps/guides/blue-green-spring.yml         
+          href: app-service-environment/architectures/ase-high-availability-deployment.yml             
       - name: Manage your APIs with Azure API Management (APIM)
         items:
         - name: Protect APIs with Application Gateway and APIM
@@ -54,6 +38,8 @@ items:
           href: serverless/architectures/web-app.yml
         - name: Serverless code walkthrough
           href: serverless/architectures/code.yml
+        - name: CI/CD for a serverless frontend
+          href: ../serverless/guide/serverless-app-cicd-best-practices.yml          
     - name: Apply guidance
       items:
       - name: Networking guidance for web apps
@@ -68,37 +54,34 @@ items:
           href: guides/security/secure-single-page-application-authorization.yml
       - name: Application development guidance for web apps
         items:
-        - name: Enterprise app patterns
+        - name: Enterprise web app patterns
           items:
-          - name: Reliable web app pattern
+          - name: Overview
+            href: guides/enterprise-app-patterns/overview.md
+          - name: Reliable Web App pattern
             items:
-            - name: Overview
-              href: guides/reliable-web-app/overview.md
             - name: .NET
-              items:
-              - name: Plan the implementation
-                href: guides/reliable-web-app/dotnet/plan-implementation.yml
-              - name: Apply the pattern
-                href: guides/reliable-web-app/dotnet/apply-pattern.yml
+              href: guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance.yml
             - name: Java
-              items:
-              - name: Plan the implementation
-                href: guides/reliable-web-app/java/plan-implementation.yml
-              - name: Apply the pattern
-                href: guides/reliable-web-app/java/apply-pattern.yml
-    - name: Hosting applications
-      items:
-      - name: WordPress
+              href: guides/enterprise-app-patterns/reliable-web-app/java/guidance.yml
+          - name: Modern Web App pattern
+            items:
+            - name: .NET
+              href: guides/enterprise-app-patterns/modern-web-app/dotnet/guidance.yml
+            - name: Java
+              href: guides/enterprise-app-patterns/modern-web-app/java/guidance.yml
+
+      - name: Disaster recovery for web apps
         items:
-        - name: Overview
-          href: ../guide/infrastructure/wordpress-overview.yml
-        - name: Container hosting (AKS)
-          href: ../example-scenario/infrastructure/wordpress-container.yml
-        - name: App Service hosting
-          href: ../example-scenario/infrastructure/wordpress-app-service.yml
-        - name: VM hosting
-          href: ../example-scenario/infrastructure/wordpress-iaas.yml
-      - name: Sitecore
-        href: hosting-applications/digital-marketing-sitecore.yml
-      - name: Umbraco
-        href: hosting-applications/medium-umbraco-web-app.yml                
+        - name: Multi-region App Service apps for disaster recovery
+          href: guides/multi-region-app-service/multi-region-app-service.yml
+    - name: Hosting Wordpress on Azure
+      items:
+      - name: Overview
+        href: ../guide/infrastructure/wordpress-overview.yml
+      - name: Container hosting (AKS)
+        href: ../example-scenario/infrastructure/wordpress-container.yml
+      - name: App Service hosting
+        href: ../example-scenario/infrastructure/wordpress-app-service.yml
+      - name: VM hosting
+        href: ../example-scenario/infrastructure/wordpress-iaas.yml

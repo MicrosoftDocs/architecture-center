@@ -21,15 +21,16 @@ This article describes an architecture that you can use to replace the manual an
 
 ### Components
 
-- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs) provides object storage for cloud-native workloads and machine learning stores. In this architecture, it stores the uploaded video files.
-- [Azure Machine Learning](https://azure.microsoft.com/products/machine-learning) is an enterprise-grade machine learning service for the end-to-end machine learning lifecycle.
-- [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) provides massively scalable, enhanced-security, cost-effective cloud storage for high-performance analytics workloads.
-- [Computer Vision](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/) is part of [Azure AI services](https://azure.microsoft.com/products/cognitive-services). It's used to retrieve information about each image.
-- [Custom Vision](https://azure.microsoft.com/products/cognitive-services/custom-vision-service) enables you to customize and embed state-of-the-art computer vision image analysis for your specific domains.
-- [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps) automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time.
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) provides object storage for cloud-native workloads and machine learning stores. In this architecture, it stores the uploaded video files.
+- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an enterprise-grade machine learning service for the end-to-end machine learning lifecycle.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) provides massively scalable, enhanced-security, cost-effective cloud storage for high-performance analytics workloads.
+- [Computer Vision](/azure/ai-services/computer-vision/overview) is part of [Azure AI services](/azure/ai-services/what-are-ai-services). It's used to retrieve information about each image.
+- [Custom Vision](/azure/ai-services/custom-vision-service/overview) enables you to customize and embed state-of-the-art computer vision image analysis for your specific domains.
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time.
 - [Microsoft Fabric](https://www.microsoft.com/en-us/microsoft-fabric) is an end-to-end unified analytics platform to streamline data integraion.  It is designed to simplify the process of managing and analyzing data across various domains by providing a comprehensive suite of tools and services within a single platform.
 - [SQL database in Fabric](https://blog.fabric.microsoft.com/en-us/blog/announcing-sql-database-in-microsoft-fabric-public-preview?ft=All) is a preview feature annonced at Ignite 2024, centered on three themes: simple, autonomous and secure, and optimized for AI.
-- [Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that work together to provide visualizations of your data.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to provide visualizations of your data.
+
 
 ## Architecture
 
@@ -61,11 +62,12 @@ This article describes an architecture that you can use to replace the manual an
 
 ### Alternatives
 
-- [Azure AI Content Understanding](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/) is a solution that analyzes and comprehends various media content—such as audio, video, text, and images—transforming it into structured, organized, and searchable data. It was annonced as a new AI service at Ignite 2024, it is currenly in preview.
-- [Azure Video Indexer](https://azure.microsoft.com/products/ai-video-indexer) is a video analytics service that uses AI to extract actionable insights from stored videos. You can use it without any expertise in machine learning.
-- [Azure Data Factory](https://azure.microsoft.com/products/data-factory) is a fully managed serverless data integration service that helps you construct extract, transform, load (ETL) and extract, load, transform (ELT) processes.
-- [Azure Functions](https://azure.microsoft.com/products/functions) is a serverless platform as a service (PaaS) that runs single-task code without requiring new infrastructure.
-- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a fully managed NoSQL database for modern app development.
+- [Azure AI Content Understanding](/azure/ai-services/content-understanding/) is a solution that analyzes and comprehends various media content—such as audio, video, text, and images—transforming it into structured, organized, and searchable data. It was annonced as a new AI service at Ignite 2024, it is currenly in preview.
+- [Azure Video Indexer](/azure/azure-video-indexer/video-indexer-overview) is a video analytics service that uses AI to extract actionable insights from stored videos. You can use it without any expertise in machine learning.
+- [Azure Data Factory](/azure/data-factory/introduction) is a fully managed serverless data integration service that helps you construct extract, transform, load (ETL) and extract, load, transform (ELT) processes.
+- [Azure Functions](/azure/azure-functions/functions-overview) is a serverless platform as a service (PaaS) that runs single-task code without requiring new infrastructure.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database for modern app development.
+
 
 ## Scenario details
 
@@ -93,7 +95,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 A reliable workload is one that's both resilient and available. *Resiliency* is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. *Availability* is a measure of whether your users can access your workload when they need to.
 
@@ -108,7 +110,7 @@ For the availability guarantees of the Azure services in this solution, see thes
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Consider the following resources:
 
@@ -118,9 +120,9 @@ Consider the following resources:
 - [Data sovereignty and encryption](/azure/architecture/framework/security/overview#data-sovereignty-and-encryption)
 - [Security resources](/azure/architecture/framework/security/overview#security-resources)
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Here are some guidelines for optimizing costs:
 
@@ -128,9 +130,9 @@ Here are some guidelines for optimizing costs:
 - Consider opportunity costs in your architecture, and the balance between first-mover advantage versus fast follow. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the initial cost and operational costs.
 - Establish [policies](/azure/architecture/framework/cost/principles), [budgets, and controls](/azure/architecture/framework/cost/monitor-alert) that set cost limits for your solution.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 Deployments need to be reliable and predictable. Here are some guidelines:
 
@@ -138,9 +140,9 @@ Deployments need to be reliable and predictable. Here are some guidelines:
 - Implement a fast, routine deployment process to avoid slowing down the release of new features and bug fixes.
 - Quickly roll back or roll forward if an update causes problems.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 Appropriate use of scaling and the implementation of PaaS offerings that have built-in scaling are the main ways to achieve performance efficiency.
 
@@ -151,14 +153,7 @@ Appropriate use of scaling and the implementation of PaaS offerings that have bu
 Principal author:
 
 - [Oscar Shimabukuro Kiyan](https://www.linkedin.com/in/oscarshk) | Senior Cloud Solutions Architect – Data & AI
-
-Other contributors:
-
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
-- [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b) | Senior Cloud Solutions Architect – Data & AI
-- [Arash Mosharraf](https://www.linkedin.com/in/arashaga) | Senior Cloud Solutions Architect – Data & AI
-- [Priyanshi Singh](https://www.linkedin.com/in/priyanshi-singh5) | Senior Cloud Solutions Architect – Data & AI
-- [Julian Soh](https://www.linkedin.com/in/juliansoh) | Director Specialist – Data & AI
+- [Han Wang](https://www.linkedin.com/in/han-hongrun-wang-577187106/) | Cloud Solutions Architect – Data & AI
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

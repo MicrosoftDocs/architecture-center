@@ -19,9 +19,9 @@ The architecture consists of the following components:
 
 ### Components
 
-- [Azure storage accounts](https://azure.microsoft.com/products/category/storage)
-- [Azure Files](https://azure.microsoft.com/products/storage/files)
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory)
+- [Azure Storage accounts](/azure/well-architected/service-guides/storage-accounts/reliability)
+- [Azure Files](/azure/well-architected/service-guides/azure-files)
+- [Microsoft Entra ID](/entra/fundamentals/whatis)
 
 ## Scenario details
 

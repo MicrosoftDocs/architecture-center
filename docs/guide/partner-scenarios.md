@@ -5,8 +5,8 @@ author: martinekuan
 ms.author: robbag
 ms.date: 06/14/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-kubernetes-service
   - azure-netapp-files
@@ -44,11 +44,7 @@ The [Azure Sponsorship for ISVs program](https://azure.microsoft.com/partners/is
 
 Visit [Azure Marketplace](https://azuremarketplace.microsoft.com) to discover, try, and deploy cloud software from Microsoft and Microsoft partners.
 
-This article provides a summary of architectures and solutions that use Azure together with partner and third-party solutions.
-
-We also recommend you browse our open-source solutions for Microsoft Azure:
-- [Apache open-source scenarios on Azure](/azure/architecture/guide/apache-scenarios)
-- [Open-source scenarios on Azure](/azure/architecture/guide/open-source-scenarios)
+This article provides a summary of architectures and solutions that use Azure together with partner and third-party solutions. For more information, see [Apache open-source scenarios on Azure](/azure/architecture/guide/apache-scenarios).
 
 ## Advanced
 
@@ -124,7 +120,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |[High availability in Azure public MEC](../example-scenario/hybrid/multi-access-edge-compute-ha.yml)|Learn how to deploy workloads in active-standby mode to achieve high availability and disaster recovery in Azure public multiaccess edge compute. MongoDB can provide IaaS services that support geo-replication.|Hybrid|
 |[Baseline web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)|Use the proven practices in this reference architecture to improve redundancy, scalability and performance in an App Service web application. MongoDB is recommended for non-relational data. |Web|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, MongoDB, PostgreSQL, and Redis components.|Analytics|
-|[Virtual network integrated serverless microservices](../example-scenario/integrated-multiservices/virtual-network-integration.yml)|Learn about an end-to-end solution for health records management that uses Azure Functions microservices integrated with other services via a virtual network. In this solution, microservices store data in Azure Cosmos DB, using the MongoDB Node.js driver.|Security|
 
 ## NetApp
 
@@ -157,14 +152,12 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Migrate IBM mainframe apps to Azure with TmaxSoft OpenFrame](../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)|Migrate IBM zSeries mainframe applications to Azure. Use a no-code approach that TmaxSoft OpenFrame provides. OpenFrame can integrate with RDBMSs like Oracle.|Mainframe|
-|[Oracle Database migration to Azure](../databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml)|Migrate an Oracle database and its applications to Azure. Use Oracle Active Data Guard for the database, and use Azure Load Balancer for the application tier.|Oracle|
+|[Migrate an Oracle database to Azure](../databases/idea/topic-migrate-oracle-azure.yml)|Migrate an Oracle database and its applications to Azure. You can migrate to either Azure virtual machines or Oracle Database@Azure, Exadata Database Service.|Oracle|
 |[Oracle Database with Azure NetApp Files](../example-scenario/file-storage/oracle-azure-netapp-files.yml)|Implement a high-bandwidth, low-latency solution for Oracle Database workloads. Use Azure NetApp Files to get enterprise-scale performance and to reduce costs.|Storage|
 |[Refactor mainframe applications with Advanced](../example-scenario/mainframe/refactor-mainframe-applications-advanced.yml)|Learn how to use the automated COBOL refactoring solution from Advanced to modernize your mainframe COBOL applications, run them on Azure, and reduce costs. Use Oracle databases on VMs for persistent data.|Mainframe|
 |[Run SAP NetWeaver in Windows on Azure](/azure/architecture/guide/sap/sap-netweaver)|Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability. Oracle is one recommended database.|SAP|
 |[SAP deployment on Azure using an Oracle database](../example-scenario/apps/sap-production.yml)|Learn proven practices for running SAP on Oracle in Azure, with high availability.|Oracle|
 |[Security considerations for highly sensitive IaaS apps in Azure](../reference-architectures/n-tier/high-security-iaas.yml)|Learn about VM security, encryption, NSGs, perimeter networks (also known as DMZs), access control, and other security considerations for highly sensitive IaaS and hybrid apps. A common replication scenario for IaaS architectures uses Oracle Active Data Guard. |Security|
-|[SWIFT\'s Alliance Access with Alliance Connect Virtual on Azure](../example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml)|View a reference architecture for deploying and running SWIFT Alliance Access with Alliance Connect Virtual on Azure. An Alliance Access component contains an embedded Oracle database.|Networking|
-|[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect Virtual](../example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml)|Run SWIFT AMH on Azure. This messaging solution helps financial institutions securely and efficiently bring new services to market. A key component, the AMH node, runs an Oracle database.|Networking|
 
 ## Qlik
 
@@ -189,7 +182,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |[Run SAP HANA Large Instances](../reference-architectures/sap/hana-large-instances.yml)|Learn proven practices for running SAP HANA in a high availability environment on Azure Large Instances.|SAP|
 |[Run SAP NetWeaver in Windows on Azure](/azure/architecture/guide/sap/sap-netweaver)|Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability.|SAP|
 |[SAP deployment on Azure using an Oracle database](../example-scenario/apps/sap-production.yml)|Learn proven practices for running SAP on Oracle in Azure, with high availability.|SAP|
-|[SAP on Azure architecture design](../reference-architectures/sap/sap-overview.yml)|Review a set of guiding tenets to help ensure the quality of SAP workloads that run on Azure.|SAP|
 |[SAP S/4HANA for Large Instances](../solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml)|With large SAP HANA instances, use Azure Virtual Machines, OS clustering, and NFS storage for scalability, performance, high reliability, and disaster recovery.|SAP|
 |[SAP S/4HANA in Linux on Azure](/azure/architecture/guide/sap/sap-s4hana)|Review proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.|SAP|
 |[SAP workload automation using SUSE on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml)|Use this solution to bolster productivity and facilitate innovation.|SAP|
@@ -199,12 +191,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[SAS on Azure architecture](../guide/sas/sas-overview.yml)|Learn how to run SAS analytics products on Azure. See guidelines for designing and implementing cloud solutions for SAS Viya and SAS Grid.|Compute|
-
-## Sitecore
-
-|Architecture|Summary|Technology focus|
-|--|--|--|
-|[Scalable Sitecore marketing website](../web-apps/hosting-applications/digital-marketing-sitecore.yml)|Learn how the Sitecore Experience Platform (XP) provides the data, integrated tools, and automation you need to engage customers throughout an iterative lifecycle.|Web|
 
 ## Skytap
 
@@ -224,16 +210,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Stromasys Charon-SSP Solaris emulator on Azure VMs](../solution-ideas/articles/solaris-azure.yml)|Learn how the Charon-SSP cross-platform hypervisor emulates legacy Sun SPARC systems on industry standard x86-64 computer systems and VMs.|Mainframe|
-
-## SWIFT
-
-|Architecture|Summary|Technology focus|
-|--|--|--|
-|[SWIFT\'s Alliance Access with Alliance Connect Virtual on Azure](../example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml)|View a reference architecture for deploying and running SWIFT Alliance Access with Alliance Connect Virtual on Azure.|Networking|
-|[SWIFT Alliance Cloud on Azure](../example-scenario/finance/swift-alliance-cloud-on-azure.yml)|Deploy Azure infrastructure for SWIFT Alliance Cloud.|Networking|
-|[SWIFT Alliance Connect Virtual on Azure](../example-scenario/finance/swift-on-azure-vsrx.yml)|View a series of articles about SWIFT Alliance Connect Virtual components that can be deployed on Azure.|Security|
-|[SWIFT Alliance Lite2 on Azure](../example-scenario/finance/swift-alliance-lite2-on-azure.yml)|Deploy SWIFT Alliance Lite2 on Azure. Migrate an existing deployment from on-premises or create a new deployment.|Networking|
-|[SWIFT\'s AMH with Alliance Connect Virtual](../example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml)|Run SWIFT AMH on Azure. Use this messaging solution with the Alliance Connect Virtual networking solution, which also runs on Azure.|Networking|
 
 ## Syncier
 
@@ -256,7 +232,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 ## Related resources
 
 - [Apache open-source scenarios on Azure](/azure/architecture/guide/apache-scenarios)
-- [Open-source scenarios on Azure](/azure/architecture/guide/open-source-scenarios)
 - [Scenarios featuring Microsoft on-premises technologies](../guide/on-premises-microsoft-technologies.md)
 - [Architecture for startups](../guide/startups/startup-architecture.md)
 - [Azure and Power Platform scenarios](../solutions/power-platform-scenarios.md)
