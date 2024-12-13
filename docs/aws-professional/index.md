@@ -31,7 +31,7 @@ These articles describe:
 - How Azure structures available solutions.
 - How the major Azure services differ from AWS services or how they are similar.
 
-Use the table of contents to select specific technology areas that are relevant to your workload. These articles compares services that are roughly comparable. Not every AWS service or Azure service is listed, and not every matched service has exact feature-for-feature parity.
+Use the table of contents to select specific technology areas that are relevant to your workload. These articles compare services that are roughly comparable. Not every AWS service or Azure service is listed, and not every matched service has exact feature-for-feature parity.
 
 ## Similarities and differences
 
