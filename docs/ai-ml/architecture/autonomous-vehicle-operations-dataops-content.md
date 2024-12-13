@@ -1,10 +1,10 @@
-This article presents a solution and guidance for developing offline data operations and data management (DataOps) for an automated driving system. The DataOps solution is built on the framework that's outlined in [Autonomous vehicle operations (AVOps) design guide](../../guide/machine-learning/avops-design-guide.md). DataOps is one of the building blocks of AVOps. Other building blocks include machine learning operations (MLOps), validation operations (ValOps), DevOps, and centralized AVOps functions.
+This article presents a solution and guidance for developing offline data operations and data management (DataOps) for an automated driving system. The DataOps solution is built on the framework that's outlined in [Autonomous vehicle operations (AVOps) design guide](./guide/avops-design-guide.md). DataOps is one of the building blocks of AVOps. Other building blocks include machine learning operations (MLOps), validation operations (ValOps), DevOps, and centralized AVOps functions.
 
 *Apache®, [Apache Spark](https://spark.apache.org/), and [Apache Parquet](https://parquet.apache.org/) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
-:::image type="content" source="./images/autonomous-vehicle-operations-dataops-architecture.png" alt-text="Architecture diagram that shows a solution for ingesting, processing, and enriching autonomous vehicle data." border="false" lightbox="./images/autonomous-vehicle-operations-dataops-architecture.png":::
+:::image type="content" source="./_images/autonomous-vehicle-operations-dataops-architecture.png" alt-text="Architecture diagram that shows a solution for ingesting, processing, and enriching autonomous vehicle data." border="false" lightbox="./_images/autonomous-vehicle-operations-dataops-architecture.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/autonomous-vehicle-operations-dataops.vsdx) that contains the architecture diagrams in this article.*
 
@@ -112,7 +112,7 @@ You can use Azure Data Explorer or Azure Cognitive Search to extend a metadata s
 
 The following metadata model diagram shows a typical unified metadata model that's used across several AVOps data loop pillars:
 
-:::image type="content" source="images/metadata-model.png" alt-text="Diagram that shows how the solution converts raw measurement data into derived data streams." border="false":::
+:::image type="content" source="_images/metadata-model.png" alt-text="Diagram that shows how the solution converts raw measurement data into derived data streams." border="false":::
 
 #### Data sharing
 
@@ -123,7 +123,7 @@ Data sharing is a common scenario in an AVOps data loop. Uses include data shari
 
 Recommended formats for label data exchange include [common objects in context (COCO) datasets](https://cocodataset.org/#home) and [Association for Standardization of Automation and Measuring Systems (ASAM) OpenLABEL datasets](https://www.asam.net/standards/detail/openlabel).
 
-In this solution, the labeled datasets are used in [MLOps](../../solution-ideas/articles/avops-architecture.yml#mlops) processes to create specialized algorithms such as perception and sensor fusion models. The algorithms can detect scenes and objects in an environment, such as the car changing lanes, blocked roads, pedestrian traffic, traffic lights, and traffic signs.
+In this solution, the labeled datasets are used in [MLOps](avops-architecture.yml#mlops) processes to create specialized algorithms such as perception and sensor fusion models. The algorithms can detect scenes and objects in an environment, such as the car changing lanes, blocked roads, pedestrian traffic, traffic lights, and traffic signs.
 
 ### Data pipeline
 
@@ -149,7 +149,7 @@ By using similar hierarchical structures, you can take advantage of the hierarch
 
 A Data Factory pipeline is triggered based on a schedule. After the pipeline is triggered, the data is copied from the Landing storage account to the Raw storage account.
 
-:::image type="content" source="./images/data-factory-copy-landing-raw.png" alt-text="Architecture diagram that shows a Data Factory pipeline. The pipeline validates, copies, and archives data. It also creates data streams." border="false" lightbox="./images/data-factory-copy-landing-raw.png":::
+:::image type="content" source="./_images/data-factory-copy-landing-raw.png" alt-text="Architecture diagram that shows a Data Factory pipeline. The pipeline validates, copies, and archives data. It also creates data streams." border="false" lightbox="./_images/data-factory-copy-landing-raw.png":::
 
 The pipeline retrieves all the measurement folders and iterates through them. With each measurement, the solution performs the following activities:
 
@@ -192,7 +192,7 @@ Note the following points:
 
 All extraction logic is packaged in different container images, with one container for each extraction process. Batch runs the container workloads in parallel when it extracts information from measurement files.
 
-:::image type="content" source="images/azure-batch-design.png" alt-text="Architecture diagram that shows how Batch retrieves images from a container registry and runs extraction jobs." border="false" lightbox="images/azure-batch-design.png":::
+:::image type="content" source="_images/azure-batch-design.png" alt-text="Architecture diagram that shows how Batch retrieves images from a container registry and runs extraction jobs." border="false" lightbox="_images/azure-batch-design.png":::
 
 Batch uses an orchestrator pool and an execution pool for processing workloads:
 
@@ -223,7 +223,7 @@ alc8-ebf39767c68b/57472a44-0886-475-865a-ca32{c851207",
 
 #### Stepwise extraction process
 
-:::image type="content" source="images/stepwise-extraction-process.png" alt-text="Architecture diagram that shows the steps of a job that extracts information from measurement data." border="false" lightbox="images/stepwise-extraction-process.png":::
+:::image type="content" source="_images/stepwise-extraction-process.png" alt-text="Architecture diagram that shows the steps of a job that extracts information from measurement data." border="false" lightbox="_images/stepwise-extraction-process.png":::
 
 1. Data Factory schedules a job with one task for the orchestrator pool to process a measurement for extraction. Data Factory passes the following information to the orchestrator pool:
 
@@ -321,11 +321,11 @@ Principal authors:
 
 For more information about how to develop ValOps for an autonomous driving system, see:
 > [!div class="nextstepaction"]
-> [Validation operations for autonomous vehicle operations](./autonomous-vehicle-validation-operations.yml)
+> [Validation operations for autonomous vehicle operations](autonomous-vehicle-validation-operations.yml)
 
 You might also be interested in these related articles:
 
-- [AVOps design guide](../../guide/machine-learning/avops-design-guide.md)
+- [AVOps design guide](./guide/avops-design-guide.md)
 - [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml)
 - [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)
 - [Automotive messaging, data & analytics reference architecture](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution)

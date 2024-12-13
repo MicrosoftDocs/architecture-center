@@ -2611,24 +2611,6 @@ items:
         href: /azure/architecture/browse/?terms=telecommunications
       - name: Geospatial analysis for telecommunications
         href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
-  - name: Automotive, Mobility, and Transportation
-    items:
-    - name: Guides
-      items:
-      - name: Autonomous Vehicle Operations design guide
-        href: /azure/architecture/guide/machine-learning/avops-design-guide
-      - name: Autonomous Vehicle Operations solution idea
-        href: /azure/architecture/solution-ideas/articles/avops-architecture
-    - name: Architectures
-      items:
-      - name: Software-defined vehicle DevOps toolchain
-        href: industries/automotive/software-defined-vehicle-reference-architecture.yml
-      - name: DataOps for autonomous vehicle operations
-        href: example-scenario/automotive/autonomous-vehicle-operations-dataops.yml
-      - name: ValOps for autonomous vehicle operations
-        href: example-scenario/automotive/autonomous-vehicle-validation-operations.yml   
-      - name: Automotive messaging, data, and analytics
-        href: industries/automotive/automotive-messaging-data-analytics.yml
   - name: Additional verticals
     items:
     - name: Game Development

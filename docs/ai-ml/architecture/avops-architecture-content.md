@@ -4,7 +4,7 @@ This architecture provides guidance and recommendations for developing an automa
 
 ## Architecture
 
-:::image type="content" source="../media/high-level-architecture.png" alt-text="Diagram that shows an AVOps architecture." lightbox="../media/high-level-architecture.png" border="false":::
+:::image type="content" source="./_images/high-level-architecture.png" alt-text="Diagram that shows an AVOps architecture." lightbox="./_images/high-level-architecture.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/avops-design-and-architecture.vsdx) that contains the architecture diagrams in this article.*
 
@@ -22,9 +22,9 @@ This architecture provides guidance and recommendations for developing an automa
 
 ### Data collection
 
-Data collection is one of the main [challenges](../../guide/machine-learning/avops-design-guide.md#challenges) of Autonomous Vehicles Operations (AVOps). The following diagram shows an example of how offline and online vehicle data can be collected and stored in a data lake.
+Data collection is one of the main [challenges](./guide/avops-design-guide.md#challenges) of Autonomous Vehicles Operations (AVOps). The following diagram shows an example of how offline and online vehicle data can be collected and stored in a data lake.
 
-:::image type="content" source="..\media\data-collection.png" alt-text="Diagram that shows offline and online data collection." lightbox="..\media\data-collection.png" border="false":::
+:::image type="content" source=".\_images\data-collection.png" alt-text="Diagram that shows offline and online data collection." lightbox=".\_images\data-collection.png" border="false":::
 
 ### DataOps
 
@@ -116,7 +116,7 @@ We recommend that you use a centralized team to handle these responsibilities:
 - Ownership of the metadata catalog
 - Capabilities for end-to-end lineage and traceability across all AVOps components
 
-![Diagram that shows centralized AVOps functions.](..\media\centralized-avops-functions.png)
+![Diagram that shows centralized AVOps functions.](.\_images\centralized-avops-functions.png)
 
 ## Scenario details
 
@@ -187,10 +187,10 @@ Other contributors:
 
 For more information about developing DataOps for an automated driving system, see:
 > [!div class="nextstepaction"]
-> [Data operations for autonomous vehicle operations](../../example-scenario/automotive/autonomous-vehicle-operations-dataops.yml)
+> [Data operations for autonomous vehicle operations](autonomous-vehicle-operations-dataops.yml)
 
 You might also be interested in these related articles:
 
-- [AVOps design guide](../../guide/machine-learning/avops-design-guide.md)
+- [AVOps design guide](./guide/avops-design-guide.md)
 - [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml)
 - [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)

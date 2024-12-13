@@ -48,6 +48,16 @@ items:
           href: ../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml
     - name: Design architectures
       items:
+      - name: Automotive
+        items:
+        - name: Automotive messaging, data, and analytics
+          href: ./architecture/automotive-messaging-data-analytics.yml  
+        - name: DataOps for autonomous vehicle operations
+          href: ./architecture/autonomous-vehicle-operations-dataops.yml
+        - name: Software-defined vehicle DevOps toolchain
+          href: ./architecture/software-defined-vehicle-reference-architecture.yml
+        - name: ValOps for autonomous vehicle operations
+          href: ./architecture/autonomous-vehicle-validation-operations.yml   
       - name: Chat bots
         items:
         - name: Azure OpenAI chat basic architecture
@@ -90,6 +100,12 @@ items:
           href: architecture/secure-compute-for-research.yml
     - name: Apply guidance
       items:
+      - name: Automotive
+        items:
+        - name: Autonomous Vehicle Operations design guide
+          href: ./guide/avops-design-guide.md
+        - name: Autonomous Vehicle Operations solution idea
+          href: ./architecture/avops-architecture.yml
       - name: Machine learning options
         href: guide/data-science-and-machine-learning.md
       - name: Developing and evaluating RAG solutions

@@ -1,10 +1,10 @@
-Validation operations (ValOps) testing for advanced driver-assistance systems (ADAS) and autonomous driving (AD) is a critical element of [Autonomous vehicle operations (AVOps) design](../../guide/machine-learning/avops-design-guide.md). This article provides guidance for developing a ValOps testing solution that ensures the reliability and safety of AD systems.
+Validation operations (ValOps) testing for advanced driver-assistance systems (ADAS) and autonomous driving (AD) is a critical element of [Autonomous vehicle operations (AVOps) design](./guide/avops-design-guide.md). This article provides guidance for developing a ValOps testing solution that ensures the reliability and safety of AD systems.
 
 By following this guidance, you can use Azure to facilitate extensive, scalable testing and validation processes. You can identify and address potential problems early in the development cycle by systematically evaluating software performance across diverse scenarios and conditions. You can run these scenarios by replaying recorded sensor data or by testing software in a dynamic environment, either through simulators or specialized on-premises hardware devices that inject real-time signals.
 
 ## Architecture
 
-:::image type="content" source="./images/autonomous-vehicle-validation-operations-architecture.svg" alt-text="An architecture diagram that shows a solution for validating autonomous vehicle software." border="false" lightbox="./images/autonomous-vehicle-validation-operations-architecture.svg":::
+:::image type="content" source="./_images/autonomous-vehicle-validation-operations-architecture.svg" alt-text="An architecture diagram that shows a solution for validating autonomous vehicle software." border="false" lightbox="./_images/autonomous-vehicle-validation-operations-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/autonomous-vehicle-validation-operations.vsdx) that contains the architecture diagrams in this article.*
 
@@ -43,7 +43,7 @@ Dynamic testing environments, facilitated by simulators or specialized on-premis
 
 Within the ValOps framework, you use two primary testing methodologies to ensure the robustness and reliability of ADAS and AD software: open-loop testing and closed-loop testing.
 
-[Open-loop testing](../../solution-ideas/articles/avops-architecture.yml#open-loop-testing) evaluates the system's responses to predefined inputs without any feedback that influences the ongoing simulation. This method lets you replay recorded sensor data and assess how the software processes this data under controlled conditions. Open-loop testing is useful for initial validation and debugging because it isolates the software's decision-making process from external variables.
+[Open-loop testing](avops-architecture.yml#open-loop-testing) evaluates the system's responses to predefined inputs without any feedback that influences the ongoing simulation. This method lets you replay recorded sensor data and assess how the software processes this data under controlled conditions. Open-loop testing is useful for initial validation and debugging because it isolates the software's decision-making process from external variables.
 
 The following list describes some examples of open-loop testing.
 
@@ -54,7 +54,7 @@ The following list describes some examples of open-loop testing.
 - **Algorithm validation** tests individual algorithms for features like object detection and lane keeping by using prerecorded data to ensure that they perform correctly under various conditions.
 - **Scenario-based testing** runs the system through various predefined scenarios to evaluate its performance in different situations, such as pedestrian crossings, merging traffic, or adverse weather conditions.
 
-[Closed-loop testing](../../solution-ideas/articles/avops-architecture.yml#closed-loop-testing-and-simulation) creates a dynamic environment where the system's actions influence the ongoing simulation. This feedback loop enables real-time interaction between the vehicle and its surroundings. Real-time interaction provides a more realistic assessment of the software's performance. Closed-loop testing is essential for evaluating the system's ability to adapt to changing conditions and make decisions in real-world scenarios.
+[Closed-loop testing](avops-architecture.yml#closed-loop-testing-and-simulation) creates a dynamic environment where the system's actions influence the ongoing simulation. This feedback loop enables real-time interaction between the vehicle and its surroundings. Real-time interaction provides a more realistic assessment of the software's performance. Closed-loop testing is essential for evaluating the system's ability to adapt to changing conditions and make decisions in real-world scenarios.
 
 The following list describes some examples of closed-loop testing.
 
@@ -76,7 +76,7 @@ Together, open-loop and closed-loop testing provide a comprehensive approach to 
 
 A key component in AD systems testing is validating the system across a diverse and expansive set of scenarios. To validate the AD capabilities via open-loop and closed-loop testing, use a catalog of real scenarios to test the AD solution's ability to simulate the behavior of autonomous vehicles.
 
-Within ValOps, use [scenario management](../../solution-ideas/articles/avops-architecture.yml#scenario-management) to accelerate the creation of scenario catalogs. Scenario management automatically reads the route network, which is a part of a scenario, from publicly accessible and freely available digital maps. Scenarios can be based on real-world data that you collect from sensors, or they can be synthetically generated to test specific aspects of the software.
+Within ValOps, use [scenario management](avops-architecture.yml#scenario-management) to accelerate the creation of scenario catalogs. Scenario management automatically reads the route network, which is a part of a scenario, from publicly accessible and freely available digital maps. Scenarios can be based on real-world data that you collect from sensors, or they can be synthetically generated to test specific aspects of the software.
 
 For example, scenarios might include:
 
@@ -97,11 +97,11 @@ To achieve scenario management, you should:
 
 The outputs of open-loop and closed-loop simulations generate measurements and KPIs. Use these outputs to validate the performance of the ADAS and AD software stack and identify areas for improvement. [Fabric](/fabric/get-started/microsoft-fabric-overview) and Power BI provide support for visualizing these measurements and KPIs. [Fabric copilot](/fabric/get-started/copilot-fabric-overview) can help validation engineers transform and analyze data, generate insights, and create visualizations. The following diagram illustrates an architecture that collects and stores measurement and KPI results in Fabric.
 
-:::image type="content" source="./images/example-resimulation-results-ingestion.svg" alt-text="An architecture diagram that shows resimulation results that Fabric ingests." border="false" lightbox="./images/example-resimulation-results-ingestion.svg":::
+:::image type="content" source="./_images/example-resimulation-results-ingestion.svg" alt-text="An architecture diagram that shows resimulation results that Fabric ingests." border="false" lightbox="./_images/example-resimulation-results-ingestion.svg":::
 
 Use a [DirectQuery connector in Azure Data Explorer](/power-query/connectors/azure-data-explorer) to directly visualize and analyze results, such as distance-to-objects metrics, in a Power BI report or dashboard. Here's an example of how a report might display the results from a resimulation or recompute run:
 
-:::image type="content" source="./images/example-resimulation-results-visualized.png" alt-text="A screenshot that shows a display of the results from a resimulation or recompute run." border="false" lightbox="./images/example-resimulation-results-visualized.png":::
+:::image type="content" source="./_images/example-resimulation-results-visualized.png" alt-text="A screenshot that shows a display of the results from a resimulation or recompute run." border="false" lightbox="./_images/example-resimulation-results-visualized.png":::
 
 ### Potential use cases
 
@@ -117,7 +117,7 @@ Batch provides an Azure-native option that provides scheduling and dynamic orche
 
 #### AKS-based architecture
 
-:::image type="content" source="./images/autonomous-vehicle-validation-operations-aks-architecture.svg" alt-text="An architecture diagram that shows a solution for validating autonomous vehicle software with AKS." border="false" lightbox="./images/autonomous-vehicle-validation-operations-aks-architecture.svg":::
+:::image type="content" source="./_images/autonomous-vehicle-validation-operations-aks-architecture.svg" alt-text="An architecture diagram that shows a solution for validating autonomous vehicle software with AKS." border="false" lightbox="./_images/autonomous-vehicle-validation-operations-aks-architecture.svg":::
 
 #### Architecture overview
 
@@ -129,7 +129,7 @@ This approach aligns with the work queue job scheduling pattern that's described
 
 The following diagram shows an example of a [Data Factory](/azure/data-factory/introduction) flow that invokes durable functions as part of a chain of tasks.
 
-:::image type="content" source="./images/durable-functions.png" alt-text="A diagram of a data factory flow that shows integration with durable functions." border="false" lightbox="./images/durable-functions.png":::
+:::image type="content" source="./_images/durable-functions.png" alt-text="A diagram of a data factory flow that shows integration with durable functions." border="false" lightbox="./_images/durable-functions.png":::
 
 #### Components
 
@@ -256,12 +256,12 @@ Other contributors:
 
 For more information about how to develop DataOps for an AD system, see:
 > [!div class="nextstepaction"]
-> [Data operations for autonomous vehicle operations](./autonomous-vehicle-operations-dataops.yml)
+> [Data operations for autonomous vehicle operations](autonomous-vehicle-operations-dataops.yml)
 
 You might also be interested in these related articles:
 
 - [Microsoft mobility documentation](/industry/mobility/)
-- [AVOps design guide](../../guide/machine-learning/avops-design-guide.md)
-- [SDV reference architecture](../../industries/automotive/software-defined-vehicle-reference-architecture.yml)
+- [AVOps design guide](./guide/avops-design-guide.md)
+- [SDV reference architecture](software-defined-vehicle-reference-architecture.yml)
 - [Automotive messaging, data & analytics reference architecture](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution)
 - [Enhancing efficiency in AVOps with Generative AI](https://download.microsoft.com/download/c/e/c/ceccb875-9cc9-49d2-b658-88d9abc4dc3f/enhancing-efficiency-in-AVOps-with-generative-AI.pdf)

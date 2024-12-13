@@ -6029,6 +6029,36 @@
       "source_path": "docs/solution-ideas/articles/next-order-forecasting.yml",
       "redirect_url": "/azure/architecture/ai-ml/idea/next-order-forecasting",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/machine-learning/avops-design-guide.md",
+      "redirect_url": "/azure/architecture/ai-ml/guide/avops-design-guide",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/avops-architecture.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/avops-architecture",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/industries/automotive/software-defined-vehicle-reference-architecture.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/software-defined-vehicle-reference-architecture",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/automotive/autonomous-vehicle-operations-dataops.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/autonomous-vehicle-operations-dataops",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/automotive/autonomous-vehicle-validation-operations.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/autonomous-vehicle-validation-operations",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/industries/automotive/automotive-messaging-data-analytics.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/automotive-messaging-data-analyticss",
+      "redirect_document_id": true
     }
   ]
 }
