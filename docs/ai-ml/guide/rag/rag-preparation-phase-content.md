@@ -103,10 +103,10 @@ In this step, gather documents that best represent the documents that you use in
 
 Consider these areas when you evaluate potential representative test documents:
 
-- **Pertinence**: The documents must meet the business requirements of the conversational application. For example, if you're building a chat bot tasked with helping customers perform banking operations, the documents should match that requirement, such as documents showing how to open or close a bank account. The documents must be able to address the test questions that are being gathered in the parallel step. If the documents don't have the information relevant to the questions, it cannot produce a valid response.
-- **Representative**: The documents should be representative of the different types of documents that your solution uses. For example, a car insurance document is different to a health insurance or life insurance document. Suppose the use case requires the solution to support all three types, and you only had two car insurance documents. Your solution would perform poorly for both health and life insurance. You should have at least 2 for each variation.
-- **Physical document quality**: The documents need to be in a usable shape. Scanned images, for example, might not allow you to extract usable information.
-- **Document content quality**: The documents must have high content quality. There shouldn't be misspellings or grammatical errors. Language models don't perform well if you provide them with poor quality content.
+- **Pertinence:** The documents must meet the business requirements of the conversational application. For example, if you build a chat bot that helps customers perform banking operations, the documents must meet that requirement. For example, the documents should show how to open or close a bank account. The documents must be able to address the test questions that you gather in the parallel step. If the documents don't have information that's relevant to the questions, your solution can't produce a valid response.
+- **Representation:** The documents should represent the different types of documents that your solution uses. For example, a car insurance document contains different information than a health insurance or life insurance document. Suppose the use case requires the solution to support all three types, and you only have two car insurance documents. Your solution would perform poorly for both health and life insurance operations. You should have at least two documents for each variation.
+- **Physical document quality:** The documents need to be in a usable shape. Scanned images, for example, might not allow you to extract usable information.
+- **Document content quality:** The documents must have high content quality. They shouldn't contain misspellings or grammatical errors. Language models don't perform well if you provide them with poor quality content.
 
 The success factor in this step is being *qualitatively confident* that you have a good representation of test documents for your particular domain.
 
@@ -129,9 +129,9 @@ In this step, you're gathering test queries that you use to evaluate your chunks
 
 The output of this phase includes content from both the [Gather representative test queries](#gather-test-queries) step, and the [Gather representative test documents](#gather-representative-test-documents) step. The output is a collection containing the following data:
 
-- **Query**: The question, representing a legitimate user's potential prompt.
-- **Context**: A collection of all the actual text in the documents that address the query. For each bit of context, you should include the page and the actual text.
-- **Answer**: A valid response to the query. The response be content directly from the documents or it might be rephrased from one or more pieces of context.
+- **Query:** The question, representing a legitimate user's potential prompt.
+- **Context:** A collection of all the actual text in the documents that address the query. For each bit of context, you should include the page and the actual text.
+- **Answer:** A valid response to the query. The response be content directly from the documents or it might be rephrased from one or more pieces of context.
 
 ### Creating synthetic queries
 
