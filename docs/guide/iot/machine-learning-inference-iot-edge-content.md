@@ -293,6 +293,6 @@ Other contributor:
 
 ## Related resources
 
-- [IoT architecture design](../../reference-architectures/iot/iot-architecture-overview.md)
+- [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
 - [Choose an IoT solution in Azure](/azure/iot/iot-services-and-technologies)
 - [AI architecture design](../../data-guide/big-data/ai-overview.md)
