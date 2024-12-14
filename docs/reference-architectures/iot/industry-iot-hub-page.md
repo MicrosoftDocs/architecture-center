@@ -21,7 +21,7 @@ products:
 
 This article provides an overview of industry-specific internet-of-things (IoT) reference architectures and example solutions.
 
-The following Azure IoT solutions and example scenarios address unique business challenges for specific industries. For overall IoT patterns and guides that apply across industry verticals, see [Get started with Azure IoT solutions](iot-architecture-overview.md). 
+The following Azure IoT solutions and example scenarios address unique business challenges for specific industries. For overall IoT patterns and guides that apply across industry verticals, see [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
 
 ## Automotive and transportation
 
@@ -35,10 +35,6 @@ The following Azure IoT solutions and example scenarios address unique business 
 
 - [Project 15 Open Platform IoT sustainability](../../solution-ideas/articles/project-15-iot-sustainability.yml). Open Platform open-source software connects to the cloud and securely manages devices for scientific and conservation projects. This architecture is a reference for building open-source, end-to-end IoT solutions.
 
-## Facilities and real estate
-
-- [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml). Smart places are physical environments, like buildings, campuses, and cities, that bring together connected devices and data sources. Azure Digital Twins stores digital representations of physical environments to use for monitoring, analysis, and management.
-
 ## Manufacturing
 
 - [Condition monitoring for industrial IoT](../../solution-ideas/articles/condition-monitoring.yml). Condition monitoring helps manufacturers discover anomalies before they become critical. In this solution, IoT devices connect to the cloud through OPC UA and Azure industrial IoT components.
@@ -48,4 +44,4 @@ The following Azure IoT solutions and example scenarios address unique business 
 ## Next steps
 
 - [Implement the Azure Industrial IoT reference solution architecture](/azure/iot/tutorial-iot-industrial-solution-architecture)
-- [Internet of things (IoT) architecture design](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
+- [IoT architectures](/azure/architecture/browse/?azure_categories=iot)

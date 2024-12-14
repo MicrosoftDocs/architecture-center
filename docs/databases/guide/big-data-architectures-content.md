@@ -124,6 +124,5 @@ See the following relevant Azure services:
 
 ## Related resources
 
-- [IoT architecture design](../../reference-architectures/iot/iot-architecture-overview.md)
+- [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
 - [Big data architecture style](../../guide/architecture-styles/big-data.yml)
-
