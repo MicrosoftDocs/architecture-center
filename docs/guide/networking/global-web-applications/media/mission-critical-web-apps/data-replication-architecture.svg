@@ -3575,7 +3575,7 @@
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(73000):26"/>
 			</v:userDefs>
 			<title>Users.683</title>
-			<desc>Relecould customers</desc>
+			<desc>Relecloud customers</desc>
 			<g id="shape684-855" v:mID="684" v:groupContext="shape">
 				<title>Sheet.684</title>
 				<v:userDefs>
@@ -3603,7 +3603,7 @@
 			<g id="shape683-863" v:mID="683" v:groupContext="groupContent">
 				<v:textBlock v:margins="rect(0,0,0,0)"/>
 				<v:textRect cx="15.84" cy="586.802" width="72" height="21.6036"/>
-				<text x="-3.65" y="584.1" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Relecould <tspan
+				<text x="-3.65" y="584.1" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Relecloud <tspan
 							x="-4.56" dy="1.2em" class="st6">customers</tspan></text>			</g>
 		</g>
 		<g id="shape687-866" v:mID="687" v:groupContext="shape" v:layerMember="1" transform="translate(645.66,-531.72)">
