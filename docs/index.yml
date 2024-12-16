@@ -319,21 +319,9 @@ conceptualContent:
         - text: Multi-region deployment
           itemType: architecture
           url: web-apps/app-service/architectures/multi-region.yml
-        - text: E-commerce API management
-          itemType: get-started
-          url:  example-scenario/apps/apim-api-scenario.yml
         - text: E-commerce product search
           itemType: get-started
           url:  ./databases/architecture/ecommerce-search.yml
-        - text: Publish internal APIs externally
-          itemType: get-started
-          url:  example-scenario/apps/publish-internal-apis-externally.yml
-        - text: Securely managed web application
-          itemType: get-started
-          url:  example-scenario/apps/fully-managed-secure-apps.yml
-        - text: Highly available web application
-          itemType: get-started
-          url:  example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
         - text: Protect APIs with Application Gateway and API Management
           itemType: concept
           url:  /azure/architecture/web-apps/api-management/architectures/protect-apis
