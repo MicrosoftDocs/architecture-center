@@ -70,10 +70,6 @@ The following resources can also help you design your application. Besides provi
 
 To learn about scenario-specific architectures, see the solutions in the following areas.
 
-#### AI
-
-- [Quality assurance][Quality assurance]: Implement quality assurance in an assembly line by using analytics and machine learning to predict problems.
-
 #### E-commerce
 
 - [Custom business processes][Custom business processes]: Automate workflows and connect to legacy airline systems.
