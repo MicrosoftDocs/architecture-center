@@ -17,7 +17,7 @@ products:
   - azure-cognitive-search
   - azure-openai
   - azure-machine-learning
-name: Preparation
+name: RAG preparation phase
 summary: Learn about what to consider when you gather test documents and queries. Use this information to test and validate your chunking and prompt-engineering strategies.
 thumbnailUrl: /azure/architecture/browse/thumbs/speech-text-thumb.png
 content: |
