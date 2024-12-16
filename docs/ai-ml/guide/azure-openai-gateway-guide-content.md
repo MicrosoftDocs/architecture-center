@@ -137,7 +137,7 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 - You need to build or extend your APIOps approach to cover the APIs exposed in the gateway.
 
-- You duplicate capabilities that's available through solutions such as the Azure AI Service resource or Azure OpenAI data zone load distribution functionality.
+- You duplicate capabilities that are available through solutions such as the Azure AI Service resource or Azure OpenAI data zone load distribution functionality.
 
 ### Performance Efficiency
 
