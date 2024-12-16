@@ -14,11 +14,15 @@ This section provides examples of specific key architectural challenges that you
 
 The reliability of the workload depends on several factors, including its capacity for self-preservation and self-recovery, which are often implemented through replication and failover mechanisms. Without a gateway, all reliability concerns must be addressed exclusively by using client logic and Azure OpenAI Service features. Workload reliability is compromised when there isn't enough reliability control available in either of those two surfaces.
 
-- **Redundancy:** Failing over between multiple Azure OpenAI instances based on service availability is a client responsibility that you need to control through configuration and custom logic. [Global](/azure/ai-services/openai/how-to/deployment-types#global-standard), standard or provisioned, and [data zone](/azure/ai-services/openai/how-to/deployment-types#data-zone-standard), standard or provisioned, do not impact the availability of the Azure OpenAI service from a regional endpoint availability perspective. You still have the responsibility to implement failover logic yourself.
+- **Load balancing or Redundancy:** Failing over between multiple Azure OpenAI instances based on service availability is a client responsibility that you need to control through configuration and custom logic.
+
+  [Global](/azure/ai-services/openai/how-to/deployment-types#global-standard), standard or provisioned, and [data zone](/azure/ai-services/openai/how-to/deployment-types#data-zone-standard), standard or provisioned, do not impact the availability of the Azure OpenAI service from a regional endpoint availability perspective. You still have the responsibility to implement failover logic yourself.
 
 - **Scale out to handle spikes:** Failing over to Azure OpenAI instances with capacity when throttled is another client responsibility that you need to control through configuration and custom logic. Updating multiple client configurations for new Azure OpenAI instances presents greater risk and has timeliness concerns. The same is true for updating client code to implement changes in logic, such as directing low priority requests to a queue during high demand periods.
 
-- **Load balancing or throttling:** Azure OpenAI APIs throttle requests by returning an HTTP 429 error response code to requests that exceed the Token-Per-Minute (TPM) or Requests-Per-Minute (RPM) in the standard model. Azure OpenAI APIs also throttle requests that exceed provisioned capacity for the pre-provisioned billing model. Handling appropriate back-off and retry logic is left exclusively to client implementations. [Global](/azure/ai-services/openai/how-to/deployment-types#global-standard) and [data zone](/azure/ai-services/openai/how-to/deployment-types#data-zone-standard) deployments of Azure OpenAI leverage Azure's global infrastructure to dynamically route requests to data centers with the best capacity for each request, with data zone deployments limited to the defined data zone. Using global and data zone deployments will significantly decrease service throttling.
+- **Throttling:** Azure OpenAI APIs throttle requests by returning an HTTP 429 error response code to requests that exceed the Token-Per-Minute (TPM) or Requests-Per-Minute (RPM) in the standard model. Azure OpenAI APIs also throttle requests that exceed provisioned capacity for the pre-provisioned billing model. Handling appropriate back-off and retry logic is left exclusively to client implementations.
+
+  Most workloads should solve this specific issue by using [global](/azure/ai-services/openai/how-to/deployment-types#global-standard) and [data zone](/azure/ai-services/openai/how-to/deployment-types#data-zone-standard) deployments of Azure OpenAI. Those deployments to use model capacity from data centers with the enough capacity for each request. Using global and data zone deployments will significantly decrease service throttling without added complexity of custom gateways. The global and data zone deployments are themselves a gateway implementation.
 
 ### Security challenges
 
@@ -30,7 +34,9 @@ Security controls must help protect workload confidentiality, integrity, and ava
 
 - **Network security:** Depending on client location relative to your Azure OpenAI instances, public internet access to language models might be necessary.
 
-- **Data sovereignty:** Data sovereignty in the context of Azure OpenAI refers to the legal and regulatory requirements related to the storage and processing of data within the geographic boundaries of a specific country or region. Your workload needs to ensure regional affinity so that clients can comply with data residency and sovereignty laws. This process involves multiple Azure OpenAI deployments. You should be aware that when you are using [global](/azure/ai-services/openai/how-to/deployment-types#global-standard) or [data zone](/azure/ai-services/openai/how-to/deployment-types#data-zone-standard) deployments of Azure OpenAI, data at rest remains in the designated Azure geography, but data may be transmitted and processed for inferencing in any Azure OpenAI location.
+- **Data sovereignty:** Data sovereignty in the context of Azure OpenAI refers to the legal and regulatory requirements related to the storage and processing of data within the geographic boundaries of a specific country or region. Your workload needs to ensure regional affinity so that clients can comply with data residency and sovereignty laws. This process involves multiple Azure OpenAI deployments.
+
+  You should be aware that when you are using [global](/azure/ai-services/openai/how-to/deployment-types#global-standard) or [data zone](/azure/ai-services/openai/how-to/deployment-types#data-zone-standard) deployments of Azure OpenAI, data at rest remains in the designated Azure geography, but data may be transmitted and processed for inferencing in any Azure OpenAI location.
 
 ### Cost optimization challenges
 
@@ -44,7 +50,7 @@ Workloads benefit when architectures minimize waste and maximize utility. Strong
 
 Without a gateway, observability, change control, and development processes are limited to what is provided by direct client-to-server communication.
 
-- **Quota control:** Clients receive 429 response codes directly from Azure OpenAI when the HTTP APIs are throttled. Workload operators are responsible for ensuring that enough quota is available for legitimate usage and that misbehaving clients don't consume in excess. When your workload consists of multiple model deployments, understanding quota usage and quota availability can be difficult to visualize.
+- **Quota control:** Clients receive 429 response codes directly from Azure OpenAI when the HTTP APIs are throttled. Workload operators are responsible for ensuring that enough quota is available for legitimate usage and that misbehaving clients don't consume in excess. When your workload consists of multiple model deployments or multiple data zones, understanding quota usage and quota availability can be difficult to visualize.
 
 - **Monitoring and observability:** Azure OpenAI default metrics are available through Azure Monitor. However, there's latency with the availability of the data and it doesn't provide real-time monitoring.
 
@@ -77,7 +83,7 @@ To address the many challenges listed in [Key challenges](#key-challenges), you 
 
 - Ability to introduce [gateway aggregation](../../patterns/gateway-aggregation.yml) and advanced [routing](../../patterns/gateway-routing.yml) to multiple services, such as routing low priority messages to a queue for [queue-based load leveling](../../patterns/queue-based-load-leveling.yml) or to compute to perform tasks.
 
-- Load balancing that uses [health endpoint monitoring](../../patterns/health-endpoint-monitoring.yml) to route only to health endpoints by [circuit breaking](../../patterns/circuit-breaker.yml) on unavailable or overloaded model deployments.
+- Load balancing that uses [health endpoint monitoring](../../patterns/health-endpoint-monitoring.yml) to route only to healthly endpoints by [circuit breaking](../../patterns/circuit-breaker.yml) on unavailable or overloaded model deployments.
 
 Some specific scenarios have more guidance available that directly addresses an API gateway and Azure OpenAI instances. Those scenarios are listed in the [Next steps](#next-steps) section.
 
@@ -131,6 +137,8 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 - You need to build or extend your APIOps approach to cover the APIs exposed in the gateway.
 
+- You duplicate capabilities that's available through solutions such as the Azure AI Service resource or Azure OpenAI data zone load distribution functionality.
+
 ### Performance Efficiency
 
 When considering how an API gateway benefits your architecture, use the [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) to evaluate your design. You need to address performance efficiency considerations such as the following:
@@ -148,13 +156,13 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 ## Implementation options
 
-Azure doesn't offer a turn-key solution designed specifically to proxy Azure OpenAI's HTTP API or other custom language model inferencing APIs. But there are still several options for your workload team to implement, such as a gateway in Azure.
+Azure doesn't offer a turn-key solution designed specifically to proxy Azure OpenAI's HTTP API or other custom language model inferencing APIs to cover all of these secenarios. But there are still several options for your workload team to implement, such as a gateway in Azure.
 
 ### Use Azure API Management
 
 [Azure API Management](/azure/api-management/api-management-key-concepts) is a platform-managed service designed to offload cross-cutting concerns for HTTP-based APIs. It's configuration driven and supports customization through its inbound and outbound request processing policy system. It supports highly available, zone-redundant, and even multi-region replicas by using a single control plane.
 
-Most of the gateway routing and request handling logic must be implemented in the policy system of API Management. You can combine [built-in policies](/azure/api-management/api-management-policies), such as [Limit Azure OpenAI API token usage](/azure/api-management/azure-openai-token-limit-policy) or [Emit metrics for consumption of Azure OpenAI tokens](/azure/api-management/azure-openai-emit-token-metric-policy), and your own custom policies. The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) GitHub repository contains a number of custom API Management policies along with a load-testing setup for testing the behavior of the policies.
+Most of the gateway routing and request handling logic must be implemented in the policy system of API Management. You can combine [built-in policies](/azure/api-management/api-management-policies) specific to Azure OpenAI, such as [Limit Azure OpenAI API token usage](/azure/api-management/azure-openai-token-limit-policy) or [Emit metrics for consumption of Azure OpenAI tokens](/azure/api-management/azure-openai-emit-token-metric-policy), and your own custom policies. The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) GitHub repository contains a number of custom API Management policies along with a load-testing setup for testing the behavior of the policies.
 
 Use the [Well-Architected Framework service guide for API Management](/azure/well-architected/service-guides/api-management/reliability) when designing a solution that involves Azure API Management. If your workload exists as part of an application landing zone, review the guidance available in the Cloud Adoption Framework for Azure on implementing an [Azure API Management landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator).
 
@@ -188,7 +196,7 @@ Learn ways to [Implement logging and monitoring for Azure OpenAI models](../open
 
 ## Related resources
 
-- [Azure OpenAI Service](https://azure.microsoft.com/products/cognitive-services/openai-service/)
+- [Azure OpenAI Service](/azure/well-architected/service-guides/azure-openai)
 - [API gateway in Azure API Management](/azure/api-management/api-management-gateways-overview)
 - [API Management landing zone](https://github.com/Azure/apim-landing-zone-accelerator/blob/main/scenarios/workload-genai/README.md) GitHub repository covering generative AI scenarios
 - [API Management gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit)
