@@ -38,7 +38,7 @@ Workloads benefit when architectures minimize waste and maximize utility. Strong
 
 - **Cost tracking:** Being able to provide a financial perspective on Azure OpenAI usage is limited to data aggregated from Azure OpenAI instance usage telemetry. When required to do chargeback or showback, you need to attribute that usage telemetry with various clients across different departments or even customers for multitenant scenarios.
 
-- **Provisioned throughput utilization:** Your workload wants to avoid waste by fully utilizing the provisioned throughput that you paid for. This means that clients must be trusted and coordinated to use provisioned-based model deployments before spilling over into any standard model deployments.
+- **Provisioned throughput utilization:** Your workload wants to avoid waste by fully utilizing the provisioned throughput that you paid for. This means that clients must be trusted and coordinated to use provisioned model deployments before spilling over into any standard model deployments.
 
 ### Operational excellence challenges
 
