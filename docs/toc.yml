@@ -1636,6 +1636,8 @@ items:
         href: guide/iot/scale-iot-solution-azure.md
       - name: Move IoT Hub solutions to production
         href: example-scenario/iot/iot-move-to-production.yml
+      - name: Multitenant IoT Hub-based solutions
+        href: guide/multitenant/approaches/iot.md
     - name: Architectures
       items:
       - name: Automated guided vehicles fleet control
