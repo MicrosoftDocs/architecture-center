@@ -1,4 +1,4 @@
-Validation operations (ValOps) testing for advanced driver-assistance systems (ADAS) and autonomous driving (AD) is a critical element of [Autonomous vehicle operations (AVOps) design](./guide/avops-design-guide.md). This article provides guidance for developing a ValOps testing solution that ensures the reliability and safety of AD systems.
+Validation operations (ValOps) testing for advanced driver-assistance systems (ADAS) and autonomous driving (AD) is a critical element of [Autonomous vehicle operations (AVOps) design](../guide/avops-design-guide.md). This article provides guidance for developing a ValOps testing solution that ensures the reliability and safety of AD systems.
 
 By following this guidance, you can use Azure to facilitate extensive, scalable testing and validation processes. You can identify and address potential problems early in the development cycle by systematically evaluating software performance across diverse scenarios and conditions. You can run these scenarios by replaying recorded sensor data or by testing software in a dynamic environment, either through simulators or specialized on-premises hardware devices that inject real-time signals.
 
@@ -261,7 +261,7 @@ For more information about how to develop DataOps for an AD system, see:
 You might also be interested in these related articles:
 
 - [Microsoft mobility documentation](/industry/mobility/)
-- [AVOps design guide](./guide/avops-design-guide.md)
+- [AVOps design guide](../guide/avops-design-guide.md)
 - [SDV reference architecture](software-defined-vehicle-reference-architecture.yml)
 - [Automotive messaging, data & analytics reference architecture](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution)
 - [Enhancing efficiency in AVOps with Generative AI](https://download.microsoft.com/download/c/e/c/ceccb875-9cc9-49d2-b658-88d9abc4dc3f/enhancing-efficiency-in-AVOps-with-generative-AI.pdf)

@@ -1,4 +1,4 @@
-This article presents a solution and guidance for developing offline data operations and data management (DataOps) for an automated driving system. The DataOps solution is built on the framework that's outlined in [Autonomous vehicle operations (AVOps) design guide](./guide/avops-design-guide.md). DataOps is one of the building blocks of AVOps. Other building blocks include machine learning operations (MLOps), validation operations (ValOps), DevOps, and centralized AVOps functions.
+This article presents a solution and guidance for developing offline data operations and data management (DataOps) for an automated driving system. The DataOps solution is built on the framework that's outlined in [Autonomous vehicle operations (AVOps) design guide](../guide/avops-design-guide.md). DataOps is one of the building blocks of AVOps. Other building blocks include machine learning operations (MLOps), validation operations (ValOps), DevOps, and centralized AVOps functions.
 
 *Apache®, [Apache Spark](https://spark.apache.org/), and [Apache Parquet](https://parquet.apache.org/) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks.*
 
@@ -325,7 +325,7 @@ For more information about how to develop ValOps for an autonomous driving syste
 
 You might also be interested in these related articles:
 
-- [AVOps design guide](./guide/avops-design-guide.md)
+- [AVOps design guide](../guide/avops-design-guide.md)
 - [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml)
 - [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)
 - [Automotive messaging, data & analytics reference architecture](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution)

@@ -22,7 +22,7 @@ This architecture provides guidance and recommendations for developing an automa
 
 ### Data collection
 
-Data collection is one of the main [challenges](./guide/avops-design-guide.md#challenges) of Autonomous Vehicles Operations (AVOps). The following diagram shows an example of how offline and online vehicle data can be collected and stored in a data lake.
+Data collection is one of the main [challenges](../guide/avops-design-guide.md#challenges) of Autonomous Vehicles Operations (AVOps). The following diagram shows an example of how offline and online vehicle data can be collected and stored in a data lake.
 
 :::image type="content" source=".\_images\data-collection.png" alt-text="Diagram that shows offline and online data collection." lightbox=".\_images\data-collection.png" border="false":::
 
@@ -191,6 +191,6 @@ For more information about developing DataOps for an automated driving system, s
 
 You might also be interested in these related articles:
 
-- [AVOps design guide](./guide/avops-design-guide.md)
+- [AVOps design guide](../guide/avops-design-guide.md)
 - [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml)
 - [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)

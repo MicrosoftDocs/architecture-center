@@ -315,7 +315,7 @@ OEM Automotive use cases are about enhancing vehicle performance, safety, and us
 
 - **Continuous product improvement** enhances vehicle performance by analyzing real-time data and applying updates remotely. For more information about how to develop software for the vehicle, see [SDV DevOps toolchain](software-defined-vehicle-reference-architecture.yml).
 
-- **Engineering test fleet validation** ensures vehicle safety and reliability by collecting and analyzing data from test fleets. For more information, see [Data analytics for automotive test fleets](automotive-telemetry-analytics.yml).
+- **Engineering test fleet validation** ensures vehicle safety and reliability by collecting and analyzing data from test fleets. For more information, see [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml).
 
 - **Companion app and user portal** enables remote vehicle access and control through a personalized app and web portal.
 
@@ -323,7 +323,7 @@ OEM Automotive use cases are about enhancing vehicle performance, safety, and us
 
 Broader ecosystem use cases enhance connected vehicle applications. These improvements benefit fleet operations, insurance, marketing, and roadside assistance across the entire transportation landscape.
 
-- **Connected commercial fleet operations** optimize fleet management through real-time monitoring and data-driven decision making. For more information, see [Automotive connected fleets](automotive-connected-fleets.yml).
+- **Connected commercial fleet operations** optimize fleet management through real-time monitoring and data-driven decision making. For more information, see [Automotive connected fleets](../../industries/automotive/automotive-connected-fleets.yml).
 
 - **Digital vehicle insurance** customizes insurance premiums based on driving behavior and provides immediate accident reporting.
 
@@ -447,7 +447,7 @@ The following articles describe interactions between components in the architect
 
 - [Create an Autonomous Vehicle Operations solution](avops-architecture.yml) provides a deeper look into automotive digital engineering for autonomous and assisted driving.
 - [SDV DevOps toolchain](software-defined-vehicle-reference-architecture.yml) describes how to build, validate, and deploy workloads to the vehicle.
-- [Data analytics for automotive test fleets](automotive-telemetry-analytics.yml) is a dedicated scenario where the collected data is used for engineering validation and root cause analysis.
+- [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml) is a dedicated scenario where the collected data is used for engineering validation and root cause analysis.
 
 The following articles cover some of the patterns used in the architecture:
 
