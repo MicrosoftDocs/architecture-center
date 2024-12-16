@@ -208,7 +208,7 @@ It's important to gather queries that the documents don't address and the querie
 
 ### Gather test queries for embedded media
 
-Like with text, you should gather a diverse set of questions that involve using the embedded media to generate highly relevant answers. If you have images with graphs, tables, or screenshots, make sure that you have questions that cover all of the use cases. If you determine in the [images portion of the document analysis step](#questions-about-images) that the text before or after the image is required to answer some questions, make sure that you have those questions in your test queries.
+Like with text, you should gather a diverse set of questions that involve using the embedded media to generate highly relevant answers. If you have images with graphs, tables, or screenshots, make sure that you have questions that cover all of the use cases. If you determine in the [images portion of the document analysis step](#determine-your-image-processing-requirements) that the text before or after the image is required to answer some questions, make sure that you have those questions in your test queries.
 
 ### Gather test queries guidance
 
