@@ -1,26 +1,27 @@
-After you've broken down your documents down into a collection of chunks, the next step is to enrich each chunk by both cleaning and augmenting the chunks with metadata. Cleaning the chunks allows you to achieve better matches for semantic queries in a vector search. Adding information allows you to support searches beyond semantic searches of the chunks. Both cleaning and augmenting involve extending the schema for the chunk.
+After you break your documents down into a collection of chunks, the next step is to enrich each chunk by cleaning it augmenting it with metadata. Cleaning the chunks enalbles you to achieve better matches for semantic queries in a vector search. Adding information enables you to support searches of the chunks that go beyond semantic searches. Both cleaning and augmenting involve extending the schema for the chunk.
 
-This article discusses various ways to augment your chunks, including some common cleaning operations you can perform on chunks to improve vector comparisons, and describes some common metadata fields you can add to your chunks to augment your search index.
+This article discusses various ways to augment your chunks, including some common cleaning operations you can perform on chunks to improve vector comparisons. It also describes some common metadata fields that you can add to your chunks to augment your search index.
 
-> This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
+> This article is part of a series. Here's the [introduction](./rag-solution-design-and-evaluation-guide.yml).
 
-:::image type="complex" source="./_images/enriching-chunks.png" lightbox="./_images/enriching-chunks.png" alt-text="Diagram showing json records with a single field being enriched." border="false":::
-   The diagram shows json with two rows. Each row has a single name-value pair called Chunk. The diagram shows how each of those rows is enriched into 2 json rows, each with six fields: Chunk, CleanedChunk, Title, Summary, Keywords and Questions, where Keywords and Questions are arrays and the other fields are name-value pairs.
+The following code sample shows chunks that are enriched with data.
+
+:::image type="complex" source="./_images/enriching-chunks.png" lightbox="./_images/enriching-chunks.png" alt-text="Diagram that shows JSON records. A single field is being enriched." border="false":::
+   The diagram shows two rows of JSON. Each row has a single name-value pair called Chunk. The diagram shows how each of those rows is enriched into two JSON rows, each with six fields: Chunk, CleanedChunk, Title, Summary, keywords, and questions. keywords and questions are arrays, and the other fields are name-value pairs.
 :::image-end:::
-*Figure 1. Enriching chunks with metadata*
 
 ## Cleaning
 
-Chunking your data supports your workload in its efforts to find the most relevant chunks, typically through vectorizing those chunks and storing them in a vector database. An optimized vector search returns only those rows in that database which have the closest semantic matches to the query. The goal of cleaning the data to support closeness matches by eliminating potential differences that aren't material to the semantics of the text. The following are some common cleaning procedures.
+Chunking your data helps your workload find the most relevant chunks, typically through vectorizing those chunks and storing them in a vector database. An optimized vector search returns only the rows in the database that have the closest semantic matches to the query. The goal of cleaning the data to support closeness matches by eliminating potential differences that aren't material to the semantics of the text. Following are some common cleaning procedures.
 
 > [!NOTE]
-> You will want to return the original, uncleaned chunk as the query result, so you will add an additional field to store the cleaned and vectorized data.
+> You should return the original, uncleaned chunk as the query result, so you should add an additional field to store the cleaned and vectorized data.
 
-- **Lowercasing** - Lowercasing allows words that are capitalized, such as words at the beginning of a sentence, to match with those same words within a sentence. Embeddings are typically case-sensitive meaning "Cheetah" and "cheetah" would result in a different vector for the same logical word. For example, for the embedded query: "what is faster, a cheetah or a puma?" The following embedding: "cheetahs are faster than pumas" is a closer match than embedding "Cheetahs are faster than pumas." Some lowercasing strategies lowercase all words, including proper nouns, while other strategies include just lowercasing the first words in a sentence.
-- **Remove stop words** - Stop words are words such as "a", "an" and "the" that commonly occur in sentences. You can remove stop words to reduce the dimensionality of the resulting vector. Removing stop words would allow both "a cheetah is faster than a puma" and "the cheetah is faster than the puma" to both be vectorially equal to "cheetah faster puma." However, it's important to understand that some stop words hold semantic meaning. For example, "not" might be considered a stop word, but would hold significant semantic meaning. It's important to test to see the effect of removing stop words.
-- **Fix spelling mistakes** - A misspelled word doesn't match with the correctly spelled word in the embedding model. For example, "cheatah" (*sic*) isn't the same as "cheetah" in the embedding. You should fix spelling mistakes to address this challenge.
-- **Remove unicode characters** - Removing Unicode characters can reduce noise in your chunks and reduce dimensionality. Like stop words, some Unicode characters might contain relevant information. It's important to test to understand the impact of removing Unicode characters.
-- **Normalization** - Normalizing the text to standards such as expanding abbreviations, converting numbers to words, and expanding contractions like "I'm" to "I am" can help increase the performance of vector searches.
+- **Lowercasing.** Lowercasing allows words that are capitalized, such as words at the beginning of a sentence, to match with those same words within a sentence. Embeddings are typically case-sensitive meaning "Cheetah" and "cheetah" would result in a different vector for the same logical word. For example, for the embedded query: "what is faster, a cheetah or a puma?" The following embedding: "cheetahs are faster than pumas" is a closer match than embedding "Cheetahs are faster than pumas." Some lowercasing strategies lowercase all words, including proper nouns, while other strategies include just lowercasing the first words in a sentence.
+- **Remove stop words.** Stop words are words such as "a", "an" and "the" that commonly occur in sentences. You can remove stop words to reduce the dimensionality of the resulting vector. Removing stop words would allow both "a cheetah is faster than a puma" and "the cheetah is faster than the puma" to both be vectorially equal to "cheetah faster puma." However, it's important to understand that some stop words hold semantic meaning. For example, "not" might be considered a stop word, but would hold significant semantic meaning. It's important to test to see the effect of removing stop words.
+- **Fix spelling mistakes.** A misspelled word doesn't match with the correctly spelled word in the embedding model. For example, "cheatah" (*sic*) isn't the same as "cheetah" in the embedding. You should fix spelling mistakes to address this challenge.
+- **Remove unicode characters.** Removing Unicode characters can reduce noise in your chunks and reduce dimensionality. Like stop words, some Unicode characters might contain relevant information. It's important to test to understand the impact of removing Unicode characters.
+- **Normalization.** Normalizing the text to standards such as expanding abbreviations, converting numbers to words, and expanding contractions like "I'm" to "I am" can help increase the performance of vector searches.
 
 ## Augmenting chunks
 
