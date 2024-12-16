@@ -24,7 +24,7 @@ This architecture provides guidance and recommendations for developing an automa
 
 Data collection is one of the main [challenges](../guide/avops-design-guide.md#challenges) of Autonomous Vehicles Operations (AVOps). The following diagram shows an example of how offline and online vehicle data can be collected and stored in a data lake.
 
-:::image type="content" source=".\_images\data-collection.png" alt-text="Diagram that shows offline and online data collection." lightbox=".\_images\data-collection.png" border="false":::
+:::image type="content" source="./_images/data-collection.png" alt-text="Diagram that shows offline and online data collection." lightbox="./_images/data-collection.png" border="false":::
 
 ### DataOps
 
@@ -116,7 +116,7 @@ We recommend that you use a centralized team to handle these responsibilities:
 - Ownership of the metadata catalog
 - Capabilities for end-to-end lineage and traceability across all AVOps components
 
-![Diagram that shows centralized AVOps functions.](.\_images\centralized-avops-functions.png)
+![Diagram that shows centralized AVOps functions.](./_images/centralized-avops-functions.png)
 
 ## Scenario details
 
