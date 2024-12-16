@@ -1,10 +1,10 @@
-This article includes a list of items you should consider when moving an IoT solution to a production environment.
+This article includes a list of items you should consider when moving an IoT Hub-based solution to a production environment.
 
 ## Use deployment stamps
 
 Stamps are discrete units of core solution components that support a defined number of devices. Each copy is called a *stamp*. or *scale unit*. For example, a stamp might consist of a set device population, an IoT Hub, an Event Hub or other routing endpoint, and a processing component. Each stamp supports a defined device population. You choose the maximum number of devices the stamp can hold. As the device population grows, you add stamp instances rather than independently scaling up different parts of the solution.
 
-If instead of adding stamps, you move a single instance of your IoT solution to production, you might encounter the following limitations:
+If instead of adding stamps, you move a single instance of your IoT Hub-based solution to production, you might encounter the following limitations:
 
 - **Scale limits:** Your single instance can encounter scaling limits. For example, your solution might be using services that have limits on the number of inbound connections, host names, TCP sockets, or other resources.
 
@@ -80,5 +80,4 @@ Principal authors:
 
 ## Next steps
 
-- [Getting started with Azure IoT solutions](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
-- [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
+- [IoT architectures](/azure/architecture/browse/?azure_categories=iot)

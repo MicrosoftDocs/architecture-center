@@ -278,4 +278,3 @@ Explore related architectures:
 - [Run SAP HANA on Azure (large instances)](./hana-large-instances.yml)
 - [SAP S/4HANA in Linux on Azure](/azure/architecture/guide/sap/sap-s4hana)
 - [SAP S/4 HANA for large instances](../../solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml)
-- [SAP on Azure Architecture Guide](./sap-overview.yml)

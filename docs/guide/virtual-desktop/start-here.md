@@ -89,4 +89,4 @@ These are some additional articles about Azure Virtual Desktop:
 
 ### AWS professionals
 
-- [AWS to Azure services comparison - End-user computing](../../aws-professional/services.md#end-user-computing)
+- [AWS to Azure services comparison - End-user computing](../../aws-professional/index.md#end-user-computing)

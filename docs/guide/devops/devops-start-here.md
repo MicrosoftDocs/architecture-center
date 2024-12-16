@@ -143,5 +143,5 @@ Stay current with Azure DevOps by monitoring these articles:
 
 ### AWS or Google Cloud professionals
 
-- [AWS to Azure services comparison - DevOps and application monitoring](../../aws-professional/services.md#devops-and-application-monitoring)
+- [AWS to Azure services comparison - DevOps and application monitoring](../../aws-professional/index.md#devops-and-application-monitoring)
 - [Google Cloud to Azure services comparison - DevOps and application monitoring](../../gcp-professional/services.md#devops-and-application-monitoring)

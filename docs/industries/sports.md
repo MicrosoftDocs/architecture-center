@@ -38,7 +38,6 @@ The following articles provide detailed analysis of architectures created and re
 
 |Guide  |Summary  |Technology focus  |
 |---------|---------|---------|
-|  [Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml)   |     Use Azure Digital Twins to create models of smart places, like stadiums, from IoT device data. View and control products, systems, environments, and experiences.    |     IoT    |
 |   [Intelligent e-commerce product search engine](../example-scenario/apps/ecommerce-search.yml)  |     Use a dedicated search service to dramatically increase the relevance of search results for your e-commerce customers. Promote recent information in search results, which is useful in the sports industry.    |     Web    |
 
 ## Solution ideas for the sports industry
