@@ -214,6 +214,8 @@ When client applications connect directly to multiple Azure OpenAI instances, ea
 
 When you use a gateway to handle client applications that access multiple Azure OpenAI deployments, you get the same benefits as a gateway that handles [multiple client applications via keys to access a shared Azure OpenAI instance](#authenticate-multiple-client-applications-via-keys-to-access-a-shared-azure-openai-instance). You also streamline the authentication process because you use a single user-defined managed identity to authenticate requests from the gateway to multiple Azure OpenAI instances. Implement this approach to reduce overall operational overhead and minimize the risks of client misconfiguration when you work with multiple instances.
 
+An example of how a gateway is being used in Azure to offload identity to an intermediary is Azure AI Services. In that implementation, you authenticate to the gateway, and the gateway handles authenticating to the differing Azure AI Services such as Custom Vision or Speech. While that implementation is similar, it does not address this scenario.
+
 ### Recommendations for this scenario
 
 - Implement load balancing techniques to distribute the API requests across multiple instances of Azure OpenAI to handle high traffic and ensure high availability. For more information, see [Use a gateway in front of multiple Azure OpenAI deployments or instances](./azure-openai-gateway-multi-backend.yml).
