@@ -2,8 +2,8 @@
 title: Architectural approaches for IoT Hub-based multitenant solutions
 titleSuffix: Azure Architecture Center
 description: This article describes approaches for supporting multitenancy in your IoT Hub-based solution.
-author: drcrook1
-ms.author: dacrook
+author: MikeBazMSFT
+ms.author: micbaz
 ms.date: 12/13/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
@@ -23,7 +23,7 @@ ms.custom:
 
 # Architectural approaches for IoT Hub-based multitenant solutions
 
-Multitenant IoT Hub-based solutions come in many different flavors and sizes. You might have many requirements and constraints, ranging from infrastructure ownership, to customer data isolation, to compliance. It can be challenging to define a pattern that meets all of these design constraints, and doing so often requires considering multiple dimensions. This article describes several approaches commonly used to solve multitenancy considerations for IoT Hub-based solutions. This document includes example multitenant architectures that use common components, according to the [IoT Reference Architecture](/azure/architecture/reference-architectures/iot).
+Multitenant IoT Hub-based solutions come in many different flavors and sizes. You might have many requirements and constraints, ranging from infrastructure ownership, to customer data isolation, to compliance. It can be challenging to define a pattern that meets all of these design constraints, and doing so often requires considering multiple dimensions. This article describes several approaches commonly used to solve multitenancy considerations for IoT Hub-based solutions.
 
 ## Key considerations and requirements
 
@@ -294,4 +294,3 @@ Other contributors:
 
 * Review guidance for [multitenancy and Azure Cosmos DB](../service/cosmos-db.md).
 * Learn about [hot, warm, and cold data paths with IoT on Azure](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/hot-warm-and-cold-data-paths-with-iot-on-azure/ba-p/2336035).
-* Refer to the [Azure IoT reference architectures](/azure/architecture/reference-architectures/iot).
