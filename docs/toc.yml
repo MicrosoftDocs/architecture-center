@@ -1181,8 +1181,6 @@ items:
           href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
   - name: Databases
     href: databases/index.yml
-      - name: Solution ideas
-        items:
   - name: DevOps
     items:
     - name: Get started
@@ -1590,12 +1588,8 @@ items:
         href: guide/iot/azure-iot-migration-best-practices.md
       - name: Migrate your IoT solutions to Azure
         href: guide/iot/migrate-iot-solution-azure.yml
-      - name: Scale your IoT Hub solutions
         href: guide/iot/scale-iot-solution-azure.md
-      - name: Move IoT Hub solutions to production
         href: example-scenario/iot/iot-move-to-production.yml
-      - name: Multitenant IoT Hub-based solutions
-        href: guide/multitenant/approaches/iot.md
     - name: Architectures
       items:
       - name: Automated guided vehicles fleet control
