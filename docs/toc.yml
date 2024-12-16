@@ -777,6 +777,8 @@ items:
     href: patterns/valet-key.yml
 - name: Azure categories
   items:
+  - name: AI + Machine Learning
+    href: ai-ml/index.md
   - name: Analytics
     items:
     - name: Get started
@@ -1179,20 +1181,8 @@ items:
           href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
   - name: Databases
     href: databases/index.yml
-  - name: Developer options
-    items:
-    - name: Microservices
-      items:
-      - name: Guides
+      - name: Solution ideas
         items:
-        - name: Microservices assessment and readiness
-          href: guide/technology-choices/microservices-assessment.md
-        - name: Operate microservices in production
-          items:
-          - name: Monitor microservices in AKS
-            href: microservices/logging-monitoring.yml
-          - name: CI/CD for microservices
-            href: microservices/ci-cd.yml
   - name: DevOps
     items:
     - name: Get started
@@ -1600,10 +1590,12 @@ items:
         href: guide/iot/azure-iot-migration-best-practices.md
       - name: Migrate your IoT solutions to Azure
         href: guide/iot/migrate-iot-solution-azure.yml
-      - name: Scale your Azure IoT solutions
+      - name: Scale your IoT Hub solutions
         href: guide/iot/scale-iot-solution-azure.md
-      - name: Moving from test to production
+      - name: Move IoT Hub solutions to production
         href: example-scenario/iot/iot-move-to-production.yml
+      - name: Multitenant IoT Hub-based solutions
+        href: guide/multitenant/approaches/iot.md
     - name: Architectures
       items:
       - name: Automated guided vehicles fleet control
