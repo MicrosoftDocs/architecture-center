@@ -4357,7 +4357,7 @@
     },
     {
       "source_path": "docs/serverless/guide/serverless-app-cicd-best-practices.yml",
-      "redirect_url": "/azure/azure-functions/functions-how-to-azure-devops?tabs=csharp%2Cwindows&pivots=v1",
+      "redirect_url": "/azure/azure-functions/functions-how-to-azure-devops",
       "redirect_document_id": false
     },
     {
