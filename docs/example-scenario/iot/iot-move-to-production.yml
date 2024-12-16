@@ -2,8 +2,8 @@
 metadata:
   title: Move an IoT Hub-based solution from test to production
   description: Learn what to avoid doing when moving from a test environment to a production environment.
-  author: falloutxAY
-  ms.author: ansyeo
+  author: dominicbetts
+  ms.author: dobett
   ms.date: 12/10/2024
   ms.topic: conceptual
   ms.service: azure-architecture-center
