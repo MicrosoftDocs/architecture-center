@@ -290,3 +290,4 @@ Principal authors:
 ## Related resources
 
 - [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.yml#key-challenges)
+- [Design a well-architected AI workload](/azure/well-architected/ai/get-started)

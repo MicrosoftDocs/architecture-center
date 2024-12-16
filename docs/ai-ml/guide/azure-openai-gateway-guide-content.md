@@ -196,6 +196,7 @@ Learn ways to [Implement logging and monitoring for Azure OpenAI models](../open
 
 ## Related resources
 
+
 - [Azure OpenAI Service](/azure/well-architected/service-guides/azure-openai)
 - [API gateway in Azure API Management](/azure/api-management/api-management-gateways-overview)
 - [API Management landing zone](https://github.com/Azure/apim-landing-zone-accelerator/blob/main/scenarios/workload-genai/README.md) GitHub repository covering generative AI scenarios
