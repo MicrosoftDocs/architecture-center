@@ -163,7 +163,10 @@ A topology that includes multiple Azure OpenAI instances in a single region acro
 
 - Includes all of the [use cases listed for multiple Azure OpenAI instances in a single region and a single subscription](#topology-use-cases-for-multiple-instances-in-a-single-region-and-single-subscription).
 
-- Enables you to obtain more consumption-based quotas, since subscription boundary is an available factor for the consumption model. You can use this extra quota to support highly concurrent consumption.
+- You want to obtain more quota in a standard deployment and you want to constrain the use of models to a single specific region.
+
+  > [!NOTE]
+  > If you do not need to constrain the use of models to a specific region, you should consider [Global](/azure/ai-services/openai/how-to/deployment-types#global-standard) or [Data zone](/azure/ai-services/openai/how-to/deployment-types#data-zone-standard) deployments of Azure OpenAI that leverage Azure's global infrastructure to dynamically route requests to data centers with the best capacity for each request.
 
 ### Introduce a gateway for multiple instances in a single region and multiple subscriptions
 
@@ -220,8 +223,6 @@ While technically not different Azure regions, this topology is also applicable 
 
 For business-critical architectures that must survive a complete regional outage, a global, unified gateway helps eliminate failover logic from client code. This implementation requires that the gateway remains unaffected by a regional outage.
 
-Load-balacing across regions isn't typical, but could be used strategically to combine available quotas in consumption-based deployments across regions. This scenario doesn't require that the gateway remains unaffected by a regional outage, but we recommend it for maximum workload reliability.
-
 #### Use Azure API Management (Single-region deployment)
 
 :::image type="complex" source="_images/multiple-regions-api-management-single-after.svg" alt-text="An architecture diagram of a client connecting to an Azure OpenAI instance in both West US and East US." lightbox="_images/multiple-regions-api-management-single-after.svg":::
@@ -235,14 +236,14 @@ Your gateway must honor throttling and availability signals from the Azure OpenA
 > [!NOTE]
 > This gateway introduces a global single point of regional failure in your architecture since any service outage on your gateway instances render all regions inaccessible. Don't use this topology for business-critical workloads or where client-based load balancing is sufficient.
 
-Because this topology introduces a single point of failure (the gateway), the utility of this specific architecture is fairly limited. This model lends itself well to consumption-based billing in Azure OpenAI when predicting PTU allocation might prove too challenging.
+Because this topology introduces a single point of failure (the gateway), the utility of this specific architecture is fairly limited - protecting you against regional Azure OpenAI outages.
 
 > [!WARNING]
 > This approach can't be used in scenarios that involve data sovereignty compliance if either Azure OpenAI region spans a geopolitical boundary.
 
 ##### Active-passive variant
 
-This model can also be used to provide an active-passive approach to specifically handle regional failure of just Azure OpenAI. In this mode, traffic normally flows from the gateway to the Azure OpenAI instance in the same region as the API management service. That instance of Azure OpenAI would handle all expected traffic flow without regional failures occurring. It could be PTU-based or consumption-based, depending on your preferred billing model. In the case of a regional failure of just Azure OpenAI, the gateway can redirect traffic to another region with Azure OpenAI already deployed in consumption mode.
+This model can also be used to provide an active-passive approach to specifically handle regional failure of just Azure OpenAI. In this mode, traffic normally flows from the gateway to the Azure OpenAI instance in the same region as the API management service. That instance of Azure OpenAI would handle all expected traffic flow without regional failures occurring. It could be provisioned or standard, depending on your preferred billing model. In the case of a regional failure of just Azure OpenAI, the gateway can redirect traffic to another region with Azure OpenAI already deployed in consumption mode.
 
 #### Use Azure API Management (Multi-region deployment)
 
@@ -301,6 +302,8 @@ For data residency compliance, make sure each geopolitical boundary has its own 
 
 Don't implement a unified gateway across geopolitical regions when data residency and compliance is required. Doing so would violate the data residency requirements. Use individually addressable gateways per region, and follow the guidance in one of the previous sections.
 
+Don't implement a unified gateway solely for the purpose of increasing quota. Use [Global](/azure/ai-services/openai/how-to/deployment-types#global-standard) deployments of Azure OpenAI leverage Azure's global infrastructure to dynamically route requests to data centers with the best capacity for each request.
+
 If clients aren't expected to fail over between regions and you have the ability to give clients a specific gateway to use, then instead use multiple gateways, one per region, and follow the guidance in one of the previous sections. Don't tie the availability of other regions to the region containing your gateway as a single point of failure.
 
 Don't implement a unified gateway if your model and version isn't available in all regions exposed by the gateway. Clients need to be routed to the same model and the same model version. For multi-region load-balanced and failover gateways, you need to pick a common model and model version that is available across all involved regions. For more information, see [Model availability](/azure/ai-services/openai/concepts/models#standard-deployment-model-availability). If you can't standardize on model and model version, the benefit of the gateway is limited.
@@ -357,7 +360,7 @@ Azure doesn't offer a turn-key solution or reference architecture for building s
 
 | Implementation       | Example |
 | :------------------- | :------ |
-| Azure API Management | [Smart load balancing for Azure OpenAI using Azure API Management](https://github.com/Azure-Samples/openai-apim-lb) - This GitHub repo contains sample policy code and instructions to deploy into your subscription.<br><br>[Scaling Azure OpenAI using Azure API Management](https://github.com/Azure/aoai-apim/) - This GitHub repo contains sample policy code and instructions for PTU and consumption spillover.<br/><br/>The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) contains example API Management policies along with a load-testing setup for testing the behavior of the policies. |
+| Azure API Management | [Smart load balancing for Azure OpenAI using Azure API Management](https://github.com/Azure-Samples/openai-apim-lb) - This GitHub repo contains sample policy code and instructions to deploy into your subscription.<br><br>[Scaling Azure OpenAI using Azure API Management](https://github.com/Azure/aoai-apim/) - This GitHub repo contains sample policy code and instructions for provisioned and standard spillover.<br/><br/>[Overview of generative AI gateway capabilities in Azure API Management](/azure/api-management/genai-gateway-capabilities) includes policies for Azure API Management to help you manage generative AI APIs, such as those provided by Azure OpenAI Service. These policies include a token limit policy, an emit token metric, a backend load balancer and circuit breaker policy, and a semantic caching policy.<br/><br/>The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) contains example API Management policies along with a load-testing setup for testing the behavior of the policies. |
 | Custom code          | [Smart load balancing for Azure OpenAI using Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb)<br/><br/>This GitHub repo contains sample C# code and instructions to build the container and deploy into your subscription. |
 
 The Cloud Adoption Framework for Azure also contains guidance on implementing an [Azure API Management landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) for generative AI scenarios, including this multi-backend scenario. If your workload exists in an application landing zone, be sure to refer to this guidance for implementation considerations and recommendations.
