@@ -1,4 +1,4 @@
-Workload architectures that involve Azure OpenAI Service can be as simple as one or more client applications directly consuming a single Azure OpenAI model deployment directly, but not all workloads can be designed with such simplicity. More complex scenarios include topologies with multiple clients, multiple Azure OpenAI deployments, or multiple Azure OpenAI instances. In those situations, introducing a gateway in front of Azure OpenAI can be beneficial to the workload's design.
+Workload architectures that involve Azure OpenAI Service can be as simple as one or more client applications directly consuming a single Azure OpenAI model deployment directly, but not all workloads can be designed with such simplicity. More complex scenarios include topologies with multiple clients, multiple Azure OpenAI deployments, or multiple Azure OpenAI instances. In those situations, introducing a gateway in front of Azure OpenAI can be beneficial to the workload's design as a programmable routing mechanism.
 
 Multiple Azure OpenAI instances or model deployments solve specific requirements in a workload architecture. They can be classified in four key topologies.
 
@@ -116,7 +116,7 @@ Utilizing a gateway with multiple Azure OpenAI instances in a single region and 
 > [!NOTE]
 > Standard quotas are subscription level, not Azure OpenAI instance level. Load balancing against standard instances in the same subscription doesn't achieve additional throughput.
 
-One option a workload team has when provisioning Azure OpenAI is deciding if the billing and throughput model is provisioned or standard. A cost optimization strategy to avoid waste through unused PTU is to slightly under provision the provisioned instance and also deploy a standard instance alongside it. The goal with this topology is to have clients first consume all available PTU and then "burst" over to the standard deployment for overages. This form of planned failover benefits from the same reason as mentioned in the opening paragraph of this section: keeping this complexity out of client code.
+One option a workload team has when provisioning Azure OpenAI is deciding if the billing and throughput model is provisioned or standard. A cost optimization strategy to avoid waste through unused provisioned capacity is to slightly under provision the provisioned instance and also deploy a standard instance alongside it. The goal with this topology is to have clients first consume all available pre-allocated throuhput and then "burst" over to the standard deployment for overages. This form of planned failover benefits from the same reason as mentioned in the opening paragraph of this section: keeping this complexity out of client code.
 
 When a gateway is involved, it's in a unique position to capture details about all of the model deployments clients are interacting with. While every instance of Azure OpenAI can capture its own telemetry, doing so within the gateway lets the workload team publish telemetry and error responses across all consumed models to a single store, which makes unified dashboarding and alerting easier.
 
@@ -143,6 +143,8 @@ When a gateway is involved, it's in a unique position to capture details about a
 A gateway itself doesn't improve the ability to chargeback models against different clients for this specific topology. In this topology, clients could be granted access to their own dedicated Azure OpenAI instances, which would support your workload team's ability to perform chargeback or showback. This model supports unique identity and network perimeters, so a gateway wouldn't need to be introduced specifically for segmentation.
 
 If you have a few clients in the area where you control the code, and the clients are easily updatable, the logic that you'd have to build into the gateway could be added directly into the code. Consider using the gateway approach for failover or load balancing primarily when you don't own the client code or the complexity is too much for the clients to handle.
+
+If you're using a gateway specifically to address capacity constraints, evaluate if data zone based capacity features are sufficent for your workload.
 
 ## Multiple Azure OpenAI instances in a single region across multiple subscriptions
 
@@ -229,14 +231,14 @@ For business-critical architectures that must survive a complete regional outage
    An architecture diagram that shows a client connecting to an API Management instance. That API Management instance is in a resource group called rg-gateway that is identified as being in West US. That API Management instance connects to two Private Endpoints. One private endpoint is in a resource group called rg-aoai-westus in the West US region. The other private endpoint is in a resource group called rg-aoai-eastus in the East US region. The rg-aoai-westus and rg-aoai-east resource group also contain their own Azure OpenAI instances, both labeled Active with a gpt-4 standard deployment each.
 :::image-end:::
 
-In this topology, Azure API Management is used specifically for the gateway technology. Here, API Management is deployed into a single region. From that gateway instance, you perform active-active load balancing across regions. The policies in your gateway reference all Azure OpenAI instances. The gateway requires network line of sight to each back end across regions, either through cross-region virtual network peering or private endpoints. Calls from this gateway to an Azure OpenAI instance in another region incur more network latency and egress charges.
+In this topology, Azure API Management is used specifically for the gateway technology. Here, API Management is deployed into a single region. From that gateway instance, you perform active-active load balancing across regions. The policies in your gateway reference all of your Azure OpenAI instances. The gateway requires network line of sight to each back end across regions, either through cross-region virtual network peering or private endpoints. Calls from this gateway to an Azure OpenAI instance in another region incur more network latency and egress charges.
 
 Your gateway must honor throttling and availability signals from the Azure OpenAI instances and remove faulted back ends from the pool until safe to readd the faulted or throttled Azure OpenAI instance. The gateway should retry the current request against another back-end instance in the pool upon fault, before falling back to returning a gateway error. The gateway's health check should signal unhealthy when no back-end Azure OpenAI instances are available.
 
 > [!NOTE]
 > This gateway introduces a global single point of regional failure in your architecture since any service outage on your gateway instances render all regions inaccessible. Don't use this topology for business-critical workloads or where client-based load balancing is sufficient.
 
-Because this topology introduces a single point of failure (the gateway), the utility of this specific architecture is fairly limited - protecting you against regional Azure OpenAI outages.
+Because this topology introduces a single point of failure (the gateway), the utility of this specific architecture is fairly limited - protecting you against regional Azure OpenAI endpoint outages.
 
 > [!WARNING]
 > This approach can't be used in scenarios that involve data sovereignty compliance if either Azure OpenAI region spans a geopolitical boundary.
@@ -288,13 +290,13 @@ The previous section addresses the availability of the gateway by providing an a
    An architecture diagram that shows a client connecting to two Gateway compute instances with the Azure Container Apps icon, but through Azure Front Door or through DNS and Traffic Manager. The two gateway instances are each in their own resource groups called rg-gateway-westus and rg-gateway-eastus in the West US and East US region respectively. Each gateway has an arrow that points to an active Private Endpoint in the same region and a dashed arrow that points to a passive Private Endpoint in the other region. There are only two private endpoints, so the active endpoint is the other gateway's passive endpoint. Each Private Endpoint points to an active gpt-4 (provisioned) model in an Azure OpenAI instance in their own region. The Private Endpoint also points to a passive gpt-4 (standard) model in its own region.
 :::image-end:::
 
-If your per-gateway routing rules are too complex for your team to consider reasonable as API Management policies, you need to deploy and manage your own solution. This architecture must be a multi-region deployment of your gateway, with one highly available scale unit per region. You need to front those deployments with [Azure Front Door](/azure/frontdoor) (Anycast) or [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) (DNS), typically by using latency-based routing and appropriate health checks of gateway availability.
+If your per-gateway routing rules are too complex for your team to consider reasonable as Azure API Management policies, you need to deploy and manage your own solution. This architecture must be a multi-region deployment of your gateway, with one highly available scale unit per region. You need to front those deployments with [Azure Front Door](/azure/frontdoor) (Anycast) or [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) (DNS), typically by using latency-based routing and appropriate health checks of gateway availability.
 
 Use Azure Front Door if you require a web application firewall and public internet access. Use Traffic Manager if you don't need a web application firewall and DNS TTL is sufficient. When fronting your gateway instances with Azure Front Door (or any reverse proxy), ensure that the gateway can't be bypassed. Make the gateway instances available only through private endpoint when you use Azure Front Door and add validation of the `X_AZURE_FDID` HTTP header in your gateway implementation.
 
 Place per-region resources that are used in your custom gateway in per-region resource groups. Doing so reduces the blast radius of a related regional outage affecting your ability to access the resource provider for your gateway resources in that region.
 
-You can also consider fronting your gateway logic implementation with API Management, for the other benefits of API Management, such as TLS, authentication, health check, or round-robin load balancing. Doing so shifts common API concerns out of custom code in your gateway and lets your gateway specifically address Azure OpenAI instance and model deployment routing.
+You can also consider fronting your gateway logic implementation with Azure API Management, for the other benefits of API Management, such as TLS, authentication, health check, or round-robin load balancing. Doing so shifts common API concerns out of custom code in your gateway and lets your gateway specifically address Azure OpenAI instance and model deployment routing.
 
 For data residency compliance, make sure each geopolitical boundary has its own isolated deployment of this architecture and that clients can only reach their authorized endpoint.
 
@@ -314,7 +316,7 @@ No matter which topology your workload needs, there are a few cross-cutting reco
 
 ### Stateful interactions
 
-When clients use Azure OpenAI's stateful features, such as the Assistants API, you need to configure your gateway to pin a client to a specific back end during that interaction. Doing so can be accomplished by storing instance data in a cookie. In these scenarios, consider returning an Azure OpenAI API response like a `429` to a pinned client instead of redirecting them to a different Azure OpenAI instance. Doing so allows the client to explicitly handle sudden unavailability versus hiding it and being routed to a model instance that has no history.
+When clients use Azure OpenAI's stateful features, such as the Assistants API, you need to configure your gateway to pin a client to a specific back end during that interaction. Doing so can be accomplished by storing instance data in a cookie. In these scenarios, consider returning an API response like a `429` to a pinned client instead of redirecting them to a different Azure OpenAI instance. Doing so allows the client to explicitly handle sudden unavailability versus hiding it and being routed to a model instance that has no history.
 
 ### Gateway health checks
 
@@ -350,19 +352,21 @@ The gateway needs to authenticate with all Azure OpenAI instances that it interf
 
 ### Azure Policy
 
-Consistency between model deployments and Azure OpenAI instances is important in active-active or active-passive situations. Use Azure Policy to help enforce consistency between the various Azure OpenAI instances or model deployments. If the [built-in policies](/azure/governance/policy/samples/built-in-policies#azure-ai-services) for Azure OpenAI aren't sufficient to ensure consistency between them, consider creating or using [community created](https://github.com/Azure/Community-Policy/tree/main/policyDefinitions/Cognitive%20Services) custom policies.
+Consistency between model deployments and Azure OpenAI instances is important in both active-active and active-passive situations. Use Azure Policy to help enforce consistency between the various Azure OpenAI instances or model deployments. If the [built-in policies](/azure/governance/policy/samples/built-in-policies#azure-ai-services) for Azure OpenAI aren't sufficient to ensure consistency between them, consider creating or using [community created](https://github.com/Azure/Community-Policy/tree/main/policyDefinitions/Cognitive%20Services) custom policies.
 
 ### Gateway redundancy
 
-While not specific to multiple back ends, each region's gateway implementation should always be built with redundancy and be highly available within the scale unit. Choose regions with availability zones and make sure your gateway is spread across them. Deploy multiple instances of the gateway so that single point of failure is limited to a complete regional outage and not the fault of a single compute instance in your gateway. For API Management, deploy two or more units across two or more zones. For custom code implementations, deploy at least three instances with best effort distribution across availability zones.
+While not specific to multiple back ends, each region's gateway implementation should always be built with redundancy and be highly available within the scale unit. Choose regions with availability zones and make sure your gateway is spread across them. Deploy multiple instances of the gateway so that single point of failure is limited to a complete regional outage and not the fault of a single compute instance in your gateway. For Azure API Management, deploy two or more units across two or more zones. For custom code implementations, deploy at least three instances with best effort distribution across availability zones.
 
 ## Gateway implementations
 
-Azure doesn't offer a turn-key solution or reference architecture for building such a gateway that focus on routing traffic across multiple backends. As mentioned in the [introduction article](./azure-openai-gateway-guide.yml#implementation-options), your workload team must build and operate this gateway. Following are some examples of community-supported sample implementations covering some of the previously mentioned use cases. Consider referencing these GitHub samples when you build your own proof of concept.
+Azure doesn't offer a complete turn-key solution or reference architecture for building such a gateway that focus on routing traffic across multiple backends. However, Azure API Management is perfered as the service gives you a PaaS based solution using built in features such as backend pools, circuit-breaking policies, and custom policies if needed. See, [Overview of generative AI gateway capabilities in Azure API Management](/azure/api-management/genai-gateway-capabilities) to evaluate what is available in that service for your workload's multi-backend needs.
+
+Whether you use API Management or build a custom solution, as mentioned in the [introduction article](./azure-openai-gateway-guide.yml#implementation-options), your workload team must build and operate this gateway. Following are examples covering some of the previously mentioned use cases. Consider referencing these samples when you build your own proof of concept with API Management or custom code.
 
 | Implementation       | Example |
 | :------------------- | :------ |
-| Azure API Management | [Smart load balancing for Azure OpenAI using Azure API Management](https://github.com/Azure-Samples/openai-apim-lb) - This GitHub repo contains sample policy code and instructions to deploy into your subscription.<br><br>[Scaling Azure OpenAI using Azure API Management](https://github.com/Azure/aoai-apim/) - This GitHub repo contains sample policy code and instructions for provisioned and standard spillover.<br/><br/>[Overview of generative AI gateway capabilities in Azure API Management](/azure/api-management/genai-gateway-capabilities) includes policies for Azure API Management to help you manage generative AI APIs, such as those provided by Azure OpenAI Service. These policies include a token limit policy, an emit token metric, a backend load balancer and circuit breaker policy, and a semantic caching policy.<br/><br/>The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) contains example API Management policies along with a load-testing setup for testing the behavior of the policies. |
+| Azure API Management | [Smart load balancing for Azure OpenAI using Azure API Management](https://github.com/Azure-Samples/openai-apim-lb) - This GitHub repo contains sample policy code and instructions to deploy into your subscription.<br><br>[Scaling Azure OpenAI using Azure API Management](https://github.com/Azure/aoai-apim/) - This GitHub repo contains sample policy code and instructions for provisioned and standard spillover.<br/><br/>The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) contains example API Management policies along with a load-testing setup for testing the behavior of the policies. |
 | Custom code          | [Smart load balancing for Azure OpenAI using Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb)<br/><br/>This GitHub repo contains sample C# code and instructions to build the container and deploy into your subscription. |
 
 The Cloud Adoption Framework for Azure also contains guidance on implementing an [Azure API Management landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) for generative AI scenarios, including this multi-backend scenario. If your workload exists in an application landing zone, be sure to refer to this guidance for implementation considerations and recommendations.
@@ -373,5 +377,6 @@ Having a gateway implementation for your workload provides benefits beyond the t
 
 ## Related resources
 
-- [Azure OpenAI Service](https://azure.microsoft.com/products/cognitive-services/openai-service/)
+- [Azure OpenAI Service](/azure/well-architected/service-guides/azure-openai)
+- [Design a well-architected AI workload](/azure/well-architected/ai/get-started)
 - [API gateway in Azure API Management](/azure/api-management/api-management-gateways-overview)

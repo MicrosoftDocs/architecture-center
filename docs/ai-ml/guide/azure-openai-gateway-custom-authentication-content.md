@@ -226,7 +226,7 @@ An example of how a gateway is being used in Azure to offload identity to an int
 
 When you integrate Azure OpenAI through a gateway, there are several cross-cutting recommendations to consider that apply in all scenarios.
 
-Use API Management instead of creating your own solution for efficient API orchestration, seamless integration with other Azure services, and cost savings by reducing development and maintenance efforts. API Management ensures secure API management by directly supporting authentication and authorization. It integrates with identity providers, such as Microsoft Entra ID, which enables OAuth 2.0 and provides policy-based authorization. Additionally, API Management uses managed identities for secure and low-maintenance access to Azure OpenAI.
+Use Azure API Management instead of creating your own solution for efficient API orchestration, seamless integration with other Azure services, and cost savings by reducing development and maintenance efforts. API Management ensures secure API management by directly supporting authentication and authorization. It integrates with identity providers, such as Microsoft Entra ID, which enables OAuth 2.0 and provides policy-based authorization. Additionally, API Management uses managed identities for secure and low-maintenance access to Azure OpenAI.
 
 ### Combine scenarios for a comprehensive gateway solution
 
@@ -258,9 +258,13 @@ When you implement a gateway with a managed identity, it reduces traceability be
 
 Centralized logging of all requests that pass through the gateway helps you maintain an audit trail. A centralized audit trail is especially important for troubleshooting, compliance, and detecting unauthorized access attempts.
 
+### Address caching safely
+
+If your API gateway is resposible for caching completions or other inferencing results, make sure the identity of the requestor is considered in the cache logic. Do not returned cached results for identities that are not authorized to receive that data.
+
 ## Gateway implementations
 
-Azure doesn't provide a turnkey solution or reference architecture to build the gateway in this article, so you must build and operate the gateway. Azure provides examples of community-supported implementations that cover the use cases in this article. Reference these samples when you build your own gateway solution. For more information, see the video [Learn Live: Azure OpenAI application identity and security](https://www.youtube.com/live/pDjXsNWYmvo).
+Azure doesn't provide a complete turnkey solution or reference architecture to build the gateway in this article, so you must build and operate the gateway. Azure API management can be used to build a PaaS based solution through built-in and custom policies. Azure also provides examples of community-supported implementations that cover the use cases in this article. Reference these samples when you build your own gateway solution. For more information, see the video [Learn Live: Azure OpenAI application identity and security](https://www.youtube.com/live/pDjXsNWYmvo).
 
 ## Contributors
 
@@ -286,3 +290,4 @@ Principal authors:
 ## Related resources
 
 - [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.yml#key-challenges)
+- [Design a well-architected AI workload](/azure/well-architected/ai/get-started)
