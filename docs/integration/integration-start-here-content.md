@@ -53,10 +53,6 @@ To explore patterns to incorporate into your design, consult resources in the fo
 - [Identify microservice boundaries][Identify microservice boundaries]: Derive microservices from a domain model when designing your application.
 - [Design interservice communication for microservices][Designing interservice communication for microservices]: Use service meshes to make communication between microservices efficient and robust.
 
-#### Serverless solutions
-
-[Share location in real time using low-cost serverless Azure services][Sharing location in real time using low-cost serverless Azure services]: Set up a real-time messaging service to share live locations.
-
 #### Mainframe migration
 
 - [Integrate IBM mainframe and midrange message queues with Azure][Integrate IBM mainframe and midrange message queues with Azure]: Use a data-first technique that provides a way for IBM mainframe and midrange message queues to work with Azure services.
