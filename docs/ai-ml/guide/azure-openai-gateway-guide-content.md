@@ -14,11 +14,11 @@ This section provides examples of specific key architectural challenges that you
 
 The reliability of the workload depends on several factors, including its capacity for self-preservation and self-recovery, which are often implemented through replication and failover mechanisms. Without a gateway, all reliability concerns must be addressed exclusively by using client logic and Azure OpenAI Service features. Workload reliability is compromised when there isn't enough reliability control available in either of those two surfaces.
 
-- **Redundancy:** Failing over between multiple Azure OpenAI instances based on service availability is a client responsibility that you need to control through configuration and custom logic.
+- **Redundancy:** Failing over between multiple Azure OpenAI instances based on service availability is a client responsibility that you need to control through configuration and custom logic. [global](/azure/ai-services/openai/how-to/deployment-types#global-standard) standard or provisioned and [data zone](/azure/ai-services/openai/how-to/deployment-types#data-zone-standard) standard or provisioned do not impact the availability of the Azure OpenAI service from an endpoint availability perspective. You still have the responsibility to implement failover logic yourself.
 
 - **Scale out to handle spikes:** Failing over to Azure OpenAI instances with capacity when throttled is another client responsibility that you need to control through configuration and custom logic. Updating multiple client configurations for new Azure OpenAI instances presents greater risk and has timeliness concerns. The same is true for updating client code to implement changes in logic, such as directing low priority requests to a queue during high demand periods.
 
-- **Load balancing or throttling:** Azure OpenAI APIs throttle requests by returning an HTTP 429 error response code to requests that exceed the Token-Per-Minute (TPM) or Requests-Per-Minute (RPM) in the pay-as-you-go model. Azure OpenAI APIs also throttle requests that exceed the provisioned throughput units (PTU) capacity for the pre-provisioned billing model. Handling appropriate back-off and retry logic is left exclusively to client implementations.
+- **Load balancing or throttling:** Azure OpenAI APIs throttle requests by returning an HTTP 429 error response code to requests that exceed the Token-Per-Minute (TPM) or Requests-Per-Minute (RPM) in the standard model. Azure OpenAI APIs also throttle requests that exceed provisioned capacity for the pre-provisioned billing model. Handling appropriate back-off and retry logic is left exclusively to client implementations. [Global](/azure/ai-services/openai/how-to/deployment-types#global-standard) and [data zone](/azure/ai-services/openai/how-to/deployment-types#data-zone-standard) deployments of Azure OpenAI leverage Azure's global infrastructure to dynamically route requests to data centers with the best capacity for each request, with data zone deployments limited to the defined data zone. Using global and data zone deployments will significantly decrease service throttling.
 
 ### Security challenges
 
@@ -30,15 +30,15 @@ Security controls must help protect workload confidentiality, integrity, and ava
 
 - **Network security:** Depending on client location relative to your Azure OpenAI instances, public internet access to language models might be necessary.
 
-- **Data sovereignty:** Data sovereignty in the context of Azure OpenAI refers to the legal and regulatory requirements related to the storage and processing of data within the geographic boundaries of a specific country or region. Your workload needs to ensure regional affinity so that clients can comply with data residency and sovereignty laws. This process involves multiple Azure OpenAI deployments.
+- **Data sovereignty:** Data sovereignty in the context of Azure OpenAI refers to the legal and regulatory requirements related to the storage and processing of data within the geographic boundaries of a specific country or region. Your workload needs to ensure regional affinity so that clients can comply with data residency and sovereignty laws. This process involves multiple Azure OpenAI deployments. You should be aware that when you are using [global](/azure/ai-services/openai/how-to/deployment-types#global-standard) or [data zone](/azure/ai-services/openai/how-to/deployment-types#data-zone-standard) deployments of Azure OpenAI, data at rest remains in the designated Azure geography, but data may be processed for inferencing in any Azure OpenAI location.
 
 ### Cost optimization challenges
 
-Workloads benefit when architectures minimize waste and maximize utility. Strong cost modeling and monitoring are an important requirement for any workload. Without a gateway, utilization of PTU or per-client cost tracking can be authoritatively achieved exclusively from aggregating Azure OpenAI instance usage telemetry.
+Workloads benefit when architectures minimize waste and maximize utility. Strong cost modeling and monitoring are an important requirement for any workload. Without a gateway, utilization of provisioned or per-client cost tracking can be authoritatively achieved exclusively from aggregating Azure OpenAI instance usage telemetry.
 
 - **Cost tracking:** Being able to provide a financial perspective on Azure OpenAI usage is limited to data aggregated from Azure OpenAI instance usage telemetry. When required to do chargeback or showback, you need to attribute that usage telemetry with various clients across different departments or even customers for multitenant scenarios.
 
-- **Provisioned throughput utilization:** Your workload wants to avoid waste by fully utilizing the provisioned throughput that you paid for. This means that clients must be trusted and coordinated to use PTU-based model deployments before spilling over into any consumption-based model deployments.
+- **Provisioned throughput utilization:** Your workload wants to avoid waste by fully utilizing the provisioned throughput that you paid for. This means that clients must be trusted and coordinated to use provisioned-based model deployments before spilling over into any standard model deployments.
 
 ### Operational excellence challenges
 
@@ -91,7 +91,7 @@ Reliability ensures that your application meets the commitments you make to your
 
 - The gateway solution can introduce a single point of failure. This failure could have its origin in service availability of the gateway platform, interruptions due to code or configuration deployments, or even misconfigured critical API endpoints in your gateway. Ensure that you design your implementation to meet your workload's availability requirements. Consider resiliency and fault tolerance capabilities in the implementation by including the gateway in the [failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis) of the workload.
 
-- Your solution might require global routing capabilities if your architecture requires Azure OpenAI instances in multiple regions. This situation can further complicate the topology through management of extra fully qualified domain names, TLS certificates, and more global routing components.
+- Your solution might require global routing capabilities if your architecture requires Azure OpenAI instances in multiple regions to increase the availability of your Azure OpenAI endpoints, such as the ability to continue to serve requests in the event of a regional outage. This situation can further complicate the topology through management of extra fully qualified domain names, TLS certificates, and more global routing components.
 
 > [!IMPORTANT]
 > Don't implement a gateway if doing so would jeopardize your workload's ability to meet agreed upon service-level objectives (SLOs).
