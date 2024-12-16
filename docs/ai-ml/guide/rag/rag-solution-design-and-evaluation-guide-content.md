@@ -14,7 +14,7 @@ The other articles in this series cover the following considerations:
 
 ## RAG architecture
 
-:::image type="content" source="_images/rag-high-level-architecture.svg" border="false" lightbox="_images/rag-high-level-architecture.png" alt-text="Diagram that shows the high-level architecture of a RAG solution, including the request flow and the data pipeline.":::
+:::image type="content" source="_images/rag-high-level-architecture.svg" border="false" lightbox="_images/rag-high-level-architecture.svg" alt-text="Diagram that shows the high-level architecture of a RAG solution, including the request flow and the data pipeline.":::
 
 ### RAG application flow
 
@@ -40,7 +40,7 @@ The following workflow describes a high-level flow for a data pipeline that supp
 
 You must make various implementation decisions as you design your RAG solution. The following diagram illustrates some of the questions you should ask when you make those decisions.
 
-:::image type="content" source="_images/rag-high-level-architecture-questions.svg" border="false" lightbox="_images/rag-high-level-architecture-questions.png" alt-text="Diagram that shows the high-level architecture of a RAG solution, including the questions that you should ask as you design the solution.":::
+:::image type="content" source="_images/rag-high-level-architecture-questions.svg" border="false" lightbox="_images/rag-high-level-architecture-questions.svg" alt-text="Diagram that shows the high-level architecture of a RAG solution, including the questions that you should ask as you design the solution.":::
 
 The following list provides a brief description of what you should do during each phase of RAG solution development.
 

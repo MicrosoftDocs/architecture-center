@@ -19,6 +19,6 @@ products:
   - azure-machine-learning
 name: Design and develop a RAG solution
 summary: Learn about what to consider when you design a large language model RAG solution, including each step of the development process and how to evaluate those steps.
-thumbnailUrl: /azure/architecture/browse/thumbs/speech-text-thumb.png
+thumbnailUrl: /azure/architecture/browse/thumbs/rag-high-level-architecture.png
 content: |
   [!INCLUDE[](rag-solution-design-and-evaluation-guide-content.md)]
