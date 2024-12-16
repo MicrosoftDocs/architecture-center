@@ -327,6 +327,5 @@ The following diagram shows the end-to-end CI/CD process described in this artic
 ## Related resources
 
 - [CI/CD for microservices](/azure/architecture/microservices/ci-cd)
-- [Monitor a microservices architecture in Azure Kubernetes Service (AKS)](/azure/architecture/microservices/logging-monitoring)
 - [Review a reference architecture which shows a microservices application deployed to Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
 - [GitOps for Azure Kubernetes Service](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)

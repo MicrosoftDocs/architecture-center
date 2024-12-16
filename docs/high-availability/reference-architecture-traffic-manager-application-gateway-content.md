@@ -61,7 +61,7 @@ Outbound traffic flows for virtual machine patch updates or other connectivity t
 
 - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-based, Microsoft-managed next-generation firewall that provides deep packet inspection for both North/South and East/West traffic flows. It can be spread across Availability Zones and it offers automatic autoscaling to cope with application demand changes. 
 - [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer-7 load balancer with optional Web Application Firewall (WAF) functionality. The v2 SKU of Application Gateway supports availability zone redundancy and it is recommended for most scenarios. The Application Gateway includes configurable horizontal autoscaling so that it can react automatically to application demand changes.
-- [Azure Traffic Manager](/azure/well-architected/service-guides/traffic-manager/reliability) is a DNS-based global traffic load balancer that distributes traffic to services across global Azure regions while providing high availability and responsiveness. For more information, see the section [Traffic Manager configuration](../reference-architectures/n-tier/multi-region-sql-server.yml#traffic-manager-configuration).
+- [Azure Traffic Manager](/azure/well-architected/service-guides/traffic-manager/reliability) is a DNS-based global traffic load balancer that distributes traffic to services across global Azure regions while providing high availability and responsiveness.
 - [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a layer-4 load balancer. A zone-redundant load balancer will still distribute traffic with an availability zone failure to the remaining zones.
 - [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) has enhanced features to protect against distributed denial of service (DDoS) attacks.
 - [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains. It provides name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
@@ -240,5 +240,4 @@ For more information, see [Virtual Machine Scale Sets](/azure/virtual-machine-sc
 
 For more reference architectures using the same technologies, see:
 
-- [Multi-region N-tier application](../reference-architectures/n-tier/multi-region-sql-server.yml)
 - [AKS baseline for multi-region clusters](../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)

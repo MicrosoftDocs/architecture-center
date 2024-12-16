@@ -93,10 +93,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 - [Power Automate deployment at scale][Power Automate deployment at scale]: Use a hub-and-spoke model to deploy Power Automate parent and child flows.
 - [Line-of-business extension][Line of business extension]: Retrieve data from legacy systems on an ongoing basis and make it available in Power BI.
 
-#### High-performance computing
-
-[HPC risk analysis template][HPC risk analysis template]: Use Azure CycleCloud in a risk analysis application to expand on-premises TIBCO GridServer compute to Azure.
-
 ## Best practices
 
 These resources can help you spot-check your design against current recommended best practices:
@@ -143,7 +139,6 @@ The following resources provide practical recommendations and information for sp
 ### Information for Amazon Web Services (AWS)
 
 - [Messaging services on Azure and AWS][Messaging services on Azure and AWS]
-- [AWS to Azure services comparison—miscellaneous back-end process logic][AWS to Azure services comparison—Miscellaneous backend process logic]
 
 ### Information for Google Cloud professionals
 
@@ -151,12 +146,10 @@ The following resources provide practical recommendations and information for sp
 - [Google Cloud to Azure services comparison—miscellaneous workflow][Google Cloud to Azure services comparison—Miscellaneous workflow]
 
 [About connectors in Azure Logic Apps]: /azure/connectors/apis-list?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-[Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)]: /azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Apache NiFi on Azure]: ../example-scenario/data/azure-nifi.yml
 [API Management ACOM page]: https://azure.microsoft.com/services/api-management
 [Architect API integration in Azure]: /training/paths/architect-api-integration
 [Asynchronous messaging options]: ../guide/technology-choices/messaging.yml
-[AWS to Azure services comparison—Miscellaneous backend process logic]: ../aws-professional/services.md#miscellaneous
 [Azure Functions ACOM page]: https://azure.microsoft.com/services/functions
 [Azure Logic Apps ACOM page]: https://azure.microsoft.com/services/logic-apps
 [Azure Policy Regulatory Compliance controls for Azure Logic Apps]: /azure/logic-apps/security-controls-policy?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
@@ -181,7 +174,6 @@ The following resources provide practical recommendations and information for sp
 [Extract, transform, and load (ETL)]: ../data-guide/relational-data/etl.yml
 [Google Cloud to Azure services comparison—Messaging and eventing]: ../gcp-professional/services.md#messaging-and-eventing
 [Google Cloud to Azure services comparison—Miscellaneous workflow]: ../gcp-professional/services.md#miscellaneous
-[HPC risk analysis template]: ../solution-ideas/articles/hpc-risk-analysis.yml
 [Identify microservice boundaries]: ../microservices/model/microservice-boundaries.yml
 [Integrate data with Azure Data Factory or Azure Synapse Pipeline]: /training/modules/data-integration-azure-data-factory
 [Integrate Event Hubs with serverless functions on Azure]: ../serverless/event-hubs-functions/event-hubs-functions.yml

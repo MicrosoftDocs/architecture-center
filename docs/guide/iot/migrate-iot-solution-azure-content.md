@@ -329,6 +329,5 @@ Here are examples of architectures and quick starts to understand how to use Azu
 
 ## Related resources
 
-- [Get started with Azure IoT solutions](../../reference-architectures/iot/iot-architecture-overview.md)
-- [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml)
+- [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
 - [Industrial IoT Patterns](../iiot-patterns/iiot-patterns-overview.yml)

@@ -31,7 +31,6 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
-- [Overview of SAP Guidance and Resources](./reference-architectures/sap/sap-overview.yml)  ([#4f037d7e49](https://github.com/MicrosoftDocs/architecture-center/commit/4f037d7e49))
 - [Basic OpenAI End-to-End Chat Reference Architecture](./ai-ml/architecture/basic-openai-e2e-chat.yml)  ([#a2c84d6ab8](https://github.com/MicrosoftDocs/architecture-center/commit/a2c84d6ab8))
 - [Modern analytics architecture with Azure Databricks](./solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)  ([#3b03a9f5d6](https://github.com/MicrosoftDocs/architecture-center/commit/3b03a9f5d6))
 - [Stromasys Charon-SSP Solaris emulator on Azure VMs](./solution-ideas/articles/solaris-azure.yml)  ([#19b9e92801](https://github.com/MicrosoftDocs/architecture-center/commit/19b9e92801))
@@ -101,7 +100,6 @@ The following new and updated articles have recently been published in the Azure
 - [Architectural approaches for storage and data in multitenant solutions](./guide/multitenant/approaches/storage-data.yml)  ([#5af6f44473](https://github.com/MicrosoftDocs/architecture-center/commit/5af6f44473))
 - [Multitenancy and Azure Cosmos DB](./guide/multitenant/service/cosmos-db.md)  ([#b3d32f27df](https://github.com/MicrosoftDocs/architecture-center/commit/b3d32f27df))
 - [Subscription vending implementation guidance](./landing-zones/subscription-vending.yml)  ([#182044238e](https://github.com/MicrosoftDocs/architecture-center/commit/182044238e))
-- [Oracle on Azure Architecture Design](./solution-ideas/articles/oracle-on-azure-start-here.md)  ([#1ad00faf60](https://github.com/MicrosoftDocs/architecture-center/commit/1ad00faf60))
 - [Building the First Layer of Defense with Azure Security Services](./solution-ideas/articles/azure-security-build-first-layer-defense.yml)  ([#d767ff97c6](https://github.com/MicrosoftDocs/architecture-center/commit/d767ff97c6))
 - [Integrate Azure and Microsoft Defender XDR security services](./solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml)  ([#d767ff97c6](https://github.com/MicrosoftDocs/architecture-center/commit/d767ff97c6))
 - [Microsoft Sentinel automated responses](./solution-ideas/articles/microsoft-sentinel-automated-response.yml)  ([#d767ff97c6](https://github.com/MicrosoftDocs/architecture-center/commit/d767ff97c6))
@@ -185,7 +183,6 @@ The following new and updated articles have recently been published in the Azure
 - [SAP HANA for Linux VMs in Scale-up Systems](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)  ([#8e21c4e85e](https://github.com/MicrosoftDocs/architecture-center/commit/8e21c4e85e))
 - [Extract and analyze call center data by using Azure OpenAI Service, Speech services, and Language services](./ai-ml/openai/architecture/call-center-openai-analytics.yml)  ([#6d04e7cfd1](https://github.com/MicrosoftDocs/architecture-center/commit/6d04e7cfd1))
 - [Enable machine learning inference on an Azure IoT Edge device](./guide/iot/machine-learning-inference-iot-edge.yml)  ([#90e5b8e3e3](https://github.com/MicrosoftDocs/architecture-center/commit/90e5b8e3e3))
-- [Use Azure Batch to run Financial Service Industry (FSI) workloads](./example-scenario/batch/fsi-workloads-using-batch.yml)  ([#82e0354d8e](https://github.com/MicrosoftDocs/architecture-center/commit/82e0354d8e))
 - [Certificate lifecycle management on Azure](./example-scenario/certificate-lifecycle/index.yml)  ([#82e0354d8e](https://github.com/MicrosoftDocs/architecture-center/commit/82e0354d8e))
 - [Apache NiFi on Azure](./example-scenario/data/azure-nifi.yml)  ([#82e0354d8e](https://github.com/MicrosoftDocs/architecture-center/commit/82e0354d8e))
 - [Multitenancy and Azure Cosmos DB](./guide/multitenant/service/cosmos-db.md)  ([#85cb4928e6](https://github.com/MicrosoftDocs/architecture-center/commit/85cb4928e6))

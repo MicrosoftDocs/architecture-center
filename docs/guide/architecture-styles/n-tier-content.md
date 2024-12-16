@@ -94,7 +94,7 @@ Network security groups restrict access to each tier. For example, the database 
 
 - If your organization uses Active Directory to manage identity, you may want to extend your Active Directory environment to the Azure VNet. For more information, see [Identity management reference architecture][identity].
 
-- If you need higher availability than the Azure SLA for VMs provides, replicate the application across two regions and use Azure Traffic Manager for failover. For more information, see [Run Windows VMs in multiple regions][multiregion-windows] or [Run Linux VMs in multiple regions][multiregion-linux].
+- If you need higher availability than the Azure SLA for VMs provides, replicate the application across two regions and use Azure Traffic Manager for failover. For more information, see [Run Linux VMs in multiple regions][multiregion-linux].
 
 ### Related Resources
 
@@ -111,6 +111,5 @@ Network security groups restrict access to each tier. For example, the database 
 [hybrid-network]: ../../reference-architectures/hybrid-networking/index.yml
 [identity]: ../../reference-architectures/identity/index.yml
 [multiregion-linux]: ../../databases/architecture/n-tier-cassandra.yml
-[multiregion-windows]: ../../reference-architectures/n-tier/multi-region-sql-server.yml
 [n-tier-linux]: ../../databases/architecture/n-tier-cassandra.yml
 [sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server

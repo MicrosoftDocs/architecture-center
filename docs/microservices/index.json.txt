@@ -52,11 +52,6 @@
             "heading": "Operate microservices in production",
             "cards": [
                 {
-                    "title": "Logging and monitoring",
-                    "url": "./logging-monitoring.md",
-                    "summary": "The distributed nature of microservices architectures makes logging and monitoring especially critical."
-                },
-                {
                     "title": "Continuous integration and deployment",
                     "url": "./ci-cd.md",
                     "summary":"Continuous integration and continuous delivery (CI/CD) are key to achieving success with microservices."

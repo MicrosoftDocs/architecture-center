@@ -398,7 +398,6 @@ For help with the automation process, see the following templates that SAS provi
 
 - [Azure Kubernetes in event stream processing](/azure/architecture/solution-ideas/articles/serverless-event-processing-aks)
 - [GitOps for Azure Kubernetes Service](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)
-- [Monitor a microservices architecture in Azure Kubernetes Service (AKS)](/azure/architecture/microservices/logging-monitoring)
 - [Cost management for Kubernetes](/azure/architecture/aws-professional/eks-to-aks/cost-management)
 - [Oracle Database with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files)
 - [SQL Server on Azure Virtual Machines with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/sql-server-azure-netapp-files)
