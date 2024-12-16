@@ -190,7 +190,6 @@ Other contributor:
 [Integrate Azure services with virtual networks for network isolation]: /azure/virtual-network/vnet-integration-for-azure-services
 [Private Link and DNS integration at scale]: /azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale
 [Securing your Microsoft Teams channel bot and web app behind a firewall]: ../../example-scenario/teams/securing-bot-teams-channel.yml
-[Serverless event stream processing in a VNet with private endpoints]: ../../solution-ideas/articles/serverless-event-processing-private-link.yml
 [SVG version of architecture diagram]: ./images/private-link-hub-spoke-network-basic-hub-spoke-diagram.svg
 [SVG version of decision tree]: ./images/private-link-hub-spoke-network-decision-tree.svg
 [SVG version of Private Link diagram]: ./images/private-link-hub-spoke-network-private-link.svg

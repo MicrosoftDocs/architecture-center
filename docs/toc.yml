@@ -1193,13 +1193,6 @@ items:
             href: microservices/logging-monitoring.yml
           - name: CI/CD for microservices
             href: microservices/ci-cd.yml
-    - name: Serverless applications
-      items:
-      - name: Solution ideas
-        items:
-        - name: HIPAA/HITRUST compliant health data
-          href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
-        - name: Transit Hub pub-sub messaging system
   - name: DevOps
     items:
     - name: Get started
@@ -2250,8 +2243,6 @@ items:
           href: example-scenario/mainframe/move-archive-data-mainframes.yml
     - name: Solution ideas
       items:
-      - name: HIPAA/HITRUST Health Data and AI
-        href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
       - name: Medical data storage
         href: solution-ideas/articles/medical-data-storage.yml
       - name: Two-region app with Table storage failover
