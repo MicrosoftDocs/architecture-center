@@ -1626,8 +1626,6 @@ items:
       items:
       - name: Enable machine learning inference
         href: guide/iot/machine-learning-inference-iot-edge.yml
-      - name: Industry-specific example solutions
-        href: reference-architectures/iot/industry-iot-hub-page.md
       - name: Migration to Azure IoT best practices
         href: guide/iot/azure-iot-migration-best-practices.md
       - name: Migrate your IoT solutions to Azure
@@ -1650,8 +1648,6 @@ items:
       items:
       - name: Azure load testing
         href: guide/testing/load-testing/load-testing-with-custom-plugins.md
-      - name: Environment monitoring
-        href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
       - name: IoT analytics with Azure Data Explorer
         href: solution-ideas/articles/iot-azure-data-explorer.yml
       - name: IoT private file upload to Azure Storage
@@ -2483,8 +2479,6 @@ items:
         items:
         - name: All facilities and real estate architectures
           href: /azure/architecture/browse/?terms=facilities
-        - name: IoT connectivity for healthcare facilities
-          href: networking/idea/healthcare-network.yml
     - name: Aerospace
       items:
       - name: Overview
@@ -2537,8 +2531,6 @@ items:
         items:
         - name: All agriculture architectures
           href: /azure/architecture/browse/?terms=agriculture
-        - name: Environment monitoring
-          href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
     - name: Sports
       items:
       - name: Overview

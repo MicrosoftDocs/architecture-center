@@ -90,4 +90,3 @@ Learn how to [upload files with IoT Hub](/azure/iot-hub/iot-hub-devguide-file-up
 ## Related resources
 
 - [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)
-- [Industry-specific Azure IoT reference architectures](../../reference-architectures/iot/industry-iot-hub-page.md)
