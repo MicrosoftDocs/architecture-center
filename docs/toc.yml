@@ -2331,18 +2331,6 @@ items:
       items:
       - name: All manufacturing architectures
         href: /azure/architecture/browse/?terms=manufacturing
-    - name: Solution ideas
-      items:
-      - name: Customer order forecasting
-        href: solution-ideas/articles/next-order-forecasting.yml
-    - name: Guides
-      items:
-      - name: Deploy private 5G networks
-        items:
-        - name: Overview
-          href: industries/telecommunications/deploy-private-mobile-network.md
-        - name: Build a private 5G network
-          href: industries/telecommunications/build-private-5g-network.md
     - name: Architectures
       items:
       - name: All telecommunications architectures
