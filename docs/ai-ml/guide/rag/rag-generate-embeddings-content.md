@@ -17,15 +17,15 @@ Embeddings are compared to one another by using the notions of similarity and di
 In a RAG solution, you often embed the user query by using the same embedding model as your chunks. Then, you search your database for relevant vectors to return the most semantically relevant chunks. The original text of the relevant chunks is passed to the language model as grounding data.
 
 > [!NOTE]
-> Vectors represent the semantic meaning of text in a way that allows for mathematical comparison. You must clean the chunks so that mathematical proximity between vectors accurately reflects their semantic relevancy.
+> Vectors represent the semantic meaning of text in a way that allows for mathematical comparison. You must clean the chunks so that the mathematical proximity between vectors accurately reflects their semantic relevancy.
 
 ## The importance of the embedding model
 
 The embedding model that you choose can significantly affect the relevancy of your vector search results. You must consider the vocabulary of the embedding model. Every embedding model is trained with a specific vocabulary. For example, the vocabulary size of the [BERT model](https://huggingface.co/docs/transformers/en/model_doc/bert) is about 30,000 words.
 
-The vocabulary of an embedding model is important because it handles words that aren't in its vocabulary in a unique manner. If a word isn't in the model's vocabulary, it still needs to calculate a vector for it. To do this, many models break down the words into subwords. They treat the subwords as distinct tokens, or they aggregate the vectors for the subwords to create a single embedding.
+The vocabulary of an embedding model is important because it handles words that aren't in its vocabulary in a unique manner. If a word isn't in the model's vocabulary, it still calculates a vector for it. To do this, many models break down the words into subwords. They treat the subwords as distinct tokens, or they aggregate the vectors for the subwords to create a single embedding.
 
-For example, the word *histamine* might not be in an embedding model's vocabulary. *Histamine* has a semantic meaning of a chemical that your body releases, which causes allergy symptoms. The embedding model doesn't contain *histamine*. So, it might break the word down into subwords that are in its vocabulary, such as *his*, *ta*, and *mine*.
+For example, the word *histamine* might not be in an embedding model's vocabulary. The word *histamine* has a semantic meaning as a chemical that your body releases, which causes allergy symptoms. The embedding model doesn't contain *histamine*. So, it might separate the word into subwords that are in its vocabulary, such as *his*, *ta*, and *mine*.
 
 :::image type="content" source="./_images/word-broken-into-subwords.png" lightbox="./_images/word-broken-into-subwords.png" alt-text="Diagram that shows the word histogram broken down into the following subwords: his, ta, and mine." border="false":::
 
@@ -35,7 +35,7 @@ The semantic meanings of these subwords are far from the meaning of *histamine*.
 
 Determine the right embedding model for your use case. Consider the overlap between the embedding model's vocabulary and your data's words when you choose an embedding model.
 
-:::image type="complex" source="./_images/choose-an-embedding-model.png" lightbox="./_images/choose-an-embedding-model.png" alt-text="Diagram that shows the flow of how to choose an embedding model." border="false":::
+:::image type="complex" source="./_images/choose-embedding-model.png" lightbox="./_images/choose-embedding-model.png" alt-text="Diagram that shows the flow of how to choose an embedding model." border="false":::
 The first decision is "Domain-specific?". If no, the flow terminates at "Test top ranked general models." If yes, the next decision is "Domain model available?". If no, the flow terminates at "Fine tune general model." If yes, the flow terminates at "Test domain model".
 :::image-end:::
 
@@ -52,17 +52,17 @@ For domain-specific content, determine whether you can use a domain-specific mod
 If you don't have a domain-specific model, or the domain-specific model doesn't perform well, you can fine-tune a general embedding model with your domain-specific vocabulary.
 
 > [!IMPORTANT]
-> For any model that you choose, you need to verify that the license is suitable for your needs and the model provides the necessary language support.
+> For any model that you choose, you need to verify that the license suits your needs and the model provides the necessary language support.
 
 ### Evaluate embedding models
 
-To evaluate an embedding model, visualize the embeddings and evaluate the distance between question and chunk vectors.
+To evaluate an embedding model, visualize the embeddings and evaluate the distance between the question and chunk vectors.
 
 #### Visualize embeddings
 
 You can use libraries, such as t-SNE, to plot the vectors for your chunks and your question on an X-Y graph. You can then determine how far the chunks are from one another and from the question. The following graph shows chunk vectors plotted. The two arrows near one another represent two chunk vectors. The other arrow represents a question vector. You can use this visualization to understand how far the question is from the chunks.
 
-:::image type="complex" source="./_images/visualize-embeddings.png" alt-text="Graph that shows a visualization of an embedding. The image shows a bunch of blue dots plotted on an X-Y scale." border="false":::
+:::image type="complex" source="./_images/visualize-embeddings.png" alt-text="Graph that shows a visualization of an embedding. The image shows several blue dots that are plotted on an X-Y scale." border="false":::
    Two arrows point to plot points near one another, and another arrow shows a plot point far away from the other two.
 :::image-end:::
 
@@ -72,9 +72,9 @@ You can use a programmatic method to evaluate how well your embedding model work
 
 ## Embedding economics
 
-When you choose an embedding model, you must navigate a trade-off between performance and cost. Larger embedding models usually have better performance on benchmarking datasets. But, the increased performance adds cost. Larger vectors require more space in a vector database. They also require more computational resources and time to compare embeddings. Smaller embedding models usually have lower performance on the same benchmarks. They require less space in your vector database and less compute and time to compare embeddings.
+When you choose an embedding model, you must navigate a trade-off between performance and cost. Large embedding models usually have better performance on benchmarking datasets. But, the increased performance adds cost. Large vectors require more space in a vector database. They also require more computational resources and time to compare embeddings. Small embedding models usually have lower performance on the same benchmarks. They require less space in your vector database and less compute and time to compare embeddings.
 
-When you design your system, you should account for the cost of embedding in terms of storage, compute, and performance requirements. You must validate the performance of the models through experimentation. The publicly available benchmarks are mainly academic datasets and might not directly apply to your business data and use cases. Depending on the requirements, you can favor performance over cost or accept a trade-off of good-enough performance for lower cost.
+When you design your system, you should consider the cost of embedding in terms of storage, compute, and performance requirements. You must validate the performance of the models through experimentation. The publicly available benchmarks are mainly academic datasets and might not directly apply to your business data and use cases. Depending on the requirements, you can favor performance over cost or accept a trade-off of good-enough performance for lower cost.
 
 ## Next step
 
