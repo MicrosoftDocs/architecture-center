@@ -260,7 +260,7 @@ Centralized logging of all requests that pass through the gateway helps you main
 
 ### Address caching safely
 
-If your API gateway is resposible for caching completions or other inferencing results, make sure the identity of the requestor is considered in the cache logic. Do not returned cached results for identities that are not authorized to receive that data.
+If your API gateway is responsible for caching completions or other inferencing results, make sure the identity of the requestor is considered in the cache logic. Do not return cached results for identities that are not authorized to receive that data.
 
 ## Gateway implementations
 

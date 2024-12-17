@@ -83,7 +83,7 @@ To address the many challenges listed in [Key challenges](#key-challenges), you 
 
 - Ability to introduce [gateway aggregation](../../patterns/gateway-aggregation.yml) and advanced [routing](../../patterns/gateway-routing.yml) to multiple services, such as routing low priority messages to a queue for [queue-based load leveling](../../patterns/queue-based-load-leveling.yml) or to compute to perform tasks.
 
-- Load balancing that uses [health endpoint monitoring](../../patterns/health-endpoint-monitoring.yml) to route only to healthly endpoints by [circuit breaking](../../patterns/circuit-breaker.yml) on unavailable or overloaded model deployments.
+- Load balancing that uses [health endpoint monitoring](../../patterns/health-endpoint-monitoring.yml) to route only to healthy endpoints by [circuit breaking](../../patterns/circuit-breaker.yml) on unavailable or overloaded model deployments.
 
 Some specific scenarios have more guidance available that directly addresses an API gateway and Azure OpenAI instances. Those scenarios are listed in the [Next steps](#next-steps) section.
 
@@ -156,7 +156,7 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 ## Implementation options
 
-Azure doesn't offer a turn-key solution designed specifically to proxy Azure OpenAI's HTTP API or other custom language model inferencing APIs to cover all of these secenarios. But there are still several options for your workload team to implement, such as a gateway in Azure.
+Azure doesn't offer a turn-key solution designed specifically to proxy Azure OpenAI's HTTP API or other custom language model inferencing APIs to cover all of these scenarios. But there are still several options for your workload team to implement, such as a gateway in Azure.
 
 ### Use Azure API Management
 
