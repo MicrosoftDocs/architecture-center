@@ -101,7 +101,7 @@ You can also use the following Azure services to implement this architecture:
 
 - [Azure Data Explorer](https://azure.microsoft.com/products/data-explorer/) is a fast, fully managed data analytics service for real-time analysis. It replaces the Fabric Real-Time Intelligence KQL database.
 
-- [Azure Batch](/azure/well-architected/service-guides/azure-batch/reliability) is an alternative that you can use to decode complex files. This scenario involves a large number of files that are over 300 megabytes each. The files require different decoding algorithms based on the file version or the file type. You can use either Fabric or use Blob Storage and Azure Data Explorer to implement the following approach.
+- [Azure Batch](/azure/batch/) is an alternative that you can use to decode complex files. This scenario involves a large number of files that are over 300 megabytes each. The files require different decoding algorithms based on the file version or the file type. You can use either Fabric or use Blob Storage and Azure Data Explorer to implement the following approach.
 
 :::image type="content" source="images/batch-workflow.svg" alt-text="Diagram that shows an alternative Batch method for decoding complex files." border="false" lightbox="images/batch-workflow.svg":::
 

@@ -247,7 +247,7 @@ This example architecture includes the following Azure components.
 
 - [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) ensures secure and efficient handling of APIs. In this solution, API Management provides a managed API gateway to existing backend services such as vehicle lifecycle management, including over-the-air updates, and user consent management.
 
-- [Azure Batch](/azure/well-architected/service-guides/azure-batch/reliability) is a platform service that provides job scheduling and virtual machine management capabilities. In this solution, Batch runs applications in parallel at scale. It also efficiently handles large compute-intensive tasks, such as vehicle communication trace ingestion.
+- [Azure Batch](/azure/batch/) is a platform service that provides job scheduling and virtual machine management capabilities. In this solution, Batch runs applications in parallel at scale. It also efficiently handles large compute-intensive tasks, such as vehicle communication trace ingestion.
 
 #### Data and analytics
 

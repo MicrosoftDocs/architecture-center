@@ -1185,50 +1185,6 @@ items:
           href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
   - name: Databases
     href: databases/index.yml
-  - name: Developer options
-    items:
-    - name: Microservices
-      items:
-      - name: Guides
-        items:
-        - name: Migrate to a microservices architecture
-          items:
-          - name: Migrate monolith to microservices
-            href: microservices/migrate-monolith.yml
-      - name: Architectures
-        items:
-        - name: Enterprise-grade logging on Azure
-          href: reference-architectures/logging/enterprise-grade-logging.yml
-        - name: Microservices on Azure Service Fabric
-          href: reference-architectures/microservices/service-fabric.yml
-    - name: Serverless applications
-      items:
-      - name: Guides
-        items:
-        - name: CI/CD for a serverless frontend
-          href: serverless/guide/serverless-app-cicd-best-practices.yml
-        - name: Monitor a distributed system
-          href: guide/devops/monitor-with-opencensus-application-insights.yml
-      - name: Architectures
-        items:
-        - name: Multicloud with Serverless Framework
-          href: example-scenario/serverless/serverless-multicloud.yml
-        - name: Real-time location sharing
-          href: example-scenario/signalr/index.yml
-        - name: Serverless event processing
-          href: reference-architectures/serverless/event-processing.yml
-      - name: Solution ideas
-        items:
-        - name: HIPAA/HITRUST compliant health data
-          href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
-        - name: Serverless applications using Event Grid
-          href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
-        - name: Serverless computing LOB apps
-          href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml
-        - name: Serverless event stream processing
-          href: solution-ideas/articles/serverless-event-processing-private-link.yml
-        - name: Transit Hub pub-sub messaging system
-          href: solution-ideas/articles/transit-hub.yml
   - name: DevOps
     items:
     - name: Get started
@@ -1836,8 +1792,6 @@ items:
           maintainContext: true
       - name: Migration deployments
         items:
-        - name: Migrate a monolith app to microservices
-          href: microservices/migrate-monolith.yml
         - name: Migrate with Azure VMware Solution
           href: /azure/cloud-adoption-framework/scenarios/azure-vmware/migrate
           maintainContext: true
@@ -2283,8 +2237,6 @@ items:
           href: example-scenario/mainframe/move-archive-data-mainframes.yml
     - name: Solution ideas
       items:
-      - name: HIPAA/HITRUST Health Data and AI
-        href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
       - name: Medical data storage
         href: solution-ideas/articles/medical-data-storage.yml
       - name: Two-region app with Table storage failover
