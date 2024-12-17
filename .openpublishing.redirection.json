@@ -4411,6 +4411,21 @@
       "redirect_document_id": false  
     },
     {
+      "source_path": "docs/networking/idea/healthcare-network.yml",
+      "redirect_url": "/azure/architecture/browse/?azure_categories=iot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml",
+      "redirect_url": "/azure/architecture/browse/?azure_categories=iot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/iot/industry-iot-hub-page.md",
+      "redirect_url": "/azure/architecture/browse/?azure_categories=iot",
+      "redirect_document_id": false  
+    },
+    {
       "source_path": "docs/reference-architectures/ai/batch-scoring-R-models.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-R-models",
       "redirect_document_id": false

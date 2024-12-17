@@ -121,4 +121,3 @@ Principal author:
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
 - [Low-latency network connections for industry](../../networking/idea/low-latency-network.yml)
-- [IoT device connectivity for healthcare facilities](../../networking/idea/healthcare-network.yml)

@@ -40,6 +40,5 @@ Watch this short video to get a sense of some of the things smart buildings can 
 ## Solution ideas for facilities and real estate 
 The following are other ideas that you can use as a starting point for your facilities and real estate solution.
 
-- [Environment monitoring and supply chain optimization with IoT](../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml)
 - [IoT Connected Platform for COVID-19 detection and prevention](../solution-ideas/articles/iot-connected-platform.yml) 
 - [Low-latency network connections for industry](../networking/idea/low-latency-network.yml)
