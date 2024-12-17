@@ -61,13 +61,13 @@ items:
       - name: NoSQL
         items:
         - name: Analyze MongoDB Atlas data
-          href: /architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml
+          href: architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml
         - name: N-tier app with Cassandra
           href: architecture/n-tier-cassandra.yml
       - name: Relational
         items:
         - name: Intelligent search engine for e-commerce
-          href: /architecture/ecommerce-search.yml
+          href: architecture/ecommerce-search.yml
       - name: Data movement
         items:
         - name: Apache NiFi on Azure
