@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 12/09/2024
+ms.date: 12/16/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.author: robbag
@@ -27,10 +27,18 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Modernize Mainframe Workloads by using BMC AMI Cloud](./example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml)
 - [Azure Virtual Desktop for Azure Local](./hybrid/azure-local-workload-virtual-desktop.yml)
 
 ### Updated articles
 
+- [Azure for AWS professionals](./aws-professional/index.md)  ([#b5fa90dbb7](https://github.com/MicrosoftDocs/architecture-center/commit/b5fa90dbb7))
+- [Best practices in cloud applications](./best-practices/index-best-practices.md)  ([#f84f30f537](https://github.com/MicrosoftDocs/architecture-center/commit/f84f30f537))
+- [Cloud design patterns](./patterns/index.md)  ([#f84f30f537](https://github.com/MicrosoftDocs/architecture-center/commit/f84f30f537))
+- [Big data architecture style](./guide/architecture-styles/big-data.yml)  ([#6329a5301e](https://github.com/MicrosoftDocs/architecture-center/commit/6329a5301e))
+- [Azure Arc-Enabled Server Configurations](./hybrid/azure-arc-hybrid-config.yml)  ([#89ba7c81e7](https://github.com/MicrosoftDocs/architecture-center/commit/89ba7c81e7))
+- [Architectural approaches for IoT Hub-based multitenant solutions](./guide/multitenant/approaches/iot.md)  ([#74d902de30](https://github.com/MicrosoftDocs/architecture-center/commit/74d902de30))
+- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#4623f17e39](https://github.com/MicrosoftDocs/architecture-center/commit/4623f17e39))
 - [Basic OpenAI End-to-End Chat Reference Architecture](./ai-ml/architecture/basic-openai-e2e-chat.yml)  ([#a2c84d6ab8](https://github.com/MicrosoftDocs/architecture-center/commit/a2c84d6ab8))
 - [Modern analytics architecture with Azure Databricks](./solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)  ([#3b03a9f5d6](https://github.com/MicrosoftDocs/architecture-center/commit/3b03a9f5d6))
 - [Stromasys Charon-SSP Solaris emulator on Azure VMs](./solution-ideas/articles/solaris-azure.yml)  ([#19b9e92801](https://github.com/MicrosoftDocs/architecture-center/commit/19b9e92801))
@@ -94,7 +102,6 @@ The following new and updated articles have recently been published in the Azure
 - [Overview of Microsoft Machine Learning Products and Technologies](./ai-ml/guide/data-science-and-machine-learning.md)  ([#e9e0ae671b](https://github.com/MicrosoftDocs/architecture-center/commit/e9e0ae671b))
 - [Artificial intelligence (AI) architecture](./ai-ml/index.md)  ([#e9e0ae671b](https://github.com/MicrosoftDocs/architecture-center/commit/e9e0ae671b))
 - [Esri ArcGIS Platform on Azure Virtual Desktop](./example-scenario/data/esri-arcgis-azure-virtual-desktop.yml)  ([#07114dc8b6](https://github.com/MicrosoftDocs/architecture-center/commit/07114dc8b6))
-- [Geospatial analysis for telecom](./example-scenario/data/geospatial-analysis-telecommunications-industry.yml)  ([#07114dc8b6](https://github.com/MicrosoftDocs/architecture-center/commit/07114dc8b6))
 - [Greenfield lakehouse on Microsoft Fabric](./example-scenario/data/greenfield-lakehouse-fabric.yml)  ([#07114dc8b6](https://github.com/MicrosoftDocs/architecture-center/commit/07114dc8b6))
 - [Stream processing with fully managed open-source data engines](./example-scenario/data/open-source-data-engine-stream-processing.yml)  ([#07114dc8b6](https://github.com/MicrosoftDocs/architecture-center/commit/07114dc8b6))
 - [Architectural approaches for storage and data in multitenant solutions](./guide/multitenant/approaches/storage-data.yml)  ([#5af6f44473](https://github.com/MicrosoftDocs/architecture-center/commit/5af6f44473))
@@ -122,7 +129,7 @@ The following new and updated articles have recently been published in the Azure
 - [Employee retention with Databricks and Kubernetes](./example-scenario/ai/employee-retention-databricks-kubernetes.yml)  ([#77135146b6](https://github.com/MicrosoftDocs/architecture-center/commit/77135146b6))
 - [Model loan credit risk and default probability](./example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml)  ([#77135146b6](https://github.com/MicrosoftDocs/architecture-center/commit/77135146b6))
 - [Multi-region load balancing](./high-availability/reference-architecture-traffic-manager-application-gateway.yml)  ([#6c8ea10816](https://github.com/MicrosoftDocs/architecture-center/commit/6c8ea10816))
-- [Azure Arc-enabled server configurations](./hybrid/azure-arc-hybrid-config.yml)  ([#6c8ea10816](https://github.com/MicrosoftDocs/architecture-center/commit/6c8ea10816))
+- [Azure Arc-Enabled Server Configurations](./hybrid/azure-arc-hybrid-config.yml)  ([#6c8ea10816](https://github.com/MicrosoftDocs/architecture-center/commit/6c8ea10816))
 - [Administer SQL Server with Azure Arc](./hybrid/azure-arc-sql-server.yml)  ([#6c8ea10816](https://github.com/MicrosoftDocs/architecture-center/commit/6c8ea10816))
 - [Hybrid Cross-Cluster Scaling with Azure Arc for the workloads deployed on Azure Local](./hybrid/hybrid-cross-cluster-scaling.yml)  ([#6c8ea10816](https://github.com/MicrosoftDocs/architecture-center/commit/6c8ea10816))
 - [Automotive connected fleets](./industries/automotive/automotive-connected-fleets.yml)  ([#6c8ea10816](https://github.com/MicrosoftDocs/architecture-center/commit/6c8ea10816))
@@ -144,8 +151,6 @@ The following new and updated articles have recently been published in the Azure
 - [Microsoft Entra IDaaS in security operations](./example-scenario/aadsec/azure-ad-security.yml)  ([#a1342dca07](https://github.com/MicrosoftDocs/architecture-center/commit/a1342dca07))
 - [Extract text from objects using Power Automate and AI Builder](./example-scenario/ai/extract-object-text.yml)  ([#a1342dca07](https://github.com/MicrosoftDocs/architecture-center/commit/a1342dca07))
 - [News feeds with near real-time analytics](./example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)  ([#a1342dca07](https://github.com/MicrosoftDocs/architecture-center/commit/a1342dca07))
-- [Real-time anomaly detection for conveyor belts](./example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml)  ([#a1342dca07](https://github.com/MicrosoftDocs/architecture-center/commit/a1342dca07))
-- [Predict student attrition](./example-scenario/ai/student-attrition-prediction.yml)  ([#a1342dca07](https://github.com/MicrosoftDocs/architecture-center/commit/a1342dca07))
 - [Run SAP HANA Large Instances](./reference-architectures/sap/hana-large-instances.yml)  ([#cd8f5bea9a](https://github.com/MicrosoftDocs/architecture-center/commit/cd8f5bea9a))
 - [Pricing models for a multitenant solution](./guide/multitenant/considerations/pricing-models.md)  ([#820a1635fe](https://github.com/MicrosoftDocs/architecture-center/commit/820a1635fe))
 - [Use Teamcenter PLM with Azure NetApp Files](./example-scenario/manufacturing/teamcenter-plm-netapp-files.yml)  ([#d056868ef6](https://github.com/MicrosoftDocs/architecture-center/commit/d056868ef6))
@@ -272,7 +277,6 @@ The following new and updated articles have recently been published in the Azure
 - [Enable real-time sync of MongoDB Atlas data changes to Azure Synapse Analytics](./example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml)  ([#5003ac7034](https://github.com/MicrosoftDocs/architecture-center/commit/5003ac7034))
 - [Build CNCF projects by using Azure Kubernetes Service](./example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)  ([#5003ac7034](https://github.com/MicrosoftDocs/architecture-center/commit/5003ac7034))
 - [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)  ([#4b01645043](https://github.com/MicrosoftDocs/architecture-center/commit/4b01645043))
-- [Real-time anomaly detection for conveyor belts](./example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml)  ([#e2248966dd](https://github.com/MicrosoftDocs/architecture-center/commit/e2248966dd))
 - [Use Azure Front Door to secure AKS workloads](./example-scenario/aks-front-door/aks-front-door.yml)  ([#e2248966dd](https://github.com/MicrosoftDocs/architecture-center/commit/e2248966dd))
 - [Extract text from objects using Power Automate and AI Builder](./example-scenario/ai/extract-object-text.yml)  ([#4316bc199a](https://github.com/MicrosoftDocs/architecture-center/commit/4316bc199a))
 - [News feeds with near real-time analytics](./example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)  ([#4316bc199a](https://github.com/MicrosoftDocs/architecture-center/commit/4316bc199a))
