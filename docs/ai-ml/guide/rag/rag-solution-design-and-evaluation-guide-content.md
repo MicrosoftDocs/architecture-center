@@ -71,7 +71,7 @@ The series of articles in this guide addresses those considerations and more.
 - **Clean chunks** - Discusses different cleaning approaches you can implement to support closeness matches by eliminating potential differences that aren't material to the semantics of the text
 - **Augment chunks** - Discusses some common metadata fields you should consider augmenting your chunk data with along with some guidance about their potential uses in search, and tools or techniques that are commonly used to generate the metadata content
 
-**[Embedding phase](./rag-generating-embeddings.yml)**
+**[Embedding phase](./rag-generate-embeddings.yml)**
 
 - **Understand the importance of the embedding model** - Discusses how an embedding model can have a significant effect on relevancy of your vector search results
 - **Choosing an embedding model** - Provides guidance on choosing an embedding model

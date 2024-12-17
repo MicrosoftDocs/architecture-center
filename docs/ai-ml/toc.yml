@@ -101,7 +101,7 @@ items:
         - name: Chunk enrichment phase
           href: guide/rag/rag-enrichment-phase.yml
         - name: Embedding phase
-          href: guide/rag/rag-generating-embeddings.yml
+          href: guide/rag/rag-generate-embeddings.yml
         - name: Information retrieval phase
           href: guide/rag/rag-information-retrieval.yml
         - name: LLM end-to-end evaluation phase
@@ -187,7 +187,7 @@ items:
           - name: Chunk enrichment phase
             href: guide/rag/rag-enrichment-phase.yml
           - name: Embedding phase
-            href: guide/rag/rag-generating-embeddings.yml
+            href: guide/rag/rag-generate-embeddings.yml
           - name: Information retrieval phase
             href: guide/rag/rag-information-retrieval.yml
           - name: LLM end-to-end evaluation phase
