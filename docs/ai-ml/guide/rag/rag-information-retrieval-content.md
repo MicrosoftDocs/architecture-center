@@ -1,29 +1,31 @@
-Once you generate the embeddings for your chunks, the next step is to generate the index in the vector database and experiment to determine the optimal searches to perform. When you're experimenting with information retrieval, there are several areas to consider, including configuration options for the search index, the types of searches you should perform, and your reranking strategy. This article covers these three topics.
+In the previous step of your Retrieval-Augmented Generation (RAG) solution, you generated the embeddings for your chunks. In this step, you generate the index in the vector database and experiment to determine the optimal searches to perform. This article covers configuration options for the search index, the types of searches you should perform, and your reranking strategy. Determine these factors when you experiment with information retrieval.
 
-> This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
+This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
 
 ## Search index
 
 > [!NOTE]
-> Azure AI Search is a first party Azure search service. This section will mention some specifics for AI Search. If you're using a different store, consult the documentation to find the key configuration for that service.
+> This section describes specific recommendations for Azure AI Search. If you use a different store, review the appropriate documentation to find the key configurations for that service.
 
-The search index in your store has a column for every field in your data. Search stores generally have support for [nonvector data types](/rest/api/searchservice/supported-data-types#edm-data-types-for-nonvector-fields) such as string, Boolean, integer, single, double, datetime, and collections like Collection(single) and [vector data types](/rest/api/searchservice/supported-data-types#edm-data-types-for-vector-fields) such as Collection(single). For each column, you must [configure information](/azure/search/vector-search-how-to-create-index#add-a-vector-field-to-the-fields-collection) such as the data type, whether the field is filterable, retrievable, and/or searchable.
+The search index in your store has a column for every field in your data. Search stores generally support [nonvector data types](/rest/api/searchservice/supported-data-types#edm-data-types-for-nonvector-fields), such as string, Boolean, integer, single, double, datetime. They also support collections, like Collection(single) and [vector data types](/rest/api/searchservice/supported-data-types#edm-data-types-for-vector-fields) such as Collection(single). For each column, you must [configure information](/azure/search/vector-search-how-to-create-index#add-a-vector-field-to-the-fields-collection), such as the data type and whether the field is filterable, retrievable, or searchable.
 
-The following are some key decisions you must make for the [vector search configuration](/azure/search/vector-search-how-to-create-index#add-a-vector-search-configuration) that are applied to vector fields:
+Consider the following [vector search configurations](/azure/search/vector-search-how-to-create-index#add-a-vector-search-configuration) that you apply to vector fields:
 
-- **[Vector search algorithm](/azure/search/vector-search-ranking)** - The algorithm used to search for relative matches. Azure AI Search has a brute-force algorithm option that scans the entire vector space called exhaustive KNN, and a more performant algorithm option that performs an [approximate nearest neighbor (ANN)](/azure/search/vector-search-overview#approximate-nearest-neighbors) search called Hierarchical Navigable Small World (HNSW).
-- **[metric](/azure/search/vector-search-ranking#similarity-metrics-used-to-measure-nearness)** - This configuration is the similarity metric used to calculate nearness by the algorithm. The options in Azure AI Search are cosine, dotProduct, and Euclidean. If you're using Azure OpenAI embedding models, choose `cosine`.
-- **efConstruction** - Parameter used during Hierarchical Navigable Small Worlds (HNSW) index construction that sets the number of nearest neighbors that are connected to a vector during indexing. A larger efConstruction value results in a better-quality index than a smaller number. The tradeoff is that a larger value requires more time, storage, and compute. efConstruction should be higher for a large number of chunks and lower for a low number of chunks. Determining the optimal value requires experimentation with your data and expected queries.
-- **efSearch** - Parameter that is used at query time to set the number of nearest neighbors (that is, similar chunks) used during search.
-- **m** - The bidirectional link count. The range is 4 to 10, with lower numbers returning less noise in the results.
+- **Vector search algorithm:** The [vector search algorithm](/azure/search/vector-search-ranking) searches for relative matches. AI Search has a brute-force algorithm option, called *exhaustive KNN*, that scans the entire vector space. It also has a more performant algorithm option, called *Hierarchical Navigable Small World (HNSW)*, that performs an [approximate nearest neighbor (ANN)](/azure/search/vector-search-overview#approximate-nearest-neighbors) search.
 
-In Azure AI Search, the vector configurations are encapsulated in a `vectorSearch` configuration. When configuring your vector columns, you reference the appropriate configuration for that vector column and set the number of dimensions. The vector column's dimensions attribute represents the number of dimensions generated by the embedding model you chose. For example, the storage-optimized `text-embedding-3-small` model generates 1,536 dimensions.
+- **Similarity metric:** The algorithm uses a [similarity metric](/azure/search/vector-search-ranking#similarity-metrics-used-to-measure-nearness) to calculate nearness. The types of metrics in AI Search include cosine, dotProduct, and Euclidean. If you use Azure OpenAI Service embedding models, choose `cosine`.
+- **The `efConstruction` parameter:** This parameter is used during the construction of a HNSW index. It determines the number of nearest neighbors that are connected to a vector during indexing. A larger `efConstruction` value results in a better-quality index than a smaller number. But a larger value requires more time, storage, and compute. For a large number of chunks, set the `efConstruction` value higher. For a low number of chunks, set the value lower. To determine the optimal value, experiment with your data and expected queries.
+- **The `efSearch` parameter:** This parameter is used during query time to set the number of nearest neighbors, or similar chunks, that the search uses.
+- **The `m` parameter:** This parameter is the bidirectional link count. The range is 4 to 10. Lower numbers return less noise in the results.
+
+In AI Search, the vector configurations are encapsulated in a `vectorSearch` configuration. When you configure your vector columns, you reference the appropriate configuration for that vector column and set the number of dimensions. The vector column's dimensions attribute represents the number of dimensions generated by the embedding model you chose. For example, the storage-optimized `text-embedding-3-small` model generates 1,536 dimensions.
 
 ## Searches
 
 When executing queries from your prompt orchestrator against your search store, you have many options to consider. You need to determine:
 
 - What type of search you're going to perform: vector or keyword or hybrid
+
 - Whether you're going to query against one or more columns
 - Whether you're going to manually run multiple queries, such as a keyword query and a vector search
 - Whether the query needs to be broken down into subqueries
@@ -33,7 +35,7 @@ Your prompt orchestrator might take a static approach or a dynamic approach mixi
 
 ### Search types
 
-Search platforms generally support full text and vector searches. Some platforms, like Azure AI Search support hybrid searches. To see capabilities of various vector search offerings, review [Choose an Azure service for vector search](../../../guide/technology-choices/vector-search.md).
+Search platforms generally support full text and vector searches. Some platforms, like AI Search support hybrid searches. To see capabilities of various vector search offerings, review [Choose an Azure service for vector search](../../../guide/technology-choices/vector-search.md).
 
 #### Vector search
 
@@ -43,7 +45,7 @@ Search platforms generally support full text and vector searches. Some platforms
 > You should perform the same [cleaning operations](./rag-enrichment-phase.yml#cleaning) you performed on chunks before embedding the query. For example, if you lowercased every word in your embedded chunk, you should lowercase every word in the query before embedding.
 
 > [!NOTE]
-> You can perform a vector search against multiple vector fields in the same query. In Azure AI Search, that is technically a hybrid search. For more information, see that section.
+> You can perform a vector search against multiple vector fields in the same query. In AI Search, that is technically a hybrid search. For more information, see that section.
 
 ```python
 embedding = embedding_model.generate_embedding(
@@ -66,9 +68,9 @@ results = client.search(
 
 The sample code performs a vector search against the `contentVector` field. Note that the code that embeds the query preprocesses the query first. That preprocess should be the same code that preprocesses the chunks prior to embedding. The embedding model must be the same embedding model that embedded the chunks.
 
-#### Full text search
+#### Full-text search
 
-[Full text searches](/azure/search/search-lucene-query-architecture) match plain text stored in an index. It's a common practice to extract keywords from a query and use those extracted keywords in a full text search against one or more indexed columns. Full text searches can be configured to return matches where any terms or all terms match.
+[Full-text searches](/azure/search/search-lucene-query-architecture) match plain text stored in an index. It's a common practice to extract keywords from a query and use those extracted keywords in a full text search against one or more indexed columns. Full text searches can be configured to return matches where any terms or all terms match.
 
 You have to experiment to determine which fields are effective to run full text searches against. As discussed in the [Enrichment phase](./rag-enrichment-phase.yml#augmenting-chunks), keyword, and entity metadata fields are good candidates to consider for full text search in scenarios where content has similar semantic meaning, but entities or keywords differ. Other common fields to consider for full text search are title, summary, and the chunk text.
 
@@ -88,7 +90,7 @@ The sample code performs a full text search against the title, content, and summ
 
 #### Hybrid search
 
-Azure AI Search supports [Hybrid queries](/azure/search/hybrid-search-ranking) where your query can contain one or more text searches and one or more vector searches. The platform performs each query, get the intermediate results, rerank the results using [Reciprocal Rank Fusion (RRF)](/azure/search/hybrid-search-ranking#how-rrf-ranking-works), and return the top N results.
+AI Search supports [Hybrid queries](/azure/search/hybrid-search-ranking) where your query can contain one or more text searches and one or more vector searches. The platform performs each query, get the intermediate results, rerank the results using [Reciprocal Rank Fusion (RRF)](/azure/search/hybrid-search-ranking#how-rrf-ranking-works), and return the top N results.
 
 ```python
  embedding = embedding_model.generate_embedding(
@@ -113,13 +115,14 @@ results = client.search(
 )
 ```
 
-The sample code performs a full text search against the title, content, and summary fields and vector searches against the contentVector and questionVector fields. The Azure AI Search platform runs all the queries in parallel, reranks the results, and returns the top retrieve_num_of_documents documents.
+The sample code performs a full text search against the title, content, and summary fields and vector searches against the contentVector and questionVector fields. The AI Search platform runs all the queries in parallel, reranks the results, and returns the top retrieve_num_of_documents documents.
 
 #### Manual multiple
 
 You can, of course, run multiple queries, such as a vector search and a keyword full text search, manually. You aggregate the results and [rerank](#reranking) the results manually and return the top results. The following are use cases for manual multiple:
 
 - You're using a search platform that doesn't support hybrid searches. You would follow this option to perform your own hybrid search.
+
 - You want to run full text searches against different queries. For example, you might extract keywords from the query and run a full text search against your keywords metadata field. You might then extract entities and run a query against the entities metadata field.
 - You want to control the reranking process yourself.
 - The query requires [decomposed subqueries](#decomposition) to be run to retrieve grounding data from multiple sources.
@@ -240,7 +243,6 @@ For each query, follow these specific instructions:
 - Decontextualize each proposition by adding necessary modifiers to nouns or entire sentences. Replace pronouns (e.g., "it", "he", "she", "they", "this", "that") with the full name of the entities they refer to.
 - if you still need more question, the sub-question is not relevant and should be removed.
 
-
 Provide your analysis in the following YAML format strictly adhering to the structure below and do not output anything extra including the language itself:
 
 type: interdependent
@@ -276,7 +278,7 @@ Now, analyze the following query:
 
 #### Rewriting
 
-An input query may not be in the optimal form to retrieve grounding data. Using a language model to rewrite the query is a common practice to achieve better results. The following are some challenges that you can address by rewriting a query:
+An input query might not be in the optimal form to retrieve grounding data. Using a language model to rewrite the query is a common practice to achieve better results. The following are some challenges that you can address by rewriting a query:
 
 - Vagueness
 - Missing keywords
@@ -308,27 +310,28 @@ query: {original_query}
 
 [Hypothetical Document Embeddings (HyDE)](https://towardsdatascience.com/how-to-use-hyde-for-better-llm-rag-retrieval-a0aa5d0e23e8) is an alternate information retrieval technique used in RAG solutions. Rather than converting a query into embeddings and using those embeddings to find the closest matches in a vector database, HyDE uses a language model to generate answers from the query. These answers are then converted into embeddings, which are used to find the closest matches. This process enables HyDE to perform answer-to-answer embedding similarity searches.
 
-### Combining query translations into a pipeline
+### Combine query translations into a pipeline
 
 You're not limited to choosing one query translation. In practice, multiple, or even all of these translations can be used in conjunction. The following diagram illustrates an example of how these translations can be combined into a pipeline.
 
-:::image type="complex" source="./_images/rag-query-transformation.svg" lightbox="./_images/rag-query-transformation.svg" alt-text="Diagram that shows a RAG pipeline with query transformers.":::
+:::image type="complex" source="./_images/rag-query-transformation.svg" lightbox="./_images/rag-query-transformation.svg" alt-text="Diagram that shows a RAG pipeline with query transformers." border="false":::
     The diagram shows a pipeline with four steps. The original query is passed to the first step, a box called query augmenter. The query augmenter outputs the original query and an augmented query. The augmented query is passed to the second step, a box called query decomposer. The query decomposer outputs the original query, an augmented query, and four decomposed queries. The decomposed queries are passed to the third step. The third step has a foreach block. Behind the foreach block are three substeps: Query rewriter, query executor, and reranker. The output of step 3 is the original query, an augmented query, four decomposed queries, and the accumulated context. The original query and the accumulated context are passed to the fourth step. The fourth step has three substeps: Query rewriter, query executor, and reranker. The result of step 4 is the final result.
 :::image-end:::
-*Figure 1: RAG pipeline with query transformers*
 
 The diagram is numbered for notable steps in this pipeline:
 
 1. The original query is passed to the optional query augmenter step. This step outputs the original query and the augmented query.
+
 1. The augmented query is passed to the optional query decomposer step. This step outputs the original query, the augmented query, and the decomposed queries.
 1. Each decomposed query is passed through three substeps. Once all of the decomposed queries are run through the substeps, the step outputs the original query, the augmented query, the decomposed queries, and an accumulated context. The accumulated context is the aggregation of the top N results from all of the decomposed queries being processed through the substeps.
 
     1. The optional query rewriter rewrites the decomposed query.
+    
     1. The rewritten query, if it was rewritten, or the original query is executed against the search index. The query can be executed using any of the search types: vector, full text, hybrid, or manual multiple. It can also be executed using advanced query capabilities such as HyDE.
     1. The results are reranked. The top *N* reranked results are added to the accumulated context.
 1. The original query, along with the accumulated context, are run through the same three substeps as each decomposed query was. The only difference is that there's only one query run and the top *N* results are returned to the caller.
 
-### Passing images in queries
+### Pass images in queries
 
 Some multimodal models such as GPT-4V and GPT-4o can interpret images. If you're using these models, you can choose whether you want to avoid chunking your images and pass the image as part of the prompt to the multimodal model. You should experiment to determine how this approach performs compared to chunking the images with and without passing additional context. You should also compare the difference in cost between the approaches and do a cost-benefit analysis.
 
@@ -338,12 +341,12 @@ Fields in the search store that are configured as filterable can be used to filt
 
 ### Weighting
 
-Some search platforms, such as Azure AI Search, support the ability to influence the ranking of results based on criteria, including weighting fields. 
+Some search platforms, such as AI Search, support the ability to influence the ranking of results based on criteria, including weighting fields. 
 
 > [!NOTE]
-> This section discusses the weighting capabilities in Azure AI Search. If you're using a different data platform, research the weighting capabilities of that platform.
+> This section discusses the weighting capabilities in AI Search. If you're using a different data platform, research the weighting capabilities of that platform.
 
-Azure AI Search supports scoring profiles that contain [parameters for weighted fields and functions for numeric data](/azure/search/index-add-scoring-profiles#key-points-about-scoring-profiles). Currently, scoring profiles only apply to nonvector fields, while support for vector and hybrid search is in preview. You can create multiple scoring profiles on an index and optionally choose to use one on a per-query basis.
+AI Search supports scoring profiles that contain [parameters for weighted fields and functions for numeric data](/azure/search/index-add-scoring-profiles#key-points-about-scoring-profiles). Currently, scoring profiles only apply to nonvector fields, while support for vector and hybrid search is in preview. You can create multiple scoring profiles on an index and optionally choose to use one on a per-query basis.
 
 Choosing which fields to weight depends upon the type of query and the use case. For example, if you determine that the query is keyword-centric, such as "Where is Microsoft headquartered?", you would want a scoring profile that weights entity or keyword fields higher. You may also use different profiles for different users, allow users to choose their focus, or choose profiles based on the application.
 
@@ -354,9 +357,10 @@ We recommend that in production systems, you only maintain profiles that you act
 Reranking allows you to run one or more queries, aggregate the results, and rank those results. Consider the following reasons to rerank your search results:
 
 - You performed [manual multiple searches](#manual-multiple) and you want to aggregate the results and rank them.
+
 - Vector and keyword searches aren't always accurate. You can increase the count of documents returned from your search, potentially including some valid results that would otherwise be ignored, and use reranking to evaluate the results.
 
-You can use a language model or cross-encoder to perform reranking. Some platforms, like Azure AI Search have proprietary methods to rerank results. You can evaluate these options for your data to determine what works best for your scenario. The following sections provide details on these methods.
+You can use a language model or cross-encoder to perform reranking. Some platforms, like AI Search have proprietary methods to rerank results. You can evaluate these options for your data to determine what works best for your scenario. The following sections provide details on these methods.
 
 #### Language model reranking
 
@@ -415,13 +419,14 @@ for idx in list(top_indices_ques):
 
 #### Semantic ranking
 
-Azure AI Search has a proprietary feature called [semantic ranking](/azure/search/semantic-search-overview). This feature uses deep learning models that were adapted from Microsoft Bing that promote the most semantically relevant results. Read the following to see [How semantic ranker works](/azure/search/semantic-search-overview#how-semantic-ranker-works).
+AI Search has a proprietary feature called [semantic ranking](/azure/search/semantic-search-overview). This feature uses deep learning models that were adapted from Microsoft Bing that promote the most semantically relevant results. Read the following to see [How semantic ranker works](/azure/search/semantic-search-overview#how-semantic-ranker-works).
 
 ### Search guidance
 
 Consider the following general guidance when implementing your search solution:
 
 - Title, summary, source, and the raw content (not cleaned) are good fields to return from a search.
+
 - Determine up front whether a query needs to be broken down into subqueries.
 - In general, it's a good practice to run queries on multiple fields, both vector and text queries. When you receive a query, you don't know whether vector search or text search are better. You further don't know what fields the vector search or keyword search are best to search. You can search on multiple fields, potentially with multiple queries, rerank the results and return the results with the highest scores.
 - Keywords and entities fields are good candidates to consider filtering on.
@@ -437,17 +442,18 @@ In the preparation phase, you should have [gathered test queries along with test
 The following are three well established retrieval evaluation methods you can use to evaluate your search solution:
 
 - **Precision at K** - The percentage of correctly identified relevant items out of the total search results. This metric focuses on the accuracy of your search results.
+
 - **Recall at K** - Recall at K measures the percentage of relevant items in the top K out of the total possible relative items. This metric focuses on search results coverage.
 - **Mean Reciprocal Rank (MRR)** - MRR measures the average of the reciprocal ranks of the first relevant answer in your ranked search results. This metric focuses on where the first relevant result occurs in the search results.
 
 You should test both positive and negative examples. For the positive examples, you want the metrics to be as close to 1 as possible. For the negative examples, where your data shouldn't be able to address the queries, you want the metrics to be as close to 0 as possible. You should test all your test queries and average the positive query results and the negative query results to understand how your search results are performing in aggregate.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [Language model end to end evaluation phase](./rag-llm-evaluation-phase.yml)
+> [Language model end-to-end evaluation phase](./rag-llm-evaluation-phase.yml)
 
 ## Related resources
 
-- [Quickstart: Chat with Azure OpenAI models using your own data](/azure/ai-services/openai/use-your-data-quickstart)
-- [Hybrid search using vectors and full text in Azure AI Search](/azure/search/hybrid-search-overview)
+- [Quickstart: Chat with Azure OpenAI models by using your own data](/azure/ai-services/openai/use-your-data-quickstart)
+- [Hybrid search via vectors and full text in AI Search](/azure/search/hybrid-search-overview)
