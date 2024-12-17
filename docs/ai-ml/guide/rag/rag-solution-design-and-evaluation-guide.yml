@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Guide to designing and developing a RAG solution
-  description: Learn what you should consider when designing an LLM RAG solution, including determining what test documents and queries to use during evaluation, choosing a chunking strategy, determining what and how you should enrich the chunks, choosing the right embedding model, how to configure the search index, determining what searches you want to perform, and how to evaluate each step.
+  title: Design and Develop a RAG Solution
+  description: Learn about what to consider when you design a large language model RAG solution, including each step of the development process and how to evaluate those steps.
   author: robbagby
   ms.author: robbag
-  ms.date: 11/22/2024
+  ms.date: 12/9/2024
   ms.topic: conceptual
   ms.collection: ce-skilling-ai-copilot  
   ms.service: azure-architecture-center
@@ -17,8 +17,8 @@ products:
   - azure-cognitive-search
   - azure-openai
   - azure-machine-learning
-name: Designing and developing a RAG solution
-summary: Guide to designing and developing a RAG solution.
-thumbnailUrl: /azure/architecture/browse/thumbs/speech-text-thumb.png
+name: Design and develop a RAG solution
+summary: Learn about what to consider when you design a large language model RAG solution, including each step of the development process and how to evaluate those steps.
+thumbnailUrl: /azure/architecture/browse/thumbs/rag-high-level-architecture.png
 content: |
   [!INCLUDE[](rag-solution-design-and-evaluation-guide-content.md)]
