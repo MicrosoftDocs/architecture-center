@@ -2,13 +2,13 @@ In the previous steps of your Retrieval-Augmented Generation (RAG) solution, you
 
 This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
 
-An embedding is a mathematical representation of an object, such as text. When a neural network is being trained, many representations of an object are created and each representation has connections to other objects in the network. An embedding is one of the representations of the object that's selected because it captures the semantic meaning of the object.
+An embedding is a mathematical representation of an object, such as text. When a neural network is being trained, many representations of an object are created. Each representation has connections to other objects in the network. An embedding is important because it captures the semantic meaning of the object.
 
 The representation of one object has connections to representations of other objects, so you can compare objects mathematically. The following example shows how embeddings capture semantic meaning and relationships between each other:
 
 `embedding (king) - embedding (man) + embedding (woman) = embedding (queen)`
 
-Embeddings are compared to one another by using the notions of similarity and distance. The following diagram shows a comparison of embeddings.
+Embeddings are compared to one another by using the notions of similarity and distance. The following grid shows a comparison of embeddings.
 
 :::image type="complex" source="./_images/embedding-similarity.svg" lightbox="./_images/embedding-similarity.svg" alt-text="Diagram that shows a comparison of vectors." border="false":::
    Diagram that shows a two-dimensional grid. The sentences "The cat is on the mat" and "The cat is sitting on the mat" are in boxes in the upper right quadrant of the grid, close to one another. There are two vectors that point at each box. The angle between the vectors is small. There's a box in the lower right quadrant with the text "It is currently sunny in Phoenix" with a vector that points at that box. The angle between that vector and the vector for "The cat is sitting on the mat" is large.
@@ -17,7 +17,7 @@ Embeddings are compared to one another by using the notions of similarity and di
 In a RAG solution, you often embed the user query by using the same embedding model as your chunks. Then, you search your database for relevant vectors to return the most semantically relevant chunks. The original text of the relevant chunks is passed to the language model as grounding data.
 
 > [!NOTE]
-> Vectors represent the semantic meaning of text in a way that allows for mathematical comparison. So, you must clean the chunks so that mathematical proximity between vectors accurately reflects their semantic relevancy.
+> Vectors represent the semantic meaning of text in a way that allows for mathematical comparison. You must clean the chunks so that mathematical proximity between vectors accurately reflects their semantic relevancy.
 
 ## The importance of the embedding model
 
@@ -62,7 +62,7 @@ To evaluate an embedding model, visualize the embeddings and evaluate the distan
 
 You can use libraries, such as t-SNE, to plot the vectors for your chunks and your question on an X-Y graph. You can then determine how far the chunks are from one another and from the question. The following graph shows chunk vectors plotted. The two arrows near one another represent two chunk vectors. The other arrow represents a question vector. You can use this visualization to understand how far the question is from the chunks.
 
-:::image type="complex" source="./_images/visualize-embeddings.png" lightbox="./_images/visualize-embeddings.png" alt-text="Graph that shows a visualization of an embedding. The image shows a bunch of blue dots plotted on an X-Y scale." border="false":::
+:::image type="complex" source="./_images/visualize-embeddings.png" alt-text="Graph that shows a visualization of an embedding. The image shows a bunch of blue dots plotted on an X-Y scale." border="false":::
    Two arrows point to plot points near one another, and another arrow shows a plot point far away from the other two.
 :::image-end:::
 
@@ -72,9 +72,9 @@ You can use a programmatic method to evaluate how well your embedding model work
 
 ## Embedding economics
 
-When you choose an embedding model, you must navigate a trade-off between performance and cost. Larger embedding models usually have better performance on benchmarking datasets. But, the increased performance comes at a cost. Larger vectors require more space in a vector database. They also require more computational resources and time to compare embeddings. Smaller embedding models usually have lower performance on the same benchmarks. They require less space in your vector database and less compute and time to compare embeddings.
+When you choose an embedding model, you must navigate a trade-off between performance and cost. Larger embedding models usually have better performance on benchmarking datasets. But, the increased performance adds cost. Larger vectors require more space in a vector database. They also require more computational resources and time to compare embeddings. Smaller embedding models usually have lower performance on the same benchmarks. They require less space in your vector database and less compute and time to compare embeddings.
 
-When you design your system, you should account for the cost of embedding in terms of storage, compute, and performance requirements. You must validate the performance of the models through experimentation. The publicly available benchmarks are mainly academic datasets. Most results can't be directly transposed to business data and use cases. Depending on the requirements, you can favor performance over cost, or accept a trade-off of good-enough performance in exchange for lower cost.
+When you design your system, you should account for the cost of embedding in terms of storage, compute, and performance requirements. You must validate the performance of the models through experimentation. The publicly available benchmarks are mainly academic datasets and might not directly apply to your business data and use cases. Depending on the requirements, you can favor performance over cost or accept a trade-off of good-enough performance for lower cost.
 
 ## Next step
 
