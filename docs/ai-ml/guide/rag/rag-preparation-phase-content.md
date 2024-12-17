@@ -202,7 +202,7 @@ It's often challenging for the subject matter experts (SMEs) for a particular do
 
 It's important to gather queries that the documents don't address and the queries that they do address. When you test your solution, and especially when you test the language model, you need to determine how the solution should respond to queries that it doesn't have sufficient context to answer. To respond to queries that the solution can't address, the solution can:
 
-- State that it doesn't don't know the answer.
+- State that it doesn't know the answer.
 
 - State that it doesn't know the answer and provide a link where the user might find more information.
 
