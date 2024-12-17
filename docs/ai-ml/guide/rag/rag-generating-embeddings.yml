@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Develop a RAG Solution - Generate Embeddings Phase
-  description: Learn about why your choice of embedding model can affect your vector search results and read guidance on how to choose an embedding model.
+  title: Develop a RAG Solution—Generate Embeddings Phase
+  description: Learn how to choose an embedding model and how your embedding model can affect your vector search results.
   author: robbagby
   ms.author: robbag
   ms.date: 11/22/2024

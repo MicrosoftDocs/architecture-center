@@ -1,53 +1,55 @@
-This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
+In the previous steps of your Retrieval-Augmented Generation (RAG) solution, you divided your documents into chunks and enriched the chunks. Now you need to generate embeddings for those chunks and any metadata fields on which you plan to perform vector searches.
 
-In the previous step, you divided your documents into chunks and enriched the chunks. Now you need to generate embeddings for those chunks and any metadata fields on which you plan to perform vector searches.
+This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
 
 An embedding is a mathematical representation of an object, such as text. When a neural network is being trained, many representations of an object are created and each representation has connections to other objects in the network. An embedding is one of the representations of the object that's selected because it captures the semantic meaning of the object.
 
-An embedding is a mathematical representation of that object and that representation has connections to representations of other objects, so you can compare objects mathematically. A famous example to show how embeddings capture semantic meaning and relationships between each other is:
+The representation of one object has connections to representations of other objects, so you can compare objects mathematically. The following example shows how embeddings capture semantic meaning and relationships between each other:
 
 `embedding (king) - embedding (man) + embedding (woman) = embedding (queen)`
 
-Embeddings are compared to one another by using the notions of similarity and distance. The following diagram illustrates how embeddings can be compared.
+Embeddings are compared to one another by using the notions of similarity and distance. The following diagram shows a comparison of embeddings.
 
 :::image type="complex" source="./_images/embedding-similarity.svg" lightbox="./_images/embedding-similarity.svg" alt-text="Diagram showing how vectors are compared." border="false":::
    Diagram that shows a two-dimensional grid. The sentences "The cat is on the mat" and "The cat is sitting on the mat" are in boxes in the upper right hand quadrant of the grid, close to one another. There are two vectors that are pointing at each box. The angle between the vectors is small. There's a box in the lower right quadrant with the text "It is currently sunny in Phoenix" with a vector pointing at that box. The angle between that vector and the vector for "The cat is sitting on the mat" is large.
 :::image-end:::
 
-In a Retrieval-Augmented Generation (RAG) solution, you often embed the user query by using the same embedding model as your chunks and search for relevant vectors from your database to return the most semantically relevant chunks. The original text of the relevant chunks is then passed to the language model as grounding data.
+In a RAG solution, you often embed the user query by using the same embedding model as your chunks. Then, you search your database for relevant vectors to return the most semantically relevant chunks. The original text of the relevant chunks is passed to the language model as grounding data.
 
 > [!NOTE]
-> This feature of vectors stresses the importance of cleaning the chunks so mathematical proximity can be tracked more closely with semantic relevancy.
+> Vectors represent the semantic meaning of text in a way that allows for mathematical comparison. So, you must clean the chunks so that mathematical proximity between vectors accurately reflects their semantic relevancy.
 
-## Importance of the embedding model
+## The importance of the embedding model
 
-The embedding model you choose can have a significant effect on relevancy of your vector search results. One of the key factors you must consider when choosing an embedding model is the vocabulary of the model. Every embedding model is trained with a specific vocabulary. For example, the vocabulary size of [BERT](https://huggingface.co/docs/transformers/en/model_doc/bert) is around 30,000 words.
+The embedding model that you choose can significantly affect the relevancy of your vector search results. You must consider the vocabulary of the embedding model. Every embedding model is trained with a specific vocabulary. For example, the vocabulary size of the [BERT model](https://huggingface.co/docs/transformers/en/model_doc/bert) is about 30,000 words.
 
-The vocabulary of an embedding model is important because of how embedding models treat words that aren't in their vocabulary. Even though the word isn't in its vocabulary, the model still needs to calculate a vector for it. To do this, many models break down the words into subwords, which they treat as distinct tokens or they aggregate the vectors for the subwords to create a single embedding.
+The vocabulary of an embedding model is important because it handles words that aren't in its vocabulary in a unique manner. If a word isn't in the model's vocabulary, it still needs to calculate a vector for it. To do this, many models break down the words into subwords. They treat the subwords as distinct tokens, or they aggregate the vectors for the subwords to create a single embedding.
 
-:::image type="content" source="./_images/word-broken-into-subwords.png" lightbox="./_images/word-broken-into-subwords.png" alt-text="Diagram that shows the word histogram being broken down into the following subwords: his, ta, and mine." border="false":::
+For example, the word *histamine* might not be in an embedding model's vocabulary. *Histamine* has a semantic meaning of a chemical that your body releases, which causes allergy symptoms. The embedding model doesn't contain *histamine*. So, it might break the word down into subwords that are in its vocabulary, such as *his*, *ta*, and *mine*.
 
-Let's take a fictitious example where the word "histamine" isn't in the embedding model vocabulary. "Histamine" has a semantic meaning as a chemical your body releases, which causes many symptoms of allergies. Because the embedding model doesn't contain "histamine", it might break it down into subwords that are in its vocabulary such as "his", "ta", and "mine". The semantic meanings of these subwords are nowhere close to the meaning of "histamine". The individual or aggregated vector values of the subwords produce worse vector matches than if "histamine" were in the model's vocabulary.
+:::image type="content" source="./_images/word-broken-into-subwords.png" lightbox="./_images/word-broken-into-subwords.png" alt-text="Diagram that shows the word histogram broken down into the following subwords: his, ta, and mine." border="false":::
+
+The semantic meanings of these subwords are far from the meaning of *histamine*. The individual or combined vector values of the subwords result in poorer vector matches compared to if *histamine* were in the model's vocabulary.
 
 ## Choose an embedding model
 
-Determining the right embedding model for your use case is a human activity. The overlap with the embedding model's vocabulary with your data's words should be a key factor you consider when choosing your embedding model.
+Determine the right embedding model for your use case. Consider the overlap between the embedding model's vocabulary and your data's words when you choose an embedding model.
 
-:::image type="complex" source="./_images/choose-an-embedding-model.png" lightbox="./_images/choose-an-embedding-model.png" alt-text="Diagram the flow of choosing an embedding model." border="false":::
-   Diagram that shows a flow for choosing an embedding model. The first decision is "Domain-specific?". If no, the flow terminates at "Test top ranked general models." If yes, the next decision is "Domain model available?". If no, the flow terminates at "Fine tune general model." If yes, the flow terminates at "Test domain model".
+:::image type="complex" source="./_images/choose-an-embedding-model.png" lightbox="./_images/choose-an-embedding-model.png" alt-text="Diagram that shows the flow of how to choose an embedding model." border="false":::
+Diagram that shows a flow for choosing an embedding model. The first decision is "Domain-specific?". If no, the flow terminates at "Test top ranked general models." If yes, the next decision is "Domain model available?". If no, the flow terminates at "Fine tune general model." If yes, the flow terminates at "Test domain model".
 :::image-end:::
 
-The first thing you should determine is whether your content is domain-specific. For example, are your documents specific to a use case, your organization, or an industry? A good way to determine domain specificity is to see whether the entities and keywords in your content is generally available or findable on the internet. If they are, it's likely that a general embedding model does.
+First, determine whether you have domain-specific content. For example, are your documents specific to a use case, your organization, or an industry? A good way to determine domain specificity is to check whether you can find the entities and keywords in your content on the internet. If you can, a general embedding model likely can, too.
 
 ### General or non-domain-specific content
 
-When you choose a general embedding model, a good place to start is the [Hugging Face leaderboard](https://huggingface.co/spaces/mteb/leaderboard). This site provides an up-to-date ranking of embedding models. Evaluate how the models work with your data, starting with the top-ranking models.
+When you choose a general embedding model, start with the [Hugging Face leaderboard](https://huggingface.co/spaces/mteb/leaderboard). Get up-to-date embedding model rankings. Evaluate how the models work with your data, and start with the top-ranking models.
 
 ### Domain-specific content
 
-For content that is domain-specific, the first step is to determine whether there's a domain-specific model available that you can use. Imagine, for example, that your data is in the biomedical domain. You should consider using the [BioGPT model](https://github.com/microsoft/BioGPT), which is a language model that was pretrained on a large corpus of biomedical literature. This model is intended for biomedical text mining and generation. If domain models are available, start by evaluating how these models work with your data.
+For domain-specific content, determine whether there's a domain-specific model available that you can use. For example, your data might be in the biomedical domain, so you might use the [BioGPT model](https://github.com/microsoft/BioGPT). This language model is pretrained on a large collection of biomedical literature. You can use it for biomedical text mining and generation. If domain models are available, evaluate how these models work with your data.
 
-If there are no domain-specific models available, or the domain-specific models don't perform well, the next option is to fine-tune a general embedding model with your domain-specific vocabulary.
+If you don't have a domain-specific model, or the domain-specific model doesn't perform well, you can fine-tune a general embedding model with your domain-specific vocabulary.
 
 > [!IMPORTANT]
 > For any model that you choose, you need to verify that the license is suitable for your needs and the model provides the necessary language support.
