@@ -133,7 +133,7 @@ To find out more about other Azure components, see these resources:
 - [Build a content-based recommendation system](/azure/architecture/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system)
 
 <!-- links -->
-[architecture]: ./media/architecture-ecommerce-search.png
+[architecture]: ./_images/architecture-ecommerce-search.png
 [docs-sql-fts]: /sql/relational-databases/search/query-with-full-text-search
 [docs-search]: /azure/search/search-what-is-azure-search
 [docs-search-service-page]: https://azure.microsoft.com/products/search

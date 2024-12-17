@@ -2,7 +2,7 @@ This example architecture explains how automotive original equipment manufacture
 
 ## Architecture
 
-:::image type="complex" source="images/automotive-connectivity-and-data-solution-high-level-overview.svg" alt-text="Diagram of the high-level architecture." border="false" lightbox="images/automotive-connectivity-and-data-solution-high-level-overview.svg":::
+:::image type="complex" source="_images/automotive-connectivity-and-data-solution-high-level-overview.svg" alt-text="Diagram of the high-level architecture." border="false" lightbox="_images/automotive-connectivity-and-data-solution-high-level-overview.svg":::
     Diagram that shows a high-level overview of the automotive messaging, data, and analytics architecture. The diagram shows vehicles, mobile devices, and infrastructure as the devices. The vehicle messaging layer provides connectivity and processes message queuing telemetry transport (MQTT) messages and files. The data analytics layer supports both real-time and batch analytic workloads. A description of each layer is provided in the article.
 :::image-end:::
 
@@ -46,7 +46,7 @@ The architecture uses the [Publisher-Subscriber messaging pattern](/azure/archit
 
 The vehicle-to-cloud dataflow processes telemetry data from the vehicle. Telemetry data, such as vehicle state and sensor data, can be sent periodically. You can send data based on events, like triggers on error conditions, as a reaction to user actions, or as a response to remote requests.
 
-:::image type="complex" source="images/automotive-connectivity-and-data-solution-messaging-dataflow.svg" alt-text="Diagram of the messaging dataflow." border="false" lightbox="images/automotive-connectivity-and-data-solution-messaging-dataflow.svg":::
+:::image type="complex" source="_images/automotive-connectivity-and-data-solution-messaging-dataflow.svg" alt-text="Diagram of the messaging dataflow." border="false" lightbox="_images/automotive-connectivity-and-data-solution-messaging-dataflow.svg":::
     The diagram shows how the vehicle sends vehicle-to-cloud messages. The vehicle has an MQTT client that publishes messages to the Event Grid MQTT broker functionality. Depending on the message type, they're routed directly to a Lakehouse, streamed into an Eventhouse, or forwarded to a service bus.
 :::image-end:::
 
@@ -88,7 +88,7 @@ The vehicle-to-cloud dataflow processes telemetry data from the vehicle. Telemet
 
 Digital services use the broadcast dataflow to provide notifications or messages to multiple vehicles about a common topic. Typical examples include traffic and weather services.
 
-:::image type="complex" source="images/automotive-connectivity-and-data-solution-broadcast-dataflow.svg" alt-text="Diagram of the data analytics." border="false" lightbox="images/automotive-connectivity-and-data-solution-data-analytics.svg":::
+:::image type="complex" source="_images/automotive-connectivity-and-data-solution-broadcast-dataflow.svg" alt-text="Diagram of the data analytics." border="false" lightbox="_images/automotive-connectivity-and-data-solution-data-analytics.svg":::
     The diagram shows how the vehicle receives broadcast messages from the cloud. Vehicles subscribe to a general topic to receive notifications. A digital service broadcasts a message by publishing directly to the common topic.
 :::image-end:::
 
@@ -110,7 +110,7 @@ Vehicle commands often require user consent because they control vehicle functio
 
 The following dataflow uses commands issued from a companion app digital service as an example. As in the previous example, companion app is an authenticated service that can publish messages to Event Grid.
 
-:::image type="complex" source="images/automotive-connectivity-and-data-solution-command-and-control-dataflow.svg" alt-text="Diagram of the command and control dataflow." border="false" lightbox="images/automotive-connectivity-and-data-solution-command-and-control-dataflow.svg":::
+:::image type="complex" source="_images/automotive-connectivity-and-data-solution-command-and-control-dataflow.svg" alt-text="Diagram of the command and control dataflow." border="false" lightbox="_images/automotive-connectivity-and-data-solution-command-and-control-dataflow.svg":::
     The diagram describes how to send command and control messages that require a workflow. A digital service uses an API to send a command. A workflow logic component publishes a message to the MQTT broker that requests command processing. The vehicle processes the command and sends status messages by publishing to a topic. The workflow logic subscribes to the status topic to monitor command processing. After the command is complete, it can notify the digital service.
 :::image-end:::
 
@@ -140,7 +140,7 @@ The command and control workflow logic can fail if the vehicle loses connectivit
 
 This dataflow describes the process to register and provision vehicles and devices to vehicle messaging services. The process is typically initiated as part of vehicle manufacturing. In the automotive industry, vehicle devices are commonly authenticated by using X.509 certificates. Event Grid requires a root or intermediate X.509 to authenticate client devices. For more information, see [Client authentication](/azure/event-grid/mqtt-client-authentication).
 
-:::image type="complex" source="images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg" alt-text="Diagram of the provisioning dataflow." border="false" lightbox="images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg":::
+:::image type="complex" source="_images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg" alt-text="Diagram of the provisioning dataflow." border="false" lightbox="_images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg":::
     The diagram shows the vehicle provisioning process. The device receives an X.590 certificate during the manufacturing process. The factory system registers the vehicle and device in the vehicle messaging services, which also connects them to Event Grid. The device retrieves the connection strings from the device management component. The device connects to Event Grid by using the certificate.
 :::image-end:::
 
@@ -167,7 +167,7 @@ This dataflow describes the process to register and provision vehicles and devic
 
 This dataflow covers analytics for vehicle data. You can use other data sources, such as factory information, fault data, repair reports, software logs, audio, or video, to enrich and provide context to vehicle data.
 
-:::image type="complex" source="images/automotive-connectivity-and-data-solution-data-analytics.svg" alt-text="Diagram of the data analytics." border="false"     lightbox="images/automotive-connectivity-and-data-solution-data-analytics.svg":::
+:::image type="complex" source="_images/automotive-connectivity-and-data-solution-data-analytics.svg" alt-text="Diagram of the data analytics." border="false"     lightbox="_images/automotive-connectivity-and-data-solution-data-analytics.svg":::
     Diagram that shows the data analytics services. Vehicle messages are stored in a bronze layer as raw data. Pipelines are used to further refine the information to a silver table and to create insights in a gold table. The messages are stored either in a Lakehouse or Eventhouse. Data engineers use Notebooks or Kusto Query Language (KQL) query sets to interact with the data, supported by the Fabric Copilot. Engineers use Power BI and Real-Time dashboards to create visualizations. Reflex processes real-time data and can trigger business processes.
 :::image-end:::
 
@@ -193,7 +193,7 @@ This dataflow covers analytics for vehicle data. You can use other data sources,
 
 A connected vehicle and data solution can scale to millions of vehicles and thousands of services. Use the [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp) to achieve scalability and elasticity.
 
-:::image type="complex" source="images/automotive-connectivity-and-data-solution-scalability.svg" alt-text="Diagram of the scalability concept." border="false" lightbox="images/automotive-connectivity-and-data-solution-scalability.svg":::
+:::image type="complex" source="_images/automotive-connectivity-and-data-solution-scalability.svg" alt-text="Diagram of the scalability concept." border="false" lightbox="_images/automotive-connectivity-and-data-solution-scalability.svg":::
     Diagram that describes an approach to scalability that uses the deployment stamps concept. The vehicle messaging scale unit handles communication with the vehicle. The application scale unit handles digital services. The common services mediate the interaction between both scale units.
 :::image-end:::
 
@@ -289,7 +289,7 @@ For data analytics, you can use:
 
 ## Scenario details
 
-:::image type="complex" source="images/automotive-connectivity-and-data-solution-scenario.svg" alt-text="Diagram of the high level view." border="false"lightbox="images/automotive-connectivity-and-data-solution-scenario.svg":::
+:::image type="complex" source="_images/automotive-connectivity-and-data-solution-scenario.svg" alt-text="Diagram of the high level view." border="false"lightbox="_images/automotive-connectivity-and-data-solution-scenario.svg":::
     High-level diagram that shows the enabling layers of a connected vehicle infrastructure. These layers are messaging services, data and analytics services, automotive development toolchain, and IT operations. The vehicle has electromechanical components and a software stack. The end-to-end use cases include in-vehicle applications, digital engineering, digital services, connected fleets, and integration with the smart mobility ecosystem through data sharing.
 :::image-end:::
 
@@ -315,7 +315,7 @@ OEM Automotive use cases are about enhancing vehicle performance, safety, and us
 
 - **Continuous product improvement** enhances vehicle performance by analyzing real-time data and applying updates remotely. For more information about how to develop software for the vehicle, see [SDV DevOps toolchain](software-defined-vehicle-reference-architecture.yml).
 
-- **Engineering test fleet validation** ensures vehicle safety and reliability by collecting and analyzing data from test fleets. For more information, see [Data analytics for automotive test fleets](automotive-telemetry-analytics.yml).
+- **Engineering test fleet validation** ensures vehicle safety and reliability by collecting and analyzing data from test fleets. For more information, see [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml).
 
 - **Companion app and user portal** enables remote vehicle access and control through a personalized app and web portal.
 
@@ -323,7 +323,7 @@ OEM Automotive use cases are about enhancing vehicle performance, safety, and us
 
 Broader ecosystem use cases enhance connected vehicle applications. These improvements benefit fleet operations, insurance, marketing, and roadside assistance across the entire transportation landscape.
 
-- **Connected commercial fleet operations** optimize fleet management through real-time monitoring and data-driven decision making. For more information, see [Automotive connected fleets](automotive-connected-fleets.yml).
+- **Connected commercial fleet operations** optimize fleet management through real-time monitoring and data-driven decision making. For more information, see [Automotive connected fleets](../../industries/automotive/automotive-connected-fleets.yml).
 
 - **Digital vehicle insurance** customizes insurance premiums based on driving behavior and provides immediate accident reporting.
 
@@ -445,9 +445,9 @@ The following articles describe interactions between components in the architect
 
 ### Related resources
 
-- [Create an Autonomous Vehicle Operations solution](../../solution-ideas/articles/avops-architecture.yml) provides a deeper look into automotive digital engineering for autonomous and assisted driving.
+- [Create an Autonomous Vehicle Operations solution](avops-architecture.yml) provides a deeper look into automotive digital engineering for autonomous and assisted driving.
 - [SDV DevOps toolchain](software-defined-vehicle-reference-architecture.yml) describes how to build, validate, and deploy workloads to the vehicle.
-- [Data analytics for automotive test fleets](automotive-telemetry-analytics.yml) is a dedicated scenario where the collected data is used for engineering validation and root cause analysis.
+- [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml) is a dedicated scenario where the collected data is used for engineering validation and root cause analysis.
 
 The following articles cover some of the patterns used in the architecture:
 

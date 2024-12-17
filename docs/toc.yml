@@ -921,6 +921,10 @@ items:
         href: virtual-machines/baseline.yml
       - name: VM baseline in Azure landing zones
         href: virtual-machines/baseline-landing-zone.yml
+      - name: Teamcenter baseline architecture
+        href: example-scenario/manufacturing/teamcenter-baseline.yml
+      - name: Teamcenter with Azure NetApp Files
+        href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml
       - name: Multi-region load balancing
         href: high-availability/reference-architecture-traffic-manager-application-gateway.yml    
       - name: Multi-tier web application built for HA/DR
@@ -2311,10 +2315,6 @@ items:
       items:
       - name: All retail architectures
         href: /azure/architecture/browse/?terms=retail
-      - name: Analyze MongoDB Atlas data
-        href: example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml
-      - name: Intelligent search engine for e-commerce
-        href: example-scenario/apps/ecommerce-search.yml
       - name: Video capture and analytics for retail
         href: solution-ideas/articles/video-analytics.yml
   - name: Healthcare
@@ -2331,46 +2331,10 @@ items:
       items:
       - name: All manufacturing architectures
         href: /azure/architecture/browse/?terms=manufacturing
-      - name: Siemens
-        items:
-        - name: Teamcenter baseline architecture
-          href: example-scenario/manufacturing/teamcenter-baseline.yml
-        - name: Teamcenter with Azure NetApp Files
-          href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml
-    - name: Solution ideas
-      items:
-      - name: Customer order forecasting
-        href: solution-ideas/articles/next-order-forecasting.yml
-    - name: Guides
-      items:
-      - name: Deploy private 5G networks
-        items:
-        - name: Overview
-          href: industries/telecommunications/deploy-private-mobile-network.md
-        - name: Build a private 5G network
-          href: industries/telecommunications/build-private-5g-network.md
     - name: Architectures
       items:
       - name: All telecommunications architectures
         href: /azure/architecture/browse/?terms=telecommunications
-  - name: Automotive, Mobility, and Transportation
-    items:
-    - name: Guides
-      items:
-      - name: Autonomous Vehicle Operations design guide
-        href: /azure/architecture/guide/machine-learning/avops-design-guide
-      - name: Autonomous Vehicle Operations solution idea
-        href: /azure/architecture/solution-ideas/articles/avops-architecture
-    - name: Architectures
-      items:
-      - name: Software-defined vehicle DevOps toolchain
-        href: industries/automotive/software-defined-vehicle-reference-architecture.yml
-      - name: DataOps for autonomous vehicle operations
-        href: example-scenario/automotive/autonomous-vehicle-operations-dataops.yml
-      - name: ValOps for autonomous vehicle operations
-        href: example-scenario/automotive/autonomous-vehicle-validation-operations.yml   
-      - name: Automotive messaging, data, and analytics
-        href: industries/automotive/automotive-messaging-data-analytics.yml
   - name: Additional verticals
     items:
     - name: Game Development

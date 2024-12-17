@@ -60,4 +60,4 @@ Elastic site:
 
 ## Related resource
 
-- [Intelligent product search engine for e-commerce](../../example-scenario/apps/ecommerce-search.yml)
+- [Intelligent product search engine for e-commerce](../../databases/architecture/ecommerce-search.yml)

@@ -47,7 +47,7 @@ The combination of 5G, MEC, and the cloud makes it possible to create private wi
 
 Here are some of the industry use cases that private 5G networks can help deliver:  
 
-:::image type="content" source="media/industry-use-cases.png" alt-text="Diagram showing industry use cases that are powered by private 5G networks." lightbox="media/industry-use-cases.png":::
+:::image type="content" source="images/industry-use-cases.png" alt-text="Diagram showing industry use cases that are powered by private 5G networks." lightbox="images/industry-use-cases.png":::
 
 Private 5G networks represent a strong use case for 5G enterprise services because these capabilities will underpin the more sophisticated services, like smart spaces and Industry 4.0 applications. Yet, despite the advantages of a 5G private network, challenges remain for operators and enterprises. The biggest challenge is the complexity of deploying and managing a 5G network in an enterprise environment. 5G networks involve considerations that lie outside the traditional enterprise skill set, from radio frequency (RF) design to 5G mobile core architectures. Also, telco operators might lack the technology portfolio or minimal footprint needed to cost-effectively deploy 5G networks and cloud-managed edge computing in an enterprise environment.
 
@@ -125,7 +125,7 @@ When considering how to deploy private 5G networks, many enterprises will look f
 
 Some network operators might view private 5G networks as a natural extension of their public mobile networks. They could take advantage of their existing network assets and use network slicing to securely partition enterprise mobile traffic from public networks. However, enterprises want a dedicated network with localized connectivity and more control than they can get with that approach. And public networks are built primarily to serve the mobile broadband market. They're highly optimized for that purpose. Enterprise applications will place new and different demands on the network, which won't provide the flexibility that's required. The industry is adopting an edge-based private wireless network that also allows deep integration with the operator network. Enterprises should take advantage of the flexibility of 5G.
 
-:::image type="content" source="media/telcos-provide-edge-networks-apps.png " alt-text="Diagram that shows how telcos provide Azure managed-edge networks and applications to global enterprises." lightbox="media/telcos-provide-edge-networks-apps.png ":::
+:::image type="content" source="images/telcos-provide-edge-networks-apps.png " alt-text="Diagram that shows how telcos provide Azure managed-edge networks and applications to global enterprises." lightbox="images/telcos-provide-edge-networks-apps.png ":::
 
 A private 5G network solution that operators and enterprises can feel confident about requires three key attributes:
 
