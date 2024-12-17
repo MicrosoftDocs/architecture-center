@@ -196,10 +196,6 @@ Learn more about the component technologies:
 - [Overview of autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview)
 - [What is Application Insights?](/azure/azure-monitor/app/app-insights-overview)
 
-## Related resources
-
-- [Serverless event processing](../reference-architectures/serverless/event-processing.yml)
-
 [architectural-diagram]: ./images/hybrid-perf-monitoring.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-perf-monitoring.vsdx
 [agents-overview]: /azure/azure-monitor/platform/log-analytics-agent
