@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Developing a RAG solution - Generate embeddings phase
+  title: Develop a RAG Solution - Generate Embeddings Phase
   description: Learn about why your choice of embedding model can affect your vector search results and read guidance on how to choose an embedding model.
   author: robbagby
   ms.author: robbag
@@ -17,7 +17,7 @@ products:
   - azure-cognitive-search
   - azure-openai
   - azure-machine-learning
-name: Generate embeddings
+name: RAG generate embeddings phase
 summary: Learn about why your choice of embedding model can affect your vector search results and read guidance on how to choose an embedding model.
 thumbnailUrl: /azure/architecture/browse/thumbs/speech-text-thumb.png
 content: |
