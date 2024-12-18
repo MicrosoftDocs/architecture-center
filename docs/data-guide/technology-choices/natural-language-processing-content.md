@@ -50,20 +50,24 @@ With optimized builds for CPUs, GPUs, and the latest Intel Xeon chips, Spark NLP
 
 ## Challenges
 
-- Processing a collection of free-form text documents requires a significant amount of computational resources. The processing is also time intensive. Such processes often involve GPU compute deployment.
-- Without a standardized document format, it can be difficult to achieve consistently accurate results when you use free-form text processing to extract specific facts from a document. For example, think of a text representation of an invoice&mdash;it can be difficult to build a process that correctly extracts the invoice number and date when invoices are from various vendors.
+- **Processing resources:** Processing a collection of free-form text documents requires a significant amount of computational resources, and the processing is also time-intensive. This often involves GPU compute deployment. Recent advancements, such as optimizations in Spark NLP architectures like Llama-2 which support quantization, help streamline these intensive tasks, making resource allocation more efficient.
 
-## Key selection criteria
+- **Standardization issues:** Without a standardized document format, it can be difficult to achieve consistently accurate results when you use free-form text processing to extract specific facts from a document. For example, extracting the invoice number and date from various invoices poses challenges. The integration of adaptable NLP models like M2M100 has improved processing accuracy across multiple languages and formats, facilitating greater consistency in results.
 
-In Azure, Spark services like Azure Databricks, Azure Synapse Analytics, and Azure HDInsight provide NLP functionality when you use them with Spark NLP. Azure AI services is another option for NLP functionality. To decide which service to use, consider these questions:
+- **Data variety and complexity:** Addressing the variety of document structures and linguistic nuances remains complex. Innovations such as MPNet embeddings provide enhanced contextual understanding, offering more intuitive handling of diverse textual formats and improving overall data processing reliability.
 
-- Do you want to use prebuilt or pretrained models? If yes, consider using the APIs that Azure AI services offers. Or download your model of choice through Spark NLP.
 
-- Do you need to train custom models against a large corpus of text data? If yes, consider using Azure Databricks, Azure Synapse Analytics, or Azure HDInsight with Spark NLP.
+## Key Selection Criteria
 
-- Do you need low-level NLP capabilities like tokenization, stemming, lemmatization, and term frequency/inverse document frequency (TF/IDF)? If yes, consider using Azure Databricks, Azure Synapse Analytics, or Azure HDInsight with Spark NLP. Or use an open-source software library in your processing tool of choice.
+In Azure, Spark services like Azure Databricks, Microsoft Fabric, and Azure HDInsight provide NLP functionality when used with Spark NLP. Azure AI services is another option for NLP functionality. To decide which service to use, consider these questions:
 
-- Do you need simple, high-level NLP capabilities like entity and intent identification, topic detection, spell check, or sentiment analysis? If yes, consider using the APIs that Azure AI services offers. Or download your model of choice through Spark NLP.
+- **Do you want to use prebuilt or pretrained models?** If yes, consider using the APIs that Azure AI services offers, or download your model of choice through Spark NLP, which now includes advanced models like Llama-2 and MPNet for enhanced capabilities.
+
+- **Do you need to train custom models against a large corpus of text data?** If yes, consider using Azure Databricks, Microsoft Fabric, or Azure HDInsight with Spark NLP. These platforms provide the computational power and flexibility needed for extensive model training.
+
+- **Do you need low-level NLP capabilities like tokenization, stemming, lemmatization, and term frequency/inverse document frequency (TF/IDF)?** If yes, consider using Azure Databricks, Microsoft Fabric, or Azure HDInsight with Spark NLP. Alternatively, use an open-source software library in your processing tool of choice.
+
+- **Do you need simple, high-level NLP capabilities like entity and intent identification, topic detection, spell check, or sentiment analysis?** If yes, consider using the APIs that Azure AI services offers. Or download your model of choice through Spark NLP to leverage prebuilt functions for these tasks.
 
 ## Capability matrix
 
