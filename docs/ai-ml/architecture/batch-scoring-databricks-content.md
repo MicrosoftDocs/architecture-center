@@ -7,7 +7,7 @@ This reference architecture shows how to build a scalable solution for batch sco
 ![Diagram showing batch scoring of Apache Spark classification models on Azure Databricks.](_images/batch-scoring-spark-models-databricks.svg)
 
 
-This architecture can leverage [Mosaic AI Model Serving](https://learn.microsoft.com/en-us/azure/databricks/machine-learning/model-serving/)  to seamlessly deploy models for batch and real-time inference using Azure Databricks' serverless compute. It provides a unified interface for scaling resources dynamically, enhancing both performance and cost-efficiency in processing large datasets.
+This architecture can leverage [Mosaic AI Model Serving](/azure/databricks/machine-learning/model-serving/)  to seamlessly deploy models for batch and real-time inference using Azure Databricks' serverless compute. It provides a unified interface for scaling resources dynamically, enhancing both performance and cost-efficiency in processing large datasets.
 
 *Download a [Visio file](https://arch-center.azureedge.net/batch-scoring-spark-models-databricks.vsdx) of this architecture.*
 
@@ -131,7 +131,7 @@ Principal author:
 
 <!-- links -->
 
-[mfbc]: https://learn.microsoft.com/en-us/fabric/data-factory/azure-databricks-activity
+[mfbc]: /fabric/data-factory/azure-databricks-activity
 [ai-guide]: /azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance
 [aml-tut]: /azure/machine-learning/tutorial-pipeline-batch-scoring-classification
 [apache-hadoop]: https://hadoop.apache.org
