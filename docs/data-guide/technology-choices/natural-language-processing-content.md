@@ -1,20 +1,25 @@
-Natural language processing (NLP) has many uses: sentiment analysis, topic detection, language detection, key phrase extraction, and document categorization.
+Natural language processing (NLP) has many applications such as sentiment analysis, topic detection, language detection, key phrase extraction, and document categorization.
 
 Specifically, you can use NLP to:
+- Classify documents, e.g., labeling them as sensitive or spam.
+- Conduct subsequent processing or searches with NLP outputs.
+- Summarize text by identifying entities in the document.
+- Tag documents with keywords, utilizing identified entities.
+- Conduct content-based search and retrieval through tagging.
+- Summarize a document's key topics using identified entities.
+- Categorize documents for navigation utilizing detected topics.
+- Enumerate related documents based on a selected topic.
+- Assess text sentiment to understand its positive or negative tone.
 
-- Classify documents. For instance, you can label documents as sensitive or spam.
-- Do subsequent processing or searches. You can use NLP output for these purposes.
-- Summarize text by identifying the entities that are present in the document.
-- Tag documents with keywords. For the keywords, NLP can use identified entities.
-- Do content-based search and retrieval. Tagging makes this functionality possible.
-- Summarize a document's important topics. NLP can combine identified entities into topics.
-- Categorize documents for navigation. For this purpose, NLP uses detected topics.
-- Enumerate related documents based on a selected topic. For this purpose, NLP uses detected topics.
-- Score text for sentiment. By using this functionality, you can assess the positive or negative tone of a document.
+With advancements in technology, NLP not only categorizes and analyzes text data but also enhances interpretable AI functions across diverse domains. The integration of Large Language Models (LLM) significantly enhances NLP's capabilities. LLMs like GPT and BERT can generate human-like, contextually aware text, making them highly effective for complex language processing tasks. They complement existing NLP techniques by handling broader cognitive tasks, which improves conversation systems and customer engagement, especially with models like [Databricks' Dolly 2.0](https://github.com/databrickslabs/dolly).
 
-Recent advancements ensure natural language processing (NLP) not only categorizes and analyzes text data but also enhances interpretable AI functions across diverse documents. With new LLM/NLP models such as [Databricks' Dolly 2.0](https://github.com/databrickslabs/dolly), there is a growing trend toward models that improve conversational systems and customer engagement, offering new paradigms in NLP applications.
+**Relationship and Difference Between LLM and NLP:**
+NLP is a comprehensive field encompassing various techniques for processing human language. In contrast, Large Language Models (LLMs) are a specific subset within NLP, focusing on deep learning to perform high-level language tasks. While LLMs enhance NLP by providing advanced text generation and understanding capabilities, they are not synonymous with NLP. Instead, they serve as powerful tools within the broader NLP domain, enabling more sophisticated language processing.
+
+*Note: This article will focus on NLP, while the relationship between NLP and LLM demonstrates that LLMs enhance NLP processes through superior language understanding and generation capabilities.*
 
 *Apache®, [Apache Spark](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+
 
 ## Potential use cases
 
@@ -212,7 +217,7 @@ Principal authors:
 
 - Azure components:
 
-  - [Azure Synapse Analytics](/azure/synapse-analytics)
+  - [Microsfot Fabric](https://learn.microsoft.com/en-us/fabric/)
   - [Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview)
   - [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
   - [Cognitive Services](/azure/cognitive-services/what-are-cognitive-services)
