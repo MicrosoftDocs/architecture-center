@@ -55,7 +55,7 @@ Cross-account resource access in AWS enables resources from one AWS account to b
 
 ## AWS OUs vs Azure Management groups
 
-In Microsoft Azure, the equivalent of Organizational units is Management groups  both are used to organize and manage cloud resources at a high level across multiple accounts or subscriptions. Azure Management groups are needed to efficiently manage access, policies, and compliance for the Azure subscriptions. The governance conditions applied at Management Group level cascade to all the associated subscriptions by inheritance. 
+In Microsoft Azure, the equivalent of Organizational Units is Management groups. Both are used to organize and manage cloud resources at a high level across multiple accounts or subscriptions. Azure Management groups are needed to efficiently manage access, policies, and compliance for the Azure subscriptions. The governance conditions applied at the management group level cascade to all associated subscriptions by inheritance. 
 
 *Important facts about management groups and subscriptions:* 
 
