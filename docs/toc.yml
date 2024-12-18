@@ -2307,18 +2307,6 @@ items:
     href: industries/overview.md
   - name: Additional verticals
     items:
-    - name: Game Development
-      items:
-      - name: Overview
-        href: industries/game-development.md
-      - name: Architectures
-        items:
-        - name: All game development architectures
-          href: /azure/architecture/browse/?terms=game
-        - name: Databases for gaming
-          items:
-          - name: Gaming using Azure Cosmos DB
-            href: solution-ideas/articles/gaming-using-cosmos-db.yml
     - name: Media and Entertainment
       items:
       - name: Overview

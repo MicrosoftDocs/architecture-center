@@ -6419,6 +6419,21 @@
       "source_path": "docs/ai-ml/guide/rag/rag-generating-embeddings.yml",
       "redirect_url": "/azure/architecture/ai-ml/guide/rag/rag-generate-embeddings",
       "redirect_document_id": true   
+    },
+    {
+      "source_path": "docs/industries/government.md",
+      "redirect_url": "https://azure.microsoft.com/explore/global-infrastructure/government/",
+      "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/industries/game-development.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/solutions/gaming/",
+      "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/gaming-using-cosmos-db.yml",
+      "redirect_url": "https://azure.microsoft.com/en-us/solutions/gaming/",
+      "redirect_document_id": false   
     }
   ]
 }
