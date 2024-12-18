@@ -905,14 +905,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[News feeds with near real-time analytics]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis"/>
-        <updated>2024-11-08T18:47:07.000Z</updated>
-        <summary type="html"><![CDATA[Create a pipeline for ingesting and analyzing RSS news feed data using Azure Cosmos DB, Azure AI Services, and other Azure services.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Run SAP HANA Large Instances]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances"/>
@@ -1806,14 +1798,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/extract-object-text"/>
         <updated>2024-09-09T13:13:36.000Z</updated>
         <summary type="html"><![CDATA[Use AI Builder and Azure Form Recognizer in a Power Automate workflow to extract text from images, for indexing and retrieval.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[News feeds with near real-time analytics]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis"/>
-        <updated>2024-09-09T13:13:36.000Z</updated>
-        <summary type="html"><![CDATA[Create a pipeline for ingesting and analyzing RSS news feed data using Azure Cosmos DB, Azure AI Services, and other Azure services.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

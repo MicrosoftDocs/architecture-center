@@ -6434,6 +6434,11 @@
       "source_path": "docs/solution-ideas/articles/gaming-using-cosmos-db.yml",
       "redirect_url": "https://azure.microsoft.com/en-us/solutions/gaming/",
       "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/large-scale-custom-natural-language-processing",
+      "redirect_document_id": false   
     }
   ]
 }

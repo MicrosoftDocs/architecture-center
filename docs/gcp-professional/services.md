@@ -96,7 +96,6 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | Architecture | Description |
 |----|----|
 | [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, and transform (ELT) workflow in Azure by using Azure Data Factory with Azure Synapse Analytics. |
-| [Mass ingestion and analysis of news feeds on Azure](/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis) | Create a pipeline for ingesting and analyzing text, images, sentiment, and other data from RSS news feeds by using only Azure services, including Azure Cosmos DB and Azure AI services. |
 
 [view all](../browse/index.yml?azure_categories=analytics)
 
