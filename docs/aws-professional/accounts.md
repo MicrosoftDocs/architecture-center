@@ -73,7 +73,7 @@ The root management group is the top-level management group associated with each
 
 ## Service Control Policies vs Azure Policy
 
-The primary goal of Service Control Policies in AWS is to limit the maximum effective permissions within an AWS account. Azure maximum permissions are defined within Entra and can be applied at the tenant, subscription, or resource group level. Azure policy has a wide range of use cases, a few of which do align with typical SCP usage patterns. Both Service Control Policies and Azure Policy can be used to control enforce compliance with enterprise standards, such as tagging or the use of specific SKUs. Both SCPs and Azure Policies can block deployment of resources that do not meet compliance requirements. Azure policies can be more proactive than SCPs and can trigger remediations to bring resources into compliance and can asses existing resources as well as future deployments.
+The primary goal of Service Control Policies (SCP) in AWS is to limit the maximum effective permissions within an AWS account. Azure maximum permissions are defined within Entra and can be applied at the tenant, subscription, or resource group level. Azure Policy has a wide range of use cases, a few of which align with typical SCP usage patterns. Both SCPs and Azure Policies can be used to enforce compliance with enterprise standards, such as tagging or the use of specific SKUs. Both SCPs and Azure Policies can block deployment of resources that do not meet compliance requirements. Azure Policies can be more proactive than SCPs and can trigger remediations to bring resources into compliance and can assess existing resources as well as future deployments.
 
 ## Comparison of structure and ownership of AWS accounts and Azure subscriptions
 
