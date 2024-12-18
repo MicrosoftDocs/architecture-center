@@ -75,7 +75,7 @@ The following tables summarize the key differences in the capabilities of NLP se
 
 ### General capabilities
 
-| Capability | Spark service (Azure Databricks, Azure Synapse Analytics, Azure HDInsight) with Spark NLP | Azure AI services |
+| Capability | Spark service (Azure Databricks, Microsoft Fabric, Azure HDInsight) with Spark NLP | Azure AI services |
 | --- | --- | --- |
 | Provides pretrained models as a service | Yes | Yes |
 | REST API | Yes | Yes |
@@ -84,7 +84,9 @@ The following tables summarize the key differences in the capabilities of NLP se
 
 ### Low-level NLP capabilities
 
-| Capability of annotators | Spark service (Azure Databricks, Azure Synapse Analytics, Azure HDInsight) with Spark NLP | Azure AI services |
+## Capability of Annotators
+
+| Capability | Spark service (Azure Databricks, Microsoft Fabric, Azure HDInsight) with Spark NLP | Azure AI services |
 | --- | --- | --- |
 | Sentence detector | Yes | No |
 | Deep sentence detector | Yes | Yes |
@@ -101,13 +103,16 @@ The following tables summarize the key differences in the capabilities of NLP se
 | Normalizer | Yes | Yes |
 | Text matcher | Yes | No |
 | TF/IDF | Yes | No |
-| Regular expression matcher | Yes | Embedded in Language Understanding Service (LUIS). Not supported in Conversational Language Understanding (CLU), which is replacing LUIS. |
-| Date matcher | Yes | Possible in LUIS and CLU through DateTime recognizers |
+| Regular expression matcher | Yes | Embedded in Conversational Language Understanding (CLU), replacing LUIS |
+| Date matcher | Yes | Possible in CLU through DateTime recognizers |
 | Chunker | Yes | No |
+
+**Note**: Microsoft Language Understanding (LUIS) will be retired on October 1st, 2025. Existing LUIS applications are encouraged to migrate to Conversational Language Understanding (CLU), a capability of Azure Cognitive Services for Language, which enhances language understanding capabilities and offers new features.
+
 
 ### High-level NLP capabilities
 
-| Capability | Spark service (Azure Databricks, Azure Synapse Analytics, Azure HDInsight) with Spark NLP | Azure AI services |
+| Capability | Spark service (Azure Databricks, Microsoft Fabric, Azure HDInsight) with Spark NLP | Azure AI services |
 | --- | --- | --- |
 | Spell checking | Yes | No |
 | Summarization | Yes | Yes |
@@ -148,30 +153,40 @@ spark-shell --jars spark-nlp-assembly-3 <version>.jar
 
 ## Develop NLP pipelines
 
-For the execution order of an NLP pipeline, Spark NLP follows the same development concept as traditional Spark ML machine learning models. But Spark NLP applies NLP techniques.
+Certainly! Here's the updated content in Markdown format:
 
-:::image type="content" source="../images/spark-natural-language-processing-pipeline.png" alt-text="Diagram that shows N L P pipeline stages, such as document assembly, sentence detection, tokenization, normalization, and word embedding." border="false":::
+Copy markdown
+## Develop NLP Pipelines
+
+For the execution order of an NLP pipeline, Spark NLP follows the same development concept as traditional Spark ML machine learning models, applying specialized NLP techniques.
+
+:::image type="content" source="../images/spark-natural-language-processing-pipeline.png" alt-text="Diagram that shows NLP pipeline stages, such as document assembly, sentence detection, tokenization, normalization, and word embedding." border="false":::
 
 The core components of a Spark NLP pipeline are:
 
-- **DocumentAssembler**: A transformer that prepares data by changing it into a format that Spark NLP can process. This stage is the entry point for every Spark NLP pipeline. DocumentAssembler can read either a `String` column or an `Array[String]`. You can use `setCleanupMode` to preprocess the text. By default, this mode is turned off.
+- **DocumentAssembler**: A transformer that prepares data by converting it into a format that Spark NLP can process. This stage is the entry point for every Spark NLP pipeline. DocumentAssembler reads either a `String` column or an `Array[String]`, with options to preprocess the text using `setCleanupMode`, which is off by default.
 
-- **SentenceDetector**: An annotator that detects sentence boundaries by using the approach that it's given. This annotator can return each extracted sentence in an `Array`. It can also return each sentence in a different row, if you set `explodeSentences` to true.
+- **SentenceDetector**: An annotator that identifies sentence boundaries using predefined approaches. It can return each detected sentence in an `Array`, or in separate rows when `explodeSentences` is set to true.
 
-- **Tokenizer**: An annotator that separates raw text into tokens, or units like words, numbers, and symbols, and returns the tokens in a `TokenizedSentence` structure. This class is non-fitted. If you fit a tokenizer, the internal `RuleFactory` uses the input configuration to set up tokenizing rules. Tokenizer uses open standards to identify tokens. If the default settings don't meet your needs, you can add rules to customize Tokenizer.
+- **Tokenizer**: An annotator that divides raw text into discrete tokens—words, numbers, and symbols—outputting these as a `TokenizedSentence`. The Tokenizer is non-fitted and uses input configuration within the `RuleFactory` to create tokenizing rules. Custom rules can be added when defaults are insufficient.
 
-- **Normalizer**: An annotator that cleans tokens. Normalizer requires stems. Normalizer uses regular expressions and a dictionary to transform text and remove dirty characters.
+- **Normalizer**: An annotator tasked with refining tokens. Normalizer applies regular expressions and dictionary transformations to clean text and remove extraneous characters.
 
-- **WordEmbeddings**: Look-up annotators that map tokens to vectors. You can use `setStoragePath` to specify a custom token look-up dictionary for embeddings. Each line of your dictionary needs to contain a token and its vector representation, separated by spaces. If a token isn't found in the dictionary, the result is a zero vector of the same dimension.
+- **WordEmbeddings**: Lookup annotators that map tokens to vectors, facilitating semantic processing. You can specify a custom embedding dictionary using `setStoragePath`, where each line contains a token and its vector, separated by spaces. Unresolved tokens default to zero vectors.
 
-Spark NLP uses Spark MLlib pipelines, which MLflow natively supports. [MLflow](https://mlflow.org) is an open-source platform for the machine learning lifecycle. Its components include:
+Spark NLP leverages Spark MLlib pipelines, with native support from [MLflow](https://mlflow.org), an open-source platform that manages the machine learning lifecycle. MLflow's key components include:
 
-- MLflow Tracking: Records experiments and provides a way to query results.
-- MLflow Projects: Makes it possible to run data science code on any platform.
-- MLflow Models: Deploys models to diverse environments.
-- Model Registry: Manages models that you store in a central repository.
+- **MLflow Tracking**: Records experimental runs and provides robust querying capabilities for analyzing outcomes.
 
-MLflow is integrated in Azure Databricks. You can install MLflow in any other Spark-based environment to track and manage your experiments. You can also use MLflow Model Registry to make models available for production purposes.
+- **MLflow Projects**: Enables the execution of data science code on diverse platforms, enhancing portability and reproducibility.
+
+- **MLflow Models**: Supports versatile model deployment across different environments through a consistent framework.
+
+- **Model Registry**: Provides comprehensive model management, storing versions centrally for streamlined access and deployment, facilitating production-readiness.
+
+MLflow is integrated with platforms such as Azure Databricks but can also be installed in other Spark-based environments to manage and track your experiments. This integration allows the use of the MLflow Model Registry for making models available for production purposes, thus streamlining the deployment process and maintaining model governance.
+
+By leveraging MLflow alongside Spark NLP, you can ensure efficient management and deployment of NLP pipelines, addressing modern requirements for scalability and integration while supporting advanced techniques like Word Embeddings and LLM adaptations.
 
 ## Contributors
 
@@ -179,6 +194,7 @@ MLflow is integrated in Azure Databricks. You can install MLflow in any other Sp
 
 Principal authors:
 
+- [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) |  Cloud Solution Architect
 - [Moritz Steller](https://www.linkedin.com/in/moritz-steller-426430116) | Senior Cloud Solution Architect
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) |  CEO and Architect
 
