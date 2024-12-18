@@ -4,7 +4,7 @@ description: Compare networking options between Azure and AWS. The comparisons c
 author: adamcerini
 categories: azure
 ms.author: adamcerini
-ms.date: 11/25/2024
+ms.date: 12/18/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
