@@ -30,14 +30,14 @@ A typical AWS environment will use an organization structure such as pictured in
 <br>
 
 <figure>
-  <img src="../aws-professional/images/aws_accounts.jpg" alt="Alt text for the image">
-  <figcaption> <em>AWS Account Management Structure</em> </figcaption>
+  <img src="../aws-professional/images/aws_accounts.jpg" alt="Diagram of common AWS Account Organization Structure">
+  <figcaption> <em>AWS Account Organization Structure</em> </figcaption>
 </figure>
 
 An Azure structure will look very similar, but rather than a dedicated management account there will be adminstrative permissions on the the tenant. This eliminates the need for an entire account just for management purposes. Unlike AWS, Azure has resource groups as a fundamental unit. Resources must be assigned to resource groups and permissions can be applied at the resource group level.
 
 <figure>
-  <img src="../aws-professional/images/azure_accounts.jpg" alt="Alt text for the image">
+  <img src="../aws-professional/images/azure_accounts.jpg" alt="Diagram of common Azure Account Management Structure">
   <figcaption> <em>Azure Management Structure</em> </figcaption>
 </figure>
 
