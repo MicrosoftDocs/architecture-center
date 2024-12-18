@@ -4,7 +4,7 @@ description: Learn the differences in accounts and subscriptions between Azure a
 author: RobBagby
 ms.author: robbag
 categories: azure
-ms.date: 11/25/2024
+ms.date: 12/18/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
