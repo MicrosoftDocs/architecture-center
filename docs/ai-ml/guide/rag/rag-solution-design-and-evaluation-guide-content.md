@@ -65,7 +65,7 @@ The following list provides a brief description of what you should do during eac
    - **Clean chunks.** Implement cleaning approaches to eliminate differences that don't affect the meaning of the text. This method supports closeness matches.
    - **Augment chunks.** Consider augmenting your chunk data with common metadata fields and understand their potential uses in search. Learn about commonly used tools or techniques for generating metadata content.
 
-- During the [embedding phase](./rag-generating-embeddings.yml), you should:
+- During the [embedding phase](./rag-generate-embeddings.yml), you should:
 
    - **Understand the importance of the embedding model.** An embedding model can significantly affect the relevancy of your vector search results.
    - **Choose the right embedding model for your use case.**

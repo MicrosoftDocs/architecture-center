@@ -6414,6 +6414,11 @@
       "source_path": "docs/solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml",
       "redirect_url": "/azure/architecture/topics/high-performance-computing",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/guide/rag/rag-generating-embeddings.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/rag/rag-generate-embeddings",
+      "redirect_document_id": true   
     }
   ]
 }
