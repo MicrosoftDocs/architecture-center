@@ -29,10 +29,9 @@ This article compares the account and organizational structure between Azure and
 A typical AWS environment will use an organization structure such as pictured in the diagram below. There will be an organizational root and optionally a dedicated AWS Management account. Below that root, there will be Organizational Units which can be used to apply different policies to different accounts. AWS resources will often use an AWS account as a logical and billing boundary.
 <br>
 
-<figure>
-  <img src="../aws-professional/images/aws_accounts.jpg" alt="Diagram of common AWS Account Organization Structure">
-  <figcaption> <em>AWS Account Organization Structure</em> </figcaption>
-</figure>
+:::image type="complex" source="../aws-professional/images/aws_accounts.jpg" lightbox="../aws-professional/images/aws_accounts.jpg" alt-text="Diagram of common AWS Account Organization Structure." border="false":::
+   Shows an AWS Account with an Account Owner and an Azure Account with an Account Admin. In the Azure Account is a Subscription with a Service Admin and Service co-admins.
+:::image-end:::
 
 An Azure structure will look very similar, but rather than a dedicated management account there will be adminstrative permissions on the the tenant. This eliminates the need for an entire account just for management purposes. Unlike AWS, Azure has resource groups as a fundamental unit. Resources must be assigned to resource groups and permissions can be applied at the resource group level.
 
