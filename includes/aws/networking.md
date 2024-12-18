@@ -27,9 +27,6 @@ Dedicated network | [Direct Connect](https://aws.amazon.com/directconnect) | [Ex
 | Application level networking | [AWS App Mesh](https://docs.aws.amazon.com/app-mesh/latest/userguide/what-is-app-mesh.html) | [Azure ExpressRoute Global Reach](/azure/service-fabric/) | Provides application-level networking to manage microservices, including service discovery, load balancing, and traffic routing.
 | Service Discovery | [AWS Cloud Map](https://docs.aws.amazon.com/cloud-map/latest/dg/what-is-cloud-map.html) | [Azure Private DNS](/azure/dns/private-dns-overview) | Service discovery for cloud resources, allowing you to register any application resources and dynamically update their locations.
 
-
-
-
 ### Networking architectures
 
 | Architecture | Description |
