@@ -22,7 +22,8 @@ products:
   - azure-resource-manager
 ---
 
-## Resources
+# Compare AWS and Azure resource management
+
 The term resource in Azure is used in the same way as in AWS; it’s a manageable item could be virtual machines, storage accounts, web apps, databases, virtual networks, etc. 
 
 ## AWS Resource groups vs Azure RGs
