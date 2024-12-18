@@ -2307,22 +2307,6 @@ items:
     href: industries/overview.md
   - name: Additional verticals
     items:
-    - name: Media and Entertainment
-      items:
-      - name: Overview
-        href: industries/media.md
-      - name: Architectures
-        items:
-        - name: Gridwich cloud media system
-          href: reference-architectures/media-services/gridwich-architecture.yml
-        - name: Image classification on Azure
-          href: ai-ml/idea/intelligent-apps-image-processing.yml
-        - name: Mixed reality solutions
-          items:
-          - name: Design review
-            href: solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.yml
-        - name: Real-time monitoring and observable systems for media
-          href: example-scenario/monitoring/monitoring-observable-systems-media.yml
     - name: Travel and Hospitality
       items:
       - name: Overview
