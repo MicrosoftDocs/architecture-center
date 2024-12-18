@@ -42,5 +42,4 @@ The digital landscape is being transformed by unprecedented amounts of data acro
 
 ## Related resources
 
-- [Industry-specific Azure IoT reference architectures](../reference-architectures/iot/industry-iot-hub-page.md)
 - [Cloud adoption for the retail industry](/azure/cloud-adoption-framework/industry/retail)

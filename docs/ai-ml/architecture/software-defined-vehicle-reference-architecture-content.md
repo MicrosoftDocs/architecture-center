@@ -14,7 +14,7 @@ This article describes how to:
 
 This diagram shows the automotive SDV toolchain architecture.
 
-:::image type="content" source="images/software-defined-vehicle-ref-architecture-overview.svg" alt-text="Diagram that shows the automotive SDV toolchain overview." border="false" lightbox="images/software-defined-vehicle-ref-architecture-overview.svg":::
+:::image type="content" source="_images/software-defined-vehicle-ref-architecture-overview.svg" alt-text="Diagram that shows the automotive SDV toolchain overview." border="false" lightbox="_images/software-defined-vehicle-ref-architecture-overview.svg":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/software-defined-vehicle.pptx) of this architecture.*
 
 ### Workflow
@@ -38,7 +38,7 @@ The architecture consists of six key building blocks:
 
    For information about data collection and analytics for component and system validation, see [Data analytics for automotive test fleets](/azure/architecture/industries/automotive/automotive-telemetry-analytics).
 
-1. [Autonomous vehicle operations (AVOps)](/azure/architecture/solution-ideas/articles/avops-architecture) enable automotive OEMs to develop automated driving solutions on Azure. The AVOps solution describes:
+1. [Autonomous vehicle operations (AVOps)](avops-architecture.yml) enable automotive OEMs to develop automated driving solutions on Azure. The AVOps solution describes:
    * How to manage data operations (DataOps) for autonomous vehicles.
    * Automated feature extraction, labeling, and model training for perception and sensor fusion (MLOps).
    * Testing developed models in simulated environments (ValOps).
@@ -75,7 +75,7 @@ This solution describes how an automotive software developer for the fictitious 
 
 *Contoso Automotive* is adding a new automotive high-performance compute (HPC) unit to an upcoming vehicle model and must onboard a new development team to develop containerized applications. The hardware for the vehicle isn't available yet, but compressed timelines mean that the software functionality must be developed and validated in parallel.
 
-:::image type="content" source="images/automotive-software-defined-vehicle-toolchain.svg" alt-text="Diagram that shows the components and workflow of the automotive SDV toolchain." border="false" lightbox="images/automotive-software-defined-vehicle-toolchain.svg":::
+:::image type="content" source="_images/automotive-software-defined-vehicle-toolchain.svg" alt-text="Diagram that shows the components and workflow of the automotive SDV toolchain." border="false" lightbox="_images/automotive-software-defined-vehicle-toolchain.svg":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/software-defined-vehicle.pptx) of this architecture.*
 
 1. The **automotive developer** creates and connects to a **Microsoft dev box**. The dev box is preconfigured with all required development tools (such as Visual Studio Code and Android Studio) and all required extensions (such as GitHub Copilot) to be compatible with the Contoso Automotive applications.
@@ -92,7 +92,7 @@ This solution describes how an automotive software developer for the fictitious 
 
 Contoso Automotive wants to deploy containerized automotive applications to its engineering test fleet to perform integration testing. The automotive developer builds, tests, and validates the new version of the application and deploys it to the vehicle.
 
-:::image type="content" source="images/software-defined-vehicle-software-update.svg" alt-text="Diagram that shows a software update architecture." border="false" lightbox="images/software-defined-vehicle-software-update.svg":::
+:::image type="content" source="_images/software-defined-vehicle-software-update.svg" alt-text="Diagram that shows a software update architecture." border="false" lightbox="_images/software-defined-vehicle-software-update.svg":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/software-defined-vehicle.pptx) of this architecture.*
 
 1. The **automotive developer** creates a release. The release contains a definition of the desired state for the **software stack container** and a definition of the build.
@@ -116,7 +116,7 @@ The stack has the following components:
 * The *in-vehicle digital twin service* maintains the state of the vehicle, including signals from ECUs and compute units, such as AD/ADAS and infotainment.
 * The *digital twin cloud synchronization* synchronizes the local state of the vehicle with the state in the cloud to provide digital products and services that don't require a direct connection to the car.
 
-:::image type="content" source="images/software-defined-vehicle-automotive-software-stack.svg" alt-text="Diagram that shows the software stack architecture." border="false" lightbox="images/software-defined-vehicle-automotive-software-stack.svg":::
+:::image type="content" source="_images/software-defined-vehicle-automotive-software-stack.svg" alt-text="Diagram that shows the software stack architecture." border="false" lightbox="_images/software-defined-vehicle-automotive-software-stack.svg":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/software-defined-vehicle.pptx) of this architecture.*
 
 1. All components register their capabilities via the **service registry**.
@@ -179,7 +179,7 @@ The heart of this architecture is its robust CI/CD pipeline automation, which en
 
 The following diagram shows a general overview of the automotive SDV toolchain architecture.
 
-:::image type="content" source="images/software-defined-vehicle-scenario.svg" alt-text="Diagram that shows SDV scenarios." border="false" lightbox="images/software-defined-vehicle-scenario.svg":::
+:::image type="content" source="_images/software-defined-vehicle-scenario.svg" alt-text="Diagram that shows SDV scenarios." border="false" lightbox="_images/software-defined-vehicle-scenario.svg":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/software-defined-vehicle.pptx) of this architecture.*
 
 ### Potential use cases
@@ -236,7 +236,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 * For build, validation, and testing tasks that aren't time-critical, consider using [Azure Spot Virtual Machines](/azure/virtual-machines/spot-vms). You can take advantage of unused capacity and incur significant cost savings.
 * If you have an [Azure Consumption Commitment](/azure/cost-management-billing/manage/track-consumption-commitment), consider using [eligible partner offerings](/marketplace/azure-consumption-commitment-benefit#determine-which-offers-are-eligible-for-azure-consumption-commitments-maccctc) from Azure Marketplace when you deploy development tools and vECUs in the run environment.
-* For tips about running autonomous vehicle development workloads, see [Create an AVOps solution](/azure/architecture/solution-ideas/articles/avops-architecture#cost-optimization).
+* For tips about running autonomous vehicle development workloads, see [Create an AVOps solution](avops-architecture.yml#cost-optimization).
 * Copilot provides real-time code suggestions and autocompletions, which accelerates the software-development process. Automotive software engineers can use Copilot to quickly and efficiently write code, which reduces the time to market for new vehicle features and updates.
 
 ### Operational excellence
@@ -276,7 +276,7 @@ The following overview describes the services that are required to implement a d
 
 #### Overview
 
-:::image type="content" source="images/software-defined-vehicle-uprotocol-on-azure.svg" alt-text="Diagram that shows the distributed communication protocol, uProtocol, on Azure." border="false" lightbox="images/software-defined-vehicle-uprotocol-on-azure.svg":::
+:::image type="content" source="_images/software-defined-vehicle-uprotocol-on-azure.svg" alt-text="Diagram that shows the distributed communication protocol, uProtocol, on Azure." border="false" lightbox="_images/software-defined-vehicle-uprotocol-on-azure.svg":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/software-defined-vehicle.pptx) of this architecture.*
 
 * Messages are sent from the vehicle's **cloud connector** to **Event Grid**. Messages are transferred via the *uProtocol* definition over MQTT.
@@ -304,7 +304,7 @@ For more information about uProtocol components, SDKs, and documentation, see th
 
 #### Provision devices for uProtocol
 
-:::image type="content" source="images/software-defined-vehicle-uprotocol-provisioning.svg" alt-text="Diagram that shows the uProtocol provisioning flow." border="false" lightbox="images/software-defined-vehicle-uprotocol-provisioning.svg":::
+:::image type="content" source="_images/software-defined-vehicle-uprotocol-provisioning.svg" alt-text="Diagram that shows the uProtocol provisioning flow." border="false" lightbox="_images/software-defined-vehicle-uprotocol-provisioning.svg":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/software-defined-vehicle.pptx) of this architecture.*
 
 1. The **factory system** commissions the vehicle device to the desired construction state. Commissioning includes firmware and software initial installation and configuration. As part of this process, the factory system obtains and writes the device certificate. The public key infrastructure provider creates the certificate.
@@ -321,7 +321,7 @@ For more information about uProtocol components, SDKs, and documentation, see th
 
 The following architecture describes an automotive software stack that's based on Eclipse project components. In this architecture, Eclipse uProtocol can be used as a communication protocol.
 
-:::image type="content" source="images/software-defined-vehicle-sample-automotive-stack.svg" alt-text="Diagram that shows the architecture for the Eclipse SDV-based automotive software stack." border="false" lightbox="images/software-defined-vehicle-sample-automotive-stack.svg":::
+:::image type="content" source="_images/software-defined-vehicle-sample-automotive-stack.svg" alt-text="Diagram that shows the architecture for the Eclipse SDV-based automotive software stack." border="false" lightbox="_images/software-defined-vehicle-sample-automotive-stack.svg":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/software-defined-vehicle.pptx) of this architecture.*
 
 * [Eclipse Chariott](https://projects.eclipse.org/projects/automotive.chariott) is a gRPC service that provides a common interface for interacting with applications. Applications can register with Eclipse Chariott's service registry to advertise their capabilities and enable service discovery.
@@ -360,4 +360,4 @@ Other contributors:
 
 ## Related resources
 
-* [Create an AVOps solution](../../solution-ideas/articles/avops-architecture.yml)
+* [Create an AVOps solution](avops-architecture.yml)
