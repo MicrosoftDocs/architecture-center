@@ -41,7 +41,7 @@ An Azure structure will look very similar, but rather than a dedicated managemen
 
 ## AWS Management Account vs Azure tenant
 
-In Azure when you are creating your Azure Account it creates an identity where you can manage your users, groups and applications which is called as a Tenant (Microsoft Entra Tenant). Azure subscriptions are created under this tenant. A Microsoft Entra tenant provides identity and access management, which is an important part of your security posture. A Microsoft Entra tenant ensures that authenticated and authorized users only access the resources to which they have permissions.  
+In Azure, when you are creating your Azure Account, a Microsoft Entra Tenant is created where you can manage your users, groups and applications. Azure subscriptions are created under this tenant. A Microsoft Entra tenant provides identity and access management, which is an important part of your security posture. A Microsoft Entra tenant ensures that authenticated and authorized users only access the resources to which they have permissions.  
 
 ## AWS Accounts vs Azure Subscriptions
 
