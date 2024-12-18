@@ -31,7 +31,7 @@ Resource groups in Azure and AWS serve the purpose of organizing and managing re
 Here are some key differences. 
 •	Deleting an AWS Resource group doesn’t impact the resources but deleting an Azure Resource group deletes all the resources under it. 
 •	In Azure it is mandatory to create a resource group before creating a resource.  A resource must be part of a single resource group.
-•	In Azure you can track costs by resource group. In AWS you can use  cost allocation tags to filter on specific resources.
+•	In Azure you can track costs by resource group. In AWS you can use cost allocation tags to filter on specific resources.
 
 
 ## Resource deployment options
