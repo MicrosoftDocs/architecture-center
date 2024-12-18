@@ -25,7 +25,7 @@ This article compares the core networking services Microsoft Azure and Amazon We
 ## Virtual Networks, Azure VNets and AWS VPCs
 Azure Virtual Networks (VNets) and AWS Virtual Private Clouds (VPCs) are similar in that they both provide isolated, logically defined network spaces within their respective cloud platforms. However, there are key differences in terms of architecture, features, and integration. 
 
-- **Subnet Placement:** AWS subnets are tied to Availability Zones, whereas Azure subnets are region-specific without AZ constraints. This allows resources to switch between Availability Zones without changing the IP addresses
+- **Subnet Placement:** AWS subnets are tied to Availability Zones (AZ), whereas Azure subnets are region-specific without AZ constraints. This allows resources to switch AZs without changing IP addresses.
 - **Security Models:** AWS uses both Security Groups (stateful) and Network Access Control Lists (stateless), while Azure relies on Network Security Groups (Stateful).
 - **Peering:** Both Azure and AWS support VNet/VPC peering. Both technologies allow more complex peering through the use of Azure WAN or AWS Transit Gateway.
 
