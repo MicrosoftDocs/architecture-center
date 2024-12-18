@@ -98,7 +98,7 @@ The throughput capacity of Event Hubs is measured in [throughput units](/azure/e
 
 ### Stream processing
 
-In Azure Databricks, data processing is performed by a job. The job is assigned to and runs on a cluster. The job can either be custom code written in Java, or a Spark [notebook](https://docs.databricks.com/user-guide/notebooks/index.html).
+In Azure Databricks, data processing is performed by a job. The job is assigned to and runs on a cluster. The job can either be custom code written in Java, or a Spark [notebook](/azure/databricks/notebooks/).
 
 In this reference architecture, the job is a Java archive with classes written in both Java and Scala. When specifying the Java archive for a Databricks job, the class is specified for execution by the Databricks cluster. Here, the `main` method of the `com.microsoft.pnp.TaxiCabReader` class contains the data processing logic.
 
@@ -225,7 +225,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Access to the Azure Databricks workspace is controlled using the [administrator console](https://docs.databricks.com/administration-guide/admin-settings/index.html). The administrator console includes functionality to add users, manage user permissions, and set up single sign-on. Access control for workspaces, clusters, jobs, and tables can also be set through the administrator console.
+Access to the Azure Databricks workspace is controlled using the [administrator console](/azure/databricks/admin/workspace) The administrator console includes functionality to add users, manage user permissions, and set up single sign-on. Access control for workspaces, clusters, jobs, and tables can also be set through the administrator console.
 
 #### Managing secrets
 
@@ -242,13 +242,13 @@ databricks secrets put --scope "azure-databricks-job" --key "taxi-ride"
 ```
 
 > [!NOTE]
-> An Azure Key Vault-backed scope should be used instead of the native Azure Databricks scope. To learn more, see [Azure Key Vault-backed scopes](/azure/databricks/security/secrets/secret-scopes).
+> An Azure Key Vault-backed scope should be used instead of the native Azure Databricks scope. To learn more, see [Azure Key Vault-backed scopes](/azure/databricks/security/secrets/#akv-ss).
 
-In code, secrets are accessed via the Azure Databricks [secrets utilities](https://docs.databricks.com/user-guide/dev-tools/dbutils.html#secrets-utilities).
+In code, secrets are accessed via the Azure Databricks [secrets utilities](/azure/databricks/dev-tools/databricks-utils).
 
 ### Monitoring
 
-Azure Databricks is based on Apache Spark, and both use [log4j](https://logging.apache.org/log4j/2.x) as the standard library for logging. In addition to the default logging provided by Apache Spark, you can implement logging to Azure Log Analytics following the article [Monitoring Azure Databricks](../../databricks-monitoring/index.md).
+Azure Databricks is based on Apache Spark, and both use [log4j](https://logging.apache.org/log4j/2.x) as the standard library for logging. In addition to the default logging provided by Apache Spark, you can implement logging to Azure Log Analytics following the article [Monitoring Azure Databricks](/azure/architecture/databricks-monitoring).
 
 As the `com.microsoft.pnp.TaxiCabReader` class processes ride and fare messages, it's possible that either one may be malformed and therefore not valid. In a production environment, it's important to analyze these malformed messages to identify a problem with the data sources so it can be fixed quickly to prevent data loss. The `com.microsoft.pnp.TaxiCabReader` class registers an Apache Spark Accumulator that keeps track of the number of malformed fare and ride records:
 
@@ -297,7 +297,7 @@ SparkMetric_CL
 | render timechart
 ```
 
-For more information, see [Monitoring Azure Databricks](../../databricks-monitoring/index.md).
+For more information, see [Monitoring Azure Databricks](/azure/architecture/databricks-monitoring).
 
 ### DevOps
 
@@ -393,8 +393,8 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 [AAF-devops]: /azure/architecture/framework/devops/overview
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
-[azure-monitor]: https://azure.microsoft.com/services/monitor
-[databricks-monitoring]: ../../databricks-monitoring/index.md
+[azure-monitor]: /azure/azure-monitor/overview
+[databricks-monitoring]: /azure/architecture/databricks-monitoring
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
