@@ -25,7 +25,6 @@ The digital landscape is being transformed by unprecedented amounts of data acro
 
 |Industry  |Opportunities  |
 |---------|---------|
-|[Government](government.md)     |   Azure provides a mission-critical cloud platform, Azure Government, that delivers breakthrough innovation to US government customers and their partners.      |
 |[Nonprofit](/azure/industry/training-services/microsoft-community-training/public-preview-version/infrastructure-management/install-your-platform-instance/setup-platform-instance-on-azure-subscription-for-nonprofits?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |   Nonprofit organizations can apply for an Azure credit grant of $3,500 per year to set up and run an instance of the Microsoft Community Training platform.      |
 
 ## Additional verticals

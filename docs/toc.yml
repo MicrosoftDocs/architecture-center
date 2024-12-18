@@ -2305,24 +2305,6 @@ items:
   items:
   - name: Overview
     href: industries/overview.md
-  - name: Healthcare
-    items:
-    - name: Architectures
-      items:
-      - name: Analysis using text analytics for health and Azure OpenAI
-        href: example-scenario/healthcare/analyze-recordings-text-analytics-azure-openai.yml
-  - name: Government
-    items:
-    - name: Overview
-      href: industries/government.md
-    - name: Architectures
-      items:
-      - name: All manufacturing architectures
-        href: /azure/architecture/browse/?terms=manufacturing
-    - name: Architectures
-      items:
-      - name: All telecommunications architectures
-        href: /azure/architecture/browse/?terms=telecommunications
   - name: Additional verticals
     items:
     - name: Game Development
