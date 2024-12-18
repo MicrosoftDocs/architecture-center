@@ -153,7 +153,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | Architecture | Description |
 |----|----|
 | [Image classification on Azure](/azure/architecture/ai-ml/idea/intelligent-apps-image-processing) | Learn how to build image processing into your applications by using Azure services such as the Computer Vision API and Azure Functions. |
-| [Intelligent product search engine for e-commerce](/azure/architecture/example-scenario/apps/ecommerce-search) | This architecture describes how to use a dedicated search service to dramatically increase the relevance of search results for your e-commerce customers. |
+| [Intelligent product search engine for e-commerce](/azure/architecture/databases/architecture/ecommerce-search) | This architecture describes how to use a dedicated search service to dramatically increase the relevance of search results for your e-commerce customers. |
 
 [view all](../browse/index.yml?azure_categories=ai-machine-learning)
 
@@ -208,7 +208,6 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Architecture | Description |
 |----|----|
-| [HIPAA and HITRUST-compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai) | Manage HIPAA and HITRUST-compliant health data and medical records with the highest level of built-in security. |
 | [Cross-cloud scaling pattern](/azure/adaptive-cloud/app-solutions/pattern-cross-cloud-scale) | Learn how to improve cross-cloud scalability with solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation. |
 
 ## DevOps and application monitoring
@@ -375,8 +374,6 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Architecture | Description |
 |----|----|
-| [HIPAA and HITRUST-compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai) | Manage HIPAA and HITRUST-compliant health data and medical records with the highest level of built-in security. |
-| [HPC media rendering](/azure/architecture/solution-ideas/articles/azure-batch-rendering) | Optimize the media rendering process with a step-by-step HPC solution architecture from Azure that combines Azure CycleCloud and HPC Cache. |
 | [Medical data storage solutions](/azure/architecture/solution-ideas/articles/medical-data-storage) | Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security. |
 
 [view all](/azure/architecture/browse/#storage)
@@ -400,7 +397,6 @@ Here are some architectures that use AKS as the orchestrator.
 | Architecture | Description |
 |----|----|
 | [Architect scalable e-commerce web app](/azure/architecture/web-apps/idea/scalable-ecommerce-web-app) | The e-commerce website includes simple order processing workflows with the help of Azure services. Using Azure Functions and Web Apps, developers can focus on building personalized experiences and let Azure take care of the infrastructure. |
-| [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server) | Deploy an application on Azure virtual machines in multiple regions for high availability and resiliency. |
 | [Serverless web application](/azure/architecture/web-apps/serverless/architectures/web-app) | This reference architecture shows a serverless web application, which serves static content from Azure Blob Storage and implements an API using Azure Functions. |
 
 [view all](../browse/index.yml?azure_categories=web)

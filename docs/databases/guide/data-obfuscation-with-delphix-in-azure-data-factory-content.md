@@ -194,6 +194,5 @@ Learn more about the key Azure services in this solution:
 ## Related resources
 
 - [Extract, transform, load](/azure/architecture/data-guide/relational-data/etl)
-- [Batch integration with Azure Data Factory for Azure Digital Twins](/azure/architecture/example-scenario/iot/batch-integration-azure-data-factory-digital-twins)
 - [Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)
 - [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)

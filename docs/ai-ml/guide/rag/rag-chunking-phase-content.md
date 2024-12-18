@@ -115,7 +115,7 @@ This approach parses documents using custom code to create chunks. This approach
 
 Language models can be used to create chunks. Common use cases are to use a large language model, such as GPT-4, to generate textual representations of images or summaries of tables that can be used as chunks. Language model augmentation is used with other chunking approaches such as custom code.
 
-If you determined in the [images portion of the document analysis section](./rag-preparation-phase.yml#questions-about-images) that the text before or after the image is required to answer some questions, you need to pass this additional context to the language model. It's important to experiment to determine whether this additional context does or doesn't improve the performance of your solution.
+If you determined in the [images portion of the document analysis section](./rag-preparation-phase.yml#determine-your-image-processing-requirements) that the text before or after the image is required to answer some questions, you need to pass this additional context to the language model. It's important to experiment to determine whether this additional context does or doesn't improve the performance of your solution.
 
 If your chunking logic splits the image description into multiple chunks, make sure you include the image URL in each chunk. Including the image URL in each chunk ensures that metadata is returned for all queries that the image serves, especially for scenarios where the end user requires the ability to access the source image through that URL or wants to use raw images during inferencing time.
 

@@ -45,9 +45,5 @@ See product documentation:
 * [Azure Data Factory](/azure/data-factory/data-factory-introduction)
 * [Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
 
-## Related resources
 
-Read other Azure Architecture Center articles about predictive maintenance and prediction with machine learning:
 
-* [Predictive maintenance](../../industries/manufacturing/predictive-maintenance-overview.yml)
-* [Predict length of stay and patient flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)

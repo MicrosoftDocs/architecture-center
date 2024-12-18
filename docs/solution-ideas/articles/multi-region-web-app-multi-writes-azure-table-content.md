@@ -99,5 +99,4 @@ The architecture may be appropriate for any application that uses massive amount
 
 - [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.yml)
 - [Data partitioning strategies](../../best-practices/data-partitioning-strategies.yml)
-- [Build scalable database solutions with Azure services](../../data-guide/scenarios/build-scalable-database-solutions-azure-services.md)
 - [RESTful web API design](../../best-practices/api-design.md)

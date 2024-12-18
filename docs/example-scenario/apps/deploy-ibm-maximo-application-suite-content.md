@@ -338,5 +338,4 @@ To learn more about the featured technologies, see the following resources:
 ## Related resources
 
 - [Azure enterprise cloud file share](/azure/architecture/hybrid/azure-files-private)
-- [Introduction to predictive maintenance in manufacturing](../../industries/manufacturing/predictive-maintenance-overview.yml)
 - [Deploy a Java application with JBoss enterprise application platform (EAP) on an ARO cluster](/azure/developer/java/ee/jboss-eap-on-aro)

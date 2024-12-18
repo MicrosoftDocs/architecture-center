@@ -70,7 +70,7 @@ The following sections provide links to reference architectures in some key mana
 - [Enterprise-scale disaster recovery](../../solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml)
 - [SMB disaster recovery with Azure Site Recovery](../../solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml)
 - [SMB disaster recovery with Double-Take DR](../../solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml)
-- [Use Azure Local stretched clusters for disaster recovery](../../hybrid/azure-stack-hci-dr.yml)
+- [Use Azure Local stretched clusters for disaster recovery](../../hybrid/azure-local-dr.yml)
 
 ### High availability
 
@@ -128,5 +128,5 @@ Following are a few more management and governance architectures to consider:
 
 ### AWS or Google Cloud professionals
 
-- [AWS to Azure services comparison - Management and governance](../../aws-professional/services.md#management-and-governance)
+- [AWS to Azure services comparison - Management and governance](../../aws-professional/index.md#management-and-governance)
 - [Google Cloud to Azure services comparison - Management](../../gcp-professional/services.md#management)

@@ -3,9 +3,9 @@ metadata:
   title: SAP landscape architecture
   description: Best practices and recommendations for architecting an entire SAP landscape on Azure. 
   author: msftrobiro
-  ms.author: ssumner
+  ms.author: robiro
   ms.reviewer: ssumner
-  ms.date: 07/10/2023
+  ms.date: 12/13/2024
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.subservice: architecture-guide

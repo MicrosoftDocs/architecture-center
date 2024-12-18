@@ -2,7 +2,7 @@ This reference architecture illustrates how to use Azure Arc for management, mai
 
 ## Architecture
 
-[ ![Diagram illustrating different scenarios that leverage Azure Arc to optimize administration of SQL Server instances residing on-premises or hosted by third-party cloud providers. The first group of scenarios consists of SQL Server instances running on physical servers or virtual machines. The second group of scenarios comprises on-premises, third-party cloud hosted Kubernetes clusters, or Azure Kubernetes Service clusters running on Azure Local, with Azure Arc data controller serving as an intermediary management layer. All of these scenarios offer integration with a range of Azure services, such as Azure Monitor and Log Analytics, Azure Policy, Microsoft Defender for Cloud, and Microsoft Sentinel.](images/administer-sql-server-azure-arc.svg)](images/administer-sql-server-azure-arc.svg#lightbox)
+[![Diagram illustrating different scenarios that leverage Azure Arc to optimize administration of SQL Server instances residing on-premises or hosted by third-party cloud providers. The first group of scenarios consists of SQL Server instances running on physical servers or virtual machines. The second group of scenarios comprises on-premises, third-party cloud hosted Kubernetes clusters, or Azure Kubernetes Service clusters running on Azure Local, with Azure Arc data controller serving as an intermediary management layer. All of these scenarios offer integration with a range of Azure services, such as Azure Monitor and Log Analytics, Azure Policy, Microsoft Defender for Cloud, and Microsoft Sentinel.](images/administer-sql-server-azure-arc.svg)](images/administer-sql-server-azure-arc.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -241,7 +241,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 [azure-arc-enabled-servers-service-page]: /azure/azure-arc/servers/overview
 [azure-arc-enabled-sql-server-service-page]: /sql/sql-server/azure-arc/overview
 [azure-kubernetes-service-service-page]: /azure/well-architected/service-guides/azure-kubernetes-service
-[azs-hci-service-page]: /azure/well-architected/service-guides/azure-stack-hci
+[azs-hci-service-page]: /azure/well-architected/service-guides/azure-local
 [azure-kubernetes-service-on-azs-hci-service-page]: /azure/aks/hybrid/overview
 [azure-arc-enabled-kubernetes-service-page]: /azure/azure-arc/kubernetes/overview
 [azure-arc-enabled-data-services-service-page]: /azure/azure-arc/data/overview
@@ -257,7 +257,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 [Introduction to Azure Arc-enabled data services - training content]: /training/modules/intro-to-arc-enabled-data-services
 [Introduction to Azure Arc-enabled Kubernetes - training content]: /training/modules/intro-to-arc-enabled-kubernetes
 [Introduction to Azure Arc - training content]: /training/modules/intro-to-azure-arc
-[Azure Local switchless storage for retail, manufacturing or remote office use cases]: ./azure-stack-hci-switchless.yml
+[Azure Local switchless storage for retail, manufacturing or remote office use cases]: ./azure-local-switchless.yml
 [Manage configurations for Azure Arc-enabled servers]: ./azure-arc-hybrid-config.yml
 [Azure Arc hybrid management and deployment for Kubernetes clusters]: ./arc-hybrid-kubernetes.yml
 [Azure hybrid options]: ../guide/technology-choices/hybrid-considerations.yml

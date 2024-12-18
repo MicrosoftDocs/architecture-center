@@ -243,5 +243,4 @@ Other contributors:
 
 - [Siemens Teamcenter on Azure baseline](./teamcenter-baseline.yml)
 - [Azure NetApp Files solutions on the Azure Architecture Center](../../browse/index.yml?terms=Azure%20NetApp%20Files)
-- [Solutions for the manufacturing industry](../../industries/manufacturing.md)
 - [Azure Well-Architected Framework perspective on Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files)

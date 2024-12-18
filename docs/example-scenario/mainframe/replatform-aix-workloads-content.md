@@ -170,5 +170,4 @@ For more information about migrating to Azure, [contact the Legacy Migrations En
 ## Related resources
 
 - [Multi-tier web application built for high availability and disaster recovery](../infrastructure/multi-tier-app-disaster-recovery.yml)
-- [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml)
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)

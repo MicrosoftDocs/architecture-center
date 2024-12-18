@@ -298,7 +298,6 @@ To deploy the reference implementation for this architecture, follow the steps i
 ## Related resources
 
 - To work through a more advanced microservices example, see [Advanced Azure Kubernetes Service (AKS) microservices architecture](./aks-microservices-advanced.yml)
-- To learn about monitoring this architecture, see [Monitoring a microservices architecture in Azure Kubernetes Service (AKS)](../../../microservices/logging-monitoring.yml).
 - To learn how we measured the performance of this application, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.yml).
 - [CI/CD for microservices architectures](../../../microservices/ci-cd.yml)
 - [CI/CD for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.yml) 

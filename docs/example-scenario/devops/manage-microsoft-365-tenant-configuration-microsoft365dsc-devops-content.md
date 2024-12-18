@@ -90,7 +90,7 @@ You can use this solution when you work with multiple environments, multiple wor
 
 ## Deploy this scenario
 
-The Microsoft 365 DSC whitepaper, [Managing Microsoft 365 in true DevOps style with Microsoft365DSC and Azure DevOps](https://office365dsc.azurewebsites.net/Pages/Resources/Whitepapers/Managing%20Microsoft%20365%20with%20Microsoft365Dsc%20and%20Azure%20DevOps.pdf), provides detailed steps to deploy this scenario.
+The Microsoft 365 DSC whitepaper, [Managing Microsoft 365 in true DevOps style with Microsoft365DSC and Azure DevOps](https://m365dscwhitepaper.azurewebsites.net/Managing%20Microsoft%20365%20with%20Microsoft365Dsc%20and%20Azure%20DevOps.pdf), provides detailed steps to deploy this scenario.
 
 ## Contributors
 
@@ -102,7 +102,7 @@ Principal author:
 
 ## Next steps
 
-- [Managing Microsoft 365 in true DevOps style with Microsoft365DSC and Azure DevOps](https://office365dsc.azurewebsites.net/Pages/Resources/Whitepapers/Managing%20Microsoft%20365%20with%20Microsoft365Dsc%20and%20Azure%20DevOps.pdf)
+- [Managing Microsoft 365 in true DevOps style with Microsoft365DSC and Azure DevOps](https://m365dscwhitepaper.azurewebsites.net/Managing%20Microsoft%20365%20with%20Microsoft365Dsc%20and%20Azure%20DevOps.pdf)
 - [Microsoft365DSC source code](https://github.com/microsoft/Microsoft365DSC)
 - [Microsoft365DSC YouTube channel](https://www.youtube.com/channel/UCveScabVT6pxzqYgGRu17iw)
 - [Microsoft365DSC site](https://microsoft365dsc.com)

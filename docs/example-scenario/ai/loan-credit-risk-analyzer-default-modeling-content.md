@@ -175,7 +175,6 @@ For more information, see [Azure MLOps v2 GitHub repository](https://github.com/
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - For more information about designing scalable solutions, see [Performance efficiency checklist](/azure/well-architected/scalability/performance-efficiency).
-- For information about regulated industries, see [Scale AI and machine learning initiatives in regulated industries](../../example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml).
 - Manage your Azure Synapse Analytics environment with [SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview), [Spark](/azure/synapse-analytics/spark/apache-spark-autoscale), or [serverless SQL](/azure/synapse-analytics/sql/on-demand-workspace-overview) pools.
 
 ## Contributors

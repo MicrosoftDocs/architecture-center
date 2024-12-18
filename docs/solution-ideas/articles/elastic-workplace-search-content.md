@@ -58,7 +58,6 @@ Elastic site:
 - [Native Azure integration](https://www.elastic.co/guide/en/cloud/current/ec-azure-marketplace-native.html)
 - [Elastic Enterprise Search Guide](https://www.elastic.co/guide/en/workplace-search/current/index.html)
 
-## Related resources
+## Related resource
 
-- [Magento e-commerce platform in Azure Kubernetes Service (AKS)](../../example-scenario/magento/magento-azure.yml)
-- [Intelligent product search engine for e-commerce](../../example-scenario/apps/ecommerce-search.yml)
+- [Intelligent product search engine for e-commerce](../../databases/architecture/ecommerce-search.yml)

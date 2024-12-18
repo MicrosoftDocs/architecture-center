@@ -53,10 +53,6 @@ To explore patterns to incorporate into your design, consult resources in the fo
 - [Identify microservice boundaries][Identify microservice boundaries]: Derive microservices from a domain model when designing your application.
 - [Design interservice communication for microservices][Designing interservice communication for microservices]: Use service meshes to make communication between microservices efficient and robust.
 
-#### Serverless solutions
-
-[Share location in real time using low-cost serverless Azure services][Sharing location in real time using low-cost serverless Azure services]: Set up a real-time messaging service to share live locations.
-
 #### Mainframe migration
 
 - [Integrate IBM mainframe and midrange message queues with Azure][Integrate IBM mainframe and midrange message queues with Azure]: Use a data-first technique that provides a way for IBM mainframe and midrange message queues to work with Azure services.
@@ -74,13 +70,6 @@ The following resources can also help you design your application. Besides provi
 
 To learn about scenario-specific architectures, see the solutions in the following areas.
 
-#### AI
-
-- [Forecast energy and power demand with machine learning][Forecast energy and power demand with machine learning]: Forecast spikes in demand for energy products and services.
-- [Remote patient monitoring solutions][Remote patient monitoring solutions]: Remotely monitor patients and analyze the large volume of data that medical devices generate.
-- [Energy supply optimization][Energy supply optimization]: Accommodate external tools like Pyomo and CBC to solve large-scale numerical optimization problems.
-- [Quality assurance][Quality assurance]: Implement quality assurance in an assembly line by using analytics and machine learning to predict problems.
-
 #### E-commerce
 
 - [Custom business processes][Custom business processes]: Automate workflows and connect to legacy airline systems.
@@ -88,7 +77,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 
 #### Finance
 
-- [SWIFT Alliance Connect Virtual in Azure][SWIFT Alliance Connect Virtual in Azure]: See an article series on connecting to the SWIFT network by using the Alliance Connect Virtual component.
 - [Patterns and implementations for a banking cloud transformation][Patterns and implementations for a banking cloud transformation]: Apply patterns that implement a banking system cloud transformation.
 
 #### Internal business solutions
@@ -96,14 +84,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 - [Elastic Workplace Search on Azure][Elastic Workplace Search on Azure]: Use Workplace Search to capture information from numerous heterogeneous sources and make it searchable.
 - [Power Automate deployment at scale][Power Automate deployment at scale]: Use a hub-and-spoke model to deploy Power Automate parent and child flows.
 - [Line-of-business extension][Line of business extension]: Retrieve data from legacy systems on an ongoing basis and make it available in Power BI.
-
-#### Healthcare
-
-[Health data consortium][Health data consortium]: Share data among members of a healthcare consortium.
-
-#### High-performance computing
-
-[HPC risk analysis template][HPC risk analysis template]: Use Azure CycleCloud in a risk analysis application to expand on-premises TIBCO GridServer compute to Azure.
 
 ## Best practices
 
@@ -151,7 +131,6 @@ The following resources provide practical recommendations and information for sp
 ### Information for Amazon Web Services (AWS)
 
 - [Messaging services on Azure and AWS][Messaging services on Azure and AWS]
-- [AWS to Azure services comparison—miscellaneous back-end process logic][AWS to Azure services comparison—Miscellaneous backend process logic]
 
 ### Information for Google Cloud professionals
 
@@ -159,12 +138,10 @@ The following resources provide practical recommendations and information for sp
 - [Google Cloud to Azure services comparison—miscellaneous workflow][Google Cloud to Azure services comparison—Miscellaneous workflow]
 
 [About connectors in Azure Logic Apps]: /azure/connectors/apis-list?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-[Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)]: /azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Apache NiFi on Azure]: ../example-scenario/data/azure-nifi.yml
 [API Management ACOM page]: https://azure.microsoft.com/services/api-management
 [Architect API integration in Azure]: /training/paths/architect-api-integration
 [Asynchronous messaging options]: ../guide/technology-choices/messaging.yml
-[AWS to Azure services comparison—Miscellaneous backend process logic]: ../aws-professional/services.md#miscellaneous
 [Azure Functions ACOM page]: https://azure.microsoft.com/services/functions
 [Azure Logic Apps ACOM page]: https://azure.microsoft.com/services/logic-apps
 [Azure Policy Regulatory Compliance controls for Azure Logic Apps]: /azure/logic-apps/security-controls-policy?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
@@ -182,17 +159,13 @@ The following resources provide practical recommendations and information for sp
 [Design data integration]: /training/modules/design-data-integration
 [Designing interservice communication for microservices]: ../microservices/design/interservice-communication.yml
 [Elastic Workplace Search on Azure]: ../solution-ideas/articles/elastic-workplace-search.yml
-[Energy supply optimization]: ../solution-ideas/articles/energy-supply-optimization.yml
 [Enterprise business intelligence]: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
 [Event Grid ACOM page]: https://azure.microsoft.com/services/event-grid
 [Examine business integration for IoT solutions]: /training/modules/examine-business-integration-for-iot-solutions
 [Explore Event Grid integration]: /training/browse/?products=azure&terms=event%20grid
 [Extract, transform, and load (ETL)]: ../data-guide/relational-data/etl.yml
-[Forecast energy and power demand with machine learning]: ../solution-ideas/articles/forecast-energy-power-demand.yml
 [Google Cloud to Azure services comparison—Messaging and eventing]: ../gcp-professional/services.md#messaging-and-eventing
 [Google Cloud to Azure services comparison—Miscellaneous workflow]: ../gcp-professional/services.md#miscellaneous
-[Health data consortium]: ../example-scenario/data/azure-health-data-consortium.yml
-[HPC risk analysis template]: ../solution-ideas/articles/hpc-risk-analysis.yml
 [Identify microservice boundaries]: ../microservices/model/microservice-boundaries.yml
 [Integrate data with Azure Data Factory or Azure Synapse Pipeline]: /training/modules/data-integration-azure-data-factory
 [Integrate Event Hubs with serverless functions on Azure]: ../serverless/event-hubs-functions/event-hubs-functions.yml
@@ -208,10 +181,6 @@ The following resources provide practical recommendations and information for sp
 [Performance and scale for Event Hubs and Azure Functions]: ../serverless/event-hubs-functions/performance-scale.yml
 [Power Automate deployment at scale]: ../example-scenario/power-automate/power-automate.yml
 [Publish internal APIs to external users]: ../example-scenario/apps/publish-internal-apis-externally.yml
-[Quality assurance]: ../solution-ideas/articles/quality-assurance.yml
-[Remote patient monitoring solutions]: /azure/architecture/example-scenario/digital-health/remote-patient-monitoring
 [Service Bus ACOM page]: https://azure.microsoft.com/services/service-bus
-[Sharing location in real time using low-cost serverless Azure services]: ../example-scenario/signalr/index.yml
-[SWIFT Alliance Connect Virtual in Azure]: ../example-scenario/finance/swift-on-azure-vsrx.yml
 [Transactional Outbox pattern with Azure Cosmos DB]: ../databases/guide/transactional-outbox-cosmos.yml
 [Web and mobile front ends]: ../solution-ideas/articles/front-end.yml

@@ -16,7 +16,7 @@ Azure load-balancing services can be categorized along two dimensions: global ve
 ### HTTP(S) vs. non-HTTP(S)
 
 - **HTTP(S)**: These load-balancing services are [Layer 7](https://www.iso.org/ics/35.100.70/x/) load balancers that only accept HTTP(S) traffic. They're intended for web applications or other HTTP(S) endpoints. They might have features such as SSL offload, web application firewall, path-based load balancing, and session affinity.
-- **Non-HTTP(S)**: These load-balancing services are [Layer 4](https://www.iso.org/ics/35.100.40/x/) load balancers that can handle non-HTTP(S) traffic, primarily TCP or UDP services.
+- **Non-HTTP(S)**: These load-balancing services are either [Layer 4](https://www.iso.org/ics/35.100.40/x/) TCP or UDP services, or DNS-based load balancing.
 
 The following table summarizes the Azure load-balancing services.
 
@@ -28,7 +28,7 @@ The following table summarizes the Azure load-balancing services.
 | Azure Load Balancer       | Regional or Global | Non-HTTP(S)      |
 
 > [!NOTE]
-> Azure Traffic Manager and Azure Load Balancer have the capabilities to distribute HTTP(S) traffic, but do not have any specific features to route based on protocol data unit information higher than Layer 4. They both support HTTP(S) traffic, but only at Layer 4 functionality levels.
+> Azure Traffic Manager and Azure Load Balancer have the capabilities to distribute any traffic, including HTTP(S). However, these services do not have Layer 7 capabilities. Unlike Azure Load Balancer, Azure Traffic Manager doesn't handle the traffic directly; Traffic Manager manipulates DNS to direct clients to the appropriate endpoints.
 
 ## Azure load-balancing services
 
@@ -108,10 +108,8 @@ The following table lists various articles based on the load-balancing services 
 |Services |Article |Description |
 |---------|---------|---------|
 |Load Balancer    |  [Load balance virtual machines (VMs) across availability zones](/azure/load-balancer/quickstart-load-balancer-standard-public-portal)    |   Load balance VMs across availability zones to help protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.     |
-|Azure Front Door    |  [Sharing location in real time by using low-cost serverless Azure services](../../example-scenario/signalr/index.yml#azure-front-door)       |   Use Azure Front Door to provide higher availability for your applications than deploying to a single region. If a regional outage affects the primary region, you can use Azure Front Door to fail over to the secondary region.      |
 |Traffic Manager   | [Multitier web application built for high availability and disaster recovery](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)        |      Deploy resilient multitier applications built for high availability and disaster recovery. If the primary region becomes unavailable, Traffic Manager fails over to the secondary region.  |
 |Azure Front Door + Application Gateway     | [Multitenant SaaS on Azure](../../example-scenario/multi-saas/multitenant-saas.yml)       |   Use a multitenant solution that includes a combination of Azure Front Door and Application Gateway. Azure Front Door helps load balance traffic across regions. Application Gateway routes and load-balances traffic internally in the application to the various services that satisfy client business needs.  |
-|Traffic Manager + Load Balancer    | [Multiregion N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml)          |   A multiregion N-tier application that uses Traffic Manager to route incoming requests to a primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region.      |
 |Traffic Manager + Application Gateway    | [Multiregion load balancing with Traffic Manager and Application Gateway](../../high-availability/reference-architecture-traffic-manager-application-gateway.yml)          |   Learn how to serve web workloads and deploy resilient multitier applications in multiple Azure regions to achieve high availability and a robust disaster recovery infrastructure.      |
 
 ## Next steps
