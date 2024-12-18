@@ -6,8 +6,7 @@ This reference architecture shows how to build a scalable solution for batch sco
 
 ![Diagram showing batch scoring of Apache Spark classification models on Azure Databricks.](_images/batch-scoring-spark-models-databricks.svg)
 
-
-This architecture can leverage [Mosaic AI Model Serving](/azure/databricks/machine-learning/model-serving/)  to seamlessly deploy models for batch and real-time inference using Azure Databricks' serverless compute. It provides a unified interface for scaling resources dynamically, enhancing both performance and cost-efficiency in processing large datasets.
+This architecture can use [Mosaic AI Model Serving](/azure/databricks/machine-learning/model-serving/) to seamlessly deploy models for batch and real-time inference using Azure Databricks' serverless compute. It provides a unified interface for scaling resources dynamically, enhancing both performance and cost-efficiency in processing large datasets.
 
 *Download a [Visio file](https://arch-center.azureedge.net/batch-scoring-spark-models-databricks.vsdx) of this architecture.*
 
@@ -21,16 +20,13 @@ The architecture defines a data flow that is entirely contained within [Azure Da
 
 Recent enhancements in data ingestion include seamless real-time data replication from various databases and SaaS applications, made possible by new features such as [Lake House Federation](https://docs.databricks.com/en/query-federation/index.html).
 
-
 **Training pipeline**. This notebook executes the feature engineering notebook to create an analysis data set from the ingested data. It then executes a model building notebook that trains the machine learning model using the [Apache Spark MLlib][mllib] scalable machine learning library.
 
 Enhanced ML features in Databricks now include improved experiment tracking and model training, further optimizing this pipeline.
 
-
 **Scoring pipeline**. This notebook executes the feature engineering notebook to create scoring data set from the ingested data and executes the scoring notebook. The scoring notebook uses the trained [Spark MLlib][mllib-spark] model to generate predictions for the observations in the scoring data set. The predictions are stored in the results store, a new data set on the Databricks data store.
 
 The scoring pipeline can leverage the `ai_query` function for batch inference, processing large datasets efficiently with provisions for scalability and performance optimization.
-
 
 **Scheduler**. A scheduled Databricks [job][job] handles batch scoring with the Spark model. The job executes the scoring pipeline notebook, passing variable arguments through notebook parameters to specify the details for constructing the scoring data set and where to store the results data set.
 
@@ -55,8 +51,6 @@ This reference architecture is designed for workloads that are triggered by the 
 1. Store results on the Databricks data store for post-processing consumption.
 
 
-
-
 ## Recommendations
 
 Databricks is set up so you can load and deploy your trained models to make predictions with new data. Databricks also provides other advantages:
@@ -76,8 +70,6 @@ Monitor job execution through the Databricks user interface, the data store, or 
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. 
-
-
 For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Performance
@@ -108,6 +100,7 @@ The solution notebooks can run on any Spark-based platform with minimal edits to
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
+
 - [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) | Cloud Solutions Architect
 - [John Ehrlinger](https://www.linkedin.com/in/ehrlinger) | Senior Applied Scientist
 
