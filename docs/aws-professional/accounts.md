@@ -1,8 +1,8 @@
 ---
 title: AWS vs. Azure accounts and subscriptions
 description: Learn the differences in accounts and subscriptions between Azure and AWS. Understand the types of administrator accounts in Azure.
-author: RobBagby
-ms.author: robbag
+author: scaryghosts
+ms.author: adamcerini
 categories: azure
 ms.date: 12/18/2024
 ms.topic: conceptual
@@ -29,16 +29,16 @@ This article compares the account and organizational structure between Azure and
 - For links to articles that compare other AWS and Azure services, see [Azure for AWS professionals](/azure/architecture/aws-professional/).
 - For a complete listing and charts showing service mapping between AWS and Azure, see [AWS to Azure services comparison](/azure/architecture/aws-professional/services).
 
-## Managing Account Heirarchy
+## Managing Account Hierarchy
 
-A typical AWS environment will use an organization structure such as pictured in the diagram below. There will be an organizational root and optionally a dedicated AWS Management account. Below that root, there will be Organizational Units which can be used to apply different policies to different accounts. AWS resources will often use an AWS account as a logical and billing boundary.
+A typical AWS environment uses an organization structure such as pictured in the diagram. There is an organizational root and optionally a dedicated AWS Management account. Below that root, there are Organizational Units which can be used to apply different policies to different accounts. AWS resources often use an AWS account as a logical and billing boundary.
 <br>
 
 :::image type="complex" source="../aws-professional/images/aws_accounts.jpg" lightbox="../aws-professional/images/aws_accounts.jpg" alt-text="Diagram of common AWS Account Organization Structure." border="false":::
    Shows an AWS Account with an Account Owner and an Azure Account with an Account Admin. In the Azure Account is a Subscription with a Service Admin and Service co-admins.
 :::image-end:::
 
-An Azure structure will look very similar, but rather than a dedicated management account there will be adminstrative permissions on the the tenant. This eliminates the need for an entire account just for management purposes. Unlike AWS, Azure has resource groups as a fundamental unit. Resources must be assigned to resource groups and permissions can be applied at the resource group level.
+An Azure structure looks similar, but rather than a dedicated management account there is administrative permissions on the tenant. This eliminates the need for an entire account just for management purposes. Unlike AWS, Azure has resource groups as a fundamental unit. Resources must be assigned to resource groups and permissions can be applied at the resource group level.
 
 :::image type="complex" source="../aws-professional/images/azure_accounts.jpg" lightbox="../aws-professional/images/azure_accounts.jpg" alt-text="Diagram of common Azure Account Management Structure." border="false":::
    Shows the Azure account hierarchy that flows from Tenant to Management Groups to Subscriptions to Resource Groups to Resources.
@@ -46,7 +46,7 @@ An Azure structure will look very similar, but rather than a dedicated managemen
 
 ## AWS Management Account vs Azure tenant
 
-In Azure, when you are creating your Azure Account, a Microsoft Entra Tenant is created where you can manage your users, groups and applications. Azure subscriptions are created under this tenant. A Microsoft Entra tenant provides identity and access management, which is an important part of your security posture. A Microsoft Entra tenant ensures that authenticated and authorized users only access the resources to which they have permissions.  
+In Azure, when you're creating your Azure Account, a Microsoft Entra Tenant is created where you can manage your users, groups, and applications. Azure subscriptions are created under this tenant. A Microsoft Entra tenant provides identity and access management, which is an important part of your security posture. A Microsoft Entra tenant ensures that authenticated and authorized users only access the resources to which they have permissions.  
 
 ## AWS Accounts vs Azure Subscriptions
 
@@ -78,7 +78,7 @@ The root management group is the top-level management group associated with each
 
 ## Service Control Policies vs Azure Policy
 
-The primary goal of Service Control Policies (SCP) in AWS is to limit the maximum effective permissions within an AWS account. Azure maximum permissions are defined within Entra and can be applied at the tenant, subscription, or resource group level. Azure Policy has a wide range of use cases, a few of which align with typical SCP usage patterns. Both SCPs and Azure Policies can be used to enforce compliance with enterprise standards, such as tagging or the use of specific SKUs. Both SCPs and Azure Policies can block deployment of resources that do not meet compliance requirements. Azure Policies can be more proactive than SCPs and can trigger remediations to bring resources into compliance and can assess existing resources as well as future deployments.
+The primary goal of Service Control Policies (SCP) in AWS is to limit the maximum effective permissions within an AWS account. Azure maximum permissions are defined within Entra and can be applied at the tenant, subscription, or resource group level. Azure Policy has a wide range of use cases, a few of which align with typical SCP usage patterns. Both SCPs and Azure Policies can be used to enforce compliance with enterprise standards, such as tagging or the use of specific SKUs. Both SCPs and Azure Policies can block deployment of resources that don't meet compliance requirements. Azure Policies can be more proactive than SCPs and can trigger remediations to bring resources into compliance and can assess existing resources as well as future deployments.
 
 ## Comparison of structure and ownership of AWS accounts and Azure subscriptions
 
@@ -87,9 +87,9 @@ An Azure account represents a billing relationship and Azure subscriptions help 
 
 - **Account Administrator**. The subscription owner and the billing owner for the resources used in the subscription. The account administrator can only be changed by transferring ownership of the subscription. Only one Account administrator is assigned per Azure Account.
 
-- **Service Administrator**. This user has rights to create and manage resources in the subscription, but is not responsible for billing. By default, for a new subscription, the Account Administrator is also the Service Administrator. The account administrator can assign a separate user to the Service Administrator for managing the technical and operational aspects of a subscription. Only one Service Administrator is assigned per subscription.
+- **Service Administrator**. This user has rights to create and manage resources in the subscription, but isn't responsible for billing. By default, for a new subscription, the Account Administrator is also the Service Administrator. The account administrator can assign a separate user to the Service Administrator for managing the technical and operational aspects of a subscription. Only one Service Administrator is assigned per subscription.
 
-- **Co-administrator**. There can be multiple co-administrators assigned to a subscription. Co-administrators have the same access privileges as the Service Administrator, but they cannot change the Service Administrator.
+- **Co-administrator**. There can be multiple co-administrators assigned to a subscription. Co-administrators have the same access privileges as the Service Administrator, but they can't change the Service Administrator.
 
 Below the subscription level user roles and individual permissions can also be assigned to specific resources, similarly to how permissions are granted to Identity and Access Management (IAM) users and groups in AWS. In Azure, all user accounts are associated with either a Microsoft Account or Organizational Account (an account managed through a Microsoft Entra ID).
 
