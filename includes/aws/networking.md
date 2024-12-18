@@ -25,7 +25,7 @@ Dedicated network | [Direct Connect](https://aws.amazon.com/directconnect) | [Ex
 | Cloud Virtual Networking | [AWS Global Accelerator](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html) | [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) | Improves the availability and performance of your applications with global routing and traffic management. |
 | Cross-premises connectivity | [AWS Direct Connect Gateway](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-gateways-intro.html) | [Azure ExpressRoute Global Reach](/azure/expressroute/expressroute-global-reach) | Extends your on-premises networks to the cloud with dedicated, private connections that span multiple regions. |
 | Application level networking | [AWS App Mesh](https://docs.aws.amazon.com/app-mesh/latest/userguide/what-is-app-mesh.html) | [Azure ExpressRoute Global Reach](/azure/service-fabric/) | Provides application-level networking to manage microservices, including service discovery, load balancing, and traffic routing. |
-| Service Discovery | [AWS Cloud Map](https://docs.aws.amazon.com/cloud-map/latest/dg/what-is-cloud-map.html) | [Azure Private DNS](/azure/dns/private-dns-overview) | Service discovery for cloud resources, allowing you to register any application resources and dynamically update their locations.
+| Service Discovery | [AWS Cloud Map](https://docs.aws.amazon.com/cloud-map/latest/dg/what-is-cloud-map.html) | [Azure Private DNS](/azure/dns/private-dns-overview) | Service discovery for cloud resources, allowing you to register any application resources and dynamically update their locations. |
 
 ### Networking architectures
 
