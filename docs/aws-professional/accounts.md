@@ -26,7 +26,7 @@ This article compares the account and organizational structure between Azure and
 - For links to articles that compare other AWS and Azure services, see [Azure for AWS professionals](/azure/architecture/aws-professional/).
 - For a complete listing and charts showing service mapping between AWS and Azure, see [AWS to Azure services comparison](/azure/architecture/aws-professional/services).
 
-A typical AWS environment will use an organization such as the pictured in the diagram below. There will be a organizational root and optionally a dedicated AWS Management account. Below that root, there will be Organizational Units which can be used to apply different policies to different accounts. AWS resources will be often use an AWS account as a logical and billing boundary.
+A typical AWS environment will use an organization structure such as pictured in the diagram below. There will be an organizational root and optionally a dedicated AWS Management account. Below that root, there will be Organizational Units which can be used to apply different policies to different accounts. AWS resources will often use an AWS account as a logical and billing boundary.
 <br>
 
 <figure>
