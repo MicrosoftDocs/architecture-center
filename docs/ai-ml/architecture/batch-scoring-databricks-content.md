@@ -1,4 +1,4 @@
-This reference architecture shows how to build a scalable solution for batch scoring an Apache Spark classification model on a schedule using [Azure Databricks][databricks]. Azure Databricks is an Apache Spark-based analytics platform optimized for Azure. Azure Databricks offers three environments for developing data intensive applications: Databricks SQL, Databricks Data Science & Engineering, and Databricks Machine Learning. Databricks Machine Learning is an integrated end-to-end machine learning environment incorporating managed services for experiment tracking, model training, feature development and management, and feature and model serving. You can use this reference architecture as a template that can be generalized to other scenarios. A reference implementation for this architecture is available on [GitHub][github].
+This reference architecture shows how to build a scalable solution for batch scoring an Apache Spark classification model on a schedule using [Azure Databricks][databricks]. Azure Databricks is an Apache Spark-based analytics platform optimized for Azure. Azure Databricks offers three environments for developing data intensive applications: Databricks SQL, Databricks Data Science & Engineering, and Databricks Machine Learning. Databricks Machine Learning is an integrated end-to-end machine learning environment incorporating managed services for experiment tracking, model training, feature development and management, and feature and model serving. You can use this reference architecture as a template that can be generalized to other scenarios. 
 
 *Apache® and Apache Spark® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -13,7 +13,7 @@ This architecture can leverage [Mosaic AI Model Serving](/azure/databricks/machi
 
 ### Workflow
 
-The architecture defines a data flow that is entirely contained within [Azure Databricks][databricks] based on a set of sequentially executed [notebooks][notebooks]. It consists of the following components:
+The architecture defines a data flow that is entirely contained within [Azure Databricks][databricks] based on a set of sequentially executed notebooks. It consists of the following components:
 
 **Data files**. The reference implementation uses a simulated data set contained in five static data files.
 
@@ -38,13 +38,6 @@ The scoring pipeline can leverage the `ai_query` function for batch inference, p
 
 The scenario is constructed as a pipeline flow. Each notebook is optimized to perform in a batch setting for each of the operations: ingestion, feature engineering, model building, and model scorings. The feature engineering notebook is designed to generate a general data set for any of the training, calibration, testing, or scoring operations. In this scenario, we use a temporal split strategy for these operations, so the notebook parameters are used to set date-range filtering.
 
-Because the scenario creates a batch pipeline, we provide a set of optional examination notebooks to explore the output of the pipeline notebooks. You can find these notebooks in the [GitHub repository notebooks folder][github]:
-
-- `1a_raw-data_exploring.ipynb`
-- `2a_feature_exploration.ipynb`
-- `2b_model_testing.ipynb`
-- `3b_model_scoring_evaluation.ipynb`
-
 ### Potential use cases
 
 A business in an asset-heavy industry wants to minimize the costs and downtime associated with unexpected mechanical failures. Using IoT data collected from their machines, they can create a predictive maintenance model. This model enables the business to maintain components proactively and repair them before they fail. By maximizing mechanical component use, they can control costs and reduce downtime.
@@ -61,7 +54,7 @@ This reference architecture is designed for workloads that are triggered by the 
 
 1. Store results on the Databricks data store for post-processing consumption.
 
-Notebooks are provided on [GitHub][github] to perform each of these tasks.
+
 
 
 ## Recommendations
@@ -76,7 +69,7 @@ Databricks is set up so you can load and deploy your trained models to make pred
 
 To interact with the Azure Databricks service, use the Databricks [Workspace][workspace] interface in a web browser or the [command-line interface (CLI)][cli]. Access the Databricks CLI from any platform that supports Python 2.7.9 to 3.6.
 
-The reference implementation uses [notebooks][notebooks] to execute tasks in sequence. Each notebook stores intermediate data artifacts (training, test, scoring, or results data sets) to the same data store as the input data. The goal is to make it easy for you to use it as needed in your particular use case. In practice, you would connect your data source to your Azure Databricks instance for the notebooks to read and write directly back into your storage.
+The reference architecture uses notebooks to execute tasks in sequence. Each notebook stores intermediate data artifacts (training, test, scoring, or results data sets) to the same data store as the input data. The goal is to make it easy for you to use it as needed in your particular use case. In practice, you would connect your data source to your Azure Databricks instance for the notebooks to read and write directly back into your storage.
 
 Monitor job execution through the Databricks user interface, the data store, or the Databricks [CLI][cli] as necessary. Monitor the cluster using the [event log][log] and other [metrics][metrics] that Databricks provides.
 
@@ -95,7 +88,7 @@ Develop more complex scheduled pipelines by using [Microsoft Fabric][mfbc] with 
 
 ### Storage
 
-In this reference implementation, the data is stored directly within Databricks storage for simplicity. In a production setting, however, you can store the data on cloud data storage such as [Azure Blob Storage][blob]. [Databricks][databricks-connect] also supports [Azure Data Lake Store][azure-data-lake], [Azure Synapse Analytics][azure-synapse], [Azure Cosmos DB][azure-cosmos], [Apache Kafka][apache-kafka], and [Apache Hadoop][apache-hadoop].
+In this reference implementation, the data is stored directly within Databricks storage for simplicity. In a production setting, however, you can store the data on cloud data storage such as [Azure Blob Storage][blob]. [Databricks][databricks-connect] also supports [Azure Data Lake Store][azure-data-lake], [Microsoft Fabric][mfbc], [Azure Cosmos DB][azure-cosmos], [Apache Kafka][apache-kafka], and [Apache Hadoop][apache-hadoop].
 
 ### Cost optimization
 
@@ -109,16 +102,13 @@ For this scenario, the Standard pricing tier is sufficient. However, if your spe
 
 The solution notebooks can run on any Spark-based platform with minimal edits to remove the Databricks-specific packages.
 
-## Deploy this scenario
-
-To deploy this reference architecture, follow the steps described in the [GitHub][github] repository to build a scalable solution for scoring Spark models in batch on Azure Databricks.
 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
-
+Principal authors:
+- [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) | Cloud Solutions Architect
 - [John Ehrlinger](https://www.linkedin.com/in/ehrlinger) | Senior Applied Scientist
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
