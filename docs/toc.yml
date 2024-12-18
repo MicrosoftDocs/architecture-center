@@ -2305,14 +2305,6 @@ items:
   items:
   - name: Overview
     href: industries/overview.md
-  - name: Retail
-    items:
-    - name: Architectures
-      items:
-      - name: All retail architectures
-        href: /azure/architecture/browse/?terms=retail
-      - name: Video capture and analytics for retail
-        href: solution-ideas/articles/video-analytics.yml
   - name: Healthcare
     items:
     - name: Architectures
