@@ -43,21 +43,19 @@ An Azure structure will look very similar, but rather than a dedicated managemen
    Shows the Azure account hierarchy that flows from Tenant to Management Groups to Subscriptions to Resource Groups to Resources.
 :::image-end:::
 
-
-
 ## AWS Management Account vs Azure tenant
 
-In Azure when you are creating your Azure Account it creates an identity where you can manage your users, groups and applications which is called as a Tenant (Microsoft Entra Tenant). Azure subscriptions are created under this tenant. A Microsoft Entra tenant provides identity and access management, which is an important part of your security posture. A Microsoft Entra tenant ensures that authenticated and authorized users only access the resources to which they have permissions.  
+In Azure, when you are creating your Azure Account, a Microsoft Entra Tenant is created where you can manage your users, groups and applications. Azure subscriptions are created under this tenant. A Microsoft Entra tenant provides identity and access management, which is an important part of your security posture. A Microsoft Entra tenant ensures that authenticated and authorized users only access the resources to which they have permissions.  
 
 ## AWS Accounts vs Azure Subscriptions
 
-In Microsoft Azure, the equivalent of AWS Account is called Azure Subscriptions. Azure Subscriptions are a logical unit of Azure services that are linked to an Azure account in Entra ID tenant. Each subscription is linked to a billing account and provides the boundary within which resources are created, managed, and billed. Subscriptions are key to understanding cost allocation and adhering to budget limits, ensuring that every service used is tracked and billed accordingly. Azure subscription also acts as a boundary for resource quotas and limits like AWS accounts. Some resource quotas are adjustable while others are non-adjustable or hard limits. 
+In Microsoft Azure, the equivalent of an AWS Account is called an Azure Subscription. Azure Subscriptions are a logical unit of Azure services that are linked to an Azure account in an Entra ID tenant. Each subscription is linked to a billing account and provides the boundary within which resources are created, managed, and billed. Subscriptions are key to understanding cost allocation and adhering to budget limits, ensuring that every service used is tracked and billed accordingly. Azure subscriptions also act as a boundary for resource quotas and limits like AWS accounts. Some resource quotas are adjustable while others are non-adjustable or hard limits. 
 
 Cross-account resource access in AWS enables resources from one AWS account to be accessed or managed by another AWS account. In AWS, there are IAM roles and resource based policies to access resources cross-account. In Azure, users and services from different subscriptions can be granted access using role based access control (RBAC) which is applied at different scopes (Management groups, subscription, resource group, or individual resources).  
 
 ## AWS OUs vs Azure Management groups
 
-In Microsoft Azure, the equivalent of Organizational Units is Management groups. Both are used to organize and manage cloud resources at a high level across multiple accounts or subscriptions. Azure Management groups are needed to efficiently manage access, policies, and compliance for the Azure subscriptions. The governance conditions applied at the management group level cascade to all associated subscriptions by inheritance. 
+In Microsoft Azure, the equivalent of Organizational Units is Management groups. Both are used to organize and manage cloud resources at a high level across multiple accounts or subscriptions. Azure Management groups can be used to efficiently manage access, policies, and compliance for the Azure subscriptions. The governance conditions applied at the management group level cascade to all associated subscriptions through inheritance. 
 
 *Important facts about management groups and subscriptions:* 
 
@@ -79,7 +77,7 @@ The root management group is the top-level management group associated with each
 
 ## Service Control Policies vs Azure Policy
 
-The primary goal of Service Control Policies in AWS is to limit the maximum effective permissions within an AWS account. Azure maximum permissions are defined within Entra and can be applied at the tenant, subscription, or resource group level. Azure policy has a wide range of use cases, a few of which do align with typical SCP usage patterns. Both Service Control Policies and Azure Policy can be used to control enforce compliance with enterprise standards, such as tagging or the use of specific SKUs. Both SCPs and Azure Policies can block deployment of resources that do not meet compliance requirements. Azure policies can be more proactive than SCPs and can trigger remediations to bring resources into compliance and can asses existing resources as well as future deployments.
+The primary goal of Service Control Policies (SCP) in AWS is to limit the maximum effective permissions within an AWS account. Azure maximum permissions are defined within Entra and can be applied at the tenant, subscription, or resource group level. Azure Policy has a wide range of use cases, a few of which align with typical SCP usage patterns. Both SCPs and Azure Policies can be used to enforce compliance with enterprise standards, such as tagging or the use of specific SKUs. Both SCPs and Azure Policies can block deployment of resources that do not meet compliance requirements. Azure Policies can be more proactive than SCPs and can trigger remediations to bring resources into compliance and can assess existing resources as well as future deployments.
 
 ## Comparison of structure and ownership of AWS accounts and Azure subscriptions
 

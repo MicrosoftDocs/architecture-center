@@ -4,9 +4,9 @@ description: Compare networking options between Azure and AWS. The comparisons c
 author: adamcerini
 categories: azure
 ms.author: adamcerini
-ms.date: 11/25/2024
+ms.date: 12/18/2024
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
 azureCategories:
   - compute
@@ -37,13 +37,15 @@ Both AWS Site-to-Site VPN and Azure VPN Gateway are robust solutions for connect
 
 ## Elastic Load Balancing, Azure Load Balancer, and Azure Application Gateway
 The Azure equivalent of the Elastic Load Balancing services are:
+
 - **Load Balancer:** Provides the same network layer 4 capabilities as the AWS Network Load Balancer, allowing you to distribute traffic for multiple VMs at the network level. It also provides a failover capability.
--	**Application Gateway:** Offers application-level rule-based routing comparable to the AWS Application Load Balancer.
+- **Application Gateway:** Offers application-level rule-based routing comparable to the AWS Application Load Balancer.
 
 ## Route 53, Azure DNS, and Azure Traffic Manager
 In AWS, Route 53 provides both DNS name management and DNS-level traffic routing and failover services. In Azure this is handled through two services:
--	Azure DNS provides domain and DNS management.
--	Traffic Manager provides DNS level traffic routing, load balancing, and failover capabilities.
+
+- Azure DNS provides domain and DNS management.
+- Traffic Manager provides DNS level traffic routing, load balancing, and failover capabilities.
 
 ## Direct connect and Azure ExpressRoute
 Azure provides similar site-to-site dedicated connections through its ExpressRoute service. ExpressRoute allows you to connect your local network directly to Azure resources using a dedicated private network connection. Both Azure and AWS offer site-to-site VPN connections. 
@@ -58,8 +60,8 @@ Similar to AWS PrivateLink, Azure Private Link provides private connectivity fro
 ## VPC peering, VNet peering in Azure
 In AWS, a VPC peering connection is a networking connection between two VPCs, which enables you to route traffic between them using private Internet Protocol version 4 (IPv4) addresses or Internet Protocol version 6 (IPv6) addresses.
 
-*Azure virtual network (VNet) peering enables you to seamlessly connect two or more Virtual Networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between virtual machines in the same network, traffic is routed through Microsoft's private network only.
-Neither VNets or VPCs allow transitive peering, however in Azure you can achieve transitive networking by using NVAs (Network Virtual Appliances) or gateways in the hub virtual network
+Azure virtual network (VNet) peering enables you to seamlessly connect two or more Virtual Networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between virtual machines in the same network, traffic is routed through Microsoft's private network only.
+Neither VNets nor VPCs allow transitive peering, however in Azure you can achieve transitive networking by using NVAs (Network Virtual Appliances) or gateways in the hub virtual network
 
 
 ## Network service comparison

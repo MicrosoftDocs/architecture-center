@@ -4,9 +4,9 @@ description: Compare resource management between Azure and AWS. See the differen
 author: splitfinity-zz-zz
 ms.author: yubaijna
 categories: azure
-ms.date: 11/25/2024
+ms.date: 12/18/2024
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
 azureCategories:
   - analytics
@@ -23,22 +23,23 @@ products:
 ---
 
 ## Resources
-The term resource in Azure is used in the same way as in AWS, it’s a manageable item could be  Virtual machines, Storage Accounts, Web apps, databases, Virtual networks etc. 
+The term resource in Azure is used in the same way as in AWS; it’s a manageable item could be virtual machines, storage accounts, web apps, databases, virtual networks, etc. 
 
 ## AWS Resource groups vs Azure RGs
 
 Resource groups in Azure and AWS serve the purpose of organizing and managing resources. However, Azure resource groups are not directly comparable to AWS Resource Groups. 
-Here are some key differences. 
-•	Deleting an AWS Resource group doesn’t impact the resources but deleting an Azure Resource group deletes all the resources under it. 
-•	In Azure it is mandatory to create a resource group before creating a resource.  A resource must be part of a single resource group.
-•	In Azure you can track costs by resource group. In AWS you can use cost allocation tags to filter on specific resources.
+Here are some key differences.
+
+- Deleting an AWS Resource group doesn’t impact the resources, but deleting an Azure Resource group deletes all the resources under it. 
+- In Azure, it is mandatory to create a resource group before creating a resource.  A resource must be part of a single resource group.
+- In Azure, you can track costs by resource group. In AWS you can use cost allocation tags to filter on specific resources.
 
 
 ## Resource deployment options
 
 Azure offers several ways to manage your resources:
 
-- [WAzure Portal](/azure/azure-resource-manager/templates/deploy-portal). Like the AWS Dashboard, the Azure portal provides a full web-based management interface for Azure resources.
+- [Azure Portal](/azure/azure-resource-manager/templates/deploy-portal). Like the AWS Dashboard, the Azure portal provides a full web-based management interface for Azure resources.
 
 - [REST API](/azure/azure-resource-manager/templates/deploy-rest). The Azure Resource Manager REST API provides programmatic access to most of the features available in the Azure portal.
 
@@ -59,9 +60,9 @@ Tagging in Azure and AWS allows you to organize and manage resources effectively
 
 Key differences between Azure and AWS Tagging:
 
--	 Azure tags are case-insensitive for operations, but casing may be preserved. AWS tags are case sensitive. 
--	Azure offers Tag inheritance through policies, while AWS does not natively support tag inheritance between parent and child resources.  AWS does support tag inheritance for AWS Cost Categories. 
--	AWS provides a Tag editor tool for adding tags, whereas Azure integrates the tagging capabilities through Azure Portal and management interfaces. 
+- Azure tags are case-insensitive for operations, but casing may be preserved. AWS tags are case sensitive. 
+- Azure offers Tag inheritance through policies, while AWS does not natively support tag inheritance between parent and child resources.  AWS does support tag inheritance for AWS Cost Categories. 
+- AWS provides a Tag editor tool for adding tags, whereas Azure integrates the tagging capabilities through Azure Portal and management interfaces. 
 
 
 
