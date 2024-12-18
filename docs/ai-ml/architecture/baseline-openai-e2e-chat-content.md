@@ -224,18 +224,10 @@ Along with identity-based access, network security is at the core of the baselin
 - Data exfiltration is minimized by using Private Link to keep traffic in Azure.
 - Network resources are logically grouped and isolated from each other through network segmentation.
 
-#### Azure Firewall
+When configuring your secure hub for Azure AI Foundry, you have options for securing your outbound internet access for your compute deployed within the hub's managed virtual network. You can choose to *allow outbound access* for the compute in order to perform tasks like download packages or you can choose to restrict outbound access to only *approved outbound access*. The latter choice deploys Azure Firewall (either Basic or Standard) for traffic filtering, with Standard being the default selection as it supports FQDN filtering. If you do not have a need for FQDN filtering, then choose Basic. Otherwise, choose Standard.
 
-This architecture considers the use of Private Endpoints for secure communication within the deployment. If you use FQDN rules with Azure AI Foundry Hub, Azure Firewall is deployed as the mechanism for implementing those rules. Azure Firewall serves as a critical tool for inspecting and controlling traffic in your managed Azure Virtual Network. When using Azure Firewall, it’s important to evaluate communication paths involving the internet and on-premises connections. Here are some decision points to consider when selecting Azure Firewall Basic versus Standard in your AI Foundry Hub deployment.
-
-When selecting between the Basic and Standard SKUs, traffic filtering requirements play a key role. Azure Firewall Basic offers foundational network traffic filtering and firewall capabilities, suitable for smaller organizations or environments with predictable, low-volume traffic not exceeding 250 Mbps and having limited traffic filtering requirements. It does not include Advanced Threat Protection, making it best suited for scenarios with limited security demands, minimal applications, or environments with no complex traffic patterns.
-
-Azure Firewall Standard has unrestricted cloud scalability. This enables mature enterprise deployments to scale out as much as is needed for changing traffic patterns/flows. many organizations have ebbs and flows of traffic during the year so if you are expecting peak traffic during the year for your applications, you should consider the Standard SKU to accommodate the traffic. it is tailored for more complex and hybrid networking environments. It supports advanced configurations, including Custom DNS to integrate with DNS servers in Azure, which are often a component of enterprise landscapes, and resolves Azure Private DNS zones within the same virtual network. In the most restrictive network environments, Standard can be deployed without a public IP when using force tunnel mode. It also offers web categorization capabilities, enabling traffic control based on website categories for more precise access management.
-
-Azure Firewall is enabled with Threat Intelligence, powered by Microsoft Threat Intelligence. This includes known malicious IP addresses. This feature is available with Azure Firewall Basic in **alert mode** only, while Standard comes with this enabled at all times. Consider the internet traffic for your application.
-
-Consider Azure Firewall Basic for simpler deployments with limited filtering needs and less mature Azure networking requirements, while Azure Firewall Standard should be considered for complex scenarios with more comprehensive traffic filtering and hybrid integration requirements.
-
+In this architecture, which is a baseline architecture, we choose to *allow outbound access* and use Azure Application Gateway with Web Application Firewall. We use private endpoints for deployed resources to enable private communication.
+ 
 ##### Network flows
 
 :::image type="complex" source="_images/openai-end-to-end-aml-deployment-flows.svg" border="false" lightbox="_images/openai-end-to-end-aml-deployment-flows.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture with OpenAI with flow numbers.":::
@@ -303,8 +295,6 @@ Consider the following points when implementing virtual network segmentation and
 - [Add an NSG](/azure/virtual-network/network-security-groups-overview) to every subnet where possible. Use the strictest rules that enable full solution functionality.
 
 - Use [application security groups](/azure/virtual-network/tutorial-filter-network-traffic#create-application-security-groups) to group NSGs. Grouping NSGs makes rule creation easier for complex environments.
-
-- Use firewall such as [Azure Firewall](https://learn.microsoft.com/azure/firewall/) for traffic filtering.
 
 #### Key rotation
 
@@ -506,8 +496,7 @@ Some components in this architecture exist with a lifecycle that extends beyond 
 - Azure Application Insights
 - Azure Bastion
 - Azure Virtual Machine for the jump box
-- Azure Firewall
-
+- 
 ###### Ephemeral components
 
 Some Azure resources are more tightly coupled to the design of specific prompt flows. This approach allows these resources to be bound to the lifecycle of the component and become ephemeral in this architecture. Azure resources are affected when the workload evolves, such as when flows are added or removed or when new models are introduced. These resources get re-created and prior instances removed. Some of these resources are direct Azure resources and some are data plane manifestations within their containing service.
