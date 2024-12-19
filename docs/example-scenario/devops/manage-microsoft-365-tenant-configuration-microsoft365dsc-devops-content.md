@@ -110,4 +110,4 @@ Principal author:
 
 ## Related resource
 
-[End-to-end governance in Azure when using CI/CD](../../example-scenario/governance/end-to-end-governance-in-azure.yml)
+[Microsoft 365 solution and architecture center](https://learn.microsoft.com/en-us/microsoft-365/solutions)

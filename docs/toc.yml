@@ -1672,8 +1672,6 @@ items:
         maintainContext: true
       - name: Computer forensics
         href: example-scenario/forensics/index.yml
-      - name: End-to-end governance when using CI/CD
-        href: example-scenario/governance/end-to-end-governance-in-azure.yml
       - name: Hybrid management
         items:
         - name: Azure Arc hybrid management with AKS
