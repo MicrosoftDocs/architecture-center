@@ -23,12 +23,9 @@ The architecture consists of the following components:
 **Azure Cosmos DB**. The output of an Azure Databricks job is a series of records, which are written to [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction). Azure Cosmos DB for Apache Cassandra is used because it supports time series data modeling.
 
 - [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) enables you to run near real-time analytics over operational data in Azure Cosmos DB, **without any performance or cost impact on your transactional workload**, by using the two analytics engines available from your Azure Synapse workspace: [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview).
+- [Microsoft Fabric Mirroring Azure Cosmos DB](/fabric/database/mirrored-database/azure-cosmos-db) alows you to integrate Azure Cosmos DB data with the rest of your data in Microsoft Fabric. This is in public preview and only supports Azure Cosmos DB for NoSQL at the moment. 
 
 **Azure Log Analytics**. Application log data collected by [Azure Monitor](/azure/monitoring-and-diagnostics) is stored in a [Log Analytics workspace](/azure/log-analytics). Log Analytics queries can be used to analyze and visualize metrics and inspect log messages to identify issues within the application.
-
-### Alternatives
-
-- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Azure Cosmos DB data.
 
 ## Scenario details
 
