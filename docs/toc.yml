@@ -2309,42 +2309,8 @@ items:
       items:
       - name: Overview
         href: industries/aerospace.md
-      - name: Guides
-        items:
-        - name: Drone delivery
-          items:
-          - name: Domain-driven design for drones
-            items:
-            - name: Domain analysis
-              href: /azure/architecture/microservices/model/domain-analysis
-            - name: Tactical DDD
-              href: /azure/architecture/microservices/model/tactical-ddd
-            - name: Identify microservice boundaries
-              href: /azure/architecture/microservices/model/microservice-boundaries
-          - name: Design microservices for drones
-            items:
-            - name: Introduction
-              href: microservices/design/index.yml
-            - name: Interservice communication
-              href: /azure/architecture/microservices/design/interservice-communication
-            - name: API design
-              href: /azure/architecture/microservices/design/api-design
-            - name: Data considerations
-              href: /azure/architecture/microservices/design/data-considerations
-          - name: Performance tuning for drones
-            items:
-            - name: Distributed business transactions
-              href: /azure/architecture/performance/distributed-transaction
-            - name: Multiple backend services
-              href: /azure/architecture/performance/backend-services
-            - name: Event streaming
-              href: /azure/architecture/performance/event-streaming
       - name: Architectures
         items:
-        - name: All aerospace architectures
-          href: /azure/architecture/browse/?terms=aerospace
-        - name: Advanced (AKS) microservices - drones
-          href: reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml
         - name: Ingest FAA content to analyze flights
           href: example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml
         - name: Serverless web app for drone delivery
