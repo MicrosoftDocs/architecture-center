@@ -6464,6 +6464,11 @@
       "source_path": "docs/example-scenario/governance/end-to-end-governance-in-azure.yml",
       "redirect_url": "/devops/operate/governance-cicd",
       "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/industries/facilities-real-estate.md",
+      "redirect_url": "https://www.microsoft.com/industry",
+      "redirect_document_id": false   
     }
   ]
 }

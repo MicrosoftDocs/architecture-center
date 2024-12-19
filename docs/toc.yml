@@ -2305,14 +2305,6 @@ items:
     href: industries/overview.md
   - name: Additional verticals
     items:
-    - name: Facilities and Real Estate
-      items:
-      - name: Overview
-        href: industries/facilities-real-estate.md
-      - name: Architectures
-        items:
-        - name: All facilities and real estate architectures
-          href: /azure/architecture/browse/?terms=facilities
     - name: Aerospace
       items:
       - name: Overview
