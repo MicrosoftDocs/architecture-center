@@ -6444,6 +6444,11 @@
       "source_path": "docs/industries/media.md",
       "redirect_url": "https://www.microsoft.com/en-us/industry/media-entertainment",
       "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-introduction",
+      "redirect_document_id": false   
     }
   ]
 }
