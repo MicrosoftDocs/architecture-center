@@ -18,7 +18,7 @@ The architecture defines a data flow that is entirely contained within [Azure Da
 
 **Ingestion**. The data ingestion notebook downloads the input data files into a collection of Databricks data sets. In a real-world scenario, data from IoT devices would stream onto Databricks-accessible storage such as Azure SQL or Azure Blob storage. Databricks supports multiple [data sources][data-sources].
 
-Recent enhancements in data ingestion include real-time data replication from various databases and SaaS applications, made possible by features such as [Lake House Federation](https://docs.databricks.com/en/query-federation/index.html).
+Recent enhancements in data ingestion include real-time data replication from various databases and SaaS applications, made possible by features such as [Lake House Federation](https://docs.databricks.com/query-federation/index.html).
 
 **Training pipeline**. This notebook executes the feature engineering notebook to create an analysis data set from the ingested data. The pipeline then executes a model building notebook that trains the machine learning model using the [Apache Spark MLlib][mllib] scalable machine learning library.
 
@@ -38,7 +38,7 @@ The scenario is constructed as a pipeline flow. Each notebook is optimized to pe
 
 A business in an asset-heavy industry wants to minimize the costs and downtime associated with unexpected mechanical failures. Using IoT data collected from their machines, they can create a predictive maintenance model. This model enables the business to maintain components proactively and repair them before they fail. By maximizing mechanical component use, they can control costs and reduce downtime.
 
-A predictive maintenance model collects data from the machines and retains historical examples of component failures. The model can then be used to monitor the current state of the components and predict if a given component will fail soon. For common use cases and modeling approaches, see [Azure AI guide for predictive maintenance solutions][ai-guide].
+A predictive maintenance model collects data from the machines and retains historical examples of component failures. The model can then be used to monitor the current state of the components and predict if a given component will fail soon.
 
 This reference architecture is designed for workloads that are triggered by the presence of new data from the component machines. Processing involves the following steps:
 
@@ -50,6 +50,9 @@ This reference architecture is designed for workloads that are triggered by the 
 
 1. Store results on the Databricks data store for post-processing consumption.
 
+## Alternatives
+
+Develop more complex scheduled pipelines by using [Microsoft Fabric][mfbc] with Azure Databricks.
 
 ## Recommendations
 
@@ -69,32 +72,25 @@ Monitor job execution through the Databricks user interface, the data store, or 
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. 
-For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Performance efficiency
-
-An Azure Databricks cluster enables autoscaling by default so that during runtime, Databricks dynamically reallocates workers to account for the characteristics of your job. Certain parts of your pipeline might be more computationally demanding than others. Databricks adds extra workers during these phases of your job (and removes them when they're no longer needed). Autoscaling makes it easier to achieve high [cluster utilization][cluster], because you don't need to provision the cluster to match a workload.
-
-
-
-### Storage
+### Reliability
 
 In this architecture, the data is stored directly within Databricks storage for simplicity. In a production setting, however, you should store the data on cloud data storage such as [Azure Blob Storage][blob]. [Databricks][databricks-connect] also supports [Azure Data Lake Store][azure-data-lake], [Microsoft Fabric][mfbc], [Azure Cosmos DB][azure-cosmos], [Apache Kafka][apache-kafka], and [Apache Hadoop][apache-hadoop].
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
-In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Azure Databricks is a premium Spark offering with an associated cost. In addition, there are standard and premium Databricks [pricing tiers][pricing].
 
 For this scenario, the Standard pricing tier is sufficient. However, if your specific application requires automatically scaling clusters to handle larger workloads or interactive Databricks dashboards, the Premium tier could increase costs further.
 
-## Alternative Architectures 
+### Performance Efficiency
 
-Develop more complex scheduled pipelines by using [Microsoft Fabric][mfbc] with Azure Databricks.
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+An Azure Databricks cluster enables autoscaling by default so that during runtime, Databricks dynamically reallocates workers to account for the characteristics of your job. Certain parts of your pipeline might be more computationally demanding than others. Databricks adds extra workers during these phases of your job (and removes them when they're no longer needed). Autoscaling makes it easier to achieve high [cluster utilization][cluster], because you don't need to provision the cluster to match a workload.
 
 ## Contributors
 
@@ -109,30 +105,30 @@ Principal authors:
 
 ## Next steps
 
-- [Perform data science with Azure Databricks][learn1]
-- [Deploy batch inference pipelines with Azure Machine Learning][learn2]
-- [Tutorial: Build an Azure Machine Learning pipeline for batch scoring][aml-tut]
+- [Implement a machine learning solution with Azure Databricks][learn1]
+- [Deploy a model to a batch endpoint][learn2]
+- [Tutorial: Create production machine learning pipelines][aml-tut]
 
 <!-- links -->
 
 [mfbc]: /fabric/data-factory/azure-databricks-activity
-[aml-tut]: /azure/machine-learning/tutorial-pipeline-batch-scoring-classification
+[aml-tut]: /azure/machine-learning/tutorial-pipeline-python-sdk
 [apache-hadoop]: https://hadoop.apache.org
 [apache-kafka]: https://kafka.apache.org
-[azure-cosmos]: https://azure.microsoft.com/services/cosmos-db
-[azure-data-lake]: https://azure.microsoft.com/services/storage/data-lake-storage
-[blob]: https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
-[cli]: https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html
-[cluster]: /azure/databricks/clusters/configure
-[databricks]: /azure/azure-databricks
-[databricks-connect]: /azure/azure-databricks/databricks-connect-to-data-sources
-[data-sources]: https://docs.databricks.com/spark/latest/data-sources/index.html
-[job]: https://docs.databricks.com/user-guide/jobs.html
-[learn1]: /training/paths/perform-data-science-azure-databricks
-[learn2]: /training/modules/deploy-batch-inference-pipelines-with-azure-machine-learning
-[log]: https://docs.databricks.com/user-guide/clusters/event-log.html
-[metrics]: https://docs.databricks.com/user-guide/clusters/metrics.html
-[mllib]: https://docs.databricks.com/spark/latest/mllib/index.html
-[mllib-spark]: https://docs.databricks.com/spark/latest/mllib/index.html#apache-spark-mllib
+[azure-cosmos]: /azure/well-architected/service-guides/cosmos-db
+[azure-data-lake]: /azure/storage/blobs/data-lake-storage-introduction
+[blob]: https://docs.databricks.com/connect/storage/azure-storage.html
+[cli]: https://docs.databricks.com/dev-tools/cli/index.html
+[cluster]: /azure/databricks/compute/configure
+[databricks]: /azure/databricks/
+[databricks-connect]: /azure/databricks/scenarios/databricks-connect-to-data-sources
+[data-sources]: https://docs.databricks.com/connect/index.html
+[job]: https://docs.databricks.com/jobs/index.html
+[learn1]: /training/paths/build-operate-machine-learning-solutions-azure-databricks/
+[learn2]: /training/modules/deploy-model-batch-endpoint/
+[log]: https://docs.databricks.com/compute/clusters-manage.html#event-log
+[metrics]: https://docs.databricks.com/compute/configure.html#cluster-performance
+[mllib]: https://docs.databricks.com/machine-learning/index.html
+[mllib-spark]: https://docs.databricks.com/machine-learning/train-model/mllib.html
 [pricing]: https://azure.microsoft.com/pricing/details/databricks
-[workspace]: https://docs.databricks.com/user-guide/workspace.html
+[workspace]: https://docs.databricks.com/workspace/index.html
