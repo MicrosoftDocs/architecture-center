@@ -6454,6 +6454,12 @@
       "source_path": "docs/solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml",
       "redirect_url": "/industry/manufacturing/",
       "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/industries/travel-hospitality.md",
+      "redirect_url": "https://www.microsoft.com/industry/mobility/travel-transportation",
+      "redirect_document_id": false   
     }
   ]
 }
+

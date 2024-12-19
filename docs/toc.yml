@@ -2307,10 +2307,6 @@ items:
     href: industries/overview.md
   - name: Additional verticals
     items:
-    - name: Travel and Hospitality
-      items:
-      - name: Overview
-        href: industries/travel-hospitality.md
     - name: Facilities and Real Estate
       items:
       - name: Overview
