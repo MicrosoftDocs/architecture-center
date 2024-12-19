@@ -2311,14 +2311,6 @@ items:
       items:
       - name: Overview
         href: industries/travel-hospitality.md
-      - name: Architectures
-        items:
-        - name: Custom business processes for airlines
-          href: solution-ideas/articles/custom-business-processes.yml
-        - name: Migrate a travel web app with APIM
-          href: example-scenario/apps/apim-api-scenario.yml
-        - name: Predictive aircraft engine monitoring
-          href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
     - name: Facilities and Real Estate
       items:
       - name: Overview

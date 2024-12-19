@@ -6449,6 +6449,11 @@
       "source_path": "docs/solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-introduction",
       "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml",
+      "redirect_url": "/industry/manufacturing/",
+      "redirect_document_id": false   
     }
   ]
 }

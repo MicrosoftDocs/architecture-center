@@ -49,9 +49,3 @@ The following articles provide detailed analysis of architectures created and re
 |[Process Synthetic Aperture Radar (SAR) data in Azure](/azure/orbital/sar-reference-architecture?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) |View a reference architecture that enables processing SAR/Remote Sensing data on Azure by using Apache Spark on Azure Synapse. |Analytics|
 |[Serverless web application](../web-apps/serverless/architectures/web-app.yml) |Review a reference architecture that shows a serverless web application that serves static content from Azure Blob Storage.  An example scenario describes a company that uses a drone-based delivery service.|Serverless|
 |[Spaceborne data analysis with Azure Synapse Analytics](./aerospace/geospatial-processing-analytics.yml) |View a reference architecture that enables geospatial workloads on Azure by using Azure Synapse.|Analytics|
-
-## Solution idea for aerospace
-
-Use the following idea as a starting point for your aerospace solution.
-
-- [Predictive aircraft engine monitoring](../solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
