@@ -2,6 +2,16 @@ This example scenario shows how data can be ingested into a cloud environment fr
 
 The following steps build on the [Azure Synapse Analytics end-to-end][e2e-analytics] scenario. It uses Azure Pipelines to ingest data from a SQL database into Azure Synapse SQL pools, then transforms the data for analysis.
 
+## When to use this article
+
+There are many ways to deliver business requirements associated with Enterpsise BI based on existing technology investment, peoples skills, modernization time horizon, future vision and preference for PaaS vs SaaS. Please get familiar with alternative design approaches:
+* Fabric lakehouse for greenfield scenarious [link](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
+* Fabric and Azure Databricks Better Together for customers with existing investment in Azure Databricks & PBI and desire to modernise with Microsoft Fabric
+* Enterprise BI for small and medium business leveraging Azure SQL ecosystem and Microsoft Fabric [link](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/data/small-medium-data-warehouse)
+* Data Warehousing on Microsoft Fabric for customers with SaaS preference
+
+Current architecture presumes that Azure Synapse Datawarehouse was selected as the persistent layer of Enterprise semantic model and PBI is used for Business Intelligence. This approach has great flexibility and is considered Platform as a Service. 
+
 ## Architecture
 
 [ ![Diagram of enterprise BI architecture with Azure Synapse.](./media/enterprise-bi-scoped-architecture.png)](./media/enterprise-bi-scoped-architecture.png#lightbox)
