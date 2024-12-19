@@ -2,7 +2,7 @@ This article describes an architecture that you can use to replace the manual an
 
 *The FFmpeg and Jupyter Notebook logos are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
 
-## Architecture
+## Main Architecture
 
 :::image type="content" source="_images/analyze-video-content.png" alt-text="Diagram that shows an architecture for analyzing video content." lightbox="_images/analyze-video-content.png":::
 
@@ -32,22 +32,6 @@ This article describes an architecture that you can use to replace the manual an
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to provide visualizations of your data.
 
 
-## Architecture
-
-:::image type="content" source="_images/analyze-video-content-video-retrieval-api.png" alt-text="Diagram that shows an architecture for analyzing video content." lightbox="_images/analyze-video-content-video-retrieval-api.png":::
-
-*Download a [PowerPoint file](https://arch-center.azureedge.net/XXXX) of this architecture.*
-
-### Workflow
-
-1. A collection of video footage, in MP4 format, is uploaded to Azure Blob Storage. Ideally, the videos go into a "raw" container.
-2. A preconfigured logic app that monitors Blob Storage detects that new videos are being uploaded. It starts a workflow.
-3. The logic app calls the Azure AI Vision Video Retrieval API to create an index using the PUT method.
-4. The logic app calls the Azure AI Vision Video Retrieval API to add video documents to the index using the PUT method.
-5. A preconfigured logic app that monitors the ingestion, check when the indexing is complete with the GET method.
-6. The logic app calls Video Retrieval API to search with natural language, identify objects, features, or qualities in the images.
-7. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in SQL Database in Fabric that is currently in preview.
-8. Power BI provides data visualization.
 
 ### Components
 
@@ -58,15 +42,6 @@ This article describes an architecture that you can use to replace the manual an
 - [SQL database in Fabric](https://blog.fabric.microsoft.com/en-us/blog/announcing-sql-database-in-microsoft-fabric-public-preview?ft=All) is a preview feature annonced at Ignite 2024, centered on three themes: simple, autonomous and secure, and optimized for AI.
 - [Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that work together to provide visualizations of your data.
 
-
-
-### Alternatives
-
-- [Azure AI Content Understanding](/azure/ai-services/content-understanding/) is a solution that analyzes and comprehends various media content—such as audio, video, text, and images—transforming it into structured, organized, and searchable data. It was annonced as a new AI service at Ignite 2024, it is currenly in preview.
-- [Azure Video Indexer](/azure/azure-video-indexer/video-indexer-overview) is a video analytics service that uses AI to extract actionable insights from stored videos. You can use it without any expertise in machine learning.
-- [Azure Data Factory](/azure/data-factory/introduction) is a fully managed serverless data integration service that helps you construct extract, transform, load (ETL) and extract, load, transform (ELT) processes.
-- [Azure Functions](/azure/azure-functions/functions-overview) is a serverless platform as a service (PaaS) that runs single-task code without requiring new infrastructure.
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database for modern app development.
 
 
 ## Scenario details
@@ -88,6 +63,25 @@ This scenario is relevant for any business that analyzes videos. Here are some s
 - **Traffic control.** Classify vehicles into categories (SUV, car, truck, motorcycle), and use the information to plan traffic control. Video footage can be provided by CCTV in public locations. Most CCTV cameras record date and time, which can be easily retrieved via optical character recognition (OCR).
 
 - **Quality assurance.** Monitor and analyze quality control in a manufacturing facility. By installing cameras on the production line, you can train a computer vision model to detect anomalies.
+
+## Alternative
+
+### Architecture
+
+:::image type="content" source="_images/analyze-video-content-video-retrieval-api.png" alt-text="Diagram that shows an architecture for analyzing video content." lightbox="_images/analyze-video-content-video-retrieval-api.png":::
+
+*Download a [PowerPoint file](https://arch-center.azureedge.net/XXXX) of this architecture.*
+
+### Workflow
+
+1. A collection of video footage, in MP4 format, is uploaded to Azure Blob Storage. Ideally, the videos go into a "raw" container.
+2. A preconfigured logic app that monitors Blob Storage detects that new videos are being uploaded. It starts a workflow.
+3. The logic app calls the Azure AI Vision Video Retrieval API to create an index using the PUT method.
+4. The logic app calls the Azure AI Vision Video Retrieval API to add video documents to the index using the PUT method.
+5. A preconfigured logic app that monitors the ingestion, check when the indexing is complete with the GET method.
+6. The logic app calls Video Retrieval API to search with natural language, identify objects, features, or qualities in the images.
+7. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in SQL Database in Fabric that is currently in preview.
+8. Power BI provides data visualization.
 
 ## Considerations
 
