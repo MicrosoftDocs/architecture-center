@@ -213,7 +213,7 @@ Principal authors:
 
 - Azure components:
 
-  - [Microsfot Fabric](/fabric/)
+  - [Microsoft Fabric](/fabric/)
   - [Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview)
   - [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
   - [Cognitive Services](/azure/cognitive-services/what-are-cognitive-services)
