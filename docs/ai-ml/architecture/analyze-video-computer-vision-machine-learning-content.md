@@ -16,7 +16,7 @@ This article describes an architecture that you can use to replace the manual an
 4. The inference cluster sends the images to Azure Data Lake Storage.
 5. A preconfigured logic app that monitors Data Lake Storage detects that new images are being uploaded. It starts a workflow.
 6. The logic app calls a pretrained custom vision model to identify objects, features, or qualities in the images. Alternatively or additionally, it calls a computer vision (optical character recognition (OCR)) model to identify textual information in the images.
-7. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in SQL Database in Fabric that is currently in preview.
+7. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in Azure dedicated SQL pools that are provisioned by Azure Synapse Analytics.
 8. Power BI provides data visualization.
 
 ### Components
@@ -27,8 +27,7 @@ This article describes an architecture that you can use to replace the manual an
 - [Computer Vision](/azure/ai-services/computer-vision/overview) is part of [Azure AI services](/azure/ai-services/what-are-ai-services). It's used to retrieve information about each image.
 - [Custom Vision](/azure/ai-services/custom-vision-service/overview) enables you to customize and embed state-of-the-art computer vision image analysis for your specific domains.
 - [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time.
-- [Microsoft Fabric](https://www.microsoft.com/en-us/microsoft-fabric) is an end-to-end unified analytics platform to streamline data integraion.  It is designed to simplify the process of managing and analyzing data across various domains by providing a comprehensive suite of tools and services within a single platform.
-- [SQL database in Fabric](https://blog.fabric.microsoft.com/en-us/blog/announcing-sql-database-in-microsoft-fabric-public-preview?ft=All) is a preview feature annonced at Ignite 2024, centered on three themes: simple, autonomous and secure, and optimized for AI.
+
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to provide visualizations of your data.
 
 
@@ -72,6 +71,8 @@ This scenario is relevant for any business that analyzes videos. Here are some s
 8. Power BI provides data visualization.
 
 ### Alternative Components 
+- [Microsoft Fabric](https://www.microsoft.com/en-us/microsoft-fabric) is an end-to-end unified analytics platform to streamline data integraion.  It is designed to simplify the process of managing and analyzing data across various domains by providing a comprehensive suite of tools and services within a single platform.
+- [SQL database in Fabric](https://blog.fabric.microsoft.com/en-us/blog/announcing-sql-database-in-microsoft-fabric-public-preview?ft=All) is a preview feature annonced at Ignite 2024, centered on three themes: simple, autonomous and secure, and optimized for AI.
 - [Video Retrieval API](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/video-retrieval) is part of [Azure AI Vision](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview). It's used to retrieve information directly from the video.
 
 ## Considerations
