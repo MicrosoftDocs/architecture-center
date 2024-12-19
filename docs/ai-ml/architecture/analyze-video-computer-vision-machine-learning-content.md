@@ -1,12 +1,12 @@
 This article describes an architecture that you can use to replace the manual analysis of video footage with an automated, and frequently more accurate, machine learning process.
 
-*The FFmpeg and Jupyter Notebook logos are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
 
 ## Main Architecture
 
 :::image type="content" source="_images/analyze-video-content.png" alt-text="Diagram that shows an architecture for analyzing video content." lightbox="_images/analyze-video-content.png":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/analyze-video-content.pptx) of this architecture.*
+*The FFmpeg and Jupyter Notebook logos are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
 
 ### Workflow
 
@@ -58,6 +58,7 @@ This scenario is relevant for any business that analyzes videos. Here are some s
 :::image type="content" source="_images/analyze-video-content-video-retrieval-api.png" alt-text="Diagram that shows an architecture for analyzing video content." lightbox="_images/analyze-video-content-video-retrieval-api.png":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/analyze-video-content-2.pptx) of this architecture.*
+*The FFmpeg and Jupyter Notebook logos are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
 
 ### Alternative Workflow
 
