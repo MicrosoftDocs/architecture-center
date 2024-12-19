@@ -1,8 +1,8 @@
-Natural language processing (NLP) has many applications such as sentiment analysis, topic detection, language detection, key phrase extraction, and document categorization.
+Natural language processing (NLP) has many applications, such as sentiment analysis, topic detection, language detection, key phrase extraction, and document categorization.
 
 Specifically, you can use NLP to:
 
-- Classify documents, e.g., labeling them as sensitive or spam.
+- Classify documents, for example, labeling them as sensitive or spam.
 - Conduct subsequent processing or searches with NLP outputs.
 - Summarize text by identifying entities in the document.
 - Tag documents with keywords, utilizing identified entities.
@@ -12,11 +12,11 @@ Specifically, you can use NLP to:
 - Enumerate related documents based on a selected topic.
 - Assess text sentiment to understand its positive or negative tone.
 
-With advancements in technology, NLP not only categorizes and analyzes text data but also enhances interpretable AI functions across diverse domains. The integration of Large Language Models (LLM) significantly enhances NLP's capabilities. LLMs like GPT and BERT can generate human-like, contextually aware text, making them highly effective for complex language processing tasks. They complement existing NLP techniques by handling broader cognitive tasks, which improves conversation systems and customer engagement, especially with models like [Databricks' Dolly 2.0](https://github.com/databrickslabs/dolly).
+With advancements in technology, NLP can not only be used to categorize and analyze text data, but also to enhance interpretable AI functions across diverse domains. The integration of Large Language Models (LLM) significantly enhances NLP's capabilities. LLMs like GPT and BERT can generate human-like, contextually aware text, making them highly effective for complex language processing tasks. They complement existing NLP techniques by handling broader cognitive tasks, which improve conversation systems and customer engagement, especially with models like [Databricks' Dolly 2.0](https://github.com/databrickslabs/dolly).
 
-## Relationship and difference between language models and NLP
+## Relationship and differences between language models and NLP
 
-NLP is a comprehensive field encompassing various techniques for processing human language. In contrast, language models are a specific subset within NLP, focusing on deep learning to perform high-level language tasks. While language models enhance NLP by providing advanced text generation and understanding capabilities, they are not synonymous with NLP. Instead, they serve as powerful tools within the broader NLP domain, enabling more sophisticated language processing.
+NLP is a comprehensive field encompassing various techniques for processing human language. In contrast, language models are a specific subset within NLP, focusing on deep learning to perform high-level language tasks. While language models enhance NLP by providing advanced text generation and understanding capabilities, they aren't synonymous with NLP. Instead, they serve as powerful tools within the broader NLP domain, enabling more sophisticated language processing.
 
 > [!NOTE]
 > This article focuses on NLP. The relationship between NLP and language models demonstrates that language models enhance NLP processes through superior language understanding and generation capabilities.
@@ -31,11 +31,11 @@ Business scenarios that can benefit from custom NLP include:
 - Industry-agnostic NLP tasks for text processing, such as name entity recognition (NER), classification, summarization, and relation extraction. These tasks automate the process of retrieving, identifying, and analyzing document information like text and unstructured data. Examples of these tasks include risk stratification models, ontology classification, and retail summarizations.
 - Information retrieval and knowledge graph creation for semantic search. This functionality makes it possible to create medical knowledge graphs that support drug discovery and clinical trials.
 - Text translation for conversational AI systems in customer-facing applications across retail, finance, travel, and other industries.
-- Sentiment and Emotion Analysis: Enhanced emotional intelligence in analytics, particularly for monitoring brand perception and customer feedback analytics.
-- Automated Report Generation: Synthesize and generate comprehensive textual reports from structured data inputs, aiding sectors such as finance and compliance where thorough documentation is necessary.
-- Voice-Activated Interfaces: Enhance user interactions in IoT and smart device applications by integrating NLP for voice recognition and natural conversation capabilities.
-- Adaptative Language Models: Use new NLP models to dynamically adjust language output to suit various audience comprehension levels, which is crucial for educational content and accessibility improvements.
-- Cybersecurity Text Analysis: Analyze communication patterns and language usage in real-time to identify potential security threats in digital communication, improving the detection of phishing attempts or misinformation.
+- Sentiment and enhanced emotional intelligence in analytics, particularly for monitoring brand perception and customer feedback analytics.
+- Automated report generation. Synthesize and generate comprehensive textual reports from structured data inputs, aiding sectors such as finance and compliance where thorough documentation is necessary.
+- Voice-activated interfaces to enhance user interactions in IoT and smart device applications by integrating NLP for voice recognition and natural conversation capabilities.
+- Adaptative language models to dynamically adjust language output to suit various audience comprehension levels, which is crucial for educational content and accessibility improvements.
+- Cybersecurity text analysis to analyze communication patterns and language usage in real-time to identify potential security threats in digital communication, improving the detection of phishing attempts or misinformation.
 
 ## Apache Spark as a customized NLP framework
 
@@ -45,28 +45,28 @@ For customized NLP workloads, Spark NLP remains an efficient framework capable o
 
 :::image type="content" source="../images/natural-language-processing-functionality.png" alt-text="Diagram that shows areas of N L P functionality like entity recognition. Various boxes list N L P annotators, models, and supported languages." border="false":::
 
-Recent public benchmarks highlight Spark NLP’s performance, showing significant speed improvements over other libraries while maintaining comparable accuracy for training custom models. Notably, the integration of the Llama-2 models and OpenAI Whisper enhances conversational interfaces and multilingual speech recognition, marking significant strides in optimized processing capabilities. 
+Recent public benchmarks highlight Spark NLP's performance, showing significant speed improvements over other libraries while maintaining comparable accuracy for training custom models. Notably, the integration of the Llama-2 models and OpenAI Whisper enhances conversational interfaces and multilingual speech recognition, marking significant strides in optimized processing capabilities. 
 
 Uniquely, Spark NLP effectively utilizes a distributed Spark cluster, functioning as a native extension of Spark ML that operates directly on data frames. This integration supports enhanced performance gains on clusters, facilitating the creation of unified NLP and machine learning pipelines for tasks such as document classification and risk prediction. The introduction of MPNet embeddings and extensive ONNX support further enrich these capabilities, allowing for precise and context-aware processing.
 
 Beyond performance advantages, Spark NLP delivers state-of-the-art accuracy across an expanding array of NLP tasks. The library comes with prebuilt deep learning models for named entity recognition, document classification, sentiment detection, and more. Its feature-rich design includes pre-trained language models supporting word, chunk, sentence, and document embeddings.
 
-With optimized builds for CPUs, GPUs, and the latest Intel Xeon chips, Spark NLP’s infrastructure is designed for scalability, enabling training and inference processes to fully utilize Spark clusters. This ensures efficient handling of NLP tasks across diverse environments and applications, maintaining its position at the forefront of NLP innovation.
+With optimized builds for CPUs, GPUs, and the latest Intel Xeon chips, Spark NLP's infrastructure is designed for scalability, enabling training and inference processes to fully utilize Spark clusters. This ensures efficient handling of NLP tasks across diverse environments and applications, maintaining its position at the forefront of NLP innovation.
 
 ## Challenges
 
-- **Processing resources:** Processing a collection of free-form text documents requires a significant amount of computational resources, and the processing is also time-intensive. This often involves GPU compute deployment. Recent advancements, such as optimizations in Spark NLP architectures like Llama-2 which support quantization, help streamline these intensive tasks, making resource allocation more efficient.
+- **Processing resources:** Processing a collection of free-form text documents requires a significant amount of computational resources, and the processing is also time-intensive. This kind of processing often involves GPU compute deployment. Recent advancements, such as optimizations in Spark NLP architectures like Llama-2 which support quantization, help streamline these intensive tasks, making resource allocation more efficient.
 
-- **Standardization issues:** Without a standardized document format, it can be difficult to achieve consistently accurate results when you use free-form text processing to extract specific facts from a document. For example, extracting the invoice number and date from various invoices poses challenges. The integration of adaptable NLP models like M2M100 has improved processing accuracy across multiple languages and formats, facilitating greater consistency in results.
+- **Standardization issues:** Without a standardized document format, it can be difficult to achieve consistently accurate results when you use free-form text processing to extract specific facts from a document. For example, extracting the invoice number and date from various invoices poses challenges. The integration of adaptable NLP models like M2M100 improved processing accuracy across multiple languages and formats, facilitating greater consistency in results.
 
 - **Data variety and complexity:** Addressing the variety of document structures and linguistic nuances remains complex. Innovations such as MPNet embeddings provide enhanced contextual understanding, offering more intuitive handling of diverse textual formats and improving overall data processing reliability.
 
 
 ## Key selection criteria
 
-In Azure, Spark services like Azure Databricks, Microsoft Fabric, and Azure HDInsight provide NLP functionality when used with Spark NLP. Azure AI services is another option for NLP functionality. To decide which service to use, consider these questions:
+In Azure, Spark services like Azure Databricks, Microsoft Fabric, and Azure HDInsight provide NLP functionality when used with Spark NLP. Azure AI services are another option for NLP functionality. To decide which service to use, consider these questions:
 
-- **Do you want to use prebuilt or pretrained models?** If yes, consider using the APIs that Azure AI services offers, or download your model of choice through Spark NLP, which now includes advanced models like Llama-2 and MPNet for enhanced capabilities.
+- **Do you want to use prebuilt or pretrained models?** If yes, consider using the APIs that Azure AI services offer, or download your model of choice through Spark NLP, which now includes advanced models like Llama-2 and MPNet for enhanced capabilities.
 
 - **Do you need to train custom models against a large corpus of text data?** If yes, consider using Azure Databricks, Microsoft Fabric, or Azure HDInsight with Spark NLP. These platforms provide the computational power and flexibility needed for extensive model training.
 
@@ -197,7 +197,7 @@ Principal authors:
 
 - [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) |  Cloud Solution Architect
 - [Moritz Steller](https://www.linkedin.com/in/moritz-steller-426430116) | Senior Cloud Solution Architect
-- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) |  CEO and Architect
+
 
 ## Next steps
 
