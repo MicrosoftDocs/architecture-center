@@ -6,7 +6,7 @@ This reference architecture shows how to build a scalable solution for batch sco
 
 ![Diagram showing batch scoring of Apache Spark classification models on Azure Databricks.](_images/batch-scoring-spark-models-databricks.svg)
 
-This architecture can use [Mosaic AI Model Serving](/azure/databricks/machine-learning/model-serving/) to seamlessly deploy models for batch and real-time inference using Azure Databricks' serverless compute. It provides a unified interface for scaling resources dynamically, enhancing both performance and cost-efficiency in processing large datasets.
+This architecture can use [Mosaic AI Model Serving](/azure/databricks/machine-learning/model-serving/) to deploy models for batch and real-time inference using Azure Databricks' serverless compute. It provides an interface for scaling resources dynamically, enhancing both performance and cost-efficiency in processing large datasets.
 
 *Download a [Visio file](https://arch-center.azureedge.net/batch-scoring-spark-models-databricks.vsdx) of this architecture.*
 
@@ -18,15 +18,15 @@ The architecture defines a data flow that is entirely contained within [Azure Da
 
 **Ingestion**. The data ingestion notebook downloads the input data files into a collection of Databricks data sets. In a real-world scenario, data from IoT devices would stream onto Databricks-accessible storage such as Azure SQL or Azure Blob storage. Databricks supports multiple [data sources][data-sources].
 
-Recent enhancements in data ingestion include seamless real-time data replication from various databases and SaaS applications, made possible by new features such as [Lake House Federation](https://docs.databricks.com/en/query-federation/index.html).
+Recent enhancements in data ingestion include real-time data replication from various databases and SaaS applications, made possible by features such as [Lake House Federation](https://docs.databricks.com/en/query-federation/index.html).
 
-**Training pipeline**. This notebook executes the feature engineering notebook to create an analysis data set from the ingested data. It then executes a model building notebook that trains the machine learning model using the [Apache Spark MLlib][mllib] scalable machine learning library.
+**Training pipeline**. This notebook executes the feature engineering notebook to create an analysis data set from the ingested data. The pipeline then executes a model building notebook that trains the machine learning model using the [Apache Spark MLlib][mllib] scalable machine learning library.
 
-Enhanced ML features in Databricks now include improved experiment tracking and model training, further optimizing this pipeline.
+Enhanced ML features in Databricks include experiment tracking and model training, further optimizing this pipeline.
 
 **Scoring pipeline**. This notebook executes the feature engineering notebook to create scoring data set from the ingested data and executes the scoring notebook. The scoring notebook uses the trained [Spark MLlib][mllib-spark] model to generate predictions for the observations in the scoring data set. The predictions are stored in the results store, a new data set on the Databricks data store.
 
-The scoring pipeline can leverage the `ai_query` function for batch inference, processing large datasets efficiently with provisions for scalability and performance optimization.
+The scoring pipeline can use the  [`ai_query`](/azure/databricks/sql/language-manual/functions/ai_query) function for batch inference, processing large datasets efficiently with provisions for scalability and performance optimization.
 
 **Scheduler**. A scheduled Databricks [job][job] handles batch scoring with the Spark model. The job executes the scoring pipeline notebook, passing variable arguments through notebook parameters to specify the details for constructing the scoring data set and where to store the results data set.
 
@@ -61,9 +61,9 @@ Databricks is set up so you can load and deploy your trained models to make pred
 - Unlimited clusters that can scale to any size.
 - Advanced security, role-based access controls, and audit logs.
 
-To interact with the Azure Databricks service, use the Databricks [Workspace][workspace] interface in a web browser or the [command-line interface (CLI)][cli]. Access the Databricks CLI from any platform that supports Python 2.7.9 to 3.6.
+To interact with the Azure Databricks service, use the Databricks [Workspace][workspace] interface in a web browser or the [command-line interface (CLI)][cli].
 
-The reference architecture uses notebooks to execute tasks in sequence. Each notebook stores intermediate data artifacts (training, test, scoring, or results data sets) to the same data store as the input data. The goal is to make it easy for you to use it as needed in your particular use case. In practice, you would connect your data source to your Azure Databricks instance for the notebooks to read and write directly back into your storage.
+This architecture uses notebooks to execute tasks in sequence. Each notebook stores intermediate data artifacts (training, test, scoring, or results data sets) to the same data store as the input data. The goal is to make it easy for you to use it as needed in your particular use case. In practice, you would connect your data source to your Azure Databricks instance for the notebooks to read and write directly back into your storage.
 
 Monitor job execution through the Databricks user interface, the data store, or the Databricks [CLI][cli] as necessary. Monitor the cluster using the [event log][log] and other [metrics][metrics] that Databricks provides.
 
@@ -72,15 +72,15 @@ Monitor job execution through the Databricks user interface, the data store, or 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. 
 For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Performance
+### Performance efficiency
 
 An Azure Databricks cluster enables autoscaling by default so that during runtime, Databricks dynamically reallocates workers to account for the characteristics of your job. Certain parts of your pipeline might be more computationally demanding than others. Databricks adds extra workers during these phases of your job (and removes them when they're no longer needed). Autoscaling makes it easier to achieve high [cluster utilization][cluster], because you don't need to provision the cluster to match a workload.
 
-Develop more complex scheduled pipelines by using [Microsoft Fabric][mfbc] with Azure Databricks.
+
 
 ### Storage
 
-In this reference implementation, the data is stored directly within Databricks storage for simplicity. In a production setting, however, you can store the data on cloud data storage such as [Azure Blob Storage][blob]. [Databricks][databricks-connect] also supports [Azure Data Lake Store][azure-data-lake], [Microsoft Fabric][mfbc], [Azure Cosmos DB][azure-cosmos], [Apache Kafka][apache-kafka], and [Apache Hadoop][apache-hadoop].
+In this architecture, the data is stored directly within Databricks storage for simplicity. In a production setting, however, you should store the data on cloud data storage such as [Azure Blob Storage][blob]. [Databricks][databricks-connect] also supports [Azure Data Lake Store][azure-data-lake], [Microsoft Fabric][mfbc], [Azure Cosmos DB][azure-cosmos], [Apache Kafka][apache-kafka], and [Apache Hadoop][apache-hadoop].
 
 ### Cost optimization
 
@@ -92,8 +92,9 @@ Azure Databricks is a premium Spark offering with an associated cost. In additio
 
 For this scenario, the Standard pricing tier is sufficient. However, if your specific application requires automatically scaling clusters to handle larger workloads or interactive Databricks dashboards, the Premium tier could increase costs further.
 
-The solution notebooks can run on any Spark-based platform with minimal edits to remove the Databricks-specific packages.
+## Alternative Architectures 
 
+Develop more complex scheduled pipelines by using [Microsoft Fabric][mfbc] with Azure Databricks.
 
 ## Contributors
 
@@ -115,20 +116,17 @@ Principal authors:
 <!-- links -->
 
 [mfbc]: /fabric/data-factory/azure-databricks-activity
-[ai-guide]: /azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance
 [aml-tut]: /azure/machine-learning/tutorial-pipeline-batch-scoring-classification
 [apache-hadoop]: https://hadoop.apache.org
 [apache-kafka]: https://kafka.apache.org
 [azure-cosmos]: https://azure.microsoft.com/services/cosmos-db
 [azure-data-lake]: https://azure.microsoft.com/services/storage/data-lake-storage
-[azure-synapse]: https://azure.microsoft.com/services/synapse-analytics
 [blob]: https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [cli]: https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html
 [cluster]: /azure/databricks/clusters/configure
 [databricks]: /azure/azure-databricks
 [databricks-connect]: /azure/azure-databricks/databricks-connect-to-data-sources
 [data-sources]: https://docs.databricks.com/spark/latest/data-sources/index.html
-[github]: https://github.com/Azure/BatchSparkScoringPredictiveMaintenance
 [job]: https://docs.databricks.com/user-guide/jobs.html
 [learn1]: /training/paths/perform-data-science-azure-databricks
 [learn2]: /training/modules/deploy-batch-inference-pipelines-with-azure-machine-learning
@@ -136,6 +134,5 @@ Principal authors:
 [metrics]: https://docs.databricks.com/user-guide/clusters/metrics.html
 [mllib]: https://docs.databricks.com/spark/latest/mllib/index.html
 [mllib-spark]: https://docs.databricks.com/spark/latest/mllib/index.html#apache-spark-mllib
-[notebooks]: https://docs.databricks.com/user-guide/notebooks/index.html
 [pricing]: https://azure.microsoft.com/pricing/details/databricks
 [workspace]: https://docs.databricks.com/user-guide/workspace.html
