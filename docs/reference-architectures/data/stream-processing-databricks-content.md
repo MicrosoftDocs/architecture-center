@@ -23,7 +23,8 @@ The architecture consists of the following components:
 **Azure Cosmos DB**. The output of an Azure Databricks job is a series of records, which are written to [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction). Azure Cosmos DB for Apache Cassandra is used because it supports time series data modeling.
 
 - [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) enables you to run near real-time analytics over operational data in Azure Cosmos DB, **without any performance or cost impact on your transactional workload**, by using the two analytics engines available from your Azure Synapse workspace: [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview).
-- [Microsoft Fabric Mirroring Azure Cosmos DB](/fabric/database/mirrored-database/azure-cosmos-db) alows you to integrate Azure Cosmos DB data with the rest of your data in Microsoft Fabric. This is in public preview and only supports Azure Cosmos DB for NoSQL at the moment. 
+
+- [Microsoft Fabric Mirroring Azure Cosmos DB for NoSQL](/fabric/database/mirrored-database/azure-cosmos-db) allows you to integrate Azure Cosmos DB data with the rest of your data in Microsoft Fabric.
 
 **Azure Log Analytics**. Application log data collected by [Azure Monitor](/azure/monitoring-and-diagnostics) is stored in a [Log Analytics workspace](/azure/log-analytics). Log Analytics queries can be used to analyze and visualize metrics and inspect log messages to identify issues within the application.
 
@@ -222,7 +223,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Access to the Azure Databricks workspace is controlled using the [administrator console](/azure/databricks/admin/workspace) The administrator console includes functionality to add users, manage user permissions, and set up single sign-on. Access control for workspaces, clusters, jobs, and tables can also be set through the administrator console.
+Access to the Azure Databricks workspace is controlled using the [administrator console](/azure/databricks/admin/workspace/) The administrator console includes functionality to add users, manage user permissions, and set up single sign-on. Access control for workspaces, clusters, jobs, and tables can also be set through the administrator console.
 
 #### Managing secrets
 
@@ -245,7 +246,7 @@ In code, secrets are accessed via the Azure Databricks [secrets utilities](/azur
 
 ### Monitoring
 
-Azure Databricks is based on Apache Spark, and both use [log4j](https://logging.apache.org/log4j/2.x) as the standard library for logging. In addition to the default logging provided by Apache Spark, you can implement logging to Azure Log Analytics following the article [Monitoring Azure Databricks](/azure/architecture/databricks-monitoring).
+Azure Databricks is based on Apache Spark, and both use [log4j](https://logging.apache.org/log4j/2.x) as the standard library for logging. In addition to the default logging provided by Apache Spark, you can implement logging to Azure Log Analytics following the article [Monitoring Azure Databricks](/azure/architecture/databricks-monitoring/).
 
 As the `com.microsoft.pnp.TaxiCabReader` class processes ride and fare messages, it's possible that either one may be malformed and therefore not valid. In a production environment, it's important to analyze these malformed messages to identify a problem with the data sources so it can be fixed quickly to prevent data loss. The `com.microsoft.pnp.TaxiCabReader` class registers an Apache Spark Accumulator that keeps track of the number of malformed fare and ride records:
 
@@ -294,7 +295,7 @@ SparkMetric_CL
 | render timechart
 ```
 
-For more information, see [Monitoring Azure Databricks](/azure/architecture/databricks-monitoring).
+For more information, see [Monitoring Azure Databricks](/azure/architecture/databricks-monitoring/).
 
 ### DevOps
 
@@ -391,7 +392,7 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-monitor]: /azure/azure-monitor/overview
-[databricks-monitoring]: /azure/architecture/databricks-monitoring
+[databricks-monitoring]: /azure/architecture/databricks-monitoring/
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
