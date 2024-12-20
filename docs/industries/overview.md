@@ -35,7 +35,6 @@ The digital landscape is being transformed by unprecedented amounts of data acro
 |[Media and entertainment](media.md)     |   Media and entertainment organizations use cloud computing to reach their customers in more personalized and innovative ways.      |
 |[Aerospace](aerospace.md)     |     Intelligent cloud analytics, AI and machine learning, speech capabilities, and improved security are just some of the benefits that aerospace enterprises gain by using Azure.    |
 |[Agriculture](/azure/data-manager-for-agri/overview-azure-data-manager-for-agriculture) | Agriculture businesses can use Azure Data Manager for Agriculture, built to help the industry accelerate their sustainability and agriculture practices using digital solutions. |
-|[Sports](../industries/sports.md)     |    There's been an explosion of data in recent years that sports teams can use to improve the performance of an individual athlete or an entire team.     |
 
 ## Related resources
 

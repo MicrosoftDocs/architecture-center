@@ -2303,20 +2303,6 @@ items:
   items:
   - name: Overview
     href: industries/overview.md
-  - name: Additional verticals
-    items:
-    - name: Agriculture
-      items:
-      - name: Architectures
-        items:
-        - name: All agriculture architectures
-          href: /azure/architecture/browse/?terms=agriculture
-    - name: Sports
-      items:
-      - name: Overview
-        href: industries/sports.md
-      - name: All sports architectures
-        href: /azure/architecture/browse/?terms=sports
 - name: Microsoft Azure Well-Architected Framework
   href: /azure/well-architected/
 - name: Cloud Adoption Framework for Azure
