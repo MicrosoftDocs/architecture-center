@@ -6489,6 +6489,11 @@
       "source_path": "docs/industries/sports.md",
       "redirect_url": "https://www.microsoft.com/industry",
       "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/industries/overview.md",
+      "redirect_url": "https://www.microsoft.com/industry",
+      "redirect_document_id": false   
     }
   ]
 }
