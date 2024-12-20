@@ -221,7 +221,8 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
 
 Access to the Azure Databricks workspace is controlled using the [administrator console](/azure/databricks/admin/workspace/) The administrator console includes functionality to add users, manage user permissions, and set up single sign-on. Access control for workspaces, clusters, jobs, and tables can also be set through the administrator console.
 
@@ -244,7 +245,7 @@ databricks secrets put --scope "azure-databricks-job" --key "taxi-ride"
 
 In code, secrets are accessed via the Azure Databricks [secrets utilities](/azure/databricks/dev-tools/databricks-utils).
 
-### Monitoring
+### Operational Excellence
 
 Azure Databricks is based on Apache Spark, and both use [log4j](https://logging.apache.org/log4j/2.x) as the standard library for logging. In addition to the default logging provided by Apache Spark, you can implement logging to Azure Log Analytics following the article [Monitoring Azure Databricks](/azure/architecture/databricks-monitoring/).
 
@@ -297,7 +298,7 @@ SparkMetric_CL
 
 For more information, see [Monitoring Azure Databricks](/azure/architecture/databricks-monitoring/).
 
-### DevOps
+#### Resource organization and deployments
 
 - Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
 
