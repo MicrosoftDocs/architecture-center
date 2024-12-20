@@ -2309,14 +2309,6 @@ items:
       items:
       - name: Overview
         href: industries/aerospace.md
-      - name: Architectures
-        items:
-        - name: Ingest FAA content to analyze flights
-          href: example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml
-        - name: Serverless web app for drone delivery
-          href: web-apps/serverless/architectures/web-app.yml
-        - name: Spaceborne data analysis
-          href: industries/aerospace/geospatial-processing-analytics.yml
     - name: Agriculture
       items:
       - name: Architectures
