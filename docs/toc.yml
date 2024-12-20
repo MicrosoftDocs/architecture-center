@@ -2305,10 +2305,6 @@ items:
     href: industries/overview.md
   - name: Additional verticals
     items:
-    - name: Aerospace
-      items:
-      - name: Overview
-        href: industries/aerospace.md
     - name: Agriculture
       items:
       - name: Architectures

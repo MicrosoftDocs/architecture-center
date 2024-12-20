@@ -6479,6 +6479,12 @@
       "source_path": "docs/industries/aerospace/geospatial-processing-analytics.yml",
       "redirect_url": "/azure/architecture/example-scenario/data/real-time-lakehouse-data-processing",
       "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/industries/aerospace.md",
+      "redirect_url": "https://www.microsoft.com/industry",
+      "redirect_document_id": false   
     }
   ]
 }
+
