@@ -38,19 +38,19 @@ This article describes an architecture that you can use to replace the manual an
 
 #### Alternative Workflow
 
-1. A collection of video footage, in MP4 format, is uploaded to Azure Blob Storage. Ideally, the videos go into a "raw" container.
-2. A preconfigured logic app that monitors Blob Storage detects that new videos are being uploaded. It starts a workflow.
-3. The logic app calls the Azure AI Vision Video Retrieval API to create an index using the PUT method.
-4. The logic app calls the Azure AI Vision Video Retrieval API to add video documents to the index using the PUT method.
-5. A preconfigured logic app that monitors the ingestion, check when the indexing is complete with the GET method.
-6. The logic app calls Video Retrieval API to search with natural language, identify objects, features, or qualities in the images.
-7. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in SQL Database in Fabric that is currently in preview.
+1. A collection of video footage, in MP4 format, is uploaded to Azure Blob Storage.
+2. A preconfigured logic app monitors Blob Storage detects that new videos are being uploaded and starts a workflow.
+3. The logic app calls the Azure AI Vision Video Retrieval API to create an index.
+4. The logic app calls the Azure AI Vision Video Retrieval API to add video documents to the index.
+5. A preconfigured logic app monitors the ingestion to check when the indexing is complete.
+6. The logic app calls the Video Retrieval API to search with natural language, identify objects, features, or qualities in the images.
+7. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in SQL Database in Fabric.
 8. Power BI provides data visualization.
 
 ### Alternative Components 
 - [Microsoft Fabric](https://www.microsoft.com/en-us/microsoft-fabric) is an end-to-end unified analytics platform to streamline data integraion.  It is designed to simplify the process of managing and analyzing data across various domains by providing a comprehensive suite of tools and services within a single platform.
-- [SQL database in Fabric](https://blog.fabric.microsoft.com/en-us/blog/announcing-sql-database-in-microsoft-fabric-public-preview?ft=All) is a preview feature annonced at Ignite 2024, centered on three themes: simple, autonomous and secure, and optimized for AI.
-- [Video Retrieval API](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/video-retrieval) is part of [Azure AI Vision](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview). It's used to retrieve information directly from the video.
+- [SQL database in Fabric](/fabric/database/sql/overview) is a simple, autonomous, and secure SQL database service optimized for AI. It is used in this architecture to store information about the videos retrieved from the Azure Video Retrieval API.
+- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is a service that provides advance image and video analysis capabilities without requiring machine learning expertise. The [Video Retrieval API](/azure/ai-services/computer-vision/how-to/video-retrieval) is used in this architecture to retrieve information directly from the video.
 
 ## Scenario details
 
