@@ -260,7 +260,7 @@ For information about Event Hubs pricing, see the [Event Hubs pricing][event-hub
 
 Azure Databricks offers two tiers **Standard** and  **Premium** each supports three workloads. This reference architecture deploys Azure Databricks workspace in the **Premium** tier.
 
-**Data Engineering** and **Data Engineering Light** workloads are for data engineers to build and execute jobs. The **Data Analytics** workload is intended for data scientists to explore, visualize, manipulate, and share data and insights interactively.
+**Data Engineering** workloads run on a job cluster and are for data engineers to build and execute jobs. The **Data Analytics** workload run on an all-purpose cluster and is intended for data scientists to explore, visualize, manipulate, and share data and insights interactively.
 
 Azure Databricks offers many pricing models.
 
