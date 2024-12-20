@@ -3,9 +3,9 @@ metadata:
   title: Natural language processing technology
   titleSuffix: Azure Architecture Center
   description: Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.
-  author: msteller-Ai
-  ms.author: pnp
-  ms.date: 06/21/2022
+  author: FreddyAyala
+  ms.author: freddyayala
+  ms.date: 12/18/2024
   ms.topic: conceptual
   ms.collection: ce-skilling-ai-copilot
   ms.service: azure-architecture-center
