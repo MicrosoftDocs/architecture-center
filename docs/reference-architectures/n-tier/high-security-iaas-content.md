@@ -121,6 +121,16 @@ While the focus of this article is IaaS security, many IaaS workloads rely on ot
 
 [Private Endpoints](/azure/private-link/private-endpoint-overview) use a virtual network interface card to essentially bring the instance of the service into your virtual network. The virtual NIC is assigned a private IP address from the subnet where it is deployed, which all resources can use either through DNS resolution or directly through the IP to access that secured instance. The service can be directly accessed from on-premises using that private IP address.
 
+**DMZs**
+
+Connecting on-premises and Azure environments gives on-premises users access to Azure applications. A perimeter network or *demilitarized zone (DMZ)* provides additional protection for highly sensitive workloads.
+
+An architecture like the one in [Network DMZ between Azure and an on-premises datacenter](../dmz/secure-vnet-dmz.yml) deploys all DMZ and application services in the same virtual network, with NSG rules and user-defined routes to isolate the DMZ and application subnets. This architecture can make the management subnet available via public internet, to manage apps even if the on-premises gateway isn't available. However, for highly sensitive workloads, you should only allow bypassing the gateway in a [break glass scenario](/azure/active-directory/users-groups-roles/directory-emergency-access). A better solution is to use Azure Bastion as mentioned earlier.
+
+If remote access through RDP/SSH is a requirement, and Azure Bastion is not feasible, [Just-In-Time (JIT) VM access](/azure/security-center/security-center-just-in-time) for remote management should be used. With JIT VM access, an NSG blocks remote management ports like *remote desktop protocol (RDP)* and *secure shell (SSH)* by default. Upon request, JIT VM access enables the port only for a specified time window, and potentially for a specific IP address or range. JIT access also works for VMs that have only private IP addresses.
+
+To deploy more applications and provide workload separation, a [hub-spoke network topology](../../networking/architecture/hub-spoke.yml) should be used, with the DMZ in the hub virtual network and the applications in spoke virtual networks. The hub virtual network can contain a VPN and/or ExpressRoute gateway, firewall NVA, management hosts, identity infrastructure, and other shared services. The spoke virtual networks are connected to the hub with [virtual network peering](/azure/virtual-network/virtual-network-peering-overview). An Azure virtual network doesn't allow transitive routing over the hub from one spoke to another. Spoke-to-spoke traffic is only possible via the firewall appliances in the hub. This architecture effectively isolates applications from one another.
+
 **DDoS Protection**
 
 [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) helps to protect resources from Distributed Denial of Service (DDoS) attacks., particularly when used in conjunction with application design proven practices. It is tuned to help protect Azure resources in a virtual network without any application or resource changes. For additional protection, Azure [offers 2 enhanced tiers](/azure/ddos-protection/ddos-protection-sku-comparison) of DDoS protection.
@@ -130,6 +140,18 @@ Azure DDoS IP Protection is a pay-per-protected IP model and is largely targeted
 Azure DDoS Network Protection provides enhanced mitigation features and is automatically tuned to help protect your Azure resources in a virtual network. It contains all of the features of DDoS IP Protection and also adds DDoS rapid response support, cost protection, and discounts on Web Application Firewalls.
 
 ## Azure Platform
+
+In addition to the security capabilities available for VMs and networks, there are many features available as part of the Azure platform itself to increase your overall security posture and to protect workloads.
+
+Encryption/KeyVault
+
+Identity
+
+Policy
+
+Monitoring
+
+-------------------
 
 ## Encryption
 
@@ -161,16 +183,6 @@ Azure Key Vault can act as a self-signed certificate CA for tier-to-tier traffic
 
 Key Vault can also store keys for network protocols that don't use certificates. Custom workloads could require scripting a [custom script extension](/azure/virtual-machines/windows/tutorial-automate-vm-deployment) that retrieves a key from Key Vault and stores it for applications to use. Apps can also use a VM's [managed identity](/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad) to retrieve secrets directly from Key Vault.
 
-### Deploy a DMZ
-
-Connecting on-premises and Azure environments gives on-premises users access to Azure applications. A perimeter network or *demilitarized zone (DMZ)* provides additional protection for highly sensitive workloads.
-
-An architecture like the one in [Network DMZ between Azure and an on-premises datacenter](../dmz/secure-vnet-dmz.yml) deploys all DMZ and application services in the same virtual network, with NSG rules and user-defined routes to isolate the DMZ and application subnets. This architecture can make the management subnet available via public internet, to manage apps even if the on-premises gateway isn't available. However, for highly sensitive workloads, you should only allow bypassing the gateway in a [break glass scenario](/azure/active-directory/users-groups-roles/directory-emergency-access). A better solution is to use [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/), which enables access directly from the Azure portal while limiting exposure of public IP addresses.
-
-You can also use [Just-In-Time (JIT) VM access](/azure/security-center/security-center-just-in-time) for remote management while limiting exposure of public IP addresses. With JIT VM access, an NSG blocks remote management ports like *remote desktop protocol (RDP)* and *secure shell (SSH)* by default. Upon request, JIT VM access enables the port only for a specified time window, and potentially for a specific IP address or range. JIT access also works for VMs that have only private IP addresses. You can use Azure Bastion to block traffic to a VM until JIT VM access is enabled.
-
-To deploy more applications, you can use a [hub-spoke network topology](../../networking/architecture/hub-spoke.yml) in Azure, with the DMZ in the hub virtual network and the applications in spoke virtual networks. The hub virtual network can contain a VPN and/or ExpressRoute gateway, firewall NVA, management hosts, identity infrastructure, and other shared services. The spoke virtual networks are connected to the hub with [virtual network peering](/azure/virtual-network/virtual-network-peering-overview). An Azure virtual network doesn't allow transitive routing over the hub from one spoke to another. Spoke-to-spoke traffic is only possible via the firewall appliances in the hub. This architecture effectively isolates applications from one another.
-
 ## Multi-region deployment
 
 Business continuity and disaster recovery might require deploying your application across multiple Azure regions, which can impact data residency and security. For a reference architecture for multi-region deployments, see [Run an N-tier application in multiple Azure regions for high availability](../../reference-architectures/n-tier/multi-region-sql-server.yml).
@@ -198,7 +210,7 @@ You can enable secure communication between virtual networks in different region
 
 ### Failover traffic routing
 
-With public endpoints, you can use [Traffic Manager](/azure/traffic-manager/) or [Azure Front Door](/azure/frontdoor/) to direct traffic to the active region or closest region in an *active-active* failover configuration. However, Traffic Manager and Azure Front Door both require public endpoints to monitor availability, and their corresponding DNS entries are public. For highly sensitive workloads, the alternative solution is to deploy DNS on-premises, and change the entries to the active region for failover.
+With public endpoints, you can use [Traffic Manager](/azure/traffic-manager/) or [Azure Front Door](/azure/frontdoor/) to direct traffic to the active region or closest region in an *active-active* failover configuration. However, Traffic Manager and Azure Front Door both require public endpoints to monitor availability, and their corresponding DNS entries are public. For highly sensitive workloads, the alternative solution is to deploy DNS on-premises and change the entries to the active region for failover.
 
 ## Management and governance
 
