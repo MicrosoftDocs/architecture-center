@@ -14,7 +14,7 @@ Virtual machines in Azure are created from a baseline image. These typically are
 
 Unless there are compatibility issues, the most recent versions of these images should be used when creating new virtual machines and immediately updated with the latest security updates after deployment.
 
-Third parties have also made images available that meet even more stringent security requirements. For example, the [Center for Internet Security](https://www.cisecurity.org/cis-hardened-images) has created Windows and Linux images that are pre-hardened and made them available through the Marketplace as well.
+Third parties have also made images available that meet even more stringent security requirements. For example, the [Center for Internet Security](https://www.cisecurity.org/cis-hardened-images) has created Windows and Linux images that are pre-hardened and made them available through the Marketplace for easy deployment.
 
 In addition to choosing a secure image, there are available virtual machine types – [Trusted Launch](/azure/virtual-machines/trusted-launch) and [Confidential](/azure/confidential-computing/confidential-vm-overview) – that can be used to ensure a secure compute environment from the moment the virtual machine is booted.
 
@@ -54,7 +54,7 @@ __Visibility to the Internet__
 
 Exposing virtual machines directly to the public internet should only be done when absolutely necessary, and if so, every precaution should be taken to keep them secure.
 
-Providing Remote Desktop Protocol (RDP) or Secure Sockets Host (SSH) access to virtual machines over the internet is highly discouraged. Virtual machines should never have a Public IP instance directly associated with their virtual network cards. If this type of access is required, [Azure Bastion](/azure/bastion/bastion-overview) should be used. Bastion is a managed service that will allow secure access to Azure virtual machines through their private IP addresses over a secure TLS connection, reducing the attack surface.
+Providing Remote Desktop Protocol (RDP) or Secure Sockets Host (SSH) access to virtual machines over the internet is highly discouraged. Virtual machines should never have a Public IP instance directly associated with their virtual network cards. If RDP/SSH access is required, [Azure Bastion](/azure/bastion/bastion-overview) should be used. Bastion is a managed service that will allow secure access to Azure virtual machines through their private IP addresses over a secure TLS connection, reducing the attack surface.
 
 __Backup Virtual Machines__
 
@@ -68,7 +68,7 @@ Virtual machines within Azure must run in the context of a [virtual network](/az
 
 **Subnets**
 
-Azure virtual networks must be segmented into separate subnets, with each subnet hosting resources that provide similar functionality and security profiles. For example, web servers should be in a separate subnet than servers hosting databases or application servers. With these workloads separated, security boundaries can be established that limit what types of traffic are allowed in and out of the subnets. Be sure to restrict traffic to only what is needed for an application to work or for administrators to manage the servers in the subnets. All other traffic should be denied or dropped.
+Azure virtual networks must be segmented into separate subnets, with each subnet hosting resources that provide similar functionality and security profiles. For example, web servers should be in a separate subnet than servers hosting databases or application servers. With these workloads separated, security boundaries can be established that limit what types of traffic are allowed in and out of the subnets. Be sure to restrict traffic to only what is needed for an application to work or for administrators to manage the servers in the subnets. All other traffic should be denied or dropped using firewall or Network Security Group rules, explained below.
 
 **Hybrid Networking**
 
@@ -76,8 +76,9 @@ Hybrid architectures connect on-premises networks with public clouds like Azure.
 
 - **Azure or third-party VPN gateway**. On-premises networks can communicate with Azure virtual networks by using an [Azure VPN gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager). Traffic still travels over the internet, but over an encrypted tunnel that uses IPSec. A third-party gateway in a virtual machine is also an option if you have specific requirements not supported by the Azure VPN gateway.
 
-- **ExpressRoute**. ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure, and provides scalability and a reliable service-level agreement (SLA).
-  - [ExpressRoute with VPN failover](../hybrid-networking/expressroute-vpn-failover.yml). This option uses ExpressRoute in normal conditions, but fails over to a VPN connection if there's a loss of connectivity in the ExpressRoute circuit, providing higher availability.
+- **ExpressRoute**. ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure and provides scalability and a reliable service-level agreement (SLA).
+
+- [ExpressRoute with VPN failover](../hybrid-networking/expressroute-vpn-failover.yml). This option uses ExpressRoute in normal conditions, but fails over to a VPN connection if there's a loss of connectivity in the ExpressRoute circuit, providing higher availability.
   - [VPN over ExpressRoute](/azure/expressroute/site-to-site-vpn-over-microsoft-peering). This option is the best for highly sensitive workloads. ExpressRoute provides a private circuit with scalability and reliability, and VPN provides an additional layer of protection that terminates the encrypted connection in a specific Azure virtual network.
     
 For more guidance on choosing between different types of hybrid connectivity, see [Choose a solution for connecting an on-premises network to Azure](../hybrid-networking/index.yml).
@@ -92,11 +93,11 @@ Few workloads are self-contained to where they do not need to communicate with r
 
 NSGs create flow records for existing connections and allow or deny communication based on the flow record's connection state. The flow record allows an NSG to be stateful. For example, if you specify an outbound security rule to any address over port 443, it's not necessary to also specify an inbound security rule for the response. You only need to specify an inbound security rule if the communication is initiated externally.
 
-NSGs can be assigned to the virtual network interface card (NIC) of a virtual machine, to a subnet within a virtual network, or multiple NSGs can be used in tandem to additional security with one assigned to the NIC and another assigned to the subnet. This will allow more restrictive traffic filtering where more traffic is permitted into the subnet, but certain virtual machines in that subnet should not accept that traffic, for example.
+NSGs can be assigned to the virtual network interface card (NIC) of a virtual machine, to a subnet within a virtual network, or multiple NSGs can be used in tandem for additional security with one assigned to the NIC and another assigned to the subnet. This will allow more restrictive traffic filtering where more traffic is permitted into the subnet, but certain virtual machines in that subnet should not accept that traffic, for example.
 
 **Application Security Groups**
 
-To filter traffic between application tiers within a virtual network, use [Application security groups (ASGs)](/azure/virtual-network/application-security-groups). ASGs let you configure network security as an extension of an application's structure, letting you group VMs and define network security policies based on the groups. You can reuse your security policy at scale without manually maintaining explicit IP addresses.
+To filter traffic between application tiers within a virtual network, use [Application security groups (ASGs)](/azure/virtual-network/application-security-groups). ASGs let you configure network security as an extension of an application's structure, letting you group VMs and define network security policies based on the groups. This helps to reuse your security policy at scale without manually maintaining explicit IP addresses.
 
 ![Application security groups](images/asg.png)
 
@@ -104,9 +105,9 @@ Since ASGs are applied to a network interface instead of a subnet, they enable m
 
 **Network Firewalls**
 
-Another way to control network security is through [virtual network traffic routing](/azure/virtual-network/virtual-networks-udr-overview) and *forced tunneling*. Azure automatically creates system routes and assigns the routes to each subnet in a virtual network. You can't create or remove system routes, but you can override some system routes with custom routes. Custom routing lets you route traffic over a *network virtual appliance (NVA)* like a firewall or proxy, or drop unwanted traffic, which has a similar effect to blocking the traffic with an NSG.
+Another way to control network security is through [virtual network traffic routing](/azure/virtual-network/virtual-networks-udr-overview) and *forced tunneling*. Azure automatically creates system routes and assigns the routes to each subnet in a virtual network. Default system routes cannot be created or removed, but they can be overridden with custom routes. Custom routing lets you route traffic over a *network virtual appliance (NVA)* like a firewall or proxy, or drop unwanted traffic, which has a similar effect to blocking the traffic with an NSG.
 
-You can use NVAs like [Azure Firewall](/azure/firewall/overview) to allow, block, and inspect network traffic. Azure Firewall is a managed, highly available platform firewall service. You can also deploy third-party NVAs from the [Azure Marketplace](https://azuremarketplace.microsoft.com). To make these NVAs highly available, see [Deploy highly available network virtual appliances](../../networking/guide/nva-ha.yml).
+NVAs like [Azure Firewall](/azure/firewall/overview) provide the ability to allow, block, and inspect network traffic. Azure Firewall is a managed, highly available platform firewall service. Third-party NVAs from the [Azure Marketplace](https://azuremarketplace.microsoft.com) may also be used. To make these NVAs highly available, see [Deploy highly available network virtual appliances](../../networking/guide/nva-ha.yml).
 
 **Web Application Firewalls**
 
@@ -114,9 +115,9 @@ If your workloads are web-based, they should be protected with a web application
 
 **Service Endpoints / Private Endpoints**
 
-Even though the focus of this article is IaaS security, many IaaS workloads rely on other services for a complete solution, such as storage accounts or databases. If these services are PaaS services, they likely have a public endpoint for consumers to access them, providing a potential attack vector. These public endpoints should be disabled, allowing only access from the internal network, through Service Endpoints or Private Endpoints.
+While the focus of this article is IaaS security, many IaaS workloads rely on other services for a complete solution, such as storage accounts or databases. If these services are PaaS services, they likely have a public endpoint for consumers to access them, providing a potential attack vector. These public endpoints should be disabled, allowing only access from the internal network, through Service Endpoints or Private Endpoints.
 
-[Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) allow securing Azure services to only your virtual networks by providing secure and direct connectivity to Azure services over an optimized route over the Azure backbone network. This limits the need for a public IP address for the resource. There is additional configuration needed to allow [secure Azure service access from on-premises](/azure/virtual-network/virtual-network-service-endpoints-overview).
+[Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) allow securing Azure services to only your virtual networks by providing secure and direct connectivity to Azure services over an optimized route via the Azure backbone network. This limits the need for a public IP address for the resource. There is additional configuration needed to allow [secure Azure service access from on-premises](/azure/virtual-network/virtual-network-service-endpoints-overview), which may require considering another alternative, private endpoints.
 
 [Private Endpoints](/azure/private-link/private-endpoint-overview) use a virtual network interface card to essentially bring the instance of the service into your virtual network. The virtual NIC is assigned a private IP address from the subnet where it is deployed, which all resources can use either through DNS resolution or directly through the IP to access that secured instance. The service can be directly accessed from on-premises using that private IP address.
 
