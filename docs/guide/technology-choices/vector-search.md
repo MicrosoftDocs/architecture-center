@@ -79,9 +79,9 @@ Workloads often need to combine vector search with full text search or even a hy
 
 | Search method      | Azure Cosmos DB for PostgreSQL     | Azure Cosmos DB for NoSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search                    | Azure SQL Database                 |
 | :----------------- | :--------------------------------- | :------------------------ | :---------------------------------- | :----------------------------------- | :--------------------------------- | :--------------------------------- |
-| Full text search   | Yes <a href="#b1"><sup>1</sup></a> | No                        | Yes <a href="#b2"><sup>2</sup></a>  | Yes <a href="#b1"><sup>1</sup></a>   | Yes <a href="#b3"><sup>3</sup></a> | Yes <a href="#b4"><sup>4</sup></a> |
-| Hybrid search      | Yes <a href="#b5"><sup>5</sup></a> | No                        | No                                  | Yes <a href="#b5"><sup>5</sup></a>   | Yes <a href="#b6"><sup>6</sup></a> | Yes <a href="#b7"><sup>7</sup></a> |
-| Built-in reranking | No                                 | No                        | No                                  | No                                   | Yes <a href="#b8"><sup>8</sup></a> | No                                 |
+| Full text search   | Yes <a href="#b1"><sup>1</sup></a> | Yes (preview)             | Yes <a href="#b2"><sup>2</sup></a>  | Yes <a href="#b1"><sup>1</sup></a>   | Yes <a href="#b3"><sup>3</sup></a> | Yes <a href="#b4"><sup>4</sup></a> |
+| Hybrid search      | Yes <a href="#b5"><sup>5</sup></a> | Yes (preview)             | No                                  | Yes <a href="#b5"><sup>5</sup></a>   | Yes <a href="#b6"><sup>6</sup></a> | Yes <a href="#b7"><sup>7</sup></a> |
+| Built-in reranking | No                                 | Yes (preview)             | No                                  | No                                   | Yes <a href="#b8"><sup>8</sup></a> | No                                 |
 
 1. <span id="b1">PostgreSQL [Full Text Search](https://www.postgresql.org/docs/current/textsearch-intro.html)</span>
 1. <span id="b2">[Search and query with text indexes](/azure/cosmos-db/mongodb/vcore/how-to-create-text-index) in Azure Cosmos DB for MongoDB vCore</span>
