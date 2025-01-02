@@ -319,6 +319,9 @@ conceptualContent:
         - text: Multi-region deployment
           itemType: architecture
           url: web-apps/app-service/architectures/multi-region.yml
+        - text: E-commerce product search
+          itemType: get-started
+          url:  ./databases/architecture/ecommerce-search.yml
         - text: Protect APIs with Application Gateway and API Management
           itemType: concept
           url:  /azure/architecture/web-apps/api-management/architectures/protect-apis

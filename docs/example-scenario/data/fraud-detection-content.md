@@ -106,7 +106,6 @@ Principal author:
 ## Related resources
 
 - [Integrate Event Hubs with serverless functions on Azure](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions)
-- [Serverless event processing](/azure/architecture/reference-architectures/serverless/event-processing)
 - [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)
 
 <!-- links -->

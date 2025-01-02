@@ -38,7 +38,7 @@ The following articles provide detailed analysis of architectures created and re
 
 |Guide  |Summary  |Technology focus  |
 |---------|---------|---------|
-|   [Intelligent e-commerce product search engine](../example-scenario/apps/ecommerce-search.yml)  |     Use a dedicated search service to dramatically increase the relevance of search results for your e-commerce customers. Promote recent information in search results, which is useful in the sports industry.    |     Web    |
+|   [Intelligent e-commerce product search engine](../databases/architecture/ecommerce-search.yml)  |     Use a dedicated search service to dramatically increase the relevance of search results for your e-commerce customers. Promote recent information in search results, which is useful in the sports industry.    |     Web    |
 
 ## Solution ideas for the sports industry
 

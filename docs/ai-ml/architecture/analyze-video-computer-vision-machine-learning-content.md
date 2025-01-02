@@ -1,12 +1,12 @@
 This article describes an architecture that you can use to replace the manual analysis of video footage with an automated, and frequently more accurate, machine learning process.
 
-*The FFmpeg and Jupyter Notebook logos are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
 
 ## Architecture
 
 :::image type="content" source="_images/analyze-video-content.png" alt-text="Diagram that shows an architecture for analyzing video content." lightbox="_images/analyze-video-content.png":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/analyze-video-content.pptx) of this architecture.*
+*The FFmpeg and Jupyter Notebook logos are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
 
 ### Workflow
 
@@ -27,16 +27,32 @@ This article describes an architecture that you can use to replace the manual an
 - [Computer Vision](/azure/ai-services/computer-vision/overview) is part of [Azure AI services](/azure/ai-services/what-are-ai-services). It's used to retrieve information about each image.
 - [Custom Vision](/azure/ai-services/custom-vision-service/overview) enables you to customize and embed state-of-the-art computer vision image analysis for your specific domains.
 - [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time.
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics.
-- [Dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) (formerly SQL DW) is a collection of analytics resources that are provisioned when you use Azure Synapse SQL.
+
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to provide visualizations of your data.
 
 ### Alternatives
 
-- [Azure Video Indexer](/azure/azure-video-indexer/video-indexer-overview) is a video analytics service that uses AI to extract actionable insights from stored videos. You can use it without any expertise in machine learning.
-- [Azure Data Factory](/azure/data-factory/introduction) is a fully managed serverless data integration service that helps you construct extract, transform, load (ETL) and extract, load, transform (ELT) processes.
-- [Azure Functions](/azure/azure-functions/functions-overview) is a serverless platform as a service (PaaS) that runs single-task code without requiring new infrastructure.
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database for modern app development.
+If there is no need to call a pre-trained Object Detection Custom Model, we can use the following architecture which relies on Azure AI Vision Video Retrieval. Using this service will omit the decomposition of video into frames and the use of custom code to parse through the ingestion process. This approach serves a more straightforward path if your use case relies on detecting common objects or entities in a video.
+
+:::image type="content" source="_images/analyze-video-content-video-retrieval-api.png" alt-text="Diagram that shows an architecture for analyzing video content." lightbox="_images/analyze-video-content-video-retrieval-api.png":::
+
+*Download a [PowerPoint file](https://arch-center.azureedge.net/analyze-video-content-2.pptx) of this architecture.*
+
+#### Alternative Workflow
+
+1. A collection of video footage, in MP4 format, is uploaded to Azure Blob Storage.
+2. A preconfigured logic app monitors Blob Storage detects that new videos are being uploaded and starts a workflow.
+3. The logic app calls the Azure AI Vision Video Retrieval API to create an index.
+4. The logic app calls the Azure AI Vision Video Retrieval API to add video documents to the index.
+5. A preconfigured logic app monitors the ingestion to check when the indexing is complete.
+6. The logic app calls the Video Retrieval API to search with natural language, identify objects, features, or qualities in the images.
+7. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in SQL Database in Fabric.
+8. Power BI provides data visualization.
+
+### Alternative Components 
+- [Microsoft Fabric](https://www.microsoft.com/en-us/microsoft-fabric) is an end-to-end unified analytics platform to streamline data integration.  It is designed to simplify the process of managing and analyzing data across various domains by providing a comprehensive suite of tools and services within a single platform. It is used in this architecture as data ingestion platform to pull the JSON objects and pass it on to the SQL database in Fabric.
+- [SQL database in Fabric](/fabric/database/sql/overview) is a simple, autonomous, and secure SQL database service optimized for AI. It is used in this architecture to store information about the videos retrieved from the Azure Video Retrieval API.
+- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is a service that provides advance image and video analysis capabilities without requiring machine learning expertise. The [Video Retrieval API](/azure/ai-services/computer-vision/how-to/video-retrieval) is used in this architecture to retrieve information directly from the video.
 
 ## Scenario details
 
@@ -122,14 +138,7 @@ Appropriate use of scaling and the implementation of PaaS offerings that have bu
 Principal author:
 
 - [Oscar Shimabukuro Kiyan](https://www.linkedin.com/in/oscarshk) | Senior Cloud Solutions Architect – Data & AI
-
-Other contributors:
-
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
-- [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b) | Senior Cloud Solutions Architect – Data & AI
-- [Arash Mosharraf](https://www.linkedin.com/in/arashaga) | Senior Cloud Solutions Architect – Data & AI
-- [Priyanshi Singh](https://www.linkedin.com/in/priyanshi-singh5) | Senior Cloud Solutions Architect – Data & AI
-- [Julian Soh](https://www.linkedin.com/in/juliansoh) | Director Specialist – Data & AI
+- [Han Wang](https://www.linkedin.com/in/han-hongrun-wang-577187106/) | Cloud Solutions Architect – Data & AI
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

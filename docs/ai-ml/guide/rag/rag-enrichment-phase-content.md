@@ -55,7 +55,7 @@ The use of some language models for augmenting chunks can be expensive. You need
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Generate embeddings](./rag-generating-embeddings.yml)
+> [Generate embeddings](./rag-generate-embeddings.yml)
 
 ## Related resources
 
