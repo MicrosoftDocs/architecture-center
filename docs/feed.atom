@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2024-12-16T19:10:20.656Z</updated>
+    <updated>2024-12-31T17:35:51.224Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Develop a RAG Solution—Generate Embeddings Phase]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-generate-embeddings</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-generate-embeddings"/>
+        <updated>2024-12-18T18:18:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn how embeddings work, how to choose an embedding model, and how your embedding model can affect your vector search results.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Modernize Mainframe Workloads by using BMC AMI Cloud]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud</id>
@@ -46,6 +54,70 @@
         <link href="https://learn.microsoft.com/azure/architecture//patterns"/>
         <updated>2024-12-11T18:25:22.000Z</updated>
         <summary type="html"><![CDATA[Learn about design patterns for building reliable, scalable, secure applications in the cloud by seeing examples based on Microsoft Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Analyze video content with Computer Vision and Azure Machine Learning]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/analyze-video-computer-vision-machine-learning</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/analyze-video-computer-vision-machine-learning"/>
+        <updated>2024-12-20T19:14:31.000Z</updated>
+        <summary type="html"><![CDATA[Find out how to automate video analysis. Use Computer Vision and Azure Machine Learning to analyze your content.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Design and Develop a RAG Solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide"/>
+        <updated>2024-12-16T21:32:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn about what to consider when you design a large language model RAG solution, including each step of the development process and how to evaluate those steps.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Batch scoring of Spark models on Azure Databricks]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/batch-scoring-databricks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/batch-scoring-databricks"/>
+        <updated>2024-12-19T17:45:49.000Z</updated>
+        <summary type="html"><![CDATA[Build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Natural language processing technology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/natural-language-processing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/natural-language-processing"/>
+        <updated>2024-12-19T17:17:54.000Z</updated>
+        <summary type="html"><![CDATA[Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Develop a RAG Solution - Preparation Phase]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-preparation-phase</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-preparation-phase"/>
+        <updated>2024-12-17T23:43:48.000Z</updated>
+        <summary type="html"><![CDATA[Learn about what to consider when you gather test documents and queries. Use this information to test and validate your chunking and prompt-engineering strategies.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Provide custom authentication to Azure OpenAI Service through a gateway]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/azure-openai-gateway-custom-authentication</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/azure-openai-gateway-custom-authentication"/>
+        <updated>2024-12-17T16:43:44.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement alternative authentication mechanisms for client applications that communicate with Azure OpenAI Service through a gateway.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Access Azure OpenAI and other language models through a gateway]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/azure-openai-gateway-guide</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/azure-openai-gateway-guide"/>
+        <updated>2024-12-17T16:43:44.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the challenges of directly accessing Azure OpenAI or other language models and how injecting a gateway lets you augment model usage with extra capabilities.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use a gateway in front of multiple Azure OpenAI deployments or instances]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend"/>
+        <updated>2024-12-17T16:43:44.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to add a gateway in front of multiple Azure OpenAI model deployments or instances.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -849,14 +921,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Serverless event processing]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing"/>
-        <updated>2024-11-08T19:38:18.000Z</updated>
-        <summary type="html"><![CDATA[This article presents a reference architecture for serverless event ingestion and processing using Azure Functions.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Refactor an IBM z/OS coupling facility]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility"/>
@@ -1033,22 +1097,6 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[ValOps for Autonomous Vehicle Operations]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/automotive/autonomous-vehicle-validation-operations</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/automotive/autonomous-vehicle-validation-operations"/>
-        <updated>2024-10-08T22:58:10.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to use Azure services to build a validation operations (ValOps) solution for an automated driving system.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Automotive messaging, data, and analytics]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/industries/automotive/automotive-messaging-data-analytics</id>
-        <link href="https://learn.microsoft.com/azure/architecture/industries/automotive/automotive-messaging-data-analytics"/>
-        <updated>2024-10-03T17:49:55.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to create a scalable and reliable solution for messaging and data analytics in the automotive industry.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Measure Azure App Sustainability by Using the SCI Score]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/measure-azure-app-sustainability-sci-score</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/measure-azure-app-sustainability-sci-score"/>
@@ -1190,14 +1238,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat"/>
         <updated>2024-10-21T22:20:14.000Z</updated>
         <summary type="html"><![CDATA[Establish foundational knowledge for how to build and deploy enterprise chat applications by using Azure OpenAI, Azure AI Studio, and Azure App Service.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[DataOps for autonomous vehicle operations]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/automotive/autonomous-vehicle-operations-dataops</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/automotive/autonomous-vehicle-operations-dataops"/>
-        <updated>2024-10-21T15:27:09.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure services to build an offline data operations and data management (DataOps) solution for an automated driving system.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1585,11 +1625,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Developing a RAG solution - Preparation phase]]></title>
+        <title type="html"><![CDATA[Develop a RAG Solution - Preparation Phase]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-preparation-phase</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-preparation-phase"/>
         <updated>2024-09-24T19:14:17.000Z</updated>
-        <summary type="html"><![CDATA[Learn what you should consider when gathering test documents and queries. You use these artifacts to test and validate your chunking, information retrieval, and prompt engineering strategies.]]></summary>
+        <summary type="html"><![CDATA[Learn about what to consider when you gather test documents and queries. Use this information to test and validate your chunking and prompt-engineering strategies.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
