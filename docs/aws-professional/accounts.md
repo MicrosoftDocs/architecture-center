@@ -27,7 +27,7 @@ ms.custom:
 This article compares the account and organizational structure of Azure with that of AWS.
 
 - For links to articles that compare other AWS and Azure services, see [Azure for AWS professionals](/azure/architecture/aws-professional/).
-- For a complete service mapping between AWS and Azure, see [AWS to Azure services comparison](/azure/architecture/aws-professional/services).
+- For a complete service mapping between AWS and Azure, see [Azure for AWS professionals](/azure/architecture/aws-professional/services).
 
 ## Managing account hierarchy
 
@@ -37,7 +37,7 @@ A typical AWS environment uses an organizational structure like the one in the f
    Diagram that shows an AWS account. There's an organization root and an optional AWS management account. Below the organization root, there are organizational units. Below the organizational units, there are AWS accounts and resources. 
 :::image-end:::
 
-An Azure structure looks similar, but, rather than a dedicated management account, it provides administrative permissions on the tenant. This design eliminates the need for an entire account just for management. Unlike AWS, Azure uses resource groups as a fundamental unit. Resources must be assigned to resource groups, and permissions can be applied at the resource group level.
+An Azure structure looks similar, but, rather than a dedicated management account, it provides administrative permissions on the tenant. This design eliminates the need for an entire account just for management. Unlike AWS, Azure uses resource groups as a fundamental unit. Resources must be assigned to resource groups, and permissions can be applied at the resource-group level.
 
 :::image type="complex" source="../aws-professional/images/azure-accounts.jpg" lightbox="../aws-professional/images/azure-accounts.jpg" alt-text="Diagram of a typical Azure account management structure." border="false":::
    Diagram that shows the Azure account hierarchy. It flows from tenant to management groups to subscriptions to resource groups to resources.
@@ -51,7 +51,7 @@ In Azure, when you create an Azure account, a Microsoft Entra tenant is created.
 
 In Azure, the equivalent of an AWS account is the Azure subscription. Azure subscriptions are logical units of Azure services that are linked to an Azure account in a Microsoft Entra tenant. Each subscription is linked to a billing account and provides the boundary within which resources are created, managed, and billed. Subscriptions are important to understanding cost allocation and adhering to budget limits. They help you ensure that every service used is tracked and billed correctly. Azure subscriptions, like AWS accounts, also act as boundaries for resource quotas and limits. Some resource quotas are adjustable, but others aren't.
 
-Cross-account resource access in AWS enables resources from one AWS account to be accessed or managed by another AWS account. AWS also has IAM roles and resource-based policies for accessing resources across accounts. In Azure, you can grant access to users and services from different subscriptions by using role-based access control (RBAC), which is applied at different scopes (management group, subscription, resource group, or individual resources).  
+Cross-account resource access in AWS enables resources from one AWS account to be accessed or managed by another AWS account. AWS also has IAM roles and resource-based policies for accessing resources across accounts. In Azure, you can grant access to users and services in different subscriptions by using role-based access control (RBAC), which is applied at different scopes (management group, subscription, resource group, or individual resources).  
 
 ## AWS OUs vs. Azure management groups
 
@@ -71,13 +71,13 @@ Important facts about management groups and subscriptions:
 
 - The number of subscriptions per management group is unlimited. 
 
-The root management group is the top-level management group that's associated with each directory. All management groups and subscriptions roll up to the root management group. The design enables you to implement global policies and Azure role assignments at the directory level.
+The root management group is the top-level management group that's associated with each directory. All management groups and subscriptions roll up to the root management group. This design enables you to implement global policies and Azure role assignments at the directory level.
 
 ## Service control policies vs. Azure Policy
 
 The primary goal of service control policies (SCP) in AWS is to limit the maximum effective permissions within an AWS account. In Azure, maximum permissions are defined in Microsoft Entra and can be applied at the tenant, subscription, or resource-group level. Azure Policy has a wide range of use cases, a few of which align with typical SCP usage patterns. You can use both SCPs and Azure policies to enforce compliance with enterprise standards, like tagging or the use of specific SKUs. Both SCPs and Azure policies can block deployment of resources that don't meet compliance requirements. Azure policies can be more proactive than SCPs and can trigger remediations to bring resources into compliance. Azure policies can also assess both existing resources and future deployments.
 
-## Comparison of the structure and ownership of AWS accounts and Azure subscriptions
+## Comparison of the structure and ownership of AWS accounts with Azure subscriptions
 
 An Azure account represents a billing relationship and Azure subscriptions help you organize access to Azure resources. Account Administrator, Service Administrator, and Co-Administrator are the three classic subscription administrator roles in Azure:
 
@@ -108,9 +108,9 @@ Director, Partner Technology Strategist
 
 ## Next steps
 
-- [Classic subscription administrator roles, Azure roles, and Microsoft Entra roles](/azure/role-based-access-control/rbac-and-directory-admin-roles)
-- [How to add or change Azure administrator roles](/azure/billing/billing-add-change-azure-subscription-administrator)
-- [How to download your Azure billing invoice and daily usage data](/azure/billing/billing-download-azure-invoice-daily-usage-date)
+- [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles)
+- [Add or change Azure subscription administrators](/azure/billing/billing-add-change-azure-subscription-administrator)
+- [Download or view your Azure billing invoice](/azure/billing/billing-download-azure-invoice-daily-usage-date)
 
 ## Related resources
 
