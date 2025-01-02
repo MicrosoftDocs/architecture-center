@@ -51,7 +51,7 @@ In Azure, when you create an Azure account, a Microsoft Entra tenant is created.
 
 In Azure, the equivalent of an AWS account is the Azure subscription. Azure subscriptions are logical units of Azure services that are linked to an Azure account in a Microsoft Entra tenant. Each subscription is linked to a billing account and provides the boundary within which resources are created, managed, and billed. Subscriptions are important to understanding cost allocation and adhering to budget limits. They help you ensure that every service used is tracked and billed correctly. Azure subscriptions, like AWS accounts, also act as boundaries for resource quotas and limits. Some resource quotas are adjustable, but others aren't.
 
-Cross-account resource access in AWS enables resources from one AWS account to be accessed or managed by another AWS account. AWS also has IAM roles and resource-based policies for accessing resources across accounts. In Azure, you can grant access to users and services in different subscriptions by using role-based access control (RBAC), which is applied at different scopes (management group, subscription, resource group, or individual resources).  
+Cross-account resource access in AWS enables resources from one AWS account to be accessed or managed by another AWS account. AWS also has Identity and Access Management (IAM) roles and resource-based policies for accessing resources across accounts. In Azure, you can grant access to users and services in different subscriptions by using role-based access control (RBAC), which is applied at different scopes (management group, subscription, resource group, or individual resources).  
 
 ## AWS OUs vs. Azure management groups
 
@@ -79,7 +79,7 @@ The primary goal of service control policies (SCP) in AWS is to limit the maximu
 
 ## Comparison of the structure and ownership of AWS accounts with Azure subscriptions
 
-An Azure account represents a billing relationship and Azure subscriptions help you organize access to Azure resources. Account Administrator, Service Administrator, and Co-Administrator are the three classic subscription administrator roles in Azure:
+An Azure account represents a billing relationship, and Azure subscriptions help you organize access to Azure resources. Account Administrator, Service Administrator, and Co-Administrator are the three classic subscription administrator roles in Azure:
 
 - **Account Administrator**. The subscription owner and the billing owner for the resources used in the subscription. The account administrator can only be changed by transferring ownership of the subscription. Only one Account administrator is assigned per Azure Account.
 
@@ -87,7 +87,7 @@ An Azure account represents a billing relationship and Azure subscriptions help 
 
 - **Co-administrator**. There can be multiple co-administrators assigned to a subscription. Co-administrators have the same access privileges as the Service Administrator, but they can't change the Service Administrator.
 
-Below the subscription level user roles and individual permissions can also be assigned to specific resources, similarly to how permissions are granted to Identity and Access Management (IAM) users and groups in AWS. In Azure, all user accounts are associated with either a Microsoft Account or Organizational Account (an account managed through a Microsoft Entra ID).
+Below the subscription level, user roles and individual permissions can also be assigned to specific resources, similarly to how permissions are granted to IAM users and groups in AWS. In Azure, all user accounts are associated with either a Microsoft account or an organizational account (an account managed through Microsoft Entra ID).
 
 Like AWS accounts, subscriptions have default service quotas and limits. For a full list of these limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits). These limits can be increased up to the maximum by [filing a support request in the management portal](/archive/blogs/girishp/increasing-core-quota-limits-in-azure).
 
