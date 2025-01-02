@@ -1,4 +1,4 @@
-After you break your documents down into a collection of chunks, the next step is to enrich each chunk by cleaning it augmenting it with metadata. Cleaning the chunks enalbles you to achieve better matches for semantic queries in a vector search. Adding information enables you to support searches of the chunks that go beyond semantic searches. Both cleaning and augmenting involve extending the schema for the chunk.
+After you break your documents into a collection of chunks, the next step is to enrich each chunk by cleaning it augmenting it with metadata. Cleaning the chunks enables you to achieve better matches for semantic queries in a vector search. Adding information enables you to support searches of the chunks that go beyond semantic searches. Both cleaning and augmenting involve extending the schema for the chunk.
 
 This article discusses various ways to augment your chunks, including some common cleaning operations you can perform on chunks to improve vector comparisons. It also describes some common metadata fields that you can add to your chunks to augment your search index.
 
@@ -48,16 +48,16 @@ The following are some common metadata fields, along with the original chunk tex
 - **Source.** The source of the chunk can be valuable as a return for queries. Returning the source allows the querier to cite the original source.
 - **Language.** The language of the chunk can be good as a filter in queries.
 
-## Augmenting economics
+## The cost of augmenting
 
-The use of some language models for augmenting chunks can be expensive. You need to calculate the cost of each enrichment you're considering and multiply it by the estimated number of chunks over time. You should use this information, along with your testing of those enriched fields as part of the search to make a good business decision.
+The use of some language models for augmenting chunks can be expensive. You need to calculate the cost of each enrichment that you're considering and multiply it by the estimated number of chunks over time. You should use this information, along with your testing of the enriched fields, to determine the best business decision.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [Generate embeddings phase](./rag-generating-embeddings.yml)
+> [Generate embeddings](./rag-generating-embeddings.yml)
 
 ## Related resources
 
 - [AI enrichment in Azure AI Search](/azure/search/cognitive-search-concept-intro)
-- [Skill set concepts in Azure AI Search](/azure/search/cognitive-search-working-with-skillsets)
+- [Skillset concepts in Azure AI Search](/azure/search/cognitive-search-working-with-skillsets)
