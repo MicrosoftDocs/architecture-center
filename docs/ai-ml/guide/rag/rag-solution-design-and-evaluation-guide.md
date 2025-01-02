@@ -1,3 +1,25 @@
+---
+title: Design and Develop a RAG Solution
+description: Learn about what to consider when you design a large language model RAG solution, including each step of the development process and how to evaluate those steps.
+author: robbagby
+ms.author: robbag
+ms.date: 12/9/2024
+ms.topic: conceptual
+ms.collection: ce-skilling-ai-copilot  
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
+ms.custom: arb-aiml
+azureCategories:
+  - ai-machine-learning
+products:
+  - ai-services
+  - azure-cognitive-search
+  - azure-openai
+  - azure-machine-learning
+---
+
+# Design and develop a RAG solution
+
 The Retrieval-Augmented Generation (RAG) pattern is an industry-standard approach to building applications that use language models to process specific or proprietary data that the model doesn't already know. The architecture is straightforward, but designing, experimenting with, and evaluating RAG solutions that fit into this architecture involve many complex considerations that benefit from a rigorous, scientific approach.
 
 This article is the introduction of a series. Each article in the series covers a specific phase in RAG solution design.
