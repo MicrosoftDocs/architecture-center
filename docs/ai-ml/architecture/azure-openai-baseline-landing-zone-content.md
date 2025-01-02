@@ -80,7 +80,7 @@ The platform team owns and maintains these centralized resources. This architect
 
   *Change from the baseline:* This component is new in this architecture. Azure Firewall isn't cost-effective or practical for each workload team to manage their own instance.
 
-- **Azure Bastion in the hub network** provides secure operational access to workload components and also allows access to Azure AI Studio components.
+- **Azure Bastion in the hub network** provides secure operational access to workload components and also allows access to Azure AI Foundry components.
 
   *Change from the baseline:* The workload team owns this component in the baseline architecture.
 

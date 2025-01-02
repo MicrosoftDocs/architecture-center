@@ -2,14 +2,14 @@ Enterprise chat applications can empower employees through conversational intera
 
 This article provides a baseline architecture for building and deploying enterprise chat applications that use [Azure OpenAI Service language models](/azure/ai-services/openai/concepts/models). The architecture employs prompt flow to create executable flows. These executable flows orchestrate the workflow from incoming prompts out to data stores to fetch grounding data for the language models, along with other required Python logic. The executable flow is deployed to a managed online endpoint with managed compute.
 
-The hosting of the custom chat user interface (UI) follows the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) guidance for deploying a secure, zone-redundant, and highly available web application on Azure App Service. In that architecture, App Service communicates to the Azure platform as a service (PaaS) solution through virtual network integration over private endpoints. The chat UI App Service communicates with the managed online endpoint for the flow over a private endpoint. Public access to Azure AI Studio is disabled.
+The hosting of the custom chat user interface (UI) follows the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) guidance for deploying a secure, zone-redundant, and highly available web application on Azure App Service. In that architecture, App Service communicates to the Azure platform as a service (PaaS) solution through virtual network integration over private endpoints. The chat UI App Service communicates with the managed online endpoint for the flow over a private endpoint. Public access to Azure AI Foundry portal is disabled.
 
 > [!IMPORTANT]
 > The article doesn't discuss the components or architecture decisions from the [baseline App Service web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml). Read that article for architectural guidance on how to host the chat UI.
 
-The Azure AI Studio hub is configured with [managed virtual network isolation](/azure/ai-studio/how-to/configure-managed-network) that requires all outbound connections to be approved. With this configuration, a managed virtual network is created, along with managed private endpoints that enable connectivity to private resources, such as the workplace Azure Storage, Azure Container Registry, and Azure OpenAI. These private connections are used during flow authoring and testing, and by flows that are deployed to Machine Learning compute.
+The Azure AI Foundry hub is configured with [managed virtual network isolation](/azure/ai-studio/how-to/configure-managed-network) that requires all outbound connections to be approved. With this configuration, a managed virtual network is created, along with managed private endpoints that enable connectivity to private resources, such as the workplace Azure Storage, Azure Container Registry, and Azure OpenAI. These private connections are used during flow authoring and testing, and by flows that are deployed to Machine Learning compute.
 
-A hub is the top-level Azure AI Studio resource which provides a central way to govern security, connectivity, and other concerns across multiple projects. This architecture requires only one project for its workload. If you have additional experiences that require different prompt flows with different logic, potentially using different back-end resources such as data stores, you might consider implementing those in a different project.
+A hub is the top-level Azure AI Foundry resource which provides a central way to govern security, connectivity, and other concerns across multiple projects. This architecture requires only one project for its workload. If you have additional experiences that require different prompt flows with different logic, potentially using different back-end resources such as data stores, you might consider implementing those in a different project.
 
 > [!TIP]
 > ![GitHub logo.](../../_images/github.svg) This article is backed by a [reference implementation](https://github.com/Azure-Samples/openai-end-to-end-baseline) which showcases a baseline end-to-end chat implementation on Azure. You can use this implementation as a basis for custom solution development in your first step toward production.
@@ -27,7 +27,7 @@ A hub is the top-level Azure AI Studio resource which provides a central way to 
 Many components of this architecture are the same as the [basic Azure OpenAI end-to-end chat architecture](./basic-openai-e2e-chat.yml#components). The following list highlights only the changes to the basic architecture.
 
 - [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is used in both the basic and this baseline architecture. Azure OpenAI is a fully managed service that provides REST API access to Azure OpenAI's language models, including the GPT-4, GPT-3.5-Turbo, and embeddings set of models. The baseline architecture takes advantage of enterprise features such as [virtual network and private link](/azure/ai-services/cognitive-services-virtual-networks) that the basic architecture doesn't implement.
-- [Azure AI Studio](/azure/ai-studio/what-is-ai-studio) is a platform that you can use to build, test, and deploy AI solutions. AI Studio is used in this architecture to build, test, and deploy the prompt flow orchestration logic for the chat application. In this architecture, Azure AI Studio provides the [managed virtual network](/azure/ai-studio/how-to/configure-managed-network) for network security. For more information, see the [networking section](#networking) for more details.
+- [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) is a platform that you can use to build, test, and deploy AI solutions. Azure AI Foundry portal is used in this architecture to build, test, and deploy the prompt flow orchestration logic for the chat application. In this architecture, Azure AI Foundry provides the [managed virtual network](/azure/ai-studio/how-to/configure-managed-network) for network security. For more information, see the [networking section](#networking) for more details.
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer 7 (HTTP/S) load balancer and web traffic router. It uses URL path-based routing to distribute incoming traffic across availability zones and offloads encryption to improve application performance.
 - [Web Application Firewall (WAF)](/azure/web-application-firewall/ag/ag-overview) is a cloud-native service that protects web apps from common exploits such as SQL injection and cross-site scripting. Web Application Firewall provides visibility into the traffic to and from your web application, enabling you to monitor and secure your application.
 - [Azure Key Vault](/azure/key-vault/general/overview) is a service that securely stores and manages secrets, encryption keys, and certificates. It centralizes the management of sensitive information.
@@ -41,7 +41,7 @@ This architecture has multiple components that could be served by other Azure se
 
 #### Azure Machine Learning workspaces (and portal experiences)
 
-This architecture uses [Azure AI Studio](/azure/ai-studio/what-is-ai-studio) to build, test, and deploy prompt flows. Alternatively, you could use [Azure Machine Learning workspaces](/azure/well-architected/service-guides/azure-machine-learning), as both services have overlapping features. While AI Studio is a good choice if you're designing a prompt flow solution, there are some features that Azure Machine Learning currently has better support for. For more information, see the [feature comparison](/ai/ai-studio-experiences-overview). We recommend that you don't mix and match Azure AI Studio and Azure Machine Learning. If your work can be done completely in AI studio, use AI studio. If you still need features from Azure Machine Learning studio, continue to use Azure Machine Learning studio.
+This architecture uses [Azure AI Foundry portal](/azure/ai-studio/what-is-ai-studio) to build, test, and deploy prompt flows. Alternatively, you could use [Azure Machine Learning workspaces](/azure/well-architected/service-guides/azure-machine-learning), as both services have overlapping features. While Azure AI Foundry portal is a good choice if you're designing a prompt flow solution, there are some features that Azure Machine Learning currently has better support for. For more information, see the [feature comparison](/ai/ai-studio-experiences-overview). We recommend that you don't mix and match Azure AI Foundry portal and Azure Machine Learning studio. If your work can be done completely in Azure AI Foundry portal, use Azure AI Foundry portal. If you still need features from Azure Machine Learning studio, continue to use Azure Machine Learning studio.
 
 #### Application tier components
 
@@ -81,9 +81,9 @@ The following diagram shows an alternate architecture where prompt flows are dep
 
 The diagram is numbered for notable areas in this architecture:
 
-1. Flows are still authored in prompt flow and the network architecture is unchanged. Flow authors still connect to the authoring experience in the AI Studio project through a private endpoint, and the managed private endpoints are used to connect to Azure services when testing flows.
+1. Flows are still authored in prompt flow and the network architecture is unchanged. Flow authors still connect to the authoring experience in the Azure AI Foundry project through a private endpoint, and the managed private endpoints are used to connect to Azure services when testing flows.
 
-1. This dotted line indicates that containerized executable flows are pushed to Container Registry. Not shown in the diagram are the pipelines that containerize the flows and push to Container Registry. The compute in which those pipelines run must have network line of sight to resources such as the Azure container registry and the AI Studio project.
+1. This dotted line indicates that containerized executable flows are pushed to Container Registry. Not shown in the diagram are the pipelines that containerize the flows and push to Container Registry. The compute in which those pipelines run must have network line of sight to resources such as the Azure container registry and the Azure AI Foundry project.
 
 1. There's another web app deployed to the same app service plan that's already hosting the chat UI. The new web app hosts the containerized prompt flow, colocated on the same app service plan that already runs at a minimum of three instances, spread across availability zones. These App Service instances connect to Container Registry over a private endpoint when loading the prompt flow container image.
 
@@ -107,7 +107,7 @@ Consider the following guidance for determining the appropriate number of replic
 
 - Use monitoring metrics and logs and performance analysis to determine the appropriate number of replicas to avoid query-based throttling and partitions and to avoid index-based throttling.
 
-#### Azure AI Studio - reliability
+#### Azure AI Foundry - reliability
 
 If you deploy to compute clusters behind the Machine Learning managed online endpoint, consider the following guidance regarding scaling:
 
@@ -119,7 +119,7 @@ If you deploy to compute clusters behind the Machine Learning managed online end
 
 - Avoid deployments against in-use instances. Instead deploy to a new deployment and shift traffic over after the deployment is ready to receive traffic.
 
-Managed online endpoints act as a load balancer and router for the managed compute running behind them. You're able to configure the percentage of traffic that should be routed to each deployment, as long as the percentages add up to 100%. You're also able to deploy a managed online endpoint with 0% traffic being routed to any deployment. If, like in the provided reference implementation, you're using infrastructure as code (IaC) to deploy your resources, including your managed online endpoints, there's a reliability concern. If you have traffic configured to route to deployments (created via CLI or the Azure AI Studio) and you perform a subsequent IaC deployment that includes the managed online endpoint, even if it doesn't update the managed online endpoint in any way, the endpoint traffic reverts to routing 0% traffic. Effectively, this means that your deployed prompt flows will no longer be reachable until you adjust the traffic back to where you want it.
+Managed online endpoints act as a load balancer and router for the managed compute running behind them. You're able to configure the percentage of traffic that should be routed to each deployment, as long as the percentages add up to 100%. You're also able to deploy a managed online endpoint with 0% traffic being routed to any deployment. If, like in the provided reference implementation, you're using infrastructure as code (IaC) to deploy your resources, including your managed online endpoints, there's a reliability concern. If you have traffic configured to route to deployments (created via CLI or the Azure AI Foundry portal) and you perform a subsequent IaC deployment that includes the managed online endpoint, even if it doesn't update the managed online endpoint in any way, the endpoint traffic reverts to routing 0% traffic. Effectively, this means that your deployed prompt flows will no longer be reachable until you adjust the traffic back to where you want it.
 
 > [!NOTE]
 > The same [App Service scalability guidance](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-service) from the baseline architecture applies if you deploy your flow to App Service.
@@ -158,15 +158,15 @@ Along with networking considerations, this section describes security considerat
 
 When using user-assigned managed identities, consider the following guidance:
 
-- Create separate managed identities for the following Azure AI Studio and Machine Learning resources, where applicable:
-  - AI Studio Hub
-  - AI Studio projects for flow authoring and management
+- Create separate managed identities for the following Azure AI Foundry and Machine Learning resources, where applicable:
+  - Azure AI Foundry Hub
+  - Azure AI Foundry projects for flow authoring and management
   - Online endpoints in the deployed flow if the flow is deployed to a managed online endpoint
 - Implement identity-access controls for the chat UI by using Microsoft Entra ID
 
 Create separate projects and online endpoints for different prompt flows that you want to isolate from others from a permissions perspective. Create a separate managed identity for each project and managed online endpoint. Give prompt flow authors access to only the projects they require.
 
-When you onboard users to Azure AI Studio projects to perform functions like authoring flows, you need to make least privilege role assignments the resources they require.
+When you onboard users to Azure AI Foundry projects to perform functions like authoring flows, you need to make least privilege role assignments the resources they require.
 
 ### Machine Learning role-based access roles
 
@@ -206,9 +206,9 @@ Because of the maintenance burden of managing all the required assignments, this
 | Portal User (prompt flow development) | Storage Account | Storage Blob Data Contributor (use conditional access) |
 | Portal User (prompt flow development) | Storage Account | Storage File Data Privileged Contributor |
 
-It's important to understand that the AI Studio hub has Azure resources that are shared across projects, such as a Storage Account and Container Registry. If you have users that only need access to a subset of the projects, consider using [role assignment conditions](/azure/role-based-access-control/conditions-role-assignments-portal), for Azure services that support them, to provide least privilege access to resources. For example, blobs in Azure Storage support role assignment conditions. For a user that requires access to a subset of the projects, instead of assigning permissions on a per-container basis, use role access conditions to limit permissions to the blob containers used by those projects. Each project has a unique GUID that serves as a prefix for the names of the blob containers used in that project. That GUID can be used as part of the role assignment conditions.
+It's important to understand that the Azure AI Foundry hub has Azure resources that are shared across projects, such as a Storage Account and Container Registry. If you have users that only need access to a subset of the projects, consider using [role assignment conditions](/azure/role-based-access-control/conditions-role-assignments-portal), for Azure services that support them, to provide least privilege access to resources. For example, blobs in Azure Storage support role assignment conditions. For a user that requires access to a subset of the projects, instead of assigning permissions on a per-container basis, use role access conditions to limit permissions to the blob containers used by those projects. Each project has a unique GUID that serves as a prefix for the names of the blob containers used in that project. That GUID can be used as part of the role assignment conditions.
 
-The hub has a requirement to have `Contributor` access to the hub resource group in order to allow it to create and managed hub and project resources. A side effect of that the hub has control plane access to any resource also in the resource group. Any Azure resources not directly related to the hub and its projects should be created in a separate resource group. We recommend you create, at a minimum, two resource groups for a workload team using a self-managed Azure AI Studio Hub. One resource group to contain the hub, its projects, and all of its direct dependencies like the Azure container registry, Key Vault, and so on. One resource group to contain everything else in your workload.
+The hub has a requirement to have `Contributor` access to the hub resource group in order to allow it to create and managed hub and project resources. A side effect of that the hub has control plane access to any resource also in the resource group. Any Azure resources not directly related to the hub and its projects should be created in a separate resource group. We recommend you create, at a minimum, two resource groups for a workload team using a self-managed Azure AI Foundry hub. One resource group to contain the hub, its projects, and all of its direct dependencies like the Azure container registry, Key Vault, and so on. One resource group to contain everything else in your workload.
 
 We recommend that you minimize the use of Azure resources needed for the hub's operation (Container Registry, Storage Account, Key Vault, Application Insights) by other components in your workloads. For example, if you need to store secrets as part of your workload, you should create a separate Key Vault apart from the key vault associated with the hub. The hub Key Vault should only be used by the hub to store hub and project secrets.
 
@@ -248,9 +248,9 @@ Private endpoint access is also required for connecting to the Machine Learning 
 
 The diagram shows a prompt flow author connecting through Azure Bastion to a virtual machine jump box. From that jump box, the author can connect to the Machine Learning workspace through a private endpoint in the same network as the jump box. Connectivity to the virtual network could also be accomplished through ExpressRoute or VPN gateways and virtual network peering.
 
-##### Flow from the Azure AI Studio managed virtual network to Azure PaaS services
+##### Flow from the Azure AI Foundry managed virtual network to Azure PaaS services
 
-We recommend that you configure the Azure AI Studio hub for [managed virtual network isolation](/azure/ai-studio/how-to/configure-managed-network) that requires all outbound connections to be approved. This architecture follows that recommendation. There are two types of approved outbound rules. *Required outbound rules* are to resources required for the solution to work, such as Container Registry and Storage. *User-defined outbound rules* are to custom resources, such as Azure OpenAI or AI Search, that your workflow is going to use. You must configure user-defined outbound rules. Required outbound rules are configured when the managed virtual network is created. The managed virtual network is deployed on-demand when you first use it and is persistant from then on.
+We recommend that you configure the Azure AI Foundry hub for [managed virtual network isolation](/azure/ai-studio/how-to/configure-managed-network) that requires all outbound connections to be approved. This architecture follows that recommendation. There are two types of approved outbound rules. *Required outbound rules* are to resources required for the solution to work, such as Container Registry and Storage. *User-defined outbound rules* are to custom resources, such as Azure OpenAI or AI Search, that your workflow is going to use. You must configure user-defined outbound rules. Required outbound rules are configured when the managed virtual network is created. The managed virtual network is deployed on-demand when you first use it and is persistant from then on.
 
 The outbound rules can be private endpoints, service tags, or fully qualified domain names (FQDNs) for external public endpoints. In this architecture, connectivity to Azure services such as Container Registry, Storage, Azure Key Vault, Azure OpenAI, and AI Search are connected through private link. Although not in this architecture, some common operations that might require configuring an FQDN outbound rule are downloading a pip package, cloning a GitHub repo, or downloading base container images from external repositories.
 
@@ -316,9 +316,9 @@ To help ensure alignment with security, consider using Azure Policy and network 
 - Require specific configuration of network access rules or NSGs.
 - Require encryption, such as the use of customer-managed keys.
 
-#### Azure AI Studio role assignments for Azure Key Vault
+#### Azure AI Foundry role assignments for Azure Key Vault
 
-The Azure AI Studio managed identity requires both control plane (Contributor) and data plane (Key Vault Administrator) role assignments. This means that this identity has read and write access to all secrets, keys, and certificates stored in the Azure key vault. If your workload has services other than Azure AI Studio that require access to secrets, keys, or certificates in Key Vault, your workload or security team may not be comfortable with the Azure AI Studio hub managed identity having access to those artifacts. In this case, consider deploying a Key Vault instance specifically for the Azure AI Studio hub, and other Azure Key Vault instances as appropriate for other parts of your workload.
+The Azure AI Foundry managed identity requires both control plane (Contributor) and data plane (Key Vault Administrator) role assignments. This means that this identity has read and write access to all secrets, keys, and certificates stored in the Azure key vault. If your workload has services other than Azure AI Foundry that require access to secrets, keys, or certificates in Key Vault, your workload or security team may not be comfortable with the Azure AI Foundry hub managed identity having access to those artifacts. In this case, consider deploying a Key Vault instance specifically for the Azure AI Foundry hub, and other Azure Key Vault instances as appropriate for other parts of your workload.
 
 ### Cost optimization
 
@@ -370,7 +370,7 @@ Like in the basic architecture, this architecture uses the **Automatic Runtime**
 
 #### Monitoring
 
-Like in the basic architecture, diagnostics are configured for all services. All services but App Service are configured to capture all logs. App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs, and AppServicePlatformLogs. In production, all logs are likely excessive. Tune log streams to your operational needs. For this architecture, the Azure Machine Learning logs used by the Azure AI Studio project that are of interest include: AmlComputeClusterEvent, AmlDataSetEvent, AmlEnvironmentEvent, and AmlModelsEvent.
+Like in the basic architecture, diagnostics are configured for all services. All services but App Service are configured to capture all logs. App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs, and AppServicePlatformLogs. In production, all logs are likely excessive. Tune log streams to your operational needs. For this architecture, the Azure Machine Learning logs used by the Azure AI Foundry project that are of interest include: AmlComputeClusterEvent, AmlDataSetEvent, AmlEnvironmentEvent, and AmlModelsEvent.
 
 Evaluate building custom alerts for the resources in this architecture such as those found in the Azure Monitor baseline alerts. For example:
 
@@ -386,7 +386,7 @@ Deployment for Azure OpenAI-based chat solutions like this architecture should f
 
 ##### Development
 
-Prompt flow offers both a browser-based authoring experience in Azure AI Studio or through a [Visual Studio Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension). Both options store the flow code as files. When you use Azure AI Studio, the files are stored in a Storage account. When you work in Microsoft Visual Studio Code, the files are stored in your local file system.
+Prompt flow offers both a browser-based authoring experience in Azure AI Foundry portal or through a [Visual Studio Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension). Both options store the flow code as files. When you use Azure AI Foundry portal, the files are stored in a Storage account. When you work in Microsoft Visual Studio Code, the files are stored in your local file system.
 
 In order to follow [best practices for collaborative development](/azure/machine-learning/prompt-flow/how-to-integrate-with-llm-app-devops#best-practice-for-collaborative-development), the source files should be maintained in an online source code repository such as GitHub. This approach facilitates tracking of all code changes, collaboration between flow authors and integration with [deployment flows](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#deployment-flow) that test and validate all code changes.
 
@@ -509,7 +509,7 @@ Some Azure resources are more tightly coupled to the design of specific prompt f
 
 ###### On-demand managed virtual network
 
-The managed virtual network is automatically provisioned when you first create a compute instance. If you're using infrastructure as code to deploy your hub, and you don't have AI Studio compute resources in the Bicep, the managed virtual network isn't deployed and you'll receive an error when connecting to Azure AI Studio. You'll need to perform a one-time action to [manually provision the managed virtual network](/azure/ai-studio/how-to/configure-managed-network#manually-provision-a-managed-vnet) after your IaC deployment.
+The managed virtual network is automatically provisioned when you first create a compute instance. If you're using infrastructure as code to deploy your hub, and you don't have Azure AI Foundry compute resources in the Bicep, the managed virtual network isn't deployed and you'll receive an error when connecting to Azure AI Foundry portal. You'll need to perform a one-time action to [manually provision the managed virtual network](/azure/ai-studio/how-to/configure-managed-network#manually-provision-a-managed-vnet) after your IaC deployment.
 
 #### Resource organization
 
@@ -565,7 +565,7 @@ To deploy and run the reference implementation, follow the steps in the [OpenAI 
 
 - [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service)
 - [Azure OpenAI language models](/azure/ai-services/openai/concepts/models)
-- [Prompt flow in Azure AI Studio](/azure/ai-studio/how-to/prompt-flow)
+- [Prompt flow in Azure AI Foundry portal](/azure/ai-studio/how-to/prompt-flow)
 - [Workspace managed virtual network isolation](/azure/machine-learning/how-to-managed-network)
 - [Configure a private endpoint for a Machine Learning workspace](/azure/machine-learning/how-to-configure-private-link)
 - [Content filtering](/azure/ai-services/openai/concepts/content-filter)
