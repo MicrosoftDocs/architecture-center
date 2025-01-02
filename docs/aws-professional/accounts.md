@@ -1,5 +1,5 @@
 ---
-title: AWS vs. Azure accounts and subscriptions
+title: Comparing AWS and Azure Accounts
 description: Learn the differences in accounts and subscriptions between Azure and AWS. Understand the types of administrator accounts in Azure.
 author: scaryghosts
 ms.author: adamcerini
@@ -24,41 +24,40 @@ ms.custom:
 
 # Comparing AWS and Azure accounts
 
-This article compares the account and organizational structure between Azure and AWS.
+This article compares the account and organizational structure of Azure with that of AWS.
 
 - For links to articles that compare other AWS and Azure services, see [Azure for AWS professionals](/azure/architecture/aws-professional/).
-- For a complete listing and charts showing service mapping between AWS and Azure, see [AWS to Azure services comparison](/azure/architecture/aws-professional/services).
+- For a complete service mapping between AWS and Azure, see [AWS to Azure services comparison](/azure/architecture/aws-professional/services).
 
-## Managing Account Hierarchy
+## Managing account hierarchy
 
-A typical AWS environment uses an organization structure such as pictured in the diagram. There is an organizational root and optionally a dedicated AWS Management account. Below that root, there are Organizational Units which can be used to apply different policies to different accounts. AWS resources often use an AWS account as a logical and billing boundary.
-<br>
+A typical AWS environment uses an organizational structure like the one in the following diagram. There's an organization root and optionally a dedicated AWS management account. Below the root are organizational units that can be used to apply different policies to different accounts. AWS resources often use an AWS account as a logical and billing boundary.
 
-:::image type="complex" source="../aws-professional/images/aws_accounts.jpg" lightbox="../aws-professional/images/aws_accounts.jpg" alt-text="Diagram of common AWS Account Organization Structure." border="false":::
-   Shows an AWS Account with an Account Owner and an Azure Account with an Account Admin. In the Azure Account is a Subscription with a Service Admin and Service co-admins.
+:::image type="complex" source="../aws-professional/images/aws-accounts.jpg" lightbox="../aws-professional/images/aws-accounts.jpg" alt-text="Diagram of a typical AWS account organizational structure." border="false":::
+   Diagram that shows an AWS account. There's an organization root and an optional AWS management account. Below the organization root, there are organizational units. Below the organizational units, there are AWS accounts and resources. 
 :::image-end:::
 
-An Azure structure looks similar, but rather than a dedicated management account there is administrative permissions on the tenant. This eliminates the need for an entire account just for management purposes. Unlike AWS, Azure has resource groups as a fundamental unit. Resources must be assigned to resource groups and permissions can be applied at the resource group level.
+An Azure structure looks similar, but, rather than a dedicated management account, it provides administrative permissions on the tenant. This design eliminates the need for an entire account just for management. Unlike AWS, Azure uses resource groups as a fundamental unit. Resources must be assigned to resource groups, and permissions can be applied at the resource group level.
 
-:::image type="complex" source="../aws-professional/images/azure_accounts.jpg" lightbox="../aws-professional/images/azure_accounts.jpg" alt-text="Diagram of common Azure Account Management Structure." border="false":::
-   Shows the Azure account hierarchy that flows from Tenant to Management Groups to Subscriptions to Resource Groups to Resources.
+:::image type="complex" source="../aws-professional/images/azure-accounts.jpg" lightbox="../aws-professional/images/azure-accounts.jpg" alt-text="Diagram of a typical Azure account management structure." border="false":::
+   Diagram that shows the Azure account hierarchy. It flows from tenant to management groups to subscriptions to resource groups to resources.
 :::image-end:::
 
-## AWS Management Account vs Azure tenant
+## AWS management account vs. Azure tenant
 
-In Azure, when you're creating your Azure Account, a Microsoft Entra Tenant is created where you can manage your users, groups, and applications. Azure subscriptions are created under this tenant. A Microsoft Entra tenant provides identity and access management, which is an important part of your security posture. A Microsoft Entra tenant ensures that authenticated and authorized users only access the resources to which they have permissions.  
+In Azure, when you create an Azure account, a Microsoft Entra tenant is created. You can manage your users, groups, and applications in this tenant. Azure subscriptions are created under the tenant. A Microsoft Entra tenant provides identity and access management. It helps ensure that authenticated and authorized users can access only the resources for which they have permissions.  
 
-## AWS Accounts vs Azure Subscriptions
+## AWS accounts vs. Azure subscriptions
 
-In Microsoft Azure, the equivalent of an AWS Account is called an Azure Subscription. Azure Subscriptions are a logical unit of Azure services that are linked to an Azure account in an Entra ID tenant. Each subscription is linked to a billing account and provides the boundary within which resources are created, managed, and billed. Subscriptions are key to understanding cost allocation and adhering to budget limits, ensuring that every service used is tracked and billed accordingly. Azure subscriptions also act as a boundary for resource quotas and limits like AWS accounts. Some resource quotas are adjustable while others are non-adjustable or hard limits. 
+In Azure, the equivalent of an AWS account is the Azure subscription. Azure subscriptions are logical units of Azure services that are linked to an Azure account in a Microsoft Entra tenant. Each subscription is linked to a billing account and provides the boundary within which resources are created, managed, and billed. Subscriptions are important to understanding cost allocation and adhering to budget limits. They help you ensure that every service used is tracked and billed correctly. Azure subscriptions, like AWS accounts, also act as boundaries for resource quotas and limits. Some resource quotas are adjustable, but others are not.
 
-Cross-account resource access in AWS enables resources from one AWS account to be accessed or managed by another AWS account. In AWS, there are IAM roles and resource based policies to access resources cross-account. In Azure, users and services from different subscriptions can be granted access using role based access control (RBAC) which is applied at different scopes (Management groups, subscription, resource group, or individual resources).  
+Cross-account resource access in AWS enables resources from one AWS account to be accessed or managed by another AWS account. AWS also has IAM roles and resource-based policies for accessing resources across accounts. In Azure, you can grant access to users and services from different subscriptions by using role-based access control (RBAC), which is applied at different scopes (management group, subscription, resource group, or individual resources).  
 
-## AWS OUs vs Azure Management groups
+## AWS OUs vs. Azure management groups
 
-In Microsoft Azure, the equivalent of Organizational Units is Management groups. Both are used to organize and manage cloud resources at a high level across multiple accounts or subscriptions. Azure Management groups can be used to efficiently manage access, policies, and compliance for the Azure subscriptions. The governance conditions applied at the management group level cascade to all associated subscriptions through inheritance. 
+In Azure, the equivalent of AWS organizational units (OUs) is management groups. Both are used to organize and manage cloud resources at a high level across multiple accounts or subscriptions. You can use Azure management groups to efficiently manage access, policies, and compliance for Azure subscriptions. The governance conditions applied at the management-group level cascade to all associated subscriptions via inheritance. 
 
-*Important facts about management groups and subscriptions:* 
+Important facts about management groups and subscriptions:
 
 - A single directory can support 10,000 management groups. 
 
