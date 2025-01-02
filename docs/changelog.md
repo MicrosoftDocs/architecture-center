@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 12/16/2024
+ms.date: 12/31/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.author: robbag
@@ -27,6 +27,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Develop a RAG Solution—Generate Embeddings Phase](./ai-ml/guide/rag/rag-generate-embeddings.yml)
 - [Modernize Mainframe Workloads by using BMC AMI Cloud](./example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml)
 - [Azure Virtual Desktop for Azure Local](./hybrid/azure-local-workload-virtual-desktop.yml)
 
@@ -35,6 +36,14 @@ The following new and updated articles have recently been published in the Azure
 - [Azure for AWS professionals](./aws-professional/index.md)  ([#b5fa90dbb7](https://github.com/MicrosoftDocs/architecture-center/commit/b5fa90dbb7))
 - [Best practices in cloud applications](./best-practices/index-best-practices.md)  ([#f84f30f537](https://github.com/MicrosoftDocs/architecture-center/commit/f84f30f537))
 - [Cloud design patterns](./patterns/index.md)  ([#f84f30f537](https://github.com/MicrosoftDocs/architecture-center/commit/f84f30f537))
+- [Analyze video content with Computer Vision and Azure Machine Learning](./ai-ml/architecture/analyze-video-computer-vision-machine-learning.yml)  ([#c847f992d4](https://github.com/MicrosoftDocs/architecture-center/commit/c847f992d4))
+- [Design and Develop a RAG Solution](./ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.yml)  ([#0d171aabb6](https://github.com/MicrosoftDocs/architecture-center/commit/0d171aabb6))
+- [Batch scoring of Spark models on Azure Databricks](./ai-ml/architecture/batch-scoring-databricks.yml)  ([#64c84cbd5c](https://github.com/MicrosoftDocs/architecture-center/commit/64c84cbd5c))
+- [Natural language processing technology](./data-guide/technology-choices/natural-language-processing.yml)  ([#83ee95d21f](https://github.com/MicrosoftDocs/architecture-center/commit/83ee95d21f))
+- [Develop a RAG Solution - Preparation Phase](./ai-ml/guide/rag/rag-preparation-phase.yml)  ([#7c970d7909](https://github.com/MicrosoftDocs/architecture-center/commit/7c970d7909))
+- [Provide custom authentication to Azure OpenAI Service through a gateway](./ai-ml/guide/azure-openai-gateway-custom-authentication.yml)  ([#7e1271e2c7](https://github.com/MicrosoftDocs/architecture-center/commit/7e1271e2c7))
+- [Access Azure OpenAI and other language models through a gateway](./ai-ml/guide/azure-openai-gateway-guide.yml)  ([#7e1271e2c7](https://github.com/MicrosoftDocs/architecture-center/commit/7e1271e2c7))
+- [Use a gateway in front of multiple Azure OpenAI deployments or instances](./ai-ml/guide/azure-openai-gateway-multi-backend.yml)  ([#7e1271e2c7](https://github.com/MicrosoftDocs/architecture-center/commit/7e1271e2c7))
 - [Big data architecture style](./guide/architecture-styles/big-data.yml)  ([#6329a5301e](https://github.com/MicrosoftDocs/architecture-center/commit/6329a5301e))
 - [Azure Arc-Enabled Server Configurations](./hybrid/azure-arc-hybrid-config.yml)  ([#89ba7c81e7](https://github.com/MicrosoftDocs/architecture-center/commit/89ba7c81e7))
 - [Architectural approaches for IoT Hub-based multitenant solutions](./guide/multitenant/approaches/iot.md)  ([#74d902de30](https://github.com/MicrosoftDocs/architecture-center/commit/74d902de30))
@@ -143,7 +152,6 @@ The following new and updated articles have recently been published in the Azure
 - [Unisys mainframe migration with Avanade AMT](./reference-architectures/migration/unisys-mainframe-migration.yml)  ([#6c8ea10816](https://github.com/MicrosoftDocs/architecture-center/commit/6c8ea10816))
 - [Run SAP BW/4HANA with Linux VMs](./reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)  ([#6c8ea10816](https://github.com/MicrosoftDocs/architecture-center/commit/6c8ea10816))
 - [SAP HANA for Linux VMs in Scale-up Systems](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)  ([#6c8ea10816](https://github.com/MicrosoftDocs/architecture-center/commit/6c8ea10816))
-- [Serverless event processing](./reference-architectures/serverless/event-processing.yml)  ([#6c8ea10816](https://github.com/MicrosoftDocs/architecture-center/commit/6c8ea10816))
 - [Refactor an IBM z/OS coupling facility](./reference-architectures/zos/refactor-zos-coupling-facility.yml)  ([#6c8ea10816](https://github.com/MicrosoftDocs/architecture-center/commit/6c8ea10816))
 - [Enterprise deployment using Azure ASE](./web-apps/app-service-environment/architectures/ase-standard-deployment.yml)  ([#6c8ea10816](https://github.com/MicrosoftDocs/architecture-center/commit/6c8ea10816))
 - [Highly available multi-region web app](./web-apps/app-service/architectures/multi-region.yml)  ([#6c8ea10816](https://github.com/MicrosoftDocs/architecture-center/commit/6c8ea10816))
@@ -171,8 +179,6 @@ The following new and updated articles have recently been published in the Azure
 - [Reliable Web App Pattern for .NET](./web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance.yml)
 - [Reliable Web App Pattern for Java](./web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance.yml)
 - [Greenfield lakehouse on Microsoft Fabric](./example-scenario/data/greenfield-lakehouse-fabric.yml)
-- [ValOps for Autonomous Vehicle Operations](./example-scenario/automotive/autonomous-vehicle-validation-operations.yml)
-- [Automotive messaging, data, and analytics](./industries/automotive/automotive-messaging-data-analytics.yml)
 
 ### Updated articles
 
@@ -194,7 +200,6 @@ The following new and updated articles have recently been published in the Azure
 - [Automate PDF forms processing](./ai-ml/architecture/automate-pdf-forms-processing.yml)  ([#a7e1be4c2d](https://github.com/MicrosoftDocs/architecture-center/commit/a7e1be4c2d))
 - [Baseline OpenAI end-to-end chat reference architecture](./ai-ml/architecture/baseline-openai-e2e-chat.yml)  ([#332a0da85a](https://github.com/MicrosoftDocs/architecture-center/commit/332a0da85a))
 - [Basic OpenAI End-to-End Chat Reference Architecture](./ai-ml/architecture/basic-openai-e2e-chat.yml)  ([#332a0da85a](https://github.com/MicrosoftDocs/architecture-center/commit/332a0da85a))
-- [DataOps for autonomous vehicle operations](./example-scenario/automotive/autonomous-vehicle-operations-dataops.yml)  ([#42f5581a6f](https://github.com/MicrosoftDocs/architecture-center/commit/42f5581a6f))
 - [Azure Virtual Desktop for the enterprise](./example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml)  ([#42f5581a6f](https://github.com/MicrosoftDocs/architecture-center/commit/42f5581a6f))
 - [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml)  ([#42f5581a6f](https://github.com/MicrosoftDocs/architecture-center/commit/42f5581a6f))
 - [Multiple forests with AD DS and Microsoft Entra ID](./example-scenario/azure-virtual-desktop/multi-forest.yml)  ([#42f5581a6f](https://github.com/MicrosoftDocs/architecture-center/commit/42f5581a6f))
@@ -251,7 +256,7 @@ The following new and updated articles have recently been published in the Azure
 - [Baseline OpenAI end-to-end chat reference architecture](./ai-ml/architecture/baseline-openai-e2e-chat.yml)  ([#45b60c7737](https://github.com/MicrosoftDocs/architecture-center/commit/45b60c7737))
 - [Developing a RAG solution - Chunking phase](./ai-ml/guide/rag/rag-chunking-phase.yml)  ([#6f02c9d429](https://github.com/MicrosoftDocs/architecture-center/commit/6f02c9d429))
 - [Developing a RAG solution - LLM end to end evaluation phase](./ai-ml/guide/rag/rag-llm-evaluation-phase.yml)  ([#6f02c9d429](https://github.com/MicrosoftDocs/architecture-center/commit/6f02c9d429))
-- [Developing a RAG solution - Preparation phase](./ai-ml/guide/rag/rag-preparation-phase.yml)  ([#6f02c9d429](https://github.com/MicrosoftDocs/architecture-center/commit/6f02c9d429))
+- [Develop a RAG Solution - Preparation Phase](./ai-ml/guide/rag/rag-preparation-phase.yml)  ([#6f02c9d429](https://github.com/MicrosoftDocs/architecture-center/commit/6f02c9d429))
 - [Video ingestion and object detection on the edge and in the cloud](./ai-ml/idea/video-ingestion-object-detection-edge-cloud.yml)  ([#b7daa6c24f](https://github.com/MicrosoftDocs/architecture-center/commit/b7daa6c24f))
 - [Application platform considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md)  ([#1d351f3ef2](https://github.com/MicrosoftDocs/architecture-center/commit/1d351f3ef2))
 - [Use the Application Gateway Ingress Controller with a Multitenant Azure Kubernetes Service Cluster](./example-scenario/aks-agic/aks-agic.yml)  ([#a6149d7e3e](https://github.com/MicrosoftDocs/architecture-center/commit/a6149d7e3e))
