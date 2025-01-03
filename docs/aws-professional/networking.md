@@ -81,7 +81,7 @@ Neither virtual networks nor VPCs allow transitive peering. In Azure, however, y
 
 Principal author:
 
-- [Konstantin Rekatas](https://www.linkedin.com/in/krekatas/) | Principle Cloud Solution Architect
+- [Konstantin Rekatas](https://www.linkedin.com/in/krekatas/) | Principal Cloud Solution Architect
 
 Other contributor:
 
