@@ -24,10 +24,9 @@ ms.custom:
 
 # Comparing AWS and Azure accounts
 
-This article compares the account and organizational structure of Azure with that of AWS.
+This article compares the account and organizational structure of Azure with that of Amazon Web Services (AWS).
 
-- For links to articles that compare other AWS and Azure services, see [Azure for AWS professionals](/azure/architecture/aws-professional/).
-- For a complete service mapping between AWS and Azure, see [Azure for AWS professionals](/azure/architecture/aws-professional/services).
+For links to articles that compare other AWS and Azure services and a complete service mapping between AWS and Azure, see [Azure for AWS professionals](/azure/architecture/aws-professional/).
 
 ## Managing account hierarchy
 
