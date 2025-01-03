@@ -59,16 +59,17 @@ AWS provides route tables that contain routes that direct traffic from a subnet 
 
 With user-defined routes, you can create custom or user-defined (static) routes. These routes override the default Azure system routes. You can also add more routes to a subnet's route table.
 
-## Private Link
+## Azure Private Link
 
-Similar to AWS PrivateLink, Azure Private Link provides private connectivity from a virtual network to an Azure platform as a service (PaaS) solution, a customer-owned service, or a Microsoft partner service.
+Private Link is similar to AWS PrivateLink. Azure Private Link provides private connectivity from a virtual network to an Azure platform as a service (PaaS) solution, a customer-owned service, or a Microsoft partner service.
 
-## VPC peering, VNet peering in Azure
+## VPC peering and virtual network peering
 
-In AWS, a VPC peering connection is a networking connection between two VPCs, which enables you to route traffic between them using private Internet Protocol version 4 (IPv4) addresses or Internet Protocol version 6 (IPv6) addresses.
+In AWS, a VPC peering connection is a networking connection between two VPCs. You can use this connection to route traffic between the VPCs by using private Internet Protocol version 4 (IPv4) addresses or Internet Protocol version 6 (IPv6) addresses.
 
-Azure virtual network (VNet) peering enables you to seamlessly connect two or more Virtual Networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between virtual machines in the same network, traffic is routed through Microsoft's private network only.
-Neither VNets nor VPCs allow transitive peering, however in Azure you can achieve transitive networking by using NVAs (Network Virtual Appliances) or gateways in the hub virtual network
+You can use Azure virtual network peering to connect two or more virtual networks in Azure. For connectivity purposes, the virtual networks appear as one. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between virtual machines in a single network, traffic is routed only through the Microsoft private network.
+
+Neither virtual networks nor VPCs allow transitive peering. In Azure, however, you can achieve transitive networking by using network virtual appliances (NVAs) or gateways in the hub virtual network.
 
 ## Network service comparison
 
