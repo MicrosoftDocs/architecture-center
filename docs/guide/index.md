@@ -25,7 +25,7 @@ Applications that take advantage of the cloud's application hosting platforms, m
 
 :::row:::
     :::column:::
-        **Traditional on-premises design**
+        **Typical on-premises design**
 
         - Monolithic and colocated functionality and data
         - Designed for predictable scale or overprovisioned
@@ -36,7 +36,7 @@ Applications that take advantage of the cloud's application hosting platforms, m
         - Snowflake and pet servers
     :::column-end:::
     :::column:::
-        **Traditional cloud design**
+        **Typical cloud design**
 
         - Decomposed and distributed functionality and data
         - Designed for elastic scale
