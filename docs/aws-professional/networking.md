@@ -33,11 +33,11 @@ Azure virtual networks and AWS virtual private clouds (VPCs) are similar in that
 
 Both AWS Site-to-Site VPN and Azure VPN Gateway are robust solutions for connecting on-premises networks to the cloud. They provide similar features, but there's a notable difference:
 
- - **Performance.** VPN Gateway offers higher throughput for certain configurations (up to 10 Gbps), whereas Site-to-Site VPN generally ranges between 1.25 and 5 Gbps per connection (using ECMP).
+ - **Performance.** VPN Gateway offers higher throughput for certain configurations (up to 10 Gbps), whereas Site-to-Site VPN generally ranges between 1.25 Gbps and 5 Gbps per connection (using ECMP).
 
 ## Elastic Load Balancing, Azure Load Balancer, and Azure Application Gateway
 
-The Azure equivalent of the Elastic Load Balancing services are:
+The Azure equivalents of the Elastic Load Balancing services are:
 
 - **Load Balancer** provides the same network layer 4 capabilities as the AWS Network Load Balancer, so you can distribute traffic for multiple VMs at the network level. It also provides failover capability.
 - **Application Gateway** provides application-level rule-based routing comparable to that of the AWS Application Load Balancer.
@@ -75,27 +75,28 @@ Neither virtual networks nor VPCs allow transitive peering. In Azure, however, y
 
 [!INCLUDE [Networking Services](../../includes/aws/networking.md)]
 
-## See also
-
-- [Create a virtual network using the Azure portal](/azure/virtual-network/quick-create-portal)
-
-- [Plan and design Azure Virtual Networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm)
-
-- [Azure Network Security Best Practices](/azure/security/fundamentals/network-best-practices)
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
-- [Konstantin Rekatas](https://www.linkedin.com/in/krekatas/)
+- [Konstantin Rekatas](https://www.linkedin.com/in/krekatas/) | Principle Cloud Solution Architect
 
 Other contributor:
 
-- [Adam Cerini](https://www.linkedin.com/in/adamcerini)
+- [Adam Cerini](https://www.linkedin.com/in/adamcerini) | 
+Director, Partner Technology Strategist
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
+
+- [Create a virtual network using the Azure portal](/azure/virtual-network/quick-create-portal)
+- [Plan and design Azure virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm)
+- [Azure network security best practices](/azure/security/fundamentals/network-best-practices)
+
 ## Related resources
+
+- [Compare AWS and Azure resource management](resources.md)
+- [Compare AWS and Azure accounts](accounts.md)
