@@ -37,7 +37,7 @@ The following new and updated articles have recently been published in the Azure
 - [Best practices in cloud applications](./best-practices/index-best-practices.md)  ([#f84f30f537](https://github.com/MicrosoftDocs/architecture-center/commit/f84f30f537))
 - [Cloud design patterns](./patterns/index.md)  ([#f84f30f537](https://github.com/MicrosoftDocs/architecture-center/commit/f84f30f537))
 - [Analyze video content with Computer Vision and Azure Machine Learning](./ai-ml/architecture/analyze-video-computer-vision-machine-learning.yml)  ([#c847f992d4](https://github.com/MicrosoftDocs/architecture-center/commit/c847f992d4))
-- [Design and Develop a RAG Solution](./ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.yml)  ([#0d171aabb6](https://github.com/MicrosoftDocs/architecture-center/commit/0d171aabb6))
+- [Design and Develop a RAG Solution](./ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.md)  ([#0d171aabb6](https://github.com/MicrosoftDocs/architecture-center/commit/0d171aabb6))
 - [Batch scoring of Spark models on Azure Databricks](./ai-ml/architecture/batch-scoring-databricks.yml)  ([#64c84cbd5c](https://github.com/MicrosoftDocs/architecture-center/commit/64c84cbd5c))
 - [Natural language processing technology](./data-guide/technology-choices/natural-language-processing.yml)  ([#83ee95d21f](https://github.com/MicrosoftDocs/architecture-center/commit/83ee95d21f))
 - [Develop a RAG Solution - Preparation Phase](./ai-ml/guide/rag/rag-preparation-phase.yml)  ([#7c970d7909](https://github.com/MicrosoftDocs/architecture-center/commit/7c970d7909))

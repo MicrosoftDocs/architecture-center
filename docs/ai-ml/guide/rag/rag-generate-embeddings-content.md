@@ -1,6 +1,6 @@
 In the previous steps of your Retrieval-Augmented Generation (RAG) solution, you divided your documents into chunks and enriched the chunks. In this step, you generate embeddings for those chunks and any metadata fields on which you plan to perform vector searches.
 
-This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
+This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md).
 
 An embedding is a mathematical representation of an object, such as text. When a neural network is being trained, many representations of an object are created. Each representation has connections to other objects in the network. An embedding is important because it captures the semantic meaning of the object.
 

@@ -4,7 +4,7 @@ This grounding data forms the context for the prompt that you send to the langua
 
 This article doesn't attempt to provide an exhaustive list of either language model metrics or similarity and evaluation metrics. The number of these metrics are growing every day. What is important for you to take away from this article is that there are various metrics, each with their own distinct use case. You're the only one with a holistic understand your workload. You and your data scientists must determine what it is that you want to measure and which metrics help you accomplish that task.
 
-> This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
+> This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md).
 
 ## Language model evaluation metrics
 

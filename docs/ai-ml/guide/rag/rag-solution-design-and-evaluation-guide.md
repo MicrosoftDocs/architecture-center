@@ -9,13 +9,13 @@ ms.collection: ce-skilling-ai-copilot
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
-azureCategories:
-  - ai-machine-learning
 products:
   - ai-services
   - azure-cognitive-search
   - azure-openai
   - azure-machine-learning
+categories:
+  - ai-machine-learning
 ---
 
 # Design and develop a RAG solution

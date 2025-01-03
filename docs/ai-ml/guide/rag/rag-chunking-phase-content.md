@@ -4,7 +4,7 @@ Passing chunks that are too small and don't contain sufficient context to addres
 
 This article describes various chunking approaches, and examines how the structure of your documents can influence the chunking approach you choose.
 
-> This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
+> This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md).
 
 ## Chunking economics
 

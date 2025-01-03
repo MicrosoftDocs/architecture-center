@@ -1,6 +1,6 @@
 The first phase of Retrieval-Augmented Generation (RAG) development and experimentation is the preparation phase. During this phase, you define the business domain for your solution. After you define the domain, you gather documents, perform document analysis, and gather sample questions that are pertinent to the domain. You do these steps in parallel because they're interrelated. For example, document analysis helps you determine which test documents and test queries you should gather. The questions that you ask must be answerable by content in the documents, and the documents must answer the relevant questions.
 
-This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
+This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md).
 
 ## Determine the solution domain
 

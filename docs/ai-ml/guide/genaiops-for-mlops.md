@@ -234,7 +234,7 @@ As you start extending your MLOps investments to include generative AI, it's imp
 
 ## Related resources
 
-- [Azure OpenAI](../../ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.yml)
-- [Designing and developing a RAG solution](../../ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.yml)
+- [Azure OpenAI](../../ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.md)
+- [Designing and developing a RAG solution](../../ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.md)
 - [Baseline OpenAI end-to-end chat reference architecture](../../ai-ml/architecture/baseline-openai-e2e-chat.yml)
 - [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)
