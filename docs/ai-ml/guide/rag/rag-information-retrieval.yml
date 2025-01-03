@@ -4,7 +4,7 @@ metadata:
   description: Learn about how to configure a search index, the various types of searches that you can perform, how to break queries into subqueries, and why and how to rerank queries.
   author: robbagby
   ms.author: robbag
-  ms.date: 1/4/2024
+  ms.date: 1/4/2025
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.collection: ce-skilling-ai-copilot
