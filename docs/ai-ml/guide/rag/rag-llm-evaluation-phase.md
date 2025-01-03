@@ -1,5 +1,5 @@
 ---
-title: Developing a RAG solution - LLM end to end evaluation phase
+title: Developing a RAG Solution - LLM End-to-End Evaluation Phase
 description: Learn about evaluating your RAG solution from end to end using key LLM and similarity metrics.
 author: robbagby
 ms.author: robbag
@@ -18,7 +18,7 @@ products:
   - azure-machine-learning
 ---
 
-# LLM end to end evaluation
+# LLM end-to-end evaluation
 
 By the time you reach this phase, you have already generated your search index and determined what searches you want to perform. This phase addresses the process of evaluating of your Retrieval-Augmented Generation (RAG) solution from the perspective of evaluating expected user prompts containing the retrieved grounding data against the language model. Before you reach this phase, you should complete the preparation phase where you collect your test documents and queries, chunk your test documents, enrich the chunks, embed the chunks, create a search index, and implement a search strategy. You should evaluate each of these phases and be happy with the results. At this point, you should feel comfortable that your solution returns relevant grounding data for a user query.
 

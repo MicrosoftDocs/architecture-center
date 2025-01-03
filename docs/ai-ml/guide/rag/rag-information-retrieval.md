@@ -1,5 +1,5 @@
 ---
-title: Developing a RAG solution - Information retrieval phase
+title: Developing a RAG Solution - Information Retrieval Phase
 description: Learn about key decision points when you're configuring a search index. Learn about the various types of search you can perform such as vector, full text, hybrid, and hybrid manual. Finally, learn about breaking queries into subqueries, and why and how to rerank queries.
 author: robbagby
 ms.author: robbag
