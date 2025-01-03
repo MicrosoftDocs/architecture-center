@@ -1,4 +1,4 @@
-This article describes Azure solutions for building, training, deploying, and using custom document processing models. These Azure services also offer user interface (UI) capabilities to do labeling or tagging for text processing.
+fouThis article describes Azure solutions for building, training, deploying, and using custom document processing models. These Azure services also offer user interface (UI) capabilities to do labeling or tagging for text processing.
 
 ## Architecture
 
@@ -70,7 +70,7 @@ You can add more workflows to this scenario based on specific use cases.
 
 - Use preprocessing code to perform text processing steps. These steps include cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data according to document processing requirements. You can expose the code as REST APIs for automation. Do these steps manually or automate them by integrating with the [Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
 
-- You can use [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) to [fine-tune](/azure/ai-studio/concepts/fine-tuning-overview) and deploy foundation models.
+- You can use [Azure AI Foundry portal](/azure/ai-studio/what-is-ai-studio) to [fine-tune](/azure/ai-studio/concepts/fine-tuning-overview) and deploy foundation models.
 
 ## Scenario details
 
