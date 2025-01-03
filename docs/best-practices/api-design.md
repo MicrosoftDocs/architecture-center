@@ -229,7 +229,67 @@ Here is a possible JSON merge patch for this resource:
 
 This tells the server to update `price`, delete `color`, and add `size`, while `name` and `category` are not modified. For the exact details of JSON merge patch, see [RFC 7396](https://tools.ietf.org/html/rfc7396). The media type for JSON merge patch is `application/merge-patch+json`.
 
-Merge patch is not suitable if the original resource can contain explicit null values, due to the special meaning of `null` in the patch document. Also, the patch document doesn't specify the order that the server should apply the updates. That may or may not matter, depending on the data and the domain. JSON patch, defined in [RFC 6902](https://tools.ietf.org/html/rfc6902), is more flexible. It specifies the changes as a sequence of operations to apply. Operations include add, remove, replace, copy, and test (to validate values). The media type for JSON patch is `application/json-patch+json`.
+Merge patch is not suitable if the original resource can contain explicit null values, due to the special meaning of `null` in the patch document. Also, the patch document doesn't specify the order that the server should apply the updates. That may or may not matter, depending on the data and the domain. JSON patch, defined in [RFC 6902](https://tools.ietf.org/html/rfc6902), is more flexible. It specifies the changes as a sequence of operations to apply. Operations include add, remove, replace, copy, and test (to validate values). The media type for JSON patch is `application/json-patch+json`.  
+
+Resource example:  
+
+´´´json
+{
+  "customerName": "John",
+  "orders": [
+    {
+      "orderName": "Order0",
+      "orderType": null
+    },
+    {
+      "orderName": "Order1",
+      "orderType": null
+    }
+  ]
+}
+´´´
+
+JSON patch example:  
+
+´´´json
+[
+  {
+    "op": "replace",
+    "path": "/customerName",
+    "value": "Barry"
+  },
+  {
+    "op": "add",
+    "path": "/orders/-",
+    "value": {
+      "orderName": "Order2",
+      "orderType": null
+    }
+  }
+]
+´´´
+
+Here's the resource after applying the preceding JSON Patch document:  
+
+´´´json
+{
+  "customerName": "Barry",
+  "orders": [
+    {
+      "orderName": "Order0",
+      "orderType": null
+    },
+    {
+      "orderName": "Order1",
+      "orderType": null
+    },
+    {
+      "orderName": "Order2",
+      "orderType": null
+    }
+  ]
+}
+´´´
 
 Here are some typical error conditions that might be encountered when processing a PATCH request, along with the appropriate HTTP status code.
 
@@ -524,7 +584,7 @@ This approach is arguably the purest of the versioning mechanisms and lends itse
 
 ## Open API Initiative
 
-The [Open API Initiative](https://www.openapis.org) was created by an industry consortium to standardize REST API descriptions across vendors. As part of this initiative, the Swagger 2.0 specification was renamed the OpenAPI Specification (OAS) and brought under the Open API Initiative.
+The [Open API Initiative](https://www.openapis.org) was created by an industry consortium to standardize REST API descriptions across vendors. As part of this initiative, the Swagger specification was renamed the OpenAPI Specification (OAS) and brought under the Open API Initiative.
 
 You might want to adopt OpenAPI for your web APIs. Some points to consider:
 
