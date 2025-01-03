@@ -91,8 +91,8 @@ Workloads often need to combine vector search with full text search or even a hy
 1. <span id="b6">[Hybrid search (combination of full text search, vector search, and semantic ranking)](/azure/search/hybrid-search-how-to-query) is provided as a first-class feature.</span>
 1. <span id="b7">Hybrid search [example](https://github.com/Azure-Samples/azure-sql-db-openai/blob/main/python/README.md) for Azure SQL database and SQL Server.</span>
 1. <span id="b8">Reranking called [Semantic Ranking](/azure/search/semantic-search-overview) is a first-class feature for reranking the result of full text search and/or vector search.</span>
-1. <span id="b9">Cosmos DB NoSQL [Full Text Search with full text scoring](https://learn.microsoft.com/en-us/azure/cosmos-db/gen-ai/full-text-search)</span>
-1. <span id="b10">Cosmos DB NoSQL [Hybrid Search](https://learn.microsoft.com/en-us/azure/cosmos-db/gen-ai/hybrid-search)</span>
+1. <span id="b9">Cosmos DB NoSQL [Full Text Search with full text scoring](/azure/cosmos-db/gen-ai/full-text-search)</span>
+1. <span id="b10">Cosmos DB NoSQL [Hybrid Search](/azure/cosmos-db/gen-ai/hybrid-search)</span>
 
 ### Vector data indexing algorithms
 
