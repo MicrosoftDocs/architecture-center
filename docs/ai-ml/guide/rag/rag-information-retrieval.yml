@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Develop a RAG Solution—Information Retrieval Phase
-  description: Learn about key decision points when you're configuring a search index. Learn about the various types of search you can perform such as vector, full text, hybrid, and hybrid manual. Finally, learn about breaking queries into subqueries, and why and how to rerank queries.
+  title: Develop a RAG Solution—Information-Retrieval Phase
+  description: Learn about how to configure a search index, the various types of searches that you can perform, how to break queries into subqueries, and why and how to rerank queries.
   author: robbagby
   ms.author: robbag
-  ms.date: 1/3/2024
+  ms.date: 1/4/2024
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.collection: ce-skilling-ai-copilot
