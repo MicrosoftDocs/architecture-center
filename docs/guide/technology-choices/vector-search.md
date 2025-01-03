@@ -104,17 +104,18 @@ Understand what kinds of vector data indexing are provided from the following ta
 
 | Indexing approach                         | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for NoSQL                         | Azure Cosmos DB for MongoDB (vCore)                                                                                 | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database                                             |
 | ----------------------------------------- | ------------------------------ | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | --------------- | -------------------------------------------------------------- |
-| DiskANN                                   | No                             | Yes                                               | No                                                                                                                  | No                                   | No              | No                                                             |
+| DiskANN                                   | No                             | Yes                                               | No                                                                                                                  | Yes<a href="#e1"><sup>1</sup></a>                                       | No              | No                                                             |
 | Exhaustive K-nearest Neighbor (EKNN)      | Yes                            | Yes                                               | Yes                                                                                                                 | Yes                                  | Yes             | Yes                                                            |
-| Hierarchical Navigable Small World (HNSW) | Yes                            | No                                                | Yes (preview)<a href="#e1"><sup>1</sup></a>                                                                         | Yes                                  | Yes             | No                                                             |
+| Hierarchical Navigable Small World (HNSW) | Yes                            | No                                                | Yes (preview)<a href="#e2"><sup>2</sup></a>                                                                         | Yes                                  | Yes             | No                                                             |
 | IVFflat                                   | Yes                            | No                                                | Yes                                                                                                                 | Yes                                  | No              | No                                                             |
-| Other                                     | -                              | flat, quantizedFlat<a href="#e2"><sup>2</sup></a> | Vector field limitation <a href="#e3"><sup>3</sup></a> </br> Vector index limitation <a href="#e4"><sup>4</sup></a> | -                                    | -               | External libraries are available<a href="#e5"><sup>5</sup></a> |
+| Other                                     | -                              | flat, quantizedFlat<a href="#e3"><sup>3</sup></a> | Vector field limitation <a href="#e4"><sup>4</sup></a> </br> Vector index limitation <a href="#e5"><sup>5</sup></a> | -                                    | -               | External libraries are available<a href="#e6"><sup>6</sup></a> |
 
-1. <span id="e1">[Azure Cosmos DB for MongoDB - Vector search overview](/azure/cosmos-db/mongodb/vcore/vector-search)</span>
-1. <span id="e2">[Vector indexing policies](/azure/cosmos-db/nosql/vector-search#vector-indexing-policies)</span>
-1. <span id="e3">Only one vector field is available per container.</span>
-1. <span id="e4">Only one vector index is available per container.</span>
-1. <span id="e5">Index can be created with the aid of external libraries like [Scikit Learn](https://github.com/Azure-Samples/azure-sql-db-vectors-kmeans) or [FAISS](https://github.com/Azure-Samples/azure-sql-db-vectors-faiss)</span>
+1. <span id="e1">[DiskANN for Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-use-pgdiskann)</span>
+1. <span id="e2">[Azure Cosmos DB for MongoDB - Vector search overview](/azure/cosmos-db/mongodb/vcore/vector-search)</span>
+1. <span id="e3">[Vector indexing policies](/azure/cosmos-db/nosql/vector-search#vector-indexing-policies)</span>
+1. <span id="e4">Only one vector field is available per container.</span>
+1. <span id="e5">Only one vector index is available per container.</span>
+1. <span id="e6">Index can be created with the aid of external libraries like [Scikit Learn](https://github.com/Azure-Samples/azure-sql-db-vectors-kmeans) or [FAISS](https://github.com/Azure-Samples/azure-sql-db-vectors-faiss)</span>
 
 ### Similarity and distance calculation capabilities
 
