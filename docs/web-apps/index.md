@@ -73,7 +73,7 @@ The following sections, organized by category, provide links to sample web app a
 
 ### E-commerce
 
-- [Intelligent product search engine for e-commerce](../example-scenario/apps/ecommerce-search.yml)
+- [Intelligent product search engine for e-commerce](../databases/architecture/ecommerce-search.yml)
 - [E-commerce website running in secured App Service Environment](../web-apps/idea/ecommerce-website-running-in-secured-ase.yml)
 - [Scalable e-commerce web app](../web-apps/idea/scalable-ecommerce-web-app.yml)
 
@@ -119,7 +119,6 @@ Here are some additional implementations to consider:
 - [Eventual consistency between multiple Power Apps instances](/azure/architecture/guide/power-platform/eventual-consistency)
 - [App Service networking features](/azure/app-service/networking-features)
 - [Migrate a web app using Azure APIM](../example-scenario/apps/apim-api-scenario.yml)
-- [Sharing location in real time using low-cost serverless Azure services](../example-scenario/signalr/index.yml)
 - [Serverless web application](../web-apps/serverless/architectures/web-app.yml)
 
 ### AWS or Google Cloud professionals

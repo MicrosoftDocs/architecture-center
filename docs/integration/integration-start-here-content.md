@@ -53,10 +53,6 @@ To explore patterns to incorporate into your design, consult resources in the fo
 - [Identify microservice boundaries][Identify microservice boundaries]: Derive microservices from a domain model when designing your application.
 - [Design interservice communication for microservices][Designing interservice communication for microservices]: Use service meshes to make communication between microservices efficient and robust.
 
-#### Serverless solutions
-
-[Share location in real time using low-cost serverless Azure services][Sharing location in real time using low-cost serverless Azure services]: Set up a real-time messaging service to share live locations.
-
 #### Mainframe migration
 
 - [Integrate IBM mainframe and midrange message queues with Azure][Integrate IBM mainframe and midrange message queues with Azure]: Use a data-first technique that provides a way for IBM mainframe and midrange message queues to work with Azure services.
@@ -73,10 +69,6 @@ The following resources can also help you design your application. Besides provi
 ### Specific implementations
 
 To learn about scenario-specific architectures, see the solutions in the following areas.
-
-#### AI
-
-- [Quality assurance][Quality assurance]: Implement quality assurance in an assembly line by using analytics and machine learning to predict problems.
 
 #### E-commerce
 
@@ -190,6 +182,5 @@ The following resources provide practical recommendations and information for sp
 [Power Automate deployment at scale]: ../example-scenario/power-automate/power-automate.yml
 [Publish internal APIs to external users]: ../example-scenario/apps/publish-internal-apis-externally.yml
 [Service Bus ACOM page]: https://azure.microsoft.com/services/service-bus
-[Sharing location in real time using low-cost serverless Azure services]: ../example-scenario/signalr/index.yml
 [Transactional Outbox pattern with Azure Cosmos DB]: ../databases/guide/transactional-outbox-cosmos.yml
 [Web and mobile front ends]: ../solution-ideas/articles/front-end.yml

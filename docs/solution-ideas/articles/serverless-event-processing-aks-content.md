@@ -33,8 +33,6 @@ This article describes a variation of a [serverless](https://azure.microsoft.com
 
 This article describes a [serverless](https://azure.microsoft.com/solutions/serverless) event-driven architecture that runs on AKS with KEDA scaler. The solution ingests a stream of data, processes the data, and then writes the results to a back-end database.
 
-To learn more about the basic concepts, considerations, and approaches for serverless event processing, see the [Serverless event processing](../../reference-architectures/serverless/event-processing.yml) reference architecture.
-
 ### Potential use case
 
 A popular use case for implementing an end-to-end event stream processing pattern includes the Event Hubs streaming ingestion service to receive and process events per second using a de-batching and transformation logic implemented with highly scalable, event hub-triggered functions.
@@ -57,8 +55,3 @@ Principal author:
 - [Azure Functions documentation](/azure/azure-functions/)
 - [Overview of Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [Choose an API in Azure Cosmos DB](/azure/cosmos-db/choose-api)
-
-## Related resources
-
-- [Serverless event processing](../../reference-architectures/serverless/event-processing.yml) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.
-- [Private link scenario in event stream processing](./serverless-event-processing-private-link.yml) is a solution idea for implementing a similar architecture in a virtual network with private endpoints, in order to enhance security.

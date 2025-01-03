@@ -20,6 +20,8 @@ items:
           href: idea/process-audio-files.yml
       - name: Predictive analytics
         items:
+        - name: Customer order forecasting
+          href: idea/next-order-forecasting.yml
         - name: Personalized offers
           href: idea/personalized-offers.yml
       - name: AI at the edge
@@ -46,6 +48,16 @@ items:
           href: ../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml
     - name: Design architectures
       items:
+      - name: Automotive
+        items:
+        - name: Automotive messaging, data, and analytics
+          href: ./architecture/automotive-messaging-data-analytics.yml  
+        - name: DataOps for autonomous vehicle operations
+          href: ./architecture/autonomous-vehicle-operations-dataops.yml
+        - name: Software-defined vehicle DevOps toolchain
+          href: ./architecture/software-defined-vehicle-reference-architecture.yml
+        - name: ValOps for autonomous vehicle operations
+          href: ./architecture/autonomous-vehicle-validation-operations.yml   
       - name: Chat bots
         items:
         - name: Azure OpenAI chat basic architecture
@@ -88,6 +100,12 @@ items:
           href: architecture/secure-compute-for-research.yml
     - name: Apply guidance
       items:
+      - name: Automotive
+        items:
+        - name: Autonomous Vehicle Operations design guide
+          href: ./guide/avops-design-guide.md
+        - name: Autonomous Vehicle Operations solution idea
+          href: ./architecture/avops-architecture.yml
       - name: Machine learning options
         href: guide/data-science-and-machine-learning.md
       - name: Developing and evaluating RAG solutions
@@ -101,7 +119,7 @@ items:
         - name: Chunk enrichment phase
           href: guide/rag/rag-enrichment-phase.yml
         - name: Embedding phase
-          href: guide/rag/rag-generating-embeddings.yml
+          href: guide/rag/rag-generate-embeddings.yml
         - name: Information retrieval phase
           href: guide/rag/rag-information-retrieval.yml
         - name: LLM end-to-end evaluation phase
@@ -187,7 +205,7 @@ items:
           - name: Chunk enrichment phase
             href: guide/rag/rag-enrichment-phase.yml
           - name: Embedding phase
-            href: guide/rag/rag-generating-embeddings.yml
+            href: guide/rag/rag-generate-embeddings.yml
           - name: Information retrieval phase
             href: guide/rag/rag-information-retrieval.yml
           - name: LLM end-to-end evaluation phase
