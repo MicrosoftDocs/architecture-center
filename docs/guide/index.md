@@ -86,7 +86,7 @@ Your team or organization might have other design principles as well that your w
 
 Once you have an understanding of the organizational environment your application will exist in and you have the general foundation of good architecture design from the Azure Well-Architected Framework, then typically the first decision point is what *kind* of architecture are you building? It might be a microservices architecture, a more traditional N-tier application, or a big data solution. These are distinct architectural styles fit for difference outcomes. While evaluating architectural styles you're also selecting data store models to address state management. There are benefits and challenges to these decisions.
 
-Evaluate the various [Architecture styles](./architecture-styles/index.md) and the [Data store models](/azure/architecture/guide/technology-choices/data-store-overview).
+Evaluate the various [Architecture styles](./architecture-styles/index.md) and the [Data store models](./technology-choices/data-store-overview.md).
 
 ### Workloads in the Azure Well-Architected Framework
 
@@ -94,7 +94,7 @@ The Well-Architected Framework has a section called [Azure Well-Architected Fram
 
 ### Best practices
 
-Review the [Best practices in cloud applications](/azure/architecture/best-practices/index-best-practices) articles cover various design considerations including API design, autoscaling, data partitioning, caching, and so forth. Review these and apply the best practices that are appropriate for your application.
+Review the [Best practices in cloud applications](../best-practices/index-best-practices.md) articles cover various design considerations including API design, autoscaling, data partitioning, caching, and so forth. Review these and apply the best practices that are appropriate for your application.
 
 ## Use design patterns to solve common problems and introduce strategic tradeoffs
 
@@ -108,13 +108,13 @@ Knowing the type of architecture you're building and the design patterns you exp
 
 - *Compute* refers to the hosting model for the computing resources (application platform) that your applications run on. For more information, see [Choose a compute service](./technology-choices/compute-decision-tree.yml).
 
-  - Azure also offers more specialized views for application platforms such as [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service) and [Azure hybrid options](/azure/architecture/guide/technology-choices/hybrid-considerations).
+  - Azure also offers more specialized views for application platforms such as [Choose an Azure container service](./choose-azure-container-service.md) and [Azure hybrid options](./technology-choices/hybrid-considerations.yml).
 
-- *Data stores* include databases but also storage for files, caches, logs, and anything else that an application might persist to storage. For more information, see [Choose a data store in Azure](/azure/architecture/data-guide/technology-choices/data-store-classification) and [Review your storage options](/azure/architecture/guide/technology-choices/storage-options).
+- *Data stores* include databases but also storage for files, caches, logs, and anything else that an application might persist to storage. For more information, see [Choose a data store in Azure](../data-guide/technology-choices/data-store-classification.md) and [Review your storage options](./technology-choices/storage-options.md).
 
 - *Messaging* technologies enable asynchronous messages between components of the system. For more information, see [Choose a messaging service](./technology-choices/messaging.yml).
 
-- *Artificial intelligence (AI)* technologies solve problems that would be computationally complex to implement in traditional application code. To help guide those choices see, [Choose an Azure AI services technology](/azure/architecture/data-guide/technology-choices/ai-services).
+- *Artificial intelligence (AI)* technologies solve problems that would be computationally complex to implement in traditional application code. To help guide those choices see, [Choose an Azure AI services technology](../data-guide/technology-choices/ai-services.md).
 
 You'll probably make other technology choices along the way, but these four elements (compute, data, messaging, and AI) are central to most cloud applications and determines many aspects of your design.
 
@@ -135,6 +135,13 @@ Once core technology is selected and reference architectures consulted, it's imp
 - **Azure reliability guides**: The Azure reliability hub has in-depth articles that specifically address reliability characteristics of many Azure services. These articles document some of the most critical reliability topics such as availability zone support and expected behavior during types of outages.
 
   [Find and read the reliability guide](/azure/reliability/overview-reliability-guidance) for all resources that are being considered as part of your application design.
+
+## Coming from another cloud?
+
+If you are familiar with designing applications in another cloud provider, many of the same fundamentals translate. For example, architecture styles and cloud design patterns are conceptually cloud agnostic. Browse through the relevant service mapping and architecture guide articles.
+
+- [Azure for AWS professionals](../aws-professional/index.md)
+- [Azure for Google Cloud professionals](../gcp-professional/index.md)
 
 ## Next step
 
