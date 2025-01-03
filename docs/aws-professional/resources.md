@@ -44,7 +44,7 @@ Azure provides several ways to manage your resources:
 
 - [Azure CLI](/azure/azure-resource-manager/templates/deploy-cli). Azure CLI provides a command-line interface that you can use to create and manage Azure resources. Azure CLI is available for [Windows, Linux, and macOS](/cli/azure).
 
-- [PowerShell](/azure/azure-resource-manager/powershell-azure-resource-manager). You can use the Azure modules for PowerShell to run automated management tasks by using a script. PowerShell is available for [Windows, Linux, and macOS](https://github.com/PowerShell/PowerShell).
+- [Azure PowerShell](/azure/azure-resource-manager/powershell-azure-resource-manager). You can use the Azure modules for PowerShell to run automated management tasks by using a script. PowerShell is available for [Windows, Linux, and macOS](https://github.com/PowerShell/PowerShell).
 
 - [ARM Templates](/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell). Azure Resource Manager (ARM) templates provide JSON template-based resource management capabilities that are similar to those of the AWS CloudFormation service.
 
@@ -56,7 +56,7 @@ With each of these interfaces, the resource group is central to the creation, de
 
 ## Tagging
 
-Tagging, in both Azure and AWS, allows you to organize and manage resources effectively by assigning metadata to the resources. Tags are key-value pairs that help you categorize, track, and manage costs across your cloud infrastructure. Both AWS and Azure support attribute-based access control (ABAC) based on tag values. Although Azure and AWS tagging are similar, there are some differences:
+Tagging, in both Azure and AWS, enables you to organize and manage resources effectively by assigning metadata to the resources. Tags are key-value pairs that help you categorize, track, and manage costs across your cloud infrastructure. Both AWS and Azure support attribute-based access control (ABAC) based on tag values. Although Azure and AWS tagging are similar, there are some differences:
 
 - Azure tags are case-insensitive for operations, but casing can be preserved. AWS tags are case-sensitive. 
 - Azure provides tag inheritance through policies. AWS doesn't natively support tag inheritance between parent and child resources. AWS does support tag inheritance for AWS Cost Categories. 
