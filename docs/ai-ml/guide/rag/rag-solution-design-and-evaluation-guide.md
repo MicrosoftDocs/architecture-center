@@ -72,7 +72,7 @@ The following list provides a brief description of what you should do during eac
    - **Gather representative test documents.** Gather test documents for your RAG solution that are representative of your document collection.
    - **Gather test queries.** Gather information and test queries and generate synthetic queries and queries that your documents don't cover.
    
-- During the [chunking phase](./rag-chunking-phase.yml), you should:
+- During the [chunking phase](./rag-chunking-phase.md), you should:
 
    - **Understand chunking economics.** Understand which factors to consider as you evaluate the overall cost of your chunking solution for your text collection.
    - **Perform document analysis.** Ask the following questions to help you make decisions when you analyze a document type:
@@ -82,24 +82,24 @@ The following list provides a brief description of what you should do during eac
    - **Understand chunking approaches.** Understand the different approaches to chunking, including sentence-based, fixed-size, and custom approaches or by using language model augmentation, document layout analysis, and machine learning models.
    - **Understand how document structure affects chunking.** Choose a chunking approach based on the degree of structure that the document has.
 
-- During the [chunk enrichment phase](./rag-enrichment-phase.yml), you should:
+- During the [chunk enrichment phase](./rag-enrichment-phase.md), you should:
 
    - **Clean chunks.** Implement cleaning approaches to eliminate differences that don't affect the meaning of the text. This method supports closeness matches.
    - **Augment chunks.** Consider augmenting your chunk data with common metadata fields and understand their potential uses in search. Learn about commonly used tools or techniques for generating metadata content.
 
-- During the [embedding phase](./rag-generate-embeddings.yml), you should:
+- During the [embedding phase](./rag-generate-embeddings.md), you should:
 
    - **Understand the importance of the embedding model.** An embedding model can significantly affect the relevancy of your vector search results.
    - **Choose the right embedding model for your use case.**
    - **Evaluate embedding models.** Evaluate embedding models by visualizing embeddings and calculating embedding distances.
 
-- During the [information retrieval phase](./rag-information-retrieval.yml), you should:
+- During the [information retrieval phase](./rag-information-retrieval.md), you should:
 
    - **Create a search index.** Apply the appropriate vector search configurations to your vector fields.
    - **Understand search options.** Consider the different types of searches, including vector, full-text, hybrid, and manual multiple searches. Learn about how to split a query into subqueries and filter queries.
    - **Evaluate searches.** Use retrieval evaluation methods to evaluate your search solution.
 
-- During the [language model end-to-end evaluation phase](./rag-llm-evaluation-phase.yml), you should:
+- During the [language model end-to-end evaluation phase](./rag-llm-evaluation-phase.md), you should:
 
    - **Understand language model evaluation metrics.** There are several metrics, including groundedness, completeness, utilization, and relevancy, that you can use to evaluate the language model's response.
    - **Understand similarity and evaluation metrics.** You can use similarity and evaluation metrics to evaluate your RAG solution.

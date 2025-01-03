@@ -243,7 +243,7 @@ Like with text, you should gather a diverse set of questions that involve using 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Chunking phase](./rag-chunking-phase.yml)
+> [Chunking phase](./rag-chunking-phase.md)
 
 ## Related resources
 

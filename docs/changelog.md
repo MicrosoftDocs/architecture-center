@@ -27,7 +27,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
-- [Develop a RAG Solution—Generate Embeddings Phase](./ai-ml/guide/rag/rag-generate-embeddings.yml)
+- [Develop a RAG Solution—Generate Embeddings Phase](./ai-ml/guide/rag/rag-generate-embeddings.md)
 - [Modernize Mainframe Workloads by using BMC AMI Cloud](./example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml)
 - [Azure Virtual Desktop for Azure Local](./hybrid/azure-local-workload-virtual-desktop.yml)
 
@@ -79,9 +79,9 @@ The following new and updated articles have recently been published in the Azure
 - [Use a Message Broker and Events to Integrate Enterprise Systems](./example-scenario/integration/queues-events.yml)  ([#159cbaeccf](https://github.com/MicrosoftDocs/architecture-center/commit/159cbaeccf))
 - [Connect an On-Premises Network to Azure by Using ExpressRoute](./reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)  ([#e5f9dec39d](https://github.com/MicrosoftDocs/architecture-center/commit/e5f9dec39d))
 - [Serverless Functions code walkthrough](./web-apps/serverless/architectures/code.yml)  ([#027d3ab0ec](https://github.com/MicrosoftDocs/architecture-center/commit/027d3ab0ec))
-- [Developing a RAG solution - Chunk enrichment phase](./ai-ml/guide/rag/rag-enrichment-phase.yml)  ([#d7ea602f59](https://github.com/MicrosoftDocs/architecture-center/commit/d7ea602f59))
-- [Developing a RAG solution - Information retrieval phase](./ai-ml/guide/rag/rag-information-retrieval.yml)  ([#d7ea602f59](https://github.com/MicrosoftDocs/architecture-center/commit/d7ea602f59))
-- [Developing a RAG solution - LLM end to end evaluation phase](./ai-ml/guide/rag/rag-llm-evaluation-phase.yml)  ([#d7ea602f59](https://github.com/MicrosoftDocs/architecture-center/commit/d7ea602f59))
+- [Developing a RAG solution - Chunk enrichment phase](./ai-ml/guide/rag/rag-enrichment-phase.md)  ([#d7ea602f59](https://github.com/MicrosoftDocs/architecture-center/commit/d7ea602f59))
+- [Developing a RAG solution - Information retrieval phase](./ai-ml/guide/rag/rag-information-retrieval.md)  ([#d7ea602f59](https://github.com/MicrosoftDocs/architecture-center/commit/d7ea602f59))
+- [Developing a RAG solution - LLM end to end evaluation phase](./ai-ml/guide/rag/rag-llm-evaluation-phase.md)  ([#d7ea602f59](https://github.com/MicrosoftDocs/architecture-center/commit/d7ea602f59))
 - [Enterprise Web App Patterns](./web-apps/guides/enterprise-app-patterns/overview.md)  ([#e06a37b575](https://github.com/MicrosoftDocs/architecture-center/commit/e06a37b575))
 - [Reliable Web App Pattern for .NET](./web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance.yml)  ([#e06a37b575](https://github.com/MicrosoftDocs/architecture-center/commit/e06a37b575))
 - [Reliable Web App Pattern for Java](./web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance.yml)  ([#e06a37b575](https://github.com/MicrosoftDocs/architecture-center/commit/e06a37b575))
@@ -254,8 +254,8 @@ The following new and updated articles have recently been published in the Azure
 - [Modern data warehouses for small and midsize-sized businesses](./example-scenario/data/small-medium-data-warehouse.yml)  ([#dca68ab84a](https://github.com/MicrosoftDocs/architecture-center/commit/dca68ab84a))
 - [Implement Logging and Monitoring for Azure OpenAI Language Models](./ai-ml/openai/architecture/log-monitor-azure-openai.yml)  ([#699ed20b14](https://github.com/MicrosoftDocs/architecture-center/commit/699ed20b14))
 - [Baseline OpenAI end-to-end chat reference architecture](./ai-ml/architecture/baseline-openai-e2e-chat.yml)  ([#45b60c7737](https://github.com/MicrosoftDocs/architecture-center/commit/45b60c7737))
-- [Developing a RAG solution - Chunking phase](./ai-ml/guide/rag/rag-chunking-phase.yml)  ([#6f02c9d429](https://github.com/MicrosoftDocs/architecture-center/commit/6f02c9d429))
-- [Developing a RAG solution - LLM end to end evaluation phase](./ai-ml/guide/rag/rag-llm-evaluation-phase.yml)  ([#6f02c9d429](https://github.com/MicrosoftDocs/architecture-center/commit/6f02c9d429))
+- [Developing a RAG solution - Chunking phase](./ai-ml/guide/rag/rag-chunking-phase.md)  ([#6f02c9d429](https://github.com/MicrosoftDocs/architecture-center/commit/6f02c9d429))
+- [Developing a RAG solution - LLM end to end evaluation phase](./ai-ml/guide/rag/rag-llm-evaluation-phase.md)  ([#6f02c9d429](https://github.com/MicrosoftDocs/architecture-center/commit/6f02c9d429))
 - [Develop a RAG Solution - Preparation Phase](./ai-ml/guide/rag/rag-preparation-phase.md)  ([#6f02c9d429](https://github.com/MicrosoftDocs/architecture-center/commit/6f02c9d429))
 - [Video ingestion and object detection on the edge and in the cloud](./ai-ml/idea/video-ingestion-object-detection-edge-cloud.yml)  ([#b7daa6c24f](https://github.com/MicrosoftDocs/architecture-center/commit/b7daa6c24f))
 - [Application platform considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md)  ([#1d351f3ef2](https://github.com/MicrosoftDocs/architecture-center/commit/1d351f3ef2))

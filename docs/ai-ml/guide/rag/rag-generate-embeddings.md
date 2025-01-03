@@ -1,3 +1,25 @@
+---
+title: Develop a RAG Solution—Generate Embeddings Phase
+description: Learn how embeddings work, how to choose an embedding model, and how your embedding model can affect your vector search results.
+author: robbagby
+ms.author: robbag
+ms.date: 11/17/2024
+ms.topic: conceptual
+ms.service: azure-architecture-center
+ms.collection: ce-skilling-ai-copilot
+ms.subservice: architecture-guide
+ms.custom: arb-aiml
+categories:
+  - ai-machine-learning
+products:
+  - ai-services
+  - azure-cognitive-search
+  - azure-openai
+  - azure-machine-learning
+---
+
+# RAG generate embeddings phase
+
 In the previous steps of your Retrieval-Augmented Generation (RAG) solution, you divided your documents into chunks and enriched the chunks. In this step, you generate embeddings for those chunks and any metadata fields on which you plan to perform vector searches.
 
 This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md).
@@ -79,7 +101,7 @@ When you design your system, you should consider the cost of embedding in terms 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Information-retrieval phase](./rag-information-retrieval.yml)
+> [Information-retrieval phase](./rag-information-retrieval.md)
 
 ## Related resources
 

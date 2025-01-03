@@ -1,3 +1,25 @@
+---
+title: Developing a RAG solution - Chunking phase
+description: Learn about the various chunking strategies like boundary based, custom code, and document analysis models. Also learn about how the document structure should influence your chunking strategy.
+author: robbagby
+ms.author: robbag
+ms.date: 11/22/2024 
+ms.topic: conceptual
+ms.collection: ce-skilling-ai-copilot
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
+ms.custom: arb-aiml
+categories:
+  - ai-machine-learning
+products:
+  - ai-services
+  - azure-cognitive-search
+  - azure-openai
+  - azure-machine-learning
+---
+
+# Chunking
+
 Now that you gathered your test documents and queries, and performed a document analysis in the [preparation phase](./rag-preparation-phase.md), the next phase is chunking. Breaking down documents into a collection of right-sized chunks, each containing semantically relevant content, is a key factor in the success of your Retrieval-Augmented Generation (RAG) implementation. Passing entire documents or oversized chunks is expensive, might overwhelm the token limits of the model, and doesn't produce the best results. Passing information to a language model that is irrelevant to the query can lead to hallucinations. You need to optimize the process of passing relevant information and removing irrelevant information. You do this optimization by using effective chunking and searching strategies to minimize false positives and false negatives, and maximize true positives and true negatives.
 
 Passing chunks that are too small and don't contain sufficient context to address the query also leads to poor results. Relevant context that exists across multiple chunks might not be captured. The art is implementing effective chunking approaches for your specific document types and their structures and content. There are various chunking approaches to consider, each with their own cost implications and effectiveness, depending on the type and structure of document they're applied to.
@@ -215,7 +237,7 @@ Although the best fits for each of the chunking approaches are listed, in practi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Chunk enrichment phase](./rag-enrichment-phase.yml)
+> [Chunk enrichment phase](./rag-enrichment-phase.md)
 
 ## Related resources
 
