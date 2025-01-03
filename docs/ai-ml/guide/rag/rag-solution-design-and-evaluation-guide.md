@@ -66,7 +66,7 @@ You must make various implementation decisions as you design your RAG solution. 
 
 The following list provides a brief description of what you should do during each phase of RAG solution development.
 
-- During the [preparation phase](./rag-preparation-phase.yml), you should:
+- During the [preparation phase](./rag-preparation-phase.md), you should:
 
    - **Determine the solution domain.** Clearly define the business requirements for the RAG solution.
    - **Gather representative test documents.** Gather test documents for your RAG solution that are representative of your document collection.
@@ -134,4 +134,4 @@ Principal authors:
 ## Related resources
 
 > [!div class="nextstepaction"]
-> [Preparation phase](./rag-preparation-phase.yml)
+> [Preparation phase](./rag-preparation-phase.md)

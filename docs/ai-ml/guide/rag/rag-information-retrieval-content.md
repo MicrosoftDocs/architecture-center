@@ -429,7 +429,7 @@ Consider the following general guidance when implementing your search solution:
 
 ## Search evaluation
 
-In the preparation phase, you should have [gathered test queries along with test document information](./rag-preparation-phase.yml#gather-test-query-output). You can use the following information you gathered in that phase to evaluate your search results:
+In the preparation phase, you should have [gathered test queries along with test document information](./rag-preparation-phase.md#gather-test-query-output). You can use the following information you gathered in that phase to evaluate your search results:
 
 - The query - The sample query
 - The context - The collection of all the text in the test documents that address the sample query
