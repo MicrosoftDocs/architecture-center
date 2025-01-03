@@ -47,7 +47,7 @@ Search platforms generally support full-text and vector searches. Some platforms
 > [!NOTE]
 > You can perform a vector search against multiple vector fields in the same query. In AI Search, this practice is considered a hybrid search. For more information, see [Hybrid search](#hybrid-search).
 
-The following sample code performs a vector search against the `contentVector` field. 
+The following sample code performs a vector search against the contentVector field. 
 
 ```python
 embedding = embedding_model.generate_embedding(
@@ -121,7 +121,7 @@ results = client.search(
 
 #### Manual multiple queries
 
-You can run multiple queries, such as a vector search and a keyword full-text search, manually. You aggregate the results, [rerank](#reranking) the results manually, and return the top results. Consider the following use cases for manual multiple queries:
+You can run multiple queries, such as a vector search and a keyword full-text search, manually. You aggregate the results, [rerank](#use-reranking) the results manually, and return the top results. Consider the following use cases for manual multiple queries:
 
 - You use a search platform that doesn't support hybrid searches. You use manual multiple queries to perform your own hybrid search.
 
@@ -462,7 +462,7 @@ You should test positive and negative examples. For the positive examples, you w
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Language model end-to-end evaluation phase](./rag-llm-evaluation-phase.yml)
+> [LLM end-to-end evaluation phase](./rag-llm-evaluation-phase.yml)
 
 ## Related resources
 
