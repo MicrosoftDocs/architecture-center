@@ -2429,7 +2429,7 @@
 					</g>
 					<g id="shape1023-943" transform="translate(1.03917E-13,-7.12)">
 						<title>Sheet.1023</title>
-						<desc>Azure AI Studio hub private endpoint</desc>
+						<desc>Azure AI Foundry hub private endpoint</desc>
 						<rect x="0" y="700.04" width="85.7759" height="19.125" class="st8"/>
 						<text x="4.79" y="700.6" class="st12">Azure AI Foundry <tspan x="17.78" dy="1.2em" class="st24">hub private </tspan><tspan
 									x="22.89" dy="1.2em" class="st24">endpoint</tspan></text>					</g>
@@ -2757,9 +2757,9 @@
 				</g>
 				<g id="shape1087-1107" transform="translate(968.624,-622.672)">
 					<title>Sheet.1087</title>
-					<desc>Azure AI Studio</desc>
+					<desc>Azure AI Foundry</desc>
 					<rect x="0" y="700.04" width="135" height="19.125" class="st8"/>
-					<text x="4" y="712.6" class="st12">Azure AI Studio</text>				</g>
+					<text x="4" y="712.6" class="st12">Azure AI Foundry</text>				</g>
 				<g id="shape1088-1110" transform="translate(1080.73,-463.377)">
 					<title>Dynamic connector.1724</title>
 					<path d="M106.51 610.93 L0 610.93 L0 710.12 L0 719.16" class="st86"/>
@@ -2946,7 +2946,7 @@
 				</g>
 				<g id="shape1129-1224" transform="translate(1119.78,-97.9637)">
 					<title>Sheet.1129</title>
-					<desc>Storage for Azure AI Studio hub</desc>
+					<desc>Storage for Azure AI Foundry hub</desc>
 					<rect x="0" y="700.164" width="63" height="19.0002" class="st8"/>
 					<text x="6.77" y="694.66" class="st12">Storage for <tspan x="12.9" dy="1.2em" class="st24">Azure AI </tspan><tspan
 								x="13.36" dy="1.2em" class="st24">Foundry </tspan><tspan x="22.9" dy="1.2em" class="st24">hub</tspan></text>				</g>
@@ -2996,7 +2996,7 @@
 				</g>
 				<g id="shape1139-1259" transform="translate(1184.62,-549)">
 					<title>Sheet.1139</title>
-					<desc>Azure AI Studio hub</desc>
+					<desc>Azure AI Foundry hub</desc>
 					<rect x="0" y="700.04" width="57.4418" height="19.125" class="st8"/>
 					<text x="10.12" y="700.6" class="st12">Azure AI <tspan x="10.59" dy="1.2em" class="st24">Foundry </tspan><tspan
 								x="20.12" dy="1.2em" class="st24">hub</tspan></text>				</g>
@@ -3025,7 +3025,7 @@
 				</g>
 				<g id="shape1145-1279" transform="translate(960.499,-477.75)">
 					<title>Sheet.1145</title>
-					<desc>Azure AI Studio project</desc>
+					<desc>Azure AI Foundry project</desc>
 					<rect x="0" y="700.04" width="135" height="19.125" class="st8"/>
 					<text x="12.59" y="712.6" class="st12">Azure AI Foundry project</text>				</g>
 				<g id="shape1146-1282" transform="translate(833.296,-393.064)">
