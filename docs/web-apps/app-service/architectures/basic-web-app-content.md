@@ -84,9 +84,28 @@ Because this architecture isn’t designed for production deployments, the follo
 
 For some other security considerations, see [Secure an app in Azure App Service](/azure/app-service-web/web-sites-security).
 
-### Operational excellence
+### Cost Optimization
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+This architecture optimizes for cost through the many trade-offs against the other pillars of the Well-Architected Framework specifically to align with the learning and proof-of-concept goals of this architure. The cost savings of this architecture over a more production ready architecture such as the [Baseline highly available zone-redundant web application](./baseline-zone-redundant.yml) mainly comes from the following choices.
+
+- Single App Service instance, with no autoscaling enabled
+- Standard pricing tier for Azure App Service
+- Basic pricing tier for Azure SQL Database, with no backup retention policies
+- No custom TLS certificate or static IP
+- No Microsoft Defender for Cloud components
+- No network traffic egress control through a firewall
+- No private endpoints
+- No web application firewall (WAF)
+- No dedicated storage account for application deployment
+- Minimal logs and log retention period in Log Analytics
+
+To view the estimated cost of this architecture, see the [pre-built Pricing calculator estimate](https://azure.com/e/a5e725c0fda44d4286fd1836976f56f8) using this architecture's components. The cost of this architecture can usually be further reduced by using an [Azure Dev/Test subscription](https://azure.microsoft.com/pricing/offers/dev-test/), which would be an ideal subscription type for proof of concepts like this.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 The following sections provide guidance around configuration, monitoring, and deployment of your App Service application.
 
@@ -130,9 +149,9 @@ During the POC phase, get comfortable with Azure App Service's control plane as 
 
 If using containers, be sure to understand Kudu's ability to Open an SSH session to a container to support advanced debugging capabilities.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 Because this architecture isn't designed for production deployments, the following outlines some of the critical performance efficiency features that were omitted in this architecture, along with other recommendations and considerations.
 
@@ -150,12 +169,12 @@ The guidance is backed by an [example implementation](https://github.com/Azure-S
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant)
+> [Baseline highly available zone-redundant web application](./baseline-zone-redundant.yml)
 
 ## Related resources
 
-- [Baseline zone-redundant web application](baseline-zone-redundant.yml)
-- [Highly available multi-region web application](multi-region.yml)
+- [Baseline zone-redundant web application](./baseline-zone-redundant.yml)
+- [Highly available multi-region web application](./multi-region.yml)
 - [Multi-region App Service app approaches for disaster recovery](../../guides/multi-region-app-service/multi-region-app-service.yml)
 
 Product documentation:
