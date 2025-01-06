@@ -1,4 +1,4 @@
-fouThis article describes Azure solutions for building, training, deploying, and using custom document processing models. These Azure services also offer user interface (UI) capabilities to do labeling or tagging for text processing.
+This article describes Azure solutions for building, training, deploying, and using custom document processing models. These Azure services also offer user interface (UI) capabilities to do labeling or tagging for text processing.
 
 ## Architecture
 
