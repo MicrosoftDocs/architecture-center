@@ -326,7 +326,7 @@ The diagram is numbered for notable steps in this pipeline:
     1. The optional query rewriter rewrites the decomposed query.
     1. The rewritten query, if it was rewritten, or the original query is executed against the search index. The query can be executed using any of the search types: vector, full text, hybrid, or manual multiple. It can also be executed using advanced query capabilities such as HyDE.
     1. The results are reranked. The top *N* reranked results are added to the accumulated context.
-1. The original query, along with the accumulated context, are run through the same three substeps as each decomposed query was. The only difference is that there's only one query run and the top *N* results are returned to the caller.
+1. The original query, along with the accumulated context, is run through the same three substeps as each decomposed query was. The only difference is that there's only one query run and the top *N* results are returned to the caller.
 
 ### Passing images in queries
 
