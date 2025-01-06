@@ -94,7 +94,7 @@ The availability of language models led to the emergence of new ways to interact
 
 - [Microsoft Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
 
-- [Azure AI Studio](https://azure.microsoft.com/products/ai-studio/)
+- [Azure AI Foundry](https://azure.microsoft.com/products/ai-studio/)
 
 ### Retrieval Augmented Generation (RAG)
 
@@ -185,7 +185,7 @@ For more information, see [MLflow and Azure Machine Learning](/azure/machine-lea
 
 - [Prompt flow](https://microsoft.github.io/promptflow/index.html) is a suite of development tools designed to streamline the end-to-end development cycle of generative AI applications, from ideation, prototyping, testing, evaluation to production deployment and monitoring. It supports prompt engineering through expressing actions in a modular orchestration and flow engine.
 
-- [Azure AI Studio](https://azure.microsoft.com/services/ai-studio/) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. With Azure AI Studio, you have access to Azure AI services, foundation models, playground, and resources to help you build, train, fine-tune, and deploy AI models.
+- [Azure AI Foundry](https://azure.microsoft.com/products/ai-studio/) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. With Azure AI Foundry portal, you have access to Azure AI services, foundation models, playground, and resources to help you build, train, fine-tune, and deploy AI models.
 Also, you can evaluate model responses and orchestrate prompt application components with prompt flow for better performance.
 
 - [Azure Copilot Studio](/microsoft-copilot-studio/) is used to extend Microsoft Copilot in Microsoft 365 and build custom copilots for internal and external scenarios. With Copilot Studio, users can design, test, and publish copilots using the comprehensive authoring canvas. Users can easily create generative AI-enabled conversations, provide greater control to responses for existing copilots, and accelerate productivity with specific automated workflows.
@@ -468,14 +468,14 @@ Although prebuilt AI models are useful and increasingly flexible, the best way t
 - Use responsible AI dashboard for bias detection and error analysis.
 - Orchestrate and manage prompt engineering and LLM flows.
 - Deploy models with REST API endpoints, real-time, and batch inference.
-- Use Hubs (Preview) to share compute, quota, security, and connectivity to company resources with a group of workspaces, while centralizing governance for IT. Set up a hub once, then create secure workspaces directly from the Studio for each project. Use hubs to manage your team's work in both ML Studio and AI Studio.
+- Use Hubs (Preview) to share compute, quota, security, and connectivity to company resources with a group of workspaces, while centralizing governance for IT. Set up a hub once, then create secure workspaces directly from the Studio for each project. Use hubs to manage your team's work in both ML Studio and Azure AI Foundry portal.
 
-#### Azure AI Studio
+#### Azure AI Foundry
 
-[Azure AI Studio](/azure/ai-studio/what-is-ai-studio) is designed to help you efficiently build and deploy custom generative AI applications with the power of the Azure broad AI offerings:
+[Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) is designed to help you efficiently build and deploy custom generative AI applications with the power of the Azure broad AI offerings:
 
-- Build together as one team. Your AI Studio hub provides enterprise-grade security, and a collaborative environment with shared resources and connections to pretrained models, data and compute.
-- Organize your work. Your AI Studio project helps you save state, allowing you to iterate from first idea, to first prototype, and then first production deployment. Also easily invite others to collaborate along this journey.
+- Build together as one team. Your Azure AI Foundry hub provides enterprise-grade security, and a collaborative environment with shared resources and connections to pretrained models, data and compute.
+- Organize your work. Your Azure AI Foundry project helps you save state, allowing you to iterate from first idea, to first prototype, and then first production deployment. Also easily invite others to collaborate along this journey.
 - Use your preferred development platform and frameworks, including GitHub, Visual Studio Code, LangChain, Semantic Kernel, AutoGen, and more.
 - Discover and benchmark from over 1,600 models.
 - Provision Models-as-a-Service (MaaS) through serverless APIs and hosted fine-tuning.
@@ -487,11 +487,11 @@ Although prebuilt AI models are useful and increasingly flexible, the best way t
 - Deploy AI innovations to the Azure managed infrastructure with continuous monitoring and governance across environments.
 - Continuously monitor deployed apps for safety, quality, and token consumption in production.|
 
-For a detailed comparison between Azure Machine Learning and Azure AI Studio, see [Azure Machine Learning vs. Azure AI Studio](/ai/ai-studio-experiences-overview).
+For a detailed comparison between Azure Machine Learning studio and Azure AI Foundry portal, see [Azure AI Foundry portal vs. Azure Machine Learning studio](/ai/ai-studio-experiences-overview).
 
-#### Prompt flow in Azure AI Studio
+#### Prompt flow in Azure AI Foundry portal
 
-[Prompt flow in Azure AI Studio](/azure/ai-studio/how-to/prompt-flow) is a development tool designed to streamline the entire development cycle of AI applications powered by Large Language Models (LLMs). Prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
+[Prompt flow in Azure AI Foundry portal](/azure/ai-studio/how-to/prompt-flow) is a development tool designed to streamline the entire development cycle of AI applications powered by Large Language Models (LLMs). Prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
 
 - Prompt flow is a feature that can be used to generate, customize, or run a flow.
 - A flow is an executable instruction set that can implement the AI logic. Flows can be created or run via multiple tools, like a prebuilt canvas, LangChain, etcetera. Iterations of a flow can be saved as assets; once deployed a flow becomes an API. Not all flows are prompt flows; rather, prompt flow is one way to create a flow.

@@ -74,9 +74,9 @@ Relevance measures the extent to which the language model's response is pertinen
 
 Use the following methods to calculate the relevance of responses:
 
-- [AI-assisted: Relevance in Azure AI Studio](/azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-relevance)
+- [AI-assisted: Relevance in Azure AI Foundry](/azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-relevance)
    > [!NOTE]
-   > You can use Studio to perform the calculations or use the guidance in this article to calculate relevance yourself.
+   > You can use Azure AI Foundry portal to perform the calculations or use the guidance in this article to calculate relevance yourself.
 - [Ragas answer relevancy library](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/answer_relevance/)
 - [MLflow relevance calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 
