@@ -110,4 +110,4 @@ Principal author:
 
 ## Related resource
 
-[Microsoft 365 solution and architecture center](https://learn.microsoft.com/en-us/microsoft-365/solutions)
+[Microsoft 365 solution and architecture center](/microsoft-365/solutions)
