@@ -56,7 +56,7 @@ Applications must be designed by cloud architects to specifically take advantage
 - [Design following the Azure Well-Architected Framework](#design-following-the-azure-well-architected-framework)
 - Understand typical [architecture styles](#understand-typical-architecture-styles), [workloads](#workloads-in-the-azure-well-architected-framework), and [best practices](#best-practices)
 - [Use design patterns to solve common problems and introduce strategic tradeoffs](#use-design-patterns-to-solve-common-problems-and-introduce-strategic-tradeoffs)
-- [Make well-informed technology choices](#make-technology-choices)
+- [Make well-informed technology choices](#make-well-informed-technology-choices)
 - [Evaluate reference architectures](#evaluate-reference-architectures)
 - [Review service-specific guides](#review-service-specific-guides)
 
