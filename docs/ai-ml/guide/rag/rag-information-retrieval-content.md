@@ -339,7 +339,7 @@ The pipeline has the following steps:
     
     1. The search index processes the rewritten query or the original query. It runs the query by using search types, such as vector, full text, hybrid, or manual multiple. The search index can also use advanced query capabilities, such as HyDE.
     1. The results are reranked. The top *N* reranked results are added to the accumulated context.
-1. The original query, along with the accumulated context, go through the same three substeps as each decomposed query. But only one query goes through the steps, and the caller receives the top *N* results.
+1. The original query, along with the accumulated context, goes through the same three substeps as each decomposed query. But only one query goes through the steps, and the caller receives the top *N* results.
 
 ### Pass images in queries
 
