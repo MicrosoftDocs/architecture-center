@@ -6427,12 +6427,12 @@
     },
     {
       "source_path": "docs/industries/game-development.md",
-      "redirect_url": "https://azure.microsoft.com/en-us/solutions/gaming/",
+      "redirect_url": "/gaming/",
       "redirect_document_id": false   
     },
     {
       "source_path": "docs/solution-ideas/articles/gaming-using-cosmos-db.yml",
-      "redirect_url": "https://azure.microsoft.com/en-us/solutions/gaming/",
+      "redirect_url": "/gaming/",
       "redirect_document_id": false   
     },
     {
@@ -6442,7 +6442,7 @@
     },
     {
       "source_path": "docs/industries/media.md",
-      "redirect_url": "https://www.microsoft.com/en-us/industry/media-entertainment",
+      "redirect_url": "https://www.microsoft.com/industry/media-entertainment",
       "redirect_document_id": false   
     },
     {
@@ -6492,7 +6492,7 @@
     },
     {
       "source_path": "docs/industries/overview.md",
-      "redirect_url": "https://www.microsoft.com/industry",
+      "redirect_url": "/industry/",
       "redirect_document_id": false   
     }
   ]
