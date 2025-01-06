@@ -65,7 +65,7 @@ We recommend building an orchestration to use multiple VM types and sizes to inc
 
 - [Eviction rates](/azure/virtual-machines/spot-vms#portal)
 - [Azure Resource Graph](/azure/virtual-machines/spot-vms#azure-resource-graph)
-- [Spot Placement Score (Preview)](https://learn.microsoft.com/azure/virtual-machine-scale-sets/spot-placement-score)
+- [Spot Placement Score (Preview)](/azure/virtual-machine-scale-sets/spot-placement-score)
 
 ### Use the most flexible eviction policy
 
