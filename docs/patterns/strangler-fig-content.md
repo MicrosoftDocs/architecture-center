@@ -17,8 +17,8 @@ This pattern helps to minimize risk from the migration, and spread the developme
 ## Issues and considerations
 
 - Consider how to handle services and data stores that are potentially used by both new and legacy systems. Make sure both can access these resources side-by-side.
-- Structure new applications and services in a way that they can easily be intercepted and replaced in future strangler fig migrations.
-- At some point, when the migration is complete, the strangler fig façade will either go away or evolve into an adaptor for legacy clients.
+- Structure new applications and services in a way that they can easily be intercepted and replaced in future strangler fig migrations. For example, strive to have clear demarcations between parts of your solution so that you can migrate each part individually.
+- At some point, when the migration is complete, the strangler fig façade will probably go away. Alternatively, you can maintain the façade as an adaptor for legacy clients to use while you update the core system for newer clients.
 - Make sure the façade keeps up with the migration.
 - Make sure the façade doesn't become a single point of failure or a performance bottleneck.
 
