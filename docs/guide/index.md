@@ -42,7 +42,7 @@ Applications that take advantage of the cloud's application hosting platforms, m
         - Designed for elastic scale
         - Polyglot persistence (mix of storage technologies)
         - Asynchronous processing
-        - Designed to withstand malfunctions (MTTR)
+        - Design to withstand malfunctions (MTBF) and design for failure (MTTR)
         - Resources provisioned through infrastructure as code as needed
         - Immutable and replaceable infrastructure
     :::column-end:::
