@@ -171,18 +171,18 @@ Other Guidelines:
 
 Prioritize information from provided context when available.
 Adapt your language to suit the complexity of the topic, but aim for clarity.
-Define technical terms or jargon when first introduced.
+Define technical terms or jargon when they're first introduced.
 Use examples to illustrate complex ideas when appropriate.
 If the topic is evolving, mention that your information might not reflect the very latest developments.
 For scientific or technical topics, briefly mention the level of scientific consensus if relevant.
-Use markdown formatting for better readability when appropriate.
+Use Markdown formatting for better readability when appropriate.
 
 Example Input-Output:
 
 Example 1 (With provided context):
 
 Input: "Explain the impact of the Gutenberg Press"
-Context provided: "The query is part of a discussion about revolutionary inventions in medieval Europe and their long-term effects on society and culture."
+Context Provided: "The query is part of a discussion about revolutionary inventions in medieval Europe and their long-term effects on society and culture."
 Augmented Query: "Explain the impact of the Gutenberg Press in the context of revolutionary inventions in medieval Europe. Cover its role in the spread of information, its effects on literacy and education, its influence on the Reformation, and its long-term impact on European society and culture. Compare it to other medieval inventions in terms of societal influence."
 
 Example 2 (Without provided context):
@@ -213,7 +213,7 @@ Consider the given question to analyze and determine whether it falls into one o
 
 1. Simple, factual question
   a. The question asks for a straightforward fact or piece of information.
-  b. The answer could likely be found stated directly in a single passage of a relevant document.
+  b. The answer can likely be found stated directly in a single passage of a relevant document.
   c. Breaking the question down further is unlikely to be beneficial.
   Examples: "What year did World War 2 end?", "What is the capital of France?", "What are the features of productX?"
 
@@ -243,12 +243,12 @@ For each query, follow these specific instructions:
 
 - Expand the query to be clear, complete, fully qualified, and concise.
 - Identify the main elements of the sentence, typically a subject, an action or relationship, and an object or complement. Determine which element is being asked about or emphasized (usually the unknown or focus of the question). Invert the sentence structure. Make the original object or complement the new subject. Transform the original subject into a descriptor or qualifier. Adjust the verb or relationship to fit the new structure.
-- Break the query down into a set subqueries that have clear, complete, fully qualified, concise, and self-contained propositions.
+- Break the query down into a set of subqueries that have clear, complete, fully qualified, concise, and self-contained propositions.
 - Include another subquery by using one more rule: Identify the main subject and object. Swap their positions in the sentence. Adjust the wording to make the new sentence grammatically correct and meaningful. Ensure that the new sentence asks about the original subject.
-- Express each idea or fact as a standalone statement that can be understood with help of given context.
+- Express each idea or fact as a standalone statement that can be understood with the help of the given context.
 - Break down the query into ordered subquestions, from least to most dependent.
 - The most independent subquestion doesn't require or depend on the answer to any other subquestion or prior knowledge.
-- Try having a complete subquestion that has all information only from base query. There's no other context or information available.
+- Try having a complete subquestion that has all information only from the base query. There's no other context or information available.
 - Separate complex ideas into multiple simpler propositions when appropriate.
 - Decontextualize each proposition by adding necessary modifiers to nouns or entire sentences. Replace pronouns, such as it, he, she, they, this, and that, with the full name of the entities that they refer to.
 - If you still need more questions, the subquestion isn't relevant and should be removed.
@@ -311,7 +311,7 @@ Rewrite the given query to optimize it for both keyword-based and semantic-simil
 - Combine all elements into a single, coherent paragraph that flows naturally.
 - Aim for a balance between keyword richness and semantic clarity.
 
-Provide the rewritten query as a single paragraph that incorporates various search aspects, for example keyword-focused, semantically focused, or domain-specific.
+Provide the rewritten query as a single paragraph that incorporates various search aspects, such as keyword-focused, semantically focused, or domain-specific aspects.
 
 query: {original_query}
 ```
@@ -322,7 +322,7 @@ query: {original_query}
 
 ### Combine query translations into a pipeline
 
-You can use multiple query translations. You can even use all of four of these translations in conjunction. The following diagram shows an example of how you can combine these translations into a pipeline.
+You can use multiple query translations. You can even use all four of these translations in conjunction. The following diagram shows an example of how you can combine these translations into a pipeline.
 
 :::image type="complex" source="./_images/rag-query-transformation.svg" lightbox="./_images/rag-query-transformation.svg" alt-text="Diagram that shows a RAG pipeline that has query transformers." border="false":::
     The diagram shows a pipeline that has four steps. The original query is passed to the first step, a box called query augmenter. The query augmenter outputs the original query and an augmented query. The augmented query is passed to the second step, a box called query decomposer. The query decomposer outputs the original query, an augmented query, and four decomposed queries. The decomposed queries are passed to the third step. The third step has a box that says For each decomposed query. That box has three substeps: Query rewriter, query executor, and reranker. The output of step three is the original query, an augmented query, four decomposed queries, and the accumulated context. The original query and the accumulated context are passed to the fourth step. The fourth step has three substeps: Query rewriter, query executor, and reranker. The result of step four is the final result.
@@ -347,7 +347,7 @@ Some multimodal models, such as GPT-4V and GPT-4o, can interpret images. If you 
 
 ### Filter queries
 
-To filter queries, you can use fields in the search store that are configured as filterable. Consider filtering keywords and entities for queries that use those fields to help narrow down the result. Use filtering to eliminate irrelevant data. Retrieve only the data that satisfies certain conditions from an index. This practice improves the overall performance of the query and provides more relevant results. To determine whether filtering benefits your scenario, do experiments and tests. Consider factors such as queries that don't have keywords or have inaccurate keywords, abbreviations, or acronyms.
+To filter queries, you can use fields in the search store that are configured as filterable. Consider filtering keywords and entities for queries that use those fields to help narrow down the result. Use filtering to eliminate irrelevant data. Retrieve only the data that satisfies specific conditions from an index. This practice improves the overall performance of the query and provides more relevant results. To determine whether filtering benefits your scenario, do experiments and tests. Consider factors such as queries that don't have keywords or have inaccurate keywords, abbreviations, or acronyms.
 
 ### Weight fields
 
@@ -439,7 +439,7 @@ Consider the following general guidance when you implement your search solution:
 - Return the title, summary, source, and the raw uncleaned content fields from a search.
 
 - Determine up front whether you need to break down a query into subqueries.
-- Run queries on multiple fields, both vector and text queries. When you receive a query, you don't know whether vector search or text search are better. And you don't know the ideal fields that the vector search or keyword search should search. You can search on multiple fields, potentially with multiple queries, rerank the results, and return the results that have the highest scores.
+- Run vector and text queries on multiple fields. When you receive a query, you don't know whether vector search or text search is better. And you don't know the ideal fields that the vector search or keyword search should search. You can search on multiple fields, potentially with multiple queries, rerank the results, and return the results that have the highest scores.
 - Filter on keyword and entity fields to narrow down results.
 - Use keywords along with vector searches. The keywords filter the results to a smaller subset. The vector store works against that subset to find the best matches.
 
