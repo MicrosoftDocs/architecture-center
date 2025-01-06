@@ -88,7 +88,7 @@ For some other security considerations, see [Secure an app in Azure App Service]
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-This architecture optimizes for cost through the many trade-offs against the other pillars of the Well-Architected Framework specifically to align with the learning and proof-of-concept goals of this architure. The cost savings of this architecture over a more production ready architecture such as the [Baseline highly available zone-redundant web application](./baseline-zone-redundant.yml) mainly comes from the following choices.
+This architecture optimizes for cost through the many trade-offs against the other pillars of the Well-Architected Framework specifically to align with the learning and proof-of-concept goals of this architecture. The cost savings compared to a more production-ready architecture, such as the [Baseline highly available zone-redundant web application](./baseline-zone-redundant.yml), mainly result from the following choices.
 
 - Single App Service instance, with no autoscaling enabled
 - Standard pricing tier for Azure App Service
