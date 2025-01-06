@@ -16,7 +16,7 @@ metadata:
     - reference-architecture
     - e2e-hybrid
     - internal-intro
-name: Integrate on-premises AD with Azure
+name: Compare integration options for on-premises Active Directory and an Azure network
 azureCategories:
   - identity
   - hybrid
