@@ -79,9 +79,9 @@ Workloads often need to combine vector search with full text search or even a hy
 
 | Search method      | Azure Cosmos DB for PostgreSQL     | Azure Cosmos DB for NoSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search                    | Azure SQL Database                 |
 | :----------------- | :--------------------------------- | :------------------------ | :---------------------------------- | :----------------------------------- | :--------------------------------- | :--------------------------------- |
-| Full text search   | Yes <a href="#b1"><sup>1</sup></a> | No                        | Yes <a href="#b2"><sup>2</sup></a>  | Yes <a href="#b1"><sup>1</sup></a>   | Yes <a href="#b3"><sup>3</sup></a> | Yes <a href="#b4"><sup>4</sup></a> |
-| Hybrid search      | Yes <a href="#b5"><sup>5</sup></a> | No                        | No                                  | Yes <a href="#b5"><sup>5</sup></a>   | Yes <a href="#b6"><sup>6</sup></a> | Yes <a href="#b7"><sup>7</sup></a> |
-| Built-in reranking | No                                 | No                        | No                                  | No                                   | Yes <a href="#b8"><sup>8</sup></a> | No                                 |
+| Full text search   | Yes <a href="#b1"><sup>1</sup></a> | Yes <a href="#b9"><sup>9</sup></a>   | Yes <a href="#b2"><sup>2</sup></a>  | Yes <a href="#b1"><sup>1</sup></a>   | Yes <a href="#b3"><sup>3</sup></a> | Yes <a href="#b4"><sup>4</sup></a> |
+| Hybrid search      | Yes <a href="#b5"><sup>5</sup></a> | Yes <a href="#b10"><sup>10</sup></a> | No                                  | Yes <a href="#b5"><sup>5</sup></a>   | Yes <a href="#b6"><sup>6</sup></a> | Yes <a href="#b7"><sup>7</sup></a> |
+| Built-in reranking | No                                 | Yes <a href="#b9"><sup>9</sup></a>   | No                                  | No                                   | Yes <a href="#b8"><sup>8</sup></a> | No                                 |
 
 1. <span id="b1">PostgreSQL [Full Text Search](https://www.postgresql.org/docs/current/textsearch-intro.html)</span>
 1. <span id="b2">[Search and query with text indexes](/azure/cosmos-db/mongodb/vcore/how-to-create-text-index) in Azure Cosmos DB for MongoDB vCore</span>
@@ -91,6 +91,8 @@ Workloads often need to combine vector search with full text search or even a hy
 1. <span id="b6">[Hybrid search (combination of full text search, vector search, and semantic ranking)](/azure/search/hybrid-search-how-to-query) is provided as a first-class feature.</span>
 1. <span id="b7">Hybrid search [example](https://github.com/Azure-Samples/azure-sql-db-openai/blob/main/python/README.md) for Azure SQL database and SQL Server.</span>
 1. <span id="b8">Reranking called [Semantic Ranking](/azure/search/semantic-search-overview) is a first-class feature for reranking the result of full text search and/or vector search.</span>
+1. <span id="b9">Cosmos DB NoSQL [Full Text Search with full text scoring](/azure/cosmos-db/gen-ai/full-text-search)</span>
+1. <span id="b10">Cosmos DB NoSQL [Hybrid Search](/azure/cosmos-db/gen-ai/hybrid-search)</span>
 
 ### Vector data indexing algorithms
 
@@ -104,17 +106,18 @@ Understand what kinds of vector data indexing are provided from the following ta
 
 | Indexing approach                         | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for NoSQL                         | Azure Cosmos DB for MongoDB (vCore)                                                                                 | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database                                             |
 | ----------------------------------------- | ------------------------------ | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | --------------- | -------------------------------------------------------------- |
-| DiskANN                                   | No                             | Yes                                               | No                                                                                                                  | No                                   | No              | No                                                             |
+| DiskANN                                   | No                             | Yes                                               | No                                                                                                                  | Yes<a href="#e1"><sup>1</sup></a>                                       | No              | No                                                             |
 | Exhaustive K-nearest Neighbor (EKNN)      | Yes                            | Yes                                               | Yes                                                                                                                 | Yes                                  | Yes             | Yes                                                            |
-| Hierarchical Navigable Small World (HNSW) | Yes                            | No                                                | Yes (preview)<a href="#e1"><sup>1</sup></a>                                                                         | Yes                                  | Yes             | No                                                             |
+| Hierarchical Navigable Small World (HNSW) | Yes                            | No                                                | Yes (preview)<a href="#e2"><sup>2</sup></a>                                                                         | Yes                                  | Yes             | No                                                             |
 | IVFflat                                   | Yes                            | No                                                | Yes                                                                                                                 | Yes                                  | No              | No                                                             |
-| Other                                     | -                              | flat, quantizedFlat<a href="#e2"><sup>2</sup></a> | Vector field limitation <a href="#e3"><sup>3</sup></a> </br> Vector index limitation <a href="#e4"><sup>4</sup></a> | -                                    | -               | External libraries are available<a href="#e5"><sup>5</sup></a> |
+| Other                                     | -                              | flat, quantizedFlat<a href="#e3"><sup>3</sup></a> | Vector field limitation <a href="#e4"><sup>4</sup></a> </br> Vector index limitation <a href="#e5"><sup>5</sup></a> | -                                    | -               | External libraries are available<a href="#e6"><sup>6</sup></a> |
 
-1. <span id="e1">[Azure Cosmos DB for MongoDB - Vector search overview](/azure/cosmos-db/mongodb/vcore/vector-search)</span>
-1. <span id="e2">[Vector indexing policies](/azure/cosmos-db/nosql/vector-search#vector-indexing-policies)</span>
-1. <span id="e3">Only one vector field is available per container.</span>
-1. <span id="e4">Only one vector index is available per container.</span>
-1. <span id="e5">Index can be created with the aid of external libraries like [Scikit Learn](https://github.com/Azure-Samples/azure-sql-db-vectors-kmeans) or [FAISS](https://github.com/Azure-Samples/azure-sql-db-vectors-faiss)</span>
+1. <span id="e1">[DiskANN for Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-use-pgdiskann)</span>
+1. <span id="e2">[Azure Cosmos DB for MongoDB - Vector search overview](/azure/cosmos-db/mongodb/vcore/vector-search)</span>
+1. <span id="e3">[Vector indexing policies](/azure/cosmos-db/nosql/vector-search#vector-indexing-policies)</span>
+1. <span id="e4">Only one vector field is available per container.</span>
+1. <span id="e5">Only one vector index is available per container.</span>
+1. <span id="e6">Index can be created with the aid of external libraries like [Scikit Learn](https://github.com/Azure-Samples/azure-sql-db-vectors-kmeans) or [FAISS](https://github.com/Azure-Samples/azure-sql-db-vectors-faiss)</span>
 
 ### Similarity and distance calculation capabilities
 

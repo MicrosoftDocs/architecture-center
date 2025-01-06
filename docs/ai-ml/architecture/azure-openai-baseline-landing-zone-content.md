@@ -80,7 +80,7 @@ The platform team owns and maintains these centralized resources. This architect
 
   *Change from the baseline:* This component is new in this architecture. Azure Firewall isn't cost-effective or practical for each workload team to manage their own instance.
 
-- **Azure Bastion in the hub network** provides secure operational access to workload components and also allows access to Azure AI Studio components.
+- **Azure Bastion in the hub network** provides secure operational access to workload components and also allows access to Azure AI Foundry components.
 
   *Change from the baseline:* The workload team owns this component in the baseline architecture.
 
@@ -305,7 +305,7 @@ The workload team provisions the monitoring resources, which include:
 
 Similar to the baseline, all resources are configured to send Azure Diagnostics logs to the Azure Monitor Logs workspace that the workload team provisions as part of the infrastructure as code (IaC) deployment of the resources. You might also need to send logs to a central Azure Monitor Logs workspace. In Azure landing zones, that workspace is typically in the management subscription.
 
-The platform team might also have processes that affect your application landing zone resources. For example, they might use DINE policies to configure diagnostics and send logs to their centralized management subscriptions. Or they might use [Monitor baseline alerts](https://azure.github.io/azure-monitor-baseline-alerts/patterns/alz/deploy/Introduction-to-deploying-the-ALZ-Pattern/) applied through policy. It's important to ensure that your implementation doesn't restrict the extra log and alerting flows.
+The platform team might also have processes that affect your application landing zone resources. For example, they might use DINE policies to configure diagnostics and send logs to their centralized management subscriptions. Or they might use [Monitor baseline alerts](https://azure.github.io/azure-monitor-baseline-alerts/patterns/alz/HowTo/deploy/Introduction-to-deploying-the-ALZ-Pattern/) applied through policy. It's important to ensure that your implementation doesn't restrict the extra log and alerting flows.
 
 ## Azure Policy
 
