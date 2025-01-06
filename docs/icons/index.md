@@ -43,7 +43,7 @@ To learn more about communicating design intent, see [Architecture design diagra
 
 |Month|Change description|
 |--------------|--------------|
-|November 2024|Added 10 new icons such as Azure AI Studio, Azure landing zone, Azure VPN client, and Azure Managed Redis.|
+|November 2024|Added 10 new icons such as Azure AI Foundry, Azure landing zone, Azure VPN client, and Azure Managed Redis.|
 |July 2024|Rebranded more Microsoft Entra ID icons. Added new icons such as AI Content Safety, AKS Automatic, Application Gateway for Containers, and Azure Monitor Pipeline.|
 |February 2024|Over 40 new icons for various services and components such as AI (including Azure OpenAI), Azure Operator, Microsoft Entra ID, and Azure networking.|
 |August 2023|Added new Microsoft Entra ID icon. Reorganized folder structure of some icons.|
