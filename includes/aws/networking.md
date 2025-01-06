@@ -35,4 +35,4 @@ Dedicated network | [Direct Connect](https://aws.amazon.com/directconnect) | [Ex
 | [Hub-spoke network topology in Azure](/azure/architecture/networking/architecture/hub-spoke) | Learn how to implement a hub-spoke topology in Azure, where the hub is a virtual network and the spokes are virtual networks that peer with the hub. |
 | [Implement a secure hybrid network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz) | See a secure hybrid network that extends an on-premises network to Azure with a perimeter network between the on-premises network and an Azure virtual network. |
 
-[view all](/azure/architecture/browse/#networking)
+[View all networking architectures.](/azure/architecture/browse/?terms=networking)
