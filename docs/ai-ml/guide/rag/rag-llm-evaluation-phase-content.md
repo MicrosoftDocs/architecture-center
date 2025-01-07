@@ -86,8 +86,8 @@ Use the following methods to calculate the relevance of responses:
 When relevance is low, do the following tasks:
 
 1. Ensure that the chunks provided to the language model are relevant.
-  - Determine whether any relevant, viable chunks aren't returned. If you discover these chunks, evaluate your embedding model.
-  - If there aren't viable chunks, look to see whether relevant data exists. If it does, evaluate your chunking strategy.
+   - Determine whether any relevant, viable chunks aren't returned. If you discover these chunks, evaluate your embedding model.
+   - If there aren't viable chunks, look to see whether relevant data exists. If it does, evaluate your chunking strategy.
 1. If relevant chunks are returned, evaluate your prompt.
 
 The scores that evaluation methods like [completeness](#completeness) output should yield results that are similar to the relevance score.
