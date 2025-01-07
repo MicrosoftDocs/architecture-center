@@ -1,4 +1,4 @@
-By the time you reach this phase, you should have already generated your search index and determined what searches you want to perform. During the end-to-end evaluation phase, you evaluate your Retrieval-Augmented Generation (RAG) solution by examining the expected user prompts that contain the retrieved grounding data against the language model. Before you reach this phase, you should complete the preceding phases. You need to collect your test documents and queries, chunk your test documents, enrich the chunks, embed the chunks, create a search index, and implement a search strategy. Then you should evaluate each of these phases and ensure that the results meet your expectations. At this point, you should feel comfortable that your solution returns relevant grounding data for a user query.
+In this phase, you evaluate your Retrieval-Augmented Generation (RAG) solution by examining the expected user prompts that contain the retrieved grounding data against the language model. Before you reach this phase, you should complete the preceding phases. You need to collect your test documents and queries, chunk your test documents, enrich the chunks, embed the chunks, create a search index, and implement a search strategy. Then you should evaluate each of these phases and ensure that the results meet your expectations. At this point, you should be confident that your solution returns relevant grounding data for a user query.
 
 This grounding data forms the context for the prompt that you send to the language model to address the user's query. [Prompt engineering strategies](https://platform.openai.com/docs/guides/prompt-engineering) are beyond the scope of this article. This article addresses the evaluation of the engineered call to the language model from the perspective of the grounding data. This article covers common language model evaluation metrics and specific similarity and evaluation metrics that you can use in model evaluation calculations or as standalone metrics.
 
@@ -42,12 +42,12 @@ Use the following methods to calculate the completeness of responses:
 - A language model can help you measure the quality of the language model response. You need the question, context, and generated answer to take this measurement. The following steps outline the high-level process:
   1. Use the language model to rephrase, summarize, or simplify the question. This step identifies the intent.
   2. Ask the model to check whether the intent or the answer to the intent is found in or can be derived from the retrieved documents. The answer can be "yes" or "no" for each document. Answers that start with "yes" indicate that the retrieved documents are relevant to the intent or answer to the intent.
-  3. Calculate the ratio of the intents that have an answer that begins with "Yes."
+  3. Calculate the ratio of the intents that have an answer that begins with "yes."
   4. Square the score to highlight the errors.
 
 #### Evaluate completeness
 
-If completeness is low, start working to increase it by evaluating your embedding model. Compare the vocabulary in your content with the vocabulary in your embedding model. Determine whether you need a domain-specific embedding model or you need to fine-tune an existing model. The next step is to evaluate your chunking strategy. If you use fixed length, consider increasing your chunk size. You can also evaluate whether your test data has enough data to completely address the question.
+If completeness is low, start working to increase it by evaluating your embedding model. Compare the vocabulary in your content to the vocabulary in your embedding model. Determine whether you need a domain-specific embedding model or you need to fine-tune an existing model. The next step is to evaluate your chunking strategy. If you use fixed-sized chunking, consider increasing your chunk size. You can also evaluate whether your test data has enough data to completely address the question.
 
 ### Utilization
 
@@ -63,8 +63,8 @@ The following table provides guidance for evaluating completeness and utilizatio
 
 | | High utilization | Low utilization |
 | --- | --- | --- |
-| **High completeness** | No action needed. | In this case, the returned data can address the question but also returned irrelevant chunks. Consider reducing the top-k parameter value to yield more probable or deterministic results. |
-| **Low completeness** | In this case, the chunks you provide are used, but they don't fully address the question. Consider taking the following steps:<br /><ul><li>Review your chunking strategy to increase the context within the chunks.</li><li>Increase the number of chunks by increasing the top-k parameter value.</li><li>Evaluate whether you have chunks that weren't returned that can increase the completeness. If so, investigate why they weren't returned.</li><li>Follow the guidance in the [completeness section](#completeness).</li></ul> | In this case, the returned data doesn't fully answer the question, and the chunks you provide aren't utilized completely. Consider taking the following steps to address these issues:<br /><ul><li>Review your chunking strategy to increase the context within the chunks. If you're using fixed-size chunking, consider increasing the chunk sizes.</li><li>Fine-tune your prompts to improve responses.</li></ul> |
+| **High completeness** | No action needed. | In this case, the returned data addresses the question but also returns irrelevant chunks. Consider reducing the top-k parameter value to yield more probable or deterministic results. |
+| **Low completeness** | In this case, the language model uses the chunks that you provide, but they don't fully address the question. Consider taking the following steps:<br /><ul><li>Review your chunking strategy to increase the context within the chunks.</li><li>Increase the number of chunks by increasing the top-k parameter value.</li><li>Evaluate whether you have chunks that weren't returned that can increase the completeness. If so, investigate why they weren't returned.</li><li>Follow the guidance in the [completeness section](#completeness).</li></ul> | In this case, the returned data doesn't fully answer the question, and the chunks you provide aren't utilized completely. Consider taking the following steps:<br /><ul><li>Review your chunking strategy to increase the context within the chunks. If you're using fixed-size chunking, consider increasing the chunk sizes.</li><li>Fine-tune your prompts to improve responses.</li></ul> |
 
 ### Relevance
 
@@ -89,17 +89,17 @@ When relevance is low, do the following tasks:
   - If there aren't viable chunks, look to see whether relevant data exists. If it does, evaluate your chunking strategy.
 - If relevant chunks are returned, evaluate your prompt.
 
-The scores that other evaluation methods, like [completeness](#completeness), output should yield similar results to the relevance score.
+The scores that evaluation methods like [completeness](#completeness) output should yield results that are similar to the relevance score.
 
 ## Similarity and evaluation metrics
 
 There are hundreds of similarity and evaluation metrics that you can use in data science. Some algorithms are specific to a domain, such as speech-to-text or language-to-language translation. Each algorithm has a unique strategy for calculating its metric.
 
-Data scientists determine what you want to measure and which metric or combination of metrics you can use to measure it. For example, for language translation, the bilingual evaluation understudy (BLEU) metric checks how many n-grams appear in both the machine translation and human translation to measure similarity by using the same words. Cosine similarity uses embeddings between the machine and human translations to measure semantic similarity. If your goal is to have high semantic similarity and use similar words to the human translation, your goal is a high BLEU score with high cosine similarity. If you only care about semantic similarity, focus on cosine similarity.
+Data scientists determine what you want to measure and which metric or combination of metrics you can use to measure it. For example, for language translation, the bilingual evaluation understudy (BLEU) metric checks how many n-grams appear in both the machine translation and human translation to measure similarity based on whether the translations use the same words. Cosine similarity uses embeddings between the machine and human translations to measure semantic similarity. If your goal is to have high semantic similarity and use similar words to the human translation, you want a high BLEU score with high cosine similarity. If you only care about semantic similarity, focus on cosine similarity.
 
-The following list contains a sample of common similarity and evaluation metrics. Notice that the listed similarity metrics are described as token based, sequence based, or edit based. These descriptions illustrate how the metrics use vastly different approaches to calculating similarity. Also note that the list contains three algorithms for evaluating the quality of text translation from one language to another.
+The following list contains a sample of common similarity and evaluation metrics. Notice that the listed similarity metrics are described as token based, sequence based, or edit based. These descriptions illustrate which approaches the metrics use to calculate similarity. The list also contains three algorithms for evaluating the quality of text translation from one language to another.
 
-- **[Longest common substring](https://en.wikipedia.org/wiki/Longest_common_substring)** is a sequence-based algorithm that finds the longest common substring between two strings. The longest common substring percentage takes the longest common substring and divides it by the number of characters of either the smaller or larger input string.
+- **[Longest common substring](https://en.wikipedia.org/wiki/Longest_common_substring)** is a sequence-based algorithm that finds the longest common substring between two strings. The longest common substring percentage takes the longest common substring and divides it by the number of characters of the smaller or larger input string.
 - **[Longest common subsequence (LCS)](https://en.wikipedia.org/wiki/Longest_common_subsequence)** is a sequence-based algorithm that finds the longest subsequence between two strings. LCS doesn't require the subsequences to be in consecutive order.
 - **[Cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity)** is a token-based algorithm that calculates the cosine of the angle between the two vectors.
 - **[Jaro-Winkler distance](https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance)** is an edit-based algorithm that counts the minimum number of steps to transform one string into another.
@@ -152,7 +152,7 @@ The framework loads, chunks, and enriches text and images from MHTML files and i
 - [Soubhi Hadri](https://www.linkedin.com/in/soubhihadri/) | Senior Data Scientist
 - [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/) | Principal Engineer
 - [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/) | Senior Technical Program Manager
-- [Mahdi Setayesh](https://www.linkedin.com/in/mahdi-setayesh-a03aa644/) | Principle Software Engineer
+- [Mahdi Setayesh](https://www.linkedin.com/in/mahdi-setayesh-a03aa644/) | Principal Software Engineer
 - [Randy Thurman](https://www.linkedin.com/in/randy-thurman-2917549/) | Principal AI Cloud Solution Architect
 
 ## Next steps
