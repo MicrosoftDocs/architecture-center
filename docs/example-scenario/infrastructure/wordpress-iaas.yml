@@ -15,6 +15,7 @@ metadata:
     - web-apps
     - scalability
     - example-scenario
+    - arb-web
   social_image_url: /azure/architecture/example-scenario/infrastructure/media/wordpress-vm.png
 name: WordPress on virtual machines
 azureCategories:
