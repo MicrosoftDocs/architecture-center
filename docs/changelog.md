@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 12/31/2024
+ms.date: 01/06/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.author: robbag
@@ -22,6 +22,14 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
+
+## January 2025
+
+### Updated articles
+
+- [How to build workloads on spot virtual machines](./guide/spot/spot-eviction.yml)  ([#a1b3871cd0](https://github.com/MicrosoftDocs/architecture-center/commit/a1b3871cd0))
+- [Choose an Azure service for vector search](./guide/technology-choices/vector-search.md)  ([#4b9fec8d86](https://github.com/MicrosoftDocs/architecture-center/commit/4b9fec8d86))
+- [Stream processing with Databricks](./reference-architectures/data/stream-processing-databricks.yml)  ([#a75ca75c29](https://github.com/MicrosoftDocs/architecture-center/commit/a75ca75c29))
 
 ## December 2024
 
@@ -235,70 +243,4 @@ The following new and updated articles have recently been published in the Azure
 - [Multilayered protection for Azure virtual machines](./solution-ideas/articles/multilayered-protection-azure-vm.yml)  ([#8fb0bd00f6](https://github.com/MicrosoftDocs/architecture-center/commit/8fb0bd00f6))
 - [Azure hybrid options](./guide/technology-choices/hybrid-considerations.yml)  ([#7f1657ba58](https://github.com/MicrosoftDocs/architecture-center/commit/7f1657ba58))
 - [Choose an Azure service for vector search](./guide/technology-choices/vector-search.md)  ([#064e56920e](https://github.com/MicrosoftDocs/architecture-center/commit/064e56920e))
-
-## September 2024
-
-### New articles
-
-- [Choose Azure AI image and video processing technology](./data-guide/ai-services/image-video-processing.md)
-- [Choose an Azure speech recognition and generation technology](./data-guide/ai-services/speech-recognition-generation.md)
-- [Choose an Azure AI targeted language processing technology](./data-guide/ai-services/targeted-language-processing.md)
-- [Choose an Azure AI services technology](./data-guide/technology-choices/ai-services.md)
-- [Generative AI Ops for Organizations with MLOps Investments](./ai-ml/guide/genaiops-for-mlops.md)
-- [Basic OpenAI End-to-End Chat Reference Architecture](./ai-ml/architecture/basic-openai-e2e-chat.yml)
-
-### Updated articles
-
-- [Design a Secure Research Environment for Regulated Data](./ai-ml/architecture/secure-compute-for-research.yml)  ([#6b45c309ce](https://github.com/MicrosoftDocs/architecture-center/commit/6b45c309ce))
-- [Provide custom authentication to Azure OpenAI Service through a gateway](./ai-ml/guide/azure-openai-gateway-custom-authentication.yml)  ([#ba18376e10](https://github.com/MicrosoftDocs/architecture-center/commit/ba18376e10))
-- [Modern data warehouses for small and midsize-sized businesses](./example-scenario/data/small-medium-data-warehouse.yml)  ([#dca68ab84a](https://github.com/MicrosoftDocs/architecture-center/commit/dca68ab84a))
-- [Implement Logging and Monitoring for Azure OpenAI Language Models](./ai-ml/openai/architecture/log-monitor-azure-openai.yml)  ([#699ed20b14](https://github.com/MicrosoftDocs/architecture-center/commit/699ed20b14))
-- [Baseline OpenAI end-to-end chat reference architecture](./ai-ml/architecture/baseline-openai-e2e-chat.yml)  ([#45b60c7737](https://github.com/MicrosoftDocs/architecture-center/commit/45b60c7737))
-- [Developing a RAG solution - Chunking phase](./ai-ml/guide/rag/rag-chunking-phase.yml)  ([#6f02c9d429](https://github.com/MicrosoftDocs/architecture-center/commit/6f02c9d429))
-- [Developing a RAG solution - LLM end to end evaluation phase](./ai-ml/guide/rag/rag-llm-evaluation-phase.yml)  ([#6f02c9d429](https://github.com/MicrosoftDocs/architecture-center/commit/6f02c9d429))
-- [Develop a RAG Solution - Preparation Phase](./ai-ml/guide/rag/rag-preparation-phase.yml)  ([#6f02c9d429](https://github.com/MicrosoftDocs/architecture-center/commit/6f02c9d429))
-- [Video ingestion and object detection on the edge and in the cloud](./ai-ml/idea/video-ingestion-object-detection-edge-cloud.yml)  ([#b7daa6c24f](https://github.com/MicrosoftDocs/architecture-center/commit/b7daa6c24f))
-- [Application platform considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md)  ([#1d351f3ef2](https://github.com/MicrosoftDocs/architecture-center/commit/1d351f3ef2))
-- [Use the Application Gateway Ingress Controller with a Multitenant Azure Kubernetes Service Cluster](./example-scenario/aks-agic/aks-agic.yml)  ([#a6149d7e3e](https://github.com/MicrosoftDocs/architecture-center/commit/a6149d7e3e))
-- [Enterprise business intelligence](./example-scenario/analytics/enterprise-bi-synapse.yml)  ([#a6149d7e3e](https://github.com/MicrosoftDocs/architecture-center/commit/a6149d7e3e))
-- [Deploy IBM Maximo Application Suite (MAS) on Azure](./example-scenario/apps/deploy-ibm-maximo-application-suite.yml)  ([#60193ea1ce](https://github.com/MicrosoftDocs/architecture-center/commit/60193ea1ce))
-- [Securely managed web applications](./example-scenario/apps/fully-managed-secure-apps.yml)  ([#60193ea1ce](https://github.com/MicrosoftDocs/architecture-center/commit/60193ea1ce))
-- [Line-of-business application using Azure App Service Environment v3](./example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml)  ([#60193ea1ce](https://github.com/MicrosoftDocs/architecture-center/commit/60193ea1ce))
-- [Build the second layer of defense with Microsoft Defender XDR Solutions](./solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml)  ([#289c90dbe9](https://github.com/MicrosoftDocs/architecture-center/commit/289c90dbe9))
-- [Microsoft Sentinel automated responses](./solution-ideas/articles/microsoft-sentinel-automated-response.yml)  ([#52c2b51cb9](https://github.com/MicrosoftDocs/architecture-center/commit/52c2b51cb9))
-- [Integrate Azure and Microsoft Defender XDR security services](./solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml)  ([#e95d6c7cb4](https://github.com/MicrosoftDocs/architecture-center/commit/e95d6c7cb4))
-- [Use Microsoft Sentinel to integrate with Microsoft XDR security components](./guide/security/azure-monitor-integrate-security-components.yml)  ([#ca6770ed3f](https://github.com/MicrosoftDocs/architecture-center/commit/ca6770ed3f))
-- [Map threats to your IT environment](./solution-ideas/articles/map-threats-it-environment.yml)  ([#13ad98822e](https://github.com/MicrosoftDocs/architecture-center/commit/13ad98822e))
-- [Azure Files Accessed from On-Premises and Secured by AD DS in a Private Network](./example-scenario/hybrid/azure-files-on-premises-authentication.yml)  ([#dcf697b0f4](https://github.com/MicrosoftDocs/architecture-center/commit/dcf697b0f4))
-- [AKS (Kubernetes) day-2 operations guide](./operator-guides/aks/day-2-operations-guide.md)  ([#9d8625304f](https://github.com/MicrosoftDocs/architecture-center/commit/9d8625304f))
-- [Stream processing with Databricks](./reference-architectures/data/stream-processing-databricks.yml)  ([#4531b20f65](https://github.com/MicrosoftDocs/architecture-center/commit/4531b20f65))
-- [Manage Microsoft 365 Tenant Configuration with Azure DevOps](./example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml)  ([#596d0cc6c4](https://github.com/MicrosoftDocs/architecture-center/commit/596d0cc6c4))
-- [Azure service retry guidance](./best-practices/retry-service-specific.md)  ([#976f6d5a85](https://github.com/MicrosoftDocs/architecture-center/commit/976f6d5a85))
-- [Gridwich operations for Azure Storage](./reference-architectures/media-services/gridwich-storage-service.yml)  ([#976f6d5a85](https://github.com/MicrosoftDocs/architecture-center/commit/976f6d5a85))
-- [Azure App Configuration considerations for multitenancy](./guide/multitenant/service/app-configuration.md)  ([#70b49bcb27](https://github.com/MicrosoftDocs/architecture-center/commit/70b49bcb27))
-- [Azure Key Vault considerations for multitenancy](./guide/multitenant/service/key-vault.md)  ([#70b49bcb27](https://github.com/MicrosoftDocs/architecture-center/commit/70b49bcb27))
-- [BCDR for Azure Data Factory and Azure Synapse Analytics pipelines](./example-scenario/analytics/pipelines-disaster-recovery.yml)  ([#5003ac7034](https://github.com/MicrosoftDocs/architecture-center/commit/5003ac7034))
-- [Secure a data lakehouse on Synapse](./example-scenario/analytics/secure-data-lakehouse-synapse.yml)  ([#5003ac7034](https://github.com/MicrosoftDocs/architecture-center/commit/5003ac7034))
-- [Enable real-time sync of MongoDB Atlas data changes to Azure Synapse Analytics](./example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml)  ([#5003ac7034](https://github.com/MicrosoftDocs/architecture-center/commit/5003ac7034))
-- [Build CNCF projects by using Azure Kubernetes Service](./example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)  ([#5003ac7034](https://github.com/MicrosoftDocs/architecture-center/commit/5003ac7034))
-- [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)  ([#4b01645043](https://github.com/MicrosoftDocs/architecture-center/commit/4b01645043))
-- [Use Azure Front Door to secure AKS workloads](./example-scenario/aks-front-door/aks-front-door.yml)  ([#e2248966dd](https://github.com/MicrosoftDocs/architecture-center/commit/e2248966dd))
-- [Extract text from objects using Power Automate and AI Builder](./example-scenario/ai/extract-object-text.yml)  ([#4316bc199a](https://github.com/MicrosoftDocs/architecture-center/commit/4316bc199a))
-- [News feeds with near real-time analytics](./example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)  ([#4316bc199a](https://github.com/MicrosoftDocs/architecture-center/commit/4316bc199a))
-- [Web API implementation](./best-practices/api-implementation.md)  ([#860a3bc681](https://github.com/MicrosoftDocs/architecture-center/commit/860a3bc681))
-- [Choose a stream processing technology](./data-guide/technology-choices/stream-processing.md)  ([#5892dd5857](https://github.com/MicrosoftDocs/architecture-center/commit/5892dd5857))
-- [Architectural approaches for AI and ML in multitenant solutions](./guide/multitenant/approaches/ai-ml.md)  ([#fbed477b76](https://github.com/MicrosoftDocs/architecture-center/commit/fbed477b76))
-- [AKS regulated cluster for PCI-DSS 3.2.1 - Data protection](./reference-architectures/containers/aks-pci/aks-pci-data.yml)  ([#419972a758](https://github.com/MicrosoftDocs/architecture-center/commit/419972a758))
-- [AKS baseline cluster for a PCI-DSS 3.2.1 workload - Access controls](./reference-architectures/containers/aks-pci/aks-pci-identity.yml)  ([#419972a758](https://github.com/MicrosoftDocs/architecture-center/commit/419972a758))
-- [AKS regulated cluster for PCI-DSS 3.2.1 - Vulnerability management](./reference-architectures/containers/aks-pci/aks-pci-malware.yml)  ([#419972a758](https://github.com/MicrosoftDocs/architecture-center/commit/419972a758))
-- [AKS regulated cluster for PCI-DSS 3.2.1 - Monitoring operations](./reference-architectures/containers/aks-pci/aks-pci-monitor.yml)  ([#419972a758](https://github.com/MicrosoftDocs/architecture-center/commit/419972a758))
-- [AKS regulated cluster for PCI-DSS 3.2.1 - Network segmentation](./reference-architectures/containers/aks-pci/aks-pci-network.yml)  ([#419972a758](https://github.com/MicrosoftDocs/architecture-center/commit/419972a758))
-- [Architecture of an AKS regulated cluster for PCI-DSS 3.2.1](./reference-architectures/containers/aks-pci/aks-pci-ra-code-assets.yml)  ([#419972a758](https://github.com/MicrosoftDocs/architecture-center/commit/419972a758))
-- [AKS regulated cluster for PCI-DSS 3.2.1 - Summary](./reference-architectures/containers/aks-pci/aks-pci-summary.yml)  ([#419972a758](https://github.com/MicrosoftDocs/architecture-center/commit/419972a758))
-- [Azure Data Factory mission-critical architecture](./databases/architecture/azure-data-factory-mission-critical.yml)  ([#7cebe56052](https://github.com/MicrosoftDocs/architecture-center/commit/7cebe56052))
-- [Azure Data Factory on Azure landing zones baseline architecture](./databases/architecture/azure-data-factory-on-azure-landing-zones-baseline.yml)  ([#7cebe56052](https://github.com/MicrosoftDocs/architecture-center/commit/7cebe56052))
-- [Design a medallion lakehouse with Azure Data Factory](./databases/architecture/azure-data-factory-on-azure-landing-zones-index.yml)  ([#7cebe56052](https://github.com/MicrosoftDocs/architecture-center/commit/7cebe56052))
-- [Citizen AI with Power Platform](./example-scenario/ai/citizen-ai-power-platform.yml)  ([#7cebe56052](https://github.com/MicrosoftDocs/architecture-center/commit/7cebe56052))
-- [Data store classification for Azure workloads](./data-guide/technology-choices/data-store-classification.md)  ([#3f00c22db6](https://github.com/MicrosoftDocs/architecture-center/commit/3f00c22db6))
-- [Azure Data Factory enterprise hardened architecture](./databases/architecture/azure-data-factory-enterprise-hardened.yml)  ([#3f00c22db6](https://github.com/MicrosoftDocs/architecture-center/commit/3f00c22db6))
 
