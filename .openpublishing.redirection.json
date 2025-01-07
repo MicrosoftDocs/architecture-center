@@ -6419,6 +6419,82 @@
       "source_path": "docs/ai-ml/guide/rag/rag-generating-embeddings.yml",
       "redirect_url": "/azure/architecture/ai-ml/guide/rag/rag-generate-embeddings",
       "redirect_document_id": true   
+    },
+    {
+      "source_path": "docs/industries/government.md",
+      "redirect_url": "https://azure.microsoft.com/explore/global-infrastructure/government/",
+      "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/industries/game-development.md",
+      "redirect_url": "/gaming/",
+      "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/gaming-using-cosmos-db.yml",
+      "redirect_url": "/gaming/",
+      "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/large-scale-custom-natural-language-processing",
+      "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/industries/media.md",
+      "redirect_url": "https://www.microsoft.com/industry/media-entertainment",
+      "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-introduction",
+      "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml",
+      "redirect_url": "/industry/manufacturing/",
+      "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/industries/travel-hospitality.md",
+      "redirect_url": "https://www.microsoft.com/industry/mobility/travel-transportation",
+      "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/example-scenario/governance/end-to-end-governance-in-azure.yml",
+      "redirect_url": "/devops/operate/governance-cicd",
+      "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/industries/facilities-real-estate.md",
+      "redirect_url": "https://www.microsoft.com/industry",
+      "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml",
+      "redirect_url": "/azure/architecture/integration/integration-start-here",
+      "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/industries/aerospace/geospatial-processing-analytics.yml",
+      "redirect_url": "/azure/architecture/example-scenario/data/real-time-lakehouse-data-processing",
+      "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/industries/aerospace.md",
+      "redirect_url": "https://www.microsoft.com/industry",
+      "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/industries/sports.md",
+      "redirect_url": "https://www.microsoft.com/industry",
+      "redirect_document_id": false   
+    },
+    {
+      "source_path": "docs/industries/overview.md",
+      "redirect_url": "/industry/",
+      "redirect_document_id": false   
     }
   ]
 }
+
