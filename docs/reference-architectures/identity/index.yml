@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Compare integration options for on-premises Active Directory and an Azure network
+  title: Compare Integration Options for On-Premises Active Directory with an Azure Network
   description: Compare options for integrating your on-premises Active Directory (AD) environment with an Azure network.
   author: martinekuan
   ms.author: pnp
@@ -16,7 +16,7 @@ metadata:
     - reference-architecture
     - e2e-hybrid
     - internal-intro
-name: Compare integration options for on-premises Active Directory and an Azure network
+name: Compare Integration Options for On-Premises Active Directory with an Azure Network
 azureCategories:
   - identity
   - hybrid
