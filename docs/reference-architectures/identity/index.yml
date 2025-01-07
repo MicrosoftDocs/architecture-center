@@ -16,7 +16,7 @@ metadata:
     - reference-architecture
     - e2e-hybrid
     - internal-intro
-name: Compare Integration Options for On-Premises Active Directory with an Azure Network
+name: Compare integration options for on-premises Active Directory with an Azure network
 azureCategories:
   - identity
   - hybrid
