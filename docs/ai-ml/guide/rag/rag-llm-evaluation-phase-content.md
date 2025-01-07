@@ -2,20 +2,20 @@ In this phase, you evaluate your Retrieval-Augmented Generation (RAG) solution b
 
 This grounding data forms the context for the prompt that you send to the language model to address the user's query. [Prompt engineering strategies](https://platform.openai.com/docs/guides/prompt-engineering) are beyond the scope of this article. This article addresses the evaluation of the engineered call to the language model from the perspective of the grounding data. This article covers common language model evaluation metrics and specific similarity and evaluation metrics that you can use in model evaluation calculations or as standalone metrics.
 
-This article doesn't attempt to provide an exhaustive list of language model metrics or similarity and evaluation metrics. The number of these metrics grows every day. What is important for you to take away from this article is that there are various metrics that each have distinct use cases. Only you have a holistic understanding your workload. You and your data scientists must determine what you want to measure and which metrics are appropriate.
+This article doesn't attempt to provide an exhaustive list of language model metrics or similarity and evaluation metrics. The number of these metrics grows every day. What's important for you to take away from this article is that there are various metrics that each have distinct use cases. Only you have a holistic understanding your workload. You and your data scientists must determine what you want to measure and which metrics are appropriate.
 
-This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
+This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml) first.
 
 ## Language model evaluation metrics
 
 There are several metrics that you can use to evaluate the language model's response. A few of these metrics are groundedness, completeness, utilization, and relevancy.
 
 > [!IMPORTANT]
-> Language model responses are nondeterministic, which means that the same prompt to a language model often returns different results. This concept is important to understand when you use a language model as part of your evaluation process. Consider using a target range instead of a single target when you evaluate using a language model.
+> Language model responses are nondeterministic, which means that the same prompt to a language model often returns different results. This concept is important to understand when you use a language model as part of your evaluation process. Consider using a target range instead of a single target when you evaluate language model use.
 
 ### Groundedness
 
-Groundedness, sometimes referred to as faithfulness, measures whether the response is based completely on the context. It validates that the response isn't using information other than what exists in the context. A low groundedness metric indicates that the language model might be outputting inaccurate or nonsensical responses.
+*Groundedness*, sometimes referred to as *faithfulness*, measures whether the response is based completely on the context. It validates that the response isn't using information other than what exists in the context. A low groundedness metric indicates that the language model might be outputting inaccurate or nonsensical responses.
 
 #### Calculate groundedness
 
@@ -32,7 +32,7 @@ A low groundedness calculation indicates that the language model doesn't see the
 
 ### Completeness
 
-Completeness measures whether the response answers all parts of the query. Completeness helps you understand whether the chunks in the context are pertinent, directly relate to the query, and provide a complete answer.
+*Completeness* measures whether the response answers all parts of the query. Completeness helps you understand whether the chunks in the context are pertinent, directly relate to the query, and provide a complete answer.
 
 #### Calculate completeness
 
@@ -47,11 +47,11 @@ Use the following methods to calculate the completeness of responses:
 
 #### Evaluate completeness
 
-If completeness is low, start working to increase it by evaluating your embedding model. Compare the vocabulary in your content to the vocabulary in your embedding model. Determine whether you need a domain-specific embedding model or you need to fine-tune an existing model. The next step is to evaluate your chunking strategy. If you use fixed-sized chunking, consider increasing your chunk size. You can also evaluate whether your test data has enough data to completely address the question.
+If completeness is low, start working to increase it by evaluating your embedding model. Compare the vocabulary in your content to the vocabulary in your embedding model. Determine whether you need a domain-specific embedding model or whether you should fine-tune an existing model. The next step is to evaluate your chunking strategy. If you use fixed-sized chunking, consider increasing your chunk size. You can also evaluate whether your test data has enough data to completely address the question.
 
 ### Utilization
 
-Utilization measures the extent to which the response consists of information from the chunks in the context. The goal is to determine the extent to which each chunk is part of the response. Low utilization indicates that your results might not be relevant to the query. You should evaluate utilization alongside completeness.
+*Utilization* measures the extent to which the response consists of information from the chunks in the context. The goal is to determine the extent to which each chunk is part of the response. Low utilization indicates that your results might not be relevant to the query. You should evaluate utilization alongside completeness.
 
 #### Calculate utilization
 
@@ -59,35 +59,36 @@ Use a language model to calculate utilization. You can pass the response and the
 
 #### Evaluate utilization
 
-The following table provides guidance for evaluating completeness and utilization.
+The following table provides guidance for how to evaluate completeness and utilization.
 
 | | High utilization | Low utilization |
 | --- | --- | --- |
 | **High completeness** | No action needed. | In this case, the returned data addresses the question but also returns irrelevant chunks. Consider reducing the top-k parameter value to yield more probable or deterministic results. |
-| **Low completeness** | In this case, the language model uses the chunks that you provide, but they don't fully address the question. Consider taking the following steps:<br /><ul><li>Review your chunking strategy to increase the context within the chunks.</li><li>Increase the number of chunks by increasing the top-k parameter value.</li><li>Evaluate whether you have chunks that weren't returned that can increase the completeness. If so, investigate why they weren't returned.</li><li>Follow the guidance in the [completeness section](#completeness).</li></ul> | In this case, the returned data doesn't fully answer the question, and the chunks you provide aren't utilized completely. Consider taking the following steps:<br /><ul><li>Review your chunking strategy to increase the context within the chunks. If you're using fixed-size chunking, consider increasing the chunk sizes.</li><li>Fine-tune your prompts to improve responses.</li></ul> |
+| **Low completeness** | In this case, the language model uses the chunks that you provide, but they don't fully address the question. Consider taking the following steps:<br /><ul><li>Review your chunking strategy to increase the context within the chunks.</li><li>Increase the number of chunks by increasing the top-k parameter value.</li><li>Evaluate whether you have chunks that weren't returned that can increase the completeness. If so, investigate why they weren't returned.</li><li>Follow the guidance in the [completeness section](#completeness).</li></ul> | In this case, the returned data doesn't fully answer the question, and the chunks you provide aren't utilized completely. Consider taking the following steps:<br /><ul><li>Review your chunking strategy to increase the context within the chunks. If you use fixed-size chunking, consider increasing the chunk sizes.</li><li>Fine-tune your prompts to improve responses.</li></ul> |
 
 ### Relevance
 
-Relevance measures the extent to which the language model's response is pertinent and related to the query.
+*Relevance* measures the extent to which the language model's response is pertinent and related to the query.
 
 #### Calculate relevance
 
 Use the following methods to calculate the relevance of responses:
 
 - [AI-assisted: Relevance in Azure AI Foundry](/azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-relevance)
-   > [!NOTE]
-   > You can use Azure AI Foundry portal to perform the calculations or use the guidance in this article to calculate relevance yourself.
 - [Ragas answer relevancy library](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/answer_relevance/)
 - [MLflow relevance calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
+
+> [!NOTE]
+> You can use Azure AI Foundry portal to perform the calculations or use the guidance in this article to calculate relevance yourself.
 
 #### Evaluate relevance
 
 When relevance is low, do the following tasks:
 
-- Ensure that the chunks provided to the language model are relevant.
+1. Ensure that the chunks provided to the language model are relevant.
   - Determine whether any relevant, viable chunks aren't returned. If you discover these chunks, evaluate your embedding model.
   - If there aren't viable chunks, look to see whether relevant data exists. If it does, evaluate your chunking strategy.
-- If relevant chunks are returned, evaluate your prompt.
+1. If relevant chunks are returned, evaluate your prompt.
 
 The scores that evaluation methods like [completeness](#completeness) output should yield results that are similar to the relevance score.
 
@@ -97,7 +98,7 @@ There are hundreds of similarity and evaluation metrics that you can use in data
 
 Data scientists determine what you want to measure and which metric or combination of metrics you can use to measure it. For example, for language translation, the bilingual evaluation understudy (BLEU) metric checks how many n-grams appear in both the machine translation and human translation to measure similarity based on whether the translations use the same words. Cosine similarity uses embeddings between the machine and human translations to measure semantic similarity. If your goal is to have high semantic similarity and use similar words to the human translation, you want a high BLEU score with high cosine similarity. If you only care about semantic similarity, focus on cosine similarity.
 
-The following list contains a sample of common similarity and evaluation metrics. Notice that the listed similarity metrics are described as token based, sequence based, or edit based. These descriptions illustrate which approaches the metrics use to calculate similarity. The list also contains three algorithms for evaluating the quality of text translation from one language to another.
+The following list contains a sample of common similarity and evaluation metrics. Notice that the listed similarity metrics are described as token based, sequence based, or edit based. These descriptions illustrate which approaches the metrics use to calculate similarity. The list also contains three algorithms to evaluate the quality of text translation from one language to another.
 
 - **[Longest common substring](https://en.wikipedia.org/wiki/Longest_common_substring)** is a sequence-based algorithm that finds the longest common substring between two strings. The longest common substring percentage takes the longest common substring and divides it by the number of characters of the smaller or larger input string.
 - **[Longest common subsequence (LCS)](https://en.wikipedia.org/wiki/Longest_common_subsequence)** is a sequence-based algorithm that finds the longest subsequence between two strings. LCS doesn't require the subsequences to be in consecutive order.
@@ -105,7 +106,7 @@ The following list contains a sample of common similarity and evaluation metrics
 - **[Jaro-Winkler distance](https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance)** is an edit-based algorithm that counts the minimum number of steps to transform one string into another.
 - **[Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance)** is an edit-based algorithm that measures the minimum number of substitutions that are required to transform one string into another.
 - **[Jaccard index](https://en.wikipedia.org/wiki/Jaccard_index)** is a token-based algorithm that calculates similarity by dividing the intersection of two strings by the union of those strings.
-- **[Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance)** is an edit-based algorithm that calculates similarity by determining the minimum number of single character edits required to transform one string into another.
+- **[Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance)** is an edit-based algorithm that calculates similarity by determining the minimum number of single character edits that are required to transform one string into another.
 - **[BLEU](https://en.wikipedia.org/wiki/BLEU)** evaluates the quality of text that is the result of machine translation from one language to another. BLEU calculates the overlap of n-grams between a machine translation and a human-quality translation to make this evaluation.
 - **[ROUGE](https://en.wikipedia.org/wiki/ROUGE_(metric))** is a metric that compares a machine translation of one language to another to a human-created translation. There are several ROUGE variants that use the overlap of n-grams, skip-bigrams, or longest common subsequence.
 - **[METEOR](https://en.wikipedia.org/wiki/METEOR)** evaluates the quality of text that is the result of machine translation by looking at exact matches, matches after stemming, synonyms, paraphrasing, and alignment.
@@ -127,19 +128,17 @@ It's important to understand that designing and evaluating your RAG solution isn
 
 ## The RAG Experiment Accelerator
 
-These articles walk you through all the phases and design choices that are involved in designing and evaluating a RAG solution. The articles focus on what you should do, not how to do it. An engineering team that works with Microsoft top customers developed a tool called the [RAG Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator). The RAG Experiment Accelerator is a state-of-the-art experimentation framework. It was designed to optimize and enhance the development of RAG solutions. The RAG Experiment Accelerator empowers researchers and developers to efficiently explore and fine-tune the critical components that drive RAG performance, ultimately leading to more accurate and coherent text generation.
+These articles walk you through all the phases and design choices that are involved in designing and evaluating a RAG solution. The articles focus on what you should do, not how to do it. An engineering team that works with Microsoft top customers developed a tool called the [RAG Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator). The RAG Experiment Accelerator is a state-of-the-art experimentation framework. It was designed to optimize and enhance the development of RAG solutions. The RAG Experiment Accelerator empowers researchers and developers to efficiently explore and fine-tune the critical components that drive RAG performance. This innovation ultimately results in more accurate and coherent text generation.
 
 The RAG Experiment Accelerator uses a command-line interface, so you can easily experiment with various embedding models, refine chunking strategies, and evaluate different search approaches to unlock the full potential of your RAG system. It allows you to focus on the core aspects of RAG development by using a simple configuration for hyperparameter tuning.
 
 The framework also provides comprehensive support for language model configuration. This support helps you strike the perfect balance between model complexity and generation quality. This tool helps you streamline the experimentation process, save time, and significantly improve the performance of your RAG models.
 
-Whether you're a seasoned researcher who's pushing the boundaries of natural language understanding or an industry professional who seeks to enhance text generation capabilities, this experimentation framework is the ultimate solution to accelerate your RAG solution development. Embrace the future of RAG experimentation and unlock the true potential of your models with this cutting-edge tool.
-
 ## RAG with Vision Application Framework
 
 Much of the guidance in this article about working with media in your RAG solution came from another engineering team that works with Microsoft top customers. This team wrote a framework called the [RAG with Vision Application Framework](https://github.com/Azure-Samples/rag-as-a-service-with-vision). This framework provides a Python-based RAG pipeline that processes both textual and image content from MHTML documents.
 
-The framework loads, chunks, and enriches text and images from MHTML files and ingests the chunks into Azure Cognitive Search. The framework implements caching for image enrichment for processing and cost efficiency. The framework also incorporates evaluation as part of the pipeline.
+The framework loads, chunks, and enriches text and images from MHTML files. It then ingests the chunks into Azure Cognitive Search. The framework implements caching for image enrichment for processing and cost efficiency. The framework also incorporates evaluation as part of the pipeline.
 
 ## Contributors
 
