@@ -21,7 +21,7 @@ Combining these responsibilities can result in an overly complicated model that 
 
 ## Solution
 
-Use the CQRS pattern to separate write operations (**commands**) from read operations (**queries**). Commands are responsible for updating data.
+Use the CQRS pattern to separate write operations (**commands**) from read operations (**queries**). Commands are responsible for updating data. Queries are responsible for retrieving data.
 
 **Understand commands.** Commands should represent specific business tasks rather than low-level data updates. For example, in a hotel-booking app, use "Book hotel room" instead of "Set ReservationStatus to Reserved." This approach better reflects the intent behind user actions and aligns commands with business processes. To ensure commands are successful, you might need to refine the user interaction flow, server-side logic, and consider asynchronous processing.
 
