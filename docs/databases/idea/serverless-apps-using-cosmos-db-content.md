@@ -58,9 +58,7 @@ This solution applies to many areas:
 See the following architectures that include Functions and Azure Cosmos DB:
 
 - [Transactional Outbox pattern with Azure Cosmos DB](/azure/architecture/databases/guide/transactional-outbox-cosmos)
-- [Gaming using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db)
 - [Code walkthrough: Serverless application with Functions](/azure/architecture/web-apps/serverless/architectures/code)
-- [Analyze news feeds with near real-time analytics using image and natural language processing](/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis)
 
 See the following architectures that feature Functions:
 

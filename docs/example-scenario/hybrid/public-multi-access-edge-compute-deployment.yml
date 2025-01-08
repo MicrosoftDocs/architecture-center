@@ -3,8 +3,8 @@ metadata:
   title: Azure public multi-access edge compute deployment
   titlesuffix: Azure Example Scenarios
   description: Learn how to use Azure public multi-access edge compute to exploit the speed of 5G and unlock key low latency and high bandwidth scenarios.
-  author: adhgupta
-  ms.author: pnp
+  author: rickliev
+  ms.author: rickliev
   ms.date: 06/13/2022
   ms.topic: example-scenario
   ms.service: azure-architecture-center

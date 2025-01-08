@@ -3,8 +3,8 @@ metadata:
   title: High availability in Azure public MEC
   titleSuffix: Azure Example Scenarios
   description: Learn how to deploy workloads in active/standby mode to achieve high availability and disaster recovery in Azure public MEC. 
-  author: adhgupta
-  ms.author: pnp
+  author: rickliev
+  ms.author: rickliev
   ms.date: 06/13/2022
   ms.topic: example-scenario
   ms.service: azure-architecture-center

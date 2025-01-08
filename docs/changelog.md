@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 12/31/2024
+ms.date: 01/06/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.author: robbag
@@ -22,6 +22,14 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
+
+## January 2025
+
+### Updated articles
+
+- [How to build workloads on spot virtual machines](./guide/spot/spot-eviction.yml)  ([#a1b3871cd0](https://github.com/MicrosoftDocs/architecture-center/commit/a1b3871cd0))
+- [Choose an Azure service for vector search](./guide/technology-choices/vector-search.md)  ([#4b9fec8d86](https://github.com/MicrosoftDocs/architecture-center/commit/4b9fec8d86))
+- [Stream processing with Databricks](./reference-architectures/data/stream-processing-databricks.yml)  ([#a75ca75c29](https://github.com/MicrosoftDocs/architecture-center/commit/a75ca75c29))
 
 ## December 2024
 
@@ -236,6 +244,7 @@ The following new and updated articles have recently been published in the Azure
 - [Azure hybrid options](./guide/technology-choices/hybrid-considerations.yml)  ([#7f1657ba58](https://github.com/MicrosoftDocs/architecture-center/commit/7f1657ba58))
 - [Choose an Azure service for vector search](./guide/technology-choices/vector-search.md)  ([#064e56920e](https://github.com/MicrosoftDocs/architecture-center/commit/064e56920e))
 
+<<<<<<< HEAD
 ## September 2024
 
 ### New articles
@@ -302,3 +311,5 @@ The following new and updated articles have recently been published in the Azure
 - [Data store classification for Azure workloads](./data-guide/technology-choices/data-store-classification.md)  ([#3f00c22db6](https://github.com/MicrosoftDocs/architecture-center/commit/3f00c22db6))
 - [Azure Data Factory enterprise hardened architecture](./databases/architecture/azure-data-factory-enterprise-hardened.yml)  ([#3f00c22db6](https://github.com/MicrosoftDocs/architecture-center/commit/3f00c22db6))
 
+=======
+>>>>>>> aa60424a7377335cc4ffec0a968e84f99c47c67e

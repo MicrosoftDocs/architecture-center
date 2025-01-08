@@ -1,8 +1,8 @@
 ---
 title: Choose an Azure AI targeted language processing technology
 description: Learn about targeted language of Azure AI services. Learn which service to use for a specific use case.
-author: robbagby
-ms.author: pnp
+author: FreddyAyala
+ms.author: freddyayala
 categories:
 - ai-machine-learning
 ms.date: 09/25/2024
