@@ -1,10 +1,32 @@
+---
+title: Develop a RAG Solution - Large Language Model End-to-End Evaluation Phase
+description: Learn about how to evaluate your RAG solution from end to end by calculating and evaluating key large language model and similarity metrics.
+author: robbagby
+ms.author: robbag
+ms.date: 01/07/2025 
+ms.topic: conceptual
+ms.service: azure-architecture-center
+ms.collection: ce-skilling-ai-copilot
+ms.subservice: architecture-guide
+ms.custom: arb-aiml
+categories:
+  - ai-machine-learning
+products:
+  - ai-services
+  - azure-cognitive-search
+  - azure-openai
+  - azure-machine-learning
+---
+
+# Large language model end-to-end evaluation
+
 In this phase, you evaluate your Retrieval-Augmented Generation (RAG) solution by examining the expected user prompts that contain the retrieved grounding data against the language model. Before you reach this phase, you should complete the preceding phases. You need to collect your test documents and queries, chunk your test documents, enrich the chunks, embed the chunks, create a search index, and implement a search strategy. Then you should evaluate each of these phases and ensure that the results meet your expectations. At this point, you should be confident that your solution returns relevant grounding data for a user query.
 
 This grounding data forms the context for the prompt that you send to the language model to address the user's query. [Prompt engineering strategies](https://platform.openai.com/docs/guides/prompt-engineering) are beyond the scope of this article. This article addresses the evaluation of the engineered call to the language model from the perspective of the grounding data. This article covers common language model evaluation metrics and specific similarity and evaluation metrics that you can use in model evaluation calculations or as standalone metrics.
 
 This article doesn't attempt to provide an exhaustive list of language model metrics or similarity and evaluation metrics. The number of these metrics grows every day. What's important for you to take away from this article is that there are various metrics that each have distinct use cases. Only you have a holistic understanding your workload. You and your data scientists must determine what you want to measure and which metrics are appropriate.
 
-This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml) first.
+This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md) first.
 
 ## Language model evaluation metrics
 
