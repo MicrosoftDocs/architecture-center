@@ -12,8 +12,6 @@ items:
         items:
         - name: Image classification
           href: idea/intelligent-apps-image-processing.yml
-        - name: Vision classifier model
-          href: idea/vision-classifier-model-with-custom-vision.yml
       - name: Audio processing
         items:
         - name: Use Azure OpenAI to process podcast audio files
