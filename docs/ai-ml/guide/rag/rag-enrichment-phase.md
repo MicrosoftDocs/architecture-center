@@ -1,6 +1,10 @@
 ---
 title: Developing a RAG Solution - Chunk Enrichment Phase
+<<<<<<< HEAD
 description: Learn about the importance of augmenting chunks with metadata like title, summary, keywords, entities, and more. Learn common cleaning operations you can perform on chunks that might improve vector matches..
+=======
+description: Learn about the importance of augmenting chunks with metadata like title, summary, keywords, entities, and more. Learn common cleaning operations you can perform on chunks that might improve vector matches.
+>>>>>>> da845f32567dc2a6771a58a93a1cd05066fb140d
 author: robbagby
 ms.author: robbag
 ms.date: 11/22/2024

@@ -1,5 +1,5 @@
 ---
-title: Developing a RAG solution - Chunking phase
+title: Developing a RAG Solution - Chunking Phase
 description: Learn about the various chunking strategies like boundary based, custom code, and document analysis models. Also learn about how the document structure should influence your chunking strategy.
 author: robbagby
 ms.author: robbag
