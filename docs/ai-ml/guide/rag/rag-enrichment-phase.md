@@ -24,7 +24,7 @@ After you break your documents into a collection of chunks, the next step is to 
 
 This article discusses various ways to augment your chunks, including some common cleaning operations that you can perform on chunks to improve vector comparisons. It also describes some common metadata fields that you can add to your chunks to augment your search index.
 
-> This article is part of a series. Here's the [introduction](./rag-solution-design-and-evaluation-guide.yml).
+> This article is part of a series. Here's the [introduction](./rag-solution-design-and-evaluation-guide.md).
 
 The following code sample shows chunks that are enriched with data.
 
@@ -79,7 +79,7 @@ The use of some language models for augmenting chunks can be expensive. You need
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Generate embeddings](./rag-generate-embeddings.yml)
+> [Generate embeddings](./rag-generate-embeddings.md)
 
 ## Related resources
 
