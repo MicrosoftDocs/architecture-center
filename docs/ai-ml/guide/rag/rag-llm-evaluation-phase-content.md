@@ -138,7 +138,7 @@ The framework also provides comprehensive support for language model configurati
 
 Much of the guidance in this article about working with media in your RAG solution came from another engineering team that works with Microsoft top customers. This team wrote a framework called the [RAG with Vision Application Framework](https://github.com/Azure-Samples/rag-as-a-service-with-vision). This framework provides a Python-based RAG pipeline that processes both textual and image content from MHTML documents.
 
-The framework loads, chunks, and enriches text and images from MHTML files. It then ingests the chunks into Azure Cognitive Search. The framework implements caching for image enrichment for processing and cost efficiency. The framework also incorporates evaluation as part of the pipeline.
+The framework loads, chunks, and enriches text and images from MHTML files. It then ingests the chunks into Azure AI Search. The framework implements caching for image enrichment for processing and cost efficiency. The framework also incorporates evaluation as part of the pipeline.
 
 ## Contributors
 
@@ -157,7 +157,7 @@ The framework loads, chunks, and enriches text and images from MHTML files. It t
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [RAG Experimentation Accelerator](https://github.com/microsoft/rag-experiment-accelerator)
+> [RAG Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator)
 
 > [!div class="nextstepaction"]
 > [RAG with Vision Application Framework](https://github.com/Azure-Samples/rag-as-a-service-with-vision)
