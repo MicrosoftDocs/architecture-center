@@ -39,7 +39,6 @@ This article covers the deployment options for platform and application landing 
 
 The following platform deployment options provide an opinionated approach to deploy and operate the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) as detailed in the Cloud Adoption Framework. Depending upon customizations, the resulting architecture might not be the same for all the deployment options listed here. The differences between the platform deployment options are based on how they use different technologies, take different approaches, and are customized differently.
 
-
 ### Standard deployment options
 
 Standard deployment options address typical enterprise Azure usage.
@@ -52,7 +51,7 @@ Standard deployment options address typical enterprise Azure usage.
 
 ### Variants and specializations
 
-While the [standard platform deployment options](#standard-enterprise-deployment-options) address typical enterprise Azure usage, there are some deployment options that focus on specific specializations.
+While the [standard platform deployment options](#standard-deployment-options) address typical enterprise Azure usage, there are some deployment options that focus on specific specializations.
 
 | Deployment option | Description |
 | --- | ---|
@@ -64,12 +63,12 @@ Partner programs such as the [Azure Migrate and Modernize](/azure/cloud-adoption
 
 #### Enterprise policy as code (EPAC) for policy management
 
-[Enterprise policy as code (EPAC)](https://azure.github.io/enterprise-azure-policy-as-code/) is an alternative method to deploy, manage, and operate Azure Policy across your organization's Azure estate. You can use EPAC instead of the preceding [platform options](#platform-landing-zone-approaches) to manage the policies in an Azure landing zones environment. For more information on the integration approach, see [Integrate EPAC with Azure landing zones](https://azure.github.io/enterprise-azure-policy-as-code/integrating-with-alz/).
+[Enterprise policy as code (EPAC)](https://azure.github.io/enterprise-azure-policy-as-code/) is an alternative method to deploy, manage, and operate Azure Policy across your organization's Azure estate. You can use EPAC instead of the preceding [platform options](#standard-deployment-options) to manage the policies in an Azure landing zones environment. For more information on the integration approach, see [Integrate EPAC with Azure landing zones](https://azure.github.io/enterprise-azure-policy-as-code/integrating-with-alz/).
 
 Enterprise policy as code is best suited for more advanced and mature DevOps and infrastructure-as-code customers. However, customers of any size can use EPAC if they want to after they assess it. To ensure that you're aligned, first see [Who should use EPAC?](https://azure.github.io/enterprise-azure-policy-as-code/#who-should-use-epac).
 
 > [!NOTE]
-> Compare the lifecycle and flexibility of the two approaches before you decide on what approach you use long term.  Begin by evaluating the native policy management that's provided in the default implementation described in the [standard platform options](#standard-enterprise-deployment-options). If that implementation doesn't seem like it's ideal for your governance needs, then perform an MVP or proof of concept using EPAC. It's important that you compare options, validate, and confirm your choice before implementing an approach, as it's a complex process to change policy governance methods once established.
+> Compare the lifecycle and flexibility of the two approaches before you decide on what approach you use long term.  Begin by evaluating the native policy management that's provided in the default implementation described in the [standard platform options](#standard-deployment-options). If that implementation doesn't seem like it's ideal for your governance needs, then perform an MVP or proof of concept using EPAC. It's important that you compare options, validate, and confirm your choice before implementing an approach, as it's a complex process to change policy governance methods once established.
 
 ### Operate Azure landing zones
 
