@@ -205,15 +205,9 @@ items:
           - name: Chunk enrichment phase
             href: guide/rag/rag-enrichment-phase.md
           - name: Embedding phase
-<<<<<<< HEAD
-            href: guide/rag/rag-generate-embeddings.yml
-          - name: Information-retrieval phase
-            href: guide/rag/rag-information-retrieval.yml
-=======
             href: guide/rag/rag-generate-embeddings.md
-          - name: Information retrieval phase
+          - name: Information-retrieval phase
             href: guide/rag/rag-information-retrieval.md
->>>>>>> 6292315bf5999f3affec7112473772eed90e4701
           - name: LLM end-to-end evaluation phase
             href: guide/rag/rag-llm-evaluation-phase.md
         - name: Designing secure multitenant RAG inferencing solutions
