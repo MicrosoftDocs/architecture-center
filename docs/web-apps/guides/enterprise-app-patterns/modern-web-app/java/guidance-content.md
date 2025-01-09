@@ -228,9 +228,9 @@ Implement the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/
 
     Configure the health endpoint in `application.properties` as shown in the reference implementation:
 
-        ```txt
+    ```txt
         management.endpoints.web.exposure.include=metrics,health,info,retry,retryevents
-        ```
+    ```
 
 - *Validate dependencies.* Spring Boot Actuator includes health indicators for various dependencies like databases, message brokers (RabbitMQ or Kafka), and storage services. To validate the availability of Azure services such as Azure Blob Storage or Service Bus, use community plugins like Azure Spring Apps or Micrometer integrations, which provide health indicators for these services. If custom checks are needed, you can implement them by creating a custom `HealthIndicator` bean.
 
