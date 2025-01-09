@@ -57,6 +57,15 @@ While the previous platform landing zones all address typical enterprise Azure u
 
 Partner programs such as the [Azure Migrate and Modernize](/azure/cloud-adoption-framework/ready/landing-zone/partner-landing-zone#option-1---azure-migrate-and-modernize) can help you design and implement your platform landing zone specific to your organization's needs. Those implementations start with the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#platform-landing-zone-accelerator) and help design configurations specific to your cloud adoption strategy, organizational topology, and desired outcomes.
 
+#### Enterprise policy as code (EPAC) for policy management
+
+[Enterprise policy as code (EPAC)](https://azure.github.io/enterprise-azure-policy-as-code/) is an alternative method to deploy, manage, and operate Azure Policy across your organization's Azure estate. You can use EPAC instead of the preceding [platform options](#platform-landing-zone-approaches) to manage the policies in an Azure landing zones environment. For more information on the integration approach, see [Integrate EPAC with Azure landing zones](https://azure.github.io/enterprise-azure-policy-as-code/integrating-with-alz/).
+
+Enterprise policy as code is best suited for more advanced and mature DevOps and infrastructure-as-code customers. However, customers of any size can use EPAC if they want to after they assess it. To ensure that you're aligned, see [Who should use EPAC?](https://azure.github.io/enterprise-azure-policy-as-code/#who-should-use-epac) first.
+
+> [!NOTE]
+> Start with evaluating the native policy management provided in the default implementation described in the preceding [platform options](#platform-landing-zone-approaches). If that implementation doesn't seem like it will be ideal for your governance needs, then perform an MVP or proof of concept using EPAC. Compare the lifecycle and flexibility of the two approaches before you decide on what approach you use long term. It's a complex process to change policy governance methods once established.
+
 ### Operate Azure landing zones
 
 After you deploy the platform landing zone, you need to operate and maintain it. For more information, see the guidance on how to [Keep your Azure landing zone up to date](/azure/cloud-adoption-framework/ready/landing-zone/design-area/keep-azure-landing-zone-up-to-date).
@@ -64,15 +73,6 @@ After you deploy the platform landing zone, you need to operate and maintain it.
 ### Azure governance visualizer
 
 [Azure governance visualizer](./azure-governance-visualizer-accelerator.yml) is intended to help you get a holistic overview on your technical Azure governance implementation by connecting the dots and providing sophisticated reports.
-
-### Alternative platform deployment for policies with Enterprise Policy as Code (EPAC)
-
-[Enterprise Policy as Code (EPAC)](https://azure.github.io/enterprise-azure-policy-as-code/) is an alternative method to deploy, manage, and operate Azure Policy across your organization's Azure estate. You can use EPAC instead of the preceding [platform options](#platform-landing-zone-approaches) to manage the policies in an Azure landing zones environment. For more information on the integration approach, see [Integrate EPAC with Azure landing zones](https://azure.github.io/enterprise-azure-policy-as-code/integrating-with-alz/).
-
-EPAC is best suited for more advanced and mature DevOps and infrastructure-as-code customers. However, customers of any size can use EPAC if they want to after they assess it. To ensure that you're aligned, see [Who should use EPAC?](https://azure.github.io/enterprise-azure-policy-as-code/#who-should-use-epac) first.
-
->[!NOTE]
-> Evaluate and consider both options carefully. Run through an MVP or proof of concept before you decide on what to use in the long term.
 
 ## Subscription vending
 
