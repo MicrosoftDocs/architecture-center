@@ -9,7 +9,7 @@ The Modern Web App pattern helps you optimize high-demand areas of your web appl
 This article contains guidance for implementing the Modern Web App pattern. Use the following links to go to the specific guidance you need:
 
 - [Architecture guidance](#architecture-guidance). Learn how to modularize web app components and select appropriate platform as a service (PaaS) solutions.
-- [Code guidance](#code-guidance). Implement four design patterns to optimize the decoupled components: Strangler Fig, Queue-Based Load Leveling, Competing Consumers, and Health Endpoint Monitoring, and Retry.
+- [Code guidance](#code-guidance). Implement four design patterns to optimize the decoupled components: Strangler Fig, Queue-Based Load Leveling, Competing Consumers, and Health Endpoint Monitoring.
 - [Configuration guidance](#configuration-guidance). Configure authentication, authorization, autoscaling, and containerization for the decoupled components.
 
 > [!TIP]
@@ -232,7 +232,7 @@ Implement the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/
         management.endpoints.web.exposure.include=metrics,health,info,retry,retryevents
     ```
 
-- *Validate dependencies.* Spring Boot Actuator includes health indicators for various dependencies like databases, message brokers (RabbitMQ or Kafka), and storage services. To validate the availability of Azure services such as Azure Blob Storage or Service Bus, use community plugins like Azure Spring Apps or Micrometer integrations, which provide health indicators for these services. If custom checks are needed, you can implement them by creating a custom `HealthIndicator` bean.
+- *Validate dependencies.* Spring Boot Actuator includes health indicators for various dependencies like databases, message brokers (RabbitMQ or Kafka), and storage services. To validate the availability of Azure services like Azure Blob Storage or Service Bus, use technologies like Azure Spring Apps or Micrometer, which provide health indicators for these services. If you need custom checks, you can implement them by creating a custom `HealthIndicator` bean:
 
     ```java
     import org.springframework.boot.actuate.health.Health;
@@ -243,37 +243,37 @@ Implement the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/
     public class CustomAzureServiceBusHealthIndicator implements HealthIndicator {
         @Override
         public Health health() {
-            // Implement your health check logic here (e.g., ping Service Bus)
+            // Implement your health check logic here (for example, ping Service Bus).
             boolean isServiceBusHealthy = checkServiceBusHealth();
             return isServiceBusHealthy ? Health.up().build() : Health.down().build();
         }
 
         private boolean checkServiceBusHealth() {
-            // Implement health check logic (pinging or connecting to the service)
-            return true; // Placeholder, implement actual logic
+            // Implement health check logic (pinging or connecting to the service).
+            return true; // Placeholder. Implement the actual logic.
         }
     }
     ```
 
-- *Configure Azure resources.* Configure the Azure resource to use the app's health check URLs to confirm liveness and readiness. For example, you can use Terraform to use the health check URLs to confirm the liveness and readiness of apps deployed to Container Apps. For more information, see [Health probes in Container Apps](/azure/container-apps/health-probes).
+- *Configure Azure resources.* Configure the Azure resource to use the app's health check URLs to confirm liveness and readiness. For example, you can use Terraform to confirm the liveness and readiness of apps that are deployed to Container Apps. For more information, see [Health probes in Container Apps](/azure/container-apps/health-probes).
 
 ### Implement the Retry pattern
 
-The [Retry pattern](/azure/architecture/patterns/retry) allows applications to recover from transient faults. The Retry pattern is central to the Reliable Web App pattern, so your web app should be using the Retry pattern already. Apply the Retry pattern to requests to the messaging systems and requests issued by the decoupled services you extract from the web app. To implement the Retry pattern, follow these recommendations:
+The [Retry pattern](/azure/architecture/patterns/retry) enables applications to recover from transient faults. This pattern is central to the Reliable Web App pattern, so your web app should already be using the Retry pattern. Apply the Retry pattern to requests to the messaging systems and requests that are issued by the decoupled services that you extract from the web app. To implement the Retry pattern, follow these recommendations:
 
-- *Configure retry options.* When integrating with a message queue, make sure to configure the client responsible for interactions with the queue with appropriate retry settings. Specify parameters such as the maximum number of retries, delay between retries, and maximum delay.
+- *Configure retry options.* Be sure to configure the client that's responsible for interactions with the message queue with appropriate retry settings. Specify parameters like the maximum number of retries, delay between retries, and maximum delay.
 
-- *Use exponential backoff.* Implement the exponential backoff strategy for retry attempts. This means increasing the time between each retry exponentially, which helps reduce the load on the system during periods of high failure rates.
+- *Use exponential backoff.* Implement the exponential backoff strategy for retry attempts. This strategy involves increasing the time between each retry exponentially, which helps reduce the load on the system during periods of high failure rates.
 
-- *Use the SDK retry functionality.* For services with specialized SDKs, like Service Bus or Blob Storage, use the built-in retry mechanisms. The built-in retry mechanisms are optimized for the service's typical use cases and can handle retries more effectively with less configuration required on your part.
+- *Use SDK retry functionality.* For services that have specialized SDKs, like Service Bus or Blob Storage, use the built-in retry mechanisms. These built-in mechanisms are optimized for the service's typical use cases, can handle retries more effectively, and require less configuration.
 
-- *Adopt standard resilience libraries for HTTP clients.* For HTTP clients, you can use Resilience4* along with Spring's RestTemplate or WebClient to handle retries in HTTP communications. Spring's RestTemplate can be wrapped with Resilience4j's retry logic to handle transient HTTP errors effectively.
+- *Use standard resilience libraries for HTTP clients.* For HTTP clients, you can use Resilience4j together with Spring's RestTemplate or WebClient to handle retries in HTTP communications. You can wrap RestTemplate with Resilience4j's retry logic to handle transient HTTP errors effectively.
 
-- *Handle message locking.* For message-based systems, implement message handling strategies that support retries without data loss, such as using "peek-lock" modes where available. Ensure that failed messages are retried effectively and moved to a dead-letter queue after repeated failures.
+- *Handle message locking.* For message-based systems, implement message handling strategies that support retries without data loss. For example, use peek-lock modes when they're available. Ensure that failed messages are retried effectively and moved to a dead-letter queue after repeated failures.
 
 ## Configuration guidance
 
-The following sections provide guidance on implementing the configuration updates. Each section aligns with one or more pillars of the Well-Architected Framework.
+The following sections provide guidance for implementing the configuration updates. Each section aligns with one or more of the pillars of the Well-Architected Framework.
 
 |Configuration|Reliability (RE) |Security (SE) |Cost Optimization (CO) |Operational Excellence (OE)|Performance Efficiency (PE)| Supporting Well-Architected Framework principles |
 |---|---|---|---|---|---| --- |
@@ -283,21 +283,21 @@ The following sections provide guidance on implementing the configuration update
 
 ### Configure authentication and authorization
 
-To configure authentication and authorization on any new Azure services (*workload identities*) you add to the web app, follow these recommendations:
+To configure authentication and authorization on any new Azure services (*workload identities*) that you add to the web app, follow these recommendations:
 
-- *Use managed identities for each new service.* Each independent service should have its own identity and use managed identities for service-to-service authentication. Managed identities eliminate the need to manage credentials in your code and reduce the risk of credential leakage. It helps you avoid putting sensitive information like connection strings in your code or configuration files.
+- *Use managed identities for each new service.* Each independent service should have its own identity and use managed identities for service-to-service authentication. Managed identities eliminate the need to manage credentials in your code and reduce the risk of credential leakage. They help you avoid putting sensitive information like connection strings in your code or configuration files.
 
-- *Grant least privilege to each new service.* Assign only necessary permissions to each new service identity. For example, if an identity only needs to push to a container registry, don't give it pull permissions. Review these permissions regularly and adjust as necessary. Use different identities for different roles, such as deployment and the application. This limits the potential damage if one identity is compromised.
+- *Grant least privilege to each new service.* Assign only necessary permissions to each new service identity. For example, if an identity only needs to push to a container registry, don't give it pull permissions. Review these permissions regularly and adjust then as necessary. Use different identities for different roles, such as deployment and the application. Doing so limits the potential damage if one identity is compromised.
 
-- *Adopt infrastructure as code (IaC).* Use Bicep or similar IaC tools like Terraform to define and manage your cloud resources. IaC ensures consistent application of security configurations in your deployments and allows you to version control your infrastructure setup.
+- *Use infrastructure as code (IaC).* Use Bicep or a similar IaC tool like Terraform to define and manage your cloud resources. IaC ensures consistent application of security configurations in your deployments and enables you to version control your infrastructure setup.
 
 To configure authentication and authorization on users (*user identities*), follow these recommendations:
 
-- *Grant least privilege to users.* Just like with services, ensure that users are given only the permissions they need to perform their tasks. Regularly review and adjust these permissions.
+- *Grant least privilege to users.* As with services, ensure that users have only the permissions they need to perform their tasks. Regularly review and adjust these permissions.
 
-- *Conduct regular security audits.* Regularly review and audit your security setup. Look for any misconfigurations or unnecessary permissions and rectify them immediately.
+- *Conduct regular security audits.* Regularly review and audit your security setup. Look for misconfigurations and unnecessary permissions and rectify or remove them immediately.
 
-The reference implementation uses IaC to assign managed identities to added services and specific roles to each identity. It defines roles and permissions access for deployment by defining roles for Container Registry push and pull (*see following code*).
+The reference implementation uses IaC to assign managed identities to added services and specific roles to each identity. It defines roles and permissions access for deployment by defining roles for Container Registry pushes and pulls. Here's the code: 
 
 ```terraform
 resource "azurerm_role_assignment" "container_app_acr_pull" {
@@ -319,8 +319,8 @@ resource "azurerm_role_assignment" "container_registry_user_assigned_identity_ac
 }
 
 
-# For demo purposes, allow current user access to the container registry
-# Note: when running as a service principal, this is also needed
+# For demo purposes, allow the current user to access the container registry.
+# Note: When running as a service principal, this is also needed.
 resource "azurerm_role_assignment" "acr_contributor_user_role_assignement" {
   scope                = azurerm_container_registry.acr.id
   role_definition_name = "Contributor"
@@ -330,19 +330,19 @@ resource "azurerm_role_assignment" "acr_contributor_user_role_assignement" {
 
 ### Configure independent autoscaling
 
-The Modern Web App pattern begins breaking up the monolithic architecture and introduces service decoupling. When you decouple a web app architecture, you can scale decoupled services independently. Scaling the Azure services to support an independent web app service, rather than an entire web app, optimizes scaling costs while meeting demands. To autoscale containers, follow these recommendations:
+The Modern Web App pattern starts to break up the monolithic architecture and introduces service decoupling. When you decouple a web app architecture, you can scale decoupled services independently. Scaling the Azure services to support an independent web app service, rather than an entire web app, optimizes scaling costs while meeting demands. To autoscale containers, follow these recommendations:
 
-- *Use stateless services.* Ensure your services are stateless. If your web app contains in-process session state, externalize it to a distributed cache like Redis or a database like SQL Server.
+- *Use stateless services.* Ensure that your services are stateless. If your web app contains in-process session state, externalize it to a distributed cache like Redis or a database like SQL Server.
 
-- *Configure autoscaling rules.* Use the autoscaling configurations that provide the most cost-effective control over your services. For containerized services, event-based scaling, such as Kubernetes Event-Driven Autoscaler (KEDA) often provides granular control, allowing you to scale based on event metrics. [Container Apps](/azure/container-apps/scale-app) and AKS support KEDA. For services that don't support KEDA, such as [App Service](/azure/app-service/manage-automatic-scaling), use the autoscaling features provided by the platform itself. These features often include scaling based on metrics-based rules or HTTP traffic.
+- *Configure autoscaling rules.* Use the autoscaling configurations that provide the most cost-effective control over your services. For containerized services, event-based scaling, like Kubernetes Event-Driven Autoscaler (KEDA), often provides granular control that allows you to scale based on event metrics. [Container Apps](/azure/container-apps/scale-app) and AKS support KEDA. For services that don't support KEDA, such as [App Service](/azure/app-service/manage-automatic-scaling), use the autoscaling features provided by the platform itself. These features often include scaling based on metrics-based rules or HTTP traffic.
 
-- *Configure minimum replicas.* To prevent a cold start, configure autoscaling settings to maintain a minimum of one replica. A cold start is when you initialize a service from a stopped state, which often creates a delayed response. If minimizing costs is a priority and you can tolerate cold start delays, set the minimum replica count to 0 when configuring autoscaling.
+- *Configure minimum replicas.* To prevent cold starts, configure autoscaling settings to maintain a minimum of one replica. A cold start is the initialization of a service from a stopped state. A cold start often delays the response. If minimizing costs is a priority and you can tolerate cold start delays, set the minimum replica count to 0 when you configure autoscaling.
 
 - *Configure a cooldown period.* Apply an appropriate cooldown period to introduce a delay between scaling events. The goal is to [prevent excessive scaling](/azure/well-architected/cost-optimization/optimize-scaling-costs#optimize-autoscaling) activities triggered by temporary load spikes.
 
-- *Configure queue-based scaling.* If your application uses a message queue like Service Bus, configure your autoscaling settings to scale based on the length of the queue with request messages. The scaler aims to maintain one replica of the service for every N message in the queue (rounded up).
+- *Configure queue-based scaling.* If your application uses a message queue like Service Bus, configure your autoscaling settings to scale based on the length of the request message queue. The scaler attempts to maintain one replica of the service for every *N* messages in the queue (rounded up).
 
-For example, the reference implementation uses the Service Bus KEDA scaler to automatically scale Container App based on the length of the Service Bus queue. The scaling rule, named `service-bus-queue-length-rule`, adjusts the number of service replicas depending on the message count in the specified Service Bus queue. The `messageCount` parameter is set to 10, which means the scaler adds one replica for every 10 messages in the queue. The maximum replicas (`max_replicas`) are set to 10, and minimum replicas are implicitly 0 unless overridden, which allows the service to scale down to zero when there are no messages in the queue. The connection string for the Service Bus queue is stored securely as a secret in Azure, named `azure-servicebus-connection-string`, which is used to authenticate the scaler to the Service Bus.
+For example, the reference implementation uses the Service Bus KEDA scaler to automatically scale Container App based on the length of the Service Bus queue. The scaling rule, named `service-bus-queue-length-rule`, adjusts the number of service replicas based on the message count in the specified Service Bus queue. The `messageCount` parameter is set to 10, which configures the scaler to add one replica for every 10 messages in the queue. The maximum replica count (`max_replicas`) is set to 10. The minimum replica count is implicitly 0 unless it's overridden. This configuration allows the service to scale down to zero when there are no messages in the queue. The connection string for the Service Bus queue is stored as a secret in Azure, named `azure-servicebus-connection-string`, which is used to authenticate the scaler to the Service Bus. Here's the Terraform code: 
 
 ```terraform
     max_replicas = 10
@@ -365,54 +365,56 @@ For example, the reference implementation uses the Service Bus KEDA scaler to au
 
 ### Containerize service deployment
 
-Containerization means that all dependencies for the app to function are encapsulated in a lightweight image that can be reliably deployed to a wide range of hosts. To containerize deployment, follow these recommendations:
+Containerization is the encapsulation of all dependencies needed by the app in a lightweight image that can be reliably deployed to a wide range of hosts. To containerize deployment, follow these recommendations:
 
-- *Identify domain boundaries.* Start by identifying the domain boundaries within your monolithic application. This helps determine which parts of the application you can extract into separate services.
+- *Identify domain boundaries.* Start by identifying the domain boundaries in your monolithic application. Doing so helps you determine which parts of the application you can extract into separate services.
 
-- *Create Docker images.* When creating Docker images for your Java services, use official OpenJDK base images. These images contain only the minimal set of packages needed for Java to run, which minimizes both the package size and the attack surface area.
+- *Create Docker images.* When you create Docker images for your Java services, use official OpenJDK base images. These images contain only the minimal set of packages that Java needs to run. Using these images minimizes both the package size and the attack surface area.
 
-- *Use multi-stage Dockerfiles.* Use a multi-stage Dockerfiles to separate build-time assets from the runtime container image. It helps to keep your production images small and secure. You can also use a preconfigured build server and copy the jar file into the container image.
+- *Use multi-stage Dockerfiles.* Use a multi-stage Dockerfile to separate build-time assets from the runtime container image. Using this type of file helps to keep your production images small and secure. You can also use a preconfigured build server and copy the JAR file into the container image.
 
-- *Run as a nonroot user.* Run your Java containers as a nonroot user (via user name or UID, $APP_UID) to align with the principle of least privilege. It limits the potential effects of a compromised container.
+- *Run as a nonroot user.* Run your Java containers as a nonroot user (via user name or UID $APP_UID) to align with the principle of least privilege. Doing so limits the potential effects of a compromised container.
 
-- *Listen on port 8080.* When running as a nonroot user, configure your application to listen on port 8080. It's a common convention for nonroot users.
+- *Listen on port 8080.* When you run containers as a nonroot user, configure your application to listen on port 8080. This is a common convention for nonroot users.
 
-- *Encapsulate dependencies.* Ensure that all dependencies for the app to function are encapsulated in the Docker container image. Encapsulation allows the app to be reliably deployed to a wide range of hosts.
+- *Encapsulate dependencies.* Ensure that all dependencies that the app needs are encapsulated in the Docker container image. Encapsulation allows the app to be reliably deployed to a wide range of hosts.
 
 - *Choose the right base images.* The base image you choose depends on your deployment environment. If you're deploying to Container Apps, for instance, you need to use Linux Docker images.
 
-The reference implementation demonstrates a Docker build process for containerizing a Java application. This Dockerfile uses a single-stage build with the OpenJDK base image (`mcr.microsoft.com/openjdk/jdk:17-ubuntu`), which provides the necessary Java runtime environment.
+The reference implementation demonstrates a Docker build process for containerizing a Java application. The Dockerfile uses a single-stage build with the OpenJDK base image (`mcr.microsoft.com/openjdk/jdk:17-ubuntu`), which provides the necessary Java runtime environment.
 
 The Dockerfile includes the following steps:
 
-1. *Volume declaration*: A temporary volume (`/tmp`) is defined, allowing for temporary file storage separate from the container's main filesystem.
-1. *Copying artifacts*: The application's JAR file (`email-processor.jar`) is copied into the container, along with the Application Insights agent (`applicationinsights-agent.jar`) for monitoring.
-1. *Setting the entrypoint*: The container is configured to run the application with the Application Insights agent enabled, using `java -javaagent` to monitor the application during runtime.
+1. *Declaring the volume.* A temporary volume (`/tmp`) is defined. This volume provides temporary file storage that's separate from the container's main file system.
+1. *Copying artifacts.* The application's JAR file (`email-processor.jar`) is copied into the container, together with the Application Insights agent (`applicationinsights-agent.jar`) for that's used for monitoring.
+1. *Setting the entrypoint.* The container is configured to run the application with the Application Insights agent enabled. The code uses `java -javaagent` to monitor the application during runtime.
 
-This Dockerfile keeps the image lean by only including runtime dependencies, suitable for deployment environments like Container Apps, which support Linux-based containers.
+The Dockerfile keeps the image small by only including runtime dependencies. It's suitable for deployment environments like Container Apps that support Linux-based containers.
 
 ```dockerfile
-# Use OpenJDK 17 base image on Ubuntu as the foundation
+# Use the OpenJDK 17 base image on Ubuntu as the foundation.
 FROM mcr.microsoft.com/openjdk/jdk:17-ubuntu
 
-# Define a volume to allow temporary files to be stored separately from the container's main file system
+# Define a volume to allow temporary files to be stored separately from the container's main file system.
 VOLUME /tmp
 
-# Copy the packaged JAR file into the container
+# Copy the packaged JAR file into the container.
 COPY target/email-processor.jar app.jar
 
-# Copy the Application Insights agent for monitoring
+# Copy the Application Insights agent for monitoring.
 COPY target/agent/applicationinsights-agent.jar applicationinsights-agent.jar
 
-# Set the entry point to run the application with the Application Insights agent
+# Set the entrypoint to run the application with the Application Insights agent.
 ENTRYPOINT ["java", "-javaagent:applicationinsights-agent.jar", "-jar", "/app.jar"]
 ```
 
 ## Deploy the reference implementation
 
-Deploy the reference implementation of the [Modern Web App Pattern for Java](https://github.com/azure/modern-web-app-pattern-java). There are instructions for both development and production deployment in the repository. After you deploy, you can simulate and observe design patterns.
+Deploy the reference implementation of the [Modern Web App Pattern for Java](https://github.com/azure/modern-web-app-pattern-java). There are instructions for both development and production deployment in the repository. After you deploy the implementation, you can simulate and observe design patterns.
 
-[![Diagram showing architecture of the reference implementation.](../../../_images/modern-web-app-java.svg)](../../../_images/modern-web-app-java.svg)
+The following diagram shows the architecture of the reference implementation:
+
+[![Diagram showing architecture of the reference implementation.](../../../_images/modern-web-app-java.svg)](../../../_images/modern-web-app-java.svg#lightbox)
 *Figure 3. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/modern-web-app-java.vsdx) of this architecture.*
 
 >[!div class="nextstepaction"]
