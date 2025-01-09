@@ -35,7 +35,7 @@ This article discusses the options available to you to deploy platform and appli
 
 This article covers the deployment options for platform and application landing zones.
 
-## Platform landing zone approaches
+## Choose a platform landing zone approach
 
 The following platform deployment options provide an opinionated approach to deploy and operate the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) as detailed in the Cloud Adoption Framework. Depending upon customizations, the resulting architecture might not be the same for all the deployment options listed here. The differences between the platform deployment options are based on how they use different technologies, take different approaches, and are customized differently.
 
