@@ -33,7 +33,7 @@ This article discusses the options available to you to deploy platform and appli
 > [!IMPORTANT]
 > For more information about platform versus application landing zones definitions and implementations, see [What is an Azure landing zone?](/azure/cloud-adoption-framework/ready/landing-zone/#platform-landing-zones-vs-application-landing-zones) in the Cloud Adoption Framework for Azure.
 
-This article covers common roles and responsibilities for differing cloud operating models and the deployment options for platform and application landing zones.
+This article covers the deployment options for platform and application landing zones.
 
 ## Platform landing zone approaches
 
@@ -58,6 +58,8 @@ While the previous platform landing zones all address typical enterprise Azure u
 
 After you deploy the platform landing zone, you need to operate and maintain it. For more information, see the guidance on how to [Keep your Azure landing zone up to date](/azure/cloud-adoption-framework/ready/landing-zone/design-area/keep-azure-landing-zone-up-to-date).
 
+### Azure governance visualizer
+
 [Azure governance visualizer](./azure-governance-visualizer-accelerator.yml) is intended to help you get a holistic overview on your technical Azure governance implementation by connecting the dots and providing sophisticated reports.
 
 ### Alternative platform deployment for policies with Enterprise Policy as Code (EPAC)
@@ -73,11 +75,15 @@ EPAC is best suited for more advanced and mature DevOps and infrastructure-as-co
 
 After the platform landing zone and governance strategy is in place, the next step is to establish consistency on how subscriptions are created and operationalized for workload owners. Subscription democratization is a [design principle](/azure/cloud-adoption-framework/ready/landing-zone/design-principles#subscription-democratization) of Azure landing zones that uses subscriptions as units of management and scale. This approach accelerates application migrations and new application development.
 
-[Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending) standardizes the process platform teams use for workload teams to request subscriptions and platform teams to deploy and govern those subscriptions. It enables application teams to get access to Azure in a consistent and governed method, ensuring requirements gathering is complete. To get started, see [Subscription vending implementation guidance](./subscription-vending.yml). Then review the following infrastructure-as-code modules. They provide flexibility to fit your implementation needs.
+[Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending) standardizes the process platform teams use for workload teams to request subscriptions and platform teams to deploy and govern those subscriptions. It enables application teams to get access to Azure in a consistent and governed method, ensuring requirements gathering is complete. 
+
+It is also very common for organizations to have multiple different styles of subscriptions that can be vended into their tenant, often referred to as "product lines" in the industry. See [Establish common subscription vending product lines](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending-product-lines) for recommended "product lines" for your organization.
+
+To get started, see [Subscription vending implementation guidance](./subscription-vending.yml). Then review the following infrastructure-as-code modules. They provide flexibility to fit your implementation needs.
 
 | Deployment option | Description |
 | :---------------- | :-----------|
-| [Bicep subscription vending](./subscription-vending.yml) | The subscription vending Bicep modules are designed to orchestrate the deployment of the individual application landing zones based on per workload configuration. They can be executed manually or as part of automation. |
+| [Bicep subscription vending](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending) | The subscription vending Bicep modules are designed to orchestrate the deployment of the individual application landing zones based on per workload configuration. They can be executed manually or as part of automation. |
 | [Terraform subscription vending](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest) | These modules use Terraform to orchestrate the deployment of the individual application landing zones. |
 
 ## Application landing zone architectures
