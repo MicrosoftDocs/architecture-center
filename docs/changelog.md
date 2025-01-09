@@ -35,7 +35,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
-- [Develop a RAG Solution—Generate Embeddings Phase](./ai-ml/guide/rag/rag-generate-embeddings.yml)
+- [Develop a RAG Solution—Generate Embeddings Phase](./ai-ml/guide/rag/rag-generate-embeddings.md)
 - [Modernize Mainframe Workloads by using BMC AMI Cloud](./example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml)
 - [Azure Virtual Desktop for Azure Local](./hybrid/azure-local-workload-virtual-desktop.yml)
 
@@ -45,10 +45,10 @@ The following new and updated articles have recently been published in the Azure
 - [Best practices in cloud applications](./best-practices/index-best-practices.md)  ([#f84f30f537](https://github.com/MicrosoftDocs/architecture-center/commit/f84f30f537))
 - [Cloud design patterns](./patterns/index.md)  ([#f84f30f537](https://github.com/MicrosoftDocs/architecture-center/commit/f84f30f537))
 - [Analyze video content with Computer Vision and Azure Machine Learning](./ai-ml/architecture/analyze-video-computer-vision-machine-learning.yml)  ([#c847f992d4](https://github.com/MicrosoftDocs/architecture-center/commit/c847f992d4))
-- [Design and Develop a RAG Solution](./ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.yml)  ([#0d171aabb6](https://github.com/MicrosoftDocs/architecture-center/commit/0d171aabb6))
+- [Design and Develop a RAG Solution](./ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.md)  ([#0d171aabb6](https://github.com/MicrosoftDocs/architecture-center/commit/0d171aabb6))
 - [Batch scoring of Spark models on Azure Databricks](./ai-ml/architecture/batch-scoring-databricks.yml)  ([#64c84cbd5c](https://github.com/MicrosoftDocs/architecture-center/commit/64c84cbd5c))
 - [Natural language processing technology](./data-guide/technology-choices/natural-language-processing.yml)  ([#83ee95d21f](https://github.com/MicrosoftDocs/architecture-center/commit/83ee95d21f))
-- [Develop a RAG Solution - Preparation Phase](./ai-ml/guide/rag/rag-preparation-phase.yml)  ([#7c970d7909](https://github.com/MicrosoftDocs/architecture-center/commit/7c970d7909))
+- [Develop a RAG Solution - Preparation Phase](./ai-ml/guide/rag/rag-preparation-phase.md)  ([#7c970d7909](https://github.com/MicrosoftDocs/architecture-center/commit/7c970d7909))
 - [Provide custom authentication to Azure OpenAI Service through a gateway](./ai-ml/guide/azure-openai-gateway-custom-authentication.yml)  ([#7e1271e2c7](https://github.com/MicrosoftDocs/architecture-center/commit/7e1271e2c7))
 - [Access Azure OpenAI and other language models through a gateway](./ai-ml/guide/azure-openai-gateway-guide.yml)  ([#7e1271e2c7](https://github.com/MicrosoftDocs/architecture-center/commit/7e1271e2c7))
 - [Use a gateway in front of multiple Azure OpenAI deployments or instances](./ai-ml/guide/azure-openai-gateway-multi-backend.yml)  ([#7e1271e2c7](https://github.com/MicrosoftDocs/architecture-center/commit/7e1271e2c7))
@@ -87,9 +87,9 @@ The following new and updated articles have recently been published in the Azure
 - [Use a Message Broker and Events to Integrate Enterprise Systems](./example-scenario/integration/queues-events.yml)  ([#159cbaeccf](https://github.com/MicrosoftDocs/architecture-center/commit/159cbaeccf))
 - [Connect an On-Premises Network to Azure by Using ExpressRoute](./reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)  ([#e5f9dec39d](https://github.com/MicrosoftDocs/architecture-center/commit/e5f9dec39d))
 - [Serverless Functions code walkthrough](./web-apps/serverless/architectures/code.yml)  ([#027d3ab0ec](https://github.com/MicrosoftDocs/architecture-center/commit/027d3ab0ec))
-- [Developing a RAG solution - Chunk enrichment phase](./ai-ml/guide/rag/rag-enrichment-phase.yml)  ([#d7ea602f59](https://github.com/MicrosoftDocs/architecture-center/commit/d7ea602f59))
-- [Developing a RAG solution - Information retrieval phase](./ai-ml/guide/rag/rag-information-retrieval.yml)  ([#d7ea602f59](https://github.com/MicrosoftDocs/architecture-center/commit/d7ea602f59))
-- [Developing a RAG solution - LLM end to end evaluation phase](./ai-ml/guide/rag/rag-llm-evaluation-phase.yml)  ([#d7ea602f59](https://github.com/MicrosoftDocs/architecture-center/commit/d7ea602f59))
+- [Developing a RAG solution - Chunk enrichment phase](./ai-ml/guide/rag/rag-enrichment-phase.md)  ([#d7ea602f59](https://github.com/MicrosoftDocs/architecture-center/commit/d7ea602f59))
+- [Developing a RAG solution - Information retrieval phase](./ai-ml/guide/rag/rag-information-retrieval.md)  ([#d7ea602f59](https://github.com/MicrosoftDocs/architecture-center/commit/d7ea602f59))
+- [Developing a RAG solution - LLM end to end evaluation phase](./ai-ml/guide/rag/rag-llm-evaluation-phase.md)  ([#d7ea602f59](https://github.com/MicrosoftDocs/architecture-center/commit/d7ea602f59))
 - [Enterprise Web App Patterns](./web-apps/guides/enterprise-app-patterns/overview.md)  ([#e06a37b575](https://github.com/MicrosoftDocs/architecture-center/commit/e06a37b575))
 - [Reliable Web App Pattern for .NET](./web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance.yml)  ([#e06a37b575](https://github.com/MicrosoftDocs/architecture-center/commit/e06a37b575))
 - [Reliable Web App Pattern for Java](./web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance.yml)  ([#e06a37b575](https://github.com/MicrosoftDocs/architecture-center/commit/e06a37b575))

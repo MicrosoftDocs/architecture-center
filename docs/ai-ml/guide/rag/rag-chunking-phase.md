@@ -1,10 +1,32 @@
-Now that you gathered your test documents and queries, and performed a document analysis in the [preparation phase](./rag-preparation-phase.yml), the next phase is chunking. Breaking down documents into a collection of right-sized chunks, each containing semantically relevant content, is a key factor in the success of your Retrieval-Augmented Generation (RAG) implementation. Passing entire documents or oversized chunks is expensive, might overwhelm the token limits of the model, and doesn't produce the best results. Passing information to a language model that is irrelevant to the query can lead to hallucinations. You need to optimize the process of passing relevant information and removing irrelevant information. You do this optimization by using effective chunking and searching strategies to minimize false positives and false negatives, and maximize true positives and true negatives.
+---
+title: Developing a RAG Solution - Chunking Phase
+description: Learn about the various chunking strategies like boundary based, custom code, and document analysis models. Also learn about how the document structure should influence your chunking strategy.
+author: robbagby
+ms.author: robbag
+ms.date: 11/22/2024 
+ms.topic: conceptual
+ms.collection: ce-skilling-ai-copilot
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
+ms.custom: arb-aiml
+categories:
+  - ai-machine-learning
+products:
+  - ai-services
+  - azure-cognitive-search
+  - azure-openai
+  - azure-machine-learning
+---
+
+# Chunking
+
+Now that you gathered your test documents and queries, and performed a document analysis in the [preparation phase](./rag-preparation-phase.md), the next phase is chunking. Breaking down documents into a collection of right-sized chunks, each containing semantically relevant content, is a key factor in the success of your Retrieval-Augmented Generation (RAG) implementation. Passing entire documents or oversized chunks is expensive, might overwhelm the token limits of the model, and doesn't produce the best results. Passing information to a language model that is irrelevant to the query can lead to hallucinations. You need to optimize the process of passing relevant information and removing irrelevant information. You do this optimization by using effective chunking and searching strategies to minimize false positives and false negatives, and maximize true positives and true negatives.
 
 Passing chunks that are too small and don't contain sufficient context to address the query also leads to poor results. Relevant context that exists across multiple chunks might not be captured. The art is implementing effective chunking approaches for your specific document types and their structures and content. There are various chunking approaches to consider, each with their own cost implications and effectiveness, depending on the type and structure of document they're applied to.
 
 This article describes various chunking approaches, and examines how the structure of your documents can influence the chunking approach you choose.
 
-> This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
+> This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md).
 
 ## Chunking economics
 
@@ -115,7 +137,7 @@ This approach parses documents using custom code to create chunks. This approach
 
 Language models can be used to create chunks. Common use cases are to use a large language model, such as GPT-4, to generate textual representations of images or summaries of tables that can be used as chunks. Language model augmentation is used with other chunking approaches such as custom code.
 
-If you determined in the [images portion of the document analysis section](./rag-preparation-phase.yml#determine-your-image-processing-requirements) that the text before or after the image is required to answer some questions, you need to pass this additional context to the language model. It's important to experiment to determine whether this additional context does or doesn't improve the performance of your solution.
+If you determined in the [images portion of the document analysis section](./rag-preparation-phase.md#determine-your-image-processing-requirements) that the text before or after the image is required to answer some questions, you need to pass this additional context to the language model. It's important to experiment to determine whether this additional context does or doesn't improve the performance of your solution.
 
 If your chunking logic splits the image description into multiple chunks, make sure you include the image URL in each chunk. Including the image URL in each chunk ensures that metadata is returned for all queries that the image serves, especially for scenarios where the end user requires the ability to access the source image through that URL or wants to use raw images during inferencing time.
 
@@ -215,7 +237,7 @@ Although the best fits for each of the chunking approaches are listed, in practi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Chunk enrichment phase](./rag-enrichment-phase.yml)
+> [Chunk enrichment phase](./rag-enrichment-phase.md)
 
 ## Related resources
 
