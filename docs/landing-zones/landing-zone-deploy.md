@@ -52,7 +52,10 @@ While the previous platform landing zones all address typical enterprise Azure u
 | Deployment option | Description |
 | --- | ---|
 | [Sovereign landing zone](/industry/sovereignty/slz-overview) | The sovereign landing zone is a variant of the Azure landing zones intended for organizations that need advanced sovereign controls. |
-| [Azure Migrate and Modernize](/azure/cloud-adoption-framework/ready/landing-zone/partner-landing-zone#option-1---azure-migrate-and-modernize) | The Azure Migrate and Modernize partner program can help you design and implement your Azure landing zone specific to your organization's needs. |
+
+#### Partner implementations
+
+Partner programs such as the [Azure Migrate and Modernize](/azure/cloud-adoption-framework/ready/landing-zone/partner-landing-zone#option-1---azure-migrate-and-modernize) can help you design and implement your platform landing zone specific to your organization's needs. Those implementations start with the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#platform-landing-zone-accelerator) and help design configurations specific to your cloud adoption strategy, organizational topology, and desired outcomes.
 
 ### Operate Azure landing zones
 
@@ -88,7 +91,7 @@ To get started, see [Subscription vending implementation guidance](./subscriptio
 
 ## Application landing zone architectures
 
-Application landing zones are one or more subscriptions that are deployed as environments for workloads. These workloads can take advantage of services deployed in platform landing zones or could be isolated from centralized resources. The application landing zones can be centrally managed applications, decentralized workloads, or centrally managed hosting platforms such as Azure Kubernetes Service (AKS) that could host applications for multiple business units.
+Application landing zones are one or more subscriptions that are deployed as approved destinations for application team owned resources of a workload. A workload can take advantage of services deployed in platform landing zones or could be isolated from centralized resources. The application landing zones can be centrally managed applications, decentralized workloads, or centrally managed hosting platforms such as Azure Kubernetes Service (AKS) that could host applications for multiple business units. Unless forced with abnormal constraints, application landing zone subscriptions only contain resources from a single workload or logical application boundary. such as its lifecycle or its criticality classification.
 
 Workload teams communicate their workload's requirements through a formal process established by the platform team. The platform team deploys a mostly empty subscription enrolled with all required governance. A workload architect designs a solution that works within the constraints of that application landing zone and take advantage of shared platform features (such a firewalls and cross-premisis routing) where practical.
 
