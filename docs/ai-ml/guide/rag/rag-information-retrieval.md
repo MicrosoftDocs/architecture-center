@@ -1,6 +1,28 @@
+---
+title: Develop a RAG Solution—Information-Retrieval Phase
+description: Learn about how to configure a search index, the types of searches that you can perform, how to break queries into subqueries, and why and how to rerank queries.
+author: robbagby
+ms.author: robbag
+ms.date: 01/09/2025
+ms.topic: conceptual
+ms.service: azure-architecture-center
+ms.collection: ce-skilling-ai-copilot
+ms.subservice: architecture-guide
+ms.custom: arb-aiml
+categories:
+  - ai-machine-learning
+products:
+  - ai-services
+  - azure-cognitive-search
+  - azure-openai
+  - azure-machine-learning
+---
+
+# Information retrieval
+
 In the previous step of your Retrieval-Augmented Generation (RAG) solution, you generated the embeddings for your chunks. In this step, you generate the index in the vector database and experiment to determine your optimal searches. This article covers configuration options for a search index, types of searches, and reranking strategies.
 
-This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
+This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md).
 
 ## Configure your search index
 
@@ -42,7 +64,7 @@ Search platforms generally support full-text and vector searches. Some platforms
 [Vector searches](/azure/search/vector-search-how-to-query) compare the similarity between the vectorized query (prompt) and vector fields. For more information, see [Choose an Azure service for vector searches](../../../guide/technology-choices/vector-search.md).
 
 > [!IMPORTANT]
-> Before you embed the query, you should perform the same [cleaning operations](./rag-enrichment-phase.yml#cleaning-data) that you performed on chunks. For example, if you lowercased every word in your embedded chunk, you should lowercase every word in the query before embedding.
+> Before you embed the query, you should perform the same [cleaning operations](./rag-enrichment-phase.md#cleaning-data) that you performed on chunks. For example, if you lowercased every word in your embedded chunk, you should lowercase every word in the query before embedding.
 
 > [!NOTE]
 > You can perform a vector search against multiple vector fields in the same query. In AI Search, this practice is considered a hybrid search. For more information, see [Hybrid search](#hybrid-search).
@@ -74,7 +96,7 @@ The code that embeds the query preprocesses the query first. That preprocess sho
 
 [Full-text searches](/azure/search/search-lucene-query-architecture) match plain text that's stored in an index. It's common practice to extract keywords from a query and use those extracted keywords in a full-text search against one or more indexed columns. You can configure full-text searches to return matches if any terms or all terms match.
 
-Experiment to determine which fields to run full-text searches against. As described in the [enrichment phase article](./rag-enrichment-phase.yml#augmenting-chunks), you should use keyword and entity metadata fields for full-text searches in scenarios where content has similar semantic meaning but entities or keywords differ. Other common fields to consider for full-text search include title, summary, and chunk text.
+Experiment to determine which fields to run full-text searches against. As described in the [enrichment phase article](./rag-enrichment-phase.md#augmenting-chunks), you should use keyword and entity metadata fields for full-text searches in scenarios where content has similar semantic meaning but entities or keywords differ. Other common fields to consider for full-text search include title, summary, and chunk text.
 
 The following sample code performs a full-text search against the title, content, and summary fields.
 
@@ -445,7 +467,7 @@ Consider the following general guidance when you implement your search solution:
 
 ## Evaluate your search results
 
-In the preparation phase, you [gathered test queries along with test document information](./rag-preparation-phase.yml#gather-test-query-output). You can use the following information that you gathered in that phase to evaluate your search results:
+In the preparation phase, you [gathered test queries along with test document information](./rag-preparation-phase.md#gather-test-query-output). You can use the following information that you gathered in that phase to evaluate your search results:
 
 - The query: The sample query
 - The context: The collection of all the text in the test documents that address the sample query
@@ -462,7 +484,7 @@ You should test positive and negative examples. For the positive examples, you w
 ## Next step
 
 > [!div class="nextstepaction"]
-> [LLM end-to-end evaluation phase](./rag-llm-evaluation-phase.yml)
+> [LLM end-to-end evaluation phase](./rag-llm-evaluation-phase.md)
 
 ## Related resources
 

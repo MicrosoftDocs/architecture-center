@@ -1,8 +1,30 @@
+---
+title: Developing a RAG Solution - Chunk Enrichment Phase
+description: Learn about the importance of augmenting chunks with metadata like title, summary, keywords, entities, and more. Learn common cleaning operations you can perform on chunks that might improve vector matches.
+author: robbagby
+ms.author: robbag
+ms.date: 11/22/2024
+ms.topic: conceptual
+ms.service: azure-architecture-center
+ms.collection: ce-skilling-ai-copilot
+ms.subservice: architecture-guide
+ms.custom: arb-aiml
+categories:
+  - ai-machine-learning
+products:
+  - ai-services
+  - azure-cognitive-search
+  - azure-openai
+  - azure-machine-learning
+---
+
+# RAG chunk enrichment phase
+
 After you break your documents into a collection of chunks, the next step is to enrich each chunk by cleaning it and augmenting it with metadata. Cleaning the chunks enables you to achieve better matches for semantic queries in a vector search. Adding metadata enables you to support searches of the chunks that go beyond semantic searches. Both cleaning and augmenting involve extending the schema for the chunk.
 
 This article discusses various ways to augment your chunks, including some common cleaning operations that you can perform on chunks to improve vector comparisons. It also describes some common metadata fields that you can add to your chunks to augment your search index.
 
-> This article is part of a series. Here's the [introduction](./rag-solution-design-and-evaluation-guide.yml).
+> This article is part of a series. Here's the [introduction](./rag-solution-design-and-evaluation-guide.md).
 
 The following code sample shows chunks that are enriched with data.
 
@@ -57,7 +79,7 @@ The use of some language models for augmenting chunks can be expensive. You need
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Generate embeddings](./rag-generate-embeddings.yml)
+> [Generate embeddings](./rag-generate-embeddings.md)
 
 ## Related resources
 

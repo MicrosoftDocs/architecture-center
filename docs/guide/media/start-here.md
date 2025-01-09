@@ -1,8 +1,8 @@
 ---
 title: Media architecture design
 description: Get an overview of Azure media technologies, guidance offerings, solution ideas, and reference architectures.
-author: martinekuan
-ms.author: pnp
+author: andybeach
+ms.author: anbeac
 ms.date: 08/29/2022
 ms.topic: conceptual
 ms.service: azure-architecture-center

@@ -12,8 +12,6 @@ items:
         items:
         - name: Image classification
           href: idea/intelligent-apps-image-processing.yml
-        - name: Vision classifier model
-          href: idea/vision-classifier-model-with-custom-vision.yml
       - name: Audio processing
         items:
         - name: Use Azure OpenAI to process podcast audio files
@@ -111,19 +109,19 @@ items:
       - name: Developing and evaluating RAG solutions
         items:
         - name: Getting started
-          href: guide/rag/rag-solution-design-and-evaluation-guide.yml
+          href: guide/rag/rag-solution-design-and-evaluation-guide.md
         - name: Preparation phase
-          href: guide/rag/rag-preparation-phase.yml
+          href: guide/rag/rag-preparation-phase.md
         - name: Chunking phase
-          href: guide/rag/rag-chunking-phase.yml
+          href: guide/rag/rag-chunking-phase.md
         - name: Chunk enrichment phase
-          href: guide/rag/rag-enrichment-phase.yml
+          href: guide/rag/rag-enrichment-phase.md
         - name: Embedding phase
-          href: guide/rag/rag-generate-embeddings.yml
+          href: guide/rag/rag-generate-embeddings.md
         - name: Information-retrieval phase
-          href: guide/rag/rag-information-retrieval.yml
+          href: guide/rag/rag-information-retrieval.md
         - name: LLM end-to-end evaluation phase
-          href: guide/rag/rag-llm-evaluation-phase.yml
+          href: guide/rag/rag-llm-evaluation-phase.md
       - name: Designing secure multitenant RAG inferencing solutions
         href: guide/secure-multitenant-rag.yml
       - name: MLOps
@@ -192,24 +190,32 @@ items:
           href: openai/architecture/call-center-openai-analytics.yml
         - name: Monitor OpenAI models
           href: openai/architecture/log-monitor-azure-openai.yml
+        - name: Analysis using text analytics for health and Azure OpenAI
+          href: ../example-scenario/healthcare/analyze-recordings-text-analytics-azure-openai.yml          
       - name: Apply guidance
         items:
         - name: Developing and evaluating RAG solutions
           items:
           - name: Getting started
-            href: guide/rag/rag-solution-design-and-evaluation-guide.yml
+            href: guide/rag/rag-solution-design-and-evaluation-guide.md
           - name: Preparation phase
-            href: guide/rag/rag-preparation-phase.yml
+            href: guide/rag/rag-preparation-phase.md
           - name: Chunking phase
-            href: guide/rag/rag-chunking-phase.yml
+            href: guide/rag/rag-chunking-phase.md
           - name: Chunk enrichment phase
-            href: guide/rag/rag-enrichment-phase.yml
+            href: guide/rag/rag-enrichment-phase.md
           - name: Embedding phase
+<<<<<<< HEAD
             href: guide/rag/rag-generate-embeddings.yml
           - name: Information-retrieval phase
             href: guide/rag/rag-information-retrieval.yml
+=======
+            href: guide/rag/rag-generate-embeddings.md
+          - name: Information retrieval phase
+            href: guide/rag/rag-information-retrieval.md
+>>>>>>> 6292315bf5999f3affec7112473772eed90e4701
           - name: LLM end-to-end evaluation phase
-            href: guide/rag/rag-llm-evaluation-phase.yml
+            href: guide/rag/rag-llm-evaluation-phase.md
         - name: Designing secure multitenant RAG inferencing solutions
           href: guide/secure-multitenant-rag.yml
         - name: Proxy Azure OpenAI usage
