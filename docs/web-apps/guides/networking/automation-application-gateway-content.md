@@ -47,7 +47,7 @@ This architecture works best for:
 #### Automation
 
 - [Azure Durable Functions](/azure/azure-functions/durable/durable-functions-overview): Unlike Azure Functions, Durable Functions is stateful and supports several stateful workflow patterns. In this example, the [monitor pattern](/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#monitoring) is used.
-- [Azure SDKs](https://azure.microsoft.com/downloads): Azure SDKs are collections of libraries that you can use to interact with Azure services in your preferred programming language. The SDKs give you more flexibility for integrating logic that performs automation.
+- [Azure SDKs](/azure/storage/blobs/storage-blob-client-management): Azure SDKs are collections of libraries that you can use to interact with Azure services in your preferred programming language. The SDKs give you more flexibility for integrating logic that performs automation.
 
 #### Monitoring
 
@@ -56,15 +56,15 @@ This architecture works best for:
 
 #### Networking
 
-- [Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection): Azure DDoS (Basic) Protection is free and enabled on all public IPs. Azure DDoS Network Protection provides more capabilities, like ingesting logs to other locations and the ability to engage the DDoS Protection Rapid Response team.
-- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway): Azure Web Application Firewall provides protection for public-facing applications against exploits like SQL injection and XSS attacks.
-- [Azure Private Link](https://azure.microsoft.com/services/private-link): Azure Private Link provides access to Azure PaaS services via a private endpoint on the Microsoft backbone to further enhance network access security.
+- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview): Azure DDoS (Basic) Protection is free and enabled on all public IPs. Azure DDoS Network Protection provides more capabilities, like ingesting logs to other locations and the ability to engage the DDoS Protection Rapid Response team.
+- [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway): Azure Web Application Firewall provides protection for public-facing applications against exploits like SQL injection and XSS attacks.
+- [Azure Private Link](/azure/private-link/private-link-overview): Azure Private Link provides access to Azure PaaS services via a private endpoint on the Microsoft backbone to further enhance network access security.
 
 #### Application
 
-- [Azure Container Instances](https://azure.microsoft.com/services/container-instances): Azure Container Instances runs container images seamlessly without requiring you to set up another infrastructure. You should consider [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) for advanced container orchestration.
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Azure Cosmos DB is a fully managed NoSQL database that supports multiple platforms, like SQL, Cassandra, and MongoDB.
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault): As a security best practice, developers don't store connection strings as clear text in application source code. Azure Key Vault serves as a central location to store secrets with improved security. Applications can retrieve necessary keys with improved security.
+- [Azure Container Instances](/azure/container-instances/container-instances-overview): Azure Container Instances runs container images seamlessly without requiring you to set up another infrastructure. You should consider [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) for advanced container orchestration.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db): Azure Cosmos DB is a fully managed NoSQL database that supports multiple platforms, like SQL, Cassandra, and MongoDB.
+- [Azure Key Vault](/azure/key-vault/general/overview): As a security best practice, developers don't store connection strings as clear text in application source code. Azure Key Vault serves as a central location to store secrets with improved security. Applications can retrieve necessary keys with improved security.
 
 ### Alternatives
 
