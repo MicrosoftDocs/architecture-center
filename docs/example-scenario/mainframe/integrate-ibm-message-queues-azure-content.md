@@ -25,7 +25,7 @@ When using Azure as a modern data platform, you have your choice of platform as 
 
 ### Components
 
-[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) provides tools for data orchestration, data integration, and data transformation. It includes hundreds of
+[Azure Logic Apps](/azure/logic-apps/logic-apps-overview) provides tools for data orchestration, data integration, and data transformation. It includes hundreds of
 [connectors](/connectors/connector-reference/) for accessing data on-premises or in the cloud. Make sure to test throughput and performance before choosing a data storage connector.
 
 [Logic Apps Scheduler](/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows) provides triggers for starting and running workflows based on the interval and frequency of recurrence that you specify.
