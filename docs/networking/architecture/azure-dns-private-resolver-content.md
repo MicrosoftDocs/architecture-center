@@ -239,7 +239,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Azure DNS supports the extended ASCII encoding set for text (TXT) record sets. For more information, see [Azure DNS FAQ](/azure/dns/dns-faq#does-azure-dns-support-the-extended-ascii-encoding--8-bit--set-for-txt-record-sets-).
 
-Azure DNS doesn't currently support DNS security extensions (DNSSEC). But users are requesting this feature.
+Azure DNS has [DNS security extensions (DNSSEC) in preview](/azure/dns/dnssec).
 
 ### Cost optimization
 

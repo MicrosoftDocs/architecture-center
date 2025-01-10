@@ -136,8 +136,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- If you require the use of DNSSEC, consider that Azure DNS currently does **not** support it.
-- For DNSSEC validation, deploy a custom DNS server and enable DNSEC validation.
+- If you require the use of DNSSEC, consider that Azure DNS has [support in preview](/azure/dns/dnssec). Alternatively, for DNSSEC validation, deploy a custom DNS server and enable DNSSEC validation.
 - [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ### DevOps
