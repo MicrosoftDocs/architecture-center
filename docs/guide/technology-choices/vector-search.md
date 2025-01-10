@@ -11,7 +11,7 @@ categories: ai-machine-learning
 ms.topic: product-comparison
 ms.collection: ce-skilling-ai-copilot
 ms.custom: arb-aiml
-ms.date: 03/28/2024
+ms.date: 01/10/2025
 ---
 
 # Choose an Azure service for vector search
