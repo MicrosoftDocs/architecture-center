@@ -66,34 +66,34 @@ The system also contains the following components:
 
 ### Components
 
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends an on-premises network into Microsoft cloud services over a private connection, facilitated by a connectivity provider. ExpressRoute provides a secure, reliable private connection to the Azure system, with low latency and high speed and bandwidth.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends an on-premises network into Microsoft cloud services over a private connection, facilitated by a connectivity provider. ExpressRoute provides a secure, reliable private connection to the Azure system, with low latency and high speed and bandwidth.
 
-- [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager) is a DNS-based traffic load balancer that distributes traffic across Azure regions, with high availability and quick responsiveness.
+- [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer that distributes traffic across Azure regions, with high availability and quick responsiveness.
 
-- [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) supports high availability by distributing incoming network traffic among backend VMs according to configured load-balancing rules and health probes. Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model.
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) supports high availability by distributing incoming network traffic among backend VMs according to configured load-balancing rules and health probes. Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model.
 
-- [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall) is a cloud-native WAF service that protects web apps against malicious attacks and common web vulnerabilities.
+- [Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) is a cloud-native WAF service that protects web apps against malicious attacks and common web vulnerabilities.
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed web hosting service for quickly and easily deploying enterprise web apps for any platform on a scalable and reliable cloud infrastructure.
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is one of several Azure services that provide on-demand, scalable computing resources. With Azure VMs, you get the flexibility of virtualization without having to buy and maintain physical hardware.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is one of several Azure services that provide on-demand, scalable computing resources. With Azure VMs, you get the flexibility of virtualization without having to buy and maintain physical hardware.
 
   - [Azure SSD managed disks](/azure/virtual-machines/windows/managed-disks-overview) are block-level storage volumes for Azure VMs.
   - [Azure virtual network interface cards (NICs)](/azure/virtual-network/virtual-network-network-interface) let Azure VMs communicate with internet, Azure, and on-premises resources. You can add several virtual NICs to an Azure VM, so child VMs can have their own dedicated network interface devices and IP addresses.
 
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for Azure private networks. Virtual Network lets many types of Azure resources, such as VMs, securely communicate with each other, the internet, and on-premises networks. Virtual Network offers Azure infrastructure benefits like scalability, availability, and isolation.
+- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block for Azure private networks. Virtual Network lets many types of Azure resources, such as VMs, securely communicate with each other, the internet, and on-premises networks. Virtual Network offers Azure infrastructure benefits like scalability, availability, and isolation.
 
-- [Azure Files](https://azure.microsoft.com/services/storage/files) storage offers fully managed file shares in the cloud that are accessible via the industry-standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure file shares concurrently.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) storage offers fully managed file shares in the cloud that are accessible via the industry-standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure file shares concurrently.
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed database PaaS that always runs on the latest OS and stable SQL Server database engine version, with highest availability. SQL Database handles database management functions, such as upgrades, patching, backups, and monitoring, without user involvement.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed database PaaS that always runs on the latest OS and stable SQL Server database engine version, with highest availability. SQL Database handles database management functions, such as upgrades, patching, backups, and monitoring, without user involvement.
 
-- [Azure NetApp Files](https://azure.microsoft.com/services/netapp) offers enterprise-grade Azure file shares powered by NetApp. Azure NetApp Files makes it easy for enterprises to migrate and run complex, file-based applications with no code changes.
+- [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) offers enterprise-grade Azure file shares powered by NetApp. Azure NetApp Files makes it easy for enterprises to migrate and run complex, file-based applications with no code changes.
 
-- [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery) is an Azure-native DR service. Site Recovery deploys replication, failover, and recovery processes to help keep applications running during planned and unplanned outages.
+- [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) is an Azure-native DR service. Site Recovery deploys replication, failover, and recovery processes to help keep applications running during planned and unplanned outages.
 
-- [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a reliable cloud messaging service with simple hybrid integration.
+- [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is a reliable cloud messaging service with simple hybrid integration.
 
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is Microsoft's cloud-based enterprise identity and access management service. Microsoft Entra single sign-on and multifactor authentication help users sign in and access resources, while protecting from cybersecurity attacks.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is Microsoft's cloud-based enterprise identity and access management service. Microsoft Entra single sign-on and multifactor authentication help users sign in and access resources, while protecting from cybersecurity attacks.
 
 ### Alternatives
 

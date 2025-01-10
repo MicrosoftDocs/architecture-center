@@ -45,10 +45,10 @@ This workflow implements the [Asynchronous Request-Reply pattern](../../patterns
 
 ### Components
 
-* [Azure Quantum](https://azure.microsoft.com/services/quantum) provides a [workspace](/azure/quantum/how-to-create-workspace), accessible from the Azure portal, for assets associated with running quantum jobs on various targets. Jobs are run on quantum simulators or quantum hardware, depending on the provider you choose.
-* [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) coordinates user authentication and helps to protect access to the Azure Quantum workspace.
-* [Key Vault](https://azure.microsoft.com/services/key-vault) safeguards and maintains control of keys and other secrets, like the Azure Quantum workspace name.
-* [Azure Storage](https://azure.microsoft.com/services/storage) provides storage for input data and results from the quantum provider.
+* [Azure Quantum](/azure/quantum/overview-azure-quantum) provides a [workspace](/azure/quantum/how-to-create-workspace), accessible from the Azure portal, for assets associated with running quantum jobs on various targets. Jobs are run on quantum simulators or quantum hardware, depending on the provider you choose.
+* [Microsoft Entra ID](/entra/fundamentals/whatis) coordinates user authentication and helps to protect access to the Azure Quantum workspace.
+* [Key Vault](/azure/key-vault/general/overview) safeguards and maintains control of keys and other secrets, like the Azure Quantum workspace name.
+* [Azure Storage](/azure/storage/common/storage-introduction) provides storage for input data and results from the quantum provider.
 
 ### Availability
 
