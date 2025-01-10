@@ -15,12 +15,12 @@ The following sections describe the various stages of the data extraction proces
 1. Documents are ingested through a browser at the front end of a web application. The documents contain images or are in PDF format. Azure App Service hosts a back-end application. The solution routes the documents to that application through Azure Application Gateway. This load balancer runs with Azure Web Application Firewall, which helps to protect the application from common attacks and vulnerabilities.
 
 1. The back-end application posts a request to an Azure AI Document Intelligence REST API endpoint that uses one of the [models](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept/choose-model-feature?view=doc-intel-4.0.0) based on the use case requirement.
-Pretrained document analysis models include
+   a. Pretrained document analysis models include
    - [Read OCR model](/azure/ai-services/document-intelligence/prebuilt/read?view=doc-intel-4.0.0)
    - [Layout analysis model][Document intelligence layout model]
-   - [General document][Document intelligence general document model] Please note that you may also use Layout analysis model with optional query string parameter features=keyValuePairs enabled)
+   - [General document][Document intelligence general document model] Please note that you may also use Layout analysis          model with optional query string parameter features=keyValuePairs enabled)
 
-[Pretrained scenario-specific](/azure/ai-services/document-intelligence/concept/choose-model-feature?view=doc-intel-4.0.0#pretrained-scenario-specific-models) models include 
+   b. [Pretrained scenario-specific](/azure/ai-services/document-intelligence/concept/choose-model-feature?view=doc-intel-      4.0.0#pretrained-scenario-specific-models) models include (not limited to)
    - [Invoice][Form Recognizer invoice model]
    - [Receipt][Form Recognizer receipt model]
    - [ID document][Form Recognizer ID document model]
@@ -28,9 +28,10 @@ Pretrained document analysis models include
    - [US tax document models](/azure/ai-services/document-intelligence/prebuilt/tax-document?view=doc-intel-4.0.0)
    - [US mortgage document model](/azure/ai-services/document-intelligence/prebuilt/mortgage-documents?view=doc-intel-4.0.0)
    - [US Health Insurance card model](/azure/ai-services/document-intelligence/prebuilt/health-insurance-card?view=doc-intel-4.0.0)
-     
 
-   The response from Azure AI Document Intelligence contains raw optical character recognition (OCR) data and structured extractions.
+   c. [Custom Extraction models](/azure/ai-services/document-intelligence/concept/choose-model-feature?view=doc-intel-4.0.0#custom-extraction-models)        
+
+   The response from Azure AI Document Intelligence contains raw optical character recognition (OCR) data and structured extractions depending on the model endpoint chosen.
 
 1. The App Service back-end application uses the confidence values to check the extraction quality. If the quality is below a specified threshold, the app flags the data for manual verification. When the extraction quality meets requirements, the data enters [Azure Cosmos DB][Welcome to Azure Cosmos DB] for downstream application consumption. The app can also return the results to the front-end browser.
 
@@ -43,6 +44,8 @@ Pretrained document analysis models include
    - Evaluates the extraction quality.
 
 1. The extracted data enters Azure Cosmos DB.
+2. The extracted data can be pushed to [Azure AI search for indexing to build RAG applications](/azure/ai-services/document-intelligence/concept/retrieval-augmented-generation?view=doc-intel-4.0.0).
+   
 
 #### Data enrichment
 
@@ -78,8 +81,9 @@ The pipeline that's used for data enrichment depends on the use case.
 
    - Real-time processes. The models can be deployed to [managed online endpoints](/azure/machine-learning/concept-endpoints#managed-online-endpoints) or Kubernetes online endpoints, where managed Kubernetes cluster can be anywhere including [Azure Kubernetes Service (AKS)][What is Kubernetes?].
    - Batch inferencing can be done at [batch endpoints](/azure/machine-learning/concept-endpoints#what-are-batch-endpoints) or in Azure Virtual Machines.
-
-1. The enriched data enters Azure Cosmos DB.
+4. Data enrichment like consolidation of specific information/summarization/checking for correctness etc can also be done by passing the extracted data to Azure OpenAI endpoint.
+  
+   1. The enriched data enters Azure Cosmos DB.
 
 #### Analytics and visualizations
 
