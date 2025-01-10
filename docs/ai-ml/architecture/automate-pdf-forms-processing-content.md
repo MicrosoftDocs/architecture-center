@@ -24,17 +24,16 @@ This article describes an Azure architecture that you can use to replace costly 
 
 ### Components
 
-- [Azure AI services](/azure/ai-services/what-are-ai-services) is a category of Azure AI products that use Azure AI services, task-specific AI, and business logic to provide turnkey AI services for common business processes. One of these products is [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview), which uses machine learning models to extract key-value pairs, text, and tables from documents.
-- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is a serverless cloud service for creating and running automated workflows that integrate apps, data, services, and systems.
-- [Azure Functions](/azure/azure-functions/functions-overview) is a serverless solution that makes it possible for you to write less code, maintain less infrastructure, and save on costs.
-- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is the foundation for building enterprise data lakes on Azure.
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL and relational database for modern app development.
-- [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together so that you can turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
+- [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview), a cloud-based service that enables you to build intelligent document processing solutions. It applies advanced machine learning to extract text, key-value pairs, tables, and structures from documents automatically and accurately. In this architecture, it is the intelligent document processing service utilized to extract information from PDF documents.
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is a serverless cloud service for creating and running automated workflows that integrate apps, data, services, and systems. In this architecture, it is used to as an orchestrator to coordinate the user input, document storage, document processing, storage of the results, and analysis of the processed documents.
+- [Azure Functions](/azure/azure-functions/functions-overview) is a serverless solution that makes it possible for you to write less code, maintain less infrastructure, and save on costs. In this architecture, it is the backend services to configure input to utilize [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview), and store the output.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is the foundation for building enterprise data lakes on Azure. In this architecture, it is used to store the raw PDF documents, machine learning results, and processed output.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL and relational database for modern app development. In this architecture, it is used to store the extracted insights from each PDF document. The information is utilized by [Power BI](/power-bi/fundamentals/power-bi-overview) to produce insights.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together so that you can turn your unrelated sources of data into coherent, visually immersive, and interactive insights. In this architecture, it is used to analyze the document processing results.
 
 ### Alternatives
 
-- You can use [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) instead of Azure Cosmos DB to store the processed forms data.
-- You can use [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) to visualize the processed forms data that's stored in Data Lake Storage.
+- Instead of using [Power BI](/power-bi/fundamentals/power-bi-overview), You can use [Microsoft Fabric](/fabric/) to ingest the processed output to a Lakehouse and then perform further analysis and processing of the output data.
 
 ## Scenario details
 
@@ -140,17 +139,17 @@ The architecture doesn't address any high availability (HA) or disaster recovery
 
 Principal author:
 
-- [Gail Zhou](https://linkedin.com/in/gailzhou) | Sr. Architect
+- [Gail Zhou](https://linkedin.com/in/gailzhou) | Principal Software Engineer
 
 Other contributors:
 - [Said Nikjou](https://www.linkedin.com/in/snikjou/) | Sr. Cloud Solution Architect
-- [Nalini Chandhi](https://www.linkedin.com/in/nalinichandhi) | Principal Technical Specialist
-- [Steve DeMarco](https://www.linkedin.com/in/steve-dem) | Sr. Cloud Solution Architect
-- [Travis Hilbert](https://www.linkedin.com/in/travis-hilbert-a3999980) | Technical Specialist Global Black Belt
-- [DB Lee](https://www.linkedin.com/in/dongbum) | Sr. Technical Specialist
-- [Malory Rose](https://www.linkedin.com/in/malory-rose-8aa503135) | Technical Specialist Global Black Belt
+- [Nalini Chandhi](https://www.linkedin.com/in/nalinichandhi) | Principal Software Engineering Manager
+- [Steve DeMarco](https://www.linkedin.com/in/steve-dem) | Principal Technical Specialist 
+- [Travis Hilbert](https://www.linkedin.com/in/travis-hilbert-a3999980) | Software Engineer II 
+- [DB Lee](https://www.linkedin.com/in/dongbum) | Principal Software Engineer
+- [Malory Rose](https://www.linkedin.com/in/malory-rose-8aa503135) | Sr. Software Engineer
 - [Oscar Shimabukuro](https://www.linkedin.com/in/oscarshk) | Sr. Cloud Solution Architect
-- [Echo Wang](https://www.linkedin.com/in/echo-wang-99205343) | Principal Program Manager
+- [Echo Wang](https://www.linkedin.com/in/echo-wang-99205343) | Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
