@@ -45,7 +45,7 @@ The steps taken by IT staff to monitor the system with Azure tools and implement
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building, deploying, and scaling web apps. It supports various programming languages and frameworks, offering seamless integration with Azure services. App Service provides autoscaling and high availability, simplifying app deployment and management. [Visual Studio](/visualstudio/get-started/visual-studio-ide) is an integrated development environment (IDE) that you can use to write, edit, debug, and build code, and then deploy your web app.
 
-- [Microsoft Power Platform on Azure](https://azure.microsoft.com/en-us/products/power-platform) increases agility across your organization by allowing you to rapidly implement [Low-code application development on Azure](https://azure.microsoft.com/en-us/solutions/low-code-application-development) to modernize processes and solve challenges.
+- [Microsoft Power Platform](/power-platform) increases agility across your organization by allowing you to rapidly implement [Low-code application development on Azure](https://azure.microsoft.com/en-us/solutions/low-code-application-development) to modernize processes and solve challenges.
 
 - [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor) helps maximize the availability and performance of applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on information from cloud and on-premises environments. This information helps you identify issues and understand how your applications are performing.
 
