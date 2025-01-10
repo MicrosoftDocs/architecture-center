@@ -118,7 +118,7 @@ items:
           href: guide/rag/rag-enrichment-phase.md
         - name: Embedding phase
           href: guide/rag/rag-generate-embeddings.md
-        - name: Information retrieval phase
+        - name: Information-retrieval phase
           href: guide/rag/rag-information-retrieval.md
         - name: LLM end-to-end evaluation phase
           href: guide/rag/rag-llm-evaluation-phase.md
@@ -206,7 +206,7 @@ items:
             href: guide/rag/rag-enrichment-phase.md
           - name: Embedding phase
             href: guide/rag/rag-generate-embeddings.md
-          - name: Information retrieval phase
+          - name: Information-retrieval phase
             href: guide/rag/rag-information-retrieval.md
           - name: LLM end-to-end evaluation phase
             href: guide/rag/rag-llm-evaluation-phase.md
