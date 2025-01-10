@@ -6,7 +6,7 @@ The Modern Web App pattern helps you optimize high-demand areas of your web appl
 
 ## How to implement the Modern Web App pattern
 
-This article contains guidance for implementing the Modern Web App pattern. Use the following links to go to the specific guidance you need:
+This article contains guidance for implementing the Modern Web App pattern. Use the following links to go to the specific guidance that you need:
 
 - [Architecture guidance](#architecture-guidance). Learn how to modularize web app components and select appropriate platform as a service (PaaS) solutions.
 - [Code guidance](#code-guidance). Implement four design patterns to optimize the decoupled components: Strangler Fig, Queue-Based Load Leveling, Competing Consumers, and Health Endpoint Monitoring.
@@ -158,7 +158,7 @@ To implement the Competing Consumers pattern, follow these recommendations:
 
 - *Handle concurrent messages.* When services receive messages from a queue, ensure that your system scales predictably by configuring the concurrency to match the system design. Load test results can help you determine the appropriate number of concurrent messages to handle. You can start from one to measure how the system performs.
 
-- *Disable prefetching.* Disable prefetching of messages so consumers only fetch messages when they're ready.
+- *Disable prefetching.* Disable prefetching of messages so that consumers only fetch messages when they're ready.
 
 - *Use reliable message processing modes.* Use a reliable processing mode, such as Peek-Lock, that automatically retries messages that fail processing. This mode provides more reliability than deletion-first methods. If one worker fails to handle a message, another must be able to process it without errors, even if the message is processed multiple times.
 
@@ -285,7 +285,7 @@ The following sections provide guidance for implementing the configuration updat
 
 To configure authentication and authorization on any new Azure services (*workload identities*) that you add to the web app, follow these recommendations:
 
-- *Use managed identities for each new service.* Each independent service should have its own identity and use managed identities for service-to-service authentication. Managed identities eliminate the need to manage credentials in your code and reduce the risk of credential leakage. They help you avoid putting sensitive information like connection strings in your code or configuration files.
+- *Use managed identities for each new service.* Each independent service should have its own identity and use managed identities for service-to-service authentication. Managed identities eliminate the need to manage credentials in your code and reduce the risk of credential leakage. They help you avoid including sensitive information like connection strings in your code or configuration files.
 
 - *Grant least privilege to each new service.* Assign only necessary permissions to each new service identity. For example, if an identity only needs to push to a container registry, don't give it pull permissions. Review these permissions regularly and adjust them as necessary. Use different identities for different roles, such as deployment and the application. Doing so limits the potential damage if one identity is compromised.
 
@@ -379,7 +379,7 @@ Containerization is the encapsulation of all dependencies needed by the app in a
 
 - *Encapsulate dependencies.* Ensure that all dependencies that the app needs are encapsulated in the Docker container image. Encapsulation allows the app to be reliably deployed to a wide range of hosts.
 
-- *Choose the right base images.* The base image you choose depends on your deployment environment. If you're deploying to Container Apps, for instance, you need to use Linux Docker images.
+- *Choose the right base images.* The base image you choose depends on your deployment environment. If you deploy to Container Apps, for instance, you need to use Linux Docker images.
 
 The reference implementation demonstrates a Docker build process for containerizing a Java application. The Dockerfile uses a single-stage build with the OpenJDK base image (`mcr.microsoft.com/openjdk/jdk:17-ubuntu`), which provides the necessary Java runtime environment.
 
