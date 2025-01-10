@@ -95,7 +95,7 @@ This example features the following Azure components. Several of these component
 
   - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine. SQL Database always runs on the latest stable version of SQL Server and a patched OS with 99.99 percent availability. Built-in PaaS database management capabilities include upgrading, patching, backups, and monitoring. You can focus on domain-specific, business-critical database administration and optimization.
 
-  - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed database based on the open-source Postgres relational database engine. The [Hyperscale (Citus) deployment option](/azure/postgresql/hyperscale/) scales queries across multiple machines using sharding, for applications that require greater scale and performance.
+  - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed database based on the open-source Postgres relational database engine. The [Hyperscale (Citus) deployment option](https://github.com/SpektraSystems/Introduction-to-Hyperscale-Citus-on-Azure-Database-for-PostgreSQL/blob/master/Exercise1.md) scales queries across multiple machines using sharding, for applications that require greater scale and performance.
 
   - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed, fast NoSQL database with open APIs for any scale.
 
