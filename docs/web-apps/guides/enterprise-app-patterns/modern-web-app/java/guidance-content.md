@@ -39,7 +39,7 @@ To implement the Modern Web App pattern, you need to decouple the existing web a
 
 - *Decouple the web app service.* Define clear interfaces and APIs that the newly extracted web app services can use to interact with other parts of the system. Design a data-management strategy that allows each service to manage its own data but ensures consistency and integrity. For specific implementation strategies and design patterns to use during this extraction process, see the [Code guidance](#code-guidance) section.
 
-- *Use independent storage for decoupled services.* Each decoupled service should have its own data stores to simplify versioning and deployment. For example, the reference implementation separates the email service from the web app and eliminates the need for the service to access the database. Instead, the service communicates the email delivery status back to the web app via an Azure Service Bus message, and the web app saves a note to its database.
+- *Use independent storage for decoupled services.* To simplify versioning and deployment, ensure that each decoupled service has its own data stores. For example, the reference implementation separates the email service from the web app and eliminates the need for the service to access the database. Instead, the service communicates the email delivery status back to the web app via an Azure Service Bus message, and the web app saves a note to its database.
 
 - *Implement separate deployment pipelines for each decoupled service.* If you implement separate deployment pipelines, each service can be updated according to its own schedule. If different teams or organizations within your company own different services, using separate deployment pipelines gives each team control over its own deployments. Use continuous integration and continuous delivery (CI/CD) tools like Jenkins, GitHub Actions, or Azure Pipelines to set up these pipelines.
 
@@ -174,9 +174,9 @@ To implement the Competing Consumers pattern, follow these recommendations:
 
 - *Configure logging.* Integrate logging and specific exception handling within the message-processing workflow. Focus on capturing serialization errors and directing these problematic messages to a dead-letter mechanism. These logs provide valuable insights for troubleshooting.
 
-For example, the reference implementation uses the Competing Consumers pattern on a stateless service that runs in Container Apps to process the email delivery requests from a Service Bus queue.
+The reference implementation uses the Competing Consumers pattern on a stateless service that runs in Container Apps to process email delivery requests from a Service Bus queue.
 
-The processor logs message processing details to help with troubleshooting and monitoring. It captures deserialization errors and provides insights that can be useful during debugging. The service scales at the container level to enable efficient handling of message spikes based on queue length. The following code accomplishes this task.
+The processor logs message processing details to help with troubleshooting and monitoring. It captures deserialization errors and provides insights that can be useful during debugging. The service scales at the container level to enable efficient handling of message spikes based on queue length. Here's the code:
 
 ```java
 @Configuration
@@ -287,7 +287,7 @@ To configure authentication and authorization on any new Azure services (*worklo
 
 - *Use managed identities for each new service.* Each independent service should have its own identity and use managed identities for service-to-service authentication. Managed identities eliminate the need to manage credentials in your code and reduce the risk of credential leakage. They help you avoid putting sensitive information like connection strings in your code or configuration files.
 
-- *Grant least privilege to each new service.* Assign only necessary permissions to each new service identity. For example, if an identity only needs to push to a container registry, don't give it pull permissions. Review these permissions regularly and adjust then as necessary. Use different identities for different roles, such as deployment and the application. Doing so limits the potential damage if one identity is compromised.
+- *Grant least privilege to each new service.* Assign only necessary permissions to each new service identity. For example, if an identity only needs to push to a container registry, don't give it pull permissions. Review these permissions regularly and adjust them as necessary. Use different identities for different roles, such as deployment and the application. Doing so limits the potential damage if one identity is compromised.
 
 - *Use infrastructure as code (IaC).* Use Bicep or a similar IaC tool like Terraform to define and manage your cloud resources. IaC ensures consistent application of security configurations in your deployments and enables you to version control your infrastructure setup.
 
@@ -386,7 +386,7 @@ The reference implementation demonstrates a Docker build process for containeriz
 The Dockerfile includes the following steps:
 
 1. *Declaring the volume.* A temporary volume (`/tmp`) is defined. This volume provides temporary file storage that's separate from the container's main file system.
-1. *Copying artifacts.* The application's JAR file (`email-processor.jar`) is copied into the container, together with the Application Insights agent (`applicationinsights-agent.jar`) for that's used for monitoring.
+1. *Copying artifacts.* The application's JAR file (`email-processor.jar`) is copied into the container, together with the Application Insights agent (`applicationinsights-agent.jar`) that's used for monitoring.
 1. *Setting the entrypoint.* The container is configured to run the application with the Application Insights agent enabled. The code uses `java -javaagent` to monitor the application during runtime.
 
 The Dockerfile keeps the image small by only including runtime dependencies. It's suitable for deployment environments like Container Apps that support Linux-based containers.
@@ -416,7 +416,7 @@ The following diagram shows the architecture of the reference implementation:
 
 [![Diagram showing architecture of the reference implementation.](../../../_images/modern-web-app-java.svg)](../../../_images/modern-web-app-java.svg#lightbox)
 
-Download a [Visio file](https://arch-center.azureedge.net/modern-web-app-java.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/modern-web-app-java.vsdx) of this architecture.*
 
 >[!div class="nextstepaction"]
 >[Modern Web App pattern for Java reference implementation][reference-implementation]
