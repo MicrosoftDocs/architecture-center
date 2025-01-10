@@ -328,7 +328,7 @@ Principal author:
 [Document Intelligence general document model]: /azure/ai-services/document-intelligence/prebuilt/general-document?view=doc-intel-4.0.0&view%3C=doc-intel-3.1.0&preserve-view=true
 [Form Recognizer ID document model]: /azure/applied-ai-services/form-recognizer/concept-id-document
 [Form Recognizer invoice model]: /azure/applied-ai-services/form-recognizer/concept-invoice
-[Document intelligence layout model]: https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/prebuilt/layout?view=doc-intel-4.0.0&tabs=sample-code
+[Document intelligence layout model]: /azure/ai-services/document-intelligence/prebuilt/layout
 [Form Recognizer receipt model]: /azure/applied-ai-services/form-recognizer/concept-receipt
 [US tax document models]: /azure/ai-services/document-intelligence/concept-tax-document
 [Get started: Form Recognizer Studio]: /azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0
