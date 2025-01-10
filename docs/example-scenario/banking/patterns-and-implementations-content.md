@@ -86,9 +86,6 @@ Learn more about the component technologies:
 * [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
 * [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 
-## Related resources
-
-Explore related architectures:
+## Related resource
 
 * [Saga distributed transactions](../../reference-architectures/saga/saga.yml)
-* [Gridwich saga orchestration](../../reference-architectures/media-services/gridwich-saga-orchestration.yml)
