@@ -69,7 +69,7 @@ For each Azure service in your architecture, consult the relevant [Azure service
 
 ## Code guidance
 
-To successfully decouple and extract an independent service, you need to update your web app code with the following design patterns: Strangler Fig, Queue-Based Load Leveling, Competing Consumers, Health Endpoint Monitoring, and Retry. The folling diagram shows the roles of these patterns:
+To successfully decouple and extract an independent service, you need to update your web app code with the following design patterns: Strangler Fig, Queue-Based Load Leveling, Competing Consumers, Health Endpoint Monitoring, and Retry. The following diagram shows the roles of these patterns:
 
 [![Diagram showing the role of the design patterns in the Modern Web App pattern architecture.](../../../_images/modern-web-app-design-patterns.svg)](../../../_images/modern-web-app-design-patterns.svg#lightbox)
 
@@ -415,7 +415,8 @@ Deploy the reference implementation of the [Modern Web App Pattern for Java](htt
 The following diagram shows the architecture of the reference implementation:
 
 [![Diagram showing architecture of the reference implementation.](../../../_images/modern-web-app-java.svg)](../../../_images/modern-web-app-java.svg#lightbox)
-*Figure 3. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/modern-web-app-java.vsdx) of this architecture.*
+
+Download a [Visio file](https://arch-center.azureedge.net/modern-web-app-java.vsdx) of this architecture.*
 
 >[!div class="nextstepaction"]
 >[Modern Web App pattern for Java reference implementation][reference-implementation]
