@@ -167,7 +167,7 @@ Principal authors:
 [Azure Serverless: Overview for building cloud-based apps and solutions with Azure Logic Apps and Azure Functions]: /azure/logic-apps/logic-apps-serverless-overview
 [Azure SQL Database]: /azure/azure-sql/database/sql-database-paas-overview
 [Azure SQL Managed Instance]: /azure/azure-sql/managed-instance/sql-managed-instance-paas-overview
-[Azure Storage documentation]: /azure/storage-introduction
+[Azure Storage documentation]: /azure/storage/common/storage-introduction
 [Batches of SQL Statements]: /sql/odbc/reference/develop-app/batches-of-sql-statements
 [Compare Azure Functions and Azure Logic Apps]: /azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps
 [Compare Microsoft Power Automate and Azure Logic Apps]: /azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-microsoft-power-automate-and-azure-logic-apps
