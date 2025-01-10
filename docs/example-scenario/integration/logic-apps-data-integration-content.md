@@ -157,7 +157,7 @@ Principal authors:
 [Automate workflows for a SQL database by using Azure Logic Apps]: /azure/connectors/connectors-create-api-sqlazure
 [Azure API Management]: /azure/api-management/api-management-key-concepts
 [Azure Database Migration Service]: https://azure.microsoft.com/services/database-migration/
-[Azure Event Hubs - A big data streaming platform and event ingestion service]: /azure/event-hubs/event-hubs-about
+[Azure Event Hubs - A big data streaming platform and event ingestion service]: /azure/well-architected/service-guides/azure-databricks-security
 [Azure Functions]: /azure/azure-functions/functions-overview
 [Azure Logic Apps]: /azure/logic-apps/logic-apps-overview
 [Azure Monitor Logs overview]: /azure/azure-monitor/logs/data-platform-logs
