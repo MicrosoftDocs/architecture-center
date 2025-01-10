@@ -171,7 +171,6 @@ Principal author:
 ## Next steps
 
 - For more information, please contact legacy2azure@microsoft.com.
-- [Modernization Platform as a Service (ModPaaS)](https://azuremarketplace.microsoft.com/marketplace/apps/modern-systems.modpaas?tab=Overview)
 - [Advanced's Automated COBOL Refactoring solution](https://modernsystems.oneadvanced.com/services/cobol)
 - [Case study: Modernizing to the Cloud While Racing the Clock](https://modernsystems.oneadvanced.com/case-studies/uk-government-agency/?utm_medium=CampaignPage&utm_source=Website&utm_campaign=UKGOVCaseStudy).
 
