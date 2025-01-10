@@ -14,15 +14,21 @@ The following sections describe the various stages of the data extraction proces
 
 1. Documents are ingested through a browser at the front end of a web application. The documents contain images or are in PDF format. Azure App Service hosts a back-end application. The solution routes the documents to that application through Azure Application Gateway. This load balancer runs with Azure Web Application Firewall, which helps to protect the application from common attacks and vulnerabilities.
 
-1. The back-end application posts a request to an Azure AI Document Intelligence REST API endpoint that uses one of these models:
+1. The back-end application posts a request to an Azure AI Document Intelligence REST API endpoint that uses one of the [models](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept/choose-model-feature?view=doc-intel-4.0.0) based on the use case requirement.
+Pretrained document analysis models include
+   - [Read OCR model](/azure/ai-services/document-intelligence/prebuilt/read?view=doc-intel-4.0.0)
+   - [Layout analysis model][Document intelligence layout model]
+   - [General document][Document intelligence general document model] Please note that you may also use Layout analysis model with optional query string parameter features=keyValuePairs enabled)
 
-   - [Layout][Form Recognizer layout model]
+[Pretrained scenario-specific](/azure/ai-services/document-intelligence/concept/choose-model-feature?view=doc-intel-4.0.0#pretrained-scenario-specific-models) models include 
    - [Invoice][Form Recognizer invoice model]
    - [Receipt][Form Recognizer receipt model]
    - [ID document][Form Recognizer ID document model]
-   - [General document][Form Recognizer general document model]
-   - [US tax document models](/azure/ai-services/document-intelligence/concept-tax-document)
-   - [US mortgage document model](/azure/ai-services/document-intelligence/concept-mortgage-documents)
+   - [Contract model](/azure/ai-services/document-intelligence/prebuilt/contract?view=doc-intel-4.0.0) 
+   - [US tax document models](/azure/ai-services/document-intelligence/prebuilt/tax-document?view=doc-intel-4.0.0)
+   - [US mortgage document model](/azure/ai-services/document-intelligence/prebuilt/mortgage-documents?view=doc-intel-4.0.0)
+   - [US Health Insurance card model](/azure/ai-services/document-intelligence/prebuilt/health-insurance-card?view=doc-intel-4.0.0)
+     
 
    The response from Azure AI Document Intelligence contains raw optical character recognition (OCR) data and structured extractions.
 
@@ -314,10 +320,10 @@ Principal author:
 [Durability and availability parameters]: /azure/storage/common/storage-redundancy#durability-and-availability-parameters
 [Extract text from objects using Power Automate and AI Builder]: ../../example-scenario/ai/extract-object-text.yml
 [Failover for business continuity and disaster recovery]: /azure/machine-learning/how-to-high-availability-machine-learning
-[Form Recognizer general document model]: /azure/applied-ai-services/form-recognizer/concept-general-document
+[Document Intelligence general document model]: /azure/ai-services/document-intelligence/prebuilt/general-document?view=doc-intel-4.0.0&view%3C=doc-intel-3.1.0&preserve-view=true
 [Form Recognizer ID document model]: /azure/applied-ai-services/form-recognizer/concept-id-document
 [Form Recognizer invoice model]: /azure/applied-ai-services/form-recognizer/concept-invoice
-[Form Recognizer layout model]: /azure/applied-ai-services/form-recognizer/concept-layout
+[Document intelligence layout model]: https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/prebuilt/layout?view=doc-intel-4.0.0&tabs=sample-code
 [Form Recognizer receipt model]: /azure/applied-ai-services/form-recognizer/concept-receipt
 [US tax document models]: /azure/ai-services/document-intelligence/concept-tax-document
 [Get started: Form Recognizer Studio]: /azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0
