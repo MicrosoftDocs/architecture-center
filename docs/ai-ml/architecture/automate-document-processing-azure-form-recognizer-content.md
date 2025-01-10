@@ -15,12 +15,13 @@ The following sections describe the various stages of the data extraction proces
 1. Documents are ingested through a browser at the front end of a web application. The documents contain images or are in PDF format. Azure App Service hosts a back-end application. The solution routes the documents to that application through Azure Application Gateway. This load balancer runs with Azure Web Application Firewall, which helps to protect the application from common attacks and vulnerabilities.
 
 1. The back-end application posts a request to an Azure AI Document Intelligence REST API endpoint that uses one of the [models](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept/choose-model-feature?view=doc-intel-4.0.0) based on the use case requirement.
+   
    a. Pretrained document analysis models include
    - [Read OCR model](/azure/ai-services/document-intelligence/prebuilt/read?view=doc-intel-4.0.0)
    - [Layout analysis model][Document intelligence layout model]
    - [General document][Document intelligence general document model] Please note that you may also use Layout analysis          model with optional query string parameter features=keyValuePairs enabled)
 
-   b. [Pretrained scenario-specific](/azure/ai-services/document-intelligence/concept/choose-model-feature?view=doc-intel-      4.0.0#pretrained-scenario-specific-models) models include (not limited to)
+   b. [Pretrained scenario-specific](/azure/ai-services/document-intelligence/concept/choose-model-feature?view=doc-intel-4.0.0#pretrained-scenario-specific-models) models include (not limited to)
    - [Invoice][Form Recognizer invoice model]
    - [Receipt][Form Recognizer receipt model]
    - [ID document][Form Recognizer ID document model]
