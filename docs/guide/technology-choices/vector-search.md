@@ -182,9 +182,9 @@ Other contributors:
 
 - [Understand data store models](/azure/architecture/guide/technology-choices/data-store-overview)
 - [Technology choices for Azure solutions](/azure/architecture/guide/technology-choices/technology-choices-overview)
-- [Announcing EAP for Vector Support in Azure SQL Database](https://devblogs.microsoft.com/azure-sql/announcing-eap-native-vector-support-in-azure-sql-database/)
+- [Intelligent Application and AI](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications)
+- [Vector similarity search with Azure SQL & Azure OpenAI](/samples/azure-samples/azure-sql-db-openai/azure-sql-db-openai/)
 - [Native Vector Support in Azure SQL and SQL Server](https://github.com/Azure-Samples/azure-sql-db-vector-search?tab=readme-ov-file)
 - [Vector database in Azure Cosmos DB](/azure/cosmos-db/vector-database)
-- [Introducing vector database capabilities in Azure Cosmos DB for NoSQL](https://devblogs.microsoft.com/cosmosdb/introducing-vector-database-capabilities-in-azure-cosmos-db-for-nosql/)
 - [Vector Search in Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/vector-search)
 - [Azure Vector Database Samples](https://github.com/Azure-Samples/azure-vector-database-samples/)
