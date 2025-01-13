@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 01/06/2025
+ms.date: 01/13/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.author: robbag
@@ -27,6 +27,20 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Azure Application Architecture Fundamentals](./guide/index.md)  ([#221b5d1bdf](https://github.com/MicrosoftDocs/architecture-center/commit/221b5d1bdf))
+- [Compare AWS and Azure Accounts](./aws-professional/accounts.md)  ([#67adab262b](https://github.com/MicrosoftDocs/architecture-center/commit/67adab262b))
+- [Compare AWS and Azure Networking Options](./aws-professional/networking.md)  ([#67adab262b](https://github.com/MicrosoftDocs/architecture-center/commit/67adab262b))
+- [Compare AWS and Azure Resource Management](./aws-professional/resources.md)  ([#67adab262b](https://github.com/MicrosoftDocs/architecture-center/commit/67adab262b))
+- [Basic enterprise integration on Azure](./reference-architectures/enterprise-integration/basic-enterprise-integration.yml)  ([#78127a104e](https://github.com/MicrosoftDocs/architecture-center/commit/78127a104e))
+- [Automate PDF forms processing](./ai-ml/architecture/automate-pdf-forms-processing.yml)  ([#8b11bb996f](https://github.com/MicrosoftDocs/architecture-center/commit/8b11bb996f))
+- [Deploy Azure landing zones](./landing-zones/landing-zone-deploy.md)  ([#e4e5a01e1a](https://github.com/MicrosoftDocs/architecture-center/commit/e4e5a01e1a))
+- [Develop a RAG Solution—Information-Retrieval Phase](./ai-ml/guide/rag/rag-information-retrieval.md)  ([#581cc1fd26](https://github.com/MicrosoftDocs/architecture-center/commit/581cc1fd26))
+- [CQRS pattern](./patterns/cqrs.yml)  ([#68f7b0269a](https://github.com/MicrosoftDocs/architecture-center/commit/68f7b0269a))
+- [Baseline OpenAI end-to-end chat reference architecture](./ai-ml/architecture/baseline-openai-e2e-chat.yml)  ([#0ed90cb341](https://github.com/MicrosoftDocs/architecture-center/commit/0ed90cb341))
+- [Overview of Microsoft Machine Learning Products and Technologies](./ai-ml/guide/data-science-and-machine-learning.md)  ([#0ed90cb341](https://github.com/MicrosoftDocs/architecture-center/commit/0ed90cb341))
+- [Artificial intelligence (AI) architecture](./ai-ml/index.md)  ([#0ed90cb341](https://github.com/MicrosoftDocs/architecture-center/commit/0ed90cb341))
+- [Compare Storage Services on Azure and AWS](./aws-professional/storage.md)  ([#3501c9c49c](https://github.com/MicrosoftDocs/architecture-center/commit/3501c9c49c))
+- [Basic web application](./web-apps/app-service/architectures/basic-web-app.yml)  ([#f17710bcb2](https://github.com/MicrosoftDocs/architecture-center/commit/f17710bcb2))
 - [How to build workloads on spot virtual machines](./guide/spot/spot-eviction.yml)  ([#a1b3871cd0](https://github.com/MicrosoftDocs/architecture-center/commit/a1b3871cd0))
 - [Choose an Azure service for vector search](./guide/technology-choices/vector-search.md)  ([#4b9fec8d86](https://github.com/MicrosoftDocs/architecture-center/commit/4b9fec8d86))
 - [Stream processing with Databricks](./reference-architectures/data/stream-processing-databricks.yml)  ([#a75ca75c29](https://github.com/MicrosoftDocs/architecture-center/commit/a75ca75c29))
@@ -35,7 +49,6 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
-- [Develop a RAG Solution—Generate Embeddings Phase](./ai-ml/guide/rag/rag-generate-embeddings.md)
 - [Modernize Mainframe Workloads by using BMC AMI Cloud](./example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml)
 - [Azure Virtual Desktop for Azure Local](./hybrid/azure-local-workload-virtual-desktop.yml)
 
@@ -45,10 +58,8 @@ The following new and updated articles have recently been published in the Azure
 - [Best practices in cloud applications](./best-practices/index-best-practices.md)  ([#f84f30f537](https://github.com/MicrosoftDocs/architecture-center/commit/f84f30f537))
 - [Cloud design patterns](./patterns/index.md)  ([#f84f30f537](https://github.com/MicrosoftDocs/architecture-center/commit/f84f30f537))
 - [Analyze video content with Computer Vision and Azure Machine Learning](./ai-ml/architecture/analyze-video-computer-vision-machine-learning.yml)  ([#c847f992d4](https://github.com/MicrosoftDocs/architecture-center/commit/c847f992d4))
-- [Design and Develop a RAG Solution](./ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.md)  ([#0d171aabb6](https://github.com/MicrosoftDocs/architecture-center/commit/0d171aabb6))
 - [Batch scoring of Spark models on Azure Databricks](./ai-ml/architecture/batch-scoring-databricks.yml)  ([#64c84cbd5c](https://github.com/MicrosoftDocs/architecture-center/commit/64c84cbd5c))
 - [Natural language processing technology](./data-guide/technology-choices/natural-language-processing.yml)  ([#83ee95d21f](https://github.com/MicrosoftDocs/architecture-center/commit/83ee95d21f))
-- [Develop a RAG Solution - Preparation Phase](./ai-ml/guide/rag/rag-preparation-phase.md)  ([#7c970d7909](https://github.com/MicrosoftDocs/architecture-center/commit/7c970d7909))
 - [Provide custom authentication to Azure OpenAI Service through a gateway](./ai-ml/guide/azure-openai-gateway-custom-authentication.yml)  ([#7e1271e2c7](https://github.com/MicrosoftDocs/architecture-center/commit/7e1271e2c7))
 - [Access Azure OpenAI and other language models through a gateway](./ai-ml/guide/azure-openai-gateway-guide.yml)  ([#7e1271e2c7](https://github.com/MicrosoftDocs/architecture-center/commit/7e1271e2c7))
 - [Use a gateway in front of multiple Azure OpenAI deployments or instances](./ai-ml/guide/azure-openai-gateway-multi-backend.yml)  ([#7e1271e2c7](https://github.com/MicrosoftDocs/architecture-center/commit/7e1271e2c7))
@@ -87,9 +98,6 @@ The following new and updated articles have recently been published in the Azure
 - [Use a Message Broker and Events to Integrate Enterprise Systems](./example-scenario/integration/queues-events.yml)  ([#159cbaeccf](https://github.com/MicrosoftDocs/architecture-center/commit/159cbaeccf))
 - [Connect an On-Premises Network to Azure by Using ExpressRoute](./reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)  ([#e5f9dec39d](https://github.com/MicrosoftDocs/architecture-center/commit/e5f9dec39d))
 - [Serverless Functions code walkthrough](./web-apps/serverless/architectures/code.yml)  ([#027d3ab0ec](https://github.com/MicrosoftDocs/architecture-center/commit/027d3ab0ec))
-- [Developing a RAG solution - Chunk enrichment phase](./ai-ml/guide/rag/rag-enrichment-phase.md)  ([#d7ea602f59](https://github.com/MicrosoftDocs/architecture-center/commit/d7ea602f59))
-- [Developing a RAG solution - Information retrieval phase](./ai-ml/guide/rag/rag-information-retrieval.md)  ([#d7ea602f59](https://github.com/MicrosoftDocs/architecture-center/commit/d7ea602f59))
-- [Developing a RAG solution - LLM end to end evaluation phase](./ai-ml/guide/rag/rag-llm-evaluation-phase.md)  ([#d7ea602f59](https://github.com/MicrosoftDocs/architecture-center/commit/d7ea602f59))
 - [Enterprise Web App Patterns](./web-apps/guides/enterprise-app-patterns/overview.md)  ([#e06a37b575](https://github.com/MicrosoftDocs/architecture-center/commit/e06a37b575))
 - [Reliable Web App Pattern for .NET](./web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance.yml)  ([#e06a37b575](https://github.com/MicrosoftDocs/architecture-center/commit/e06a37b575))
 - [Reliable Web App Pattern for Java](./web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance.yml)  ([#e06a37b575](https://github.com/MicrosoftDocs/architecture-center/commit/e06a37b575))
@@ -166,7 +174,6 @@ The following new and updated articles have recently been published in the Azure
 - [Serverless web application](./web-apps/serverless/architectures/web-app.yml)  ([#6c8ea10816](https://github.com/MicrosoftDocs/architecture-center/commit/6c8ea10816))
 - [Microsoft Entra IDaaS in security operations](./example-scenario/aadsec/azure-ad-security.yml)  ([#a1342dca07](https://github.com/MicrosoftDocs/architecture-center/commit/a1342dca07))
 - [Extract text from objects using Power Automate and AI Builder](./example-scenario/ai/extract-object-text.yml)  ([#a1342dca07](https://github.com/MicrosoftDocs/architecture-center/commit/a1342dca07))
-- [News feeds with near real-time analytics](./example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)  ([#a1342dca07](https://github.com/MicrosoftDocs/architecture-center/commit/a1342dca07))
 - [Run SAP HANA Large Instances](./reference-architectures/sap/hana-large-instances.yml)  ([#cd8f5bea9a](https://github.com/MicrosoftDocs/architecture-center/commit/cd8f5bea9a))
 - [Pricing models for a multitenant solution](./guide/multitenant/considerations/pricing-models.md)  ([#820a1635fe](https://github.com/MicrosoftDocs/architecture-center/commit/820a1635fe))
 - [Use Teamcenter PLM with Azure NetApp Files](./example-scenario/manufacturing/teamcenter-plm-netapp-files.yml)  ([#d056868ef6](https://github.com/MicrosoftDocs/architecture-center/commit/d056868ef6))
