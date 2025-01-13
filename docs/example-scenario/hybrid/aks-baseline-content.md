@@ -206,7 +206,7 @@ Other contributors:
   [1]: https://azure.microsoft.com/products/azure-stack/hci/
   [Azure Kubernetes Service (AKS) on Azure Local]: /azure/aks/hybrid/aks-hybrid-options-overview
   [Windows Admin Center]: /windows-server/manage/windows-admin-center/overview
-  [An Azure subscription]: azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions
+  [An Azure subscription]: /azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions
   [Azure Arc]: /azure/azure-arc
   [Azure role-based access control (Azure RBAC)]: /azure/role-based-access-control/overview
   [Azure Monitor]: /azure/azure-monitor/overview
