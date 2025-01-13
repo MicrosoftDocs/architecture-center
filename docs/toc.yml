@@ -758,7 +758,7 @@ items:
   - name: Retry
     href: patterns/retry.yml
   - name: Saga
-    href: reference-architectures/saga/saga.yml
+    href: patterns/saga.yml
   - name: Scheduler Agent Supervisor
     href: patterns/scheduler-agent-supervisor.yml
   - name: Sequential Convoy

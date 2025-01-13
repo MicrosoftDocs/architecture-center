@@ -6494,6 +6494,11 @@
       "source_path": "docs/industries/overview.md",
       "redirect_url": "/industry/",
       "redirect_document_id": false   
+    },    
+    {
+      "source_path": "docs/reference-architectures/saga/saga.yml",
+      "redirect_url": "/azure/architecture/patterns/saga",
+      "redirect_document_id": true 
     }
   ]
 }
