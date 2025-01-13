@@ -21,9 +21,9 @@ This architecture uses Azure Files, Azure File Sync, and Azure Virtual Desktop t
 
 ### Components
 
-- [Azure Files](https://azure.microsoft.com/products/storage/files) provides fully managed file shares in the cloud. Azure File Sync is a feature of Azure Files that can provide caches of a file share on the cloud and on-premises on Windows Server.
-- [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop) is a desktop and app virtualization service that runs on the cloud to provide desktops for remote users.
-- [Azure Storage](https://azure.microsoft.com/product-categories/storage) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Azure Files](https://azure.microsoft.com/products/storage/files), [Azure Table Storage](https://azure.microsoft.com/products/storage/tables), and [Azure Queue Storage](https://azure.microsoft.com/products/storage/queues).
+- [Azure Files](/azure/well-architected/service-guides/azure-files) provides fully managed file shares in the cloud. Azure File Sync is a feature of Azure Files that can provide caches of a file share on the cloud and on-premises on Windows Server.
+- [Azure Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and app virtualization service that runs on the cloud to provide desktops for remote users.
+- [Azure Storage](/azure/storage/tables/table-storage-overview) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Azure Files](https://azure.microsoft.com/products/storage/files), [Azure Table Storage](https://azure.microsoft.com/products/storage/tables), and [Azure Queue Storage](https://azure.microsoft.com/products/storage/queues).
 
 ### Alternatives
 
