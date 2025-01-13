@@ -2,12 +2,124 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2025-01-06T16:14:39.038Z</updated>
+    <updated>2025-01-13T20:13:50.844Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Azure Application Architecture Fundamentals]]></title>
+        <id>https://learn.microsoft.com/azure/architecture//guide</id>
+        <link href="https://learn.microsoft.com/azure/architecture//guide"/>
+        <updated>2025-01-06T23:26:12.000Z</updated>
+        <summary type="html"><![CDATA[A structured approach for designing applications on Azure that are scalable, resilient, and highly available]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compare AWS and Azure Accounts]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/accounts</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/accounts"/>
+        <updated>2025-01-06T21:03:27.000Z</updated>
+        <summary type="html"><![CDATA[Learn the differences between Azure and AWS accounts and subscriptions. Understand the types of administrator accounts in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compare AWS and Azure Networking Options]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/networking</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/networking"/>
+        <updated>2025-01-06T21:03:27.000Z</updated>
+        <summary type="html"><![CDATA[Compare the networking options of Azure and AWS. The comparisons cover cloud virtual networking, cross-premises connectivity, DNS management, and more.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compare AWS and Azure Resource Management]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/resources</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/resources"/>
+        <updated>2025-01-06T21:03:27.000Z</updated>
+        <summary type="html"><![CDATA[Compare resource management for Azure and AWS. Learn about the differences between Azure and AWS resource groups. Learn about Azure management interfaces.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Basic enterprise integration on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration"/>
+        <updated>2025-01-10T18:38:13.000Z</updated>
+        <summary type="html"><![CDATA[Recommended architecture for implementing a simple enterprise integration pattern using Azure Logic Apps and Azure API Management.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Automate PDF forms processing]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/automate-pdf-forms-processing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/automate-pdf-forms-processing"/>
+        <updated>2025-01-10T18:18:25.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure services such as AI Document Intelligence, Azure Logic Apps, and Azure Functions to implement cost-effective and flexible automated PDF processing.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Azure landing zones]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy</id>
+        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy"/>
+        <updated>2025-01-09T20:54:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the deployment options for platform and application landing zones in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Develop a RAG Solution—Information-Retrieval Phase]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-information-retrieval</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-information-retrieval"/>
+        <updated>2025-01-09T20:20:52.000Z</updated>
+        <summary type="html"><![CDATA[Learn about how to configure a search index, the types of searches that you can perform, how to break queries into subqueries, and why and how to rerank queries.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CQRS pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/cqrs</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/cqrs"/>
+        <updated>2025-01-06T21:20:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to segregate operations that read data from those that update data, using the CQRS (Command and Query Responsibility Segregation) pattern.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline OpenAI end-to-end chat reference architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat"/>
+        <updated>2025-01-06T20:40:31.000Z</updated>
+        <summary type="html"><![CDATA[A baseline reference architecture for network secured, highly available, and zone-redundant enterprise chat applications with Azure OpenAI, Azure AI Foundry, and Azure App Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Overview of Microsoft Machine Learning Products and Technologies]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/data-science-and-machine-learning</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/data-science-and-machine-learning"/>
+        <updated>2025-01-06T20:40:31.000Z</updated>
+        <summary type="html"><![CDATA[Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Artificial intelligence (AI) architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture//ai-ml</id>
+        <link href="https://learn.microsoft.com/azure/architecture//ai-ml"/>
+        <updated>2025-01-06T20:40:31.000Z</updated>
+        <summary type="html"><![CDATA[Get started with artificial intelligence (AI). Use high-level architectural types, see Azure AI platform offerings, and find customer success stories.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compare Storage Services on Azure and AWS]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/storage</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/storage"/>
+        <updated>2025-01-06T20:27:09.000Z</updated>
+        <summary type="html"><![CDATA[Review storage technology differences between Azure and AWS. Compare Azure Storage with S3, EBS, EFS, and Glacier.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Basic web application]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/app-service/architectures/basic-web-app</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/app-service/architectures/basic-web-app"/>
+        <updated>2025-01-06T20:04:46.000Z</updated>
+        <summary type="html"><![CDATA[Learn about proven practices for deploying web applications that use Azure App Service and Azure SQL Database.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[How to build workloads on spot virtual machines]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/spot/spot-eviction</id>
@@ -31,14 +143,6 @@
         <updated>2025-01-02T15:56:03.000Z</updated>
         <summary type="html"><![CDATA[Learn how to create a four stage end-to-end stream processing pipeline in Azure using Azure Databricks.]]></summary>
         <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Develop a RAG Solution—Generate Embeddings Phase]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-generate-embeddings</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-generate-embeddings"/>
-        <updated>2024-12-18T18:18:00.000Z</updated>
-        <summary type="html"><![CDATA[Learn how embeddings work, how to choose an embedding model, and how your embedding model can affect your vector search results.]]></summary>
-        <category label="new" term="new"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Modernize Mainframe Workloads by using BMC AMI Cloud]]></title>
@@ -89,14 +193,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Design and Develop a RAG Solution]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide"/>
-        <updated>2024-12-16T21:32:06.000Z</updated>
-        <summary type="html"><![CDATA[Learn about what to consider when you design a large language model RAG solution, including each step of the development process and how to evaluate those steps.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Batch scoring of Spark models on Azure Databricks]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/batch-scoring-databricks</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/batch-scoring-databricks"/>
@@ -110,14 +206,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/natural-language-processing"/>
         <updated>2024-12-19T17:17:54.000Z</updated>
         <summary type="html"><![CDATA[Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Develop a RAG Solution - Preparation Phase]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-preparation-phase</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-preparation-phase"/>
-        <updated>2024-12-17T23:43:48.000Z</updated>
-        <summary type="html"><![CDATA[Learn about what to consider when you gather test documents and queries. Use this information to test and validate your chunking and prompt-engineering strategies.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -181,7 +269,7 @@
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat"/>
         <updated>2024-12-05T21:43:41.000Z</updated>
-        <summary type="html"><![CDATA[Establish foundational knowledge for how to build and deploy enterprise chat applications by using Azure OpenAI, Azure AI Studio, and Azure App Service.]]></summary>
+        <summary type="html"><![CDATA[Establish foundational knowledge for how to build and deploy enterprise chat applications by using Azure OpenAI, Azure AI Foundry, and Azure App Service.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -358,30 +446,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/web-apps/serverless/architectures/code"/>
         <updated>2024-11-04T20:38:40.000Z</updated>
         <summary type="html"><![CDATA[Learn about serverless technologies in Azure by walking through an example implementation of a serverless application with Azure Functions.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Developing a RAG solution - Chunk enrichment phase]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-enrichment-phase</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-enrichment-phase"/>
-        <updated>2024-11-26T18:40:05.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the importance of augmenting chunks with metadata like title, summary, keywords, entities, and more. Learn common cleaning operations you can perform on chunks that might improve vector matches.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Developing a RAG solution - Information retrieval phase]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-information-retrieval</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-information-retrieval"/>
-        <updated>2024-11-26T18:40:05.000Z</updated>
-        <summary type="html"><![CDATA[Learn about key decision points when you're configuring a search index. Learn about the various types of search you can perform such as vector, full text, hybrid, and hybrid manual. Finally, learn about breaking queries into subqueries, and why and how to rerank queries.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Developing a RAG solution - LLM end to end evaluation phase]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-llm-evaluation-phase</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-llm-evaluation-phase"/>
-        <updated>2024-11-26T18:40:05.000Z</updated>
-        <summary type="html"><![CDATA[Learn about evaluating your RAG solution from end to end using key LLM and similarity metrics.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -709,7 +773,7 @@
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat"/>
         <updated>2024-11-11T16:10:11.000Z</updated>
-        <summary type="html"><![CDATA[A baseline reference architecture for a network secured, highly available, and zone-redundant enterprise chat applications with Azure OpenAI, Azure AI Studio, and Azure App Service.]]></summary>
+        <summary type="html"><![CDATA[A baseline reference architecture for network secured, highly available, and zone-redundant enterprise chat applications with Azure OpenAI, Azure AI Foundry, and Azure App Service.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1245,7 +1309,7 @@
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat"/>
         <updated>2024-10-21T22:20:14.000Z</updated>
-        <summary type="html"><![CDATA[A baseline reference architecture for a network secured, highly available, and zone-redundant enterprise chat applications with Azure OpenAI, Azure AI Studio, and Azure App Service.]]></summary>
+        <summary type="html"><![CDATA[A baseline reference architecture for network secured, highly available, and zone-redundant enterprise chat applications with Azure OpenAI, Azure AI Foundry, and Azure App Service.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1253,7 +1317,7 @@
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat"/>
         <updated>2024-10-21T22:20:14.000Z</updated>
-        <summary type="html"><![CDATA[Establish foundational knowledge for how to build and deploy enterprise chat applications by using Azure OpenAI, Azure AI Studio, and Azure App Service.]]></summary>
+        <summary type="html"><![CDATA[Establish foundational knowledge for how to build and deploy enterprise chat applications by using Azure OpenAI, Azure AI Foundry, and Azure App Service.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
