@@ -53,7 +53,7 @@ You also need to enable integration of AD FS and Microsoft Entra multifactor aut
 
 ### Components
 
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory). Microsoft Entra ID is a Microsoft cloud-based identity and access management service. It provides modern authentication that's based on EvoSTS (a Security Token Service used by Microsoft Entra ID). It's used as an authentication server for Exchange Server on-premises.
+- [Microsoft Entra ID](/entra/fundamentals/whatis). Microsoft Entra ID is a Microsoft cloud-based identity and access management service. It provides modern authentication that's based on EvoSTS (a Security Token Service used by Microsoft Entra ID). It's used as an authentication server for Exchange Server on-premises.
 
 - [Microsoft Entra multifactor authentication](/azure/active-directory/authentication/howto-mfa-getstarted). Multifactor authentication is a process in which users are prompted during the sign-in process for another form of identification, like a code on their cellphone or a fingerprint scan.
 
