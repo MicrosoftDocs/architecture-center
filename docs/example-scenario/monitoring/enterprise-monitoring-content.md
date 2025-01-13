@@ -38,7 +38,7 @@ This architecture includes the following components:
 
 #### Monitor components
 
-[Azure Monitor](https://azure.microsoft.com/services/monitor) collects, analyzes, and acts on telemetry data from cloud and on-premises environments. This solution uses the following Monitor components and features:
+[Azure Monitor](/azure/azure-monitor/overview) collects, analyzes, and acts on telemetry data from cloud and on-premises environments. This solution uses the following Monitor components and features:
 
 - [Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) collects numeric data from monitored resources into a time series database. Metrics in Monitor are lightweight and support near real-time scenarios, so they're useful for alerting and fast detection of issues.
 - [Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) collects and organizes log and performance data from monitored resources. You can consolidate data from multiple sources, including Azure [platform logs](/azure/azure-monitor/essentials/platform-logs-overview), into a single workspace. You can analyze the data by using a [sophisticated query language](/azure/azure-monitor/logs/log-query-overview) in Log Analytics.
@@ -64,19 +64,19 @@ This architecture includes the following components:
 
 In this solution, Monitor supports or integrates with the following Azure and Microsoft services:
 
-- [Azure Arc](https://azure.microsoft.com/services/azure-arc) simplifies governance and management by delivering a consistent multicloud and on-premises management platform.
-- [Azure Automation](https://azure.microsoft.com/services/automation) delivers cloud-based automation, operating system updates, and configuration to support consistent management across environments. [Change Tracking](/azure/automation/change-tracking/overview) tracks changes in cloud and on-premises VMs to help you identify software issues. Change Tracking forwards the data to Monitor Logs and stores the data in a Log Analytics workspace.
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends on-premises networks into the Microsoft cloud. ExpressRoute uses private connections with the help of connectivity providers.
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides secure, scalable, cost-effective cloud storage for big data analytics.
-- [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless solution that implements readily available code blocks called *functions*. Functions run on demand and scale up automatically.
-- [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service to easily deploy and manage containerized applications.
-- [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) evenly distributes incoming network traffic across backend resources or servers.
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform for creating and running automated workflows. Logic apps can integrate apps, data, services, and systems.
-- [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager) provides a management layer and templates for creating, updating, and deleting resources in your Azure account.
-- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center) is part of Microsoft Defender for Cloud, a unified infrastructure security management system.
-- [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel) is a cloud-native, scalable, security information and event management (SIEM) and security orchestration automated response (SOAR) solution.
-- [Azure SQL](https://azure.microsoft.com/products/azure-sql) family of SQL database services provides a consistent, unified Azure SQL experience. Azure SQL has a full range of deployment options, from edge to cloud.
-- [Power BI](https://powerbi.microsoft.com/) is a collection of software services, apps, and connectors that turn your data sources into coherent, visually immersive, and interactive insights.
+- [Azure Arc](/azure/azure-arc) simplifies governance and management by delivering a consistent multicloud and on-premises management platform.
+- [Azure Automation](/azure/automation/overview) delivers cloud-based automation, operating system updates, and configuration to support consistent management across environments. [Change Tracking](/azure/automation/change-tracking/overview) tracks changes in cloud and on-premises VMs to help you identify software issues. Change Tracking forwards the data to Monitor Logs and stores the data in a Log Analytics workspace.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends on-premises networks into the Microsoft cloud. ExpressRoute uses private connections with the help of connectivity providers.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) provides secure, scalable, cost-effective cloud storage for big data analytics.
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless solution that implements readily available code blocks called *functions*. Functions run on demand and scale up automatically.
+- [Azure Kubernetes Services (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service to easily deploy and manage containerized applications.
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) evenly distributes incoming network traffic across backend resources or servers.
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud-based platform for creating and running automated workflows. Logic apps can integrate apps, data, services, and systems.
+- [Azure Resource Manager](/azure/azure-resource-manager/management/overview) provides a management layer and templates for creating, updating, and deleting resources in your Azure account.
+- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) is part of Microsoft Defender for Cloud, a unified infrastructure security management system.
+- [Microsoft Sentinel](/azure/sentinel/overview) is a cloud-native, scalable, security information and event management (SIEM) and security orchestration automated response (SOAR) solution.
+- [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) family of SQL database services provides a consistent, unified Azure SQL experience. Azure SQL has a full range of deployment options, from edge to cloud.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that turn your data sources into coherent, visually immersive, and interactive insights.
 
 ### Alternatives
 
