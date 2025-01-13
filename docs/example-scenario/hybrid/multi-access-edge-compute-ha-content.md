@@ -26,7 +26,7 @@ Azure public multi-access edge compute (MEC) is a great platform for hosting app
 
 ### Components
 
-- [Azure public MEC](/site-recovery/disaster-recovery-for-edge-zone-vm-tutorial) is an edge computing solution that brings together a portfolio of Microsoft compute, networking, and application services that are managed from the cloud. 
+- [Azure public MEC](https://docs.azure.cn/en-us/site-recovery/disaster-recovery-for-edge-zone-vm-tutorial) is an edge computing solution that brings together a portfolio of Microsoft compute, networking, and application services that are managed from the cloud. 
 - [Azure Traffic Manager](/azure/well-architected/service-guides/traffic-manager/reliability) is a DNS-based traffic load balancer. You can use it to direct incoming DNS requests based on a routing method that you choose.
 - [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) provides high availability and high performance for your apps.
 - [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) enables you to manage and scale up to thousands of VMs.
