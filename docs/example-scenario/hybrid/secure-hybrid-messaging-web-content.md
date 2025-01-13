@@ -63,7 +63,7 @@ You also need to enable integration of AD FS and Microsoft Entra multifactor aut
 
 - [Web Application Proxy](/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-in-windows-server). Web Application Proxy pre-authenticates access to web applications by using AD FS. It also functions as an AD FS proxy.
 
-- [Exchange Server](https://www.microsoft.com/microsoft-365/exchange/email). Exchange Server hosts user mailboxes on-premises. In this architecture, it uses tokens issued to the user by Microsoft Entra ID to authorize access to mailboxes.
+- [Exchange Server](/exchange/exchange-server). Exchange Server hosts user mailboxes on-premises. In this architecture, it uses tokens issued to the user by Microsoft Entra ID to authorize access to mailboxes.
 
 - [Active Directory services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). Active Directory services stores information about members of a domain, including devices and users. In this architecture, user accounts belong to Active Directory services and are synchronized to Microsoft Entra ID.
 
