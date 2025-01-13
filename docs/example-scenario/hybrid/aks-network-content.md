@@ -348,7 +348,7 @@ Other contributors:
 [An Azure subscription]: /azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions
 [2]: /azure/azure-arc
 [Azure role-based access control (RBAC)]: /azure/role-based-access-control/overview
-[3]: https://azure.microsoft.com/services/monitor/
+[3]: /azure/azure-monitor/overview
 [4]: /azure/defender-for-cloud/defender-for-cloud-introduction
 [ingress controller]: /azure/aks/hybrid/create-ingress-controller
 [Project Calico networking]: https://projectcalico.docs.tigera.io/security/calico-network-policy
