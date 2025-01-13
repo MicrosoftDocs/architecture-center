@@ -58,7 +58,7 @@ There are two common saga implementation approaches, *choreography* and *orchest
 
 In choreography, services exchange events without a centralized controller. With choreography, each local transaction publishes domain events that trigger local transactions in other services (*see figure 2*).
 
-![Diagram that shows a saga using choreography](./_images/choreography-pattern.png)<br>
+![Diagram that shows a saga using choreography.](./_images/choreography-pattern.png)<br>
 *Figure 2. A saga that uses choreography.*
 
 | **Benefits of choreography** | **Drawbacks of choreography** |
@@ -71,7 +71,7 @@ In choreography, services exchange events without a centralized controller. With
 
 In orchestration, a centralized controller (orchestrator) handles all the transactions and tells the participants which operation to perform based on events. The orchestrator executes saga requests, stores and interprets the states of each task, and handles failure recovery with compensating transactions (*see figure 3*).
 
-![Diagram that shows a saga using orchestration](./_images/orchestrator.png)<br>
+![Diagram that shows a saga using orchestration.](./_images/orchestrator.png)<br>
 *Figure 3. A saga that uses orchestration.*
 
 | **Benefits of orchestration** | **Drawbacks of orchestration** |
