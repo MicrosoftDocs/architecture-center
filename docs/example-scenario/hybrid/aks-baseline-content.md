@@ -202,7 +202,7 @@ Other contributors:
 
 - [AKS overview](/azure/aks/hybrid/overview)
 
-  [Azure Stack HCI, version 22H2]: /azure-stack/hci/overview
+  [Azure Stack HCI, version 22H2]: /azure/azure-local/overview
   [1]: https://azure.microsoft.com/products/azure-stack/hci/
   [Azure Kubernetes Service (AKS) on Azure Local]: /azure/aks/hybrid/aks-hybrid-options-overview
   [Windows Admin Center]: /windows-server/manage/windows-admin-center/overview
