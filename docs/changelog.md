@@ -19,7 +19,7 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
   
 <br/>  
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
+> [!VIDEO 9f9fdf91-3dcd-455f-b64e-8ec0802dd5db]
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
 

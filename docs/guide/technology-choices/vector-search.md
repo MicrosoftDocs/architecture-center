@@ -11,7 +11,7 @@ categories: ai-machine-learning
 ms.topic: product-comparison
 ms.collection: ce-skilling-ai-copilot
 ms.custom: arb-aiml
-ms.date: 03/28/2024
+ms.date: 01/10/2025
 ---
 
 # Choose an Azure service for vector search
@@ -106,9 +106,9 @@ Understand what kinds of vector data indexing are provided from the following ta
 
 | Indexing approach                         | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for NoSQL                         | Azure Cosmos DB for MongoDB (vCore)                                                                                 | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database                                             |
 | ----------------------------------------- | ------------------------------ | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | --------------- | -------------------------------------------------------------- |
-| DiskANN                                   | No                             | Yes                                               | No                                                                                                                  | Yes<a href="#e1"><sup>1</sup></a>                                       | No              | No                                                             |
+| DiskANN                                   | Yes                            | Yes                                               | Yes (preview) <a href="#e2"><sup>2</sup></a>                                                                        | Yes <a href="#e1"><sup>1</sup></a>   | No              | No                                                             |
 | Exhaustive K-nearest Neighbor (EKNN)      | Yes                            | Yes                                               | Yes                                                                                                                 | Yes                                  | Yes             | Yes                                                            |
-| Hierarchical Navigable Small World (HNSW) | Yes                            | No                                                | Yes (preview)<a href="#e2"><sup>2</sup></a>                                                                         | Yes                                  | Yes             | No                                                             |
+| Hierarchical Navigable Small World (HNSW) | Yes                            | No                                                | Yes <a href="#e2"><sup>2</sup></a>                                                                                  | Yes                                  | Yes             | No                                                             |
 | IVFflat                                   | Yes                            | No                                                | Yes                                                                                                                 | Yes                                  | No              | No                                                             |
 | Other                                     | -                              | flat, quantizedFlat<a href="#e3"><sup>3</sup></a> | Vector field limitation <a href="#e4"><sup>4</sup></a> </br> Vector index limitation <a href="#e5"><sup>5</sup></a> | -                                    | -               | External libraries are available<a href="#e6"><sup>6</sup></a> |
 
@@ -182,9 +182,9 @@ Other contributors:
 
 - [Understand data store models](/azure/architecture/guide/technology-choices/data-store-overview)
 - [Technology choices for Azure solutions](/azure/architecture/guide/technology-choices/technology-choices-overview)
-- [Announcing EAP for Vector Support in Azure SQL Database](https://devblogs.microsoft.com/azure-sql/announcing-eap-native-vector-support-in-azure-sql-database/)
+- [Intelligent Application and AI](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications)
+- [Vector similarity search with Azure SQL & Azure OpenAI](/samples/azure-samples/azure-sql-db-openai/azure-sql-db-openai/)
 - [Native Vector Support in Azure SQL and SQL Server](https://github.com/Azure-Samples/azure-sql-db-vector-search?tab=readme-ov-file)
 - [Vector database in Azure Cosmos DB](/azure/cosmos-db/vector-database)
-- [Introducing vector database capabilities in Azure Cosmos DB for NoSQL](https://devblogs.microsoft.com/cosmosdb/introducing-vector-database-capabilities-in-azure-cosmos-db-for-nosql/)
 - [Vector Search in Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/vector-search)
 - [Azure Vector Database Samples](https://github.com/Azure-Samples/azure-vector-database-samples/)
