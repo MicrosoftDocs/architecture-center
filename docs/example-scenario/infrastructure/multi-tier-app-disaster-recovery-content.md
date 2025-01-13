@@ -128,7 +128,7 @@ For additional high availability and disaster recovery reference architectures, 
 [docs-sql-always-on]: /sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server
 [docs-sql-server-linux]: /sql/linux/sql-server-linux-overview?view=sql-server-linux-2017
 [docs-traffic-manager]: /azure/traffic-manager
-[docs-azure-site-recovery]: /azure/site-recovery/azure-to-azure-quickstart
+[docs-azure-site-recovery]: /azure/site-recovery/site-recovery-overview
 [docs-availability-sets]: /azure/virtual-machines/windows/manage-availability
 [calculator]: https://azure.com/e/6835332265044d6d931d68c917979e6d
 [Multi-region-load-balancing]: /azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway
