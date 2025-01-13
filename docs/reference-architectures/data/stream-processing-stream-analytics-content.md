@@ -244,7 +244,8 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 
 ## Related resources
 
-You may want to review the following [Azure example scenario](/azure/architecture/example-scenario) that demonstrates a specific solution using some of the same technologies.
+- [Stream processing with Azure Databricks](reference-architectures/data/stream-processing-databricks.yml)
+- [Stream processing with open-source data](example-scenario/data/open-source-data-engine-stream-processing.yml)
 
 <!-- links -->
 [AAF-devops]: /azure/architecture/framework/devops/overview
