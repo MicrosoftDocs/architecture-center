@@ -45,7 +45,7 @@ The following sections describe the various stages of the data extraction proces
    - Evaluates the extraction quality.
 
 1. The extracted data enters Azure Cosmos DB.
-2. The extracted data can be pushed to [Azure AI search for indexing to build RAG applications](/azure/ai-services/document-intelligence/concept/retrieval-augmented-generation?view=doc-intel-4.0.0).
+2. The extracted data can also be pushed to [Azure AI search for indexing to build RAG applications](/azure/ai-services/document-intelligence/concept/retrieval-augmented-generation).
    
 
 #### Data enrichment
@@ -90,7 +90,7 @@ The pipeline that's used for data enrichment depends on the use case.
 1. Applications use the raw OCR, structured data from Azure AI Document Intelligence endpoints, and the enriched data from NLP:
 
    - Power BI displays the data and presents reports on it.
-   - The data functions as a source for Azure Cognitive Search.
+   - The data functions as a source for Azure AI Search.
    - Other applications consume the data.
 
 ### Components
@@ -101,7 +101,7 @@ The pipeline that's used for data enrichment depends on the use case.
 
 - [Azure Functions][Azure Functions service page] is a serverless compute platform that you can use to build applications. With Functions, you can use triggers and bindings to react to changes in Azure services like Blob Storage and Azure Cosmos DB. Functions can run scheduled tasks, process data in real time, and process messaging queues.
 
-- [Azure AI Document Intelligence][Azure Form Recognizer service page] is part of Azure AI services. Azure AI Document Intelligence offers a collection of pre-built endpoints for extracting data from invoices, documents, receipts, ID cards, and business cards. This service maps each piece of extracted data to a field as a key-value pair. Azure AI Document Intelligence also extracts table content and structure. The output format is JSON.
+- [Azure AI Document Intelligence][Azure Form Recognizer service page] is part of Azure AI services. Azure AI Document Intelligence offers a collection of pre-built endpoints for extracting data from variety of documents and forms for building intelligent document processing solutions across organizations without training and building specific models from scratch for each document type/solution. The service also offers to build your own custom models with minimal effort and use the model through the corresponding model ID at scale. Multiple custom models can be assigned to a single model ID by creating a [composed model](/azure/ai-services/document-intelligence/how-to-guides/compose-custom-models). The [input requirements](/azure/ai-services/document-intelligence/model-overview?view=doc-intel-4.0.0#input-requirements) varies from model to model. The output format is JSON.
 
 - [Azure Storage][Azure Storage service page] is a cloud storage solution that includes object, blob, file, disk, queue, and table storage.
 
@@ -119,10 +119,14 @@ The pipeline that's used for data enrichment depends on the use case.
 
 - [Power BI][Power BI] is a collection of software services and apps that display analytics information.
 
-- [Azure Cognitive Search][Azure Cognitive Search] is a cloud search service that supplies infrastructure, APIs, and tools for searching. You can use Azure Cognitive Search to build search experiences over private, heterogeneous content in web, mobile, and enterprise applications.
+- [Azure AI Search][Azure Cognitive Search] is a cloud search service that supplies infrastructure, APIs, and tools for searching. You can use Azure AI Search to build search experiences over private, heterogeneous content in web, mobile, and enterprise applications.
 
 ### Alternatives
 
+- You can use [Azure OpenAI multimodal models](/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#gpt-4o-and-gpt-4-turbo) for extracting text from images.
+  
+- You can use [Azure AI Content Understanding (Preview)](/azure/ai-services/content-understanding/overview) for ingesting documents, images, videos and audio different [use cases](/azure/ai-services/content-understanding/overview#content-understanding-use-cases).
+- 
 - You can use [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) instead of App Service to host your application.
 
 - You can use any relational database for persistent storage of the extracted data, including:
@@ -148,6 +152,7 @@ This solution is ideal for the finance industry. It can also apply to the automo
 - Automating ID extraction for verification purposes, as with passports or driver licenses
 - Automating the process of entering business card data into visitor management systems
 - Identifying purchase patterns and duplicate financial documents for fraud detection
+- Automating structured extraction of data from unstructured document in Retreival Augmented Generation scenarios 
 
 ## Considerations
 
@@ -237,6 +242,7 @@ These resources provide information on component pricing options:
 - [Azure Cosmos DB pricing][Azure Cosmos DB pricing]
 - [Language Service pricing][Language Service pricing]
 - [Azure Machine Learning pricing][Azure Machine Learning pricing]
+- [Azure OpenAI Pricing][https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service]
 
 After deciding on a pricing tier for each component, use the [Azure Pricing calculator][Azure Pricing calculator] to estimate the solution cost.
 
@@ -301,7 +307,7 @@ Principal author:
 [Azure Data Lake Storage]: /azure/storage/blobs/data-lake-storage-introduction
 [Azure Database for MySQL]: /azure/mysql/flexible-server/overview
 [Azure Database for PostgreSQL]: /azure/well-architected/service-guides/postgresql
-[Azure Form Recognizer pricing]: https://azure.microsoft.com/pricing/details/form-recognizer
+[Azure Form Recognizer pricing]: https://azure.microsoft.com/pricing/details/ai-document-intelligence
 [Azure Form Recognizer service page]:/azure/ai-services/document-intelligence/overview
 [Azure Functions hosting options]: /azure/azure-functions/functions-scale
 [Azure Functions pricing]: https://azure.microsoft.com/pricing/details/functions
