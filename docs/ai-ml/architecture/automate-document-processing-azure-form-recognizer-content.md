@@ -83,8 +83,7 @@ The pipeline that's used for data enrichment depends on the use case.
    - Real-time processes. The models can be deployed to [managed online endpoints](/azure/machine-learning/concept-endpoints#managed-online-endpoints) or Kubernetes online endpoints, where managed Kubernetes cluster can be anywhere including [Azure Kubernetes Service (AKS)][What is Kubernetes?].
    - Batch inferencing can be done at [batch endpoints](/azure/machine-learning/concept-endpoints#what-are-batch-endpoints) or in Azure Virtual Machines.
 4. Data enrichment like consolidation of specific information/summarization/checking for correctness etc can also be done by passing the extracted data to Azure OpenAI endpoint.
-  
-   1. The enriched data enters Azure Cosmos DB.
+5. The enriched data enters Azure Cosmos DB.
 
 #### Analytics and visualizations
 
