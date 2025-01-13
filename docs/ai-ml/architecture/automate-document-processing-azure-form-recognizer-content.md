@@ -123,10 +123,13 @@ The pipeline that's used for data enrichment depends on the use case.
 
 ### Alternatives
 
-- You can use [Azure OpenAI multimodal models](/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#gpt-4o-and-gpt-4-turbo) for extracting text from images.
+- You can use [Document Intelligence Batch Analysis API](/azure/ai-services/document-intelligence/prebuilt/batch-analysis)
+  to process the documents in bulk.
   
+- You can use [Azure OpenAI multimodal models](/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#gpt-4o-and-gpt-4-turbo) for extracting text from images.
+   
 - You can use [Azure AI Content Understanding (Preview)](/azure/ai-services/content-understanding/overview) for ingesting documents, images, videos and audio different [use cases](/azure/ai-services/content-understanding/overview#content-understanding-use-cases).
-- 
+  
 - You can use [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) instead of App Service to host your application.
 
 - You can use any relational database for persistent storage of the extracted data, including:
