@@ -210,7 +210,7 @@ Other contributors:
   [Azure Arc]: /azure/azure-arc
   [Azure role-based access control (Azure RBAC)]: /azure/role-based-access-control/overview
   [Azure Monitor]: /azure/azure-monitor/overview
-  [Microsoft Defender for Cloud]: /azure/defender-for-cloud/defender-for-cloud-introductiondefender-for-cloud/
+  [Microsoft Defender for Cloud]: /azure/defender-for-cloud/defender-for-cloud-introduction
   [Azure Monitor Container Insights.]: /azure/azure-monitor/containers/container-insights-overview
   [Azure Automation]: /azure/automation/automation-hybrid-runbook-worker
   [virtualized]: /azure/azure-arc/servers/manage-vm-extensions
