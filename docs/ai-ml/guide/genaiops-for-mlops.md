@@ -19,6 +19,8 @@ categories:
 
 This article provides guidance to workload teams that have existing machine learning operations (MLOps) investments and want to extend those investments to include generative AI in their workload. To operationalize a generative AI workload, you need to extend your MLOps investments with Generative AI Ops (GenAIOps, sometimes known as LLMOps). This article outlines technical patterns that are common to both traditional machine learning and generative AI workloads, and specific patterns for generative AI. The article helps you understand where you can apply existing investments in operationalization and where you need to extend those investments.
 
+The planning and implementation of a MLOps and GenAIOps are part of a core design area in AI workloads on Azure. To get a background on why these workloads need specialized operations, see [MLOps and GenAIOps for AI workloads on Azure](/azure/well-architected/ai/mlops-genaiops) in the Azure Well-Architected Framework.
+
 ## Generative AI technical patterns
 
 Generative AI workloads differ from traditional machine learning workloads in a few ways:

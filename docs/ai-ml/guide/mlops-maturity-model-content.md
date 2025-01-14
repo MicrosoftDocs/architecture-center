@@ -54,16 +54,16 @@ The tables that follow identify the detailed characteristics for that level of p
 | ------ | -------------- | ------------- | ----------------------- |
 | <ul><li>Data scientists: Working directly with data engineers to convert experimentation code into repeatable scripts/jobs. Working with software engineers to identify markers for data engineers<li>Data engineers: Working with data scientists and software engineers to manage inputs/outputs<li>Software engineers: Working with data engineers to automate model integration into application code. Implementing post-deployment metrics gathering</ul> | <ul><li>Data pipeline gathers data automatically<li>Retraining triggered automatically based on production metrics<li>Compute managed<li>Experiment results tracked<li>Both training code and resulting models are version controlled</ul> | <ul><li>Automatic Release<li>Scoring Script is version controlled with tests<li>Release managed by continuous integration and CI/CD pipeline</ul> | <ul><li>Unit and Integration tests for each model release<li>Less reliant on data scientist expertise to implement model<li>Application code has unit/integration tests</ul> |
 
-## Next steps
+## Next step
 
-- [Learning path: Introduction to machine learning operations (MLOps)](/training/paths/introduction-machine-learn-operations)
-- [Training module: Start the machine learning lifecycle with MLOps](/training/modules/start-ml-lifecycle-mlops)
-- [MLOps: Model management, deployment, and monitoring with Azure Machine Learning](/azure/machine-learning/concept-model-management-and-deployment)
-- [What are Azure Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines)
-- [Machine Learning registries for MLOps](/azure/machine-learning/concept-machine-learning-registries-mlops)
+> [!div class="nextstepaction"]
+> [MLOps and GenAIOps for AI workloads](/azure/well-architected/ai/mlops-genaiops)
 
 ## Related resources
 
+- [Learning path: Introduction to machine learning operations (MLOps)](/training/paths/introduction-machine-learn-operations)
+- [MLOps: Model management, deployment, and monitoring with Azure Machine Learning](/azure/machine-learning/concept-model-management-and-deployment)
+- [Machine Learning registries for MLOps](/azure/machine-learning/concept-machine-learning-registries-mlops)
 - [Orchestrate MLOps by using Azure Databricks](../../reference-architectures/ai/orchestrate-mlops-azure-databricks.yml)
 - [Secure MLOps solutions with Azure network security](../../ai-ml/guide/network-security-mlops.yml)
 - [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)

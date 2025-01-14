@@ -375,6 +375,10 @@ The following examples are workload changes in this architecture that you should
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
+## Enterprise architecture team
+
+Some organizations have an enterprise architecture team that might influence the design of your workload and its architecture. That team will be familiar with the enterprise's [AI adoption](/azure/cloud-adoption-framework/scenarios/ai/) strategy as well as the principles and recommendations found in the [AI workloads on Azure](/azure/well-architected/ai/get-started) design. Work with this team to ensure this chat workload meets both the objectives of the scenario while also aligning with recommendations and strategy of the organization.
+
 ## Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
@@ -509,3 +513,7 @@ Review the collaboration and technical details shared between a workload team an
 
 > [!div class="nextstepaction"]
 > [Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
+
+## Related resource
+
+- Follow the recommendations found in the Well-Architected Framework's perspective on [AI workloads on Azure](/azure/well-architected/ai/get-started).

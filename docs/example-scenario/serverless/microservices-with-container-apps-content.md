@@ -44,7 +44,7 @@ The drone delivery service uses a series of Azure services in concert with one a
 
 #### Azure Container Apps
 
-[Azure Container Apps](https://azure.microsoft.com/services/container-apps) is the primary component.
+[Azure Container Apps](/azure/container-apps/overview) is the primary component.
 
 These features replace many of the complexities of the previous AKS architecture:
 
@@ -57,19 +57,19 @@ These features replace many of the complexities of the previous AKS architecture
 
 #### External storage and other components
 
-**[Azure Key Vault](https://azure.microsoft.com/services/key-vault)** service for securely storing and accessing secrets, such as API keys, passwords, and certificates.
+**[Azure Key Vault](/azure/key-vault/general/overview)** service for securely storing and accessing secrets, such as API keys, passwords, and certificates.
 
-**[Azure Container Registry](https://azure.microsoft.com/services/container-registry)** stores private container images. You can also use other container registries like Docker Hub.
+**[Azure Container Registry](/azure/container-registry/container-registry-intro)** stores private container images. You can also use other container registries like Docker Hub.
 
-**[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)** stores data using the open-source [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
+**[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** stores data using the open-source [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
 
-**[Azure Service Bus](https://azure.microsoft.com/services/service-bus)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications.
+**[Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications.
 
-**[Azure Cache for Redis](https://azure.microsoft.com/services/cache)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads.
+**[Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/operational-excellence)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads.
 
 **[Azure Monitor](/azure/azure-monitor)** collects and stores metrics and logs from the application. Use this data to monitor the application, set up alerts and dashboards, and do root cause analysis of failures. This scenario uses a Log Analytics workspace for comprehensive monitoring of the infrastructure and application.
 
-**[Application Insights](/azure/azure-monitor/app/app-insights-overview)** provides extensible application performance management (APM) and monitoring for the services. Each service is instrumented with the Application Insights SDK to monitor the app and direct the data to Azure Monitor.
+**[Application Insights](/azure/well-architected/service-guides/application-insights)** provides extensible application performance management (APM) and monitoring for the services. Each service is instrumented with the Application Insights SDK to monitor the app and direct the data to Azure Monitor.
 
 **[Bicep Templates](/azure/azure-resource-manager/bicep/overview)** to configure and deploy the applications.
 

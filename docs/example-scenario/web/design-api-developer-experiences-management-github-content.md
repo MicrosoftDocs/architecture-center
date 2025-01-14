@@ -48,19 +48,19 @@ The processing sequence in this solution flows as follows:
 
 The solution is composed of the following software as a service (SaaS) offerings:
 
-- [Azure API Management](https://azure.microsoft.com/services/api-management) is a managed platform as a service that allows organizations to publish APIs to both internal and external consumers. With API Management, you can publish APIs that may be hosted anywhere. Basically, API Management allows for decoupling of API hosting from the published gateway that acts as the single-entry point for the full landscape of APIs that your enterprise publishes. For more information, see [Gateway Routing pattern](../../patterns/gateway-routing.yml).
+- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) is a managed platform as a service that allows organizations to publish APIs to both internal and external consumers. With API Management, you can publish APIs that may be hosted anywhere. Basically, API Management allows for decoupling of API hosting from the published gateway that acts as the single-entry point for the full landscape of APIs that your enterprise publishes. For more information, see [Gateway Routing pattern](../../patterns/gateway-routing.yml).
 
   API Management also provides a governance layer on top of all published APIs. By using API Management policies, various other capabilities, such as [rate limits and quotas](/azure/api-management/api-management-sample-flexible-throttling), you can throttle API requests based on a key or subscription. API Management includes a [developer portal](/azure/api-management/api-management-howto-developer-portal) that provides a fully customizable website to serve as the documentation of the APIs that you publish through it.
 
-- [GitHub](https://docs.github.com) is a popular SaaS offering from Microsoft that's frequently used by developers to build, ship, and maintain their software projects. It provides important features that you can use in solutions:
+- [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git) is a popular SaaS offering from Microsoft that's frequently used by developers to build, ship, and maintain their software projects. It provides important features that you can use in solutions:
 
-  - [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages) enables your enterprise to host a rich [HTML-based website](https://pages.github.com) directly from within a [GitHub repository](https://docs.github.com/repositories).
+  - [GitHub Pages](https://docs.github.com/pages/getting-started-with-github-pages/about-github-pages) enables your enterprise to host a rich [HTML-based website](https://pages.github.com) directly from within a [GitHub repository](https://docs.github.com/repositories).
 
   - [GitHub Discussions](https://docs.github.com/discussions) and [GitHub Issues](https://docs.github.com/issues) help you to activate community collaboration.
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed compute platform for hosting custom web applications.
 
-- [Azure Active Directory (Azure AD) B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c) is an extension of Microsoft Entra ID that your application can use to manage external customer or partner identities for access and authorization. You can make use of the [Microsoft identify platform](/azure/active-directory/develop/v2-overview) to easily integrate identity and authorization in your custom applications.
+- [Azure Active Directory (Azure AD) B2C](/azure/active-directory-b2c/overview) is an extension of Microsoft Entra ID that your application can use to manage external customer or partner identities for access and authorization. You can make use of the [Microsoft identify platform](/azure/active-directory/develop/v2-overview) to easily integrate identity and authorization in your custom applications.
 
 ## Scenario details
 
