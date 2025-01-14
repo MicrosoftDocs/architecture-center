@@ -89,6 +89,8 @@ Some specific scenarios have more guidance available that directly addresses an 
 
 ## Considerations
 
+The decision to add a gateway and what technology to use is made as part of the [Application design](/azure/well-architected/ai/application-design#evaluate-the-use-of-api-gateways) described in the Azure Well-Architected Framework's [AI workloads on Azure](/azure/well-architected/ai/get-started) guidance. As an architect, you'll need to make the decision to include or exclude this component.
+
 When you introduce a new component into your architecture, you need to evaluate the newly introduced tradeoffs. When you inject an API gateway between your clients and the Azure OpenAI data plane to address any of [key challenges](#key-challenges), you introduce new considerations into your architecture. Carefully evaluate whether the workload impact across these architectural considerations justifies the added value or utility of the gateway.
 
 ### Reliability
