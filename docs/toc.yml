@@ -758,7 +758,7 @@ items:
   - name: Retry
     href: patterns/retry.yml
   - name: Saga
-    href: reference-architectures/saga/saga.yml
+    href: patterns/saga.yml
   - name: Scheduler Agent Supervisor
     href: patterns/scheduler-agent-supervisor.yml
   - name: Sequential Convoy
@@ -1570,6 +1570,8 @@ items:
         href: example-scenario/power-automate/power-automate.yml
       - name: Publish internal APIs to external users
         href: example-scenario/apps/publish-internal-apis-externally.yml
+      - name: Real-time monitoring and observable systems for media
+        href: example-scenario/monitoring/monitoring-observable-systems-media.yml
     - name: Solution ideas
       items:
       - name: Custom business processes
@@ -1704,57 +1706,6 @@ items:
         href: solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml
       - name: Video capture and analytics for retail
         href: solution-ideas/articles/video-analytics.yml
-  - name: Media
-    items:
-    - name: Get started
-      href: guide/media/start-here.md
-    - name: Guides
-      items:
-      - name: Media Services terminology and concepts
-        href: /azure/media-services/latest/concepts-overview
-        maintainContext: true
-      - name: Encoding video and audio
-        href: /azure/media-services/latest/encode-concept
-        maintainContext: true
-      - name: Live streaming
-        href: /azure/media-services/latest/stream-live-streaming-concept
-        maintainContext: true
-      - name: High availability with video on demand
-        href: /azure/media-services/latest/architecture-high-availability-encoding-concept
-        maintainContext: true
-      - name: Monitor Media Services
-        href: /azure/media-services/latest/monitoring/monitor-media-services
-        maintainContext: true
-      - name: Dynamic encryption
-        href: /azure/media-services/latest/drm-content-protection-concept
-        maintainContext: true
-      - name: Security baseline for Media Services
-        href: /security/benchmark/azure/baselines/media-services-security-baseline
-        maintainContext: true
-    - name: Architectures
-      items:
-      - name: Gridwich media processing system
-        items:
-        - name: Gridwich architecture
-          href: reference-architectures/media-services/gridwich-architecture.yml
-        - name: Gridwich concepts
-          items:
-          - name: Clean monolith design
-            href: reference-architectures/media-services/gridwich-clean-monolith.yml
-          - name: Saga orchestration
-            href: reference-architectures/media-services/gridwich-saga-orchestration.yml
-          - name: Project names and structure
-            href: reference-architectures/media-services/gridwich-project-names.yml
-          - name: Gridwich CI/CD
-            href: reference-architectures/media-services/gridwich-cicd.yml
-          - name: Gridwich Storage Service
-            href: reference-architectures/media-services/gridwich-storage-service.yml
-          - name: Gridwich logging
-            href: reference-architectures/media-services/gridwich-logging.yml
-          - name: Gridwich message formats
-            href: reference-architectures/media-services/gridwich-message-formats.yml
-      - name: Real-time monitoring and observable systems for media
-        href: example-scenario/monitoring/monitoring-observable-systems-media.yml
   - name: Migration
     items:
     - name: Get started
@@ -2025,8 +1976,6 @@ items:
         href: web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml
       - name: Loan credit risk modeling
         href: example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml
-      - name: Real-time fraud detection
-        href: example-scenario/data/fraud-detection.yml
       - name: Securely managed web apps
         href: example-scenario/apps/fully-managed-secure-apps.yml
       - name: Secure a Microsoft Teams channel bot
