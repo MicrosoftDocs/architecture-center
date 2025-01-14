@@ -136,17 +136,17 @@ This scenario is applicable for organizations dealing with a strict set of const
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 A company can take a hybrid approach for maintaining their systems by keeping apps and resources on-premises for regulatory and performance reasons. If they want to apply Azure cloud capabilities, they can deploy the same version of applications hosted on Azure HCI Cluster across multiple regions. Doing so fulfills their compliance of highly available and scalable services.  
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 When deploying AKS-HCI, it's essential to consider security practices to help protect your applications and infrastructure. Here are some key security considerations for AKS-HCI:
 
@@ -190,9 +190,9 @@ When deploying AKS-HCI, it's essential to consider security practices to help pr
   - Understand and comply with relevant industry-specific security and compliance regulations (such as HIPAA or PCI DSS) based on your organization's requirements.
   - Implement security controls and practices to meet the compliance standards applicable to your industry.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Some cost optimization considerations for deploying Arc-enabled services on Azure Local:
 
@@ -210,13 +210,13 @@ Some cost optimization considerations for deploying Arc-enabled services on Azur
   - Use tools like Azure Advisor to receive recommendations to optimize resource utilization, improve security, and reduce costs.
 - Reduce deployment and maintenance efforts with Azure DevOps Services.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 The major benefit of cross-cluster scaling is the ability to deliver on-demand scaling with on-premises environments along with complete control over the setup within your organization's secured network.
 
