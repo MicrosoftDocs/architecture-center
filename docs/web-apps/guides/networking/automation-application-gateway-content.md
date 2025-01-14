@@ -47,7 +47,7 @@ This architecture works best for:
 #### Automation
 
 - [Azure Durable Functions](/azure/azure-functions/durable/durable-functions-overview): Unlike Azure Functions, Durable Functions is stateful and supports several stateful workflow patterns. In this example, the [monitor pattern](/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#monitoring) is used.
-- [Azure SDKs](/azure/storage/blobs/storage-blob-client-management): Azure SDKs are collections of libraries that you can use to interact with Azure services in your preferred programming language. The SDKs give you more flexibility for integrating logic that performs automation.
+- [Azure SDKs](https://azure.github.io/azure-sdk/): Azure SDKs are collections of libraries that you can use to interact with Azure services in your preferred programming language. The SDKs give you more flexibility for integrating logic that performs automation.
 
 #### Monitoring
 
@@ -62,7 +62,7 @@ This architecture works best for:
 
 #### Application
 
-- [Azure Container Instances](/azure/container-instances/container-instances-overview): Azure Container Instances runs container images seamlessly without requiring you to set up another infrastructure. You should consider [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) for advanced container orchestration.
+- [Azure Container Instances](/azure/container-instances/container-instances-overview): Azure Container Instances runs container images seamlessly without requiring you to set up another infrastructure. You should consider [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) for advanced container orchestration.
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db): Azure Cosmos DB is a fully managed NoSQL database that supports multiple platforms, like SQL, Cassandra, and MongoDB.
 - [Azure Key Vault](/azure/key-vault/general/overview): As a security best practice, developers don't store connection strings as clear text in application source code. Azure Key Vault serves as a central location to store secrets with improved security. Applications can retrieve necessary keys with improved security.
 
