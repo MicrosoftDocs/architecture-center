@@ -34,18 +34,18 @@ The dataflow for the solution is shown in the following diagram:
 
 The following are the key components in this data lakehouse solution:
 
-- [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics)
-- [Azure Files](https://azure.microsoft.com/services/storage/files)
-- [Event Hubs](https://azure.microsoft.com/services/event-hubs)
-- [Blob Storage](https://azure.microsoft.com/services/storage/blobs)
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage)
-- [Azure DevOps](https://azure.microsoft.com/services/devops)
-- [Power BI](https://powerbi.microsoft.com/what-is-power-bi)
-- [Data Factory](https://azure.microsoft.com/services/data-factory)
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion)
-- [Azure Monitor](https://azure.microsoft.com/services/monitor)
-- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/defender-for-cloud)
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
+- [Azure Synapse](/azure/synapse-analytics/overview-what-is)
+- [Azure Files](/azure/well-architected/service-guides/azure-files)
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs)
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage)
+- [Azure Data Lake Storage]( /azure/storage/blobs/data-lake-storage-introduction)
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops)
+- [Power BI](/power-bi/fundamentals/power-bi-overview)
+- [Data Factory](/azure/data-factory/introduction)
+- [Azure Bastion](/azure/bastion/bastion-overview)
+- [Azure Monitor](/azure/azure-monitor/overview)
+- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
+- [Azure Key Vault](/azure/key-vault/general/overview)
 
 ### Alternatives
 
