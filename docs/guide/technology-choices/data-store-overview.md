@@ -41,7 +41,7 @@ This model is very useful when strong consistency guarantees are important &mdas
 - [Azure SQL Database][sql-db] | [(Security Baseline)](/security/benchmark/azure/baselines/sql-database-security-baseline)
 - [Azure Database for MySQL][mysql] | [(Security Baseline)](/azure/mysql/security-baseline)
 - [Azure Database for PostgreSQL][postgres] | [(Security Baseline)](/azure/postgresql/security-baseline)
-- [Azure Database for MariaDB][mariadb] | [(Security Baseline)](/azure/mariadb/security-baseline)
+- [Azure Database for MariaDB][mariadb] | [(Security Baseline)](/security/benchmark/azure/baselines/azure-database-for-mariadb-security-baseline)
 
 ### Workload
 
