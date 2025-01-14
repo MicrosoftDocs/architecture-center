@@ -40,23 +40,23 @@ This sample solution is a prescriptive, well-architected example of a Micro Focu
 
 This solution uses the following Azure components:
 
-- [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) extends on-premises networks into the Azure cloud over a private connection that a connectivity provider facilitates.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends on-premises networks into the Azure cloud over a private connection that a connectivity provider facilitates.
 
-- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a scalable and highly available web front end that acts as a reverse-proxy service and provides a Layer-7 internet load balancer and Web Application Firewall (WAF).
+- [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a scalable and highly available web front end that acts as a reverse-proxy service and provides a Layer-7 internet load balancer and Web Application Firewall (WAF).
 
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) provides secure and seamless RDP and SSH access to your VMs by using SSL, without exposing public IP addresses.
+- [Azure Bastion](/azure/bastion/bastion-overview) provides secure and seamless RDP and SSH access to your VMs by using SSL, without exposing public IP addresses.
 
-- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) distributes incoming network traffic across backend resources or servers according to configured load-balancing rules and health probes.
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) distributes incoming network traffic across backend resources or servers according to configured load-balancing rules and health probes.
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) offers on-demand, scalable computing resources in Azure. Azure Virtual Machines gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) offers on-demand, scalable computing resources in Azure. Azure Virtual Machines gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
 
   The Azure VMs that host Enterprise Server use [Azure Managed Disks](/azure/virtual-machines/windows/managed-disks-overview) block-level storage volumes. Available Managed Disk types are Ultra disks, Premium solid-state drives (SSDs), standard SSDs, and standard hard disk drives (HDDs). This solution uses Premium SSDs or Ultra disks.
 
-- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is the fundamental building block for private networks in Azure. An Azure Virtual Network is similar to a traditional network that you operate in your own datacenter, but adds Azure infrastructure benefits like scaling, availability, and isolation. Virtual Network lets Azure resources like VMs securely communicate with each other, the internet, and on-premises networks.
+- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block for private networks in Azure. An Azure Virtual Network is similar to a traditional network that you operate in your own datacenter, but adds Azure infrastructure benefits like scaling, availability, and isolation. Virtual Network lets Azure resources like VMs securely communicate with each other, the internet, and on-premises networks.
 
   A [virtual network interface card (NIC)](/azure/virtual-network/virtual-network-network-interface) lets an Azure VM communicate with internet, Azure, and on-premises resources over a virtual network. You can add NICs to an Azure VM to give child VMs their own dedicated network interface devices and IP addresses.
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) improves performance and scalability for applications that use backend data stores heavily. Azure Cache for Redis keeps frequently accessed data, like session state and SOR, in server memory for fast access and throughput.
+- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) improves performance and scalability for applications that use backend data stores heavily. Azure Cache for Redis keeps frequently accessed data, like session state and SOR, in server memory for fast access and throughput.
 
 - [SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) lets you use full versions of SQL Server in the cloud without having to manage on-premises hardware. Enterprise Server requires the [SQL Server IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management) for deployments that have heterogeneous distributed transactions.
 

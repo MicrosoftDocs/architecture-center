@@ -4840,6 +4840,71 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/ai-ml/idea/process-audio-files.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/idea/large-scale-custom-natural-language-processing.yml",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/natural-language-processing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/fraud-detection.yml",
+      "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/idea/personalized-offers.yml",
+      "redirect_url": "/azure/ai-services/personalizer/what-is-personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/media-services/gridwich-architecture.yml",
+      "redirect_url": "/azure/architecture/browse/?terms=media",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/media-services/gridwich-clean-monolith.yml",
+      "redirect_url": "/azure/architecture/browse/?terms=media",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/media-services/gridwich-saga-orchestration.yml",
+      "redirect_url": "/azure/architecture/browse/?terms=media",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/media-services/gridwich-project-names.yml",
+      "redirect_url": "/azure/architecture/browse/?terms=media",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/media-services/gridwich-cicd.yml",
+      "redirect_url": "/azure/architecture/browse/?terms=media",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/media-services/gridwich-storage-service.yml",
+      "redirect_url": "/azure/architecture/browse/?terms=media",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/media-services/gridwich-logging.yml",
+      "redirect_url": "/azure/architecture/browse/?terms=media",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/media-services/gridwich-message-formats.yml",
+      "redirect_url": "/azure/architecture/browse/?terms=media",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/media/start-here.md",
+      "redirect_url": "/azure/architecture/browse/?terms=media",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/dmz/nva-ha.yml",
       "redirect_url": "/azure/architecture/networking/guide/nva-ha",
       "redirect_document_id": true
@@ -6494,6 +6559,11 @@
       "source_path": "docs/industries/overview.md",
       "redirect_url": "/industry/",
       "redirect_document_id": false   
+    },    
+    {
+      "source_path": "docs/reference-architectures/saga/saga.yml",
+      "redirect_url": "/azure/architecture/patterns/saga",
+      "redirect_document_id": true 
     }
   ]
 }

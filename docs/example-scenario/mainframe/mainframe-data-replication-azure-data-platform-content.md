@@ -29,26 +29,26 @@ The steps to migrate mainframe data to Azure are as follows:
 
 - Networking and Identity
 
-  - [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute) lets you extend your on-premises networks into Azure over a private connection by using a connectivity provider.
-  - [Azure VPN Gateway](https://azure.microsoft.com/products/vpn-gateway) is a virtual network gateway used to send encrypted traffic between an Azure virtual network and an on–premises location over the internet.
-  - [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is an identity and access management service that can be synchronized with an on-premises directory.
+  - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) lets you extend your on-premises networks into Azure over a private connection by using a connectivity provider.
+  - [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual network gateway used to send encrypted traffic between an Azure virtual network and an on–premises location over the internet.
+  - [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that can be synchronized with an on-premises directory.
 
 - Application
 
-  - [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) provides on–demand, scalable computing resources. The mLogica data migration cluster runs on Azure Linux virtual machines optimized for network performance.
+  - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides on–demand, scalable computing resources. The mLogica data migration cluster runs on Azure Linux virtual machines optimized for network performance.
 
 - Storage
 
-  - [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs) offers a highly available, encrypted-at-rest, cost-efficient, high-capacity storage facility. It enables direct binary SFTP traffic from the mainframe. Blob Storage can mount containers on Linux virtual machines by using NFS.
-  - [Azure SQL](https://azure.microsoft.com/products/azure-sql), [Azure Database for PostgreSQL](https://azure.microsoft.com/products/postgresql), and [Azure Database for MySQL](https://azure.microsoft.com/products/mysql) are fully managed platform as a service (PaaS) services for SQL Server, PostgreSQL, and MySQL. They provide high-performance, highly available options for mainframe relational data, emulated non-relational data, and emulated Virtual Storage Access Method (VSAM) data.
-  - [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is an Azure NoSQL database. Use it to migrate non-relational mainframe sources like Information Management System (IMS), Integrated Database Management System (IDMS), and adaptable database system (ADABAS).
+  - [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) offers a highly available, encrypted-at-rest, cost-efficient, high-capacity storage facility. It enables direct binary SFTP traffic from the mainframe. Blob Storage can mount containers on Linux virtual machines by using NFS.
+  - [Azure SQL](/azure/azure-sql/), [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql), and [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) are fully managed platform as a service (PaaS) services for SQL Server, PostgreSQL, and MySQL. They provide high-performance, highly available options for mainframe relational data, emulated non-relational data, and emulated Virtual Storage Access Method (VSAM) data.
+  - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is an Azure NoSQL database. Use it to migrate non-relational mainframe sources like Information Management System (IMS), Integrated Database Management System (IDMS), and adaptable database system (ADABAS).
 
 - Monitoring
 
-  - [Azure Monitor](https://azure.microsoft.com/products/monitor) delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments.
-  - [Application Insight](/azure/azure-monitor/app/app-insights-overview) receives application telemetry to analyze and present.
+  - [Azure Monitor](/azure/azure-monitor/overview) delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments.
+  - [Application Insights](/azure/well-architected/service-guides/application-insights) receives application telemetry to analyze and present.
   - [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. This feature can consolidate data from multiple sources into a single workspace. These sources include platform logs from Azure services, log and performance data from virtual machine agents, and usage and performance data from applications. Analyze these sources together by using a sophisticated query language, which is capable of quickly analyzing millions of records.
-  - [Log Analytics](/azure/azure-monitor/log-query/log-query-overview) is a feature of Azure Monitor. Log queries help you use the data collected in Azure Monitor Logs and mLogica load script execution logs, which are stored in Blob Storage. A powerful query language allows you to join data from multiple tables, aggregate large sets of data, and perform complex operations.
+  - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a feature of Azure Monitor. Log queries help you use the data collected in Azure Monitor Logs and mLogica load script execution logs, which are stored in Blob Storage. A powerful query language allows you to join data from multiple tables, aggregate large sets of data, and perform complex operations.
 
 ### Potential use cases
 
