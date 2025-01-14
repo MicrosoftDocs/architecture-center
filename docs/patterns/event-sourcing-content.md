@@ -34,13 +34,14 @@ The figure shows an overview of the pattern, including some typical implementati
 The following describes a typical workflow for this pattern:
 
 1. The presentation layer calls an object responsible for calling a read-only store. The data returned is used to populate the UI.
-2. The presentation layer calls command handlers to perform actions like create a cart, or add an item to the cart.
-3. The command handler calls the event store to get the historical events for the entity. For example, it may retrieve all cart events. Those events are played back in the object to materialize the current state of the entity, prior to any action taking place.
-4. The business logic is run and events are raised. In most implementations, the events are pushed to a queue or topic to decouple the event producers and event consumers.
-5. Event handlers listen for events they are interested in and perform the appropriate action for that handler. Some typical event handler actions are:
-    a. Writing the events to the event store
-    b. Updating a read-only store optimized for queries
-    c. Integrating with external systems
+1. The presentation layer calls command handlers to perform actions like create a cart, or add an item to the cart.
+1. The command handler calls the event store to get the historical events for the entity. For example, it may retrieve all cart events. Those events are played back in the object to materialize the current state of the entity, prior to any action taking place.
+1. The business logic is run and events are raised. In most implementations, the events are pushed to a queue or topic to decouple the event producers and event consumers.
+1. Event handlers listen for events they are interested in and perform the appropriate action for that handler. Some typical event handler actions are:
+
+  a. Writing the events to the event store
+  b. Updating a read-only store optimized for queries
+  c. Integrating with external systems
 
 ### Pattern advantages
 
