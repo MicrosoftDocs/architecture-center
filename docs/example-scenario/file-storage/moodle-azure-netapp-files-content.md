@@ -30,7 +30,7 @@ Students access the Moodle application data through an Azure Application Gateway
 
 ### Components
 
-- [Moodle](https://moodle.com/moodlecloud) is one of the most popular and widely adopted free, open-source learning management systems.
+- [Moodle](https://www.moodlecloud.com/) is one of the most popular and widely adopted free, open-source learning management systems.
 
 - [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a relational database service powered by the MySQL community edition. You can use Azure Database for MySQL - Flexible Server to host a MySQL database in Azure.
 
@@ -125,7 +125,7 @@ Principal author:
 
 ## Next steps
 
-- [Moodle Cloud option](https://moodle.com/moodlecloud/)
+- [Moodle Cloud option](https://www.moodlecloud.com/)
 - [Azure Moodle directions on GitHub](https://github.com/Azure/Moodle)
 - [Moodle docs: Redis cache store](https://docs.moodle.org/311/en/Redis_cache_store#:~:text=Before%20Redis%20is%20available%20as%20a%20cache%20store%2C,as%20an%20application%20or%20session%20level%20cache%20store.)
 - [Azure NetApp Files for NFS storage with Moodle](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-for-nfs-storage-with-moodle/ba-p/2300630)
