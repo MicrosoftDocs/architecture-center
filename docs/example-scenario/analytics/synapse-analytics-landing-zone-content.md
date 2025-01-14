@@ -22,7 +22,7 @@ The article assumes that you've already implemented the platform foundation that
 
 ### Components
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems.
 - [Azure Synapse Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet) provides network isolation to Azure Synapse workspaces from other workspaces.
 - [Azure Synapse Managed private endpoints](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints) are private endpoints that are created in a Managed Virtual Network that's associated with an Azure Synapse workspace. Managed private endpoints establish private link connectivity to Azure resources outside the Managed Virtual Network.
 - [Azure Synapse workspace with data exfiltration protection](/azure/synapse-analytics/security/workspace-data-exfiltration-protection) prevents exfiltration of sensitive data to locations that are outside of an organization's scope.
