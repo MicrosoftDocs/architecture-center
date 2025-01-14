@@ -168,7 +168,7 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 [Azure ExpressRoute pricing]: https://azure.microsoft.com/pricing/details/expressroute
 [Azure Firewall architecture overview]: ../guide/network-virtual-appliances-architecture.yml
 [Azure road map]: https://azure.microsoft.com/updates/?category=networking
-[Azure Route Server]: https://azure.microsoft.com/services/route-server
+[Azure Route Server]: /azure/route-server/overview
 [Azure Route Server FAQ]: /azure/route-server/route-server-faq
 [Azure Route Server pricing]: https://azure.microsoft.com/pricing/details/route-server
 [Azure security baseline for Virtual Network]: /security/benchmark/azure/baselines/virtual-network-security-baseline
@@ -176,7 +176,7 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 [Choose between virtual network peering and VPN gateways]: ../../reference-architectures/hybrid-networking/vnet-peering.yml
 [Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell - Limits and limitations]: /azure/expressroute/expressroute-howto-coexist-resource-manager#limits-and-limitations
 [Deploy highly available NVAs]: ../guide/nva-ha.yml
-[Introduction to the core Azure Storage services]: /azure/storage/common/storage-introduction?toc=/azure/storage/blobs/toc.json
+[Introduction to the core Azure Storage services]: /azure/storage/common/storage-introduction
 [Linux Virtual Machines Pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [Networking blog]: https://azure.microsoft.com/blog/topics/networking
 [Next steps in Virtual Network service endpoints]: /azure/virtual-network/virtual-network-service-endpoints-overview#next-steps
@@ -186,15 +186,15 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 [Quickstart: Create and configure Route Server using the Azure portal]: /azure/route-server/quickstart-configure-route-server-portal
 [Regions and availability zones]: /azure/reliability/availability-zones-overview
 [SLA for Azure Route Server]: https://azure.microsoft.com/support/legal/sla/route-server/v1_0
-[Virtual Network]: https://azure.microsoft.com/services/virtual-network
+[Virtual Network]: /azure/well-architected/service-guides/azure-virtual-network/reliability
 [Virtual network peering]: /azure/virtual-network/virtual-network-peering-overview
 [Virtual Network service endpoints]: /azure/virtual-network/virtual-network-service-endpoints-overview
 [Virtual network traffic routing - Custom routes]: /azure/virtual-network/virtual-networks-udr-overview#custom-routes
 [Virtual network traffic routing - Optional default routes]: /azure/virtual-network/virtual-networks-udr-overview#optional-default-routes
 [Virtual network traffic routing - User-defined]: /azure/virtual-network/virtual-networks-udr-overview#user-defined
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1886347-manage-routing-azure-route-server-architecture.vsdx
-[VPN Gateway]: https://azure.microsoft.com/services/vpn-gateway
+[VPN Gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [VPN Gateway pricing]: https://azure.microsoft.com/pricing/details/vpn-gateway
-[What is Azure ExpressRoute?]: /azure/expressroute/expressroute-introduction
+[What is Azure ExpressRoute?]: /azure/well-architected/service-guides/azure-expressroute
 [What is Azure Route Server?]: /azure/route-server/overview
 [Zero-trust network for web applications with Azure Firewall and Application Gateway]: ../../example-scenario/gateway/application-gateway-before-azure-firewall.yml
