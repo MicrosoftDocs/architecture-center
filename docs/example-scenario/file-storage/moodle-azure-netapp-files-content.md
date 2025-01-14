@@ -38,7 +38,7 @@ Students access the Moodle application data through an Azure Application Gateway
 
 - Use [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) to create and manage a group of load-balanced VMs. You can automatically increase or decrease the number of VM instances in response to demand or a defined schedule.
 
-- [Azure NetApp Files](/azure/azure-netapp-files) is an Azure service that you can use to migrate and run the most demanding enterprise-file workloads in the cloud, such as native SMBv3, NFSv3, and NFSv4.1 file shares, databases, data warehouses, and high-performance computing applications.
+- [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is an Azure service that you can use to migrate and run the most demanding enterprise-file workloads in the cloud, such as native SMBv3, NFSv3, and NFSv4.1 file shares, databases, data warehouses, and high-performance computing applications.
 
 ### Alternatives
 
