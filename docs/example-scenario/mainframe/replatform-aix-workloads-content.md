@@ -50,7 +50,7 @@ This workflow corresponds to the preceding architecture.
 
 - [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery) builds and stores images for the Oracle database and SAS analysis nodes. There are two galleries: one in the primary region and one in the disaster recovery region.
 
-- [Communication Services](https://azure.microsoft.com/products/communication-services) sends emails with a CLI utility. This service replaces the `mailx` command on AIX.
+- [Communication Services](/azure/communication-services/overview) sends emails with a CLI utility. This service replaces the `mailx` command on AIX.
 
 ### Alternatives
 
