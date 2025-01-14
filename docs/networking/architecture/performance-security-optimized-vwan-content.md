@@ -87,9 +87,9 @@ Configure routes for the Virtual WAN hub as follows:
 
 ### Components
 
-- [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan). Virtual WAN is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface. In this case, it simplifies and scales routing to the attached virtual networks and branches.
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute). ExpressRoute extends on-premises networks into the Microsoft cloud over a private connection.
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network). Virtual Network is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, like Azure virtual machines (VMs), to communicate with improved security with each other, the internet, and on-premises networks.
+- [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about). Virtual WAN is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface. In this case, it simplifies and scales routing to the attached virtual networks and branches.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute). ExpressRoute extends on-premises networks into the Microsoft cloud over a private connection.
+- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability). Virtual Network is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, like Azure virtual machines (VMs), to communicate with improved security with each other, the internet, and on-premises networks.
 - [Virtual WAN hub](/azure/virtual-wan/about-virtual-hub-routing). A virtual hub is a virtual network that Microsoft manages. The hub contains various service endpoints to enable connectivity.
 - [Hub virtual network connections](/rest/api/virtualwan/hub-virtual-network-connections/create-or-update#hubvirtualnetworkconnection). The hub virtual network connection resource connects the hub seamlessly to your virtual networks.
 - [Static routes](/azure/virtual-wan/about-virtual-hub-routing#static). Static routes provide a mechanism for steering traffic through a next hop IP.
