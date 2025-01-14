@@ -6564,6 +6564,11 @@
       "source_path": "docs/reference-architectures/saga/saga.yml",
       "redirect_url": "/azure/architecture/patterns/saga",
       "redirect_document_id": true 
+    },    
+    {
+      "source_path": "docs/mainframe/mainframe-midrange-architecture.md",
+      "redirect_url": "/azure/architecture/example-scenario/unix-migration/migrate-aix-azure-linux",
+      "redirect_document_id": false 
     }
   ]
 }

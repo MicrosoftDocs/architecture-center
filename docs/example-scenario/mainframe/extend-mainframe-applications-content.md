@@ -188,5 +188,4 @@ For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@m
 ## Related resources
 
 - [General mainframe refactor to Azure](general-mainframe-refactor.yml)
-- [Azure mainframe and midrange architecture design](../../mainframe/mainframe-midrange-architecture.md)
 - [Make the switch from mainframes to Azure](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies)
