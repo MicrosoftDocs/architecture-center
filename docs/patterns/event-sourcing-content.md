@@ -1,6 +1,9 @@
 Instead of storing just the current state of the data in a relational database, store the full series of actions taken on an object in an append-only store. The store acts as the system of record and can be used to materialize the domain objects. This approach can improve performance, scalability, and auditability in complex systems.
 
 > [!IMPORTANT] Event sourcing is a complex pattern that introduces trade-offs to achieve increased performance, scalability, and auditing. This pattern is best suited for systems where performance and scalability are top requirements. The complexity that event sourcing adds to a system is not justified for most systems.
+Permeates through the entire architecture. All future design decisions are constrained by the fact that this is an event sourcing system.
+
+Migrating to or from is high
 
 ## Context and problem
 
@@ -24,9 +27,24 @@ At any point, it's possible for applications to read the history of events. You 
 
 Because it is relatively expensive to read and replay events, applications typically implement [materialized views](./materialized-view.yml), read-only projections of the event store that are optimized for querying. For example, a system can maintain a materialized view of all customer orders that's used to populate parts of the UI. As the application adds new orders, adds or removes items on the order, or adds shipping information, events are raised and a handler updates the materialized view.
 
-The figure shows an overview of the pattern, including some of the options for using the event stream such as creating a materialized view, integrating events with external applications and systems, and replaying events to create projections of the current state of specific entities.
+The figure shows an overview of the pattern, including some typical implementations with the pattern, including using the use of a queue, a read-only store, integrating events with external applications and systems, and replaying events to create projections of the current state of specific entities.
 
 ![An overview and example of the Event Sourcing pattern](./_images/event-sourcing-overview.png)
+
+### Workflow
+
+The following describes a typical workflow for this pattern:
+
+1. The presentation layer calls an object responsible for calling a read-only store. The data returned is used to populate the UI.
+2. The presentation layer calls command handlers to perform actions like create a cart, or add an item to the cart.
+3. The command handler calls the event store to get the historical events for the entity. For example, it may retrieve all cart events. Those events are played back in the object to materialize the current state of the entity, prior to any action taking place.
+4. The business logic is run and events are raised. In most implementations, the events are pushed to a queue or topic to decouple the event producers and event consumers.
+5. Event handlers listen for events they are interested in and perform the appropriate action for that handler. Some typical event handler actions are:
+  a. Writing the events to the event store
+  b. Updating a read-only store optimized for queries
+  c. Integrating with external systems
+
+### Pattern advantages
 
 The Event Sourcing pattern provides the following advantages:
 
@@ -40,33 +58,36 @@ The Event Sourcing pattern provides the following advantages:
 
 - The append-only storage of events provides an audit trail that can be used to monitor actions taken against a data store. It can regenerate the current state as materialized views or projections by replaying the events at any time, and it can assist in testing and debugging the system. In addition, the requirement to use compensating events to cancel changes can provide a history of changes that were reversed. This capability wouldn't be the case if the model stored the current state. The list of events can also be used to analyze application performance and to detect user behavior trends. Or, it can be used to obtain other useful business information.
 
-- The event store raises events, and tasks perform operations in response to those events. This decoupling of the tasks from the events provides flexibility and extensibility. Tasks know about the type of event and the event data, but not about the operation that triggered the event. In addition, multiple tasks can handle each event. This enables easy integration with other services and systems that only listen for new events raised by the event store. However, the event sourcing events tend to be very low level, and it might be necessary to generate specific integration events instead.
+- The command handlers raise events, and tasks perform operations in response to those events. This decoupling of the tasks from the events provides flexibility and extensibility. Tasks know about the type of event and the event data, but not about the operation that triggered the event. In addition, multiple tasks can handle each event. This enables easy integration with other services and systems that only listen for new events raised by the event store. However, the event sourcing events tend to be very low level, and it might be necessary to generate specific integration events instead.
 
-> Event sourcing is commonly combined with the CQRS pattern by performing the data management tasks in response to the events, and by materializing views from the stored events.
+> Event sourcing is commonly combined with the [CQRS pattern](./cqrs.yml) by performing the data management tasks in response to the events, and by materializing views from the stored events.
 
 ## Issues and considerations
 
 Consider the following points when deciding how to implement this pattern:
 
-The system will only be eventually consistent when creating materialized views or generating projections of data by replaying events. There's some delay between an application adding events to the event store as the result of handling a request, the events being published, and the consumers of the events handling them. During this period, new events that describe further changes to entities might have arrived at the event store. The system should be designed to account for eventual consistency in these scenarios.
+- **Eventual consistency** - The system will only be eventually consistent when creating materialized views or generating projections of data by replaying events. There's some delay between an application adding events to the event store as the result of handling a request, the events being published, and the consumers of the events handling them. During this period, new events that describe further changes to entities might have arrived at the event store. Your customers must be okay with the fact that data is eventually consistent and the system should be designed to account for eventual consistency in these scenarios.
 
-> [!NOTE]
-> See the [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)) for information about eventual consistency.
+  > [!NOTE]
+  > See the [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)) for information about eventual consistency.
 
-The event store is the permanent source of information, and so the event data should never be updated. The only way to update an entity to undo a change is to add a compensating event to the event store. If the format (rather than the data) of the persisted events needs to change, perhaps during a migration, it can be difficult to combine existing events in the store with the new version. It might be necessary to iterate through all the events making changes so they're compliant with the new format, or add new events that use the new format. Consider using a version stamp on each version of the event schema to maintain both the old and the new event formats.
+- **Versioning events** - The event store is the permanent source of information, and so the event data should never be updated. The only way to update an entity or undo a change is to add a compensating event to the event store. If the schema (rather than the data) of the persisted events needs to change, perhaps during a migration, it can be difficult to combine existing events in the store with the new version. Your application will need to support changes to events structures. This can be done in several ways.
 
-Multi-threaded applications and multiple instances of applications might be storing events in the event store. The consistency of events in the event store is vital, as is the order of events that affect a specific entity (the order that changes occur to an entity affects its current state). Adding a timestamp to every event can help to avoid issues. Another common practice is to annotate each event resulting from a request with an incremental identifier. If two actions attempt to add events for the same entity at the same time, the event store can reject an event that matches an existing entity identifier and event identifier.
+  - Ensure your event handlers support all versions of events. This can be a challenge to maintain and test. This requires implementing a version stamp on each version of the event schema to maintain both the old and the new event formats.
+  - Implement an event handler to handle specific event versions. This can be a maintenance challenge in that bug fix changes might have to be made across multiple handlers. This requires implementing a version stamp on each version of the event schema to maintain both the old and the new event formats.
+  - Update historical events to the new schema when a new schema is implemented. This breaks the immutability of events.
 
-There's no standard approach, or existing mechanisms such as SQL queries, for reading the events to obtain information. The only data that can be extracted is a stream of events using an event identifier as the criteria. The event ID typically maps to individual entities. The current state of an entity can be determined only by replaying all of the events that relate to it against the original state of that entity.
+- **Event ordering** - Multi-threaded applications and multiple instances of applications might be storing events in the event store. The consistency of events in the event store is vital, as is the order of events that affect a specific entity (the order that changes occur to an entity affects its current state). Adding a timestamp to every event can help to avoid issues. Another common practice is to annotate each event resulting from a request with an incremental identifier. If two actions attempt to add events for the same entity at the same time, the event store can reject an event that matches an existing entity identifier and event identifier.
 
-The length of each event stream affects managing and updating the system. If the streams are large, consider creating snapshots at specific intervals such as a specified number of events. The current state of the entity can be obtained from the snapshot and by replaying any events that occurred after that point in time. For more information about creating snapshots of data, see [Primary-Subordinate Snapshot Replication](/previous-versions/msp-n-p/ff650012(v=pandp.10)).
+- **Querying events** -  There's no standard approach, or existing mechanisms such as SQL queries, for reading the events to obtain information. The only data that can be extracted is a stream of events using an event identifier as the criteria. The event ID typically maps to individual entities. The current state of an entity can be determined only by replaying all of the events that relate to it against the original state of that entity.
 
-Even though event sourcing minimizes the chance of conflicting updates to the data, the application must still be able to deal with inconsistencies that result from eventual consistency and the lack of transactions. For example, an event that indicates a reduction in stock inventory might arrive in the data store while an order for that item is being placed. This situation results in a requirement to reconcile the two operations, either by advising the customer or by creating a back order.
+- **Cost of recreating state for entities** - The length of each event stream affects managing and updating the system. If the streams are large, consider creating snapshots at specific intervals such as a specified number of events. The current state of the entity can be obtained from the snapshot and by replaying any events that occurred after that point in time. For more information about creating snapshots of data, see [Primary-Subordinate Snapshot Replication](/previous-versions/msp-n-p/ff650012(v=pandp.10)).
 
-Event publication might be *at least once*, and so consumers of the events must be idempotent. They must not reapply the update described in an event if the event is handled more than once. Multiple instances of a consumer can maintain and aggregate an entity's property, such as the total number of orders placed. Only one must succeed in incrementing the aggregate, when an order-placed event occurs. While this result isn't a key characteristic of event sourcing, it's the usual implementation decision.
+- **Conflicts** - Even though event sourcing minimizes the chance of conflicting updates to the data, the application must still be able to deal with inconsistencies that result from eventual consistency and the lack of transactions. For example, an event that indicates a reduction in stock inventory might arrive in the data store while an order for that item is being placed. This situation results in a requirement to reconcile the two operations, either by advising the customer or by creating a back order.
 
-The event storage selected needs to support the event load generated by your application.   
-Be mindful of scenarios where the processing of one event involves the creation of one or more new events since this can cause an infinite loop. 
+- **Need for idempotency** - Event publication might be *at least once*, and so consumers of the events must be idempotent. They must not reapply the update described in an event if the event is handled more than once. Multiple instances of a consumer can maintain and aggregate an entity's property, such as the total number of orders placed. Only one must succeed in incrementing the aggregate, when an order-placed event occurs. While this result isn't a key characteristic of event sourcing, it's the usual implementation decision.
+
+- **Circular logic** - Be mindful of scenarios where the processing of one event involves the creation of one or more new events since this can cause an infinite loop.
 
 ## When to use this pattern
 
@@ -88,11 +109,11 @@ Use this pattern in the following scenarios:
 
 This pattern might not be useful in the following situations:
 
+- Applications that do not require hyper-scale or performance.
+
 - Small or simple domains, systems that have little or no business logic, or nondomain systems that naturally work well with traditional CRUD data management mechanisms.
 
 - Systems where consistency and real-time updates to the views of the data are required.
-
-- Systems where audit trails, history, and capabilities to roll back and replay actions aren't required.
 
 - Systems where there's only a low occurrence of conflicting updates to the underlying data. For example, systems that predominantly add data rather than updating it.
 
@@ -117,27 +138,25 @@ A conference management system needs to track the number of completed bookings f
 
 The following diagram illustrates how the seat reservation subsystem of the conference management system might be implemented using event sourcing.
 
-![Using event sourcing to capture information about seat reservations in a conference management system](./_images/event-sourcing-bounded-context.png)
+![Using event sourcing to capture information about seat reservations in a conference management system](./_images/event-sourcing-example.png)
 
 The sequence of actions for reserving two seats is as follows:
 
 1. The user interface issues a command to reserve seats for two attendees. The command is handled by a separate command handler. A piece of logic that is decoupled from the user interface and is responsible for handling requests posted as commands.
 
-2. An aggregate containing information about all reservations for the conference is constructed by querying the events that describe bookings and cancellations. This aggregate is called `SeatAvailability`, and is contained within a domain model that exposes methods for querying and modifying the data in the aggregate.
+2. An entity containing information about all reservations for the conference is constructed by querying the events that describe bookings and cancellations. This entity is called `SeatAvailability`, and is contained within a domain model that exposes methods for querying and modifying the data in the entity.
 
-    > Some optimizations to consider are using snapshots (so that you don't need to query and replay the full list of events to obtain the current state of the aggregate), and maintaining a cached copy of the aggregate in memory.
+    > Some optimizations to consider are using snapshots (so that you don't need to query and replay the full list of events to obtain the current state of the entity), and maintaining a cached copy of the entity in memory.
 
 3. The command handler invokes a method exposed by the domain model to make the reservations.
 
-4. The `SeatAvailability` aggregate records an event containing the number of seats that were reserved. The next time the aggregate applies events, all the reservations will be used to compute how many seats remain.
+4. The `SeatAvailability` entity raises an event containing the number of seats that were reserved. The next time the entity applies events, all the reservations will be used to compute how many seats remain.
 
 5. The system appends the new event to the list of events in the event store.
 
 If a user cancels a seat, the system follows a similar process except the command handler issues a command that generates a seat cancellation event and appends it to the event store.
 
 In addition to providing more scope for scalability, using an event store also provides a complete history, or audit trail, of the bookings and cancellations for a conference. The events in the event store are the accurate record. There's no need to persist aggregates in any other way because the system can easily replay the events and restore the state to any point in time.
-
-> You can find more information about this example in [Introducing Event Sourcing](/previous-versions/msp-n-p/jj591559(v=pandp.10)).
 
 ## Next steps
 
