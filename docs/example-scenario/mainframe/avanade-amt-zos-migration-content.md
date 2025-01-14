@@ -38,13 +38,13 @@ The preceding diagram shows how the typical components of an IBM z/OS mainframe 
 
 ### Components
 
-- [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that a connectivity provider facilitates. You can use ExpressRoute to establish connections to cloud services, like Azure and Microsoft 365.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that a connectivity provider facilitates. You can use ExpressRoute to establish connections to cloud services, like Azure and Microsoft 365.
 
-- [Azure Bastion](https://azure.microsoft.com/products/azure-bastion) is a fully managed platform as a service (PaaS) that you set up inside your virtual network. Azure Bastion provides secure and seamless Remote Desktop Protocol (RDP) and secure shell (SSH) connectivity to the VMs in your virtual network directly from the Azure portal over TLS.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed platform as a service (PaaS) that you set up inside your virtual network. Azure Bastion provides secure and seamless Remote Desktop Protocol (RDP) and secure shell (SSH) connectivity to the VMs in your virtual network directly from the Azure portal over TLS.
 
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines/) provides on-demand, scalable computing resources. Virtual Machines gives you the flexibility of virtualization without requiring you to buy and maintain physical hardware.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides on-demand, scalable computing resources. Virtual Machines gives you the flexibility of virtualization without requiring you to buy and maintain physical hardware.
 
-- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for Azure private networks. With Virtual Network, Azure resources, like VMs, can securely communicate with each other, the internet, and on-premises networks. Although a virtual network is similar to a traditional on-premises network, it offers the added Azure infrastructure benefits, such as scalability, availability, and isolation.
+- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block for Azure private networks. With Virtual Network, Azure resources, like VMs, can securely communicate with each other, the internet, and on-premises networks. Although a virtual network is similar to a traditional on-premises network, it offers the added Azure infrastructure benefits, such as scalability, availability, and isolation.
 
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) provide communication between Azure VMs and the internet, Azure resources, and on-premises resources. You can add several network interface cards to one Azure VM, so child VMs can have their own dedicated network interface devices and IP addresses.
 
