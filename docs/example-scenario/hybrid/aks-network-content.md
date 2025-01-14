@@ -343,13 +343,13 @@ Other contributors:
 [Microsoft Defender for Cloud]: /azure/defender-for-cloud/defender-for-cloud-introduction
 [1]: https://azure.microsoft.com/products/azure-stack/hci/
 [Windows Server 2019/2022 datacenter failover cluster]: /windows-server/failover-clustering/failover-clustering-overview
-[Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/services/kubernetes-service/
+[Azure Kubernetes Service (AKS)]: /azure/well-architected/service-guides/azure-kubernetes-service
 [Windows Admin Center]: /windows-server/manage/windows-admin-center/overview
-[An Azure subscription]: https://azure.microsoft.com
-[2]: https://azure.microsoft.com/services/azure-arc/
-[Azure role-based access control (RBAC)]: /azure/role-based-access-control/
-[3]: https://azure.microsoft.com/services/monitor/
-[4]: https://azure.microsoft.com/services/defender-for-cloud/
+[An Azure subscription]: /azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions
+[2]: /azure/azure-arc
+[Azure role-based access control (RBAC)]: /azure/role-based-access-control/overview
+[3]: /azure/azure-monitor/overview
+[4]: /azure/defender-for-cloud/defender-for-cloud-introduction
 [ingress controller]: /azure/aks/hybrid/create-ingress-controller
 [Project Calico networking]: https://projectcalico.docs.tigera.io/security/calico-network-policy
 [Flannel overlay networking.]: https://techcommunity.microsoft.com/t5/networking-blog/introducing-kubernetes-overlay-networking-for-windows/ba-p/363082

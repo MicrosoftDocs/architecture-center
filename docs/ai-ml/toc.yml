@@ -4,24 +4,14 @@ items:
   items:
     - name: Explore ideas about
       items:
-      - name: Document processing
-        items:
-        - name: Large-scale custom NLP
-          href: idea/large-scale-custom-natural-language-processing.yml
       - name: Image processing
         items:
         - name: Image classification
           href: idea/intelligent-apps-image-processing.yml
-      - name: Audio processing
-        items:
-        - name: Use Azure OpenAI to process podcast audio files
-          href: idea/process-audio-files.yml
       - name: Predictive analytics
         items:
         - name: Customer order forecasting
           href: idea/next-order-forecasting.yml
-        - name: Personalized offers
-          href: idea/personalized-offers.yml
       - name: AI at the edge
         items:
         - name: Video ingestion and object detection on the edge
