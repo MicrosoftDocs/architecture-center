@@ -245,7 +245,7 @@ These resources provide information on component pricing options:
 - [Azure Cosmos DB pricing][Azure Cosmos DB pricing]
 - [Language Service pricing][Language Service pricing]
 - [Azure Machine Learning pricing][Azure Machine Learning pricing]
-- [Azure OpenAI Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service)
+- [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service)
 
 After deciding on a pricing tier for each component, use the [Azure Pricing calculator][Azure Pricing calculator] to estimate the solution cost.
 
