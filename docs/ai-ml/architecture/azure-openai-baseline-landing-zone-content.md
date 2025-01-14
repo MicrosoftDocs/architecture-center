@@ -373,7 +373,7 @@ The following examples are workload changes in this architecture that you should
 
 ## Enterprise architecture team
 
-Some organizations have an enterprise architecture team that might influence the design of your workload and its architecture. That team will be familiar with the enterprise's [AI adoption](/azure/cloud-adoption-framework/scenarios/ai/) strategy as well as the principles and recommendations found in the [AI workloads on Azure](/azure/well-architected/ai/get-started) design. Work with this team to ensure this workload meets both the objectives of the workload while also aligning with recommendations and strategy of the organization.
+Some organizations have an enterprise architecture team that might influence the design of your workload and its architecture. That team will be familiar with the enterprise's [AI adoption](/azure/cloud-adoption-framework/scenarios/ai/) strategy as well as the principles and recommendations found in the [AI workloads on Azure](/azure/well-architected/ai/get-started) design. Work with this team to ensure this chat workload meets both the objectives of the scenario while also aligning with recommendations and strategy of the organization.
 
 ## Reliability
 
