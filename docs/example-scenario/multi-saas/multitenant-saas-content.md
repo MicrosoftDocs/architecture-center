@@ -48,7 +48,7 @@ The primary components are the suggested components for the architecture in this
 
 #### Primary components
 
-* [Azure Front Door](/azure/frontdoor/front-door-overview): A regional load balancer that routes client traffic to the correct region. It can fail over to the second region if a regional failure happens, and it can secure the internet-facing entry point via [Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview).
+* [Azure Front Door](/azure/well-architected/service-guides/azure-front-door): A regional load balancer that routes client traffic to the correct region. It can fail over to the second region if a regional failure happens, and it can secure the internet-facing entry point via [Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview).
 
 * [Microsoft Entra ID](/entra/fundamentals/whatis): Acts as the identity provider for the entire application, enforcing authentication and end-to-end authorization of the request in the application.
 
@@ -74,7 +74,7 @@ The primary components are the suggested components for the architecture in this
 
 * [Azure Cognitive Search](/azure/search/search-what-is-azure-search) (formerly known as Azure Search): A service that adds a powerful indexing and query engine to your application. It gives clients access to strong query functionality. They can also use Azure's AI capabilities to enrich and enhance the query functionality. Azure Cognitive Search can account for multitenancy using an index-per-tenant or service-per-tenant strategy.
 
-* [Azure Cache for Redis](/azure/azure-cache-for-redis/managed-redis/managed-redis-overview): Applies a caching layer as a service to the solution, providing an in-memory managed cache to reduce latency and increase performance for the clients. High throughput allows for a high volume of requests to handle multiple tenants accessing the system. You can flexibly scale up the service as application loads increase. It also supports encryption at rest to protect and isolate cached tenant data.
+* [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/operational-excellence): Applies a caching layer as a service to the solution, providing an in-memory managed cache to reduce latency and increase performance for the clients. High throughput allows for a high volume of requests to handle multiple tenants accessing the system. You can flexibly scale up the service as application loads increase. It also supports encryption at rest to protect and isolate cached tenant data.
 
 ### Alternatives components
 

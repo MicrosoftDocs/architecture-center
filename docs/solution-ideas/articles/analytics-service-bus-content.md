@@ -40,7 +40,7 @@ The data source in the architecture is an existing Online Transaction Processing
 ### Components
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure.
-- [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) provides reliable cloud messaging as a service.
+- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) provides reliable cloud messaging as a service.
 - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed SQL database that's built for the cloud. It provides automatic updates, provisioning, scaling, and backups.
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multimodel database for applications of any scale.
 - [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is an event-driven serverless compute platform. With Functions, you can deploy and operate at scale in the cloud and use triggers and bindings to integrate services.

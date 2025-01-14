@@ -140,7 +140,7 @@ The following GitHub and Azure components are used in this architecture.
 * [Container Registry](/azure/container-registry/container-registry-intro) is a service that you can use to build, store, and manage container images and artifacts in a private registry for all types of container deployments. Automotive software has adopted container-based automotive applications and workloads. The SDV toolchain uses Azure container registries for container development, deployment processes, and pipelines.
 
 * [Dev Box](/azure/dev-box/overview-what-is-microsoft-dev-box) provides developers with self-service access to ready-to-code, cloud-based workstations known as dev boxes that can be customized with project-specific tools, source code, and prebuilt binaries for immediate workflow integration.
-* [GitHub](https://docs.github.com/en/get-started/start-your-journey/about-github-and-git) is a development platform that you can use to host and review code, manage projects, collaborate, and build software alongside developers that are inside or outside your organization.
+* [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git) is a development platform that you can use to host and review code, manage projects, collaborate, and build software alongside developers that are inside or outside your organization.
 * [Visual Studio Code](https://code.visualstudio.com/Docs) is a lightweight source-code editor that's available for Windows, macOS, and Linux. It has a rich ecosystem of extensions for several languages and runtimes.
 
 #### Execution environment

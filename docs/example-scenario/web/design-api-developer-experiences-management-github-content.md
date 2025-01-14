@@ -48,11 +48,11 @@ The processing sequence in this solution flows as follows:
 
 The solution is composed of the following software as a service (SaaS) offerings:
 
-- [Azure API Management](/azure/api-management/api-management-key-concepts) is a managed platform as a service that allows organizations to publish APIs to both internal and external consumers. With API Management, you can publish APIs that may be hosted anywhere. Basically, API Management allows for decoupling of API hosting from the published gateway that acts as the single-entry point for the full landscape of APIs that your enterprise publishes. For more information, see [Gateway Routing pattern](../../patterns/gateway-routing.yml).
+- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) is a managed platform as a service that allows organizations to publish APIs to both internal and external consumers. With API Management, you can publish APIs that may be hosted anywhere. Basically, API Management allows for decoupling of API hosting from the published gateway that acts as the single-entry point for the full landscape of APIs that your enterprise publishes. For more information, see [Gateway Routing pattern](../../patterns/gateway-routing.yml).
 
   API Management also provides a governance layer on top of all published APIs. By using API Management policies, various other capabilities, such as [rate limits and quotas](/azure/api-management/api-management-sample-flexible-throttling), you can throttle API requests based on a key or subscription. API Management includes a [developer portal](/azure/api-management/api-management-howto-developer-portal) that provides a fully customizable website to serve as the documentation of the APIs that you publish through it.
 
-- [GitHub](https://docs.github.com/en/get-started/start-your-journey/about-github-and-git) is a popular SaaS offering from Microsoft that's frequently used by developers to build, ship, and maintain their software projects. It provides important features that you can use in solutions:
+- [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git) is a popular SaaS offering from Microsoft that's frequently used by developers to build, ship, and maintain their software projects. It provides important features that you can use in solutions:
 
   - [GitHub Pages](https://docs.github.com/pages/getting-started-with-github-pages/about-github-pages) enables your enterprise to host a rich [HTML-based website](https://pages.github.com) directly from within a [GitHub repository](https://docs.github.com/repositories).
 

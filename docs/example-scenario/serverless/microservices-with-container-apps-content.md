@@ -63,13 +63,13 @@ These features replace many of the complexities of the previous AKS architecture
 
 **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** stores data using the open-source [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
 
-**[Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications.
+**[Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications.
 
-**[Azure Cache for Redis](/azure/azure-cache-for-redis/managed-redis/managed-redis-overview)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads.
+**[Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/operational-excellence)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads.
 
 **[Azure Monitor](/azure/azure-monitor)** collects and stores metrics and logs from the application. Use this data to monitor the application, set up alerts and dashboards, and do root cause analysis of failures. This scenario uses a Log Analytics workspace for comprehensive monitoring of the infrastructure and application.
 
-**[Application Insights](/azure/azure-monitor/app/app-insights-overview)** provides extensible application performance management (APM) and monitoring for the services. Each service is instrumented with the Application Insights SDK to monitor the app and direct the data to Azure Monitor.
+**[Application Insights](/azure/well-architected/service-guides/application-insights)** provides extensible application performance management (APM) and monitoring for the services. Each service is instrumented with the Application Insights SDK to monitor the app and direct the data to Azure Monitor.
 
 **[Bicep Templates](/azure/azure-resource-manager/bicep/overview)** to configure and deploy the applications.
 

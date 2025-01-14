@@ -54,7 +54,7 @@ In this article, Azure App Service refers to the pricing tiers where there is sh
 - [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block for private networks in Azure. Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks through virtual networks.
 - [Azure Private Link](/azure/private-link/private-link-overview) provides a private endpoint in a virtual network for connectivity to Azure PaaS services like Azure Storage and SQL Database, or to customer or partner services.
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) private peering extends on-premises networks into the Microsoft cloud over a private connection. You could also establish Site-to-Site VPN between on-premises and the Azure network instead of using Azure ExpressRoute.
-- [Azure Firewall](/azure/firewall/overview) is a managed, cloud-based network security service that helps protect Azure Virtual Network resources.
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a managed, cloud-based network security service that helps protect Azure Virtual Network resources.
 - [Private DNS Zone](/azure/dns/private-dns-overview) provides a reliable and secure DNS service for managing and resolving domain names in the virtual network.
 - [DNS Private Resolver](/azure/dns/dns-private-resolver-overview) enables the querying of [Azure DNS](/azure/dns/dns-overview) private zones from an on-premises environment, and vice-versa, without deploying VM-based DNS servers.
 

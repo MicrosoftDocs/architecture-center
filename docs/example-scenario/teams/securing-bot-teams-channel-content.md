@@ -35,7 +35,7 @@ This example scenario helps secure the connection to a Microsoft Teams channel b
 ### Components
 
 - [Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability)
-- [Azure Firewall](/azure/firewall/overview)
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall)
 - [Azure Bot Services](/azure/bot-service/bot-service-overview)
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps)
 - [Azure Private Link](/azure/private-link/private-link-overview)

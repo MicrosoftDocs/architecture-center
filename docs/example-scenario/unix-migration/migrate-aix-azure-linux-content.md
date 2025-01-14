@@ -68,7 +68,7 @@ The system also contains the following components:
 
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends an on-premises network into Microsoft cloud services over a private connection, facilitated by a connectivity provider. ExpressRoute provides a secure, reliable private connection to the Azure system, with low latency and high speed and bandwidth.
 
-- [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer that distributes traffic across Azure regions, with high availability and quick responsiveness.
+- [Azure Traffic Manager](/azure/well-architected/service-guides/traffic-manager/reliability) is a DNS-based traffic load balancer that distributes traffic across Azure regions, with high availability and quick responsiveness.
 
 - [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) supports high availability by distributing incoming network traffic among backend VMs according to configured load-balancing rules and health probes. Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model.
 
@@ -91,7 +91,7 @@ The system also contains the following components:
 
 - [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) is an Azure-native DR service. Site Recovery deploys replication, failover, and recovery processes to help keep applications running during planned and unplanned outages.
 
-- [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is a reliable cloud messaging service with simple hybrid integration.
+- [Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a reliable cloud messaging service with simple hybrid integration.
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is Microsoft's cloud-based enterprise identity and access management service. Microsoft Entra single sign-on and multifactor authentication help users sign in and access resources, while protecting from cybersecurity attacks.
 
