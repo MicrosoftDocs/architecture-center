@@ -46,14 +46,14 @@ The Azure Cosmos DB NoSQL database is used for high-performance storage. This st
 ### Components
 
 This solution features the following Azure components:
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks into Azure over a private, dedicated fiber connection from a connectivity provider. ExpressRoute establishes connections to cloud services like Azure and Microsoft 365. 
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) is a fully managed service that helps secure remote access to your virtual machines. 
-- [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) distributes incoming traffic to the compute resource clusters. You can define rules and other criteria to distribute the traffic. 
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS offers serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. 
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block of Azure private networks. Azure VMs in virtual networks can communicate, with enhanced security, with each other, the internet, and on-premises networks. A virtual network is like a traditional on-premises network, but it provides Azure infrastructure benefits like scalability, high availability, and isolation. 
-- [Azure Cache for Redis](https://azure.microsoft.com/services/cache) adds a quick caching layer to application architecture to handle large volumes at high speed. Azure Cache for Redis scales performance simply and cost-effectively, providing the benefits of a fully managed service. 
-- [Azure databases](https://azure.microsoft.com/product-categories/databases) offer a choice of fully managed relational and NoSQL databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security. 
-   - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed, fast NoSQL database with open APIs for any scale. 
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into Azure over a private, dedicated fiber connection from a connectivity provider. ExpressRoute establishes connections to cloud services like Azure and Microsoft 365. 
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed service that helps secure remote access to your virtual machines. 
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) distributes incoming traffic to the compute resource clusters. You can define rules and other criteria to distribute the traffic. 
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS offers serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. 
+- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block of Azure private networks. Azure VMs in virtual networks can communicate, with enhanced security, with each other, the internet, and on-premises networks. A virtual network is like a traditional on-premises network, but it provides Azure infrastructure benefits like scalability, high availability, and isolation. 
+- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) adds a quick caching layer to application architecture to handle large volumes at high speed. Azure Cache for Redis scales performance simply and cost-effectively, providing the benefits of a fully managed service. 
+- [Azure databases](/sql/relational-databases/databases/databases) offer a choice of fully managed relational and NoSQL databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security. 
+   - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed, fast NoSQL database with open APIs for any scale. 
 
 ### Alternatives 
 

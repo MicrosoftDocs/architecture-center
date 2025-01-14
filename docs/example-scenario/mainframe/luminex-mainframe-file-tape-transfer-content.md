@@ -38,24 +38,24 @@ This article presents a solution for using Luminex products to transfer mainfram
 
 ### Components
 
-- [ExpressRoute](https://azure.microsoft.com/products/expressroute) extends on-premises networks to the Microsoft cloud. ExpressRoute uses a connectivity provider to establish private connections between on-premises data and Microsoft cloud services.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends on-premises networks to the Microsoft cloud. ExpressRoute uses a connectivity provider to establish private connections between on-premises data and Microsoft cloud services.
 
-- [Azure Files](https://azure.microsoft.com/products/storage/files) is a service that's part of [Azure Storage](/azure/storage/common/storage-introduction). Azure Files offers fully managed file shares in the cloud. Azure file shares are accessible via the industry-standard Server Message Block (SMB) protocol. This solution uses Luminex MDI and MVT to transfer mainframe files to Azure Files.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) is a service that's part of [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability). Azure Files offers fully managed file shares in the cloud. Azure file shares are accessible via the industry-standard Server Message Block (SMB) protocol. This solution uses Luminex MDI and MVT to transfer mainframe files to Azure Files.
 
-- [Blob Storage](https://azure.microsoft.com/products/storage/blobs) is a service that's part of Storage. Blob Storage provides optimized cloud object storage for massive amounts of unstructured data. In this solution, Blob Storage provides a way to archive hot and cold mainstream data.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a service that's part of Storage. Blob Storage provides optimized cloud object storage for massive amounts of unstructured data. In this solution, Blob Storage provides a way to archive hot and cold mainstream data.
 
 - In this solution, Luminex products can transfer mainframe data to several Azure databases:
 
-  - [Azure SQL](https://azure.microsoft.com/services/azure-sql) is a family of Azure databases that are powered by the SQL Server engine.
-  - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed platform as a service (PaaS) database engine that's part of the Azure SQL family. With AI-powered, automated features, SQL Database handles database management functions like upgrading, patching, backups, and monitoring.
-  - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is a fully managed relational database service that's based on the community edition of the open-source PostgreSQL database engine.
-  - [Azure Database for MySQL](https://azure.microsoft.com/products/mysql) is a fully managed relational database service that's based on the community edition of the open-source MySQL database engine.
+  - [Azure SQL](/azure/azure-sql/) is a family of Azure databases that are powered by the SQL Server engine.
+  - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed platform as a service (PaaS) database engine that's part of the Azure SQL family. With AI-powered, automated features, SQL Database handles database management functions like upgrading, patching, backups, and monitoring.
+  - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service that's based on the community edition of the open-source PostgreSQL database engine.
+  - [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed relational database service that's based on the community edition of the open-source MySQL database engine.
 
-- [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed big data streaming platform. In this solution, Luminex zKonnect streams mainframe data to Event Hubs in near real time. Event Hubs provides an endpoint that's compatible with Apache Kafka producer and consumer APIs. Most existing Apache Kafka client applications use these APIs as an alternative to running their own Apache Kafka clusters.
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a fully managed big data streaming platform. In this solution, Luminex zKonnect streams mainframe data to Event Hubs in near real time. Event Hubs provides an endpoint that's compatible with Apache Kafka producer and consumer APIs. Most existing Apache Kafka client applications use these APIs as an alternative to running their own Apache Kafka clusters.
 
-- [Power BI](https://powerbi.microsoft.com) is a collection of software services and apps that display analytics information. This solution uses mainframe data that comes from various sources and has varying structures. Power BI is used to turn the data into coherent, visually immersive, and interactive insights.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services and apps that display analytics information. This solution uses mainframe data that comes from various sources and has varying structures. Power BI is used to turn the data into coherent, visually immersive, and interactive insights.
 
-- [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) provides a way to perform big data analytics with low-cost, tiered storage and high throughput.
+- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) provides a way to perform big data analytics with low-cost, tiered storage and high throughput.
 
 ### Alternatives
 
