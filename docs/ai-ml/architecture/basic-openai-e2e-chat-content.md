@@ -64,6 +64,10 @@ Many of the components of this architecture are the same as the resources in the
 
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed registry service that you can use to build, store, and manage container images and artifacts in a private registry for all types of container deployments. This architecture packages flows as container images and stores them in Container Registry.
 
+- [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is a fully managed service that provides REST API access to Azure OpenAI language models, including the GPT-4, GPT-3.5-Turbo, and embeddings set of models. This architecture uses Azure OpenAI and model access to add common enterprise features like [managed identity](/azure/ai-services/openai/how-to/managed-identity) support and content filtering.
+
+- [AI Search](/azure/search/) is a cloud search service that supports [full-text search](/azure/search/search-lucene-query-architecture), [semantic search](/azure/search/semantic-search-overview), [vector search](/azure/search/vector-search-overview), and [hybrid search](/azure/search/hybrid-search-overview). The architecture includes AI Search because it's a common service to use in the flows that support chat applications. You can use AI Search to retrieve and index data that's relevant for user queries. The prompt flow implements the [Retrieval Augmented Generation](/azure/search/retrieval-augmented-generation-overview) pattern to extract the appropriate query from the prompt, query AI Search, and use the results as grounding data for the Azure OpenAI model.
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
@@ -72,7 +76,7 @@ This basic architecture isn't intended for production deployments. The architect
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the Reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 This architecture isn't designed for production deployments, so the following list outlines some of the critical reliability features that this architecture omits:
 
@@ -92,7 +96,7 @@ For more information, see [Baseline Azure OpenAI end-to-end chat reference archi
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the Security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 This section describes some of the key recommendations that this architecture implements. These recommendations include content filtering and abuse monitoring, identity and access management, and role-based access controls. Because this architecture isn't designed for production deployments, this section also discusses network security. Network security is a key security feature that this architecture doesn't implement.
 
