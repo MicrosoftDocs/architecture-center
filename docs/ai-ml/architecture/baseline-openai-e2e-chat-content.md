@@ -59,6 +59,8 @@ While this architecture leads with Azure AI Search, your choice of data store fo
 
 ## Considerations and recommendations
 
+This architecture is best taken through the design process for your specific situation when the design effort is combined with the design guidance found in the Azure Well-Architected Framework's [AI workloads on Azure](/azure/well-architected/ai/get-started) principles and recommendations.
+
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
@@ -559,10 +561,11 @@ To deploy and run the reference implementation, follow the steps in the [OpenAI 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Azure OpenAI](/azure/ai-services/openai/overview)
+> [Azure OpenAI baseline in an Azure landing zone](./azure-openai-baseline-landing-zone.yml)
 
 ## Related resources
 
+- A Well-Architected Framework perspective on [AI workloads on Azure](/azure/well-architected/ai/get-started)
 - [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service)
 - [Azure OpenAI language models](/azure/ai-services/openai/concepts/models)
 - [Prompt flow in Azure AI Foundry portal](/azure/ai-studio/how-to/prompt-flow)

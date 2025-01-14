@@ -26,13 +26,17 @@ categories:
 - Verbally interact in natural ways.
 - Make predictions and generate new data.
 
-Architects design workloads that use artificial intelligence to perform functions or make decisions where traditional logic or processing would be prohibitive, or even nearly impossible, to implement. As an architect designing a solution, it's important to understand the AI and machine learning landscape and how Azure offers solutions to integration into your workload design.
+Architects design workloads to use artificial intelligence in application components to perform functions or make decisions where traditional logic or processing would be prohibitive, or even nearly impossible, to implement. As an architect designing a solution, it's important to understand the AI and machine learning landscape and how Azure offers solutions to integration into your workload design.
+
+## Getting started
+
+Azure Architecture Center provides example architectures, architecture guides, architectural baselines, and ideas for you to apply to your scenario and help you design for a specific scenario. Workloads that involve AI/ML components should be designed by an architect that is following the Well-Architected Framework's [AI workloads on Azure](/azure/well-architected/ai/get-started) guidance. This Well-Architected Framework guidance includes principles and design guides that influence the AI/ML workload across the five pillars of architecture. Those recommendations will need be implemented in the scenarios and content presented here in the Azure Architecture Center.
 
 ## AI concepts
 
 ### Algorithms
 
-*Algorithms* or *machine learning algorithms* are pieces of code that help humans explore, analyze, and find meaning in complex data sets. Each algorithm is a finite set of unambiguous step-by-step instructions that a machine can follow to achieve a certain goal. In a machine learning model, the goal is to establish or discover patterns that humans can use to make predictions or categorize information. An algorithm may describe how to determine whether a pet is a cat, dog, fish, bird, or lizard. Another far more complicated algorithm may describe how to identify a written or spoken language, analyze its words, translate them into a different language, and then check the translation for accuracy.
+*Algorithms* or *machine learning algorithms* are pieces of code that help humans explore, analyze, and find meaning in complex data sets. Each algorithm is a finite set of unambiguous step-by-step instructions that a machine can follow to achieve a certain goal. In a machine learning model, the goal is to establish or discover patterns that humans can use to make predictions or categorize information. An algorithm might describe how to determine whether a pet is a cat, dog, fish, bird, or lizard. Another far more complicated algorithm might describe how to identify a written or spoken language, analyze its words, translate them into a different language, and then check the translation for accuracy.
 
 When you design a workload, you'll need to select an algorithm family that is suited for your task and evaluate the various available algorithms to find the appropriate fit.
 
@@ -66,11 +70,11 @@ As a workload designer, this option requires a large investment in generating hi
 
 - [Azure OpenAI](/azure/ai-services/openai/overview) is a development platform as a service that provides access to OpenAI's powerful language models such as o1-preview, o1-mini, GPT-4o, GPT-4o mini, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and Embeddings model series. These models can be adapted to your specific task such as:
 
-    - Content generation
-    - Content summarization
-    - Image understanding
-    - Semantic search
-    - Natural language to code translation.
+  - Content generation
+  - Content summarization
+  - Image understanding
+  - Semantic search
+  - Natural language to code translation.
 
 ### Language models
 
@@ -94,7 +98,7 @@ The availability of language models led to the emergence of new ways to interact
 
 - [Microsoft Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
 
-- [Azure AI Foundry](https://azure.microsoft.com/products/ai-studio/)
+- [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio)
 
 ### Retrieval Augmented Generation (RAG)
 
@@ -102,12 +106,6 @@ The availability of language models led to the emergence of new ways to interact
 
 - [Designing and developing a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide)
 - [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search)
-
-### Automated machine learning (AutoML)
-
-*Automated machine learning*, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality.
-
-- [What is automated machine learning?](/azure/machine-learning/concept-automated-ml)
 
 ## AI services
 
@@ -157,9 +155,9 @@ Azure Machine Learning is a machine learning service to build and deploy models.
 
 ### Automated machine learning (AutoML)
 
-Build ML models at scale using the AutoML capability in Azure Machine Learning to automate tasks.
+*Automated machine learning*, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality.
 
-- [Azure automated machine learning product home page](https://azure.microsoft.com/services/machine-learning/automatedml/)
+- [What is automated machine learning?](/azure/machine-learning/concept-automated-ml)
 
 - [Azure automated ML infographic (PDF)](https://aka.ms/automlinfographic/)
 
@@ -545,9 +543,9 @@ Different industries are applying AI in innovative and inspiring ways. Following
 
 - [Volkswagen: Machine translation speaks Volkswagen – in 40 languages](https://customers.microsoft.com/story/779468-volkswagen-azure-automotive-en)
 - [Healthcare for All with Kry using Azure Open AI](https://customers.microsoft.com/story/1693712644049090392-kry-azure-open-ai-service-sweden)
-- [PIMCO boosts client service with an AI-powered search platform built on Azure AI](https://customers.microsoft.com/story/1834023197365666109-pimco-azure-ai-search-banking-and-capital-markets-en-united-states)
-- [Legrand and Azure OpenAI Service: Powering smarter solutions with AI-driven tools](https://customers.microsoft.com/story/1833247205652391288-legrand-cloud-for-manufacturing-discrete-manufacturing-en-france)
-- [C.H. Robinson overcomes decades-old barriers to automate the logistics industry using Azure AI](https://customers.microsoft.com/story/1833509185850734713-chrobinson-azure-ai-studio-other-en-united-states)
+- [PIMCO boosts client service with an AI-powered search platform built on Azure AI](https://www.microsoft.com/en/customers/story/19744-pimco-sharepoint)
+- [Legrand and Azure OpenAI Service: Powering smarter solutions with AI-driven tools](https://www.microsoft.com/en/customers/story/19697-legrand-azure-cloud-services)
+- [C.H. Robinson overcomes decades-old barriers to automate the logistics industry using Azure AI](https://www.microsoft.com/en/customers/story/19575-ch-robinson-azure-ai-studio)
 
 [Browse more AI customer stories](https://customers.microsoft.com/search?sq=AI&ff=&p=0&so=story_publish_date%20desc)
 
@@ -569,10 +567,6 @@ Learn more about Microsoft AI, and keep up-to-date with related news:
 
 ## Next steps
 
-- To learn about the artificial intelligence development products available from Microsoft, go to [Microsoft AI](https://www.microsoft.com/ai).
-
-- For training in how to develop AI solutions, go to [AI learning hub](/ai/).
-
-- [Microsoft AI on GitHub: Samples, reference architectures, and best practices](https://github.com/microsoft/AI) organizes the Microsoft open source AI-based repositories, providing tutorials and learning materials.
-
 - [Find architecture diagrams and technology descriptions for AI solutions reference architectures](/azure/architecture/browse/?azure_categories=ai-machine-learning).
+
+- Review AI design by reading [AI workloads on Azure](/azure/well-architected/ai/get-started) from the Azure Well-Architected Framework.

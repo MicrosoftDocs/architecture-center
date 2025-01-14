@@ -67,6 +67,10 @@ For an implementation with sample deployment templates for MLOps v2, see [Azure 
 
 AI simulations, deep reinforcement learning, and other forms of AI aren't described in this article.
 
+## MLOps as a key design area for AI workloads
+
+The planning and implementation of a MLOps and GenAIOps are a core design area in AI workloads on Azure. To get a background on why these machine learning workloads need specialized operations, see [MLOps and GenAIOps for AI workloads on Azure](/azure/well-architected/ai/mlops-genaiops) in the Azure Well-Architected Framework.
+
 ## Architecture
 
 The MLOps v2 architectural pattern has four main modular components, or phases, of the MLOps lifecycle:
