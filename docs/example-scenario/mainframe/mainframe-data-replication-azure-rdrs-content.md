@@ -46,14 +46,14 @@ The solution uses the following components.
 
 - [Storage](/azure/storage/common/storage-introduction): Storage offers unmanaged storage solutions like Azure Blob Storage, Azure Table Storage, Azure Queue Storage, and Azure Files. Azure Files is especially useful for re-engineered mainframe solutions and provides an effective add-on with managed SQL storage.
 - [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview): Azure SQL is a fully managed platform as a service (PaaS) for SQL Server from Azure. Relational data can be migrated and used efficiently with other Azure components, such as Azure SQL Managed Instance, Azure SQL VMs, Azure Database for PostgreSQL, Azure Database for MariaDB, and Azure Database for MySQL.
-- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db/): Azure Cosmos DB is a no-SQL offering that you can use to migrate non-tabular data off of the mainframe.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db): Azure Cosmos DB is a no-SQL offering that you can use to migrate non-tabular data off of the mainframe.
 
 #### Monitoring components
 
-- [Azure Monitor](https://azure.microsoft.com/products/monitor/): Azure Monitor delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments.
-- [Application Insights](/azure/azure-monitor/app/app-insights-overview): Application Insights analyzes and presents application telemetry.
+- [Azure Monitor](/azure/azure-monitor/overview): Azure Monitor delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments.
+- [Application Insights](/azure/well-architected/service-guides/application-insights): Application Insights analyzes and presents application telemetry.
 - [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs): Azure Monitor Logs is a feature of Monitor that collects and organizes log and performance data from monitored resources. You can consolidate data from multiple sources, like platform logs from Azure services, log and performance data from VM agents, and usage and performance data from applications, into a single workspace to be analyzed together by using a sophisticated query language capable of quickly analyzing millions of records.
-- [Log Analytics](/azure/azure-monitor/log-query/log-query-overview): Log Analytics is a tool in the Azure portal. You can use log queries to get insights from the data collected in Azure Monitor Logs. Log Analytics uses a powerful query language so you can join data from multiple tables, aggregate large data sets, and perform complex operations with minimal code.
+- [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics): Log Analytics is a tool in the Azure portal. You can use log queries to get insights from the data collected in Azure Monitor Logs. Log Analytics uses a powerful query language so you can join data from multiple tables, aggregate large data sets, and perform complex operations with minimal code.
 
 ## Considerations
 
