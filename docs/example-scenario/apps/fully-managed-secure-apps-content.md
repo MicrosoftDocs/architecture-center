@@ -151,7 +151,7 @@ Principal author:
 [bring-your-own-dns]: /azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#specify-dns-servers
 [private-zones]: /azure/dns/private-dns-overview
 [create-ilb-ase]: /azure/app-service/environment/creation
-[azure-networking]: /azure/virtual-network/virtual-networks-overview
+[azure-networking]: /azure/well-architected/service-guides/azure-virtual-network/reliability
 [sql-service-endpoint]: /azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
 
 [architecture]: ./media/fully-managed-secure-apps.svg
@@ -163,13 +163,13 @@ Principal author:
 [design-geo-distributed-ase]: /azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
 [design-best-practice-cloud-apps-autoscale]: ../../best-practices/auto-scaling.md
 
-[docs-sql-database]: /azure/sql-database/sql-database-technical-overview
+[docs-sql-database]: /azure/well-architected/service-guides/azure-sql-database-well-architected-framework
 [docs-webapps]: /azure/well-architected/service-guides/app-service-web-apps
 [docs-apiapps]: /azure/app-service/app-service-web-tutorial-rest-api
 [docs-appgw]: /azure/well-architected/service-guides/azure-application-gateway 
-[docs-waf]: /azure/application-gateway/waf-overview
-[docs-azure-devops]: /azure/devops/?view=vsts
-[docs-azure-vm]: /azure/virtual-machines/windows/overview
+[docs-waf]: /azure/web-application-firewall/ag/ag-overview
+[docs-azure-devops]: /azure/devops/user-guide/what-is-azure-devops
+[docs-azure-vm]: /azure/well-architected/service-guides/virtual-machines
 [docs-azure-scale-ase]: /azure/app-service/environment/overview
 [docs-service-fabric]: /azure/service-fabric
 [docs-kubernetes-service]: /azure/aks
