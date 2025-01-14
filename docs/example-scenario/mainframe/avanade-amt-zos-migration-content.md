@@ -48,15 +48,15 @@ The preceding diagram shows how the typical components of an IBM z/OS mainframe 
 
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) provide communication between Azure VMs and the internet, Azure resources, and on-premises resources. You can add several network interface cards to one Azure VM, so child VMs can have their own dedicated network interface devices and IP addresses.
 
-- [Azure Managed Disks](https://azure.microsoft.com/products/storage/disks) provides block-level storage volumes that Azure manages on Azure VMs. The available types of disks are Ultra disks, Premium SSDs, Standard SSDs, and Standard HDDs.
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) provide block-level storage volumes that Azure manages on Azure VMs. The available types of disks are Ultra disks, Premium SSDs, Standard SSDs, and Standard HDDs.
 
-- [Azure Files](https://azure.microsoft.com/products/storage/files) offers fully managed file shares in an Azure Storage account that are accessible from the cloud or on-premises. Windows, Linux, and macOS deployments can mount Azure file shares concurrently and access files via the industry standard Server Message Block (SMB) protocol.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in an Azure Storage account that are accessible from the cloud or on-premises. Windows, Linux, and macOS deployments can mount Azure file shares concurrently and access files via the industry standard Server Message Block (SMB) protocol.
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine that is always running on the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles most database management functions like upgrading, patching, backups, and monitoring without user involvement. Use these PaaS capabilities so you can focus on business-critical, domain-specific database administration and optimization.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine that is always running on the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles most database management functions like upgrading, patching, backups, and monitoring without user involvement. Use these PaaS capabilities so you can focus on business-critical, domain-specific database administration and optimization.
 
-- [Site Recovery](https://azure.microsoft.com/products/site-recovery) uses replication, failover, and recovery processes to help keep your applications running during planned and unplanned outages.
+- [Site Recovery](/azure/site-recovery/site-recovery-overview) uses replication, failover, and recovery processes to help keep your applications running during planned and unplanned outages.
 
-- [Load Balancer](https://azure.microsoft.com/solutions/load-balancing-with-azure) provides highly available and scalable apps in minutes with built-in application load balancing for cloud services and VMs. Load Balancer supports TCP/UDP-based protocols such as HTTP, HTTPS, and SMTP. With Load Balancer, you can automatically scale increasing app traffic to provide a better customer experience. You don't need to reconfigure or manage the load balancer.
+- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) provides highly available and scalable apps in minutes with built-in application load balancing for cloud services and VMs. Load Balancer supports TCP/UDP-based protocols such as HTTP, HTTPS, and SMTP. With Load Balancer, you can automatically scale increasing app traffic to provide a better customer experience. You don't need to reconfigure or manage the load balancer.
 
 ## Scenario details
 
