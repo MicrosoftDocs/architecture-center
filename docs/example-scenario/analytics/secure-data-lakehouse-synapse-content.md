@@ -38,7 +38,7 @@ The following are the key components in this data lakehouse solution:
 - [Azure Files](/azure/well-architected/service-guides/azure-files)
 - [Event Hubs](/azure/well-architected/service-guides/event-hubs)
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage)
-- [Azure Data Lake Storage]( /azure/storage/blobs/data-lake-storage-introduction)
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
 - [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops)
 - [Power BI](/power-bi/fundamentals/power-bi-overview)
 - [Data Factory](/azure/data-factory/introduction)
