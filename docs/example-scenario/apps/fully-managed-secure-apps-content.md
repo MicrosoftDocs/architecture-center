@@ -164,9 +164,9 @@ Principal author:
 [design-best-practice-cloud-apps-autoscale]: ../../best-practices/auto-scaling.md
 
 [docs-sql-database]: /azure/sql-database/sql-database-technical-overview
-[docs-webapps]: /azure/app-service/app-service-web-overview
+[docs-webapps]: /azure/well-architected/service-guides/app-service-web-apps
 [docs-apiapps]: /azure/app-service/app-service-web-tutorial-rest-api
-[docs-appgw]: /azure/application-gateway/overview
+[docs-appgw]: /azure/well-architected/service-guides/azure-application-gateway 
 [docs-waf]: /azure/application-gateway/waf-overview
 [docs-azure-devops]: /azure/devops/?view=vsts
 [docs-azure-vm]: /azure/virtual-machines/windows/overview
