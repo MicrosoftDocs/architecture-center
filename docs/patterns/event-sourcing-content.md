@@ -1,9 +1,6 @@
 Instead of storing just the current state of the data in a relational database, store the full series of actions taken on an object in an append-only store. The store acts as the system of record and can be used to materialize the domain objects. This approach can improve performance, scalability, and auditability in complex systems.
 
-> [!IMPORTANT] Event sourcing is a complex pattern that introduces trade-offs to achieve increased performance, scalability, and auditing. This pattern is best suited for systems where performance and scalability are top requirements. The complexity that event sourcing adds to a system is not justified for most systems.
-Permeates through the entire architecture. All future design decisions are constrained by the fact that this is an event sourcing system.
-
-Migrating to or from is high
+> [!IMPORTANT] Event sourcing is a complex pattern that permeates through the entire architecture and introduces trade-offs to achieve increased performance, scalability, and auditing. Your system becomes an event sourcing system and all future design decisions are constrained by the fact that this is an event sourcing system. There is a high cost to migrate to or from an event sourcing system. This pattern is best suited for systems where performance and scalability are top requirements. The complexity that event sourcing adds to a system is not justified for most systems.
 
 ## Context and problem
 
