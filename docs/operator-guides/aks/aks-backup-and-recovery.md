@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn how to back up and recover your AKS clusters and their workloads.
 author: AdamSharif-MSFT
 ms.author: jotavar
-ms.date: 14/01/2025
+ms.date: 01/14/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
