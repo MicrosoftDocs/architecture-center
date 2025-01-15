@@ -144,7 +144,7 @@ If your workload's requirements require a multi-region strategy, you need to inv
 - Orchestration layer (Prompt flow in this architecture)
 - Client-facing UI
 
-In addition, you'll need maintain business continuity in observability, portal experiences, and responsible AI concerns like content safety.
+In addition, you'll need to maintain business continuity in observability, portal experiences, and responsible AI concerns like content safety.
 
 ### Security
 
@@ -449,9 +449,9 @@ Consider the following guidance when implementing automated evaluations:
       - Runs integration tests that target the online endpoint
       - Runs smoke tests that target the online endpoint
 
-1. An approval process is built into the release promotion process – upon approval, the CI & CD processes described in steps 4.a. & 4.b. are repeated, targeting the Test environment. Steps a. and b. are the same, except that user acceptance tests are run after the smoke tests in the Test environment.
+1. An approval process is built into the release promotion process – upon approval, the CI & CD processes described in steps *4.a* and *4.b* are repeated, targeting the Test environment. Steps *a* and *b* are the same, except that user acceptance tests are run after the smoke tests in the Test environment.
 
-1. The CI & CD processes described in steps 4.a and 4.b are run to promote the release to the Production environment after the Test environment is verified and approved.
+1. The CI & CD processes described in steps *4.a* and *4.b* are run to promote the release to the Production environment after the Test environment is verified and approved.
 
 1. After release into a live environment, the operational tasks of monitoring performance metrics and evaluating the deployed language models take place. This includes but isn't limited to:
 
