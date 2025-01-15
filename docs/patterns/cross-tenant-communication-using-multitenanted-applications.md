@@ -23,7 +23,7 @@ This guide provides a solution to achieve bidirectional, secure communications b
 
 Securing cross-directory communications in Azure can be challenging due to limitations that are inherent to many services. You can eliminate the need to manage credentials directly by using Azure managed identities to obtain tokens from Microsoft Entra ID. However, Azure managed identities don't work across directory boundaries, and the typical alternative is to use shared secrets, like shared access signature URLs. Remember that if you use shared secrets, you need to securely distribute and rotate the secrets across Microsoft Entra directory boundaries.
 
-One option that avoids this overhead is to create a multitenant Microsoft Entra application to represent your workload's identity. Through a consent process, you can make this workload identity known to an external directories and ultimately allow the application to authenticate services in the external directory.
+One option that avoids this overhead is to create a multitenant Microsoft Entra application to represent your workload's identity. Through a consent process, you can make this workload identity known to an external directory and ultimately allow the application to authenticate services in the external directory.
 
 This article presents an example implementation of this pattern that uses [sample code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus).
 
