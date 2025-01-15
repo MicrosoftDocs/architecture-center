@@ -122,8 +122,6 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
 ### Alternatives
 
-#### Alternative architectures
-
 - To create an independent Microsoft Fabric environment, see [Greenfield lakehouse on Microsoft Fabric](/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric).
 
 - To migrate an on-premises SQL analytics environment to Microsoft Fabric, see [Modern data warehouses for small and midsize-sized businesses](/azure/architecture/example-scenario/data/small-medium-data-warehouse).
@@ -218,6 +216,8 @@ Principal authors:
 
 - Bonita Rui | Cloud Solution Architect
 - Naren Jogendran | Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
