@@ -12,7 +12,7 @@ The interoperability between Azure Databricks and Microsoft Fabric provides a ro
 
 Microsoft Fabric provides an open and governed data lake, called OneLake, as the underlying SaaS storage. OneLake uses the Delta Parquet format, which is the same format that Azure Databricks uses. To access your Azure Databricks data from OneLake, you can use [OneLake shortcuts](/fabric/onelake/onelake-shortcuts) in Fabric or [mirror the Azure Databricks Unity Catalog](/fabric/database/mirrored-database/azure-databricks) in Fabric. This integration allows you to augment your Azure Databricks analytics systems with generative AI on top of OneLake.
 
-You can also use the direct lake mode in Power BI on your Azure Databricks data in OneLake. Direct lake mode simplifies the serving layer and improves report performance. OneLake supports APIs for Azure Data Lake Storage Gen2 and stores all tabular data in Delta Parquet format.
+You can also use the direct lake mode in Power BI on your Azure Databricks data in OneLake. Direct lake mode simplifies the serving layer and improves report performance. OneLake supports APIs for Azure Data Lake Storage and stores all tabular data in Delta Parquet format.
 
 As a result, Azure Databricks notebooks can use OneLake endpoints to access the stored data. The experience is the same as accessing the data through a Microsoft Fabric warehouse. This integration allows you to use Fabric or Azure Databricks without reshaping your data.
 
@@ -30,9 +30,9 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
 1. **Streaming data ingestion:** Streaming data can be ingested through Azure Event Hubs or Azure IoT Hubs, depending on the protocols that are used to send these messages.
 
-1. **Cold Path:** The streaming data can be brought into the centralized data lake for further analysis, storage, and reporting by using Azure Databricks. This data can then be unified with other data sources for batch analysis.
+1. **Cold Path:** You can bring the streaming data into the centralized data lake for further analysis, storage, and reporting by using Azure Databricks. This data can then be unified with other data sources for batch analysis.
 
-1. **Hot Path:** Streaming data can be analyzed in real-time and real-time dashboards that are created through Microsoft Fabric Real-Time Intelligence.
+1. **Hot Path:** Streaming data can be analyzed in real-time and real-time dashboards can be created through Microsoft Fabric Real-Time Intelligence.
 
 1. **Azure Databricks:** The existing Azure Databricks Notebooks can then be used to perform data cleansing, unification, and analyses as usual. Consider using medallion architecture such as:
 
@@ -42,7 +42,7 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
    - Gold, which stores aggregated data that's useful for business analytics.
 
-1. **Golden data or a data warehouse:** For the golden data or a data warehouse, continue to use Azure Databricks SQL or create Mirroring the Azure Databricks Unity Catalog in Microsoft Fabric. Easily create dashboards based on serverless analysis of data in Fabric lakehouses without any setup required by using the Power BI semantic models that are automatically created for all Fabric lakehouses. Fabric Data Warehouse can also be used as the golden layer if analytical requirements require faster compute.
+1. **Golden data or a data warehouse:** For the golden data or a data warehouse, continue to use Azure Databricks SQL or create a mirroring the Azure Databricks Unity Catalog in Microsoft Fabric. Easily create dashboards based on serverless analysis of data in Fabric lakehouses without any setup required by using the Power BI semantic models that are automatically created for all Fabric lakehouses. Fabric Data Warehouse can also be used as the golden layer if analytical requirements require faster compute.
 
 1. Tools that are used for governance, collaboration, security, performance, and cost monitoring include:
 
@@ -54,7 +54,7 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
     - Azure DevOps provides continuous integration and continuous deployment and other integrated version control features.
 
-    - Azure Key Vault securely manages secrets, keys, and certificates.
+    - Azure Key Vault manages secrets, keys, and certificates.
 
     - Microsoft Entra ID provides single sign-on for Azure Databricks users. Azure Databricks supports automated user provisioning with Microsoft Entra ID to:
 
@@ -70,23 +70,23 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
 ### Components
 
-- [Data Lake Storage Gen2](https://azure.microsoft.com/solutions/data-lake): Data Lake Storage Gen2 is a scalable data storage service designed for structured and unstructured data. In this architecture, Data Lake Storage Gen2 serves as the underlying infrastructure for the Delta Lake. Data Lake Storage Gen2 is the primary storage layer for raw and processed data. This capability enables efficient data ingestion, storage, and retrieval for analytics and machine learning workloads.
+- [Data Lake Storage](https://azure.microsoft.com/solutions/data-lake): Data Lake Storage is a scalable data storage service designed for structured and unstructured data. In this architecture, Data Lake Storage serves as the underlying infrastructure for the Delta Lake. Data Lake Storage is the primary storage layer for raw and processed data. This capability enables efficient data ingestion, storage, and retrieval for analytics and machine learning workloads.
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory): Azure Data Factory is a cloud-based data integration service that orchestrates and automates data movement and transformation. Azure Data Factory is used to create, schedule, and orchestrate data pipelines that move and transform data across various data stores and services. This functionality helps ensure seamless data flow and integration.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory): Azure Data Factory is a cloud-based data integration service that orchestrates and automates data movement and transformation. Azure Data Factory is used to create, schedule, and orchestrate data pipelines that move and transform data across various data stores and services. It helps ensure seamless data flow and integration.
 
-- [Event Hubs](https://azure.microsoft.com/services/event-hubs): Event Hubs is a real-time data ingestion service that can process millions of events per second from any source. In this architecture, Event Hubs captures and streams large volumes of data from various sources. This functionality enables real-time analytics and event-driven processing.
+- [Event Hubs](https://azure.microsoft.com/services/event-hubs): Event Hubs is a real-time data ingestion service that can process millions of events per second from any source. In this architecture, Event Hubs captures and streams large volumes of data from various sources to enable real-time analytics and event-driven processing.
 
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub): Azure IoT Hub is a managed service that enables secure and reliable communication between IoT devices and the cloud. Azure IoT Hub facilitates the ingestion, processing, and analysis of telemetry data from IoT devices. This facilitation provides real-time insights and enables remote monitoring.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub): Azure IoT Hub is a managed service that enables secure and reliable communication between IoT devices and the cloud. Azure IoT Hub facilitates the ingestion, processing, and analysis of telemetry data from IoT devices to provide real-time insights and enable remote monitoring.
 
 - [Microsoft Dataverse](/power-apps/maker/data-platform/data-platform-intro): Dataverse is a scalable data platform that organizations can use to securely store and manage data that business applications use. In this architecture, it's referenced as a potential data source.
 
-  - [Azure Synapse Link](/power-apps/maker/data-platform/export-to-data-lake): Azure Synapse Link connects Dynamics applications with either Azure Synapse Analytics or Data Lake Storage Gen2. In this architecture, it's used to copy data in near real-time from Dataverse to Data Lake Storage Gen2.
+  - [Azure Synapse Link](/power-apps/maker/data-platform/export-to-data-lake): Azure Synapse Link connects Dynamics applications with either Azure Synapse Analytics or Data Lake Storage. In this architecture, it's used to copy data in near real-time from Dataverse to Data Lake Storage.
 
   - [Microsoft Fabric Link](/power-apps/maker/data-platform/azure-synapse-link-view-in-fabric): Microsoft Fabric Link connects Dynamics applications to Microsoft Fabric. In this architecture, it's used to replicate data from Dataverse to Microsoft Fabric in near real-time.
 
 - [Azure Databricks](https://azure.microsoft.com/services/databricks): Azure Databricks is an Apache Spark-based analytics platform. Azure Databricks is used for big data processing, machine learning, and data engineering tasks. This platform provides a collaborative workspace for data scientists and engineers.
 
-  - [Delta Lake](https://databricks.com/product/delta-lake-on-databricks): Delta Lake is an open-source storage layer that brings ACID transactions to Apache Spark and big data workloads. Delta lake is used to provide this functionality to the data lake storage.
+  - [Delta Lake](https://databricks.com/product/delta-lake-on-databricks): Delta Lake is an open-source storage layer that brings ACID transactions to Apache Spark and big data workloads. Delta Lake is used to provide this functionality to the data lake storage.
 
   - [Azure Databricks SQL](/azure/databricks/sql): Azure Databricks SQL is a SQL-based analytics service that enables users to run SQL queries on data that's stored in Azure Databricks. In this architecture, Azure Databricks SQL provides a powerful SQL interface to query and analyze data, which enables interactive and ad-hoc analytics.
 
@@ -94,7 +94,7 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
     - [Unity Catalog](/azure/databricks/data-governance/unity-catalog/): Unity Catalog is a data governance solution that provides centralized access control, auditing, lineage, and data discovery capabilities across Databricks workspaces. Unity Catalog helps ensure data governance and security by providing fine-grained access controls, auditing, and data lineage tracking.
 
-- [Implement medallion lakehouse architecture](/fabric/onelake/onelake-medallion-lakehouse-architecture): The medallion lakehouse architecture is a data architecture pattern that organizes data into bronze, silver, and gold layers for efficient data processing and analytics. This architecture pattern is implemented here by using Data Lake Storage Gen2, Delta Lake, and Azure Databricks, which enables scalable and efficient data processing and analytics.
+- [Medallion lakehouse architecture](/fabric/onelake/onelake-medallion-lakehouse-architecture): The medallion lakehouse architecture is a data architecture pattern that organizes data into bronze, silver, and gold layers for efficient data processing and analytics. This architecture pattern is implemented here by using Data Lake Storage Gen2, Delta Lake, and Azure Databricks, which enables scalable and efficient data processing and analytics.
 
 - [Microsoft Fabric](/fabric/): Microsoft Fabric is a comprehensive data platform that integrates various data services and tools to provide a seamless data management and analytics experience. Microsoft Fabric connects and integrates data from multiple sources, which enables comprehensive data analysis and insights across the organization.
 
@@ -108,17 +108,17 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
   - [Connect to and manage Azure Databricks Unity Catalog](/purview/register-scan-azure-databricks-unity-catalog?tabs=MI): You can integrate Unity Catalog into Purview to access Unity Catalog metadata from Purview.
 
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): Microsoft Entra ID is a cloud-based identity and access management solution that helps ensure secure sign-ins and access to resources like Microsoft 365, Azure, and other SaaS applications. In this architecture, Microsoft Entra ID provides secure identity and access management for Azure resources. This feature enables secure sign-ins, manages user identities, and ensures authorized access to data and resources.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): Microsoft Entra ID is a cloud-based identity and access management solution that helps ensure secure sign-ins and access to resources like Microsoft 365, Azure, and other SaaS applications. In this architecture, Microsoft Entra ID provides secure identity and access management for Azure resources. This feature enables secure sign-ins, manages user identities, and helps to ensure that access to data and resources is authorized.
 
 - [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management): Cost Management is a suite of FinOps tools that organizations can use to analyze, monitor, and optimize Microsoft Cloud costs. These tools provide financial governance over Azure resources in this architecture.
 
-- [Key Vault](https://azure.microsoft.com/services/key-vault): Key Vault is a cloud service that securely stores and manages secrets, such as API keys, passwords, certificates, and cryptographic keys. This service allows users and applications to access these secrets securely. By storing your keys and secrets in Key Vault, you can manage them in a single place. In this architecture, Azure Databricks can retrieve secrets from Key Vault to authenticate and access Data Lake Storage Gen2. This process ensures secure and seamless integration between these services.
+- [Key Vault](https://azure.microsoft.com/services/key-vault): Key Vault is a cloud service that securely stores and manages secrets, such as API keys, passwords, certificates, and cryptographic keys. This service allows users and applications to access these secrets securely. When you store your keys and secrets in Key Vault, you can manage them in a single place. In this architecture, Azure Databricks can retrieve secrets from Key Vault to authenticate and access Data Lake Storage Gen2. This process helps to ensure secure and seamless integration between these services.
 
 - [Azure Monitor](https://azure.microsoft.com/services/monitor): Azure Monitor is a comprehensive monitoring service that provides full-stack observability for applications, infrastructure, and networks. Azure Monitor enables users to collect, analyze, and act on telemetry data from their Azure and on-premises environments to proactively identify problems and maximize performance and reliability.
 
-- [Azure DevOps](https://azure.microsoft.com/services/devops): Azure DevOps is a set of development tools that support a collaborative culture and streamlined processes. These tools enable developers, project managers, and contributors to develop software more efficiently. It provides integrated features such as Azure Boards, Azure Repos, Azure Pipelines, Azure Test Plans, and Azure Artifacts. You can access these features through a web browser or an integrated development environment client.
+- [Azure DevOps](https://azure.microsoft.com/services/devops): Azure DevOps is a set of development tools that support a collaborative culture and streamlined processes. These tools enable developers, project managers, and contributors to develop software more efficiently. Azure DevOps provides integrated features such as Azure Boards, Azure Repos, Azure Pipelines, Azure Test Plans, and Azure Artifacts. You can access these features through a web browser or an integrated development environment client.
 
-- [GitHub](https://azure.microsoft.com/products/github): GitHub is a cloud-based Git repository hosting service that simplifies version control and collaboration for developers. It allows individuals and teams to store and manage their code, track changes, and collaborate on projects by using Git. GitHub's user-friendly interface makes it accessible to coders of all skill levels. You can use Azure DevOps and GitHub together to implement DevOps practices. These practices enforce automation and compliance in your workload development and deployment pipelines for Azure Data Factory, Azure Databricks, and Microsoft Fabric.
+- [GitHub](https://azure.microsoft.com/products/github): GitHub is a cloud-based Git repository hosting service that simplifies version control and collaboration for developers. It allows individuals and teams to store and manage their code, track changes, and collaborate on projects by using Git. The user-friendly GitHub interface makes Git accessible to coders of all skill levels. You can use Azure DevOps and GitHub together to implement DevOps practices. These practices enforce automation and compliance in your workload development and deployment pipelines for Azure Data Factory, Azure Databricks, and Microsoft Fabric.
 
 ### Alternatives
 
@@ -136,7 +136,7 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
 - **Microsoft Dynamics 365 ingestion**
 
-  - If you use Azure Data Lake Gen2 as your data lake storage and want to ingest Dataverse data, use [Azure Synapse Link for Dataverse with Azure Data Lake](/power-apps/maker/data-platform/azure-synapse-link-data-lake). For Dynamics Finance and Operations, see [FnO Azure Synapse Link for Dataverse](/power-apps/maker/data-platform/azure-synapse-link-select-fno-data).
+  - If you use Azure Data Lake as your data lake storage and want to ingest Dataverse data, use [Azure Synapse Link for Dataverse with Azure Data Lake](/power-apps/maker/data-platform/azure-synapse-link-data-lake). For Dynamics Finance and Operations, see [FnO Azure Synapse Link for Dataverse](/power-apps/maker/data-platform/azure-synapse-link-select-fno-data).
   
   - If you use Microsoft Fabric Lakehouse as your data lake storage, see [Fabric Link](/power-apps/maker/data-platform/azure-synapse-link-view-in-fabric).
 
@@ -160,9 +160,9 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
   - *Microsoft Fabric*
 
-    - If you used other Azure services for real-time analytics in the past or have no existing real-time analytics solution, see [Fabric Real-time Intelligence versus Azure Streaming Solutions](/fabric/real-time-intelligence/real-time-intelligence-compare?branch=main) for more information about the Microsoft Fabric Real-time Intelligence solution and how it compares to other Azure offerings.
+    - If you used other Azure services for real-time analytics in the past or have no existing real-time analytics solution, see [Fabric Real-time Intelligence versus Azure Streaming Solutions](/fabric/real-time-intelligence/real-time-intelligence-compare?branch=main).
 
-    - Microsoft Fabric's structured streaming uses Spark Structured Streaming to process and ingest live data streams as continuously appended tables. Structured streaming supports various file sources like CSV, JSON, ORC, Parquet, and messaging services such as Kafka and Event Hubs. This approach ensures scalable and fault-tolerant stream processing, which optimizes high-throughput production environments. For more information, see [Microsoft Fabric Spark Structured Streaming](/fabric/data-engineering/lakehouse-streaming-data).
+    - Microsoft Fabric structured streaming uses Spark Structured Streaming to process and ingest live data streams as continuously appended tables. Structured streaming supports various file sources, like CSV, JSON, ORC, Parquet, and messaging services like Kafka and Event Hubs. This approach ensures scalable and fault-tolerant stream processing, which optimizes high-throughput production environments. For more information, see [Microsoft Fabric Spark Structured Streaming](/fabric/data-engineering/lakehouse-streaming-data).
 
 - **Data engineering**
 
@@ -192,7 +192,7 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
 ## Scenario details
 
-Small and medium businesses that have an existing Azure Databricks environment, and optionally, a lakehouse architecture, can benefit from this pattern. They currently use an Azure extract, transform, load tool such as Azure Data Factory and serve reports in Power BI. However, they might also have multiple data sources using different proprietary data formats on the same data lake, which leads to data duplication and concerns about vendor lock-in. This situation can complicate data management and increase dependency on specific vendors. They might also require up-to-date and near real-time reporting for decision-making and be interested in adopting AI tools across their environment.
+Small and medium businesses that have an existing Azure Databricks environment, and optionally, a lakehouse architecture, can benefit from this pattern. They currently use an Azure extract, transform, load tool such as Azure Data Factory and serve reports in Power BI. However, they might also have multiple data sources that use different proprietary data formats on the same data lake, which leads to data duplication and concerns about vendor lock-in. This situation can complicate data management and increase dependency on specific vendors. They might also require up-to-date and near real-time reporting for decision-making and be interested in adopting AI tools across their environment.
 
 Microsoft Fabric is an open, unified, and governed SaaS foundation that you can use to:
 
@@ -221,12 +221,12 @@ Principal authors:
 
 ## Next steps
 
-- For training content and labs, see [Data Engineer Learning Paths](/training/roles/data-engineer).
+- [Data Engineer Learning Paths](/training/roles/data-engineer)
 - [Microsoft Fabric - Get Started MSLearn Path](/training/fabric/)
 - [Microsoft Fabric - MSLearn modules](/training/browse/?products=fabric&resource_type=module)
-- [Create a storage account for Data Lake Storage Gen2](/azure/storage/blobs/create-data-lake-storage-account)
+- [Create a storage account for Data Lake Storage](/azure/storage/blobs/create-data-lake-storage-account)
 - [Event Hubs Quickstart - Create an event hub by using the Azure portal](/azure/event-hubs/event-hubs-create)
-- [What is the medallion lakehouse architecture? - Azure Databricks | Microsoft Learn](/azure/databricks/lakehouse/medallion)
+- [What is the medallion lakehouse architecture?](/azure/databricks/lakehouse/medallion)
 - [What is a lakehouse in Microsoft Fabric?](/fabric/data-engineering/lakehouse-overview)
   
 ## Related resource
