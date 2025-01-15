@@ -18,7 +18,7 @@ This reference architecture uses [Azure Integration Services][integration-servic
 
    - **Developer portal**. The [developer portal][apim-dev-portal] is used by developers to discover and interact with the APIs. The developer portal can be customized to match your organization's branding.
 
-1. **Azure Logic Apps**.  Logic Apps are used to orchestrate the calls to the backend services.  Logic Apps can be triggered by a variety of events and can call a variety of services.  In this solution, Logic Apps is used to call the backend services and provide easy connectivity through [connectors][logic-apps-connectors] reducing the need for custom code.
+1. **Azure Logic Apps**.  Logic apps are used to orchestrate the calls to the backend services.  Logic apps can be triggered by a variety of events and can call a variety of services.  In this solution, Logic Apps is used to call the backend services and provide easy connectivity through [connectors][logic-apps-connectors] reducing the need for custom code.
 
 1. **Backend services**. The backend services can be any service or line of business application, such as a database, a web service, or a SaaS application. The backend services can be hosted in Azure or on-premises.
 
@@ -48,7 +48,7 @@ Your specific requirements might differ from the generic architecture shown here
 
 ### API Management
 
-Use the API Management Basic, Standard, or Premium tiers. These tiers offer a production service level agreement (SLA) and support scale out within the Azure region. Throughput capacity for API Management is measured in *units*. Each pricing tier has a maximum scale-out. The Premium tier also supports scale out across multiple Azure regions. Choose your tier based on your feature set and the level of required throughput. For more information, see [API Management pricing][apim-pricing] and [Capacity of an Azure API Management instance][apim-capacity].
+Use the API Management Basic, Standard, or Premium tiers. These tiers offer a production service level agreement (SLA) and support scale-out within the Azure region. Throughput capacity for API Management is measured in *units*. Each pricing tier has a maximum scale-out. The Premium tier also supports scale-out across multiple Azure regions. Choose your tier based on your feature set and the level of required throughput. For more information, see [API Management pricing][apim-pricing] and [Capacity of an Azure API Management instance][apim-capacity].
 
 The API Management Consumption tier is not recommended for this solution because it doesn't support the developer portal which is required for this architecture.  The Developer Tier is specifically for non-production environments and is not recommended for production workloads.  A feature matrix detailing the differences between the tiers can be found [here](/azure/api-management/api-management-features).
 
