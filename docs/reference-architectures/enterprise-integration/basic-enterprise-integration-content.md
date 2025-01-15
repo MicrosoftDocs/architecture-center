@@ -68,7 +68,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Review the SLAs for each service [here](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services)
 
@@ -88,7 +88,7 @@ If you deploy a logic app to a different region, update the configuration in API
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Although this list doesn't completely describe all security best practices, here are some security considerations that apply specifically to this architecture:
 
@@ -110,9 +110,25 @@ If a logic app works with sensitive data, see [Secure access and data for workfl
 
 API Management manages secrets by using objects called *named values* or *properties*. These objects securely store values that you can access through API Management policies. For more information, see [How to use Named Values in Azure API Management policies][apim-properties].
 
-### Operational excellence
+### Cost Optimization
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+In general, use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
+
+#### API Management
+
+You're charged for all API Management instances when they're running. If you have scaled up and don't need that level of performance all the time, manually scale down or configure [autoscaling][apim-autoscale].
+
+#### Logic Apps
+
+Logic Apps uses a serverless model. Billing is calculated based on action and connector execution. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 #### DevOps 
 
@@ -169,9 +185,9 @@ Each service also has these options:
 
 - API Management supports the [Power BI solution template for custom API analytics][apim-pbi]. You can use this solution template for creating your own analytics solution. For business users, Power BI makes reports available.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 To increase the scalability of API Management, add [caching policies][apim-caching] where appropriate. Caching also helps reduce the load on back-end services.
 
@@ -191,18 +207,7 @@ With the Premium tier, you can scale an API Management instance across multiple 
 
 The Logic Apps serverless model means administrators don't have to plan for service scalability. The service automatically scales to meet demand.
 
-### Cost optimization
-In general, use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
 
-#### API Management
-
-You're charged for all API Management instances when they're running. If you have scaled up and don't need that level of performance all the time, manually scale down or configure [autoscaling][apim-autoscale].
-
-#### Logic Apps
-
-Logic Apps uses a serverless model. Billing is calculated based on action and connector execution. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
-
-For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 ## Next steps
 
