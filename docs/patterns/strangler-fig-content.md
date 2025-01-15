@@ -12,7 +12,7 @@ Incrementally replace specific pieces of functionality with new applications and
 
 ![Diagram of the Strangler Fig pattern](./_images/strangler.png)
 
-This pattern helps to minimize risk from the migration, and spread the development effort over time. With the façade safely routing users to the correct application, you can add functionality to the new system at whatever pace you like, while ensuring the legacy application continues to function. Over time, as features are migrated to the new system, the legacy system is eventually "strangled" and is no longer necessary. Once this process is complete, the legacy system can safely be retired.
+This pattern helps to minimize risk from migrating an entire system, spreading the development effort out over time. With the façade safely routing users to the correct application or service, legacy or new, you can add functionality to the new system at whatever pace you like, while ensuring the legacy application continues to function. Over time, as features are migrated to the new system, the legacy system is eventually "strangled" and is no longer necessary. Once this process is complete, the legacy system can safely be retired.
 
 ## Issues and considerations
 
