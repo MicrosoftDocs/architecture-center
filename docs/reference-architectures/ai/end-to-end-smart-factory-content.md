@@ -125,9 +125,9 @@ Access management in Dataverse and other Azure services helps ensure that only a
 
 For general guidance on designing secure IoT solutions, see the [Azure Security Documentation](/azure/security).
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost optimization](/azure/architecture/framework/cost/index).
 
