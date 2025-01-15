@@ -138,38 +138,48 @@ Many use cases can benefit from the Raincode compiler; possibilities include:
 
 ## Considerations
 
-The following considerations apply to this solution.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Availability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 -   Raincode architecture uses [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) to mirror Azure VMs to a secondary Azure region for quick failover and disaster recovery (DR) if an Azure datacenter fails.
 
-### Operations
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+-   This solution uses an [Azure network security group (NSG)](/azure/virtual-network/network-security-groups-overview) to manage traffic between Azure resources.
+
+-   [Private Link for Azure SQL Database](/azure/azure-sql/database/private-endpoint-overview) provides a private, direct connection that is isolated to the Azure networking backbone, from the Azure VMs to Azure SQL Database.
+
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+-   The Raincode COBOL compiler facilitates new development in C\# and eliminates the financial burden of COBOL licensing costs.
+
+-   Native support for SQL and CICS. The source code debugged is the same as the source being maintained, rather than the output of a pre-processor.
+
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 -   Each service of a cloud-native application goes through an independent life cycle, which is managed through an agile DevOps process.
 
 -   Multiple continuous integration/continuous delivery (CI/CD) pipelines can work in tandem to deploy and manage a cloud-native application.
 
-### Performance efficiency
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 -   Cloud-native applications are a collection of independent and autonomous services that are packaged as lightweight containers.
 
 -   Unlike virtual machines, containers can rapidly scale out and scale in.
 
 -   Since the unit of scaling shifts to containers, infrastructure usage is optimized.
-
-### Security
-
--   This solution uses an [Azure network security group (NSG)](/azure/virtual-network/network-security-groups-overview) to manage traffic between Azure resources.
-
--   [Private Link for Azure SQL Database](/azure/azure-sql/database/private-endpoint-overview) provides a private, direct connection that is isolated to the Azure networking backbone, from the Azure VMs to Azure SQL Database.
-
-### Cost optimization
-
--   The Raincode COBOL compiler facilitates new development in C\# and eliminates the financial burden of COBOL licensing costs.
-
--   Native support for SQL and CICS. The source code debugged is the same as the source being maintained, rather than the output of a pre-processor.
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
