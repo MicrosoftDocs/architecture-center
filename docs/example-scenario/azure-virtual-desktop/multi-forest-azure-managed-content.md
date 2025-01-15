@@ -36,11 +36,11 @@ The following steps show how the data flows in this architecture in the form of 
 
 You implement this architecture by using the following technologies:
 
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
-- [Microsoft Entra Domain Services](https://azure.microsoft.com/services/active-directory-ds)
-- [Azure Files](https://azure.microsoft.com/services/storage/files)
-- [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop)
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
+- [Microsoft Entra ID](/entra/fundamentals/whatis)
+- [Microsoft Entra Domain Services](/entra/identity/domain-services/overview)
+- [Azure Files](/azure/well-architected/service-guides/azure-files)
+- [Azure Virtual Desktop](/azure/virtual-desktop/overview)
+- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability)
 
 ## Contributors
 
