@@ -30,11 +30,11 @@ The following steps build on the [Azure Synapse Analytics end-to-end][e2e-analyt
 
 This scenario uses the following components:
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
-- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake)
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
-- [Power BI Premium](https://powerbi.microsoft.com/power-bi-premium)
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework)
+- [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction)
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)
+- [Power BI Premium](/power-bi/enterprise/service-premium-what-is)
+- [Microsoft Entra ID](/entra/fundamentals/whatis)
 
 ### Simplified architecture
 
