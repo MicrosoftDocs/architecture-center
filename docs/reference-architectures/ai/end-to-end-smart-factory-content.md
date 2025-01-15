@@ -67,7 +67,9 @@ Manufacturing processes use IoT computer vision in safety and quality assurance 
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Availability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 ML-based applications typically require one set of resources for training and another for serving. Training resources generally don't need high availability, as live production requests don't directly use these resources. Resources required for serving requests need to have high availability.
 
@@ -89,7 +91,9 @@ Azure Machine Learning also deploys Container Registry, Azure Storage, and Azure
 
 Azure Machine Learning pricing includes charges for the virtual machines (VMs) used to train the model in the cloud. For information about availability of Azure Machine Learning and VMs per Azure region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service,virtual-machines&regions=all).
 
-### Operations
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 This solution is divided into three operational areas:
 
@@ -113,7 +117,9 @@ This solution is divided into three operational areas:
 
   In this solution, IoT Hub ingests telemetry from the cameras and sends the metrics to Azure Monitor, so site engineers can investigate and troubleshoot. Azure Machine Learning sends observability metrics and model telemetry to Azure Monitor, helping the IoT engineers and data scientists to optimize operations.
 
-### Performance
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 IoT devices have limited memory and processing power, so it's important to limit the size of the model container sent to the device. Be sure to use an IoT device that can do model inference and produce results in an acceptable amount of time.
 
@@ -121,7 +127,7 @@ To optimize performance for training models, this example architecture uses [Azu
 
 Performance considerations also apply to the data ingestion pipeline. Data Factory maximizes data movement by providing a highly performant, cost-effective solution.
 
-### Scalability
+#### Scalability
 
 Most of the components used in this solution are managed services that automatically scale.
 
@@ -132,8 +138,6 @@ Scalability for the IoT application depends on [IoT Hub quotas and throttling](/
 - Ingestion and processing throughput.
 
 In ML, scalability refers to scale out clusters used to train models against large datasets. Scalability also enables the ML model to meet the demands of the applications that consume it. To meet these needs, the ML cluster must provide scale-out on CPUs and on graphics processing unit (GPU)-enabled nodes.
-
-For general guidance on designing scalable solutions, see the [performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency) in the Azure Architecture Center.
 
 ## Contributors
 
