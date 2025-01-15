@@ -371,6 +371,10 @@ The following examples are workload changes in this architecture that you should
 
   *Example:* Your workload can transition from low to high business critically with increased adoption and workload success.
 
+## Enterprise architecture team
+
+Some organizations have an enterprise architecture team that might influence the design of your workload and its architecture. That team will be familiar with the enterprise's [AI adoption](/azure/cloud-adoption-framework/scenarios/ai/) strategy as well as the principles and recommendations found in the [AI workloads on Azure](/azure/well-architected/ai/get-started) design. Work with this team to ensure this chat workload meets both the objectives of the scenario while also aligning with recommendations and strategy of the organization.
+
 ## Reliability
 
 This architecture aligns with the reliability guarantees in the [baseline architecture](./baseline-openai-e2e-chat.yml#reliability). There are no new reliability considerations for the core workload components.
@@ -501,3 +505,7 @@ Review the collaboration and technical details shared between a workload team an
 
 > [!div class="nextstepaction"]
 > [Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
+
+## Related resource
+
+- Follow the recommendations found in the Well-Architected Framework's perspective on [AI workloads on Azure](/azure/well-architected/ai/get-started).

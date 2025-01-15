@@ -20,9 +20,9 @@ In this solution, you use the following services and components:
 
 ### Components
 
-- [Azure Automation](https://azure.microsoft.com/products/automation)
-- [Azure Monitor](https://azure.microsoft.com/products/monitor)
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines)
+- [Azure Automation](/azure/automation/overview)
+- [Azure Monitor](/azure/azure-monitor/overview)
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines)
 
 ## Scenario details
 

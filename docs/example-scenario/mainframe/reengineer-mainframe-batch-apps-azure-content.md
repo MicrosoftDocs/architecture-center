@@ -178,7 +178,6 @@ Principal author:
 - For more information, contact datasqlninja@microsoft.com.
 - See the [Azure database migration guides](https://datamigration.microsoft.com).
 
-## Related resources
+## Related resource
 
-- [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
 - [High-volume batch transaction processing](process-batch-transactions.yml)

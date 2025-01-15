@@ -136,4 +136,3 @@ For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@m
 - [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration)
 - [Make the switch from mainframes to Azure](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies)
 - [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
-- [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)

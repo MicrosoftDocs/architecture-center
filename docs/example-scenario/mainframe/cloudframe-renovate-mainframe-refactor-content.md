@@ -140,7 +140,6 @@ Other contributors:
 
 ## Related resources
 
-- [Azure mainframe and midrange architecture design](../../mainframe/mainframe-midrange-architecture.md)
 - [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration)
 - [Make the switch from mainframes to Azure](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies)
 - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)

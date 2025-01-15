@@ -45,10 +45,10 @@ This workflow implements the [Asynchronous Request-Reply pattern](../../patterns
 
 ### Components
 
-* [Azure Quantum](https://azure.microsoft.com/services/quantum) provides a [workspace](/azure/quantum/how-to-create-workspace), accessible from the Azure portal, for assets associated with running quantum jobs on various targets. Jobs are run on quantum simulators or quantum hardware, depending on the provider you choose.
-* [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) coordinates user authentication and helps to protect access to the Azure Quantum workspace.
-* [Key Vault](https://azure.microsoft.com/services/key-vault) safeguards and maintains control of keys and other secrets, like the Azure Quantum workspace name.
-* [Azure Storage](https://azure.microsoft.com/services/storage) provides storage for input data and results from the quantum provider.
+* [Azure Quantum](/azure/quantum/overview-azure-quantum) provides a [workspace](/azure/quantum/how-to-create-workspace), accessible from the Azure portal, for assets associated with running quantum jobs on various targets. Jobs are run on quantum simulators or quantum hardware, depending on the provider you choose.
+* [Microsoft Entra ID](/entra/fundamentals/whatis) coordinates user authentication and helps to protect access to the Azure Quantum workspace.
+* [Key Vault](/azure/key-vault/general/overview) safeguards and maintains control of keys and other secrets, like the Azure Quantum workspace name.
+* [Azure Storage](/azure/storage/common/storage-introduction) provides storage for input data and results from the quantum provider.
 
 ### Availability
 
@@ -180,19 +180,19 @@ Incorporating quantum jobs into classical CI/CD pipelines can be accomplished us
 
 This solution uses the following DevOps tools:
 
-* [Azure Repos](https://azure.microsoft.com/services/devops/repos) provides unlimited, cloud-hosted private Git repos. It's used here to store the quantum and classical code and the Azure Resource Manager templates that are used to provision the environment.
-* [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) enables you to continuously build, test, and deploy to the cloud. Here, it's used to implement CI/CD, including the environment provisioning before code deployment.
+* [Azure Repos](/azure/devops/repos/get-started) provides unlimited, cloud-hosted private Git repos. It's used here to store the quantum and classical code and the Azure Resource Manager templates that are used to provision the environment.
+* [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) enables you to continuously build, test, and deploy to the cloud. Here, it's used to implement CI/CD, including the environment provisioning before code deployment.
 
 As an alternative, you can use GitHub repositories and GitHub actions to implement the CI/CD processes.
 
 The solution uses the following other components:
 
 * A client application orchestrates the quantum job. You can implement integration by using a [tightly coupled](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps) or a [loosely coupled](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps) approach.
-* [Azure Quantum](https://azure.microsoft.com/services/quantum) provides a [workspace](/azure/quantum/how-to-create-workspace) for assets that are associated with running quantum computing applications. Jobs are run on quantum simulators or quantum hardware, depending on the provider that you choose.
-* [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) coordinates user authentication and protects access to the Azure Quantum workspace.
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault) safeguards and maintains control of keys and other secrets, like the quantum workspace name.
-* [Azure Storage](https://azure.microsoft.com/services/storage) holds the input and output data of the quantum job.
-* [Application Insights](/azure/azure-monitor/app/app-insights-overview) monitors the application, detects application anomalies like poor performance and failures, and sends telemetry to the Azure portal.
+* [Azure Quantum](/azure/quantum/overview-azure-quantum) provides a [workspace](/azure/quantum/how-to-create-workspace) for assets that are associated with running quantum computing applications. Jobs are run on quantum simulators or quantum hardware, depending on the provider that you choose.
+* [Microsoft Entra ID](/entra/fundamentals/whatis) coordinates user authentication and protects access to the Azure Quantum workspace.
+* [Azure Key Vault](/azure/key-vault/general/overview) safeguards and maintains control of keys and other secrets, like the quantum workspace name.
+* [Azure Storage](/azure/storage/common/storage-introduction) holds the input and output data of the quantum job.
+* [Application Insights](/azure/well-architected/service-guides/application-insights) monitors the application, detects application anomalies like poor performance and failures, and sends telemetry to the Azure portal.
 
 ### Cost optimization
 
