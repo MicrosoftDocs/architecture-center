@@ -166,7 +166,7 @@ Principal author:
 [docs-sql-database]: /azure/well-architected/service-guides/azure-sql-database-well-architected-framework
 [docs-webapps]: /azure/well-architected/service-guides/app-service-web-apps
 [docs-apiapps]: /azure/app-service/app-service-web-tutorial-rest-api
-[docs-appgw]: /azure/well-architected/service-guides/azure-application-gateway 
+[docs-appgw]: /azure/well-architected/service-guides/azure-application-gateway
 [docs-waf]: /azure/web-application-firewall/ag/ag-overview
 [docs-azure-devops]: /azure/devops/user-guide/what-is-azure-devops
 [docs-azure-vm]: /azure/well-architected/service-guides/virtual-machines
