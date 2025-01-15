@@ -71,6 +71,24 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ML-based applications typically require one set of resources for training and another for serving. Training resources generally don't need high availability, as live production requests don't directly use these resources. Resources required for serving requests need to have high availability.
 
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+Access management in Dataverse and other Azure services helps ensure that only authorized users can access the environment, data, and reports. This solution uses Azure Key Vault to manage passwords and secrets. Storage is encrypted using [customer-managed keys](/azure/storage/common/customer-managed-keys-overview).
+
+For general guidance on designing secure IoT solutions, see the [Azure Security Documentation](/azure/security).
+
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost optimization](/azure/architecture/framework/cost/index).
+
+Azure Machine Learning also deploys Container Registry, Azure Storage, and Azure Key Vault services, which incur extra costs. For more information, see [How Azure Machine Learning works: Architecture and concepts](/azure/machine-learning/concept-azure-machine-learning-architecture).
+
+Azure Machine Learning pricing includes charges for the virtual machines (VMs) used to train the model in the cloud. For information about availability of Azure Machine Learning and VMs per Azure region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service,virtual-machines&regions=all).
+
 ### Operations
 
 This solution is divided into three operational areas:
@@ -116,24 +134,6 @@ Scalability for the IoT application depends on [IoT Hub quotas and throttling](/
 In ML, scalability refers to scale out clusters used to train models against large datasets. Scalability also enables the ML model to meet the demands of the applications that consume it. To meet these needs, the ML cluster must provide scale-out on CPUs and on graphics processing unit (GPU)-enabled nodes.
 
 For general guidance on designing scalable solutions, see the [performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency) in the Azure Architecture Center.
-
-### Security
-
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
-
-Access management in Dataverse and other Azure services helps ensure that only authorized users can access the environment, data, and reports. This solution uses Azure Key Vault to manage passwords and secrets. Storage is encrypted using [customer-managed keys](/azure/storage/common/customer-managed-keys-overview).
-
-For general guidance on designing secure IoT solutions, see the [Azure Security Documentation](/azure/security).
-
-### Cost Optimization
-
-Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
-
-In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost optimization](/azure/architecture/framework/cost/index).
-
-Azure Machine Learning also deploys Container Registry, Azure Storage, and Azure Key Vault services, which incur extra costs. For more information, see [How Azure Machine Learning works: Architecture and concepts](/azure/machine-learning/concept-azure-machine-learning-architecture).
-
-Azure Machine Learning pricing includes charges for the virtual machines (VMs) used to train the model in the cloud. For information about availability of Azure Machine Learning and VMs per Azure region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service,virtual-machines&regions=all).
 
 ## Contributors
 
