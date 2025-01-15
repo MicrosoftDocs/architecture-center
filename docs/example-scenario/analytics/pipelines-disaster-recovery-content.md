@@ -21,10 +21,10 @@ BCDR strategies include availability zone redundancy, automated recovery provide
 
 ### Components
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
-- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) and [Azure Synapse pipelines](/azure/synapse-analytics/get-started-pipelines)
-- [GitHub](https://github.com)
-- [Azure Repos](https://azure.microsoft.com/services/devops/repos)
+- [Azure Data Factory](/azure/data-factory/introduction)
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) and [Azure Synapse pipelines](/azure/synapse-analytics/get-started-pipelines)
+- [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git)
+- [Azure Repos](/azure/devops/repos/get-started/what-is-repos)
 
 ## Scenario details
 

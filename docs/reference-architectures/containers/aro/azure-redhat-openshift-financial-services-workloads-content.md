@@ -26,15 +26,15 @@ This scenario uses an application that runs on an Azure Red Hat OpenShift cluste
 
 ### Components
 
-- [Azure Red Hat OpenShift](https://azure.microsoft.com/products/openshift) provides fully managed, highly available OpenShift clusters on demand. These clusters serve as the primary compute platform in this architecture. Microsoft and Red Hat jointly monitor and operate the clusters.
+- [Azure Red Hat OpenShift](/azure/openshift/intro-openshift) provides fully managed, highly available OpenShift clusters on demand. These clusters serve as the primary compute platform in this architecture. Microsoft and Red Hat jointly monitor and operate the clusters.
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis), formerly known as Azure Active Directory, is a cloud-based identity and access management service that your employees can use to access external resources. In this architecture, Microsoft Entra ID provides customers with secure, granular access to external resources.
 
 - You can use [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) with a connectivity provider to extend your on-premises networks into the Microsoft cloud over a private connection. This architecture uses ExpressRoute to provide private, high-bandwidth connectivity between on-premises resources and Azure.
 
-- [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) is a key management solution that stores and manages secrets, keys, and certificates. This architecture uses Key Vault to securely store secrets for the applications that run on the private Azure Red Hat OpenShift cluster.
+- [Azure Key Vault](/azure/key-vault/general/overview) is a key management solution that stores and manages secrets, keys, and certificates. This architecture uses Key Vault to securely store secrets for the applications that run on the private Azure Red Hat OpenShift cluster.
 
-- [Azure Bastion](https://azure.microsoft.com/products/azure-bastion/) is a fully managed platform as a service (PaaS) that you can deploy to securely connect to virtual machines (VM) through a private IP address. This architecture uses Azure Bastion to connect to an Azure VM within the private network because this scenario implements a private cluster.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed platform as a service (PaaS) that you can deploy to securely connect to virtual machines (VM) through a private IP address. This architecture uses Azure Bastion to connect to an Azure VM within the private network because this scenario implements a private cluster.
 
 - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads that run in Azure. This architecture uses Azure Firewall to monitor and filter network traffic that goes in and out of the Azure Red Hat OpenShift environment.
 
