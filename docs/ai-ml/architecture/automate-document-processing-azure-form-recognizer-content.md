@@ -16,23 +16,24 @@ The following sections describe the various stages of the data extraction proces
 
 1. The back-end application posts a request to an Azure AI Document Intelligence REST API endpoint that uses one of the [models](/azure/ai-services/document-intelligence/concept/choose-model-feature) based on the use case requirement.
    
-   a. Pretrained document analysis models include
-   - [Read OCR model](/azure/ai-services/document-intelligence/prebuilt/read)
-   - [Layout analysis model][Document intelligence layout model]
-   - [General document][Document intelligence general document model] Please note that you may also use Layout analysis model with optional query string parameter features=keyValuePairs enabled)
+   1. Pretrained document analysis models include:
+   
+       - [Read OCR model](/azure/ai-services/document-intelligence/prebuilt/read)
+       - [Layout analysis model][Document intelligence layout model]
+       - [General document][Document intelligence general document model]. You can also use Layout analysis model with optional query string parameter `features=keyValuePairs` enabled.)
 
-   b. [Pretrained scenario-specific](/azure/ai-services/document-intelligence/concept/choose-model-feature#pretrained-scenario-specific-models) models include (not limited to)
-   - [Invoice][Form Recognizer invoice model]
-   - [Receipt][Form Recognizer receipt model]
-   - [ID document][Form Recognizer ID document model]
-   - [Contract model](/azure/ai-services/document-intelligence/prebuilt/contract) 
-   - [US tax document models](/azure/ai-services/document-intelligence/prebuilt/tax-document)
-   - [US mortgage document model](/azure/ai-services/document-intelligence/prebuilt/mortgage-documents)
-   - [US Health Insurance card model](/azure/ai-services/document-intelligence/prebuilt/health-insurance-card)
+   1 [Pretrained scenario-specific](/azure/ai-services/document-intelligence/concept/choose-model-feature#pretrained-scenario-specific-models) models include (not limited to):
+      - [Invoice][Form Recognizer invoice model]
+      - [Receipt][Form Recognizer receipt model]
+      - [ID document][Form Recognizer ID document model]
+      - [Contract model](/azure/ai-services/document-intelligence/prebuilt/contract) 
+      - [US tax document models](/azure/ai-services/document-intelligence/prebuilt/tax-document)
+      - [US mortgage document model](/azure/ai-services/document-intelligence/prebuilt/mortgage-documents)
+      - [US Health Insurance card model](/azure/ai-services/document-intelligence/prebuilt/health-insurance-card)
 
-   c. [Custom Extraction models](/azure/ai-services/document-intelligence/concept/choose-model-feature#custom-extraction-models)
+   1. [Custom Extraction models](/azure/ai-services/document-intelligence/concept/choose-model-feature#custom-extraction-models)
 
-   The response from Azure AI Document Intelligence contains raw optical character recognition (OCR) data and structured extractions depending on the model endpoint chosen.
+   The response from Azure AI Document Intelligence contains raw optical character recognition (OCR) data and structured extractions depending on the model endpoint.
 
 1. The App Service back-end application uses the confidence values to check the extraction quality. If the quality is below a specified threshold, the app flags the data for manual verification. When the extraction quality meets requirements, the data enters [Azure Cosmos DB][Welcome to Azure Cosmos DB] for downstream application consumption. The app can also return the results to the front-end browser.
 
@@ -45,7 +46,8 @@ The following sections describe the various stages of the data extraction proces
    - Evaluates the extraction quality.
 
 1. The extracted data enters Azure Cosmos DB.
-2. The extracted data can also be pushed to [Azure AI search for indexing to build RAG applications](/azure/ai-services/document-intelligence/concept/retrieval-augmented-generation).
+
+1. The extracted data can also be pushed to [Azure AI search for indexing to build RAG applications](/azure/ai-services/document-intelligence/concept/retrieval-augmented-generation).
    
 
 #### Data enrichment
@@ -82,8 +84,10 @@ The pipeline that's used for data enrichment depends on the use case.
 
    - Real-time processes. The models can be deployed to [managed online endpoints](/azure/machine-learning/concept-endpoints#managed-online-endpoints) or Kubernetes online endpoints, where managed Kubernetes cluster can be anywhere including [Azure Kubernetes Service (AKS)][What is Kubernetes?].
    - Batch inferencing can be done at [batch endpoints](/azure/machine-learning/concept-endpoints#what-are-batch-endpoints) or in Azure Virtual Machines.
-4. Data enrichment like consolidation of specific information/summarization/checking for correctness etc can also be done by passing the extracted data to Azure OpenAI endpoint.
-5. The enriched data enters Azure Cosmos DB.
+
+1. Data enrichment like consolidation of specific information, summarization, and checking for correctness can also be done by passing the extracted data to the Azure OpenAI endpoint.
+
+1. The enriched data enters Azure Cosmos DB.
 
 #### Analytics and visualizations
 
