@@ -194,7 +194,7 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
 ## Scenario details
 
-SSmall and medium businesses that have an existing Azure Databricks environment, and optionally, a lakehouse architecture, can benefit from this pattern. They currently use an Azure extract, transform, load tool such as Azure Data Factory and serve reports in Power BI. However, they might also have multiple data sources using different proprietary data formats on the same data lake, which leads to data duplication and concerns about vendor lock-in. This situation can complicate data management and increase dependency on specific vendors. They might also require up-to-date and near real-time reporting for decision-making and be interested in adopting AI tools across their environment.
+Small and medium businesses that have an existing Azure Databricks environment, and optionally, a lakehouse architecture, can benefit from this pattern. They currently use an Azure extract, transform, load tool such as Azure Data Factory and serve reports in Power BI. However, they might also have multiple data sources using different proprietary data formats on the same data lake, which leads to data duplication and concerns about vendor lock-in. This situation can complicate data management and increase dependency on specific vendors. They might also require up-to-date and near real-time reporting for decision-making and be interested in adopting AI tools across their environment.
 
 Microsoft Fabric is an open, unified, and governed SaaS foundation that you can use to:
 
