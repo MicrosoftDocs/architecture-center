@@ -70,21 +70,21 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
 ### Components
 
-- [Data Lake Storage](https://azure.microsoft.com/solutions/data-lake): Data Lake Storage is a scalable data storage service designed for structured and unstructured data. In this architecture, Data Lake Storage serves as the underlying infrastructure for the Delta Lake. Data Lake Storage is the primary storage layer for raw and processed data. This capability enables efficient data ingestion, storage, and retrieval for analytics and machine learning workloads.
+- [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage/): Data Lake Storage is a scalable data storage service designed for structured and unstructured data. In this architecture, Data Lake Storage serves as the underlying infrastructure for the Delta Lake. This is the primary storage layer for raw and processed data, which enables efficient data ingestion, storage, and retrieval for analytics and machine learning workloads.
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory): Azure Data Factory is a cloud-based data integration service that orchestrates and automates data movement and transformation. Azure Data Factory is used to create, schedule, and orchestrate data pipelines that move and transform data across various data stores and services. It helps ensure seamless data flow and integration.
+- [Azure Data Factory](https://azure.microsoft.com/products/data-factory/): Azure Data Factory is a cloud-based data integration service that orchestrates and automates data movement and transformation. Azure Data Factory is used to create, schedule, and orchestrate data pipelines that move and transform data across various data stores and services. It helps ensure seamless data flow and integration.
 
-- [Event Hubs](https://azure.microsoft.com/services/event-hubs): Event Hubs is a real-time data ingestion service that can process millions of events per second from any source. In this architecture, Event Hubs captures and streams large volumes of data from various sources to enable real-time analytics and event-driven processing.
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs): Event Hubs is a real-time data ingestion service that can process millions of events per second from any source. In this architecture, Event Hubs captures and streams large volumes of data from various sources to enable real-time analytics and event-driven processing.
 
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub): Azure IoT Hub is a managed service that enables secure and reliable communication between IoT devices and the cloud. Azure IoT Hub facilitates the ingestion, processing, and analysis of telemetry data from IoT devices to provide real-time insights and enable remote monitoring.
+- [Azure IoT Hub](/azure/well-architected/service-guides/iot-hub/reliability): Azure IoT Hub is a managed service that improves security and reliable communication between IoT devices and the cloud. Azure IoT Hub facilitates the ingestion, processing, and analysis of telemetry data from IoT devices to provide real-time insights and enable remote monitoring.
 
-- [Microsoft Dataverse](/power-apps/maker/data-platform/data-platform-intro): Dataverse is a scalable data platform that organizations can use to securely store and manage data that business applications use. In this architecture, it's referenced as a potential data source.
+- [Microsoft Dataverse](/power-apps/maker/data-platform/data-platform-intro): Dataverse is a scalable data platform that organizations can use to help securely store and manage data that business applications use. In this architecture, it's referenced as a potential data source.
 
   - [Azure Synapse Link](/power-apps/maker/data-platform/export-to-data-lake): Azure Synapse Link connects Dynamics applications with either Azure Synapse Analytics or Data Lake Storage. In this architecture, it's used to copy data in near real-time from Dataverse to Data Lake Storage.
 
   - [Microsoft Fabric Link](/power-apps/maker/data-platform/azure-synapse-link-view-in-fabric): Microsoft Fabric Link connects Dynamics applications to Microsoft Fabric. In this architecture, it's used to replicate data from Dataverse to Microsoft Fabric in near real-time.
 
-- [Azure Databricks](https://azure.microsoft.com/services/databricks): Azure Databricks is an Apache Spark-based analytics platform. Azure Databricks is used for big data processing, machine learning, and data engineering tasks. This platform provides a collaborative workspace for data scientists and engineers.
+- [Azure Databricks](https://azure.microsoft.com/products/databricks): Azure Databricks is an Apache Spark-based analytics platform. Azure Databricks is used for big data processing, machine learning, and data engineering tasks. This platform provides a collaborative workspace for data scientists and engineers.
 
   - [Delta Lake](https://databricks.com/product/delta-lake-on-databricks): Delta Lake is an open-source storage layer that brings ACID transactions to Apache Spark and big data workloads. Delta Lake is used to provide this functionality to the data lake storage.
 
@@ -94,7 +94,7 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
     - [Unity Catalog](/azure/databricks/data-governance/unity-catalog/): Unity Catalog is a data governance solution that provides centralized access control, auditing, lineage, and data discovery capabilities across Databricks workspaces. Unity Catalog helps ensure data governance and security by providing fine-grained access controls, auditing, and data lineage tracking.
 
-- [Medallion lakehouse architecture](/fabric/onelake/onelake-medallion-lakehouse-architecture): The medallion lakehouse architecture is a data architecture pattern that organizes data into bronze, silver, and gold layers for efficient data processing and analytics. This architecture pattern is implemented here by using Data Lake Storage Gen2, Delta Lake, and Azure Databricks, which enables scalable and efficient data processing and analytics.
+- [Medallion lakehouse architecture](/fabric/onelake/onelake-medallion-lakehouse-architecture): The medallion lakehouse architecture is a data architecture pattern that organizes data into bronze, silver, and gold layers for efficient data processing and analytics. This architecture pattern is implemented here by using Data Lake Storage, Delta Lake, and Azure Databricks, which enables scalable and efficient data processing and analytics.
 
 - [Microsoft Fabric](/fabric/): Microsoft Fabric is a comprehensive data platform that integrates various data services and tools to provide a seamless data management and analytics experience. Microsoft Fabric connects and integrates data from multiple sources, which enables comprehensive data analysis and insights across the organization.
 
@@ -102,21 +102,21 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
   - [OneLake shortcuts](/fabric/onelake/onelake-shortcuts): OneLake shortcuts create an in-place link between OneLake and another data source. OneLake shortcuts are used to streamline data access and management, which provides a unified view of data across the organization.
 
-    - [Power BI](/power-bi/fundamentals/power-bi-overview): Power BI is a business analytics service that provides interactive visualizations and business intelligence capabilities. It has a simple interface for users to create their own interactive reports and dashboards. These tools enable data visualization and insights for business users.
+    - [Power BI](https://azure.microsoft.com/products/power-bi/): Power BI is a business analytics service that provides interactive visualizations and business intelligence capabilities. It has a simple interface for users to create their own interactive reports and dashboards. These tools enable data visualization and insights for business users.
 
-- [Microsoft Purview](https://azure.microsoft.com/services/purview): Microsoft Purview is a unified data governance service that helps organizations manage and govern their data across various sources. Microsoft Purview provides data cataloging, lineage tracking, and data governance capabilities. These features help ensure data compliance and security across the organization.
+- [Microsoft Purview](https://azure.microsoft.com/products/purview): Microsoft Purview is a unified data governance service that helps organizations manage and govern their data across various sources. Microsoft Purview provides data cataloging, lineage tracking, and data governance capabilities. These features help ensure data compliance and security across the organization.
 
   - [Connect to and manage Azure Databricks Unity Catalog](/purview/register-scan-azure-databricks-unity-catalog?tabs=MI): You can integrate Unity Catalog into Purview to access Unity Catalog metadata from Purview.
 
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): Microsoft Entra ID is a cloud-based identity and access management solution that helps ensure secure sign-ins and access to resources like Microsoft 365, Azure, and other SaaS applications. In this architecture, Microsoft Entra ID provides secure identity and access management for Azure resources. This feature enables secure sign-ins, manages user identities, and helps to ensure that access to data and resources is authorized.
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory): Microsoft Entra ID is a cloud-based identity and access management solution that helps ensure secure sign-ins and access to resources like Microsoft 365, Azure, and other SaaS applications. In this architecture, Microsoft Entra ID provides secure identity and access management for Azure resources. This feature enables secure sign-ins, manages user identities, and helps ensure that access to data and resources is authorized.
 
-- [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management): Cost Management is a suite of FinOps tools that organizations can use to analyze, monitor, and optimize Microsoft Cloud costs. These tools provide financial governance over Azure resources in this architecture.
+- [Microsoft Cost Management](https://azure.microsoft.com/products/cost-management): Cost Management is a suite of FinOps tools that organizations can use to analyze, monitor, and optimize Microsoft Cloud costs. These tools provide financial governance over Azure resources in this architecture.
 
-- [Key Vault](https://azure.microsoft.com/services/key-vault): Key Vault is a cloud service that securely stores and manages secrets, such as API keys, passwords, certificates, and cryptographic keys. This service allows users and applications to access these secrets securely. When you store your keys and secrets in Key Vault, you can manage them in a single place. In this architecture, Azure Databricks can retrieve secrets from Key Vault to authenticate and access Data Lake Storage Gen2. This process helps to ensure secure and seamless integration between these services.
+- [Key Vault](https://azure.microsoft.com/products/key-vault): Key Vault is a cloud service that stores and manages secrets, such as API keys, passwords, certificates, and cryptographic keys. This service allows users and applications to access these secrets safely. When you store your keys and secrets in Key Vault, you can manage them in a single place. In this architecture, Azure Databricks can retrieve secrets from Key Vault to authenticate and access Data Lake Storage. This process helps ensure secure and seamless integration between these services.
 
-- [Azure Monitor](https://azure.microsoft.com/services/monitor): Azure Monitor is a comprehensive monitoring service that provides full-stack observability for applications, infrastructure, and networks. Azure Monitor enables users to collect, analyze, and act on telemetry data from their Azure and on-premises environments to proactively identify problems and maximize performance and reliability.
+- [Azure Monitor](https://azure.microsoft.com/products/monitor): Azure Monitor is a comprehensive monitoring service that provides full-stack observability for applications, infrastructure, and networks. Azure Monitor enables users to collect, analyze, and act on telemetry data from their Azure and on-premises environments to proactively identify problems and maximize performance and reliability.
 
-- [Azure DevOps](https://azure.microsoft.com/services/devops): Azure DevOps is a set of development tools that support a collaborative culture and streamlined processes. These tools enable developers, project managers, and contributors to develop software more efficiently. Azure DevOps provides integrated features such as Azure Boards, Azure Repos, Azure Pipelines, Azure Test Plans, and Azure Artifacts. You can access these features through a web browser or an integrated development environment client.
+- [Azure DevOps](https://azure.microsoft.com/products/devops): Azure DevOps is a set of development tools that support a collaborative culture and streamlined processes. These tools enable developers, project managers, and contributors to develop software more efficiently. Azure DevOps provides integrated features such as Azure Boards, Azure Repos, Azure Pipelines, Azure Test Plans, and Azure Artifacts. You can access these features through a web browser or an integrated development environment client.
 
 - [GitHub](https://azure.microsoft.com/products/github): GitHub is a cloud-based Git repository hosting service that simplifies version control and collaboration for developers. It allows individuals and teams to store and manage their code, track changes, and collaborate on projects by using Git. The user-friendly GitHub interface makes Git accessible to coders of all skill levels. You can use Azure DevOps and GitHub together to implement DevOps practices. These practices enforce automation and compliance in your workload development and deployment pipelines for Azure Data Factory, Azure Databricks, and Microsoft Fabric.
 
@@ -214,8 +214,8 @@ Microsoft Fabric is an open, unified, and governed SaaS foundation that you can 
 
 Principal authors:
 
-- Bonita Rui | Cloud Solution Architect
-- Naren Jogendran | Cloud Solution Architect
+- [Bonita Rui](https://www.linkedin.com/in/bonita-rui-63b8a7133/) | Cloud Solution Architect
+- [Naren Jogendran](https://www.linkedin.com/in/naren-jogendran-46614972/) | Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
