@@ -396,7 +396,6 @@ Principal author:
 
 Continue your AI journey in the [AI learning hub](/ai/).
 
-## Related resources
+## Related resource
 
-- [Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
 - [What is the Team Data Science Process?](overview.yml)
