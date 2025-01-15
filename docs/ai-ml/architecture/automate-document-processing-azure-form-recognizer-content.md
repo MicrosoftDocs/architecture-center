@@ -22,7 +22,7 @@ The following sections describe the various stages of the data extraction proces
        - [Layout analysis model][Document intelligence layout model]
        - [General document][Document intelligence general document model]. You can also use Layout analysis model with optional query string parameter `features=keyValuePairs` enabled.)
 
-   1 [Pretrained scenario-specific](/azure/ai-services/document-intelligence/concept/choose-model-feature#pretrained-scenario-specific-models) models include (not limited to):
+   1. [Pretrained scenario-specific](/azure/ai-services/document-intelligence/concept/choose-model-feature#pretrained-scenario-specific-models) models include (not limited to):
       - [Invoice][Form Recognizer invoice model]
       - [Receipt][Form Recognizer receipt model]
       - [ID document][Form Recognizer ID document model]
