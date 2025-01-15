@@ -69,7 +69,7 @@ Use this pattern when:
 
   - An external Infrastructure-as-Code (IaC) package such as Terraform modules, Community Chef Cookbooks, Azure Verified Modules
 
-  - A vendor-supplied OS image or software installers
+  - A vendor-supplied OS image or software installer
 
 - The workload team considers the artifact as a risk that's worth mitigating. The team understands the negative consequences of integrating compromised artifacts and the value of quarantine in assuring a trusted environment.
 
