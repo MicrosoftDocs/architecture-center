@@ -278,7 +278,7 @@ This reference architecture only uses Azure Pipelines. Azure offers the Azure Pi
 
 For Azure Monitor Log Analytics, you're charged for data ingestion and retention. For more information, see [Azure Monitor Pricing][az-monitor-pricing].
 
-### Opertational Excellence
+### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
