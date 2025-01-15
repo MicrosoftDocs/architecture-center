@@ -1,5 +1,5 @@
 ---
-title: Implement cross-direcotry communication in Azure
+title: Implement cross-directory communication in Azure
 description: Learn how to implement bidirectional, secure communications between services that are hosted in Azure subscriptions that different Microsoft Entra directories manage.
 author: aulong-msft
 ms.author: aulong
@@ -17,7 +17,7 @@ categories:
   - Security
 ---
 
-# Implement cross-direcotry communication in Azure
+# Implement cross-directory communication in Azure
 
 This guide provides a solution to achieve bidirectional, secure communications between services that are hosted in Azure subscriptions that different Microsoft Entra directories manage.
 
