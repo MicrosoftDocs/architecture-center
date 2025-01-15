@@ -40,7 +40,7 @@ You implement this architecture by using the following technologies:
 - [Microsoft Entra Domain Services](/entra/identity/domain-services/overview)
 - [Azure Files](/azure/well-architected/service-guides/azure-files)
 - [Azure Virtual Desktop](/azure/virtual-desktop/overview)
-- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability)
+- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/operational-excellence)
 
 ## Contributors
 
