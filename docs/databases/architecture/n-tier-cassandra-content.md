@@ -129,12 +129,6 @@ Each Azure subscription has default limits in place, including a maximum number 
 
 Application Gateway supports fixed capacity mode or autoscaling mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Consider using autoscaling mode for workloads with variable traffic. For more information, see [Autoscaling and Zone-redundant Application Gateway v2][app-gw-scaling].
 
-### Performance Efficiency
-
-Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
-
-To get the best performance from Cassandra on Azure VMs, see the recommendations in [Run Apache Cassandra on Azure VMs](../../databases/guide/cassandra.md).
-
 ### Availability
 
 Availability zones provide the best resiliency within a single region. If you need even higher availability, consider replicating the application across two regions.
@@ -178,6 +172,20 @@ For more information about health probes, see:
 
 For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.yml).
 
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+Virtual networks are a traffic isolation boundary in Azure. VMs in one virtual network can't communicate directly with VMs in a different virtual network. VMs within the same virtual network can communicate, unless you create [network security groups (NSGs)][nsg] to restrict traffic. For more information, see [Microsoft cloud services and network security][network-security].
+
+For incoming Internet traffic, the load balancer rules define which traffic can reach the back end. However, load balancer rules don't support IP safe lists, so if you want to add certain public IP addresses to a safe list, add an NSG to the subnet.
+
+**DMZ**. Consider adding a network virtual appliance (NVA) to create a DMZ between the Internet and the Azure virtual network. NVA is a generic term for a virtual appliance that can perform network-related tasks, such as firewall, packet inspection, auditing, and custom routing. For more information, see [Implementing a DMZ between Azure and the Internet][dmz].
+
+**Encryption**. Encrypt sensitive data at rest and use [Azure Key Vault][azure-key-vault] to manage the database encryption keys. Key Vault can store encryption keys in hardware security modules (HSMs). It's also recommended to store application secrets, such as database connection strings, in Key Vault.
+
+**DDoS protection**. The Azure platform provides basic DDoS Protection by default. This basic protection is targeted at protecting the Azure infrastructure as a whole. Although basic DDoS Protection is automatically enabled, we recommend using [Azure DDoS Network Protection][ddos]. Network Protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. Network Protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures][ddos-best-practices].
+
 ### Cost Optimization
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
@@ -196,20 +204,6 @@ You are charged only for the number of configured load-balancing and outbound ru
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
 
-### Security
-
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
-
-Virtual networks are a traffic isolation boundary in Azure. VMs in one virtual network can't communicate directly with VMs in a different virtual network. VMs within the same virtual network can communicate, unless you create [network security groups (NSGs)][nsg] to restrict traffic. For more information, see [Microsoft cloud services and network security][network-security].
-
-For incoming Internet traffic, the load balancer rules define which traffic can reach the back end. However, load balancer rules don't support IP safe lists, so if you want to add certain public IP addresses to a safe list, add an NSG to the subnet.
-
-**DMZ**. Consider adding a network virtual appliance (NVA) to create a DMZ between the Internet and the Azure virtual network. NVA is a generic term for a virtual appliance that can perform network-related tasks, such as firewall, packet inspection, auditing, and custom routing. For more information, see [Implementing a DMZ between Azure and the Internet][dmz].
-
-**Encryption**. Encrypt sensitive data at rest and use [Azure Key Vault][azure-key-vault] to manage the database encryption keys. Key Vault can store encryption keys in hardware security modules (HSMs). It's also recommended to store application secrets, such as database connection strings, in Key Vault.
-
-**DDoS protection**. The Azure platform provides basic DDoS Protection by default. This basic protection is targeted at protecting the Azure infrastructure as a whole. Although basic DDoS Protection is automatically enabled, we recommend using [Azure DDoS Network Protection][ddos]. Network Protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. Network Protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures][ddos-best-practices].
-
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
@@ -227,6 +221,12 @@ Make sure not only to monitor your compute elements supporting your application 
 In order to test the Azure environment where the applications are running, it should be version-controlled and deployed through the same mechanisms as application code, then it can be tested and validated using DevOps testing paradigms too.
 
 For more information, see the Operational Excellence section in [Microsoft Azure Well-Architecture Framework][WAF-devops].
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+To get the best performance from Cassandra on Azure VMs, see the recommendations in [Run Apache Cassandra on Azure VMs](../../databases/guide/cassandra.md).
 
 ## Next steps
 

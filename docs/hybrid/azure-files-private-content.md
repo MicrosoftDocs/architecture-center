@@ -166,6 +166,10 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Security auditing is a necessary requirement for helping to maintain the security of an enterprise. Industry standards require enterprises to follow a strict set of rules related to data security and privacy.
 
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
 #### File access auditing
 
 File access auditing can be enabled locally and remotely:

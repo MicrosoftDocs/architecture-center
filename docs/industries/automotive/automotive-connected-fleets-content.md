@@ -201,27 +201,27 @@ Solution integrators (SIs) combine capabilities to develop segment-specific scen
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - Extra design is required to process messages related to health and safety. For example, correlating a crash signal to a 911 emergency call.
 - The telematics hardware provider must guarantee functional safety for running commands.
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Use Microsoft Defender and Microsoft Sentinel to identify and address device vulnerabilities and threats. Consider integrating the lightweight security agent in your device. For more information, see [What's Microsoft Defender for IoT for device builders?](/azure/defender-for-iot/device-builders/overview).
 - Perform monitoring and observability of your devices. Collect metrics, logs, and traces at a rate that balances transparency with costs.
 - Use [private endpoints](/azure/private-link/private-endpoint-overview) to secure the services that shouldn't be exposed to the public internet.
 - Use [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) to provide identities to your services and eliminate the management of credentials.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - The cost of connected fleet operations is directly related to the volume of messages for each vehicle.
   - Consider the required update frequency for each vehicle. Consider dynamically adjusting the update speed based on the use case.
@@ -235,17 +235,17 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 The [pricing calculator](https://azure.microsoft.com/pricing/calculator) can be used to create an estimation of the monthly costs of the Azure services required to use this solution.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 - *Dead-lettering* messages in Azure Data Lake Analytics allows you to monitor the system for problems and configure alerts to detect problems with vehicle communication.
 - A bug in the vehicle software can create a high load in the system. Vehicle message throttling concepts might be necessary to ensure that the system isn't overloaded.
 - Consider creating a resource group for each layer in the architecture. Grouping resources simplifies management and cost control.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users. For more information, see [Overview of the performance efficiency pillar](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - High volume messages, such as periodic status updates, and deferred messages, such as trips, are separated from alerts and notifications to rightsize the event hubs.
 - A mismatch between telemetry and Dataverse related to timing and error handling, such as the difference between push and pull, uses virtual tables to decouple data that rapidly updates.

@@ -40,11 +40,11 @@ A stretched Azure Local instance relies on Storage Replica to perform synchronou
 
 ## Considerations
 
-The [Microsoft Azure Well-Architected Framework][azure-well-architected-framework] is a set of guiding tenets that are followed in this reference architecture. The following considerations are framed in the context of these tenets.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - **Site-level fault domains.** Each physical site of an Azure Local stretched cluster represents distinct fault domains that provide additional resiliency. A fault domain is a set of hardware components that share a single point of failure. To be fault tolerant to a particular level, you need multiple fault domains at that level.
 
@@ -66,7 +66,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - **Protection in transit.** Storage Replica offers built-in security for its replication traffic, which includes packet signing, AES-128-GCM full data encryption, support for Intel AES-NI encryption acceleration, and pre-authentication integrity man-in-the-middle attack prevention. Storage Replica also utilizes Kerberos AES256 for authentication between the replicating nodes.
 
@@ -79,9 +79,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 > [!CAUTION]
 > Storage Replica and Azure Local stretched clusters must operate within an AD DS environment. When planning your Azure Local stretched clusters deployment, ensure connectivity to AD DS domain controllers in each site hosting cluster nodes.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - **Active-active versus active-passive configuration.** Stretched Azure Local instances support the active-passive and active-active modes. In active-passive mode, a designated primary site unidirectionally replicates to another site that provides the disaster recovery capability. In active-active mode, two sites replicate their respective volumes unidirectionally to each other, providing failover capability in case of a failure in either site. The active-active mode helps minimize business continuity costs by eliminating the need for a dedicated disaster recovery site.
 
@@ -95,9 +95,9 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 > [!CAUTION]
 > Although you should install the Data Deduplication server role service on both the source and destination servers, do not enable Data Deduplication on the destination nodes within an Azure Local stretched cluster. Because Data Deduplication manages writes, it should run only on source cluster nodes. Destination nodes always receive deduplicated copies of each volume.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 - **Automatic failover and recovery.** A primary-site failure triggers automatic failover. Following the failover, the process of establishing replication from the new primary/former secondary site back to the new secondary/former primary site is automatic as well. To prevent potential data loss, the cluster prevents failback until the replicated volumes fully synchronize.
 
@@ -110,9 +110,9 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 - **Integration with a range of Azure services that provide additional operational advantages.** You can integrate virtualized workloads running on Azure Local instances with such Azure services as [Azure Monitor][azure-monitor] and Azure Automation solutions, including [Change Tracking and Inventory][change-tracking-and-inventory] and [Update Management][update-management]. Following an initial mandatory registration procedure, Azure Local instances can leverage Azure Arc for monitoring and billing. Azure Arc integration offers enhanced integration with other hybrid services, such as [Azure Policy][azure-policy-guest-configuration] and [Log Analytics][resource-context-log-analytics-access-mode]. Registration triggers creation of an Azure Resource Manager resource representing an Azure Local instance, effectively extending the Azure management plane to Azure Local.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - **Optimized replication traffic.** When designing infrastructure for Azure Local stretched clusters, consider additional Storage Replica, Live Migration, and Storage Replica Cluster Performance History traffic flowing between the sites. Synchronous replication requires at least 1 Gb remote direct memory access (RDMA) or Ethernet/TCP connection between stretched cluster sites. However, depending on the volume of replication traffic, you might need a [faster RDMA connection][site-to-site-network-reqs]. You should also provision multiple connections between sites, which provides resiliency benefits and allows you to [separate Storage Replica traffic from Hyper-V live migration traffic][set-srnetworkconstraint].
 
