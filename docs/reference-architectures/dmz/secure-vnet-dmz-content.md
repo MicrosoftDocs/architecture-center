@@ -239,8 +239,8 @@ For detailed information and additional deployment options, see the Azure Resour
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances
 [getting-started-with-azure-security]: /azure/security/azure-security-getting-started
-[guidance-expressroute-availability]: ../hybrid-networking/expressroute-vpn-failover.yml#availability
-[guidance-expressroute-scalability]: ../hybrid-networking/expressroute-vpn-failover.yml#scalability
+[guidance-expressroute-availability]: ../hybrid-networking/expressroute-vpn-failover.yml#reliability
+[guidance-expressroute-scalability]: ../hybrid-networking/expressroute-vpn-failover.yml#reliability
 [guidance-expressroute-security]: ../hybrid-networking/expressroute-vpn-failover.yml#security
 [guidance-vpn-gateway-availability]: /azure/expressroute/expressroute-howto-coexist-resource-manager#availability-considerations
 [guidance-vpn-gateway-devops]: /azure/expressroute/expressroute-howto-coexist-resource-manager#devops-considerations
