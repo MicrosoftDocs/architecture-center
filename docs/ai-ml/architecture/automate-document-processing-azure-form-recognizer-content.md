@@ -33,7 +33,7 @@ The following sections describe the various stages of the data extraction proces
 
    1. [Custom Extraction models](/azure/ai-services/document-intelligence/concept/choose-model-feature#custom-extraction-models)
 
-   The response from Azure AI Document Intelligence contains raw optical character recognition (OCR) data and structured extractions depending on the model endpoint.
+   The response from Azure AI Document Intelligence contains raw optical character recognition (OCR) data and structured extractions depending on the model.
 
 1. The App Service back-end application uses the confidence values to check the extraction quality. If the quality is below a specified threshold, the app flags the data for manual verification. When the extraction quality meets requirements, the data enters [Azure Cosmos DB][Welcome to Azure Cosmos DB] for downstream application consumption. The app can also return the results to the front-end browser.
 
