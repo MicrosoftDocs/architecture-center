@@ -10,13 +10,13 @@ This article describes a solution for running an order management system with 10
 
 ### Dataflow
 
-This solution uses Bicep templates to execute the deployment of the Reddog order management system and its supporting Azure infrastructure. The architecture is composed of a single Azure Container Apps environment that hosts 10 .NET Core microservice applications. You'll use the .NET Core Dapr SDK to integrate with Azure resources through publish-subscribe (pub/sub) and State and Binding building blocks. Although Dapr typically provides flexibility when you implement components, this solution is based on an opinion. The services also make use of KEDA scale rules to allow for scaling based on event triggers and scale to zero scenarios.
+This solution uses Bicep templates to execute the deployment of the Red Dog order management system and its supporting Azure infrastructure. The architecture is composed of a single Azure Container Apps environment that hosts 10 .NET Core microservice applications. You'll use the .NET Core Dapr SDK to integrate with Azure resources through publish-subscribe (pub/sub) and State and Binding building blocks. Although Dapr typically provides flexibility when you implement components, this solution is based on an opinion. The services also make use of KEDA scale rules to allow for scaling based on event triggers and scale to zero scenarios.
 
 The following list describes each microservice and the Azure Container Apps configuration it deploys with. See the [reddog-code repo on GitHub](https://github.com/Azure/reddog-code) to view the code.
 
 1. **Traefik:** The basic proxy for routing user requests from the UI to the accounting and Makeline services for the interactive dashboard.
 
-1. **UI:** A dashboard that shows real-time order and aggregated sales data for the Reddog order management system.
+1. **UI:** A dashboard that shows real-time order and aggregated sales data for the Red Dog order management system.
 
 1. **Virtual customer:** A customer simulation program that simulates customers placing orders via the order service.
 
@@ -159,7 +159,7 @@ Other contributors:
 
 - [Azure Container Apps docs](/azure/container-apps)
 - [Comparing container offerings in Azure](/azure/container-apps/compare-options)
-- Other Reddog order management system implementations:
+- Other Red Dog order management system implementations:
   - [Azure Arc hybrid deployment](https://github.com/Azure/reddog-hybrid-arc)
   - [AKS deployment](https://github.com/Azure/reddog-aks)
   - [Local development](https://github.com/Azure/reddog-code/blob/master/docs/local-dev.md)
