@@ -30,10 +30,6 @@ items:
           href: idea/many-models-machine-learning-azure-spark.yml
         - name: Many models with Machine Learning
           href: idea/many-models-machine-learning-azure-machine-learning.yml
-      - name: Other ideas
-        items:
-        - name: Data science and machine learning
-          href: ../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml
     - name: Design architectures
       items:
       - name: Automotive

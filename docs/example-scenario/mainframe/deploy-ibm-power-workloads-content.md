@@ -25,13 +25,13 @@ The architecture uses these components:
 
 - [Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1) is a service in Azure that natively runs IBM Power and x86 traditional workloads on hardware in Azure datacenters. If your organization runs IBM Power-based AIX, IBM i, or Linux operating systems (OS), you can use Skytap on Azure to migrate workloads to Azure with minimal upfront effort.
 
-- [Azure NetApp Files](https://azure.microsoft.com/products/netapp/) is an Azure-native, enterprise-class, high-performance file storage service. Azure NetApp Files provides volumes as a service that you can use to create NetApp accounts, capacity pools, and volumes. You can select service and performance levels and manage data protection and replication across zones and regions.
+- [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is an Azure-native, enterprise-class, high-performance file storage service. Azure NetApp Files provides volumes as a service that you can use to create NetApp accounts, capacity pools, and volumes. You can select service and performance levels and manage data protection and replication across zones and regions.
 
-- [ExpressRoute](https://azure.microsoft.com/products/expressroute/) extends your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
 
-- [Azure virtual machines (VMs)](https://azure.microsoft.com/products/virtual-machines) are an on-demand, scalable computing resource that Azure offers. Typically, you use a VM when you need more control over a computing environment than what other resources provide.
+- [Azure virtual machines (VMs)](/azure/well-architected/service-guides/virtual-machines) are an on-demand, scalable computing resource that Azure offers. Typically, you use a VM when you need more control over a computing environment than what other resources provide.
 
-- [Azure VPN Gateway](https://azure.microsoft.com/products/vpn-gateway/) connects your on-premises networks to Azure through site-to-site VPNs in a process similar to the one that you use to set up and connect to a remote branch office. This configuration provides secure connections that use the industry-standard protocols Internet Protocol Security (IPsec) and Internet Key Exchange (IKE).
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) connects your on-premises networks to Azure through site-to-site VPNs in a process similar to the one that you use to set up and connect to a remote branch office. This configuration provides secure connections that use the industry-standard protocols Internet Protocol Security (IPsec) and Internet Key Exchange (IKE).
 
 ### Alternatives
 
