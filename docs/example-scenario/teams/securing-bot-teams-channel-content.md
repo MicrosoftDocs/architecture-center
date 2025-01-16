@@ -62,23 +62,31 @@ Organizations can utilize bots for mobile and desktop users. Some examples inclu
 
 ## Considerations
 
-### Monitoring
-
-Although monitoring isn't implemented in this example scenario, a bot's app service can utilize [Azure Monitor](/azure/azure-monitor) services to monitor its availability and performance.
-
-### Scalability
-
-The bots used in this scenario are hosted on Azure App Service. As a result, you can use the standard App Service autoscaling features to automatically scale the number of instances running your bot, which allows your bot to keep up with demand. For more information about autoscaling, see [Autoscaling best practices](../../best-practices/auto-scaling.md).
-
-For other scalability topics, see the Azure Architecture Center [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
-
-### DevOps
-
-It's a common practice to deploy web apps, API apps, and mobile apps to an Azure App Service plan by using continuous deployment pipelines. Because a secured bot's app service is protected with a private endpoint, externally hosted build agents don't have the access that's required to deploy updates. To work around this, you might need to use a solution such as Azure Pipeline [self-hosted DevOps agents](/azure/devops/pipelines/agents/agents?tabs=browser#install).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected).
 
 ### Security
 
 [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+#### Monitoring
+
+Although monitoring isn't implemented in this example scenario, a bot's app service can utilize [Azure Monitor](/azure/azure-monitor) services to monitor its availability and performance.
+
+#### DevOps
+
+It's a common practice to deploy web apps, API apps, and mobile apps to an Azure App Service plan by using continuous deployment pipelines. Because a secured bot's app service is protected with a private endpoint, externally hosted build agents don't have the access that's required to deploy updates. To work around this, you might need to use a solution such as Azure Pipeline [self-hosted DevOps agents](/azure/devops/pipelines/agents/agents?tabs=browser#install).
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+The bots used in this scenario are hosted on Azure App Service. As a result, you can use the standard App Service autoscaling features to automatically scale the number of instances running your bot, which allows your bot to keep up with demand. For more information about autoscaling, see [Autoscaling best practices](../../best-practices/auto-scaling.md).
+
+For other scalability topics, see the Azure Architecture Center [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
 
 ## Deploy this scenario
 
