@@ -216,7 +216,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Blob Storage and Azure Cosmos DB encrypt data at rest. You can secure these services by using service endpoints or private endpoints.
 
-- Azure Functions supports virtual network integration. By using this functionality, function apps can access resources inside a virtual network. For more information, see [Azure Functions networking options][Azure Functions networking options].
+- Azure Functions supports virtual network integration. By using this functionality, function apps can access resources inside a virtual network. For more information, see [Azure Functions networking options](/azure/azure-functions/functions-networking-options).
 
 - You can configure Azure AI Document Intelligence and AI Language for access from specific virtual networks or from private endpoints. These services encrypt data at rest. You can use subscription keys, tokens, or Microsoft Entra ID to authenticate requests to these services. For more information, see [Authenticate requests to Azure AI services][Authenticate requests to Azure Cognitive Services].
 
