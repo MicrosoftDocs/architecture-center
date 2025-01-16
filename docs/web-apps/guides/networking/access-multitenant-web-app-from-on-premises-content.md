@@ -50,13 +50,13 @@ In this article, Azure App Service refers to the pricing tiers where there is sh
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications and function apps, allowing autoscale and high availability without requiring you to manage infrastructure.
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a general-purpose relational-database managed service that supports relational data, spatial data, JSON, and XML.
 - [Azure Storage account](/azure/well-architected/service-guides/storage-accounts/reliability) provides a unique namespace for Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. It contains all Azure Storage data objects: blobs, file shares, queues, tables, and disks.
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault) is a service for securely storing and accessing API keys, passwords, certificates, cryptographic keys, or any other secrets used by cloud apps and services.
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks through virtual networks.
-- [Azure Private Link](https://azure.microsoft.com/services/private-link) provides a private endpoint in a virtual network for connectivity to Azure PaaS services like Azure Storage and SQL Database, or to customer or partner services.
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) private peering extends on-premises networks into the Microsoft cloud over a private connection. You could also establish Site-to-Site VPN between on-premises and the Azure network instead of using Azure ExpressRoute.
-- [Azure Firewall](https://azure.microsoft.com/services/azure-firewall) is a managed, cloud-based network security service that helps protect Azure Virtual Network resources.
+- [Azure Key Vault](/azure/key-vault/general/overview) is a service for securely storing and accessing API keys, passwords, certificates, cryptographic keys, or any other secrets used by cloud apps and services.
+- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block for private networks in Azure. Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks through virtual networks.
+- [Azure Private Link](/azure/private-link/private-link-overview) provides a private endpoint in a virtual network for connectivity to Azure PaaS services like Azure Storage and SQL Database, or to customer or partner services.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) private peering extends on-premises networks into the Microsoft cloud over a private connection. You could also establish Site-to-Site VPN between on-premises and the Azure network instead of using Azure ExpressRoute.
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a managed, cloud-based network security service that helps protect Azure Virtual Network resources.
 - [Private DNS Zone](/azure/dns/private-dns-overview) provides a reliable and secure DNS service for managing and resolving domain names in the virtual network.
-- [DNS Private Resolver](/azure/dns/dns-private-resolver-overview) enables the querying of [Azure DNS](https://azure.microsoft.com/products/dns) private zones from an on-premises environment, and vice-versa, without deploying VM-based DNS servers.
+- [DNS Private Resolver](/azure/dns/dns-private-resolver-overview) enables the querying of [Azure DNS](/azure/dns/dns-overview) private zones from an on-premises environment, and vice-versa, without deploying VM-based DNS servers.
 
 ### Alternatives
 

@@ -41,17 +41,17 @@ The steps taken by IT staff to monitor the system with Azure tools and implement
 
 - [IBM z/OS Connect](https://www.ibm.com/docs/en/was-liberty/zos?topic=overview-zos-connect) is a middleware solution that provides more secure connectivity between cloud-native applications and IBM z/OS systems. It enables organizations to integrate and use data and services residing on the mainframe, while also embracing modern technologies and Open standards.
 
-- [Azure API Management](https://azure.microsoft.com/en-us/services/api-management) provides a hybrid, multicloud management platform for APIs across all environments. APIs enable digital experiences, simplify application integration, underpin new digital products, and make data and services reusable and accessible.
+- [Azure API Management](/azure/api-management/api-management-key-concepts) provides a hybrid, multicloud management platform for APIs across all environments. APIs enable digital experiences, simplify application integration, underpin new digital products, and make data and services reusable and accessible.
 
-- [Azure App Service](https://azure.microsoft.com/en-us/products/app-service#overview) is a fully managed platform for building, deploying, and scaling web apps. It supports various programming languages and frameworks, offering seamless integration with Azure services. App Service provides autoscaling and high availability, simplifying app deployment and management. [Visual Studio](https://azure.microsoft.com/en-us/products/visual-studio) is an integrated development environment (IDE) that you can use to write, edit, debug, and build code, and then deploy your web app.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building, deploying, and scaling web apps. It supports various programming languages and frameworks, offering seamless integration with Azure services. App Service provides autoscaling and high availability, simplifying app deployment and management. [Visual Studio](/visualstudio/get-started/visual-studio-ide) is an integrated development environment (IDE) that you can use to write, edit, debug, and build code, and then deploy your web app.
 
-- [Microsoft Power Platform on Azure](https://azure.microsoft.com/en-us/products/power-platform) increases agility across your organization by allowing you to rapidly implement [Low-code application development on Azure](https://azure.microsoft.com/en-us/solutions/low-code-application-development) to modernize processes and solve challenges.
+- [Microsoft Power Platform](/power-platform) increases agility across your organization by allowing you to rapidly implement low-code application development on Azure to modernize processes and solve challenges.
 
-- [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor) helps maximize the availability and performance of applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on information from cloud and on-premises environments. This information helps you identify issues and understand how your applications are performing.
+- [Azure Monitor](/azure/azure-monitor/overview) helps maximize the availability and performance of applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on information from cloud and on-premises environments. This information helps you identify issues and understand how your applications are performing.
 
-- [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) extends on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365.
 
-- [Azure Site Recovery](https://azure.microsoft.com/en-us/products/site-recovery) is a disaster recovery solution that helps protect and recover applications and workloads running on virtual or physical machines. It provides business continuity and minimizes downtime during planned or unplanned outages.
+- [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) is a disaster recovery solution that helps protect and recover applications and workloads running on virtual or physical machines. It provides business continuity and minimizes downtime during planned or unplanned outages.
 
 ## Alternatives
 

@@ -20,10 +20,10 @@ The following workflow corresponds to the preceding diagram:
 
 ### Components
 
-- [Azure Arc](https://azure.microsoft.com/products/azure-arc). Azure Arc is a bridge that extends the Azure platform to help you build applications and services.
+- [Azure Arc](/azure/azure-arc). Azure Arc is a bridge that extends the Azure platform to help you build applications and services.
 - [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes). You can attach and configure Kubernetes clusters inside or outside of Azure by using Azure Arc-enabled Kubernetes. When a Kubernetes cluster is attached to Azure Arc, you can deploy Azure Arc data services to it, services like Azure Arc-enabled SQL Managed Instance.
 - [Azure Arc data controller](/azure/azure-arc/data/create-data-controller-direct-cli). Azure Arc data controller is the orchestrator in the Azure Arc-enabled data services architecture. It manages services like provisioning, elasticity, recoverability, monitoring, and high availability.
-- [Azure Arc-enabled SQL Managed Instance](/azure/azure-arc/data/managed-instance-overview). You can deploy Azure Arc-enabled [SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) to host your data workloads. It supports the Azure PaaS data services on your hybrid and multicloud infrastructure.
+- [Azure Arc-enabled SQL Managed Instance](/azure/azure-arc/data/managed-instance-overview). You can deploy Azure Arc-enabled [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) to host your data workloads. It supports the Azure PaaS data services on your hybrid and multicloud infrastructure.
 - Domain controllers. Domain controllers are deployed into this architecture to manage authentication and authorization to the Azure Arc-enabled SQL managed instances.
 
 ## Scenario details
