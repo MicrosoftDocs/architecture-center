@@ -224,10 +224,10 @@ Along with identity-based access, network security is at the core of the baselin
 - Data exfiltration is minimized by using Private Link to keep traffic in Azure.
 - Network resources are logically grouped and isolated from each other through network segmentation.
 
-When configuring your secure hub for Azure AI Foundry, you have options for securing your outbound internet access for your compute deployed within the hub's managed virtual network. You can choose to *allow outbound access* for the compute in order to perform tasks like download packages or you can choose to restrict outbound access to only *approved outbound access*. The latter choice deploys Azure Firewall (either Basic or Standard) for traffic filtering, with Standard being the default selection as it supports FQDN filtering. If you do not have a need for FQDN filtering, then choose Basic. Otherwise, choose Standard.
+When configuring your secure hub for Azure AI Foundry, you have options for securing your outbound internet access for your compute deployed within the hub's managed virtual network. You can choose to *allow outbound access* for the compute in order to perform tasks like download packages or you can choose to restrict outbound access to only *approved outbound access*. The latter choice deploys Azure Firewall (either Basic or Standard) for traffic filtering. If you do not have a need for network level FQDN filtering, then choose Basic. Otherwise, choose Standard.
 
 In this architecture, which is a baseline architecture, we choose to *allow outbound access* and use Azure Application Gateway with Web Application Firewall. We use private endpoints for deployed resources to enable private communication.
- 
+
 ##### Network flows
 
 :::image type="complex" source="_images/openai-end-to-end-aml-deployment-flows.svg" border="false" lightbox="_images/openai-end-to-end-aml-deployment-flows.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture with OpenAI with flow numbers.":::
