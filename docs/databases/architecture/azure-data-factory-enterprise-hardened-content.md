@@ -134,7 +134,7 @@ Azure Machine Learning and Azure Databricks process data to generate machine lea
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -171,9 +171,9 @@ Compared to the baseline architecture, this architecture:
 
 - Considers the higher data sensitivity requirements for the platform, [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles) for all key operational support roles.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Compared to the baseline architecture, this architecture:
 
@@ -181,9 +181,9 @@ Compared to the baseline architecture, this architecture:
 
 - Extends the [cost management alerting](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending) to the domains and business stakeholders to provide transparency and observability.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 Compared to the baseline architecture, this architecture:
 
@@ -193,9 +193,9 @@ Compared to the baseline architecture, this architecture:
 
 - Develops a central [nonfunctional requirements register](/azure/architecture/guide/design-principles/build-for-business) and adopts a standard of [software development best practices](/azure/architecture/best-practices/index-best-practices) that any platform solution can reference in any developer area. To support these standards, integrate a robust [testing framework](/devops/develop/shift-left-make-testing-fast-reliable) into the continuous integration and continuous deployment practice.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 Compared to the baseline architecture, this architecture:
 

@@ -333,11 +333,11 @@ Broader ecosystem use cases enhance connected vehicle applications. These improv
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the Reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - Increase reliability with horizontal scaling. For more information about scaling your message processing pipeline, see [Functions hosting options](/azure/azure-functions/functions-scale). For more information about scaling workflow execution logic and digital services, see [Scaling options for applications in AKS](/azure/aks/concepts-scale).
 
@@ -353,7 +353,7 @@ Vehicle connection reliability is critical for automotive messaging. For more in
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the Security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Use X.509 certificates to help ensure secure communication between vehicles and Azure. For more information, see [Certificate management](/azure/event-grid).
 
@@ -365,7 +365,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 ### Cost Optimization
 
-Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the Cost Optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Consider the cost per vehicle. The communication costs should vary based on the number of digital services provided. Calculate the return on investment for each digital service in relation to the operational costs.
 
@@ -393,13 +393,13 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 ### Operational Excellence
 
-Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the Operational Excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 To enhance unified IT operations, consider monitoring the vehicle software. This software includes logs, metrics and traces, messaging services, data and analytics services, and related backend services.
 
 ### Performance Efficiency
 
-Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Overview of the Performance Efficiency pillar](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - Consider using the [scale unit concept](#scalability) for solutions that scale above 50,000 devices, especially if multiple geographical regions are required.
 
