@@ -109,15 +109,15 @@ The pipeline that's used for data enrichment depends on the use case.
 
 - [Azure Storage][Azure Storage service page] is a cloud storage solution that includes object, blob, file, disk, queue, and table storage.
 
-- [Blob Storage][Azure Blob Storage] is a service that's part of Azure Storage. Blob Storage offers optimized cloud object storage for large amounts of unstructured data.
+   - [Blob Storage][Azure Blob Storage] is a service that's part of Azure Storage. Blob Storage offers optimized cloud object storage for large amounts of unstructured data.
 
-- [Azure Data Lake Storage][Azure Data Lake Storage] is a scalable, secure data lake for high-performance analytics workloads. The data typically comes from multiple heterogeneous sources and can be structured, semi-structured, or unstructured. Azure Data Lake Storage Gen2 combines Azure Data Lake Storage Gen1 capabilities with Blob Storage. As a next-generation solution, Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. But it also offers the tiered storage, high availability, and disaster recovery capabilities of Blob Storage.
+   - [Azure Data Lake Storage][Azure Data Lake Storage] is a scalable, secure data lake for high-performance analytics workloads. The data typically comes from multiple heterogeneous sources and can be structured, semi-structured, or unstructured. Azure Data Lake Storage Gen2 combines Azure Data Lake Storage Gen1 capabilities with Blob Storage. As a next-generation solution, Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. But it also offers the tiered storage, high availability, and disaster recovery capabilities of Blob Storage.
 
 - [Azure Cosmos DB][Azure Cosmos DB] is a fully managed, highly responsive, scalable NoSQL database. Azure Cosmos DB offers enterprise-grade security and supports APIs for many databases, languages, and platforms. Examples include SQL, MongoDB, Gremlin, Table, and Apache Cassandra. Serverless, automatic scaling options in Azure Cosmos DB efficiently manage capacity demands of applications.
 
 - [AI Language][Azure Cognitive Service service page] offers many NLP services that you can use to understand and analyze text. Some of these services are customizable, such as custom NER, custom text classification, conversational language understanding, and question answering.
 
-- [Machine Learning][Azure Machine Learning service page] is an open platform for managing the development and deployment of machine-learning models at scale. Machine Learning caters to skill levels of different users, such as data scientists or business analysts. The platform supports commonly used open frameworks and offers automated featurization and algorithm selection. You can deploy models to various targets. Examples include [AKS][Deploy Azure Machine Learning to AKS], [Azure Container Instances][Deploy Azure Machine Learning to ACI] as a web service for real-time inferencing at scale, and [Azure Virtual Machine for batch scoring][Tutorial: Build an Azure Machine Learning pipeline for batch scoring]. Managed endpoints in Machine Learning abstract the required infrastructure for [real-time][Deploy and score a machine learning model by using an online endpoint (preview)] or [batch][Use batch endpoints (preview) for batch scoring] model inferencing.
+- [Machine Learning][Azure Machine Learning service page] is an open platform for managing the development and deployment of machine-learning models at scale. Machine Learning caters to skill levels of different users, such as data scientists or business analysts. The platform supports commonly used open frameworks and offers automated featurization and algorithm selection. You can deploy models for [inferencing using endpoints](/azure/machine-learning/concept-endpoints) where you can use [online endpoints](/azure/machine-learning/concept-endpoints-online) for real-time inferencing and [batch endpoints](/azure/machine-learning/concept-endpoints-batch) to perform asynchronous or long-running inferencing. if you are building a custom model by finetuning a foundation model from [model catalogue](/azure/machine-learning/concept-model-catalog), you can also deploy this model as [Serverless API endpoints](/azure/machine-learning/how-to-deploy-models-serverless).You can also deploy models to [AKS and Azure Arc-enabled Kubernetes Cluster](/azure/machine-learning/how-to-attach-kubernetes-anywhere) for inferencing. 
 
 - [AKS][Azure Kubernetes Service (AKS)] is a fully managed Kubernetes service that makes it easy to deploy and manage containerized applications. AKS offers serverless Kubernetes technology, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance.
 
@@ -133,6 +133,8 @@ The pipeline that's used for data enrichment depends on the use case.
 - You can use [Azure OpenAI multimodal models](/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#gpt-4o-and-gpt-4-turbo) for extracting text from images.
    
 - You can use [Azure AI Content Understanding (Preview)](/azure/ai-services/content-understanding/overview) for ingesting documents, images, videos and audio different [use cases](/azure/ai-services/content-understanding/overview#content-understanding-use-cases).
+
+- You can use [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) for building, testing & deploying custom models and also developing, evaluating, deploying & monitoring generative AI aplications. 
   
 - You can use [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) instead of App Service to host your application.
 
@@ -263,7 +265,7 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 
 - By default, Azure AI Document Intelligence supports 15 concurrent requests per second. You can increase this value by [creating an Azure Support ticket][Create an Azure support request] with a quota increase request.
 
-- For custom models that you host as web services on AKS, [azureml-fe][Deploy a model to an Azure Kubernetes Service cluster - Autoscaling] automatically scales as needed. This front-end component routes incoming inference requests to deployed services.
+- For custom models that you deploy to online endpoints for real-time inferencing, [autoscaling can be enabled](/azure/machine-learning/how-to-autoscale-endpoints) through the autoscale feature in Azure Monitor. This can be managed using Azure CLI, REST API, Python SDK, Azure portal etc.
 
 - For batch inferencing, Machine Learning creates a compute cluster on demand that scales automatically. For more information, see [Tutorial: Build an Azure Machine Learning pipeline for batch scoring][Tutorial: Build an Azure Machine Learning pipeline for batch scoring]. Machine Learning uses the [ParellelRunStep][ParallelRunStep Class] class to run the inferencing jobs in parallel.
 
@@ -322,7 +324,7 @@ Principal author:
 [Azure Kubernetes Service (AKS)]: /azure/well-architected/service-guides/azure-kubernetes-service
 [Azure Machine Learning pricing]: https://azure.microsoft.com/pricing/details/machine-learning/#overview
 [Azure Machine Learning service page]: /azure/well-architected/service-guides/azure-machine-learning
-[Azure Pricing calculator]: https://azure.microsoft.com/pricing/calculator
+[Azure Pricing calculator]: https://azure.com/e/fc7dda9761974210a1ae73625a68dcd2
 [Azure SQL Database]: /azure/well-architected/service-guides/azure-sql-database-well-architected-framework
 [Azure Storage documentation]: /azure/storage
 [Azure Storage service page]: /azure/storage/common/storage-introduction
@@ -330,9 +332,6 @@ Principal author:
 [Back up and recover your Form Recognizer models]: /azure/applied-ai-services/form-recognizer/disaster-recovery
 [Create an Autoscale Setting for Azure resources based on performance data or a schedule]: /azure/azure-monitor/autoscale/tutorial-autoscale-performance-schedule
 [Create an Azure support request]: /azure/azure-portal/supportability/how-to-create-azure-support-request
-[Deploy Azure Machine Learning to ACI]: /azure/machine-learning/how-to-deploy-azure-container-instance#deploy-to-aci
-[Deploy Azure Machine Learning to AKS]: /azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#deploy-to-aks
-[Deploy a model to an Azure Kubernetes Service cluster - Autoscaling]: /azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#autoscaling
 [Deploy and score a machine learning model by using an online endpoint (preview)]: /azure/machine-learning/how-to-deploy-managed-online-endpoints
 [Durability and availability parameters]: /azure/storage/common/storage-redundancy#durability-and-availability-parameters
 [Extract text from objects using Power Automate and AI Builder]: ../../example-scenario/ai/extract-object-text.yml
