@@ -47,7 +47,7 @@ The following diagram shows the Azure RHEL post-migration system architecture:
 
 1. [Availability sets](/azure/virtual-machines/availability-set-overview) and shared Azure Storage provide HA and scalability for virtual machines (VMs) at the application tier level. Application cluster servers share transaction state, and scale up VMs as necessary.
 
-1. The application uses a [private endpoint](/azure/private-link/tutorial-private-endpoint-sql-portal) connection to store and access data in Azure SQL Database. SQL Database runs in a business continuity configuration, which provides geo-replication and autofailover groups for automatic and cross-geographic BCDR.
+1. The application uses a [private endpoint](/azure/private-link/tutorial-private-endpoint-sql-portal) connection to store and access data in Azure SQL Database. SQL Database runs in a business continuity configuration, which provides geo-replication and auto-failover groups for automatic and cross-geographic BCDR.
 
 1. Azure NetApp Files provides a shared NAS, with fast access to binary data and replication to the secondary region.
 
