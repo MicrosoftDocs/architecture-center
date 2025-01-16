@@ -6576,7 +6576,7 @@
     },
     {
       "source_path": "docs/landing-zones/terraform/landing-zone-terraform.md",
-      "redirect_url": "https://aka.ms/alz/tf",
+      "redirect_url": "https://azure.github.io/Azure-Landing-Zones/terraform/",
       "redirect_document_id": false
     }
   ]
