@@ -123,19 +123,52 @@ Key drivers for moving from on-premises IBM AIX to RHEL in Azure might include t
 
 ## Considerations
 
-The following considerations, based on the [Microsoft Azure Well-Architected Framework](/azure/well-architected/), apply to this solution:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected).
 
-### Availability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - Azure NetApp Files can keep the file store in the secondary region updated with [Cross-region replication of Azure NetApp Files Volumes](/azure/azure-netapp-files/cross-region-replication-introduction). This Azure feature provides data protection through cross-region volume replication. You can fail over critical applications if there is a region-wide outage. Cross-region volume replication is currently in preview.
 
 - Application cluster servers scale up VMs as necessary, which increases availability within Azure regions.
 
-### Operations
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+- This solution uses Azure network security groups to manage traffic between Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
+
+- Follow [Azure best practices for network security](/azure/security/fundamentals/network-best-practices) as closely as possible.
+
+- For VM or infrastructure-as-a-service (IaaS) security, follow the [Security best practices for IaaS workloads in Azure](/azure/security/fundamentals/iaas).
+
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+- Migrating AIX workloads to Linux in Azure can bring substantial cost savings. You eliminate hardware maintenance, reduce facility costs, and can usually reduce operational costs by a factor of eight to 10. Azure can accommodate added capacity for seasonal or periodic workloads as needed, which reduces overall cost.
+
+- Migrating AIX workloads to Azure can also reduce costs by using cloud-native services. Examples include:
+
+  - Using Azure App Service for the presentation tier instead of setting up multiple VMs.
+  - Segmenting workloads with Azure virtual networks instead of using hardware-based firewalls.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 For proactive monitoring and management, consider using [Azure Monitor](https://azure.microsoft.com/services/monitor) for monitoring migrated AIX workloads.
 
-### Performance efficiency
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) supports high scale for implementations that use significant bandwidth, either for initial replication or ongoing changed data replication.
+
+- Infrastructure management, including scalability, is automated in Azure databases.
+
+- You can scale out the application tier by adding more application server VM instances.
 
 - The potential bottlenecks in this architecture are the storage and compute subsystems. Make sure to choose your storage and VM SKUs accordingly.
 
@@ -144,31 +177,6 @@ For proactive monitoring and management, consider using [Azure Monitor](https://
 - To estimate sizing for VMs coming from an AIX system, keep in mind that the AIX CPUs are about 1.4 times faster than most x86 vCPUs. This guideline can vary by workload.
 
 - Place multiple VMs that need to communicate with each other in a [proximity placement group](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios). Locating the VMs close to each other provides the lowest communication latency.
-
-### Scalability
-
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) supports high scale for implementations that use significant bandwidth, either for initial replication or ongoing changed data replication.
-
-- Infrastructure management, including scalability, is automated in Azure databases.
-
-- You can scale out the application tier by adding more application server VM instances.
-
-### Security
-
-- This solution uses Azure network security groups to manage traffic between Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
-
-- Follow [Azure best practices for network security](/azure/security/fundamentals/network-best-practices) as closely as possible.
-
-- For VM or infrastructure-as-a-service (IaaS) security, follow the [Security best practices for IaaS workloads in Azure](/azure/security/fundamentals/iaas).
-
-### Cost optimization
-
-- Migrating AIX workloads to Linux in Azure can bring substantial cost savings. You eliminate hardware maintenance, reduce facility costs, and can usually reduce operational costs by a factor of eight to 10. Azure can accommodate added capacity for seasonal or periodic workloads as needed, which reduces overall cost.
-
-- Migrating AIX workloads to Azure can also reduce costs by using cloud-native services. Examples include:
-
-  - Using Azure App Service for the presentation tier instead of setting up multiple VMs.
-  - Segmenting workloads with Azure virtual networks instead of using hardware-based firewalls.
 
 ## Contributors
 
