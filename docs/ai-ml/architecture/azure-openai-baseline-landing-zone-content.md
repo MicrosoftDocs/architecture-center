@@ -385,7 +385,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 This architecture aligns with the reliability guarantees in the [baseline architecture](./baseline-openai-e2e-chat.yml#reliability). There are no new reliability considerations for the core workload components.
 
-### Reliability targets
+#### Reliability targets
 
 The maximum possible composite [service-level objective (SLO)](/azure/well-architected/reliability/metrics) for this architecture is lower than the baseline composite service-level objective (SLO) due to new components like egress network control. These components, common in landing zone environments, aren't unique to this architecture. The SLO is similarly reduced if the workload team directly controls these Azure services.
 
@@ -409,7 +409,7 @@ Many of these considerations might exist without Azure landing zones, but the wo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-### Ingress traffic control
+#### Ingress traffic control
 
 Isolate your workload from other workload spokes within your organization by using NSGs on your subnets and the nontransitive nature or controls in the regional hub. Construct comprehensive NSGs that only permit the inbound network requirements of your application and its infrastructure. We recommend that you don't solely rely on the nontransitive nature of the hub network for security.
 
@@ -426,7 +426,7 @@ The following table shows examples of ingress controls in this architecture.
 | Cross-premises | Azure AI Foundry portal access | Deny all. Unless jump box isn't used, then only allow workstations from authorized subnets for data scientist access. | Nontransitive routing or Azure Firewall if an Azure Virtual WAN secured hub is used |
 | Other spokes | None | Blocked via NSG rules. | Nontransitive routing or Azure Firewall if a Virtual WAN secured hub is used |
 
-### Egress traffic control
+#### Egress traffic control
 
 Apply NSG rules that express the required outbound connectivity requirements of your solution and deny everything else. Don't rely only on the hub network controls. As a workload operator, you have the responsibility to stop undesired egress traffic as close to the source as practicable.
 
@@ -442,15 +442,15 @@ The following table shows examples of egress in this architecture.
 
 For traffic that leaves this architecture's virtual network, controls are best implemented at the workload level via NSGs and at the platform level via a hub network firewall. The NSGs provide initial, broad network traffic rules that are further narrowed down by specific firewall rules in the platform's hub network for added security. There's no expectation that east-west traffic within the workload's components, such as between the Azure AI Foundry portal and the Storage account in this architecture, should be routed through the hub.
 
-### DDoS Protection
+#### DDoS Protection
 
 Determine who should apply the DDoS Protection plan that covers all of your solution's public IP addresses. The platform team might use IP address protection plans, or use Azure Policy to enforce virtual network protection plans. This architecture should have coverage because it involves a public IP address for ingress from the internet. For more information, see [Recommendations for networking and connectivity](/azure/well-architected/security/networking).
 
-### Identity and access management
+#### Identity and access management
 
 Unless otherwise required by your platform team's governance automation, there are no expectations of extra authorization requirements on this architecture because of the platform team's involvement. Azure role-based access control (RBAC) should continue to fulfill the principle of least privilege, which grants limited access only to those who need it and only when needed. For more information, see [Recommendations for identity and access management](/azure/well-architected/security/identity-access).
 
-### Certificates and encryption
+#### Certificates and encryption
 
 The workload team typically procures the TLS certificate for the public IP address on Application Gateway in this architecture. Work with your platform team to understand how the certificate procurement and management processes should align with the organizational expectations.
 
@@ -470,7 +470,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 The workload team is still responsible for all of the operational excellence considerations covered in the [baseline architecture](./baseline-openai-e2e-chat.yml#operational-excellence), such as monitoring, GenAIOps, quality assurance, and safe deployment practices.
 
-### Correlate data from multiple sinks
+#### Correlate data from multiple sinks
 
 The workload's logs and metrics and its infrastructure components are stored in the workload's Azure Monitor Logs workspace. However, logs and metrics from centralized services, such as Azure Firewall, DNS Private Resolver, and Azure Bastion, are often stored in a central Azure Monitor Logs workspace. Correlating data from multiple sinks can be a complex task.
 
@@ -479,7 +479,7 @@ Correlated data is often used during incident response. Make sure that the triag
 > [!IMPORTANT]
 > **For the platform team:** When possible, grant RBAC to query and read log sinks for relevant platform resources. Enable firewall logs for network and application rule evaluations and DNS proxy. The application teams can use this information to troubleshoot tasks. For more information, see [Recommendations for monitoring and threat detection](/azure/well-architected/security/monitor-threats).
 
-### Build agents
+#### Build agents
 
 Many services in this architecture use private endpoints. Similar to the baseline architecture, this design potentially makes build agents a requirement of this architecture. Safe and reliable deployment of the build agents is a responsibility of the workload team, without involvement of the platform team. However, make sure that the management of the build agents is compliant with the organization. For example, use platform-approved operating system images, patching schedules, compliance reporting, and user authentication methods.
 
