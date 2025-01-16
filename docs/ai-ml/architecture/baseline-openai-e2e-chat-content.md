@@ -495,6 +495,7 @@ Some components in this architecture exist with a lifecycle that extends beyond 
 - Azure Application Insights
 - Azure Bastion
 - Azure Virtual Machine for the jump box
+
 ###### Ephemeral components
 
 Some Azure resources are more tightly coupled to the design of specific prompt flows. This approach allows these resources to be bound to the lifecycle of the component and become ephemeral in this architecture. Azure resources are affected when the workload evolves, such as when flows are added or removed or when new models are introduced. These resources get re-created and prior instances removed. Some of these resources are direct Azure resources and some are data plane manifestations within their containing service.
