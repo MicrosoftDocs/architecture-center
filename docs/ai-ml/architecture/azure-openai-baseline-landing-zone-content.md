@@ -389,7 +389,7 @@ This architecture aligns with the reliability guarantees in the [baseline archit
 
 The maximum possible composite [service-level objective (SLO)](/azure/well-architected/reliability/metrics) for this architecture is lower than the baseline composite service-level objective (SLO) due to new components like egress network control. These components, common in landing zone environments, aren't unique to this architecture. The SLO is similarly reduced if the workload team directly controls these Azure services.
 
-#### Critical dependencies
+##### Critical dependencies
 
 View all functionality that the workload performs in the platform and application landing zone as dependencies. Incident response plans require that the workload team is aware of the point and method of contact information for these dependencies. Also include these dependencies in the workload's failure mode analysis (FMA).
 
