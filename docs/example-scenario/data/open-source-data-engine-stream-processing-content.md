@@ -43,11 +43,11 @@ Download a [Visio file][Visio version of architecture diagram] of this architect
 
   Through the [Azure Cosmos DB for Apache Cassandra][Introduction to Azure Cosmos DB for Apache Cassandra], you can access Azure Cosmos DB data by using Apache Cassandra tools, languages, and drivers. Apache Cassandra is an open-source NoSQL database that's well suited for heavy write-intensive workloads.
 
-- [Azure Kubernetes Service (AKS)][Azure Kubernetes Service (AKS) marketing page] is a highly available, secure, and fully managed Kubernetes service. [Kubernetes][Kubernetes] is a rapidly evolving open-source platform for managing containerized workloads. [AKS][Azure Kubernetes Service] hosts open-source big data processing engines such as [Apache Spark][Apache Spark]. By using AKS, you can run large-scale stream processing jobs in a managed environment.
+- [Azure Kubernetes Service (AKS)][Azure Kubernetes Service (AKS) service guide] is a highly available, secure, and fully managed Kubernetes service. [Kubernetes][Kubernetes] is a rapidly evolving open-source platform for managing containerized workloads. [AKS][Azure Kubernetes Service] hosts open-source big data processing engines such as [Apache Spark][Apache Spark]. By using AKS, you can run large-scale stream processing jobs in a managed environment.
 
-- [Azure Database for PostgreSQL][Azure Database for PostgreSQL marketing page] is a fully managed relational database service. It provides [high availability, elastic scaling, patching, and other management capabilities][What is Azure Database for PostgreSQL?] for PostgreSQL. [PostgreSQL][PostgreSQL] is a widely adopted open-source relational database management system.
+- [Azure Database for PostgreSQL][Azure Database for PostgreSQL service guide] is a fully managed relational database service. It provides [high availability, elastic scaling, patching, and other management capabilities][What is Azure Database for PostgreSQL?] for PostgreSQL. [PostgreSQL][PostgreSQL] is a widely adopted open-source relational database management system.
 
-- [Azure Cache for Redis][Azure Cache for Redis marketing page] provides an in-memory data store based on the Redis software. [Redis][Redis] is a popular open-source in-memory data store. Session stores, content caches, and other storage components use Redis to improve performance and scalability. [Azure Cache for Redis][About Azure Cache for Redis] provides open-source Redis capabilities as a fully managed offering.
+- [Azure Cache for Redis][Azure Cache for Redis service guide] provides an in-memory data store based on the Redis software. [Redis][Redis] is a popular open-source in-memory data store. Session stores, content caches, and other storage components use Redis to improve performance and scalability. [Azure Cache for Redis][About Azure Cache for Redis] provides open-source Redis capabilities as a fully managed offering.
 
 ### Alternatives
 
@@ -197,16 +197,16 @@ To learn about related solutions, see the following information:
 [Apache Spark]: https://spark.apache.org
 [Availability Zones]: /azure/reliability/availability-zones-overview
 [Azure Cache for Redis FAQ]: /azure/azure-cache-for-redis/cache-faq
-[Azure Cache for Redis marketing page]: https://azure.microsoft.com/services/cache
+[Azure Cache for Redis service guide]: /azure/well-architected/service-guides/azure-cache-redis/operational-excellence
 [Azure Cache for Redis pricing]: https://azure.microsoft.com/pricing/details/cache
 [Azure Cosmos DB pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
-[Azure Database for PostgreSQL marketing page]: https://azure.microsoft.com/services/postgresql
+[Azure Database for PostgreSQL service guide]: /azure/well-architected/service-guides/postgresql
 [Azure Database for PostgreSQL pricing]: https://azure.microsoft.com/pricing/details/postgresql/server
 [Azure Database for PostgreSQL single server deprecation]: https://azure.microsoft.com/en-us/updates/azure-database-for-postgresql-single-server-will-be-retired-migrate-to-flexible-server-by-28-march-2025/
-[Azure Event Hubs — A big data streaming platform and event ingestion service]: /azure/event-hubs/event-hubs-about
+[Azure Event Hubs — A big data streaming platform and event ingestion service]: /azure/well-architected/service-guides/azure-databricks-security
 [Azure Kubernetes in event stream processing]: ../../solution-ideas/articles/serverless-event-processing-aks.yml
 [Azure Kubernetes Service]: /azure/aks/intro-kubernetes
-[Azure Kubernetes Service (AKS) marketing page]: https://azure.microsoft.com/services/kubernetes-service
+[Azure Kubernetes Service (AKS) service guide]: /azure/well-architected/service-guides/azure-kubernetes-service
 [Azure Kubernetes Service (AKS) pricing]: https://azure.microsoft.com/pricing/details/kubernetes-service
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Azure regions with Availability Zones]: /azure/reliability/availability-zones-region-support
@@ -248,7 +248,7 @@ To learn about related solutions, see the following information:
 [Tutorial: Query data from Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/query-data
 [Use Azure Event Hubs from Apache Kafka applications]: /azure/event-hubs/event-hubs-for-kafka-ecosystem-overview
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1874059-open-source-data-engine-stream-processing-architecture.vsdx
-[Welcome to Azure Cosmos DB]: /azure/cosmos-db/introduction
+[Welcome to Azure Cosmos DB]: /azure/well-architected/service-guides/cosmos-db
 [What is Azure Database for MySQL?]: /azure/mysql/overview
 [What is Azure Database for PostgreSQL?]: /azure/postgresql/overview
 [What is Azure Private Link?]: /azure/private-link/private-link-overview
