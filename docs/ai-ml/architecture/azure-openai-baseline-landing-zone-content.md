@@ -371,15 +371,15 @@ The following examples are workload changes in this architecture that you should
 
   *Example:* Your workload can transition from low to high business critically with increased adoption and workload success.
 
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
-
 ## Enterprise architecture team
 
 Some organizations have an enterprise architecture team that might influence the design of your workload and its architecture. That team will be familiar with the enterprise's [AI adoption](/azure/cloud-adoption-framework/scenarios/ai/) strategy as well as the principles and recommendations found in the [AI workloads on Azure](/azure/well-architected/ai/get-started) design. Work with this team to ensure this chat workload meets both the objectives of the scenario while also aligning with recommendations and strategy of the organization.
 
-## Reliability
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
+### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
@@ -405,7 +405,7 @@ For this architecture, consider the following workload dependencies:
 
 Many of these considerations might exist without Azure landing zones, but the workload and platform teams need to collaboratively address these problems to ensure that needs are met. For more information, see [Recommendations for performing failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis#identify-dependencies).
 
-## Security
+### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
@@ -456,7 +456,7 @@ The workload team typically procures the TLS certificate for the public IP addre
 
 All of the data storage services in this architecture support encryption keys managed by Microsoft or by customers. Use customer-managed encryption keys if your workload design or organization requires more control. Azure landing zones themselves don't mandate one or the other.
 
-## Cost Optimization
+### Cost Optimization
 
 Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
@@ -464,7 +464,7 @@ For the workload resources, all of the cost optimization strategies in the [base
 
 This architecture greatly benefits from Azure landing zone [platform resources](#platform-team-owned-resources). Even if you use those resources via a chargeback model, the added security and cross-premises connectivity are more cost-effective than self-managing those resources. Take advantage of other centralized offerings from your platform team to extend those benefits to your workload without compromising its SLO, recovery time objective (RTO), or recovery point objective (RPO).
 
-## Operational Excellence
+### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
@@ -483,7 +483,7 @@ Correlated data is often used during incident response. Make sure that the triag
 
 Many services in this architecture use private endpoints. Similar to the baseline architecture, this design potentially makes build agents a requirement of this architecture. Safe and reliable deployment of the build agents is a responsibility of the workload team, without involvement of the platform team. However, make sure that the management of the build agents is compliant with the organization. For example, use platform-approved operating system images, patching schedules, compliance reporting, and user authentication methods.
 
-## Performance Efficiency
+### Performance Efficiency
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
