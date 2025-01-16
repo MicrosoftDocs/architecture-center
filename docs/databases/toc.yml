@@ -44,12 +44,6 @@ items:
           href: architecture/azure-data-factory-enterprise-hardened.yml
         - name: Azure Data Factory mission critical architecture
           href: architecture/azure-data-factory-mission-critical.yml
-      - name: Governance
-        items:
-        - name: Master data management with CluedIn
-          href: architecture/cluedin.yml
-        - name: Data governance with Profisee
-          href: architecture/profisee-master-data-management-purview.yml
       - name: NoSQL
         items:
         - name: Analyze MongoDB Atlas data
