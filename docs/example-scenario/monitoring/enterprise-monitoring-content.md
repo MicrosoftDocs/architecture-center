@@ -180,7 +180,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 - Azure Monitor includes functionality for collecting and analyzing log data. Monitor bills by data ingestion, retention, and export. Other factors that can affect pricing include alerts, notifications, and SMS or voice calls. For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor).
 
-- The default pricing for [Application Insights](/azure/azure-monitor/app/pricing) and [Log Analytics](/services-hub/health/azure-pricing) is a Pay-As-You-Go model based on ingested data volume and, optionally, longer data retention. Log Analytics also has Commitment Tiers, which can save you as much as 30 percent compared to the Pay-As-You-Go price.
+- The default pricing for [Application Insights](/azure/azure-monitor/app/pricing) and [Log Analytics](/services-hub/health/azure-pricing) is a pay-as-you-go model based on ingested data volume and, optionally, longer data retention. Log Analytics also has Commitment Tiers, which can save you as much as 30 percent compared to the pay-as-you-go price.
 
 - Review [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps) and [Azure Automation pricing](https://azure.microsoft.com/pricing/details/automation).
 
