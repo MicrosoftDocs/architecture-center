@@ -267,7 +267,7 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 
 - For custom models that you deploy to online endpoints for real-time inferencing, [autoscaling can be enabled](/azure/machine-learning/how-to-autoscale-endpoints) through the autoscale feature in Azure Monitor. This can be managed using Azure CLI, REST API, Python SDK, Azure portal etc.
 
-- For batch inferencing, models are deployed to batch endpoints which run on Azure MAchine Learning (AML) compute clusters  or Kubernetes clusters. In the case of AML compute clusters, [autoscaling of the compute and scaling compute down to zero]((/azure/machine-learning/concept-endpoints) are supported. The min and max number of instances is defined during the creation of the compute cluster while the number of instances that would be used for batch inferencing is defined in the [batch deployment definition](/azure/machine-learning/how-to-use-batch-model-deployments). 
+- For batch inferencing, models are deployed to batch endpoints which run on Azure MAchine Learning (AML) compute clusters  or Kubernetes clusters. In the case of AML compute clusters, [autoscaling of the compute and scaling compute down to zero](/azure/machine-learning/concept-endpoints) are supported. The min and max number of instances is defined during the creation of the compute cluster while the number of instances that would be used for batch inferencing is defined in the [batch deployment definition](/azure/machine-learning/how-to-use-batch-model-deployments). 
 
 - For AI Language, data and rate limits apply. For more information, see these resources:
 
