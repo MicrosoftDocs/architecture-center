@@ -136,7 +136,7 @@ The pipeline that's used for data enrichment depends on the use case.
 
 - You can use [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) for building, testing & deploying custom models and also developing, evaluating, deploying & monitoring generative AI aplications. 
   
-- You can use [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) instead of App Service to host your application.
+- You can choose another [Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree) instead of App Service to host your application.
 
 - You can use any relational database for persistent storage of the extracted data, including:
 
