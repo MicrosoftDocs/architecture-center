@@ -161,6 +161,8 @@ Consumer experiences comprise the following components:
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected).
+
 The components in this scenario address issues of performance, reliability, and security.
 
 API Management supports [autoscaling](/azure/api-management/api-management-howto-autoscale), which quickly expands API Management capabilities in response to growing numbers of incoming requests. API Management also supports zone redundancy and multi-region deployments to provide resiliency and high availability. For more information about zone redundancy, see [Availability zone support for Azure API Management](/azure/api-management/zone-redundancy). For more information about API Management security, see [Azure security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline).
@@ -171,7 +173,9 @@ Azure AD B2C offers high availability and scales to supporting hundreds of milli
 
 GitHub makes security reviews an automated part of code reviews, scanning every new commit for potential security issues. This service helps you to discover problems as soon as they're offered as additions to the code base. GitHub security allows you to customize searches for security concerns and integrate third-party scanning engines. For more features and details, see [Security](https://github.com/features/security) on GitHub.
 
-### Cost optimization
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 You can develop the consumer portal by using the *Team* or *Enterprise* [pricing plan for GitHub](https://github.com/pricing). Refer to the feature matrix to identify which plan best suits your enterprise.
 
