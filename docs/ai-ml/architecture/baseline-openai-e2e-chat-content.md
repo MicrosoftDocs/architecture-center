@@ -226,10 +226,6 @@ Along with identity-based access, network security is at the core of the baselin
 - Data exfiltration is minimized by using Private Link to keep traffic in Azure.
 - Network resources are logically grouped and isolated from each other through network segmentation.
 
-When configuring security for the compute resources in your Azure AI Foundry hub, you have options for securing your outbound internet access for the hub's managed virtual network. You can choose to *allow outbound access* for the compute in order to perform tasks like download packages or you can choose to restrict outbound access to only *approved outbound access*. The latter choice deploys Azure Firewall (either Basic or Standard) for traffic filtering. If you do not have a need for network level FQDN filtering, then choose Basic. Otherwise, choose Standard.
-
-In this architecture, which is a baseline architecture, we used approved outbound access with Azure Standard Firewall. We use private endpoints for deployed resources to enable private communication.
-
 ##### Network flows
 
 :::image type="complex" source="_images/openai-end-to-end-aml-deployment-flows.svg" border="false" lightbox="_images/openai-end-to-end-aml-deployment-flows.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture with OpenAI with flow numbers.":::
@@ -260,6 +256,8 @@ We recommend that you configure the Azure AI Foundry hub for [managed virtual ne
 
 The outbound rules can be private endpoints, service tags, or fully qualified domain names (FQDNs) for external public endpoints. In this architecture, connectivity to Azure services such as Container Registry, Storage, Azure Key Vault, Azure OpenAI, and AI Search are connected through private link. Although not in this architecture, some common operations that might require configuring an FQDN outbound rule are downloading a pip package, cloning a GitHub repo, or downloading base container images from external repositories.
 
+The outbound FQDN control is implemented by a Microsoft managed Azure Firewall deployed into the Azure AI Foundry's managed network. Choose the Basic pricing tier if you need to control just HTTP (port 80) or HTTPS (port 443) egress traffic. If your egress traffic requires custom protocols or ports, then select the Standard pricing tier. In this architecture the Basic pricing tier is select as the only egress rules are HTTPS on port 443.
+
 ##### Virtual network segmentation and security
 
 The network in this architecture has separate subnets for the following purposes:
@@ -270,7 +268,6 @@ The network in this architecture has separate subnets for the following purposes
 - Azure Bastion
 - Jump box virtual machine
 - Training and Scoring subnets - both of these are for bring your own compute related to training and inferencing. In this architecture, we're not doing training and we're using managed compute.
-
 - Scoring
 
 Each subnet has a network security group (NSG) that limits both inbound and outbound traffic for those subnets to just what's required. The following table shows a simplified view of the NSG rules that the baseline adds to each subnet. The table provides the rule name and function.
