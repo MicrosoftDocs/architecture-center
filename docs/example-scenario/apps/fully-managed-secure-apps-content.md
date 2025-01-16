@@ -99,7 +99,7 @@ Another point to consider is DNS. In order to allow applications within the App 
 - Review the blueprint architecture for [Azure PCI DSS compliance][pci-dss-blueprint].
 - [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
-### Cost optimization
+### Cost Optimization
 
 Explore the cost of running this scenario. All of the services are pre-configured in the cost calculator. To see how pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
