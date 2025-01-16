@@ -124,9 +124,11 @@ This solution can help with the following use cases:
 
 ## Considerations
 
-The following considerations apply to this solution.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Availability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 [Azure availability zones](/azure/reliability/availability-zones-overview) protect applications and data from datacenter failures by relying on the availability of other zones in the region. Availability zones help provide resilience for Monitor features like Application Insights that rely on a Log Analytics workspace. Workspaces linked to availability zones remain active and operational even if a specific datacenter isn't available.
 
@@ -138,59 +140,12 @@ Monitor support for availability zones requires a Log Analytics workspace linked
 
 Logic Apps workflows help you integrate and orchestrate data between apps, cloud services, and on-premises systems. When you plan for business continuity disaster recovery (BCDR), make sure to consider not just your logic apps, but the Azure resources they work with. For BCDR guidance and strategies for automated logic apps workflows, see [Business continuity and disaster recovery for Azure Logic Apps](/azure/logic-apps/business-continuity-disaster-recovery-guidance).
 
-### Operations
-
-- Be sure to have a strategy for handling personal data. For more information, see [Guidance for personal data stored in Log Analytics and Application Insights](/azure/azure-monitor/logs/personal-data-mgmt).
-
-- Ensure regulatory compliance with the following guidelines:
-
-  - [Azure Security Baseline for Azure Monitor](/security/benchmark/azure/baselines/monitor-security-baseline?toc=/azure/azure-monitor/toc.json)
-  - [Azure Policy Regulatory Compliance Controls for Azure Monitor](/azure/azure-monitor/security-controls-policy)
-
-- Azure Automation runbooks that run in Azure might not have access to resources in other clouds or on-premises. You can use the Azure Automation Hybrid Runbook Worker to run runbooks directly on the machine that's hosting the role. You can run the runbook against resources in the environment to manage the local resources. For more information, see [Automation Hybrid Runbook Worker overview](/azure/automation/automation-hybrid-runbook-worker).
-
-- Consider the following operational best practices to help keep costs in check:
-
-  - Enable alerts only at times when data collection is high.
-  - Review Monitor [monitoring solutions](/azure/azure-monitor/insights/solutions) before you implement them. For example, enabling Defender for Cloud to collect and audit security event data could exponentially increase data collection costs.
-  - Rationalize alert creation across the board. Consider creating a single alert instead of each workspace or team having the same alert.
-  - Group resources like alerts, Logic Apps, and workspaces in separate resource groups, and use tagging for identification.
-  - Use Log Analytics Workspace Insights for an overall view of costs across different workspaces.
-  - Use the Azure Monitor agent for granular data collection, to the level of collecting single Event IDs from System event logs. Fine-tuning data collection can provide cost efficiencies.
-  - Use Monitor Data Export for data archival to low-cost storage.
-  - Follow best practices for telemetry data in Application Insights workspaces. For more information, see [Manage usage and costs for Application Insights](/azure/azure-monitor/app/pricing).
-
-### Performance efficiency
-
-The following performance considerations apply to this solution:
-
-#### Latency
-
-Latency is the amount of time between data creation on a monitored system and its availability for analysis in Monitor. The typical latency to ingest log data is between 20 seconds and three minutes. The specific latency for any data depends on various factors.
-
-The total ingestion time for a particular set of data has the following parts:
-
-- Agent time: The time to discover an event, collect it, and send it to the Monitor Logs ingestion point as a log record. In most cases, an agent handles this process. The network can introduce extra latency.
-- Pipeline time: The time for the ingestion pipeline to process the log record. This time includes parsing the event properties and possibly adding calculated information.
-- Indexing time: The time spent to ingest a log record into the Monitor big data store.
-
-To ensure minimal latency, place Monitor workspaces, Logic Apps, and related infrastructure in the same Azure region with the workloads they monitor or control. However, there could still be latency issues. For more information, see [Log data ingestion time in Azure Monitor](/azure/azure-monitor/logs/data-ingestion-time).
-
-#### Log vs. metric alerts
-
-Metric alerts check at regular intervals whether conditions in one or more metric time-series are true, and notify you when conditions meet the evaluations. Metric alerts are stateful by default, sending notifications only when the state changes, for example to *fired* or *resolved*.
-
-Log alerts use a Log Analytics query to evaluate resource logs at a set frequency, and fire an alert based on the results.  Metric based alerts can be faster to send notifications than log alerts.
-
-### Scalability
-
-- Monitor has service limits per subscription for alerts, action groups, workspaces, and Application Insights. For more information, see [Azure Monitor service limits](/azure/azure-monitor/service-limits).
-
-- Review and be aware of [Azure subscription service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits), especially limits for [Logic Apps](/azure/logic-apps/logic-apps-limits-and-config?tabs=azure-portal) and [Azure Automation](/azure/azure-resource-manager/management/azure-subscription-service-limits#automation-limits).
-
 ### Security
 
-This solution uses the following security mechanisms:
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+
+This solution uses the following security mechanisms.
 
 #### Access control
 
@@ -219,7 +174,9 @@ An integration service environment (ISE) environment keeps dedicated storage and
 
 A Log Analytics gateway sends data to Azure Automation and a Monitor Log Analytics workspace for computers that can't directly connect to the internet. For more information, see [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](/azure/azure-monitor/agents/gateway).
 
-### Cost optimization
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Azure Monitor includes functionality for collecting and analyzing log data. Monitor bills by data ingestion, retention, and export. Other factors that can affect pricing include alerts, notifications, and SMS or voice calls. For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor).
 
@@ -228,6 +185,58 @@ A Log Analytics gateway sends data to Azure Automation and a Monitor Log Analyti
 - Review [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps) and [Azure Automation pricing](https://azure.microsoft.com/pricing/details/automation).
 
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) for a deeper dive into pricing.
+
+### Operational Excellence
+
+- Be sure to have a strategy for handling personal data. For more information, see [Guidance for personal data stored in Log Analytics and Application Insights](/azure/azure-monitor/logs/personal-data-mgmt).
+
+- Ensure regulatory compliance with the following guidelines:
+
+  - [Azure Security Baseline for Azure Monitor](/security/benchmark/azure/baselines/monitor-security-baseline?toc=/azure/azure-monitor/toc.json)
+  - [Azure Policy Regulatory Compliance Controls for Azure Monitor](/azure/azure-monitor/security-controls-policy)
+
+- Azure Automation runbooks that run in Azure might not have access to resources in other clouds or on-premises. You can use the Azure Automation Hybrid Runbook Worker to run runbooks directly on the machine that's hosting the role. You can run the runbook against resources in the environment to manage the local resources. For more information, see [Automation Hybrid Runbook Worker overview](/azure/automation/automation-hybrid-runbook-worker).
+
+- Consider the following operational best practices to help keep costs in check:
+
+  - Enable alerts only at times when data collection is high.
+  - Review Monitor [monitoring solutions](/azure/azure-monitor/insights/solutions) before you implement them. For example, enabling Defender for Cloud to collect and audit security event data could exponentially increase data collection costs.
+  - Rationalize alert creation across the board. Consider creating a single alert instead of each workspace or team having the same alert.
+  - Group resources like alerts, Logic Apps, and workspaces in separate resource groups, and use tagging for identification.
+  - Use Log Analytics Workspace Insights for an overall view of costs across different workspaces.
+  - Use the Azure Monitor agent for granular data collection, to the level of collecting single Event IDs from System event logs. Fine-tuning data collection can provide cost efficiencies.
+  - Use Monitor Data Export for data archival to low-cost storage.
+  - Follow best practices for telemetry data in Application Insights workspaces. For more information, see [Manage usage and costs for Application Insights](/azure/azure-monitor/app/pricing).
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+The following performance considerations apply to this solution.
+
+#### Scalability
+
+- Monitor has service limits per subscription for alerts, action groups, workspaces, and Application Insights. For more information, see [Azure Monitor service limits](/azure/azure-monitor/service-limits).
+
+- Review and be aware of [Azure subscription service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits), especially limits for [Logic Apps](/azure/logic-apps/logic-apps-limits-and-config?tabs=azure-portal) and [Azure Automation](/azure/azure-resource-manager/management/azure-subscription-service-limits#automation-limits).
+
+#### Latency
+
+Latency is the amount of time between data creation on a monitored system and its availability for analysis in Monitor. The typical latency to ingest log data is between 20 seconds and three minutes. The specific latency for any data depends on various factors.
+
+The total ingestion time for a particular set of data has the following parts:
+
+- Agent time: The time to discover an event, collect it, and send it to the Monitor Logs ingestion point as a log record. In most cases, an agent handles this process. The network can introduce extra latency.
+- Pipeline time: The time for the ingestion pipeline to process the log record. This time includes parsing the event properties and possibly adding calculated information.
+- Indexing time: The time spent to ingest a log record into the Monitor big data store.
+
+To ensure minimal latency, place Monitor workspaces, Logic Apps, and related infrastructure in the same Azure region with the workloads they monitor or control. However, there could still be latency issues. For more information, see [Log data ingestion time in Azure Monitor](/azure/azure-monitor/logs/data-ingestion-time).
+
+#### Log vs. metric alerts
+
+Metric alerts check at regular intervals whether conditions in one or more metric time-series are true, and notify you when conditions meet the evaluations. Metric alerts are stateful by default, sending notifications only when the state changes, for example to *fired* or *resolved*.
+
+Log alerts use a Log Analytics query to evaluate resource logs at a set frequency, and fire an alert based on the results.  Metric based alerts can be faster to send notifications than log alerts.
 
 ### Considerations checklist
 
