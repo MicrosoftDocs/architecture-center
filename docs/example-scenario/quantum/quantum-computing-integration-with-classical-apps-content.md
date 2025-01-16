@@ -50,7 +50,13 @@ This workflow implements the [Asynchronous Request-Reply pattern](../../patterns
 * [Key Vault](/azure/key-vault/general/overview) safeguards and maintains control of keys and other secrets, like the Azure Quantum workspace name.
 * [Azure Storage](/azure/storage/common/storage-introduction) provides storage for input data and results from the quantum provider.
 
-### Availability
+### Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
+#### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Availability of the quantum compute functionality depends highly on the availability and install base of the [quantum computing provider](/azure/quantum/qc-target-list). Depending on the compute target, the classical client application might experience long delays or unavailability of the target.
 
@@ -59,7 +65,9 @@ For the surrounding Azure services, the usual availability considerations apply:
 * Use the [Key Vault](/azure/key-vault/general/disaster-recovery-guidance) redundancy options.
 * If necessary, consider using the replication options in [Storage](/azure/storage/common/storage-redundancy).
 
-### Security
+#### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Unlike the architecture for the [loosely coupled alternative](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps), the architecture presented here is based on the assumption that only one client accesses the Azure Quantum workspace. This scenario leads to the following configurations:
 
@@ -105,7 +113,7 @@ This workflow implements the [Asynchronous Request-Reply pattern](../../patterns
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault) safeguards and maintains control of keys and other secrets, like the Azure Quantum workspace name.
 * [Azure Storage](https://azure.microsoft.com/services/storage) provides storage for input data and results from the quantum provider.
 
-### Availability
+### Reliability
 
 Availability of the quantum compute functionality is highly dependent on the availability and install base of the [quantum computing provider](/azure/quantum/qc-target-list). Depending on the compute target, the classical client application might experience long delays or unavailability of the target.
 
@@ -115,10 +123,6 @@ For the surrounding Azure services, the usual availability considerations apply:
 * If you use geo-replication, you can provision [Azure Functions](/azure/azure-functions/functions-geo-disaster-recovery) in multiple regions.
 * Use the [Key Vault](/azure/key-vault/general/disaster-recovery-guidance) redundancy options.
 * If necessary, consider using the replication options in [Storage](/azure/storage/common/storage-redundancy).
-
-### Performance and scalability
-
-Application performance depends on the availability and performance of the underlying quantum computing targets. For information about the performance and scalability of the classical components, review the [typical design patterns for scalability](/azure/architecture/framework/scalability/performance-efficiency-patterns) and the [performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
 
 ### Security
 
@@ -130,6 +134,12 @@ Unlike the architecture for the [tightly coupled alternative](/azure/architectur
 * Depending on the request pattern, you might be able to implement the caching of quantum computing results by using [API Management caching policies](/azure/api-management/api-management-caching-policies).
 
 In general, consider applying the [typical design patterns for security](/azure/architecture/framework/security/security-patterns) when appropriate.
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+Application performance depends on the availability and performance of the underlying quantum computing targets. For information about the performance and scalability of the classical components, review the [typical design patterns for scalability](/azure/architecture/framework/scalability/performance-efficiency-patterns) and the [performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
 
 ## Common features
 
@@ -143,17 +153,19 @@ The architectures presented here are for business problems that require quantum 
 
 Some of the Azure quantum targets (especially quantum hardware) will be a limited resource for the foreseeable future. Access to these resources is implemented via a queueing mechanism. When you submit a quantum job to Azure Quantum, this job is added to a job queue. The job will be executed, once the target completes processing earlier queue entries. You can obtain the expected waiting time by [listing available targets](/azure/quantum/how-to-submit-jobs). To calculate the full response time, you need to add the time spent waiting for an available resource to the job execution time.
 
-### Performance and scalability
+### Performance Efficiency
 
 Application performance depends on the availability and performance of the underlying quantum computing targets. For information about the performance and scalability of the classical components, review the [typical design patterns for scalability](/azure/architecture/framework/scalability/performance-efficiency-patterns) and the [performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
 
-### Resiliency
+### Reliability
 
 As quantum target environments like Azure Quantum typically provide limited error-correction (limited to the quantum processor in the case of Azure Quantum), other errors such as quantum machine timeout may still occur so it is recommended to monitor job execution so you can inform the user about job status. When job execution fails because of a transient error, implement a [retry pattern](/azure/architecture/patterns/retry). Submit the jobs via asynchronous calls, with polling for the result, to avoid unnecessarily blocking the calling client.
 
 As quantum computing resources are typically limited, resiliency expectations should consider this factor.  As such, the suggestions offered in this article may provide additional measures of resiliency.
 
-### DevOps
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 Incorporating quantum jobs into classical CI/CD pipelines can be accomplished using Azure DevOps with minor changes to a typical design. The design below illustrates a DevOps pipeline workflow that can be applied to the tightly coupled and loosely coupled architectures.
 
@@ -194,7 +206,9 @@ The solution uses the following other components:
 * [Azure Storage](/azure/storage/common/storage-introduction) holds the input and output data of the quantum job.
 * [Application Insights](/azure/well-architected/service-guides/application-insights) monitors the application, detects application anomalies like poor performance and failures, and sends telemetry to the Azure portal.
 
-### Cost optimization
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 The overall cost of this solution depends on the quantum computing target that you select to run the quantum job. Calculating estimated costs for the classic components is straightforward. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
