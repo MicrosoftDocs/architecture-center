@@ -4,7 +4,7 @@ The following steps build on the [Azure Synapse Analytics end-to-end][e2e-analyt
 
 ## When to use this architecture
 
-There are many ways to deliver business requirements associated with Enterpsise BI based on existing technology investment, peoples skills, modernization time horizon, future vision and preference for PaaS vs SaaS. Please get familiar with alternative design approaches:
+There are many ways to deliver business requirements associated with enterprise BI based on existing technology investment, peoples' skills, modernization time horizon, future vision and preference for PaaS or SaaS. Please get familiar with alternative design approaches:
 * Fabric lakehouse for greenfield scenarious [link](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
 * Fabric and Azure Databricks Better Together for customers with existing investment in Azure Databricks & PBI and desire to modernise with Microsoft Fabric
 * Enterprise BI for small and medium business leveraging Azure SQL ecosystem and Microsoft Fabric [link](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/data/small-medium-data-warehouse)
