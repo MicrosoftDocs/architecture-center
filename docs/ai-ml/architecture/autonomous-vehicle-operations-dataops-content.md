@@ -48,7 +48,7 @@ This article presents a solution and guidance for developing offline data operat
 - [Data Share](/azure/data-share/overview) shares data with partner organizations with enhanced security. By using in-place sharing, data providers can share data where it resides without copying the data or taking snapshots. In this solution, Data Share shares data with labeling companies.
 - [Azure Databricks](/azure/databricks/introduction) provides a set of tools for maintaining enterprise-grade data solutions at scale. It's required for long-running operations on large amounts of vehicle data. Data engineers use Azure Databricks as an analytics workbench.
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) reduces time to insight across data warehouses and big data systems.
-- [Azure Cognitive Search](/azure/search/search-what-is-azure-search) provides data catalog search services.
+- [Azure AI Search](/azure/search/search-what-is-azure-search) provides data catalog search services.
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a serverless-based web App Service. In this case, App Service hosts the metadata API.
 - [Microsoft Purview](/purview/purview) provides data governance across organizations.
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a service that creates a managed registry of container images. This solution uses Container Registry to store containers for processing topics.

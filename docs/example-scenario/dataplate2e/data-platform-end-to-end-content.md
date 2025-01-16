@@ -180,7 +180,7 @@ The following Azure services have been used in the architecture:
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)
 - [Azure Data Lake Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)
-- [Azure Cognitive Services](/azure/ai-services/what-are-ai-services)
+- [Azure AI services](/azure/ai-services/what-are-ai-services)
 - [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning)
 - [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs)
 - [Azure IoT Hub](/azure/well-architected/service-guides/iot-hub/reliability)
