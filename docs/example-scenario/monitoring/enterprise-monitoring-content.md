@@ -188,6 +188,8 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 ### Operational Excellence
 
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
 - Be sure to have a strategy for handling personal data. For more information, see [Guidance for personal data stored in Log Analytics and Application Insights](/azure/azure-monitor/logs/personal-data-mgmt).
 
 - Ensure regulatory compliance with the following guidelines:
