@@ -80,6 +80,8 @@ Azure Container Apps is a serverless container platform based on Kubernetes. It 
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected).
+
 ### Availability
 
 Because liveness and readiness probes aren't supported in container groups, we recommend that you use Azure Monitor Metrics and Azure Application Insights for monitoring. Container health and uptime aren't deterministic approaches to determine if a system is operating end to end.
