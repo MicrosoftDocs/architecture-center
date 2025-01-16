@@ -1337,10 +1337,6 @@ items:
         href: example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml
       - name: Hybrid security monitoring
         href: hybrid/hybrid-security-monitoring.yml
-      - name: Public MEC compute deployment
-        href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
-      - name: Public MEC high availability
-        href: example-scenario/hybrid/multi-access-edge-compute-ha.yml
       - name: Use file shares in a hybrid environment
         href: hybrid/azure-file-share.yml
   - name: Identity
