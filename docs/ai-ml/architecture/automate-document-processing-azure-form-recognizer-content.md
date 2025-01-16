@@ -45,7 +45,7 @@ The following sections describe the various stages of the data extraction proces
    - Receives the response.
    - Evaluates the extraction quality.
 
-1. The extracted data enters Azure Cosmos DB.
+1. The extracted data enters Azure Cosmos DB for downstream application consumption.
 
 1. The extracted data can also be pushed to [Azure AI search for indexing to build RAG applications](/azure/ai-services/document-intelligence/concept/retrieval-augmented-generation).
    
