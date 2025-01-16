@@ -47,7 +47,7 @@ Standard deployment options address typical enterprise Azure usage.
 | :-------------------------------------------- | :---------- |
 | [Azure portal deployment](/azure/cloud-adoption-framework/ready/landing-zone/#platform-landing-zone-accelerator) | An Azure portal-based deployment that provides a full implementation of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#platform-landing-zone-accelerator), along with opinionated configurations for key components, such as management groups and policies. |
 | [Bicep deployment](./bicep/landing-zone-bicep.md) | A modular, infrastructure-as-code based deployment where each Bicep module encapsulates a core capability of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#platform-landing-zone-accelerator). While the modules can be deployed individually, the design proposes the use of orchestrator modules to encapsulate the complexity of deploying different topologies with the modules. Bicep deployment supports Azure public cloud, Azure China 21Vianet regions, and Azure US Government clouds. |
-| [Terraform deployment](https://aka.ms/alz/tf) | This infrastructure-as-code based deployment using Azure verified modules for platform landing zones provides a customizable way to deploy ALZ with Terraform. |
+| [Terraform deployment](https://azure.github.io/Azure-Landing-Zones/terraform/) | This infrastructure-as-code based deployment using Azure verified modules for platform landing zones provides a customizable way to deploy ALZ with Terraform. |
 
 ### Variants and specializations
 
