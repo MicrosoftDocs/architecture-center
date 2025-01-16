@@ -6569,7 +6569,11 @@
       "source_path": "docs/mainframe/mainframe-midrange-architecture.md",
       "redirect_url": "/azure/architecture/example-scenario/unix-migration/migrate-aix-azure-linux",
       "redirect_document_id": false 
+    },    
+    {
+      "source_path": "docs/solution-ideas/articles/azure-databricks-data-science-machine-learning.yml",
+      "redirect_url": "/azure/databricks/machine-learning",
+      "redirect_document_id": false 
     }
   ]
 }
-

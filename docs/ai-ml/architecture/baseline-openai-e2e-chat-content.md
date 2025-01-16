@@ -144,7 +144,7 @@ If your workload's requirements require a multi-region strategy, you need to inv
 - Orchestration layer (Prompt flow in this architecture)
 - Client-facing UI
 
-In addition, you'll need maintain business continuity in observability, portal experiences, and responsible AI concerns like content safety.
+In addition, you'll need to maintain business continuity in observability, portal experiences, and responsible AI concerns like content safety.
 
 ### Security
 
@@ -256,6 +256,8 @@ We recommend that you configure the Azure AI Foundry hub for [managed virtual ne
 
 The outbound rules can be private endpoints, service tags, or fully qualified domain names (FQDNs) for external public endpoints. In this architecture, connectivity to Azure services such as Container Registry, Storage, Azure Key Vault, Azure OpenAI, and AI Search are connected through private link. Although not in this architecture, some common operations that might require configuring an FQDN outbound rule are downloading a pip package, cloning a GitHub repo, or downloading base container images from external repositories.
 
+The outbound FQDN control is implemented by a Microsoft managed Azure Firewall deployed into the Azure AI Foundry's managed network. Choose the Basic pricing tier if you need to control just HTTP (port 80) or HTTPS (port 443) egress traffic. If your egress traffic requires custom protocols or ports, then select the Standard pricing tier. In this architecture the Basic pricing tier is used because the only egress traffic is to HTTPS endpoints on port 443.
+
 ##### Virtual network segmentation and security
 
 The network in this architecture has separate subnets for the following purposes:
@@ -266,7 +268,6 @@ The network in this architecture has separate subnets for the following purposes
 - Azure Bastion
 - Jump box virtual machine
 - Training and Scoring subnets - both of these are for bring your own compute related to training and inferencing. In this architecture, we're not doing training and we're using managed compute.
-
 - Scoring
 
 Each subnet has a network security group (NSG) that limits both inbound and outbound traffic for those subnets to just what's required. The following table shows a simplified view of the NSG rules that the baseline adds to each subnet. The table provides the rule name and function.
@@ -418,7 +419,7 @@ Consider the following guidance when implementing automated evaluations:
 
 - Avoid using language models to generate any of the data in your golden dataset.
 
-##### Deployment Flow
+##### Deployment flow
 
 :::image type="complex" source="_images/openai-end-to-end-deployment-flow.svg" border="false" lightbox="_images/openai-end-to-end-deployment-flow.svg" alt-text="Diagram that shows the deployment flow for a prompt flow.":::
   The diagram shows the deployment flow for a prompt flow. The following are annotated with numbers: 1. The local development step, 2. A box containing a pull request (PR) pipeline, 3. A manual approval, 4. Development environment, 5. Test environment, 6. Production environment, 7. A list of monitoring tasks, and a CI pipeline and b. CD pipeline.
@@ -428,30 +429,30 @@ Consider the following guidance when implementing automated evaluations:
 
 1. Once local development and experimentation are completed, the prompt engineer/data scientist opens a pull request from the Feature branch to the Main branch. The pull request (PR) triggers a PR pipeline. This pipeline runs fast quality checks that should include:
 
-    - Execution of experimentation flows
-    - Execution of configured unit tests
-    - Compilation of the codebase
-    - Static code analysis
+    - Execution of experimentation flows.
+    - Execution of configured unit tests.
+    - Compilation of the codebase.
+    - Static code analysis.
 
 1. The pipeline can contain a step that requires at least one team member to manually approve the PR before merging. The approver can't be the committer and they mush have prompt flow expertise and familiarity with the project requirements. If the PR isn't approved, the merge is blocked. If the PR is approved, or there's no approval step, the feature branch is merged into the Main branch.
 
 1. The merge to Main triggers the build and release process for the Development environment. Specifically:
 
-    1. The CI pipeline is triggered from the merge to Main. The CI pipeline performs all the steps done in the PR pipeline, and the following steps:
+   a. The CI pipeline is triggered from the merge to Main. The CI pipeline performs all the steps done in the PR pipeline, and the following steps:
 
       - Experimentation flow
       - Evaluation flow
       - Registers the flows in the Machine Learning Registry when changes are detected
 
-    1. The CD pipeline is triggered after the completion of the CI pipeline. This flow performs the following steps:
+   b. The CD pipeline is triggered after the completion of the CI pipeline. This flow performs the following steps:
 
       - Deploys the flow from the Machine Learning registry to a Machine Learning online endpoint
       - Runs integration tests that target the online endpoint
       - Runs smoke tests that target the online endpoint
 
-1. An approval process is built into the release promotion process – upon approval, the CI & CD processes described in steps 4.a. & 4.b. are repeated, targeting the Test environment. Steps a. and b. are the same, except that user acceptance tests are run after the smoke tests in the Test environment.
+1. An approval process is built into the release promotion process – upon approval, the CI & CD processes described in steps *4.a* and *4.b* are repeated, targeting the Test environment. Steps *a* and *b* are the same, except that user acceptance tests are run after the smoke tests in the Test environment.
 
-1. The CI & CD processes described in steps 4.a. & 4.b. are run to promote the release to the Production environment after the Test environment is verified and approved.
+1. The CI & CD processes described in steps *4.a* and *4.b* are run to promote the release to the Production environment after the Test environment is verified and approved.
 
 1. After release into a live environment, the operational tasks of monitoring performance metrics and evaluating the deployed language models take place. This includes but isn't limited to:
 
