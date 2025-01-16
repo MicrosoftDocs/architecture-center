@@ -2,7 +2,7 @@ This example scenario shows how data can be ingested into a cloud environment fr
 
 The following steps build on the [Azure Synapse Analytics end-to-end][e2e-analytics] scenario. It uses Azure Pipelines to ingest data from a SQL database into Azure Synapse SQL pools, then transforms the data for analysis.
 
-## When to use this article
+## When to use this architecture
 
 There are many ways to deliver business requirements associated with Enterpsise BI based on existing technology investment, peoples skills, modernization time horizon, future vision and preference for PaaS vs SaaS. Please get familiar with alternative design approaches:
 * Fabric lakehouse for greenfield scenarious [link](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
