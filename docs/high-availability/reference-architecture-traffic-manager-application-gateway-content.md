@@ -237,7 +237,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 *Virtual network and subnets -* Create a separate subnet for each tier of your subnet. You should deploy VMs and resources, such as Application Gateway and Load Balancer, into a virtual network with subnets.
 
-### Performance efficiency
+### Performance Efficiency
 
 Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 

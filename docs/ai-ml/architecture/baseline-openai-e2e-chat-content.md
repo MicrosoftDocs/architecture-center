@@ -522,6 +522,7 @@ If you have a scenario where the hub is centrally owned by a team other than the
 ### Performance Efficiency
 
 Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
 This section describes performance efficiency from the perspective of Azure Search, Azure OpenAI, and Machine Learning.
 
 #### Azure Search - performance efficiency
