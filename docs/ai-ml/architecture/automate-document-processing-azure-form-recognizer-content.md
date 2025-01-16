@@ -267,7 +267,7 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 
 - For custom models that you deploy to online endpoints for real-time inferencing, [autoscaling can be enabled](/azure/machine-learning/how-to-autoscale-endpoints) through the autoscale feature in Azure Monitor. This can be managed using Azure CLI, REST API, Python SDK, Azure portal etc.
 
-- For batch inferencing, Machine Learning creates a compute cluster on demand that scales automatically. For more information, see [Tutorial: Build an Azure Machine Learning pipeline for batch scoring][Tutorial: Build an Azure Machine Learning pipeline for batch scoring]. Machine Learning uses the [ParellelRunStep][ParallelRunStep Class] class to run the inferencing jobs in parallel.
+- For batch inferencing, models are deployed to batch endpoints which run on Azure MAchine Learning (AML) compute clusters  or Kubernetes clusters. In the case of AML compute clusters, [autoscaling of the compute and scaling compute down to zero]((/azure/machine-learning/concept-endpoints) are supported. The min and max number of instances is defined during the creation of the compute cluster while the number of instances that would be used for batch inferencing is defined in the [batch deployment definition](/azure/machine-learning/how-to-use-batch-model-deployments). 
 
 - For AI Language, data and rate limits apply. For more information, see these resources:
 
@@ -369,7 +369,6 @@ Principal author:
 [SLA for Azure Functions]: https://azure.microsoft.com/support/legal/sla/functions/v1_2
 [SLA for Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1
 [Tutorial: Automate tasks to process emails by using Azure Logic Apps, Azure Functions, and Azure Storage]: /azure/logic-apps/tutorial-process-email-attachments-workflow
-[Tutorial: Build an Azure Machine Learning pipeline for batch scoring]: /azure/machine-learning/tutorial-pipeline-batch-scoring-classification
 [Tutorial: How to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint]: /azure/data-factory/tutorial-managed-virtual-network-on-premise-sql-server
 [Use batch endpoints (preview) for batch scoring]: /azure/machine-learning/how-to-use-batch-endpoint
 [Use Form Recognizer SDKs or REST API]: /azure/applied-ai-services/form-recognizer/how-to-guides/v3-0-sdk-rest-api?tabs=windows&pivots=programming-language-python
