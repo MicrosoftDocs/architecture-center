@@ -72,23 +72,23 @@ This architecture showcases a solution that is rehosted on Microsoft Azure.
 
 ### Components
 
-- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Virtual Machines is an on-demand, scalable computing resource. An Azure VM gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
+- [Virtual Machines](/azure/well-architected/service-guides/virtual-machines): Virtual Machines is an on-demand, scalable computing resource. An Azure VM gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
 
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network): Virtual Network is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, like Virtual Machines, to securely communicate with each other, the internet, and on-premises networks. Virtual Network is like a traditional network that you operate in your own data center. However, it brings with it the benefits of Azure's infrastructure such as scale, availability, and isolation.
+- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability): Virtual Network is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, like Virtual Machines, to securely communicate with each other, the internet, and on-premises networks. Virtual Network is like a traditional network that you operate in your own data center. However, it brings with it the benefits of Azure's infrastructure such as scale, availability, and isolation.
 
 - [Azure Virtual Network Interface Cards](/azure/virtual-network/virtual-network-network-interface): A network interface enables an Azure VM to communicate with internet, Azure, and on-premises resources. As shown in this architecture, you can add more network interface cards to the same Azure VM. This way, the Solaris child-VMs have their own dedicated network interface device and IP address.
 
-- [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks): Managed disks are block-level storage volumes that are managed by Azure and used with Azure VMs. The available types of disks are Azure Ultra Disk Storage, Azure Premium SSD, Azure Standard SSD, and Azure Standard HDD.  For this architecture, we recommend either Premium SSD or Ultra Disk Storage.
+- [Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage): Managed disks are block-level storage volumes that are managed by Azure and used with Azure VMs. The available types of disks are Azure Ultra Disk Storage, Azure Premium SSD, Azure Standard SSD, and Azure Standard HDD.  For this architecture, we recommend either Premium SSD or Ultra Disk Storage.
 
-- [Azure Files](https://azure.microsoft.com/services/storage/files): Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. You can mount Azure file shares concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
+- [Azure Files](/azure/well-architected/service-guides/azure-files): Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. You can mount Azure file shares concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
 
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute): With ExpressRoute, you can extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. You can also establish connections to Microsoft cloud services, like Microsoft Azure and Microsoft 365.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute): With ExpressRoute, you can extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. You can also establish connections to Microsoft cloud services, like Microsoft Azure and Microsoft 365.
 
-- [AKS](https://azure.microsoft.com/services/kubernetes-service): Deploy and manage containerized applications more easily with a fully managed Kubernetes service. Azure Kubernetes Service (AKS) offers serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. Unite your development and operations teams on a single platform to rapidly build, deliver, and scale applications with confidence.
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service): Deploy and manage containerized applications more easily with a fully managed Kubernetes service. Azure Kubernetes Service (AKS) offers serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. Unite your development and operations teams on a single platform to rapidly build, deliver, and scale applications with confidence.
 
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry): Build, store, secure, scan, replicate, and manage container images and artifacts with a fully managed, geo-replicated instance of OCI distribution. Connect across environments like AKS and Azure Red Hat OpenShift, and across Azure services like App Service, Machine Learning, and Batch.
+- [Azure Container Registry](/azure/container-registry/container-registry-intro): Build, store, secure, scan, replicate, and manage container images and artifacts with a fully managed, geo-replicated instance of OCI distribution. Connect across environments like AKS and Azure Red Hat OpenShift, and across Azure services like App Service, Machine Learning, and Batch.
 
-- [Site Recovery](https://azure.microsoft.com/services/site-recovery): Site Recovery offers ease of deployment, cost effectiveness, and dependability. Deploy replication, failover, and recovery processes through Site Recovery to help keep your applications running during planned and unplanned outages.
+- [Site Recovery](/azure/site-recovery/site-recovery-overview): Site Recovery offers ease of deployment, cost effectiveness, and dependability. Deploy replication, failover, and recovery processes through Site Recovery to help keep your applications running during planned and unplanned outages.
 
 ## Considerations
 
@@ -156,7 +156,6 @@ For more information, contact **legacy2azure@microsoft.com**.
 
 ## Related resources
 
-- [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
 - [Mainframe and midrange data replication to Azure using Qlik](mainframe-midrange-data-replication-azure-qlik.yml)
 - [Mainframe modernization by using BMC AMI Cloud](mainframe-modernization-bmc-ami-cloud.yml)
 - [Rehost mainframe applications by using NTT DATA UniKix](rehost-mainframe-ntt-data-unikix.yml)

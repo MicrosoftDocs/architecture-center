@@ -32,12 +32,12 @@ SharePoint Online and Power Platform support many geographic regions. Each regio
 
 This scenario uses the following components:
 
-- [Power Automate](https://flow.microsoft.com) uses flows to build automated processes.
-- [SharePoint](https://www.microsoft.com/microsoft-365/sharepoint) Online sites help organizations share and manage content, knowledge, and applications.
-- [Power Platform](https://powerplatform.microsoft.com) analyzes data, builds solutions, automates processes, and creates virtual agents.
+- [Power Automate](/power-automate/getting-started) uses flows to build automated processes.
+- [SharePoint](/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-service-description) Online sites help organizations share and manage content, knowledge, and applications.
+- [Power Platform](/power-platform) analyzes data, builds solutions, automates processes, and creates virtual agents.
   - [Power Platform environments](/power-platform/admin/environments-overview) store, manage, and share an organization's business data, apps, chatbots, and flows.
   - [Power Platform Solutions](/power-platform/alm/solution-concepts-alm) are the mechanism for implementing [application lifecycle management (ALM)](https://wikipedia.org/wiki/Application_lifecycle_management) in Power Apps and Power Automate.
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a universal platform to manage and secure identities.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a universal platform to manage and secure identities.
 
 ### Alternatives
 

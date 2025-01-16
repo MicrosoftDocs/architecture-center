@@ -41,9 +41,9 @@ To decide which method to use for moving data between the mainframe system and A
 
 ### Components
 
-- [Azure storage](https://azure.microsoft.com/product-categories/storage) provides massively scalable, highly secure cloud storage for your data, apps, and workloads. [Azure Files](https://azure.microsoft.com/services/storage/files) provides simple and secure serverless cloud file shares. These components are used for synchronization and data retention.
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a hybrid data integration service that you can use to create, schedule, and orchestrate your ETL and ELT workflows.
-- [Azure Data Box](https://azure.microsoft.com/services/databox) is a physical device that you can use to move on-premises data to Azure.
+- [Azure storage](/azure/well-architected/service-guides/storage-accounts/reliability) provides massively scalable, highly secure cloud storage for your data, apps, and workloads. [Azure Files](/azure/well-architected/service-guides/azure-files) provides simple and secure serverless cloud file shares. These components are used for synchronization and data retention.
+- [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service that you can use to create, schedule, and orchestrate your ETL and ELT workflows.
+- [Azure Data Box](/azure/databox/data-box-overview) is a physical device that you can use to move on-premises data to Azure.
 
 ### Alternatives
 
@@ -117,7 +117,6 @@ See these resources:
 
 ## Related resources
 
-- [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
 - [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [Re-engineer IBM z/OS batch applications on Azure](../../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
 - [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)

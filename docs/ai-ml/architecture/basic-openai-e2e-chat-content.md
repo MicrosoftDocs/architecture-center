@@ -218,6 +218,10 @@ One outcome of your POC should be the selection of a product that suits the work
 
 - The Machine Learning online endpoint doesn't have automatic scaling implemented, so you need to provision a product and instance quantity that can handle peak load. Because of how the service is configured, it doesn't dynamically scale in to efficiently keep supply aligned with demand. Follow the guidance about how to [autoscale an online endpoint](/azure/machine-learning/how-to-autoscale-endpoints) as you move toward production.
 
+### Additional design recommendations
+
+AI/ML workloads, such as this one, should be designed by an architect that understands the design guidance found in the Azure Well-Architected Framework's [AI workloads on Azure](/azure/well-architected/ai/get-started). As you move from ideation and proof of technology into design, be sure to combine both the specifics of the learnings you have from this architecture and the general AI/ML workload guidance found in the Well-Architected Framework.
+
 ## Deploy this scenario
 
 A deployment for a reference architecture that implements these recommendations and considerations is available on [GitHub](https://github.com/Azure-Samples/openai-end-to-end-basic/).
@@ -229,9 +233,7 @@ A deployment for a reference architecture that implements these recommendations 
 
 ## Related resources
 
+- A Well-Architected Framework perspective on [AI workloads on Azure](/azure/well-architected/ai/get-started)
 - [Azure OpenAI language models](/azure/ai-services/openai/concepts/models)
 - [Prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow)
-- [Workspace managed virtual network isolation](/azure/machine-learning/how-to-managed-network)
-- [Configure private link for AI Foundry hubs](/azure/ai-studio/how-to/configure-private-link)
-- [Configure a private endpoint for a Machine Learning workspace](/azure/machine-learning/how-to-configure-private-link)
 - [Content filtering](/azure/ai-services/openai/concepts/content-filter)

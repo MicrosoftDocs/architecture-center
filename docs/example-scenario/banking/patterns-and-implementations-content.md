@@ -30,7 +30,7 @@ For more information, see [Pattern: Saga](https://microservices.io/patterns/data
 
 #### Saga pattern
 
-[Saga](../../reference-architectures/saga/saga.yml) is a pattern suitable for distributed transaction management, commonly applied to financial services. A new scenario has emerged where operations are distributed across applications and databases. In the new scenario, customers will need a new architecture and implementation design to ensure data consistency on financial transactions.
+[Saga](../../patterns/saga.yml) is a pattern suitable for distributed transaction management, commonly applied to financial services. A new scenario has emerged where operations are distributed across applications and databases. In the new scenario, customers will need a new architecture and implementation design to ensure data consistency on financial transactions.
 
 The traditional *atomicity, consistency, isolation, and durability (ACID)* properties approach is no longer suitable. It's because the data of operations are now spanned into isolated databases. Using a saga pattern addresses this challenge by coordinating a workflow through a message-driven sequence of local transactions to ensure data consistency.
 
@@ -86,9 +86,6 @@ Learn more about the component technologies:
 * [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
 * [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 
-## Related resources
-
-Explore related architectures:
+## Related resource
 
 * [Saga distributed transactions](../../reference-architectures/saga/saga.yml)
-* [Gridwich saga orchestration](../../reference-architectures/media-services/gridwich-saga-orchestration.yml)

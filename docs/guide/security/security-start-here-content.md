@@ -64,7 +64,6 @@ For information about security for sensitive IaaS workloads, see [Security consi
 
 - [Threat indicators for cyber threat intelligence in Microsoft Sentinel](../../example-scenario/data/sentinel-threat-intelligence.yml)
 - [Multilayered protection for Azure virtual machine access](../../solution-ideas/articles/multilayered-protection-azure-vm.yml)
-- [Real-time fraud detection](../../example-scenario/data/fraud-detection.yml)
 
 ### Information protection
 

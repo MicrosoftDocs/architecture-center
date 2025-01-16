@@ -38,6 +38,7 @@ Azure provides a wide range of services to help you with management and governan
 - [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery). Keep your business running with built-in disaster recovery.
 - [Azure Archive Storage](https://azure.microsoft.com/services/storage/archive). Store rarely accessed data.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor). Get full observability into your applications, infrastructure, and network.
+- [Azure Update Manager](https://azure.microsoft.com/products/azure-update-management-center/). Centrally manage updates and compliance at scale.
 
 ## Introduction to management and governance on Azure
 
@@ -85,7 +86,6 @@ The following sections provide links to reference architectures in some key mana
 ### Compliance and governance
 
 - [Manage virtual machine compliance](../../example-scenario/security/virtual-machine-compliance.yml)
-- [End-to-end governance in Azure when using CI/CD](../../example-scenario/governance/end-to-end-governance-in-azure.yml)
 - [Introduction of an AKS regulated cluster for PCI-DSS 3.2.1](../../reference-architectures/containers/aks-pci/aks-pci-intro.yml)
 
 ### Hybrid management

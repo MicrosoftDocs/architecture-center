@@ -1,8 +1,8 @@
 ---
 title: Choose an Azure AI services technology
 description: Learn about Azure AI services that you can use in AI applications and data flows. Choose the appropriate service for your use case.
-author: robbagby
-ms.author: pnp
+author: FreddyAyala
+ms.author: freddyayala
 categories:
   - ai-machine-learning
   - analytics

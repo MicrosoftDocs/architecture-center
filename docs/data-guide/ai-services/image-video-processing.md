@@ -1,8 +1,8 @@
 ---
 title: Choose Azure AI image and video processing technology
 description: Learn about vision capabilities of Azure AI services. Learn which service to use for a specific use cases.
-author: robbagby
-ms.author: pnp
+author: FreddyAyala
+ms.author: freddyayala
 categories:
   - ai-machine-learning
   - analytics
