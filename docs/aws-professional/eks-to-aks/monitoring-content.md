@@ -37,13 +37,13 @@ AKS natively integrates with [Azure Monitor](/azure/azure-monitor/overview). Azu
 
 [Container Insights](/azure/azure-monitor/containers/container-insights-overview) is the feature of Azure Monitor that collects, indexes, and stores the data your AKS cluster generates. You can configure Container Insights to monitor managed Kubernetes clusters hosted on AKS and other cluster configurations. Container Insights can monitor AKS health and performance with visualization tailored to Kubernetes environments. Similar to EKS, enabling Container Insights for your AKS cluster deploys a containerized version of the Log Analytics agent, which is responsible for sending data to your Log Analytics workspace.
 
-Container Insights currently uses data from a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview) to power the visualizations in the Azure portal. However, with the release of [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), this new format of metrics collection is cheaper and more efficient. Container Insights offers the ability to visualize metrics using only managed Prometheus data. For more information, see [Switch to using managed Prometheus visualizations for Container Insights](/azure/azure-monitor/containers/container-insights-experience-v2).
+Container Insights currently uses data from a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview) to power the visualizations in the Azure portal. However, with the release of [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), this approach to metrics collection is cheaper and more efficient. Container Insights offers the ability to visualize metrics using only managed Prometheus data. For more information, see [Switch to using managed Prometheus visualizations for Container Insights](/azure/azure-monitor/containers/container-insights-experience-v2).
 
 To ensure comprehensive monitoring of your Kubernetes clusters, it is recommended to utilize the Azure Monitor features mentioned below:
 
-- Utilize [Managed Prometheus](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-overview) for effective metric collection.
-- Employ [Container insights](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-overview) to gather logs.
-- Leverage [Managed Grafana](https://learn.microsoft.com/en-us/azure/managed-grafana/overview) for advanced visualization capabilities.
+- Utilize [Managed Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) for effective metric collection.
+- Employ [Container Insights](/azure/azure-monitor/containers/container-insights-overview) to gather logs.
+- Leverage [Managed Grafana](/azure/managed-grafana/overview) for advanced visualization capabilities.
 
 ### Microsoft Sentinel
 

@@ -95,7 +95,7 @@ Volumes defined and created as part of the pod lifecycle only exist until you de
 - [Azure Disk](#azure-disk)
 - [Azure Files](#azure-files)
 - [Azure NetApp Files](#azure-netapp-files)
-  [Azure Blob Storage](#azure-blob-storage)
+-  [Azure Blob Storage](#azure-blob-storage)
 - [Azure Container Storage](#azure-container-storage)
 
 As noted in the [Volumes](/azure/aks/concepts-storage#volumes) section, the choice of Azure Disks or Azure Files is often determined by the need for concurrent access to the data or the performance tier.
@@ -139,8 +139,6 @@ However, it's important to note that zone-redundant storage (ZRS) comes at a hig
 
 You can create a storage class for other needs using `kubectl`. The following example uses premium managed disks and specifies that the underlying Azure Disk should be *retained* when you delete the pod:
 
-YAML
-
 ```yaml
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -154,7 +152,7 @@ volumeBindingMode: WaitForFirstConsumer
 allowVolumeExpansion: true
 ```
 
-**Note**: AKS reconciles the default storage classes and will overwrite any changes you make to those storage classes.
+Be aware that AKS reconciles the default storage classes and will overwrite any changes you make to those storage classes.
 
 For more information about storage classes, see [StorageClass in Kubernetes](https://kubernetes.io/docs/concepts/storage/storage-classes/).
 
@@ -169,8 +167,6 @@ The pod definition includes the volume mount once the volume has been connected 
 Once an available storage resource has been assigned to the pod requesting storage, the persistent volume is *bound* to a persistent volume claim. Persistent volumes are mapped to claims in a 1:1 mapping.
 
 The following example YAML manifest shows a persistent volume claim that uses the *managed-premium* storage class and requests an Azure Disk that is *5Gi* in size:
-
-YAML
 
 ```yaml
 apiVersion: v1
@@ -193,8 +189,6 @@ When you create a pod definition, you also specify:
 
 The following example YAML manifest shows how the previous persistent volume claim can be used to mount a volume at */mnt/azure*:
 
-YAML
-
 ```yaml
 kind: Pod
 apiVersion: v1
@@ -215,8 +209,6 @@ spec:
 
 For mounting a volume in a Windows container, specify the drive letter and path. For example:
 
-YAML
-
 ```yaml
 ...      
       volumeMounts:
@@ -233,7 +225,7 @@ By default, Azure automatically replicates the operating system disk for a virtu
 
 By contrast, ephemeral OS disks are stored only on the host machine, just like a temporary disk. With this configuration, you get lower read/write latency, together with faster node scaling and cluster upgrades.
 
-**Note**: When you don't explicitly request [Azure managed disks](/azure/virtual-machines/managed-disks-overview) for the OS, AKS defaults to ephemeral OS if possible for a given node pool configuration.
+When you don't explicitly request [Azure managed disks](/azure/virtual-machines/managed-disks-overview) for the OS, AKS defaults to ephemeral OS if possible for a given node pool configuration.
 
 Size requirements and recommendations for ephemeral OS disks are available in the [Azure VM documentation](/azure/virtual-machines/ephemeral-os-disks). The following are some general sizing considerations:
 
@@ -324,7 +316,7 @@ To optimize costs for Azure Files, purchase [Azure Files capacity reservations](
 
 For more information, see [Configure Azure NetApp Files for Azure Kubernetes Service](/azure/aks/azure-netapp-files).
 
-### Azure Blob Storage
+### Azure Blob storage
 
 The [Azure Blob storage Container Storage Interface (CSI) driver](/azure/aks/azure-blob-csi?tabs=NFS) is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Blob storage. The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes.
 
