@@ -68,7 +68,7 @@ Optionally, you can deploy Kyverno's implementation of the [Kubernetes Pod Secur
 
 The [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) extends [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) v3, an *admission controller webhook* for [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), to apply at-scale enforcements and safeguards on your cluster components in a centralized, consistent manner. Cluster components include pods, containers, and namespaces. [Azure Policy](https://azure.microsoft.com/products/azure-policy) enables centralized compliance management and reporting for multiple Kubernetes clusters from a single location. This capability makes management and governance of multicluster environments more efficient than deploying and managing Kyverno or Gatekeeper for each cluster.
 
-The [Azure Policy Add-on for AKS](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/policy-for-kubernetes) performs the following functions:
+The [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) performs the following functions:
 
 - It checks for policy assignments to the cluster with the Azure Policy service.
 - It deploys policy definitions into the cluster as constraint template and constraint custom resources.
