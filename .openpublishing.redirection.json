@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/example-scenario/data/azure-nifi.yml",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml",
       "redirect_url": "https://www.microsoft.com/industry/telecommunications/",
       "redirect_document_id": false
