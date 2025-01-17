@@ -117,7 +117,7 @@ The pipeline that's used for data enrichment depends on the use case.
 
 - [AI Language][Azure Cognitive Service service page] offers many NLP services that you can use to understand and analyze text. Some of these services are customizable, such as custom NER, custom text classification, conversational language understanding, and question answering.
 
-- [Machine Learning][Azure Machine Learning service page] is an open platform for managing the development and deployment of machine-learning models at scale. Machine Learning caters to skill levels of different users, such as data scientists or business analysts. The platform supports commonly used open frameworks and offers automated featurization and algorithm selection. You can deploy models for [inferencing using endpoints](/azure/machine-learning/concept-endpoints) where you can use [online endpoints](/azure/machine-learning/concept-endpoints-online) for real-time inferencing and [batch endpoints](/azure/machine-learning/concept-endpoints-batch) to perform asynchronous or long-running inferencing. if you are building a custom model by finetuning a foundation model from [model catalogue](/azure/machine-learning/concept-model-catalog), you can also deploy this model as [Serverless API endpoints](/azure/machine-learning/how-to-deploy-models-serverless).You can also deploy models to [AKS and Azure Arc-enabled Kubernetes Cluster](/azure/machine-learning/how-to-attach-kubernetes-anywhere) for inferencing. 
+- [Machine Learning][Azure Machine Learning service page] is an open platform for managing the development and deployment of machine-learning models at scale. Machine Learning caters to skill levels of different users, such as data scientists or business analysts. The platform supports commonly used open frameworks and offers automated featurization and algorithm selection. You can deploy models for [inferencing using endpoints](/azure/machine-learning/concept-endpoints) where you can use [online endpoints](/azure/machine-learning/concept-endpoints-online) for real-time inferencing and [batch endpoints](/azure/machine-learning/concept-endpoints-batch) to perform asynchronous or long-running inferencing. If you are building a custom model by finetuning a foundation model from [model catalog](/azure/machine-learning/concept-model-catalog), you can also deploy this model as [Serverless API endpoints](/azure/machine-learning/how-to-deploy-models-serverless).You can also deploy models to [AKS and Azure Arc-enabled Kubernetes Cluster](/azure/machine-learning/how-to-attach-kubernetes-anywhere) for inferencing. 
 
 - [AKS][Azure Kubernetes Service (AKS)] is a fully managed Kubernetes service that makes it easy to deploy and manage containerized applications. AKS offers serverless Kubernetes technology, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance.
 
@@ -134,7 +134,7 @@ The pipeline that's used for data enrichment depends on the use case.
    
 - You can use [Azure AI Content Understanding (Preview)](/azure/ai-services/content-understanding/overview) for ingesting documents, images, videos and audio different [use cases](/azure/ai-services/content-understanding/overview#content-understanding-use-cases).
 
-- You can use [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) for building, testing & deploying custom models and also developing, evaluating, deploying & monitoring generative AI aplications. 
+- You can use [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) for building, testing & deploying custom models and also developing, evaluating, deploying & monitoring generative AI applications. 
   
 - You can choose another [Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree) instead of App Service to host your application.
 
@@ -161,7 +161,7 @@ This solution is ideal for the finance industry. It can also apply to the automo
 - Automating ID extraction for verification purposes, as with passports or driver licenses
 - Automating the process of entering business card data into visitor management systems
 - Identifying purchase patterns and duplicate financial documents for fraud detection
-- Automating structured extraction of data from unstructured document in Retreival Augmented Generation scenarios 
+- Automating structured extraction of data from unstructured document in Retrieval Augmented Generation scenarios 
 
 ## Considerations
 
