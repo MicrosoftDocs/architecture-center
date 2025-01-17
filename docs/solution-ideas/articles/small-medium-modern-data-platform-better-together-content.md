@@ -30,9 +30,9 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
 1. **Streaming data ingestion:** Streaming data can be ingested through Azure Event Hubs or Azure IoT Hubs, depending on the protocols that are used to send these messages.
 
-1. **Cold Path:** You can bring the streaming data into the centralized data lake for further analysis, storage, and reporting by using Azure Databricks. This data can then be unified with other data sources for batch analysis.
+1. **Cold path:** You can bring the streaming data into the centralized data lake for further analysis, storage, and reporting by using Azure Databricks. This data can then be unified with other data sources for batch analysis.
 
-1. **Hot Path:** Streaming data can be analyzed in real-time and real-time dashboards can be created through Microsoft Fabric Real-Time Intelligence.
+1. **Hot path:** Streaming data can be analyzed in real-time and real-time dashboards can be created through Microsoft Fabric Real-Time Intelligence.
 
 1. **Azure Databricks:** The existing Azure Databricks Notebooks can then be used to perform data cleansing, unification, and analyses as usual. Consider using medallion architecture such as:
 
