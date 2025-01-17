@@ -130,7 +130,7 @@ You must choose the fixed size of the chunks and the amount of overlap. Because 
 **Engineering effort:** Low<br/>
 **Processing cost:** Low<br/>
 **Use cases:** Unstructured documents written in prose or non-prose with complete or incomplete sentences. Your collection of documents contains a prohibitive number of different document types that require individual chunking strategies<br/>
-**Examples:** User-generated content like open-ended feedback from surveys, forum posts, reviews, email messages, personal messages, or research notes or lists
+**Examples:** User-generated content like open-ended feedback from surveys, forum posts, reviews, email messages, personal notes, research notes, lists
 
 ### Custom code
 
@@ -234,7 +234,7 @@ Because you can clearly understand the structure of the document, and there are 
 
 A good approach for documents that have little to no structure are sentence-based or fixed-size with overlap approaches.
 
-**Examples:** User-generated content like open-ended feedback from surveys, forum posts, or reviews, email messages, and personal or research notes<br/>
+**Examples:** User-generated content like open-ended feedback from surveys, forum posts, reviews, email messages, personal notes, research notes<br/>
 **Typical approaches:** Sentence-based or boundary-based with overlap
 
 ### Experimentation
