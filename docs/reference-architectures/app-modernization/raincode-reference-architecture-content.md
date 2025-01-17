@@ -180,6 +180,7 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 -   Unlike virtual machines, containers can rapidly scale out and scale in.
 
 -   Since the unit of scaling shifts to containers, infrastructure usage is optimized.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 

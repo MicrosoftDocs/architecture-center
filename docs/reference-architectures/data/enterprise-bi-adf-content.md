@@ -228,8 +228,6 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - [Azure Monitor][azure-monitor] is the recommended option for analyzing the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
 
-For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
-
 ## Next steps
 
 - [Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics)
