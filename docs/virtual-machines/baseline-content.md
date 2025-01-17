@@ -85,6 +85,10 @@ The VMs in this architecture might require direct access by operators, but we re
 1. The operator signs into the Azure portal or Azure CLI.
 1. The operator accesses the Azure Bastion service and remotely connects to the desired VM.
 
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
 ## VM design choices
 
 When selecting SKUs, it's important to have a baseline performance expectation. Several characteristics influence the decision-making process, including:

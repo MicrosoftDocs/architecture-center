@@ -39,7 +39,7 @@ This section describes the nature of availability for services used in this arch
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Availability
 
@@ -95,9 +95,9 @@ If any of the components (the web frontend, the API, or the cache) fails the hea
 
 The health probe is also implemented in the standard reference implementation. There, the gateway simply returns an error if the health probe fails. However, the highly available implementation improves the resiliency of the application and the quality of the user experience.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 The cost considerations for the high availability architecture are similar to those of the standard deployment.
 

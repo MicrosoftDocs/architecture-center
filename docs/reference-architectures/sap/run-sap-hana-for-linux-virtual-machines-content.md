@@ -62,7 +62,42 @@ Because all other VMs supporting SAP HANA allow the choice of either Gen2 only o
 
 ## Considerations
 
-This section describes key considerations for running SAP HANA on Azure.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+Many security measures are used to protect the confidentiality, integrity, and availability of an SAP landscape. To secure user access, for example, SAP has its own User Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For more information, see [SAP HANA Security—An Overview](https://www.tutorialspoint.com/sap_hana/sap_hana_security_overview.htm).
+
+For data at rest, different encryption functionalities provide security as follows:
+
+* Along with the SAP HANA native encryption technology, consider using an encryption solution from a partner that supports customer-managed keys.
+
+* To encrypt virtual machine disks, you can use functionalities described in [Disk Encryption Overview](/azure/virtual-machines/disk-encryption-overview).
+  
+* SAP Database servers: Use Transparent Data Encryption offered by the DBMS provider (for example, *SAP HANA native encryption technology*) to help secure your data and log files and to ensure the backups are also encrypted.
+  
+* Data in Azure physical storage (Server-Side Encryption) is automatically encrypted at rest with an Azure managed key. You can also choose a customer managed key (CMK) instead of the Azure managed key.
+
+* For information about support of Azure Disk Encryption on particular Linux distros, versions, and images, see [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview).
+
+> [!NOTE]
+> Don't combine SAP HANA native encryption technology with Azure Disk Encryption or Host Based Encryption on the same storage volume. Also, operating system boot disks for Linux virtual machines don't support Azure Disk Encryption. Instead, when you use SAP HANA native encryption, combine it with Server-Side Encryption, which is automatically enabled. Be aware that the usage of customer-managed keys might affect storage throughput.
+
+For network security, use network security groups (NSGs) and Azure Firewall or a network virtual appliance as follows:
+
+* Use [NSGs](/azure/virtual-network/network-security-groups-overview) to protect and control traffic between subnets and application/database layers. Only apply NSGs to subnets. NSGs applied to both NIC and subnet very often lead to problems during troubleshooting and should be used rarely if ever.
+
+* Use [Azure Firewall](/azure/firewall/overview) or Azure network virtual appliance to inspect and control the routing of traffic from the hub virtual network to the spoke virtual network where your SAP applications are, and also to control your outbound internet connectivity.
+
+For User and Authorization, implement role-based access control (RBAC) and resource locks as follows:
+
+* Follow the principle of least privilege, using [RBAC](/azure/role-based-access-control/overview) for assigning administrative privileges at IaaS-level resources that host your SAP solution on Azure. The fundamental purpose of RBAC is the segregation and control of duties for your users/group. RBAC is designed to grant only the amount of access to resources that's needed to enable users to do their jobs.
+
+* Use [resource locks](/azure/azure-resource-manager/management/lock-resources) to help prevent accidental or malicious changes. Resource locks help prevent administrators from deleting or modifying critical Azure resources where your SAP solution is located.
+
+More security recommendations can be found at theses [Microsoft](https://azure.microsoft.com/blog/sap-on-azure-architecture-designing-for-security/) and [SAP](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/) articles.
 
 ### Scalability
 
@@ -149,39 +184,6 @@ Azure Backup offers a simple, enterprise-grade solution for workloads running on
 To monitor your workloads on Azure, [Azure Monitor](/azure/azure-monitor/overview) lets you comprehensively collect, analyze, and act on telemetry from your cloud and on-premises environments.
 
 For SAP applications that run on SAP HANA and other major database solutions, see [Azure Monitor for SAP solutions](/azure/sap/monitor/about-azure-monitor-sap-solutions) to learn how Azure Monitor for SAP can help you manage the availability and performance of SAP services.
-
-### Security
-
-Many security measures are used to protect the confidentiality, integrity, and availability of an SAP landscape. To secure user access, for example, SAP has its own User Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For more information, see [SAP HANA Security—An Overview](https://www.tutorialspoint.com/sap_hana/sap_hana_security_overview.htm).
-
-For data at rest, different encryption functionalities provide security as follows:
-
-* Along with the SAP HANA native encryption technology, consider using an encryption solution from a partner that supports customer-managed keys.
-
-* To encrypt virtual machine disks, you can use functionalities described in [Disk Encryption Overview](/azure/virtual-machines/disk-encryption-overview).
-  
-* SAP Database servers: Use Transparent Data Encryption offered by the DBMS provider (for example, *SAP HANA native encryption technology*) to help secure your data and log files and to ensure the backups are also encrypted.
-  
-* Data in Azure physical storage (Server-Side Encryption) is automatically encrypted at rest with an Azure managed key. You can also choose a customer managed key (CMK) instead of the Azure managed key.
-
-* For information about support of Azure Disk Encryption on particular Linux distros, versions, and images, see [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview).
-
-> [!NOTE]
-> Don't combine SAP HANA native encryption technology with Azure Disk Encryption or Host Based Encryption on the same storage volume. Also, operating system boot disks for Linux virtual machines don't support Azure Disk Encryption. Instead, when you use SAP HANA native encryption, combine it with Server-Side Encryption, which is automatically enabled. Be aware that the usage of customer-managed keys might affect storage throughput.
-
-For network security, use network security groups (NSGs) and Azure Firewall or a network virtual appliance as follows:
-
-* Use [NSGs](/azure/virtual-network/network-security-groups-overview) to protect and control traffic between subnets and application/database layers. Only apply NSGs to subnets. NSGs applied to both NIC and subnet very often lead to problems during troubleshooting and should be used rarely if ever.
-
-* Use [Azure Firewall](/azure/firewall/overview) or Azure network virtual appliance to inspect and control the routing of traffic from the hub virtual network to the spoke virtual network where your SAP applications are, and also to control your outbound internet connectivity.
-
-For User and Authorization, implement role-based access control (RBAC) and resource locks as follows:
-
-* Follow the principle of least privilege, using [RBAC](/azure/role-based-access-control/overview) for assigning administrative privileges at IaaS-level resources that host your SAP solution on Azure. The fundamental purpose of RBAC is the segregation and control of duties for your users/group. RBAC is designed to grant only the amount of access to resources that's needed to enable users to do their jobs.
-
-* Use [resource locks](/azure/azure-resource-manager/management/lock-resources) to help prevent accidental or malicious changes. Resource locks help prevent administrators from deleting or modifying critical Azure resources where your SAP solution is located.
-
-More security recommendations can be found at theses [Microsoft](https://azure.microsoft.com/blog/sap-on-azure-architecture-designing-for-security/) and [SAP](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/) articles.
 
 ## Communities
 

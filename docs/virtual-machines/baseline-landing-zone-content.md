@@ -326,7 +326,11 @@ Many of these considerations might exist without Azure landing zones, but the wo
 
 For more information, see [Recommendations for performing failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis#identify-dependencies).
 
-## Security
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
+### Security
 
 The security considerations for this architecture carry over from the [baseline architecture](baseline.yml#security). The recommendations in the following sections are based on the [security design review checklist in the Well-Architected Framework](/azure/well-architected/security/checklist).
 

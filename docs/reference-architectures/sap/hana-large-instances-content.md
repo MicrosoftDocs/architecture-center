@@ -80,6 +80,8 @@ To lower network latency and improve performance, consider enabling FastPath (al
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
 ### Scalability
 
 To scale up or down, you can choose from many sizes of servers that are available for HANA Large Instances. They are categorized as [Type I and Type II][classes] and tailored for different workloads. Choose a size that can grow with your workload for the next three years. One-year commitments are also available.
@@ -119,14 +121,6 @@ This architecture supports [disaster recovery][hli-dr] between HANA Large Instan
 - Storage replication. The primary storage contents are constantly replicated to the remote DR storage systems that are available on the designated DR HANA Large Instances server. In storage replication, the HANA database is not loaded into memory. This DR option is simpler from an administration perspective. To determine if this is a suitable strategy, consider the database load time against the availability SLA. Storage replication also enables you to perform point-in-time recovery. If multi-purpose (cost-optimized) DR is set up, you must purchase additional storage of the same size at the DR location. Microsoft provides self-services [storage snapshot and failover scripts][scripts] for HANA failover as part of the HANA Large Instances offering.
 
 - Multi-tier or multi-target HSR with a third replica in the DR region (where the HANA database is loaded onto memory). This option supports a faster recovery time but does not support a point-in-time recovery. HSR requires a secondary system. HANA system replication traffic destined for the DR site can be routed through proxies such as nginx or IP tables. Alternatively, Global Reach can be used to link the ExpressRoute circuits together, enabling permitted users to connect to HANA Large Instances unit directly.
-
-### Cost optimization
-
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
-
-For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
-
-SKUs can affect the billing model. Here are some cost considerations.
 
 #### Virtual machines
 
@@ -171,6 +165,8 @@ Microsoft offers basic tools and resources to help you [monitor HANA Large Insta
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
 - Since the end of 2018, [HANA Large Instances storage][storage] is encrypted by default.
 
 - Data in transit between HANA Large Instances and theVMs is not encrypted. To encrypt the data transfer, enable the application-specific encryption. See SAP Note [2159014][sap-2159014] - FAQ: SAP HANA Security.
@@ -184,6 +180,16 @@ Microsoft offers basic tools and resources to help you [monitor HANA Large Insta
 - For physical security, access to Azure datacenters is limited to authorized personnel only. No customers can access the physical servers.
 
 For more information, see [SAP HANA Security&mdash;An Overview][sap-security]. (An SAP Service Marketplace account is required for access.)
+
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
+
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+
+SKUs can affect the billing model. Here are some cost considerations.
 
 ## Communities
 
