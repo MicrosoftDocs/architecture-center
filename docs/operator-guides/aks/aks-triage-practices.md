@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about the five articles that describe the triage practices for AKS operations. Get an overview of the top-down triage approach.
 author: paolosalvatori
 ms.author: paolos
-ms.date: 11/22/2023
+ms.date: 01/20/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
