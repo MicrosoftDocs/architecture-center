@@ -19,8 +19,6 @@ Azure provides a wide range of integration tools and capabilities, including the
 
 For information about more Azure integration services, see [Integration Services][Integration Services].
 
-Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
-
 ## Introduction to integration on Azure
 
 If you're new to integration, the best place to start is Microsoft Learn. This free online platform offers videos, tutorials, and hands-on training for various products and services.
@@ -99,8 +97,6 @@ These resources can help you spot-check your design against current recommended 
 
 - To check whether your Logic Apps implementation aligns with the Azure Security Benchmark version 2.0, see [Azure security baseline for Logic Apps][Azure security baseline for Logic Apps].
 
-- For general information and guidelines on using Apache NiFi to process and distribute data on Azure, see [Apache NiFi on Azure][Apache NiFi on Azure].
-
 ## Suite of baseline implementations
 
 These reference architectures provide baseline implementations for various scenarios:
@@ -138,7 +134,6 @@ The following resources provide practical recommendations and information for sp
 - [Google Cloud to Azure services comparison—miscellaneous workflow][Google Cloud to Azure services comparison—Miscellaneous workflow]
 
 [About connectors in Azure Logic Apps]: /azure/connectors/apis-list?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-[Apache NiFi on Azure]: ../example-scenario/data/azure-nifi.yml
 [API Management ACOM page]: https://azure.microsoft.com/services/api-management
 [Architect API integration in Azure]: /training/paths/architect-api-integration
 [Asynchronous messaging options]: ../guide/technology-choices/messaging.yml
