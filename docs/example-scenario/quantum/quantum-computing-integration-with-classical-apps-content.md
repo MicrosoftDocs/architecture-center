@@ -92,6 +92,7 @@ The loosely coupled approach is preferred in these cases:
 *Download a [PowerPoint file](https://arch-center.azureedge.net/loosely-coupled-quantum.pptx) of this architecture.*
 
 ### Dataflow
+
 1. A signed-in user triggers quantum job execution via a classical application.
 1. The classical application calls the custom job API to submit the job.
 1. The API gateway triggers the job submission Azure function, which passes job input data.
