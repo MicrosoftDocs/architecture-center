@@ -37,7 +37,7 @@ Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademar
 - [Availability zones][Availability Zones] are unique physical locations within an Azure region. These high-availability offerings protect applications and data from datacenter failures.
 - [Application Gateway][What is Azure Application Gateway?] is a load balancer that manages traffic to web applications.
 - [Monitor][Azure Monitor overview] collects and analyzes data on environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs. For more information, see [Monitoring considerations][Monitoring considerations section of this article] later in this article.
-- [Log Analytics][Log Analytics tutorial] is an Azure portal tool that runs queries on Monitor log data. Log Analytics also provides features for charting and statistically analyzing query results.
+- [Log Analytics][Log Analytics service guide] is an Azure portal tool that runs queries on Monitor log data. Log Analytics also provides features for charting and statistically analyzing query results.
 - [Azure DevOps Services][Azure DevOps] provides services, tools, and environments for managing coding projects and deployments.
 - [Key Vault][Azure Key Vault] securely stores and controls access to a system's secrets, such as API keys, passwords, certificates, and cryptographic keys.
 - [Microsoft Entra ID][Microsoft Entra ID] is a cloud-based identity service that controls access to Azure and other cloud apps.
@@ -946,10 +946,10 @@ For more information, see the following resources:
 [Apache ZooKeeper Releases]: https://zookeeper.apache.org/releases.html
 [Application Gateway health monitoring overview]: /azure/application-gateway/application-gateway-probe-overview
 [Availability Zones]: /azure/reliability/availability-zones-overview
-[Microsoft Entra ID]: https://azure.microsoft.com/services/active-directory
+[Microsoft Entra ID]: /entra/fundamentals/whatis
 [Azure Application Gateway documentation]: /azure/application-gateway
-[Azure DevOps]: https://azure.microsoft.com/services/devops
-[Azure Key Vault]: /azure/key-vault
+[Azure DevOps]: /azure/devops/user-guide/what-is-azure-devops
+[Azure Key Vault]: /azure/key-vault/general/overview
 [Azure Monitor and Azure Data Explorer query differences]: /azure/azure-monitor/log-query/data-explorer-difference
 [Azure Monitor overview]: /azure/azure-monitor/overview
 [Apache NiFi In Depth]: https://nifi.apache.org/docs/nifi-docs/html/nifi-in-depth.html
@@ -970,6 +970,7 @@ For more information, see the following resources:
 [Introduction to Azure managed disks]: /azure/virtual-machines/managed-disks-overview
 [Kusto query overview]: /azure/data-explorer/kusto/query
 [Log Analytics agent overview]: /azure/azure-monitor/agents/log-analytics-agent
+[Log Analytics service guide]: /azure/well-architected/service-guides/azure-log-analytics
 [Log Analytics tutorial]: /azure/azure-monitor/logs/log-analytics-tutorial
 [Log Analytics virtual machine extension for Linux]: /azure/virtual-machines/extensions/oms-linux
 [Log queries in Azure Monitor]: /azure/azure-monitor/logs/log-query-overview
@@ -998,9 +999,9 @@ For more information, see the following resources:
 [Sizes for virtual machines in Azure]: /azure/virtual-machines/sizes
 [Time sync for Linux VMs in Azure]: /azure/virtual-machines/linux/time-sync
 [Troubleshoot Azure virtual machine performance on Linux or Windows]: /troubleshoot/azure/virtual-machines/troubleshoot-performance-virtual-machine-linux-windows
-[Virtual Machines]: https://azure.microsoft.com/services/virtual-machines/#overview
+[Virtual Machines]: /azure/well-architected/service-guides/virtual-machines
 [Visio file of architecture diagram]: https://arch-center.azureedge.net/azure-nifi-architecture.vsdx
-[What is Azure Application Gateway?]: /azure/application-gateway/overview
+[What is Azure Application Gateway?]: /azure/well-architected/service-guides/azure-application-gateway
 [What is Azure Bastion?]: /azure/bastion/bastion-overview
 [What is Azure Private Link?]: /azure/private-link/private-link-overview
 [What are virtual machine scale sets?]: /azure/virtual-machine-scale-sets/overview

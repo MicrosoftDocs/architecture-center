@@ -18,13 +18,13 @@ Contoso Bank had an on-premises implementation of an orchestration-based saga. I
 
 The proposed solution below is a saga pattern implementation through an orchestration approach using a serverless architecture on Azure. It addresses the challenges by using:
 
-* [Azure Functions](https://azure.microsoft.com/services/functions) for the implementation of saga participants.
+* [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) for the implementation of saga participants.
 
 * [Azure Durable Functions](/azure/azure-functions/durable/durable-functions-overview) for orchestration, designed to provide the workflow programming model and state management.
 
-* [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) as the data streaming platform.
+* [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) as the data streaming platform.
 
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) as the database service to store data models.
+* [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) as the database service to store data models.
 
 For more information, see [Pattern: Saga](https://microservices.io/patterns/data/saga.html) on Microservices.io.
 
@@ -48,7 +48,7 @@ For more information on KEDA scalers, see the following KEDA documents:
 
 #### Workflow
 
-1. The CSE team deployed the application on the [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. The solution needed to scale out the application automatically based on the incoming message count. The CSE team used a Kafka scaler to detect if the solution should activate or deactivate application deployment. The Kafka scaler also feeds custom metrics for a specific event source. The event source in this example is an Azure event hub.
+1. The CSE team deployed the application on the [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) cluster. The solution needed to scale out the application automatically based on the incoming message count. The CSE team used a Kafka scaler to detect if the solution should activate or deactivate application deployment. The Kafka scaler also feeds custom metrics for a specific event source. The event source in this example is an Azure event hub.
 
 1. When the number of messages in the Azure event hub exceeds a threshold, KEDA triggers the pods to scale out, increasing the number of messages processed by the application. Automatic scale down of the pods occurs when the number of messages in the event source falls below the threshold value.
 
