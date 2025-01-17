@@ -32,7 +32,7 @@ The tightly coupled approach is preferred in these cases:
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/tightly-coupled-quantum.pptx) of this architecture.*
 
-### Dataflow
+#### Dataflow
 
 1. A signed-in user triggers quantum job execution via a classical client application.
 1. The client application puts input data into Azure Storage.
@@ -43,7 +43,7 @@ The tightly coupled approach is preferred in these cases:
 
 This workflow implements the [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.yml) and the steps defined for the [Azure Quantum job lifecycle](/azure/quantum/how-to-work-with-jobs#job-lifecycle).
 
-### Components
+#### Components
 
 * [Azure Quantum](/azure/quantum/overview-azure-quantum) provides a [workspace](/azure/quantum/how-to-create-workspace), accessible from the Azure portal, for assets associated with running quantum jobs on various targets. Jobs are run on quantum simulators or quantum hardware, depending on the provider you choose.
 * [Microsoft Entra ID](/entra/fundamentals/whatis) coordinates user authentication and helps to protect access to the Azure Quantum workspace.
@@ -91,7 +91,7 @@ The loosely coupled approach is preferred in these cases:
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/loosely-coupled-quantum.pptx) of this architecture.*
 
-### Dataflow
+#### Dataflow
 
 1. A signed-in user triggers quantum job execution via a classical application.
 1. The classical application calls the custom job API to submit the job.
@@ -105,7 +105,7 @@ The loosely coupled approach is preferred in these cases:
 
 This workflow implements the [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.yml) and the steps defined for the [Azure Quantum job lifecycle](/azure/quantum/how-to-work-with-jobs#job-lifecycle).
 
-### Components
+#### Components
 
 * [Azure Quantum](https://azure.microsoft.com/services/quantum) provides a [workspace](/azure/quantum/how-to-create-workspace), accessible from the Azure portal, for assets associated with running quantum jobs on various targets. Jobs are run on quantum simulators or quantum hardware, depending on the provider you choose.
 * [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) coordinates user authentication and helps to protect access to the Azure Quantum workspace.
@@ -180,7 +180,7 @@ Incorporating quantum jobs into classical CI/CD pipelines can be accomplished us
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/cicd-quantum.pptx) of this architecture.*
 
-##### Dataflow
+###### Dataflow
 
 1. The developer changes the source code of the application components.
 1. Changes are committed to the source code repository.
@@ -193,7 +193,7 @@ Incorporating quantum jobs into classical CI/CD pipelines can be accomplished us
 1. Backlog items are updated as needed, depending on monitoring results.
 1. The developer uses Application Insights for application feedback and optimization.
 
-##### Components
+###### Components
 
 This solution uses the following DevOps tools:
 
