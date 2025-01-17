@@ -210,6 +210,10 @@ Operational Excellence covers the operations processes that deploy an applicatio
   - Use Monitor Data Export for data archival to low-cost storage.
   - Follow best practices for telemetry data in Application Insights workspaces. For more information, see [Manage usage and costs for Application Insights](/azure/azure-monitor/app/pricing).
 
+- Metric alerts check at regular intervals whether conditions in one or more metric time-series are true, and notify you when conditions meet the evaluations. Metric alerts are stateful by default, sending notifications only when the state changes, for example to *fired* or *resolved*.
+
+  Log alerts use a Log Analytics query to evaluate resource logs at a set frequency, and fire an alert based on the results.  Metric based alerts can be faster to send notifications than log alerts.
+
 ### Performance Efficiency
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
@@ -233,12 +237,6 @@ The total ingestion time for a particular set of data has the following parts:
 - Indexing time: The time spent to ingest a log record into the Monitor big data store.
 
 To ensure minimal latency, place Monitor workspaces, Logic Apps, and related infrastructure in the same Azure region with the workloads they monitor or control. However, there could still be latency issues. For more information, see [Log data ingestion time in Azure Monitor](/azure/azure-monitor/logs/data-ingestion-time).
-
-#### Log vs. metric alerts
-
-Metric alerts check at regular intervals whether conditions in one or more metric time-series are true, and notify you when conditions meet the evaluations. Metric alerts are stateful by default, sending notifications only when the state changes, for example to *fired* or *resolved*.
-
-Log alerts use a Log Analytics query to evaluate resource logs at a set frequency, and fire an alert based on the results.  Metric based alerts can be faster to send notifications than log alerts.
 
 ### Considerations checklist
 

@@ -153,29 +153,33 @@ The architectures presented here are for business problems that require quantum 
 
 Some of the Azure quantum targets (especially quantum hardware) will be a limited resource for the foreseeable future. Access to these resources is implemented via a queueing mechanism. When you submit a quantum job to Azure Quantum, this job is added to a job queue. The job will be executed, once the target completes processing earlier queue entries. You can obtain the expected waiting time by [listing available targets](/azure/quantum/how-to-submit-jobs). To calculate the full response time, you need to add the time spent waiting for an available resource to the job execution time.
 
-### Reliability
+#### Reliability
 
 As quantum target environments like Azure Quantum typically provide limited error-correction (limited to the quantum processor in the case of Azure Quantum), other errors such as quantum machine timeout may still occur so it is recommended to monitor job execution so you can inform the user about job status. When job execution fails because of a transient error, implement a [retry pattern](/azure/architecture/patterns/retry). Submit the jobs via asynchronous calls, with polling for the result, to avoid unnecessarily blocking the calling client.
 
 As quantum computing resources are typically limited, resiliency expectations should consider this factor.  As such, the suggestions offered in this article may provide additional measures of resiliency.
 
-### Operational Excellence
+#### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+The overall cost of this solution depends on the quantum computing target that you select to run the quantum job. Calculating estimated costs for the classic components is straightforward. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+
+For the Azure Quantum service, consider that Quantum computing providers can be consumed via an Azure Marketplace offering. Pricing depends on the type of resource (simulator or hardware), the SKU, and your usage. For details, see the reference page for the provider needed for your scenario. These reference pages are listed in [Quantum computing providers on Azure Quantum](/azure/quantum/qc-target-list).
+
+#### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 Incorporating quantum jobs into classical CI/CD pipelines can be accomplished using Azure DevOps with minor changes to a typical design. The design below illustrates a DevOps pipeline workflow that can be applied to the tightly coupled and loosely coupled architectures.
 
-### Performance Efficiency
-
-Application performance depends on the availability and performance of the underlying quantum computing targets. For information about the performance and scalability of the classical components, review the [typical design patterns for scalability](/azure/architecture/framework/scalability/performance-efficiency-patterns) and the [performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
-
-#### Architecture
+##### Architecture
 
 :::image type="content" alt-text="Architecture diagram that shows a classical CI/CD pipeline with Azure Quantum incorporated into it." source="media/cicd-for-quantum-computing-jobs.svg" lightbox="media/cicd-for-quantum-computing-jobs.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/cicd-quantum.pptx) of this architecture.*
 
-#### Dataflow
+##### Dataflow
 
 1. The developer changes the source code of the application components.
 1. Changes are committed to the source code repository.
@@ -188,7 +192,7 @@ Application performance depends on the availability and performance of the under
 1. Backlog items are updated as needed, depending on monitoring results.
 1. The developer uses Application Insights for application feedback and optimization.
 
-#### Components
+##### Components
 
 This solution uses the following DevOps tools:
 
@@ -206,13 +210,9 @@ The solution uses the following other components:
 * [Azure Storage](/azure/storage/common/storage-introduction) holds the input and output data of the quantum job.
 * [Application Insights](/azure/well-architected/service-guides/application-insights) monitors the application, detects application anomalies like poor performance and failures, and sends telemetry to the Azure portal.
 
-### Cost Optimization
+#### Performance Efficiency
 
-Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
-
-The overall cost of this solution depends on the quantum computing target that you select to run the quantum job. Calculating estimated costs for the classic components is straightforward. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
-
-For the Azure Quantum service, consider that Quantum computing providers can be consumed via an Azure Marketplace offering. Pricing depends on the type of resource (simulator or hardware), the SKU, and your usage. For details, see the reference page for the provider needed for your scenario. These reference pages are listed in [Quantum computing providers on Azure Quantum](/azure/quantum/qc-target-list).
+Application performance depends on the availability and performance of the underlying quantum computing targets. For information about the performance and scalability of the classical components, review the [typical design patterns for scalability](/azure/architecture/framework/scalability/performance-efficiency-patterns) and the [performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
 
 ## Contributors
 
