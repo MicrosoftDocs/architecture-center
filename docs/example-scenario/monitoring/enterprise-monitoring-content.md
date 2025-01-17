@@ -144,7 +144,6 @@ Logic Apps workflows help you integrate and orchestrate data between apps, cloud
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-
 This solution uses the following security mechanisms.
 
 #### Access control

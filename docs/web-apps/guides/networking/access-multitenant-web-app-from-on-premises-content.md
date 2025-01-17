@@ -155,7 +155,7 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 
 For information about integrating Azure Private Link for PaaS services with Azure Private DNS zones in hub-and-spoke network architectures, see [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale).
 
-### Global peering
+#### Global peering
 
 Any service in any Azure region that can connect through the virtual network can reach the PaaS services' private endpoints, for example, through [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) in hub-and-spoke topologies. However, for App Service regional VNet Integration, the peered virtual networks must be located in the same Azure region.
 
