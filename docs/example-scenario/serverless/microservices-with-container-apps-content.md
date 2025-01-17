@@ -169,6 +169,7 @@ To achieve operational excellence, the Container Apps service offers these featu
 - GitHub Actions integration for setting up automated CI/CD deployments.
 - Multi-revision mode with traffic splitting for testing changes to your application code and scale rules.
 - Integration with Azure Monitor and Log Analytics to provide insight into your containerized application.
+- Log analytics provides log aggregation to gather information across each Container Apps environment.
 
 ### Performance Efficiency
 
@@ -181,7 +182,6 @@ Performance considerations in this solution:
 - Autoscaling can be enabled as the workload increases.
 - Requests are dynamically load balanced.
 - Metrics, including CPU and memory utilization, bandwidth information and storage utilization, are available through Azure Monitor.
-- Log analytics provides log aggregation to gather information across each Container Apps environment.
 
 ## Deploy this scenario
 
