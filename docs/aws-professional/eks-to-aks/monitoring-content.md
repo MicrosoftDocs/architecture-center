@@ -37,6 +37,14 @@ AKS natively integrates with [Azure Monitor](/azure/azure-monitor/overview). Azu
 
 [Container Insights](/azure/azure-monitor/containers/container-insights-overview) is the feature of Azure Monitor that collects, indexes, and stores the data your AKS cluster generates. You can configure Container Insights to monitor managed Kubernetes clusters hosted on AKS and other cluster configurations. Container Insights can monitor AKS health and performance with visualization tailored to Kubernetes environments. Similar to EKS, enabling Container Insights for your AKS cluster deploys a containerized version of the Log Analytics agent, which is responsible for sending data to your Log Analytics workspace.
 
+Container Insights currently uses data from a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview) to power the visualizations in the Azure portal. However, with the release of [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), this new format of metrics collection is cheaper and more efficient. Container Insights offers the ability to visualize metrics using only managed Prometheus data. For more information, see [Switch to using managed Prometheus visualizations for Container Insights](/azure/azure-monitor/containers/container-insights-experience-v2).
+
+To ensure comprehensive monitoring of your Kubernetes clusters, it is recommended to utilize the Azure Monitor features mentioned below:
+
+- Utilize [Managed Prometheus](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-overview) for effective metric collection.
+- Employ [Container insights](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-overview) to gather logs.
+- Leverage [Managed Grafana](https://learn.microsoft.com/en-us/azure/managed-grafana/overview) for advanced visualization capabilities.
+
 ### Microsoft Sentinel
 
 [Microsoft Sentinel](/azure/sentinel/overview) delivers intelligent security analytics and threat intelligence across the enterprise. With Microsoft Sentinel, you get a single solution for attack detection, threat visibility, proactive hunting, and threat response.
@@ -58,15 +66,12 @@ An AKS deployment can divide into cluster level components, managed AKS componen
 | External | External resources that aren't part of AKS but are required for cluster scalability and management | Specific to each component |
 
 - **Cluster level components:** You can use existing Container Insights views and reports to monitor cluster level components to understand their health, readiness, performance, CPU and memory resource utilization, and trends.
-
 - **Managed AKS components:** You can use Metrics Explorer to view the **Inflight Requests** counter. This view includes request latency and work queue processing time.
-
 - **Kubernetes objects and workloads:** You can use existing Container Insights views and reports to monitor deployment, controllers, pods, and containers. Use the **Nodes** and **Controllers** views to view the health and performance of the pods that are running on nodes and controllers, and their resource consumption in terms of CPU and memory.
 
 From the Container Insights **Containers** view, you can view the health and performance of containers, or select an individual container and monitor its events and logs in real time. For details about using this view and analyzing container health and performance, see [Monitor your Kubernetes cluster performance with Container Insights](/azure/azure-monitor/containers/container-insights-analyze).
 
 - **Applications:** You can use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor applications that are running on AKS and other environments. Application Insights is an application performance management tool that provides support for many programming languages. Depending on your needs, you can instrument your application code to capture requests, traces, logs, exceptions, custom metrics, and end-to-end transactions, and send this data to Application Insights. If you have a Java application, you can provide monitoring without instrumenting your code. For more information, see [Zero instrumentation application monitoring for Kubernetes](/azure/azure-monitor/app/kubernetes-codeless).
-
 - **External components**: You can use Azure Monitor features to monitor any Azure platform-as-a-service (PaaS) that your workload applications use, such as databases and other Azure resources.
 
 #### Azure Monitor managed service for Prometheus
@@ -93,9 +98,9 @@ Before enabling Container Insights, estimate costs and understand how to control
 
 Principal authors:
 
-- [Ketan Chawda](https://www.linkedin.com/in/ketanchawda1402) | Senior Customer Engineer
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
-- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
+- [Ketan Chawda](https://www.linkedin.com/in/ketanchawda1402) | Senior Customer Engineer
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Cloud Solution Architect
 
 Other contributors:
 
