@@ -1,5 +1,5 @@
 ---
-title: Develop a RAG Solution—Chunking Phase
+title: Develop a RAG Solution - Chunking Phase
 description: Learn about the various chunking strategies like boundary based, custom code, and document analysis models. Also learn about how the document structure should influence your chunking strategy.
 author: robbagby
 ms.author: robbag
@@ -20,7 +20,7 @@ products:
 
 # RAG chunking phase
 
-After you gather your test documents and queries and perform a document analysis during the [preparation phase](./rag-preparation-phase.md), the next phase is chunking. Breaking down documents into appropriately sized chunks that each contain semantically relevant content is crucial for the success of your Retrieval-Augmented Generation (RAG) implementation. Passing entire documents or oversized chunks is expensive, might overwhelm the token limits of the model, and doesn't produce the best results. Passing information to a language model that's irrelevant to the query can result in hallucinations, which are instances where a language model generates information that's inaccurate or irrelevant to the query. You need to optimize the process of passing relevant information and removing irrelevant information by using effective chunking and searching strategies. This approach minimizes false positives and false negatives, and maximizes true positives and true negatives.
+After you gather your test documents and queries and perform a document analysis during the [preparation phase](./rag-preparation-phase.md), the next phase is chunking. Breaking down documents into appropriately sized chunks that each contain semantically relevant content is crucial for the success of your Retrieval-Augmented Generation (RAG) implementation. Passing entire documents or oversized chunks is expensive, might overwhelm the token limits of the model, and doesn't produce the best results. Passing information to a language model that's irrelevant to the query can result in inaccurate or unrelated responses. You need to optimize the process of passing relevant information and removing irrelevant information by using effective chunking and searching strategies. This approach minimizes false positives and false negatives, and maximizes true positives and true negatives.
 
 Chunks that are too small and don't contain sufficient context to address the query can result in poor outcomes. Relevant context that exists across multiple chunks might not be captured. The key is to implement effective chunking approaches for your specific document types and their specific structures and content. There are various chunking approaches to consider, each with their own cost implications and effectiveness, depending on the type and structure of document that they're applied to.
 
