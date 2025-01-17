@@ -88,7 +88,6 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 
 The bots used in this scenario are hosted on Azure App Service. As a result, you can use the standard App Service autoscaling features to automatically scale the number of instances running your bot, which allows your bot to keep up with demand. For more information about autoscaling, see [Autoscaling best practices](../../best-practices/auto-scaling.md).
 
-For other scalability topics, see the Azure Architecture Center [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
 
 ## Deploy this scenario
 
