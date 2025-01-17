@@ -59,11 +59,11 @@ For a workload running on spot VMs, compute capacity is a treasure. The imminent
 
 ### Use multiple VM sizes and locations
 
-We recommend building an orchestration to use multiple VM types and sizes to increase flexibility. The goal is to give your orchestration options to replace an evicted VM. Azure has different VM types and sizes that provide similar capabilities for around the same price. You should filter VMs min vCPUs/Cores and/or min RAM, and max price to find multiple VMs that have the power to run your workload and fit within your budget.
+We recommend building an orchestration to use multiple VM types and sizes to increase flexibility. The goal is to give your orchestration options to replace an evicted VM. Azure has different VM types and sizes that provide similar capabilities for around the same price. You should filter VMs' minimum vCPUs/cores and/or minimum RAM, and maximum price to find multiple VMs that have the power to run your workload and fit within your budget.
 
 Each VM type has an eviction rate expressed as a percentage range (0-5%, 5-10%, 10-15%, 15-20%, 20+%). The eviction rates can vary across regions. You might find a better eviction rate for the same VM type in a different region. You can find the eviction rates for each VM type in the portal under the "Basics" tab. Select the "Size" links ("View pricing history" or "See all sizes"). You can also programmatically get spot VM data using Azure Resource Graph.
 
-Additionally, consider using the feature Spot Placement Score to evaluate the likelihood of success for individual Spot deployments as part of your orchestration system. For more information, see:
+Additionally, in your orchestration system, consider using the Spot Placement Score feature to evaluate the likelihood of success for individual spot deployments. For more information, see:
 
 - [Eviction rates](/azure/virtual-machines/spot-vms#portal)
 - [Azure Resource Graph](/azure/virtual-machines/spot-vms#azure-resource-graph)
@@ -104,7 +104,7 @@ For a delete policy, we recommend building a pipeline that uses different VM siz
 
 ### Prepare for immediate eviction
 
-It's possible for Azure to evict a spot VM as soon as you create it and before your workload executes. Just because there was capacity to create a spot VM, doesn't mean it persists. Spot VMs have no availability guarantees (SLAs) after creation. Your orchestration needs to account for immediate evictions. The `Preempt` signal provides a minimum of 30-seconds advance notice of the eviction.
+It's possible for Azure to evict a spot VM as soon as you create it and before your workload runs. Just because there was capacity to create a spot VM, doesn't mean it persists. Spot VMs have no availability guarantees (SLAs) after creation. Your orchestration needs to account for immediate evictions. The `Preempt` signal provides a minimum of 30-seconds advance notice of the eviction.
 
 Incorporate VM health checks into your orchestration to prepare for immediate evictions. Orchestration for immediate evictions can't rely on the Schedule Events `Preempt` signal. Only the VM itself can query the `Preempt` signal, and there's not enough time to start an application, query the Schedule Events endpoint, and gracefully shutdown. So the health check needs to reside outside the workload environment. The health checks need to watch the status of the spot VM and start the deployment pipeline to replace the spot VM when the status changes to deallocating or stopping.
 
