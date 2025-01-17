@@ -78,6 +78,8 @@ This architecture applies to any organization that uses mainframe computers runn
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
 ### Container-based approach
 
 To make the most of the flexibility, reliability, and capabilities of Azure, you need to rearchitect mainframe applications. We recommend that you rewrite monolithic applications as microservices and use a container-based approach to deployment. A container bundles all the software that's needed for execution into one executable package. It includes an application's code together with the related configuration files, libraries, and dependencies that are required to run the app. Containerized applications are quick to deploy and support popular DevOps practices like continuous integration (CI) and continuous deployment (CD).  
@@ -100,7 +102,7 @@ This architecture is primarily built on Kubernetes, which includes security comp
 
 ### Cost Optimization
 
-Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist](/azure/well-architected/cost-optimization/checklist) for Cost Optimization.
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Use the [cluster autoscaler](/azure/aks/cluster-autoscaler) and the [horizontal pod autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) to scale the number of pods and nodes based on traffic conditions. Adabas pods can use horizontal pod autoscaler for cost optimization.
 
