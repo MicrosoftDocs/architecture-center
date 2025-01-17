@@ -225,6 +225,8 @@ Network traffic from the public internet follows this flow:
 
 Outbound flows from the VMs to the public internet go through Azure Firewall, as defined by the UDR to `0.0.0.0/0`.
 
+As a variation of this design you could configure private Destination Network Address Translation (DNAT) in the Azure Firewall, so that the application workload would see Azure Firewall instances' IP addresses as source, and no user-defined routes would be required. The source IP address of the application clients is already preserved in the `X-Forwarded-For` HTTP header by Azure Application Gateway, so even if Azure Firewall DNATs the traffic no information is lost. You can refer to [Tutorial: Filter inbound Internet or intranet traffic with Azure Firewall policy DNAT using the Azure portal][azfw-dnat] for more details on how to configure DNAT for Azure Firewall's private IP address.
+
 ## Application Gateway after firewall
 
 This design lets Azure Firewall filter and discard malicious traffic before it reaches the Application Gateway. For example, it can apply features like threat intelligence-based filtering. Another benefit is that the application gets the same public IP address for both inbound and outbound traffic, regardless of protocol. There are three modes in which you could theoretically configure the Azure Firewall:
@@ -400,7 +402,7 @@ Explore related architectures:
 [azfw-premium-features]: /azure/firewall/premium-features
 [azfw-idps-rules]: /azure/firewall/premium-features#idps-signature-rules
 [azfw-docs]: /azure/firewall/
-[azfw-dnat]: /azure/firewall/tutorial-firewall-dnat
+[azfw-dnat]: /azure/firewall/tutorial-firewall-dnat-policy
 [azfw-snat]: /azure/firewall/snat-private-range
 [azfw-issues]: /azure/firewall/overview#known-issues
 [azfw-dns]: /azure/firewall/fqdn-filtering-network-rules
