@@ -28,8 +28,6 @@ This article compares the storage capabilities of Amazon Elastic Kubernetes Serv
 
 ## Amazon EKS storage options
 
-## Amazon EKS Storage Options
-
 When running applications that require data storage, Amazon EKS offers different types of volumes for both temporary and long-lasting storage.
 
 ### Ephemeral Volumes
@@ -63,7 +61,7 @@ This article introduces the storage options and core concepts that provide stora
 
 Kubernetes volumes represent more than just a traditional disk for storing and retrieving information. Kubernetes volumes can also be used as a way to inject data into a pod for use by its containers.
 
-Common volume types in Kubernetes include:
+Common volume types in Kubernetes include [emptyDir](#emptydir), [secret](#secret), and [configMap](#configmap).
 
 #### emptyDir
 
@@ -92,13 +90,13 @@ Like using a secret:
 
 ## Persistent volumes
 
-Volumes defined and created as part of the pod lifecycle only exist until you delete the pod. Pods often expect their storage to remain if a pod is rescheduled on a different host during a maintenance event, especially in StatefulSets. A *persistent volume* (PV) is a storage resource created and managed by the Kubernetes API that can exist beyond the lifetime of an individual pod.
+Volumes defined and created as part of the pod lifecycle only exist until you delete the pod. Pods often expect their storage to remain if a pod is rescheduled on a different host during a maintenance event, especially in StatefulSets. A *persistent volume* (PV) is a storage resource created and managed by the Kubernetes API that can exist beyond the lifetime of an individual pod. You can use the following Azure Storage services to provide the persistent volume:
 
-You can use the following Azure Storage services to provide the persistent volume:
-
-- [Azure Disk](/azure/aks/azure-csi-disk-storage-provision)
-- [Azure Files](/azure/aks/azure-csi-files-storage-provision)
-- [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction)
+- [Azure Disk](#azure-disk)
+- [Azure Files](#azure-files)
+- [Azure NetApp Files](#azure-netapp-files)
+  [Azure Blob Storage](#azure-blob-storage)
+- [Azure Container Storage](#azure-container-storage)
 
 As noted in the [Volumes](/azure/aks/concepts-storage#volumes) section, the choice of Azure Disks or Azure Files is often determined by the need for concurrent access to the data or the performance tier.
 
