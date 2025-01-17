@@ -58,7 +58,7 @@ Ensure that the status is *bound* for all the persistent volume claims and persi
 [Container insights](/azure/azure-monitor/containers/container-insights-overview) is a feature of [Monitor](/azure/azure-monitor/overview) that provides monitoring capabilities for container workloads that are deployed to AKS or managed by [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview). This feature gathers performance and health information, like memory and processor metrics from controllers, nodes, and containers. It also captures container logs for analysis.
 
 > [!IMPORTANT]
-> While Container Insights can be used for metric gathering, we suggest utilizing the [Azure Monitor managed service for Prometheus](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-overview) to improve metric collection and use Container Insights solely for log collection.
+> While Container Insights can be used for metric gathering, we suggest utilizing the [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) to improve metric collection and use Container Insights solely for log collection.
 
 You can use Container Insights to analyze collected data and understand the performance and behavior of components within your cluster. Here are some ways you can use Container Insights:
 
