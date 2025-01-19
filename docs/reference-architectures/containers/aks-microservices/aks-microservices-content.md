@@ -18,19 +18,19 @@ The architecture consists of the following components.
 
 **Virtual network**. By default, AKS creates a virtual network into which agent nodes are connected. You can create the virtual network first for more advanced scenarios, which lets you control things like subnet configuration, on-premises connectivity, and IP addressing. For more information, see [Configure advanced networking in Azure Kubernetes Service (AKS)](/azure/aks/configure-advanced-networking).
 
-**Ingress**. An ingress server exposes HTTP(S) routes to services inside the cluster. AKS provides [a managed ingress controller](/azure/aks/app-routing) through application routing add-on. For more information, see the section [API Gateway](#api-gateway) below.
+**Ingress**. An ingress server exposes HTTP(S) routes to services inside the cluster. The reference implementation uses nginx as the ingress controller. Alternately, you can use the [managed ingress controller](/azure/aks/app-routing) in AKS through application routing add-on. For more information, see the section [API Gateway](#api-gateway) below.
 
 **Azure Load Balancer**. After you create an AKS cluster, the cluster is ready to use the load balancer. Then, once the NGINX service is deployed, the load balancer will be configured with a new public IP that will front your ingress controller. This way, the load balancer routes internet traffic to the ingress.
 
-**External data stores**. Microservices are typically stateless and write state to external data stores, such as Azure SQL Database or Azure Cosmos DB.
+**External data stores**. Microservices are typically stateless and write state to external data stores, such as Azure SQL Database or Azure Cosmos DB. The reference implementation uses [Azure Cosmos DB](/azure/cosmos-db/) and [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) as data stores. Alternately, you can leverage [DAPR](/azure/aks/dapr-overview) for microservice state management. 
 
-**Microsoft Entra ID**. AKS uses a Microsoft Entra identity to create and manage other Azure resources such as Azure load balancers. [Microsoft Entra ID](/azure/aks/workload-identity-overview) is also recommended for user authentication in client applications.
+**Microsoft Entra ID**. AKS uses a Microsoft Entra identity to create and manage other Azure resources such as Azure load balancers. [Microsoft Entra ID](/azure/aks/workload-identity-overview) is also recommended for user authentication in client applications. In the reference architecture, Entra ID is used to authenticate to Azure Key Vault.
 
 **Azure Container Registry**. Use Container Registry to store private container images, which are deployed to the cluster. AKS can authenticate with Container Registry using its Microsoft Entra identity. AKS doesn't require Azure Container Registry. You can use other container registries, such as Docker Hub. 
 
 **Azure Pipelines**. Azure Pipelines are part of the Azure DevOps Services and run automated builds, tests, and deployments. You can also use third-party CI/CD solutions such as Jenkins.
 
-**Helm**. Helm is a package manager for Kubernetes, a way to bundle and generalize Kubernetes objects into a single unit that can be published, deployed, versioned, and updated.
+**Helm**. Helm is a package manager for Kubernetes, provides a mechanism to bundle and generalize Kubernetes objects into a single unit that can be published, deployed, versioned, and updated.
 
 **Azure Monitor**. Azure Monitor collects and stores metrics and logs, application telemetry, and platform metrics for the Azure services. Use this data to monitor the application, set up alerts, dashboards, and perform root cause analysis of failures. Azure Monitor integrates with AKS to collect metrics from controllers, nodes, and containers.
 
