@@ -5395,6 +5395,11 @@
       "redirect_url": "/azure/spatial-anchors/",
       "redirect_document_id": false
     },
+    {
+      "source_path": "docs/solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.yml",
+      "redirect_url": "/azure/architecture/",
+      "redirect_document_id": false
+    },
     {   
       "source_path": "docs/guide/hpc/cp2k.yml",
       "redirect_url": "/azure/architecture/topics/high-performance-computing",
