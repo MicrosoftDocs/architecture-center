@@ -163,14 +163,15 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 When multiple teams are working on developing and deploying microservices, AKS role based access control mechanisms can be utilized to control granular filtering of user actions. You can either use Kubernetes RBAC or Azure RBAC with Microsoft Entra ID to control access to the cluster resources. For more information, please see [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity#azure-role-based-access-control).
 
+#### Authentication and Authorization
+
+Microservices can demand that the consuming services or users authenticate and authorize access to the microservice, using certificates, credentials, and role based access control mechanisms. Microsoft Entra ID can be used to implement [OAuth 2.0 tokens for authorization](/entra/architecture/auth-oauth2). The reference implementation doe snot cover microservice authentication and authorization scenarios.  
 
 #### Secrets management and application credentials
 
 Applications and services often need credentials that allow them to connect to external services such as Azure Storage or SQL Database. The challenge is to keep these credentials safe and not leak them.
 
 For Azure resources, one option is to use managed identities. The idea of a managed identity is that an application or service has an identity stored in Microsoft Entra ID, and uses this identity to authenticate with an Azure service. The application or service has a Service Principal created for it in Microsoft Entra ID, and authenticates using OAuth 2.0 tokens. The executing process code can transparently get the token to use. That way, you don't need to store any passwords or connection strings. You can use managed identities in AKS by assigning Microsoft Entra identities to individual pods, using [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview).
-
-Currently, not all Azure services support authentication using managed identities. For a list, see [Azure services that support Microsoft Entra authentication](/azure/active-directory/managed-identities-azure-resources/services-support-msi).
 
 Even with managed identities, you'll probably need to store some credentials or other application secrets, whether for Azure services that don't support managed identities, third-party services, API keys, and so on. Here are some options for storing secrets securely:
 
