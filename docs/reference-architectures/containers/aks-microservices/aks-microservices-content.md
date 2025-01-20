@@ -179,9 +179,9 @@ Even with managed identities, you'll probably need to store some credentials or 
 
     The pod authenticates itself by using either a workload identity or by using a user or system-assigned managed identity. See [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-identity-access) for more considerations.
 
-- HashiCorp Vault. Kubernetes applications can authenticate with HashiCorp Vault using Microsoft Entra managed identities. See [HashiCorp Vault speaks Microsoft Entra ID](https://open.microsoft.com/2018/04/10/scaling-tips-hashicorp-vault-azure-active-directory/). You can deploy Vault itself to Kubernetes, consider running it in a separate dedicated cluster from your application cluster.
+- HashiCorp Vault. Kubernetes applications can authenticate with HashiCorp Vault using Microsoft Entra managed identities. You can deploy [Vault itself to Kubernetes](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-azure-aks). Consider running it in a separate dedicated cluster from your application cluster.
 
-- Kubernetes secrets. Another option is simply to use Kubernetes secrets. This option is the easiest to configure but has some challenges. Secrets are stored in etcd, which is a distributed key-value store. AKS [encrypts etcd at rest](https://github.com/Azure/kubernetes-kms#azure-kubernetes-service-aks). Microsoft manages the encryption keys.
+- Kubernetes secrets. Another option is simply to use Kubernetes secrets. This option is the easiest to configure but is the least secure. Secrets are stored in etcd, which is a distributed key-value store. AKS [encrypts etcd at rest](https://github.com/Azure/kubernetes-kms#azure-kubernetes-service-aks). Microsoft manages the encryption keys.
 
 Using a system like HashiCorp Vault or Azure Key Vault provides several advantages, such as:
 
@@ -199,7 +199,7 @@ These are recommended practices for securing your pods and containers:
 
 - **Threat monitoring:** Monitor for threats using [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) (or 3rd party capabilities). If you're hosting containers on a VM, use [Microsoft Defender for servers](/azure/security-center/defender-for-servers-introduction) or a 3rd party capability. Additionally, you can integrate logs from [Container Monitoring solution in Azure Monitor](/azure/azure-monitor/insights/containers) to [Microsoft Sentinel](/azure/sentinel/) or an existing SIEM solution.
 
-- **Vulnerability monitoring:** Continuously monitor images and running containers for known vulnerabilities using [Microsoft Defender for Cloud](/azure/security-center/container-security) or a 3rd party solution available through the Azure Marketplace.
+- **Vulnerability monitoring:** Continuously monitor images and running containers for known vulnerabilities using [Microsoft Defender for Cloud](/azure/security-center/container-security) or a 3rd party solution.
 
 - **Automate image patching** using [ACR Tasks](/azure/container-registry/container-registry-tasks-overview), a feature of Azure Container Registry. A container image is built up from layers. The base layers include the OS image and application framework images, such as ASP.NET Core or Node.js. The base images are typically created upstream from the application developers, and are maintained by other project maintainers. When these images are patched upstream, it's important to update, test, and redeploy your own images, so that you don't leave any known security vulnerabilities. ACR Tasks can help to automate this process.
 
@@ -233,7 +233,13 @@ Here are some points to consider for some of the services used in this architect
 
 #### Azure Kubernetes Service (AKS)
 
-There are no costs associated for AKS in deployment, management, and operations of the Kubernetes cluster. You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster.
+[In the free tier](/azure/aks/free-standard-pricing-tiers), there are no costs associated for AKS in deployment, management, and operations of the Kubernetes cluster. You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster.
+
+Consider using [horizontal pod autoscaler](/azure/aks/concepts-scale#horizontal-pod-autoscaler) to automatically scale up or down microservices according to load. 
+
+Configure [cluster autoscaler](/azure/aks/concepts-scale#cluster-autoscaler) to scale up or down the number of nodes according to load. 
+
+Consider using [spot nodes](/azure/aks/spot-node-pool) and burstable nodepool types to host non-critical microservices. 
 
 To estimate the cost of the required resources please see the [Container Services calculator][aks-Calculator].
 
@@ -255,9 +261,9 @@ For Azure Monitor Log Analytics, you're charged for data ingestion and retention
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-This reference architecture provides an [Azure Resource Manager template](/azure/azure-resource-manager/templates/overview) for provisioning the cloud resources, and its dependencies. With the use of [Azure Resource Manager templates][arm-template] you can use [Azure DevOps Services](/azure/devops/user-guide/services) to provision different environments in minutes, for example to replicate production scenarios. This allows you to save cost and provision load testing environment only when needed.
+This reference architecture provides [Bicep templates](/azure/azure-resource-manager/bicep/overview?tabs=bicep) for provisioning the cloud resources, and its dependencies. With the use of bicep templates you can use [Azure DevOps Services](/azure/devops/user-guide/services) to provision different environments in minutes, for example to replicate production scenarios. This allows you to save cost and provision load testing environment only when needed.
 
-Consider following the workload isolation criteria to structure your ARM template, a workload is typically defined as an arbitrary unit of functionality; you could, for example, have a separate template for the cluster and then other for the dependent services. Workload isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD), since every workload is associated and managed by its corresponding DevOps team.
+Consider following the workload isolation criteria to structure your bicep template, a workload is typically defined as an arbitrary unit of functionality; you could, for example, have a separate template for the cluster and then other for the dependent services. Workload isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD), since every workload is associated and managed by its corresponding DevOps team.
 
 ## Deploy this scenario
 
