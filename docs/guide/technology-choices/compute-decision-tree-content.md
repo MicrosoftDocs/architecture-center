@@ -119,12 +119,12 @@ Notes
 | Azure App Service | Built-in service | Integrated | 30 instances, 100 with App Service Environment |
 | Azure Functions | Built-in service | Integrated | 200 instances per function app |
 | Azure Kubernetes Service | Pod autoscaling<a href="#note1c"><sup>1</sup></a>, cluster autoscaling<a href="#note2c"><sup>2</sup></a> | Azure Load Balancer or Azure Application Gateway | 5,000 nodes when using [Uptime SLA][uptime-sla] |
-| Azure Container Apps | Scaling rules<a href="#note4c"><sup>4</sup></a> | Integrated | 5 environments per region, 20 container apps per environment, 30 replicas per container app |
-| Azure Container Instances | Not supported | No built-in support | 20 container groups per subscription (default limit) |
-| Azure Red Hat OpenShift | Pod autoscaling, cluster autoscaling | Azure Load Balancer or Azure Application Gateway | 60 nodes per cluster (default limit) |
+| Azure Container Apps | Scaling rules<a href="#note4c"><sup>4</sup></a> | Integrated | 15 environments per region (default limit), unlimited container apps per environment and replicas per container app (depending on available cores) |
+| Azure Container Instances | Not supported | No built-in support | 100 container groups per subscription (default limit) |
+| Azure Red Hat OpenShift | Pod autoscaling, cluster autoscaling | Azure Load Balancer or Azure Application Gateway | 250 nodes per cluster (default limit) |
 | Azure Spring Apps | Built-in service | Integrated | 500 app instances in Standard |
 | Azure Service Fabric | Virtual machine scale sets | Azure Load Balancer | 100 nodes per virtual machine scale set |
-| Azure Batch | Not applicable | Azure Load Balancer | 20 core limit (default limit) |
+| Azure Batch | Not applicable | Azure Load Balancer | Core limit of 900 dedicated and 100 low-priority (default limit) |
 
 Notes
 
