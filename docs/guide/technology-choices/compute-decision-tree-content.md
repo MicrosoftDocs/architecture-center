@@ -135,18 +135,18 @@ Notes
 
 ## Availability
 
-| Service | SLA | Multiregion failover |
-|----------|-----------------|-----------------|
-| Azure Virtual Machines | [SLA for Virtual Machines][sla-vm] | Azure Traffic Manager, Azure Front Door, and cross-region Azure Load Balancer |
-| Azure App Service | [SLA for App Service][sla-app-service] | Azure Traffic Manager and Azure Front Door |
-| Azure Functions | [SLA for Functions][sla-functions] | Azure Traffic Manager and Azure Front Door |
-| Azure Kubernetes Service (AKS) | [SLA for AKS][sla-acs] | Azure Traffic Manager, Azure Front Door, and Multiregion Cluster |
-| Azure Container Apps | [SLA for Container Apps][sla-aca] | Azure Traffic Manager and Azure Front Door |
-| Azure Container Instances | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances) | Azure Traffic Manager and Azure Front Door |
-| Azure Red Hat OpenShift | [SLA for Azure Red Hat OpenShift][sla-aro] | Azure Traffic Manager and Azure Front Door |
-| Azure Spring Apps | [SLA for Azure Spring Apps][sla-azure-spring-apps] | Azure Traffic Manager, Azure Front Door, and Multiregion Cluster |
-| Azure Service Fabric | [SLA for Service Fabric][sla-sf] | Azure Traffic Manager, Azure Front Door, and cross-region Azure Load Balancer |
-| Azure Batch | [SLA for Batch][sla-batch] | Not applicable |
+| Service | Multiregion failover option |
+|----------|-----------------|
+| Azure Virtual Machines | Azure Traffic Manager, Azure Front Door, and cross-region Azure Load Balancer |
+| Azure App Service | Azure Traffic Manager and Azure Front Door |
+| Azure Functions | Azure Traffic Manager and Azure Front Door |
+| Azure Kubernetes Service (AKS) | Azure Traffic Manager, Azure Front Door, and Multiregion Cluster |
+| Azure Container Apps | Azure Traffic Manager and Azure Front Door |
+| Azure Container Instances | Azure Traffic Manager and Azure Front Door |
+| Azure Red Hat OpenShift | Azure Traffic Manager and Azure Front Door |
+| Azure Spring Apps | Azure Traffic Manager, Azure Front Door, and Multiregion Cluster |
+| Azure Service Fabric | Azure Traffic Manager, Azure Front Door, and cross-region Azure Load Balancer |
+| Azure Batch | Not applicable |
 
 For guided learning on service guarantees, see [Core Cloud Services - Azure architecture and service guarantees](/training/modules/explore-azure-infrastructure).
 
@@ -223,15 +223,6 @@ To see nonpublic LinkedIn profiles, sign in to LinkedIn.
 [cost-aro]:https://azure.microsoft.com/pricing/details/openshift
 
 [function-plans]: /azure/azure-functions/functions-scale
-[sla-acs]: https://azure.microsoft.com/support/legal/sla/kubernetes-service
-[sla-app-service]: https://azure.microsoft.com/support/legal/sla/app-service
-[sla-azure-spring-apps]: https://azure.microsoft.com/support/legal/sla/spring-apps
-[sla-batch]: https://azure.microsoft.com/support/legal/sla/batch
-[sla-functions]: https://azure.microsoft.com/support/legal/sla/functions
-[sla-sf]: https://azure.microsoft.com/support/legal/sla/service-fabric
-[sla-vm]: https://azure.microsoft.com/support/legal/sla/virtual-machines
-[sla-aro]: https://azure.microsoft.com/support/legal/sla/openshift/
-[sla-aca]: https://azure.microsoft.com/support/legal/sla/container-apps
 
 [resource-manager-supported-services]: /azure/azure-resource-manager/resource-manager-supported-services
 
