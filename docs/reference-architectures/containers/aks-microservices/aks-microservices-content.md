@@ -85,7 +85,7 @@ The following diagram shows the conceptual relation between services and pods. T
 
 In Kubernetes, the **Ingress controller** might implement the API gateway pattern. In that case, **Ingress** and **Ingress controller** work in conjunction to provide these features:
 
-- Route client requests to the right backend services. This routing provides a single endpoint for clients, and helps to decouple clients from services.
+- Route client requests to the right backend microservices. This routing provides a single endpoint for clients, and helps to decouple clients from services.
 
 - Aggregate multiple requests into a single request, to reduce chattiness between the client and the backend.
 
@@ -125,15 +125,17 @@ First, namespaces help prevent naming collisions. When multiple teams deploy mic
 
 For a microservices architecture, considering organizing the microservices into bounded contexts, and creating namespaces for each bounded context. For example, all microservices related to the "Order Fulfillment" bounded context could go into the same namespace. Alternatively, create a namespace for each development team.
 
-Place utility services into their own separate namespace. For example, you might deploy Elasticsearch or Prometheus for cluster monitoring, or Tiller for Helm.
+Place utility services into their own separate namespace. For example, you might deploy Elasticsearch or Prometheus for cluster monitoring to a monitoring namespace.
 
 #### Health probes
 
-Kubernetes defines two types of health probe that a pod can expose:
+Kubernetes defines three types of health probes that a pod can expose:
 
 - Readiness probe: Tells Kubernetes whether the pod is ready to accept requests.
 
 - Liveness probe: Tells Kubernetes whether a pod should be removed and a new instance started.
+  
+- Startup probe: Informs Kubernetes whether the pod is started. 
 
 When thinking about probes, it's useful to recall how a service works in Kubernetes. A service has a label selector that matches a set of (zero or more) pods. Kubernetes load balances traffic to the pods that match the selector. Only pods that started successfully and are healthy receive traffic. If a container crashes, Kubernetes kills the pod and schedules a replacement.
 
