@@ -93,25 +93,23 @@ In Kubernetes, the **Ingress controller** might implement the API gateway patter
 
 Ingress abstracts the configuration settings for a proxy server. You also need an Ingress controller, which provides the underlying implementation of the Ingress. There are Ingress controllers for Nginx, HAProxy, Traefik, and Azure Application Gateway, among others. AKS provides a managed NGINX ingress through [application routing add-on](/azure/aks/app-routing). 
 
-The Ingress resource can be fulfilled by different technologies. To work together, they need to be deployed as the Ingress controller inside the cluster. It operates as the edge router or reverse proxy. A reverse proxy server is a potential bottleneck or single point of failure, so always deploy at least two replicas for high availability.
+The Ingress resource can be fulfilled by different technologies. To work together, they need to be deployed as the Ingress controller inside the cluster. It operates as the edge router or reverse proxy. A reverse proxy server is a potential bottleneck or single point of failure, so it is recommended to deploy at least two replicas for high availability.
 
-Often, configuring the proxy server requires complex files, which can be hard to tune if you aren't an expert. So, the Ingress controller provides a nice abstraction. The Ingress controller also has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the NGINX ingress controller bypasses the kube-proxy network proxy.
-
-On the other hand, if you need complete control over the settings, you may want to bypass this abstraction and configure the proxy server manually. For more information, see [Deploying Nginx or HAProxy to Kubernetes](../../../microservices/design/gateway.yml#deploying-nginx-or-haproxy-to-kubernetes).
+Often, configuring the proxy server requires complex files, which can be hard to tune if you aren't an expert. So, the Ingress controller provides a nice abstraction. The Ingress controller also has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
 
 > [!NOTE]
-> For AKS, you can also use Azure Application Gateway, using the [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview). Azure Application Gateway can perform layer-7 routing and SSL termination. It also has built-in support for Web Application Firewall. If your AKS cluster is using [CNI networking](/azure/aks/configure-azure-cni/), Application Gateway can be deployed into a subnet of the cluster's virtual network or can be deployed in different virtual network from AKS virtual network, however, the two virtual networks must be peered together. AGIC also supports the Kubenet network plugin. When using Kubenet mode, the ingress controller needs to manage a route table in the Application Gateway's subnet to direct traffic to pod IPs. For more information, see [How to setup networking between Application Gateway and AKS](https://azure.github.io/application-gateway-kubernetes-ingress/how-tos/networking/).
+> For AKS, you can also use Azure Application Gateway, using the [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview). Azure Application Gateway can perform layer-7 routing and SSL termination. It also has built-in support for Web Application Firewall. 
 
 For information about load-balancing services in Azure, see [Overview of load-balancing options in Azure](../../../guide/technology-choices/load-balancing-overview.yml).
 
 #### TLS/SSL encryption
 
-In common implementations, the Ingress controller is used for SSL termination. So, as part of deploying the Ingress controller, you need to create a TLS certificate. Only use self-signed certificates for dev/test purposes. For more information, see 
-[Create an HTTPS ingress controller and use your own TLS certificates on Azure Kubernetes Service (AKS)](/azure/aks/ingress-own-tls).
+In common implementations, the Ingress controller is used for SSL termination. So, as part of deploying the Ingress controller, you will need to create or import a TLS certificate. Only use self-signed certificates for dev/test purposes. For more information, see 
+[Set up a custom domain name and SSL certificate with the application routing add-on](/azure/aks/app-routing-dns-ssl).
 
-For production workloads, get signed certificates from trusted certificate authorities (CA). For information about generating and configuring [Let's Encrypt](https://letsencrypt.org/) certificates, see [Create an ingress controller with a static public IP address in Azure Kubernetes Service (AKS)](/azure/aks/ingress-static-ip).
+For production workloads, get signed certificates from trusted certificate authorities (CA). 
 
-You may also need to rotate your certificates as per the organization's policies. For information, see, [Rotate certificates in Azure Kubernetes Service (AKS)](/azure/aks/certificate-rotation).
+You may also need to rotate your certificates as per the organization's policies. Azure Key Vault can be used to rotate certificates used by microservices. For more information, see [Configure certificate auto-rotation in Key Vault](/azure/key-vault/certificates/tutorial-rotate-certificates).
 
 #### Namespaces
 
@@ -143,13 +141,13 @@ Sometimes, a pod may not be ready to receive traffic, even though the pod starte
 
 Liveness probes handle the case where a pod is still running, but is unhealthy and should be recycled. For example, suppose that a container is serving HTTP requests but hangs for some reason. The container doesn't crash, but it has stopped serving any requests. If you define an HTTP liveness probe, the probe will stop responding and that informs Kubernetes to restart the pod.
 
-Here are some considerations when designing probes:
+Here are some considerations when designing probes for microservices:
 
 - If your code has a long startup time, there is a danger that a liveness probe will report failure before the startup completes. To prevent this probe failure, use the `initialDelaySeconds` setting, which delays the probe from starting.
 
 - A liveness probe doesn't help unless restarting the pod is likely to restore it to a healthy state. You can use a liveness probe to mitigate against memory leaks or unexpected deadlocks, but there's no point in restarting a pod that's going to immediately fail again.
 
-- Sometimes readiness probes are used to check dependent services. For example, if a pod has a dependency on a database, the probe might check the database connection. However, this approach can create unexpected problems. An external service might be temporarily unavailable for some reason. That will cause the readiness probe to fail for all the pods in your service, causing all of them to be removed from load balancing, and thus creating cascading failures upstream. A better approach is to implement retry handling within your service, so that your service can recover correctly from transient failures.
+- Sometimes readiness probes are used to check dependent services. For example, if a pod has a dependency on a database, the probe might check the database connection. However, this approach can create unexpected problems. An external service might be temporarily unavailable for some reason. That will cause the readiness probe to fail for all the pods in your service, causing all of them to be removed from load balancing, and thus creating cascading failures upstream. A better approach is to implement retry handling within your service, so that your service can recover correctly from transient failures. As an alternative, circuit breaker pattern can be implemented by the [istio service mesh](/azure/aks/istio-about) to create resilient architecture, which is tolerant to microservice failures. 
 
 #### Resource constraints
 
@@ -163,43 +161,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 #### Role-based access control (RBAC)
 
-Kubernetes and Azure both have mechanisms for role-based access control (RBAC):
 
-- Azure RBAC controls access to resources in Azure, including the ability to create new Azure resources. Permissions can be assigned to users, groups, or service principals. (A service principal is a security identity used by applications.)
-
-- Kubernetes RBAC controls permissions to the Kubernetes API. For example, creating pods and listing pods are actions that can be authorized (or denied) to a user through Kubernetes RBAC. To assign Kubernetes permissions to users, you create *roles* and *role bindings*:
-
-  - A Role is a set of permissions that apply within a namespace. Permissions are defined as verbs (get, update, create, delete) on resources (pods, deployments, and so on).
-
-  - A RoleBinding assigns users or groups to a Role.
-
-  - There's also a ClusterRole object, which is like a Role but applies to the entire cluster, across all namespaces. To assign users or groups to a ClusterRole, create a ClusterRoleBinding.
-
-AKS integrates these two RBAC mechanisms. When you create an AKS cluster, you can configure it to use Microsoft Entra ID for user authentication. For details on how to set this up, see [Integrate Microsoft Entra ID with Azure Kubernetes Service](/azure/aks/aad-integration).
-
-Once this is configured, a user who wants to access the Kubernetes API (for example, through kubectl) must sign in using their Microsoft Entra credentials.
-
-By default, a Microsoft Entra user has no access to the cluster. To grant access, the cluster administrator creates RoleBindings that refer to Microsoft Entra users or groups. If a user doesn't have permissions for a particular operation, it will fail.
-
-If users have no access by default, how does the cluster admin have permission to create the role bindings in the first place? An AKS cluster actually has two types of credentials for calling the Kubernetes API server: cluster user and cluster admin. The cluster admin credentials grant full access to the cluster. The Azure CLI command `az aks get-credentials --admin` downloads the cluster admin credentials and saves them into your kubeconfig file. The cluster administrator can use this kubeconfig to create roles and role bindings.
-
-Instead of managing Kubernetes cluster Role and RoleBinding objects natively in Kubernetes, it is preferred to use [Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac). This allows for the unified management and access control across Azure Resources, AKS, and Kubernetes resources. These Azure RBAC role assignments can target the cluster or namespaces within the cluster for more fine-grained access control. Azure RBAC supports a limited set of default permissions, and you can combine it with the native Kubernetes mechanism of managing Role and RoleBindings to support advanced or more granular access patterns. When enabled, Microsoft Entra principals will be validated exclusively by Azure RBAC while regular Kubernetes users and service accounts are exclusively validated by Kubernetes RBAC.
-
-Because the cluster admin credentials are so powerful, use Azure RBAC to restrict access to them:
-
-- The "Azure Kubernetes Service Cluster Admin Role" has permission to download the cluster admin credentials. Only cluster administrators should be assigned to this role.
-
-- The "Azure Kubernetes Service Cluster User Role" has permission to download the cluster user credentials. Non-admin users can be assigned to this role. This role doesn't give any particular permissions on Kubernetes resources inside the cluster &mdash; it just allows a user to connect to the API server.
-
-When you define your RBAC policies (both Kubernetes and Azure), think about the roles in your organization:
-
-- Who can create or delete an AKS cluster and download the admin credentials?
-- Who can administer a cluster?
-- Who can create or update resources within a namespace?
-
-It's a good practice to scope Kubernetes RBAC permissions by namespace, using Roles and RoleBindings, rather than ClusterRoles and ClusterRoleBindings.
-
-Finally, there's the question of what permissions the AKS cluster has to create and manage Azure resources, such as load balancers, networking, or storage. To authenticate itself with Azure APIs, the cluster uses a Microsoft Entra service principal. If you don't specify a service principal when you create the cluster, one is created automatically. However, it's a good security practice to create the service principal first and assign the minimal RBAC permissions to it. For more information, see [Service principals with Azure Kubernetes Service](/azure/aks/kubernetes-service-principal).
 
 #### Secrets management and application credentials
 
@@ -234,8 +196,11 @@ These are recommended practices for securing your pods and containers:
 - **Threat monitoring:** Monitor for threats using [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) (or 3rd party capabilities). If you're hosting containers on a VM, use [Microsoft Defender for servers](/azure/security-center/defender-for-servers-introduction) or a 3rd party capability. Additionally, you can integrate logs from [Container Monitoring solution in Azure Monitor](/azure/azure-monitor/insights/containers) to [Microsoft Sentinel](/azure/sentinel/) or an existing SIEM solution.
 
 - **Vulnerability monitoring:** Continuously monitor images and running containers for known vulnerabilities using [Microsoft Defender for Cloud](/azure/security-center/container-security) or a 3rd party solution available through the Azure Marketplace.
+
 - **Automate image patching** using [ACR Tasks](/azure/container-registry/container-registry-tasks-overview), a feature of Azure Container Registry. A container image is built up from layers. The base layers include the OS image and application framework images, such as ASP.NET Core or Node.js. The base images are typically created upstream from the application developers, and are maintained by other project maintainers. When these images are patched upstream, it's important to update, test, and redeploy your own images, so that you don't leave any known security vulnerabilities. ACR Tasks can help to automate this process.
+
 - **Store images in a trusted private registry** such as Azure Container Registry or Docker Trusted Registry. Use a validating admission webhook in Kubernetes to ensure that pods can only pull images from the trusted registry.
+
 - **Apply Least Privilege** principle
   - Don't run containers in privileged mode. Privileged mode gives a container access to all devices on the host.
   - When possible, avoid running processes as root inside containers. Containers do not provide complete isolation from a security standpoint, so it's better to run a container process as a non-privileged user.
