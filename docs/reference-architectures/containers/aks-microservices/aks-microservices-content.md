@@ -71,7 +71,7 @@ For more information, see [Storage options for application in Azure Kubernetes S
 
 The Kubernetes **Service** object provides a set of capabilities that match the microservices requirements for service discoverability:
 
-- IP address. The Service object provides a static internal IP address for a group of pods (ReplicaSet). As pods are created or moved around, the service is always reachable at this internal IP address.
+- IP address. The Service object provides a static IP address for a group of pods (ReplicaSet). As pods are created or moved around, the service is always reachable at this IP address.
 
 - Load balancing. Traffic sent to the service's IP address is load balanced to the pods.
 
@@ -91,11 +91,11 @@ In Kubernetes, the **Ingress controller** might implement the API gateway patter
 
 - Offload functionality from the backend services, such as SSL termination, authentication, IP restrictions, or client rate limiting (throttling).
 
-Ingress abstracts the configuration settings for a proxy server. You also need an Ingress controller, which provides the underlying implementation of the Ingress. There are Ingress controllers for Nginx, HAProxy, Traefik, and Azure Application Gateway, among others.
+Ingress abstracts the configuration settings for a proxy server. You also need an Ingress controller, which provides the underlying implementation of the Ingress. There are Ingress controllers for Nginx, HAProxy, Traefik, and Azure Application Gateway, among others. AKS provides a managed NGINX ingress through [application routing add-on](/azure/aks/app-routing). 
 
 The Ingress resource can be fulfilled by different technologies. To work together, they need to be deployed as the Ingress controller inside the cluster. It operates as the edge router or reverse proxy. A reverse proxy server is a potential bottleneck or single point of failure, so always deploy at least two replicas for high availability.
 
-Often, configuring the proxy server requires complex files, which can be hard to tune if you aren't an expert. So, the Ingress controller provides a nice abstraction. The Ingress controller also has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
+Often, configuring the proxy server requires complex files, which can be hard to tune if you aren't an expert. So, the Ingress controller provides a nice abstraction. The Ingress controller also has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the NGINX ingress controller bypasses the kube-proxy network proxy.
 
 On the other hand, if you need complete control over the settings, you may want to bypass this abstraction and configure the proxy server manually. For more information, see [Deploying Nginx or HAProxy to Kubernetes](../../../microservices/design/gateway.yml#deploying-nginx-or-haproxy-to-kubernetes).
 
