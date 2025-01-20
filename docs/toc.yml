@@ -1773,24 +1773,6 @@ items:
       - name: Mixed reality samples and apps
         href: /windows/mixed-reality/develop/features-and-samples
         maintainContext: true
-      - name: Spatial Anchors guidance
-        items:
-        - name: Authentication and authorization
-          href: /azure/spatial-anchors/concepts/authentication
-          maintainContext: true
-        - name: Anchor relationships
-          href: /azure/spatial-anchors/concepts/anchor-relationships-way-finding
-          maintainContext: true
-        - name: Coarse relocalization
-          href: /azure/spatial-anchors/concepts/coarse-reloc
-          maintainContext: true
-        - name: Experience guidelines
-          href: /azure/spatial-anchors/concepts/guidelines-effective-anchor-experiences
-          maintainContext: true
-    - name: Solution ideas
-      items:
-      - name: Design review with mixed reality
-        href: solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.yml
   - name: Mobile
     items:
     - name: Get started
