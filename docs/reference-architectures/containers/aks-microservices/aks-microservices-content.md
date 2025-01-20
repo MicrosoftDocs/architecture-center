@@ -4,7 +4,7 @@ This reference architecture shows a microservices application deployed to Azure 
 
 ## Architecture
 
-![Diagram that shows the AKS reference architecture.](./images/aks.svg)
+![Diagram that shows the AKS reference architecture.](./images/aks.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
