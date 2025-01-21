@@ -44,7 +44,7 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
 1. **Golden data or a data warehouse:** For the golden data or a data warehouse, continue to use Azure Databricks SQL or create a mirroring the Azure Databricks Unity Catalog in Microsoft Fabric. Easily create dashboards based on serverless analysis of data in Fabric lakehouses without any setup required by using the Power BI semantic models that are automatically created for all Fabric lakehouses. Fabric Data Warehouse can also be used as the golden layer if analytical requirements require faster compute.
 
-1. Tools that are used for governance, collaboration, security, performance, and cost monitoring include:
+Tools that are used for governance, collaboration, security, performance, and cost monitoring include:
 
     - Discover and govern
 
