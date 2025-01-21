@@ -15,6 +15,7 @@ products:
   - azure-arc
   - azure-iot-edge
   - azure-stack-edge
+  - azure-local
   - azure-stack-hub
 name: Azure hybrid options
 summary: Learn about Azure hybrid solutions, including alternatives to deploy and host hybrid services on-premises, at the edge, in Azure, and in other clouds.
