@@ -79,7 +79,7 @@ A more advanced CQRS implementation uses distinct data stores for the read and w
 
 Some challenges of implementing this pattern include:
 
-- **Increased complexity**. While the core concept of CQRS is straightforward, it can introduce significant complexity into the application design, particularly when combined with the Event Sourcing pattern.
+- **Increased complexity**. While the core concept of CQRS is straightforward, it can introduce significant complexity into the application design, particularly when combined with the [Event Sourcing pattern](./event-sourcing.yml).
 
 - **Messaging challenges**. Although messaging isn't a requirement for CQRS, you often use it to process commands and publish update events. When messaging is involved, the system must account for potential issues such as message failures, duplicates, and retries. See the guidance on [Priority Queues](priority-queue.yml) for strategies to handle commands with varying priorities.
 
@@ -141,7 +141,7 @@ Because the event store acts as the single source of truth, you can easily regen
 
 ### Considerations when combining event sourcing and CQRS
 
-Before you combine the CQRS pattern with the Event Sourcing pattern, evaluate the following considerations:
+Before you combine the CQRS pattern with the [Event Sourcing pattern](./event-sourcing.yml), evaluate the following considerations:
 
 - **Eventual consistency:** Since the write and read stores are separate, updates to the read store might lag behind event generation, resulting in eventual consistency.
 

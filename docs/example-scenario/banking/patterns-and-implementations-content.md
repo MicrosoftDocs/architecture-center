@@ -18,19 +18,19 @@ Contoso Bank had an on-premises implementation of an orchestration-based saga. I
 
 The proposed solution below is a saga pattern implementation through an orchestration approach using a serverless architecture on Azure. It addresses the challenges by using:
 
-* [Azure Functions](https://azure.microsoft.com/services/functions) for the implementation of saga participants.
+* [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) for the implementation of saga participants.
 
 * [Azure Durable Functions](/azure/azure-functions/durable/durable-functions-overview) for orchestration, designed to provide the workflow programming model and state management.
 
-* [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) as the data streaming platform.
+* [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) as the data streaming platform.
 
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) as the database service to store data models.
+* [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) as the database service to store data models.
 
 For more information, see [Pattern: Saga](https://microservices.io/patterns/data/saga.html) on Microservices.io.
 
 #### Saga pattern
 
-[Saga](../../reference-architectures/saga/saga.yml) is a pattern suitable for distributed transaction management, commonly applied to financial services. A new scenario has emerged where operations are distributed across applications and databases. In the new scenario, customers will need a new architecture and implementation design to ensure data consistency on financial transactions.
+[Saga](../../patterns/saga.yml) is a pattern suitable for distributed transaction management, commonly applied to financial services. A new scenario has emerged where operations are distributed across applications and databases. In the new scenario, customers will need a new architecture and implementation design to ensure data consistency on financial transactions.
 
 The traditional *atomicity, consistency, isolation, and durability (ACID)* properties approach is no longer suitable. It's because the data of operations are now spanned into isolated databases. Using a saga pattern addresses this challenge by coordinating a workflow through a message-driven sequence of local transactions to ensure data consistency.
 
@@ -48,7 +48,7 @@ For more information on KEDA scalers, see the following KEDA documents:
 
 #### Workflow
 
-1. The CSE team deployed the application on the [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. The solution needed to scale out the application automatically based on the incoming message count. The CSE team used a Kafka scaler to detect if the solution should activate or deactivate application deployment. The Kafka scaler also feeds custom metrics for a specific event source. The event source in this example is an Azure event hub.
+1. The CSE team deployed the application on the [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) cluster. The solution needed to scale out the application automatically based on the incoming message count. The CSE team used a Kafka scaler to detect if the solution should activate or deactivate application deployment. The Kafka scaler also feeds custom metrics for a specific event source. The event source in this example is an Azure event hub.
 
 1. When the number of messages in the Azure event hub exceeds a threshold, KEDA triggers the pods to scale out, increasing the number of messages processed by the application. Automatic scale down of the pods occurs when the number of messages in the event source falls below the threshold value.
 
@@ -86,9 +86,6 @@ Learn more about the component technologies:
 * [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
 * [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 
-## Related resources
-
-Explore related architectures:
+## Related resource
 
 * [Saga distributed transactions](../../reference-architectures/saga/saga.yml)
-* [Gridwich saga orchestration](../../reference-architectures/media-services/gridwich-saga-orchestration.yml)

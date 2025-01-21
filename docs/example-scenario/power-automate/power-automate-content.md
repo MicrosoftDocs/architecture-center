@@ -32,12 +32,12 @@ SharePoint Online and Power Platform support many geographic regions. Each regio
 
 This scenario uses the following components:
 
-- [Power Automate](https://flow.microsoft.com) uses flows to build automated processes.
-- [SharePoint](https://www.microsoft.com/microsoft-365/sharepoint) Online sites help organizations share and manage content, knowledge, and applications.
-- [Power Platform](https://powerplatform.microsoft.com) analyzes data, builds solutions, automates processes, and creates virtual agents.
+- [Power Automate](/power-automate/getting-started) uses flows to build automated processes.
+- [SharePoint](/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-service-description) Online sites help organizations share and manage content, knowledge, and applications.
+- [Power Platform](/power-platform) analyzes data, builds solutions, automates processes, and creates virtual agents.
   - [Power Platform environments](/power-platform/admin/environments-overview) store, manage, and share an organization's business data, apps, chatbots, and flows.
   - [Power Platform Solutions](/power-platform/alm/solution-concepts-alm) are the mechanism for implementing [application lifecycle management (ALM)](https://wikipedia.org/wiki/Application_lifecycle_management) in Power Apps and Power Automate.
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a universal platform to manage and secure identities.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a universal platform to manage and secure identities.
 
 ### Alternatives
 
@@ -63,6 +63,8 @@ This architecture applies to workflows where IT teams fully control the workflow
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
 Here are some advantages of adopting this hub-and-spoke model for your Power Automate deployments:
 
 - Centralized logic is easy to update in one place, and all the flows automatically get the latest updates.
@@ -75,19 +77,9 @@ Here are some advantages of adopting this hub-and-spoke model for your Power Aut
 
 - To meet seasonal or periodic requirements, this model offers flexible central flow license upgrades and downgrades.
 
-### DevOps
-
-- Power Platform supports continuous integration and continuous delivery (CI/CD) for its components in Solutions. You can export and import Solutions as packages across Power Platform environments and across tenants.
-
-- It's best to have a pre-production tenant to validate updates before you push updates and components to your production tenant. Since updating the central flows immediately impacts many init flows, it's important to have high-quality analysis and validation. When promoting to the production tenant, make sure to use environment variables for connections, so you can choose the endpoint corresponding to the target tenant.
-
-- Power Platform supports component and workflow ALM with Azure Pipelines or GitHub Actions.
-
-### Operations
-
-Use the [Center of Excellence (CoE) toolkit for Power Platform](/power-platform/guidance/coe/starter-kit) to centrally manage flows and monitor them for failures. The CoE toolkit also shows the Power Platform components and dependencies between components. You can design each flow to catch and log failures or notify someone for better supportability.
-
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Entitlement management for flows you create under Solutions is different from flows outside Solutions. With flows outside Solutions, you can give permissions to a SharePoint site list or library to initiate the flow. Flows in Solutions tie permissions to a Dataverse Environment-based group called *Group Team*, which you can map to a Microsoft Entra group. You can then manage users in the Microsoft Entra group.
 
@@ -95,7 +87,9 @@ Use the [Center of Excellence (CoE) toolkit for Power Platform](/power-platform/
 
 - You can apply DLP policies at the environment level, which allows more flexibility to meet business requirements.
 
-### Cost optimization
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 You pay no extra costs for this scenario if you meet the following conditions:
 
@@ -104,6 +98,22 @@ You pay no extra costs for this scenario if you meet the following conditions:
 - The flows can conform to the action executions thresholds of the Microsoft 365 seed license, such as E3 or E5.
 
 Otherwise, you need to purchase premium licenses, per user or per flow plan, for the central flows only. Pricing may vary depending on how many central flows you need in each geographic region. You don't have to assign premium licenses to the init flows, which are higher in number.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+#### DevOps
+
+- Power Platform supports continuous integration and continuous delivery (CI/CD) for its components in Solutions. You can export and import Solutions as packages across Power Platform environments and across tenants.
+
+- It's best to have a pre-production tenant to validate updates before you push updates and components to your production tenant. Since updating the central flows immediately impacts many init flows, it's important to have high-quality analysis and validation. When promoting to the production tenant, make sure to use environment variables for connections, so you can choose the endpoint corresponding to the target tenant.
+
+- Power Platform supports component and workflow ALM with Azure Pipelines or GitHub Actions.
+
+#### Operations
+
+Use the [Center of Excellence (CoE) toolkit for Power Platform](/power-platform/guidance/coe/starter-kit) to centrally manage flows and monitor them for failures. The CoE toolkit also shows the Power Platform components and dependencies between components. You can design each flow to catch and log failures or notify someone for better supportability.
 
 ## Contributors
 

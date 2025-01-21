@@ -21,10 +21,10 @@ BCDR strategies include availability zone redundancy, automated recovery provide
 
 ### Components
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
-- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) and [Azure Synapse pipelines](/azure/synapse-analytics/get-started-pipelines)
-- [GitHub](https://github.com)
-- [Azure Repos](https://azure.microsoft.com/services/devops/repos)
+- [Azure Data Factory](/azure/data-factory/introduction)
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) and [Azure Synapse pipelines](/azure/synapse-analytics/get-started-pipelines)
+- [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git)
+- [Azure Repos](/azure/devops/repos/get-started/what-is-repos)
 
 ## Scenario details
 
@@ -114,7 +114,7 @@ In Data Factory, you can set the Azure integration runtime (IR) region for your 
 
 In the context of the integration runtimes, IR fails over automatically to the paired region when you select **Auto Resolve** as the IR region. For other specific location regions, you can create a secondary data factory in another region, and use CI/CD to provision your data factory from the Git repository.
 
-- For managed virtual networks, Data Factory also automatically switches over to the managed IR.
+- For managed virtual networks, users needs to manually switch to the secondary region.
 
 - Azure managed automatic failover doesn't apply to self-hosted integration runtime (SHIR), because the infrastructure is customer-managed. For guidance on setting up multiple nodes for higher availability with SHIR, see [Create and configure a self-hosted integration runtime](/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability).
 

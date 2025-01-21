@@ -107,11 +107,11 @@ To simplify DNS management, integrate private endpoints with private Azure DNS z
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Azure Well-Architected Framework](/azure/well-architected).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 This architecture ensures reliability by providing availability, resilience, and dependable global service features.
 
@@ -142,7 +142,7 @@ For more information, see [Building resilience in identity and access management
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 * Consider deploying a [private cluster](/azure/openshift/howto-create-private-cluster-4x).
 * Use private endpoints on Azure services that aren't accessed from the public internet.
@@ -152,9 +152,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 * Configure Microsoft Defender for Containers to provide security for clusters, containers, and applications. Defender for Containers is supported via Azure Arc-enabled Kubernetes. Scan your images for vulnerabilities with Microsoft Defender or another image scanning solution.
 * Configure Microsoft Entra integration to use Microsoft Entra ID to authenticate users (for example, SRE, SecOps, or application developers) in your Azure Red Hat OpenShift cluster.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Zone-redundant architectures are less expensive than multi-region alternatives because services are deployed in a single region. But there are several cost implications to be aware of:
 
@@ -166,9 +166,9 @@ Optimize costs by reserving resources in advance. Many services in this architec
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/well-architected/operational-excellence/).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 All Azure services that are platform as a service (PaaS) are integrated with [Azure Monitor](https://azure.microsoft.com/products/monitor/). Follow Azure Monitor best practices ([reliability](/azure/azure-monitor/best-practices-reliability), [security](/azure/azure-monitor/best-practices-security), [cost optimization](/azure/azure-monitor/best-practices-cost), [operational excellence](/azure/azure-monitor/best-practices-operation), and [performance efficiency](/azure/azure-monitor/best-practices-performance)) to:
 
@@ -183,9 +183,9 @@ All Azure services that are platform as a service (PaaS) are integrated with [Az
 * Automate service deployments with [Bicep](/azure/azure-resource-manager/bicep/overview), a template language for deploying infrastructure as code (IaC). Because Azure services in this architecture have private endpoints, you cannot use Microsoft-hosted agents of Azure Pipelines or GitHub-hosted runners. Use solutions like [self-hosted agents of Azure Pipelines](/azure/devops/pipelines/agents/agents#install) or [GitHub-hosted runners](https://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners) instead.
 * [Continuously validate](/azure/well-architected/mission-critical/mission-critical-deployment-testing#continuous-validation-and-testing) the workload to test the performance and resilience of the entire solution by using services, such as [Azure Load Testing](https://azure.microsoft.com/products/load-testing/) and [Azure Chaos Studio](https://azure.microsoft.com/products/chaos-studio/).
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Overview of the performance efficiency pillar](/azure/well-architected/performance-efficiency/).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 * Cache assets in Azure Front Door to distribute workloads to edge locations.
 * Review [subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) to ensure that services scale to demand.

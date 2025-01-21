@@ -33,6 +33,7 @@ If you're not familiar with the Azure service selected in the previous section, 
 - [Azure Spring Apps](/azure/spring-apps): A managed service designed and optimized for hosting Spring Boot apps.
 - [Azure Service Fabric](/azure/service-fabric/service-fabric-overview): A distributed systems platform that can run in many environments, including Azure or on-premises.
 - [Azure Batch](/azure/batch/batch-technical-overview): A managed service for running large-scale parallel and high-performance computing (HPC) applications.
+- [Azure VMware Solution](/azure/azure-vmware/introduction): A managed service for running VMware workloads natively on Azure.
 
 ## Understand the hosting models
 
@@ -61,6 +62,7 @@ There's a tradeoff between control and ease of management. IaaS gives the most c
 | Azure Spring Apps | Applications, microservices | Multiple apps per service instance | 2 | Stateless | Built in |
 | Azure Service Fabric | Services, guest executables, containers | Multiple services per VM | 5 <a href="#note3"><sup>3</sup></a> | Stateless or stateful | Agnostic |
 | Azure Batch | Scheduled jobs | Multiple apps per VM | 1 <a href="#note4"><sup>4</sup></a> | Stateless | No |
+| Azure VMware Solution | Agnostic | Agnostic | 3 <a href="#note7"><sup>7</sup></a> | Stateless or stateful | Agnostic |
 
 Notes
 
@@ -70,6 +72,7 @@ Notes
 1. <span id="note4">Can scale down to zero after job completes.</span>
 1. <span id="note5">Three for primary nodes and three for worker nodes.</span>
 1. <span id="note6">When using [Durable Functions][durable-functions].</span>
+1. <span id="note7">Require minimum number of [three nodes][azure-vmware-plans]</span>
 
 ## Networking
 
@@ -85,12 +88,13 @@ Notes
 | Azure Spring Apps | Supported | Supported |
 | Azure Service Fabric | Supported | Supported |
 | Azure Batch | Supported | Supported |
+| Azure VMware Solution | [Supported](/azure/azure-vmware/configure-site-to-site-vpn-gateway) | [Supported](/azure/azure-vmware/enable-managed-snat-for-workloads) |
 
 Notes
 
 1. <span id="note7">Requires App Service Environment.</span>
-1. <span id="note8">Use [Azure App Service Hybrid Connections][app-service-hybrid].</span>
-1. <span id="note9">Requires App Service plan or [Azure Functions Premium plan][func-premium].</span>
+2. <span id="note8">Use [Azure App Service Hybrid Connections][app-service-hybrid].</span>
+3. <span id="note9">Requires App Service plan or [Azure Functions Premium plan][func-premium].</span>
 
 ## DevOps
 
@@ -106,6 +110,7 @@ Notes
 | Azure Spring Apps | Visual Studio Code, Intellij, Eclipse | Spring Boot, Steeltoe | Rolling upgrade, blue-green deployment |
 | Azure Service Fabric | Local node cluster | Guest executable, Service model, Actor model, Containers | Rolling upgrade (per service) |
 | Azure Batch | Not supported | Command-line application | Not applicable |
+| Azure VMware Solution | Agnostic | Agnostic | No built-in support |
 
 Notes
 
@@ -125,13 +130,16 @@ Notes
 | Azure Spring Apps | Built-in service | Integrated | 500 app instances in Standard |
 | Azure Service Fabric | Virtual machine scale sets | Azure Load Balancer | 100 nodes per virtual machine scale set |
 | Azure Batch | Not applicable | Azure Load Balancer | Core limit of 900 dedicated and 100 low-priority (default limit) |
+| Azure VMware Solution | Built-in service<a href="#note5c"><sup>5</sup></a> | Integrated<a href="#note6c"><sup>6</sup></a> | Per VMware vCenter can manage between 3 ~ 16 VMware ESXi hosts |
 
 Notes
 
 1. <span id="note1c">See [Autoscale pods](/azure/aks/tutorial-kubernetes-scale#autoscale-pods).</span>
-1. <span id="note2c">See [Automatically scale a cluster to meet application demands on Azure Kubernetes Service](/azure/aks/cluster-autoscaler).</span>
-1. <span id="note3c">See [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits)</span>.
-1. <span id="note4c">See [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app)</span>.
+2. <span id="note2c">See [Automatically scale a cluster to meet application demands on Azure Kubernetes Service](/azure/aks/cluster-autoscaler).</span>
+3. <span id="note3c">See [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits)</span>.
+4. <span id="note4c">See [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app)</span>.
+5. <span id="note5c">See [Scale a Azure VMware Solution](/azure/azure-vmware/tutorial-scale-private-cloud)</span>.
+6. <span id="note6c">See [VMware NSX](/azure/azure-vmware/configure-nsx-network-components-azure-portal)</span>.
 
 ## Availability
 
@@ -147,6 +155,7 @@ Notes
 | Azure Spring Apps | Azure Traffic Manager, Azure Front Door, and Multiregion Cluster |
 | Azure Service Fabric | Azure Traffic Manager, Azure Front Door, and cross-region Azure Load Balancer |
 | Azure Batch | Not applicable |
+| Azure VMware Solution | Not applicable |
 
 For guided learning on service guarantees, see [Core Cloud Services - Azure architecture and service guarantees](/training/modules/explore-azure-infrastructure).
 
@@ -163,6 +172,7 @@ Review and understand the available security controls and visibility for each se
 - [Azure Spring Apps](/azure/spring-cloud/concept-security-controls)
 - [Azure Service Fabric](/azure/service-fabric/security-baseline)
 - [Azure Batch](/azure/batch/security-baseline)
+- [Azure VMware Solution](/security/benchmark/azure/baselines/azure-vmware-solution-security-baseline)
 
 ## Other criteria
 
@@ -178,6 +188,7 @@ Review and understand the available security controls and visibility for each se
 | Azure Spring Apps | Supported | [Azure Spring Apps pricing][cost-azure-spring-apps] | Spring Boot, [microservices][microservices] |
 | Azure Service Fabric | Supported | [Service Fabric pricing][cost-service-fabric] | [Microservices][microservices], [event-driven architecture][event-driven] |
 | Azure Batch | Supported | [Batch pricing][cost-batch] | [Big compute][big-compute] (HPC) |
+| Azure VMware Solution | Configured in VM | [Azure VMware Solution pricing][cost-avs] | VM workload based on VMware format |
 
 ## Consider limits and cost
 
@@ -221,8 +232,10 @@ To see nonpublic LinkedIn profiles, sign in to LinkedIn.
 [cost-batch]: https://azure.microsoft.com/pricing/details/batch
 [cost-container-apps]: https://azure.microsoft.com/pricing/details/container-apps
 [cost-aro]:https://azure.microsoft.com/pricing/details/openshift
+[cost-avs]: https://azure.microsoft.com/pricing/details/azure-vmware
 
 [function-plans]: /azure/azure-functions/functions-scale
+[azure-vmware-plans]: /azure/azure-vmware/cluster-size-recommendation
 
 [resource-manager-supported-services]: /azure/azure-resource-manager/resource-manager-supported-services
 

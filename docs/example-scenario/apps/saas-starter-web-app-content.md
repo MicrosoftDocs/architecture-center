@@ -155,11 +155,11 @@ This architecture uses the following Azure services:
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps and API apps in the programming language that you choose without needing to manage infrastructure.
 
-- [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) easily enables identity and access management for end user applications.
+- [Azure Active Directory B2C](/azure/active-directory-b2c/overview) easily enables identity and access management for end user applications.
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is a general-purpose relational database managed service that supports relational data, spatial data, JSON, and XML.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a general-purpose relational database managed service that supports relational data, spatial data, JSON, and XML.
 
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) lets you quickly build powerful integrations using a simple graphical user interface (GUI) tool.
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) lets you quickly build powerful integrations using a simple graphical user interface (GUI) tool.
 
 ### Alternatives
 

@@ -15,7 +15,6 @@ azureCategories:
   - hybrid
   - compute
 products:
-  - azure-stack-hci
   - windows-server
 name: Baseline architecture for AKS on Azure Local
 summary: Learn how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) running on Azure Local.

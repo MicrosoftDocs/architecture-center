@@ -70,13 +70,13 @@ Many of the components of this architecture are the same as the resources in the
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 This basic architecture isn't intended for production deployments. The architecture favors simplicity and cost efficiency over functionality so that you can learn how to build end-to-end chat applications by using Azure OpenAI. The following sections outline some deficiencies of this basic architecture and describe recommendations and considerations.
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the Reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 This architecture isn't designed for production deployments, so the following list outlines some of the critical reliability features that this architecture omits:
 
@@ -96,7 +96,7 @@ For more information, see [Baseline Azure OpenAI end-to-end chat reference archi
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the Security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 This section describes some of the key recommendations that this architecture implements. These recommendations include content filtering and abuse monitoring, identity and access management, and role-based access controls. Because this architecture isn't designed for production deployments, this section also discusses network security. Network security is a key security feature that this architecture doesn't implement.
 
@@ -150,7 +150,7 @@ To learn how to include network as an extra perimeter in your architecture, see 
 
 ### Cost Optimization
 
-Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the Cost Optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 This basic architecture doesn't represent the costs for a production-ready solution. The architecture also doesn't have controls in place to guard against cost overruns. The following considerations outline some of the crucial features that affect cost and that this architecture omits:
 
@@ -166,7 +166,7 @@ This basic architecture doesn't represent the costs for a production-ready solut
 
 ### Operational Excellence
 
-Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the Operational Excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 #### System-assigned managed identities
 
@@ -208,7 +208,7 @@ This basic architecture implements a single instance for the deployed orchestrat
 
 ### Performance Efficiency
 
-Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance Efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 Because this architecture isn't designed for production deployments, this section outlines some of the critical performance efficiency features that the architecture omits.
 
@@ -217,6 +217,10 @@ One outcome of your POC should be the selection of a product that suits the work
 - This architecture uses the consumption or pay-as-you-go model for most components. The consumption model is a best-effort model and might be subject to noisy neighbor problems or other stressors on the platform. Determine whether your application requires [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) as you move toward production. Provisioned throughput helps ensure that processing capacity is reserved for your Azure OpenAI model deployments. Reserved capacity provides predictable performance and throughput for your models.
 
 - The Machine Learning online endpoint doesn't have automatic scaling implemented, so you need to provision a product and instance quantity that can handle peak load. Because of how the service is configured, it doesn't dynamically scale in to efficiently keep supply aligned with demand. Follow the guidance about how to [autoscale an online endpoint](/azure/machine-learning/how-to-autoscale-endpoints) as you move toward production.
+
+### Additional design recommendations
+
+AI/ML workloads, such as this one, should be designed by an architect that understands the design guidance found in the Azure Well-Architected Framework's [AI workloads on Azure](/azure/well-architected/ai/get-started). As you move from ideation and proof of technology into design, be sure to combine both the specifics of the learnings you have from this architecture and the general AI/ML workload guidance found in the Well-Architected Framework.
 
 ## Deploy this scenario
 
@@ -229,9 +233,7 @@ A deployment for a reference architecture that implements these recommendations 
 
 ## Related resources
 
+- A Well-Architected Framework perspective on [AI workloads on Azure](/azure/well-architected/ai/get-started)
 - [Azure OpenAI language models](/azure/ai-services/openai/concepts/models)
 - [Prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow)
-- [Workspace managed virtual network isolation](/azure/machine-learning/how-to-managed-network)
-- [Configure private link for AI Foundry hubs](/azure/ai-studio/how-to/configure-private-link)
-- [Configure a private endpoint for a Machine Learning workspace](/azure/machine-learning/how-to-configure-private-link)
 - [Content filtering](/azure/ai-services/openai/concepts/content-filter)

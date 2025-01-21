@@ -48,12 +48,12 @@ This diagram shows the legacy architecture migrated to Azure. A rehost approach 
 
 ### Components  
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines). Virtual Machines is one of several types of on-demand, scalable computing resources that Azure offers. An Azure virtual machine (VM) provides the flexibility of virtualization without the need to buy and maintain physical hardware.  
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network).  Virtual Network is the fundamental building block for your private network on Azure. Virtual Network enables many types of Azure resources, like VMs, to communicate with each other, the internet, and on-premises networks via a highly secure connection. A virtual network is like a traditional network that you might operate in your own datacenter, but it provides the benefits of the Azure infrastructure, like scalability, availability, and isolation.  
-- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway). Application Gateway provides a customizable Layer 7 load-balancing solution.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines). Virtual Machines is one of several types of on-demand, scalable computing resources that Azure offers. An Azure virtual machine (VM) provides the flexibility of virtualization without the need to buy and maintain physical hardware.  
+- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability).  Virtual Network is the fundamental building block for your private network on Azure. Virtual Network enables many types of Azure resources, like VMs, to communicate with each other, the internet, and on-premises networks via a highly secure connection. A virtual network is like a traditional network that you might operate in your own datacenter, but it provides the benefits of the Azure infrastructure, like scalability, availability, and isolation.  
+- [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway). Application Gateway provides a customizable Layer 7 load-balancing solution.
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface). A network interface enables a VM to communicate with internet, Azure, and on-premises resources. You can add network interface cards to a VM to provide child VMs with their own dedicated network interface device and IP address.  
 - [Azure managed disks](/azure/virtual-machines/managed-disks-overview). Azure managed disks are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Ultra disks, premium solid-state drives (SSD), standard SSDs, and standard hard disk drives (HDD) are available. For this architecture, we recommend either premium SSDs or ultra disk SSDs.  
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute). You can use ExpressRoute to extend your on-premises networks into the Azure cloud via a private connection that's facilitated by a connectivity provider. By using ExpressRoute, you can establish connections to Microsoft cloud services like Azure and Office 365.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute). You can use ExpressRoute to extend your on-premises networks into the Azure cloud via a private connection that's facilitated by a connectivity provider. By using ExpressRoute, you can establish connections to Microsoft cloud services like Azure and Office 365.
 
 ## Scenario details
 
@@ -124,7 +124,6 @@ See these additional resources:
 ## Related resources
 
 - [Refactor mainframe computer systems that run Adabas & Natural](refactor-adabas-aks.yml)
-- [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
 - [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Move mainframe compute to Azure](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [General mainframe refactor to Azure](../../example-scenario/mainframe/general-mainframe-refactor.yml)

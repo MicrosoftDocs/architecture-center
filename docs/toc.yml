@@ -9,22 +9,18 @@ items:
   href: changelog.md
 - name: Landing zones
   items:
-  - name: Deployment Options
+  - name: Deployment options
     href: landing-zones/landing-zone-deploy.md
-  - name: Platform landing zone design guides
-    items:
-    - name: Bicep landing zone implementation
-      href: landing-zones/bicep/landing-zone-bicep.md
-    - name: Terraform landing zone implementation
-      href: landing-zones/terraform/landing-zone-terraform.md
+  - name: Bicep platform landing zone implementation
+    href: landing-zones/bicep/landing-zone-bicep.md
+  - name: Subscription vending implementation
+    href: landing-zones/subscription-vending.yml
   - name: Application landing zone design guides
     items:
     - name: Use the Azure Governance Visualizer
       href: landing-zones/azure-governance-visualizer-accelerator.yml
     - name: Azure Virtual Desktop
       href: landing-zones/azure-virtual-desktop/design-guide.md
-  - name: Subscription vending implementation
-    href: landing-zones/subscription-vending.yml
 - name: Application architecture fundamentals
   items:
   - name: Introduction
@@ -299,7 +295,7 @@ items:
     - name: Development tools
       items:
       - name: Compare Java application hosting options
-        href: guide/technology-choices/service-for-java-comparison.yml        
+        href: guide/technology-choices/service-for-java-comparison.yml
   - name: Best practices for cloud applications
     items:
     - name: Overview
@@ -408,9 +404,9 @@ items:
           href: /azure/machine-learning/concept-differential-privacy
           maintainContext: true
     - name: Measure Azure app sustainability
-      href: example-scenario/apps/measure-azure-app-sustainability-sci-score.yml          
+      href: example-scenario/apps/measure-azure-app-sustainability-sci-score.yml
   - name: Architecture for SaaS and multitenancy
-    href: guide/saas-multitenant-solution-architecture/index.md 
+    href: guide/saas-multitenant-solution-architecture/index.md
   - name: Mission-critical applications
     items:
     - name: Mission-critical baseline architecture
@@ -758,7 +754,7 @@ items:
   - name: Retry
     href: patterns/retry.yml
   - name: Saga
-    href: reference-architectures/saga/saga.yml
+    href: patterns/saga.yml
   - name: Scheduler Agent Supervisor
     href: patterns/scheduler-agent-supervisor.yml
   - name: Sequential Convoy
@@ -861,48 +857,10 @@ items:
         href: solution-ideas/articles/hdinsight-kafka-spark-delta-lake.yml
       - name: Modern analytics with Azure Databricks
         href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
+      - name: Modern data platform for small and medium businesses
+        href: solution-ideas/articles/small-medium-modern-data-platform.yml      
       - name: Real-time analytics with Azure Data Explorer
         href: solution-ideas/articles/analytics-service-bus.yml
-  - name: Blockchain + Multiparty Compute
-    items:
-    - name: Guides
-      items:
-      - name: Azure Confidential Ledger guidance
-        items:
-        - name: Overview
-          href: /azure/confidential-ledger/overview
-          maintainContext: true
-        - name: Architecture
-          href: /azure/confidential-ledger/architecture
-          maintainContext: true
-        - name: Authenticate Confidential Ledger nodes
-          href: /azure/confidential-ledger/authenticate-ledger-nodes
-          maintainContext: true
-      - name: SQL Database ledger guidance
-        items:
-        - name: Overview
-          href: /sql/relational-databases/security/ledger/ledger-database-ledger
-          maintainContext: true
-        - name: Updatable ledger tables
-          href: /sql/relational-databases/security/ledger/ledger-updatable-ledger-tables
-          maintainContext: true
-        - name: Append-only ledger tables
-          href: /sql/relational-databases/security/ledger/ledger-append-only-ledger-tables
-          maintainContext: true
-        - name: Digest management
-          href: /sql/relational-databases/security/ledger/ledger-digest-management
-          maintainContext: true
-        - name: Database verification
-          href: /sql/relational-databases/security/ledger/ledger-database-verification
-          maintainContext: true
-        - name: Ledger considerations
-          href: /sql/relational-databases/security/ledger/ledger-limits
-          maintainContext: true
-    - name: Architectures
-      items:
-      - name: Azure SQL Database ledger
-        href: /sql/relational-databases/security/ledger/ledger-overview
-        maintainContext: true
   - name: Compute
     items:
     - name: Get started
@@ -926,9 +884,9 @@ items:
       - name: Teamcenter with Azure NetApp Files
         href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml
       - name: Multi-region load balancing
-        href: high-availability/reference-architecture-traffic-manager-application-gateway.yml    
+        href: high-availability/reference-architecture-traffic-manager-application-gateway.yml
       - name: Multi-tier web application built for HA/DR
-        href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml             
+        href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
       - name: Deploy IBM Maximo Application Suite
         href: example-scenario/apps/deploy-ibm-maximo-application-suite.yml
       - name: Deploy IBM Sterling Order Management
@@ -974,7 +932,7 @@ items:
         - name: Migrate IBM i series to Azure with Skytap
           href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
         - name: Use Azure NetApp Files to deploy IBM Power in Skytap on Azure
-          href: example-scenario/mainframe/deploy-ibm-power-workloads.yml  
+          href: example-scenario/mainframe/deploy-ibm-power-workloads.yml
         - name: Refactor mainframe with CloudFrame Renovate
           href: example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml
         - name: Refactor an IBM z/OS mainframe CF
@@ -1074,7 +1032,7 @@ items:
           - name: AKS baseline cluster
             href: reference-architectures/containers/aks/baseline-aks.yml
           - name: AKS baseline for multi-region clusters
-            href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml 
+            href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
           - name: AKS cluster for a PCI-DSS workload
             items:
             - name: Introduction
@@ -1099,8 +1057,8 @@ items:
             href: reference-architectures/containers/aro/ha-zr-aro.yml
           - name: Running Windows containers on AKS
             href: reference-architectures/containers/aks/windows-containers-on-aks.yml
-          - name: Use Azure Red Hat OpenShift in the financial services industry  
-            href: reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml    
+          - name: Use Azure Red Hat OpenShift in the financial services industry
+            href: reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml
           - name: CI/CD for microservices on Kubernetes
             href: microservices/ci-cd-kubernetes.yml
       - name: Guides
@@ -1325,7 +1283,7 @@ items:
         - name: Azure Automation State Configuration
           href: example-scenario/state-configuration/state-configuration.yml
         - name: Implement a secure hybrid network
-          href: reference-architectures/dmz/secure-vnet-dmz.yml          
+          href: reference-architectures/dmz/secure-vnet-dmz.yml
       - name: Azure enterprise cloud file share
         href: hybrid/azure-files-private.yml
       - name: Azure files secured by AD DS
@@ -1377,10 +1335,6 @@ items:
         href: example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml
       - name: Hybrid security monitoring
         href: hybrid/hybrid-security-monitoring.yml
-      - name: Public MEC compute deployment
-        href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
-      - name: Public MEC high availability
-        href: example-scenario/hybrid/multi-access-edge-compute-ha.yml
       - name: Use file shares in a hybrid environment
         href: hybrid/azure-file-share.yml
   - name: Identity
@@ -1553,7 +1507,7 @@ items:
         - name: Security
           href: serverless/event-hubs-functions/security.md
         - name: Observability
-          href: serverless/event-hubs-functions/observability.yml          
+          href: serverless/event-hubs-functions/observability.yml
     - name: Architectures
       items:
       - name: API Management landing zone architecture
@@ -1570,6 +1524,8 @@ items:
         href: example-scenario/power-automate/power-automate.yml
       - name: Publish internal APIs to external users
         href: example-scenario/apps/publish-internal-apis-externally.yml
+      - name: Real-time monitoring and observable systems for media
+        href: example-scenario/monitoring/monitoring-observable-systems-media.yml
     - name: Solution ideas
       items:
       - name: Custom business processes
@@ -1614,10 +1570,6 @@ items:
         href: example-scenario/iot/iot-private-file-upload.yml
       - name: Project 15 IoT sustainability
         href: solution-ideas/articles/project-15-iot-sustainability.yml
-  - name: Mainframe + Midrange
-    items:
-    - name: Get started
-      href: mainframe/mainframe-midrange-architecture.md
   - name: Management + Governance
     items:
     - name: Get started
@@ -1704,57 +1656,6 @@ items:
         href: solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml
       - name: Video capture and analytics for retail
         href: solution-ideas/articles/video-analytics.yml
-  - name: Media
-    items:
-    - name: Get started
-      href: guide/media/start-here.md
-    - name: Guides
-      items:
-      - name: Media Services terminology and concepts
-        href: /azure/media-services/latest/concepts-overview
-        maintainContext: true
-      - name: Encoding video and audio
-        href: /azure/media-services/latest/encode-concept
-        maintainContext: true
-      - name: Live streaming
-        href: /azure/media-services/latest/stream-live-streaming-concept
-        maintainContext: true
-      - name: High availability with video on demand
-        href: /azure/media-services/latest/architecture-high-availability-encoding-concept
-        maintainContext: true
-      - name: Monitor Media Services
-        href: /azure/media-services/latest/monitoring/monitor-media-services
-        maintainContext: true
-      - name: Dynamic encryption
-        href: /azure/media-services/latest/drm-content-protection-concept
-        maintainContext: true
-      - name: Security baseline for Media Services
-        href: /security/benchmark/azure/baselines/media-services-security-baseline
-        maintainContext: true
-    - name: Architectures
-      items:
-      - name: Gridwich media processing system
-        items:
-        - name: Gridwich architecture
-          href: reference-architectures/media-services/gridwich-architecture.yml
-        - name: Gridwich concepts
-          items:
-          - name: Clean monolith design
-            href: reference-architectures/media-services/gridwich-clean-monolith.yml
-          - name: Saga orchestration
-            href: reference-architectures/media-services/gridwich-saga-orchestration.yml
-          - name: Project names and structure
-            href: reference-architectures/media-services/gridwich-project-names.yml
-          - name: Gridwich CI/CD
-            href: reference-architectures/media-services/gridwich-cicd.yml
-          - name: Gridwich Storage Service
-            href: reference-architectures/media-services/gridwich-storage-service.yml
-          - name: Gridwich logging
-            href: reference-architectures/media-services/gridwich-logging.yml
-          - name: Gridwich message formats
-            href: reference-architectures/media-services/gridwich-message-formats.yml
-      - name: Real-time monitoring and observable systems for media
-        href: example-scenario/monitoring/monitoring-observable-systems-media.yml
   - name: Migration
     items:
     - name: Get started
@@ -1866,24 +1767,6 @@ items:
       - name: Mixed reality samples and apps
         href: /windows/mixed-reality/develop/features-and-samples
         maintainContext: true
-      - name: Spatial Anchors guidance
-        items:
-        - name: Authentication and authorization
-          href: /azure/spatial-anchors/concepts/authentication
-          maintainContext: true
-        - name: Anchor relationships
-          href: /azure/spatial-anchors/concepts/anchor-relationships-way-finding
-          maintainContext: true
-        - name: Coarse relocalization
-          href: /azure/spatial-anchors/concepts/coarse-reloc
-          maintainContext: true
-        - name: Experience guidelines
-          href: /azure/spatial-anchors/concepts/guidelines-effective-anchor-experiences
-          maintainContext: true
-    - name: Solution ideas
-      items:
-      - name: Design review with mixed reality
-        href: solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.yml
   - name: Mobile
     items:
     - name: Get started
@@ -1932,7 +1815,7 @@ items:
       - name: Scalable apps using Azure PostgreSQL
         href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml
   - name: Networking
-    href: networking/index.md        
+    href: networking/index.md
   - name: Security
     items:
     - name: Get started
@@ -2025,8 +1908,6 @@ items:
         href: web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml
       - name: Loan credit risk modeling
         href: example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml
-      - name: Real-time fraud detection
-        href: example-scenario/data/fraud-detection.yml
       - name: Securely managed web apps
         href: example-scenario/apps/fully-managed-secure-apps.yml
       - name: Secure a Microsoft Teams channel bot
@@ -2303,4 +2184,3 @@ items:
   href: /azure/well-architected/
 - name: Cloud Adoption Framework for Azure
   href: /azure/cloud-adoption-framework/
-  

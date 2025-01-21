@@ -12,13 +12,13 @@ Incrementally replace specific pieces of functionality with new applications and
 
 ![Diagram of the Strangler Fig pattern](./_images/strangler.png)
 
-This pattern helps to minimize risk from the migration, and spread the development effort over time. With the façade safely routing users to the correct application, you can add functionality to the new system at whatever pace you like, while ensuring the legacy application continues to function. Over time, as features are migrated to the new system, the legacy system is eventually "strangled" and is no longer necessary. Once this process is complete, the legacy system can safely be retired.
+This pattern helps to minimize risk from migrating an entire system, spreading the development effort out over time. With the façade safely routing users to the correct application or service, legacy or new, you can add functionality to the new system at whatever pace you like, while ensuring the legacy application continues to function. Over time, as features are migrated to the new system, the legacy system is eventually "strangled" and is no longer necessary. Once this process is complete, the legacy system can safely be retired.
 
 ## Issues and considerations
 
 - Consider how to handle services and data stores that are potentially used by both new and legacy systems. Make sure both can access these resources side-by-side.
-- Structure new applications and services in a way that they can easily be intercepted and replaced in future strangler fig migrations.
-- At some point, when the migration is complete, the strangler fig façade will either go away or evolve into an adaptor for legacy clients.
+- Structure new applications and services in a way that they can easily be intercepted and replaced in future strangler fig migrations. For example, strive to have clear demarcations between parts of your solution so that you can migrate each part individually.
+- At some point, when the migration is complete, the strangler fig façade will probably go away. Alternatively, you can maintain the façade as an adaptor for legacy clients to use while you update the core system for newer clients.
 - Make sure the façade keeps up with the migration.
 - Make sure the façade doesn't become a single point of failure or a performance bottleneck.
 
