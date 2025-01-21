@@ -159,14 +159,14 @@ For example, suppose your tenants' administrators need to add IP address-based a
 
 Principal authors:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
- * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
- 
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
+
 Other contributor:
 
- * [Sumeet Mittal](https://www.linkedin.com/in/mittalsumeet) | Principal Product Manager, Azure Private Link
- 
- *To see non-public LinkedIn profiles, sign in to LinkedIn.*
+- [Sumeet Mittal](https://www.linkedin.com/in/mittalsumeet) | Principal Product Manager, Azure Private Link
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
