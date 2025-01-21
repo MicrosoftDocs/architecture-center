@@ -35,7 +35,7 @@ Spot VMs have two configuration options that affect eviction. These configuratio
 
 ### Eviction type
 
-Capacity changes or price changes cause evictions. The way capacity and price changes affect spot VMs depends on the eviction type chosen when the VM was created. Eviction type defines the conditions of an eviction. The eviction types are "capacity only eviction" and "price or capacity eviction".
+Capacity changes or price changes cause evictions. The way capacity and price changes affect spot VMs depends on the eviction type chosen when the VM is created. Eviction type defines the conditions of an eviction. The eviction types are "capacity only eviction" and "price or capacity eviction".
 
 **Capacity only eviction**: This eviction type triggers an eviction when excess compute capacity disappears. By default, the price is capped at the pay-as-you-go rate. Use this eviction type when you're willing to pay up to the pay-as-you-go VM price.
 
