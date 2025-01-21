@@ -27,12 +27,12 @@ The company has data sources on many different platforms:
 
 Data is loaded from these different data sources using several Azure components:
 
-- [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) is used to stage source data before it's loaded into Azure Synapse.
-- [Data Factory](https://azure.microsoft.com/products/data-factory) orchestrates the transformation of staged data into a common structure in Azure Synapse. Data Factory [uses PolyBase when loading data into Azure Synapse](/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-sql-data-warehouse) to maximize throughput.
-- [Azure Synapse](https://azure.microsoft.com/products/synapse-analytics) is a distributed system for storing and analyzing large datasets. Its use of massive parallel processing (MPP) makes it suitable for running high-performance analytics. Azure Synapse can use [PolyBase](/sql/relational-databases/polybase/polybase-guide) to rapidly load data from Azure Data Lake Storage.
-- [Analysis Services](https://azure.microsoft.com/products/analysis-services) provides a semantic model for your data. It can also increase system performance when analyzing your data.
-- [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) authenticates users who connect to the Analysis Services server through Power BI. Data Factory can also use Microsoft Entra ID to authenticate to Azure Synapse via a service principal or [Managed identity for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is used to stage source data before it's loaded into Azure Synapse.
+- [Data Factory](/azure/data-factory/introduction) orchestrates the transformation of staged data into a common structure in Azure Synapse. Data Factory [uses PolyBase when loading data into Azure Synapse](/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-sql-data-warehouse) to maximize throughput.
+- [Azure Synapse](/azure/synapse-analytics/overview-what-is) is a distributed system for storing and analyzing large datasets. Its use of massive parallel processing (MPP) makes it suitable for running high-performance analytics. Azure Synapse can use [PolyBase](/sql/relational-databases/polybase/polybase-guide) to rapidly load data from Azure Data Lake Storage.
+- [Analysis Services](/azure/analysis-services/analysis-services-overview) provides a semantic model for your data. It can also increase system performance when analyzing your data.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) authenticates users who connect to the Analysis Services server through Power BI. Data Factory can also use Microsoft Entra ID to authenticate to Azure Synapse via a service principal or [Managed identity for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
 ### Alternatives
 

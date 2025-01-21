@@ -57,7 +57,9 @@ An example of why hosting prompt flow hosting on an alternative compute is a con
 
 While this architecture leads with Azure AI Search, your choice of data store for your grounding data is an architectural decision specific to your workload. Many workloads are in fact polyglot and have disparate sources and technologies for grounding data. These data platforms range from existing OLTP data stores, cloud native databases such as Azure Cosmos DB, through specialized solutions such as Azure AI Search. A common, but not required, characteristic for such a data store is vector search. See [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search) to explore options in this space.
 
-## Considerations and recommendations
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 This architecture is best taken through the design process for your specific situation when the design effort is combined with the design guidance found in the Azure Well-Architected Framework's [AI workloads on Azure](/azure/well-architected/ai/get-started) principles and recommendations.
 
@@ -256,6 +258,8 @@ We recommend that you configure the Azure AI Foundry hub for [managed virtual ne
 
 The outbound rules can be private endpoints, service tags, or fully qualified domain names (FQDNs) for external public endpoints. In this architecture, connectivity to Azure services such as Container Registry, Storage, Azure Key Vault, Azure OpenAI, and AI Search are connected through private link. Although not in this architecture, some common operations that might require configuring an FQDN outbound rule are downloading a pip package, cloning a GitHub repo, or downloading base container images from external repositories.
 
+The outbound FQDN control is implemented by a Microsoft managed Azure Firewall deployed into the Azure AI Foundry's managed network. Choose the Basic pricing tier if you need to control just HTTP (port 80) or HTTPS (port 443) egress traffic. If your egress traffic requires custom protocols or ports, then select the Standard pricing tier. In this architecture the Basic pricing tier is used because the only egress traffic is to HTTPS endpoints on port 443.
+
 ##### Virtual network segmentation and security
 
 The network in this architecture has separate subnets for the following purposes:
@@ -266,7 +270,6 @@ The network in this architecture has separate subnets for the following purposes
 - Azure Bastion
 - Jump box virtual machine
 - Training and Scoring subnets - both of these are for bring your own compute related to training and inferencing. In this architecture, we're not doing training and we're using managed compute.
-
 - Scoring
 
 Each subnet has a network security group (NSG) that limits both inbound and outbound traffic for those subnets to just what's required. The following table shows a simplified view of the NSG rules that the baseline adds to each subnet. The table provides the rule name and function.
@@ -322,9 +325,9 @@ To help ensure alignment with security, consider using Azure Policy and network 
 
 The Azure AI Foundry managed identity requires both control plane (Contributor) and data plane (Key Vault Administrator) role assignments. This means that this identity has read and write access to all secrets, keys, and certificates stored in the Azure key vault. If your workload has services other than Azure AI Foundry that require access to secrets, keys, or certificates in Key Vault, your workload or security team may not be comfortable with the Azure AI Foundry hub managed identity having access to those artifacts. In this case, consider deploying a Key Vault instance specifically for the Azure AI Foundry hub, and other Azure Key Vault instances as appropriate for other parts of your workload.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 To see a pricing example for this scenario, use the [Azure pricing calculator](https://azure.com/e/a5a243c3b0794b2787e611c65957217f). You need to customize the example to match your usage because this example only includes the components included in the architecture. The most expensive components in the scenario are DDoS Protection and the firewall that is deployed as part of the managed online endpoint. Other notable costs are the chat UI and prompt flow compute and AI Search. Optimize those resources to save the most cost.
 
@@ -362,9 +365,9 @@ Azure OpenAI is a consumption-based service, and as with any consumption-based s
 
 - **Cost management.** Follow the guidance on [using cost management features with OpenAI](/azure/ai-services/openai/how-to/manage-costs) to monitor costs, set budgets to manage costs, and create alerts to notify stakeholders of risks or anomalies.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 #### Built-in prompt flow runtimes
 
@@ -517,9 +520,9 @@ The managed virtual network is automatically provisioned when you first create a
 
 If you have a scenario where the hub is centrally owned by a team other than the workload team, you may choose to deploy projects to separate resource groups. If you're using infrastrastructure as code, you can accomplish that by setting a different resource group in the Bicep. If you're using the portal, you can set the `defaultWorkspaceResourceGroup` property under the `workspaceHubConfig` to the resource group you would like your projects to be created.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 This section describes performance efficiency from the perspective of Azure Search, Azure OpenAI, and Machine Learning.
 
