@@ -104,7 +104,7 @@ For a delete policy, we recommend building a pipeline that uses different VM siz
 
 ### Prepare for immediate eviction
 
-It's possible for Azure to evict a spot VM as soon as you create it and before your workload runs. Just because there was capacity to create a spot VM, doesn't mean it persists. Spot VMs have no availability guarantees (SLAs) after creation. Your orchestration needs to account for immediate evictions. The `Preempt` signal provides a minimum of 30-seconds advance notice of the eviction.
+It's possible for Azure to evict a spot VM as soon as you create it and before your workload runs. In some cases, there might be enough capacity to create a spot VM, but it won't persist. Spot VMs have no availability guarantees (SLAs) after creation. Your orchestration needs to account for immediate evictions. The `Preempt` signal provides a minimum of 30-seconds advance notice of the eviction.
 
 Incorporate VM health checks into your orchestration to prepare for immediate evictions. Orchestration for immediate evictions can't rely on the Schedule Events `Preempt` signal. Only the VM itself can query the `Preempt` signal, and there's not enough time to start an application, query the Schedule Events endpoint, and gracefully shutdown. So the health check needs to reside outside the workload environment. The health checks need to watch the status of the spot VM and start the deployment pipeline to replace the spot VM when the status changes to deallocating or stopping.
 
@@ -126,7 +126,7 @@ We recommend designing an idempotent workload. The outcome of processing an even
 
 ### Use an application warmup period
 
-Most interruptible workloads run applications. Applications need time to install and time to boot. They need time to connect to external storage and gather information from checkpoints. We recommend having an application warmup period before allowing it to start processing. During the warmup period, the application should be booting, connecting, and preparing to contribute. You should only allow an application to start processing data after you validated the health of the application.
+Most interruptible workloads run applications. Applications need time to install and time to boot. They need time to connect to external storage and gather information from checkpoints. We recommend having an application warmup period before allowing it to start processing. During the warmup period, the application should be booting, connecting, and preparing to contribute. You should only allow an application to start processing data after you validate the health of the application.
 
 ![Diagram of the workload lifecycle with an application warmup period](./media/lifecycle-spot-virtual-machine.png)
 
