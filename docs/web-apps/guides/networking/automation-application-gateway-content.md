@@ -80,23 +80,17 @@ Azure Container Apps is a serverless container platform based on Kubernetes. It 
 
 ## Considerations
 
-### Availability
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected).
+
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Because liveness and readiness probes aren't supported in container groups, we recommend that you use Azure Monitor Metrics and Azure Application Insights for monitoring. Container health and uptime aren't deterministic approaches to determine if a system is operating end to end.
 
-### Operations
-
-Azure Durable Functions is used to reconfigure infrastructure if there's a failure in Container Instances or if the private IP of a container group changes. As noted in the [documentation](/azure/container-instances/container-instances-virtual-network-concepts), the provisioning process takes slightly longer. Users might experience minimal downtime if the containers aren't ready in time.
-
-This architecture adds a layer of resiliency. But we still recommend that you configure monitoring in the application and monitor [Azure status](https://status.azure.com/status) for platform failures.
-
-### Scalability
-
-CPU and memory requirements are defined when containers are created, so you won't be able to perform vertical scaling directly. You can add containers to the container group to scale horizontally. But note that each container in the container group will consume one private IP, so the limit would be the provisioned subnet size.
-
-Another important consideration for scaling is the state of the application. The application needs to handle the state, either locally or by using external services like [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview), to ensure scaling on demand doesn't create data loss in the application.
-
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 The ability to deploy PaaS into a virtual network (VNet injection) doesn't improve security if the configuration isn't set up correctly. VNet injection gives admins more network control, providing benefits like tighter network security groups and the use of resources not exposed publicly.
 
@@ -104,11 +98,29 @@ Private Link projects a private endpoint into the virtual network, which allows 
 
 If you store container images in [Azure Container Registry](/azure/container-registry), you can enable [Microsoft Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) to perform container image vulnerability scans.
 
-## Pricing
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for Azure resources.
 
 See [this example](https://azure.com/e/437a828a735f44c6b942c72ef67ade58) of the preceding implementation.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+Azure Durable Functions is used to reconfigure infrastructure if there's a failure in Container Instances or if the private IP of a container group changes. As noted in the [documentation](/azure/container-instances/container-instances-virtual-network-concepts), the provisioning process takes slightly longer. Users might experience minimal downtime if the containers aren't ready in time.
+
+This architecture adds a layer of resiliency. But we still recommend that you configure monitoring in the application and monitor [Azure status](https://status.azure.com/status) for platform failures.
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+CPU and memory requirements are defined when containers are created, so you won't be able to perform vertical scaling directly. You can add containers to the container group to scale horizontally. But note that each container in the container group will consume one private IP, so the limit would be the provisioned subnet size.
+
+Another important consideration for scaling is the state of the application. The application needs to handle the state, either locally or by using external services like [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview), to ensure scaling on demand doesn't create data loss in the application.
 
 ## Contributors
 
