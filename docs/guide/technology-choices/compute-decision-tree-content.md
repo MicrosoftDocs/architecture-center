@@ -25,10 +25,10 @@ If you're not familiar with the Azure service selected in the previous section, 
 
 - [Azure Virtual Machines](/azure/virtual-machines): A service where you deploy and manage virtual machines (VMs) inside an Azure virtual network.
 - [Azure App Service](/azure/app-service): A managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
-- [Azure Functions](/azure/azure-functions/functions-overview): A service that provides managed function executions based on a variety of trigger types, such as for event-driven applications.
+- [Azure Functions](/azure/azure-functions/functions-overview): A service that provides managed functions that run based on a variety of trigger types for event-driven applications.
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes): A managed Kubernetes service for running containerized applications.
 - [Azure Container Apps](/azure/container-apps): A managed service built on Kubernetes, which simplifies the deployment of containerized applications in a serverless environment.
-- [Azure Container Instances](/azure/container-instances/container-instances-overview): This service is a fast and simple way to run a single container or group of containers in Azure. Azure Container Instances doesn't provide full orchestration, but you also don't have to provision any VMs or adopt a higher-level service.
+- [Azure Container Instances](/azure/container-instances/container-instances-overview): This service is a fast and simple way to run a single container or group of containers in Azure. Azure Container Instances doesn't provide full container orchestration, but you can implement them without having to provision any VMs or adopt a higher-level service.
 - [Azure Red Hat OpenShift](/azure/openshift): A fully managed OpenShift cluster for running containers in production with Kubernetes.
 - [Azure Spring Apps](/azure/spring-apps): A managed service designed and optimized for hosting Spring Boot apps.
 - [Azure Service Fabric](/azure/service-fabric/service-fabric-overview): A distributed systems platform that can run in many environments, including Azure or on-premises.
