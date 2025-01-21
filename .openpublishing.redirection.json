@@ -1,6 +1,36 @@
 {
   "redirections": [
     {
+      "source_path": "docs/example-scenario/data/azure-nifi.yml",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml",
+      "redirect_url": "https://www.microsoft.com/industry/telecommunications/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/hybrid/multi-access-edge-compute-ha.yml",
+      "redirect_url": "https://www.microsoft.com/industry/telecommunications/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/networking/guide/build-private-5g-network.md",
+      "redirect_url": "/azure/private-5g-core/private-5g-core-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/networking/guide/deploy-private-mobile-network.md",
+      "redirect_url": "/azure/private-5g-core/private-5g-core-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/data/helm-deployments-apache-nifi.yml",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/sap/sap-overview.yml",
       "redirect_url": "https://azure.microsoft.com/solutions/sap/",
       "redirect_document_id": false

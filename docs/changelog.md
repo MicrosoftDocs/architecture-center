@@ -210,7 +210,6 @@ The following new and updated articles have recently been published in the Azure
 - [Extract and analyze call center data by using Azure OpenAI Service, Speech services, and Language services](./ai-ml/openai/architecture/call-center-openai-analytics.yml)  ([#6d04e7cfd1](https://github.com/MicrosoftDocs/architecture-center/commit/6d04e7cfd1))
 - [Enable machine learning inference on an Azure IoT Edge device](./guide/iot/machine-learning-inference-iot-edge.yml)  ([#90e5b8e3e3](https://github.com/MicrosoftDocs/architecture-center/commit/90e5b8e3e3))
 - [Certificate lifecycle management on Azure](./example-scenario/certificate-lifecycle/index.yml)  ([#82e0354d8e](https://github.com/MicrosoftDocs/architecture-center/commit/82e0354d8e))
-- [Apache NiFi on Azure](./example-scenario/data/azure-nifi.yml)  ([#82e0354d8e](https://github.com/MicrosoftDocs/architecture-center/commit/82e0354d8e))
 - [Multitenancy and Azure Cosmos DB](./guide/multitenant/service/cosmos-db.md)  ([#85cb4928e6](https://github.com/MicrosoftDocs/architecture-center/commit/85cb4928e6))
 - [Automate PDF forms processing](./ai-ml/architecture/automate-pdf-forms-processing.yml)  ([#a7e1be4c2d](https://github.com/MicrosoftDocs/architecture-center/commit/a7e1be4c2d))
 - [Baseline OpenAI end-to-end chat reference architecture](./ai-ml/architecture/baseline-openai-e2e-chat.yml)  ([#332a0da85a](https://github.com/MicrosoftDocs/architecture-center/commit/332a0da85a))
