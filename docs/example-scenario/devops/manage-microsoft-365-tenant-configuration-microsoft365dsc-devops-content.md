@@ -20,8 +20,8 @@ This article describes a solution that tracks changes that service administrator
 
 ### Components
 
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) is an Azure DevOps service for continuous integration and continuous delivery (CI/CD). Use Azure Pipelines to test and build your code and ship it to any target. You can also use Azure Pipelines to implement quality gates to help ensure that you deploy changes in a controlled and consistent manner.
-- [Key Vault](https://azure.microsoft.com/services/key-vault) improves the security of storage for tokens, passwords, certificates, API keys, and other secrets. It also provides tightly controlled access to these secrets. Use Key Vault to store service principals and certificates that you use to deploy configuration changes to Microsoft 365 tenants.
+- [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) is an Azure DevOps service for continuous integration and continuous delivery (CI/CD). Use Azure Pipelines to test and build your code and ship it to any target. You can also use Azure Pipelines to implement quality gates to help ensure that you deploy changes in a controlled and consistent manner.
+- [Key Vault](/azure/key-vault/general/overview) improves the security of storage for tokens, passwords, certificates, API keys, and other secrets. It also provides tightly controlled access to these secrets. Use Key Vault to store service principals and certificates that you use to deploy configuration changes to Microsoft 365 tenants.
 - [Microsoft365DSC](https://microsoft365dsc.com) provides automation for the deployment, configuration, and monitoring of Microsoft 365 tenants via PowerShell Desired Stage Configuration (DSC). Use Microsoft365DSC to deploy configuration changes to Microsoft 365 tenants via Azure Pipelines.
 - [Windows PowerShell DSC](/powershell/scripting/dsc/overview) is a management platform in PowerShell. You can use it to manage your development infrastructure by using a configuration-as-code model. This model is the underlying technology that Microsoft365DSC uses.
 

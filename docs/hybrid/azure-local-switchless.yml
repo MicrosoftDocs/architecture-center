@@ -18,7 +18,7 @@ azureCategories:
   - management-and-governance
 summary: Learn how to design Azure Local infrastructure by using a three-node storage switchless architecture.
 products:
-  - azure-stack-hci
+  - azure-local
   - azure-arc
   - azure-key-vault
   - azure-blob-storage

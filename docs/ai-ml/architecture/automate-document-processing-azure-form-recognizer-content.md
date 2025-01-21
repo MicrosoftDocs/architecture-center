@@ -14,17 +14,26 @@ The following sections describe the various stages of the data extraction proces
 
 1. Documents are ingested through a browser at the front end of a web application. The documents contain images or are in PDF format. Azure App Service hosts a back-end application. The solution routes the documents to that application through Azure Application Gateway. This load balancer runs with Azure Web Application Firewall, which helps to protect the application from common attacks and vulnerabilities.
 
-1. The back-end application posts a request to an Azure AI Document Intelligence REST API endpoint that uses one of these models:
+1. The back-end application posts a request to an Azure AI Document Intelligence REST API endpoint that uses one of the [models](/azure/ai-services/document-intelligence/concept/choose-model-feature) based on the use case requirement.
+   
+   1. Pretrained document analysis models include:
+   
+       - [Read OCR model](/azure/ai-services/document-intelligence/prebuilt/read)
+       - [Layout analysis model][Document intelligence layout model]
+       - [General document][Document intelligence general document model]. You can also use Layout analysis model with optional query string parameter `features=keyValuePairs` enabled.)
 
-   - [Layout][Form Recognizer layout model]
-   - [Invoice][Form Recognizer invoice model]
-   - [Receipt][Form Recognizer receipt model]
-   - [ID document][Form Recognizer ID document model]
-   - [General document][Form Recognizer general document model]
-   - [US tax document models](/azure/ai-services/document-intelligence/concept-tax-document)
-   - [US mortgage document model](/azure/ai-services/document-intelligence/concept-mortgage-documents)
+   1. [Pretrained scenario-specific](/azure/ai-services/document-intelligence/concept/choose-model-feature#pretrained-scenario-specific-models) models include (not limited to):
+      - [Invoice][Form Recognizer invoice model]
+      - [Receipt][Form Recognizer receipt model]
+      - [ID document][Form Recognizer ID document model]
+      - [Contract model](/azure/ai-services/document-intelligence/prebuilt/contract) 
+      - [US tax document models](/azure/ai-services/document-intelligence/prebuilt/tax-document)
+      - [US mortgage document model](/azure/ai-services/document-intelligence/prebuilt/mortgage-documents)
+      - [US Health Insurance card model](/azure/ai-services/document-intelligence/prebuilt/health-insurance-card)
 
-   The response from Azure AI Document Intelligence contains raw optical character recognition (OCR) data and structured extractions.
+   1. [Custom Extraction models](/azure/ai-services/document-intelligence/concept/choose-model-feature#custom-extraction-models)
+
+   The response from Azure AI Document Intelligence contains raw optical character recognition (OCR) data and structured extractions depending on the model.
 
 1. The App Service back-end application uses the confidence values to check the extraction quality. If the quality is below a specified threshold, the app flags the data for manual verification. When the extraction quality meets requirements, the data enters [Azure Cosmos DB][Welcome to Azure Cosmos DB] for downstream application consumption. The app can also return the results to the front-end browser.
 
@@ -36,7 +45,10 @@ The following sections describe the various stages of the data extraction proces
    - Receives the response.
    - Evaluates the extraction quality.
 
-1. The extracted data enters Azure Cosmos DB.
+1. The extracted data enters Azure Cosmos DB for downstream application consumption.
+
+1. The extracted data can also be pushed to [Azure AI search for indexing to build RAG applications](/azure/ai-services/document-intelligence/concept/retrieval-augmented-generation).
+   
 
 #### Data enrichment
 
@@ -73,6 +85,8 @@ The pipeline that's used for data enrichment depends on the use case.
    - Real-time processes. The models can be deployed to [managed online endpoints](/azure/machine-learning/concept-endpoints#managed-online-endpoints) or Kubernetes online endpoints, where managed Kubernetes cluster can be anywhere including [Azure Kubernetes Service (AKS)][What is Kubernetes?].
    - Batch inferencing can be done at [batch endpoints](/azure/machine-learning/concept-endpoints#what-are-batch-endpoints) or in Azure Virtual Machines.
 
+1. Data enrichment like consolidation of specific information, summarization, and checking for correctness can also be done by passing the extracted data to the Azure OpenAI endpoint.
+
 1. The enriched data enters Azure Cosmos DB.
 
 #### Analytics and visualizations
@@ -80,7 +94,7 @@ The pipeline that's used for data enrichment depends on the use case.
 1. Applications use the raw OCR, structured data from Azure AI Document Intelligence endpoints, and the enriched data from NLP:
 
    - Power BI displays the data and presents reports on it.
-   - The data functions as a source for Azure Cognitive Search.
+   - The data functions as a source for Azure AI Search.
    - Other applications consume the data.
 
 ### Components
@@ -91,29 +105,38 @@ The pipeline that's used for data enrichment depends on the use case.
 
 - [Azure Functions][Azure Functions service page] is a serverless compute platform that you can use to build applications. With Functions, you can use triggers and bindings to react to changes in Azure services like Blob Storage and Azure Cosmos DB. Functions can run scheduled tasks, process data in real time, and process messaging queues.
 
-- [Azure AI Document Intelligence][Azure Form Recognizer service page] is part of Azure AI services. Azure AI Document Intelligence offers a collection of pre-built endpoints for extracting data from invoices, documents, receipts, ID cards, and business cards. This service maps each piece of extracted data to a field as a key-value pair. Azure AI Document Intelligence also extracts table content and structure. The output format is JSON.
+- [Azure AI Document Intelligence][Azure Form Recognizer service page] is part of Azure AI services. Azure AI Document Intelligence offers a collection of pre-built endpoints for extracting data from variety of documents and forms for building intelligent document processing solutions across organizations without training and building specific models from scratch for each document type/solution. The service also offers to build your own custom models with minimal effort and use the model through the corresponding model ID at scale. Multiple custom models can be assigned to a single model ID by creating a [composed model](/azure/ai-services/document-intelligence/how-to-guides/compose-custom-models). The [input requirements](/azure/ai-services/document-intelligence/model-overview?view=doc-intel-4.0.0#input-requirements) varies from model to model. The output format is JSON.
 
 - [Azure Storage][Azure Storage service page] is a cloud storage solution that includes object, blob, file, disk, queue, and table storage.
 
-- [Blob Storage][Azure Blob Storage] is a service that's part of Azure Storage. Blob Storage offers optimized cloud object storage for large amounts of unstructured data.
+   - [Blob Storage][Azure Blob Storage] is a service that's part of Azure Storage. Blob Storage offers optimized cloud object storage for large amounts of unstructured data.
 
-- [Azure Data Lake Storage][Azure Data Lake Storage] is a scalable, secure data lake for high-performance analytics workloads. The data typically comes from multiple heterogeneous sources and can be structured, semi-structured, or unstructured. Azure Data Lake Storage Gen2 combines Azure Data Lake Storage Gen1 capabilities with Blob Storage. As a next-generation solution, Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. But it also offers the tiered storage, high availability, and disaster recovery capabilities of Blob Storage.
+   - [Azure Data Lake Storage][Azure Data Lake Storage] is a scalable, secure data lake for high-performance analytics workloads. The data typically comes from multiple heterogeneous sources and can be structured, semi-structured, or unstructured. Azure Data Lake Storage Gen2 combines Azure Data Lake Storage Gen1 capabilities with Blob Storage. As a next-generation solution, Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. But it also offers the tiered storage, high availability, and disaster recovery capabilities of Blob Storage.
 
 - [Azure Cosmos DB][Azure Cosmos DB] is a fully managed, highly responsive, scalable NoSQL database. Azure Cosmos DB offers enterprise-grade security and supports APIs for many databases, languages, and platforms. Examples include SQL, MongoDB, Gremlin, Table, and Apache Cassandra. Serverless, automatic scaling options in Azure Cosmos DB efficiently manage capacity demands of applications.
 
 - [AI Language][Azure Cognitive Service service page] offers many NLP services that you can use to understand and analyze text. Some of these services are customizable, such as custom NER, custom text classification, conversational language understanding, and question answering.
 
-- [Machine Learning][Azure Machine Learning service page] is an open platform for managing the development and deployment of machine-learning models at scale. Machine Learning caters to skill levels of different users, such as data scientists or business analysts. The platform supports commonly used open frameworks and offers automated featurization and algorithm selection. You can deploy models to various targets. Examples include [AKS][Deploy Azure Machine Learning to AKS], [Azure Container Instances][Deploy Azure Machine Learning to ACI] as a web service for real-time inferencing at scale, and [Azure Virtual Machine for batch scoring][Tutorial: Build an Azure Machine Learning pipeline for batch scoring]. Managed endpoints in Machine Learning abstract the required infrastructure for [real-time][Deploy and score a machine learning model by using an online endpoint (preview)] or [batch][Use batch endpoints (preview) for batch scoring] model inferencing.
+- [Machine Learning][Azure Machine Learning service page] is an open platform for managing the development and deployment of machine-learning models at scale. Machine Learning caters to skill levels of different users, such as data scientists or business analysts. The platform supports commonly used open frameworks and offers automated featurization and algorithm selection. You can deploy models for [inferencing using endpoints](/azure/machine-learning/concept-endpoints) where you can use [online endpoints](/azure/machine-learning/concept-endpoints-online) for real-time inferencing and [batch endpoints](/azure/machine-learning/concept-endpoints-batch) to perform asynchronous or long-running inferencing. If you are building a custom model by finetuning a foundation model from [model catalog](/azure/machine-learning/concept-model-catalog), you can also deploy this model as [Serverless API endpoints](/azure/machine-learning/how-to-deploy-models-serverless).You can also deploy models to [AKS and Azure Arc-enabled Kubernetes Cluster](/azure/machine-learning/how-to-attach-kubernetes-anywhere) for inferencing. 
 
 - [AKS][Azure Kubernetes Service (AKS)] is a fully managed Kubernetes service that makes it easy to deploy and manage containerized applications. AKS offers serverless Kubernetes technology, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance.
 
 - [Power BI][Power BI] is a collection of software services and apps that display analytics information.
 
-- [Azure Cognitive Search][Azure Cognitive Search] is a cloud search service that supplies infrastructure, APIs, and tools for searching. You can use Azure Cognitive Search to build search experiences over private, heterogeneous content in web, mobile, and enterprise applications.
+- [Azure AI Search][Azure Cognitive Search] is a cloud search service that supplies infrastructure, APIs, and tools for searching. You can use Azure AI Search to build search experiences over private, heterogeneous content in web, mobile, and enterprise applications.
 
 ### Alternatives
 
-- You can use [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) instead of App Service to host your application.
+- You can use [Document Intelligence Batch Analysis API](/azure/ai-services/document-intelligence/prebuilt/batch-analysis)
+  to process the documents in bulk.
+  
+- You can use [Azure OpenAI multimodal models](/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#gpt-4o-and-gpt-4-turbo) for extracting text from images.
+   
+- You can use [Azure AI Content Understanding (Preview)](/azure/ai-services/content-understanding/overview) for ingesting documents, images, videos and audio different [use cases](/azure/ai-services/content-understanding/overview#content-understanding-use-cases).
+
+- You can use [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) for building, testing & deploying custom models and also developing, evaluating, deploying & monitoring generative AI applications. 
+  
+- You can choose another [Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree) instead of App Service to host your application.
 
 - You can use any relational database for persistent storage of the extracted data, including:
 
@@ -138,6 +161,7 @@ This solution is ideal for the finance industry. It can also apply to the automo
 - Automating ID extraction for verification purposes, as with passports or driver licenses
 - Automating the process of entering business card data into visitor management systems
 - Identifying purchase patterns and duplicate financial documents for fraud detection
+- Automating structured extraction of data from unstructured document in Retrieval Augmented Generation scenarios 
 
 ## Considerations
 
@@ -192,7 +216,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Blob Storage and Azure Cosmos DB encrypt data at rest. You can secure these services by using service endpoints or private endpoints.
 
-- Azure Functions supports virtual network integration. By using this functionality, function apps can access resources inside a virtual network. For more information, see [Azure Functions networking options][Azure Functions networking options].
+- Azure Functions supports virtual network integration. By using this functionality, function apps can access resources inside a virtual network. For more information, see [Azure Functions networking options](/azure/azure-functions/functions-networking-options).
 
 - You can configure Azure AI Document Intelligence and AI Language for access from specific virtual networks or from private endpoints. These services encrypt data at rest. You can use subscription keys, tokens, or Microsoft Entra ID to authenticate requests to these services. For more information, see [Authenticate requests to Azure AI services][Authenticate requests to Azure Cognitive Services].
 
@@ -227,6 +251,7 @@ These resources provide information on component pricing options:
 - [Azure Cosmos DB pricing][Azure Cosmos DB pricing]
 - [Language Service pricing][Language Service pricing]
 - [Azure Machine Learning pricing][Azure Machine Learning pricing]
+- [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service)
 
 After deciding on a pricing tier for each component, use the [Azure Pricing calculator][Azure Pricing calculator] to estimate the solution cost.
 
@@ -240,9 +265,9 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 
 - By default, Azure AI Document Intelligence supports 15 concurrent requests per second. You can increase this value by [creating an Azure Support ticket][Create an Azure support request] with a quota increase request.
 
-- For custom models that you host as web services on AKS, [azureml-fe][Deploy a model to an Azure Kubernetes Service cluster - Autoscaling] automatically scales as needed. This front-end component routes incoming inference requests to deployed services.
+- For custom models that you deploy to online endpoints for real-time inferencing, [autoscaling can be enabled](/azure/machine-learning/how-to-autoscale-endpoints) through the autoscale feature in Azure Monitor. This can be managed using Azure CLI, REST API, Python SDK, Azure portal etc.
 
-- For batch inferencing, Machine Learning creates a compute cluster on demand that scales automatically. For more information, see [Tutorial: Build an Azure Machine Learning pipeline for batch scoring][Tutorial: Build an Azure Machine Learning pipeline for batch scoring]. Machine Learning uses the [ParellelRunStep][ParallelRunStep Class] class to run the inferencing jobs in parallel.
+- For batch inferencing, models are deployed to batch endpoints which run on Azure Machine Learning (AML) compute clusters or Kubernetes clusters. In the case of AML compute clusters, [autoscaling of the compute and scaling compute down to zero](/azure/machine-learning/concept-endpoints) are supported. The min and max number of instances is defined during the creation of the compute cluster while the number of instances that would be used for batch inferencing is defined in the [batch deployment definition](/azure/machine-learning/how-to-use-batch-model-deployments).
 
 - For AI Language, data and rate limits apply. For more information, see these resources:
 
@@ -291,7 +316,7 @@ Principal author:
 [Azure Data Lake Storage]: /azure/storage/blobs/data-lake-storage-introduction
 [Azure Database for MySQL]: /azure/mysql/flexible-server/overview
 [Azure Database for PostgreSQL]: /azure/well-architected/service-guides/postgresql
-[Azure Form Recognizer pricing]: https://azure.microsoft.com/pricing/details/form-recognizer
+[Azure Form Recognizer pricing]: https://azure.microsoft.com/pricing/details/ai-document-intelligence
 [Azure Form Recognizer service page]:/azure/ai-services/document-intelligence/overview
 [Azure Functions hosting options]: /azure/azure-functions/functions-scale
 [Azure Functions pricing]: https://azure.microsoft.com/pricing/details/functions
@@ -299,7 +324,7 @@ Principal author:
 [Azure Kubernetes Service (AKS)]: /azure/well-architected/service-guides/azure-kubernetes-service
 [Azure Machine Learning pricing]: https://azure.microsoft.com/pricing/details/machine-learning/#overview
 [Azure Machine Learning service page]: /azure/well-architected/service-guides/azure-machine-learning
-[Azure Pricing calculator]: https://azure.microsoft.com/pricing/calculator
+[Azure Pricing calculator]: https://azure.com/e/fc7dda9761974210a1ae73625a68dcd2
 [Azure SQL Database]: /azure/well-architected/service-guides/azure-sql-database-well-architected-framework
 [Azure Storage documentation]: /azure/storage
 [Azure Storage service page]: /azure/storage/common/storage-introduction
@@ -307,17 +332,14 @@ Principal author:
 [Back up and recover your Form Recognizer models]: /azure/applied-ai-services/form-recognizer/disaster-recovery
 [Create an Autoscale Setting for Azure resources based on performance data or a schedule]: /azure/azure-monitor/autoscale/tutorial-autoscale-performance-schedule
 [Create an Azure support request]: /azure/azure-portal/supportability/how-to-create-azure-support-request
-[Deploy Azure Machine Learning to ACI]: /azure/machine-learning/how-to-deploy-azure-container-instance#deploy-to-aci
-[Deploy Azure Machine Learning to AKS]: /azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#deploy-to-aks
-[Deploy a model to an Azure Kubernetes Service cluster - Autoscaling]: /azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#autoscaling
 [Deploy and score a machine learning model by using an online endpoint (preview)]: /azure/machine-learning/how-to-deploy-managed-online-endpoints
 [Durability and availability parameters]: /azure/storage/common/storage-redundancy#durability-and-availability-parameters
 [Extract text from objects using Power Automate and AI Builder]: ../../example-scenario/ai/extract-object-text.yml
 [Failover for business continuity and disaster recovery]: /azure/machine-learning/how-to-high-availability-machine-learning
-[Form Recognizer general document model]: /azure/applied-ai-services/form-recognizer/concept-general-document
+[Document Intelligence general document model]: /azure/ai-services/document-intelligence/prebuilt/general-document?view=doc-intel-4.0.0&view%3C=doc-intel-3.1.0&preserve-view=true
 [Form Recognizer ID document model]: /azure/applied-ai-services/form-recognizer/concept-id-document
 [Form Recognizer invoice model]: /azure/applied-ai-services/form-recognizer/concept-invoice
-[Form Recognizer layout model]: /azure/applied-ai-services/form-recognizer/concept-layout
+[Document intelligence layout model]: /azure/ai-services/document-intelligence/prebuilt/layout
 [Form Recognizer receipt model]: /azure/applied-ai-services/form-recognizer/concept-receipt
 [US tax document models]: /azure/ai-services/document-intelligence/concept-tax-document
 [Get started: Form Recognizer Studio]: /azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0
@@ -347,7 +369,6 @@ Principal author:
 [SLA for Azure Functions]: https://azure.microsoft.com/support/legal/sla/functions/v1_2
 [SLA for Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1
 [Tutorial: Automate tasks to process emails by using Azure Logic Apps, Azure Functions, and Azure Storage]: /azure/logic-apps/tutorial-process-email-attachments-workflow
-[Tutorial: Build an Azure Machine Learning pipeline for batch scoring]: /azure/machine-learning/tutorial-pipeline-batch-scoring-classification
 [Tutorial: How to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint]: /azure/data-factory/tutorial-managed-virtual-network-on-premise-sql-server
 [Use batch endpoints (preview) for batch scoring]: /azure/machine-learning/how-to-use-batch-endpoint
 [Use Form Recognizer SDKs or REST API]: /azure/applied-ai-services/form-recognizer/how-to-guides/v3-0-sdk-rest-api?tabs=windows&pivots=programming-language-python

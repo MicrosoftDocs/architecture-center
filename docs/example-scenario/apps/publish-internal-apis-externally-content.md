@@ -24,9 +24,9 @@ The data flows as follows:
 
 - [Azure Virtual Network][vnet] enables Azure resources to securely communicate with each other, the internet, and on-premises networks.
 - [Azure Private DNS][dns] allows domain names to be resolved in a virtual network without needing to add a custom DNS solution.
-- [Azure API Management][apim] helps organizations publish APIs to external, partner, and internal developers to use their data and services.
-- [Application Gateway][appgtwy] is a web traffic load balancer that helps you to manage traffic to your web applications.
-- Internal load balancer [App Service Environment][ase] is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale.
+- [Azure API Management][apim service guide] helps organizations publish APIs to external, partner, and internal developers to use their data and services.
+- [Application Gateway][Application Gateway service page] is a web traffic load balancer that helps you to manage traffic to your web applications.
+- Internal load balancer [App Service Environment][ase] is an [Azure App Service][Azure App Service] feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale.
 - [Azure DevOps][devops] is a service for managing your development lifecycle and includes features for planning and project management, code management, build, and release.
 - [Application Insights][appinsights] is an extensible Application Performance Management (APM) service for web developers on multiple platforms.
 - [Azure Cosmos DB][cosmos-db] is Microsoft's globally distributed, multi-model database service.
@@ -190,17 +190,20 @@ Other contributors:
 
 [dns]: /azure/dns/private-dns-overview
 [ase]: /azure/app-service/environment/intro
+[Azure App Service]: /azure/well-architected/service-guides/app-service-web-apps
 [apim]: /azure/api-management/api-management-key-concepts
+[apim service guide]: /azure/well-architected/service-guides/api-management/reliability
 [appgtwy]: /azure/application-gateway/overview
+[Application Gateway service page]: /azure/well-architected/service-guides/azure-application-gateway
 [ssl]: /azure/app-service/web-sites-purchase-ssl-web-site
 [ntwkcons]: /azure/app-service/environment/network-info
 [apim-port-nsg]: /azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues
 [apim-policy]: /azure/api-management/api-management-transformation-policies#SetHTTPheader
 [hosted-agent]: /azure/devops/pipelines/agents/v2-windows
-[vnet]: /azure/virtual-network/virtual-networks-overview
-[devops]: /azure/devops/index
-[appinsights]: /azure/azure-monitor/app/app-insights-overview
-[cosmos-db]: /azure/cosmos-db/introduction
+[vnet]: /azure/well-architected/service-guides/azure-virtual-network/reliability
+[devops]: /azure/devops/user-guide/what-is-azure-devops
+[appinsights]: /azure/well-architected/service-guides/application-insights
+[cosmos-db]: /azure/well-architected/service-guides/cosmos-db
 [dnsguide]: /azure/dns/private-dns-getstarted-cli
 [related-scenario]: ../../example-scenario/apps/apim-api-scenario.yml
 [apim-pricing]: https://azure.microsoft.com/pricing/details/api-management

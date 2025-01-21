@@ -108,23 +108,23 @@ The list below summarizes the technologies that the CSE team used to create this
 
 * Azure
 
-  - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
+  - [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 
-  - [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service)
+  - [Azure Kubernetes Services (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service)
 
-  - [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift)
+  - [Azure Red Hat OpenShift](/azure/openshift/intro-openshift)
 
-  - [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
+  - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework)
 
-  - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) - [(Kafka)](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
+  - [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) - [(Kafka)](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
 
-  - [Azure Monitor](https://azure.microsoft.com/services/monitor)
+  - [Azure Monitor](/azure/azure-monitor/overview)
 
-  - [Azure Container Registry](https://azure.microsoft.com/services/container-registry)
+  - [Azure Container Registry](/azure/container-registry/container-registry-intro)
 
-  - [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances)
+  - [Azure Container Instances (ACI)](/azure/container-instances/container-instances-overview)
 
-  - [Azure Cache for Redis](https://azure.microsoft.com/services/cache)
+  - [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability)
 
 * Third-party
 
