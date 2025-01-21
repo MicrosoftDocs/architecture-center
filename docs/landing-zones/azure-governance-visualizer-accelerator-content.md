@@ -81,7 +81,9 @@ For more information about security controls, see [Azure security baseline for A
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-- The B1 (Basic) tier is used for the deployed Azure web app in App Service. App Service hosts the HTML output of the Azure Governance Visualizer tool so it's lightweight. A sample pricing estimate can be found [here](https://aka.ms/azgovvizacceleratorpricing)
+- The B1 (Basic) tier is used for the deployed Azure web app in App Service. App Service hosts the HTML output of the Azure Governance Visualizer tool so it's lightweight.
+
+- Use the Azure pricing calculator to see a [pricing estimate for this solution](https://aka.ms/azgovvizacceleratorpricing).
 
 - The sample in GitHub only deploys one instance of App Service, but you can choose to deploy more if needed.
 
