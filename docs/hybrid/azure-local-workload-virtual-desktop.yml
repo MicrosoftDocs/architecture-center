@@ -18,6 +18,7 @@ azureCategories:
   - management-and-governance
 summary: Learn how to design Azure Virtual Desktop for Azure Local to provide a more secure and productive remote desktop experience for users.
 products:
+  - azure-local
   - entra-id
   - azure-virtual-desktop
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-local-workload-virtual-desktop.png
