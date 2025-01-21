@@ -137,8 +137,6 @@ Organizations that use mainframe and midrange systems can benefit from this solu
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/). 
 
-When you use the Data Provider for Host Files client to convert data, [turn on connection pooling](/host-integration-server/core/data-for-host-files#configuringForPerformance) to reduce the connection startup time. When you use Data Factory to extract data, [tune the performance of the copy activity](/azure/data-factory/copy-activity-performance#performance-tuning-steps).
-
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
@@ -162,6 +160,8 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 - The key pillars of performance efficiency are performance management, capacity planning, [scalability](https://azure.microsoft.com/product-categories/databases/), and choosing an appropriate performance pattern.
 - You can [scale out the self-hosted IR](/azure/data-factory/concepts-integration-runtime#self-hosted-ir-compute-resource-and-scaling) by associating the logical instance with multiple on-premises machines in active-active mode.
 - Azure SQL Database offers the ability to dynamically scale your databases. In a serverless tier, it can automatically scale the compute resources. Elastic Pool, which allows databases to share resources in a pool, can only be scaled manually.
+
+When you use the Data Provider for Host Files client to convert data, [turn on connection pooling](/host-integration-server/core/data-for-host-files#configuringForPerformance) to reduce the connection startup time. When you use Data Factory to extract data, [tune the performance of the copy activity](/azure/data-factory/copy-activity-performance#performance-tuning-steps).
 
 ## Contributors
 

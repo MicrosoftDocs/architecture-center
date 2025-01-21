@@ -55,13 +55,17 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Availability for the application tier is provided with Site Recovery as shown in the diagram. Since LzLabs SDM leverages PostgreSQL for the database tier, availability is provided with a write-ahead transaction log. This ensures that the secondary database is transactionally consistent with the production database.
+Recovery for the application tier is provided with Site Recovery as shown in the diagram. 
+
+Since LzLabs SDM leverages PostgreSQL for the database tier, availability is provided with a write-ahead transaction log. This ensures that the secondary database is transactionally consistent with the production database.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Access to Azure assets is managed via the Azure portal and/or Azure Resource Manager. Security for the SDM is managed using the Vault component of SDM. This migrates the security and permissions from RACF or Top Secret into an LDAP-based environment for management in Azure.
+Access to Azure assets is managed via the Azure portal and/or Azure Resource Manager. 
+
+Security for the SDM is managed using the Vault component of SDM. This migrates the security and permissions from RACF or Top Secret into an LDAP-based environment for management in Azure.
 
 ### Cost Optimization
 
@@ -75,7 +79,9 @@ To learn more about pricing for LzLabs Software Defined Mainframe products and t
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-The Azure environment in the diagram is managed either with the Azure portal or [Azure Resource Manager templates and scripts](/azure/azure-resource-manager/templates/). This allows for the administration of assets (like resizing) and managing security and access. Management of the actual SDM environment is provided via the LzWorkbench administration tool. This allows for the creation and management of execution environments in the SDM.
+The Azure environment in the diagram is managed either with the Azure portal or [Azure Resource Manager templates and scripts](/azure/azure-resource-manager/templates/). This allows for the administration of assets (like resizing) and managing security and access. 
+
+Management of the actual SDM environment is provided via the LzWorkbench administration tool. This allows for the creation and management of execution environments in the SDM.
 
 ### Performance Efficiency
 
