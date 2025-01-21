@@ -46,27 +46,27 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
 Tools that are used for governance, collaboration, security, performance, and cost monitoring include:
 
-    - Discover and govern
+  - Discover and govern
 
-      - Microsoft Purview provides data discovery services, sensitive data classification, and governance insights across the data estate.
+    - Microsoft Purview provides data discovery services, sensitive data classification, and governance insights across the data estate.
 
-      - Unity Catalog provides centralized access control, auditing, lineage, and data discovery capabilities across Azure Databricks workspaces.
+    - Unity Catalog provides centralized access control, auditing, lineage, and data discovery capabilities across Azure Databricks workspaces.
 
-    - Azure DevOps provides continuous integration and continuous deployment and other integrated version control features.
+  - Azure DevOps provides continuous integration and continuous deployment and other integrated version control features.
 
-    - Azure Key Vault manages secrets, keys, and certificates.
+  - Azure Key Vault manages secrets, keys, and certificates.
 
-    - Microsoft Entra ID provides single sign-on for Azure Databricks users. Azure Databricks supports automated user provisioning with Microsoft Entra ID to:
+  - Microsoft Entra ID provides single sign-on for Azure Databricks users. Azure Databricks supports automated user provisioning with Microsoft Entra ID to:
 
-      - Create new users.
+    - Create new users.
 
-      - Assign each user an access level.
+    - Assign each user an access level.
 
-      - Remove users and deny them access.
+    - Remove users and deny them access.
 
-    - Azure Monitor collects and analyses Azure resource telemetry. This service maximizes performance and reliability by proactively identifying problems.
+  - Azure Monitor collects and analyses Azure resource telemetry. This service maximizes performance and reliability by proactively identifying problems.
 
-    - Microsoft Cost Management provides financial governance services for Azure workloads.
+  - Microsoft Cost Management provides financial governance services for Azure workloads.
 
 ### Components
 
