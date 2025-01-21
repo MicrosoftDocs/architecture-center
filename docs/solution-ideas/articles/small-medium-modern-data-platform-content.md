@@ -82,7 +82,7 @@ Tools that are used for governance, collaboration, security, performance, and co
 
   - [Azure Synapse Link](/power-apps/maker/data-platform/export-to-data-lake) connects Dynamics applications with either Azure Synapse Analytics or Data Lake Storage. In this architecture, it's used to copy data in near real-time from Dataverse to Data Lake Storage.
 
-  - [Microsoft Fabric Link](/power-apps/maker/data-platform/azure-synapse-link-view-in-fabric)connects Dynamics applications to Microsoft Fabric. In this architecture, it's used to replicate data from Dataverse to Microsoft Fabric in near real-time.
+  - [Microsoft Fabric Link](/power-apps/maker/data-platform/azure-synapse-link-view-in-fabric) connects Dynamics applications to Microsoft Fabric. In this architecture, it's used to replicate data from Dataverse to Microsoft Fabric in near real-time.
 
 - [Azure Databricks](https://azure.microsoft.com/products/databricks) is an Apache Spark-based analytics platform. Azure Databricks is used for big data processing, machine learning, and data engineering tasks. This platform provides a collaborative workspace for data scientists and engineers.
 
@@ -94,7 +94,7 @@ Tools that are used for governance, collaboration, security, performance, and co
 
   - [Unity Catalog](/azure/databricks/data-governance/unity-catalog/) is a data governance solution that provides centralized access control, auditing, lineage, and data discovery capabilities across Databricks workspaces. Unity Catalog helps ensure data governance and security by providing fine-grained access controls, auditing, and data lineage tracking.
 
-- [Medallion lakehouse architecture](/fabric/onelake/onelake-medallion-lakehouse-architecture)is a data architecture pattern that organizes data into bronze, silver, and gold layers for efficient data processing and analytics. This architecture pattern is implemented here by using Data Lake Storage, Delta Lake, and Azure Databricks, which enables scalable and efficient data processing and analytics.
+- [Medallion lakehouse architecture](/fabric/onelake/onelake-medallion-lakehouse-architecture) is a data architecture pattern that organizes data into bronze, silver, and gold layers for efficient data processing and analytics. This architecture pattern is implemented here by using Data Lake Storage, Delta Lake, and Azure Databricks, which enables scalable and efficient data processing and analytics.
 
 - [Microsoft Fabric](/fabric/) is a comprehensive data platform that integrates various data services and tools to provide a seamless data management and analytics experience. Microsoft Fabric connects and integrates data from multiple sources, which enables comprehensive data analysis and insights across the organization.
 
