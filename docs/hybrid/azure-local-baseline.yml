@@ -18,6 +18,7 @@ azureCategories:
   - management-and-governance
 summary: Learn how to design Azure Local for highly available virtualized and containerized workloads.
 products:
+  - azure-local
   - azure-arc
   - azure-blob-storage
   - azure-monitor

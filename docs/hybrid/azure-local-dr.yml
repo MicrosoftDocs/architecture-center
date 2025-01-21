@@ -18,6 +18,7 @@ azureCategories:
   - management-and-governance
 summary: This reference architecture illustrates how to design and implement disaster recovery of Azure Local by using stretched clustering.
 products:
+  - azure-local
   - azure-blob-storage
   - azure-backup
   - azure-monitor
