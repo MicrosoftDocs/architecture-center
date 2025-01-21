@@ -111,7 +111,7 @@ By distributing software functions over a network, the application can achieve h
 
 **Configure backup frequency.** Determine backup needs based on business requirements, considering the increasing number of users. A daily backup might not be sufficient for optimal protection, so adjust the frequency accordingly.
 
-**Coordinate volume data with database backups.** Ensure that backups for the File Manager volume servers (FMS) are coordinated with database backups. . This configuration allows you to sync the actual files with the file metadata. The database contains metadata (pointers) to files within the FMS, making synchronization crucial.
+**Coordinate volume data with database backups.** Ensure that backups for the File Manager volume servers (FMS) are coordinated with database backups. This configuration allows you to sync the actual files with the file metadata. The database contains metadata (pointers) to files within the FMS, making synchronization crucial.
 
 **Enhance database reliability.** Deploy SQL Server virtual machines in Availability Sets to improve database reliability. Availability Sets deploy virtual machines across fault domains and update domains, mitigating downtime events within the datacenter. Create an availability set during virtual machine provisioning. Consider replicating Azure storage across different Azure datacenters for extra redundancy.
 

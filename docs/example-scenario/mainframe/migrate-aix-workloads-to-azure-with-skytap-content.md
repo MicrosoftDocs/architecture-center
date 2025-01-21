@@ -53,7 +53,7 @@ Learn more information on how Azure ExpressRoute works with Skytap in the [Skyta
 
 Since its introduction in 1986, the AIX operating system has been a top choice for large, mission-critical applications. AIX was designed for virtualization from the ground up using multiple LPARs that run in isolation on a given IBM Power System server. Until now, your choice was to rearchitect applications to move them to the cloud or bear the expense of maintaining them on-premises or in a co-located facility.
 
-Skytap on Azure is dedicated hardware that provides a native IBM Power9 infrastructure with the AIX operating system. Full, cloud-based backup and recovery is provided with Azure Storage. You don't need to refactor or rearchitect applications to run them in Skytap on Azure, and the way you manage existing IBM Power applications on-premises changes very little.
+Skytap on Azure is dedicated hardware that provides a native IBM Power9 infrastructure with the AIX operating system. Full, cloud-based backup and recovery are provided with Azure Storage. You don't need to refactor or rearchitect applications to run them in Skytap on Azure, and the way you manage existing IBM Power applications on-premises changes very little.
 
 After migration, you can start taking advantage of native Azure services to modernize applications, if desired, or continue to run systems on AIX. Either way, you immediately gain the resilience, flexibility, high availability, and scalability of Azure.
 
@@ -67,7 +67,7 @@ After migration, you can start taking advantage of native Azure services to mode
 
 -   Accelerate DevOps and increase your test coverage using on-demand resources.
 
--   Create virtual labs using Skytap on Azure templates and environments, so you can easily demo AIX applications to customers and users.
+-   Create virtual labs using Skytap on Azure templates and environments so that you can easily demo AIX applications to customers and users.
 
 ## Considerations
 
