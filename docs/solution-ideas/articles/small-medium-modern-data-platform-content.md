@@ -64,13 +64,13 @@ Tools that are used for governance, collaboration, security, performance, and co
 
     - Remove users and deny them access.
 
-  - Azure Monitor collects and analyses Azure resource telemetry. This service maximizes performance and reliability by proactively identifying problems.
+  - Azure Monitor collects and analyzes Azure resource telemetry. This service maximizes performance and reliability by proactively identifying problems.
 
   - Microsoft Cost Management provides financial governance services for Azure workloads.
 
 ### Components
 
-- [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage/) is a scalable data storage service designed for structured and unstructured data. In this architecture, Data Lake Storage serves as the underlying infrastructure for the Delta Lake. This is the primary storage layer for raw and processed data, which enables efficient data ingestion, storage, and retrieval for analytics and machine learning workloads.
+- [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage/) is a scalable data storage service designed for structured and unstructured data. In this architecture, Data Lake Storage serves as the underlying infrastructure for the Delta Lake. It's the primary storage layer for raw and processed data, which enables efficient data ingestion, storage, and retrieval for analytics and machine learning workloads.
 
 - [Azure Data Factory](https://azure.microsoft.com/products/data-factory/) is a cloud-based data integration service that orchestrates and automates data movement and transformation. Azure Data Factory is used to create, schedule, and orchestrate data pipelines that move and transform data across various data stores and services. It helps ensure seamless data flow and integration.
 
