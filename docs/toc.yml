@@ -857,6 +857,8 @@ items:
         href: solution-ideas/articles/hdinsight-kafka-spark-delta-lake.yml
       - name: Modern analytics with Azure Databricks
         href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
+      - name: Modern data platform for small and medium businesses
+        href: solution-ideas/articles/small-medium-modern-data-platform.yml      
       - name: Real-time analytics with Azure Data Explorer
         href: solution-ideas/articles/analytics-service-bus.yml
   - name: Compute
