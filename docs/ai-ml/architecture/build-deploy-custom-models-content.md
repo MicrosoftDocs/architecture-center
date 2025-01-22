@@ -34,7 +34,7 @@ This article describes Azure solutions for building, training, deploying, and us
 
    - Machine Learning deploys custom models to online or batch [Machine Learning managed endpoints](/azure/machine-learning/concept-endpoints). You can also use the Machine Learning SDK to [deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service) as a web service. Fine-tuned foundation models are deployed from the model catalog in two ways: Managed compute and [Serverless API](/azure/machine-learning/how-to-deploy-models-serverless). Models deployed through Managed Compute can be inferenced using [managed endpoints](/azure/machine-learning/concept-endpoints) - online endpoints for real-time inferencing and batch endpoints for batch inferencing.
 
-   - Azure AI Foundry provides option to [deploy the finetuned Azure OpenAI model](/azure/ai-services/openai/how-to/fine-tuning).You may also deploy finetuned Azure OpenAI models using Python SDK or REST API.
+   - Azure AI Foundry provides option to [deploy the finetuned Azure OpenAI model](/azure/ai-services/openai/how-to/fine-tuning). You may also deploy finetuned Azure OpenAI models using Python SDK or REST API.
 
 ### Components
 
