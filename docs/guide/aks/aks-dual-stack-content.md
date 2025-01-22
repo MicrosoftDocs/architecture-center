@@ -75,7 +75,7 @@ When AKS can fully support dual-stack deployment at the service layer, you can r
 
 ## Scenario details
 
-Due to IPv4 address exhaustion, IPv6 was introduced in 1995 and became an internet standard in 2017. It's estimated that more than 50 percent of traffic in the United States is over IPv6. The IPv4 and IPv6 protocols aren't compatible. Your infrastructure runs on either an IPv4 network or an IPv6 network. This example workload describes several configurations to run dual-stack networking in the Azure Kubernetes Service. For more information, see [Dual-stack kubenet networking](/azure/aks/configure-kubenet-dual-stack).
+Due to IPv4 address exhaustion, IPv6 was introduced in 1995 and became an internet standard in 2017. It's estimated that more than 50 percent of traffic in the United States is over IPv6. The IPv4 and IPv6 protocols aren't compatible. Your infrastructure runs on either an IPv4 network or an IPv6 network. This example workload describes several configurations to run dual-stack networking in the Azure Kubernetes Service. For more information, see [Azure CNI Overlay dual-stack networking](azure/aks/azure-cni-overlay#dual-stack-networking).
 
 Due to current [limitations](/azure/aks/configure-kubenet-dual-stack#expose-the-workload-via-a-loadbalancer-type-service), traffic has to be proxied to the same IP version before processing. Configure ingress as `externalTrafficPolicy: Local`. Once the limitations are addressed, you can create an AKS service that uses the mode `RequireDualStack` or `PreferDualStack`. Each Kubernetes service can handle dual-stack traffic.
 
