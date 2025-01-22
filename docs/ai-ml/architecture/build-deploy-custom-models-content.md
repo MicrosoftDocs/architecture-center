@@ -128,7 +128,7 @@ Reliability ensures your application can meet the commitments you make to your c
 - For custom NER in Azure AI Language, [back up and recover your custom NER models](/azure/cognitive-services/language-service/custom-named-entity-recognition/fail-over).
 
 - Azure Machine Learning depends on constituent services like Blob Storage, compute services, and Azure Kubernetes Service (AKS). To provide resiliency for Azure Machine Learning, configure each of these services to be resilient. For more information, see [Failover for business continuity and disaster recovery](/azure/machine-learning/how-to-high-availability-machine-learning).
-- For Azure OpenAI, to ensure the service to be always available provision two or more Azure openAi resources in different region so that in the event of an issue, it failover to another region. For more information, see [BCDR with Azure OpenAI](/azure/ai-services/openai/how-to/business-continuity-disaster-recovery)
+- For Azure OpenAI, to ensure the service to be always available provision two or more Azure OpenAI resources in different region so that in the event of an issue you failover to another region. For more information, see [BCDR with Azure OpenAI](/azure/ai-services/openai/how-to/business-continuity-disaster-recovery).
 
 ### Security
 
