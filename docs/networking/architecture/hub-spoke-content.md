@@ -16,7 +16,7 @@ Hub-spoke network topologies typically include the many of following architectur
 
    The hub enables the following concepts:
 
-  - **Cross-premise gateway** - Cross-premise connectivity is the ability to connect and integrate different network environments to one another. This gateway can be a VPN or an ExpressRoute circuit.
+  - **Cross-premise gateway** - Cross-premise connectivity is the ability to connect and integrate different network environments to one another. This gateway is usually a VPN or an ExpressRoute circuit.
 
   - **Egress control** - The management and regulation of outbound traffic from the hub.
 
