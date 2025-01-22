@@ -25,7 +25,7 @@ Interruptible workloads are the best use case for spot VMs. Interruptible worklo
 | --- | --- | --- |
 | **Features** | Minimal to no time constraints <br>Low organizational priority <br>Short processing times | Service level agreements (SLAs) <br>Sticky sessions requirements <br>Stateful workloads |
 
-You can use spot VM in non-interruptible workloads, but they shouldn’t be the single source of compute capacity. Use as many regular VMs as you need to meet your uptime requirements.
+You can use spot VMs in non-interruptible workloads, but they shouldn't be the single source of compute capacity. Use as many regular VMs as you need to meet your uptime requirements.
 
 ## Understand eviction
 
@@ -145,11 +145,17 @@ The example scenario deploys a queue processing application that qualifies as an
 The following notes explain key aspects of the architecture:
 
 1. **VM application definition:** The VM application definition is created in the Azure Compute Gallery. It defines the application name, location, operating system, and metadata. The application version is a numbered version of the VM application definition. The application version is an instantiation of the VM application. It needs to be in the same region as the spot VM. The application version links to the source application package in the storage account.
+
 1. **Storage account:**  The storage account stores the source application package. In this architecture, it's a compressed tar file named `worker-0.1.0.tar.gz`. It contains two files. One file is the `orchestrate.sh` bash script that installs the .NET worker application.
+
 1. **Spot VM:** The spot VM deploys. It must be in the same region as the application version. It downloads `worker-0.1.0.tar.gz` to the VM after deployment. The bicep template deploys an Ubuntu image on a Standard family VM. These configurations meet the needs of this application and aren't general recommendations for your applications.
+
 1. **Storage Queue:** The other service running in the .NET worker contains message queue logic. Microsoft Entra ID grants the spot VM access to the storage queue with a user assigned identity using RBAC.
+
 1. **.Net worker application:** The orchestrate.sh script installs a .NET worker application that runs two background services. The first service queries the Schedule Events endpoint and looks for the `Preempt` signal and sends this signal to the second service. The second service processes messages from the storage queue and listens for the `Preempt` signal from the first service. When the second service receives the signal, it interrupts storage queue processing and begins to shut down.
+
 1. **Query Scheduled Events endpoint:** An API request is sent to a static nonroutable IP address 169.254.169.254. The API request queries the Scheduled Event endpoint for infrastructure maintenance signals.
+
 1. **Application Insights:** The architecture uses Application Insights only for learning purposes. It's not an essential component of interruptible workload orchestration. It's as a way for you to validate the telemetry from the .NET worker application. The .NET worker application sends telemetry to Application Insights. For more information, see [enable live metrics from .NET application](/azure/azure-monitor/app/live-stream#enable-live-metrics-using-code-for-any-net-application).
 
 ## Deploy this scenario
