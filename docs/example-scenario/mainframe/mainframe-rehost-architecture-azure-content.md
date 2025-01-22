@@ -96,7 +96,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - To make the most of Azure's capabilities, use a container-based approach to deployment. This approach helps if the application needs to scale on demand and achieve elastic provisioning of capacity without the need to manage the infrastructure. It also enables you to add event-driven autoscaling and triggers. A container bundles all the software that's needed for execution into one executable package. It includes an application's code together with the related configuration files, libraries, and dependencies necessary to run the app.
 - You need to orchestrate and manage containerized services and their associated networking and storage components. AKS is an excellent option because it automates cluster and resource management. You designate the number of nodes you need, and AKS fits your containers onto the right nodes to make the best use of resources. AKS also supports automated rollouts and rollbacks, service discovery, load balancing, and storage orchestration. And AKS supports self-healing. If a container fails, AKS starts a new one. You can also safely store secrets and configuration settings outside of the containers.
@@ -106,30 +106,30 @@ Reliability ensures your application can meet the commitments you make to your c
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - This solution uses an Azure network security group to manage traffic between Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
 - [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) maximizes admin access security by minimizing open ports. Bastion provides secure and seamless RDP/SSH connectivity to virtual network VMs directly from the Azure portal over TLS.
 
-### Cost optimization
+### Cost Optimization
 
-To help optimize costs, look for ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Azure provides cost optimization by running on Windows VMs. With Windows VMs, you can turn off the VMs when not in use and script a schedule for known usage patterns. Azure identifies the right number or resource types, analyzes spending over time, and scales to meet business needs without overspending.
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of the services in this architecture.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 - The target architecture is functional with Azure Cloud Services.
 - The container-based deployment promotes adoption of DevOps and Agile working principles.
 - You have full flexibility of development and production deployment options.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - Performance efficiency is built into this solution because of the load balancers. If one presentation or transaction server fails, the server behind the load balancer shoulders the workload.
 - Kubernetes provides a cluster autoscaler. The autoscaler adjusts the number of nodes based on the requested compute resources in the node pool.

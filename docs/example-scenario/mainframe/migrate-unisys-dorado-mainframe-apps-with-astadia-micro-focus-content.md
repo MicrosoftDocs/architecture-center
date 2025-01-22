@@ -165,9 +165,11 @@ Many cases can benefit from the Astadia and Micro Focus pattern:
 
 ## Considerations
 
-The following considerations, based on the [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework], apply to this solution.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Availability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - Availability sets for VMs ensure enough VMs are available to meet mission-critical batch process needs.
 - Load Balancer improves reliability by rerouting traffic to a spare VM set if the active set fails.
@@ -178,52 +180,15 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
   - Azure Storage redundancy
   - Azure Files redundancy
 
-### Operational
-
-- Besides scalability and availability, these Azure PaaS components also provide updates to services:
-
-  - SQL Database
-  - Data Factory
-  - Azure Storage
-  - Azure Files
-
-- Consider using [Azure Resource Manager templates (ARM templates)][What are ARM templates?] to automate deployment of Azure components such as Storage accounts, VMs, and Data Factory.
-
-- Consider using [Azure Monitor][Azure Monitor overview] to increase monitoring in these areas:
-
-  - Tracking the state of infrastructure.
-  - Monitoring external dependencies.
-  - App troubleshooting and telemetry through [Application Insights][What is Application Insights?].
-  - Network component management through [Azure Network Watcher][What is Azure Network Watcher?].
-
-### Performance efficiency
-
-- SQL Database, Storage accounts, and other Azure PaaS components provide high performance in these areas:
-
-  - Data reads and writes.
-  - Hot storage access.
-  - Long-term data storage.
-
-- The use of VMs in this architecture aligns with the framework's [performance efficiency pillar][Overview of the performance efficiency pillar], since you can optimize the VM configuration to boost performance.
-
-### Scalability
-
-Various Azure PaaS components provide scalability:
-
-- SQL Database
-- Data Factory
-- Azure Storage
-- Azure Files
-
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 All the components in this architecture work with Azure security components as needed. Examples include network security groups, virtual networks, and TLS encryption.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 To estimate the cost of implementing this solution, use the [Azure pricing calculator][Pricing calculator].
 
@@ -253,6 +218,45 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 
 - [Contact Astadia][Contact Astadia] for pricing information on OpenTS, OpenMCS, and OpenDMS.
 - [Contact Micro Focus][Contact Micro Focus] for pricing on Micro Focus COBOL.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+- Besides scalability and availability, these Azure PaaS components also provide updates to services:
+
+  - SQL Database
+  - Data Factory
+  - Azure Storage
+  - Azure Files
+
+- Consider using [Azure Resource Manager templates (ARM templates)][What are ARM templates?] to automate deployment of Azure components such as Storage accounts, VMs, and Data Factory.
+
+- Consider using [Azure Monitor][Azure Monitor overview] to increase monitoring in these areas:
+
+  - Tracking the state of infrastructure.
+  - Monitoring external dependencies.
+  - App troubleshooting and telemetry through [Application Insights][What is Application Insights?].
+  - Network component management through [Azure Network Watcher][What is Azure Network Watcher?].
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+- SQL Database, Storage accounts, and other Azure PaaS components provide high performance in these areas:
+
+  - Data reads and writes.
+  - Hot storage access.
+  - Long-term data storage.
+
+- The use of VMs in this architecture aligns with the framework's [performance efficiency pillar][Overview of the performance efficiency pillar], since you can optimize the VM configuration to boost performance.
+
+Various Azure PaaS components provide scalability:
+
+- SQL Database
+- Data Factory
+- Azure Storage
+- Azure Files
 
 ## Contributors
 

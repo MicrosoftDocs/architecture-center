@@ -111,13 +111,11 @@ Automated refactoring is available for most COBOL dialects and platforms, includ
 
 ## Considerations
 
-The considerations in this section, based on the [Microsoft Well-Architected Framework](/azure/well-architected/), apply to this solution.
-
-### DevOps
-
-Refactoring not only supports faster cloud adoption, but also promotes adoption of DevOps and agile development principles. You have full flexibility in development and production deployment options.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - The architecture uses Site Recovery to mirror VMs to a secondary Azure region for quick failover and disaster recovery if an Azure datacenter fails.
 - The auto-failover groups feature of SQL Database provides data protection by managing database replication and failover to the secondary region. For more information, see [Auto-failover groups overview and best practices (Azure SQL Database)](/azure/azure-sql/database/auto-failover-group-sql-db).
@@ -125,23 +123,35 @@ Refactoring not only supports faster cloud adoption, but also promotes adoption 
 - We recommend that you create availability sets for your VMs to increase availability. For more information, see [Availability sets overview](/azure/virtual-machines/availability-set-overview).
 - We recommend that you use geo-replication to increase reliability. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
 
-### Scalability
-
-This solution supports deployment in containers, VMs, or Virtual Machine Scale Sets. Containers and Virtual Machine Scale Sets, unlike VMs, scale out and in rapidly. Shifting the unit of scaling to containers optimizes infrastructure utilization.
-
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - This solution uses an Azure network security group to manage traffic to and from Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
 - Private Link for Azure SQL Database provides a private, direct connection that's isolated to the Azure networking backbone and that runs between VMs and SQL Database.
 - Azure Bastion maximizes admin access security by minimizing open ports. It provides secure and seamless RDP/SSH connectivity to virtual network VMs directly from the Azure portal over TLS.
 
-### Cost optimization
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling in advance to meet business needs without overspending.
 - Azure minimizes costs by running on VMs. You can turn off the VMs that aren't being used, and provide a schedule for known usage patterns. For more information about cost optimization for VMs, see [Virtual Machines](/azure/architecture/framework/cost/optimize-vm).
 - The VMs in this architecture use either Premium SSD or Ultra Disk Storage. For more information about disk options and pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 - SQL Database optimizes costs with serverless compute and Hyperscale storage resources that automatically scale. For more information about SQL Database options and pricing, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single).
 - Use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation of this solution.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+Refactoring not only supports faster cloud adoption, but also promotes adoption of DevOps and agile development principles. You have full flexibility in development and production deployment options.
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+This solution supports deployment in containers, VMs, or Virtual Machine Scale Sets. Containers and Virtual Machine Scale Sets, unlike VMs, scale out and in rapidly. Shifting the unit of scaling to containers optimizes infrastructure utilization.
 
 ## Contributors
 
