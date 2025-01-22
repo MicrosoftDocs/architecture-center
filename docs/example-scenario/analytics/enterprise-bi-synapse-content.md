@@ -1,6 +1,7 @@
 This example scenario shows how data can be ingested into a cloud environment from an on-premises data warehouse, then served using a business intelligence (BI) model. This approach could be an end goal or a first step toward full modernization with cloud-based components.
 
-The following steps build on the [Azure Synapse Analytics end-to-end][e2e-analytics] scenario. It uses Azure Pipelines to ingest data from a SQL database into Azure Synapse SQL pools, then transforms the data for analysis.
+The following steps build on the [Azure Synapse Analytics end-to-end][e2e-analytics] scenario. This process utilizes Azure Synapse Analytics Pipelines to ingest data from a SQL database into Azure Synapse SQL pools, followed by data transformation for analysis. While Azure Data Factory pipelines or Microsoft Fabric Data Factory pipelines can also perform these tasks, this article focuses specifically on using Azure Synapse Analytics Pipelines.
+
 
 ## When to use this architecture
 
@@ -31,11 +32,11 @@ Current architecture presumes that Azure Synapse Datawarehouse was selected as t
 
 2. [Azure Synapse Analytics](/azure/synapse-analytics) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics. Azure Synapse dedicated SQL pool is a target for ongoing ingestion from on-premises. It can be used for further processing, as well as serving the data for [Power BI](/power-bi/fundamentals/power-bi-overview) through DirectQuery.
 
-3. [Azure Pipelines](/azure/data-factory/concepts-pipelines-activities) is used to orchestrate data ingestion and transformation within your Azure Synapse workspace.
+3. [Azure Synapse Analytics Pipelines](/azure/data-factory/concepts-pipelines-activities) is used to orchestrate data ingestion and transformation within your Azure Synapse workspace.
 
 #### Analysis and reporting
 
-- The data-modeling approach in this scenario is presented by combining the [enterprise model][enterprise-model] and [BI Semantic model][bi-model]. The enterprise model is stored in an [Azure Synapse dedicated SQL pool][synapse-dedicated-pool], and the BI Semantic model is stored in [Power BI Premium capacities][pbi-premium-capacities]. Power BI accesses the data via DirectQuery.
+- The data-modeling approach in this scenario is presented by combining the [enterprise model][enterprise-model] and [Bi semantic model][bi-model]. The enterprise model is stored in an [Azure Synapse dedicated SQL pool][synapse-dedicated-pool], and the Bi semantic model is stored in [Power BI Premium capacities][pbi-premium-capacities]. Power BI accesses the data via DirectQuery.
 
 ### Components
 
@@ -84,7 +85,7 @@ This scenario uses the [AdventureWorks sample database][adventureworksdw-sample-
 
 ### Metadata-driven copy tool
 
-The built-in [Metadata-driven copy tool](/azure/data-factory/copy-data-tool-metadata-driven) within Azure Pipelines incrementally loads all tables contained within our relational database. By navigating through the wizard-based experience, you can connect the Copy Data tool to the source database, and configure either incremental or full loading for each table. The Copy Data tool then creates both the pipelines and SQL scripts to generate the control table required to store data for the incremental loading process&mdash;for example, the high watermark value/column for each table. Once these scripts are run, the pipeline is ready to load all tables in the source data warehouse into the Synapse dedicated pool.
+The built-in [Metadata-driven copy tool](/azure/data-factory/copy-data-tool-metadata-driven) within Azure Synapse Analytics Pipelines incrementally loads all tables contained within our relational database. By navigating through the wizard-based experience, you can connect the Copy Data tool to the source database, and configure either incremental or full loading for each table. The Copy Data tool then creates both the pipelines and SQL scripts to generate the control table required to store data for the incremental loading process&mdash;for example, the high watermark value/column for each table. Once these scripts are run, the pipeline is ready to load all tables in the source data warehouse into the Synapse dedicated pool.
 
 :::image type="content" source="./media/metadata-copy.png" alt-text="Screenshot of metadata-driven copy data tool in Azure Synapse Analytics.":::
 
@@ -106,7 +107,7 @@ The [copy activity](/azure/data-factory/copy-activity-overview) copies data from
 
 The copy statement is then used to load data from the staging environment into the Synapse dedicated pool.
 
-### Use Azure Pipelines
+### Use Azure Synapse Analytics Pipelines
 
 Pipelines in Azure Synapse are used to define the ordered set of activities to complete the incremental load pattern. Triggers are used to start the pipeline, which can be triggered manually or at a time specified.
 
@@ -180,7 +181,7 @@ This section provides information on pricing for different services involved in 
 
 Azure Synapse Analytics serverless architecture allows you to scale your compute and storage levels independently. Compute resources are charged based on usage, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs will increase as you ingest more data.
 
-#### Azure Pipelines
+#### Azure Synapse Analytics Pipelines
 
 Pricing details for pipelines in Azure Synapse can be found under the *Data Integration* tab on the [Azure Synapse pricing page](https://azure.microsoft.com/pricing/details/synapse-analytics). There are three main components that influence the price of a pipeline:
 
@@ -264,7 +265,7 @@ Assume a linear scale, and determine how much you need to increase or decrease t
 - [Scale compute for dedicated SQL pool in Azure Synapse Analytics using T-SQL](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-tsql)
 - [Pausing, monitoring, and automation](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview)
 
-#### Azure Pipelines
+#### ![image](https://github.com/user-attachments/assets/1dbc7917-1b38-4b64-a560-3665f2ad3220)
 
 For scalability and performance optimization features of pipelines in Azure Synapse and the copy activity used, refer to the [Copy activity performance and scalability guide](/azure/data-factory/copy-activity-performance).
 
@@ -279,7 +280,10 @@ This article uses [Power BI Premium Gen 2](/power-bi/enterprise/service-premium-
 Principal authors:
 
 - [Galina Polyakova](https://www.linkedin.com/in/galinagpolyakova/) | Senior Cloud Solution Architect
-- [Noah Costar](https://www.linkedin.com/in/noah-costar-6204b8157/) | Cloud Solution Architect
+- [Noah Costar](https://www.linkedin.com/in/noah-costar-6204b8157/) | Cloud Solution Architect![image](https://github.com/user-attachments/assets/a0fa49d4-98c4-41e0-89ff-ec2239e0a4ee)
+![image](https://github.com/user-attachments/assets/60c25737-0737-4c89-b432-3bc1da0e1691)
+![image](https://github.com/user-attachments/assets/234f30b4-7fdf-409a-8ff3-7039591d268b)
+
 - [George Stevens](https://www.linkedin.com/in/george-stevens/) | Cloud Solution Architect
 
 Other contributors:
