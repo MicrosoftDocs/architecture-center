@@ -12,7 +12,7 @@ This hub-spoke network configuration uses the following architectural concepts:
 
 - **Hub virtual network** - The hub virtual network hosts shared Azure services. Workloads hosted in the spoke virtual networks can use these services. The hub virtual network is the central point of connectivity for cross-premises networks. The hub contains your primary point of egress and is the default way to connect one spoke to another. The hub enables the following concepts:
 
-  - **Cross-premise gateway** - Cross-premise connectivity is the ability to connect and integrate different network environments to one another. This can be a VPN or an ExpressRoute circuit.
+  - **Cross-premise gateway** - Cross-premise connectivity is the ability to connect and integrate different network environments to one another. This gateway can be a VPN or an ExpressRoute circuit.
 
   - **Egress control** - The management and regulation of outbound traffic from the hub.
 
@@ -60,7 +60,7 @@ The benefits of using a customer-managed hub and spoke configuration include:
 - Workload isolation
 - Flexibility
   - More control over how network virtual adapters (NVAs) are deployed, such as number of NICs, number of instances, or the size of the virtual machine
-  - Use of NVAs that are not supported by Virtual WAN
+  - Use of NVAs that aren't supported by Virtual WAN
   - 
 
 For more information, see [Hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology).
@@ -94,7 +94,7 @@ The following recommendations outline how to configure the subnets on the virtua
 
 The virtual network gateway requires this subnet. You can also use a hub-spoke topology without a gateway if you don't need cross-premises network connectivity.
 
-[Create a subnet named *GatewaySubnet* with an address range of at least `26`](/azure/expressroute/expressroute-about-virtual-network-gateways#gwsub). The `/26` address range gives the subnet enough scalability configuration options to prevent reaching the gateway size limitations in the future and to accomodate for a higher number of ExpressRoute circuits. For more information about setting up the gateway, see
+[Create a subnet named *GatewaySubnet* with an address range of at least `26`](/azure/expressroute/expressroute-about-virtual-network-gateways#gwsub). The `/26` address range gives the subnet enough scalability configuration options to prevent reaching the gateway size limitations in the future and to accommodate for a higher number of ExpressRoute circuits. For more information about setting up the gateway, see
 [Hybrid network using a VPN gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager).
 
 For higher availability, you can use ExpressRoute plus a VPN for failover. See [Connect an on-premises network to Azure using ExpressRoute with VPN failover](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml).
@@ -188,9 +188,13 @@ To ensure a baseline set of security rules, make sure to associate [security adm
 
 Use Virtual Network Manager [deployments](/azure/virtual-network-manager/concept-deployments) to facilitate controlled rollout of potentially breaking changes to network group security rules.
 
-To protect against DDoS attacks, enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network. Any resource that has a public IP is susceptible to a DDoS attack. Even if your workloads are not exposed publicly, you still have public IPs that need to be protected, such as Azure Firewall's public IPs, the VPN gateway's public IPs, and ExpressRoute's control plane public IP.
+To protect against DDoS attacks, enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network. Any resource that has a public IP is susceptible to a DDoS attack. Even if your workloads aren't exposed publicly, you still have public IPs that need to be protected, such as:
 
-Set explicit deny rules in network security groups (NSGs) to minimize the risk of unauthorized access and to enforce strict security policies.
+- Azure Firewall's public IPs
+- The VPN gateway's public IPs
+- ExpressRoute's control plane public IP
+
+To minimize the risk of unauthorized access and to enforce strict security policies, set explicit deny rules in network security groups (NSGs).
 
 Use the [Azure Firewall Premium](/azure/firewall/premium-portal) version to enable TLS inspection, network intrusion detection and prevention system (IDPS), and URL filtering.
 
@@ -214,13 +218,13 @@ Direct peering between spokes can avoid the cost of Azure Firewall processing. S
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Enable diagnostic settings for all services, such as Azure Bastion, Azure Firewall, and your cross-premesis gateway. Determine which settings are meaningful to your operations. Turn off settings that are not meaningful to avoid undue costs. Resources such as Azure Firewall can be verbose with logging and you can incur high minitoring costs.
+Enable diagnostic settings for all services, such as Azure Bastion, Azure Firewall, and your cross-premesis gateway. Determine which settings are meaningful to your operations. Turn off settings that aren't meaningful to avoid undue costs. Resources such as Azure Firewall can be verbose with logging and you can incur high monitoring costs.
 
-Use [Connection monitor](/azure/network-watcher/connection-monitor-overview) for end-to-end monitoring to detect anomolies and to identify and troubleshoot network issues.
+Use [Connection monitor](/azure/network-watcher/connection-monitor-overview) for end-to-end monitoring to detect anomalies and to identify and troubleshoot network issues.
 
 Use [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview) to monitor and troubleshoot network components, including using [Traffic Analytics](/azure/network-watcher/traffic-analytics) to show you the systems in your virtual networks that generate the most traffic. You can visually identify bottlenecks before they become problems.
 
-If you are using ExpressRoute, use [ExpressRoute Traffic Collector](/azure/expressroute/traffic-collector) where you can analyze flow logs for the network flows sent over your ExpressRoute circuits. ExpressRoute Traffic Collector gives you visibility into traffic flowing over Microsoft eterprise edge routers.
+If you're using ExpressRoute, use [ExpressRoute Traffic Collector](/azure/expressroute/traffic-collector) where you can analyze flow logs for the network flows sent over your ExpressRoute circuits. ExpressRoute Traffic Collector gives you visibility into traffic flowing over Microsoft enterprise edge routers.
 
 Use FQDN-based rules in Azure Firewall for protocols other than HTTP(s) or when configuring SQL Server. Using FQDNs lowers the risk of missing an IP address when configuring or updating the network.
 
@@ -257,15 +261,15 @@ To get started with Virtual Network Manager, see [Create a hub and spoke topolog
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/well-architected/performance-efficiency).
 
-For workloads that communicate from on-premises to virtual machines in an Azure virtual network that require low latency and high bandwidth, consider using [ExpressRoute FastPath](/azure/expressroute/about-fastpath). FastPath allows you to send traffic directly to virtual machines in your virtual network from on-premesis, bypassing the ExpressRoute virtual network gateway, increasing performance.
+For workloads that communicate from on-premises to virtual machines in an Azure virtual network that require low latency and high bandwidth, consider using [ExpressRoute FastPath](/azure/expressroute/about-fastpath). FastPath allows you to send traffic directly to virtual machines in your virtual network from on-premises, bypassing the ExpressRoute virtual network gateway, increasing performance.
 
 For spoke-to-spoke communications that require low-latency, consider configuring [spoke-to-spoke networking](/azure/architecture/networking/guide/spoke-to-spoke-networking).
 
-Choose the appropriate [gateway SKU](/azure/vpn-gateway/about-gateway-skus) that meet your requirements, such as number of point-to-site or site-to-site connections, required packets per second, bandwidth requirements, and TCP flows.
+Choose the appropriate [gateway SKU](/azure/vpn-gateway/about-gateway-skus) that meet your requirements, such as number of point-to-site or site-to-site connections, required packets-per-second, bandwidth requirements, and TCP flows.
 
-For latency-sensitive flows, such as SAP or access to strorage, consider bypassing Azure Firewall. You can [test latency introduced by Azure Firewall](/azure/firewall/firewall-best-practices#testing-and-monitoring) to help inform your decision. You can use features such as [VNet peering](/azure/virtual-network/virtual-network-peering-overview) that connects two or more networks or [Azure Private Link](/azure/private-link/private-link-overview) that enables you to connect to a service over a private endpoint in your virtual network.
+For latency-sensitive flows, such as SAP or access to storage, consider bypassing Azure Firewall. You can [test latency introduced by Azure Firewall](/azure/firewall/firewall-best-practices#testing-and-monitoring) to help inform your decision. You can use features such as [VNet peering](/azure/virtual-network/virtual-network-peering-overview) that connects two or more networks or [Azure Private Link](/azure/private-link/private-link-overview) that enables you to connect to a service over a private endpoint in your virtual network.
 
-Understand that enabling certain features in Azure Firewall, such as intrusion detection and prevention system (IDPS), will reduce your throughput. For more information, see [Azure Firewall performance](/azure/firewall/firewall-performance#performance-data).
+Understand that enabling certain features in Azure Firewall, such as intrusion detection and prevention system (IDPS), reduces your throughput. For more information, see [Azure Firewall performance](/azure/firewall/firewall-performance#performance-data).
 
 ## Deploy this scenario
 
