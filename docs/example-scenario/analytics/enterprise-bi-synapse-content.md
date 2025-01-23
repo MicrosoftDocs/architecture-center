@@ -64,9 +64,7 @@ Microsoft Entra authenticates users who connect to Power BI dashboards and apps.
 
 When you run an automated extract, transform, load (ETL) or extract, load, transform (ELT) process, it's most efficient to load only the data that changed since the previous run. It's called an [incremental load](/azure/data-factory/tutorial-incremental-copy-overview), as opposed to a full load that loads all the data. To perform an incremental load, you need a way to identify which data has changed. The most common approach is to use a *high water mark* value, which tracks the latest value of some column in the source table, either a datetime column or a unique integer column.
 
-SQL Server allowes you to![image](https://github.com/user-attachments/assets/72f6fd7c-aff4-4835-92b3-528a4fe26e96)
-![image](https://github.com/user-attachments/assets/f3bba75b-fe26-40c1-a41a-b93f1579e0c0)
- use [temporal tables](/sql/relational-databases/tables/temporal-tables), which are system-versioned tables that keep a full history of data changes. The database engine automatically records the history of every change in a separate history table. You can query the historical data by adding a `FOR SYSTEM_TIME` clause to a query. Internally, the database engine queries the history table, but it's transparent to the application.
+SQL Server allowes you to use [temporal tables](/sql/relational-databases/tables/temporal-tables), which are system-versioned tables that keep a full history of data changes. The database engine automatically records the history of every change in a separate history table. You can query the historical data by adding a `FOR SYSTEM_TIME` clause to a query. Internally, the database engine queries the history table, but it's transparent to the application.
 
 
 Temporal tables are useful for dimension data, which can change over time. Fact tables usually represent an immutable transaction such as a sale, in which case keeping the system version history doesn't make sense. Instead, transactions usually have a column that represents the transaction date, which can be used as the watermark value. For example, in the AdventureWorks Data Warehouse, the `SalesLT.*` tables have a `LastModified` field.
@@ -217,7 +215,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 ### DevOps recommendations
 
-- Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
+- Refer to this [article](https://learn.microsoft.com/en-us/azure/synapse-analytics/cicd/continuous-integration-delivery) for guidance on using an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse workspace across multiple environments.
 - Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a continuous integration and continuous delivery (CI/CD) process, making the automation process easier. In this architecture, there are four main workloads:
   - The data warehouse server, and related resources
   - Azure Synapse pipelines
@@ -231,9 +229,8 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 #### Quick start
 
-- Portal: [Azure Synapse proof of concept (POC)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.synapse/synapse-poc)
+- Tutorial: [Get Started with Azure Synapse Analytics](https://learn.microsoft.com/en-us/azure/synapse-analytics/get-started)
 - The Azure CLI: [Create an Azure Synapse workspace with Azure CLI](/azure/synapse-analytics/quickstart-create-workspace-cli)
-- Terraform: [Modern data warehousing with Terraform and Microsoft Azure](https://github.com/terraform-azurerm-examples/example-adf-synapse)
 
 ### Performance efficiency
 
@@ -265,8 +262,6 @@ Assume a linear scale, and determine how much you need to increase or decrease t
 - [Scale compute for dedicated SQL pool in Azure Synapse Analytics using T-SQL](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-tsql)
 - [Pausing, monitoring, and automation](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview)
 
-#### ![image](https://github.com/user-attachments/assets/1dbc7917-1b38-4b64-a560-3665f2ad3220)
-
 For scalability and performance optimization features of pipelines in Azure Synapse and the copy activity used, refer to the [Copy activity performance and scalability guide](/azure/data-factory/copy-activity-performance).
 
 #### Power BI Premium
@@ -280,10 +275,7 @@ This article uses [Power BI Premium Gen 2](/power-bi/enterprise/service-premium-
 Principal authors:
 
 - [Galina Polyakova](https://www.linkedin.com/in/galinagpolyakova/) | Senior Cloud Solution Architect
-- [Noah Costar](https://www.linkedin.com/in/noah-costar-6204b8157/) | Cloud Solution Architect![image](https://github.com/user-attachments/assets/a0fa49d4-98c4-41e0-89ff-ec2239e0a4ee)
-![image](https://github.com/user-attachments/assets/60c25737-0737-4c89-b432-3bc1da0e1691)
-![image](https://github.com/user-attachments/assets/234f30b4-7fdf-409a-8ff3-7039591d268b)
-
+- [Noah Costar](https://www.linkedin.com/in/noah-costar-6204b8157/) | Cloud Solution Architect
 - [George Stevens](https://www.linkedin.com/in/george-stevens/) | Cloud Solution Architect
 
 Other contributors:
