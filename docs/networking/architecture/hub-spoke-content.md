@@ -205,10 +205,6 @@ Due to how Azure Firewall implements FQDN application rules, ensure that all res
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-To ensure a baseline set of security rules, make sure to associate [security admin rules](/azure/virtual-network-manager/concept-security-admins) with virtual networks in network groups. Security admin rules take precedence over and are evaluated before NSG rules. Like NSG rules, security admin rules support prioritization, service tags, and L3-L4 protocols. For more information, see [Security admin rules in Virtual Network Manager](/azure/virtual-network-manager/concept-security-admins).
-
-Use Virtual Network Manager [deployments](/azure/virtual-network-manager/concept-deployments) to facilitate controlled rollout of potentially breaking changes to network group security rules.
-
 To protect against DDoS attacks, enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network. Any resource that has a public IP is susceptible to a DDoS attack. Even if your workloads aren't exposed publicly, you still have public IPs that need to be protected, such as:
 
 - Azure Firewall's public IPs
@@ -218,6 +214,12 @@ To protect against DDoS attacks, enable [Azure DDOS Protection](/azure/ddos-prot
 To minimize the risk of unauthorized access and to enforce strict security policies, always set explicit deny rules in network security groups (NSGs).
 
 Use the [Azure Firewall Premium](/azure/firewall/premium-portal) version to enable TLS inspection, network intrusion detection and prevention system (IDPS), and URL filtering.
+
+#### Virtual Network Manager security
+
+To ensure a baseline set of security rules, make sure to associate [security admin rules](/azure/virtual-network-manager/concept-security-admins) with virtual networks in network groups. Security admin rules take precedence over and are evaluated before NSG rules. Like NSG rules, security admin rules support prioritization, service tags, and L3-L4 protocols. For more information, see [Security admin rules in Virtual Network Manager](/azure/virtual-network-manager/concept-security-admins).
+
+Use Virtual Network Manager [deployments](/azure/virtual-network-manager/concept-deployments) to facilitate controlled rollout of potentially breaking changes to network group security rules.
 
 ### Cost Optimization
 
