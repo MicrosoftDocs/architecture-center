@@ -10,7 +10,7 @@ OLAP systems tackle this by efficiently extracting business intelligence from da
 Fig 1. Azure Analytics Service
 
 
-OLAP systems have traditionally used CUBE data design, organizing data in a multi-dimensional model. As technology has progressed and both data and computation scales have increased, OLAP systems are transitioning to Massively Parallel Processing (MPP) architecture supported by Microsoft Fabric.
+OLAP systems have traditionally used CUBE data design, organizing data in a multi-dimensional model. As technology has progressed and both data and computation scales have increased, OLAP systems are transitioning to Massively Parallel Processing (MPP) architecture supported by [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/get-started/microsoft-fabric-overview). For more information about Microsoft Fabric analytical data store architecture visit [Microsoft Fabric analytical data store ](https://techcommunity.microsoft.com/blog/analyticsonazure/decision-guide-for-selecting-an-analytical-data-store-in-microsoft-fabric/4362079). 
 
 ![Diagram that shows the OLAP logical architecture in Azure.](../images/olap-fabric.png)
 Fig 2. Microsoft Fabric
@@ -27,6 +27,7 @@ Semantic modeling is predominately used for read-heavy scenarios, such as analyt
 - Business logic and calculations are defined.
 - Time-oriented calculations are included.
 - Data is often integrated from multiple sources.
+- Real time analytics.
 
 Traditionally, the semantic layer is placed over a data warehouse for these reasons.
 
@@ -62,8 +63,8 @@ Semantic modeling and analytical processing tends to have the following traits:
 | Appendable | No (typically requires recomputing cube) |
 | Workload | Heavy reads, read-only |
 | Indexing | Multidimensional indexing |
-| Datum size | Small to medium sized |
-| Model | Multidimensional |
+| Datum size | Small to massively large size |
+| Model | Tabular or  Multidimensional |
 | Data shape:| Cube or star/snowflake schema |
 | Query flexibility | Highly flexible |
 | Scale: | Large (100s GBs - multi PBs) |
@@ -112,7 +113,7 @@ To narrow the choices, start by answering these questions:
 
 - Do you want to conduct real-time analytics? If so, narrow your options to those that support real-time analytics.
 
-  *Real-time analytics* in this context applies to a single data source, such as an enterprise resource planning (ERP) application, that will run both an operational and an analytics workload. If you need to integrate data from multiple sources, or require extreme analytics performance by using pre-aggregated data such as cubes, you might still require a separate data warehouse.
+  *Real-time analytics* [Real-Time Intelligence](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/overview) is a powerful service within Microsoft Fabric that empowers everyone in your organization to extract insights and visualize their data in motion. It offers an end-to-end solution for event-driven scenarios, streaming data, and data logs. Whether dealing with gigabytes or petabytes, all organizational data in motion converges in the Real-Time Hub.
 
 - Do you need to use pre-aggregated data, for example to provide semantic models that make analytics more business user friendly? If yes, choose an option that supports multidimensional cubes or tabular semantic models.
 
@@ -141,16 +142,19 @@ The following tables summarize the key differences in capabilities.
 
 [2] Connecting to SQL Server running on an Azure Virtual Machine is not supported using a Microsoft Entra account. Use a domain Active Directory account instead.
 
+[3] Microsoft Fabric offers the flexibility to integrate data sources, by moving data into OneLake using ADF piplelines or mirroring, creating shortcuts or doing real time analytics on data streams.
+
 ### Scalability Capabilities
 
-| Capability | Azure Analysis Services | SQL Server Analysis Services | SQL Server with Columnstore Indexes | Azure SQL Database with Columnstore Indexes |
-|--------------------------------------------------|-------------------------|------------------------------|-------------------------------------|---------------------------------------------|
-| Redundant regional servers for high availability |           Yes           |              No              |                 Yes                 |                     Yes                     |
-|             Supports query scale out             |           Yes           |              No              |                 Yes                 |                     Yes                      |
-|          Dynamic scalability (scale up)          |           Yes           |              No              |                 Yes                 |                     Yes                      |
+| Capability | Microsoft Fabric | Azure Analysis Services | SQL Server Analysis Services | SQL Server with Columnstore Indexes | Azure SQL Database with Columnstore Indexes |
+|-----|--------------------------------------------------|-------------------------|------------------------------|-------------------------------------|---------------------------------------------|
+| Redundant regional servers for high availability | Yes |           Yes           |              No              |                 Yes                 |                     Yes                     |
+|             Supports query scale out             |      Yes |     Yes           |              No              |                 Yes                 |                     Yes                      |
+|          Dynamic scalability (scale up)          |  Yes |         Yes           |              No              |                 Yes                 |                     Yes                      |
 
 ## Next steps
 
+- [Microsoft Fabric analytical data store ](https://techcommunity.microsoft.com/blog/analyticsonazure/decision-guide-for-selecting-an-analytical-data-store-in-microsoft-fabric/4362079)
 - [Columnstore indexes: Overview](/sql/relational-databases/indexes/columnstore-indexes-overview)
 - [Create an Analysis Services server](/azure/analysis-services/analysis-services-create-server)
 - [What is Azure Data Factory?](/azure/data-factory/introduction)
@@ -159,4 +163,3 @@ The following tables summarize the key differences in capabilities.
 ## Related resources
 
 - [Big data architecture style](../../guide/architecture-styles/big-data.yml)
-- [Online analytical processing (OLAP)](../../data-guide/relational-data/online-analytical-processing.yml)
