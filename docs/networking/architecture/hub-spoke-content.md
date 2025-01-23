@@ -308,9 +308,9 @@ This deployment includes one hub virtual network and two connected spokes, and a
 
 Principal authors:
 
-[Alejandra Palacios](https://www.linkedin.com/in/alejandrampalacios/) | Senior Customer Engineer
-[Jose Moreno](https://www.linkedin.com/in/erjosito/) | Principal Engineer
-[Adam Torkar](https://www.linkedin.com/in/at-10993764/) | Azure Networking Global Blackbelt at Microsoft
+- [Alejandra Palacios](https://www.linkedin.com/in/alejandrampalacios/) | Senior Customer Engineer
+- [Jose Moreno](https://www.linkedin.com/in/erjosito/) | Principal Engineer
+- [Adam Torkar](https://www.linkedin.com/in/at-10993764/) | Azure Networking Global Blackbelt at Microsoft
 
 Other contributors:
 
