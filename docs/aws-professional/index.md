@@ -74,7 +74,7 @@ There are some services not covered in the prior articles. Those services are ma
 | [Amazon Timestream](https://aws.amazon.com/timestream) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series. |
 
 
-### Application monitoring, observability, and DevOps
+### DevOps and application monitoring
 
 | AWS service | Azure service | Description |
 |-------------|---------------|-------------|
