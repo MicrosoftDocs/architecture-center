@@ -76,9 +76,8 @@ The benefits of using a customer-managed hub and spoke configuration include:
 - Overcoming subscription limits
 - Workload isolation
 - Flexibility
-  - More control over how network virtual adapters (NVAs) are deployed, such as number of NICs, number of instances, or the size of the virtual machine
+  - More control over how network virtual appliances (NVAs) are deployed, such as number of NICs, number of instances, or the compute size.
   - Use of NVAs that aren't supported by Virtual WAN
-  - 
 
 For more information, see [Hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology).
 
@@ -113,8 +112,6 @@ The virtual network gateway requires this subnet. You can also use a hub-spoke t
 
 [Create a subnet named *GatewaySubnet* with an address range of at least `26`](/azure/expressroute/expressroute-about-virtual-network-gateways#gwsub). The `/26` address range gives the subnet enough scalability configuration options to prevent reaching the gateway size limitations in the future and to accommodate for a higher number of ExpressRoute circuits. For more information about setting up the gateway, see
 [Hybrid network using a VPN gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager).
-
-For higher availability, you can use ExpressRoute plus a VPN for failover. See [Connect an on-premises network to Azure using ExpressRoute with VPN failover](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml).
 
 #### AzureFirewallSubnet
 
@@ -160,6 +157,7 @@ There are two main ways to allow spoke virtual networks to communicate with each
 
 - Communication via an NVA like a firewall and router. This method incurs a hop between the two spokes.
 - Communication by using virtual network peering or Virtual Network Manager direct connectivity between spokes. This approach doesn't cause a hop between the two spokes and is recommended for minimizing latency.
+- Private Link could be used to selectively expose individual resources to other virtual networks. For example, exposing an internal load balancer to a different virtual network, without needing to form or maintain peering or routing relationships.
 
 For more information on spoke-to-spoke networking patterns, see [Spoke-to-spoke networking](/azure/architecture/networking/spoke-to-spoke-networking).
 
@@ -191,11 +189,13 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/well-architected/reliability).
 
-Use [Availability zones](/azure/reliability/availability-zones-overview) for Azure services that support them.
+Use [Availability zones](/azure/reliability/availability-zones-overview) for Azure services in the hub that support them.
 
-Consider a multi-region implementation if you have a mission-critical workload and need to mitigate the risk of a region-wide outage, consider a multi-region deployment. While multi-region deployments insulate you against regional disasters, they come at a cost. Multi-region deployments are more expensive than a single-region deployment, and are more complicated to manage.
+As a general rule, it's best to have at least one hub per region and only connect spokes to those hubs from the same region. This configuration helps bulkhead regions to avoid a failure in one region's hub causing widespread network routing failures in unrelated regions.
 
-If you are using ExpressRoute, follow the guidance to [design and architect Azure ExpressRoute for resiliency](/azure/expressroute/design-architecture-for-resiliency).
+For higher availability, you can use ExpressRoute plus a VPN for failover. See [Connect an on-premises network to Azure using ExpressRoute with VPN failover](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml) and follow the guidance to [design and architect Azure ExpressRoute for resiliency](/azure/expressroute/design-architecture-for-resiliency).
+
+Due to how Azure Firewall implements FQDN application rules, ensure that all resources that are egressing through the firewall is using the same DNS provider as the firewall itself. Without this, Azure Firewall might block legitimate traffic because the firewall's IP resolution of the FQDN differs from the traffic originator's IP resolution of the same FQDN. Incorporating Azure Firewall proxy as part of spoke DNS resolution is one solution to ensure FQDNs are in sync with both the traffic originator and Azure Firewall.
 
 ### Security
 
@@ -211,7 +211,7 @@ To protect against DDoS attacks, enable [Azure DDOS Protection](/azure/ddos-prot
 - The VPN gateway's public IPs
 - ExpressRoute's control plane public IP
 
-To minimize the risk of unauthorized access and to enforce strict security policies, set explicit deny rules in network security groups (NSGs).
+To minimize the risk of unauthorized access and to enforce strict security policies, always set explicit deny rules in network security groups (NSGs).
 
 Use the [Azure Firewall Premium](/azure/firewall/premium-portal) version to enable TLS inspection, network intrusion detection and prevention system (IDPS), and URL filtering.
 
@@ -229,7 +229,7 @@ To use all deployed resources effectively, choose the right Azure Firewall size.
 
 #### Direct peering
 
-Direct peering between spokes can avoid the cost of Azure Firewall processing. Savings can be significant for workloads that have high bandwidth communication between spokes, such as database synchronization or large file copy operations.
+Selective use of direct peering or other non-hub routed communication between spokes can avoid the cost of Azure Firewall processing. Savings can be significant for networks that have workloads with high-throughput, low-risk communication between spokes, such as database synchronization or large file copy operations.
 
 ### Operational Excellence
 
@@ -243,7 +243,7 @@ Use [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-ov
 
 If you're using ExpressRoute, use [ExpressRoute Traffic Collector](/azure/expressroute/traffic-collector) where you can analyze flow logs for the network flows sent over your ExpressRoute circuits. ExpressRoute Traffic Collector gives you visibility into traffic flowing over Microsoft enterprise edge routers.
 
-Use FQDN-based rules in Azure Firewall for protocols other than HTTP(s) or when configuring SQL Server. Using FQDNs lowers the risk of missing an IP address when configuring or updating the network.
+Use FQDN-based rules in Azure Firewall for protocols other than HTTP(s) or when configuring SQL Server. Using FQDNs lowers the management burden over managing individual IP addresses.
 
 [Plan for IP addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing) based on your peering requirements, and make sure the address space doesn't overlap across cross-premises locations and Azure locations.
 
@@ -284,7 +284,7 @@ For spoke-to-spoke communications that require low-latency, consider configuring
 
 Choose the appropriate [gateway SKU](/azure/vpn-gateway/about-gateway-skus) that meet your requirements, such as number of point-to-site or site-to-site connections, required packets-per-second, bandwidth requirements, and TCP flows.
 
-For latency-sensitive flows, such as SAP or access to storage, consider bypassing Azure Firewall. You can [test latency introduced by Azure Firewall](/azure/firewall/firewall-best-practices#testing-and-monitoring) to help inform your decision. You can use features such as [VNet peering](/azure/virtual-network/virtual-network-peering-overview) that connects two or more networks or [Azure Private Link](/azure/private-link/private-link-overview) that enables you to connect to a service over a private endpoint in your virtual network.
+For latency-sensitive flows, such as SAP or access to storage, consider bypassing Azure Firewall or even routing through the hub at all. You can [test latency introduced by Azure Firewall](/azure/firewall/firewall-best-practices#testing-and-monitoring) to help inform your decision. You can use features such as [VNet peering](/azure/virtual-network/virtual-network-peering-overview) that connects two or more networks or [Azure Private Link](/azure/private-link/private-link-overview) that enables you to connect to a service over a private endpoint in your virtual network.
 
 Understand that enabling certain features in Azure Firewall, such as intrusion detection and prevention system (IDPS), reduces your throughput. For more information, see [Azure Firewall performance](/azure/firewall/firewall-performance#performance-data).
 
@@ -421,11 +421,9 @@ Other contributors:
 
 - To learn about secured virtual hubs and the associated security and routing policies that [Azure Firewall Manager](https://azure.microsoft.com/products/firewall-manager) configures, see [What is a secured virtual hub?](/azure/firewall-manager/secured-virtual-hub)
 
-- The hub in a hub-spoke network topology is the main component of a connectivity subscription in an [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone). For more information about building large-scale networks in Azure with routing and security managed by the customer or by Microsoft, see [Define an Azure network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology).
-
 ### Advanced scenarios
 
-Your architecture may differ from this simple hub-and-spoke architecture. The following is a list of guidance for some advanced scenarios:
+Your architecture may differ from this simple hub-spoke architecture. The following is a list of guidance for some advanced scenarios:
 
 - **Add more regions and fully-mesh the hubs to each other** - [Spoke-to-spoke networking](/azure/architecture/networking/guide/spoke-to-spoke-networking) for multi-region connectivity patterns and [Multi-region networking with Azure Route Server](/azure/route-server/multiregion)
 
