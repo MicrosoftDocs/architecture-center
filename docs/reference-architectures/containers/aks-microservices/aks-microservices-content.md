@@ -44,15 +44,6 @@ This reference architecture is focused on microservices, although many of the re
 
 A microservice is a loosely coupled, independently deployable unit of code. Microservices typically communicate through well-defined APIs and are discoverable through some form of service discovery. The Kubernetes **Service** object is a natural way to model microservices in Kubernetes. 
 
-#### API gateway
-
-API gateways are a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An *API gateway* sits between external clients and the microservices. API gateway acts as a reverse proxy, routing requests from clients to microservices. An API gateway may also perform various cross-cutting tasks such as authentication, SSL termination, and rate-limiting. For more information, see:
-
-- [Using API gateways in microservices](../../../microservices/design/gateway.yml)
-- [Choosing a gateway technology](../../../microservices/design/gateway.yml#choosing-a-gateway-technology)
-
-In Kubernetes, the functionality of an API gateway is primarily handled by an **Ingress controller**. The considerations are described in the [Ingress](#ingress) section.
-
 #### Data storage
 
 Sharing data storage solutions between microservices is discouraged in microservices architecture. Each service should manage its own data set to avoid hidden dependencies among services. Data separation helps avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements.
@@ -62,6 +53,15 @@ For more information, see [Designing microservices: Data considerations](../../.
 Microservices in AKS should avoid storing persistent data in local cluster storage because that ties the data to the node. Instead, use an external service such as Azure SQL Database or Azure Cosmos DB. Another option is to mount a persistent data volume to a solution using Azure Disks or Azure Files.
 
 For more information, see [Storage options for application in Azure Kubernetes Service](/azure/aks/concepts-storage).
+
+#### API gateway
+
+API gateways are a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An *API gateway* sits between external clients and the microservices. API gateway acts as a reverse proxy, routing requests from clients to microservices. An API gateway may also perform various cross-cutting tasks such as authentication, SSL termination, and rate-limiting. For more information, see:
+
+- [Using API gateways in microservices](../../../microservices/design/gateway.yml)
+- [Choosing a gateway technology](../../../microservices/design/gateway.yml#choosing-a-gateway-technology)
+
+In Kubernetes, the functionality of an API gateway is primarily handled by an **Ingress controller**. The considerations are described in the [Ingress](#ingress) section.
 
 #### Service object
 
@@ -92,15 +92,6 @@ There are Ingress controllers for Nginx, HAProxy, Traefik, and Azure Application
 The Ingress resource can be fulfilled by different technologies. Ingress controller operates as the edge router or reverse proxy. A reverse proxy server is a potential bottleneck or single point of failure, so it is recommended to deploy at least two replicas for high availability.
 
 The Ingress controller also has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
-
-#### TLS/SSL encryption
-
-In common implementations, the Ingress controller is used for SSL termination. So, as part of deploying the Ingress controller, you will need to create or import a TLS certificate. Use of self-signed certificates is recommended only for dev/test purposes. For more information, see 
-[Set up a custom domain name and SSL certificate with the application routing add-on](/azure/aks/app-routing-dns-ssl).
-
-For production workloads, get signed certificates from trusted certificate authorities (CA). 
-
-You may also need to rotate your certificates as per the organization's policies. Azure Key Vault can be used to rotate certificates used by microservices. For more information, see [Configure certificate auto-rotation in Key Vault](/azure/key-vault/certificates/tutorial-rotate-certificates).
 
 #### Partitioning microservices
 
@@ -144,13 +135,22 @@ Here are some considerations when designing probes for microservices:
 
 #### Resource constraints
 
-Resource contention can affect the availability of a service. Define resource constraints for containers, so that a single container cannot overwhelm the cluster resources (memory and CPU). For non-container resources, such as threads or network connections, consider using the [Bulkhead Pattern](../../../patterns/bulkhead.yml) to isolate resources.
+Resource contention can affect the availability of a service. Define [resource constraints for containers](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/), so that a single container cannot overwhelm the cluster resources (memory and CPU). For non-container resources, such as threads or network connections, consider using the [Bulkhead Pattern](../../../patterns/bulkhead.yml) to isolate resources.
 
-Use resource quotas to limit the total resources allowed for a namespace. That way, the front end can't starve the backend services for resources or vice-versa. Resource quotas can be handy to allocate resources within the same cluster to multiple microservice development teams. 
+Use [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) to limit the total resources allowed for a namespace. That way, the front end can't starve the backend services for resources or vice-versa. Resource quotas can be handy to allocate resources within the same cluster to multiple microservice development teams. 
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+#### TLS/SSL encryption
+
+In common implementations, the Ingress controller is used for SSL termination. So, as part of deploying the Ingress controller, you will need to create or import a TLS certificate. Use of self-signed certificates is recommended only for dev/test purposes. For more information, see 
+[Set up a custom domain name and SSL certificate with the application routing add-on](/azure/aks/app-routing-dns-ssl).
+
+For production workloads, get signed certificates from trusted certificate authorities (CA). 
+
+You may also need to rotate your certificates as per the organization's policies. Azure Key Vault can be used to rotate certificates used by microservices. For more information, see [Configure certificate auto-rotation in Key Vault](/azure/key-vault/certificates/tutorial-rotate-certificates).
 
 #### Role-based access control (RBAC)
 
