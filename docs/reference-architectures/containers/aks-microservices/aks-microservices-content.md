@@ -1,4 +1,4 @@
-This reference architecture shows a microservices application deployed to Azure Kubernetes Service (AKS). It describes a basic AKS configuration that can be the starting point for most deployments. This article assumes basic knowledge of Kubernetes. The article focuses primarily on the infrastructure and DevOps considerations of running a microservices architecture on AKS. For guidance on how to design microservices, see [Building microservices on Azure](../../../microservices/index.yml).
+This reference architecture shows a microservices application deployed to Azure Kubernetes Service (AKS). It describes a basic AKS configuration that can be the starting point for most deployments. This article assumes basic knowledge of Kubernetes. The article primarily highlights the infrastructure and DevOps aspects of managing a microservices architecture on AKS. For guidance on designing microservices, see [Building microservices on Azure](../../../microservices/index.yml).
 
 ![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub][ri].
 
@@ -16,13 +16,11 @@ The architecture consists of the following components.
 
 **Azure Kubernetes Service (AKS)**. AKS is a managed Kubernetes cluster hosted in the Azure cloud. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure. 
 
-**Virtual network**. By default, AKS creates a virtual network into which agent nodes are connected. You can create the virtual network first for more advanced scenarios, which lets you control things like subnet configuration, on-premises connectivity, and IP addressing. For more information, see [Configure advanced networking in Azure Kubernetes Service (AKS)](/azure/aks/configure-advanced-networking).
-
 **Ingress**. An ingress server exposes HTTP(S) routes to services inside the cluster. The reference implementation uses Nginx (unmanaged, deployed through helm charts) as the ingress controller. Alternately, you can choose from [managed Nginx based ingress controller](/azure/aks/app-routing) through application routing add-on, Application Gateway for containers, or Istio Ingress Gateway as the ingress controller. Please see [Ingress in AKS](/en-us/azure/aks/concepts-network-ingress) for a comparison of ingress options. Ingress controller implements the [API Gateway](#api-gateway) pattern for microservices.
 
 **External data stores**. Microservices are typically stateless and write data & state information to external data stores, such as Azure SQL Database or Azure Cosmos DB. The reference implementation uses [Azure Cosmos DB](/azure/cosmos-db/), [Azure cache for Redis](/azure/azure-cache-for-redis/), [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) and [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) as data stores. For microservices that need to maintain state information, [DAPR](/azure/aks/dapr-overview) provides a good abstraction layer for microservice state management. 
 
-**Microsoft Entra ID**. AKS uses a Microsoft Entra identity to create and manage other Azure resources such as Azure load balancers. [Microsoft Entra ID](/azure/aks/workload-identity-overview) is also recommended for user authentication in client applications. In the reference architecture, Entra ID is used to authenticate microservices to Azure Key Vault.
+**Microsoft Entra ID**. AKS uses a Microsoft Entra ID identity to create and manage other Azure resources such as Azure load balancers. [Microsoft Entra ID](/azure/aks/workload-identity-overview) is also recommended for user authentication in client applications. In the reference architecture, Entra ID is used to authenticate microservices to Azure Key Vault.
 
 **Azure Container Registry**. Azure Container Registry can be used to store private container images, which are deployed to the cluster. AKS can authenticate with Container Registry using its Microsoft Entra identity. In the reference implementation, microservice container images are built and pushed to Azure Container Registry.  
 
@@ -40,11 +38,11 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Design
 
-This reference architecture is focused on microservices architectures, although many of the recommended practices apply to other workloads running on AKS.
+This reference architecture is focused on microservices, although many of the recommended practices apply to other workloads running on AKS.
 
 #### Microservices
 
-A microservice is a loosely coupled, independently deployable unit of code. Microservices typically communicate through well-defined APIs and are discoverable through some form of service discovery. The service should always be reachable even when the pods move around. The Kubernetes **Service** object is a natural way to model microservices in Kubernetes.
+A microservice is a loosely coupled, independently deployable unit of code. Microservices typically communicate through well-defined APIs and are discoverable through some form of service discovery. The Kubernetes **Service** object is a natural way to model microservices in Kubernetes. 
 
 #### API gateway
 
@@ -57,7 +55,7 @@ In Kubernetes, the functionality of an API gateway is primarily handled by an **
 
 #### Data storage
 
-In a microservices architecture, services should not share data storage solutions. Each service should manage its own data set to avoid hidden dependencies among services. Data separation helps avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements.
+Sharing data storage solutions between microservices is discouraged in microservices architecture. Each service should manage its own data set to avoid hidden dependencies among services. Data separation helps avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements.
 
 For more information, see [Designing microservices: Data considerations](../../../microservices/design/data-considerations.yml).
 
@@ -91,7 +89,7 @@ In Kubernetes, the **Ingress controller** can be used to implement the API gatew
 
 There are Ingress controllers for Nginx, HAProxy, Traefik, and Azure Application Gateway, among others. AKS provides multiple managed ingress options. You can choose from [managed Nginx based ingress controller](/azure/aks/app-routing) through application routing add-on, Application Gateway for containers, or Istio Ingress Gateway as the ingress controller. Please see [Ingress in AKS](/en-us/azure/aks/concepts-network-ingress) for a comparison of ingress options. 
 
-The Ingress resource can be fulfilled by different technologies. To work together, they need to be deployed as the Ingress controller inside the cluster. It operates as the edge router or reverse proxy. A reverse proxy server is a potential bottleneck or single point of failure, so it is recommended to deploy at least two replicas for high availability.
+The Ingress resource can be fulfilled by different technologies. Ingress controller operates as the edge router or reverse proxy. A reverse proxy server is a potential bottleneck or single point of failure, so it is recommended to deploy at least two replicas for high availability.
 
 The Ingress controller also has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
 
@@ -104,7 +102,7 @@ For production workloads, get signed certificates from trusted certificate autho
 
 You may also need to rotate your certificates as per the organization's policies. Azure Key Vault can be used to rotate certificates used by microservices. For more information, see [Configure certificate auto-rotation in Key Vault](/azure/key-vault/certificates/tutorial-rotate-certificates).
 
-#### Namespaces
+#### Partitioning microservices
 
 Use namespaces to organize services within the cluster. Every object in a Kubernetes cluster belongs to a namespace. It is a good practice to create namespaces that are more descriptive to help organize the resources in the cluster.
 
@@ -118,7 +116,7 @@ When microservices are developed and deployed by multiple teams, namespaces can 
 
 For a microservices architecture, considering organizing the microservices into bounded contexts, and creating namespaces for each bounded context. For example, all microservices related to the "Order Fulfillment" bounded context could go into the same namespace. Alternatively, create a namespace for each development team.
 
-A good practice is to place utility services into their own separate namespace. For example, you might deploy Elasticsearch or Prometheus for cluster monitoring to a monitoring namespace.
+A good practice is to place utility services into their own separate namespace. For example, you might deploy cluster monitoring tools such as Elasticsearch and Prometheus to a monitoring namespace.
 
 #### Health probes
 
@@ -138,7 +136,7 @@ Liveness probes handle the case where a pod is still running, but is unhealthy a
 
 Here are some considerations when designing probes for microservices:
 
-- If your code has a long startup time, there is a danger that a liveness probe will report failure before the startup completes. To prevent this probe failure, use the `initialDelaySeconds` setting, which delays the probe from starting.
+- If your code has a long startup time, there is a danger that a liveness probe will report failure before the startup completes. To prevent the probe failure, use the `initialDelaySeconds` setting, which delays the probe from starting.
 
 - A liveness probe doesn't help unless restarting the pod is likely to restore it to a healthy state. You can use a liveness probe to mitigate against memory leaks or unexpected deadlocks, but there's no point in restarting a pod that's going to immediately fail again.
 
@@ -148,7 +146,7 @@ Here are some considerations when designing probes for microservices:
 
 Resource contention can affect the availability of a service. Define resource constraints for containers, so that a single container cannot overwhelm the cluster resources (memory and CPU). For non-container resources, such as threads or network connections, consider using the [Bulkhead Pattern](../../../patterns/bulkhead.yml) to isolate resources.
 
-Use resource quotas to limit the total resources allowed for a namespace. That way, the front end can't starve the backend services for resources or vice-versa.
+Use resource quotas to limit the total resources allowed for a namespace. That way, the front end can't starve the backend services for resources or vice-versa. Resource quotas can be handy to allocate resources within the same cluster to multiple microservice development teams. 
 
 ### Security
 
@@ -178,12 +176,13 @@ Even with managed identities, you'll probably need to store some credentials or 
 
 - Kubernetes secrets. Another option is simply to use Kubernetes secrets. This option is the easiest to configure but is the least secure. Secrets are stored in etcd, which is a distributed key-value store. AKS [encrypts etcd at rest](https://github.com/Azure/kubernetes-kms#azure-kubernetes-service-aks). Microsoft manages the encryption keys.
 
-Using a system like HashiCorp Vault or Azure Key Vault provides several advantages, such as:
+Using a system such as Azure Key Vault provides several advantages, such as:
 
 - Centralized control of secrets.
 - Ensuring that all secrets are encrypted at rest.
 - Centralized key management.
 - Access control of secrets.
+- Key lifecycle management
 - Auditing
 
 The reference implementation stores credentials such as Cosmos DB connection string in Azure Key Vault. The reference implementation uses managed identity for microservices, to authenticate to Key vault and access azure key vault secrets.  
@@ -216,7 +215,7 @@ Here are some goals of a robust CI/CD process for a microservices architecture:
 
 To learn more about the challenges, see [CI/CD for microservices architectures](../../../microservices/ci-cd.yml).
 
-Use of [service mesh](/azure/aks/istio-about) can aid in CI/CD processes, such as canary deployments, A/B testing of microservices, and staged rollouts with percentage-based traffic splits.
+Use of [service mesh](/azure/aks/istio-about) can aid in CI/CD processes, such as in canary deployments, A/B testing of microservices, and staged rollouts with percentage-based traffic splits.
 
 For specific recommendations and best practices, see [CI/CD for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.yml).
 
