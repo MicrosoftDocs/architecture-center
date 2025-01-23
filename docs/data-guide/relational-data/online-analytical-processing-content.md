@@ -1,8 +1,17 @@
-Online analytical processing (OLAP) is a technology that organizes large business databases and supports complex analysis. It can be used to perform complex analytical queries without negatively affecting transactional systems.
+Online analytical processing (OLAP) organizes large business databases for complex analysis, enabling intricate queries without affecting transactional systems.
 
-The databases that a business uses to store all its transactions and records are called [online transaction processing (OLTP)](./online-transaction-processing.md) databases. These databases usually have records that are entered one at a time. Often they contain a great deal of information that is valuable to the organization. The databases that are used for OLTP, however, were not designed for analysis. Therefore, retrieving answers from these databases is costly in terms of time and effort. OLAP systems were designed to help extract this business intelligence information from the data in a highly performant way. This is because OLAP databases are optimized for heavy read, low write workloads.
+Business transactions and records are stored in databases known as online transaction processing (OLTP) databases, which are optimized for individual record entries. Though they hold valuable information, OLTP databases are not designed for analysis, making data retrieval time-consuming and arduous.
+
+OLAP systems tackle this by efficiently extracting business intelligence from data. Optimized for heavy read, low write tasks, OLAP databases are modeled and cleansed for effective analysis, often preserving historical data for time series analysis.
+
+
 
 ![Diagram that shows the OLAP logical architecture in Azure.](../images/olap-data-pipeline.png)
+Fig 1. Azure Analytics Service
+
+
+![Diagram that shows the OLAP logical architecture in Azure.](../images/olap-data-pipeline.png)
+Fig 2. Microsoft Fabric
 
 ## Semantic modeling
 
