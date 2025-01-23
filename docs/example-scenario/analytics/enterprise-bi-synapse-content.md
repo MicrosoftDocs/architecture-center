@@ -317,6 +317,6 @@ Other contributors:
 [az-storage-reserved]: /azure/storage/blobs/storage-blob-reserved-capacity
 [enterprise-model]: /power-bi/guidance/center-of-excellence-business-intelligence-solution-architecture#enterprise-models
 [bi-model]: /power-bi/guidance/center-of-excellence-business-intelligence-solution-architecture#bi-semantic-models
-[pbi-premium-capacities]: /power-bi/admin/service-premium-what-is#reserved-capacities
+[pbi-premium-capacities]: /power-bi/admin/service-premium-what-is
 [synapse-dedicated-pool]: /azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is
 [pbi-what-is-premium]: /power-bi/admin/service-premium-what-is#analysis-services-in-power-bi-premium
