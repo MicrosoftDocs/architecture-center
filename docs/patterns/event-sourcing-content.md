@@ -1,19 +1,19 @@
 Instead of storing just the current state of the data in a relational database, store the full series of actions taken on an object in an append-only store. The store acts as the system of record and can be used to materialize the domain objects. This approach can improve performance, scalability, and auditability in complex systems.
 
 > [!IMPORTANT]
-> Event sourcing is a complex pattern that permeates through the entire architecture and introduces trade-offs to achieve increased performance, scalability, and auditing. Your system becomes an event sourcing system and all future design decisions are constrained by the fact that this is an event sourcing system. There is a high cost to migrate to or from an event sourcing system. This pattern is best suited for systems where performance and scalability are top requirements. The complexity that event sourcing adds to a system is not justified for most systems.
+> Event sourcing is a complex pattern that permeates through the entire architecture and introduces trade-offs to achieve increased performance, scalability, and auditability. Once your system becomes an event sourcing system, all future design decisions are constrained by the fact that this is an event sourcing system. There is a high cost to migrate to or from an event sourcing system. This pattern is best suited for systems where performance and scalability are top requirements. The complexity that event sourcing adds to a system is not justified for most systems.
 
 ## Context and problem
 
-Most applications work with data, and the typical approach is for the application to store the latest state of the data in a relational database, inserting or updating data as is required. For example, in the traditional create, read, update, and delete (CRUD) model, a typical data process is to read data from the store, make some modifications to it, and update the current state of the data with the new values&mdash;often by using transactions that lock the data.
+Most applications work with data, and the typical approach is for the application to store the latest state of the data in a relational database, inserting or updating data as required. For example, in the traditional create, read, update, and delete (CRUD) model, a typical data process is to read data from the store, make some modifications to it, and update the current state of the data with the new values&mdash;often by using transactions that lock the data.
 
 The CRUD approach is straightforward and fast for most scenarios. However, in high-load systems, this approach has some challenges:
 
 - **Performance**: As the system scales, the performance will degrade due to contention for resources and locking issues.
 
-- **Scalability**: Because CRUD systems are synchronous and data operations block on updates, this can lead to bottlenecks and higher latency when the system is under load.
+- **Scalability**: CRUD systems are synchronous and data operations block on updates. This can lead to bottlenecks and higher latency when the system is under load.
 
-- **Auditability**: Because CRUD systems only store the latest state of the data, unless there's another auditing mechanism that records the details of each operation in a separate log, history is lost.
+- **Auditability**: CRUD systems only store the latest state of the data. Unless there's an auditing mechanism that records the details of each operation in a separate log, history is lost.
 
 ## Solution
 
@@ -23,9 +23,9 @@ The events are persisted in an event store that acts as the system of record (th
 
 At any point, it's possible for applications to read the history of events. You can then use the events to materialize the current state of an entity by playing back and consuming all the events that are related to that entity. This process can occur on demand to materialize a domain object when handling a request.
 
-Because it is relatively expensive to read and replay events, applications typically implement [materialized views](./materialized-view.yml), read-only projections of the event store that are optimized for querying. For example, a system can maintain a materialized view of all customer orders that's used to populate parts of the UI. As the application adds new orders, adds or removes items on the order, or adds shipping information, events are raised and a handler updates the materialized view.
+Because it is relatively expensive to read and replay events, applications typically implement [materialized views](./materialized-view.yml), read-only projections of the event store that are optimized for querying. For example, a system can maintain a materialized view of all customer orders that's used to populate the UI. As the application adds new orders, adds or removes items on the order, or adds shipping information, events are raised and a handler updates the materialized view.
 
-The figure shows an overview of the pattern, including some typical implementations with the pattern, including using the use of a queue, a read-only store, integrating events with external applications and systems, and replaying events to create projections of the current state of specific entities.
+The figure shows an overview of the pattern, including some typical implementations with the pattern, including the use of a queue, a read-only store, integrating events with external applications and systems, and replaying events to create projections of the current state of specific entities.
 
 ![An overview and example of the Event Sourcing pattern](./_images/event-sourcing-overview.png)
 
@@ -33,7 +33,7 @@ The figure shows an overview of the pattern, including some typical implementati
 
 The following describes a typical workflow for this pattern:
 
-1. The presentation layer calls an object responsible for calling a read-only store. The data returned is used to populate the UI.
+1. The presentation layer calls an object responsible for reading from a read-only store. The data returned is used to populate the UI.
 1. The presentation layer calls command handlers to perform actions like create a cart, or add an item to the cart.
 1. The command handler calls the event store to get the historical events for the entity. For example, it may retrieve all cart events. Those events are played back in the object to materialize the current state of the entity, prior to any action taking place.
 1. The business logic is run and events are raised. In most implementations, the events are pushed to a queue or topic to decouple the event producers and event consumers.
@@ -46,7 +46,7 @@ The following describes a typical workflow for this pattern:
 
 The Event Sourcing pattern provides the following advantages:
 
-- Events are immutable and can be stored using an append-only operation. The user interface, workflow, or process that initiated an event can continue, and tasks that handle the events can run in the background. This process, combined with the fact that there's no contention during the processing of transactions, can vastly improve performance and scalability for applications, especially for the presentation level or user interface.
+- Events are immutable and can be stored using an append-only operation. The user interface, workflow, or process that initiated an event can continue, and tasks that handle the events can run in the background. This process, combined with the fact that there's no contention during the processing of transactions, can vastly improve performance and scalability for applications, especially for the presentation layer.
 
 - Events are simple objects that describe some action that occurred, together with any associated data that's required to describe the action represented by the event. Events don't directly update a data store. They're simply recorded for handling at the appropriate time. Using events can simplify implementation and management.
 
