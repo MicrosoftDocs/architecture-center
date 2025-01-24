@@ -41,7 +41,7 @@ This guide focuses on a subset of the container services that Azure currently of
 
 :::row:::
     :::column:::
-    ![Container Apps logo](media/images/container-apps.png) 
+    ![Azure Container Apps logo](media/images/container-apps.png) 
     :::column-end:::
     :::column span="3":::
     [Azure Container Apps](https://azure.microsoft.com/products/container-apps) is a fully managed platform that allows you to run containerized applications without worrying about orchestration or infrastructure. For more information, see [Azure Container Apps documentation](/azure/container-apps).
