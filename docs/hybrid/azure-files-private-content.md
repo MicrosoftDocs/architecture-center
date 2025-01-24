@@ -130,6 +130,8 @@ From the on-premises side, the private domain name is mapped to a private IP add
 - Through DNS forwarding to a DNS server deployed in the Azure virtual network or Azure private DNS resolver, as the diagram shows.
 - Through the on-premises DNS server that sets up zones for the private domain `<region>.privatelink.afs.azure.net` and `privatelink.file.core.windows.net`. The server registers the IP addresses of Azure Files and Azure File Sync private endpoints as DNS A records into their respective DNS zones. The on-premises client resolves the private domain name directly from the local on-premises DNS server.
 
+Fore more information, see [Private resolver architecture](azure/dns/private-resolver-architecture)
+
 ### Distributed File System (DFS)
 
 When it comes to an on-premises file sharing solution, many administrators choose to use a DFS rather than a traditional standalone file server. DFS allows administrators to consolidate file shares that might exist on multiple servers so that they appear as though they all live in the same location, allowing users to access them from a single point on the network. While moving to a cloud file share solution, traditional DFS-R deployment can be replaced by Azure File Sync deployment. For more information, see [Migrate a DFS Replication (DFS-R) deployment to Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal%2Cproactive-portal#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
@@ -166,12 +168,16 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Security auditing is a necessary requirement for helping to maintain the security of an enterprise. Industry standards require enterprises to follow a strict set of rules related to data security and privacy.
 
-#### File access auditing
+### File access auditing
 
 File access auditing can be enabled locally and remotely:
 
 - Locally, by using Dynamic Access Control. For more information, see [Plan for File Access Auditing](/windows-server/identity/solution-guides/plan-for-file-access-auditing).
 - Remotely, by using Azure Storage logs in Azure Monitor on Azure Files. Azure Storage logs contains StorageRead, StorageWrite, StorageDelete, and Transaction logs. Azure file access can be logged to a storage account, log analytics workspace, or streamed to an event hub separately. For more information, see [Monitor Azure Files](/azure/storage/files/storage-files-monitoring).
+
+### Scalability and performance
+
+Scalability and performance targets for Azure Files and Azure File Sync depend on various factors like SMB client behavior and network bandwidth. For example, the performance of I/O for a file might be impacted by your SMB client's behavior and by your available network bandwidth. Testing your usage pattern helps determine if they meet your needs. For more information, see [Scalability and performance targets for Azure Files and Azure File Sync](azure/storage/files/storage-files-scale-targets)
 
 ## Contributors
 
@@ -202,6 +208,8 @@ Principal author:
 - [About Azure file share backup](/azure/backup/azure-file-share-backup-overview)
 - [What is Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview)
 - [Enable Microsoft Entra Kerberos authentication for hybrid identities on Azure Files](/azure/storage/files/storage-files-identity-auth-hybrid-identities-enable)
+- [Scalability and performance targets for Azure Files and Azure File Sync](azure/storage/files/storage-files-scale-targets)
+- [Private resolver architecture](azure/dns/private-resolver-architecture)
 
 ## Related resources
 
