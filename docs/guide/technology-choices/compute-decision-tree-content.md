@@ -235,7 +235,7 @@ To see nonpublic LinkedIn profiles, sign in to LinkedIn.
 [cost-avs]: https://azure.microsoft.com/pricing/details/azure-vmware
 
 [function-plans]: /azure/azure-functions/functions-scale
-[azure-vmware-plans]: /azure/azure-vmware/cluster-size-recommendation
+[azure-vmware-plans]: /azure/azure-vmware/architecture-private-clouds#hosts
 
 [resource-manager-supported-services]: /azure/azure-resource-manager/resource-manager-supported-services
 
