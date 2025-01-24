@@ -25,10 +25,10 @@ If you're not familiar with the Azure service selected in the previous section, 
 
 - [Azure Virtual Machines](/azure/virtual-machines): A service where you deploy and manage virtual machines (VMs) inside an Azure virtual network.
 - [Azure App Service](/azure/app-service): A managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
-- [Azure Functions](/azure/azure-functions/functions-overview): A managed function as a service.
+- [Azure Functions](/azure/azure-functions/functions-overview): A service that provides managed functions that run based on a variety of trigger types for event-driven applications.
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes): A managed Kubernetes service for running containerized applications.
 - [Azure Container Apps](/azure/container-apps): A managed service built on Kubernetes, which simplifies the deployment of containerized applications in a serverless environment.
-- [Azure Container Instances](/azure/container-instances/container-instances-overview): This service is a fast and simple way to run a container in Azure. You don't have to provision any VMs or adopt a higher-level service.
+- [Azure Container Instances](/azure/container-instances/container-instances-overview): This service is a fast and simple way to run a single container or group of containers in Azure. Azure Container Instances doesn't provide full container orchestration, but you can implement them without having to provision any VMs or adopt a higher-level service.
 - [Azure Red Hat OpenShift](/azure/openshift): A fully managed OpenShift cluster for running containers in production with Kubernetes.
 - [Azure Spring Apps](/azure/spring-apps): A managed service designed and optimized for hosting Spring Boot apps.
 - [Azure Service Fabric](/azure/service-fabric/service-fabric-overview): A distributed systems platform that can run in many environments, including Azure or on-premises.
@@ -72,15 +72,15 @@ Notes
 1. <span id="note4">Can scale down to zero after job completes.</span>
 1. <span id="note5">Three for primary nodes and three for worker nodes.</span>
 1. <span id="note6">When using [Durable Functions][durable-functions].</span>
-1. <span id="note7">Require minimum number of [three nodes][azure-vmware-plans]</span>
+1. <span id="note7">Require minimum number of [three nodes][azure-vmware-plans].</span>
 
 ## Networking
 
 | Service | Virtual network integration | Hybrid connectivity |
 |----------|-----------------|-------------|
 | Azure Virtual Machines | Supported | Supported |
-| Azure App Service | Supported <a href="#note7"><sup>1</sup></a> | Supported <a href="#note8"><sup>2</sup></a> |
-| Azure Functions | Supported <a href="#note7"><sup>1</sup></a> | Supported <a href="#note9"><sup>3</sup></a> |
+| Azure App Service | Supported <a href="#note1b"><sup>1</sup></a> | Supported <a href="#note2b"><sup>2</sup></a> |
+| Azure Functions | Supported <a href="#note1b"><sup>1</sup></a> | Supported <a href="#note3b"><sup>3</sup></a> |
 | Azure Kubernetes Service | [Supported](/azure/aks/networking-overview) | Supported |
 | Azure Container Apps | Supported | Supported |
 | Azure Container Instances | [Supported](/azure/container-instances/container-instances-vnet) | [Supported](/azure/container-instances/container-instances-virtual-network-concepts#scenarios)  |
@@ -92,16 +92,16 @@ Notes
 
 Notes
 
-1. <span id="note7">Requires App Service Environment.</span>
-2. <span id="note8">Use [Azure App Service Hybrid Connections][app-service-hybrid].</span>
-3. <span id="note9">Requires App Service plan or [Azure Functions Premium plan][func-premium].</span>
+1. <span id="note1b">Requires App Service Environment.</span>
+2. <span id="note2b">Use [Azure App Service Hybrid Connections][app-service-hybrid].</span>
+3. <span id="note3b">Requires App Service plan or [Azure Functions Premium plan][func-premium].</span>
 
 ## DevOps
 
 | Service | Local debugging | Programming model | Application update|
 |----------|-----------------|-----------------|-----------------|
 | Azure Virtual Machines | Agnostic | Agnostic | No built-in support |
-| Azure App Service | IIS Express, others <a href="#note1b"><sup>1</sup></a> | Web and API applications, WebJobs for background tasks | Deployment slots |
+| Azure App Service | IIS Express, others <a href="#note1c"><sup>1</sup></a> | Web and API applications, WebJobs for background tasks | Deployment slots |
 | Azure Functions | Visual Studio or Azure Functions CLI | Serverless, event-driven | Deployment slots |
 | Azure Kubernetes Service | Minikube, Docker, others | Agnostic | Rolling update |
 | Azure Container Apps | Local container runtime | Agnostic | Revision management |
@@ -114,48 +114,48 @@ Notes
 
 Notes
 
-1. <span id="note1b">Options include IIS Express for ASP.NET or node.js (iisnode), PHP web server, Azure Toolkit for IntelliJ, and Azure Toolkit for Eclipse. App Service also supports remote debugging of deployed web app.</span>
+1. <span id="note1c">Options include IIS Express for ASP.NET or node.js (iisnode), PHP web server, Azure Toolkit for IntelliJ, and Azure Toolkit for Eclipse. App Service also supports remote debugging of deployed web app.</span>
 
 ## Scalability
 
-| Service | Autoscaling | Load balancer | Scale limit<a href="#note3c"><sup>3</sup></a>|
+| Service | Autoscaling | Load balancer | Scale limit<a href="#note3d"><sup>3</sup></a>|
 |----------|-----------------|-----------------|-----------------|
 | Azure Virtual Machines | Virtual machine scale sets | Azure Load Balancer | Platform image: 1,000 nodes per scale set, Custom image: 600 nodes per scale set |
 | Azure App Service | Built-in service | Integrated | 30 instances, 100 with App Service Environment |
 | Azure Functions | Built-in service | Integrated | 200 instances per function app |
-| Azure Kubernetes Service | Pod autoscaling<a href="#note1c"><sup>1</sup></a>, cluster autoscaling<a href="#note2c"><sup>2</sup></a> | Azure Load Balancer or Azure Application Gateway | 5,000 nodes when using [Uptime SLA][uptime-sla] |
-| Azure Container Apps | Scaling rules<a href="#note4c"><sup>4</sup></a> | Integrated | 5 environments per region, 20 container apps per environment, 30 replicas per container app |
-| Azure Container Instances | Not supported | No built-in support | 20 container groups per subscription (default limit) |
-| Azure Red Hat OpenShift | Pod autoscaling, cluster autoscaling | Azure Load Balancer or Azure Application Gateway | 60 nodes per cluster (default limit) |
+| Azure Kubernetes Service | Pod autoscaling<a href="#note1d"><sup>1</sup></a>, cluster autoscaling<a href="#note2d"><sup>2</sup></a> | Azure Load Balancer or Azure Application Gateway | 5,000 nodes when using [Uptime SLA][uptime-sla] |
+| Azure Container Apps | Scaling rules<a href="#note4d"><sup>4</sup></a> | Integrated | 15 environments per region (default limit), unlimited container apps per environment and replicas per container app (depending on available cores) |
+| Azure Container Instances | Not supported | No built-in support | 100 container groups per subscription (default limit) |
+| Azure Red Hat OpenShift | Pod autoscaling, cluster autoscaling | Azure Load Balancer or Azure Application Gateway | 250 nodes per cluster (default limit) |
 | Azure Spring Apps | Built-in service | Integrated | 500 app instances in Standard |
 | Azure Service Fabric | Virtual machine scale sets | Azure Load Balancer | 100 nodes per virtual machine scale set |
-| Azure Batch | Not applicable | Azure Load Balancer | 20 core limit (default limit) |
-| Azure VMware Solution | Built-in service<a href="#note5c"><sup>5</sup></a> | Integrated<a href="#note6c"><sup>6</sup></a> | Per VMware vCenter can manage between 3 ~ 16 VMware ESXi hosts |
+| Azure Batch | Not applicable | Azure Load Balancer | Core limit of 900 dedicated and 100 low-priority (default limit) |
+| Azure VMware Solution | Built-in service<a href="#note5d"><sup>5</sup></a> | Integrated<a href="#note6d"><sup>6</sup></a> | Per VMware vCenter can manage between 3 ~ 16 VMware ESXi hosts |
 
 Notes
 
-1. <span id="note1c">See [Autoscale pods](/azure/aks/tutorial-kubernetes-scale#autoscale-pods).</span>
-2. <span id="note2c">See [Automatically scale a cluster to meet application demands on Azure Kubernetes Service](/azure/aks/cluster-autoscaler).</span>
-3. <span id="note3c">See [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits)</span>.
-4. <span id="note4c">See [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app)</span>.
-5. <span id="note5c">See [Scale a Azure VMware Solution](/azure/azure-vmware/tutorial-scale-private-cloud)</span>.
-6. <span id="note6c">See [VMware NSX](/azure/azure-vmware/configure-nsx-network-components-azure-portal)</span>.
+1. <span id="note1d">See [Autoscale pods](/azure/aks/tutorial-kubernetes-scale#autoscale-pods).</span>
+2. <span id="note2d">See [Automatically scale a cluster to meet application demands on Azure Kubernetes Service](/azure/aks/cluster-autoscaler).</span>
+3. <span id="note3d">See [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits)</span>.
+4. <span id="note4d">See [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app)</span>.
+5. <span id="note5d">See [Scale a Azure VMware Solution](/azure/azure-vmware/tutorial-scale-private-cloud)</span>.
+6. <span id="note6d">See [VMware NSX](/azure/azure-vmware/configure-nsx-network-components-azure-portal)</span>.
 
 ## Availability
 
-| Service | SLA | Multiregion failover |
-|----------|-----------------|-----------------|
-| Azure Virtual Machines | [SLA for Virtual Machines][sla-vm] | Azure Traffic Manager, Azure Front Door, and cross-region Azure Load Balancer |
-| Azure App Service | [SLA for App Service][sla-app-service] | Azure Traffic Manager and Azure Front Door |
-| Azure Functions | [SLA for Functions][sla-functions] | Azure Traffic Manager and Azure Front Door |
-| Azure Kubernetes Service (AKS) | [SLA for AKS][sla-acs] | Azure Traffic Manager, Azure Front Door, and Multiregion Cluster |
-| Azure Container Apps | [SLA for Container Apps][sla-aca] | Azure Traffic Manager and Azure Front Door |
-| Azure Container Instances | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances) | Azure Traffic Manager and Azure Front Door |
-| Azure Red Hat OpenShift | [SLA for Azure Red Hat OpenShift][sla-aro] | Azure Traffic Manager and Azure Front Door |
-| Azure Spring Apps | [SLA for Azure Spring Apps][sla-azure-spring-apps] | Azure Traffic Manager, Azure Front Door, and Multiregion Cluster |
-| Azure Service Fabric | [SLA for Service Fabric][sla-sf] | Azure Traffic Manager, Azure Front Door, and cross-region Azure Load Balancer |
-| Azure Batch | [SLA for Batch][sla-batch] | Not applicable |
-| Azure VMware Solution | [SLA for Azure VMware Solution][[sla-avs]] | Not applicable |
+| Service | Multiregion failover option |
+|----------|-----------------|
+| Azure Virtual Machines | Azure Traffic Manager, Azure Front Door, and cross-region Azure Load Balancer |
+| Azure App Service | Azure Traffic Manager and Azure Front Door |
+| Azure Functions | Azure Traffic Manager and Azure Front Door |
+| Azure Kubernetes Service (AKS) | Azure Traffic Manager, Azure Front Door, and Multiregion Cluster |
+| Azure Container Apps | Azure Traffic Manager and Azure Front Door |
+| Azure Container Instances | Azure Traffic Manager and Azure Front Door |
+| Azure Red Hat OpenShift | Azure Traffic Manager and Azure Front Door |
+| Azure Spring Apps | Azure Traffic Manager, Azure Front Door, and Multiregion Cluster |
+| Azure Service Fabric | Azure Traffic Manager, Azure Front Door, and cross-region Azure Load Balancer |
+| Azure Batch | Not applicable |
+| Azure VMware Solution | Not applicable |
 
 For guided learning on service guarantees, see [Core Cloud Services - Azure architecture and service guarantees](/training/modules/explore-azure-infrastructure).
 
@@ -235,17 +235,7 @@ To see nonpublic LinkedIn profiles, sign in to LinkedIn.
 [cost-avs]: https://azure.microsoft.com/pricing/details/azure-vmware
 
 [function-plans]: /azure/azure-functions/functions-scale
-[azure-vmware-plans]: /azure/azure-vmware/cluster-size-recommendation
-[sla-acs]: https://azure.microsoft.com/support/legal/sla/kubernetes-service
-[sla-app-service]: https://azure.microsoft.com/support/legal/sla/app-service
-[sla-azure-spring-apps]: https://azure.microsoft.com/support/legal/sla/spring-apps
-[sla-batch]: https://azure.microsoft.com/support/legal/sla/batch
-[sla-functions]: https://azure.microsoft.com/support/legal/sla/functions
-[sla-sf]: https://azure.microsoft.com/support/legal/sla/service-fabric
-[sla-vm]: https://azure.microsoft.com/support/legal/sla/virtual-machines
-[sla-aro]: https://azure.microsoft.com/support/legal/sla/openshift/
-[sla-aca]: https://azure.microsoft.com/support/legal/sla/container-apps
-[sla-avs]: https://azure.microsoft.com/support/legal/sla/azure-vmware
+[azure-vmware-plans]: /azure/azure-vmware/architecture-private-clouds#hosts
 
 [resource-manager-supported-services]: /azure/azure-resource-manager/resource-manager-supported-services
 
