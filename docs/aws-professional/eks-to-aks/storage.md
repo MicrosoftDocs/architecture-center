@@ -38,7 +38,7 @@ Another option for ephemeral volumes is [Amazon EC2 instance stores](https://doc
 
 ### Persistent Volumes
 
-While Kubernetes is typically associated with running stateless applications, there are cases where persistent data storage is required. [Kubernetes Persistent Volumes (PVs)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) can be used to store data independently from pods, allowing data to persist beyond the lifetime of a given pod. Amazon EKS supports different types of storage options for PVs, including [Amazon EBS](https://aws.amazon.com/ebs/), [Amazon EFS](https://aws.amazon.com/efs/), [Amazon FSx for Lustre](https://aws.amazon.com/fsx/lustre/), and [Amazon FSx for NetApp ONTAP](https://aws.amazon.com/fsx/netapp/).
+While Kubernetes is typically associated with running stateless applications, there are cases where persistent data storage is required. [Kubernetes Persistent Volumes (PVs)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) can be used to store data independently from pods, allowing data to persist beyond the lifetime of a given pod. Amazon EKS supports different types of storage options for PVs, including [Amazon EBS](https://aws.amazon.com/ebs/), [Amazon EFS](https://aws.amazon.com/efs/), [Amazon FSx for Lustre](https://aws.amazon.com/fsx/lustre/), and [Amazon FSx for NetApp ONTAP](https://aws.amazon.com/fsx/netapp-ontap/).
 
 [Amazon EBS](https://aws.amazon.com/ebs/) volumes are suitable for block-level storage and are well-suited for databases and throughput-intensive applications. Amazon EKS users can use the latest generation of block storage [gp3](https://aws.amazon.com/ebs/volume-types/#gp3) for a balance between price and performance. For higher-performance applications, [io2 block express](https://aws.amazon.com/ebs/volume-types/#io2) volumes can be used.
 
@@ -318,7 +318,7 @@ For more information, see [Configure Azure NetApp Files for Azure Kubernetes Ser
 
 ### Azure Blob storage
 
-The [Azure Blob storage Container Storage Interface (CSI) driver](/azure/aks/azure-blob-csi?tabs=NFS) is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Blob storage. The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes.
+The [Azure Blob storage Container Storage Interface (CSI) driver](/azure/aks/azure-blob-csi) is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Blob storage. The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes.
 
 By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes. Using CSI drivers in AKS avoids having to touch the core Kubernetes code and wait for its release cycles.
 
@@ -328,7 +328,7 @@ When you mount Azure Blob storage as a file system into a container or pod, it e
 - Images, documents, and streaming video or audio
 - Disaster recovery data
 
-The data on the object storage can be accessed by applications using [BlobFuse](https://github.com/Azure/azure-storage-fuse/blob/master/README.md) or [Network File System (NFS) 3.0 protocol](https://en.wikipedia.org/wiki/Network_File_System). Before the introduction of the Azure Blob storage CSI driver, the only option was to manually install an unsupported driver to access Blob storage from your application running on AKS. When the Azure Blob storage CSI driver is enabled on AKS, there are two built-in storage classes: *[azureblob-fuse-premium](/azure/aks/azure-blob-fuse-premium-storage)* and *[azureblob-nfs-premium](/azure/aks/azure-blob-nfs-premium-storage)*.
+The data on the object storage can be accessed by applications using [BlobFuse](https://github.com/Azure/azure-storage-fuse/blob/master/README.md) or [Network File System (NFS) 3.0 protocol](https://en.wikipedia.org/wiki/Network_File_System). Before the introduction of the Azure Blob storage CSI driver, the only option was to manually install an unsupported driver to access Blob storage from your application running on AKS. When the Azure Blob storage CSI driver is enabled on AKS, there are two built-in storage classes: *[azureblob-fuse-premium](/azure/aks/azure-blob-csi)* and *[azureblob-nfs-premium](/azure/aks/azure-blob-csi)*.
 
 To create an AKS cluster with CSI drivers support, see [CSI drivers on AKS](/azure/aks/csi-storage-drivers). To learn more about the differences in access between each of the Azure storage types using the NFS protocol, see [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS](/azure/storage/common/nfs-comparison).
 
