@@ -369,11 +369,11 @@ AKS includes a mechanism called [Pod Sandboxing](https://learn.microsoft.com/en-
 
 By deploying applications on separate clusters or node pools, you can strongly isolate the tenant workloads of different teams or customers. Using multiple clusters and node pools might be suitable for the isolation requirements of many organizations and SaaS solutions, but there are scenarios in which a single cluster with shared VM node pools is more efficient. For example, you might use a single cluster when you run untrusted and trusted pods on the same node or colocate DaemonSets and privileged containers on the same node for faster local communication and functional grouping. [Pod Sandboxing](https://learn.microsoft.com/en-us/azure/aks/use-pod-sandboxing) can help you strongly isolate tenant applications on the same cluster nodes without needing to run these workloads in separate clusters or node pools. Other methods require that you recompile your code or cause other compatibility problems, but Pod Sandboxing in AKS can run any container unmodified inside an enhanced security VM boundary.
 
-Pod Sandboxing on AKS is based on [Kata Containers](https://katacontainers.io/) that run on the [Azure Linux container host for AKS](https://learn.microsoft.com/en-us/azure/aks/use-azure-linux) stack to provide hardware-enforced isolation. Kata Containers on AKS are built on a security-hardened Azure hypervisor. It achieves isolation per pod via a nested, lightweight Kata VM that utilizes resources from a parent VM node. In this model, each Kata pod gets its own kernel in a nested Kata guest VM. Use this model to place many Kata containers in a single guest VM while continuing to run containers in the parent VM. This model provides a strong isolation boundary in a shared AKS cluster.
+Pod Sandboxing on AKS is based on [Kata Containers](https://katacontainers.io/) that run on the [Azure Linux container host for AKS](/azure/aks/use-azure-linux) stack to provide hardware-enforced isolation. Kata Containers on AKS are built on a security-hardened Azure hypervisor. It achieves isolation per pod via a nested, lightweight Kata VM that utilizes resources from a parent VM node. In this model, each Kata pod gets its own kernel in a nested Kata guest VM. Use this model to place many Kata containers in a single guest VM while continuing to run containers in the parent VM. This model provides a strong isolation boundary in a shared AKS cluster.
 
 For more information, see:
 
-- [Pod Sandboxing with AKS](https://learn.microsoft.com/en-us/azure/aks/use-pod-sandboxing)
+- [Pod Sandboxing with AKS](/azure/aks/use-pod-sandboxing)
 - [Support for Kata VM Isolated Containers on AKS for Pod Sandboxing](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/preview-support-for-kata-vm-isolated-containers-on-aks-for-pod/ba-p/3751557)
 
 ### Azure Dedicated Host
@@ -411,11 +411,11 @@ In EKS, it is the customer's responsibility to configure an EKS cluster to be FI
 
 ### Host-based encryption
 
-In EKS, you can utilize the following features and best practices to enhance data security:
+In EKS, your architecture might have utilized the following features to enhance data security:
 
-1. [Amazon EBS Encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html): You can encrypt data at rest on Amazon Elastic Block Store (EBS) volumes that are attached to your EKS worker nodes.
-2. [AWS Key Management Service (KMS)](https://aws.amazon.com/kms/): You can use AWS KMS to manage encryption keys and enforce the encryption of your data at rest. If you enable [secrets encryption](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/), you can encrypt Kubernetes secrets using your own AWS KMS key. For more information, see [Encrypt Kubernetes secrets with AWS KMS on existing clusters](https://docs.aws.amazon.com/eks/latest/userguide/enable-kms.html).
-3. [Amazon S3 Server-Side Encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html): If your EKS applications interact with Amazon S3, you can enable server-side encryption for your S3 buckets to protect data at rest.
+- [Amazon EBS Encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html): You can encrypt data at rest on Amazon Elastic Block Store (EBS) volumes that are attached to your EKS worker nodes.
+- [AWS Key Management Service (KMS)](https://aws.amazon.com/kms/): You can use AWS KMS to manage encryption keys and enforce the encryption of your data at rest. If you enable [secrets encryption](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/), you can encrypt Kubernetes secrets using your own AWS KMS key. For more information, see [Encrypt Kubernetes secrets with AWS KMS on existing clusters](https://docs.aws.amazon.com/eks/latest/userguide/enable-kms.html).
+- [Amazon S3 Server-Side Encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html): If your EKS applications interact with Amazon S3, you can enable server-side encryption for your S3 buckets to protect data at rest.
 
 [Host-based encryption](/azure/aks/enable-host-encryption) on AKS further strengthens tenant workload isolation, privacy, and security. When you enable host-based encryption, AKS encrypts data at rest on the underlying host machines, which helps ensure that sensitive tenant information is protected from unauthorized access. Temporary disks and ephemeral OS disks are encrypted at rest with platform-managed keys when you enable end-to-end encryption.
 
