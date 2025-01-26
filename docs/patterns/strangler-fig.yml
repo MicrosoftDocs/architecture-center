@@ -4,7 +4,7 @@ metadata:
   description: Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.
   ms.author: ovmehboo
   author: OvaisMehboob
-  ms.date: 01/06/2025
+  ms.date: 01/26/2025
   ms.topic: design-pattern
   ms.service: azure-architecture-center
   ms.subservice: design-pattern
@@ -14,6 +14,6 @@ products:
   - azure-migrate
 name: Strangler Fig pattern
 summary: Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.
-thumbnailUrl: /azure/architecture/browse/thumbs/strangler.png
+thumbnailUrl: /azure/architecture/browse/thumbs/stranglerfig.png
 content: |
   [!include[](strangler-fig-content.md)]
