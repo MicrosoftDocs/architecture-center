@@ -8,7 +8,7 @@ The following steps build on the [Azure Synapse Analytics end-to-end][e2e-analyt
 There are many ways to deliver business requirements associated with enterprise BI based on existing technology investment, peoples' skills, modernization time horizon, future vision and preference for PaaS or SaaS. Please get familiar with alternative design approaches:
 
 * [A lakehouse in Microsoft Fabric](azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
-* Combining [Microsoft Fabric and Azure Databricks] (azure/architecture/solution-ideas/articles/small-medium-modern-data-platform) for customers with existing investment in Azure Databricks & Power BI with a desire to modernize with Microsoft Fabric 
+* Combining [Microsoft Fabric and Azure Databricks](azure/architecture/solution-ideas/articles/small-medium-modern-data-platform) for customers with existing investment in Azure Databricks & Power BI with a desire to modernize with Microsoft Fabric 
 * Enterprise BI for small and medium business using an [Azure SQL ecosystem and Microsoft Fabric](/azure/architecture/example-scenario/data/small-medium-data-warehouse)
 * Data warehousing completely on Microsoft Fabric for customers with a SaaS preference
 
@@ -36,7 +36,7 @@ Current architecture presumes that Azure Synapse Datawarehouse was selected as t
 
 #### Analysis and reporting
 
-- The data-modeling approach in this scenario is presented by combining the [enterprise model][enterprise-model] and [Bi semantic model][bi-model]. The enterprise model is stored in an [Azure Synapse dedicated SQL pool][synapse-dedicated-pool], and the Bi semantic model is stored in [Power BI Premium capacities][pbi-premium-capacities]. Power BI accesses the data via DirectQuery.
+- The data-modeling approach in this scenario is presented by combining the [enterprise model][enterprise-model] and [BI semantic model][bi-model]. The enterprise model is stored in an [Azure Synapse dedicated SQL pool][synapse-dedicated-pool], and the BI semantic model is stored in [Power BI Premium capacities][pbi-premium-capacities]. Power BI accesses the data via DirectQuery.
 
 ### Components
 
