@@ -42,11 +42,11 @@ Current architecture presumes that Azure Synapse Datawarehouse was selected as t
 
 This scenario uses the following components:
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
-- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake)
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
-- [Power BI Premium](https://powerbi.microsoft.com/power-bi-premium)
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) - PaaS SQL Server hosted on Azure that we use to demonstrate flow of data for the migration scenario. 
+- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) - flexible Cloud storage for unstructured data that is used for persisting intermediate migration result.
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) - enterprise analytics service for data warehousing and big data systems, used as main compute and persistent storage in enterprise semantic modeling and servicing.
+- [Power BI Premium](https://powerbi.microsoft.com/power-bi-premium) - business intelligence tool, which is used for presentation portion of the scenario.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) - multicloud identity and netowrk solution suit that is used to support authentication and authorisation flow.
 
 ### Simplified architecture
 
