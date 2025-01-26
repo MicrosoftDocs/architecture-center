@@ -36,7 +36,7 @@ Current architecture presumes that Azure Synapse Datawarehouse was selected as t
 
 #### Analysis and reporting
 
-- The data-modeling approach in this scenario is presented by combining the [enterprise model][enterprise-model] and [BI semantic model][bi-model]. The enterprise model is stored in an [Azure Synapse dedicated SQL pool][synapse-dedicated-pool], and the BI semantic model is stored in [Power BI Premium capacities][pbi-premium-capacities]. Power BI accesses the data via DirectQuery.
+- The data-modeling approach in this scenario is presented by combining the [enterprise model][enterprise-model] and [BI semantic model][bi-model]. The enterprise model is stored in an [Azure Synapse dedicated SQL pool][synapse-dedicated-pool], and the BI semantic model is stored in [Power BI Premium capacities][pbi-premium-capacities], F64. Power BI accesses the data via DirectQuery.
 
 ### Components
 
@@ -264,9 +264,9 @@ Assume a linear scale, and determine how much you need to increase or decrease t
 
 For scalability and performance optimization features of pipelines in Azure Synapse and the copy activity used, refer to the [Copy activity performance and scalability guide](/azure/data-factory/copy-activity-performance).
 
-#### Power BI Premium
+#### Power BI Premium/ Microsoft Fabric
 
-This article uses [Power BI Premium Gen 2](/power-bi/enterprise/service-premium-architecture) to demonstrate BI capabilities. [Capacity SKUs for Power BI Premium](/power-bi/enterprise/service-premium-gen2-what-is) range from P1 (eight v-cores) to P5 (128 v-cores) currently. The best way to select needed capacity is to undergo [capacity loading evaluation](/power-bi/enterprise/service-premium-concepts), install the Gen 2 [metrics app](/power-bi/enterprise/service-premium-install-gen2-app?tabs=1st) for ongoing monitoring, and consider using [Autoscale with Power BI Premium](/power-bi/enterprise/service-premium-auto-scale).
+This article uses [Power BI Premium F64 capacity](/power-bi/enterprise/service-premium-what-is#capacities-and-skus) to demonstrate BI capabilities. Dedicated PBI capacities in Microsoft Fabric range from F64 (eight v-cores) to F1024 (128 v-cores) currently. The best way to select needed capacity is to undergo [capacity loading evaluation](/power-bi/enterprise/service-premium-concepts), install the Microsoft Fabric Capacity [Metrics app](/fabric/enterprise/metrics-app-install?tabs=1st) for ongoing monitoring, and consider using workload related [capacity optimization techniques](/fabric/enterprise/optimize-capacity).
 
 ## Contributors
 
@@ -309,6 +309,6 @@ Other contributors:
 [az-storage-reserved]: /azure/storage/blobs/storage-blob-reserved-capacity
 [enterprise-model]: /power-bi/guidance/center-of-excellence-business-intelligence-solution-architecture#enterprise-models
 [bi-model]: /power-bi/guidance/center-of-excellence-business-intelligence-solution-architecture#bi-semantic-models
-[pbi-premium-capacities]: /power-bi/admin/service-premium-what-is
+[pbi-premium-capacities]: /power-bi/enterprise/service-premium-what-is#capacities-and-skus
 [synapse-dedicated-pool]: /azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is
 [pbi-what-is-premium]: /power-bi/admin/service-premium-what-is#analysis-services-in-power-bi-premium
