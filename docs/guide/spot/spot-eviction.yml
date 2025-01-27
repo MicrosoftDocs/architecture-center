@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: How to Build Workloads on Spot Virtual Machines
-  description: Learn about best practices for how to build reliable workloads on spot virtual machines.
+  title: How to Build Workloads on Azure Spot Virtual Machines
+  description: Learn about best practices for how to build reliable workloads on Azure Spot virtual machines.
   author: stephen-sumner
   ms.author: ssumner
   ms.reviewer: ssumner
@@ -13,8 +13,8 @@ azureCategories:
   - compute
 products:
   - azure-virtual-machines
-name: How to build workloads on spot virtual machines
+name: How to Build Workloads on Azure Spot Virtual Machines
 summary: Provides best practices for building workloads on Azure Spot virtual machines.
-thumbnailUrl: /azure/architecture/browse/thumbs/spot-vm-arch.png
+thumbnailUrl: /azure/architecture/browse/thumbs/spot-virtual-machine-architecture.png
 content: |
   [!INCLUDE[](spot-eviction-content.md)]
