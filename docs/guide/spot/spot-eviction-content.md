@@ -135,7 +135,7 @@ The example scenario deploys a queue processing application that qualifies as an
 
 :::image type="content" source="./media/spot-virtual-machine-architecture.svg" alt-text="Diagram that shows the example scenario architecture." border="false" lightbox="./media/spot-virtual-machine-architecture.svg":::
 
-Consider the key aspects of the architecture.
+Consider the following key aspects of the architecture.
 
 1. **VM application definition:** The VM application definition is created in the Azure Compute Gallery. It defines the application name, location, operating system, and metadata. The application version is a numbered version of the VM application definition. The application version is an instantiation of the VM application. It needs to be in the same region as the spot virtual machine. The application version links to the source application package in the storage account.
 
