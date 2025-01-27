@@ -166,7 +166,7 @@ Other contributors:
 
 - [Carlos Mestre del Pino](https://www.linkedin.com/in/mestredelpino) | Cloud Solution Architect
 
-
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
