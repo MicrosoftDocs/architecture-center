@@ -202,7 +202,7 @@ Use ML.NET when you want to integrate machine learning solutions into your .NET 
 |**Type**                   |Open-source, cross-platform framework for developing custom machine learning applications with .NET |
 |**Supported languages**    |- C#<br>- F#|
 |**Machine learning phases**    |- Data preparation<br>- Training<br>- Deployment|
-|**Key benefits**            |- No requirement for data science or machine learning experience<br>- Familiar languages and tools like Visual Studio and VS Code.<br>- Deploys the application where .NET runs<br>- Extensible and scalable design<br>- Local-first experience<br>- AutoML for automated machine learning tasks|
+|**Key benefits**            |- No requirement for data science or machine learning experience<br>- Familiar languages and tools like Visual Studio and VS Code<br>- Deploys the application where .NET runs<br>- Extensible and scalable design<br>- Local-first experience<br>- AutoML for automated machine learning tasks|
 
 ## AI for Windows apps
 
@@ -242,6 +242,7 @@ SynapseML also provides networking capabilities to the Spark ecosystem. With the
 Principal authors:
 
 - [Mahdi Setayesh](https://www.linkedin.com/in/mahdi-setayesh-a03aa644/) | Principal Software Engineer
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 ## Next steps
 
