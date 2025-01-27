@@ -174,4 +174,3 @@ For more information on the services described in this article, see these resour
 
 - [Analytics end-to-end with Azure Synapse](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
 - [Modern analytics architecture with Azure Databricks](../../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
-- [Logical data warehouse with Azure Synapse serverless SQL pools](../../solution-ideas/articles/logical-data-warehouse.yml)

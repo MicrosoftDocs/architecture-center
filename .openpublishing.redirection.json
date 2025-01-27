@@ -4256,6 +4256,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/logical-data-warehouse.yml",
+      "redirect_url": "/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/hybrid-cross-cluster-scaling.yml",
+      "redirect_url": "/azure/architecture/example-scenario/hybrid/aks-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/sap/hana-large-instances.yml",
+      "redirect_url": "/azure/azure-large-instances/what-is-azure-large-instances",
+      "redirect_document_id": false  
+    },
+    {
       "source_path": "docs/data-guide/scenarios/time-series.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
