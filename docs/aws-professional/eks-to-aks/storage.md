@@ -61,11 +61,11 @@ This article introduces the storage options and core concepts that provide stora
 
 Kubernetes volumes represent more than just a traditional disk for storing and retrieving information. Kubernetes volumes can also be used as a way to inject data into a pod for use by its containers.
 
-Common volume types in Kubernetes include [emptyDir](#emptydir), [secret](#secret), and [configMap](#configmap).
+Common volume types in Kubernetes include [EmptyDirs](#emptydirs), [Secret](#secrets), and [ConfigMaps](#configmaps).
 
-#### emptyDir
+#### EmptyDirs
 
-Commonly used as temporary space for a pod. All containers within a pod can access the data on the volume. Data written to this volume type persists only for the lifespan of the pod. Once you delete the pod, the volume is deleted. This volume typically uses the underlying local node disk storage, though it can also exist only in the node's memory.
+For a Pod that defines an `emptyDir` volume, the volume is created when the Pod is assigned to a node. As the name suggests, the `emptyDir` volume is initially empty. All containers in the Pod can read and write the same files in the `emptyDir` volume, although this volume can be mounted at the same or different paths in each container. When a Pod is removed from a node for any reason, the data in the `emptyDir` is deleted permanently.
 
 #### Secrets
 
