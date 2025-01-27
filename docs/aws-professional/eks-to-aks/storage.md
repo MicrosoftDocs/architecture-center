@@ -67,26 +67,25 @@ Common volume types in Kubernetes include [emptyDir](#emptydir), [secret](#secre
 
 Commonly used as temporary space for a pod. All containers within a pod can access the data on the volume. Data written to this volume type persists only for the lifespan of the pod. Once you delete the pod, the volume is deleted. This volume typically uses the underlying local node disk storage, though it can also exist only in the node's memory.
 
-#### secret
+#### Secrets
 
-You can use *secret* volumes to inject sensitive data into pods, such as passwords.
+A [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) is an object that holds a small amount of sensitive data, such as a password, token, or key. This information would otherwise be included in a Pod specification or container image. By using a Secret, you avoid embedding confidential data directly in your application code. Since Secrets can be created independently of the Pods that use them, there is a reduced risk of exposing the Secret (and its data) during the processes of creating, viewing, and editing Pods. Kubernetes, along with the applications running in your cluster, can also take extra precautions with Secrets, such as preventing sensitive data from being written to nonvolatile storage. While Secrets are similar to ConfigMaps, they are specifically designed to store confidential data.
 
-1. Create a secret using the Kubernetes API.
-2. Define your pod or deployment and request a specific secret.
-   - Secrets are only provided to nodes with a scheduled pod that requires them.
-   - The secret is stored in *tmpfs*, not written to disk.
-3. When you delete the last pod on a node requiring a secret, the secret is deleted from the node's tmpfs.
-   - Secrets are stored within a given namespace and are only accessed by pods within the same namespace.
+You can use Secrets for the following purposes:
 
-#### configMap
+- [Set environment variables for a container](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#define-container-environment-variables-using-secret-data).
+- [Provide credentials such as SSH keys or passwords to Pods](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#provide-prod-test-creds).
+- [Allow the kubelet to pull container images from private registries](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/).
 
-You can use *configMap* to inject key-value pair properties into pods, such as application configuration information. Define application configuration information as a Kubernetes resource, easily updated and applied to new instances of pods as they're deployed.
+The Kubernetes control plane also uses Secrets, such as [bootstrap token Secrets](https://kubernetes.io/docs/concepts/configuration/secret/#bootstrap-token-secrets), which are a mechanism to help automate node registration.
 
-Like using a secret:
+#### ConfigMaps
 
-1. Create a ConfigMap using the Kubernetes API.
-2. Request the ConfigMap when you define a pod or deployment.
-   - ConfigMaps are stored within a given namespace and are only accessed by pods within the same namespace.
+A [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) is an Kubernetes object used to store non-confidential data in key-value pairs. [Pods](https://kubernetes.io/docs/concepts/workloads/pods/) can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a [volume](https://kubernetes.io/docs/concepts/storage/volumes/). A ConfigMap allows you to decouple environment-specific configuration from your [container images](https://kubernetes.io/docs/reference/glossary/?all=true#term-image), so that your applications are easily portable.
+
+ConfigMap does not provide secrecy or encryption. If the data you want to store are confidential, use a [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) rather than a ConfigMap, or use additional (third party) tools to keep your data private.
+
+You can use a ConfigMap for setting configuration data separately from application code. For example, imagine that you are developing an application that you can run on your own computer (for development) and in the cloud (to handle real traffic). You write the code to look in an environment variable named `DATABASE_HOST`. Locally, you set that variable to `localhost`. In the cloud, you set it to refer to a Kubernetes [Service](https://kubernetes.io/docs/concepts/services-networking/service/) that exposes the database component to your cluster. This lets you fetch a container image running in the cloud and debug the exact same code locally if needed.
 
 ## Persistent volumes
 
@@ -95,7 +94,7 @@ Volumes defined and created as part of the pod lifecycle only exist until you de
 - [Azure Disk](#azure-disk)
 - [Azure Files](#azure-files)
 - [Azure NetApp Files](#azure-netapp-files)
--  [Azure Blob Storage](#azure-blob-storage)
+- [Azure Blob Storage](#azure-blob-storage)
 - [Azure Container Storage](#azure-container-storage)
 
 As noted in the [Volumes](/azure/aks/concepts-storage#volumes) section, the choice of Azure Disks or Azure Files is often determined by the need for concurrent access to the data or the performance tier.
