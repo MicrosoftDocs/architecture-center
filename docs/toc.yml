@@ -1723,8 +1723,6 @@ items:
         maintainContext: true
     - name: Architectures
       items:
-      - name: Banking system
-        items:
       - name: General mainframe refactor to Azure
         href: example-scenario/mainframe/general-mainframe-refactor.yml
       - name: Migrate a web app with APIM
