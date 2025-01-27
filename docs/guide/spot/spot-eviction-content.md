@@ -2,7 +2,7 @@ This article describes best practices for how to build on Azure Spot Virtual Mac
 
 ## Understand spot VMs
 
-On a technical level, spot VMs are the same as regular virtual machines (VMs). They use the same images, hardware, and disks that translate to the same performance. The key difference between spot VMs and regular VMs is their priority and availability. Spot VMs have no priority to access compute capacity, and they have no availability guarantees after they access that compute capacity.
+On a technical level, spot VMs are the same as regular VMs. They use the same images, hardware, and disks that translate to the same performance. The key difference between spot VMs and regular VMs is their priority and availability. Spot VMs have no priority to access compute capacity, and they have no availability guarantees after they access that compute capacity.
 
 - **No priority access.** Regular VMs have priority access to compute capacity. They access compute capacity when they request it. However, spot VMs only deploy when there's spare compute capacity. And they only continue to run when a regular VM doesn't need the underlying hardware.
 
