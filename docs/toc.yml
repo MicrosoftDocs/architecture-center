@@ -873,7 +873,7 @@ items:
         href: guide/technology-choices/compute-decision-tree.yml
       - name: SAS on Azure architecture
         href: guide/sas/sas-overview.yml
-      - name: Build on spot VMs
+      - name: Build workloads on spot VMs
         href: guide/spot/spot-eviction.yml
     - name: Architectures
       items:
