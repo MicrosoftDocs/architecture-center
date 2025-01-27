@@ -34,15 +34,15 @@ An API gateway can be tailored to your application’s requirements by using spe
 
 - [Gateway offloading](../../patterns/gateway-offloading.yml). You can use an API gateway to provide cross-cutting functionality, so individual services don't have to provide it. Here are some examples of functionality that could be offloaded to an API gateway:
 
-- SSL termination
-- Authentication
-- IP allowlist or blocklist
-- Client rate limiting (throttling)
-- Logging and monitoring
-- Response caching
-- Web application firewall
-- GZIP compression
-- Servicing static content
+    - SSL termination
+    - Authentication
+    - IP allowlist or blocklist
+    - Client rate limiting (throttling)
+    - Logging and monitoring
+    - Response caching
+    - Web application firewall
+    - GZIP compression
+    - Servicing static content
 
      It can be useful to consolidate these functions into one place, rather than making every service responsible for implementing them. Offloading is helpful for features that require specialized skills to implement, such as authentication and authorization.
 
