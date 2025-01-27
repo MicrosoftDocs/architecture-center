@@ -16,7 +16,7 @@ azureCategories:
   - hybrid
 products:
   - azure-kubernetes-service
-  - azure-stack-hci
+  - azure-local
   - azure-arc
   - github
   - azure-pipelines

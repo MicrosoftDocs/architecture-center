@@ -2,7 +2,7 @@
 metadata:
   title: Modern Web App Pattern for Java
   titleSuffix: Azure Architecture Center
-  description: Implement the Modern Web App pattern for Java. Modernize web apps in the cloud with prescriptive architecture, code, and configuration guidance.
+  description: Implement the Modern Web App pattern for Java. Get prescriptive architecture, code, and configuration guidance.
   author: nishanil
   ms.author: nanil
   ms.reviewer: ssumner
@@ -19,10 +19,9 @@ azureCategories:
   - web
 products:
   - azure-app-service
-  - azure-front-door
-  - azure-cache-redis
+  - azure-service-bus
 name: Modern Web App pattern for Java
-summary: Modern Web App pattern for Java. Modernize web apps in the cloud with prescriptive architecture, code, and configuration guidance.
+summary: Implement the Modern Web App pattern for Java. Get prescriptive architecture, code, and configuration guidance.
 thumbnailUrl: /azure/architecture/browse/thumbs/modern-web-app-java.png
 content: |
    [!include[](guidance-content.md)]

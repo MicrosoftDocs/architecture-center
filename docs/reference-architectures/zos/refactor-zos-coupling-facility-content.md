@@ -157,6 +157,5 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 ## Related resources
 
-- [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
 - [IBM z/OS online transaction processing on Azure](../../example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml)
 - [Integrate IBM mainframe and midrange message queues with Azure](../../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml)

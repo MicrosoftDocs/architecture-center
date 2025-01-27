@@ -203,12 +203,12 @@ If you use a [tiered pricing model](../considerations/pricing-models.md#feature-
 
 Principal authors:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
- * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
- 
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
+
 Other contributor:
 
- * [Will Velida](https://linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
+- [Will Velida](https://www.linkedin.com/in/willvelida/) | Customer Engineer 2, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

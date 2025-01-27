@@ -57,7 +57,7 @@ Serving static content from your app server wastes resources. Once you configure
 
 ### Database
 
-Once your app is running, you need to store your data in a database. For most cases, a relational database is the best solution. A relational database has multiple access methods and the speed of a time-tested solution. Relational databases include [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database), [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql), and [Azure Database for MariaDB](https://azure.microsoft.com/services/mariadb). Some use cases need a document database or NoSQL database like [MongoDB](https://www.mongodb.com/mongodb-on-azure) or [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db).
+Once your app is running, you need to store your data in a database. For most cases, a relational database is the best solution. A relational database has multiple access methods and the speed of a time-tested solution. Relational databases include [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework), [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql), and [Azure Database for MariaDB](/azure/mariadb/overview). Some use cases need a document database or NoSQL database like [MongoDB](https://www.mongodb.com/mongodb-on-azure) or [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db).
 
 ### Log aggregation
 

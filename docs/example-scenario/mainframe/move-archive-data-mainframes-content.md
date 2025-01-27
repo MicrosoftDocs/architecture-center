@@ -41,9 +41,9 @@ To decide which method to use for moving data between the mainframe system and A
 
 ### Components
 
-- [Azure storage](https://azure.microsoft.com/product-categories/storage) provides massively scalable, highly secure cloud storage for your data, apps, and workloads. [Azure Files](https://azure.microsoft.com/services/storage/files) provides simple and secure serverless cloud file shares. These components are used for synchronization and data retention.
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a hybrid data integration service that you can use to create, schedule, and orchestrate your ETL and ELT workflows.
-- [Azure Data Box](https://azure.microsoft.com/services/databox) is a physical device that you can use to move on-premises data to Azure.
+- [Azure storage](/azure/well-architected/service-guides/storage-accounts/reliability) provides massively scalable, highly secure cloud storage for your data, apps, and workloads. [Azure Files](/azure/well-architected/service-guides/azure-files) provides simple and secure serverless cloud file shares. These components are used for synchronization and data retention.
+- [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service that you can use to create, schedule, and orchestrate your ETL and ELT workflows.
+- [Azure Data Box](/azure/databox/data-box-overview) is a physical device that you can use to move on-premises data to Azure.
 
 ### Alternatives
 
@@ -68,9 +68,17 @@ Depending on how you use data, you might want to convert it to ASCII from binary
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
 - Complex data types on the mainframe must be handled during archive.
 - Application subject matter experts can identify which data needs to be archived.
 - To determine the amount of time between syncs, consider factors like business criticality, compliance needs, and frequency of data access.
+
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+Use the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
 ### Third-party archive solutions
 
@@ -83,10 +91,6 @@ Azure has a variety of options for different application and technical requireme
 ### Data recall
 
 Recall of archived data is an important aspect of archive solutions. Few of the third-party solutions provide a seamless experience for recalling archived data. It's as simple as running a command on-premises. The third-party agent automatically gets the data from Azure and ingests it back into the mainframe system.
-
-### Cost optimization
-
-Use the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
 ## Contributors
 
@@ -117,7 +121,6 @@ See these resources:
 
 ## Related resources
 
-- [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
 - [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [Re-engineer IBM z/OS batch applications on Azure](../../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
 - [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)

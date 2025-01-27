@@ -42,11 +42,11 @@ The architecture described in this article uses presumes that Azure Synapse data
 
 This scenario uses the following components:
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) - PaaS SQL Server hosted on Azure that we use to demonstrate flow of data for the migration scenario. 
-- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) - flexible Cloud storage for unstructured data that is used for persisting intermediate migration result.
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) - enterprise analytics service for data warehousing and big data systems, used as main compute and persistent storage in enterprise semantic modeling and servicing.
-- [Power BI Premium](https://powerbi.microsoft.com/power-bi-premium) - business intelligence tool, which is used for presentation portion of the scenario.
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) - multicloud identity and netowrk solution suit that is used to support authentication and authorisation flow.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework): PaaS SQL Server hosted on Azure that we use to demonstrate flow of data for the migration scenario. 
+- [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction): Flexible Cloud storage for unstructured data that is used for persisting intermediate migration result.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is): Enterprise analytics service for data warehousing and big data systems, used as main compute and persistent storage in enterprise semantic modeling and servicing.
+- [Power BI Premium](/power-bi/enterprise/service-premium-what-is): Business intelligence tool, which is used for presentation portion of the scenario.
+- [Microsoft Entra ID](/entra/fundamentals/whatis): Multicloud identity and netowrk solution suit that is used to support authentication and authorisation flow.
 
 ### Simplified architecture
 

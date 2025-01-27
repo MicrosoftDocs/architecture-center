@@ -170,7 +170,7 @@ When designing a multitenant RAG inferencing solution, you must take into accoun
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Design and evaluate RAG solutions](./rag/rag-solution-design-and-evaluation-guide.yml)
+> [Design and evaluate RAG solutions](./rag/rag-solution-design-and-evaluation-guide.md)
 
 ## Related resources
 

@@ -62,7 +62,7 @@ You might find it beneficial to manage clusters and cluster bootstrapping by usi
 
 #### Azure
 
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service). Provides the managed cluster infrastructure.
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service). Provides the managed cluster infrastructure.
 
 <a name='open-source-software-oss'></a>
 
@@ -81,7 +81,7 @@ You might find it beneficial to manage clusters and cluster bootstrapping by usi
 - [Tekton](https://tekton.dev). Continuous Delivery Foundation project that's used for continuous integration / continuous deployment (CI/CD). Deploys the web app, API app, and Email Dispatcher applications.
 - [Grafana](https://grafana.com). Dashboard for application metrics.
 - [SendGrid](https://sendgrid.com). External email service that sends mail to the manager for expense report review.
-- [GitHub](https://github.com). Code repository. Tekton pipelines use GitHub code.
+- [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git). Code repository. Tekton pipelines use GitHub code.
 - [.NET Core](/dotnet/core/about). Used for the web front end and the web API.
 - [Flux](https://fluxcd.io). Provides GitOps management.
 

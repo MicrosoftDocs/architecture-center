@@ -37,14 +37,14 @@ This guide takes into consideration tradeoffs that you might need to make, based
 
 ## Azure container services in scope for this guide
 
-This guide focuses on a subset of the container services that Azure currently offers. This subset provides a mature feature set for web applications and APIs, networking, observability, developer tools, and operations. These container services are compared: 
+This guide focuses on a subset of the container services that Azure currently offers. This subset provides a mature feature set for web applications and APIs, networking, observability, developer tools, and operations. These container services are compared:
 
 :::row:::
-    :::column::: 
-    ![Container Apps logo](media/images/container-apps.png) 
+    :::column:::
+    ![Azure Container Apps logo](media/images/container-apps.png) 
     :::column-end:::
     :::column span="3":::
-    [Azure Container Apps](https://azure.microsoft.com/products/container-apps) is a fully managed Kubernetes-based application platform that helps you deploy HTTP and non-HTTP apps from code or containers without orchestrating infrastructure. For more information, see [Azure Container Apps documentation](/azure/container-apps).
+    [Azure Container Apps](https://azure.microsoft.com/products/container-apps) is a fully managed platform that allows you to run containerized applications without worrying about orchestration or infrastructure. For more information, see [Azure Container Apps documentation](/azure/container-apps).
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -82,7 +82,7 @@ AKS also provides access to the Kubernetes API server, which enables you to cust
 
 #### Azure Container Apps  
 
-Container Apps, a PaaS offering, balances control with simplicity. It offers both serverless and dedicated compute options, which abstract away the need to patch the operating system or build guardrails around applications, relative to the operating system. Container Apps also completely abstracts away the container orchestration API and provides a subset of its key functionality through Azure APIs that your team might already be familiar with. Additionally, Layer 7 ingress, traffic splitting, A/B testing, and application lifecycle management are all fully available out of the box.
+Azure Container Apps is an abstraction layer on top of Kubernetes which allows your apps to run and scale without you having to directly manage the underlying infrastructure. Container Apps offers both serverless and dedicated compute options, giving you full control over the type and amount of compute resources available to your applications. While abstracting away the container orchestration APIs, Container Apps still gives you out-of-the-box access to a key features like Layer 7 ingress, traffic splitting, A/B testing, and application lifecycle management.
 
 #### Web App for Containers
 
