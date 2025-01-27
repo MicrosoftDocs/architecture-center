@@ -6,7 +6,7 @@ On a technical level, spot VMs are the same as regular VMs. They use the same im
 
 - **No priority access.** Regular VMs have priority access to compute capacity. They access compute capacity when they request it. However, spot VMs only deploy when there's spare compute capacity. And they only continue to run when a regular VM doesn't need the underlying hardware.
 
-- **No availability guarantee.** Spot VMs don't have any availability guarantees or service-level agreements (SLAs). Spot VMs can lose access to compute capacity immediately, or anytime after deployment or eviction. Spot VMs are cheaper because they can be evicted. When Azure needs the compute capacity back, an eviction notice is sent and evicts the spot VM. Azure provides a minimum of 30-seconds advance notice before the actual eviction takes place. For more information, see [Continuously monitor for eviction](#continuously-monitor-for-eviction).
+- **No availability guarantee.** Spot VMs don't have any availability guarantees or service-level agreements (SLAs). Spot VMs can lose access to compute capacity immediately, or anytime after deployment or eviction. Spot VMs are cheaper because they can be evicted. When Azure needs the compute capacity back, an eviction notice is sent and evicts the spot VM. Azure provides a minimum of 30-seconds advance notice before the actual eviction occurs. For more information, see [Continuously monitor for eviction](#continuously-monitor-for-eviction).
 
 ## Understand spot VM pricing
 
