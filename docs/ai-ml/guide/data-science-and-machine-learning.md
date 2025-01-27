@@ -26,20 +26,20 @@ Learn about the machine learning products and technologies from Microsoft. Compa
 
 The following options are available for machine learning in the Azure cloud.
 
-| Cloud&nbsp;option | Description | What you can do with it |
+| Cloud&nbsp;option | Description | Features and uses |
 |-|-|-|
-| [Azure&nbsp;Machine&nbsp;Learning](#azure-machine-learning) | Managed platform for machine learning  | Use a pretrained model, or train, deploy, and manage models on Azure by using Python and CLI. Machine Learning includes features like automated machine learning (AutoML), prompt flow, model catalog, and MLflow integration. You can track and understand model performance during the production stage. |
+| [Azure&nbsp;Machine&nbsp;Learning](#azure-machine-learning) | Managed platform for machine learning  | Use a pretrained model, or train, deploy, and manage models on Azure by using Python and a CLI. Machine Learning includes features like automated machine learning (AutoML), prompt flow, model catalog, and MLflow integration. You can track and understand model performance during the production stage. |
 | [Microsoft Fabric](#microsoft-fabric) | Unified analytics platform | Manage the entire data lifecycle, from ingestion to insights, by using a comprehensive platform that integrates various services and tools for data professionals, including data engineers, data scientists, and business analysts. |
-| [Azure&nbsp;AI&nbsp;Services](#azure-ai-services) | Prebuilt AI capabilities that are implemented through REST APIs and SDKs  | Build intelligent applications by using standard programming languages. These languages call APIs that provide inferencing. Although you should ideally have machine learning and data science expertise, engineering teams that don't have these skills can also adopt this platform. |
+| [Azure&nbsp;AI&nbsp;services](#azure-ai-services) | Prebuilt AI capabilities that are implemented through REST APIs and SDKs  | Build intelligent applications by using standard programming languages. These languages call APIs that provide inferencing. Although you should ideally have machine learning and data science expertise, engineering teams that don't have these skills can also adopt this platform. |
 | [Azure SQL Managed Instance machine learning services](#sql-machine-learning) | In-database machine learning for SQL | Train and deploy models inside SQL Managed Instance. |
 | [Machine learning in Azure Synapse Analytics](#sql-machine-learning) | Analytics service that uses machine learning | Train and deploy models inside Azure Synapse Analytics. |
-| [Azure Databricks](#azure-databricks) | Apache Spark-based analytics platform | Build and deploy models and data workflows by using integrations that have open-source machine learning libraries and the [MLflow](/azure/databricks/applications/mlflow/) platform. |
+| [Azure Databricks](#azure-databricks) | Apache Spark-based analytics platform | Build and deploy models and data workflows by integrating with open-source machine learning libraries and the [MLflow](/azure/databricks/applications/mlflow/) platform. |
 
 ## On-premises machine learning product
 
 The following option is available for machine learning on-premises. On-premises servers can also run in a virtual machine (VM) in the cloud.
 
-| On-premises product | Description | What you can do with it |
+| On-premises product | Description | Features and uses |
 |-|-|-|
 | [SQL Server machine learning services](#sql-machine-learning) | In-database machine learning for SQL | Train and deploy models inside SQL Server by using Python and R scripts. |
 
@@ -47,31 +47,31 @@ The following option is available for machine learning on-premises. On-premises 
 
 The following development platforms and tools are available for machine learning.
 
-| Platform or tool | Description | What you can do with it |
+| Platform or tool | Description | Features and uses |
 |-|-|-|
-| [Azure&nbsp;AI&nbsp;Foundry&nbsp;portal](#azure-ai-foundry) | Unified development environment for AI and machine learning scenarios | Develop, evaluate, and deploy AI models and applications. Azure AI Foundry portal facilitates collaboration and project management across various Azure AI services. You can even use it as a common environment across multiple workload teams. |
-| [Azure&nbsp;Machine&nbsp;Learning&nbsp;studio](/azure/machine-learning) | Collaborative, drag-and-drop tool for machine learning | Build, test, and deploy predictive analytics solutions by using minimal coding. Machine Learning studio supports a wide range of machine learning algorithms and AI models. It provides tools for data preparation, model training, and evaluation. |
+| [Azure&nbsp;AI&nbsp;Foundry&nbsp;portal](#azure-ai-foundry) | Unified development environment for AI and machine learning scenarios | Develop, evaluate, and deploy AI models and applications. The Azure AI Foundry portal facilitates collaboration and project management across various Azure AI services. You can even use it as a common environment across multiple workload teams. |
+| [Azure&nbsp;Machine&nbsp;Learning&nbsp;studio](#azure-machine-learning-studio) | Collaborative, drag-and-drop tool for machine learning | Build, test, and deploy predictive analytics solutions by using minimal coding. Machine Learning studio supports a wide range of machine learning algorithms and AI models. It provides tools for data preparation, model training, and evaluation. |
 | [Azure&nbsp;Data&nbsp;Science Virtual Machine](#azure-data-science-virtual-machine) | VM image that includes preinstalled data science tools | Use a preconfigured environment with tools like Jupyter, R, and Python to develop machine learning solutions on your own VMs.|
 | [Microsoft ML.NET](#mlnet) | Open-source, cross-platform machine learning SDK | Develop machine learning solutions for .NET applications. |
 | [AI for Windows apps](#ai-for-windows-apps) | Inference engine for trained models on Windows devices | Integrates AI capabilities into Windows applications by using components like [Windows Machine Learning (WinML)](/windows/ai/windows-ml/overview) and [Direct Machine Learning (DirectML)](/windows/ai/directml/dml) for local, real-time AI model evaluation and hardware acceleration. |
-| [SynapseML](#synapseml) | Open-source, distributed, machine learning and microservices framework for Apache Spark | Create and deploy scalable machine learning applications for Scala and Python. |
+| [SynapseML](#synapseml) | Open-source, distributed machine learning and microservices framework for Apache Spark | Create and deploy scalable machine learning applications for Scala and Python. |
 | [Machine learning extension for Azure Data Studio](#sql-machine-learning) | Open-source and cross-platform machine learning extension for Azure Data Studio | Manage packages, import machine learning models, make predictions, and create notebooks to run experiments for your SQL databases. |
 
 ## Azure Machine Learning
 
 [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) is a fully managed cloud service that you can use to train, deploy, and manage machine learning models at scale. It fully supports open-source technologies, so you can use tens of thousands of open-source Python packages, such as TensorFlow, PyTorch, and scikit-learn. 
 
-Rich tools, such as [Compute instances](/azure/machine-learning/concept-compute-instance), [Jupyter notebooks](/azure/machine-learning/tutorial-1st-experiment-sdk-setup), or the [Azure Machine Learning for Visual Studio Code (VS Code) extension](/azure/machine-learning/tutorial-setup-vscode-extension), are also available. The Machine Learning for VS Code extension is a free extension that allows you to manage your resources and model training workflows and deployments in VS Code. Machine Learning includes features that automate model generation and tuning with ease, efficiency, and accuracy.
+Rich tools, such as [compute instances](/azure/machine-learning/concept-compute-instance), [Jupyter notebooks](/azure/machine-learning/tutorial-1st-experiment-sdk-setup), or the [Azure Machine Learning for Visual Studio Code (VS Code) extension](/azure/machine-learning/tutorial-setup-vscode-extension), are also available. The Machine Learning for VS Code extension is a free extension that allows you to manage your resources and model training workflows and deployments in VS Code. Machine Learning includes features that automate model generation and tuning with ease, efficiency, and accuracy.
 
 Use Python SDK, Jupyter notebooks, R, and the CLI for machine learning at cloud scale. If you want a low-code or no-code option, use [Designer](/azure/machine-learning/service/concept-designer) in the studio. Designer helps you easily and quickly build, test, and deploy models by using prebuilt machine learning algorithms. Additionally, you can integrate Machine Learning with Azure DevOps and GitHub Actions for continuous integration and continuous deployment (CI/CD) of machine learning models.
 
-|Item|Description|
+|Machine Learning feature|Description|
 |--------|-----------|
 |**Type**                   |Cloud-based machine learning solution|
 |**Supported languages**    |- Python<br>- R|
 |**Machine learning phases**|- Data preparation<br>- Model training<br>- Deployment<br>- MLOps or management<br>- Responsible AI|
 |**Key benefits**           |- Code-first (SDK) and studio and drag-and-drop designer web interface authoring options <br/>- Central management of scripts and run history, which makes it easy to compare model versions<br/>- Easy deployment and management of models to the cloud or edge devices<br/>- Scalable training, deployment, and management of machine learning models|
-|**Considerations**         |Requires some familiarity with the model management model.|
+|**Considerations**         |Requires some familiarity with the model-management model.|
 
 ## Azure AI services
 
@@ -85,12 +85,12 @@ Use Python SDK, Jupyter notebooks, R, and the CLI for machine learning at cloud 
 
 Use AI services to develop apps across devices and platforms. The APIs continuously improve and are easy to set up.
 
-|Item|Description|
+|AI services feature|Description|
 |--------|-----------|
 |**Type**                   |APIs for building intelligent applications|
 |**Supported languages**    |Various options depending on the service. The standard options are C#, Java, JavaScript, and Python. |
 |**Machine learning phases**|Deployment|
-|**Key benefits**           |- Build intelligent applications by using pretrained models that are available through REST API and SDK.<br/>- Use various models for natural communication methods that have vision, speech, language, and decision-making capabilities.<br/>- No or minimal machine learning or data science expertise is required.<br/>- The APIs are scalable and flexible.<br/>- You can choose from various models.|
+|**Key benefits**           |- Build intelligent applications by using pretrained models that are available through REST API and SDK<br/>- Use various models for natural communication methods that have vision, speech, language, and decision-making capabilities<br/>- No or minimal machine learning or data science expertise is required<br/>- The APIs are scalable and flexible<br/>- You can choose from various models|
 
 ## SQL machine learning
 
@@ -103,7 +103,7 @@ Use AI services to develop apps across devices and platforms. The APIs continuou
 
 Use SQL machine learning when you need built-in AI and predictive analytics on relational data in SQL.
 
-|Item|Description|
+|SQL machine learning feature|Description|
 |--------|-----------|
 |**Type**                   |On-premises predictive analytics for relational data|
 |**Supported languages**    |-Python<br>- R<br>- SQL|
@@ -113,33 +113,33 @@ Use SQL machine learning when you need built-in AI and predictive analytics on r
 
 ## Azure AI Foundry
 
-Azure AI Foundry is a unified platform that you can use to develop and deploy generative AI applications and Azure AI APIs responsibly. It provides a comprehensive set of AI capabilities, a simplified user interface, and code-first experiences. These features make it a one-stop shop for building, testing, deploying, and managing intelligent solutions. 
+Azure AI Foundry is a unified platform that you can use to develop and deploy generative AI applications and Azure AI APIs responsibly. It provides a comprehensive set of AI capabilities, a simplified user interface, and code-first experiences. These features make it a comprehensive platform for building, testing, deploying, and managing intelligent solutions. 
 
 Azure AI Foundry helps developers and data scientists efficiently create and deploy generative AI applications by using Azure AI offerings. It emphasizes responsible AI development and embeds principles of fairness, transparency, and accountability. The platform includes tools for bias detection, interpretability, and privacy-preserving machine learning. These tools help ensure that AI models are powerful, trustworthy, and compliant with regulatory requirements.
 
 As part of the Microsoft Azure ecosystem, Azure AI Foundry provides robust tools and services that cater to various AI and machine learning needs, including natural language processing and computer vision. Its integration with other Azure services helps ensure seamless scalability and performance, which makes it an ideal option for enterprises. 
 
-Azure AI Foundry portal fosters collaboration and innovation by providing features like shared workspaces, version control, and integrated development environments. By integrating popular open-source frameworks and tools, Azure AI Foundry accelerates the development process so that organizations can drive innovation and stay ahead in the competitive AI landscape.
+The Azure AI Foundry portal fosters collaboration and innovation by providing features like shared workspaces, version control, and integrated development environments. By integrating popular open-source frameworks and tools, Azure AI Foundry accelerates the development process so that organizations can drive innovation and stay ahead in the competitive AI landscape.
 
-|Item|Description|
+|Azure AI Foundry feature|Description|
 |--------|-----------|
 |**Type**                   |Unified development environment for AI|
 |**Supported languages**    |Python only|
 |**Machine learning phases**|- Data preparation<br>- Deployment (Models as a service (MaaS))|
-|**Key benefits**           |- Facilitates collaboration and project management across various AI services.<br/>- Provides comprehensive tools for building, training, and deploying AI models.<br/>- Emphasizes responsible AI by providing tools for bias detection, interpretability, and privacy-preserving machine learning.<br/>- Supports integration with popular open-source frameworks and tools.<br/>- Includes prompt flow for creating and managing prompt-based workflows. Prompt-flow simplifies the development cycle of AI applications that are powered by language models.|
+|**Key benefits**           |- Facilitates collaboration and project management across various AI services<br/>- Provides comprehensive tools for building, training, and deploying AI models<br/>- Emphasizes responsible AI by providing tools for bias detection, interpretability, and privacy-preserving machine learning<br/>- Supports integration with popular open-source frameworks and tools<br/>- Includes prompt flow for creating and managing prompt-based workflows Prompt flow simplifies the development cycle of AI applications that are powered by language models|
 
 ## Azure Machine Learning studio
 
-[Azure Machine Learning studio](/azure/machine-learning/overview-what-is-azure-ml) is a collaborative, drag-and-drop tool for building, testing, and deploying predictive analytics solutions on your data. It's designed for data scientists, data engineers, and business analysts. Machine Learning studio supports a wide range of machine learning algorithms and tools for data preparation, model training, and evaluation. It also provides a visual interface for connecting datasets and modules on an interactive canvas.
+[Azure Machine Learning studio](/azure/machine-learning/overview-what-is-azure-ml#studio) is a collaborative, drag-and-drop tool for building, testing, and deploying predictive analytics solutions on your data. It's designed for data scientists, data engineers, and business analysts. Machine Learning studio supports a wide range of machine learning algorithms and tools for data preparation, model training, and evaluation. It also provides a visual interface for connecting datasets and modules on an interactive canvas.
 
-|Item|Description|
+|Machine Learning studio feature|Description|
 |--------|-----------|
 |**Type**                   |Collaborative, drag-and-drop tool for machine learning|
 |**Supported languages**    |- Python<br>- R<br>- Scala<br>- Java (limited experience)|
 | **Machine learning phases**|- Data preparation<br>- Model training<br>- Deployment|
-|**Key benefits**           |- Requires no coding to build machine learning models.<br/>- Supports a wide range of machine learning algorithms and tools for data preparation, model training, and evaluation.<br/>- Provides a visual interface for connecting datasets and modules on an interactive canvas.<br/>- Supports integration with Machine Learning for advanced machine learning tasks.|
+|**Key benefits**           |- Requires no coding to build machine learning models<br/>- Supports a wide range of machine learning algorithms and tools for data preparation, model training, and evaluation<br/>- Provides a visual interface for connecting datasets and modules on an interactive canvas<br/>- Supports integration with Machine Learning for advanced machine learning tasks|
 
-For a comprehensive comparison of Machine Learning studio and Azure AI Foundry portal, see [Azure AI Foundry portal or Machine Learning studio](/ai/ai-studio-experiences-overview). The following table summarizes the key differences between them:
+For a comprehensive comparison of Machine Learning studio and the Azure AI Foundry portal, see [Azure AI Foundry portal or Machine Learning studio](/ai/ai-studio-experiences-overview). The following table summarizes the key differences between them:
 
 | Category             | Feature                         | Azure AI Foundry portal                                  | Machine Learning studio               |
 |----------------------|---------------------------------|-------------------------------------------------|---------------------------------------------|
@@ -159,7 +159,7 @@ For a comprehensive comparison of Machine Learning studio and Azure AI Foundry p
 
 Use Fabric when you need a comprehensive platform to manage your entire data lifecycle from ingestion to insights.
 
-|Item|Description|
+|Fabric feature|Description|
 |--------|-----------|
 |**Type**                   |Unified analytics platform|
 |**Supported languages**    |- Python<br>- R<br>- SQL<br>- Scala|
@@ -168,15 +168,15 @@ Use Fabric when you need a comprehensive platform to manage your entire data lif
 
 ## Azure Data Science Virtual Machine
 
-[Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview) is a customized VM environment on the Microsoft Azure cloud. It's available in versions for both Windows and Linux Ubuntu. The environment is built specifically for data science tasks and machine learning solution development. It has many popular data science functions, machine learning frameworks, and other tools that are preinstalled and preconfigured so that you can jump-start building intelligent applications for advanced analytics.
+[Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview) is a customized VM environment on the Microsoft Azure cloud. It's available in versions for both Windows and Linux Ubuntu. The environment is specifically for data science tasks and machine learning solution development. It has many popular data science functions, machine learning frameworks, and other tools that are preinstalled and preconfigured so that you can jump-start building intelligent applications for advanced analytics.
 
 Use the Data Science VM when you need to run or host your jobs on a single node or if you need to remotely scale up your processing on a single machine.
 
-|Item|Description|
+|Azure Data Science Virtual Machine feature|Description|
 |--------|-----------|
 |**Type**                   |Customized VM environment for data science|
 |**Key benefits**           |- Reduced time to install, manage, and troubleshoot data science tools and frameworks<br>- Includes the latest versions of commonly used tools and frameworks<br>- Includes highly scalable images and graphics processing unit (GPU) capabilities for intensive data modeling|
-|**Considerations**         |- The VM can't be accessed when it's offline.<br>- Running a virtual machine incurs Azure charges, so you should make sure that it runs only when you need it.|
+|**Considerations**         |- The VM can't be accessed when it's offline.<br>- Running a VM incurs Azure charges, so you should make sure that it runs only when you need it.|
 
 ## Azure Databricks
 
@@ -184,7 +184,7 @@ Use the Data Science VM when you need to run or host your jobs on a single node 
 
 Use Azure Databricks when you want to collaborate on building machine learning solutions on Apache Spark.
 
-|Item|Description|
+|Azure Databricks feature|Description|
 |--------|-----------|
 |**Type**                   |Apache Spark-based analytics platform|
 |**Supported languages**    |- Python<br>- R<br>- Scala<br>- SQL|
@@ -197,7 +197,7 @@ Use Azure Databricks when you want to collaborate on building machine learning s
 
 Use ML.NET when you want to integrate machine learning solutions into your .NET applications. Choose between the [API](/dotnet/machine-learning/how-does-mldotnet-work) for a code-first experience and [Model Builder](/dotnet/machine-learning/automate-training-with-model-builder) or the [CLI](/dotnet/machine-learning/automate-training-with-cli) for a low-code experience.
 
-|Item|Description|
+|ML.NET feature|Description|
 |--------|-----------|
 |**Type**                   |Open-source, cross-platform framework for developing custom machine learning applications with .NET |
 |**Supported languages**    |- C#<br>- F#|
@@ -212,7 +212,7 @@ DirectML is a high-performance, hardware-accelerated platform for running machin
 
 Use AI for Windows apps when you want to use trained machine learning models within your Windows applications.
 
-|Item|Description|
+|AI for Windows apps feature|Description|
 |--------|-----------|
 |**Type**                   |Inference engine for trained models in Windows devices|
 |**Supported languages**    |- C#/C++<br>- JavaScript|
@@ -227,12 +227,12 @@ SynapseML adds many deep learning and data science tools to the Spark ecosystem,
 
 SynapseML also provides networking capabilities to the Spark ecosystem. With the HTTP on Spark project, users can embed any web service into their SparkML models. Additionally, SynapseML provides easy-to-use tools for orchestrating [AI services](https://azure.microsoft.com/products/ai-services/) at scale. For production-grade deployment, the Spark Serving project enables high throughput and submillisecond latency web services that are backed by your Spark cluster.
 
-|Item|Description|
+|SynapseML feature|Description|
 |--------|-----------|
 |**Type**                    |Open-source, distributed machine learning and microservices framework for Apache Spark|
 |**Supported languages**     |- Scala<br>- Java<br>- Python<br>- R<br>- .NET|
 |**Machine learning phases** |- Data preparation<br>- Model training<br>- Deployment|
-|**Key benefits**            |- Scalability<br>- Streaming and serving compatible<br>- Fault tolerance|
+|**Key benefits**            |- Scalability<br>- Streaming and serving compatible<br>- High fault tolerance|
 |**Considerations**          |Requires Apache Spark|
 
 ## Contributors
@@ -242,20 +242,14 @@ SynapseML also provides networking capabilities to the Spark ecosystem. With the
 Principal authors:
 
 - [Mahdi Setayesh](https://www.linkedin.com/in/mahdi-setayesh-a03aa644/) | Principal Software Engineer
-
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 ## Next steps
 
 - [AI development products available from Microsoft](https://www.microsoft.com/ai)
 - [Microsoft Learn training in developing AI and machine learning solutions](/training/browse/?resource_type=learning+path&roles=ai-engineer%2cdata-scientist)
-- [Fabric](/fabric/get-started/microsoft-fabric-overview)
-- [AI services](/azure/ai-services/)
-- [Machine Learning](/azure/machine-learning/)
-- [Azure Databricks](/azure/azure-databricks/)
-- [Azure Synapse Analytics](/azure/synapse-analytics/)
-- [Azure SQL Managed Instance Machine Learning Services](/azure/azure-sql/managed-instance/machine-learning-services-overview)
 - [How Azure Machine Learning works](/azure/machine-learning/concept-azure-machine-learning-v2)
 
 ## Related resources  
 
-- [Choose a Microsoft AI services technology](../../data-guide/technology-choices/ai-services.md)
+- [Choose an Azure AI services technology](../../data-guide/technology-choices/ai-services.md)
 - [AI architecture design](../../data-guide/big-data/ai-overview.md)
