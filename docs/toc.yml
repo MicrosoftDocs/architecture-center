@@ -1725,10 +1725,6 @@ items:
       items:
       - name: Banking system
         items:
-        - name: Banking cloud transformation
-          href: example-scenario/banking/banking-system-cloud-transformation.yml
-        - name: Patterns and implementations
-          href: example-scenario/banking/patterns-and-implementations.yml
       - name: General mainframe refactor to Azure
         href: example-scenario/mainframe/general-mainframe-refactor.yml
       - name: Migrate a web app with APIM
