@@ -4,7 +4,7 @@ description: Compare options for building, deploying, and managing your machine 
 author: RobBagby
 ms.author: robbag
 categories: azure
-ms.date: 11/15/2024
+ms.date: 01/27/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.service: azure-architecture-center
