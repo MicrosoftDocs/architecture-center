@@ -137,7 +137,7 @@ The example scenario deploys a queue processing application that qualifies as an
 
 [Download a Visio file](https://arch-center.azureedge.net/spot-virtual-machine-architecture.vsdx) of this architecture.
 
-Consider the following key aspects of the architecture.
+The following workflow corresponds to the previous diagram:
 
 1. **VM application definition:** The VM application definition is created in the Azure compute gallery. It defines the application name, location, operating system, and metadata. The application version is a numbered version of the VM application definition. The application version represents the VM application. It needs to be in the same region as the spot VM. The application version links to the source application package in the storage account.
 
