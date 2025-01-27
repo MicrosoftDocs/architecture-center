@@ -35,6 +35,7 @@ Typical uses for this architecture include:
 - Using Azure Monitor to monitor Kubernetes clusters across hybrid environments.
 - Using Azure Policy to deploy and enforce policies for Kubernetes clusters across hybrid environments.
 - Using Azure Policy to deploy and enforce GitOps.
+- Running Azure Machine Learning on your on-premises infrastructure.
 
 ## Recommendations
 
@@ -56,9 +57,12 @@ Azure Arc-enabled Kubernetes consists of a few agents (also referred to as *oper
 - **deployment.apps/clusteridentityoperator**. Maintains the Managed Service Identity (MSI) certificate that's used by other agents to communicate with Azure.
 - **deployment.apps/flux-logs-agent**. Collects logs from the flux operators that are deployed as a part of source control configuration.
 - **deployment.apps/extension-manager**. Installs and manages the lifecycle of extension Helm charts.
-- **deployment.apps/kube-azure-ad-proxy**. Used for the authentication of the requests that are sent to the cluster by using Cluster Connect.
+- **deployment.apps/kube-aad-proxy**. Used for the authentication of the requests that are sent to the cluster by using Cluster Connect.
 - **deployment.apps/clusterconnect-agent**. A reverse proxy agent that enables the cluster connect feature to provide access to the apiserver of the cluster. It's an optional component that's deployed only if the cluster connect feature is enabled on the cluster.
 - **deployment.apps/guard**. An authentication and authorization webhook server that's used for Microsoft Entra role-based access control (RBAC). It's an optional component that's deployed only if the azure-rbac feature is enabled on the cluster.
+- **deployment.apps/extension-events-collector**. Collects extensions lifecycle management logs and aggregates them in events corresponding to each operation (for example Create, Upgrade, Delete).  
+- **deployment.apps/logcollector**. Collects platform telemetry to ensure the operational health of the platform
+
 
 For more information, see [Connect an Azure Arc-enabled Kubernetes cluster][Connect an Azure Arc-enabled Kubernetes cluster].
 
@@ -96,6 +100,10 @@ You can also manage a larger collection of clusters that are deployed across het
 
 For more information, see [Deploy applications using GitOps with Flux v2][Deploy applications using GitOps with Flux v2].
 
+### Run Azure Machine Learning
+
+In Azure Machine Learning, you can select an AKS (or Arc-enabled Kubernetes) cluster as a compute target for your machine learning processes. This enables you to train or deploy machine learning models in your own, self-hosted (or multi-cloud) infrastructure, which allows you to combine your on-premises investments on GPUs with the ease of management that Azure Machine Learning provides to you in the cloud. 
+
 ### Topology, network, and routing
 
 Azure Arc agents require the following protocols/ports/outbound URLs in order to function:
@@ -106,8 +114,9 @@ Azure Arc agents require the following protocols/ports/outbound URLs in order to
 |`https://[region].dp.kubernetesconfiguration.azure.com:443`|Data plane endpoint for the agent to push status and fetch configuration information, where [region] represents the Azure region that hosts the AKS instance.|
 |`https://docker.io:443`|Required to pull container images.|
 |`https://github.com:443`, `git://github.com:9418`|Example GitOps repos are hosted on GitHub. The configuration agent requires connectivity to whichever git endpoint that you specify.|
-|`https://login.microsoftonline.com:443`|Required to fetch and update Azure Resource Manager tokens.|
-|`https://azurearcfork8s.azurecr.io:443`|Required to pull container images for Azure Arc agents.
+|`https://login.microsoftonline.com:443` `https://<region>.login.microsoft.com` `login.windows.net`|Required to fetch and update Azure Resource Manager tokens.|
+|`https://mcr.microsoft.com:443` `https://*.data.mcr.microsoft.com:443`|Required to pull container images for Azure Arc agents.
+
 
 For a complete list of URLs across Azure Arc services, see [Azure Arc network requirements][Azure Arc network requirements].
 
@@ -151,7 +160,13 @@ Principal author:
 
 - [Pieter de Bruin](https://www.linkedin.com/in/pieterjmdebruin) | Senior Program Manager
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+
+Other contributors:
+
+- [Carlos Mestre del Pino](https://www.linkedin.com/in/mestredelpino) | Cloud Solution Architect
+
+
 
 ## Next steps
 
