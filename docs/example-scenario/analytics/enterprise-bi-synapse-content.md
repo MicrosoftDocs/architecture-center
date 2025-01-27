@@ -7,12 +7,12 @@ The following steps build on the [Azure Synapse Analytics end-to-end][e2e-analyt
 
 There are many ways to deliver business requirements associated with enterprise BI based on existing technology investment, peoples' skills, modernization time horizon, future vision and preference for PaaS or SaaS. Please get familiar with alternative design approaches:
 
-* [A lakehouse in Microsoft Fabric](azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
-* Combining [Microsoft Fabric and Azure Databricks](azure/architecture/solution-ideas/articles/small-medium-modern-data-platform) for customers with existing investment in Azure Databricks & Power BI with a desire to modernize with Microsoft Fabric 
-* Enterprise BI for small and medium business using an [Azure SQL ecosystem and Microsoft Fabric](/azure/architecture/example-scenario/data/small-medium-data-warehouse)
-* Data warehousing completely on Microsoft Fabric for customers with a SaaS preference
+- [A lakehouse in Microsoft Fabric](/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
+- Combining [Microsoft Fabric and Azure Databricks](/azure/architecture/solution-ideas/articles/small-medium-modern-data-platform) for customers with existing investment in Azure Databricks & Power BI with a desire to modernize with Microsoft Fabric 
+- Enterprise BI for small and medium business using an [Azure SQL ecosystem and Microsoft Fabric](/azure/architecture/example-scenario/data/small-medium-data-warehouse)
+- Data warehousing completely on Microsoft Fabric for customers with a SaaS preference
 
-Current architecture presumes that Azure Synapse Datawarehouse was selected as the persistent layer of Enterprise semantic model and PBI is used for Business Intelligence. This approach has great flexibility and is considered Platform as a Service. 
+The architecture described in this article uses presumes that Azure Synapse data warehouse was selected as the persistent layer of the enterprise semantic model and Power BI is used for Business Intelligence. This approach has great flexibility and is considered a Platform as a Service implementation.
 
 ## Architecture
 
@@ -213,9 +213,7 @@ This scenario uses [Power BI Premium workspaces](/power-bi/admin/service-premium
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-### DevOps recommendations
-
-- Refer to this [article](https://learn.microsoft.com/en-us/azure/synapse-analytics/cicd/continuous-integration-delivery) for guidance on using an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse workspace across multiple environments.
+- Refer to this [article](/azure/synapse-analytics/cicd/continuous-integration-delivery) for guidance on using an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse workspace across multiple environments.
 - Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a continuous integration and continuous delivery (CI/CD) process, making the automation process easier. In this architecture, there are four main workloads:
   - The data warehouse server, and related resources
   - Azure Synapse pipelines
@@ -229,7 +227,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 #### Quick start
 
-- Tutorial: [Get Started with Azure Synapse Analytics](https://learn.microsoft.com/en-us/azure/synapse-analytics/get-started)
+- Tutorial: [Get Started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
 - The Azure CLI: [Create an Azure Synapse workspace with Azure CLI](/azure/synapse-analytics/quickstart-create-workspace-cli)
 
 ### Performance efficiency
