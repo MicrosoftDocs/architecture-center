@@ -73,7 +73,7 @@ The eviction policy of the evicted spot VM affects the replacement process. For 
 | Policy | When to use the policy |
 | --- | --- |
 | Delete policy | - Ephemeral compute and data <br><br> - Don't want to pay for data disks <br><br> - Minimal budget |
-| Stopped/Deallocate policy | - Need a specific VM size <br><br> - Can't change location <br><br> - Long application installation process <br><br> - Indefinite wait time <br><br> - Not driven by cost savings alone |
+| Stop/Deallocate policy | - Need a specific VM size <br><br> - Can't change location <br><br> - Long application installation process <br><br> - Indefinite wait time <br><br> - Not driven by cost savings alone |
 
 ### Continuously monitor for eviction
 
