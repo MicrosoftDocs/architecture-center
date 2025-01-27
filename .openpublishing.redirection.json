@@ -6362,7 +6362,7 @@
     {
       "source_path": "docs/example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml",
       "redirect_url": "/industry/financial-services/architecture/swift-alliance-messaging-hub-vsrx-content",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/finance/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway.yml",
