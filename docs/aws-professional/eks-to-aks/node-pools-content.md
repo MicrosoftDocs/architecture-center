@@ -405,8 +405,6 @@ On the other hand, Azure provides customers with confidential VMs to meet strict
 
 ### Federal Information Process Standards (FIPS)
 
-In EKS, it is the customer's responsibility to configure an EKS cluster to be FIPS compliant. For more information, see [Building a FIPS Compliant Kubernetes Cluster on AWS](https://sookocheff.com/post/fips-aws/).
-
 [FIPS 140-3](https://csrc.nist.gov/publications/detail/fips/140/3/final) is a US government standard that defines minimum security requirements for cryptographic modules in information technology products and systems. By enabling [FIPS compliance for AKS node pools](/azure/aks/enable-fips-nodes), you can enhance the isolation, privacy, and security of your tenant workloads. [FIPS](/azure/compliance/offerings/offering-fips-140-2) compliance ensures the use of validated cryptographic modules for encryption, hashing, and other security-related operations. With FIPS-enabled AKS node pools, you can meet regulatory and industry compliance requirements by employing robust cryptographic algorithms and mechanisms. Azure provides documentation on how to enable FIPS for AKS node pools, which enables you to strengthen the security posture of your multitenant AKS environments. For more information, see [Enable FIPS for AKS node pools](/azure/aks/enable-fips-nodes).
 
 ### Host-based encryption
