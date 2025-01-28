@@ -163,7 +163,7 @@ The following services allow you to query and analyze high volumes of data.
 
 The following services allow you to manage your virtual network and user identities, and to control access to your apps, data, and resources.
 
-- [Azure Private Link](/azure/private-link) enables access to Azure platform as a service (Paas) solutions over a private endpoint in your virtual network. Private Link avoids exposing services to the internet.
+- [Azure Private Link](/azure/private-link) enables access to Azure platform as a service (PaaS) solutions over a private endpoint in your virtual network. Private Link avoids exposing services to the internet.
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. It provides a common experience across all applications, services, and users.
 
 #### Business integration
