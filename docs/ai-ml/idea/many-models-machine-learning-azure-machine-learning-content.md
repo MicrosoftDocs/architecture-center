@@ -21,14 +21,14 @@ A companion article, [Many models machine learning at scale in Azure with Spark]
    2. **Train Models:**
       - The pipeline trains models for all the datasets created during data preparation.
       - It uses the `ParallelRunStep` class to train multiple models in parallel.
-      - After training, the pipeline registers the models in Machine Learning along with their testing metrics.  
+      - After training, the pipeline registers the models in Machine Learning along with their testing metrics.
 
 1. **Model-Promotion Pipeline:**
    1. **Evaluate Models:**
       - The promotion pipeline evaluates the trained models before moving them to production.
       - A DevOps pipeline applies business logic to determine whether a model meets the criteria for deployment (e.g., checking that the accuracy on testing data exceeds 80%).
    1. **Register Models:**
-      - The promotion pipeline registers qualifying models into the production Machine Learning workspace.  
+      - The promotion pipeline registers qualifying models into the production Machine Learning workspace.
 
 1. **Model Batch-Scoring Pipeline:**
    1. **Prepare Data:**
@@ -39,15 +39,15 @@ A companion article, [Many models machine learning at scale in Azure with Spark]
       - It identifies the appropriate model for each dataset in Machine Learning by searching model tags.
       - The model is downloaded and used to score the dataset.
       - The `DataTransferStep` class is used to write the results back to Azure Data Lake.
-      - Predictions are then passed from Azure Data Lake to Synapse SQL for serving.  
+      - Predictions are then passed from Azure Data Lake to Synapse SQL for serving.
 
 1. **Real-Time Scoring:**
    - Managed Online Endpoint is used to provide real-time scoring.
-   - Because of the large number of models, they are loaded on demand rather than pre-loaded.  
+   - Because of the large number of models, they are loaded on demand rather than pre-loaded.
 
 1. **Results:**
    1. **Predictions:** The batch-scoring pipeline saves predictions to Synapse SQL.
-   1. **Metrics:** Power BI connects to the model predictions to retrieve and aggregate results for presentation.  
+   1. **Metrics:** Power BI connects to the model predictions to retrieve and aggregate results for presentation.
 
 ### Components  
 
