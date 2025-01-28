@@ -8,7 +8,7 @@ A companion article, [Many models machine learning at scale in Azure with Spark]
 
 *Download a [Visio file](https://arch-center.azureedge.net/many-models-machine-learning-azure.vsdx) of this architecture.*
 
-### Workflow  
+### Workflow
 
 1. **Data Ingestion:**
    - Azure Data Factory pulls data from a source database and copies it to Azure Data Lake Storage.
@@ -46,8 +46,8 @@ A companion article, [Many models machine learning at scale in Azure with Spark]
    - Because of the large number of models, they are loaded on demand rather than pre-loaded.  
 
 1. **Results:**
-   - **Predictions:** The batch-scoring pipeline saves predictions to Synapse SQL.
-   - **Metrics:** Power BI connects to the model predictions to retrieve and aggregate results for presentation.  
+   1. **Predictions:** The batch-scoring pipeline saves predictions to Synapse SQL.
+   1. **Metrics:** Power BI connects to the model predictions to retrieve and aggregate results for presentation.  
 
 ### Components  
 
