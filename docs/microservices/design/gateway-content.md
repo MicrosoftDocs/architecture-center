@@ -51,7 +51,7 @@ An API gateway can be tailored to your application’s requirements by using spe
 
 Here are some options for implementing an API gateway in your application.
 
-- **Reverse proxy server**. Nginx and HAProxy are open-source reverse proxy servers. They support features such as load balancing, SSL termination, and layer-7 routing. They have free versions and paid editions that provide extra features and support options. Nginx and HAProxy are both mature products with rich feature sets and high performance. You can extend each with third-party modules or by writing custom scripts in Lua. Nginx also supports a JavaScript-based scripting module referred to as NGINX JavaScript, formally named *nginScript*.
+- **Reverse proxy server**. Nginx and HAProxy are open-source reverse proxy offerings. They support features such as load balancing, SSL termination, and layer-7 routing. They have free versions and paid editions that provide extra features and support options. These products among many other options are mature with rich feature sets, high performance, and extensible.
 
 - **Service mesh ingress controller**. If you're using a service mesh, such as Linkerd or Istio, consider the features that are provided by the ingress controller for that service mesh. For example, the Istio ingress controller supports layer 7 routing, HTTP redirects, retries, and other features.
 
@@ -65,13 +65,13 @@ Here are some options for implementing an API gateway in your application.
 
 Where there is enough security and control available for your secnario, use built-in gateway/ingress offerings from your platform, such as in Azure Container Apps and AKS.
 
-If those offerings do not give you enough flexibility to meet your control requirements, then bring your own ingress controller where supported. Use a ops model to govern the lifecycle concerns of that controler, such as GitOps.
+If those offerings do not give you enough flexibility to meet your control requirements, then bring your own product where supported. Use a ops model to govern the lifecycle concerns of that custom offering such as GitOps.
 
 When selecting an API gateway, consider the following factors:
 
 **Available features**. All the previous [API gateway options](#api-gateway-options) support layer-7 routing, but support for other features can vary. Evaluate your requirements, such as authentication, rate limiting, or SSL termination. Determine whether a single gateway is sufficient or if you need multiple gateways to meet your needs.
 
-**Deployment options**. Azure Application Gateway and Azure API Management are managed Azure services. However, Nginx and HAProxy aren't. They typically run in containers inside a cluster. You can also deploy Nginx and HAProxy to dedicated virtual machines outside of a cluster. Deployment outside a cluster isolates the API gateway from the rest of the workload, but it creates more management overhead.
+**Deployment options**. Azure Application Gateway and Azure API Management are managed Azure services. However, general purpose reverse proxies and load balancers aren't. You can deploy them to dedicated virtual machines or inside an AKS cluster in their Ingress Controller offerings. Deployment outside a cluster isolates the API gateway from the rest of the workload, but it creates more management overhead.
 
 **Management overhead**. When you update services or add new ones, you might need to update the gateway routing rules. Consider how to manage this process. Also, consider how to manage SSL certificates, IP allowlists, and other aspects of API gateway configuration.
 
