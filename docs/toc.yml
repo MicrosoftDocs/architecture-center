@@ -1841,8 +1841,6 @@ items:
           maintainContext: true
       - name: Azure security for AWS
         href: guide/aws/aws-azure-security-solutions.yml
-      - name: Highly secure IaaS apps
-        href: reference-architectures/n-tier/high-security-iaas.yml
       - name: Microsoft Cybersecurity Architectures
         href: /security/cybersecurity-reference-architecture/mcra
         maintainContext: true

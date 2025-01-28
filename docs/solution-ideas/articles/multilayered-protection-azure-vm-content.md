@@ -126,6 +126,5 @@ Principal author:
 [Privileged Identity Management (PIM)]: /azure/active-directory/privileged-identity-management
 [Understanding just-in-time (JIT) VM access]: /azure/security-center/just-in-time-explained
 [Secure user sign-in events with Azure AD Multi-Factor Authentication]: /azure/active-directory/authentication/tutorial-enable-azure-mfa
-[Security considerations for highly sensitive IaaS apps in Azure]: ../../reference-architectures/n-tier/high-security-iaas.yml
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1880866-multilayered-protection-azure-vm-architecture-diagram.vsdx
 [Zero Trust]: https://www.microsoft.com/security/business/zero-trust

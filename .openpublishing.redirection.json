@@ -6628,6 +6628,11 @@
       "source_path": "docs/ai-ml/guide/avops-design-guide.md",
       "redirect_url": "/industry/mobility/architecture/ra-mobility-avops",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/n-tier/high-security-iaas.yml",
+      "redirect_url": "/azure/architecture/virtual-machines/baseline",
+      "redirect_document_id": false
     }
   ]
 }

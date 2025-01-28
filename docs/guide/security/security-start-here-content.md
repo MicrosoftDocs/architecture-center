@@ -50,9 +50,6 @@ The Well-Architected Framework also provides these checklists:
 - [Data protection considerations](/azure/architecture/framework/security/design-storage) 
 - [Governance, risk, and compliance](/azure/architecture/framework/security/design-governance)
 
- 
-For information about security for sensitive IaaS workloads, see [Security considerations for highly sensitive IaaS apps in Azure](../../reference-architectures/n-tier/high-security-iaas.yml).
-
 ## Security architectures
  
 ### Identity and access management

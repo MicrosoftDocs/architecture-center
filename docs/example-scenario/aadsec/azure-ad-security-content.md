@@ -166,7 +166,6 @@ Microsoft Entra pricing ranges from free, for features like SSO and MFA, to Prem
 - [Microsoft Entra demo tenant](https://demos.microsoft.com) (requires a Microsoft Partner Network account), or [Enterprise Mobility + Security free trial](https://www.microsoft.com/microsoft-365/enterprise-mobility-security)
 - [Microsoft Entra deployment plans](/azure/active-directory/fundamentals/active-directory-deployment-plans)
 
-## Related resources
+## Related resource
 
 - [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
-- [Security considerations for highly sensitive infrastructure as a service (IaaS) apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)
