@@ -6653,6 +6653,11 @@
       "source_path": "docs/solution-ideas/articles/homomorphic-encryption-seal.yml",
       "redirect_url": "/research/project/microsoft-seal/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/hybrid-security-monitoring.yml",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-cloud-introduction",
+      "redirect_document_id": false
     }
   ]
 }

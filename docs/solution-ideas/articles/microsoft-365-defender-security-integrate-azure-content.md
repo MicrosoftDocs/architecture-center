@@ -164,7 +164,6 @@ For more details about this reference architecture, see the other articles in th
 - Part 2: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
 - Part 3: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
 
-For related architectures on Azure Architecture Center, see the following articles:
+For related architectures on Azure Architecture Center, see the following article:
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
-- [Monitor hybrid security using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)

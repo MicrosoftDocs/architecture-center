@@ -106,9 +106,8 @@ Principal author:
 - [Configure Bastion and connect to a Windows VM through a browser][Configure Bastion and connect to a Windows VM through a browser]
 - [Secure user sign-in events with Microsoft Entra multifactor authentication][Secure user sign-in events with Azure AD Multi-Factor Authentication]
 
-## Related resources
+## Related resource
 
-- [Hybrid security monitoring via Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
 - [Security considerations for highly sensitive IaaS apps in Azure][Security considerations for highly sensitive IaaS apps in Azure]
 
 [Activate my Azure resource roles in Privileged Identity Management]: /azure/active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles

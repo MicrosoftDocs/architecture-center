@@ -822,6 +822,5 @@ Principal author:
 
 ## Related resources
 
-* [Hybrid security monitoring using Microsoft Defender for cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
 * [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-baseline.yml)
 * [Advanced ARM template functionality](../../guide/azure-resource-manager/advanced-templates/index.md)
