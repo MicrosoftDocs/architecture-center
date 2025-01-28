@@ -53,7 +53,7 @@ Here are some options for implementing an API gateway in your application.
 
 - **Reverse proxy server**. Nginx and HAProxy are open-source reverse proxy offerings. They support features such as load balancing, SSL termination, and layer-7 routing. They have free versions and paid editions that provide extra features and support options. These products among many other options are mature with rich feature sets, high performance, and extensible.
 
-- **Service mesh ingress controller**. If you're using a service mesh, such as Linkerd or Istio, consider the features that are provided by the ingress controller for that service mesh. For example, the Istio ingress controller supports layer 7 routing, HTTP redirects, retries, and other features.
+- **[Service mesh ingress controller](/azure/aks/servicemesh-about/)**. If you're using service meshes, such as the AKS officially supported add-ons for Istio and Open Service Mesh or any third party open-source project (i.r. Linkerd or Consul Connect), consider the features that are provided by the ingress controller for that service mesh. For example, the Istio ingress controller supports layer 7 routing, HTTP redirects, retries, and other features.
 
 - **[Azure Application Gateway](/azure/application-gateway/)**. Application Gateway is a managed load balancing service. It provides perform layer-7 routing, SSL termination, and a web application firewall (WAF).
 
