@@ -359,7 +359,7 @@ Microsoft Learn organizes its training content into three skill levels: beginner
 
 #### Intermediate learning paths
 
-- [Create custom copilots with Azure AI Studio](/training/paths/create-custom-copilots-ai-studio/).
+- [Create custom copilots with Azure AI Foundry](/training/paths/create-custom-copilots-ai-studio/).
 - [Create machine learning models](/training/paths/create-machine-learn-models/).
 - [Develop custom object detection models with NVIDIA and Machine Learning](/training/paths/develop-custom-object-detection-models-with-nvidia-and-azure-machine-learning/).
 - [Build end-to-end machine learning operations (MLOps) with Machine Learning](/training/paths/build-first-machine-operations-workflow/).
@@ -396,7 +396,6 @@ Principal author:
 
 Continue your AI journey in the [AI learning hub](/ai/).
 
-## Related resources
+## Related resource
 
-- [Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
 - [What is the Team Data Science Process?](overview.yml)

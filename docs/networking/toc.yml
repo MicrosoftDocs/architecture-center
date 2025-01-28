@@ -28,12 +28,6 @@ items:
           href: architecture/trusted-internet-connections.yml          
     - name: Apply guidance
       items:
-      - name: Deploy private 5G networks
-        items:
-        - name: Overview
-          href: guide/deploy-private-mobile-network.md
-        - name: Build a private 5G network
-          href: guide/build-private-5g-network.md
       - name: Network topology
         items:
         - name: Spoke-to-spoke networking

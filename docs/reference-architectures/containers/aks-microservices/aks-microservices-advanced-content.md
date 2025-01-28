@@ -74,7 +74,7 @@ The AKS infrastructure features used in this architecture include:
 
 **[Helm](https://helm.sh/)**, a package manager for Kubernetes that bundles Kubernetes objects into a single unit that you can publish, deploy, version, and update.
 
-**[Azure Key Vault Secret Store CSI provider](https://github.com/Azure/secrets-store-csi-driver-provider-azure)**, gets secrets stored in Azure Key Vault and uses the [Secret Store CSI driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) interface to mount them into Kubernetes pods.
+**[Azure Key Vault Secret Store CSI provider](https://github.com/Azure/secrets-store-csi-driver-provider-azure)** gets secrets stored in Azure Key Vault and uses the [Secret Store CSI driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) interface to mount them into Kubernetes pods.
 
 **[Flux](https://fluxcd.io)**, an open and extensible continuous delivery solution for Kubernetes, powered by the GitOps Toolkit.
 
@@ -281,34 +281,9 @@ For more information on options for instrumenting common languages for applicati
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Scalability
-
-Consider the following points when planning for scalability.
-
-- Don't combine autoscaling and imperative or declarative management of the number of replicas. Users and an autoscaler both attempting to modify the number of replicas may cause unexpected behavior. When HPA is enabled, reduce the number of replicas to the minimum number you want to be deployed.
-
-- A side-effect of pod autoscaling is that pods may be created or evicted frequently, as scale-out and scale-in events happen. To mitigate these effects:
-
-  - Use readiness probes to let Kubernetes know when a new pod is ready to accept traffic.
-  - Use pod disruption budgets to limit how many pods can be evicted from a service at a time.
-
-- You can't change the VM size after creating a cluster, so do initial capacity planning to choose an appropriate VM size for the agent nodes when you create the cluster.
-
-- Multitenant or other advanced workloads might have node pool isolation requirements that demand more and likely smaller subnets. For more information about creating node pools with unique subnets, see [Add a node pool with a unique subnet](/azure/aks/use-multiple-node-pools). Organizations have different standards for their hub-spoke implementations. Be sure to follow your organizational guidelines.
-
-### Manageability
-
-Consider the following points when planning for manageability.
-
-- Manage the AKS cluster infrastructure via an automated deployment pipeline. The [reference implementation](https://github.com/mspnp/aks-fabrikam-dronedelivery) for this architecture provides a [GitHub Actions](https://help.github.com/actions) workflow that you can reference when building your pipeline.
-
-- The workflow file deploys the infrastructure only, not the workload, into the already-existing virtual network and Microsoft Entra configuration. Deploying infrastructure and workload separately lets you address distinct lifecycle and operational concerns.
-
-- Consider your workflow as a mechanism to deploy to another region if there is a regional failure. Build the pipeline so that you can deploy a new cluster in a new region with parameter and input alterations.
-
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Consider the following points when planning for security.
 
@@ -324,9 +299,9 @@ Consider the following points when planning for security.
 
 - In AKS, you can mount one or more secrets from Key Vault as a volume. The pod can then read the Key Vault secrets just like a regular volume. For more information, see the [secrets-store-csi-driver-provider-azure](https://github.com/Azure/secrets-store-csi-driver-provider-azure) project on GitHub.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - The [Cost section in the Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview) describes cost considerations. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario.
 
@@ -335,6 +310,35 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 - To estimate the cost of the required resources, see the [Container Services calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service).
 
 - Consider enabling [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes specific constructs.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+Consider the following points when planning for manageability.
+
+- Manage the AKS cluster infrastructure via an automated deployment pipeline. The [reference implementation](https://github.com/mspnp/aks-fabrikam-dronedelivery) for this architecture provides a [GitHub Actions](https://help.github.com/actions) workflow that you can reference when building your pipeline.
+
+- The workflow file deploys the infrastructure only, not the workload, into the already-existing virtual network and Microsoft Entra configuration. Deploying infrastructure and workload separately lets you address distinct lifecycle and operational concerns.
+
+- Consider your workflow as a mechanism to deploy to another region if there is a regional failure. Build the pipeline so that you can deploy a new cluster in a new region with parameter and input alterations.
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+Consider the following points when planning for scalability.
+
+- Don't combine autoscaling and imperative or declarative management of the number of replicas. Users and an autoscaler both attempting to modify the number of replicas may cause unexpected behavior. When HPA is enabled, reduce the number of replicas to the minimum number you want to be deployed.
+
+- A side-effect of pod autoscaling is that pods may be created or evicted frequently, as scale-out and scale-in events happen. To mitigate these effects:
+
+  - Use readiness probes to let Kubernetes know when a new pod is ready to accept traffic.
+  - Use pod disruption budgets to limit how many pods can be evicted from a service at a time.
+
+- You can't change the VM size after creating a cluster, so do initial capacity planning to choose an appropriate VM size for the agent nodes when you create the cluster.
+
+- Multitenant or other advanced workloads might have node pool isolation requirements that demand more and likely smaller subnets. For more information about creating node pools with unique subnets, see [Add a node pool with a unique subnet](/azure/aks/use-multiple-node-pools). Organizations have different standards for their hub-spoke implementations. Be sure to follow your organizational guidelines.
 
 ## Next steps
 

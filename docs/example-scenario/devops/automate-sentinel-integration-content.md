@@ -38,12 +38,12 @@ The following diagram shows an Azure DevOps and Microsoft Sentinel infrastructur
 
 ### Components
 
-* [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a cloud-based service to manage your identity and access controls.
-* [Azure DevOps](https://azure.microsoft.com/services/devops) is a cloud service to collaborate on code, build and deploy apps, or plan and track your work.
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault) is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys.
-* [Azure Policy](https://azure.microsoft.com/services/azure-policy) is a service to create, assign, and manage policy definitions in your Azure environment.
-* [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel) is a scalable, cloud-native, SIEM and security orchestration, automation, and response (SOAR) solution.
-* [Azure Automation](https://azure.microsoft.com/services/automation) is a service for simplifying cloud management through process automation. Use Azure Automation to automate long-running, manual, error-prone, and frequently repeated tasks. Automation helps improve reliability, efficiency, and time to value for your company.
+* [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based service to manage your identity and access controls.
+* [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a cloud service to collaborate on code, build and deploy apps, or plan and track your work.
+* [Azure Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys.
+* [Azure Policy](/azure/governance/policy/overview) is a service to create, assign, and manage policy definitions in your Azure environment.
+* [Microsoft Sentinel](/azure/sentinel/overview) is a scalable, cloud-native, SIEM and security orchestration, automation, and response (SOAR) solution.
+* [Azure Automation](/azure/automation/overview) is a service for simplifying cloud management through process automation. Use Azure Automation to automate long-running, manual, error-prone, and frequently repeated tasks. Automation helps improve reliability, efficiency, and time to value for your company.
 
 ## Scenario details
 
