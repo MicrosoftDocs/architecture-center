@@ -26,21 +26,27 @@ A companion article, [Many models machine learning at scale in Azure with Spark]
    1. **Predictions:** The batch-scoring pipeline saves predictions to Synapse SQL.
    1. **Metrics:** Power BI connects to the model predictions to retrieve and aggregate results for presentation.
 
-### Components
-
-- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an enterprise-grade machine learning service for building and deploying models quickly. It provides users at all skill levels with a low-code designer, automated ML (AutoML), and a hosted Jupyter notebook environment that supports various IDEs.
-- [Azure Databricks](/azure/databricks/introduction) is a cloud-based data-engineering tool that's based on Apache Spark. It can process and transform massive quantities of data and explore it by using machine learning models. You can write jobs in R, Python, Java, Scala, and Spark SQL.
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an analytics service that unifies data integration, enterprise data warehousing, and big data analytics.
-- Synapse SQL is a distributed query system for T-SQL that enables data warehousing and data virtualization scenarios and extends T-SQL to address streaming and machine learning scenarios. It offers both serverless and dedicated resource models.
-- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a massively scalable and secure storage service for high-performance analytics workloads.
-- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS simplifies deployment of a managed AKS cluster in Azure by offloading the operational overhead to Azure.
-- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a set of developer services that provide comprehensive application and infrastructure lifecycle management. DevOps includes work tracking, source control, build and CI/CD, package management, and testing solutions.
-- [Microsoft Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to turn unrelated sources of data into coherent, visually immersive, and interactive insights.
-
+### Components  
+- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an enterprise-grade machine learning service for building and deploying models quickly. It provides users at all skill levels with a low-code designer, automated ML (AutoML), and a hosted Jupyter notebook environment that supports various IDEs. In this architecture, Azure Machine Learning is used to manage the lifecycle of machine learning models, including training, evaluation, and deployment, as well as to orchestrate pipelines like training and scoring.  
+  
+- [Azure Databricks](/azure/databricks/introduction) is a cloud-based data-engineering tool that's based on Apache Spark. It can process and transform massive quantities of data and explore it by using machine learning models. You can write jobs in R, Python, Java, Scala, and Spark SQL. In this architecture, Azure Databricks is used for advanced data engineering tasks that might involve transformation, cleaning, or preprocessing of large datasets before they are used in the training pipelines.  
+  
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an analytics service that unifies data integration, enterprise data warehousing, and big data analytics. In this architecture, Azure Synapse Analytics is used to store batch-scoring results, enabling efficient querying and retrieval of predictions for reporting or analysis.  
+  
+- Synapse SQL is a distributed query system for T-SQL that enables data warehousing and data virtualization scenarios and extends T-SQL to address streaming and machine learning scenarios. It offers both serverless and dedicated resource models. In this architecture, Synapse SQL is used to serve predictions to downstream applications and enable visualization tools like Power BI to access aggregated results.  
+  
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a massively scalable and secure storage service for high-performance analytics workloads. In this architecture, Azure Data Lake Storage is used as the primary storage layer for raw and transformed datasets, as well as the results from scoring pipelines.  
+  
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS simplifies deployment of a managed AKS cluster in Azure by offloading the operational overhead to Azure. In this architecture, AKS is used for real-time inferencing, where models are loaded on demand to handle incoming requests without exhausting memory resources.  
+  
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a set of developer services that provide comprehensive application and infrastructure lifecycle management. DevOps includes work tracking, source control, build and CI/CD, package management, and testing solutions. In this architecture, Azure DevOps is used to manage CI/CD pipelines for automating model promotion, testing, and deployment to production environments.  
+  
+- [Microsoft Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to turn unrelated sources of data into coherent, visually immersive, and interactive insights. In this architecture, Power BI is used to connect to Synapse SQL to retrieve and present predictions and aggregated metrics through interactive dashboards.  
+  
 ### Alternatives
 
 - The source data can come from any database.
-- You can use a managed online endpoint or AKS to deploy real-time inferencing.
+- You can use a managed online endpoint to deploy real-time inferencing.
 
 ## Scenario details
 
