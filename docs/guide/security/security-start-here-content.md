@@ -58,7 +58,6 @@ The Well-Architected Framework also provides these checklists:
 
 ### Threat protection
 
-- [Threat indicators for cyber threat intelligence in Microsoft Sentinel](../../example-scenario/data/sentinel-threat-intelligence.yml)
 - [Multilayered protection for Azure virtual machine access](../../solution-ideas/articles/multilayered-protection-azure-vm.yml)
 
 ### Information protection

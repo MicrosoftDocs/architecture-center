@@ -1886,8 +1886,6 @@ items:
       items:
       - name: Automate Sentinel integration with DevOps
         href: example-scenario/devops/automate-sentinel-integration.yml
-      - name: Cyber threat intelligence
-        href: example-scenario/data/sentinel-threat-intelligence.yml
       - name: Homomorphic encryption with SEAL
         href: solution-ideas/articles/homomorphic-encryption-seal.yml
       - name: Hybrid security monitoring

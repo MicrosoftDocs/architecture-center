@@ -142,6 +142,5 @@ Other contributors:
 
 ## Related resources
 
-- [Threat indicators for cyber threat intelligence in Microsoft Sentinel](../../example-scenario/data/sentinel-threat-intelligence.yml)
 - [Monitor hybrid security using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
 - [Security architecture design](../../guide/security/security-start-here.yml)
