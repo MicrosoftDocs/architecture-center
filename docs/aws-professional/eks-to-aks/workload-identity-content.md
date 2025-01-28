@@ -51,7 +51,7 @@ Azure Kubernetes Service (AKS) clusters require a [Microsoft Entra identity](/en
 
 A common challenge for developers is the management of secrets, credentials, certificates, and keys used to secure communication between services. [Managed identities](/entra/identity/managed-identities-azure-resources/overview) eliminate the need for developers to manage these credentials. Managed identities allow you to authenticate your AKS cluster without managing credentials or including them in your code. With managed identities, you assign an [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) role to the identity, granting it permissions to specific resources in Azure.
 
-here are two types of managed identities:
+Here are two types of managed identities:
 
 - **System-assigned**. Some Azure resources, such as virtual machines allow you to enable a managed identity directly on the resource. When you enable a system-assigned managed identity:
   - A service principal of a special type is created in Microsoft Entra ID for the identity. The service principal is tied to the lifecycle of that Azure resource. When the Azure resource is deleted, Azure automatically deletes the service principal for you.

@@ -34,7 +34,7 @@ When running applications that require data storage, Amazon EKS offers different
 
 For applications that require temporary local volumes but don't need to persist data after restarts, ephemeral volumes can be used. Kubernetes supports different types of ephemeral volumes, such as [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [configMap](https://kubernetes.io/docs/concepts/storage/volumes/#configmap), [downwardAPI](https://kubernetes.io/docs/concepts/storage/volumes/#downwardapi), [secret](https://kubernetes.io/docs/concepts/storage/volumes/#secret), and [hostpath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath). To ensure cost efficiency and performance, it's important to choose the most appropriate host volume. In Amazon EKS, you can use [gp3](https://aws.amazon.com/ebs/volume-types/#gp3) as the host root volume, which offers lower prices compared to gp2 volumes.
 
-Another option for ephemeral volumes is [Amazon EC2 instance stores](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html), which provide temporary block-level storage for EC2 instances. These volumes are physically attached to the hosts and only exist during the lifetime of the instance. Using local store volumes in Kubernetes requires partitioning, configuring, and formatting the disks using Amazon EC2 user-data. The [Local Persistent Volume Static Provisioner](https://github.com/kubernetes-sigs/aws-ebs-csi-driver/blob/master/examples/kubernetes/dynamic-local-pv-provisioning.md) can simplify local storage management in this scenario.
+Another option for ephemeral volumes is [Amazon EC2 instance stores](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html), which provide temporary block-level storage for EC2 instances. These volumes are physically attached to the hosts and only exist during the lifetime of the instance. Using local store volumes in Kubernetes requires partitioning, configuring, and formatting the disks using Amazon EC2 user-data.
 
 ### Persistent Volumes
 
@@ -44,7 +44,7 @@ While Kubernetes is typically associated with running stateless applications, th
 
 [Amazon EFS](https://aws.amazon.com/efs/) is a serverless, elastic file system that can be shared across multiple containers and nodes. It automatically grows and shrinks as files are added or removed, eliminating the need for capacity planning. The [Amazon Elastic File System Container Storage Interface (CSI) Driver](https://github.com/kubernetes-sigs/aws-efs-csi-driver) is used to integrate Amazon EFS with Kubernetes.
 
-[Amazon FSx for Lustre](https://aws.amazon.com/fsx/lustre/) provides high-performance parallel file storage, ideal for scenarios requiring high throughput and low-latency operations. It can be linked to an Amazon S3 data repository to store large datasets. Amazon FSx for NetApp ONTAP is a fully-managed shared storage solution built on NetApp's ONTAP file system.
+[Amazon FSx for Lustre](https://aws.amazon.com/fsx/lustre/) provides high-performance parallel file storage, ideal for scenarios requiring high throughput and low-latency operations. It can be linked to an Amazon S3 data repository to store large datasets. Amazon FSx for NetApp ONTAP is a fully managed shared storage solution built on NetApp's ONTAP file system.
 
 Amazon EKS users can utilize tools like [AWS Compute Optimizer](https://aws.amazon.com/compute-optimizer/) and [Velero](https://velero.io/) to optimize storage configurations and manage backups and snapshots.
 
@@ -81,7 +81,7 @@ The Kubernetes control plane also uses Secrets, such as [bootstrap token Secrets
 
 #### ConfigMaps
 
-A [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) is an Kubernetes object used to store non-confidential data in key-value pairs. [Pods](https://kubernetes.io/docs/concepts/workloads/pods/) can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a [volume](https://kubernetes.io/docs/concepts/storage/volumes/). A ConfigMap allows you to decouple environment-specific configuration from your [container images](https://kubernetes.io/docs/reference/glossary/?all=true#term-image), so that your applications are easily portable.
+A [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) is a Kubernetes object used to store non-confidential data in key-value pairs. [Pods](https://kubernetes.io/docs/concepts/workloads/pods/) can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a [volume](https://kubernetes.io/docs/concepts/storage/volumes/). A ConfigMap allows you to decouple environment-specific configuration from your [container images](https://kubernetes.io/docs/reference/glossary/?all=true#term-image), so that your applications are easily portable.
 
 ConfigMap does not provide secrecy or encryption. If the data you want to store are confidential, use a [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) rather than a ConfigMap, or use additional (third party) tools to keep your data private.
 
@@ -103,7 +103,8 @@ As noted in the [Volumes](/azure/aks/concepts-storage#volumes) section, the choi
 
 A cluster administrator can *statically* create a persistent volume, or a volume can be created *dynamically* by the Kubernetes API server. If a pod is scheduled and requests storage that is currently unavailable, Kubernetes can create the underlying Azure Disk or File storage and attach it to the pod. Dynamic provisioning uses a *storage class* to identify what type of resource needs to be created.
 
-**Important**: Persistent volumes can't be shared by Windows and Linux pods due to differences in file system support between the two operating systems.
+> [!IMPORTANT]
+> Persistent volumes can't be shared by Windows and Linux pods due to differences in file system support between the two operating systems.
 
 If you want a fully managed solution for block-level access to data, consider using [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction) instead of CSI drivers. Azure Container Storage integrates with Kubernetes, allowing dynamic and automatic provisioning of persistent volumes. Azure Container Storage supports Azure Disks, Ephemeral Disks, and Azure Elastic SAN (preview) as backing storage, offering flexibility and scalability for stateful applications running on Kubernetes clusters.
 
@@ -247,7 +248,8 @@ Kubernetes typically treats individual pods as ephemeral, disposable resources. 
 
 Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly or have Kubernetes automatically create them. Data volumes can use: [Azure Disk](/azure/virtual-machines/disks-types), [Azure Files](/azure/storage/files/storage-files-planning), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels), or [Azure Blobs](/azure/storage/common/storage-account-overview).
 
-**Note**: Depending on the VM SKU you're using, the Azure Disk CSI driver might have a per-node volume limit. For some high-performance VMs (for example, 16 cores), the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU offered. For a list of VM SKUs offered and their corresponding detailed capacity limits, see [General purpose virtual machine sizes](/azure/virtual-machines/sizes-general).
+> [!NOTE]
+> Depending on the VM SKU you're using, the Azure Disk CSI driver might have a per-node volume limit. For some high-performance VMs (for example, 16 cores), the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU offered. For a list of VM SKUs offered and their corresponding detailed capacity limits, see [General purpose virtual machine sizes](/azure/virtual-machines/sizes-general).
 
 To help determine the best fit for your workload between Azure Files and Azure NetApp Files, review the information provided in the article [Azure Files and Azure NetApp Files comparison](/azure/storage/files/storage-files-netapp-comparison).
 
@@ -267,7 +269,8 @@ You can use [Azure Disk](/azure/aks/azure-disk-csi) to create a Kubernetes *Data
 - [Standard SSDs](/azure/aks/azure-disk-csi)
 - Standard HDDs
 
-**Tip**: For most production and development workloads, use Premium SSDs.
+> [!TIP]
+> For most production and development workloads, use Premium SSDs.
 
 Because an Azure Disk is mounted as *ReadWriteOnce*, it's only available to a single node. For storage volumes accessible by pods on multiple nodes simultaneously, use Azure Files.
 
