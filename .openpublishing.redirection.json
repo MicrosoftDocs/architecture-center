@@ -6623,6 +6623,11 @@
       "source_path": "docs/example-scenario/banking/patterns-and-implementations.yml",
       "redirect_url": "/industry/financial-services/architecture/patterns-and-implementations-content",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/guide/avops-design-guide.md",
+      "redirect_url": "/industry/mobility/architecture/ra-mobility-avops",
+      "redirect_document_id": false
     }
   ]
 }

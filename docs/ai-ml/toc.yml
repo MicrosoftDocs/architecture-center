@@ -86,8 +86,6 @@ items:
       items:
       - name: Automotive
         items:
-        - name: Autonomous Vehicle Operations design guide
-          href: ./guide/avops-design-guide.md
         - name: Autonomous Vehicle Operations solution idea
           href: ./architecture/avops-architecture.yml
       - name: Machine learning options
