@@ -71,22 +71,6 @@ When selecting an API gateway, consider the following factors:
 
 **Management overhead**. When you update services or add new ones, you might need to update the gateway routing rules. Consider how to manage this process. Also, consider how to manage SSL certificates, IP allowlists, and other aspects of API gateway configuration.
 
-## Deploying Nginx or HAProxy to Kubernetes
-
-You can deploy Nginx or HAProxy to Kubernetes as a [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) or [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) that specifies the Nginx or HAProxy container image. Use a ConfigMap to store the configuration file for the proxy and mount the ConfigMap as a volume. Create a service of type LoadBalancer to expose the gateway through an Azure Load Balancer.
-
-An alternative is to create an Ingress Controller. An Ingress Controller is a Kubernetes resource that deploys a load balancer or reverse proxy server. Several implementations exist, including Nginx and HAProxy. A separate resource called an Ingress defines settings for the Ingress Controller, such as routing rules and TLS certificates. This setup means you don't need to manage complex configuration files that are specific to a particular proxy server technology.
-
-The API gateway is a potential bottleneck or single point of failure in the system. Always deploy at least two replicas for high availability. You might need to scale out the replicas further, depending on the load.
-
-Also consider running the gateway on a dedicated set of nodes in the cluster. Benefits to this approach include:
-
-- **Isolation**: All inbound traffic goes to a fixed set of nodes, which can be isolated from backend services.
-
-- **Stable configuration**: If the gateway is misconfigured, the entire application might become unavailable.
-
-- **Performance**: You might want to use a specific virtual machine configuration for the gateway for performance reasons.
-
 ## Next steps
 
 Previous articles explored the interfaces *between* microservices and between microservices and client applications. These interfaces treat each service as a self-contained, opaque unit. A critical principle of microservices architecture is that services should never expose internal details about how they manage data. This approach has significant implications for maintaining data integrity and consistency, which is the subject of the next article.
