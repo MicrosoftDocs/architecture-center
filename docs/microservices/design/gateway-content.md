@@ -61,7 +61,11 @@ Here are some options for implementing an API gateway in your application.
 
 - **[Azure API Management](/azure/api-management/)**. API Management is a managed solution for publishing APIs to external and internal customers. It provides features to manage public-facing APIs, including rate limiting, IP restrictions, and authentication using Microsoft Entra ID or other identity providers. API Management doesn't perform any load balancing, so you should use it with a load balancer, such as Azure Application Gateway, or a reverse proxy. For information, see [API Management with Azure Application Gateway](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway).
 
-## Choosing an API gateway technology
+## In Azure
+
+Where there is enough security and control available for your secnario, use built-in gateway/ingress offerings from your platform, such as in Azure Container Apps and AKS.
+
+If those offerings do not give you enough flexibility to meet your control requirements, then bring your own ingress controller where supported. Use a ops model to govern the lifecycle concerns of that controler, such as GitOps.
 
 When selecting an API gateway, consider the following factors:
 
