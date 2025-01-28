@@ -27,12 +27,12 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
-- [Saga pattern](./patterns/saga.yml)
 - [Modern Data Platform for Small and Medium Businesses Using Microsoft Fabric and Azure Databricks](./solution-ideas/articles/small-medium-modern-data-platform.yml)
 
 ### Updated articles
 
 - [Event Sourcing pattern](./patterns/event-sourcing.yml)  ([#5fd498b656](https://github.com/MicrosoftDocs/architecture-center/commit/5fd498b656))
+- [Saga pattern](./patterns/saga.yml)
 - [Azure Application Architecture Fundamentals](./guide/index.md)  ([#221b5d1bdf](https://github.com/MicrosoftDocs/architecture-center/commit/221b5d1bdf))
 - [Compare AWS and Azure Accounts](./aws-professional/accounts.md)  ([#67adab262b](https://github.com/MicrosoftDocs/architecture-center/commit/67adab262b))
 - [Compare AWS and Azure Networking Options](./aws-professional/networking.md)  ([#67adab262b](https://github.com/MicrosoftDocs/architecture-center/commit/67adab262b))
