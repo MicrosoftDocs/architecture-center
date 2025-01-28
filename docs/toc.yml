@@ -1886,8 +1886,6 @@ items:
       items:
       - name: Automate Sentinel integration with DevOps
         href: example-scenario/devops/automate-sentinel-integration.yml
-      - name: Microsoft Entra ID in security operations
-        href: example-scenario/aadsec/azure-ad-security.yml
       - name: Cyber threat intelligence
         href: example-scenario/data/sentinel-threat-intelligence.yml
       - name: Homomorphic encryption with SEAL

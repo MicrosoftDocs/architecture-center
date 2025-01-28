@@ -6638,6 +6638,11 @@
       "source_path": "docs/guide/security/azure-monitor-integrate-security-components.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/map-threats-it-environment",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/aadsec/azure-ad-security.yml",
+      "redirect_url": "/entra/architecture/secure-best-practices",
+      "redirect_document_id": false
     }
   ]
 }

@@ -110,10 +110,8 @@ Principal author:
 
 - [Hybrid security monitoring via Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
 - [Security considerations for highly sensitive IaaS apps in Azure][Security considerations for highly sensitive IaaS apps in Azure]
-- [Microsoft Entra IDaaS in Security Operations][Azure Active Directory IDaaS in Security Operations]
 
 [Activate my Azure resource roles in Privileged Identity Management]: /azure/active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles
-[Azure Active Directory IDaaS in Security Operations]: ../../example-scenario/aadsec/azure-ad-security.yml
 [Azure AD]: https://azure.microsoft.com/services/active-directory
 [Azure AD Conditional Access]: /azure/active-directory/conditional-access/overview
 [Azure Bastion]: /azure/bastion
