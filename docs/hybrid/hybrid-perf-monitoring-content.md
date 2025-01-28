@@ -162,7 +162,7 @@ The following are considerations for integrating your environment with DevOps pr
     - ASP.NET applications hosted in Microsoft Internet Information Services (IIS) on a virtual machine or virtual machine scale set
     - ASP.NET applications hosted in IIS on an on-premises VM
     - Java-based Azure Functions
-    - Node.JS apps on Linux App Services
+    - Node.js apps on Linux App Services
     - Microservices hosted on AKS
   - At development time. Add Application Insights to your code to customize telemetry collection and send more data. Supported languages and platforms include:
     - ASP.NET applications
