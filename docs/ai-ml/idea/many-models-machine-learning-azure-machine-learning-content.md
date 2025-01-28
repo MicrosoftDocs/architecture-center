@@ -34,7 +34,7 @@ A companion article, [Many models machine learning at scale in Azure with Spark]
 
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an analytics service that unifies data integration, enterprise data warehousing, and big data analytics. In this architecture, Azure Synapse Analytics is used to store batch-scoring results, enabling efficient querying and retrieval of predictions for reporting or analysis.
 
-- Synapse SQL is a distributed query system for T-SQL that enables data warehousing and data virtualization scenarios and extends T-SQL to address streaming and machine learning scenarios. It offers both serverless and dedicated resource models. In this architecture, Synapse SQL is used to serve predictions to downstream applications and enable visualization tools like Power BI to access aggregated results.
+  Synapse SQL is a distributed query system for T-SQL that enables data warehousing and data virtualization scenarios and extends T-SQL to address streaming and machine learning scenarios. It offers both serverless and dedicated resource models. In this architecture, Synapse SQL is used to serve predictions to downstream applications and enable visualization tools like Power BI to access aggregated results.
 
 - [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a massively scalable and secure storage service for high-performance analytics workloads. In this architecture, Azure Data Lake Storage is used as the primary storage layer for raw and transformed datasets, as well as the results from scoring pipelines.
 
