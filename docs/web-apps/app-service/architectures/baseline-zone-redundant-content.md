@@ -144,45 +144,6 @@ Deploy Azure Application Gateway v2 in a zone redundant configuration. Consider 
 - Azure [Zone-Redundant Storage](/azure/storage/common/storage-redundancy#zone-redundant-storage) (ZRS) replicates your data synchronously across three availability zones in the region. Create Standard ZRS or Standard GZRS storage accounts to ensure data is replicated across availability zones.
 - Create separate storage accounts for deployments, web assets, and other data so that you can manage and configure the accounts separately.
 
-### Performance efficiency
-
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
-
-The following sections discuss scalability for key components in this architecture.
-
-#### Application Gateway
-
-- Implement autoscaling for Application Gateway to scale in or out to meet demand.
-- Set the maximum instance count to a number higher than your expected need. You'll only be charged for the Capacity Units you use.
-- Set a minimum instance count that can handle small spikes in traffic. You can use [average Compute Unit usage](/azure/application-gateway/high-traffic-support#set-your-minimum-instance-count-based-on-your-average-compute-unit-usage) to calculate your minimum instance count.
-- Follow the [guidance on sizing the Application Gateway subnet](/azure/application-gateway/configuration-infrastructure#size-of-the-subnet).
-
-#### App Service
-
-- Use Standard or higher plans with three or more worker instances for high availability.
-- Enable [Autoscale](/azure/azure-monitor/autoscale/autoscale-get-started) to make sure you can scale up and down to meet demand.
-- Consider [opening a support ticket to increase the maximum number of workers to two times the instance count](/azure/well-architected/services/compute/azure-app-service/reliability#configuration-recommendations) if your App Service consistently uses half the number of maximum instances. The maximum number of instances defaults to up to 30 for a Premium App Service plan and 10 for a Standard plan.
-- Consider deploying multiple stamps of the application when your App Service starts hitting the upper limits.
-- Choose the right [Azure App Service plan](/azure/app-service/overview-hosting-plans#manage-an-app-service-plan) that meets your workload requirements.
-- [Add Azure CDN to Azure App Service](/azure/cdn/cdn-add-to-web-app) to serve static content.
-- Consider [App Service Environment](/azure/app-service/environment/overview) if noisy neighbors are a concern.
-
-#### SQL Server
-
-Scaling database resources is a complex topic outside of the scope of this architecture. Consider the following resources when scaling your database,
-
-- [Dynamically scale database resources with minimal downtime](/azure/azure-sql/database/scale-resources)
-- [Scaling out with Azure SQL Database](/azure/azure-sql/database/elastic-scale-introduction)
-- [Use read-only replicas to offload read-only query workloads](/azure/azure-sql/database/read-scale-out)
-
-#### Other scalability guidance
-
-- Review [subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) to ensure that services scale to demand.
-- Consider [caching](/azure/architecture/best-practices/caching) for the following kinds of data to increase performance and scalability:
-  - Semi-static transaction data.
-  - Session state.
-  - HTML output. This can be useful in applications that render complex HTML output.
-
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
@@ -242,9 +203,9 @@ The App Service baseline configures authentication and authorization for user id
 - Use managed identity for workload identities. Managed identity eliminates the need for developers to manage authentication credentials.
 - Use user-assigned managed identities. A system-assigned identity can cause infrastructure-as-code deployments to fail based on race conditions and order of operations. You can use user-assigned managed identities to avoid some of these deployment error scenarios. For more information, see [Managed identities](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 Deployment for the baseline App Service application follows the guidance in [CI/CD for Azure Web Apps with Azure Pipelines](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps). In addition to that guidance, the App Services baseline architecture takes into account that the application and the deployment storage account are network secured. The architecture denies public access to App Service. This means you can't deploy from outside the virtual network. The baseline shows you how to deploy the application code within the virtual network using self-hosted deployment agents. The following deployment guidance focuses on deploying the application code and not deploying infrastructure or database changes.
 
@@ -344,6 +305,45 @@ App Service has built-in and integrated monitoring tools that you should enable 
 
 - User database Insights. For Azure SQL databases, you should configure [SQL Insights in Azure Monitor](/azure/azure-sql/database/sql-insights-overview). Database Insights uses dynamic management views to expose the data that you need to monitor health, diagnose problems, and tune performance. For more information, see [Monitoring Azure SQL Database with Azure Monitor.](/azure/azure-sql/database/monitoring-sql-database-azure-monitor?view=azuresql)
 - If your architecture includes Cosmos DB, you don't need to enable or configure anything to use [Cosmos DB insights](/azure/cosmos-db/insights-overview).
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+The following sections discuss scalability for key components in this architecture.
+
+#### Application Gateway
+
+- Implement autoscaling for Application Gateway to scale in or out to meet demand.
+- Set the maximum instance count to a number higher than your expected need. You'll only be charged for the Capacity Units you use.
+- Set a minimum instance count that can handle small spikes in traffic. You can use [average Compute Unit usage](/azure/application-gateway/high-traffic-support#set-your-minimum-instance-count-based-on-your-average-compute-unit-usage) to calculate your minimum instance count.
+- Follow the [guidance on sizing the Application Gateway subnet](/azure/application-gateway/configuration-infrastructure#size-of-the-subnet).
+
+#### App Service
+
+- Use Standard or higher plans with three or more worker instances for high availability.
+- Enable [Autoscale](/azure/azure-monitor/autoscale/autoscale-get-started) to make sure you can scale up and down to meet demand.
+- Consider [opening a support ticket to increase the maximum number of workers to two times the instance count](/azure/well-architected/services/compute/azure-app-service/reliability#configuration-recommendations) if your App Service consistently uses half the number of maximum instances. The maximum number of instances defaults to up to 30 for a Premium App Service plan and 10 for a Standard plan.
+- Consider deploying multiple stamps of the application when your App Service starts hitting the upper limits.
+- Choose the right [Azure App Service plan](/azure/app-service/overview-hosting-plans#manage-an-app-service-plan) that meets your workload requirements.
+- [Add Azure CDN to Azure App Service](/azure/cdn/cdn-add-to-web-app) to serve static content.
+- Consider [App Service Environment](/azure/app-service/environment/overview) if noisy neighbors are a concern.
+
+#### SQL Server
+
+Scaling database resources is a complex topic outside of the scope of this architecture. Consider the following resources when scaling your database,
+
+- [Dynamically scale database resources with minimal downtime](/azure/azure-sql/database/scale-resources)
+- [Scaling out with Azure SQL Database](/azure/azure-sql/database/elastic-scale-introduction)
+- [Use read-only replicas to offload read-only query workloads](/azure/azure-sql/database/read-scale-out)
+
+#### Other scalability guidance
+
+- Review [subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) to ensure that services scale to demand.
+- Consider [caching](/azure/architecture/best-practices/caching) for the following kinds of data to increase performance and scalability:
+  - Semi-static transaction data.
+  - Session state.
+  - HTML output. This can be useful in applications that render complex HTML output.
 
 ### Governance
 

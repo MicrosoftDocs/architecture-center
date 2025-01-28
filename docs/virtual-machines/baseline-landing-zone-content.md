@@ -296,7 +296,13 @@ To maintain service-level objectives (SLOs) of the workload, the platform team m
 
 For example, communicate changes to any previously disallowed egress flow so that the platform team can add that flow in the firewall, Virtual Network Manager, or other components to support the required traffic. Conversely, if a previously allowed egress flow is no longer needed, the platform team should block that flow in order to maintain the workload's security. Also communicate changes in routing to other virtual networks or cross-premises endpoints or changes to the architecture components. Each resource is subject to policies and potentially egress firewall control.
 
-## Reliability
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 This architecture aligns with the reliability guarantees in the [baseline architecture](baseline.yml#reliability).
 
@@ -326,11 +332,9 @@ Many of these considerations might exist without Azure landing zones, but the wo
 
 For more information, see [Recommendations for performing failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis#identify-dependencies).
 
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
-
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 The security considerations for this architecture carry over from the [baseline architecture](baseline.yml#security). The recommendations in the following sections are based on the [security design review checklist in the Well-Architected Framework](/azure/well-architected/security/checklist).
 
@@ -382,7 +386,9 @@ As a workload team, continue keeping your secrets in your Key Vault instance. De
 
 For more information, see [Recommendations for protecting application secrets](/azure/well-architected/security/application-secrets).
 
-## Cost optimization
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 For the workload resources, the cost optimization strategies in the [baseline architecture](baseline.yml#cost-optimization) also apply to this architecture.
 

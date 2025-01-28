@@ -456,9 +456,9 @@ Stateful workloads might require extra management for managed disks that need to
 
 > Refer to Well-Architected Framework: [Recommendations for self-healing and self-preservation](/azure/well-architected/reliability/self-preservation).
 
-## Security
+### Security
 
-This architecture illustrates some of the security assurances given in the [Security design review checklist given in Azure Well-Architected Framework](/azure/well-architected/security/checklist). The sections are annotated with recommendations from that checklist.
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Security doesn't only refer to technical controls. We recommend that you follow the entire checklist to understand the operational aspects of the Security pillar.
 
@@ -539,9 +539,9 @@ The VMs use the [Key Vault VM extension](/azure/virtual-machines/extensions/key-
 
 > Refer to Well-Architected Framework: [SE:09 - Recommendations for protecting application secrets](/azure/well-architected/security/application-secrets).
 
-## Cost Optimization
+### Cost Optimization
 
-Workload requirements must be fulfilled keeping in mind the cost constraints. The strategies used in the architecture are based on the [Cost Optimization design review checklist given in Azure Well-Architected Framework](/azure/well-architected/cost-optimization/checklist). This section describes some options for optimizing cost and is annotated with recommendations from that checklist.
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 #### Component cost
 
