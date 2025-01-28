@@ -1,4 +1,4 @@
-In a microservices architecture, a client might interact with more than one front-end service. Given this fact, how does a client know what endpoints to call? What happens when new services are introduced, or existing services are refactored? How do services handle SSL termination, authentication, and other concerns? An *API gateway* can help to address these challenges.
+In a microservices architecture, a client might interact with more than one front-end service. Given this fact, how does a client know what endpoints to call? What happens when new services are introduced, or existing services are refactored? How do services handle SSL termination, mutual TLS, authentication, and other concerns? An *API gateway* can help to address these challenges.
 
 ![Diagram of an API gateway](../images/gateway.png)
 
@@ -6,7 +6,7 @@ In a microservices architecture, a client might interact with more than one fron
 
 ## What is an API gateway?
 
-An API gateway provides a centralized entry point for managing interactions between clients and application services. It acts as a reverse proxy and routes clients requests to the appropriate services. It can also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting.
+An API gateway provides a centralized entry point for managing interactions between clients and application services. It acts as a reverse proxy and routes clients requests to the appropriate services. It can also perform various cross-cutting tasks such as authentication, SSL termination, mutual TLS, and rate limiting.
 
 ## Why use an API gateway?
 
@@ -35,6 +35,7 @@ An API gateway can be tailored to your application’s requirements by using spe
 - [Gateway offloading](../../patterns/gateway-offloading.yml). You can use an API gateway to provide cross-cutting functionality, so individual services don't have to provide it. Here are some examples of functionality that could be offloaded to an API gateway:
 
     - SSL termination
+    - Mutal TLS
     - Authentication
     - IP allowlist or blocklist
     - Client rate limiting (throttling)
