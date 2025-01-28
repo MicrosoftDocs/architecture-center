@@ -60,10 +60,6 @@ The Well-Architected Framework also provides these checklists:
 
 - [Multilayered protection for Azure virtual machine access](../../solution-ideas/articles/multilayered-protection-azure-vm.yml)
 
-### Information protection
-
-- [Homomorphic encryption with SEAL](../../solution-ideas/articles/homomorphic-encryption-seal.yml)
-
 ## Stay current with security
 
 Get the latest updates on [Azure security services and features](https://azure.microsoft.com/updates/?category=security).
