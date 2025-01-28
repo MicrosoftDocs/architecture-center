@@ -85,10 +85,6 @@ The VMs in this architecture might require direct access by operators, but we re
 1. The operator signs into the Azure portal or Azure CLI.
 1. The operator accesses the Azure Bastion service and remotely connects to the desired VM.
 
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
-
 ## VM design choices
 
 When selecting SKUs, it's important to have a baseline performance expectation. Several characteristics influence the decision-making process, including:
@@ -342,7 +338,13 @@ If there are custom processes for applying patches, use private repositories for
 
 For more information, see [Automatic VM guest patching for Azure VMs](/azure/virtual-machines/automatic-vm-guest-patching).
 
-## Reliability
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 This architecture uses availability zones as a foundational element to address reliability concerns.
 
