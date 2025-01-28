@@ -6633,6 +6633,11 @@
       "source_path": "docs/reference-architectures/n-tier/high-security-iaas.yml",
       "redirect_url": "/azure/architecture/virtual-machines/baseline",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/security/azure-monitor-integrate-security-components.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/map-threats-it-environment",
+      "redirect_document_id": false
     }
   ]
 }

@@ -1844,8 +1844,6 @@ items:
       - name: Microsoft Cybersecurity Architectures
         href: /security/cybersecurity-reference-architecture/mcra
         maintainContext: true
-      - name: Use Azure monitoring to integrate security
-        href: guide/security/azure-monitor-integrate-security-components.yml
       - name: Virtual Network security options
         href: example-scenario/gateway/firewall-application-gateway.yml
       - name: Zero-trust network for web applications
