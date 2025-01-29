@@ -1884,10 +1884,6 @@ items:
       items:
       - name: Automate Sentinel integration with DevOps
         href: example-scenario/devops/automate-sentinel-integration.yml
-      - name: Improved-security access to multitenant
-        href: web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml
-      - name: Loan credit risk modeling
-        href: example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml
       - name: Securely managed web apps
         href: example-scenario/apps/fully-managed-secure-apps.yml
       - name: Secure a Microsoft Teams channel bot

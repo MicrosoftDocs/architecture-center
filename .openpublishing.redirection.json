@@ -6658,6 +6658,11 @@
       "source_path": "docs/hybrid/hybrid-security-monitoring.yml",
       "redirect_url": "/azure/defender-for-cloud/defender-for-cloud-introduction",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
     }
   ]
 }
