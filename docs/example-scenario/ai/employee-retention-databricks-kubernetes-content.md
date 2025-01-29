@@ -141,5 +141,4 @@ Microsoft Learn modules:
 You might also find these Architecture Center articles useful:
 
 - [Machine Learning operations maturity model](../../ai-ml/guide/mlops-maturity-model.yml)
-- [Team Data Science Process for data scientists](../../data-science-process/team-data-science-process-for-data-scientists.md)
 - [Modern analytics architecture with Azure Databricks](../../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
