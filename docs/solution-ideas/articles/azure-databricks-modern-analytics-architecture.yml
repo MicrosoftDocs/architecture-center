@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Modern analytics architecture with Azure Databricks
+  title: Create a Modern Analytics Architecture by using Azure Databricks
   titleSuffix: Azure Architecture Center
-  description: Create a modern analytics architecture with Azure Databricks, Data Lake Storage, and other Azure services. Unify data, analytics, and AI workloads at any scale.
+  description: Learn how to create a modern analytics architecture by using Azure Databricks and Data Lake Storage. Unify data, analytics, and AI workloads at any scale.
   author: josearper
   ms.author: agarrido
   ms.date: 12/04/2024
@@ -20,8 +20,8 @@ products:
   - fabric
   - power-bi
   - azure-data-lake-storage
-name: Modern analytics architecture with Azure Databricks
-summary: Create a modern analytics architecture with Azure Databricks, Data Lake Storage, and other Azure services. Unify data, analytics, and AI workloads at any scale.
+name: Create a modern analytics architecture by using Azure Databricks
+summary: Learn how to create a modern analytics architecture by using Azure Databricks, Data Lake Storage, and other Azure services. Unify data, analytics, and AI workloads at any scale.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-databricks-modern-analytics-architecture.png
 content: |
   [!include[](azure-databricks-modern-analytics-architecture-content.md)]
