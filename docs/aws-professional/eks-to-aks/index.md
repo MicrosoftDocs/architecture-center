@@ -3,7 +3,7 @@ title: AKS for Amazon EKS professionals
 description: Read about the Azure Kubernetes Service (AKS) managed solution, configurations, best practices, and similarities and differences with Amazon EKS.
 author: paolosalvatori
 ms.author: paolos
-ms.date: 01/20/2025
+ms.date: 01/28/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
