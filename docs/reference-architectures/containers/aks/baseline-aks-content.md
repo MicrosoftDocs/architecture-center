@@ -647,7 +647,7 @@ The [ContainerLogV2 log schema](/azure/azure-monitor/containers/container-insigh
 In an AKS cluster, there are two primary methods for configuring pod log collection with Container Insights. Both approaches allow you to customize settings such as filtering namespaces, adjusting collection intervals, enabling or disabling specific features (for example, ContainerLogV2 or ContainerLogV2-HighScale), and specifying which data streams to collect.
 
 - If you require centralized, reusable monitoring configurations across multiple clusters or prefer cluster configuration to be externalized in Azure-native resources, use [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) (DCRs). DCRs are native Azure resources managed via the Azure Resource Manager (ARM) control plane, and they can be included in Bicep files.
-- Alternatively, you can define monitoring by using ConfigMaps, which are nonconfidential Kubernetes YAML objects configured through the Kubernetes API control plane. The Container Insights agent monitors ConfigMap objects within the cluster it operates in, using predefined settings to determine which data to collect.
+- Alternatively, you can define monitoring by using ConfigMaps, which are nonconfidential Kubernetes YAML objects configured through the Kubernetes API control plane. The Container Insights agent running on the cluster monitors for ConfigMap objects, and it uses predefined settings to determine which data to collect.
 
 When both methods are enabled, ConfigMap settings take precedence over DCRs. Avoid mixing ConfigMap and DCR configuration for container log collection, because this can lead to hard-to-troubleshoot logging issues.
 
