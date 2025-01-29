@@ -2966,6 +2966,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/data-science-process/context/ml-context.yml",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/data/data-analysis-regulated-industries.yml",
       "redirect_url": "/azure/architecture/example-scenario/data/data-warehouse",
       "redirect_document_id": false
