@@ -123,6 +123,16 @@ The following are configuration recommendations and considerations:
   - Using Azure Key Vault, you're able to log every interaction with secrets, including every time a secret is accessed.
 - When you move into production, you can maintain your use of both Azure Key Vault and App Service configuration by [using Key Vault references](/azure/app-service/app-service-key-vault-references).
 
+#### Containers
+
+The basic architecture can be used to deploy supported code directly to Windows or Linux instances. Alternatively, App Service is also a container hosting platform to run your containerized web application. App Service offers various built-in containers. If you're using custom or multi-container apps to further fine-tune your runtime environment or to support a code language not natively supported, you'll need to introduce a container registry.
+
+#### Control plane
+
+During the POC phase, get comfortable with Azure App Service's control plane as exposed through the Kudu service. This service exposes common deployment APIs, such as ZIP deployments, exposes raw logs and environment variables.
+
+If using containers, be sure to understand Kudu's ability to Open an SSH session to a container to support advanced debugging capabilities.
+
 #### Diagnostics and monitoring
 
 During the proof of concept phase, it's important to get an understanding of what logs and metrics are available to be captured. The following are recommendations and considerations for monitoring in the proof of concept phase:
@@ -140,16 +150,6 @@ The following lists guidance around deploying your App Service application.
 - Use different ARM Templates and integrate them with Azure DevOps services. This setup lets you create different environments. For example, you can replicate production-like scenarios or load testing environments only when needed and save on cost.
 
 For more information, see the DevOps section in [Azure Well-Architected Framework](/azure/architecture/framework/devops/overview).
-
-#### Containers
-
-The basic architecture can be used to deploy supported code directly to Windows or Linux instances. Alternatively, App Service is also a container hosting platform to run your containerized web application. App Service offers various built-in containers. If you're using custom or multi-container apps to further fine-tune your runtime environment or to support a code language not natively supported, you'll need to introduce a container registry.
-
-#### Control plane
-
-During the POC phase, get comfortable with Azure App Service's control plane as exposed through the Kudu service. This service exposes common deployment APIs, such as ZIP deployments, exposes raw logs and environment variables.
-
-If using containers, be sure to understand Kudu's ability to Open an SSH session to a container to support advanced debugging capabilities.
 
 ### Performance Efficiency
 
