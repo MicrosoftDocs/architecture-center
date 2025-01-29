@@ -24,7 +24,7 @@ In this phase, you evaluate your Retrieval-Augmented Generation (RAG) solution b
 
 This grounding data forms the context for the prompt that you send to the language model to address the user's query. [Prompt engineering strategies](https://platform.openai.com/docs/guides/prompt-engineering) are beyond the scope of this article. This article addresses the evaluation of the engineered call to the language model from the perspective of the grounding data. This article covers common language model evaluation metrics and specific similarity and evaluation metrics that you can use in model evaluation calculations or as standalone metrics.
 
-This article doesn't attempt to provide an exhaustive list of language model metrics or similarity and evaluation metrics. The number of these metrics grows every day. What's important for you to take away from this article is that there are various metrics that each have distinct use cases. Only you have a holistic understanding your workload. You and your data scientists must determine what you want to measure and which metrics are appropriate.
+This article doesn't attempt to provide an exhaustive list of language model metrics or similarity and evaluation metrics. What's important for you to take away from this article is that there are various metrics that each have distinct use cases. Only you have a holistic understanding your workload. You and your data scientists must determine what you want to measure and which metrics are appropriate.
 
 This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md) first.
 
