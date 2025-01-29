@@ -1171,8 +1171,6 @@ items:
       items:
       - name: Automate API deployments with APIOps
         href: example-scenario/devops/automated-api-deployments-apiops.yml
-      - name: Automate Sentinel integration
-        href: example-scenario/devops/automate-sentinel-integration.yml
       - name: CI/CD pipeline using Azure DevOps
         href: example-scenario/apps/devops-dotnet-baseline.yml
       - name: Enterprise monitoring with Azure Monitor
@@ -1882,8 +1880,6 @@ items:
           maintainContext: true
     - name: Architectures
       items:
-      - name: Automate Sentinel integration with DevOps
-        href: example-scenario/devops/automate-sentinel-integration.yml
       - name: Secure a Microsoft Teams channel bot
         href: example-scenario/teams/securing-bot-teams-channel.yml
       - name: Secure research for regulated data

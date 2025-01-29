@@ -6663,6 +6663,11 @@
       "source_path": "docs/example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml",
       "redirect_url": "/azure/architecture/ai-ml/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/devops/automate-sentinel-integration.yml",
+      "redirect_url": "/azure/sentinel/",
+      "redirect_document_id": false
     }
   ]
 }
