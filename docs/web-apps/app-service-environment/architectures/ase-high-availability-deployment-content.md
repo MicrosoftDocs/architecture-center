@@ -60,23 +60,6 @@ When you implement zone redundancy, the platform automatically deploys the insta
 
 For more information, see [Reliability in Azure App Service](/azure/reliability/reliability-app-service?pivots=isolated).
 
-### Cost Optimization
-
-Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
-
-The cost considerations for the high availability architecture are similar to those of the standard deployment.
-
-The following differences can affect the cost:
-
-- You're charged for at least nine App Service plan instances in a zone-redundant App Service Environment. For more information, see [App Service Environment pricing](/azure/app-service/environment/overview#pricing).
-- Azure Cache for Redis is also a zone-redundant service. A zone-redundant cache runs on VMs that are deployed across multiple availability zones to provide higher resilience and availability.
-
-The tradeoff for a highly available, resilient, and highly secure system is increased cost. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to evaluate your needs with respect to pricing.
-
-### Operational Excellence
-
-Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
-
 #### Resiliency
 
 The applications that run in App Service Environment form the [backend pool](/azure/application-gateway/application-gateway-components#backend-pools) for Application Gateway. When a request to the application comes from the public internet, the gateway forwards the request to the application running in App Service Environment. This reference architecture implements [health checks](/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-3.1) within the main web frontend, `votingApp`. This health probe checks whether the web API and the Redis cache are healthy. You can see the code that implements this probe in [Startup.cs](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingWeb/Startup.cs):
@@ -115,6 +98,19 @@ cat <<EOF > appgwApps.parameters.json
 If any of the components (the web frontend, the API, or the cache) fails the health probe, Application Gateway routes the request to the other application in the backend pool. This configuration ensures that the request is always routed to the application in a completely available App Service Environment subnet.
 
 The health probe is also implemented in the standard reference implementation. There, the gateway simply returns an error if the health probe fails. However, the highly available implementation improves the resiliency of the application and the quality of the user experience.
+
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+The cost considerations for the high availability architecture are similar to those of the standard deployment.
+
+The following differences can affect the cost:
+
+- You're charged for at least nine App Service plan instances in a zone-redundant App Service Environment. For more information, see [App Service Environment pricing](/azure/app-service/environment/overview#pricing).
+- Azure Cache for Redis is also a zone-redundant service. A zone-redundant cache runs on VMs that are deployed across multiple availability zones to provide higher resilience and availability.
+
+The tradeoff for a highly available, resilient, and highly secure system is increased cost. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to evaluate your needs with respect to pricing.
 
 ## Deploy this scenario
 
