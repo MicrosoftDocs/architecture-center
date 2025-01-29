@@ -169,7 +169,7 @@ This metric combination is one where prioritizing one over the other could be ve
 
 ### Utilization and completeness
 
-Groundedness and completeness metrics together help evaluate the effectiveness of the retrieval system. High groundedness (0.9) with low completeness (0.3) indicates the system retrieves accurate but incomplete information. For instance, when asked about World War II causes, the system might perfectly retrieve information about the invasion of Poland but miss other crucial factors. This scenario may indicate that there are chunks with relevant information that weren't used as part of the context. To address this scenario, consider returning more chunks, evaluating your chunk ranking strategy, and evaluating your prompt.
+Utilization and completeness metrics together help evaluate the effectiveness of the retrieval system. High utilization (0.9) with low completeness (0.3) indicates the system retrieves accurate but incomplete information. For instance, when asked about World War II causes, the system might perfectly retrieve information about the invasion of Poland but miss other crucial factors. This scenario may indicate that there are chunks with relevant information that weren't used as part of the context. To address this scenario, consider returning more chunks, evaluating your chunk ranking strategy, and evaluating your prompt.
 
 ### Groundedness and utilization and similarity
 
