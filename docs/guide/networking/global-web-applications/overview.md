@@ -32,11 +32,11 @@ In the **[baseline architecture for a mission-critical application](/azure/archi
 - Serve static content from edge nodes by using integrated content delivery networks (CDNs)
 - Block unauthorized access with integrated web application firewall
 
-Front Door is designed to provide the utmost resiliency and availability for not only our external customers, but also for multiple properties across Microsoft. For more information about Front Door's capabilities, see [Accelerate and secure your web application with Azure Front Door](/azure/frontdoor/scenarios).
+Azure Front Door is designed to provide the utmost resiliency and availability for not only our external customers, but also for multiple properties across Microsoft. For more information about Azure Front Door's capabilities, see [Accelerate and secure your web application with Azure Front Door](/azure/frontdoor/scenarios).
 
-Front Door capabilities are more than enough to meet most business requirements, however, with any distributed system, expect failure. If the business requirements demand a higher composite SLO or zero-down time in case of an outage, you'll need to rely on an alternate traffic ingress path. However, the pursuit of a higher SLO comes with significant costs, operational overhead, and can lower your overall reliability. Carefully consider the [tradeoffs](#tradeoffs) and potential issues that the alternate path might introduce in other components that are on the critical path. Even when the impact of unavailability is significant, complexity might outweigh the benefit.
+Azure Front Door capabilities are more than enough to meet most business requirements, however, with any distributed system, expect failure. If the business requirements demand a higher composite SLO or zero-down time in case of an outage, you'll need to rely on an alternate traffic ingress path. However, the pursuit of a higher SLO comes with significant costs, operational overhead, and can lower your overall reliability. Carefully consider the [tradeoffs](#tradeoffs) and potential issues that the alternate path might introduce in other components that are on the critical path. Even when the impact of unavailability is significant, complexity might outweigh the benefit.
 
-One approach is to define a secondary path, with alternate service(s), which becomes active only when Azure Front Door is unavailable. Feature parity with Front Door shouldn't be treated as a hard requirement. Prioritize features that you absolutely need for business continuity purposes, even potentially running in a limited capacity.
+One approach is to define a secondary path, with alternate service(s), which becomes active only when Azure Front Door is unavailable. Feature parity with Azure Front Door shouldn't be treated as a hard requirement. Prioritize features that you absolutely need for business continuity purposes, even potentially running in a limited capacity.
 
 Another approach is using third-party technology for global routing. This approach will require a multicloud active-active deployment with stamps hosted across two or more cloud providers. Even though Azure can effectively be integrated with other cloud platforms, this approach isn't recommended because of operational complexity across the different cloud platforms.
 
@@ -68,7 +68,7 @@ With this approach, we will introduce several components and provide guidance th
 
     The specific service that you select for the secondary router depends on many factors. You might choose to use Azure-native services, or third-party services. In these articles we provide Azure-native options to avoid adding additional operational complexity to the solution. If you use third-party services, you need to use multiple control planes to manage your solution.
 
-1. Your origin application servers need to be ready to accept traffic from either service. Consider how you [secure traffic to your origin](#origin-security), and what responsibilities Front Door and other upstream services provide. Ensure that your application can handle traffic from whichever path your traffic flows through.
+1. Your origin application servers need to be ready to accept traffic from either service. Consider how you [secure traffic to your origin](#origin-security), and what responsibilities Azure Front Door and other upstream services provide. Ensure that your application can handle traffic from whichever path your traffic flows through.
 
 ### Tradeoffs
 
@@ -178,7 +178,7 @@ Include these questions in your health model design:
 
 There are multiple global load balancing solutions that enable you to monitor the health of Azure Front Door and trigger an automatic failover to a backup platform if an outage occurs. Azure Traffic Manager is suitable in most cases. With Traffic Manager, you configure [endpoint monitoring](/azure/traffic-manager/traffic-manager-monitoring) to monitor downstream services by specifying which URL to check, how frequently to check that URL, and when to consider the downstream service unhealthy based on probe responses. In general, the shorter the interval between checks, the less time it takes for Traffic Manager to direct traffic through an alternative path to reach your origin server.
 
-If Front Door is unavailable, then multiple factors influence the amount of time that the outage affects your traffic, including:
+If Azure Front Door is unavailable, then multiple factors influence the amount of time that the outage affects your traffic, including:
 
 - The time to live (TTL) on your DNS records.
 - How frequently Traffic Manager runs its health checks.
