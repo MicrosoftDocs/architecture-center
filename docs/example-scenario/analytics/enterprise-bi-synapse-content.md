@@ -38,7 +38,7 @@ The architecture described in this article uses presumes that Azure Synapse data
 
 #### Analysis and reporting
 
-- The data-modeling approach in this scenario is presented by combining the [enterprise model][enterprise-model] and [BI semantic model][bi-model]. The enterprise model is stored in an [Azure Synapse dedicated SQL pool][synapse-dedicated-pool], and the BI semantic model is stored in [Power BI Premium capacities][pbi-premium-capacities], F64. Power BI accesses the data via DirectQuery.
+- The data-modeling approach in this scenario combines the [enterprise model][enterprise-model] and the [BI semantic model][bi-model]. The enterprise model is stored in an [Azure Synapse dedicated SQL pool][synapse-dedicated-pool]. The BI semantic model is stored in [Power BI Premium capacities][pbi-premium-capacities], F64. Power BI accesses the data via DirectQuery.
 
 ### Components
 
