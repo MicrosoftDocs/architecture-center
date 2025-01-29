@@ -213,7 +213,7 @@ This scenario uses [Power BI Premium workspaces](/power-bi/admin/service-premium
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-- Refer to this [article](/azure/synapse-analytics/cicd/continuous-integration-delivery) for guidance on using an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse workspace across multiple environments.
+-  For guidance on how to use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse workspace across multiple environments, see [article](/azure/synapse-analytics/cicd/continuous-integration-delivery)
 - Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a continuous integration and continuous delivery (CI/CD) process, making the automation process easier. In this architecture, there are four main workloads:
   - The data warehouse server, and related resources
   - Azure Synapse pipelines
