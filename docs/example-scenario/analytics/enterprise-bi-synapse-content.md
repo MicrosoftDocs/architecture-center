@@ -83,7 +83,7 @@ This scenario uses the [AdventureWorks sample database][adventureworksdw-sample-
 
 ### Metadata-driven copy tool
 
-The built-in [Metadata-driven copy tool](/azure/data-factory/copy-data-tool-metadata-driven) within Azure Synapse Analytics Pipelines incrementally loads all tables contained within our relational database. By navigating through the wizard-based experience, you can connect the Copy Data tool to the source database, and configure either incremental or full loading for each table. The Copy Data tool then creates both the pipelines and SQL scripts to generate the control table required to store data for the incremental loading process&mdash;for example, the high watermark value/column for each table. Once these scripts are run, the pipeline is ready to load all tables in the source data warehouse into the Synapse dedicated pool.
+The built-in [Metadata-driven copy tool](/azure/data-factory/copy-data-tool-metadata-driven) within Azure Synapse Analytics Pipelines incrementally loads all tables contained within our relational database. Through a wizard interface, you can connect the Copy Data tool to the source database. Once connected, you can then configure either incremental or full loading for each table. Next, the Copy Data tool creates both the pipelines and SQL scripts that generate the control table required to store data for the incremental loading process, such as the high watermark value/column for each table. Once these scripts are run, the pipeline is ready to load all source data warehouse tables into the Synapse dedicated pool.
 
 :::image type="content" source="./media/metadata-copy.png" alt-text="Screenshot of metadata-driven copy data tool in Azure Synapse Analytics.":::
 
