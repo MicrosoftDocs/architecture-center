@@ -45,7 +45,7 @@ This scenario uses the following components:
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework): PaaS SQL Server hosted on Azure that we use to demonstrate flow of data for the migration scenario. 
 - [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction): Flexible Cloud storage for unstructured data that is used for persisting intermediate migration result.
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is): Enterprise analytics service for data warehousing and big data systems, used as main compute and persistent storage in enterprise semantic modeling and servicing.
-- [Power BI Premium](/power-bi/enterprise/service-premium-what-is): Business intelligence tool, which is used for presentation portion of the scenario.
+- [Power BI Premium](/power-bi/enterprise/service-premium-what-is): Business intelligence tool, which is used for the presentation portion of the scenario.
 - [Microsoft Entra ID](/entra/fundamentals/whatis): Multicloud identity and network solution suite that's used to support authentication and authorization flow.
 
 ### Simplified architecture
