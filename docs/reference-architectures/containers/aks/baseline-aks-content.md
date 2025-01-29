@@ -644,7 +644,7 @@ We recommend Azure Monitor [container insights](/azure/azure-monitor/containers/
 
 The [ContainerLogV2 log schema](/azure/azure-monitor/containers/container-insights-logs-schema) is designed to capture container logs from Kubernetes pods in a streamlined approach. Log entries are consolidated into the `ContainerLogV2` table in an Azure Log Analytics workspace.
 
-In an AKS cluster, there are two primary methods for configuring log collection with Container Insights. Both approaches allow you to customize settings such as filtering namespaces, adjusting collection intervals, enabling or disabling specific features (e.g., ContainerLogV2 or ContainerLogV2-HighScale), and specifying which data streams to collect.
+In an AKS cluster, there are two primary methods for configuring log collection with Container Insights. Both approaches allow you to customize settings such as filtering namespaces, adjusting collection intervals, enabling or disabling specific features (for example, ContainerLogV2 or ContainerLogV2-HighScale), and specifying which data streams to collect.
 
 - If you require centralized, reusable monitoring configurations across multiple clusters, consider leveraging [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) (DCRs). DCRs are native Azure resources managed via the Azure Resource Manager (ARM) control plane, and they can be included in Bicep files.
 - Alternatively, you can define monitoring by using ConfigMaps, which are nonconfidential Kubernetes YAML objects configured through the Kubernetes API control plane. The container unsights agent monitors ConfigMap objects within the cluster it operates in, using predefined settings to determine which data to collect.
