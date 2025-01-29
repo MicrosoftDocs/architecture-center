@@ -197,38 +197,6 @@ properties: {
 }
 ```
 
-### Scalability
-
-#### Design scalable apps
-
-The application in this reference architecture is structured so that individual components can be scaled based on usage. Each web app, API, and function is deployed in its own App Service plan. You can monitor each app for any performance bottlenecks, and then [scale it up](/azure/app-service/manage-scale-up) if required.
-
-#### Autoscaling Application Gateway
-
-Autoscaling can be enabled on Azure Application Gateway V2. This allows Application Gateway to scale up or down based on the traffic load patterns. This reference architecture configures `autoscaleConfiguration` in the file [appgw.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/appgw.bicep) to scale between zero and 10 additional instances. See [Scaling Application Gateway and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#scaling-application-gateway-and-waf-v2) for more details.
-
-### Deployment
-
-The deployment scripts in this reference architecture are used to deploy App Service Environment, other services, and the applications inside App Service Environment. Once these applications are deployed, enterprises might want to have a plan for continuous integration and deployment for app maintenance and upgrades. This section shows some of the common ways developers use for CI/CD of App Service Environment applications.
-
-Apps can be deployed to an internal App Service Environment only from within the virtual network. The following three methods are widely used to deploy App Service Environment apps:
-
-- **Manually inside the Virtual Network:** Create a virtual machine inside the App Service Environment virtual network with the required tools for the deployment. Open up the RDP connection to the VM using an NSG configuration. Copy your code artifacts to the VM, build, and deploy to the App Service Environment subnet. This is a simple way to set up an initial build and test development environment. It is however not recommended for production environment since it cannot scale the required deployment throughput.
-
-- **Point to site connection from local workstation:** This allows you to extend your App Service Environment virtual network to your development machine, and deploy from there. This is another way to set up an initial dev environment, and not recommended for production.
-
-- **Through Azure Pipelines:** This implements a complete CI/CD pipeline, ending in an agent located inside the virtual network. This is ideal for production environments requiring high throughput of deployment. The build pipeline remains entirely outside the virtual network. The deploy pipeline copies the built objects to the build agent inside the virtual network, and then deploys to the App Service Environment subnet. For more information, read this discussion on the [self-hosted build agent between Pipelines and the App Service Environment virtual network](/azure/devops/pipelines/agents/v2-windows).
-
-Using Azure Pipelines is recommended for production environments. Scripting CI/CD with the help of [Azure Pipelines YAML schema](/azure/devops/pipelines/yaml-schema) helps to automate the build and deployment processes. The [azure-pipelines.yml](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingWeb/azure-pipelines.yml) implements such a CI/CD pipeline for the web app in this reference implementation. There are similar CI/CD scripts for the [web API](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingData/azure-pipelines.yml) as well as the [function](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/function-app-ri/azure-pipelines.yml). Read [Use Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started) to learn how these are used to automate CI/CD for each application.
-
-Some enterprises may not want to maintain a permanent build agent inside the virtual network. In that case, you can choose to create a build agent within the DevOps pipeline, and tear it down once the deployment is completed. This adds another step in the DevOps, however it lowers the complexity of maintaining the VM. You may even consider using containers as build agents, instead of VMs. Build agents can also be completely avoiding by deploying from a *zipped file placed outside the virtual network*, typically in a storage account. The storage account will need to be accessible from the App Service Environment. The pipeline should be able to access the storage. At the end of the release pipeline, a zipped file can be dropped into the blob storage. The App Service Environment can then pick it up and deploy. Be aware of the following limitations of this approach:
-
-- There is a disconnect between the DevOps and the actual deployment process, leading to difficulties in monitoring and tracing any deployment issues.
-- In a locked down environment with secured traffic, you may need to change the rules to access the zipped file on the storage.
-- You will need to install specific extensions and tools on the App Service Environment to be able to deploy from the zip.
-
-To know some more ways the apps can be deployed to the App Service plans, read [the App Service articles focusing on deployment strategies](/azure/app-service/deploy-run-package).
-
 ### Cost Optimization
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
@@ -256,6 +224,44 @@ Following are pricing pages for other services that are used to lock down the Ap
 - [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault)
 
 - [Microsoft Entra pricing](https://azure.microsoft.com/pricing/details/active-directory)
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+#### Deployment
+
+The deployment scripts in this reference architecture are used to deploy App Service Environment, other services, and the applications inside App Service Environment. Once these applications are deployed, enterprises might want to have a plan for continuous integration and deployment for app maintenance and upgrades. This section shows some of the common ways developers use for CI/CD of App Service Environment applications.
+
+Apps can be deployed to an internal App Service Environment only from within the virtual network. The following three methods are widely used to deploy App Service Environment apps:
+
+- **Manually inside the Virtual Network:** Create a virtual machine inside the App Service Environment virtual network with the required tools for the deployment. Open up the RDP connection to the VM using an NSG configuration. Copy your code artifacts to the VM, build, and deploy to the App Service Environment subnet. This is a simple way to set up an initial build and test development environment. It is however not recommended for production environment since it cannot scale the required deployment throughput.
+
+- **Point to site connection from local workstation:** This allows you to extend your App Service Environment virtual network to your development machine, and deploy from there. This is another way to set up an initial dev environment, and not recommended for production.
+
+- **Through Azure Pipelines:** This implements a complete CI/CD pipeline, ending in an agent located inside the virtual network. This is ideal for production environments requiring high throughput of deployment. The build pipeline remains entirely outside the virtual network. The deploy pipeline copies the built objects to the build agent inside the virtual network, and then deploys to the App Service Environment subnet. For more information, read this discussion on the [self-hosted build agent between Pipelines and the App Service Environment virtual network](/azure/devops/pipelines/agents/v2-windows).
+
+Using Azure Pipelines is recommended for production environments. Scripting CI/CD with the help of [Azure Pipelines YAML schema](/azure/devops/pipelines/yaml-schema) helps to automate the build and deployment processes. The [azure-pipelines.yml](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingWeb/azure-pipelines.yml) implements such a CI/CD pipeline for the web app in this reference implementation. There are similar CI/CD scripts for the [web API](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingData/azure-pipelines.yml) as well as the [function](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/function-app-ri/azure-pipelines.yml). Read [Use Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started) to learn how these are used to automate CI/CD for each application.
+
+Some enterprises may not want to maintain a permanent build agent inside the virtual network. In that case, you can choose to create a build agent within the DevOps pipeline, and tear it down once the deployment is completed. This adds another step in the DevOps, however it lowers the complexity of maintaining the VM. You may even consider using containers as build agents, instead of VMs. Build agents can also be completely avoiding by deploying from a *zipped file placed outside the virtual network*, typically in a storage account. The storage account will need to be accessible from the App Service Environment. The pipeline should be able to access the storage. At the end of the release pipeline, a zipped file can be dropped into the blob storage. The App Service Environment can then pick it up and deploy. Be aware of the following limitations of this approach:
+
+- There is a disconnect between the DevOps and the actual deployment process, leading to difficulties in monitoring and tracing any deployment issues.
+- In a locked down environment with secured traffic, you may need to change the rules to access the zipped file on the storage.
+- You will need to install specific extensions and tools on the App Service Environment to be able to deploy from the zip.
+
+To know some more ways the apps can be deployed to the App Service plans, read [the App Service articles focusing on deployment strategies](/azure/app-service/deploy-run-package).
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+#### Design scalable apps
+
+The application in this reference architecture is structured so that individual components can be scaled based on usage. Each web app, API, and function is deployed in its own App Service plan. You can monitor each app for any performance bottlenecks, and then [scale it up](/azure/app-service/manage-scale-up) if required.
+
+#### Autoscaling Application Gateway
+
+Autoscaling can be enabled on Azure Application Gateway V2. This allows Application Gateway to scale up or down based on the traffic load patterns. This reference architecture configures `autoscaleConfiguration` in the file [appgw.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/appgw.bicep) to scale between zero and 10 additional instances. See [Scaling Application Gateway and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#scaling-application-gateway-and-waf-v2) for more details.
 
 ## Deploy this scenario
 

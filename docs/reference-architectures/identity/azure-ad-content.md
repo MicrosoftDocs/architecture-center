@@ -236,7 +236,7 @@ For more information and tips for managing Microsoft Entra Connect, see [Microso
 
 For DevOps considerations, see Operational excellence in [Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.yml#operational-excellence).
 
-### Performance efficiency
+### Performance Efficiency
 
 Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 

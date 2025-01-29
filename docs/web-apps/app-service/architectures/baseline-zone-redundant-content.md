@@ -134,15 +134,15 @@ Deploy Azure Application Gateway v2 in a zone redundant configuration. Consider 
 - Implement health check endpoints in your apps and configure the App Service health check feature to reroute requests away from unhealthy instances. For more information about App Service Health check, see [Monitor App Service instances using health check](/azure/app-service/monitor-instances-health-check). For more information about implementing health check endpoints in ASP.NET applications, see [Health checks in ASP.NET Core](https://learn.microsoft.com/aspnet/core/host-and-deploy/health-checks).
 - Overprovision capacity to be able to handle zone failures.
 
-#### SQL Database  
-
-- Deploy Azure SQL DB General Purpose, Premium, or Business Critical with zone redundancy enabled. The General Purpose, Premium, and Business Critical tiers support [Zone-redundancy in Azure SQL DB](/azure/azure-sql/database/high-availability-sla#general-purpose-service-tier-zone-redundant-availability).  
-- [Configure SQL DB backups](/azure/azure-sql/database/automated-backups-overview#configure-backup-storage-redundancy-by-using-the-azure-cli) to use zone-redundant storage (ZRS) or geo-zone-redundant storage (GZRS).
-
 #### Blob storage
 
 - Azure [Zone-Redundant Storage](/azure/storage/common/storage-redundancy#zone-redundant-storage) (ZRS) replicates your data synchronously across three availability zones in the region. Create Standard ZRS or Standard GZRS storage accounts to ensure data is replicated across availability zones.
 - Create separate storage accounts for deployments, web assets, and other data so that you can manage and configure the accounts separately.
+
+#### SQL Database  
+
+- Deploy Azure SQL DB General Purpose, Premium, or Business Critical with zone redundancy enabled. The General Purpose, Premium, and Business Critical tiers support [Zone-redundancy in Azure SQL DB](/azure/azure-sql/database/high-availability-sla#general-purpose-service-tier-zone-redundant-availability).  
+- [Configure SQL DB backups](/azure/azure-sql/database/automated-backups-overview#configure-backup-storage-redundancy-by-using-the-azure-cli) to use zone-redundant storage (ZRS) or geo-zone-redundant storage (GZRS).
 
 ### Security
 
@@ -188,6 +188,21 @@ Consider the following recommendations when configuring data-in-transit encrypti
 - Encrypt sensitive data in Azure SQL Database using [transparent data encryption](/azure/azure-sql/database/transparent-data-encryption-tde-overview#manage-transparent-data-encryption). Transparent data encrypts the entire database, backups, and transaction log files and requires no changes to your web application.
 - Minimize database encryption latency. To minimize encryption latency, place the data you need to secure in its own database and only enable encryption for that database.
 - Understand built-in encryption support. [Azure Storage automatically encrypts](/azure/storage/common/storage-service-encryption) data at rest using server-side encryption (256-bit AES). Azure Monitor automatically encrypts data at rest using Microsoft-managed keys (MMKs).
+
+#### Governance
+
+Web apps benefit from Azure Policy by enforcing architectural and security decisions. Azure Policy can make it (1) impossible to deploy (deny) or (2) easy to detect (audit) configuration drift from your preferred desired state. This helps you catch Infrastructure as Code (IaC) deployments or Azure portal changes that deviate from the agreed-upon architecture. You should place all resources in your architecture under Azure Policy governance. Use built-in policies or policy initiatives where possible to enforce essential network topology, service features, security, and monitoring decisions, for example:
+
+- App Service should disable public network access
+- App service should use virtual network integration
+- App Service should use Azure Private Link to connect to PaaS services
+- App Service should have local authentication methods disabled for FTP & SCM site deployments
+- App Service should have remote debugging turned off
+- App Service apps should use the latest TLS version
+- Microsoft Defender for App Service should be enabled
+- Web Application Firewall (WAF) should be enabled for Application Gateway
+
+See more built-in policies for key services such as [Application Gateway and networking components](/azure/governance/policy/samples/built-in-policies#network), [App Service](/azure/governance/policy/samples/built-in-policies#app-service), [Key Vault](/azure/governance/policy/samples/built-in-policies#key-vault), and [Monitoring](/azure/governance/policy/samples/built-in-policies#monitoring). It's possible to create custom policies or use community policies (such as from Azure Landing Zones) if built-in policies do not fully cover your needs. Prefer built-in policies when they are available.
 
 #### Identity and Access Management
 
@@ -344,21 +359,6 @@ Scaling database resources is a complex topic outside of the scope of this archi
   - Semi-static transaction data.
   - Session state.
   - HTML output. This can be useful in applications that render complex HTML output.
-
-### Governance
-
-Web apps benefit from Azure Policy by enforcing architectural and security decisions. Azure Policy can make it (1) impossible to deploy (deny) or (2) easy to detect (audit) configuration drift from your preferred desired state. This helps you catch Infrastructure as Code (IaC) deployments or Azure portal changes that deviate from the agreed-upon architecture. You should place all resources in your architecture under Azure Policy governance. Use built-in policies or policy initiatives where possible to enforce essential network topology, service features, security, and monitoring decisions, for example:
-
-- App Service should disable public network access
-- App service should use virtual network integration
-- App Service should use Azure Private Link to connect to PaaS services
-- App Service should have local authentication methods disabled for FTP & SCM site deployments
-- App Service should have remote debugging turned off
-- App Service apps should use the latest TLS version
-- Microsoft Defender for App Service should be enabled
-- Web Application Firewall (WAF) should be enabled for Application Gateway
-
-See more built-in policies for key services such as [Application Gateway and networking components](/azure/governance/policy/samples/built-in-policies#network), [App Service](/azure/governance/policy/samples/built-in-policies#app-service), [Key Vault](/azure/governance/policy/samples/built-in-policies#key-vault), and [Monitoring](/azure/governance/policy/samples/built-in-policies#monitoring). It's possible to create custom policies or use community policies (such as from Azure Landing Zones) if built-in policies do not fully cover your needs. Prefer built-in policies when they are available.
 
 ## Next steps
 

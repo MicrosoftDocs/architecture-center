@@ -232,7 +232,7 @@ Principal author:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next Steps
+## Next steps
 
 - [Azure Activity Directory Documentation](/azure/active-directory)
 - [Manage Identity in multitenant applications](../../multitenant-identity/index.yml)
