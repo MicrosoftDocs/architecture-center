@@ -2966,7 +2966,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/data-science-process/context/ml-context.json",
+      "source_path": "docs/data-science-process/context/ml-context.json.yml",
       "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
       "redirect_document_id": false
     },
