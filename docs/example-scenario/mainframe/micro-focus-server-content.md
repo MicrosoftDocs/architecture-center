@@ -86,29 +86,25 @@ Deploying Enterprise Server on Azure VMs can help businesses:
 
 ## Considerations
 
-The following considerations, based on the [Microsoft Azure Well-Architected Framework](/azure/well-architected/), apply to this solution:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Availability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - PACs and availability sets for Azure VMs ensure enough VMs are available to meet mission-critical batch process needs.
 
 - SQL Server Always On Availability Groups and Azure Site Recovery provide reliability with HA and DR across geographic regions.
 
-### Performance efficiency
-
-- The PAC enables horizontal scaling according to application load.
-
-- Azure Cache for Redis and Azure Storage accounts maintain critical component operations. These features provide high performance for data reads and writes, hot storage access, and long-term data storage.
-
-### Scalability
-
-A PAC configures several Enterprise Server instances in a scale-out architecture using [availability sets](/azure/virtual-machines/availability#availability-sets). The PAC supports future horizontal scaling.
-
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 All the components within the Micro Focus Enterprise Server architecture work with Azure security components like Microsoft Entra identity integration, virtual networks, and encryption as needed.
 
-### Cost optimization
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 To estimate and calculate costs for your implementation of this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
@@ -117,6 +113,16 @@ To estimate and calculate costs for your implementation of this solution, use th
 - Most enterprises already have a Microsoft Active Directory implementation, but if you don't, Premium Microsoft Entra ID is low cost.
 - For Premium SSD or Ultra managed storage disks pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). Calculate VM needs based on your traffic hours, load, and storage requirements. Micro Focus Enterprise Server in Azure helps you optimize costs by turning off VMs when not in use, and scripting a schedule for known usage patterns.
 - [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) lets you use your on-premises SQL Server licenses on Azure. For more information, see the [Azure Hybrid Benefit FAQ](https://azure.microsoft.com/pricing/hybrid-benefit/faq).
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+- The PAC enables horizontal scaling according to application load.
+
+- Azure Cache for Redis and Azure Storage accounts maintain critical component operations. These features provide high performance for data reads and writes, hot storage access, and long-term data storage.
+
+A PAC configures several Enterprise Server instances in a scale-out architecture using [availability sets](/azure/virtual-machines/availability#availability-sets). The PAC supports future horizontal scaling.
 
 ## Contributors
 

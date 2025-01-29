@@ -98,41 +98,11 @@ In addition, because Azure Arc enabled SQL Managed Instance runs on Azure Arc-en
 
 ## Considerations
 
-The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwork] is a set of guiding tenets that are followed in this reference architecture. The following considerations are framed in the context of these tenets.
-
-### Cost optimization
-
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
-- Azure Arc helps minimize or even eliminate the need for on-premises management and monitoring systems, which reduces operational complexity and cost, especially in large, diverse, and distributed environments. This helps offset additional costs associated with Azure Arc-related services. For example, advanced data security for Azure Arc enabled SQL Server instance requires [Microsoft Defender for Cloud] functionality of Microsoft Defender for Cloud, which has [pricing implications][azure-defender-pricing].
-<!--LM: Azure Defender is in brackets. Did you mean to insert a link here?-->
-- Containerizing your SQL Server environment by using Azure Arc enabled SQL Managed Instance helps increase workload density and mobility. This facilitates more efficient hardware utilization, which tends to maximize return on investment (ROI) and minimize operational costs, helping accelerate datacenter consolidation initiatives.
-
-### Operational excellence
-
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
-
-- To perform registration of individual Azure Arc enabled SQL Server instances, you can interactively run [a script available directly from the Azure portal][connect-sql-server-to-azure-arc]. For large-scale deployments, you can [run the same script in the unattended manner][connect-sql-server-to-azure-arc-at-scale], by leveraging a Microsoft Entra service principal.
-
-- To perform on-demand assessment of configuration and health of Azure Arc enabled SQL Server instances by using Azure Monitor, you must deploy the Log Analytics agent to the server hosting that SQL Server instance. You can automate this deployment at scale by using Azure Policy to [enable Azure Monitor for VMs for Azure Arc enabled servers][azure-monitor-for-vms].
-
-- On-demand SQL Assessment and advanced data security are available for SQL Server instances that aren't Azure Arc enabled. However, Azure Arc simplifies their provisioning and configuration. You can, for example, use the VM extension capability to [automate deployment of the Log Analytics agent][azure-vm-extension-log-analytics-deploy] to servers hosting SQL Server instances.
-
-- Azure Arc enabled SQL Managed Instance shares the code base with the latest stable version of SQL Server, providing support for the same set of [manageability features][azure-arc-sql-mi-manageability].
-
-### Performance efficiency
-
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
-
-- Azure Arc enabled SQL Managed Instance shares the code base with the latest stable version of SQL Server, providing support for the same set of [high scalability and performance features][azure-arc-sql-mi-performance].
-
-- When planning for deployment of Azure Arc enabled SQL Managed Instance, you should identify the correct amount of compute, memory, and storage that will be required to run the [Azure Arc data controller][azure-arc-data-controller-sizing] and the intended [SQL managed instance][azure-arc-sql-mi-sizing] server groups. Note, however, that you have the flexibility to extend the capacity of the underlying Kubernetes or AKS cluster over time by adding additional compute nodes or storage.
-
-- Kubernetes or AKS offers an abstraction layer over the underlying virtualization stack and hardware. Storage classes implement such abstraction for storage. When provisioning a pod, you need to decide which storage class to use for its volumes. Your decision is important from a performance standpoint because an incorrect choice could result in suboptimal performance. When planning for deployment of Azure Arc enabled SQL Managed Instance, you should consider a range of factors affecting storage configuration [kubernetes-storage-class-factors] for both [data controller][kubernetes-storage-data-controller] and [database instances][kubernetes-storage-database-instance].
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - With Azure Arc enabled SQL Managed Instance, planning for storage is also critical from the data resiliency standpoint. If there's a hardware failure, an incorrect choice might introduce the risk of total data loss. To avoid such risk, you should consider a range of factors affecting storage configuration [kubernetes-storage-class-factors] for both [data controller][kubernetes-storage-data-controller] and [database instances][kubernetes-storage-database-instance].
 
@@ -144,7 +114,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Azure Arc enabled SQL Managed Instance shares the code base with the latest stable version of SQL Server, providing support for the same set of [security features][azure-arc-sql-mi-security].
 
@@ -156,6 +126,36 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 > [!CAUTION]
 > To enhance the security of data in transit to Azure, you should [configure servers hosting the SQL Server instances to use Transport Layer Security (TLS) 1.2][server-configure-tls-12].
+
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+- Azure Arc helps minimize or even eliminate the need for on-premises management and monitoring systems, which reduces operational complexity and cost, especially in large, diverse, and distributed environments. This helps offset additional costs associated with Azure Arc-related services. For example, advanced data security for Azure Arc enabled SQL Server instance requires [Microsoft Defender for Cloud] functionality of Microsoft Defender for Cloud, which has [pricing implications][azure-defender-pricing].
+<!--LM: Azure Defender is in brackets. Did you mean to insert a link here?-->
+- Containerizing your SQL Server environment by using Azure Arc enabled SQL Managed Instance helps increase workload density and mobility. This facilitates more efficient hardware utilization, which tends to maximize return on investment (ROI) and minimize operational costs, helping accelerate datacenter consolidation initiatives.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+- To perform registration of individual Azure Arc enabled SQL Server instances, you can interactively run [a script available directly from the Azure portal][connect-sql-server-to-azure-arc]. For large-scale deployments, you can [run the same script in the unattended manner][connect-sql-server-to-azure-arc-at-scale], by leveraging a Microsoft Entra service principal.
+
+- To perform on-demand assessment of configuration and health of Azure Arc enabled SQL Server instances by using Azure Monitor, you must deploy the Log Analytics agent to the server hosting that SQL Server instance. You can automate this deployment at scale by using Azure Policy to [enable Azure Monitor for VMs for Azure Arc enabled servers][azure-monitor-for-vms].
+
+- On-demand SQL Assessment and advanced data security are available for SQL Server instances that aren't Azure Arc enabled. However, Azure Arc simplifies their provisioning and configuration. You can, for example, use the VM extension capability to [automate deployment of the Log Analytics agent][azure-vm-extension-log-analytics-deploy] to servers hosting SQL Server instances.
+
+- Azure Arc enabled SQL Managed Instance shares the code base with the latest stable version of SQL Server, providing support for the same set of [manageability features][azure-arc-sql-mi-manageability].
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+- Azure Arc enabled SQL Managed Instance shares the code base with the latest stable version of SQL Server, providing support for the same set of [high scalability and performance features][azure-arc-sql-mi-performance].
+
+- When planning for deployment of Azure Arc enabled SQL Managed Instance, you should identify the correct amount of compute, memory, and storage that will be required to run the [Azure Arc data controller][azure-arc-data-controller-sizing] and the intended [SQL managed instance][azure-arc-sql-mi-sizing] server groups. Note, however, that you have the flexibility to extend the capacity of the underlying Kubernetes or AKS cluster over time by adding additional compute nodes or storage.
+
+- Kubernetes or AKS offers an abstraction layer over the underlying virtualization stack and hardware. Storage classes implement such abstraction for storage. When provisioning a pod, you need to decide which storage class to use for its volumes. Your decision is important from a performance standpoint because an incorrect choice could result in suboptimal performance. When planning for deployment of Azure Arc enabled SQL Managed Instance, you should consider a range of factors affecting storage configuration [kubernetes-storage-class-factors] for both [data controller][kubernetes-storage-data-controller] and [database instances][kubernetes-storage-database-instance].
 
 ## Next steps
 

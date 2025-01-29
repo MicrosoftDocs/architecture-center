@@ -127,12 +127,42 @@ This solution is ideal for the finance, insurance, healthcare, and retail indust
 
 ## Considerations
 
-### Availability
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+- You can use Azure Monitor and Application Insights, in addition to Log Analytics, to monitor the health of an Azure resource. Set alerts to proactively manage your resource health.
+- For more information on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+- This reference architecture uses ExpressRoute for a private and efficient connection to Azure from the on-premises environment. However, you can also create a [site to site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal).
+- You can authenticate Azure resources by using Microsoft Entra ID. You can manage permissions with role-based access control (RBAC).
+- Database services in Azure support various security options like Data Encryption at Rest.
+- For more information on designing secure solutions, see [Azure security documentation](/azure/security).
+
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for Azure resources.
+
+See [Azure mainframes batch application](https://azure.com/e/c7fa52f13c2f4806ac05316813ed97a0) for an example cost estimate of services.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 - The batch architecture in this article uses multi-node computing or PaaS services, which provide high availability.
 - Azure database services support zone redundancy, and you can design them to fail over to a secondary node if there's an outage or during a maintenance window.
 
-### Scalability
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - The following Azure services in this architecture have autoscaling capabilities:
 
@@ -144,24 +174,6 @@ This solution is ideal for the finance, insurance, healthcare, and retail indust
     - Logic Apps
 
 - For more information on autoscaling in Azure, see the [autoscaling guide](../../best-practices/auto-scaling.md).
-
-### Security
-
-- This reference architecture uses ExpressRoute for a private and efficient connection to Azure from the on-premises environment. However, you can also create a [site to site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal).
-- You can authenticate Azure resources by using Microsoft Entra ID. You can manage permissions with role-based access control (RBAC).
-- Database services in Azure support various security options like Data Encryption at Rest.
-- For more information on designing secure solutions, see [Azure security documentation](/azure/security).
-
-### Resiliency
-
-- You can use Azure Monitor and Application Insights, in addition to Log Analytics, to monitor the health of an Azure resource. Set alerts to proactively manage your resource health.
-- For more information on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
-
-### Cost optimization
-
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for Azure resources.
-
-See [Azure mainframes batch application](https://azure.com/e/c7fa52f13c2f4806ac05316813ed97a0) for an example cost estimate of services.
 
 ## Contributors
 

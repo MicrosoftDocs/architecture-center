@@ -66,32 +66,25 @@ The solution is ideal for the finance, education, and science industries. This a
 
 ## Considerations
 
-The following considerations, based on the [Azure Well-Architected Framework](https://www.microsoft.com/azure/partners/well-architected), apply to this solution:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Availability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) disaster recovery service protects against major outages. It's dependable, cost-effective, and easy to deploy.
 - Availability sets for VMs ensure that enough VMs are available to meet mission-critical batch process needs.
 - Service Bus, AKS, and Azure SQL Managed Instance provide high availability and recoverability across geographic regions.
 
-### Operational
-
-- [Azure Resource Manager templates (ARM templates)](https://azure.microsoft.com/services/arm-templates/) provide a configuration language to describe your resources in templates that you can use for scripted deployment. The templates also provide monitoring and alerting capabilities.
-
-### Performance efficiency
-
-- The architecture is designed to accommodate parallel processing of independent transactions.
-- Service Bus, AKS, and other Azure PaaS features provide high performance for transaction processing, computing, and data storage.
-
-### Scalability
-
-- Service Bus, AKS, and other Azure PaaS features dynamically scale as needed.
-
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - All the components within the Service Bus batch architecture work with Azure security components, such as Microsoft Entra ID, Virtual Network, and encryption.
 
-### Cost optimization
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 To estimate costs for your implementation of this solution, use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
@@ -113,6 +106,20 @@ Here are pricing considerations for specific components:
   - Your activity run volume determines the cost of [Data Factory](https://azure.microsoft.com/pricing/details/data-factory/).
   - For [Azure Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network), IP addresses carry a nominal charge.
   - Outbound data transfer volume determines [Azure Bastion](https://azure.microsoft.com/pricing/details/azure-bastion/) costs.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+- [Azure Resource Manager templates (ARM templates)](https://azure.microsoft.com/services/arm-templates/) provide a configuration language to describe your resources in templates that you can use for scripted deployment. The templates also provide monitoring and alerting capabilities.
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+- The architecture is designed to accommodate parallel processing of independent transactions.
+- Service Bus, AKS, and other Azure PaaS features provide high performance for transaction processing, computing, and data storage.
+- Service Bus, AKS, and other Azure PaaS features dynamically scale as needed.
 
 ## Next steps
 

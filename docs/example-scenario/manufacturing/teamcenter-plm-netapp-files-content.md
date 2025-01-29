@@ -49,11 +49,13 @@ By using Azure NetApp Files volume placement and replication capabilities across
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/) and [Azure Well-Architected Framework perspective on Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/) and [Azure Well-Architected Framework perspective on Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview). Azure NetApp Files provides HA with [built-in data replication, failover, and DR capabilities](/azure/azure-netapp-files/snapshots-introduction). These capabilities help ensure that your Teamcenter PLM database and CAD files are always available, even if there's a regional, zonal, or software failure. Azure NetApp Files provides an [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) for all tiers and all supported regions. It supports provisioning volumes in [availability zones](/azure/azure-netapp-files/use-availability-zones) that you choose, and HA deployments across zones.
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). 
+
+Azure NetApp Files provides HA with [built-in data replication, failover, and DR capabilities](/azure/azure-netapp-files/snapshots-introduction). These capabilities help ensure that your Teamcenter PLM database and CAD files are always available, even if there's a regional, zonal, or software failure. Azure NetApp Files provides an [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) for all tiers and all supported regions. It supports provisioning volumes in [availability zones](/azure/azure-netapp-files/use-availability-zones) that you choose, and HA deployments across zones.
 
 Azure NetApp Files provides two data backup options: snapshots and backup. Snapshots provide a point-in-time backup of data. You can use them to quickly recover data if there's data loss or corruption. Azure NetApp Files also has a fully managed backup solution. It provides long-term retention and recovery options for snapshots. You can combine snapshots and backups to get a comprehensive backup and recovery solution.
 
@@ -119,7 +121,7 @@ The architecture has the following dataflow:
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Azure NetApp Files provides security features like [encryption](/azure/azure-netapp-files/faq-security#can-the-storage-be-encrypted-at-rest) and access control. These features help protect Teamcenter PLM databases from unauthorized access, data breaches, and cyber threats. Azure NetApp Files provides a level of [security](/azure/azure-netapp-files/faq-security#can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted) because data remains in your virtual networks. There's no public endpoint, and all [data is always encrypted at rest](/azure/azure-netapp-files/faq-security#can-the-storage-be-encrypted-at-rest).
 
@@ -131,9 +133,9 @@ Azure NetApp Files provides security features like [encryption](/azure/azure-net
 
 **Use Azure Policy.** [Azure Policy](/azure/governance/policy/overview) can help you enforce organizational standards and assess compliance at scale. Azure NetApp Files supports Azure Policy via [custom and built-in policy definitions](/azure/azure-netapp-files/azure-policy-definitions).
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about reducing unnecessary expenses and improving operational efficiency. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Azure NetApp Files provides a [cost-effective storage solution with a pay-as-you-go model](/azure/azure-netapp-files/azure-netapp-files-cost-model#calculation-of-capacity-consumption). You pay only for the storage and performance resources that you use, and there's no upfront investment in hardware or infrastructure.
 
@@ -165,11 +167,11 @@ Azure NetApp Files also optimizes costs for [Oracle](https://techcommunity.micro
 
 **Consult an Azure Cloud Solutions Architect.** We recommend that you consult an Azure Cloud Solutions Architect (CSA) to help you with application sizing and selecting the smallest applicable VM SKU.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Using Azure NetApp Files for Teamcenter PLM can help you implement several of the Well-Architected Framework operational excellence recommendations:
+Using Azure NetApp Files for Teamcenter PLM can help you implement several of the Well-Architected Framework Operational Excellence recommendations:
 
 **Use native monitoring features.** Azure NetApp Files provides [built-in monitoring and diagnostics capabilities](/azure/azure-netapp-files/monitor-azure-netapp-files) that you can use to monitor the performance and health of your Teamcenter PLM application, CAD file shares, and databases. You can set up alerts and notifications for critical events, like file system capacity and performance problems, and take corrective actions proactively.
 
@@ -181,9 +183,9 @@ Using Azure NetApp Files for Teamcenter PLM can help you implement several of th
 
 **Test environments.** You can use Azure NetApp Files to create and manage test environments quickly by [cloning your production data via snapshot restore to a new volume](/azure/azure-netapp-files/snapshots-introduction#restoring-cloning-an-online-snapshot-to-a-new-volume). Doing so helps you to isolate testing activities from production environments and provides an easy way to test DR scenarios. You can use the same process to test new releases or upgrades in a nondisruptive manner.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 Azure NetApp Files provides high-performance storage with low latency, high throughput, and consistent performance. This performance enables your Teamcenter PLM [database to handle high volumes of data, users, and transactions without performance degradation](https://techcommunity.microsoft.com/blog/azurearchitectureblog/run-your-most-demanding-oracle-workloads-in-azure-without-sacrificing-performanc/3264545). Your users can access and modify your CAD files quickly and efficiently.
 

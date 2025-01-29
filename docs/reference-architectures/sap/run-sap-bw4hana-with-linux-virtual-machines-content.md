@@ -60,11 +60,7 @@ The network layout has been simplified to demonstrate recommended architectural 
 > [!NOTE]
 > Many deployment considerations apply when deploying SAP workloads on Azure. For more ideas and further information, see the [SAP on Azure planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist).
 
-For details about the data persistence layer, see:
-
-- [Run SAP HANA on Azure (Large Instances)](./hana-large-instances.yml)
-
-- [Run SAP HANA on Linux virtual machines](./run-sap-hana-for-linux-virtual-machines.yml)
+For more information about the data persistence layer, see [Run SAP HANA on Linux virtual machines](./run-sap-hana-for-linux-virtual-machines.yml).
 
 ### Potential use cases
 
@@ -236,7 +232,7 @@ For SAP applications that run on SAP HANA and other major database solutions, se
 
 For the SAP ASCS and application servers, we recommend using Azure Backup to protect the virtual machine contents. Azure Backup provides independent, isolated backups to help guard against accidental destruction of original data. Backups are stored in a [Recovery Services vault](/azure/backup/backup-azure-recovery-services-vault-overview) that offers built-in management of recovery points. Configuration and scalability are simple, backups are optimized, and you can easily restore as needed.
 
-Backup of the database tier varies depending on whether SAP HANA is deployed on [virtual machines](./run-sap-hana-for-linux-virtual-machines.yml) or [Azure Large Instances](./hana-large-instances.yml). See the [management and operations considerations](./run-sap-hana-for-linux-virtual-machines.yml) for SAP HANA on Linux virtual machines.
+Backup of the database tier varies depending on whether SAP HANA is deployed on [virtual machines](./run-sap-hana-for-linux-virtual-machines.yml). For more information, see the [management and operations considerations](./run-sap-hana-for-linux-virtual-machines.yml) for SAP HANA on Linux virtual machines.
 
 ## Contributors
 
@@ -275,6 +271,5 @@ Explore related architectures:
 
 - [Run a Linux VM on Azure](../n-tier/linux-vm.yml)
 - [Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure](./run-sap-hana-for-linux-virtual-machines.yml)
-- [Run SAP HANA on Azure (large instances)](./hana-large-instances.yml)
 - [SAP S/4HANA in Linux on Azure](/azure/architecture/guide/sap/sap-s4hana)
 - [SAP S/4 HANA for large instances](../../solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml)
