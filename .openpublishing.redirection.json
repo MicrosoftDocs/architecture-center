@@ -4256,6 +4256,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/logical-data-warehouse.yml",
+      "redirect_url": "/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/hybrid-cross-cluster-scaling.yml",
+      "redirect_url": "/azure/architecture/example-scenario/hybrid/aks-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/sap/hana-large-instances.yml",
+      "redirect_url": "/azure/azure-large-instances/what-is-azure-large-instances",
+      "redirect_document_id": false  
+    },
+    {
       "source_path": "docs/data-guide/scenarios/time-series.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
@@ -6321,17 +6336,17 @@
     },
     {
       "source_path": "docs/example-scenario/financial/location-based-access.yml.",
-      "redirect_url": "/industry/financial-services/",
+      "redirect_url": "/industry/financial-services/architecture/location-based-access-content",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/finance/murex-mx3-azure.yml",
-      "redirect_url": "/industry/financial-services/",
+      "redirect_url": "/industry/financial-services/architecture/murex-mx3-azure-content",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/finance/murex-mx3-sql.yml",
-      "redirect_url": "/industry/financial-services/",
+      "redirect_url": "/industry/financial-services/architecture/murex-mx3-sql-content",
       "redirect_document_id": false
     },
     {
@@ -6341,32 +6356,32 @@
     },
     {
       "source_path": "docs/example-scenario/finance/swift-on-azure-vsrx.yml",
-      "redirect_url": "/industry/financial-services/",
+      "redirect_url": "/industry/financial-services/architecture/swift-on-azure-vsrx-content",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/finance/swift-alliance-lite2-on-azure.yml",
-      "redirect_url": "/industry/financial-services/",
+      "redirect_url": "/industry/financial-services/architecture/swift-alliance-lite2-on-azure-content",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/finance/swift-alliance-cloud-on-azure.yml",
-      "redirect_url": "/industry/financial-services/",
+      "redirect_url": "/industry/financial-services/architecture/swift-alliance-cloud-on-azure-content",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml",
-      "redirect_url": "/industry/financial-services/",
+      "redirect_url": "/industry/financial-services/architecture/swift-alliance-access-vsrx-on-azure-content",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml",
-      "redirect_url": "/industry/financial-services/",
+      "redirect_url": "/industry/financial-services/architecture/swift-alliance-messaging-hub-vsrx-content",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/finance/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway.yml",
-      "redirect_url": "/industry/financial-services/",
+      "redirect_url": "/industry/financial-services/architecture/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway-content",
       "redirect_document_id": false
     },
     {
@@ -6481,7 +6496,7 @@
     },
     {
       "source_path": "docs/example-scenario/batch/fsi-workloads-using-batch.yml",
-      "redirect_url": "/azure/batch/",
+      "redirect_url": "/industry/financial-services/architecture/fsi-workloads-using-batch",
       "redirect_document_id": false
     },
     {
@@ -6612,6 +6627,21 @@
     {
       "source_path": "docs/landing-zones/terraform/landing-zone-terraform.md",
       "redirect_url": "https://azure.github.io/Azure-Landing-Zones/terraform/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/banking/banking-system-cloud-transformation.yml",
+      "redirect_url": "/industry/financial-services/architecture/banking-system-cloud-transformation-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/banking/patterns-and-implementations.yml",
+      "redirect_url": "/industry/financial-services/architecture/patterns-and-implementations-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/guide/avops-design-guide.md",
+      "redirect_url": "/industry/mobility/architecture/ra-mobility-avops",
       "redirect_document_id": false
     }
   ]

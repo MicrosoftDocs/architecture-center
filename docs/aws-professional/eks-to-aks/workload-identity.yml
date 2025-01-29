@@ -4,7 +4,7 @@ metadata:
   description: Understand how Kubernetes pods handle identity and access, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).
   author: paolosalvatori
   ms.author: paolos
-  ms.date: 01/02/2024
+  ms.date: 01/28/2025
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.subservice: architecture-guide
