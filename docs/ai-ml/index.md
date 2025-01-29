@@ -3,7 +3,7 @@ title: AI Architecture
 description: Get started with AI. Use high-level architectural types, see Azure AI platform offerings, and find customer success stories.
 author: anaharris-ms
 ms.author: anaharris
-ms.date: 01/29/2025
+ms.date: 01/30/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.service: azure-architecture-center
@@ -417,10 +417,10 @@ In Azure Machine Learning, data-scaling and normalization techniques are applied
 
 In Azure OpenAI, you can use a process known as *fine-tuning* to tailor OpenAI models to your personal datasets. This customization step optimizes the service by providing:
 
-- Higher quality results than what you can get just from [prompt engineering](/azure/ai-services/openai/concepts/prompt-engineering)
-- The ability to train on more examples than can fit into a model's max request context limit.
-- Token savings due to shorter prompts
-- Lower-latency requests, particularly when using smaller models.
+- Higher quality results compared to [prompt engineering](/azure/ai-services/openai/concepts/prompt-engineering) only.
+- The ability to train on more examples than a model's maximum request context limit typical permits.
+- Token savings because of shorter prompts.
+- Lower-latency requests, particularly when you use smaller models.
 
 For more information, see the following resources:
 
@@ -430,153 +430,146 @@ For more information, see the following resources:
 
 ### Azure AI services for custom AI
 
-[Azure AI services](https://azure.microsoft.com/services/ai-services/) offers features that let you build custom AI models and applications. This section provides an overview some of these key features.
+[Azure AI services](https://azure.microsoft.com/services/ai-services/) provides features to build custom AI models and applications. The following sections provide an overview of these key features.
 
-#### Custom Speech
+#### Custom speech
 
-[Custom speech](/azure/ai-services/speech-service/custom-speech-overview) is a feature of the Azure AI Speech service. With custom speech, you can evaluate and improve the accuracy of speech recognition for your applications and products. A custom speech model can be used for real-time speech to text, speech translation, and batch transcription.
+[Custom speech](/azure/ai-services/speech-service/custom-speech-overview) is a feature of the Azure AI Speech service. You can use custom speech to evaluate and improve the accuracy of speech recognition for your applications and products. Use a custom speech model for real-time speech to text, speech translation, and batch transcription.
 
-Out of the box, speech recognition utilizes a Universal Language Model as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. The base model is pretrained with dialects and phonetics representing various common domains. When you make a speech recognition request, the most recent base model for each supported language is used by default. The base model works well in most speech recognition scenarios.
+By default, speech recognition uses a universal language model as a base model. This model is trained with Microsoft-owned data and reflects commonly used spoken language. The base model is pretrained with dialects and phonetics that represent various common domains. When you make a speech recognition request, the most recent base model for your supported language is used by default. The base model works well in most speech recognition scenarios.
 
-A custom model can be used to augment the base model to improve recognition of domain-specific vocabulary specific to the application by providing text data to train the model. It can also be used to improve recognition based for the specific audio conditions of the application by providing audio data with reference transcriptions.
+You can use a custom model to augment the base model. For example, you can improve the recognition of domain-specific vocabulary that's specific to the application by providing text data to train the model. You can also improve recognition for specific audio conditions of the application by providing audio data with reference transcriptions.
 
-You can also train a model with structured text when the data follows a pattern, to specify custom pronunciations, and to customize display text formatting with custom inverse text normalization, custom rewrite, and custom profanity filtering.
+If the data follows a pattern, you can use structured text to train a model. You can specify custom pronunciations and customize display text formatting with custom inverse text normalization, custom rewrite, and custom profanity filtering.
 
-#### Custom Translator
+#### Custom translator
 
-[Custom Translator](/azure/ai-services/translator/custom-translator/overview) is a feature of the [Azure AI Translator](/azure/ai-services/translator/translator-overview) service. With Custom Translator, enterprises, app developers, and language service providers can build customized neural machine translation (NMT) systems. The customized translation systems seamlessly integrate into existing applications, workflows, and websites.
+[Custom translator](/azure/ai-services/translator/custom-translator/overview) is a feature of the [Azure AI Translator](/azure/ai-services/translator/translator-overview) service. Enterprises, app developers, and language service providers can use custom translator to build customized neural machine translation (NMT) systems. The customized translation systems seamlessly integrate into existing applications, workflows, and websites.
 
-The platform enables users to build and publish custom translation systems to and from English. Custom Translator supports more than three dozen languages that map directly to the languages available for NMT. For a complete list, see [Translator language support](/azure/ai-services/translator/language-support).
+You can use this feature to build and publish custom translation systems to and from English. Custom translator supports more than three dozen languages that map directly to the languages for NMT. For a complete list, see [Translator language support](/azure/ai-services/translator/language-support).
 
-Custom Translator offers the following features:
+Custom translator offers the following features.
 
 |Feature  |Description  |
 |---------|---------|
-|[Apply neural machine translation technology](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Improve your translation by applying neural machine translation (NMT) provided by Custom translator.       |
-|[Build systems that knows your business terminology](/azure/ai-services/translator/custom-translator/beginners-guide)     |  Customize and build translation systems using parallel documents that understand the terminologies used in your own business and industry.       |
-|[Use a dictionary to build your models](/azure/ai-services/translator/custom-translator/how-to/train-custom-model#when-to-select-dictionary-only-training)     |   If you don't have training data set, you can train a model with only dictionary data.       |
-|[Collaborate with others](/azure/ai-services/translator/custom-translator/how-to/create-manage-workspace#manage-workspace-settings)     |   Collaborate with your team by sharing your work with different people.     |
-|[Access your custom translation model](/azure/ai-services/translator/custom-translator/how-to/translate-with-custom-model)     |  You can access your custom translation model anytime using your existing applications/ programs via Microsoft Translator Text API V3.       |
+|[Apply NMT technology](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Apply NMT from the custom translator to improve your translation.       |
+|[Build systems that know your business terminology](/azure/ai-services/translator/custom-translator/beginners-guide)     |  Customize and build translation systems by using parallel documents that understand the terminology in your business and industry.       |
+|[Use a dictionary to build your models](/azure/ai-services/translator/custom-translator/how-to/train-custom-model#when-to-select-dictionary-only-training)     |   Train a model with only dictionary data if you don't have a training dataset.       |
+|[Collaborate with others](/azure/ai-services/translator/custom-translator/how-to/create-manage-workspace#manage-workspace-settings)     |   Collaborate with your team by sharing your work with various people.     |
+|[Access your custom translation model](/azure/ai-services/translator/custom-translator/how-to/translate-with-custom-model)     |  Access your custom translation model anytime by using your existing applications or programs via Microsoft Translator Text API V3.       |
 
-#### Document Intelligence custom models
+#### Azure AI Document Intelligence custom models
 
-[Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) uses advanced machine learning technology to identify documents, detect and extract information from forms and documents, and return the extracted data in a structured JSON output. With Document Intelligence, you can use document analysis models, prebuilt/pretrained, or your trained standalone custom models.
+[Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) uses advanced machine learning technology to identify documents, detect and extract information from forms and documents, and return the extracted data in a structured JSON output. Use Document Intelligence so that you can take advantage of prebuilt or pretrained document analysis models or use trained standalone custom models.
 
-[Document Intelligence custom models](/azure/ai-services/document-intelligence/train/custom-model) now include custom classification models for scenarios where you need to identify the document type before invoking the extraction model. A classification model can be paired with a custom extraction model to analyze and extract fields from forms and documents specific to your business. Standalone custom extraction models can be combined to create [composed models](/azure/ai-services/document-intelligence/train/composed-models).
+[Document Intelligence custom models](/azure/ai-services/document-intelligence/train/custom-model) include custom classification models for scenarios where you need to identify the document type before you invoke the extraction model. You can pair a classification model with a custom extraction model to analyze and extract fields from forms and documents that are specific to your business. Combine standalone custom extraction models to create [composed models](/azure/ai-services/document-intelligence/train/composed-models).
 
 ### Custom AI tools
 
-Although prebuilt AI models are useful and increasingly flexible, the best way to get what you need from AI is to build a model that's tailored to your specific needs. There are two primary tools for creating custom AI models: Generative AI and traditional machine learning:
+Prebuilt AI models are useful and increasingly flexible, but the best way to optimize AI is to tailor a model to your specific needs. Two primary tools to create custom AI models include generative AI and traditional machine learning.
 
 #### Azure Machine Learning studio
 
 [Azure Machine Learning studio](https://ml.azure.com/home) is a cloud service for accelerating and managing the machine learning project lifecycle. Machine learning professionals, data scientists, and engineers can use it in their day-to-day workflows to train and deploy models and manage machine learning operations:
 
-- Build and train Azure Machine Learning model with any type of compute including Spark and GPUs for cloud-scale large AI workloads.
+- Build and train Azure Machine Learning models by using any type of compute, including Spark and GPUs for cloud-scale large AI workloads.
 
-- Run automated Azure Machine Learning (AutoML) and drag-and-drop UI for low-code Azure Machine Learning.
-- Implement end-to-end Azure Machine LearningOps and repeatable Azure Machine Learning pipelines.
-- Use responsible AI dashboard for bias detection and error analysis.
+- Run AutoML and use the drag-and-drop UI for low-code Azure Machine Learning.
+- Implement end-to-end Azure Machine Learning operations and repeatable pipelines.
+- Use the responsible AI dashboard for bias detection and error analysis.
 - Orchestrate and manage prompt engineering and LLM flows.
-- Deploy models with REST API endpoints, real-time, and batch inference.
-- Use Hubs (Preview) to share compute, quota, security, and connectivity to company resources with a group of workspaces, while centralizing governance for IT. Set up a hub once, then create secure workspaces directly from the Studio for each project. Use hubs to manage your team's work in both ML Studio and AI Foundry portal.
+- Deploy models via REST API endpoints, real-time inference, and batch inference.
+- Use hub workspaces to share compute, quota, security, and connectivity to company resources, while centralizing governance for IT. Set up a hub once, then create secure workspaces directly from the studio for each project. Use hubs to manage your team's work in the studio and the AI Foundry portal.
 
 #### AI Foundry
 
-[AI Foundry](/azure/ai-studio/what-is-ai-studio) is designed to help you efficiently build and deploy custom generative AI applications with the power of the Azure broad AI offerings:
+[AI Foundry](/azure/ai-studio/what-is-ai-studio) helps you efficiently build and deploy custom generative AI applications with the power of broad Azure AI offerings:
 
-- Build together as one team. Your AI Foundry hub provides enterprise-grade security, and a collaborative environment with shared resources and connections to pretrained models, data and compute.
+- Build together as one team. Your AI Foundry hub provides enterprise-grade security and a collaborative environment that includes shared resources and connections to pretrained models, data, and compute.
 
-- Organize your work. Your AI Foundry project helps you save state, allowing you to iterate from first idea, to first prototype, and then first production deployment. Also easily invite others to collaborate along this journey.
-- Use your preferred development platform and frameworks, including GitHub, Visual Studio Code, LangChain, Semantic Kernel, AutoGen, and more.
+- Organize your work. Your AI Foundry project helps you save state so that you can iterate from the first idea to the first prototype and first production deployment. Easily invite others to collaborate with you.
+- Use your preferred development platform and frameworks, including GitHub, Visual Studio Code, LangChain, Semantic Kernel, and AutoGen.
 - Discover and benchmark from over 1,600 models.
 - Provision models as a service (MaaS) through serverless APIs and hosted fine-tuning.
 - Incorporate multiple models, data sources, and modalities.
-- Build RAG using your protected enterprise data without the need for fine-tuning.
-- Orchestrate and manage prompts engineering and Large Language Model (LLM) flows.
-- Design and safeguard apps and APIs with configurable filters and controls.
-- Evaluate model responses with built-in and custom evaluation flows.
-- Deploy AI innovations to the Azure managed infrastructure with continuous monitoring and governance across environments.
+- Build RAG by using your protected enterprise data, without the need for fine-tuning.
+- Orchestrate and manage prompt engineering and LLM flows.
+- Design and safeguard apps and APIs via configurable filters and controls.
+- Evaluate model responses by using built-in and custom evaluation flows.
+- Deploy AI innovations to the Azure managed infrastructure to provide continuous monitoring and governance across environments.
 - Continuously monitor deployed apps for safety, quality, and token consumption in production.|
 
-For a detailed comparison between Azure Machine Learning studio and AI Foundry portal, see [AI Foundry portal vs. Azure Machine Learning studio](/ai/ai-studio-experiences-overview).
+For more information, see [AI Foundry portal vs. Azure Machine Learning studio](/ai/ai-studio-experiences-overview).
 
 #### Prompt flow in AI Foundry portal
 
-[Prompt flow in AI Foundry portal](/azure/ai-studio/how-to/prompt-flow) is a development tool designed to streamline the entire development cycle of AI applications powered by Large Language Models (LLMs). Prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
+[Prompt flow in the AI Foundry portal](/azure/ai-studio/how-to/prompt-flow) is a development tool to help streamline the entire development cycle of AI applications that are powered by LLMs. Prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
 
-- Prompt flow is a feature that can be used to generate, customize, or run a flow.
+- Prompt flow is a feature that you can use to generate, customize, or run a flow.
 
-- A flow is an executable instruction set that can implement the AI logic. Flows can be created or run via multiple tools, like a prebuilt canvas, LangChain, etcetera. Iterations of a flow can be saved as assets; once deployed a flow becomes an API. Not all flows are prompt flows; rather, prompt flow is one way to create a flow.
-- A prompt is a package of input sent to a model, consisting of the user input, system message, and any examples. User input is text submitted in the chat window. System message is a set of instructions to the model scoping its behaviors and functionality.
-- A sample flow is a simple, prebuilt orchestration flow that shows how flows work, and can be customized.
-- A sample prompt is a defined prompt for a specific scenario that can be copied from a library and used as-is or modified in prompt design.
+- A flow is an instruction set that can implement the AI logic. Create or run flows via tools, like a prebuilt canvas or LangChain. You can save iterations of a flow as assets. After you deploy a flow, it becomes an API. Not all flows are prompt flows. Prompt flow is one way to create a flow.
+- A prompt is a package of input that's sent to a model. It consists of the user input, system message, and any examples. User input is text submitted in the chat window. The system message is a set of instructions to the model that scopes its behaviors and functionality.
+- A sample flow is a simple, prebuilt orchestration flow that shows how flows work. You can customize a sample flow.
+- A sample prompt is a defined prompt for a specific scenario that you can copy from a library and use as-is or modify it in prompt design.
 
 ### Custom AI code languages
 
-The core concept of AI is the use of algorithms to analyze data and generate models to describe (or *score*) it in ways that are useful. Algorithms are written by developers and data scientists (and sometimes by other algorithms) using programming code. Two of the most popular programming languages for AI development are currently Python and R.
+The core concept of AI is the use of algorithms to analyze data and generate models to describe, or *score*, it in useful ways. Developers and data scientists, and sometimes other algorithms, use programming code to write algorithms. Two of the most popular programming languages for AI development are Python and R.
 
-[Python](https://www.python.org/) is a general-purpose, high-level programming language. It has a simple, easy-to-learn syntax that emphasizes readability. There is no compiling step. Python has a large standard library, but it also supports the ability to add modules and packages. This encourages modularity and lets you expand capabilities when needed. There is a large and growing ecosystem of AI and machine learning libraries for Python, including many that are readily available in Azure.
+[Python](https://www.python.org/) is a general-purpose, high-level programming language. It has a simple, easy-to-learn syntax that emphasizes readability. There's no compiling step. Python has a large standard library, but it also supports the ability to add modules and packages. This feature encourages modularity and lets you expand capabilities when needed. There's a large and growing ecosystem of AI and machine learning libraries for Python, including many in Azure.
+
+For more information, see the following resources:
 
 - [Python on Azure product home page](https://azure.microsoft.com/develop/python/)
-
 - [Azure for Python developers](/azure/python/)
-
 - [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)
-
-- [Introduction to machine learning with Python and Azure Notebooks](/training/paths/intro-to-ml-with-python/)
-
-- [`scikit-learn`](https://scikit-learn.org/stable/). An open-source ML library for Python
-
-- [PyTorch](https://pytorch.org/). An open-source Python library with a rich ecosystem that can be used for deep learning, computer vision, natural language processing, and more
-
-- [TensorFlow](https://www.tensorflow.org/). An open-source symbolic math library also used for ML applications and neural networks
-
+- [Introduction to machine learning with Python and notebooks](/training/paths/intro-to-ml-with-python/)
+- [scikit-learn open-source machine learning library for Python](https://scikit-learn.org/stable/)
+- [PyTorch open-source Python library](https://pytorch.org/)
+- [TensorFlow open-source symbolic math library](https://www.tensorflow.org/)
 - [Tutorial: Apply machine learning models in Azure Functions with Python and TensorFlow](/azure/azure-functions/functions-machine-learning-tensorflow?tabs=bash)
 
-[R is a language and environment](https://www.r-project.org/) for statistical computing and graphics. It can be used for everything from mapping broad social and marketing trends online to developing financial and climate models.
+[R is a language and environment](https://www.r-project.org/) for statistical computing and graphics. You can use it for everything from mapping broad social and marketing trends online to developing financial and climate models.
 
-Microsoft has fully embraced the R programming language and provides many different options for R developers to run their code in Azure.
+Microsoft fully embraces the R programming language and provides many options for R developers to run their code in Azure.
+
+For more information, see the following resources:
 
 - [Use R interactively on Azure Machine Learning](/azure/machine-learning/how-to-r-interactive-development).
-
 - [Tutorial: Create a logistic regression model in R with Azure Machine Learning](/azure/machine-learning/tutorial-1st-r-experiment)
 
-### General info on custom AI on Azure
+### General information about custom AI on Azure
 
 - [Microsoft AI on GitHub: Samples, reference architectures, and best practices](https://github.com/microsoft/AI)
-
 - [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)
-
-- [Azure Machine Learning Python SDK notebooks](https://github.com/Azure/MachineLearningNotebooks). A GitHub repo of example notebooks demonstrating the Azure Machine Learning Python SDK.
-
-- [Train R models using the Azure Machine Learning CLI (v2)](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/r)
+- [Azure Machine Learning Python SDK notebooks](https://github.com/Azure/MachineLearningNotebooks)
+- [Train R models by using the Azure Machine Learning CLI v2](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/r)
 
 ## Customer stories
 
-Different industries are applying AI in innovative and inspiring ways. Following are a few customer case studies and success stories:
+Various industries apply AI in innovative and inspiring ways. Consider the following customer case studies and success stories:
 
-- [Volkswagen: Machine translation speaks Volkswagen – in 40 languages](https://customers.microsoft.com/story/779468-volkswagen-azure-automotive-en)
-- [Healthcare for All with Kry using Azure Open AI](https://customers.microsoft.com/story/1693712644049090392-kry-azure-open-ai-service-sweden)
+- [Volkswagen: Machine translation speaks Volkswagen in 40 languages](https://customers.microsoft.com/story/779468-volkswagen-azure-automotive-en)
+- [Healthcare for all with Kry using Azure OpenAI](https://customers.microsoft.com/story/1693712644049090392-kry-azure-open-ai-service-sweden)
 - [PIMCO boosts client service with an AI-powered search platform built on Azure AI](https://www.microsoft.com/en/customers/story/19744-pimco-sharepoint)
-- [Legrand and Azure OpenAI Service: Powering smarter solutions with AI-driven tools](https://www.microsoft.com/en/customers/story/19697-legrand-azure-cloud-services)
-- [C.H. Robinson overcomes decades-old barriers to automate the logistics industry using Azure AI](https://www.microsoft.com/en/customers/story/19575-ch-robinson-azure-ai-studio)
+- [Legrand and Azure OpenAI: Powering smarter solutions with AI-driven tools](https://www.microsoft.com/en/customers/story/19697-legrand-azure-cloud-services)
+- [C.H. Robinson overcomes decades-old barriers to automate the logistics industry by using Azure AI](https://www.microsoft.com/en/customers/story/19575-ch-robinson-azure-ai-studio)
 
 [Browse more AI customer stories](https://customers.microsoft.com/search?sq=AI&ff=&p=0&so=story_publish_date%20desc)
 
-## General information on Microsoft AI
+## General information about Microsoft AI
 
-Learn more about Microsoft AI, and keep up-to-date with related news:
+Learn more about Microsoft AI, and stay up to date with related news:
 
 - [Microsoft AI](https://www.microsoft.com/ai/)
 - [AI learning hub](/ai/).
 - [Azure AI](https://azure.microsoft.com/solutions/ai/)
-- [Microsoft AI News](https://news.microsoft.com/source/topics/ai/)
+- [Microsoft AI news](https://news.microsoft.com/source/topics/ai/)
 - [Microsoft AI on GitHub: Samples, reference architectures, and best practices](https://github.com/microsoft/AI)
 - [Azure Architecture Center](../index.yml)
 
 ## Next steps
 
-- [Find architecture diagrams and technology descriptions for AI solutions reference architectures](/azure/architecture/browse/?azure_categories=ai-machine-learning).
+- [Architecture diagrams and technology descriptions for AI solutions reference architectures](/azure/architecture/browse/?azure_categories=ai-machine-learning).
 
-- Review AI design by reading [AI workloads on Azure](/azure/well-architected/ai/get-started) from the Well-Architected Framework.
+- [AI workloads on Azure](/azure/well-architected/ai/get-started)
