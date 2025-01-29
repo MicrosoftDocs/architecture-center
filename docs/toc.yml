@@ -1884,8 +1884,6 @@ items:
       items:
       - name: Automate Sentinel integration with DevOps
         href: example-scenario/devops/automate-sentinel-integration.yml
-      - name: Securely managed web apps
-        href: example-scenario/apps/fully-managed-secure-apps.yml
       - name: Secure a Microsoft Teams channel bot
         href: example-scenario/teams/securing-bot-teams-channel.yml
       - name: Secure research for regulated data
