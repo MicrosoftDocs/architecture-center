@@ -116,7 +116,7 @@ The scores that evaluation methods like [completeness](#completeness) output sho
 
 ### Correctness
 
-*Correctness* measures  the degree to which the response is accurate and factual.
+*Correctness* measures the degree to which the response is accurate and factual.
 
 #### Calculate correctness
 
@@ -131,6 +131,7 @@ When correctness is low, do the following tasks:
 
 1. Ensure that the chunks provided to the language model are factually correct and there's no data bias. You may need to correct any issues in the source documents or content.
 1. If the chunks are factually correct, evaluate your prompt.
+1. Evaluate if there are inherit inaccuracies in the model that needs to be overcome with additional factual grounding data or fine-tuning.
 
 ## Similarity and evaluation metrics
 
@@ -163,6 +164,8 @@ You should use the language model evaluation metrics together to get a better un
 ### Groundedness and correctness
 
 Groundedness and correctness metrics together help determine if the system is accurately interpreting and using the context. If groundedness is high but correctness is low, it means the language model is using the context but providing an incorrect response. The incorrect response could be due to improper use of context or issues with the source data. For example, if groundedness is 0.9 but correctness is 0.4, it indicates that the system is referencing the correct source material but drawing incorrect conclusions. Consider a response stating 'Einstein developed quantum mechanics' based on a context that separately mentions both Einstein and quantum mechanics. This response is grounded but factually incorrect.
+
+This metric combination is one where prioritizing one over the other could be very important for your specific workload. For example, if the source data contains potentially false information by design and it might be critical for the system to retain that false information in its responses. In that case you want to prioritize a grounded response over a correct response. In other cases, your workload would rather have context data be consulted, but ultimate correctness still be the priority.
 
 ### Utilization and completeness
 
