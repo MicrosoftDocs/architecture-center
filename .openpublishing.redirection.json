@@ -2901,6 +2901,71 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/data-science-process/lifecycle-business-understanding.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/lifecycle-acceptance.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/lifecycle-data.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/lifecycle-deployment.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/group-manager-tasks.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/project-ic-tasks.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/lifecycle-modeling.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/project-lead-tasks.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/roles-tasks.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/team-data-science-process-for-data-scientists.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/team-lead-tasks.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/lifecycle.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/overview.yml",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/data/data-analysis-regulated-industries.yml",
       "redirect_url": "/azure/architecture/example-scenario/data/data-warehouse",
       "redirect_document_id": false
