@@ -111,6 +111,18 @@ Azure resources can provide similar scale-out performance with shared data and h
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+#### Availability
+
+This architecture uses [Site Recovery](https://azure.microsoft.com/services/site-recovery) to mirror Azure VMs to a secondary Azure region for quick failover and DR if an Azure datacenter fails.
+
+#### Resiliency
+
+The load balancers create resiliency in this solution. If one presentation or transaction server fails, other servers behind the load balancer can run the workloads.
+
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
@@ -131,15 +143,11 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 - This architecture works best with Premium SSDs or Ultra Disk SSDs. For more information, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
-### Availability
+### Performance Efficiency
 
-This architecture uses [Site Recovery](https://azure.microsoft.com/services/site-recovery) to mirror Azure VMs to a secondary Azure region for quick failover and DR if an Azure datacenter fails.
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-### Resiliency
-
-The load balancers create resiliency in this solution. If one presentation or transaction server fails, other servers behind the load balancer can run the workloads.
-
-### Scalability
+#### Scalability
 
 You can scale out the server sets to provide more throughput. For more information, see [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 
