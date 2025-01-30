@@ -146,7 +146,7 @@ For more information, see the following resources:
 - [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
 - [Baseline OpenAI end-to-end chat reference architecture](../ai-ml/architecture/baseline-openai-e2e-chat.yml) is a reference architecture that describes how to build an end-to-end chat architecture by using OpenAI's GPT models.
 
-    :::image type="complex" source="./_images/openai-end-to-end-aml-deployment.svg" border="false" lightbox="architecture/_images/openai-end-to-end-aml-deployment.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture with OpenAI.":::
+    :::image type="complex" source="./_images/openai-end-to-end-aml-deployment.svg" border="false" lightbox="./_images/openai-end-to-end-aml-deployment.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture with OpenAI.":::
     The diagram shows the Azur App Service baseline architecture with a private endpoint that connects to a managed online endpoint in a Machine Learning managed virtual network. The managed online endpoint is in front of a Machine Learning compute cluster. The diagram shows the Machine Learning workspace with a dotted line that points to the compute cluster. This arrow represents that the implementable flow is deployed to the compute cluster. The managed virtual network uses managed private endpoints that provide private connectivity to resources that are required by the implementable flow, such as Azure Container Registry and Azure Storage. The diagram shows user-defined private endpoints that provide private connectivity to Azure OpenAI Service and Azure AI Search.
     :::image-end:::
 
