@@ -51,9 +51,9 @@ An API gateway can be tailored to your application’s requirements by using spe
 
 Here are some options for implementing an API gateway in your application.
 
-- **Reverse proxy server**. Nginx and HAProxy are open-source reverse proxy offerings. They support features such as load balancing, SSL termination, and layer-7 routing. They have free versions and paid editions that provide extra features and support options. These products among many other options are mature with rich feature sets, high performance, and extensible.
+- **Reverse proxy server**. Nginx and HAProxy are open-source reverse proxy offerings. They support features such as load balancing, SSL termination, and layer-7 routing. They have free versions and paid editions that provide extra features and support options. These products are mature with rich feature sets, high performance, and extensible.
 
-- **[Service mesh ingress controller](/azure/aks/servicemesh-about/)**. If you're using service meshes, such as the AKS officially supported add-ons for Istio and Open Service Mesh or any third party open-source project (i.r. Linkerd or Consul Connect), consider the features that are provided by the ingress controller for that service mesh. For example, the Istio ingress controller supports layer 7 routing, HTTP redirects, retries, and other features.
+- **[Service mesh ingress controller](/azure/aks/servicemesh-about/)**. If you use a service mesh, evaluate the ingress controller’s features specific to that service mesh. This includes AKS-supported add-ons like Istio and Open Service Mesh, as well as third-party open-source projects like Linkerd or Consul Connect. For example, the Istio ingress controller supports layer 7 routing, HTTP redirects, retries, and other features.
 
 - **[Azure Application Gateway](/azure/application-gateway/)**. Application Gateway is a managed load balancing service. It provides perform layer-7 routing, SSL termination, and a web application firewall (WAF).
 
@@ -63,17 +63,16 @@ Here are some options for implementing an API gateway in your application.
 
 ## In Azure
 
-Where there is enough security and control available for your secnario, use built-in gateway/ingress offerings from your platform, such as in Azure Container Apps and AKS.
-
-If those offerings do not give you enough flexibility to meet your control requirements, then bring your own product where supported. Use a ops model to govern the lifecycle concerns of that custom offering such as GitOps.
 
 When selecting an API gateway, consider the following factors:
 
-**Available features**. All the previous [API gateway options](#api-gateway-options) support layer-7 routing, but support for other features can vary. Evaluate your requirements, such as authentication, rate limiting, or SSL termination. Determine whether a single gateway is sufficient or if you need multiple gateways to meet your needs.
+**Support all requirements**.  Choose an API gateway that supports your required features. All the previous [API gateway options](#api-gateway-options) support layer-7 routing. But their support for other features, such as authentication, rate limiting, and SSL termination, can vary. Assess whether a single gateway meets your needs or if multiple gateways are necessary.
 
-**Deployment options**. Azure Application Gateway and Azure API Management are managed Azure services. However, general purpose reverse proxies and load balancers aren't. You can deploy them to dedicated virtual machines or inside an AKS cluster in their Ingress Controller offerings. Deployment outside a cluster isolates the API gateway from the rest of the workload, but it creates more management overhead.
+**Prefer built-in offerings.** Use built-in API gateway and ingress solutions provided by your platform, such as Azure Container Apps and AKS, whenever they meet your security and control requirements. Only use a custom gateway if the built-in options lack necessary flexibility. Custom solutions require a governance model, such as GitOps, to manage its lifecycle effectively.
 
-**Management overhead**. When you update services or add new ones, you might need to update the gateway routing rules. Consider how to manage this process. Also, consider how to manage SSL certificates, IP allowlists, and other aspects of API gateway configuration.
+**Choose the right deployment model.** Use managed services like Azure Application Gateway and Azure API Management for reduced operational overhead. If you use general-purpose reverse proxies or load balancers, deploy them in a way that aligns with your architecture. You can deploy general-purpose API gateways to dedicated virtual machines or inside an AKS cluster in their Ingress Controller offerings. To isolate the API gateway from the workload, you can deploy them outside the cluster, but this deployment increases the management complexity.
+
+**Minimize management overhead.** When you update services or add new ones, you might need to update the gateway routing rules.  Implement processes or workflows to manage routing rules when adding or modifying services, SSL certificates, IP allowlists, and security configurations. Use infrastructure-as-code and automation tools to streamline API gateway management.
 
 ## Next steps
 
