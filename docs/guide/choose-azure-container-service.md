@@ -86,7 +86,7 @@ AKS also provides access to the Kubernetes API server, which enables you to cust
 
 Compared to standard AKS, AKS Automatic minimizes the learning curve associated with Kubernetes, making it more accessible for teams new to container orchestration. While it still provides access to the Kubernetes API for advanced configurations, many operational complexities are abstracted away.
 
-> [!note]
+> [!NOTE]
 > This guide will distinguish between AKS Standard and AKS Automatic where applicable. It can otherwise be assumed that functionality described has parity between both Standard and Automatic offerings.
 
 #### Azure Container Apps  
