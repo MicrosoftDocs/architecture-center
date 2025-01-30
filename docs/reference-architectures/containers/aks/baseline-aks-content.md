@@ -640,13 +640,26 @@ For more information, see [Chaos Studio](/azure/chaos-studio/chaos-studio-overvi
 
 We recommend Azure Monitor [container insights](/azure/azure-monitor/containers/container-insights-overview) to monitor the performance of container workloads because you can view events in real time. It captures container logs from the running pods and aggregates them for viewing. It also collects information from the metrics API about memory and CPU usage to monitor the health of running resources and workloads. You can also use container insights to monitor performance as the pods scale. It includes telemetry that's critical for monitoring, analysis, and visualization of the collected data.
 
+### Enable log collection from pods
+
 The [ContainerLogV2 log schema](/azure/azure-monitor/containers/container-insights-logs-schema) is designed to capture container logs from Kubernetes pods in a streamlined approach. Log entries are consolidated into the `ContainerLogV2` table in an Azure Log Analytics workspace.
+
+In an AKS cluster, there are two primary methods for configuring pod log collection with Container Insights. Both approaches allow you to customize settings such as filtering namespaces, adjusting collection intervals, enabling or disabling specific features (for example, ContainerLogV2 or ContainerLogV2-HighScale), and specifying which data streams to collect.
+
+- If you require centralized, reusable monitoring configurations across multiple clusters or prefer cluster configuration to be externalized in Azure-native resources, use [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) (DCRs). DCRs are native Azure resources managed via the Azure Resource Manager (ARM) control plane, and they can be included in Bicep files.
+- Alternatively, you can define monitoring by using ConfigMaps, which are nonconfidential Kubernetes YAML objects configured through the Kubernetes API control plane. The Container Insights agent running on the cluster monitors for ConfigMap objects, and it uses predefined settings to determine which data to collect.
+
+When both methods are enabled, ConfigMap settings take precedence over DCRs. Avoid mixing ConfigMap and DCR configuration for container log collection, because this can lead to hard-to-troubleshoot logging issues.
+
+### Alerts and Prometheus metrics
 
 Outages and malfunctions pose significant risks to workload applications, making it essential to proactively identify issues related to your infrastructure's health and performance. Monitoring, and acting on the information you see, can minimize disruptions and increase the reliability of your solution. To anticipate potential failure conditions in your cluster, enable [the recommended Prometheus alert rules for Kubernetes](/azure/azure-monitor/containers/kubernetes-metric-alerts).
 
 Most workloads hosted in pods emit Prometheus metrics. Container insights can integrate with Prometheus. You can view the application and workload metrics collected from containers, pods, nodes, and the cluster.
 
 Some non-Microsoft solutions integrate with Kubernetes, such as Datadog, Grafana, or New Relic. So if your organization already uses these solutions, you can take advantage of them.
+
+### Azure infrastructure and Kubernetes control plane logs
 
 With AKS, Azure manages some of the core Kubernetes services. Azure implements the logs for the AKS control plane components as [resource logs](/azure/azure-monitor/essentials/resource-logs). We recommend that you enable the following options on most clusters. The options can help you troubleshoot cluster problems, and they have a relatively low log density.
 

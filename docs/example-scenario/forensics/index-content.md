@@ -255,8 +255,6 @@ For more information about Microsoft Azure compliance, see:
 - [Azure compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance)
 - [Microsoft Azure compliance offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/en-us)
 
-## Related resources
+## Related resource
 
 - [Security architecture design](../../guide/security/security-start-here.yml)
-- [Microsoft Entra IDaaS in security operations](../aadsec/azure-ad-security.yml)
-- [Security considerations for highly sensitive IaaS apps in Azure](../../reference-architectures/n-tier/high-security-iaas.yml)

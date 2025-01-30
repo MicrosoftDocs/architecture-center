@@ -183,4 +183,3 @@ Principal author:
 - [Conditional Access overview](/azure/architecture/guide/security/conditional-access-zero-trust)
 - [Conditional Access design principles and dependencies](/azure/architecture/guide/security/conditional-access-design)
 - [Conditional Access design based on Zero Trust and personas](/azure/architecture/guide/security/conditional-access-architecture)
-- [Microsoft Entra IDaaS in security operations](/azure/architecture/example-scenario/aadsec/azure-ad-security)

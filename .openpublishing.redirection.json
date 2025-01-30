@@ -2901,6 +2901,76 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/data-science-process/lifecycle-business-understanding.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/lifecycle-acceptance.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/lifecycle-data.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/lifecycle-deployment.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/group-manager-tasks.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/project-ic-tasks.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/lifecycle-modeling.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/project-lead-tasks.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/roles-tasks.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/team-data-science-process-for-data-scientists.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/team-lead-tasks.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/lifecycle.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/overview.yml",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/context/ml-context.json.yml",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/data/data-analysis-regulated-industries.yml",
       "redirect_url": "/azure/architecture/example-scenario/data/data-warehouse",
       "redirect_document_id": false
@@ -6642,6 +6712,46 @@
     {
       "source_path": "docs/ai-ml/guide/avops-design-guide.md",
       "redirect_url": "/industry/mobility/architecture/ra-mobility-avops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/n-tier/high-security-iaas.yml",
+      "redirect_url": "/azure/architecture/virtual-machines/baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/security/azure-monitor-integrate-security-components.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/map-threats-it-environment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/aadsec/azure-ad-security.yml",
+      "redirect_url": "/entra/architecture/secure-best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/sentinel-threat-intelligence.yml",
+      "redirect_url": "/azure/sentinel/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/homomorphic-encryption-seal.yml",
+      "redirect_url": "https://www.microsoft.com/research/project/microsoft-seal/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/hybrid-security-monitoring.yml",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-cloud-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/devops/automate-sentinel-integration.yml",
+      "redirect_url": "/azure/sentinel/",
       "redirect_document_id": false
     }
   ]
