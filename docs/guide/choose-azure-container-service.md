@@ -74,7 +74,7 @@ For a general introduction into the terminology and concepts around service mode
 
 ### Comparing the service models of Azure container solutions
 
-#### AKS Standard
+#### AKS
 
 As a hybrid of IaaS and PaaS, AKS prioritizes control over simplicity, leveraging the de facto standard for container orchestration: Kubernetes. Though AKS streamlines the management of the underlying core infrastructure, this VM-based platform is still exposed to your applications and requires appropriate guardrails and processes, like patching, to ensure security and business continuity. The compute infrastructure is supported by additional Azure resources that are hosted directly in your subscription, like Azure load balancers.
 
