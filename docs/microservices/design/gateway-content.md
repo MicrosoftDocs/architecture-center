@@ -1,4 +1,4 @@
-In a microservices architecture, a client might interact with more than one front-end service. Given this fact, how does a client know what endpoints to call? What happens when new services are introduced, or existing services are refactored? How do services handle SSL termination, authentication, and other concerns? An *API gateway* can help to address these challenges.
+In a microservices architecture, a client might interact with more than one front-end service. Given this fact, how does a client know what endpoints to call? What happens when new services are introduced, or existing services are refactored? How do services handle SSL termination, mutual TLS, authentication, and other concerns? An *API gateway* can help to address these challenges.
 
 ![Diagram of an API gateway](../images/gateway.png)
 
@@ -6,7 +6,7 @@ In a microservices architecture, a client might interact with more than one fron
 
 ## What is an API gateway?
 
-An API gateway provides a centralized entry point for managing interactions between clients and application services. It acts as a reverse proxy and routes clients requests to the appropriate services. It can also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting.
+An API gateway provides a centralized entry point for managing interactions between clients and application services. It acts as a reverse proxy and routes clients requests to the appropriate services. It can also perform various cross-cutting tasks such as authentication, SSL termination, mutual TLS, and rate limiting.
 
 ## Why use an API gateway?
 
@@ -35,6 +35,7 @@ An API gateway can be tailored to your application’s requirements by using spe
 - [Gateway offloading](../../patterns/gateway-offloading.yml). You can use an API gateway to provide cross-cutting functionality, so individual services don't have to provide it. Here are some examples of functionality that could be offloaded to an API gateway:
 
     - SSL termination
+    - Mutal TLS
     - Authentication
     - IP allowlist or blocklist
     - Client rate limiting (throttling)
@@ -50,9 +51,9 @@ An API gateway can be tailored to your application’s requirements by using spe
 
 Here are some options for implementing an API gateway in your application.
 
-- **Reverse proxy server**. Nginx and HAProxy are open-source reverse proxy servers. They support features such as load balancing, SSL termination, and layer-7 routing. They have free versions and paid editions that provide extra features and support options. Nginx and HAProxy are both mature products with rich feature sets and high performance. You can extend each with third-party modules or by writing custom scripts in Lua. Nginx also supports a JavaScript-based scripting module referred to as NGINX JavaScript, formally named *nginScript*.
+- **Reverse proxy server**. Nginx and HAProxy are open-source reverse proxy offerings. They support features such as load balancing, SSL termination, and layer-7 routing. They have free versions and paid editions that provide extra features and support options. These products are mature with rich feature sets, high performance, and extensible.
 
-- **Service mesh ingress controller**. If you're using a service mesh, such as Linkerd or Istio, consider the features that are provided by the ingress controller for that service mesh. For example, the Istio ingress controller supports layer 7 routing, HTTP redirects, retries, and other features.
+- **[Service mesh ingress controller](/azure/aks/servicemesh-about/)**. If you use a service mesh, evaluate the ingress controller’s features specific to that service mesh. This includes AKS-supported add-ons like Istio and Open Service Mesh, as well as third-party open-source projects like Linkerd or Consul Connect. For example, the Istio ingress controller supports layer 7 routing, HTTP redirects, retries, and other features.
 
 - **[Azure Application Gateway](/azure/application-gateway/)**. Application Gateway is a managed load balancing service. It provides perform layer-7 routing, SSL termination, and a web application firewall (WAF).
 
@@ -60,31 +61,18 @@ Here are some options for implementing an API gateway in your application.
 
 - **[Azure API Management](/azure/api-management/)**. API Management is a managed solution for publishing APIs to external and internal customers. It provides features to manage public-facing APIs, including rate limiting, IP restrictions, and authentication using Microsoft Entra ID or other identity providers. API Management doesn't perform any load balancing, so you should use it with a load balancer, such as Azure Application Gateway, or a reverse proxy. For information, see [API Management with Azure Application Gateway](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway).
 
-## Choosing an API gateway technology
+## Choose an API gateway technology
+
 
 When selecting an API gateway, consider the following factors:
 
-**Available features**. All the previous [API gateway options](#api-gateway-options) support layer-7 routing, but support for other features can vary. Evaluate your requirements, such as authentication, rate limiting, or SSL termination. Determine whether a single gateway is sufficient or if you need multiple gateways to meet your needs.
+**Support all requirements**.  Choose an API gateway that supports your required features. All the previous [API gateway options](#api-gateway-options) support layer-7 routing. But their support for other features, such as authentication, rate limiting, and SSL termination, can vary. Assess whether a single gateway meets your needs or if multiple gateways are necessary.
 
-**Deployment options**. Azure Application Gateway and Azure API Management are managed Azure services. However, Nginx and HAProxy aren't. They typically run in containers inside a cluster. You can also deploy Nginx and HAProxy to dedicated virtual machines outside of a cluster. Deployment outside a cluster isolates the API gateway from the rest of the workload, but it creates more management overhead.
+**Prefer built-in offerings.** Use built-in API gateway and ingress solutions provided by your platform, such as Azure Container Apps and AKS, whenever they meet your security and control requirements. Only use a custom gateway if the built-in options lack necessary flexibility. Custom solutions require a governance model, such as GitOps, to manage its lifecycle effectively.
 
-**Management overhead**. When you update services or add new ones, you might need to update the gateway routing rules. Consider how to manage this process. Also, consider how to manage SSL certificates, IP allowlists, and other aspects of API gateway configuration.
+**Choose the right deployment model.** Use managed services like Azure Application Gateway and Azure API Management for reduced operational overhead. If you use general-purpose reverse proxies or load balancers, deploy them in a way that aligns with your architecture. You can deploy general-purpose API gateways to dedicated virtual machines or inside an AKS cluster in their Ingress Controller offerings. To isolate the API gateway from the workload, you can deploy them outside the cluster, but this deployment increases the management complexity.
 
-## Deploying Nginx or HAProxy to Kubernetes
-
-You can deploy Nginx or HAProxy to Kubernetes as a [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) or [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) that specifies the Nginx or HAProxy container image. Use a ConfigMap to store the configuration file for the proxy and mount the ConfigMap as a volume. Create a service of type LoadBalancer to expose the gateway through an Azure Load Balancer.
-
-An alternative is to create an Ingress Controller. An Ingress Controller is a Kubernetes resource that deploys a load balancer or reverse proxy server. Several implementations exist, including Nginx and HAProxy. A separate resource called an Ingress defines settings for the Ingress Controller, such as routing rules and TLS certificates. This setup means you don't need to manage complex configuration files that are specific to a particular proxy server technology.
-
-The API gateway is a potential bottleneck or single point of failure in the system. Always deploy at least two replicas for high availability. You might need to scale out the replicas further, depending on the load.
-
-Also consider running the gateway on a dedicated set of nodes in the cluster. Benefits to this approach include:
-
-- **Isolation**: All inbound traffic goes to a fixed set of nodes, which can be isolated from backend services.
-
-- **Stable configuration**: If the gateway is misconfigured, the entire application might become unavailable.
-
-- **Performance**: You might want to use a specific virtual machine configuration for the gateway for performance reasons.
+**Minimize management overhead.** When you update services or add new ones, you might need to update the gateway routing rules.  Implement processes or workflows to manage routing rules when adding or modifying services, SSL certificates, IP allowlists, and security configurations. Use infrastructure-as-code and automation tools to streamline API gateway management.
 
 ## Next steps
 
