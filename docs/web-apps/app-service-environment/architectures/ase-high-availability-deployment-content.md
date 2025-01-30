@@ -41,11 +41,13 @@ This section describes the nature of availability for services used in this arch
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-This reference implementation uses the same production-level CI/CD pipeline as the standard deployment, with only one jump box VM. You might, however, decide to use one jumpbox for each of the three zones. This architecture uses just one jumpbox because the jump box doesn't affect the availability of the app. The jumpbox is used only for deployment and testing.
-
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+#### Jump boxes
+
+This reference implementation uses the same production-level CI/CD pipeline as the standard deployment, with only one jump box VM. You might, however, decide to use one jump box for each of the three zones. This architecture uses just one jump box because the jump box doesn't affect the availability of the app. The jump box is used only for deployment and testing.
 
 #### App Service Environment
 

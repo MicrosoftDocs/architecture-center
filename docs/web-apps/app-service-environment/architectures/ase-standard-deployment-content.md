@@ -217,6 +217,9 @@ There are various [pricing options available for App Service](https://azure.micr
 
 [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache) provides the various pricing options for this service. This architecture uses the *Premium SKU*, for the virtual network support.
 
+
+#### Additional dependencies
+
 Following are pricing pages for other services that are used to lock down the App Service Environment:
 
 - [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall)
@@ -228,8 +231,6 @@ Following are pricing pages for other services that are used to lock down the Ap
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
-
-#### Deployment
 
 The deployment scripts in this reference architecture are used to deploy App Service Environment, other services, and the applications inside App Service Environment. Once these applications are deployed, enterprises might want to have a plan for continuous integration and deployment for app maintenance and upgrades. This section shows some of the common ways developers use for CI/CD of App Service Environment applications.
 

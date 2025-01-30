@@ -147,8 +147,6 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-#### Scalability
-
 You can scale out the server sets to provide more throughput. For more information, see [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 
 ## Next steps
