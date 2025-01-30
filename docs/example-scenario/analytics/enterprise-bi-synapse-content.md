@@ -175,7 +175,7 @@ Some common security questions include:
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-This section provides information on pricing for different services involved in this solution, and mentions decisions made for this scenario with a sample dataset.
+This section provides information on pricing for different services involved in this solution, and mentions decisions made for this scenario with a sample dataset. Use this starting [Azure pricing calculator](https://azure.com/e/598c407dc58545e090c8cfd6c7dbc190) configuration and adjust to fit your scenario.
 
 #### Azure Synapse
 
@@ -215,7 +215,7 @@ This scenario uses [Power BI Premium workspaces](/power-bi/admin/service-premium
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
--  For guidance on how to use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse workspace across multiple environments, see [article](/azure/synapse-analytics/cicd/continuous-integration-delivery)
+- For guidance on how to use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse workspace across multiple environments, see [article](/azure/synapse-analytics/cicd/continuous-integration-delivery)
 - Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a continuous integration and continuous delivery (CI/CD) process, making the automation process easier. In this architecture, there are four main workloads:
   - The data warehouse server, and related resources
   - Azure Synapse pipelines
@@ -299,7 +299,6 @@ Other contributors:
 - [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf)
 - [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
 
-[AAF-devops]: /azure/architecture/framework/devops/overview
 [azure-monitor]: https://azure.microsoft.com/services/monitor
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [canary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
@@ -311,4 +310,3 @@ Other contributors:
 [bi-model]: /power-bi/guidance/center-of-excellence-business-intelligence-solution-architecture#bi-semantic-models
 [pbi-premium-capacities]: /power-bi/enterprise/service-premium-what-is#capacities-and-skus
 [synapse-dedicated-pool]: /azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is
-[pbi-what-is-premium]: /power-bi/admin/service-premium-what-is#analysis-services-in-power-bi-premium
