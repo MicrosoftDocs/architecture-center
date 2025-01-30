@@ -108,7 +108,7 @@ Principal author:
 
 ## Related resource
 
-- [Security considerations for highly sensitive IaaS apps in Azure][Security considerations for highly sensitive IaaS apps in Azure]
+- [Azure Virtual Machines baseline architecture][Azure Virtual Machines baseline]
 
 [Activate my Azure resource roles in Privileged Identity Management]: /azure/active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles
 [Azure AD]: https://azure.microsoft.com/services/active-directory
@@ -125,3 +125,4 @@ Principal author:
 [Secure user sign-in events with Azure AD Multi-Factor Authentication]: /azure/active-directory/authentication/tutorial-enable-azure-mfa
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1880866-multilayered-protection-azure-vm-architecture-diagram.vsdx
 [Zero Trust]: https://www.microsoft.com/security/business/zero-trust
+[Azure Virtual Machines baseline]: /azure/architecture/virtual-machines/baseline
