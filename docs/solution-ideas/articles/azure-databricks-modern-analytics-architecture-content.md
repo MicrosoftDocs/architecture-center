@@ -47,7 +47,7 @@ This solution outlines the key principles and components of modern data architec
 1. Services that work with the data connect to a single underlying data source to help ensure consistency. For instance, you can run SQL queries on the data lake by using Azure Databricks SQL warehouses. This service:
 
    - Provides a query editor and catalog, the query history, basic dashboarding, and alerting.
-   - Uses integrated security that includes row-level and column-level permissions.
+   - Uses integrated security that includes row-level permissions and column-level permissions.
    - Uses a [Photon-powered Delta Engine to improve performance][Photon improves performance].
 
 1. You can mirror gold datasets out of Azure Databricks Unity Catalog into Fabric. Use [Azure Databricks mirroring in Fabric][Databricks mirroring in Fabric] to easily integrate without the need to move or replicate data.
@@ -63,7 +63,7 @@ This solution outlines the key principles and components of modern data architec
    - Azure Databricks Unity Catalog provides centralized access control, auditing, lineage, and data discovery capabilities across Azure Databricks workspaces.
    - Microsoft Purview provides data discovery services, sensitive data classification, and governance insights across the data estate.
    - Azure DevOps offers continuous integration and continuous deployment (CI/CD) and other integrated version control features.
-   - Azure Key Vault securely manages secrets, keys, and certificates.
+   - Azure Key Vault helps you securely manage secrets, keys, and certificates.
    - Microsoft Entra ID and the System for Cross-domain Identity Management (SCIM) provisioning provide single sign-on for Azure Databricks users and groups. Azure Databricks supports automated user provisioning with Microsoft Entra ID to:
 
      - Create new users and groups.
