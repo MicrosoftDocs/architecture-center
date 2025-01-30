@@ -561,4 +561,4 @@ Learn more about Microsoft AI, and stay up to date with related news:
 
 ## Related resource
 
-- [Architecture diagrams and technology descriptions for AI solutions reference architectures](../../browse.yml?azure_categories=ai-machine-learning)
+- [Architecture diagrams and technology descriptions for AI solutions reference architectures](../../browse/index.yml?azure_categories=ai-machine-learning)
