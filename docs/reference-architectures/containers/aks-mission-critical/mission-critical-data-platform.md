@@ -4,7 +4,7 @@ description: Data decisions for the baseline reference architecture for a missio
 author: msimecek
 categories: database
 ms.author: msimecek
-ms.date: 12/01/2023
+ms.date: 01/30/2023
 ms.topic: reference-architecture
 ms.service: azure-architecture-center
 ms.subservice: reference-architecture
@@ -13,7 +13,7 @@ ms.custom:
 ms.category:
   - database
 azureCategories:
-  - database  
+  - database
 summary: Data decisions for the baseline reference architecture for a mission-critical workload on Azure.
 products:
   - azure-cosmosdb
@@ -36,7 +36,7 @@ In a mission-critical architecture, any state must be stored outside the compute
 
 In this architecture, there are two data stores:
 
-- **Database** 
+- **Database**
 
   Stores related to the workload.  It's recommended that all state is stored globally in a database separated from regional stamps. Build redundancy by deploying the database across regions. For mission-critical workloads, synchronizing data across regions should be the primary concern. Also, in case of a failure, write requests to the database should still be functional.
 
@@ -97,7 +97,7 @@ Azure Cosmos DB is configured as follows:
 
 - **Consistency level** is set to the default *Session consistency* because it's the most widely used level for single region and globally distributed applications. Weaker consistency with higher throughput isn't needed because of the asynchronous nature of write processing and doesn't require low latency on database write.
 
-  > [!NOTE] 
+  > [!NOTE]
   > The *Session* consistency level offers a reasonable tradeoff for latency, availability and consistency guarantees for this specific application. It's important to understand that *Strong* consistency level isn't available for multi-master write databases.
 
 - **Partition key** is set to `/id` for all collections. This decision is based on the usage pattern, which is mostly *"writing new documents with GUID as the ID"* and *"reading wide range of documents by IDs"*. Providing the application code maintains its ID uniqueness, new data is evenly distributed into partitions by Azure Cosmos DB, enabling infinite scale.
@@ -167,7 +167,7 @@ Azure Service Bus premium tier is the recommended solution for high-value messag
 
 In [RFC 7231](https://tools.ietf.org/html/rfc7231#section-4), the Hypertext Transfer Protocol states, "A ... method is considered *idempotent* if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request."
 
-One common technique of making message handling idempotent is to check a persistent store, like a database, if the message has already been processed. If it has been processed, you wouldn't run the logic to process it again. 
+One common technique of making message handling idempotent is to check a persistent store, like a database, if the message has already been processed. If it has been processed, you wouldn't run the logic to process it again.
 - There might be situations where the processing of the message includes database operations, specifically the insertion of new records with database-generated identifiers. New messages can be emitted to the broker, which contain those identifiers. Because there aren't distributed transactions that encompass both the database and the message broker, there can be a number of complications that can occur if the process running the code happens to fail. See the following example situations:
   - The code emitting the messages might run before the database transaction is committed, which is how many developers work using the [Unit of Work pattern](https://www.programmingwithwolfgang.com/repository-and-unit-of-work-pattern). Those messages can *escape*, if the failure occurs between calling the broker and asking that the database transaction be committed. As the transaction rolls back, those database-generated IDs are also undone, which leaves them available to other code that might be running at the same time. This can cause recipients of the *escaped* messages to process the wrong database entries, which hurts the overall consistency and correctness of your system.
   - If developers put the code that emits the message *after* the database transaction completes, the process can still fail between these operations (transaction committed - message sent). When that happens, the message will go through processing again, but this time the idempotence guard clause will see that it has already been processed (based on the data stored in the database). The clause will skip the message emitting code, believing that everything was done successfully last time. Downstream systems, which were expecting to receive notifications about the completed process, do not receive anything. This situation again results in an overall state of inconsistency.
