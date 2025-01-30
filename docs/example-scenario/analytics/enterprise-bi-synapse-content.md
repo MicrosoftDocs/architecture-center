@@ -1,6 +1,20 @@
 This example scenario shows how data can be ingested into a cloud environment from an on-premises data warehouse, then served using a business intelligence (BI) model. This approach could be an end goal or a first step toward full modernization with cloud-based components.
 
-The following steps build on the [Azure Synapse Analytics end-to-end][e2e-analytics] scenario. It uses Azure Pipelines to ingest data from a SQL database into Azure Synapse SQL pools, then transforms the data for analysis.
+The following steps build on the [Azure Synapse Analytics end-to-end][e2e-analytics] scenario. This process utilizes Azure Synapse Analytics Pipelines to ingest data from a SQL database into Azure Synapse SQL pools, followed by data transformation for analysis. While Azure Data Factory pipelines or Microsoft Fabric Data Factory pipelines can also perform these tasks, this article focuses specifically on using Azure Synapse Analytics Pipelines.
+
+
+## When to use this architecture
+
+There are many ways to deliver the business requirements that are associated with enterprise BI. Business requirements are defined by such things as present technology investment, human skills, time horizon for modernization, future vision, a preference for PaaS or SaaS, etc. 
+
+There are a number of design approaches that can be considered:
+
+- [A lakehouse in Microsoft Fabric](/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
+- Combining [Microsoft Fabric and Azure Databricks](/azure/architecture/solution-ideas/articles/small-medium-modern-data-platform) for customers with existing investment in Azure Databricks & Power BI with a desire to modernize with Microsoft Fabric 
+- Enterprise BI for small and medium business using an [Azure SQL ecosystem and Microsoft Fabric](/azure/architecture/example-scenario/data/small-medium-data-warehouse)
+- Data warehousing completely on Microsoft Fabric for customers with a SaaS preference
+
+The architecture described in this article uses presumes that Azure Synapse data warehouse was selected as the persistent layer of the enterprise semantic model and Power BI is used for Business Intelligence. This approach has great flexibility and is considered a Platform as a Service implementation.
 
 ## Architecture
 
@@ -20,21 +34,21 @@ The following steps build on the [Azure Synapse Analytics end-to-end][e2e-analyt
 
 2. [Azure Synapse Analytics](/azure/synapse-analytics) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics. Azure Synapse dedicated SQL pool is a target for ongoing ingestion from on-premises. It can be used for further processing, as well as serving the data for [Power BI](/power-bi/fundamentals/power-bi-overview) through DirectQuery.
 
-3. [Azure Pipelines](/azure/data-factory/concepts-pipelines-activities) is used to orchestrate data ingestion and transformation within your Azure Synapse workspace.
+3. [Azure Synapse Analytics Pipelines](/azure/data-factory/concepts-pipelines-activities) is used to orchestrate data ingestion and transformation within your Azure Synapse workspace.
 
 #### Analysis and reporting
 
-- The data-modeling approach in this scenario is presented by combining the [enterprise model][enterprise-model] and [BI Semantic model][bi-model]. The enterprise model is stored in an [Azure Synapse dedicated SQL pool][synapse-dedicated-pool], and the BI Semantic model is stored in [Power BI Premium capacities][pbi-premium-capacities]. Power BI accesses the data via DirectQuery.
+- The data-modeling approach in this scenario combines the [enterprise model][enterprise-model] and the [BI semantic model][bi-model]. The enterprise model is stored in an [Azure Synapse dedicated SQL pool][synapse-dedicated-pool]. The BI semantic model is stored in [Power BI Premium capacities][pbi-premium-capacities], F64. Power BI accesses the data via DirectQuery.
 
 ### Components
 
 This scenario uses the following components:
 
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework)
-- [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction)
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)
-- [Power BI Premium](/power-bi/enterprise/service-premium-what-is)
-- [Microsoft Entra ID](/entra/fundamentals/whatis)
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework): PaaS SQL Server hosted on Azure that we use to demonstrate flow of data for the migration scenario. 
+- [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction): Flexible Cloud storage for unstructured data that is used for persisting intermediate migration result.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is): An enterprise analytics service for data warehousing and big data systems that's used as main compute and persistent storage in enterprise semantic modeling and servicing.
+- [Power BI Premium](/power-bi/enterprise/service-premium-what-is): Business intelligence tool, which is used for the presentation portion of the scenario.
+- [Microsoft Entra ID](/entra/fundamentals/whatis): Multicloud identity and network solution suite that's used to support authentication and authorization flow.
 
 ### Simplified architecture
 
@@ -52,10 +66,8 @@ Microsoft Entra authenticates users who connect to Power BI dashboards and apps.
 
 When you run an automated extract, transform, load (ETL) or extract, load, transform (ELT) process, it's most efficient to load only the data that changed since the previous run. It's called an [incremental load](/azure/data-factory/tutorial-incremental-copy-overview), as opposed to a full load that loads all the data. To perform an incremental load, you need a way to identify which data has changed. The most common approach is to use a *high water mark* value, which tracks the latest value of some column in the source table, either a datetime column or a unique integer column.
 
-Starting with SQL Server 2016, you can use [temporal tables](/sql/relational-databases/tables/temporal-tables), which are system-versioned tables that keep a full history of data changes. The database engine automatically records the history of every change in a separate history table. You can query the historical data by adding a `FOR SYSTEM_TIME` clause to a query. Internally, the database engine queries the history table, but it's transparent to the application.
+With SQL server, you can use [temporal tables](/sql/relational-databases/tables/temporal-tables). Temporal tables are system-versioned tables that keep all data change history. The database engine automatically records the history of every change in a separate history table. You can query the historical data by adding a `FOR SYSTEM_TIME` clause to a query. Internally, the database engine queries the history table, but it's transparent to the application.
 
-> [!NOTE]
-> For earlier versions of SQL Server, you can use [change data capture (CDC)](/sql/relational-databases/track-changes/about-change-data-capture-sql-server). This approach is less convenient than temporal tables, because you have to query a separate change table, and changes are tracked by a log sequence number, rather than a timestamp.
 
 Temporal tables are useful for dimension data, which can change over time. Fact tables usually represent an immutable transaction such as a sale, in which case keeping the system version history doesn't make sense. Instead, transactions usually have a column that represents the transaction date, which can be used as the watermark value. For example, in the AdventureWorks Data Warehouse, the `SalesLT.*` tables have a `LastModified` field.
 
@@ -73,7 +85,7 @@ This scenario uses the [AdventureWorks sample database][adventureworksdw-sample-
 
 ### Metadata-driven copy tool
 
-The built-in [Metadata-driven copy tool](/azure/data-factory/copy-data-tool-metadata-driven) within Azure Pipelines incrementally loads all tables contained within our relational database. By navigating through the wizard-based experience, you can connect the Copy Data tool to the source database, and configure either incremental or full loading for each table. The Copy Data tool then creates both the pipelines and SQL scripts to generate the control table required to store data for the incremental loading process&mdash;for example, the high watermark value/column for each table. Once these scripts are run, the pipeline is ready to load all tables in the source data warehouse into the Synapse dedicated pool.
+The built-in [Metadata-driven copy tool](/azure/data-factory/copy-data-tool-metadata-driven) within Azure Synapse Analytics Pipelines incrementally loads all tables contained within our relational database. Through a wizard interface, you can connect the Copy Data tool to the source database. Once connected, you can then configure either incremental or full loading for each table. Next, the Copy Data tool creates both the pipelines and SQL scripts that generate the control table required to store data for the incremental loading process, such as the high watermark value/column for each table. Once these scripts are run, the pipeline is ready to load all source data warehouse tables into the Synapse dedicated pool.
 
 :::image type="content" source="./media/metadata-copy.png" alt-text="Screenshot of metadata-driven copy data tool in Azure Synapse Analytics.":::
 
@@ -95,7 +107,7 @@ The [copy activity](/azure/data-factory/copy-activity-overview) copies data from
 
 The copy statement is then used to load data from the staging environment into the Synapse dedicated pool.
 
-### Use Azure Pipelines
+### Use Azure Synapse Analytics Pipelines
 
 Pipelines in Azure Synapse are used to define the ordered set of activities to complete the incremental load pattern. Triggers are used to start the pipeline, which can be triggered manually or at a time specified.
 
@@ -163,13 +175,13 @@ Some common security questions include:
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-This section provides information on pricing for different services involved in this solution, and mentions decisions made for this scenario with a sample dataset.
+This section provides information on pricing for different services involved in this solution, and mentions decisions made for this scenario with a sample dataset. Use this starting [Azure pricing calculator](https://azure.com/e/598c407dc58545e090c8cfd6c7dbc190) configuration and adjust to fit your scenario.
 
 #### Azure Synapse
 
 Azure Synapse Analytics serverless architecture allows you to scale your compute and storage levels independently. Compute resources are charged based on usage, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs will increase as you ingest more data.
 
-#### Azure Pipelines
+#### Azure Synapse Analytics Pipelines
 
 Pricing details for pipelines in Azure Synapse can be found under the *Data Integration* tab on the [Azure Synapse pricing page](https://azure.microsoft.com/pricing/details/synapse-analytics). There are three main components that influence the price of a pipeline:
 
@@ -203,9 +215,7 @@ This scenario uses [Power BI Premium workspaces](/power-bi/admin/service-premium
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-#### DevOps recommendations
-
-- Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
+- For guidance on how to use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse workspace across multiple environments, see [article](/azure/synapse-analytics/cicd/continuous-integration-delivery)
 - Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a continuous integration and continuous delivery (CI/CD) process, making the automation process easier. In this architecture, there are four main workloads:
   - The data warehouse server, and related resources
   - Azure Synapse pipelines
@@ -219,9 +229,8 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 #### Quick start
 
-- Portal: [Azure Synapse proof of concept (POC)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.synapse/synapse-poc)
+- Tutorial: [Get Started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
 - The Azure CLI: [Create an Azure Synapse workspace with Azure CLI](/azure/synapse-analytics/quickstart-create-workspace-cli)
-- Terraform: [Modern data warehousing with Terraform and Microsoft Azure](https://github.com/terraform-azurerm-examples/example-adf-synapse)
 
 ### Performance efficiency
 
@@ -253,13 +262,11 @@ Assume a linear scale, and determine how much you need to increase or decrease t
 - [Scale compute for dedicated SQL pool in Azure Synapse Analytics using T-SQL](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-tsql)
 - [Pausing, monitoring, and automation](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview)
 
-#### Azure Pipelines
-
 For scalability and performance optimization features of pipelines in Azure Synapse and the copy activity used, refer to the [Copy activity performance and scalability guide](/azure/data-factory/copy-activity-performance).
 
-#### Power BI Premium
+#### Power BI Premium/ Microsoft Fabric
 
-This article uses [Power BI Premium Gen 2](/power-bi/enterprise/service-premium-architecture) to demonstrate BI capabilities. [Capacity SKUs for Power BI Premium](/power-bi/enterprise/service-premium-gen2-what-is) range from P1 (eight v-cores) to P5 (128 v-cores) currently. The best way to select needed capacity is to undergo [capacity loading evaluation](/power-bi/enterprise/service-premium-concepts), install the Gen 2 [metrics app](/power-bi/enterprise/service-premium-install-gen2-app?tabs=1st) for ongoing monitoring, and consider using [Autoscale with Power BI Premium](/power-bi/enterprise/service-premium-auto-scale).
+This article uses [Power BI Premium F64 capacity](/power-bi/enterprise/service-premium-what-is#capacities-and-skus) to demonstrate BI capabilities. Dedicated PBI capacities in Microsoft Fabric range from F64 (eight v-cores) to F1024 (128 v-cores) currently. The best way to select needed capacity is to undergo [capacity loading evaluation](/power-bi/enterprise/service-premium-concepts), install the Microsoft Fabric Capacity [Metrics app](/fabric/enterprise/metrics-app-install?tabs=1st) for ongoing monitoring, and consider using workload related [capacity optimization techniques](/fabric/enterprise/optimize-capacity).
 
 ## Contributors
 
@@ -292,7 +299,6 @@ Other contributors:
 - [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf)
 - [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
 
-[AAF-devops]: /azure/architecture/framework/devops/overview
 [azure-monitor]: https://azure.microsoft.com/services/monitor
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [canary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
@@ -302,6 +308,5 @@ Other contributors:
 [az-storage-reserved]: /azure/storage/blobs/storage-blob-reserved-capacity
 [enterprise-model]: /power-bi/guidance/center-of-excellence-business-intelligence-solution-architecture#enterprise-models
 [bi-model]: /power-bi/guidance/center-of-excellence-business-intelligence-solution-architecture#bi-semantic-models
-[pbi-premium-capacities]: /power-bi/admin/service-premium-what-is#reserved-capacities
+[pbi-premium-capacities]: /power-bi/enterprise/service-premium-what-is#capacities-and-skus
 [synapse-dedicated-pool]: /azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is
-[pbi-what-is-premium]: /power-bi/admin/service-premium-what-is#analysis-services-in-power-bi-premium
