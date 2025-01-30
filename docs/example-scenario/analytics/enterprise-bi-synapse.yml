@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Design an enterprise BI solution with Azure Synapse
+  title: Design an Enterprise BI Solution with Azure Synapse Analytics
   titleSuffix: Azure Architecture Center
-  description: Learn how to implement a pipeline that moves data from an on-premises data warehouse into Azure Synapse and transforms the data for analysis.
+  description: Learn how to implement a pipeline that moves data from an on-premises data warehouse into Azure Synapse Analyticsand transforms the data for analysis.
   author: galinagpolyakova
   ms.author: gapolyak
-  ms.date: 15/01/2025
+  ms.date: 01/31/2025
   ms.topic: example-scenario
   ms.service: azure-architecture-center
   ms.subservice: example-scenario
@@ -16,7 +16,7 @@ metadata:
   ms.custom:
     - example-scenario
     - arb-data
-name: Design an enterprise BI solution with Azure Synapse
+name: Design an enterprise BI solution with Azure Synapse Analytics
 azureCategories:
   - integration
   - analytics
