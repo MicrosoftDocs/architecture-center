@@ -1812,8 +1812,6 @@ items:
       href: guide/security/security-start-here.yml
     - name: Guides
       items:
-      - name: Azure security for AWS
-        href: guide/aws/aws-azure-security-solutions.yml
       - name: Virtual Network security options
         href: example-scenario/gateway/firewall-application-gateway.yml
       - name: Zero-trust network for web applications
