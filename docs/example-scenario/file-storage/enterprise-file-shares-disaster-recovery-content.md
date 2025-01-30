@@ -85,7 +85,7 @@ See [Disaster Recovery for Enterprise File Shares](https://techcommunity.microso
 
 Principal authors:
 
- * [Max Melcher](https://de.linkedin.com/in/maxmelcher) | Cloud Solution Architect
+- [Max Melcher](https://de.linkedin.com/in/maxmelcher) | Cloud Solution Architect
 
 ## Next steps
 

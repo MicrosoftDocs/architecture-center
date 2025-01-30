@@ -298,9 +298,6 @@ conceptualContent:
         - text: Zero-trust network with Azure Firewall and Application Gateway
           itemType: concept
           url: /azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall
-        - text: Homomorphic encryption with SEAL
-          itemType: architecture
-          url: /azure/architecture/solution-ideas/articles/homomorphic-encryption-seal
         - text: Securely managed web applications
           itemType: architecture
           url: /azure/architecture/example-scenario/apps/fully-managed-secure-apps

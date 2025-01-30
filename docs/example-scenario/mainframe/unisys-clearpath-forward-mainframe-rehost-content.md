@@ -50,37 +50,47 @@ The legend matches both diagrams to highlight the similarities between the origi
 
 ## Considerations
 
-The following considerations apply to this solution.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Availability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Unisys CPF in Azure uses Site Recovery to ensure system availability and consistency.
 
-### Operations
-
-Unisys demonstrates operational excellence by presenting a known environment to the staff, while including new capabilities like Azure Site Recovery to provide disaster recovery failover.
-
-You can optimize your operational efficiency by deploying your solution with Azure Resource Manager templates, and by using Azure Monitor to measure and improve your performance. See the Azure Well-Architected Framework's [Operational excellence principles](/azure/architecture/framework/devops/principles) and [Monitoring for DevOps](/azure/architecture/framework/devops/checklist).
-
-### Performance
-
-Unisys matches operational performance in Azure with Bronze, Silver, Gold, Platinum, and Titanium offerings to match client workload to operational needs.
-
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Unisys CPF is inherently a very secure system on its own.
 
 Unisys Stealth technology effectively hides endpoints. Azure offers other security controls.
 
-## Pricing
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Unisys CPF in Azure eliminates hardware maintenance and facility costs upfront. Further savings derive from not having to retrain staff how to operate or use the system. The virtualized computer runs just as it did on the datacenter floor.
 
-You can also optimize your costs by following the process to right-size the capacity of your VMs, from the beginning, along with simplified resizing, as needed. For more information, see the Azure Well-Architected Framework's [Principles of cost optimization](/azure/architecture/framework/cost/overview).
+You can also optimize your costs by following the process to right-size the capacity of your VMs, from the beginning, along with simplified resizing, as needed. For more information, see the Azure Well-Architected Framework's [Principles of Cost Optimization](/azure/architecture/framework/cost/overview).
 
 To estimate the cost of Azure products and configurations, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 To learn more about Unisys CPF offerings and pricing, visit the [Unisys ClearPath Forward Products webpage](https://stealthsecurity.unisys.com/solutions/clearpath-forward/).
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+Unisys demonstrates operational excellence by presenting a known environment to the staff, while including new capabilities like Azure Site Recovery to provide disaster recovery failover.
+
+You can optimize your operational efficiency by deploying your solution with Azure Resource Manager templates, and by using Azure Monitor to measure and improve your performance. See the Azure Well-Architected Framework's [Operational Excellence principles](/azure/architecture/framework/devops/principles) and [Monitoring for DevOps](/azure/architecture/framework/devops/checklist).
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+Unisys matches operational performance in Azure with Bronze, Silver, Gold, Platinum, and Titanium offerings to match client workload to operational needs.
 
 ## Contributors
 

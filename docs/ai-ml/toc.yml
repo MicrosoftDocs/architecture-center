@@ -86,8 +86,6 @@ items:
       items:
       - name: Automotive
         items:
-        - name: Autonomous Vehicle Operations design guide
-          href: ./guide/avops-design-guide.md
         - name: Autonomous Vehicle Operations solution idea
           href: ./architecture/avops-architecture.yml
       - name: Machine learning options
@@ -128,40 +126,6 @@ items:
           href: guide/azure-openai-gateway-multi-backend.yml
         - name: Provide custom authentication to Azure OpenAI through a gateway
           href: guide/azure-openai-gateway-custom-authentication.yml
-      - name: Team Data Science Process
-        items:
-        - name: Overview
-          href: ../data-science-process/overview.yml
-        - name: Lifecycle
-          items:
-          - name: Overview
-            href: ../data-science-process/lifecycle.md
-          - name: 1. Business understanding
-            href: ../data-science-process/lifecycle-business-understanding.md
-          - name: 2. Data acquisition and understanding
-            href: ../data-science-process/lifecycle-data.md
-          - name: 3. Modeling
-            href: ../data-science-process/lifecycle-modeling.md
-          - name: 4. Deployment
-            href: ../data-science-process/lifecycle-deployment.md
-          - name: 5. Customer acceptance
-            href: ../data-science-process/lifecycle-acceptance.md
-        - name: Roles and tasks
-          items:
-          - name: Overview
-            href: ../data-science-process/roles-tasks.md
-          - name: Group manager
-            href: ../data-science-process/group-manager-tasks.md
-          - name: Team lead
-            href: ../data-science-process/team-lead-tasks.md
-          - name: Project lead
-            href: ../data-science-process/project-lead-tasks.md
-          - name: Individual contributor
-            href: ../data-science-process/project-ic-tasks.md
-        - name: Training
-          items:
-          - name: For data scientists
-            href: ../data-science-process/team-data-science-process-for-data-scientists.md
     - name: OpenAI
       items:
       - name: Design architectures

@@ -71,9 +71,19 @@ To gain the full benefits of cloud computing, consider a *[refactor](refactor-ad
 
 ## Considerations 
 
-The following considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of your workloads. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Cost optimization  
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+This solution uses an Azure network security group (NSG) to manage traffic between Azure resources in different subnets. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).   
+
+[Azure Bastion](/azure/bastion/bastion-overview) improves security for admin access by minimizing open ports. Azure Bastion provides highly secure RDP or SSH connectivity to virtual network VMs directly from the Azure portal, over TLS.
+
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Azure helps you avoid unnecessary costs by identifying the correct number of resources, analyzing spending over time, and scaling to meet business needs without overspending. 
 
@@ -81,19 +91,17 @@ Azure also provides cost optimization by running on VMs. You can turn off the VM
 
 The VMs in this architecture use either premium SSDs or ultra disk SSDs. For more information about disk options and pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks). 
 
-### Operational excellence  
+### Operational Excellence  
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 In addition to supporting faster cloud adoption, rehosting also promotes the adoption of DevOps and Agile working principles. It provides flexibility in development and production deployment options.
 
-### Performance efficiency  
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 Load balancers and redundant VMs in a distributed environment provide performance efficiency and resiliency in this architecture. If one presentation or transaction server fails, the other server behind the load balancer handles the workload.  
-
-### Security  
-
-This solution uses an Azure network security group (NSG) to manage traffic between Azure resources in different subnets. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).   
-
-[Azure Bastion](/azure/bastion/bastion-overview) improves security for admin access by minimizing open ports. Azure Bastion provides highly secure RDP or SSH connectivity to virtual network VMs directly from the Azure portal, over TLS. 
 
 ## Contributors
 
