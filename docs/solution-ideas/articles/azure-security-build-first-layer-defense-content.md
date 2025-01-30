@@ -4,9 +4,8 @@ You can use a various Azure services to create a complete IT infrastructure for 
 
 Although some security services incur associated costs, many are available at no additional charge. Free services include network security groups (NSGs), storage encryption, TLS/SSL, shared access signature tokens, and more. This article focuses on these cost-free services.
 
-This article is the third in a series of five. To review the previous two articles in this series, including the introduction and a review of how you can map threats against an IT environment, see the following articles:
+This article is the third in a series of five. To review the previous two articles in this series, including the introduction and a review of how you can map threats against an IT environment, see the following article:
 
-- [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
 - [Map threats to your IT environment](./map-threats-it-environment.yml)
 
 ## Potential use cases
@@ -163,7 +162,6 @@ In the following resources, you can find more information about the services, te
 
 For more details about this reference architecture, see the other articles in this series:
 
-- Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
-- Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
-- Part 4: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
-- Part 5: [Integration between Azure and Microsoft Defender XDR security services](./microsoft-365-defender-security-integrate-azure.yml)
+- Part 1: [Map threats to your IT environment](./map-threats-it-environment.yml)
+- Part 3: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
+- Part 4: [Integration between Azure and Microsoft Defender XDR security services](./microsoft-365-defender-security-integrate-azure.yml)
