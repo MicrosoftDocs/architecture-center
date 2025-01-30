@@ -32,7 +32,7 @@ An API gateway can be tailored to your application’s requirements by using spe
 
 - [Gateway aggregation](../../patterns/gateway-aggregation.yml). You can use the API gateway to aggregate multiple client requests into a single request. Use this pattern when a single operation requires calls to multiple application services. In API aggregation, the client sends one request to the API gateway. Then, the API gateway routes requests to the various services required for the operations. Finally, the API gateway aggregates the results and sends them back to the client. The aggregation helps reduce chattiness between the client and the application services.
 
-- [Gateway offloading](../../patterns/gateway-offloading.yml). You can use an API gateway to provide cross-cutting functionality, so individual services don't have to provide it. Here are some examples of functionality that could be offloaded to an API gateway:
+- [Gateway offloading](../../patterns/gateway-offloading.yml). You can use an API gateway to provide cross-cutting functionality, so individual services don't have to provide it. It can be useful to consolidate cross-cutting functionality into one place, rather than making every service responsible. Here are some examples of functionality that could be offloaded to an API gateway:
 
   - SSL termination
   - Mutual TLS
@@ -44,8 +44,6 @@ An API gateway can be tailored to your application’s requirements by using spe
   - Web application firewall
   - GZIP compression
   - Servicing static content
-
-     It can be useful to consolidate these functions into one place, rather than making every service responsible for implementing them. Offloading is helpful for features that require specialized skills to implement, such as authentication and authorization.
 
 ## API gateway options
 
