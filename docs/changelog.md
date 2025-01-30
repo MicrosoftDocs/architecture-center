@@ -212,7 +212,7 @@ The following new and updated articles have recently been published in the Azure
 ### New articles
 
 - [Modern Web App Pattern for Java](./web-apps/guides/enterprise-app-patterns/modern-web-app/java/guidance.yml)
-- [Guide to design a secure multitenant RAG inferencing solution](./ai-ml/guide/secure-multitenant-rag.yml)
+- [Guide to design a secure multitenant RAG inferencing solution](./ai-ml/guide/secure-multitenant-rag.md)
 - [Data and AI](./aws-professional/data-ai.md)
 - [Multi-Region App Service App Approaches for Disaster Recovery](./web-apps/guides/multi-region-app-service/multi-region-app-service.yml)
 - [Use Azure IoT Hub to Privately Upload Files to an Azure Storage Account](./example-scenario/iot/iot-private-file-upload.yml)

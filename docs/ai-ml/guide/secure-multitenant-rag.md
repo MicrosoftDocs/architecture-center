@@ -1,8 +1,29 @@
+---
+title: Design a Secure Multitenant RAG Inferencing Solution
+description: Learn about the considerations and recommendations for improved security that you should consider when you design a multitenant RAG inferencing solution.
+author: robbagby
+ms.author: robbag
+ms.date: 01/30/2025
+ms.topic: conceptual
+ms.collection: ce-skilling-ai-copilot  
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
+ms.custom:
+  - arb-aiml
+  - arb-saas
+azure.category:
+  - ai-machine-learning
+products:
+  - ai-services
+  - azure-openai
+  - azure-machine-learning
+---
+
 Retrieval-Augmented Generation (RAG) is a pattern for building applications that use foundational models to reason over proprietary or other information that isn't publicly available on the internet. Generally, a client application calls to an orchestration layer that fetches relevant information from a data store, such as a vector database. The orchestration layer passes that data as part of the context as grounding data to the foundational model.
 
-A multitenant solution is used by multiple customers. Each customer, or tenant, consists of multiple users from the same organization, company, or group. In multitenant scenarios, you need to ensure that tenants, or individuals within tenants, are only able to incorporate grounding data that they're authorized to see.
+A multitenant solution is used by multiple customers. Each customer, or tenant, consists of multiple users from the same organization, company, or group. In multitenant scenarios, you need to make sure that tenants, or individuals within tenants, are only able to incorporate grounding data that they're authorized to see.
 
-Although there are multitenant concerns beyond ensuring that users only access the information they're supposed to see, this article focuses on that aspect of multitenancy. This article begins with an overview of single-tenant RAG architectures. It discusses the challenges that you might encounter in multitenancy with RAG and some common approaches to take. It also outines secure multitenancy considerations and recommendations.
+Although there are multitenant concerns beyond ensuring that users only access the information they're supposed to see, this article focuses on that aspect of multitenancy. This article begins with an overview of single-tenant RAG architectures. It discusses the challenges that you might encounter in multitenancy with RAG and some common approaches to take. It also outines multitenancy considerations and recommendations for improved security.
 
 > [!NOTE]
 > This article discusses some Azure OpenAI Service-specific features, such as the Azure OpenAI on your data feature. However, most of the principles that this article covers apply to most foundational AI models, regardless of their host platform.
@@ -45,7 +66,7 @@ If you want to use this architecture in a multitenant solution, the service, suc
 
 ## Multitenancy in RAG architecture
 
-In multitenant solutions, tenant data might exist in a tenant-specific store or coexist with other tenants in a multitenant store. Data might also be in a store that is shared across tenants. Only data that the user is authorized to see should be used as grounding data. The user should see only common or all-tenant data or data from their tenant that is filtered to ensure that they see only the data that they're authorized to see.
+In multitenant solutions, tenant data might exist in a tenant-specific store or coexist with other tenants in a multitenant store. Data might also be in a store that is shared across tenants. Only data that the user is authorized to see should be used as grounding data. The user should see only common or all-tenant data or data from their tenant that is filtered to help ensure that they see only the data that they're authorized to see.
 
 :::image type="content" source="./_images/multitenant-rag-multitenant-architecture.svg" lightbox="./_images/multitenant-rag-multitenant-architecture.svg" alt-text="Diagram that shows a RAG architecture that uses a shared database, a multitenant database, and two single-tenant databases." border="false":::
 
@@ -64,7 +85,7 @@ The following steps describe a high-level workflow. The italicized steps are ide
 
 ## Design considerations for multitenant data in RAG
 
-Consider the following options as you design your secure, multitenant RAG inferencing solution.
+Consider the following options as you design your multitenant RAG inferencing solution.
 
 ### Choose a store isolation model
 
@@ -82,11 +103,11 @@ In the context of this AI scenario, a store-per-tenant store means that the nece
 
 In multitenant stores, multiple tenants' data coexists in the same store. The advantages of this approach include the potential for cost optimization, the ability to handle a higher number of tenants than the store-per-tenant model, and lower management overhead because of the lower number of store instances.
 
-The challenges of using shared stores include the need to ensure data isolation and management, the potential for the [noisy neighbor antipattern](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor), and more difficult cost allocation to tenants. Ensuring data isolation is the most important concern when you use this approach. You're responsible for implementing the security approach to ensure that tenants can only access their data. Data management can also be challenging if tenants have different data lifecycles that require operations such as building indexes on different schedules.
+The challenges of using shared stores include the need for data isolation and management, the potential for the [noisy neighbor antipattern](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor), and more difficult cost allocation to tenants. Ensuring data isolation is the most important concern when you use this approach. You need to implement secure approachs to help ensure that tenants can only access their data. Data management can also be challenging if tenants have different data lifecycles that require operations such as building indexes on different schedules.
 
 Some platforms have features that you can use when you implement tenant data isolation in shared stores. For example, Azure Cosmos DB has native support for partitioning and sharding, and it's common to use a tenant identifier as a partition key to provide some isolation between tenants. Azure SQL and Azure Database for PostgreSQL - Flexible Server support row-level security. However, these features aren't typically used in multitenant solutions because you have to design your solution around these features if you plan to use them in your multitenant store.
 
-In the context of this AI scenario, grounding data for all tenants commingle in the same data store. Therefore, your query to that data store must contain a tenant discriminator to ensure that responses are restricted to bring back only relevant data within the context of the tenant.
+In the context of this AI scenario, grounding data for all tenants commingle in the same data store. Therefore, your query to that data store must contain a tenant discriminator to help ensure that responses are restricted to bring back only relevant data within the context of the tenant.
 
 #### Shared stores
 
@@ -96,7 +117,7 @@ In the context of this AI scenario, the grounding data store is generally access
 
 ### Identity
 
-[Identity is a key aspect of multitenant solutions](/azure/architecture/guide/multitenant/considerations/identity), including secure, multitenant RAG solutions. The intelligent application should integrate with an identity provider to authenticate the identity of the user. The multitenant RAG solution needs an [identity directory](/azure/architecture/guide/multitenant/considerations/identity#identity-directory) that stores either authoritative identities or references to identities. This identity needs to flow through the request chain and allow downstream services, such as the orchestrator or even the data store itself, to identify the user.
+[Identity is a key aspect of multitenant solutions](/azure/architecture/guide/multitenant/considerations/identity), including multitenant RAG solutions. The intelligent application should integrate with an identity provider to authenticate the identity of the user. The multitenant RAG solution needs an [identity directory](/azure/architecture/guide/multitenant/considerations/identity#identity-directory) that stores either authoritative identities or references to identities. This identity needs to flow through the request chain and allow downstream services, such as the orchestrator or even the data store itself, to identify the user.
 
 You also need a way to [map a user to a tenant](/azure/architecture/guide/multitenant/considerations/identity#grant-users-access-to-tenant-data) so that you can grant access to that tenant data.
 
@@ -120,45 +141,46 @@ After you have a definition of what a tenant is and have a clear understanding o
 
 ### Filtering
 
-Filtering, also known as security trimming, refers to exposing only the data to users that they're authorized to see. In a multitenant RAG scenario, a user may be mapped to a tenant-specific store. That doesn't mean that the user should be able to access all the data in that store. In [Define your tenant and authorization requirements](#define-your-tenant-and-authorization-requirements), we discussed the importance of defining the authorization requirements for your data. These authorization rules should be used as the basis for filtering.
+Exposing only the data that users are authorized to see is called filtering or security trimming. In a multitenant RAG scenario, a user might be mapped to a tenant-specific store. That doesn't mean that the user should be able to access all the data in that store. [Define your tenant and authorization requirements](#define-your-tenant-and-authorization-requirements) discusses the importance of defining authorization requirements for your data. You should use these authorization rules as the basis for filtering.
 
-Filtering can be accomplished by using data platform capabilities such as row-level security or it may necessitate custom logic, data, or metadata. Again, these platform features aren't commonly used in multitenant solutions due to the need to design your system around these features.
+You can use data platform capabilities like row-level security to accomplish filtering, or you might need custom logic, data, or metadata. Again, these platform features aren't typically used in multitenant solutions because you need to design your system around these features.
 
 ### Encapsulating multitenant data logic
 
-It is recommended to have an API in front of whatever storage mechanism you are using. The API acts as a gatekeeper, enforcing that users only get access to the information they should get access to.
+We recommend that you have an API in front of whichever storage mechanism you use. The API acts like a gatekeeper that helps ensure that users only get access to information they're authorized to access.
 
-:::image type="complex" source="./_images/multitenant-rag-multitenant-api-architecture.svg" lightbox="./_images/multitenant-rag-multitenant-api-architecture.svg" alt-text="Diagram showing a RAG architecture with a shared database, a multitenant database and two single tenant databases with an API layer between the orchestrator and databases." border="false":::
-   The diagram shows a user connecting to an intelligent application. The intelligent application then connects to an identity provider. The intelligent application then connects to an orchestrator. The orchestrator connects to an API layer. The API layer connects to databases and vector stores. The orchestrator then connects to foundational models.
+:::image type="complex" source="./_images/multitenant-rag-multitenant-api-architecture.svg" lightbox="./_images/multitenant-rag-multitenant-api-architecture.svg" alt-text="Diagram that shows a RAG architecture with a shared database, a multitenant database, and two single-tenant databases. An API layer is between the orchestrator and the databases." border="false":::
+   In the diagram, a user connects to an intelligent application. The intelligent application then connects to an identity provider. The intelligent application then connects to an orchestrator. The orchestrator connects to an API layer. The API layer connects to databases and vector stores. The orchestrator then connects to the foundational models.
 :::image-end:::
-*Figure 4. Multitenant RAG architecture with an API encapsulating multitenant tenant data access logic*
 
-As noted earlier in this article, user access to data can be limited by:
+User's access to data can be limited by:
 
-- The user's tenant
-- Platform features
-- Custom security filtering/trimming rules.
+- The user's tenant.
+- Platform features.
+- Custom security filtering or trimming rules.
 
-This layer should have the following responsibilities:
+The API layer should:
 
-- Route the query to a tenant-specific store in a store-per-tenant model
-- Select only data from the user's tenant in multitenant stores
-- Use the appropriate identity for a user to support platform-enabled authorization logic
-- Enforce custom security trimming logic
-- Store access logs of grounding information for audit purposes
+- Route the query to a tenant-specific store in a store-per-tenant model.
+- Select only data from the user's tenant in multitenant stores.
+- Use the appropriate identity for a user to support platform-enabled authorization logic.
+- Enforce custom security trimming logic.
+- Store access logs of grounding information for audit purposes.
 
-Code that needs to access tenant data shouldn't be able to query the backend stores directly. All requests for data should flow through this API layer. This API layer provides a single point of governance or security layer over top of your tenant data. This approach keeps the tenant and user data access authorization logic from bleeding into different areas of the application. This logic is encapsulated in the API layer. This encapsulation makes the solution easier to validate and test.
+Code that needs to access tenant data shouldn't be able to query the backend stores directly. All requests for data should flow through the API layer. This API layer provides a single point of governance or security on top of your tenant data. This approach prevents the tenant and user data access authorization logic from reaching other areas of the application. This logic is encapsulated in the API layer. This encapsulation makes the solution easier to validate and test.
 
 ## Summary
 
-When designing a multitenant RAG inferencing solution, you must take into account how to architect the grounding data solution for your tenants. Get an understanding of the number of tenants and the amount of per-tenant data you store. This information helps you design your data tenancy solution. We recommend that you implement an API layer that encapsulates the data access logic, including both multitenant and filtering logic.
+When you design a multitenant RAG inferencing solution, you must consider how to architect the grounding data solution for your tenants. Understand of the number of tenants and the amount of per-tenant data that you store. This information helps you design your data tenancy solution. We recommend that you implement an API layer that encapsulates the data access logic, including multitenant logic and filtering logic.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 - [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 - [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Sr. Partner Solution Architect, Data & AI
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
