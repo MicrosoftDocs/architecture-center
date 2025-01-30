@@ -11,13 +11,15 @@ ms.subservice: architecture-guide
 ms.custom:
   - arb-aiml
   - arb-saas
-azure.category:
+categories:
   - ai-machine-learning
 products:
   - ai-services
   - azure-openai
   - azure-machine-learning
 ---
+
+# Design a secure multitenant RAG inferencing solution
 
 Retrieval-Augmented Generation (RAG) is a pattern for building applications that use foundational models to reason over proprietary or other information that isn't publicly available on the internet. Generally, a client application calls to an orchestration layer that fetches relevant information from a data store, such as a vector database. The orchestration layer passes that data as part of the context as grounding data to the foundational model.
 
@@ -72,7 +74,7 @@ In multitenant solutions, tenant data might exist in a tenant-specific store or 
 
 ### Workflow
 
-The following steps describe a high-level workflow. The italicized steps are identical to the [Single-tenant RAG architecture with an orchestrator](#single-tenant-rag-architecture-with-orchestrator) workflow.
+The following steps describe a high-level workflow. The italicized steps are identical to the [Single-tenant RAG architecture with an orchestrator](#single-tenant-rag-architecture-with-an-orchestrator) workflow.
 
 1. *A user issues a request to the intelligent web application.*
 1. *An identity provider authenticates the requestor.*
