@@ -383,8 +383,4 @@ Principal author:
 
 - [Azure Firewall Architecture Guide - Azure Architecture Center](../firewalls/index.yml)
 
-- [Microsoft Entra IDaaS in Security Operations - Azure Example Scenarios](../aadsec/azure-ad-security.yml)
-
-- [Threat indicators for cyber threat intelligence in Microsoft Sentinel - Azure Example Scenarios](../data/sentinel-threat-intelligence.yml)
-
 - [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)

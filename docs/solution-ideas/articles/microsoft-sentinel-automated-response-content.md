@@ -140,8 +140,6 @@ Other contributors:
 - [Tutorial: Create automated approval-based workflows by using Azure Logic Apps](/azure/logic-apps/tutorial-process-mailing-list-subscriptions-workflow)
 - [Introduction to Microsoft Sentinel](/training/modules/intro-to-azure-sentinel)
 
-## Related resources
+## Related resource
 
-- [Threat indicators for cyber threat intelligence in Microsoft Sentinel](../../example-scenario/data/sentinel-threat-intelligence.yml)
-- [Monitor hybrid security using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
 - [Security architecture design](../../guide/security/security-start-here.yml)

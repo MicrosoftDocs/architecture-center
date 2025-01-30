@@ -43,7 +43,7 @@ Exact one-to-one correspondences between the services that you need to build a s
 
 ## Primary topics
 
-Use the following pages to learn about Azure technologies and how they map to technologies you are already familre with in Amazon Web Services (AWS). These articles go into a bit more details on how Azure works in these specific areas
+Use the following pages to learn about Azure technologies and how they map to technologies you are already familiar with in Amazon Web Services (AWS). These articles go into a bit more details on how Azure works in these specific areas
 
 - [Azure and AWS accounts and subscriptions](./accounts.md)
 - [Compute services on Azure and AWS](./compute.md)
