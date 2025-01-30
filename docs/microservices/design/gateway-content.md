@@ -35,7 +35,7 @@ An API gateway can be tailored to your application’s requirements by using spe
 - [Gateway offloading](../../patterns/gateway-offloading.yml). You can use an API gateway to provide cross-cutting functionality, so individual services don't have to provide it. Here are some examples of functionality that could be offloaded to an API gateway:
 
     - SSL termination
-    - Mutal TLS
+    - Mutual TLS
     - Authentication
     - IP allowlist or blocklist
     - Client rate limiting (throttling)
@@ -53,7 +53,7 @@ Here are some options for implementing an API gateway in your application.
 
 - **Reverse proxy server**. Nginx and HAProxy are open-source reverse proxy offerings. They support features such as load balancing, SSL termination, and layer-7 routing. They have free versions and paid editions that provide extra features and support options. These products are mature with rich feature sets, high performance, and extensible.
 
-- **[Service mesh ingress controller](/azure/aks/servicemesh-about/)**. If you use a service mesh, evaluate the ingress controller’s features specific to that service mesh. This includes AKS-supported add-ons like Istio and Open Service Mesh, as well as third-party open-source projects like Linkerd or Consul Connect. For example, the Istio ingress controller supports layer 7 routing, HTTP redirects, retries, and other features.
+- **[Service mesh ingress controller](/azure/aks/servicemesh-about/)**. If you use a service mesh, evaluate the ingress controller’s features specific to that service mesh. Check for AKS-supported add-ons like Istio and Open Service Mesh. Look for third-party open-source projects like Linkerd or Consul Connect. For example, the Istio ingress controller supports layer 7 routing, HTTP redirects, retries, and other features.
 
 - **[Azure Application Gateway](/azure/application-gateway/)**. Application Gateway is a managed load balancing service. It provides perform layer-7 routing, SSL termination, and a web application firewall (WAF).
 
@@ -63,10 +63,9 @@ Here are some options for implementing an API gateway in your application.
 
 ## Choose an API gateway technology
 
-
 When selecting an API gateway, consider the following factors:
 
-**Support all requirements**.  Choose an API gateway that supports your required features. All the previous [API gateway options](#api-gateway-options) support layer-7 routing. But their support for other features, such as authentication, rate limiting, and SSL termination, can vary. Assess whether a single gateway meets your needs or if multiple gateways are necessary.
+**Support all requirements.**  Choose an API gateway that supports your required features. All the previous [API gateway options](#api-gateway-options) support layer-7 routing. But their support for other features, such as authentication, rate limiting, and SSL termination, can vary. Assess whether a single gateway meets your needs or if multiple gateways are necessary.
 
 **Prefer built-in offerings.** Use built-in API gateway and ingress solutions provided by your platform, such as Azure Container Apps and AKS, whenever they meet your security and control requirements. Only use a custom gateway if the built-in options lack necessary flexibility. Custom solutions require a governance model, such as GitOps, to manage its lifecycle effectively.
 
