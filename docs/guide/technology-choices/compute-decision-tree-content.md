@@ -107,7 +107,7 @@ Notes
 | Azure Container Apps | Local container runtime | Agnostic | Revision management |
 | Azure Container Instances | Local container runtime | Agnostic | Not applicable |
 | Azure Red Hat OpenShift | Minikube, Docker, others | Agnostic | Rolling update |
-| Azure Spring Apps | Visual Studio Code, Intellij, Eclipse | Spring Boot, Steeltoe | Rolling upgrade, blue-green deployment |
+| Azure Spring Apps | Visual Studio Code, IntelliJ, Eclipse | Spring Boot, Steeltoe | Rolling upgrade, blue-green deployment |
 | Azure Service Fabric | Local node cluster | Guest executable, Service model, Actor model, Containers | Rolling upgrade (per service) |
 | Azure Batch | Not supported | Command-line application | Not applicable |
 | Azure VMware Solution | Agnostic | Agnostic | No built-in support |
