@@ -49,7 +49,7 @@ A microservice is a loosely coupled, independently deployable unit of code. Micr
 API gateways are a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An *API gateway* sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate-limiting. For more information, see:
 
 - [Using API gateways in microservices](../../../microservices/design/gateway.yml)
-- [Choosing an API gateway technology](../../../microservices/design/gateway.yml#choosing-an-api-gateway-technology)
+- [Choose an API gateway technology](../../../microservices/design/gateway.yml#choose-an-api-gateway-technology)
 
 In Kubernetes, the functionality of an API gateway is primarily handled by an **Ingress controller**. The considerations are described in the [Ingress](#ingress) section.
 
@@ -93,7 +93,7 @@ The Ingress resource can be fulfilled by different technologies. To work togethe
 
 Often, configuring the proxy server requires complex files, which can be hard to tune if you aren't an expert. So, the Ingress controller provides a nice abstraction. The Ingress controller also has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
 
-On the other hand, if you need complete control over the settings, you may want to bypass this abstraction and configure the proxy server manually. For more information, see [Deploying Nginx or HAProxy to Kubernetes](../../../microservices/design/gateway.yml#deploying-nginx-or-haproxy-to-kubernetes).
+On the other hand, if you need complete control over the settings, you may want to bypass this abstraction and configure the proxy server manually.
 
 > [!NOTE]
 > For AKS, you can also use Azure Application Gateway, using the [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview). Azure Application Gateway can perform layer-7 routing and SSL termination. It also has built-in support for Web Application Firewall. If your AKS cluster is using [CNI networking](/azure/aks/configure-azure-cni/), Application Gateway can be deployed into a subnet of the cluster's virtual network or can be deployed in different virtual network from AKS virtual network, however, the two virtual networks must be peered together. AGIC also supports the Kubenet network plugin. When using Kubenet mode, the ingress controller needs to manage a route table in the Application Gateway's subnet to direct traffic to pod IPs. For more information, see [How to setup networking between Application Gateway and AKS](https://azure.github.io/application-gateway-kubernetes-ingress/how-tos/networking/).
