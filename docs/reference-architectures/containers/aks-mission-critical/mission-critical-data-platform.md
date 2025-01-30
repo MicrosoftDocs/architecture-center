@@ -4,7 +4,7 @@ description: Data decisions for the baseline reference architecture for a missio
 author: msimecek
 categories: database
 ms.author: msimecek
-ms.date: 01/30/2023
+ms.date: 01/30/2025
 ms.topic: reference-architecture
 ms.service: azure-architecture-center
 ms.subservice: reference-architecture
