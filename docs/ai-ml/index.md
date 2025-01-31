@@ -30,7 +30,7 @@ You can incorporate AI into applications to perform functions or make decisions 
 
 ## Get started
 
-Azure Architecture Center provides example architectures, architecture guides, architectural baselines, and ideas that you can apply to your scenario. Workloads that involve AI and machine learning components should follow the Azure Well-Architected Framework [AI workloads](/azure/well-architected/ai/get-started) guidance. This guidance includes principles and design guides that influence the AI and machine learning workload across the five pillars of architecture. You should implement those recommendations in the scenarios and content in the Azure Architecture Center.
+Azure Architecture Center provides example architectures, architecture guides, architectural baselines, and ideas that you can apply to your scenario. Workloads that involve AI and machine learning components should follow the Azure Well-Architected Framework [AI workloads](/azure/well-architected/ai/get-started) guidance. This guidance includes principles and design guides that influence the AI and machine learning workload across the five architecture pillars. You should implement those recommendations in the scenarios and content in the Azure Architecture Center.
 
 ## AI concepts
 
@@ -44,7 +44,7 @@ Choose an algorithm family that best suits your task. Evaluate the various algor
 
 ### Machine learning
 
-*Machine learning* is an AI technique that uses algorithms to create predictive models. These algorithms parse data fields and *learn* from the patterns within data to generate models. The models can then make informed predictions or decisions based on new data.
+*Machine learning* is an AI technique that uses algorithms to create predictive models. These algorithms parse data fields and "learn" from the patterns within data to generate models. The models can then make informed predictions or decisions based on new data.
 
 The predictive models are validated against known data, measured by performance metrics for specific business scenarios, and then adjusted as needed. This process of learning and validation is called *training*. Through periodic retraining, machine learning models improve over time.
 
@@ -62,11 +62,11 @@ For more information, see [What is deep learning?](https://azure.microsoft.com/r
 
 ### Generative AI
 
-*Generative AI* trains models to generate new original content based on many forms of content, such as natural language, computer vision, audio, or image input. With generative AI, you can describe a desired output in everyday language, and the model can respond by creating appropriate text, image, and code. Examples of generative AI applications include Microsoft Copilot and Azure OpenAI Service.
+*Generative AI* trains models to generate original content based on many forms of content, such as natural language, computer vision, audio, or image input. With generative AI, you can describe a desired output in everyday language, and the model can respond by creating appropriate text, image, and code. Examples of generative AI applications include Microsoft Copilot and Azure OpenAI Service.
 
 - [Copilot](https://m365.cloud.microsoft/chat/) is primarily a user interface that helps you write code, documents, and other text-based content. It's based on popular OpenAI models and is integrated into a wide range of Microsoft applications and user experiences.
 
-- [Azure OpenAI](/azure/ai-services/openai/overview) is a development platform as a service that provides access to OpenAI's powerful language models, such as o1-preview, o1-mini, GPT-4o, GPT-4o mini, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and Embeddings model series. You can adapt these models to your specific tasks, such as:
+- [Azure OpenAI](/azure/ai-services/openai/overview) is a development platform as a service that provides access to OpenAI's powerful language models, such as o1-preview, o1-mini, GPT-4o, GPT-4o mini, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and the Embeddings model series. You can adapt these models to your specific tasks, such as:
 
   - Content generation.
   - Content summarization.
@@ -82,7 +82,7 @@ Conventional language models are used in supervised settings for research purpos
 
 The number of parameters, or weights, determine the size of a language model. Parameters influence how the model processes input data and generates output. During training, the model adjusts the weights to minimize the difference between its predictions and the actual data. This process is how the model learns parameters. The more parameters a model has, the more complex and expressive it is. But it's also more computationally expensive to train and use.
 
-In general, small language models have fewer than 10 billion parameters, and large language models have more than 10 billion parameters. For example, the Microsoft Phi-3 model family has three versions:
+In general, small language models generally have fewer than 10 billion parameters, and large language models have more than 10 billion parameters. For example, the Microsoft Phi-3 model family has three versions:
 
 - Mini, 3.8 billion parameters
 - Small, 7 billion parameters
@@ -110,7 +110,7 @@ For more information, see [Design and develop a RAG solution](/azure/architectur
 
 ## Azure AI services
 
-With [Azure AI services](https://azure.microsoft.com/products/ai-services), developers and organizations can use ready-made, prebuilt and customizable APIs and models to create intelligent, market-ready, and responsible applications. Usages include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
+With [Azure AI services](https://azure.microsoft.com/products/ai-services), developers and organizations can use ready-made, prebuilt, and customizable APIs and models to create intelligent, market-ready, and responsible applications. Use cases include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
 
 For more information, see the following resources:
 
@@ -124,7 +124,7 @@ For more information, see the following resources:
 
 [Phi open models](https://azure.microsoft.com/blog/new-models-added-to-the-phi-3-family-available-on-microsoft-azure/) are small, less compute-intensive models for generative AI solutions. A small language model might be more efficient, interpretable, and explainable than an LLM.
 
-When you design a workload, you can use language models as a hosted solution behind a metered API. Alternatively, for many small language models, you can host language models in-process or at least on the same compute as the consumer. When you use language models in your solution, consider your choice of language model and its available hosting options to ensure an optimized solution for your use case.
+When you design a workload, you can use language models as a hosted solution behind a metered API. Alternatively, for many small language models, you can host language models in-process or at least on the same compute as the consumer. When you use language models in your solution, consider your choice of language model and its available hosting options to help ensure an optimized solution for your use case.
 
 ## AI development platforms and tools
 
@@ -132,13 +132,13 @@ The following AI development platforms and tools can help you build, deploy, and
 
 ### Azure Machine Learning
 
-Azure Machine Learning is a machine learning service that you can use to build and deploy models. Azure Machine Learning offers web interfaces and SDKs for you to train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn.
+Azure Machine Learning is a machine learning service that you can use to build and deploy models. Machine Learning offers web interfaces and SDKs for you to train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn.
 
 For more information, see the following resources:
 
 - [Compare Microsoft machine learning products and technologies](../ai-ml/guide/data-science-and-machine-learning.md)
-- [Azure Machine Learning documentation](/azure/machine-learning/)
-- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
+- [Machine Learning documentation](/azure/machine-learning/)
+- [What is Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
 
 #### Machine learning reference architectures for Azure
 
@@ -147,7 +147,7 @@ For more information, see the following resources:
 - [Baseline OpenAI end-to-end chat reference architecture](../ai-ml/architecture/baseline-openai-e2e-chat.yml) is a reference architecture that describes how to build an end-to-end chat architecture by using OpenAI's GPT models.
 
     :::image type="complex" source="./_images/openai-end-to-end-aml-deployment.svg" border="false" lightbox="./_images/openai-end-to-end-aml-deployment.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture with OpenAI.":::
-    The diagram shows the Azur App Service baseline architecture with a private endpoint that connects to a managed online endpoint in a Machine Learning managed virtual network. The managed online endpoint is in front of a Machine Learning compute cluster. The diagram shows the Machine Learning workspace with a dotted line that points to the compute cluster. This arrow represents that the implementable flow is deployed to the compute cluster. The managed virtual network uses managed private endpoints that provide private connectivity to resources that are required by the implementable flow, such as Azure Container Registry and Azure Storage. The diagram shows user-defined private endpoints that provide private connectivity to Azure OpenAI Service and Azure AI Search.
+    The diagram shows the Azure App Service baseline architecture with a private endpoint that connects to a managed online endpoint in a Machine Learning managed virtual network. The managed online endpoint is in front of a Machine Learning compute cluster. The diagram shows the Machine Learning workspace with a dotted line that points to the compute cluster. This arrow represents that the implementable flow is deployed to the compute cluster. The managed virtual network uses managed private endpoints that provide private connectivity to resources that the implementable flow requires, such as Azure Container Registry and Azure Storage. The diagram shows user-defined private endpoints that provide private connectivity to Azure OpenAI Service and Azure AI Search.
     :::image-end:::
 
 ### Automated machine learning
@@ -157,24 +157,23 @@ For more information, see the following resources:
 For more information, see the following resources:
 
 - [What is AutoML?](/azure/machine-learning/concept-automated-ml)
-- [Tutorial: Train a classification model with AutoML in Azure Machine Learning studio](/azure/machine-learning/tutorial-first-experiment-automated-ml)
+- [Tutorial: Train a classification model with AutoML in Machine Learning studio](/azure/machine-learning/tutorial-first-experiment-automated-ml)
 - [Configure AutoML experiments in Python](/azure/machine-learning/how-to-configure-auto-train)
-- [Use the CLI extension for Azure Machine Learning](/azure/machine-learning/reference-azure-machine-learning-cli)
-- [Automate machine learning activities with the Azure Machine Learning CLI](/azure/machine-learning/how-to-configure-auto-train)
+- [Use the CLI extension for Machine Learning](/azure/machine-learning/reference-azure-machine-learning-cli)
 
 ### MLflow
 
-Azure Machine Learning workspaces are MLflow-compatible, which means that you can use an Azure Machine Learning workspace the same way you use an MLflow server. This compatibility provides the following advantages:
+Machine Learning workspaces are MLflow-compatible, which means that you can use a Machine Learning workspace the same way that you use an MLflow server. This compatibility provides the following advantages:
 
-- Azure Machine Learning doesn't host MLflow server instances but can use the MLflow APIs directly.
-- You can use an Azure Machine Learning workspace as your tracking server for any MLflow code, whether or not it runs in Azure Machine Learning. You need to configure MLflow to point to the workspace where the tracking should occur.
-- You can run training routines that use MLflow in Azure Machine Learning without making any changes.
+- Machine Learning doesn't host MLflow server instances but can use the MLflow APIs directly.
+- You can use an Machine Learning workspace as your tracking server for any MLflow code, whether or not it runs in Machine Learning. You need to configure MLflow to point to the workspace where the tracking should occur.
+- You can run training routines that use MLflow in Machine Learning without making any changes.
 
-For more information, see [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow) and [MLflow](https://www.mlflow.org/).
+For more information, see [MLflow and Machine Learning](/azure/machine-learning/concept-mlflow) and [MLflow](https://www.mlflow.org/).
 
 ### Generative AI tools
 
-- [Prompt flow](https://microsoft.github.io/promptflow/index.html) is a suite of development tools that help you streamline the end-to-end development cycle of generative AI applications, from ideation, prototyping, testing, and evaluation to production deployment and monitoring. It supports prompt engineering through expressing actions in a modular orchestration and flow engine.
+- [Prompt flow](https://microsoft.github.io/promptflow/index.html) is a suite of development tools that you can use to streamline the end-to-end development cycle of generative AI applications, from ideation, prototyping, testing, and evaluation to production deployment and monitoring. It supports prompt engineering through expressing actions in a modular orchestration and flow engine.
 
 - [Azure AI Foundry](https://azure.microsoft.com/products/ai-studio/) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. The AI Foundry portal provides access to Azure AI services, foundation models, a playground, and resources to help you build, train, fine-tune, and deploy AI models. You can also evaluate model responses and orchestrate prompt application components with prompt flow for better performance.
 
@@ -186,7 +185,7 @@ The following platforms offer comprehensive solutions for data movement, process
 
 ### Microsoft Fabric
 
-Microsoft Fabric is an end-to-end analytics and data platform for enterprises that require a unified solution. You can grant workload teams access to data within Fabric. The platform covers data movement, processing, ingestion, transformation, real-time event routing, and report building. It offers a comprehensive suite of services including Fabric Data Engineer, Fabric Data Factory, Fabric Data Science, Fabric Real-Time Intelligence, Fabric Data Warehouse, and Fabric Databases.
+Microsoft Fabric is an end-to-end analytics and data platform for enterprises that require a unified solution. You can grant workload teams access to data within Fabric. The platform covers data movement, processing, ingestion, transformation, real-time event routing, and report building. It offers a comprehensive suite of services, including Fabric Data Engineer, Fabric Data Factory, Fabric Data Science, Fabric Real-Time Intelligence, Fabric Data Warehouse, and Fabric Databases.
 
 Fabric integrates separate components into a cohesive stack. Instead of relying on different databases or data warehouses, you can centralize data storage with OneLake. AI capabilities are embedded within Fabric, which eliminates the need for manual integration.
 
@@ -201,7 +200,7 @@ For more information, see the following resources:
 
 #### Copilots in Fabric
 
-You can use Copilot and other generative AI features to transform and analyze data, generate insights, and create visualizations and reports in Fabric and Power BI. You can either build your own copilot or choose one of the following prebuilt copilots:
+You can use Copilot and other generative AI features to transform and analyze data, generate insights, and create visualizations and reports in Fabric and Power BI. You can build your own copilot or choose one of the following prebuilt copilots:
 
 - [Copilot in Fabric](/fabric/get-started/copilot-fabric-overview)
 - [Copilot for Data Science and Data Engineer](/fabric/get-started/copilot-notebooks-overview)
@@ -212,7 +211,7 @@ You can use Copilot and other generative AI features to transform and analyze da
 
 #### AI skills in Fabric
 
-You can use the Fabric AI skill feature to configure a generative AI system to generate queries that answer questions about your data. After you configure an AI skill, you can share it with your colleagues, who can then ask their questions in simple language. Based on their questions, the AI generates queries over your data that answer those questions.
+You can use the Fabric AI skill feature to configure a generative AI system to generate queries that answer questions about your data. After you configure an AI skill, you can share it with your colleagues, who can then ask their questions in simple language. Based on their questions, the AI generates queries on the data that answers those questions.
 
 For more information, see the following resources:
 
@@ -243,7 +242,7 @@ For more information, see [Apache Spark runtimes in Fabric](/fabric/data-enginee
 
 #### Azure Databricks Runtime for Machine Learning
 
-[Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark–based analytics platform with one-click setup, streamlined workflows, and an interactive workspace for collaboration between data scientists, engineers, and business analysts.
+[Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark–based analytics platform that has one-click setup, streamlined workflows, and an interactive workspace for collaboration between data scientists, engineers, and business analysts.
 
 You can use [Databricks Runtime for Machine Learning](/azure/databricks/machine-learning/databricks-runtime-ml) to start a Databricks cluster with all the libraries required for distributed training. This feature provides an environment for machine learning and data science. It contains multiple popular libraries, including TensorFlow, PyTorch, Keras, and XGBoost. It also supports distributed training via Horovod.
 
@@ -258,7 +257,7 @@ For more information, see the following resources:
 
 [Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview) is the Microsoft implementation of Apache Spark in the cloud. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Storage, so you can use HDInsight Spark clusters to process data that you store in Azure.
 
-[SynapseML](https://github.com/microsoft/SynapseML) (formerly known as MMLSpark) is the Microsoft machine learning library for Apache Spark. This open-source library adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem.
+[SynapseML](https://github.com/microsoft/SynapseML), formerly known as MMLSpark, is the Microsoft machine learning library for Apache Spark. This open-source library adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem.
 
 For more information, see the following resources:
 
@@ -289,7 +288,7 @@ For more information, see [OneLake, the OneDrive for data](/fabric/onelake/onela
 
 ### Data Lake Storage
 
-Data Lake Storage is a single, centralized repository where you can store all your data, structured and unstructured. Use a data lake to quickly and easily store, access, and analyze a wide variety of data in a single location. You don't need to conform your data to fit an existing structure. Instead, you can store your data in its raw or native format, usually as files or as binary large objects, or blobs.
+Data Lake Storage is a single, centralized repository where you can store your structured and unstructured data. Use a data lake to quickly and easily store, access, and analyze a wide variety of data in a single location. You don't need to conform your data to fit an existing structure. Instead, you can store your data in its raw or native format, usually as files or as binary large objects, or blobs.
 
 Data Lake Storage provides file system semantics, file-level security, and scale. Because these capabilities are built on Azure Blob Storage, you also get low-cost, tiered storage that has high availability and disaster recovery capabilities.
 
@@ -308,7 +307,7 @@ You can use the following tools to prepare data for machine learning and AI appl
 
 You can use Fabric Data Factory to ingest, prepare, and transform data from multiple data sources, such as databases, data warehouses, lakehouses, and real-time data streams. This service can help you meet your data operations requirements when you design workloads.
 
-Fabric Data Factory supports both code and no code or low code solutions:
+Fabric Data Factory supports code solutions and no-code or low-code solutions:
 
 - Use [data pipelines](/fabric/data-factory/data-factory-overview#data-pipelines) to create workflow capabilities at cloud scale. Use the drag-and-drop interface to build workflows that can refresh your dataflow, move petabyte-size data, and define control-flow pipelines.
 
@@ -324,7 +323,7 @@ You can use the Databricks Data Intelligence Platform to write code to create a 
 - **Data pipelines** ingest raw data, create feature tables, train models, and perform batch inference. When you use feature engineering in Unity Catalog to train and log a model, the model is packaged with feature metadata. When you use the model for batch scoring or online inference, it automatically retrieves feature values. The caller doesn't need to know about the values or include logic to look up or join features to score new data.
 
 - **Model and feature serving endpoints** are instantly accessible and provide milliseconds of latency.
-- **Monitoring** helps ensure the peformance and accuracy of data and models.
+- **Monitoring** helps ensure the performance and accuracy of data and models.
 
 You can also use [Mosaic AI Vector Search](/azure/databricks/generative-ai/vector-search) to store and retrieve embeddings. Embeddings are crucial for applications that require similarity searches, such as RAG, recommendation systems, and image recognition.
 
@@ -342,19 +341,19 @@ Custom AI solutions help you address specific business needs and challenges. The
 
 Azure Machine Learning is a cloud service for accelerating and managing the machine learning project lifecycle. Machine learning professionals, data scientists, and engineers can use this service in their day-to-day workflows to train and deploy models and manage machine learning operations.
 
-Azure Machine Learning offers the following capabilities:
+Machine Learning offers the following capabilities:
 
-- **Algorithm selection:** Some algorithms make specific assumptions about data structure or desired results. Choose an algorithm that fits your needs so that you can get more useful results, more accurate predictions, and faster training times. For more information, see [How to select algorithms for Azure Machine Learning](/azure/machine-learning/how-to-select-algorithms).
+- **Algorithm selection:** Some algorithms make specific assumptions about data structure or desired results. Choose an algorithm that fits your needs so that you can get more useful results, more accurate predictions, and faster training times. For more information, see [How to select algorithms for Machine Learning](/azure/machine-learning/how-to-select-algorithms).
 
-- **Hyperparameter tuning or optimization:** You can use this manual process to find hyperparameter configurations that result in the best performance. This optimization incurs significant computationally costs. *Hyperparameters* are adjustable parameters that provide control in the model training process. For example, you can choose the number of hidden layers and the number of nodes in each layer of neural networks. Model performance depends heavily on hyperparameters.
+- **Hyperparameter tuning or optimization:** You can use this manual process to find hyperparameter configurations that result in the best performance. This optimization incurs significant computational costs. *Hyperparameters* are adjustable parameters that provide control in the model training process. For example, you can choose the number of hidden layers and the number of nodes in each layer of neural networks. Model performance depends heavily on hyperparameters.
 
-  You can use Azure Machine Learning to automate hyperparameter tuning and run experiments in parallel to efficiently optimize hyperparameters.
+  You can use Machine Learning to automate hyperparameter tuning and run experiments in parallel to efficiently optimize hyperparameters.
 
   For more information, see the following resources:
 
-    - [Hyperparameter tuning a model with Azure Machine Learning](/azure/machine-learning/how-to-tune-hyperparameters)
+    - [Hyperparameter tuning a model with Machine Learning](/azure/machine-learning/how-to-tune-hyperparameters)
     - [Upgrade hyperparameter tuning to SDK v2](/azure/machine-learning/migrate-to-v2-execution-hyperdrive)
-    - [Learning path: Perform hyperparameter tuning with Azure Machine Learning](/training/modules/perform-hyperparameter-tuning-azure-machine-learning-pipelines/)
+    - [Learning path: Perform hyperparameter tuning with Machine Learning](/training/modules/perform-hyperparameter-tuning-azure-machine-learning-pipelines/)
 
 - **Model training:** You can iteratively use an algorithm to create or *teach* models. After models are trained, you can use them to analyze data and make predictions.
 
@@ -372,13 +371,13 @@ Azure Machine Learning offers the following capabilities:
 
   For more information, see the following resources:
 
-    - [Train models with Azure Machine Learning](/azure/machine-learning/concept-train-machine-learning-model)
-    - [Tutorial: Train a model in Azure Machine Learning](/azure/machine-learning/tutorial-train-model)
-    - [Deep learning and distributed training with Azure Machine Learning](/azure/machine-learning/concept-distributed-training)
+    - [Train models with Machine Learning](/azure/machine-learning/concept-train-machine-learning-model)
+    - [Tutorial: Train a model in Machine Learning](/azure/machine-learning/tutorial-train-model)
+    - [Deep learning and distributed training with Machine Learning](/azure/machine-learning/concept-distributed-training)
 
 - **AutoML:** This process automates the time-consuming, iterative tasks of machine learning model development. It can significantly reduce the time that it takes to produce production-ready machine learning models. AutoML can assist with model selection, hyperparameter tuning, model training, and other tasks, without requiring extensive programming or domain knowledge.
 
-    You can use AutoML when you want Azure Machine Learning to use a specified target metric to train and tune a model. You don't need data science expertise to identify an end-to-end machine learning pipeline for problems.
+    You can use AutoML when you want Machine Learning to use a specified target metric to train and tune a model. You don't need data science expertise to identify an end-to-end machine learning pipeline for problems.
 
     Machine learning professionals and developers across industries can use AutoML to:
 
@@ -389,7 +388,7 @@ Azure Machine Learning offers the following capabilities:
 
     For more information, see [What is AutoML?](/azure/machine-learning/concept-automated-ml).
 
-- **Scoring:** This process, also called *prediction*, generates values based on a trained machine learning model, given some new input data. The values, or scores, that are created can represent predictions of future values, but they might also represent a likely category or outcome.
+- **Scoring:** This process, also called *prediction*, uses a trained machine learning model to generate values based on new input data. The values, or scores, can represent predictions of future values, but they might also represent a likely category or outcome.
 
   For more information, see the following resources:
 
@@ -401,14 +400,14 @@ Azure Machine Learning offers the following capabilities:
 
 Although you can use many of the raw data fields to train a model, you might need to create other engineered features that provide information to better differentiate patterns in the data. This process is called feature engineering, where you use domain knowledge of the data to create features that help machine learning algorithms learn better.
 
-In Azure Machine Learning, data-scaling and normalization techniques are applied to make feature engineering easier. Collectively, these techniques and feature engineering are called featurization in AutoML experiments. For more information, see [Data featurization in automated machine learning](/azure/machine-learning/how-to-configure-auto-features?view=azureml-api-1&preserve-view=true).
+In Machine Learning, data-scaling and normalization techniques are applied to make feature engineering easier. Collectively, these techniques and feature engineering are called *featurization* in AutoML experiments. For more information, see [Data featurization in automated machine learning](/azure/machine-learning/how-to-configure-auto-features?view=azureml-api-1&preserve-view=true).
 
 ### Azure OpenAI
 
 In Azure OpenAI, you can use a process known as *fine-tuning* to tailor OpenAI models to your personal datasets. This customization step optimizes the service by providing:
 
 - Higher quality results compared to [prompt engineering](/azure/ai-services/openai/concepts/prompt-engineering) only.
-- The ability to train on more examples than a model's maximum request context limit typical permits.
+- The ability to train on more examples than a model's maximum request context limit typically permits.
 - Token savings because of shorter prompts.
 - Lower-latency requests, particularly when you use smaller models.
 
@@ -436,7 +435,7 @@ If the data follows a pattern, you can use structured text to train a model. You
 
 [Custom translator](/azure/ai-services/translator/custom-translator/overview) is a feature of the [Azure AI Translator](/azure/ai-services/translator/translator-overview) service. Enterprises, app developers, and language service providers can use custom translator to build customized neural machine translation (NMT) systems. The customized translation systems seamlessly integrate into existing applications, workflows, and websites.
 
-You can use this feature to build and publish custom translation systems to and from English. Custom translator supports more than three dozen languages that map directly to the languages for NMT. For a complete list, see [Translator language support](/azure/ai-services/translator/language-support).
+You can use this feature to build and publish custom translation systems to and from English. Custom translator supports more than three dozen languages that map directly to the languages for NMT. For a complete list of languages, see [Translator language support](/azure/ai-services/translator/language-support).
 
 Custom translator offers the following features.
 
@@ -456,16 +455,16 @@ Custom translator offers the following features.
 
 ### Custom AI tools
 
-Prebuilt AI models are useful and increasingly flexible, but the best way to optimize AI is to tailor a model to your specific needs. Two primary tools to create custom AI models include generative AI and traditional machine learning.
+Prebuilt AI models are useful and increasingly flexible, but the best way to optimize AI is to tailor a model to your specific needs. Two primary tools to create custom AI models are generative AI and traditional machine learning.
 
 #### Azure Machine Learning studio
 
 [Azure Machine Learning studio](https://ml.azure.com/home) is a cloud service for accelerating and managing the machine learning project lifecycle. Machine learning professionals, data scientists, and engineers can use it in their day-to-day workflows to train and deploy models and manage machine learning operations.
 
-- Build and train Azure Machine Learning models by using any type of compute, including Spark and GPUs for cloud-scale large AI workloads.
+- Build and train Machine Learning models by using any type of compute, including Spark and GPUs for cloud-scale large AI workloads.
 
-- Run AutoML and use the drag-and-drop UI for low-code Azure Machine Learning.
-- Implement end-to-end Azure Machine Learning operations and repeatable pipelines.
+- Run AutoML and use the drag-and-drop UI for low-code Machine Learning.
+- Implement end-to-end Machine Learning operations and repeatable pipelines.
 - Use the responsible AI dashboard for bias detection and error analysis.
 - Orchestrate and manage prompt engineering and LLM flows.
 - Deploy models via REST API endpoints, real-time inference, and batch inference.
@@ -486,19 +485,19 @@ Prebuilt AI models are useful and increasingly flexible, but the best way to opt
 - Orchestrate and manage prompt engineering and LLM flows.
 - Design and safeguard apps and APIs via configurable filters and controls.
 - Evaluate model responses by using built-in and custom evaluation flows.
-- Deploy AI innovations to the Azure managed infrastructure to provide continuous monitoring and governance across environments.
-- Continuously monitor deployed apps for safety, quality, and token consumption in production.|
+- Deploy AI innovations to the Azure-managed infrastructure to provide continuous monitoring and governance across environments.
+- Continuously monitor deployed apps for safety, quality, and token consumption in production.
 
-For more information, see [AI Foundry portal versus Azure Machine Learning studio](/ai/ai-studio-experiences-overview).
+For more information, see [AI Foundry portal versus Machine Learning studio](/ai/ai-studio-experiences-overview).
 
 #### Prompt flow in AI Foundry portal
 
-[Prompt flow in the AI Foundry portal](/azure/ai-studio/how-to/prompt-flow) is a development tool to help streamline the entire development cycle of AI applications that are powered by LLMs. Prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
+[Prompt flow in the AI Foundry portal](/azure/ai-studio/how-to/prompt-flow) is a development tool that you can use to streamline the entire development cycle of AI applications that are powered by LLMs. Prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
 
 - Prompt flow is a feature that you can use to generate, customize, or run a flow.
 
 - A flow is an instruction set that can implement AI logic. Create or run flows via tools, like a prebuilt canvas or LangChain. You can save iterations of a flow as assets. After you deploy a flow, it becomes an API. Not all flows are prompt flows. Prompt flow is one way to create a flow.
-- A prompt is a package of input that's sent to a model. It consists of the user input, system message, and any examples. User input is text submitted in the chat window. The system message is a set of instructions to the model that scopes its behaviors and functionality.
+- A prompt is a package of input that's sent to a model. It consists of the user input, system message, and any examples. User input is text that's submitted in the chat window. The system message is a set of instructions to the model that scopes its behaviors and functionality.
 - A sample flow is a simple, prebuilt orchestration flow that shows how flows work. You can customize a sample flow.
 - A sample prompt is a defined prompt for a specific scenario that you can copy from a library and use as-is or modify it in prompt design.
 
@@ -506,13 +505,13 @@ For more information, see [AI Foundry portal versus Azure Machine Learning studi
 
 The core concept of AI is the use of algorithms to analyze data and generate models to describe, or score, it in useful ways. Developers and data scientists, and sometimes other algorithms, use programming code to write algorithms. Two of the most popular programming languages for AI development are Python and R.
 
-[Python](https://www.python.org/) is a general-purpose, high-level programming language. It has a simple, easy-to-learn syntax that emphasizes readability. There's no compiling step. Python has a large standard library, but it also supports the ability to add modules and packages. This feature encourages modularity and lets you expand capabilities when needed. There's a large and growing ecosystem of AI and machine learning libraries for Python, including many in Azure.
+[Python](https://www.python.org/) is a general-purpose, high-level programming language. It has a simple, easy-to-learn syntax that emphasizes readability. There's no compiling step. Python has a large standard library, and it supports the ability to add modules and packages. This feature encourages modularity and lets you expand capabilities when needed. There's a large and growing ecosystem of AI and machine learning libraries for Python, including many in Azure.
 
 For more information, see the following resources:
 
 - [Python on Azure product home page](https://azure.microsoft.com/develop/python/)
 - [Azure for Python developers](/azure/python/)
-- [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)
+- [Machine Learning SDK for Python](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)
 - [Introduction to machine learning with Python and notebooks](/training/paths/intro-to-ml-with-python/)
 - [scikit-learn open-source machine learning library for Python](https://scikit-learn.org/stable/)
 - [PyTorch open-source Python library](https://pytorch.org/)
@@ -523,14 +522,14 @@ For more information, see the following resources:
 
 Microsoft fully embraces the R programming language and provides many options for R developers to run their code in Azure.
 
-For more information, see [Use R interactively on Azure Machine Learning](/azure/machine-learning/how-to-r-interactive-development).
+For more information, see [Use R interactively on Machine Learning](/azure/machine-learning/how-to-r-interactive-development).
 
 For general information about custom AI on Azure, see the following resources:
 
 - [Microsoft AI on GitHub: Samples, reference architectures, and best practices](https://github.com/microsoft/AI)
-- [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)
-- [Azure Machine Learning examples repository](https://github.com/Azure/azureml-examples)
-- [Train R models by using the Azure Machine Learning CLI v2](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/r)
+- [Machine Learning SDK for Python](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)
+- [Machine Learning examples repository](https://github.com/Azure/azureml-examples)
+- [Train R models by using the Machine Learning CLI v2](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/r)
 
 ## Customer stories
 
