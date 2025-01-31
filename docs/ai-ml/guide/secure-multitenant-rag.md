@@ -3,7 +3,7 @@ title: Design a Secure Multitenant RAG Inferencing Solution
 description: Learn about the considerations and recommendations for improved security that you should consider when you design a multitenant RAG inferencing solution.
 author: robbagby
 ms.author: robbag
-ms.date: 01/30/2025
+ms.date: 01/31/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot  
 ms.service: azure-architecture-center
@@ -11,12 +11,12 @@ ms.subservice: architecture-guide
 ms.custom:
   - arb-aiml
   - arb-saas
-categories:
-  - ai-machine-learning
 products:
   - ai-services
   - azure-openai
   - azure-machine-learning
+categories:
+  - ai-machine-learning
 ---
 
 # Design a secure multitenant RAG inferencing solution
@@ -32,7 +32,9 @@ Although there are multitenant concerns beyond ensuring that users only access t
 
 ## Single-tenant RAG architecture with an orchestrator
 
-:::image type="content" source="./_images/multitenant-rag-single-tenant-architecture.svg" lightbox="./_images/multitenant-rag-single-tenant-architecture.svg" alt-text="Diagram that shows a RAG architecture that uses a single-tenant database instance." border="false":::
+:::image type="complex" source="./_images/multitenant-rag-single-tenant-architecture.svg" lightbox="./_images/multitenant-rag-single-tenant-architecture.svg" alt-text="Diagram that shows a RAG architecture that uses a single-tenant database instance." border="false":::
+   In the diagram, a user connects to an intelligent application. The intelligent application connects to an identity provider. The intelligent application then connects to an orchestrator. The orchestrator connects to databases and vector stores. The orchestrator then connects to the foundational model.
+:::image-end:::
 
 ### Workflow
 
@@ -54,6 +56,8 @@ This variant of the single-tenant RAG architecture uses the [on your data featur
 > Azure OpenAI, managed by Microsoft, integrates with the data store. The model itself doesn't integrate with the data store. The model receives grounding data in the exact same way as it does when an orchestrator fetches the data.
 
 :::image type="content" source="./_images/multitenant-rag-single-tenant-direct-architecture.svg" lightbox="./_images/multitenant-rag-single-tenant-direct-architecture.svg" alt-text="Diagram that shows a RAG architecture that uses Azure OpenAI direct access to a single-tenant database instance." border="false":::
+   In the diagram, a user connects to an intelligent application. The intelligent application connects to an identity provider. The intelligent application then connects to Azure OpenAI. Azure OpenAI connects to supported data stores such as Azure AI Search and Azure Blob Storage. AI Search then passes the data as part of the context to the language model.
+:::image-end:::
 
 ### Workflow
 
@@ -71,6 +75,8 @@ If you want to use this architecture in a multitenant solution, the service, suc
 In multitenant solutions, tenant data might exist in a tenant-specific store or coexist with other tenants in a multitenant store. Data might also be in a store that is shared across tenants. Only data that the user is authorized to see should be used as grounding data. The user should see only common or all-tenant data or data from their tenant that is filtered to help ensure that they see only the data that they're authorized to see.
 
 :::image type="content" source="./_images/multitenant-rag-multitenant-architecture.svg" lightbox="./_images/multitenant-rag-multitenant-architecture.svg" alt-text="Diagram that shows a RAG architecture that uses a shared database, a multitenant database, and two single-tenant databases." border="false":::
+   In the diagram, a user connects to an intelligent application. The intelligent application connects to an identity provider. The intelligent application then connects to an orchestrator. The orchestrator connects to a single-tenant database, a multitenant database, or a shared database. The orchestrator then connects to the foundational model.
+:::image-end:::
 
 ### Workflow
 
@@ -152,7 +158,7 @@ You can use data platform capabilities like row-level security to accomplish fil
 We recommend that you have an API in front of whichever storage mechanism you use. The API acts like a gatekeeper that helps ensure that users only get access to information they're authorized to access.
 
 :::image type="complex" source="./_images/multitenant-rag-multitenant-api-architecture.svg" lightbox="./_images/multitenant-rag-multitenant-api-architecture.svg" alt-text="Diagram that shows a RAG architecture with a shared database, a multitenant database, and two single-tenant databases. An API layer is between the orchestrator and the databases." border="false":::
-   In the diagram, a user connects to an intelligent application. The intelligent application then connects to an identity provider. The intelligent application then connects to an orchestrator. The orchestrator connects to an API layer. The API layer connects to databases and vector stores. The orchestrator then connects to the foundational models.
+   In the diagram, a user connects to an intelligent application. The intelligent application connects to an identity provider. The intelligent application then connects to an orchestrator. The orchestrator connects to an API layer. The API layer connects to databases and vector stores. The orchestrator then connects to the foundational model.
 :::image-end:::
 
 Users' access to data can be limited by:
@@ -179,12 +185,14 @@ When you design a multitenant RAG inferencing solution, you must consider how to
 
 *Microsoft maintains this article. The following contributors wrote this article.*
 
+Principal authors:
+
 - [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 - [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Sr. Partner Solution Architect, Data & AI
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Design and evaluate RAG solutions](./rag/rag-solution-design-and-evaluation-guide.md)
