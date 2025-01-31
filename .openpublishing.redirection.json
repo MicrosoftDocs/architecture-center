@@ -2124,6 +2124,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/reference-architectures/ai/end-to-end-smart-factory.md",
+      "redirect_url": "/azure/architecture/ai-ml/idea/video-ingestion-object-detection-edge-cloud",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/ai/movie-recommendations.md",
       "redirect_url": "/azure/architecture/example-scenario/ai/movie-recommendations",
       "redirect_document_id": false

@@ -16,7 +16,7 @@ For more information about Amazon EKS managed nodes, see [Creating a managed nod
 
 You can also run Kubernetes pods on [AWS Fargate](https://aws.amazon.com/fargate). Fargate provides on-demand, right-sized compute capacity for containers. For more information on how to use Fargate with Amazon EKS, see [AWS Fargate](https://docs.aws.amazon.com/eks/latest/userguide/fargate.html).
 
-## Karpenter
+### Karpenter
 
 [Karpenter](https://karpenter.sh/) is an open-source project designed to enhance node lifecycle management within Kubernetes clusters. It automates provisioning and deprovisioning of nodes based on the specific scheduling needs of pods, allowing efficient scaling and cost optimization. Its main functions are:
 
@@ -54,8 +54,6 @@ Karpenter removes a layer of AWS abstraction to bring some of the flexibility di
 AWS customers can set up and run [Kata Containers](https://katacontainers.io/) on AWS by configuring an [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/) cluster to use [Firecracker](https://firecracker-microvm.github.io/), an open source virtualization technology developed by Amazon to create and manage secure, multi-tenant container and function-based services. Firecracker enables customers to deploy workloads in lightweight virtual machines, called microVMs, which provide enhanced security and workload isolation over traditional virtual machines, while enabling the speed and resource efficiency of containers. Enabling Kata Containers on AWS EKS requires a series of manual steps described in [Enhancing Kubernetes workload isolation and security using Kata Containers](https://aws.amazon.com/blogs/containers/enhancing-kubernetes-workload-isolation-and-security-using-kata-containers/).
 
 ### Dedicated Hosts
-
-## Running Containers on Amazon EC2 Dedicated Hosts with AWS EKS
 
 When using [Amazon Elastic Kubernetes Service (EKS)](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) to deploy and run containers, it is possible to run them on [Amazon EC2 dedicated hosts](https://aws.amazon.com/ec2/dedicated-hosts/). However, it is important to note that this feature is only available for self-managed node groups. This means that customers need to manually create a [launch template](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html), [Auto Scaling Groups](https://aws.amazon.com/blogs/containers/amazon-eks-cluster-multi-zone-auto-scaling-groups/), and register them with the EKS cluster. The creation process for these resources is the same as for general EC2 auto scaling.
 
