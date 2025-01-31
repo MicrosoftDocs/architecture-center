@@ -106,7 +106,7 @@ In Azure Machine Learning, you can select an AKS (or Arc-enabled Kubernetes) clu
 
 ### Monitor Kubernetes workloads with managed Prometheus and Grafana
 
-Azure offers a managed service for both Prometheus and Grafana deployments, so that you can take advantage of these popular Kubernetes monitoring tools without having to manage and update the deployments yourself. Additionally, we provide a [metrics explorer with PromQL](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-explorer) (Preview) for you to analyze Prometheus' metrics. 
+Azure offers a managed service for both Prometheus and Grafana deployments, so that you can take advantage of these popular Kubernetes monitoring tools without having to manage and update the deployments yourself. Additionally, we provide a [metrics explorer with PromQL](/azure/azure-monitor/essentials/metrics-explorer) for you to analyze Prometheus' metrics. 
 
 ### Topology, network, and routing
 
@@ -118,7 +118,7 @@ Azure Arc agents require the following protocols/ports/outbound URLs in order to
 |`https://[region].dp.kubernetesconfiguration.azure.com:443`|Data plane endpoint for the agent to push status and fetch configuration information, where [region] represents the Azure region that hosts the AKS instance.|
 |`https://docker.io:443`|Required to pull container images.|
 |`https://github.com:443`, `git://github.com:9418`|Example GitOps repos are hosted on GitHub. The configuration agent requires connectivity to whichever git endpoint that you specify.|
-|`https://login.microsoftonline.com:443` `https://<region>.login.microsoft.com` `login.windows.net`|Required to fetch and update Azure Resource Manager tokens.|
+|`https://login.microsoftonline.com:443`, `https://<region>.login.microsoft.com`, `login.windows.net`|Required to fetch and update Azure Resource Manager tokens.|
 |`https://mcr.microsoft.com:443` `https://*.data.mcr.microsoft.com:443`|Required to pull container images for Azure Arc agents.
 
 For a complete list of URLs across Azure Arc services, see [Azure Arc network requirements][Azure Arc network requirements].
