@@ -73,13 +73,13 @@ The considerations in this article are divided into four categories:
 - Resource limits
 - Well-Architected Framework for Reliability
 
- Note that this article focuses on a subset of Azure container services that offer a mature feature set for web applications and APIs, networking, observability, developer tools, and operations: Azure Kubernetes Service (AKS), AKS Automatic, Azure Container Apps, and Web App for Containers. For a complete list of all Azure container services, see [the container services product category page](https://azure.microsoft.com/products/category/containers/).
+Note that this article focuses on a subset of Azure container services that offer a mature feature set for web applications and APIs, networking, observability, developer tools, and operations: Azure Kubernetes Service (AKS), AKS Automatic, Azure Container Apps, and Web App for Containers. For a complete list of all Azure container services, see [the container services product category page](https://azure.microsoft.com/products/category/containers/).
 
-> [!note]
-> Some sections distinguish AKS Standard from AKS Automatic. If a section does not distinguish between the two, feature parity can be assumed.
+> [!NOTE]
+> Some sections distinguish AKS Standard from AKS Automatic. If a section does not distinguish between the two, feature parity is assumed.
 
-> > [!note]
-> AKS Automatic is a more opinionated solution than AKS Standard. Some out of the box features cannot be disabled. This guide does not call out these features. For up to date information on these constraints, and Standard vs Automatic feature comparison see: [AKS Automatic and Standard feature comparison](https://learn.microsoft.com/en-us/azure/aks/intro-aks-automatic#aks-automatic-and-standard-feature-comparison)
+> [!NOTE]
+> AKS Automatic is a more opinionated solution than AKS Standard. Some out of the box features cannot be disabled. This guide does not call out these features. For up to date information on these constraints, and Standard vs Automatic feature comparison see: [AKS Automatic and Standard feature comparison](/azure/aks/intro-aks-automatic#aks-automatic-and-standard-feature-comparison).
 
 ## Architectural considerations
 
