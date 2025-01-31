@@ -39,9 +39,15 @@ This section describes the nature of availability for services used in this arch
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Availability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+#### Jump boxes
+
+This reference implementation uses the same production-level CI/CD pipeline as the standard deployment, with only one jump box VM. You might, however, decide to use one jump box for each of the three zones. This architecture uses just one jump box because the jump box doesn't affect the availability of the app. The jump box is used only for deployment and testing.
 
 #### App Service Environment
 
@@ -56,7 +62,7 @@ When you implement zone redundancy, the platform automatically deploys the insta
 
 For more information, see [Reliability in Azure App Service](/azure/reliability/reliability-app-service?pivots=isolated).
 
-### Resiliency
+#### Resiliency
 
 The applications that run in App Service Environment form the [backend pool](/azure/application-gateway/application-gateway-components#backend-pools) for Application Gateway. When a request to the application comes from the public internet, the gateway forwards the request to the application running in App Service Environment. This reference architecture implements [health checks](/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-3.1) within the main web frontend, `votingApp`. This health probe checks whether the web API and the Redis cache are healthy. You can see the code that implements this probe in [Startup.cs](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingWeb/Startup.cs):
 
@@ -95,9 +101,9 @@ If any of the components (the web frontend, the API, or the cache) fails the hea
 
 The health probe is also implemented in the standard reference implementation. There, the gateway simply returns an error if the health probe fails. However, the highly available implementation improves the resiliency of the application and the quality of the user experience.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 The cost considerations for the high availability architecture are similar to those of the standard deployment.
 
@@ -107,10 +113,6 @@ The following differences can affect the cost:
 - Azure Cache for Redis is also a zone-redundant service. A zone-redundant cache runs on VMs that are deployed across multiple availability zones to provide higher resilience and availability.
 
 The tradeoff for a highly available, resilient, and highly secure system is increased cost. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to evaluate your needs with respect to pricing.
-
-### Deployment considerations
-
-This reference implementation uses the same production-level CI/CD pipeline as the standard deployment, with only one jump box VM. You might, however, decide to use one jumpbox for each of the three zones. This architecture uses just one jumpbox because the jump box doesn't affect the availability of the app. The jumpbox is used only for deployment and testing.
 
 ## Deploy this scenario
 
