@@ -35,6 +35,8 @@ Typical uses for this architecture include:
 - Using Azure Monitor to monitor Kubernetes clusters across hybrid environments.
 - Using Azure Policy to deploy and enforce policies for Kubernetes clusters across hybrid environments.
 - Using Azure Policy to deploy and enforce GitOps.
+- Maximizing your on-prem GPU investment by training and deploying Azure Machine Learning workflows.
+- Using Azure Monitor managed service for Prometheus and Managed Grafana to monitor and visualize Kubernetes workloads.
 
 ## Recommendations
 
@@ -97,6 +99,14 @@ The source repository can contain any valid Kubernetes resources, including Name
 You can also manage a larger collection of clusters that are deployed across heterogeneous environments. For example, you can have one repository that defines the baseline configuration for your organization, and then apply that to multiple Kubernetes clusters simultaneously. You can also deploy applications to a cluster from multiple source repositories.
 
 For more information, see [Deploy applications using GitOps with Flux v2][Deploy applications using GitOps with Flux v2].
+
+### Run Azure Machine Learning
+
+In Azure Machine Learning, you can select an AKS (or Arc-enabled Kubernetes) cluster as a compute target for your machine learning processes. This enables you to train or deploy machine learning models in your own, self-hosted (or multi-cloud) infrastructure, which allows you to combine your on-premises investments on GPUs with the ease of management that Azure Machine Learning provides to you in the cloud. 
+
+### Monitor Kubernetes workloads with managed Prometheus and Grafana
+
+Azure offers a managed service for both Prometheus and Grafana deployments, so that you can take advantage of these popular Kubernetes monitoring tools without having to manage and update the deployments yourself. Additionally, we provide a [metrics explorer with PromQL](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-explorer) (Preview) for you to analyze Prometheus' metrics. 
 
 ### Topology, network, and routing
 
