@@ -161,4 +161,4 @@ Principal authors:
 
 ## Related resources
 
-- [Azure mainframe and midrange architecture concepts and patterns](mainframe-midrange-architecture.md)
+- [General mainframe refactor to Azure](/azure/architecture/example-scenario/mainframe/general-mainframe-refactor)

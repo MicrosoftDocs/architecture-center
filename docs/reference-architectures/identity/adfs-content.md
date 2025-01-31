@@ -142,23 +142,9 @@ Another option is [Monitor AD FS using Microsoft Entra Connect Health](/azure/ac
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Performance efficiency
-
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
-
-The following considerations, summarized from the article [Plan your AD FS deployment][plan-your-adfs-deployment], give a starting point for sizing AD FS farms:
-
-- If you have fewer than 1000 users, don't create dedicated servers, but instead install AD FS on each of the Active Directory DS servers in the cloud. Make sure that you have at least two Active Directory DS servers to maintain availability. Create a single WAP server.
-- If you have between 1000 and 15,000 users, create two dedicated AD FS servers and two dedicated WAP servers.
-- If you have between 15,000 and 60,000 users, create between three and five dedicated AD FS servers and at least two dedicated WAP servers.
-
-These considerations assume that you're using dual quad-core VM (Standard D4_v2, or better) sizes in Azure.
-
-If you're using the Windows Internal Database to store AD FS configuration data, you're limited to eight AD FS servers in the farm. If you anticipate that you need more in the future, use SQL Server. For more information, see [The Role of the AD FS Configuration Database][adfs-configuration-database].
-
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Create an AD FS farm with at least two servers to increase availability of the service. Use different storage accounts for each AD FS VM in the farm. This approach helps to ensure that a failure in a single storage account doesn't make the entire farm inaccessible.
 
@@ -181,7 +167,7 @@ You can use either SQL Server or the Windows Internal Database to hold AD FS con
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 AD FS uses HTTPS, so make sure that the NSG rules for the subnet containing the web tier VMs permit HTTPS requests. These requests can originate from the on-premises network, the subnets containing the web tier, business tier, data tier, private DMZ, public DMZ, and the subnet containing the AD FS servers.
 
@@ -193,9 +179,9 @@ Restrict direct sign in access to the AD FS and WAP servers. Only DevOps staff s
 
 Consider using a set of network virtual appliances that logs detailed information on traffic traversing the edge of your virtual network for auditing purposes.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Here are cost considerations for the services used in this architecture.
 
@@ -211,6 +197,8 @@ For information about the editions offered by Microsoft Entra ID, see [Microsoft
 
 ### Operational Excellence
 
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
 DevOps staff should be prepared to perform the following tasks:
 
 - Manage the federation servers, including managing the AD FS farm, managing trust policy on the federation servers, and managing the certificates used by the federation services.
@@ -219,6 +207,20 @@ DevOps staff should be prepared to perform the following tasks:
 - Back up AD FS components.
 
 For other DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.yml#devops-considerations).
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+The following considerations, summarized from the article [Plan your AD FS deployment][plan-your-adfs-deployment], give a starting point for sizing AD FS farms:
+
+- If you have fewer than 1000 users, don't create dedicated servers, but instead install AD FS on each of the Active Directory DS servers in the cloud. Make sure that you have at least two Active Directory DS servers to maintain availability. Create a single WAP server.
+- If you have between 1000 and 15,000 users, create two dedicated AD FS servers and two dedicated WAP servers.
+- If you have between 15,000 and 60,000 users, create between three and five dedicated AD FS servers and at least two dedicated WAP servers.
+
+These considerations assume that you're using dual quad-core VM (Standard D4_v2, or better) sizes in Azure.
+
+If you're using the Windows Internal Database to store AD FS configuration data, you're limited to eight AD FS servers in the farm. If you anticipate that you need more in the future, use SQL Server. For more information, see [The Role of the AD FS Configuration Database][adfs-configuration-database].
 
 ## Contributors
 
@@ -230,7 +232,7 @@ Principal author:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next Steps
+## Next steps
 
 - [Azure Activity Directory Documentation](/azure/active-directory)
 - [Manage Identity in multitenant applications](../../multitenant-identity/index.yml)

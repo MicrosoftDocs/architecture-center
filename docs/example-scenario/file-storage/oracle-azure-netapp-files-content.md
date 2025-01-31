@@ -223,7 +223,7 @@ Fully deployable architectures that use Azure NetApp Files:
 - [Run SAP NetWeaver in Windows on Azure][Run SAP NetWeaver in Windows on Azure]
 
 [About Direct NFS Client Mounts to NFS Storage Devices]: https://docs.oracle.com/en/database/oracle/oracle-database/19/ssdbi/about-direct-nfs-client-mounts-to-nfs-storage-devices.html
-[Azure NetApp Files]: https://azure.microsoft.com/services/netapp
+[Azure NetApp Files]: /azure/well-architected/service-guides/azure-netapp-files
 [Azure NetApp Files documentation]: /azure/azure-netapp-files
 [Azure NetApp Files performance benchmarks for Linux]: /azure/azure-netapp-files/performance-benchmarks-linux
 [Azure Virtual Machines]: /azure/well-architected/service-guides/virtual-machines

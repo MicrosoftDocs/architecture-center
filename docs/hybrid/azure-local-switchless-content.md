@@ -144,17 +144,17 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 > [!IMPORTANT]
 > Review the Well-Architected Framework considerations described in the [Azure Local baseline reference architecture](/azure/architecture/hybrid/azure-local-baseline#considerations).
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Cost optimization considerations include:
 
 - Switchless cluster interconnects versus switch-based cluster interconnects. The switchless interconnect topology consists of connections between dual port, or _redundant_, RDMA-capable network adapter ports in each node to form a full mesh. Each node has two direct connections to every other node. Although this implementation is straightforward, it's only supported in two-node or three-node clusters. An Azure Local instance with four or more nodes requires the _storage switched_ network architecture. You can use this architecture to add more nodes after deployment, unlike the storage switchless design that doesn't support add-node operations.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 Performance efficiency considerations include:
 

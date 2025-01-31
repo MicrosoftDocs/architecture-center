@@ -62,13 +62,13 @@ AWS customers often replicate their S3 buckets to another region by using cross-
 
 Both platforms provide different types of disks to meet particular performance needs. Although the performance characteristics don't match exactly, the following table provides a generalized comparison. You should always perform testing to determine which storage configurations best suit your application. For higher-performing disks, on both AWS and Azure you need to match the storage performance of the VM with the provisioned disk type and configuration.
 
-| AWS EBS volume type | Azure Managed disk | Use |
-| ----------- | ------------- | ----------- |
-| gp2/gp3 |  Standard SSD | Web servers and lightly used application servers or dev/test environments |
-| gp2/gp3 |  Premium SSD | Production and performance-sensitive workloads |
-| io1 |  Premium SSD v2 | Performance-sensitive workloads or workloads that require high IOPS and low latency |
-| io2 |  Ultra Disk Storage | IO-intensive workloads, performance-demanding databases, and very high transaction workloads that demand high throughput and IOPS |
-| st1/sc1 |  Standard HDD | Non-critical or infrequent-access systems |
+| AWS EBS volume type | Azure Managed disk | Use | Can this managed disk be used as an OS Disk |
+| ----------- | ------------- | ----------- | ----------- |
+| gp2/gp3 |  Standard SSD | Web servers and lightly used application servers or dev/test environments | Yes |
+| gp2/gp3 |  Premium SSD | Production and performance-sensitive workloads | Yes |
+| io1 |  Premium SSD v2 | Performance-sensitive workloads or workloads that require high IOPS and low latency | No |
+| io2 |  Ultra Disk Storage | IO-intensive workloads, performance-demanding databases, and very high transaction workloads that demand high throughput and IOPS | No |
+| st1/sc1 |  Standard HDD | Infrequently accessed workloads | Yes |
 
 On Azure, you can configure many VM types for host caching. When host caching is enabled, cache storage is made available to the VM and can be configured for read-only or read/write mode. For some workloads, the cache can improve storage performance.
 

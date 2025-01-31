@@ -111,17 +111,17 @@ Azure resources can provide similar scale-out performance with shared data and h
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Availability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+#### Availability
 
 This architecture uses [Site Recovery](https://azure.microsoft.com/services/site-recovery) to mirror Azure VMs to a secondary Azure region for quick failover and DR if an Azure datacenter fails.
 
-### Resiliency
+#### Resiliency
 
 The load balancers create resiliency in this solution. If one presentation or transaction server fails, other servers behind the load balancer can run the workloads.
-
-### Scalability
-
-You can scale out the server sets to provide more throughput. For more information, see [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 
 ### Security
 
@@ -135,13 +135,19 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 -	Microsoft Entra is a unified security platform that seamlessly integrates with most Azure services.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - In SQL Database, use the [Hyperscale or Business Critical](/azure/azure-sql/database/service-tiers-general-purpose-business-critical) SQL Database tiers for high input/output operations per second and a high-uptime SLA.
 
 - This architecture works best with Premium SSDs or Ultra Disk SSDs. For more information, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+You can scale out the server sets to provide more throughput. For more information, see [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 
 ## Next steps
 
@@ -157,6 +163,5 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 ## Related resources
 
-- [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
 - [IBM z/OS online transaction processing on Azure](../../example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml)
 - [Integrate IBM mainframe and midrange message queues with Azure](../../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml)

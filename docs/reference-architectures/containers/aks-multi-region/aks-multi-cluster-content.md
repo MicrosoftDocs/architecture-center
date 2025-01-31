@@ -12,12 +12,12 @@ This architecture builds on the [AKS baseline architecture](../aks/baseline-aks.
 
 Many components and Azure services are used in this multi-region AKS architecture. Only those components with uniqueness to this multi-cluster architecture are listed here. For the remaining, refer to the [AKS Baseline architecture](../aks/baseline-aks.yml).
 
-- **Regional AKS clusters:** Multiple AKS clusters are deployed, each in a separate Azure region. During normal operations, network traffic is routed between all regions. If one region becomes unavailable, traffic is routed to a region closest to the user who issued the request.
-- **Regional hub-spoke networks:** A regional hub-spoke network pair is deployed for each regional AKS instance. Azure Firewall Manager policies are used to manage firewall policies across all regions.
-- **Regional key vault:** Azure Key Vault is provisioned in each region. Key vaults are used for storing sensitive values and keys specific to the AKS cluster and supporting services that are in that region.
-- **Multiple log workspaces:** Regional Log Analytics workspaces are used for storing regional networking metrics and diagnostic logs. Additionally, a shared Log Analytics instance is used to store metrics and diagnostic logs for all AKS instances.
-- **Global Azure Front Door profile:** Azure Front Door is used to load balance and route traffic to a regional Azure Application Gateway instance, which sits in front of each AKS cluster. Azure Front Door allows for layer 7 global routing, both of which are required for this architecture.
-- **Global container registry:** The container images for the workload are stored in a managed container registry. In this architecture, a single Azure Container Registry is used for all Kubernetes instances in the cluster. Geo-replication for Azure Container Registry enables replicating images to the selected Azure regions and providing continued access to images even if a region is experiencing an outage.
+- **Regional AKS clusters:** Multiple [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) clusters are deployed, each in a separate Azure region. During normal operations, network traffic is routed between all regions. If one region becomes unavailable, traffic is routed to a region closest to the user who issued the request.
+- **Regional hub-spoke networks:** A regional hub-spoke network pair is deployed for each regional AKS instance. [Azure Firewall Manager](/azure/firewall-manager/overview) policies are used to manage firewall policies across all regions.
+- **Regional key vault:** [Azure Key Vault](/azure/key-vault/general/overview) is provisioned in each region. Key vaults are used for storing sensitive values and keys specific to the AKS cluster and supporting services that are in that region.
+- **Multiple log workspaces:** Regional [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) workspaces are used for storing regional networking metrics and diagnostic logs. Additionally, a shared Log Analytics instance is used to store metrics and diagnostic logs for all AKS instances.
+- **Global Azure Front Door profile:** [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is used to load balance and route traffic to a regional Azure Application Gateway instance, which sits in front of each AKS cluster. Azure Front Door allows for layer 7 global routing, both of which are required for this architecture.
+- **Global container registry:** The container images for the workload are stored in a managed container registry. In this architecture, a single Azure Container Registry is used for all Kubernetes instances in the cluster. Geo-replication for [Azure Container Registry](/azure/container-registry/container-registry-intro) enables replicating images to the selected Azure regions and providing continued access to images even if a region is experiencing an outage.
 
 ## Design patterns
 
@@ -120,7 +120,9 @@ Consider the following items when planning for workload deployment.
 - Provide stamp-specific instance details as deployment parameters.
 - Consider how application diagnostic logging and distributed tracing are configured for application-wide observability.
 
-### Availability and failover
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 A significant motivation for choosing a multi-region Kubernetes architecture is service availability. That is, if a service or service component becomes unavailable in one region, traffic should be routed to a region where another instance of that service is still available. A multi-region architecture includes many different failure points. In this section, each of these potential failure points is discussed.
 
@@ -218,7 +220,9 @@ For testing, or for non-production clusters, you might consider using [Certbot](
 
 When planning for a production cluster, use your organization's preferred method for procuring TLS certificates.
 
-### Cluster access and identity
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 As discussed in the [AKS baseline reference architecture](../aks/baseline-aks.yml#integrate-microsoft-entra-id-for-the-cluster), we recommend that you use Microsoft Entra ID as the identity provider for your clusters. The Microsoft Entra groups can then be used to control access to cluster resources.
 
@@ -240,7 +244,9 @@ This architecture's design doesn't include configuration for state concerns. If 
 
 If your workload utilizes a caching solution, ensure that you architect your caching services so that they remain functional even during failover events. Ensure that the workload itself is resilient to cache-related failover, and that the caching solutions are present on all regional AKS instances.
 
-### Cost optimization
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for the services used in the architecture. Other best practices are described in the [Cost Optimization](/azure/well-architected/cost-optimization/) section in Microsoft Azure Well-Architected Framework, and specific cost-optimization configuration options in the [Optimize costs](/azure/aks/best-practices-cost) article.
 

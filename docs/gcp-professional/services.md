@@ -44,14 +44,6 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | In-memory | [Cloud Memorystore](https://cloud.google.com/memorystore/docs) | [Azure Cache for Redis](https://azure.microsoft.com/services/cache) | A secure data cache and messaging broker that provides high throughput and low-latency access to data for applications |
 ||||
 
-#### Database architectures
-
-| Architecture | Description |
-|----|----|
-| [Gaming by using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db) | Elastically scale your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale. |
-
-[view all](/azure/architecture/browse/#databases)
-
 ### Data warehouse
 
 | Google Cloud service | Azure service | Description |
@@ -85,7 +77,6 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | Architecture | Description |
 |----|----|
 | [Azure data platform end-to-end](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) | Use Azure services to ingest, process, store, serve, and visualize data from different sources. |
-| [Personalized offers](/azure/architecture/ai-ml/idea/personalized-offers) | This solution builds intelligent marketing systems that provide customer-tailored content by using machine learning models that analyze data from multiple sources.  |
 | [Big data analytics with Azure Data Explorer](/azure/architecture/solution-ideas/articles/big-data-azure-data-explorer) | Big data analytics with Azure Data Explorer demonstrates how Azure Data Explorer caters to volume, velocity, and variety of data, the three V's of big data. |
 
 [view all](../browse/index.yml?azure_categories=databases)
@@ -104,7 +95,6 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | Architecture | Description |
 |----|----|
 | [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, and transform (ELT) workflow in Azure by using Azure Data Factory with Azure Synapse Analytics. |
-| [Mass ingestion and analysis of news feeds on Azure](/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis) | Create a pipeline for ingesting and analyzing text, images, sentiment, and other data from RSS news feeds by using only Azure services, including Azure Cosmos DB and Azure AI services. |
 
 [view all](../browse/index.yml?azure_categories=analytics)
 
@@ -343,9 +333,7 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Architecture | Description |
 |----|----|
-| [Real-time fraud detection](/azure/architecture/example-scenario/data/fraud-detection) | Detect fraudulent activity in real-time by using Azure Event Hubs and Stream Analytics. |
 | [Securely managed web applications](/azure/architecture/example-scenario/apps/fully-managed-secure-apps) | Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall. |
-| [Threat indicators for cyber threat intelligence in Microsoft Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence) | Import threat indicators, view logs, create rules to generate security alerts and incidents, and visualize threat intelligence data with Microsoft Sentinel. |
 
 [view all](../browse/index.yml?azure_categories=security)
 

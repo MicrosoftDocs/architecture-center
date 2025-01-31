@@ -74,23 +74,23 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
   
 ### Components
 
-- [ExpressRoute](https://azure.microsoft.com/services/expressroute) extends on-premises networks into Azure over a private, dedicated fiber connection from a connectivity provider. ExpressRoute establishes connections to Microsoft cloud services like Azure and Microsoft 365.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends on-premises networks into Azure over a private, dedicated fiber connection from a connectivity provider. ExpressRoute establishes connections to Microsoft cloud services like Azure and Microsoft 365.
 
-- [Load Balancer](https://azure.microsoft.com/services/load-balancer) distributes incoming traffic to compute resource clusters. You can define rules and other criteria to distribute the traffic.
+- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) distributes incoming traffic to compute resource clusters. You can define rules and other criteria to distribute the traffic.
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) offers many sizes and types of on-demand, scalable computing resources. With Azure VMs, you get the flexibility of virtualization without having to buy and maintain physical hardware.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) offers many sizes and types of on-demand, scalable computing resources. With Azure VMs, you get the flexibility of virtualization without having to buy and maintain physical hardware.
 
-- [Azure Storage](https://azure.microsoft.com/product-categories/storage) offers scalable, secure cloud storage for all your data, applications, and workloads:
+- [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) offers scalable, secure cloud storage for all your data, applications, and workloads:
 
-  - [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks) is high-performance, durable block storage for business-critical applications. Azure managed disks are block-level storage volumes that are managed by Azure on Azure VMs. The available types of disks are Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD. This solution uses either Premium SSD or Ultra Disk Storage.
-  - [Azure Files](https://azure.microsoft.com/services/storage/files) offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure Files file shares concurrently.
-  - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) provides scalable and secure object storage. It can manage large amounts of unstructured data, such as archives and data lakes. Blob Storage is a good fit for high-performance computing, machine learning, and cloud-native workloads.
+  - [Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage) is high-performance, durable block storage for business-critical applications. Azure managed disks are block-level storage volumes that are managed by Azure on Azure VMs. The available types of disks are Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD. This solution uses either Premium SSD or Ultra Disk Storage.
+  - [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure Files file shares concurrently.
+  - [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) provides scalable and secure object storage. It can manage large amounts of unstructured data, such as archives and data lakes. Blob Storage is a good fit for high-performance computing, machine learning, and cloud-native workloads.
 
-- [Azure databases](https://azure.microsoft.com/product-categories/databases) offer a choice of fully managed relational and NoSQL databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security.
+- [Azure databases](/sql/relational-databases/databases/databases) offer a choice of fully managed relational and NoSQL databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security.
 
-- [SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine. SQL Database runs on the latest stable version of SQL Server and a patched operating system. Automated functionality includes upgrading, patching, backups, and monitoring. Because SQL Database offers built-in PaaS capabilities, you can focus on domain-specific, business-critical database administration and optimization.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed platform as a service (PaaS) database engine. SQL Database runs on the latest stable version of SQL Server and a patched operating system. Automated functionality includes upgrading, patching, backups, and monitoring. Because SQL Database offers built-in PaaS capabilities, you can focus on domain-specific, business-critical database administration and optimization.
 
-- [Site Recovery](https://azure.microsoft.com/services/site-recovery) mirrors Azure VMs to a secondary Azure region. If the primary datacenter fails, the secondary region provides quick failover and disaster recovery.
+- [Site Recovery](/azure/site-recovery/site-recovery-overview) mirrors Azure VMs to a secondary Azure region. If the primary datacenter fails, the secondary region provides quick failover and disaster recovery.
 
 ### Alternatives
 
@@ -135,17 +135,23 @@ Industries that use mainframes can benefit from UniKix rehosting solutions. The 
 
 ## Considerations
 
-The following considerations, based on the [Azure Well-Architected Framework](/azure/well-architected/), apply to this solution:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 The solution uses Site Recovery to mirror Azure VMs to a secondary Azure region. If the primary datacenter fails, the secondary region provides quick failover and disaster recovery.
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
 This solution uses an Azure network security group to manage traffic between Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
 
-### Cost optimization
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Azure provides cost optimization by running on VMs. You can turn off the VMs when not in use, and script a schedule for known usage patterns. For more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm), see the [Azure Well-Architected Framework](/azure/well-architected/).
 
@@ -185,7 +191,6 @@ Other contributors:
 
 ## Related resources
 
-- [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
 - [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Move mainframe compute to Azure](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)

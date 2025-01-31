@@ -203,14 +203,14 @@ Other contributors:
 - [AKS overview](/azure/aks/hybrid/overview)
 
   [Azure Stack HCI, version 22H2]: /azure-stack/hci/overview
-  [1]: https://azure.microsoft.com/products/azure-stack/hci/
+  [1]: /azure/azure-local/overview
   [Azure Kubernetes Service (AKS) on Azure Local]: /azure/aks/hybrid/aks-hybrid-options-overview
   [Windows Admin Center]: /windows-server/manage/windows-admin-center/overview
-  [An Azure subscription]: https://azure.microsoft.com
-  [Azure Arc]: https://azure.microsoft.com/services/azure-arc/
-  [Azure role-based access control (Azure RBAC)]: /azure/role-based-access-control/
-  [Azure Monitor]: https://azure.microsoft.com/services/monitor/
-  [Microsoft Defender for Cloud]: https://azure.microsoft.com/services/defender-for-cloud/
+  [An Azure subscription]: /azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions
+  [Azure Arc]: /azure/azure-arc
+  [Azure role-based access control (Azure RBAC)]: /azure/role-based-access-control/overview
+  [Azure Monitor]: /azure/azure-monitor/overview
+  [Microsoft Defender for Cloud]: /azure/defender-for-cloud/defender-for-cloud-introduction
   [Azure Monitor Container Insights.]: /azure/azure-monitor/containers/container-insights-overview
   [Azure Automation]: /azure/automation/automation-hybrid-runbook-worker
   [virtualized]: /azure/azure-arc/servers/manage-vm-extensions

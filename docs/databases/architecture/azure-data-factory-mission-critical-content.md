@@ -131,7 +131,7 @@ For more information, see [Networking and connectivity](/azure/well-architected/
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -155,9 +155,9 @@ Compared to the baseline architecture, this architecture:
 
 - Implements the [security guidance](/azure/well-architected/mission-critical/mission-critical-security) from the mission-critical reference architecture.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Mission-critical designs are [expensive](/azure/well-architected/mission-critical/mission-critical-design-principles#cost-optimization), which makes implementing controls important. Some controls include:
 
@@ -167,9 +167,9 @@ Mission-critical designs are [expensive](/azure/well-architected/mission-critica
 
 - Cost and budget alerting through [Microsoft Cost Management](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending).
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 Compared to the baseline architecture, this architecture:
 
@@ -181,9 +181,9 @@ Compared to the baseline architecture, this architecture:
 
 - Aligns the solution with [Azure engineering roadmaps](/azure/well-architected/mission-critical/mission-critical-cross-cutting-issues#azure-roadmap-alignment) and [regional rollouts](https://azure.microsoft.com/updates) to account for constantly evolving services in Azure.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 Compared to the baseline architecture, this architecture:
 

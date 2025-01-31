@@ -35,6 +35,8 @@ Typical uses for this architecture include:
 - Using Azure Monitor to monitor Kubernetes clusters across hybrid environments.
 - Using Azure Policy to deploy and enforce policies for Kubernetes clusters across hybrid environments.
 - Using Azure Policy to deploy and enforce GitOps.
+- Maximizing your on-prem GPU investment by training and deploying Azure Machine Learning workflows.
+- Using Azure Monitor managed service for Prometheus and Managed Grafana to monitor and visualize Kubernetes workloads.
 
 ## Recommendations
 
@@ -56,9 +58,11 @@ Azure Arc-enabled Kubernetes consists of a few agents (also referred to as *oper
 - **deployment.apps/clusteridentityoperator**. Maintains the Managed Service Identity (MSI) certificate that's used by other agents to communicate with Azure.
 - **deployment.apps/flux-logs-agent**. Collects logs from the flux operators that are deployed as a part of source control configuration.
 - **deployment.apps/extension-manager**. Installs and manages the lifecycle of extension Helm charts.
-- **deployment.apps/kube-azure-ad-proxy**. Used for the authentication of the requests that are sent to the cluster by using Cluster Connect.
+- **deployment.apps/kube-aad-proxy**. Used for the authentication of the requests that are sent to the cluster by using Cluster Connect.
 - **deployment.apps/clusterconnect-agent**. A reverse proxy agent that enables the cluster connect feature to provide access to the apiserver of the cluster. It's an optional component that's deployed only if the cluster connect feature is enabled on the cluster.
 - **deployment.apps/guard**. An authentication and authorization webhook server that's used for Microsoft Entra role-based access control (RBAC). It's an optional component that's deployed only if the azure-rbac feature is enabled on the cluster.
+- **deployment.apps/extension-events-collector**. Collects extensions lifecycle management logs and aggregates them in events corresponding to each operation (for example Create, Upgrade, Delete).  
+- **deployment.apps/logcollector**. Collects platform telemetry to ensure the operational health of the platform
 
 For more information, see [Connect an Azure Arc-enabled Kubernetes cluster][Connect an Azure Arc-enabled Kubernetes cluster].
 
@@ -96,6 +100,14 @@ You can also manage a larger collection of clusters that are deployed across het
 
 For more information, see [Deploy applications using GitOps with Flux v2][Deploy applications using GitOps with Flux v2].
 
+### Run Azure Machine Learning
+
+In Azure Machine Learning, you can select an AKS (or Arc-enabled Kubernetes) cluster as a compute target for your machine learning processes. This enables you to train or deploy machine learning models in your own, self-hosted (or multi-cloud) infrastructure, which allows you to combine your on-premises investments on GPUs with the ease of management that Azure Machine Learning provides to you in the cloud. 
+
+### Monitor Kubernetes workloads with managed Prometheus and Grafana
+
+Azure offers a managed service for both Prometheus and Grafana deployments, so that you can take advantage of these popular Kubernetes monitoring tools without having to manage and update the deployments yourself. Additionally, we provide a [metrics explorer with PromQL](/azure/azure-monitor/essentials/metrics-explorer) for you to analyze Prometheus' metrics. 
+
 ### Topology, network, and routing
 
 Azure Arc agents require the following protocols/ports/outbound URLs in order to function:
@@ -106,8 +118,8 @@ Azure Arc agents require the following protocols/ports/outbound URLs in order to
 |`https://[region].dp.kubernetesconfiguration.azure.com:443`|Data plane endpoint for the agent to push status and fetch configuration information, where [region] represents the Azure region that hosts the AKS instance.|
 |`https://docker.io:443`|Required to pull container images.|
 |`https://github.com:443`, `git://github.com:9418`|Example GitOps repos are hosted on GitHub. The configuration agent requires connectivity to whichever git endpoint that you specify.|
-|`https://login.microsoftonline.com:443`|Required to fetch and update Azure Resource Manager tokens.|
-|`https://azurearcfork8s.azurecr.io:443`|Required to pull container images for Azure Arc agents.
+|`https://login.microsoftonline.com:443`, `https://<region>.login.microsoft.com`, `login.windows.net`|Required to fetch and update Azure Resource Manager tokens.|
+|`https://mcr.microsoft.com:443` `https://*.data.mcr.microsoft.com:443`|Required to pull container images for Azure Arc agents.
 
 For a complete list of URLs across Azure Arc services, see [Azure Arc network requirements][Azure Arc network requirements].
 
@@ -117,28 +129,28 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - In most cases, the location that you select when you create the installation script should be the Azure region that's geographically closest to your on-premises resources. The rest of the data is stored within the Azure geography that contains the region that you specify, a fact that might affect your choice of region if you have data residency requirements. If an outage affects the Azure region that your machine is connected to, the outage doesn't affect the connected machine, but management operations that use Azure might not complete. For resilience when there's a regional outage, it's best, if you have multiple locations that provide a geographically redundant service, to connect the machines in each location to a different Azure region. For available regions, consult [Supported regions][Supported regions] for Azure Arc-enabled Kubernetes.
 - You should ensure that the services that are referenced in the **Architecture** section are supported in the region where Azure Arc is deployed.
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - You can use Azure RBAC to manage access to Azure Arc-enabled Kubernetes across Azure and on-premises environments that use Microsoft Entra identities. For more information, see [Use Azure RBAC for Kubernetes Authorization][Use Azure RBAC for Kubernetes Authorization].
 - Microsoft recommends that you use a service principal that has limited privileges to onboard Kubernetes clusters to Azure Arc. This practice is useful in CI/CD pipelines such as Azure Pipelines and GitHub Actions. For more information, see [Create an Azure Arc-enabled onboarding Service Principal][Create an Azure Arc-enabled onboarding Service Principal].
 - To simplify service principal management, you can use managed identities in AKS. However, clusters must be created by using the managed identity, and the existing clusters (including Azure and on-premises clusters) can't be migrated to managed identities. For more information, see [Use managed identities in Azure Kubernetes Service][Use managed identities in Azure Kubernetes Service].
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 General cost considerations are described in the [Principles of cost optimization][Principles of cost optimization] section in the Microsoft Azure Well-Architected Framework.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 - Before you configure your Azure Arc-enabled Kubernetes clusters, review the Azure Resource Manager [Subscription limits][subscription limits] and [Resource group limits][resource group limits] to plan for the number of clusters.
 - Use Helm, the open-source packaging tool, to install and manage the Kubernetes application lifecycles. Similar to Linux package managers such as APT and Yum, you use Helm to manage Kubernetes *charts*, which are packages of preconfigured Kubernetes resources.

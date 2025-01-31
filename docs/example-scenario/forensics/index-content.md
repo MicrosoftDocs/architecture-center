@@ -38,17 +38,17 @@ The Copy-VmDigitalEvidence runbook implements these macro steps:
 
 ### Components
 
-- [Azure Automation](https://azure.microsoft.com/products/automation) automates frequent, time-consuming, and error-prone cloud management tasks.
-- [Storage](https://azure.microsoft.com/services/storage) is a cloud storage solution that includes object, file, disk, queue, and table storage.
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) provides optimized cloud object storage that manages massive amounts of unstructured data.
-- [Azure Files](https://azure.microsoft.com/products/storage/files) shares. You can mount shares concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. You can also cache Azure Files shares on Windows Servers with Azure File Sync for fast access near where the data is used.
-- [Azure Monitor](https://azure.microsoft.com/products/monitor) supports your operations at scale by helping you maximize the performance and availability of your resources and proactively identify problems.
-- [Key Vault](https://azure.microsoft.com/services/key-vault) helps you safeguard cryptographic keys and other secrets used by cloud apps and services.
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a cloud-based identity service that helps you control access to Azure and other cloud apps.
+- [Azure Automation](/azure/automation/overview) automates frequent, time-consuming, and error-prone cloud management tasks.
+- [Storage](/azure/storage/common/storage-introduction) is a cloud storage solution that includes object, file, disk, queue, and table storage.
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) provides optimized cloud object storage that manages massive amounts of unstructured data.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) shares. You can mount shares concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. You can also cache Azure Files shares on Windows Servers with Azure File Sync for fast access near where the data is used.
+- [Azure Monitor](/azure/azure-monitor/overview) supports your operations at scale by helping you maximize the performance and availability of your resources and proactively identify problems.
+- [Key Vault](/azure/key-vault/general/overview) helps you safeguard cryptographic keys and other secrets used by cloud apps and services.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity service that helps you control access to Azure and other cloud apps.
 
 #### Automation
 
-The SOC team uses an [Automation](https://azure.microsoft.com/products/automation) account to create and maintain the Copy-VmDigitalEvidence runbook. The team also uses [Automation](/azure/automation/automation-intro) to create the hybrid runbook workers that operate the runbook.
+The SOC team uses an [Automation](/azure/automation/overview) account to create and maintain the Copy-VmDigitalEvidence runbook. The team also uses [Automation](/azure/automation/automation-intro) to create the hybrid runbook workers that operate the runbook.
 
 #### Hybrid runbook worker
 
@@ -83,7 +83,7 @@ Access to the target architecture includes the following roles:
 
 #### Azure Storage account
 
-The [Azure Storage account](/azure/storage/common/storage-account-overview) in the SOC subscription hosts the disk snapshots in a container configured with a *legal hold* policy as Azure immutable blob storage. Immutable blob storage stores business-critical data objects in a *write once, read many (WORM)* state, which makes the data nonerasable and uneditable for a user-specified interval.
+The [Azure Storage account](/azure/well-architected/service-guides/storage-accounts/reliability) in the SOC subscription hosts the disk snapshots in a container configured with a *legal hold* policy as Azure immutable blob storage. Immutable blob storage stores business-critical data objects in a *write once, read many (WORM)* state, which makes the data nonerasable and uneditable for a user-specified interval.
 
 Be sure to enable the [secure transfer](/azure/storage/common/storage-require-secure-transfer) and [storage firewall](/azure/storage/common/storage-network-security?tabs=azure-portal#grant-access-from-a-virtual-network) properties. The firewall grants access only from the SOC virtual network.
 
@@ -91,7 +91,7 @@ The storage account also hosts an [Azure file share](/azure/storage/files/storag
 
 #### Azure Key Vault
 
-The SOC subscription has its own instance of [Key Vault](/azure/key-vault/general/basic-concepts), which hosts a copy of the BEK that Azure Disk Encryption uses to protect the target VM. The primary copy is kept in the key vault that is used by the target VM, so that the target VM can continue normal operation.
+The SOC subscription has its own instance of [Key Vault](/azure/key-vault/general/overview), which hosts a copy of the BEK that Azure Disk Encryption uses to protect the target VM. The primary copy is kept in the key vault that is used by the target VM, so that the target VM can continue normal operation.
 
 The SOC key vault also contains the hash values of disk snapshots calculated by the hybrid runbook worker during the capture operations.
 
@@ -99,7 +99,7 @@ Ensure the [firewall](/azure/key-vault/general/network-security#key-vault-firewa
 
 #### Log Analytics
 
-A [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-collect-workspace) stores activity logs used to audit all relevant events on the SOC subscription. Log Analytics is a feature of [Monitor](https://azure.microsoft.com/products/monitor/).
+A [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-collect-workspace) stores activity logs used to audit all relevant events on the SOC subscription. Log Analytics is a feature of [Monitor](/azure/azure-monitor/overview).
 
 ## Scenario details
 
@@ -255,8 +255,6 @@ For more information about Microsoft Azure compliance, see:
 - [Azure compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance)
 - [Microsoft Azure compliance offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/en-us)
 
-## Related resources
+## Related resource
 
 - [Security architecture design](../../guide/security/security-start-here.yml)
-- [Microsoft Entra IDaaS in security operations](../aadsec/azure-ad-security.yml)
-- [Security considerations for highly sensitive IaaS apps in Azure](../../reference-architectures/n-tier/high-security-iaas.yml)
