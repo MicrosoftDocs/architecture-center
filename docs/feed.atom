@@ -497,7 +497,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[End-to-end computer vision at the edge for manufacturing]]></title>
+        <title type="html"><![CDATA[Video ingestion and object detection on the edge and in the cloud]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/video-ingestion-object-detection-edge-cloud</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/video-ingestion-object-detection-edge-cloud"/>
         <updated>2025-01-17T16:23:58.000Z</updated>
@@ -1945,7 +1945,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[End-to-end computer vision at the edge for manufacturing]]></title>
+        <title type="html"><![CDATA[Video ingestion and object detection on the edge and in the cloud]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/video-ingestion-object-detection-edge-cloud</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/video-ingestion-object-detection-edge-cloud"/>
         <updated>2024-11-08T19:38:18.000Z</updated>

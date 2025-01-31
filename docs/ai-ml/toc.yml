@@ -16,8 +16,6 @@ items:
         items:
         - name: Video ingestion and object detection on the edge
           href: idea/video-ingestion-object-detection-edge-cloud.yml
-        - name: Computer vision at the edge
-          href: ../ai-ml/idea/video-ingestion-object-detection-edge-cloud.yml
       - name: Document enrichment
         items:
         - name: Use AI enrichment with Azure AI Search
