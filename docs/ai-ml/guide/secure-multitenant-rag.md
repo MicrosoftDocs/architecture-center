@@ -25,7 +25,7 @@ Retrieval-Augmented Generation (RAG) is a pattern for building applications that
 
 A multitenant solution is used by multiple customers. Each customer, or tenant, consists of multiple users from the same organization, company, or group. In multitenant scenarios, you need to make sure that tenants, or individuals within tenants, are only able to incorporate grounding data that they're authorized to see.
 
-Although there are multitenant concerns beyond ensuring that users only access the information they're supposed to see, this article focuses on that aspect of multitenancy. This article begins with an overview of single-tenant RAG architectures. It discusses the challenges that you might encounter in multitenancy with RAG and some common approaches to take. It also outines multitenancy considerations and recommendations for improved security.
+Although there are multitenant concerns beyond ensuring that users only access the information they're supposed to see, this article focuses on that aspect of multitenancy. This article begins with an overview of single-tenant RAG architectures. It discusses the challenges that you might encounter in multitenancy with RAG and some common approaches to take. It also outlines multitenancy considerations and recommendations for improved security.
 
 > [!NOTE]
 > This article discusses some Azure OpenAI Service-specific features, such as the Azure OpenAI on your data feature. However, most of the principles that this article covers apply to most foundational AI models, regardless of their host platform.
@@ -97,7 +97,7 @@ There are two main [architectural approaches for storage and data in multitenant
 
 In store-per-tenant stores, as the name suggests, each tenant has its own store. The advantages of this approach include both data and performance isolation. Each tenant's data is encapsulated in its own store. In most data services, the isolated stores aren't susceptible to the noisy neighbor problem of other tenants. This approach also simplifies cost allocation because the entire cost of a store deployment can be attributed to a single tenant.
 
-The challenges of this approach potentially include higher management and operation overhead and higher cost. You shouldn't use this approach if there is a large number of small tenants, such as in business-to-consumer scenarios. This approach might also reach or exceed [service limitations](/azure/search/search-limits-quotas-capacity).
+The challenges of this approach potentially include higher management and operation overhead and higher cost. You shouldn't use this approach if you have a large number of small tenants, such as in business-to-consumer scenarios. This approach might also reach or exceed [service limitations](/azure/search/search-limits-quotas-capacity).
 
 In the context of this AI scenario, a store-per-tenant store means that the necessary grounding data to bring relevancy into the context comes from an existing or new data store that only contains grounding data for the tenant. In this topology, the database instance is the discriminator used for each tenant.
 
@@ -105,7 +105,7 @@ In the context of this AI scenario, a store-per-tenant store means that the nece
 
 In multitenant stores, multiple tenants' data coexists in the same store. The advantages of this approach include the potential for cost optimization, the ability to handle a higher number of tenants than the store-per-tenant model, and lower management overhead because of the lower number of store instances.
 
-The challenges of using shared stores include the need for data isolation and management, the potential for the [noisy neighbor antipattern](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor), and more difficult cost allocation to tenants. Ensuring data isolation is the most important concern when you use this approach. You need to implement secure approachs to help ensure that tenants can only access their data. Data management can also be challenging if tenants have different data lifecycles that require operations such as building indexes on different schedules.
+The challenges of using shared stores include the need for data isolation and management, the potential for the [noisy neighbor antipattern](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor), and more difficult cost allocation to tenants. Ensuring data isolation is the most important concern when you use this approach. You need to implement secure approaches to help ensure that tenants can only access their data. Data management can also be challenging if tenants have different data lifecycles that require operations such as building indexes on different schedules.
 
 Some platforms have features that you can use when you implement tenant data isolation in shared stores. For example, Azure Cosmos DB has native support for partitioning and sharding, and it's common to use a tenant identifier as a partition key to provide some isolation between tenants. Azure SQL and Azure Database for PostgreSQL - Flexible Server support row-level security. However, these features aren't typically used in multitenant solutions because you have to design your solution around these features if you plan to use them in your multitenant store.
 
@@ -155,7 +155,7 @@ We recommend that you have an API in front of whichever storage mechanism you us
    In the diagram, a user connects to an intelligent application. The intelligent application then connects to an identity provider. The intelligent application then connects to an orchestrator. The orchestrator connects to an API layer. The API layer connects to databases and vector stores. The orchestrator then connects to the foundational models.
 :::image-end:::
 
-User's access to data can be limited by:
+Users' access to data can be limited by:
 
 - The user's tenant.
 - Platform features.
