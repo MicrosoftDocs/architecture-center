@@ -497,14 +497,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Video ingestion and object detection on the edge and in the cloud]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/video-ingestion-object-detection-edge-cloud</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/video-ingestion-object-detection-edge-cloud"/>
-        <updated>2025-01-17T16:23:58.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure IoT Edge, MLOps, and human-in-the-loop notifications to train and deploy an ML computer vision solution for manufacturing.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Rehost mainframe applications to Azure with Raincode compilers]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/app-modernization/raincode-reference-architecture</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/app-modernization/raincode-reference-architecture"/>
@@ -1942,14 +1934,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/networking/architecture/hub-spoke"/>
         <updated>2024-11-08T19:38:18.000Z</updated>
         <summary type="html"><![CDATA[Learn about hub-spoke topology in Azure, where the spoke virtual networks connect to the hub virtual network and can connect to each other.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Video ingestion and object detection on the edge and in the cloud]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/video-ingestion-object-detection-edge-cloud</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/video-ingestion-object-detection-edge-cloud"/>
-        <updated>2024-11-08T19:38:18.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure IoT Edge, MLOps, and human-in-the-loop notifications to train and deploy an ML computer vision solution for manufacturing.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
