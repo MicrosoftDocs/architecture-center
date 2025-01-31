@@ -69,7 +69,7 @@ Use a binary format if you want to reduce wire footprint and transfer messages f
 
 The disadvantage is that the payload isn't human readable. Most binary formats use complex systems that can be costly to maintain. Also, they need specialized libraries to decode, which might not be supported if you want to retrieve archival data.
 
-For nonbinary formats, using a minification process to remove technically unnecessary spaces and characters, yet still maintaining alignment to the format's specification, can help with encoding size. Evaluate the capabilities of your encoder to make minification the default. For example, [`JsonSerializerOptions.WriteIndented`](/dotnet/api/system.text.json.jsonserializeroptions.writeindente) from .NET's `System.Text.Json.JsonSerializer` controls automatic minification when creating JSON text.
+For nonbinary formats, using a minification process to remove technically unnecessary spaces and characters, yet still maintaining alignment to the format's specification, can help with encoding size. Evaluate the capabilities of your encoder to make minification the default. For example, [`JsonSerializerOptions.WriteIndented`](/dotnet/api/system.text.json.jsonserializeroptions.writeindented) from .NET's `System.Text.Json.JsonSerializer` controls automatic minification when creating JSON text.
 
 ### Understanding the payload
 
