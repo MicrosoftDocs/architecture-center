@@ -120,7 +120,7 @@ For more information, see the following resources:
 
 ## AI language models
 
-*LLMs*, such as OpenAI's GPT models, are powerful tools that can generate natural language across various domains and tasks. To choose a model, consider factors such as data privacy, ethical use, accuracy, and bias.
+*LLMs*, such as the OpenAI GPT models, are powerful tools that can generate natural language across various domains and tasks. To choose a model, consider factors such as data privacy, ethical use, accuracy, and bias.
 
 [Phi open models](https://azure.microsoft.com/blog/new-models-added-to-the-phi-3-family-available-on-microsoft-azure/) are small, less compute-intensive models for generative AI solutions. A small language model might be more efficient, interpretable, and explainable than an LLM.
 
@@ -166,7 +166,7 @@ For more information, see the following resources:
 Machine Learning workspaces are MLflow-compatible, which means that you can use a Machine Learning workspace the same way that you use an MLflow server. This compatibility provides the following advantages:
 
 - Machine Learning doesn't host MLflow server instances but can use the MLflow APIs directly.
-- You can use an Machine Learning workspace as your tracking server for any MLflow code, whether or not it runs in Machine Learning. You need to configure MLflow to point to the workspace where the tracking should occur.
+- You can use a Machine Learning workspace as your tracking server for any MLflow code, whether or not it runs in Machine Learning. You need to configure MLflow to point to the workspace where the tracking should occur.
 - You can run training routines that use MLflow in Machine Learning without making any changes.
 
 For more information, see [MLflow and Machine Learning](/azure/machine-learning/concept-mlflow) and [MLflow](https://www.mlflow.org/).
