@@ -346,7 +346,7 @@ The following sections discuss scalability for key components in this architectu
 
 #### SQL Server
 
-Scaling database resources is a complex topic outside of the scope of this architecture. Consider the following resources when scaling your database,
+Scaling database resources is a complex topic outside of the scope of this architecture. Consider the following resources when scaling your database.
 
 - [Dynamically scale database resources with minimal downtime](/azure/azure-sql/database/scale-resources)
 - [Scaling out with Azure SQL Database](/azure/azure-sql/database/elastic-scale-introduction)

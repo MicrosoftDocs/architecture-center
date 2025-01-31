@@ -276,7 +276,7 @@ For more information, see the Cost section in [Microsoft Azure Well-Architected 
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-#### DevOps
+#### Deployments
 
 Safe deployment practices are automated by using a reliable CI/CD service such as [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions][gh-actions]. These services are used to automatically build and deploy every source change in the front end and back end. The source must reside in an online version control system. For more details on Azure Pipelines, read [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline). To learn more about GitHub Actions for Azure, see [Deploy apps to Azure](/azure/developer/github/deploy-to-azure).
 
@@ -311,8 +311,6 @@ For updates that aren't breaking API changes, deploy the new version to a stagin
 ### Performance Efficiency
 
 Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
-
-#### Scalability
 
 **Functions**. For the consumption plan, the HTTP trigger scales based on the traffic. There's a limit to the number of concurrent function instances, but each instance can process more than one request at a time. For an App Service plan, the HTTP trigger scales according to the number of VM instances, which can be a fixed value or can autoscale based on a set of autoscaling rules. For information, see [Azure Functions scale and hosting][functions-scale].
 
