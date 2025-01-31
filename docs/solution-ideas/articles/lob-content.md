@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes how to modernize your legacy systems that can't support new processes, which provides a better user experience.
+This article describes how to modernize your legacy systems that can't support new processes, which enhances the user experience.
 
 ## Architecture
 
@@ -12,13 +12,13 @@ This article describes how to modernize your legacy systems that can't support n
 
 The following dataflow corresponds to the previous diagram:
 
-1. Supplier data stored in [Common Data Services (CDS)](https://learn.microsoft.com/en-us/business-applications-release-notes/april18/common-data-service-apps/) is moved to SQL via Azure Data Factory.
+1. Supplier data that's stored in [Common Data Services (CDS)](https://learn.microsoft.com/business-applications-release-notes/april18/common-data-service-apps/) is moved to SQL via Azure Data Factory.
 
 1. Purchase order (PO) data that's stored in the ERP system is sent to Azure SQL Database.
 
 1. Azure API Management exposes an Azure function to the Microsoft Power Platform.
 
-1. Microsoft Power Apps retrieves data from SQL Database through the Azure Function being exposed by API Management.
+1. Microsoft Power Apps retrieves data from SQL Database via the Azure Function exposed by API Management.
 
 1. The user reviews and updates POs in Power Apps and then sends this data to suppliers through CSV exports.
 
@@ -30,7 +30,7 @@ Data is loaded from these different data sources by using the following Azure co
 
 - [Power Apps](/power-apps/) can help you increase agility across your organization by rapidly building low-code apps that modernize processes and solve problems. In this architecture, this is the application development technology that provides the user interface for the solution.
 
-- [Azure Functions](https://azure.microsoft.com/services/functions) can help you accelerate and simplify application development with serverless compute. The Azure function hosts the custom code that performs lookup and retrieval of data from the SQL Database.
+- [Azure Functions](https://azure.microsoft.com/services/functions) can help you accelerate and simplify application development with serverless compute. The Azure function hosts the custom code that performs the lookup and retrieval of data from the SQL Database.
 
 - [API Management](/azure/api-management/api-management-key-concepts) is a hybrid, multicloud management platform for APIs across all environments. In this architecture, the Power App interfaces with this service. It provides gateway offloading of security, monitoring, and control.
 
