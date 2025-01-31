@@ -4,7 +4,7 @@ This article describes how to modernize your legacy systems that can't support n
 
 ## Architecture
 
-:::image type="content" alt-text="Architecture that shows data from Common Data Services to SQL via Azure Data Factory and from ERP to SQL. Power Apps gets data, sends data via CSV, and Power BI shows trends.." source="../media/lob.svg" lightbox="../media/lob.svg" border="false":::
+:::image type="content" alt-text="Architecture that shows data from Common Data Services to SQL via Azure Data Factory and from ERP to SQL. Power Apps gets data, sends data via CSV, and Power BI shows trends." source="../media/lob.svg" lightbox="../media/lob.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/lob.vsdx) of this architecture.*
 
