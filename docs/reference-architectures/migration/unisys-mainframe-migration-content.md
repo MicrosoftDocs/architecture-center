@@ -117,14 +117,15 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/well-architected/reliability/). Follow these reliability recommendations:
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
 - Use [Site Recovery](https://azure.microsoft.com/products/site-recovery/) to mirror the VMs to a secondary Azure region for quick failover and DR if there's an Azure datacenter failure.
 - Use [Azure automatic failover group replication](/azure/azure-sql/database/failover-group-sql-db) to manage database replication and failover to another region.
 - Use [Load Balancer](https://azure.microsoft.com/solutions/load-balancing-with-azure/) to build resiliency into this solution. If one presentation or transaction server fails, the other servers behind the load balancer take on the workload.
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview). Follow these security recommendations:
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Use Azure network security groups (NSGs) to manage traffic between Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
 
@@ -132,9 +133,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Use [Azure Bastion](/azure/bastion/bastion-overview) to maximize administrator access security by minimizing open ports. Azure Bastion provides secure and seamless secure RDP and SSH connectivity over TLS from the Azure portal to VMs in the virtual network.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost-optimization/). Follow these cost optimization recommendations:
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - You can optimize Azure Reserved Virtual Machine Instances by turning off VMs when they aren't needed and scripting schedules for known usage patterns. Avanade AMT in Azure runs on Windows or Linux VMs, which optimizes costs.
 
@@ -142,9 +143,9 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - To estimate and calculate costs for your implementation of this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/performance-efficiency).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - Avanade AMT has proven single-application scalability that's equivalent to at least 28,000 million instructions per second (MIPS).
 
