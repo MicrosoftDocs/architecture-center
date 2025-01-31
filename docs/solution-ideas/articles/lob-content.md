@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes how to modernize your legacy systems that can't support new processes, which enhances the user experience.
+This article describes how to modernize your legacy systems that can't support new processes. This modernization enhances the user experience.
 
 ## Architecture
 
@@ -28,7 +28,7 @@ The following dataflow corresponds to the previous diagram:
 
 Data is loaded from these different data sources by using the following Azure components:
 
-- [Power Apps](/power-apps/) can help you increase agility across your organization by rapidly building low-code apps that modernize processes and solve problems. In this architecture, this is the application development technology that provides the user interface for the solution.
+- [Power Apps](/power-apps/) can help you increase agility across your organization by rapidly building low-code apps that modernize processes and solve problems. In this architecture, Power Apps is the application development technology that provides the user interface for the solution.
 
 - [Azure Functions](https://azure.microsoft.com/services/functions) can help you accelerate and simplify application development with serverless compute. The Azure function hosts the custom code that performs the lookup and retrieval of data from the SQL Database.
 
