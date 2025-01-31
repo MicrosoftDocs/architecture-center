@@ -181,6 +181,6 @@ This article is maintained by Microsoft. It was originally written by:
 ## Related resources
 
 - [Analytics end-to-end with Azure Synapse Analytics](../dataplate2e/data-platform-end-to-end.yml)
-- [End-to-end manufacturing using computer vision on the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml)
+- [End-to-end manufacturing using computer vision on the edge](../../ai-ml/idea/video-ingestion-object-detection-edge-cloud.yml)
 - [Artificial intelligence (AI)](/azure/architecture/data-guide/big-data/ai-overview)
 - [Compare the ML products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
