@@ -78,14 +78,14 @@ Note that this article focuses on a subset of Azure container services that offe
 > [!NOTE]
 > Some sections distinguish AKS Standard from AKS Automatic. If a section does not distinguish between the two, feature parity is assumed.
 
-> [!NOTE]
-> AKS Automatic is a more opinionated solution than AKS Standard. Some out of the box features cannot be disabled. This guide does not call out these features. For up to date information on these constraints, and Standard vs Automatic feature comparison see: [AKS Automatic and Standard feature comparison](/azure/aks/intro-aks-automatic#aks-automatic-and-standard-feature-comparison).
-
 ## Architectural considerations
 
 This section describes architectural decisions that are difficult to reverse or correct without requiring significant downtime or re-deployment. It's especially necessary to keep this consideration in mind for fundamental components like networking and security.
 
 These considerations aren't specific to Well-Architected Framework pillars. However, they deserve extra scrutiny and evaluation against businesses requirements when you choose an Azure container service.
+
+> [!NOTE]
+> AKS Automatic is a more opinionated solution than AKS Standard. Some out of the box features cannot be disabled. This guide does not call out these features. For up to date information on these constraints, and Standard vs Automatic feature comparison see: [AKS Automatic and Standard feature comparison](/azure/aks/intro-aks-automatic#aks-automatic-and-standard-feature-comparison).
 
 ### Operating system support
 
