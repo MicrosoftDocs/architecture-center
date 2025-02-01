@@ -276,7 +276,7 @@ Most Azure services, including Container Apps, AKS, and Web App for Containers, 
 
 Of the services in this guide, AKS offers the most configurability and extensibility in part by surfacing underlying components, which often can be secured via configuration options. For example, customers can disable local accounts to the Kubernetes API server or turn on automatic updates to underlying nodes via configuration options. 
 
-AKS Automatic clusters come with a hardened default configuration, with many cluster, application, and networking security settings enabled by default. This reduces the operational effort required to secure the cluster, making deployment and management simpler compared to standard AKS.
+AKS Automatic clusters come with a hardened default configuration, with many cluster, application, and networking security settings enabled by default. These initial configurations don't just reduce deployment time, but also give users a standardized configuration that is pre-validated and thus gives users a purview of Day 2 operational responsibilities. This purview can help users shorten the learning curves of long term management of the cluster. 
 
 For a detailed comparison, carefully review the following considerations to ensure that your workload security requirements can be met.
 
