@@ -82,7 +82,7 @@ AKS also provides access to the Kubernetes API server, which enables you to cust
 
 ##### AKS Automatic
 
-[AKS Automatic](https://learn.microsoft.com/en-us/azure/aks/intro-aks-automatic) simplifies the adoption of Kubernetes by automating complex cluster management tasks, reducing the need for deep Kubernetes expertise. It offers a more streamlined, PaaS-like experience while retaining the flexibility and extensibility of Kubernetes. Azure handles cluster setup, node provisioning, scaling, security patching, and applies best-practice configurations by default. This reduces operational effort and accelerates time-to-market. 
+[AKS Automatic](/azure/aks/intro-aks-automatic) simplifies the adoption of Kubernetes by automating complex cluster management tasks, reducing the need for deep Kubernetes expertise. It offers a more streamlined, PaaS-like experience while retaining the flexibility and extensibility of Kubernetes. Azure handles cluster setup, node provisioning, scaling, security patching, and applies some best-practice configurations by default. This reduces operational effort but comes with a restricted set of available topology options.
 
 > [!NOTE]
 > This guide will distinguish between AKS Standard and AKS Automatic where applicable. It can otherwise be assumed that functionality described has parity between both Standard and Automatic offerings.
