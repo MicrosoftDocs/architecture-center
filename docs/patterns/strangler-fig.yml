@@ -14,6 +14,6 @@ products:
   - azure-migrate
 name: Strangler Fig pattern
 summary: Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.
-thumbnailUrl: /azure/architecture/browse/thumbs/stranglerfig.png
+thumbnailUrl: /azure/architecture/browse/thumbs/strangler-fig.png
 content: |
   [!include[](strangler-fig-content.md)]
