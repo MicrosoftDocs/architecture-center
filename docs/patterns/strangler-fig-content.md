@@ -28,7 +28,7 @@ In the final stage (Step 4), the Strangler Facade is removed, and the client app
 
 This pattern provides a controlled and phased approach to modernization, allowing the existing application to continue functioning throughout the transition. Over time, as the new system takes over, the legacy system is "strangled" and safely retired, ensuring minimal disruption and a seamless migration.
 
-## Strangler Fig Implementation for Database
+## Strangler Fig pattern applied to datastore migrations
 
 Legacy systems often depend on a centralized database that, over time, can become increasingly complex with tangled dependencies, making it difficult to manage and evolve. To address these challenges, various database patterns have emerged to facilitate the transition away from such legacy systems. One effective approach is the Strangler Fig pattern, which can be applied at the database level. In this approach, the migration from a legacy database to a new one involves routing traffic to the new system while simultaneously syncing data between the two databases. Once both databases are in sync and have been thoroughly validated, the system fully transitions to the new database, allowing the legacy system to be gradually deprecated.
 
@@ -76,5 +76,4 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 ## Related resources
 
 * [Messaging Bridge pattern](./messaging-bridge.yml)
-
 
