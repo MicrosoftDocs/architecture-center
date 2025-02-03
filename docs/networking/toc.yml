@@ -38,8 +38,6 @@ items:
           href: guide/private-link-ip-constraints.yml        
         - name: Private Link in hub-and-spoke network
           href: guide/private-link-hub-spoke-network.yml
-        - name: Cross-tenant secure access to apps
-          href: guide/cross-tenant-secure-access-private-endpoints.yml
         - name: Guide to Private Link and DNS with Azure Virtual WAN
           items:
           - name: Guide overview
@@ -63,6 +61,4 @@ items:
         - name: Deploy highly available NVAs
           href: guide/nva-ha.yml        
         - name: SDWAN integration
-          href: guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml          
-      - name: NAT gateway framework review
-        href: guide/well-architected-network-address-translation-gateway.yml          
+          href: guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml     

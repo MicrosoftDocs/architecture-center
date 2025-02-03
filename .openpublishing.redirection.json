@@ -6768,6 +6768,11 @@
       "source_path": "docs/networking/guide/network-level-segmentation.yml",
       "redirect_url": "/azure/virtual-network/network-security-groups-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/networking/guide/well-architected-network-address-translation-gateway.yml",
+      "redirect_url": "/azure/nat-gateway",
+      "redirect_document_id": false
     }
   ]
-} 
+}         
