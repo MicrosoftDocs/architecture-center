@@ -2,7 +2,7 @@
 metadata:
   title: Line of Business Extension
   titleSuffix: Azure Solution Ideas
-  description: Modernize legacy systems by automating processes. Schedule calculations, connect to third party data sources or legacy systems, and process and share data.
+  description: Modernize legacy systems by automating processes. Schedule calculations, connect to non-Microsoft data sources or legacy systems, and process and share data.
   author: karlrissland
   ms.author: karlriss
   ms.date: 02/03/2025
