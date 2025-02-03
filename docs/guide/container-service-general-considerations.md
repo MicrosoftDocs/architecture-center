@@ -276,7 +276,7 @@ Most Azure services, including Container Apps, AKS, and Web App for Containers, 
 
 Of the services in this guide, AKS offers the most configurability and extensibility in part by surfacing underlying components, which often can be secured via configuration options. For example, customers can disable local accounts to the Kubernetes API server or turn on automatic updates to underlying nodes via configuration options. 
 
-AKS Automatic clusters come with a hardened default configuration, with many cluster, application, and networking security settings enabled by default. These initial configurations don't just reduce deployment time, but also give users a standardized configuration that is pre-validated and thus gives users a purview of Day 2 operational responsibilities. This purview can help users shorten the learning curves of long term management of the cluster. 
+AKS Automatic clusters come with a hardened default configuration, with many cluster, application, and networking security settings enabled by default. These initial configurations don't just reduce deployment time, but also give users a standardized configuration that is pre-validated and thus gives users a solid foundation for day 2 operational responsibilities. This foundation helps shorten the learning curve of long-term cluster management for teams that are new to the technology.
 
 For a detailed comparison, carefully review the following considerations to ensure that your workload security requirements can be met.
 
@@ -335,14 +335,15 @@ In all scenarios, you can regulate networking communication within the wider vir
 
 #### Built-in IP restrictions for ingress
 
-Container Apps and Web App for Containers provide built-in source IP restrictions for ingress traffic for individual applications. AKS can achieve the same functionality, but requires  kubernetes native functionality through the [Kubernetes Service api-resource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#service-v1-core) where you can set values for _loadBalancerSourceRanges_.
+Container Apps and Web App for Containers provide built-in source IP restrictions for ingress traffic for individual applications. AKS can achieve the same functionality, but requires Kubernetes native functionality through the [Kubernetes Service api-resource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#service-v1-core) where you can set values for _loadBalancerSourceRanges_.
 
 | | Container Apps| AKS | Web App for Containers|
 |---|--|--|--|
-| Built-in ingress IP restrictions | ✅ | ❌* | ✅ |
+| **Built-in ingress IP restrictions** | ✅ | ❌* | ✅ |
+| **Resource consumption** | - | Consumes cluster resources | - |
 
-> [!note]
-> AKS offers ingress IP restrictions, but it's a Kubernetes Native feature and not Azure Native like the other services. 
+> [!NOTE]
+> AKS offers ingress IP restrictions, but it's a Kubernetes native feature and not Azure Native like the other services. 
 
 ## Application-level security
 
@@ -366,7 +367,7 @@ For more information, see:
 
 ### Managed identity support
 
-Managed Identity can be leveraged by applications to authenticate to Azure services without having to use keys or secrets. Container Apps and Web App for Container offer built-in, Azure Native support for App-level managed identity. App-level managed idenity support for AKS is accomplished through [Entra Workload ID](/azure/aks/workload-identity-overview). AKS also requires infrastructure-related managed identity to allow cluster operations for the Kubelet, Control Plane, and various AKS add-ons. 
+Managed Identity can be used by applications to authenticate to Microsoft Entra ID protected services without having to use keys or secrets. Container Apps and Web App for Container offer built-in, Azure native support for application level managed identity. Application level managed identity support for AKS is accomplished through [Entra Workload ID](/azure/aks/workload-identity-overview). AKS also requires infrastructure-related managed identity to allow cluster operations for the Kubelet, control plane, and various AKS add-ons.
 
 | | Container Apps| AKS| Web App for Containers|
 |---|--|--|--|
@@ -377,7 +378,7 @@ Managed Identity can be leveraged by applications to authenticate to Azure servi
 For more information, see:
 
 - [Use a managed identity in AKS](/azure/aks/use-managed-identity)
-- [Microsoft Entra Workload ID with AKS](articles/aks/workload-identity-overview.md)
+- [Microsoft Entra Workload ID with AKS](/azure/aks/workload-identity-overview)
 - [Managed identities in Azure Container Apps](/azure/container-apps/managed-identity)
 - [How to use managed identities for App Service](/azure/app-service/overview-managed-identity)
 
@@ -403,8 +404,8 @@ In general, most Azure container services integrate Azure security offerings.  O
 - [Azure security baseline for Azure Kubernetes Service](/security/benchmark/azure/baselines/azure-kubernetes-service-aks-security-baseline)
 - [Azure security baseline for App Service](/security/benchmark/azure/baselines/app-service-security-baseline)
 
-> [!note]
-> AKS Automatic clusters are configured following AKS well-architected recommendations, ensuring a strong security baseline out of the box.
+> [!NOTE]
+> AKS Automatic clusters are configured with [specific security settings](/azure/aks/intro-aks-automatic#security-and-policies). Ensure those are aligned with your workload needs.
 
 ## Well-Architected Framework for Security
 
@@ -422,16 +423,13 @@ It is important that an application's underlying OS is updated and regularly pat
 
 As a managed Kubernetes service, AKS will provide the updated images for the node OS and control plane components. But workload teams are responsible for applying updates to their clusters. You can manually trigger updates or leverage the [cluster auto-upgrade channels](/azure/aks/auto-upgrade-cluster) feature to ensure your clusters are up to date. See the AKS day-2 operations guide to learn about [patching and upgrading AKS clusters](/azure/architecture/operator-guides/aks/aks-upgrade-practices).
 
-> [!note]
-> AKS Automatic allows you to preconfigure control plane and host OS updates.
-
 Container Apps and Web App for Containers are PaaS solutions. Azure is responsible for managing updates and patches, so customers can avoid the complexity of AKS upgrade management.
 
 | | Container Apps| AKS| AKS Automatic| Web App for Containers|
 |---|--|--|--|--|
-| **Control plane updates** | Platform | [Customer](/azure/aks/upgrade-cluster) |Platform | Platform |
-| **Host updates and patches** | Platform | [Customer](/azure/aks/node-image-upgrade) |Platform | Platform |
-| **Container image updates and patches** | Customer | Customer | Customer| Customer |
+| **Control plane updates** | Platform | [Customer](/azure/aks/upgrade-cluster) | Platform | Platform |
+| **Host updates and patches** | Platform | [Customer](/azure/aks/node-image-upgrade) | Platform | Platform |
+| **Container image updates and patches** | Customer | Customer | Customer | Customer |
 
 ### Container image updates
 
@@ -475,8 +473,7 @@ The typical measure on which to trigger scaling of infrastructure and applicatio
 | **Container scale out** | [HTTP, TCP, or metrics-based (CPU, memory, event-driven)](/azure/container-apps/scale-app). | [Metrics-based (CPU, memory, or custom)](/azure/aks/concepts-scale). | [Manual, metrics-based](), or [automatic (preview)](/azure/app-service/manage-automatic-scaling). |
 | **Event-driven scalability** | Yes. Cloud-native. | Yes. Cloud-native. Additional configuration required. | Yes. Azure-resource specific. |
 
-> [!note]
-> AKS Automatic provides seamless scaling by automatically creating nodes based on workload demands. It enables Horizontal Pod Autoscaler (HPA), Kubernetes Event Driven Autoscaling (KEDA), and Vertical Pod Autoscaler (VPA) by default, simplifying scalability management compared to standard AKS.
+AKS Automatic enables the Horizontal Pod Autoscaler, Kubernetes Event Driven Autoscaling (KEDA), and Vertical Pod Autoscaler (VPA) by default.
 
 ## Observability
 
@@ -507,7 +504,7 @@ Instrumentation within application code is the responsibility of application dev
 
 All Azure container services provide application and platform log and metric functionality. Application logs are console logs generated by your workload. Platform logs capture events that occur at the platform level, outside the scope of your application, like scaling and deployments. Metrics are numerical values that describe some aspect of a system at a point in time, allowing you to monitor and alert on system performance and health.
 
-Azure Monitor is the main logging and metrics service in Azure that integrates with these services. It uses resource logs to separate logs from different sources into categories and collects metrics to provide insights into resource performance. One way to determine which logs and metrics are available from each Azure service is to look at the resource log categories and available metrics for each of the services.
+Azure Monitor is the main logging and metrics service in Azure that integrates with these services. Azure Monitor uses [resource logs](/azure/azure-monitor/essentials/resource-logs) to separate logs from different sources into categories and collects metrics to provide insights into resource performance. One way to determine which logs and metrics are available from each Azure service is to look at the resource log categories and available metrics for each of the services.
 
 |     | Container Apps | AKS | AKS Automatic | Web App for Containers |
 | --- | --- | --- | --- | --- |
@@ -515,13 +512,13 @@ Azure Monitor is the main logging and metrics service in Azure that integrates w
 | **Support for Azure Monitor** | ✅   | ✅   | ✅   | ✅   |
 | **Azure Monitor resource logs** | [Console](/azure/container-apps/logging#container-console-logs) and [System](/azure/container-apps/logging#system-logs) | [Kubernetes API server, Audit, Scheduler, Cluster Autoscaler, and more](/azure/aks/monitor-aks#aks-control-planeresource-logs) | Same as AKS | [ConsoleLogs, HTTPLogs, EnvironmentPlatformLogs, and more](/azure/app-service/monitor-app-service-reference#resource-logs) |
 | **Metric collection and monitoring** | Metrics via Azure Monitor; custom metrics via [Dapr metrics](/azure/container-apps/dapr-overview#observability) | Metrics via Azure Monitor; custom metrics via Prometheus (requires manual setup) | Preconfigured Managed Prometheus for metrics collection and Managed Grafana for visualization; metrics via Azure Monitor | Metrics via Azure Monitor |
-| **Preconfigured Prometheus and Grafana** | ❌   | Requires manual setup | ✅ Managed Prometheus and Managed Grafana are preconfigured by default when using Azure CLI or Azure portal | ❌   |
+| **Preconfigured Prometheus and Grafana** | ❌   | Requires manual setup | ✅ Managed Prometheus and Managed Grafana are preconfigured by default. | ❌   |
 
 **Container Apps** abstracts all of its internal Kubernetes logs into two categories: Console logs, which contain workload container logs, and System logs, which contain all platform-related logs. For metrics, Container Apps integrates with Azure Monitor to collect standard metrics and supports custom metrics through Dapr integration for advanced scenarios.
 
-**AKS** provides comprehensive Kubernetes-related logs and granular control over what gets logged. It retains full compatibility with Kubernetes client tools for log streaming, such as kubectl. For metrics, AKS integrates with Azure Monitor to collect cluster and node metrics. Custom metrics collection using Prometheus and visualization with Grafana are possible but require manual setup and configuration.
+**AKS** provides Kubernetes-related logs and granular control over what gets logged. AKS retains full compatibility with Kubernetes client tools for log streaming, such as kubectl. For metrics, AKS integrates with Azure Monitor to collect cluster and node metrics. Custom metrics collection using Prometheus and visualization with Grafana are possible but require manual setup and configuration.
 
-**AKS Automatic** simplifies logging and metrics collection by preconfiguring monitoring tools. It comes with Managed Prometheus for metrics collection and Managed Grafana for visualization out of the box when using the Azure CLI or Azure portal. This means that cluster and application metrics are automatically collected and can be visualized without additional setup. AKS Automatic also integrates with Azure Monitor for log and metric collection, providing a seamless monitoring experience.
+**AKS Automatic** comes preconfigured with specific monitoring tools. It uses Managed Prometheus for metrics collection and Managed Grafana for visualization. Cluster and application metrics are automatically collected and can be visualized. AKS Automatic also integrates with Azure Monitor for log and metric collection.
 
 **Web App for Containers** provides several categories of resource logs because its platform (App Service) isn't exclusively for container workloads. For container-specific operations that manage its internal Docker platform, it provides the AppServicePlatformLogs log category. Another important category is AppServiceEnvironmentPlatformLogs, which logs events like scaling and configuration changes. Metrics are collected via Azure Monitor, allowing you to monitor application performance and resource utilization.
 
@@ -559,7 +556,7 @@ AKS has different SLAs for different components and configurations:
 - **Data plane**. Node pools use the underlying VM SKU SLAs. 
 - **Availability zones**. There are different SLAs for the two planes, depending on whether the AKS cluster has availability zones enabled *and* running multiple instances across availability zones.
 
-Note that when you use multiple Azure services, [composite SLAs](/azure/well-architected/resiliency/business-metrics#composite-slas) might differ from and be lower than individual service SLAs.
+Note that when you use multiple Azure services, [composite SLOs](/azure/well-architected/reliability/metrics#define-composite-slo-targets) might differ from and be lower than individual service SLAs.
 
 ### Redundancy with availability zones
 
