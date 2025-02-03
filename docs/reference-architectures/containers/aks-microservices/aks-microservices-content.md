@@ -4,7 +4,9 @@ This reference architecture shows a microservices application deployed to Azure 
 
 ## Architecture
 
-![Diagram that shows the AKS reference architecture.](./images/aks.png)
+:::image type="complex" border="false" source="./images/aks.png" alt-text="Diagram that shows the microservices on AKS reference architecture." lightbox="./images/<file-name-and-extension>":::
+   This diagram shows an application comprised of multiple microservices deployed to Azure Kubernetes services (AKS). 
+:::image-end:::
 
 *Download a [Visio file][visio-download] of this architecture.*
 
