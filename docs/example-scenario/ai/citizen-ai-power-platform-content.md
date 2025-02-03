@@ -82,7 +82,7 @@ To create a design that respects these recommendations, consider the following s
 
 ### Alternatives
 
-A machine learning MVP benefits from speed to outcome. In some cases, the needs of a custom model can be met by pretrained [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) or [Azure Applied AI Services](https://azure.microsoft.com/product-categories/applied-ai-services). In other cases, [Power Apps AI Builder](https://powerapps.microsoft.com/ai-builder) might provide a fit for a purpose model.
+A machine learning MVP benefits from speed to outcome. In some cases, the needs of a custom model can be met by pretrained [Azure AI Services](https://learn.microsoft.com/en-us/azure/ai-services/what-are-ai-services). In other cases, [Power Apps AI Builder](https://powerapps.microsoft.com/ai-builder) might provide a fit for a purpose model.
 
 ## Scenario details
 
@@ -181,6 +181,6 @@ This article is maintained by Microsoft. It was originally written by:
 ## Related resources
 
 - [Analytics end-to-end with Azure Synapse Analytics](../dataplate2e/data-platform-end-to-end.yml)
-- [End-to-end manufacturing using computer vision on the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml)
+- [Video ingestion and object detection on the edge and in the cloud](../../ai-ml/idea/video-ingestion-object-detection-edge-cloud.yml)
 - [Artificial intelligence (AI)](/azure/architecture/data-guide/big-data/ai-overview)
 - [Compare the ML products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
