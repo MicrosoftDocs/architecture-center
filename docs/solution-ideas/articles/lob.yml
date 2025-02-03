@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Line of business extension
+  title: Line of Business Extension
   titleSuffix: Azure Solution Ideas
   description: Modernize legacy systems by automating processes. Schedule calculations, connect to third party data sources or legacy systems, and process and share data.
   author: karlrissland
