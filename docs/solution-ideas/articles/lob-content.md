@@ -4,7 +4,7 @@ This article describes how to modernize legacy systems that can't support new pr
 
 ## Architecture
 
-:::image type="content" alt-text="Architecture that shows data from Dataverse to SQL via Azure Data Factory and from ERP to SQL. Power Apps gets data, sends data via CSV, and Power BI shows trends." source="../media/lob.svg" lightbox="../media/lob.svg" border="false":::
+:::image type="content" alt-text="Architecture that shows data from Microsoft Dataverse to SQL via Azure Data Factory and from ERP to SQL. Power Apps gets data, sends data via CSV, and Power BI shows trends." source="../media/lob.svg" lightbox="../media/lob.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/lob.vsdx) of this architecture.*
 
@@ -12,7 +12,7 @@ This article describes how to modernize legacy systems that can't support new pr
 
 The following dataflow corresponds to the previous diagram:
 
-1. Supplier data that's stored in [Dataverse](/power-apps/maker/data-platform/data-platform-intro) is moved to Azure SQL Database via Azure Data Factory.
+1. Supplier data that's stored in [Microsoft Dataverse](/power-apps/maker/data-platform/data-platform-intro) is moved to Azure SQL Database via Azure Data Factory.
 
 1. Purchase order (PO) data that's stored in the ERP system is sent to SQL Database.
 
@@ -34,9 +34,9 @@ Data is loaded from these different data sources by using the following Azure co
 
 - [API Management](/azure/api-management/api-management-key-concepts) is a hybrid, multicloud management platform for APIs across all environments. In this architecture, the Power App interfaces with this service. It provides gateway offloading of security, monitoring, and control.
 
-- [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) lets you build apps that scale with the pace of your business with managed and intelligent SQL in the cloud. Data from the ERP system and the supplier data from Microsoft Dataverse is stored here for easy access.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) lets you build apps that scale with the pace of your business with managed and intelligent SQL in the cloud. Data from the ERP system and the supplier data from Dataverse is stored here for easy access.
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a hybrid data integration service that simplifies extract, transform, and load process at scale. Azure Data Factory is used to move and transform data from Microsoft Dataverse to SQL Database.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a hybrid data integration service that simplifies extract, transform, and load process at scale. Azure Data Factory is used to move and transform data from Dataverse to SQL Database.
 
 - [Power BI](/power-bi) is a suite of business analytics tools that you can use to analyze data and share insights. Power BI can query a semantic model that's stored in Microsoft Analysis Services, or it can query Azure Synapse directly. Power BI is used to deliver interactive reports and dashboards to users.
 
