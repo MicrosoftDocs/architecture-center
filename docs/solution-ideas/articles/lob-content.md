@@ -34,7 +34,7 @@ Data is loaded from these different data sources by using the following Azure co
 
 - [API Management](/azure/api-management/api-management-key-concepts) is a hybrid, multicloud management platform for APIs across all environments. In this architecture, the Power App interfaces with this service. It provides gateway offloading of security, monitoring, and control.
 
-- [SQL Database](azure/well-architected/service-guides/azure-sql-database-well-architected-framework) lets you build apps that scale with the pace of your business with managed and intelligent SQL in the cloud. Data from the ERP system and the supplier data from Microsoft Dataverse is stored here for easy access.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) lets you build apps that scale with the pace of your business with managed and intelligent SQL in the cloud. Data from the ERP system and the supplier data from Microsoft Dataverse is stored here for easy access.
 
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a hybrid data integration service that simplifies extract, transform, and load process at scale. Azure Data Factory is used to move and transform data from Microsoft Dataverse to SQL Database.
 
