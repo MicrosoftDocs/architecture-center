@@ -6768,6 +6768,16 @@
       "source_path": "docs/solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.yml",
       "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml",
+      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml",
+      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-overview",
+      "redirect_document_id": false
     }
   ]
 }
