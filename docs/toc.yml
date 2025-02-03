@@ -851,8 +851,6 @@ items:
         href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
       - name: Ingestion, ETL, and stream processing
         href: solution-ideas/articles/ingest-etl-stream-with-adb.yml
-      - name: Logical data warehouse with Azure Synapse
-        href: solution-ideas/articles/logical-data-warehouse.yml
       - name: Manage event data with HDInsight and Delta Lake
         href: solution-ideas/articles/hdinsight-kafka-spark-delta-lake.yml
       - name: Modern analytics with Azure Databricks
@@ -871,7 +869,7 @@ items:
         href: guide/technology-choices/compute-decision-tree.yml
       - name: SAS on Azure architecture
         href: guide/sas/sas-overview.yml
-      - name: Building on spot VMs
+      - name: Build workloads with Azure Spot Virtual Machines
         href: guide/spot/spot-eviction.yml
     - name: Architectures
       items:
@@ -987,8 +985,6 @@ items:
           href: reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml
         - name: SAP deployment using an Oracle database
           href: example-scenario/apps/sap-production.yml
-        - name: SAP HANA on HLI
-          href: reference-architectures/sap/hana-large-instances.yml
         - name: SAP HANA scale-up on Linux
           href: reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml
         - name: SAP NetWeaver in Windows on Azure
@@ -1171,8 +1167,6 @@ items:
       items:
       - name: Automate API deployments with APIOps
         href: example-scenario/devops/automated-api-deployments-apiops.yml
-      - name: Automate Sentinel integration
-        href: example-scenario/devops/automate-sentinel-integration.yml
       - name: CI/CD pipeline using Azure DevOps
         href: example-scenario/apps/devops-dotnet-baseline.yml
       - name: Enterprise monitoring with Azure Monitor
@@ -1310,8 +1304,6 @@ items:
               href: example-scenario/hybrid/aks-network.yml
             - name: Deploy apps with AKS hybrid on Azure Stack ACI
               href: example-scenario/hybrid/aks-hybrid-azure-local.yml
-          - name: Azure Local cross cluster scaling
-            href: hybrid/hybrid-cross-cluster-scaling.yml
           - name: Azure Virtual Desktop for Azure Local
             href: hybrid/azure-local-workload-virtual-desktop.yml
       - name: Azure VMware Solution in hub-and-spoke
@@ -1333,8 +1325,6 @@ items:
         href: hybrid/hybrid-file-services.yml
       - name: Hybrid file share with disaster recovery
         href: example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml
-      - name: Hybrid security monitoring
-        href: hybrid/hybrid-security-monitoring.yml
       - name: Use file shares in a hybrid environment
         href: hybrid/azure-file-share.yml
   - name: Identity
@@ -1723,12 +1713,6 @@ items:
         maintainContext: true
     - name: Architectures
       items:
-      - name: Banking system
-        items:
-        - name: Banking cloud transformation
-          href: example-scenario/banking/banking-system-cloud-transformation.yml
-        - name: Patterns and implementations
-          href: example-scenario/banking/patterns-and-implementations.yml
       - name: General mainframe refactor to Azure
         href: example-scenario/mainframe/general-mainframe-refactor.yml
       - name: Migrate a web app with APIM
@@ -1822,94 +1806,12 @@ items:
       href: guide/security/security-start-here.yml
     - name: Guides
       items:
-      - name: General security
-        items:
-        - name: Introduction to Azure security
-          href: /azure/security/fundamentals/overview
-          maintainContext: true
-        - name: Security design principles
-          href: /azure/well-architected/security/principles
-          maintainContext: true
-        - name: Security patterns
-          href: /azure/well-architected/security/design-patterns
-          maintainContext: true
-        - name: End-to-end security
-          href: /azure/security/fundamentals/end-to-end
-          maintainContext: true
-        - name: Shared responsibility
-          href: /azure/security/fundamentals/shared-responsibility
-          maintainContext: true
-        - name: SecOps best practices
-          href: /security/compass/security-operations
-          maintainContext: true
-        - name: Application security in Azure
-          href: /security/compass/applications-services
-          maintainContext: true
-      - name: Azure security for AWS
-        href: guide/aws/aws-azure-security-solutions.yml
-      - name: Highly secure IaaS apps
-        href: reference-architectures/n-tier/high-security-iaas.yml
-      - name: Microsoft Cybersecurity Architectures
-        href: /security/cybersecurity-reference-architecture/mcra
-        maintainContext: true
-      - name: Use Azure monitoring to integrate security
-        href: guide/security/azure-monitor-integrate-security-components.yml
       - name: Virtual Network security options
         href: example-scenario/gateway/firewall-application-gateway.yml
       - name: Zero-trust network for web applications
         href: example-scenario/gateway/application-gateway-before-azure-firewall.yml
-      - name: Azure governance design area
-        href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/governance
-        maintainContext: true
-      - name: Microsoft Sentinel guidance
-        items:
-        - name: Connect AWS to Sentinel
-          href: /azure/sentinel/connect-aws
-          maintainContext: true
-        - name: Connect Microsoft Entra ID to Sentinel
-          href: /azure/sentinel/connect-azure-active-directory
-          maintainContext: true
-        - name: Connect Defender for Cloud
-          href: /azure/sentinel/connect-defender-for-cloud
-          maintainContext: true
-        - name: Connect Microsoft Defender XDR
-          href: /azure/sentinel/connect-microsoft-365-defender
-          maintainContext: true
-        - name: Integrate Data Explorer with Sentinel
-          href: /azure/sentinel/store-logs-in-azure-data-explorer?tabs=adx-event-hub
-          maintainContext: true
-      - name: Microsoft Defender for Cloud
-        items:
-        - name: Overview
-          href: /azure/defender-for-cloud/defender-for-cloud-introduction
-          maintainContext: true
-        - name: Security recommendations
-          href: /azure/defender-for-cloud/recommendations-reference
-          maintainContext: true
-        - name: Security recommendations for AWS
-          href: /azure/defender-for-cloud/recommendations-reference-aws
-          maintainContext: true
-        - name: Security alerts and incidents
-          href: /azure/defender-for-cloud/alerts-overview
-          maintainContext: true
     - name: Architectures
       items:
-      - name: Automate Sentinel integration with DevOps
-        href: example-scenario/devops/automate-sentinel-integration.yml
-      - name: Microsoft Entra ID in security operations
-        href: example-scenario/aadsec/azure-ad-security.yml
-      - name: Cyber threat intelligence
-        href: example-scenario/data/sentinel-threat-intelligence.yml
-      - name: Homomorphic encryption with SEAL
-        href: solution-ideas/articles/homomorphic-encryption-seal.yml
-      - name: Hybrid security monitoring
-        href: hybrid/hybrid-security-monitoring.yml
-      - name: Improved-security access to multitenant
-        href: web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml
-      - name: Loan credit risk modeling
-        href: example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml
-      - name: Securely managed web apps
-        href: example-scenario/apps/fully-managed-secure-apps.yml
       - name: Secure a Microsoft Teams channel bot
         href: example-scenario/teams/securing-bot-teams-channel.yml
       - name: Secure research for regulated data

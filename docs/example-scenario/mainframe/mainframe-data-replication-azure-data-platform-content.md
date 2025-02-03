@@ -75,7 +75,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 #### Resiliency
 
@@ -91,7 +91,7 @@ Azure database services support zone redundancy. You can configure them to fail 
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview). For general guidance on designing secure solutions, see the [Azure security documentation](/azure/security).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). For general guidance on designing secure solutions, see the [Azure security documentation](/azure/security).
 
 Database services in Azure support various security options:
 
@@ -107,9 +107,9 @@ The mainframe data and load scripts are temporarily stored in Azure Blob Storage
 
 This example workflow uses Azure ExpressRoute or [site-to-site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal) for a private and efficient connection to Azure from your on-premises environment.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Here are some cost optimization possibilities:
 
@@ -123,9 +123,9 @@ Here are some cost optimization possibilities:
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of using Azure components for this solution.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 Azure DevOps can be used for re-engineering mainframe applications on Azure during every phase of software development and team collaboration. Azure DevOps provides these services:
 
@@ -135,9 +135,9 @@ Azure DevOps can be used for re-engineering mainframe applications on Azure duri
 - [Azure Artifacts](https://azure.microsoft.com/products/devops/artifacts). Integrated package management with support for Maven, npm, Python, and NuGet package feeds from public or private sources.
 - [Azure Test Plans](https://azure.microsoft.com/products/devops/test-plans). An integrated planned and exploratory testing solution.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 If you're migrating multiple large independent datasets, deploy the mLogica data migration cluster on multiple virtual machines to maximize data loading speed.
 

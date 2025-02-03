@@ -62,38 +62,40 @@ Because all other VMs supporting SAP HANA allow the choice of either Gen2 only o
 
 ## Considerations
 
-This section describes key considerations for running SAP HANA on Azure.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Scalability
+### Reliability
 
-This architecture runs SAP HANA on virtual machines that can scale up to 32 TiB in one instance.
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-If your workload exceeds the maximum virtual machine size, use multi-node HANA scale-out configurations. For online transaction processing (OLTP) applications, total scale-out memory capacity can be as high as 4 x 23 TiB. For online analytical processing (OLAP) applications, the scale-out memory capacity can be as high as 16 x 7.6 TiB. For example, you can deploy SAP HANA in a scale-out configuration with standby on virtual machines running either [Red Hat Enterprise Linux](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) or [SUSE Linux Enterprise Server](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) and use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction/) for the shared storage volumes. To identify the certified VM SKUs that support scale-out configurations, see the [Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=ve:24;v:deCertified;v:deTdi&sort=Latest%20Certification&sortDesc=true&search=&id=s:2966). Review the details of the certificate for each VM SKU to ensure support of your configuration. 
+#### Backup
 
-### Storage
+SAP HANA data can be backed up in many ways. After migrating to Azure, you can continue to use any existing partner backup solutions you already have. Azure provides two native approaches: [SAP HANA file-level backup](/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level) and Azure Backup for SAP HANA over the Backint interface.
 
-This architecture uses [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview) for storage on the virtual machines or Azure NetApp Files. Guidelines for storage deployment with managed disks are in detail within the [SAP HANA Azure virtual machine storage configurations document](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). Alternatively to managed disks, [Azure NetApp Files NFS](/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp) volumes can be used as storage solution for SAP HANA.
+For SAP HANA file-level backup, you can use your tool of choice, such as hdbsql or SAP HANA Studio, and store the backup files on a local disk volume. A common mount point for this backup volume is */hana/backup*. Your backup policies will define the data retention period on the volume. As soon as the backup is taken, a scheduled task should copy the backup files to Azure Blob storage for safekeeping. The local backup files are kept for expedient recovery.
 
-To achieve high input/output operations per second (IOPS) and disk storage throughput, the common practices in storage volume [performance optimization](/azure/virtual-machines/linux/premium-storage-performance) also apply to Azure storage layout. For example, combining multiple disks together with LVM to create a striped disk volume improves IO performance. Azure disk caching also plays a significant role in achieving required IO performance. 
+Azure Backup offers a simple, enterprise-grade solution for workloads running on virtual machines. [Azure Backup for SAP HANA](/azure/virtual-machines/workloads/sap/sap-hana-backup-guide) provides full integration with the SAP HANA backup catalog and guarantees database-consistent, full, or point-in-time recoveries. Azure Backup is [BackInt-certified](https://launchpad.support.sap.com/#/notes/2031547) by SAP. See also the [Azure Backup FAQ](/azure/backup/backup-azure-backup-faq) and [support matrix](/azure/backup/sap-hana-backup-support-matrix).
 
-For SAP HANA log disks that run on Azure Premium SSD v1, use one of the following technologies in locations that hold */hana/log* for production:
+**Azure NetApp Files** brings support for snapshot based backups. Integrating with SAP HANA for application consistent snapshots is through the Azure Application Consistent Snapshot tool ([AzAcSnap](/azure/azure-netapp-files/azacsnap-introduction)). The snapshots created can be used for restore to a new volume for system restore or copying the SAP HANA database. Snapshots created can be used for disaster recovery, where it acts as restore point with SAP HANA logs saved on a different NFS volume.
 
-- [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) (on M series VMs) 
-- [Ultra disks](/azure/virtual-machines/disks-enable-ultra-ssd) (on either M or E series VMs)
-- [Azure NetApp Files](/azure/azure-netapp-files/) (on either M or E series VMs) 
+#### Disaster recovery
 
-These technologies are needed to consistently meet the required storage latency of less than 1 ms.
+The following architecture shows a production HANA environment on Azure that provides disaster recovery. The architecture incorporates availability zones.
 
-[Azure Premium SSD v2](https://azure.microsoft.com/updates/general-availability-azure-premium-ssd-v2-disk-storage/) is designed for performance-critical workloads like SAP. Write Accelerator isn't required when /*hana/log* is running on Premium SSD v2. For information about this storage solution's benefits and current limitations, see [Deploy a Premium SSD v2](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli).
+[![Diagram that shows an architecture with disaster recovery.](./images/sap-hana-scale-up-availability-zone-dr.svg)](./images/sap-hana-scale-up-availability-zone-dr.svg#lightbox)
 
-For details about SAP HANA performance requirements, see [SAP Note 1943937 - Hardware Configuration Check Tool](https://launchpad.support.sap.com/#/notes/1943937).
+For DR strategies and implementation details, see [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/sap/workloads/disaster-recovery-overview-guide) and [Disaster recovery guidelines for SAP application](/azure/sap/workloads/disaster-recovery-sap-guide?tabs=linux).
 
-- **Cost-conscious storage design for non-production systems.** For SAP HANA environments that don't require maximum storage performance in all situations, you can use a storage architecture that's optimized for cost. This choice of storage optimization can apply to little-used production systems or some non-production SAP HANA environments. The cost-optimized storage option uses a combination of Standard SSDs instead of the Premium or Ultra SSDs that are used for production environments. It also combines */hana/data* and */hana/log* file systems onto a single set of disks. [Guidelines and best practices](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#cost-conscious-solution-with-azure-premium-storage) are available for most VM sizes. If you use Azure NetApp Files for SAP HANA, you can use size-reduced volumes to achieve the same goal.
+> [!NOTE]
+> If there's a regional disaster that causes a large failover event for many Azure customers in one region, the target region's [resource capacity](/azure/site-recovery/azure-to-azure-common-questions#capacity) isn't guaranteed. Like all Azure services, Azure Site Recovery continues to add features and capabilities. For the latest information about Azure-to-Azure replication, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix).
 
-- **Resizing storage when scaling-up.** When you resize a virtual machine because of changed business demands or because of a growing database size, the storage configuration can change. Azure supports online disk expansion, without any interruption to service. With a striped disk setup, as used for SAP HANA, a resize operation should be done equally to all disks in the volume group. The addition of more disks to a volume group can potentially unbalance the striped data. If you're adding more disks to a storage configuration, it's far preferable to create a new storage volume on new disks. Next, copy the contents during downtime and modify mount points. Finally, discard the old volume group and underlying disks.
-- **Azure NetApp Files application volume group.** For deployments with SAP HANA files contained on Azure NetApp Files NFS volumes, application volume groups enable you to deploy all volumes according to best practices. This process also ensures optimal performance for your SAP HANA database. [Details are available](/azure/azure-netapp-files/application-volume-group-introduction) about how to proceed with this process. It requires manual intervention. Allow some time for the creation.
+In addition to a local, two-node high availability implementation, HSR supports [multitier](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html) and [multitarget](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/ba457510958241889a459e606bbcf3d3.html) replication. HSR therefore supports inter-zone and inter-region replication. Multitarget replication is available for SAP HANA 2.0 SPS 03 and later.
 
-### High availability
+Make sure to verify your target region's [resource capacity](/azure/site-recovery/azure-to-azure-common-questions#capacity).
+
+**Azure NetApp Files.** As an option, [Azure NetApp Files](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) can be used to provide a scalable and high-performance storage solution for SAP HANA data and log files. Azure NetApp Files supports snapshots for fast backup, recovery, and local replication. For cross-region content replication, Azure NetApp Files Cross-Region Replication can be used to replicate the snapshot data between two regions. [Details](/azure/azure-netapp-files/cross-region-replication-introduction) about cross-region replication and a [whitepaper](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf) describing all aspects for disaster recovery with Azure NetApp Files are available.
+
+#### High availability
 
 The preceding architecture depicts a highly available deployment, with SAP HANA contained on two or more virtual machines. The following components are used.
 
@@ -117,40 +119,9 @@ Preferably three small VMs are deployed in either an availability set or availab
 
 Alternatively to using SBD VMs, [Azure shared disk](/azure/virtual-machines/disks-shared) can be used instead. The SAP HANA cluster nodes then [access the single shared disk](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#use-an-sbd-device). The shared disk can be locally ([LRS](/azure/storage/common/storage-redundancy#locally-redundant-storage)) or zonally ([ZRS](/azure/storage/common/storage-redundancy#zone-redundant-storage)) redundant, if ZRS is available in your Azure region.
 
-### Disaster recovery
-
-The following architecture shows a production HANA environment on Azure that provides disaster recovery. The architecture incorporates availability zones.
-
-[![Diagram that shows an architecture with disaster recovery.](./images/sap-hana-scale-up-availability-zone-dr.svg)](./images/sap-hana-scale-up-availability-zone-dr.svg#lightbox)
-
-For DR strategies and implementation details, see [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/sap/workloads/disaster-recovery-overview-guide) and [Disaster recovery guidelines for SAP application](/azure/sap/workloads/disaster-recovery-sap-guide?tabs=linux).
-
-> [!NOTE]
-> If there's a regional disaster that causes a large failover event for many Azure customers in one region, the target region's [resource capacity](/azure/site-recovery/azure-to-azure-common-questions#capacity) isn't guaranteed. Like all Azure services, Azure Site Recovery continues to add features and capabilities. For the latest information about Azure-to-Azure replication, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix).
-
-In addition to a local, two-node high availability implementation, HSR supports [multitier](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html) and [multitarget](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/ba457510958241889a459e606bbcf3d3.html) replication. HSR therefore supports inter-zone and inter-region replication. Multitarget replication is available for SAP HANA 2.0 SPS 03 and later.
-
-Make sure to verify your target region's [resource capacity](/azure/site-recovery/azure-to-azure-common-questions#capacity).
-
-**Azure NetApp Files.** As an option, [Azure NetApp Files](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) can be used to provide a scalable and high-performance storage solution for SAP HANA data and log files. Azure NetApp Files supports snapshots for fast backup, recovery, and local replication. For cross-region content replication, Azure NetApp Files Cross-Region Replication can be used to replicate the snapshot data between two regions. [Details](/azure/azure-netapp-files/cross-region-replication-introduction) about cross-region replication and a [whitepaper](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf) describing all aspects for disaster recovery with Azure NetApp Files are available.
-
-### Backup
-
-SAP HANA data can be backed up in many ways. After migrating to Azure, you can continue to use any existing partner backup solutions you already have. Azure provides two native approaches: [SAP HANA file-level backup](/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level) and Azure Backup for SAP HANA over the Backint interface.
-
-For SAP HANA file-level backup, you can use your tool of choice, such as hdbsql or SAP HANA Studio, and store the backup files on a local disk volume. A common mount point for this backup volume is */hana/backup*. Your backup policies will define the data retention period on the volume. As soon as the backup is taken, a scheduled task should copy the backup files to Azure Blob storage for safekeeping. The local backup files are kept for expedient recovery.
-
-Azure Backup offers a simple, enterprise-grade solution for workloads running on virtual machines. [Azure Backup for SAP HANA](/azure/virtual-machines/workloads/sap/sap-hana-backup-guide) provides full integration with the SAP HANA backup catalog and guarantees database-consistent, full, or point-in-time recoveries. Azure Backup is [BackInt-certified](https://launchpad.support.sap.com/#/notes/2031547) by SAP. See also the [Azure Backup FAQ](/azure/backup/backup-azure-backup-faq) and [support matrix](/azure/backup/sap-hana-backup-support-matrix).
-
-**Azure NetApp Files** brings support for snapshot based backups. Integrating with SAP HANA for application consistent snapshots is through the Azure Application Consistent Snapshot tool ([AzAcSnap](/azure/azure-netapp-files/azacsnap-introduction)). The snapshots created can be used for restore to a new volume for system restore or copying the SAP HANA database. Snapshots created can be used for disaster recovery, where it acts as restore point with SAP HANA logs saved on a different NFS volume.
-
-### Monitoring
-
-To monitor your workloads on Azure, [Azure Monitor](/azure/azure-monitor/overview) lets you comprehensively collect, analyze, and act on telemetry from your cloud and on-premises environments.
-
-For SAP applications that run on SAP HANA and other major database solutions, see [Azure Monitor for SAP solutions](/azure/sap/monitor/about-azure-monitor-sap-solutions) to learn how Azure Monitor for SAP can help you manage the availability and performance of SAP services.
-
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Many security measures are used to protect the confidentiality, integrity, and availability of an SAP landscape. To secure user access, for example, SAP has its own User Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For more information, see [SAP HANA Security—An Overview](https://www.tutorialspoint.com/sap_hana/sap_hana_security_overview.htm).
 
@@ -182,6 +153,49 @@ For User and Authorization, implement role-based access control (RBAC) and resou
 * Use [resource locks](/azure/azure-resource-manager/management/lock-resources) to help prevent accidental or malicious changes. Resource locks help prevent administrators from deleting or modifying critical Azure resources where your SAP solution is located.
 
 More security recommendations can be found at theses [Microsoft](https://azure.microsoft.com/blog/sap-on-azure-architecture-designing-for-security/) and [SAP](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/) articles.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+#### Monitoring
+
+To monitor your workloads on Azure, [Azure Monitor](/azure/azure-monitor/overview) lets you comprehensively collect, analyze, and act on telemetry from your cloud and on-premises environments.
+
+For SAP applications that run on SAP HANA and other major database solutions, see [Azure Monitor for SAP solutions](/azure/sap/monitor/about-azure-monitor-sap-solutions) to learn how Azure Monitor for SAP can help you manage the availability and performance of SAP services.
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+#### Scalability
+
+This architecture runs SAP HANA on virtual machines that can scale up to 32 TiB in one instance.
+
+If your workload exceeds the maximum virtual machine size, use multi-node HANA scale-out configurations. For online transaction processing (OLTP) applications, total scale-out memory capacity can be as high as 4 x 23 TiB. For online analytical processing (OLAP) applications, the scale-out memory capacity can be as high as 16 x 7.6 TiB. For example, you can deploy SAP HANA in a scale-out configuration with standby on virtual machines running either [Red Hat Enterprise Linux](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) or [SUSE Linux Enterprise Server](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) and use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction/) for the shared storage volumes. To identify the certified VM SKUs that support scale-out configurations, see the [Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=ve:24;v:deCertified;v:deTdi&sort=Latest%20Certification&sortDesc=true&search=&id=s:2966). Review the details of the certificate for each VM SKU to ensure support of your configuration.
+
+#### Storage
+
+This architecture uses [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview) for storage on the virtual machines or Azure NetApp Files. Guidelines for storage deployment with managed disks are in detail within the [SAP HANA Azure virtual machine storage configurations document](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). Alternatively to managed disks, [Azure NetApp Files NFS](/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp) volumes can be used as storage solution for SAP HANA.
+
+To achieve high input/output operations per second (IOPS) and disk storage throughput, the common practices in storage volume [performance optimization](/azure/virtual-machines/linux/premium-storage-performance) also apply to Azure storage layout. For example, combining multiple disks together with LVM to create a striped disk volume improves IO performance. Azure disk caching also plays a significant role in achieving required IO performance. 
+
+For SAP HANA log disks that run on Azure Premium SSD v1, use one of the following technologies in locations that hold */hana/log* for production:
+
+- [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) (on M series VMs) 
+- [Ultra disks](/azure/virtual-machines/disks-enable-ultra-ssd) (on either M or E series VMs)
+- [Azure NetApp Files](/azure/azure-netapp-files/) (on either M or E series VMs) 
+
+These technologies are needed to consistently meet the required storage latency of less than 1 ms.
+
+[Azure Premium SSD v2](https://azure.microsoft.com/updates/general-availability-azure-premium-ssd-v2-disk-storage/) is designed for performance-critical workloads like SAP. Write Accelerator isn't required when /*hana/log* is running on Premium SSD v2. For information about this storage solution's benefits and current limitations, see [Deploy a Premium SSD v2](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli).
+
+For details about SAP HANA performance requirements, see [SAP Note 1943937 - Hardware Configuration Check Tool](https://launchpad.support.sap.com/#/notes/1943937).
+
+- **Cost-conscious storage design for non-production systems.** For SAP HANA environments that don't require maximum storage performance in all situations, you can use a storage architecture that's optimized for cost. This choice of storage optimization can apply to little-used production systems or some non-production SAP HANA environments. The cost-optimized storage option uses a combination of Standard SSDs instead of the Premium or Ultra SSDs that are used for production environments. It also combines */hana/data* and */hana/log* file systems onto a single set of disks. [Guidelines and best practices](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#cost-conscious-solution-with-azure-premium-storage) are available for most VM sizes. If you use Azure NetApp Files for SAP HANA, you can use size-reduced volumes to achieve the same goal.
+
+- **Resizing storage when scaling-up.** When you resize a virtual machine because of changed business demands or because of a growing database size, the storage configuration can change. Azure supports online disk expansion, without any interruption to service. With a striped disk setup, as used for SAP HANA, a resize operation should be done equally to all disks in the volume group. The addition of more disks to a volume group can potentially unbalance the striped data. If you're adding more disks to a storage configuration, it's far preferable to create a new storage volume on new disks. Next, copy the contents during downtime and modify mount points. Finally, discard the old volume group and underlying disks.
+- **Azure NetApp Files application volume group.** For deployments with SAP HANA files contained on Azure NetApp Files NFS volumes, application volume groups enable you to deploy all volumes according to best practices. This process also ensures optimal performance for your SAP HANA database. [Details are available](/azure/azure-netapp-files/application-volume-group-introduction) about how to proceed with this process. It requires manual intervention. Allow some time for the creation.
 
 ## Communities
 

@@ -2124,6 +2124,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/reference-architectures/ai/end-to-end-smart-factory.md",
+      "redirect_url": "/azure/architecture/ai-ml/idea/video-ingestion-object-detection-edge-cloud",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/ai/movie-recommendations.md",
       "redirect_url": "/azure/architecture/example-scenario/ai/movie-recommendations",
       "redirect_document_id": false
@@ -2898,6 +2903,76 @@
     {
       "source_path": "docs/example-scenario/apps/devops-dotnet-webapp.yml",
       "redirect_url": "/azure/architecture/example-scenario/apps/devops-dotnet-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/lifecycle-business-understanding.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/lifecycle-acceptance.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/lifecycle-data.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/lifecycle-deployment.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/group-manager-tasks.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/project-ic-tasks.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/lifecycle-modeling.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/project-lead-tasks.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/roles-tasks.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/team-data-science-process-for-data-scientists.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/team-lead-tasks.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/lifecycle.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/overview.yml",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/context/ml-context.json.yml",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/ai/plan",
       "redirect_document_id": false
     },
     {
@@ -4254,6 +4329,21 @@
       "source_path": "docs/data-guide/scenarios/search.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/logical-data-warehouse.yml",
+      "redirect_url": "/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/hybrid-cross-cluster-scaling.yml",
+      "redirect_url": "/azure/architecture/example-scenario/hybrid/aks-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/sap/hana-large-instances.yml",
+      "redirect_url": "/azure/azure-large-instances/what-is-azure-large-instances",
+      "redirect_document_id": false  
     },
     {
       "source_path": "docs/data-guide/scenarios/time-series.yml",
@@ -6321,17 +6411,17 @@
     },
     {
       "source_path": "docs/example-scenario/financial/location-based-access.yml.",
-      "redirect_url": "/industry/financial-services/",
+      "redirect_url": "/industry/financial-services/architecture/location-based-access-content",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/finance/murex-mx3-azure.yml",
-      "redirect_url": "/industry/financial-services/",
+      "redirect_url": "/industry/financial-services/architecture/murex-mx3-azure-content",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/finance/murex-mx3-sql.yml",
-      "redirect_url": "/industry/financial-services/",
+      "redirect_url": "/industry/financial-services/architecture/murex-mx3-sql-content",
       "redirect_document_id": false
     },
     {
@@ -6341,32 +6431,32 @@
     },
     {
       "source_path": "docs/example-scenario/finance/swift-on-azure-vsrx.yml",
-      "redirect_url": "/industry/financial-services/",
+      "redirect_url": "/industry/financial-services/architecture/swift-on-azure-vsrx-content",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/finance/swift-alliance-lite2-on-azure.yml",
-      "redirect_url": "/industry/financial-services/",
+      "redirect_url": "/industry/financial-services/architecture/swift-alliance-lite2-on-azure-content",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/finance/swift-alliance-cloud-on-azure.yml",
-      "redirect_url": "/industry/financial-services/",
+      "redirect_url": "/industry/financial-services/architecture/swift-alliance-cloud-on-azure-content",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml",
-      "redirect_url": "/industry/financial-services/",
+      "redirect_url": "/industry/financial-services/architecture/swift-alliance-access-vsrx-on-azure-content",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml",
-      "redirect_url": "/industry/financial-services/",
+      "redirect_url": "/industry/financial-services/architecture/swift-alliance-messaging-hub-vsrx-content",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/finance/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway.yml",
-      "redirect_url": "/industry/financial-services/",
+      "redirect_url": "/industry/financial-services/architecture/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway-content",
       "redirect_document_id": false
     },
     {
@@ -6481,7 +6571,7 @@
     },
     {
       "source_path": "docs/example-scenario/batch/fsi-workloads-using-batch.yml",
-      "redirect_url": "/azure/batch/",
+      "redirect_url": "/industry/financial-services/architecture/fsi-workloads-using-batch",
       "redirect_document_id": false
     },
     {
@@ -6612,6 +6702,61 @@
     {
       "source_path": "docs/landing-zones/terraform/landing-zone-terraform.md",
       "redirect_url": "https://azure.github.io/Azure-Landing-Zones/terraform/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/banking/banking-system-cloud-transformation.yml",
+      "redirect_url": "/industry/financial-services/architecture/banking-system-cloud-transformation-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/banking/patterns-and-implementations.yml",
+      "redirect_url": "/industry/financial-services/architecture/patterns-and-implementations-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/guide/avops-design-guide.md",
+      "redirect_url": "/industry/mobility/architecture/ra-mobility-avops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/n-tier/high-security-iaas.yml",
+      "redirect_url": "/azure/architecture/virtual-machines/baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/security/azure-monitor-integrate-security-components.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/map-threats-it-environment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/aadsec/azure-ad-security.yml",
+      "redirect_url": "/entra/architecture/secure-best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/sentinel-threat-intelligence.yml",
+      "redirect_url": "/azure/sentinel/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/homomorphic-encryption-seal.yml",
+      "redirect_url": "https://www.microsoft.com/research/project/microsoft-seal/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/hybrid-security-monitoring.yml",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-cloud-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/devops/automate-sentinel-integration.yml",
+      "redirect_url": "/azure/sentinel/",
       "redirect_document_id": false
     }
   ]

@@ -128,7 +128,7 @@ Keep these points in mind when you consider this architecture.
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the Reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - Infrastructure management, including [availability][Types of Databases on Azure], is automated in Azure databases.
 
@@ -138,7 +138,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the Security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Use [network security groups](/azure/virtual-network/manage-network-security-group) to limit access to only what each service needs to function.
 
@@ -148,25 +148,25 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - See [Planning and architecting solutions by using Microsoft Service for DRDA](/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda) to learn about the types of client connections that Microsoft Service for DRDA supports. Client connections affect the nature of transactions, pooling, failover, authentication, and encryption on your network.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the Cost Optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Pricing models vary between component services. Review the pricing models of the available component services to ensure that they fit your budget.
 
 - Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cost of implementing this solution.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the Operational Excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 - Infrastructure management, including [scalability][Types of Databases on Azure], is automated in Azure databases.
 
 - You can [scale out the self-hosted IR][Self-hosted IR compute resource and scaling] by associating the logical instance with multiple on-premises machines in active-active mode.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance Efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - Consider [Azure ExpressRoute][Azure ExpressRoute] as a high-scale option if your implementation uses significant bandwidth for initial replication or ongoing changed data replication.
 

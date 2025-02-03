@@ -65,10 +65,6 @@ This architecture consists of the following Azure components.
 - [Azure Virtual Desktop](/azure/virtual-desktop/overview): Azure Virtual Desktop is a desktop and app virtualization service. You use it to provide users with a virtualized desktop environment for CAD workstation, facilitating access to Teamcenter services from anywhere.
 - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall): Azure Firewall is a cloud-native network firewall security service that provides threat protection for cloud workloads. For a Teamcenter deployment, Azure Firewall can be used to protect the Teamcenter frontend services from threats.
 
-## Considerations
-
-These considerations align to the pillars of the Azure Well-Architected Framework. A set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
-
 ### Potential use cases
 
 Teamcenter provides a broad and rich depth of many functional solutions for managing data across the product and service lifecycle. Teamcenter deployment on Azure supports the following use cases:
@@ -79,6 +75,14 @@ Teamcenter provides a broad and rich depth of many functional solutions for mana
 - Process connectivity across engineering, design, R&D and manufacturing.
 - Increase competitive advantage by increasing speed to market for new products.
 - Power digital thread and digital twins.
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 #### Web tier and Enterprise tier reliability
 
@@ -107,7 +111,7 @@ By distributing software functions over a network, the application can achieve h
 
 **Configure backup frequency.** Determine backup needs based on business requirements, considering the increasing number of users. A daily backup might not be sufficient for optimal protection, so adjust the frequency accordingly.
 
-**Coordinate volume data with database backups.** Ensure that backups for the File Manager volume servers (FMS) are coordinated with database backups. . This configuration allows you to sync the actual files with the file metadata. The database contains metadata (pointers) to files within the FMS, making synchronization crucial.
+**Coordinate volume data with database backups.** Ensure that backups for the File Manager volume servers (FMS) are coordinated with database backups. This configuration allows you to sync the actual files with the file metadata. The database contains metadata (pointers) to files within the FMS, making synchronization crucial.
 
 **Enhance database reliability.** Deploy SQL Server virtual machines in Availability Sets to improve database reliability. Availability Sets deploy virtual machines across fault domains and update domains, mitigating downtime events within the datacenter. Create an availability set during virtual machine provisioning. Consider replicating Azure storage across different Azure datacenters for extra redundancy.
 
@@ -117,7 +121,7 @@ For Oracle databases, Azure offers availability zones and availability sets. You
 
 ### Security
 
-Azure Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 **Configure the Login Service and Identity Service.** Teamcenter provides the Teamcenter Security Services (TCSS) feature. The Login Service and Identity Service are essential components of TCSS and can be built using the Web Application Manager. Deploy these Java EE web applications on a supported Java EE web application server.
 
@@ -125,9 +129,9 @@ Azure Security provides assurances against deliberate attacks and the abuse of y
 
 *Identity Service*: The Identity Service can only be accessed using IPv4 addressing. It includes a table that points to the application root URL. As a client interface, it must accept both IPv4 and IPv6 URLs. To utilize the Security Services, ensure the installation of the Security Services Session Agent in the Web tier.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 **Consider constrained vCPU virtual machines.** If your workload requires more memory and fewer CPUs, consider using one of [constrained vCPU virtual machine](/azure/virtual-machines/constrained-vcpu) sizes to reduce software licensing costs that are charged per vCPU.
 
@@ -143,9 +147,9 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 **Use the Azure calculator.** The Azure calculator can help you estimate and optimize cost. For an estimated cost of the baseline architecture, see [estimated cost](https://azure.com/e/625cea91d4aa43bca73e0a8235817ba7). Your estimates might differ based on your Azure Teamcenter implementation.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 **Use proximity placement groups.** Use proximity placement groups to achieve optimal network latency, particularly for CAD applications. Employ proximity placement groups when significant network latency between the application layer and the database impacts the workload. Take note of the limitations on virtual machine type availability within the same datacenter. For more information, see [Proximity placement groups](/azure/virtual-machines/co-location).
 

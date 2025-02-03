@@ -4,13 +4,11 @@ You can strengthen your organization's IT security posture by using the security
 
 This article builds on the previous articles in the series:
 
-1. [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml) provides an overall view of how you can integrate the security services of Azure and Microsoft Defender XDR.
+1. [Map threats to your IT environment](./map-threats-it-environment.yml) describes methods to map examples of common threats, tactics, and techniques against an example of a hybrid IT environment that uses both on-premises and Microsoft cloud services.
 
-2. [Map threats to your IT environment](./map-threats-it-environment.yml) describes methods to map examples of common threats, tactics, and techniques against an example of a hybrid IT environment that uses both on-premises and Microsoft cloud services.
+2. [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml) maps an example of some Azure security services that create the first layer of defense to protect your Azure environment according to Azure Security Benchmark version 3.
 
-3. [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml) maps an example of some Azure security services that create the first layer of defense to protect your Azure environment according to Azure Security Benchmark version 3.
-
-4. [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml) describes an example of a series of attacks against your IT environment and how to add another layer of protection by using Microsoft Defender XDR.
+3. [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml) describes an example of a series of attacks against your IT environment and how to add another layer of protection by using Microsoft Defender XDR.
 
 ## Architecture
 
@@ -120,10 +118,9 @@ The example architecture in this article uses the following Azure components:
 ## Solution details
 
 Monitoring solutions on Azure might seem confusing at first, because Azure offers multiple monitoring services. However, each Azure monitoring service is important in the security and monitoring strategy that's described in this series. The articles in this series describe the various services and how to plan effective security for your IT environment.
-1. [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
-2. [Map threats to your IT environment](./map-threats-it-environment.yml)
-3. [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
-4. [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
+1. [Map threats to your IT environment](./map-threats-it-environment.yml)
+2. [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
+3. [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
 
 ### Potential use cases
 
@@ -163,12 +160,10 @@ Other contributors:
 
 For more details about this reference architecture, see the other articles in this series:
 
-- Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
-- Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
-- Part 3: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
-- Part 4: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
+- Part 1: [Map threats to your IT environment](./map-threats-it-environment.yml)
+- Part 2: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
+- Part 3: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
 
-For related architectures on Azure Architecture Center, see the following articles:
+For related architectures on Azure Architecture Center, see the following article:
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
-- [Monitor hybrid security using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)

@@ -118,7 +118,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability  
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 The baseline App Services architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide zonal redundancy for [supporting services](/azure/reliability/availability-zones-service-support) when two or more instances are deployed in [supporting regions](/azure/reliability/availability-zones-region-support). When one zone experiences downtime, the other zones may still be unaffected.
 
@@ -134,56 +134,19 @@ Deploy Azure Application Gateway v2 in a zone redundant configuration. Consider 
 - Implement health check endpoints in your apps and configure the App Service health check feature to reroute requests away from unhealthy instances. For more information about App Service Health check, see [Monitor App Service instances using health check](/azure/app-service/monitor-instances-health-check). For more information about implementing health check endpoints in ASP.NET applications, see [Health checks in ASP.NET Core](https://learn.microsoft.com/aspnet/core/host-and-deploy/health-checks).
 - Overprovision capacity to be able to handle zone failures.
 
-#### SQL Database  
-
-- Deploy Azure SQL DB General Purpose, Premium, or Business Critical with zone redundancy enabled. The General Purpose, Premium, and Business Critical tiers support [Zone-redundancy in Azure SQL DB](/azure/azure-sql/database/high-availability-sla#general-purpose-service-tier-zone-redundant-availability).  
-- [Configure SQL DB backups](/azure/azure-sql/database/automated-backups-overview#configure-backup-storage-redundancy-by-using-the-azure-cli) to use zone-redundant storage (ZRS) or geo-zone-redundant storage (GZRS).
-
 #### Blob storage
 
 - Azure [Zone-Redundant Storage](/azure/storage/common/storage-redundancy#zone-redundant-storage) (ZRS) replicates your data synchronously across three availability zones in the region. Create Standard ZRS or Standard GZRS storage accounts to ensure data is replicated across availability zones.
 - Create separate storage accounts for deployments, web assets, and other data so that you can manage and configure the accounts separately.
 
-### Performance efficiency
+#### SQL Database  
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
-
-The following sections discuss scalability for key components in this architecture.
-
-#### Application Gateway
-
-- Implement autoscaling for Application Gateway to scale in or out to meet demand.
-- Set the maximum instance count to a number higher than your expected need. You'll only be charged for the Capacity Units you use.
-- Set a minimum instance count that can handle small spikes in traffic. You can use [average Compute Unit usage](/azure/application-gateway/high-traffic-support#set-your-minimum-instance-count-based-on-your-average-compute-unit-usage) to calculate your minimum instance count.
-- Follow the [guidance on sizing the Application Gateway subnet](/azure/application-gateway/configuration-infrastructure#size-of-the-subnet).
-
-#### App Service
-
-- Use Standard or higher plans with three or more worker instances for high availability.
-- Enable [Autoscale](/azure/azure-monitor/autoscale/autoscale-get-started) to make sure you can scale up and down to meet demand.
-- Consider [opening a support ticket to increase the maximum number of workers to two times the instance count](/azure/well-architected/services/compute/azure-app-service/reliability#configuration-recommendations) if your App Service consistently uses half the number of maximum instances. The maximum number of instances defaults to up to 30 for a Premium App Service plan and 10 for a Standard plan.
-- Consider deploying multiple stamps of the application when your App Service starts hitting the upper limits.
-- Choose the right [Azure App Service plan](/azure/app-service/overview-hosting-plans#manage-an-app-service-plan) that meets your workload requirements.
-- [Add Azure CDN to Azure App Service](/azure/cdn/cdn-add-to-web-app) to serve static content.
-- Consider [App Service Environment](/azure/app-service/environment/overview) if noisy neighbors are a concern.
-
-#### SQL Server
-
-Scaling database resources is a complex topic outside of the scope of this architecture. Consider the following resources when scaling your database,
-
-- [Dynamically scale database resources with minimal downtime](/azure/azure-sql/database/scale-resources)
-- [Scaling out with Azure SQL Database](/azure/azure-sql/database/elastic-scale-introduction)
-- [Use read-only replicas to offload read-only query workloads](/azure/azure-sql/database/read-scale-out)
-
-#### Other scalability guidance
-
-- Review [subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) to ensure that services scale to demand.
-- Consider [caching](/azure/architecture/best-practices/caching) for the following kinds of data to increase performance and scalability:
-  - Semi-static transaction data.
-  - Session state.
-  - HTML output. This can be useful in applications that render complex HTML output.
+- Deploy Azure SQL DB General Purpose, Premium, or Business Critical with zone redundancy enabled. The General Purpose, Premium, and Business Critical tiers support [Zone-redundancy in Azure SQL DB](/azure/azure-sql/database/high-availability-sla#general-purpose-service-tier-zone-redundant-availability).  
+- [Configure SQL DB backups](/azure/azure-sql/database/automated-backups-overview#configure-backup-storage-redundancy-by-using-the-azure-cli) to use zone-redundant storage (ZRS) or geo-zone-redundant storage (GZRS).
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 The baseline App Service architecture focuses on essential security recommendations for your web app. Understanding how encryption and identity work at every layer is critical to securing your workload.
 
@@ -226,6 +189,21 @@ Consider the following recommendations when configuring data-in-transit encrypti
 - Minimize database encryption latency. To minimize encryption latency, place the data you need to secure in its own database and only enable encryption for that database.
 - Understand built-in encryption support. [Azure Storage automatically encrypts](/azure/storage/common/storage-service-encryption) data at rest using server-side encryption (256-bit AES). Azure Monitor automatically encrypts data at rest using Microsoft-managed keys (MMKs).
 
+#### Governance
+
+Web apps benefit from Azure Policy by enforcing architectural and security decisions. Azure Policy can make it (1) impossible to deploy (deny) or (2) easy to detect (audit) configuration drift from your preferred desired state. This helps you catch Infrastructure as Code (IaC) deployments or Azure portal changes that deviate from the agreed-upon architecture. You should place all resources in your architecture under Azure Policy governance. Use built-in policies or policy initiatives where possible to enforce essential network topology, service features, security, and monitoring decisions, for example:
+
+- App Service should disable public network access
+- App service should use virtual network integration
+- App Service should use Azure Private Link to connect to PaaS services
+- App Service should have local authentication methods disabled for FTP & SCM site deployments
+- App Service should have remote debugging turned off
+- App Service apps should use the latest TLS version
+- Microsoft Defender for App Service should be enabled
+- Web Application Firewall (WAF) should be enabled for Application Gateway
+
+See more built-in policies for key services such as [Application Gateway and networking components](/azure/governance/policy/samples/built-in-policies#network), [App Service](/azure/governance/policy/samples/built-in-policies#app-service), [Key Vault](/azure/governance/policy/samples/built-in-policies#key-vault), and [Monitoring](/azure/governance/policy/samples/built-in-policies#monitoring). It's possible to create custom policies or use community policies (such as from Azure Landing Zones) if built-in policies do not fully cover your needs. Prefer built-in policies when they are available.
+
 #### Identity and Access Management
 
 The App Service baseline configures authentication and authorization for user identities (users) and workload identities (Azure resources) and implements the principle of least privilege.
@@ -240,9 +218,9 @@ The App Service baseline configures authentication and authorization for user id
 - Use managed identity for workload identities. Managed identity eliminates the need for developers to manage authentication credentials.
 - Use user-assigned managed identities. A system-assigned identity can cause infrastructure-as-code deployments to fail based on race conditions and order of operations. You can use user-assigned managed identities to avoid some of these deployment error scenarios. For more information, see [Managed identities](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 Deployment for the baseline App Service application follows the guidance in [CI/CD for Azure Web Apps with Azure Pipelines](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps). In addition to that guidance, the App Services baseline architecture takes into account that the application and the deployment storage account are network secured. The architecture denies public access to App Service. This means you can't deploy from outside the virtual network. The baseline shows you how to deploy the application code within the virtual network using self-hosted deployment agents. The following deployment guidance focuses on deploying the application code and not deploying infrastructure or database changes.
 
@@ -343,20 +321,44 @@ App Service has built-in and integrated monitoring tools that you should enable 
 - User database Insights. For Azure SQL databases, you should configure [SQL Insights in Azure Monitor](/azure/azure-sql/database/sql-insights-overview). Database Insights uses dynamic management views to expose the data that you need to monitor health, diagnose problems, and tune performance. For more information, see [Monitoring Azure SQL Database with Azure Monitor.](/azure/azure-sql/database/monitoring-sql-database-azure-monitor?view=azuresql)
 - If your architecture includes Cosmos DB, you don't need to enable or configure anything to use [Cosmos DB insights](/azure/cosmos-db/insights-overview).
 
-### Governance
+### Performance Efficiency
 
-Web apps benefit from Azure Policy by enforcing architectural and security decisions. Azure Policy can make it (1) impossible to deploy (deny) or (2) easy to detect (audit) configuration drift from your preferred desired state. This helps you catch Infrastructure as Code (IaC) deployments or Azure portal changes that deviate from the agreed-upon architecture. You should place all resources in your architecture under Azure Policy governance. Use built-in policies or policy initiatives where possible to enforce essential network topology, service features, security, and monitoring decisions, for example:
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-- App Service should disable public network access
-- App service should use virtual network integration
-- App Service should use Azure Private Link to connect to PaaS services
-- App Service should have local authentication methods disabled for FTP & SCM site deployments
-- App Service should have remote debugging turned off
-- App Service apps should use the latest TLS version
-- Microsoft Defender for App Service should be enabled
-- Web Application Firewall (WAF) should be enabled for Application Gateway
+The following sections discuss scalability for key components in this architecture.
 
-See more built-in policies for key services such as [Application Gateway and networking components](/azure/governance/policy/samples/built-in-policies#network), [App Service](/azure/governance/policy/samples/built-in-policies#app-service), [Key Vault](/azure/governance/policy/samples/built-in-policies#key-vault), and [Monitoring](/azure/governance/policy/samples/built-in-policies#monitoring). It's possible to create custom policies or use community policies (such as from Azure Landing Zones) if built-in policies do not fully cover your needs. Prefer built-in policies when they are available.
+#### Application Gateway
+
+- Implement autoscaling for Application Gateway to scale in or out to meet demand.
+- Set the maximum instance count to a number higher than your expected need. You'll only be charged for the Capacity Units you use.
+- Set a minimum instance count that can handle small spikes in traffic. You can use [average Compute Unit usage](/azure/application-gateway/high-traffic-support#set-your-minimum-instance-count-based-on-your-average-compute-unit-usage) to calculate your minimum instance count.
+- Follow the [guidance on sizing the Application Gateway subnet](/azure/application-gateway/configuration-infrastructure#size-of-the-subnet).
+
+#### App Service
+
+- Use Standard or higher plans with three or more worker instances for high availability.
+- Enable [Autoscale](/azure/azure-monitor/autoscale/autoscale-get-started) to make sure you can scale up and down to meet demand.
+- Consider [opening a support ticket to increase the maximum number of workers to two times the instance count](/azure/well-architected/services/compute/azure-app-service/reliability#configuration-recommendations) if your App Service consistently uses half the number of maximum instances. The maximum number of instances defaults to up to 30 for a Premium App Service plan and 10 for a Standard plan.
+- Consider deploying multiple stamps of the application when your App Service starts hitting the upper limits.
+- Choose the right [Azure App Service plan](/azure/app-service/overview-hosting-plans#manage-an-app-service-plan) that meets your workload requirements.
+- [Add Azure CDN to Azure App Service](/azure/cdn/cdn-add-to-web-app) to serve static content.
+- Consider [App Service Environment](/azure/app-service/environment/overview) if noisy neighbors are a concern.
+
+#### SQL Server
+
+Scaling database resources is a complex topic outside of the scope of this architecture. Consider the following resources when scaling your database.
+
+- [Dynamically scale database resources with minimal downtime](/azure/azure-sql/database/scale-resources)
+- [Scaling out with Azure SQL Database](/azure/azure-sql/database/elastic-scale-introduction)
+- [Use read-only replicas to offload read-only query workloads](/azure/azure-sql/database/read-scale-out)
+
+#### Other scalability guidance
+
+- Review [subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) to ensure that services scale to demand.
+- Consider [caching](/azure/architecture/best-practices/caching) for the following kinds of data to increase performance and scalability:
+  - Semi-static transaction data.
+  - Session state.
+  - HTML output. This can be useful in applications that render complex HTML output.
 
 ## Next steps
 

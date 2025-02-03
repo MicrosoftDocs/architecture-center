@@ -143,9 +143,9 @@ For more information, see [Deploying Project 15 from Microsoft Open Platform][De
 
 Principal authors:
 
- * [Sarah Maston](https://www.linkedin.com/in/smwmaston/) | Director, Global Partner Strategy
- * [Daisuke Nakahara](https://www.linkedin.com/in/daisuke-nakahara/) | Director, Sony Semiconductor Solutions
- * [Linda Nichols](https://www.linkedin.com/in/lynnaloo/) | App Innovation Global Black Belt
+- [Sarah Maston](https://www.linkedin.com/in/smwmaston/) | Director, Global Partner Strategy
+- [Daisuke Nakahara](https://www.linkedin.com/in/daisuke-nakahara/) | Director, Sony Semiconductor Solutions
+- [Linda Nichols](https://www.linkedin.com/in/lynnaloo/) | App Innovation Global Black Belt
 
 ## Next steps
 
