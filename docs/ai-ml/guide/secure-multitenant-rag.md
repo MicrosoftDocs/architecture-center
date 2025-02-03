@@ -28,7 +28,7 @@ A multitenant solution is used by multiple customers. Each customer, or tenant, 
 There are multitenant concerns beyond ensuring that users only access the information they're authorized to access. However, this article focuses on that aspect of multitenancy. This article begins with an overview of single-tenant RAG architectures. It discusses the challenges that you might encounter in multitenancy with RAG and some common approaches to take. It also outlines multitenancy considerations and recommendations for improved security.
 
 > [!NOTE]
-> This article describes several features that are specific to Azure OpenAI Service, such as the Azure OpenAI on your data feature. However, most of the principles described in this article are applicable to foundational AI models on any platform.
+> This article describes several features that are specific to Azure OpenAI Service, such as the Azure OpenAI On Your Data feature. However, you can apply most of the principles described in this article to foundational AI models on any platform.
 
 ## Single-tenant RAG architecture with an orchestrator
 
@@ -50,7 +50,7 @@ For more information, see [Design and develop a RAG solution](/azure/architectur
 
 ## Single-tenant RAG architecture with direct data access
 
-This variant of the single-tenant RAG architecture uses the [on your data feature](/azure/ai-services/openai/concepts/use-your-data) of Azure OpenAI to integrate directly with data stores like Azure AI Search. In this architecture, you either don't have your own orchestrator, or your orchestrator has fewer responsibilities. The Azure OpenAI API calls into the data store to fetch the grounding data and passes that data to the language model. This method gives you less control over what grounding data to fetch and the relevancy of that data.
+This variant of the single-tenant RAG architecture uses the [On Your Data feature](/azure/ai-services/openai/concepts/use-your-data) of Azure OpenAI to integrate directly with data stores like Azure AI Search. In this architecture, you either don't have your own orchestrator, or your orchestrator has fewer responsibilities. The Azure OpenAI API calls into the data store to fetch the grounding data and passes that data to the language model. This method gives you less control over what grounding data to fetch and the relevancy of that data.
 
 > [!NOTE]
 > Azure OpenAI is managed by Microsoft. It integrates with the data store, but the model itself doesn't integrate with the data store. The model receives grounding data in the same way as it does when an orchestrator fetches the data.
