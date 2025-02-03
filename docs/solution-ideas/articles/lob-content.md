@@ -4,7 +4,7 @@ This article describes how to modernize legacy systems that can't support new pr
 
 ## Architecture
 
-:::image type="complex" border="false" source="lob.svg" alt-text="Diagram that shows the Line of Business architecture." lightbox=lob.svg":::
+:::image type="complex" border="false" source="lob.svg" alt-text="Diagram that shows the Line of Business architecture." lightbox="lob.svg":::
    The Line of Business architecture shows data from Microsoft Dataverse to SQL via Azure Data Factory and from ERP to SQL. Power Apps gets data, sends data via CSV, and Power BI shows trends.
 :::image-end:::
 
