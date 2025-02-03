@@ -1,10 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes how to modernize your legacy systems that can't support new processes. This modernization enhances the user experience.
+This article describes how to modernize legacy systems that can't support new processes. This modernization enhances the user experience.
 
 ## Architecture
 
-:::image type="content" alt-text="Architecture that shows data from Common Data Services to SQL via Azure Data Factory and from ERP to SQL. Power Apps gets data, sends data via CSV, and Power BI shows trends." source="../media/lob.svg" lightbox="../media/lob.svg" border="false":::
+:::image type="content" alt-text="Architecture that shows data from Dataverse to SQL via Azure Data Factory and from ERP to SQL. Power Apps gets data, sends data via CSV, and Power BI shows trends." source="../media/lob.svg" lightbox="../media/lob.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/lob.vsdx) of this architecture.*
 
@@ -12,13 +12,13 @@ This article describes how to modernize your legacy systems that can't support n
 
 The following dataflow corresponds to the previous diagram:
 
-1. Supplier data that's stored in [Common Data Services (CDS)](https://learn.microsoft.com/business-applications-release-notes/april18/common-data-service-apps/) is moved to SQL via Azure Data Factory.
+1. Supplier data that's stored in [Dataverse](/power-apps/maker/data-platform/data-platform-intro) is moved to Azure SQL Database via Azure Data Factory.
 
-1. Purchase order (PO) data that's stored in the ERP system is sent to Azure SQL Database.
+1. Purchase order (PO) data that's stored in the ERP system is sent to SQL Database.
 
 1. Azure API Management exposes an Azure function to the Microsoft Power Platform.
 
-1. Microsoft Power Apps retrieves data from SQL Database via the Azure Function exposed by API Management.
+1. Microsoft Power Apps retrieves data from SQL Database via the Azure function that API Management exposes.
 
 1. The user reviews and updates POs in Power Apps and then sends this data to suppliers through CSV exports.
 
@@ -42,7 +42,7 @@ Data is loaded from these different data sources by using the following Azure co
 
 ## Scenario details
 
-Out-of-the-box or custom connectors can help simplify process automation and connect to non-Microsoft data sources or legacy systems. Azure Functions can then schedule calculations on a regularly to simplify your business processes. You can use Power Apps to process and share data with non-Microsoft parties via standard exports.
+Out-of-the-box or custom connectors can help simplify process automation and connect to non-Microsoft data sources or legacy systems. Azure Functions can then schedule calculations regularly to simplify your business processes. You can use Power Apps to process and share data with non-Microsoft parties via standard exports.
 
 ### Potential use cases
 
