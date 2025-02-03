@@ -11,27 +11,41 @@ This reference architecture shows a microservices application deployed to Azure 
 
 If you would prefer to see a more advanced microservices example that is built upon the [AKS Baseline architecture](https://github.com/mspnp/aks-secure-baseline), see [Advanced Azure Kubernetes Service (AKS) microservices architecture](./aks-microservices-advanced.yml)
 
-## Workflow
+## Components
 
 The architecture consists of the following components.
 
 **Azure Kubernetes Service (AKS)**. AKS is a managed Kubernetes cluster hosted in the Azure cloud. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure. 
 
-**Ingress**. An ingress server exposes HTTP(S) routes to services inside the cluster. The reference implementation uses [managed Nginx based ingress controller](/azure/aks/app-routing) through application routing add-on. Alternately you can use Application Gateway for containers, Istio Ingress Gateway, or third party solutions as the ingress controller. Please see [Ingress in AKS](/en-us/azure/aks/concepts-network-ingress) for a comparison of ingress options in AKS. Ingress controller implements the [API Gateway](#api-gateway) pattern for microservices.
+**Ingress**. An ingress server exposes HTTP(S) routes to services inside the cluster. The reference implementation uses [managed Nginx based ingress controller](/azure/aks/app-routing) through application routing add-on. Ingress controller implements the [API Gateway](#api-gateway) pattern for microservices.
 
-**External data stores**. Microservices are typically stateless and write data & state information to external data stores, such as Azure SQL Database or Azure Cosmos DB. The reference implementation uses [Azure Cosmos DB](/azure/cosmos-db/), [Azure cache for Redis](/azure/azure-cache-for-redis/), [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) and [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) as data stores. For microservices that need to maintain state information, [DAPR](/azure/aks/dapr-overview) provides a good abstraction layer for microservice state management. 
+**External data stores**. Microservices are typically stateless and write data & state information to external data stores, such as Azure SQL Database or Azure Cosmos DB. The reference implementation uses [Azure Cosmos DB](/azure/cosmos-db/), [Azure cache for Redis](/azure/azure-cache-for-redis/), [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) and [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) as data stores. 
 
-**Microsoft Entra ID**. AKS uses a Microsoft Entra ID identity to create and manage other Azure resources such as Azure load balancers. [Microsoft Entra ID](/azure/aks/workload-identity-overview) is also recommended for user authentication in client applications. In the reference architecture, Entra ID is used to authenticate microservices to Azure Key Vault.
+**Microsoft Entra ID**. AKS uses a Microsoft Entra ID identity to create and manage other Azure resources such as Azure load balancers. [Microsoft Entra ID](/azure/aks/workload-identity-overview) is also recommended for user authentication in client applications. In the reference architecture, Entra ID managed identities are used by AKS cluster to access other Azure resources, and is used to authenticate microservices to Azure Key Vault.
 
 **Azure Container Registry**. Azure Container Registry can be used to store private container images, which are deployed to the cluster. AKS can authenticate with Container Registry using its Microsoft Entra identity. In the reference implementation, microservice container images are built and pushed to Azure Container Registry.  
 
-**Azure Pipelines**. Azure Pipelines are part of the Azure DevOps Services and run automated builds, tests, and deployments. [Continous integration and deployment](C/azure/architecture/microservices/ci-cd) is highly encouraged in microservice environments. Microservices can be independently built and deployed by various teams to AKS using Azure DevOps pipelines. You can also use third-party CI/CD solutions such as Jenkins.
+**Azure Pipelines**. Azure Pipelines are part of the Azure DevOps Services and run automated builds, tests, and deployments. [Continous integration and deployment](C/azure/architecture/microservices/ci-cd) is highly encouraged in microservice environments. Microservices can be independently built and deployed by various teams to AKS using Azure DevOps pipelines. 
 
 **Helm**. Helm is a package manager for Kubernetes, provides a mechanism to bundle and generalize Kubernetes objects into a single unit that can be published, deployed, versioned, and updated. 
 
 **Azure Monitor**. Azure Monitor collects and stores metrics and logs, application telemetry, and platform metrics for the Azure services. Azure Monitor integrates with AKS to collect metrics from controllers, nodes, and containers.
 
-**Azure Application Insights** Azure application insights can be used to monitor microservices and containers. The health of the microservices and the relationships between them are displayed on a single Application Map. Application insights can be used to provide observability to microservices, including traffic flow, end-to-end latency, and error percentage. Microservice observability can be achieved through alternate tools such as [Kiali](https://kiali.io/) as well.  
+**Azure Application Insights** Azure application insights can be used to monitor microservices and containers. The health of the microservices and the relationships between them are displayed on a single Application Map. Application insights can be used to provide observability to microservices, including traffic flow, end-to-end latency, and error percentage. 
+
+## Alternatives 
+
+Azure Container Apps can be used as a platform to host microservices as well, when fidelity to Kubernetes APIs are not required. 
+
+Instead of the managed ingress gateway in AKS, you can use Application Gateway for containers, Istio Ingress Gateway, or third party solutions as the ingress controller. Please see [Ingress in AKS](/en-us/azure/aks/concepts-network-ingress) for a comparison of ingress options in AKS. 
+
+Third party container registries such as DockerHub can be used to store container images as well. 
+
+For microservices that need to maintain state information, [DAPR](/azure/aks/dapr-overview) provides a good abstraction layer for microservice state management. 
+
+GitHub actions can be used to build and deploy microservices. You can also third-party CI/CD solutions such as Jenkins. 
+
+Microservice observability can be achieved through alternate tools such as [Kiali](https://kiali.io/) as well. 
 
 ## Considerations
 
