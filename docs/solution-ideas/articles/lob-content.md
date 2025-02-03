@@ -4,7 +4,9 @@ This article describes how to modernize legacy systems that can't support new pr
 
 ## Architecture
 
-:::image type="content" alt-text="Architecture that shows data from Microsoft Dataverse to SQL via Azure Data Factory and from ERP to SQL. Power Apps gets data, sends data via CSV, and Power BI shows trends." source="../media/lob.svg" lightbox="../media/lob.svg" border="false":::
+:::image type="complex" border="false" source="lob.svg" alt-text="Diagram that shows the Line of Business architecture." lightbox=lob.svg":::
+   The Line of Business architecture shows data from Microsoft Dataverse to SQL via Azure Data Factory and from ERP to SQL. Power Apps gets data, sends data via CSV, and Power BI shows trends.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/lob.vsdx) of this architecture.*
 
