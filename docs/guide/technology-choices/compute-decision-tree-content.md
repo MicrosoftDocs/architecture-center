@@ -30,7 +30,6 @@ If you're not familiar with the Azure service selected in the previous section, 
 - [Azure Container Apps](/azure/container-apps): A managed service built on Kubernetes, which simplifies the deployment of containerized applications in a serverless environment.
 - [Azure Container Instances](/azure/container-instances/container-instances-overview): This service is a fast and simple way to run a container in Azure. You don't have to provision any VMs or adopt a higher-level service.
 - [Azure Red Hat OpenShift](/azure/openshift): A fully managed OpenShift cluster for running containers in production with Kubernetes.
-- [Azure Spring Apps](/azure/spring-apps): A managed service designed and optimized for hosting Spring Boot apps.
 - [Azure Service Fabric](/azure/service-fabric/service-fabric-overview): A distributed systems platform that can run in many environments, including Azure or on-premises.
 - [Azure Batch](/azure/batch/batch-technical-overview): A managed service for running large-scale parallel and high-performance computing (HPC) applications.
 - [Azure VMware Solution](/azure/azure-vmware/introduction): A managed service for running VMware workloads natively on Azure.
@@ -59,7 +58,6 @@ There's a tradeoff between control and ease of management. IaaS gives the most c
 | Azure Container Apps | Containers | Serverless | Serverless | Stateless or stateful | Agnostic |
 | Azure Container Instances | Containers | No dedicated instances | No dedicated nodes | Stateless | Agnostic |
 | Azure Red Hat OpenShift | Containers | Multiple containers per node | 6 <a href="#note5"><sup>5</sup></a> | Stateless or stateful | Agnostic |
-| Azure Spring Apps | Applications, microservices | Multiple apps per service instance | 2 | Stateless | Built in |
 | Azure Service Fabric | Services, guest executables, containers | Multiple services per VM | 5 <a href="#note3"><sup>3</sup></a> | Stateless or stateful | Agnostic |
 | Azure Batch | Scheduled jobs | Multiple apps per VM | 1 <a href="#note4"><sup>4</sup></a> | Stateless | No |
 | Azure VMware Solution | Agnostic | Agnostic | 3 <a href="#note7"><sup>7</sup></a> | Stateless or stateful | Agnostic |
@@ -85,7 +83,6 @@ Notes
 | Azure Container Apps | Supported | Supported |
 | Azure Container Instances | [Supported](/azure/container-instances/container-instances-vnet) | [Supported](/azure/container-instances/container-instances-virtual-network-concepts#scenarios)  |
 | Azure Red Hat OpenShift | [Supported](/azure/openshift/concepts-networking) | Supported |
-| Azure Spring Apps | Supported | Supported |
 | Azure Service Fabric | Supported | Supported |
 | Azure Batch | Supported | Supported |
 | Azure VMware Solution | [Supported](/azure/azure-vmware/configure-site-to-site-vpn-gateway) | [Supported](/azure/azure-vmware/enable-managed-snat-for-workloads) |
@@ -107,7 +104,6 @@ Notes
 | Azure Container Apps | Local container runtime | Agnostic | Revision management |
 | Azure Container Instances | Local container runtime | Agnostic | Not applicable |
 | Azure Red Hat OpenShift | Minikube, Docker, others | Agnostic | Rolling update |
-| Azure Spring Apps | Visual Studio Code, Intellij, Eclipse | Spring Boot, Steeltoe | Rolling upgrade, blue-green deployment |
 | Azure Service Fabric | Local node cluster | Guest executable, Service model, Actor model, Containers | Rolling upgrade (per service) |
 | Azure Batch | Not supported | Command-line application | Not applicable |
 | Azure VMware Solution | Agnostic | Agnostic | No built-in support |
@@ -127,7 +123,6 @@ Notes
 | Azure Container Apps | Scaling rules<a href="#note4c"><sup>4</sup></a> | Integrated | 5 environments per region, 20 container apps per environment, 30 replicas per container app |
 | Azure Container Instances | Not supported | No built-in support | 20 container groups per subscription (default limit) |
 | Azure Red Hat OpenShift | Pod autoscaling, cluster autoscaling | Azure Load Balancer or Azure Application Gateway | 60 nodes per cluster (default limit) |
-| Azure Spring Apps | Built-in service | Integrated | 500 app instances in Standard |
 | Azure Service Fabric | Virtual machine scale sets | Azure Load Balancer | 100 nodes per virtual machine scale set |
 | Azure Batch | Not applicable | Azure Load Balancer | 20 core limit (default limit) |
 | Azure VMware Solution | Built-in service<a href="#note5c"><sup>5</sup></a> | Integrated<a href="#note6c"><sup>6</sup></a> | Per VMware vCenter can manage between 3 ~ 16 VMware ESXi hosts |
@@ -152,7 +147,6 @@ Notes
 | Azure Container Apps | [SLA for Container Apps][sla-aca] | Azure Traffic Manager and Azure Front Door |
 | Azure Container Instances | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances) | Azure Traffic Manager and Azure Front Door |
 | Azure Red Hat OpenShift | [SLA for Azure Red Hat OpenShift][sla-aro] | Azure Traffic Manager and Azure Front Door |
-| Azure Spring Apps | [SLA for Azure Spring Apps][sla-azure-spring-apps] | Azure Traffic Manager, Azure Front Door, and Multiregion Cluster |
 | Azure Service Fabric | [SLA for Service Fabric][sla-sf] | Azure Traffic Manager, Azure Front Door, and cross-region Azure Load Balancer |
 | Azure Batch | [SLA for Batch][sla-batch] | Not applicable |
 | Azure VMware Solution | [SLA for Azure VMware Solution][[sla-avs]] | Not applicable |
@@ -169,7 +163,6 @@ Review and understand the available security controls and visibility for each se
 - [Azure Functions](/azure/azure-functions/security-baseline)
 - [Azure Kubernetes Service](/azure/aks/security-baseline)
 - [Azure Container Instances](/azure/container-instances/security-baseline)
-- [Azure Spring Apps](/azure/spring-cloud/concept-security-controls)
 - [Azure Service Fabric](/azure/service-fabric/security-baseline)
 - [Azure Batch](/azure/batch/security-baseline)
 - [Azure VMware Solution](/security/benchmark/azure/baselines/azure-vmware-solution-security-baseline)
@@ -185,7 +178,6 @@ Review and understand the available security controls and visibility for each se
 | Azure Container Apps |  [Ingress controller](/azure/container-apps/ingress) | [Container Apps pricing][cost-container-apps] | [Microservices][microservices], [event-driven architecture][event-driven] |
 | Azure Container Instances | Use [sidecar](../../patterns/sidecar.yml) container | [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances) | [Microservices][microservices], task automation, batch jobs |
 | Azure Red Hat OpenShift | Supported | [Azure Red Hat OpenShift pricing][cost-aro] | [Microservices][microservices], [event-driven architecture][event-driven] |
-| Azure Spring Apps | Supported | [Azure Spring Apps pricing][cost-azure-spring-apps] | Spring Boot, [microservices][microservices] |
 | Azure Service Fabric | Supported | [Service Fabric pricing][cost-service-fabric] | [Microservices][microservices], [event-driven architecture][event-driven] |
 | Azure Batch | Supported | [Batch pricing][cost-batch] | [Big compute][big-compute] (HPC) |
 | Azure VMware Solution | Configured in VM | [Azure VMware Solution pricing][cost-avs] | VM workload based on VMware format |
@@ -226,7 +218,6 @@ To see nonpublic LinkedIn profiles, sign in to LinkedIn.
 [cost-windows-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
 [cost-app-service]: https://azure.microsoft.com/pricing/details/app-service
 [cost-service-fabric]: https://azure.microsoft.com/pricing/details/service-fabric
-[cost-azure-spring-apps]: https://azure.microsoft.com/pricing/details/spring-cloud/
 [cost-functions]: https://azure.microsoft.com/pricing/details/functions
 [cost-acs]: https://azure.microsoft.com/pricing/details/kubernetes-service
 [cost-batch]: https://azure.microsoft.com/pricing/details/batch
@@ -238,7 +229,6 @@ To see nonpublic LinkedIn profiles, sign in to LinkedIn.
 [azure-vmware-plans]: /azure/azure-vmware/cluster-size-recommendation
 [sla-acs]: https://azure.microsoft.com/support/legal/sla/kubernetes-service
 [sla-app-service]: https://azure.microsoft.com/support/legal/sla/app-service
-[sla-azure-spring-apps]: https://azure.microsoft.com/support/legal/sla/spring-apps
 [sla-batch]: https://azure.microsoft.com/support/legal/sla/batch
 [sla-functions]: https://azure.microsoft.com/support/legal/sla/functions
 [sla-sf]: https://azure.microsoft.com/support/legal/sla/service-fabric
