@@ -144,7 +144,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 - Automate the deployment of your Azure Arc-enabled servers environment. The [reference implementation](#deploy-this-scenario) of this architecture is fully automated using a combination of Azure ARM templates, VM extensions, Azure Policy configurations, and PowerShell scripts. You can also reuse these artifacts for your own deployments. For more information, see [Automation disciplines for Azure Arc-enabled servers][caf-arc-servers-automation].
 - There are several options available in Azure to automate the [onboarding of Azure Arc-enabled servers][Arc-agent-deployment-options]. To onboard at scale, use a service principal and deploy via your organizations existing automation platform.
 - VM extensions can be deployed to Azure Arc-enabled servers to simplify the management of hybrid servers throughout their lifecycle. Consider automating the deployment of VM extensions via Azure Policy when managing servers at scale.
-- Enable patch and Update Management in your onboarded Azure Arc-enabled servers to ease OS lifecycle management.
+- Enable patch and update management in your onboarded Azure Arc-enabled servers to ease OS lifecycle management.
 - See [Azure Arc Jumpstart Unified Operations Use Cases][Arc Jumpstart unifiedops scenarios] to learn about additional operational excellence scenarios for Azure Arc-enabled servers.
 - For other operational excellence considerations for your solution, see [Operational Excellence design principles][waf-principles-operational-excellence] in the Well-Architected Framework.
 

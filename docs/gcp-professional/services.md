@@ -334,7 +334,6 @@ Here are some architectures that use AKS as the orchestrator.
 | Architecture | Description |
 |----|----|
 | [Securely managed web applications](/azure/architecture/example-scenario/apps/fully-managed-secure-apps) | Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall. |
-| [Threat indicators for cyber threat intelligence in Microsoft Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence) | Import threat indicators, view logs, create rules to generate security alerts and incidents, and visualize threat intelligence data with Microsoft Sentinel. |
 
 [view all](../browse/index.yml?azure_categories=security)
 

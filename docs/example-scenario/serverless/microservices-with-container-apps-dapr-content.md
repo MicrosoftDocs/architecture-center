@@ -10,13 +10,13 @@ This article describes a solution for running an order management system with 10
 
 ### Dataflow
 
-This solution uses Bicep templates to execute the deployment of the Reddog order management system and its supporting Azure infrastructure. The architecture is composed of a single Azure Container Apps environment that hosts 10 .NET Core microservice applications. You'll use the .NET Core Dapr SDK to integrate with Azure resources through publish-subscribe (pub/sub) and State and Binding building blocks. Although Dapr typically provides flexibility when you implement components, this solution is based on an opinion. The services also make use of KEDA scale rules to allow for scaling based on event triggers and scale to zero scenarios.
+This solution uses Bicep templates to execute the deployment of the Red Dog order management system and its supporting Azure infrastructure. The architecture is composed of a single Azure Container Apps environment that hosts 10 .NET Core microservice applications. You'll use the .NET Core Dapr SDK to integrate with Azure resources through publish-subscribe (pub/sub) and State and Binding building blocks. Although Dapr typically provides flexibility when you implement components, this solution is based on an opinion. The services also make use of KEDA scale rules to allow for scaling based on event triggers and scale to zero scenarios.
 
 The following list describes each microservice and the Azure Container Apps configuration it deploys with. See the [reddog-code repo on GitHub](https://github.com/Azure/reddog-code) to view the code.
 
 1. **Traefik:** The basic proxy for routing user requests from the UI to the accounting and Makeline services for the interactive dashboard.
 
-1. **UI:** A dashboard that shows real-time order and aggregated sales data for the Reddog order management system.
+1. **UI:** A dashboard that shows real-time order and aggregated sales data for the Red Dog order management system.
 
 1. **Virtual customer:** A customer simulation program that simulates customers placing orders via the order service.
 
@@ -101,7 +101,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Azure Container Apps runs on Kubernetes behind the scenes. Resiliency mechanisms are built into Kubernetes that monitor and restart containers, or pods, if there are issues. The resiliency mechanisms combine with the built-in load balancer to run multiple replicas of each container app. With this redundancy, the solution can tolerate an instance being unavailable.
 
@@ -120,15 +120,15 @@ The application map in Application Insights also shows how the services communic
 
 For more information on monitoring Azure Container Apps, see [Monitor an app in Azure Container Apps](/azure/container-apps/monitor).
 
-### Cost optimization
+### Cost Optimization
 
-Optimize costs by looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of the services in this architecture.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands you place on it in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 This solution relies heavily on the KEDA implementation in Azure Container Apps for event-driven scaling. When you deploy the virtual customer service, it will continuously place orders, which cause the order service to scale up via the HTTP KEDA scaler. As the order service publishes the orders on the service bus, the service bus KEDA scalers cause the accounting, receipt, Makeline, and loyalty services to scale up. The UI and Traefik container apps also configure HTTP KEDA scalers so that the apps scale as more users access the dashboard.
 
@@ -159,7 +159,7 @@ Other contributors:
 
 - [Azure Container Apps docs](/azure/container-apps)
 - [Comparing container offerings in Azure](/azure/container-apps/compare-options)
-- Other Reddog order management system implementations:
+- Other Red Dog order management system implementations:
   - [Azure Arc hybrid deployment](https://github.com/Azure/reddog-hybrid-arc)
   - [AKS deployment](https://github.com/Azure/reddog-aks)
   - [Local development](https://github.com/Azure/reddog-code/blob/master/docs/local-dev.md)

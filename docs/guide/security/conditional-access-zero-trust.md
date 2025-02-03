@@ -75,4 +75,3 @@ Principal author:
 - [Conditional Access design principles and dependencies](./conditional-access-design.yml)
 - [Conditional Access architecture and personas](./conditional-access-architecture.yml)
 - [Conditional Access framework and policies](./conditional-access-framework.md)
-- [Microsoft Entra IDaaS in security operations](/azure/architecture/example-scenario/aadsec/azure-ad-security)

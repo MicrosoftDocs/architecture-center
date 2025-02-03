@@ -119,18 +119,18 @@ This solution provides the following benefits:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - This OLTP architecture can be deployed in multiple regions and can incorporate a geo-replication data layer.
 - The Azure database services support zone redundancy and can fail over to a secondary node during outages or to enable maintenance activities.
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - ExpressRoute provides a private and efficient connection to Azure from on-premises.
 - You can use Microsoft Entra ID to authenticate Azure resources. You can use role-based access control to manage permissions.
@@ -142,9 +142,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 For general guidance on designing highly secure data solutions, see [Azure security recommendations](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database?view=sql-server-ver16). 
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Virtual Machine Scale Sets optimizes costs by minimizing the number of unnecessary hardware instances that run your application when demand is low.
 - SQL Managed Instance provides various pricing tiers, like general purpose and business critical, to optimize costs based on usage and business criticality.  
@@ -153,9 +153,9 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution. Here's an [estimate based on the components of this solution, at a reasonable scale](https://azure.com/e/f5d10c617bfa410cb7566ee7f30a8e2f).
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - Virtual Machine Scale Sets ensures that enough VMs are available to meet mission-critical online and batch processing needs.
 - Azure Blob Storage is a scalable system for storing backups, archival data, secondary data files, and other unstructured digital objects.

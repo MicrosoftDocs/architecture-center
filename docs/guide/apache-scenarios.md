@@ -38,7 +38,6 @@ This article provides a summary of architectures and solutions that use Azure to
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Data partitioning guidance](../best-practices/data-partitioning.yml)|View guidance for how to separate data partitions to be managed and accessed separately. Understand horizontal, vertical, and functional partitioning strategies. Cassandra is ideally suited to vertical partitioning.|Databases|
-|[High availability in Azure public MEC](../example-scenario/hybrid/multi-access-edge-compute-ha.yml)|Learn how to deploy workloads in active-standby mode to achieve high availability and disaster recovery in Azure public multi-access edge compute. Cassandra can be used to support geo-replication.| Hybrid|
 |[N-tier application with Apache Cassandra](../databases/architecture/n-tier-cassandra.yml)|Deploy Linux virtual machines and a virtual network configured for an N-tier architecture with Apache Cassandra.| Databases|
 |[Non-relational data and NoSQL](../data-guide/big-data/non-relational-data.yml) |Learn about non-relational databases that store data as key-value pairs, graphs, time series, objects, and other storage models, based on data requirements. Azure Cosmos DB for Apache Cassandra is a recommended Azure service.|Databases|
 |[Run Apache Cassandra on Azure VMs](../databases/guide/cassandra.md)|Examine performance considerations for running Apache Cassandra on Azure virtual machines. Use these recommendations as a baseline to test against your workload.| Databases|
@@ -121,13 +120,6 @@ This article provides a summary of architectures and solutions that use Azure to
 |[Geode pattern](../patterns/geodes.yml)|Deploy back-end services into a set of geographical nodes, each of which can service any client request in any region. This pattern occurs in big data architectures that use MapReduce to consolidate results across machines.|Databases|
 |[Minimize coordination](../guide/design-principles/minimize-coordination.yml)|Follow these recommendations to improve scalability by minimizing coordination between application services. Use MapReduce to split work into independent tasks.|Databases|
 
-## Apache NiFi
-
-|Architecture|Summary|Technology focus|
-|--|--|--|
-|[Apache NiFi on Azure](../example-scenario/data/azure-nifi.yml)|Automate data flows with Apache NiFi on Azure. Use a scalable, highly available solution to move data into the cloud or storage and between cloud systems.|Analytics|
-|[Helm-based deployments for Apache NiFi](../guide/data/helm-deployments-apache-nifi.yml)|Use Helm charts when you deploy NiFi on AKS. Helm streamlines the process of installing and managing Kubernetes applications.|Analytics|
-
 ## Apache Oozie
 
 |Architecture|Summary|Technology focus|
@@ -171,8 +163,6 @@ This article provides a summary of architectures and solutions that use Azure to
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Apache NiFi on Azure](../example-scenario/data/azure-nifi.yml)|Automate data flows with NiFi on Azure. Use a scalable, highly available solution to move data into the cloud or storage and between cloud systems. In this solution, NiFi uses ZooKeeper to coordinate the flow of data.|Analytics|
-|[Helm-based deployments for Apache NiFi](../guide/data/helm-deployments-apache-nifi.yml)|Use Helm charts when you deploy NiFi on AKS. Helm streamlines the process of installing and managing Kubernetes applications. In this architecture, ZooKeeper provides cluster coordination.|Analytics|
 |[Rate Limiting pattern](../patterns/rate-limiting-pattern.yml)|Use a rate limiting pattern to avoid or minimize throttling errors. In this scenario, you can use ZooKeeper to create a system that grants temporary leases to capacity. |Integration|
 
 ## Related resources
