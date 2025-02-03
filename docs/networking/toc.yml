@@ -30,8 +30,6 @@ items:
           href: guide/spoke-to-spoke-networking.yml
       - name: Network security
         items:
-        - name: Segment virtual networks
-          href: guide/network-level-segmentation.yml
         - name: Use a split-brain DNS configuration to host a web app
           href: ../example-scenario/networking/split-brain-dns.yml        
       - name: Private link
