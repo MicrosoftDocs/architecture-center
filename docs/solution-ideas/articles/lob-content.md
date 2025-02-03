@@ -53,8 +53,7 @@ You can use this solution in the following scenarios:
 
 ## Next step
 
-> [!div class="nextstepaction"]
-> [Training for Power Apps - Microsoft Learn](/training/browse/?products=power-apps)
+> - [Training for Power Apps - Microsoft Learn](/training/browse/?products=power-apps)
 
 ## Related resource
 
