@@ -6758,6 +6758,21 @@
       "source_path": "docs/example-scenario/devops/automate-sentinel-integration.yml",
       "redirect_url": "/azure/sentinel/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/networking/idea/low-latency-network.yml",
+      "redirect_url": "/azure/private-5g-core/private-5g-core-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/networking/guide/network-level-segmentation.yml",
+      "redirect_url": "/azure/virtual-network/network-security-groups-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/networking/guide/well-architected-network-address-translation-gateway.yml",
+      "redirect_url": "/azure/nat-gateway",
+      "redirect_document_id": false
     }
   ]
 }
