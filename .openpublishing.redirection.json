@@ -6788,6 +6788,11 @@
       "source_path": "docs/example-scenario/apps/publish-internal-apis-externally.yml",
       "redirect_url": "/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/custom-business-processes.yml",
+      "redirect_url": "/azure/architecture/integration/integration-start-here",
+      "redirect_document_id": false
     }
   ]
 }

@@ -59,4 +59,4 @@ You can use this solution in the following scenarios:
 
 ## Related resource
 
-- [Custom business processes](../../solution-ideas/articles/custom-business-processes.yml)
+- [Custom business processes](../../integration/integration-start-here.yml)

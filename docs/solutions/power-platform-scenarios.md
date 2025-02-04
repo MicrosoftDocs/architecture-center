@@ -52,7 +52,6 @@ The following articles provide detailed analysis of solutions that feature integ
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Citizen AI with Power Platform](../example-scenario/ai/citizen-ai-power-platform.yml)|Learn how to use Azure Machine Learning and Power Platform to quickly create a machine learning proof of concept and a production version.|AI|
-|[Custom business processes](../solution-ideas/articles/custom-business-processes.yml)|Deploy portals that use Power Apps to automate manual or paper-based processes and provide rich user experiences. Use Power BI to generate reports.|Integration|
 |[Modern data warehouse for small and medium businesses](../example-scenario/data/small-medium-data-warehouse.yml)|Use Azure Synapse Analytics, Azure SQL Database, and Azure Data Lake Storage to modernize legacy and on-premises data. This solution integrates easily with Power Platform.| Analytics|
 
 [Browse all our Power Platform solutions](/azure/architecture/browse/?products=power-platform).
@@ -61,7 +60,6 @@ The following articles provide detailed analysis of solutions that feature integ
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Custom business processes](../solution-ideas/articles/custom-business-processes.yml)|Deploy portals that use Power Apps to automate manual or paper-based processes and provide rich user experiences. | Integration|
 [Eventual consistency between multiple Power Apps instances](/azure/architecture/guide/power-platform/eventual-consistency)|Handle dependent data in a resilient way in Power Apps.| Web|
 [Line of business extension](../solution-ideas/articles/lob.yml)|Modernize legacy systems by automating processes. Schedule calculations, connect to third-party data sources or legacy systems, and process and share data. Power Apps retrieves the data, and Power BI provides reporting.| Integration|
 [Web and mobile front ends](../solution-ideas/articles/front-end.yml) |Accelerate development by using a visual designer. Use Azure Functions for low-latency processing and Power Apps and Power Automate for out-of-the-box connectors.|Integration|

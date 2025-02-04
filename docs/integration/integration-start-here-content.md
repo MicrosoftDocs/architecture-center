@@ -146,7 +146,6 @@ The following resources provide practical recommendations and information for sp
 [Business continuity and disaster recovery for Azure Logic Apps]: /azure/logic-apps/business-continuity-disaster-recovery-guidance?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Choose between virtual network peering and VPN gateways]: ../reference-architectures/hybrid-networking/vnet-peering.yml
 [Cross-cloud scaling - on-premises data]: ../example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml
-[Custom business processes]: ../solution-ideas/articles/custom-business-processes.yml
 [Data analysis workloads for regulated industries]: /azure/architecture/example-scenario/data/data-warehouse
 [Data Factory ACOM page]: https://azure.microsoft.com/services/data-factory
 [Data integrations with Finance and Operations apps]: /training/modules/data-integrations-finance-operations
