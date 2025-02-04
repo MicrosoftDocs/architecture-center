@@ -475,8 +475,6 @@ items:
         href: /azure/architecture/browse/?products=m365
       - name: Manage Microsoft 365 with DevOps
         href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
-      - name: Real-time collaboration
-        href: solution-ideas/articles/collaboration-microsoft-365.yml
       - name: Secure a Teams channel bot with a firewall
         href: example-scenario/teams/securing-bot-teams-channel.yml
     - name: Azure and Dynamics 365 scenarios
@@ -1443,8 +1441,6 @@ items:
         href: reference-architectures/identity/azure-ad.yml
     - name: Solution ideas
       items:
-      - name: Collaboration with Microsoft 365
-        href: solution-ideas/articles/collaboration-microsoft-365.yml
       - name: Hybrid identity
         href: solution-ideas/articles/hybrid-identity.yml
   - name: Integration

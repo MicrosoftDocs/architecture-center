@@ -6783,6 +6783,11 @@
       "source_path": "docs/reference-architectures/identity/index.yml",
       "redirect_url": "/azure/architecture/reference-architectures/identity/azure-ad",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/collaboration-microsoft-365.yml",
+      "redirect_url": "/azure/azure-fluid-relay/overview/overview",
+      "redirect_document_id": false
     }
   ]
 }
