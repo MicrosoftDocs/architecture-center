@@ -839,6 +839,8 @@ items:
         href: example-scenario/data/small-medium-data-warehouse.yml
       - name: Power BI data write-back
         href: example-scenario/data/power-bi-write-back-power-apps.yml
+      - name: Disaster recovery for data analytics pipelines
+        href: example-scenario/analytics/pipelines-disaster-recovery.yml        
     - name: Solution ideas
       items:
       - name: Azure Data Explorer solutions
@@ -1455,37 +1457,6 @@ items:
       href: integration/integration-start-here.yml
     - name: Guides
       items:
-      - name: Azure Logic Apps
-        items:
-        - name: Overview
-          href: /azure/logic-apps/logic-apps-overview
-          maintainContext: true
-        - name: Connectors overview
-          href: /azure/connectors/apis-list
-          maintainContext: true
-        - name: Access to virtual networks
-          href: /azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview
-          maintainContext: true
-        - name: Business disaster and recovery
-          href: /azure/logic-apps/business-continuity-disaster-recovery-guidance
-          maintainContext: true
-        - name: Azure Policy controls
-          href: /azure/logic-apps/security-controls-policy
-          maintainContext: true
-        - name: Security baseline
-          href: /security/benchmark/azure/baselines/logic-apps-security-baseline
-          maintainContext: true
-      - name: BizTalk Server to Azure Integration Services
-        items:
-        - name: Migration overview
-          href: /azure/logic-apps/biztalk-server-to-azure-integration-services-overview
-          maintainContext: true
-        - name: Which integration services to choose?
-          href: /azure/logic-apps/azure-integration-services-choose-capabilities
-          maintainContext: true
-        - name: Migration options and best practices
-          href: /azure/logic-apps/biztalk-server-azure-integration-services-migration-approaches
-          maintainContext: true
       - name: Event Hubs with Azure Functions
         items:
         - name: Overview
@@ -1504,8 +1475,6 @@ items:
         href: example-scenario/integration/app-gateway-internal-api-management-function.yml
       - name: Basic enterprise integration on Azure
         href: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
-      - name: Disaster recovery for data analytics pipelines
-        href: example-scenario/analytics/pipelines-disaster-recovery.yml
       - name: Enterprise integration - queues and events
         href: example-scenario/integration/queues-events.yml
       - name: Real-time monitoring and observable systems for media
