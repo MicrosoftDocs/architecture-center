@@ -135,4 +135,3 @@ Other contributors:
 - [Federated identity pattern](../../patterns/federated-identity.yml)
 - [Hybrid identity](../../solution-ideas/articles/hybrid-identity.yml)
 - [Identity architecture design](../../identity/identity-start-here.yml)
-- [Resilient identity and access management with Microsoft Entra ID](../../guide/resilience/resilience-overview.yml)

@@ -6773,6 +6773,11 @@
       "source_path": "docs/networking/guide/well-architected-network-address-translation-gateway.yml",
       "redirect_url": "/azure/nat-gateway",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/resilience/resilience-overview.yml",
+      "redirect_url": "/azure/architecture/identity/identity-start-here",
+      "redirect_document_id": false
     }
   ]
 }

@@ -1346,8 +1346,6 @@ items:
       - name: Compare identity services
         href: /azure/active-directory-domain-services/compare-identity-solutions
         maintainContext: true
-      - name: Build for resilience
-        href: guide/resilience/resilience-overview.yml
       - name: Conditional Access
         items:
         - name: Conditional Access for Zero trust

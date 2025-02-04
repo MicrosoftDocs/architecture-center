@@ -156,7 +156,6 @@ The following resources provide practical recommendations and information for sp
 [Move application authentication to Azure Active Directory]: /azure/active-directory/manage-apps/migrate-adfs-apps-to-azure?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [MS-500 part 1 - Implement and manage identity and access]: /training/paths/implement-manage-identity-access?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Multi-cloud security and identity with Azure and Amazon Web Services (AWS)]: ../aws-professional/security-identity.md
-[Resilient identity and access management with Azure AD]: ../guide/resilience/resilience-overview.yml
 [Resource organization]: /azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Resources for migrating applications to Azure Active Directory]: /azure/active-directory/manage-apps/migration-resources?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Review the application activity report]: /azure/active-directory/manage-apps/migrate-adfs-application-activity?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
