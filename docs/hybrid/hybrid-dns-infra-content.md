@@ -182,7 +182,6 @@ Explore related architectures:
 [9]: /azure/load-balancer/load-balancer-overview
 [10]: /azure/application-gateway/overview
 [11]: /azure/private-link/private-link-service-overview
-[12]: ../reference-architectures/identity/index.yml#integrate-your-on-premises-domains-with-azure-ad
 [13]: /azure/dns/dns-zones-records
 [14]: /azure/dns/private-dns-overview
 [15]: /azure/dns/private-dns-autoregistration

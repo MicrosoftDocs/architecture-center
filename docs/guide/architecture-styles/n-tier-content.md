@@ -109,7 +109,6 @@ Network security groups restrict access to each tier. For example, the database 
 [dmz]: ../../reference-architectures/dmz/secure-vnet-dmz.yml
 [ha-nva]: ../../networking/guide/nva-ha.yml
 [hybrid-network]: ../../reference-architectures/hybrid-networking/index.yml
-[identity]: ../../reference-architectures/identity/index.yml
 [multiregion-linux]: ../../databases/architecture/n-tier-cassandra.yml
 [n-tier-linux]: ../../databases/architecture/n-tier-cassandra.yml
 [sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server

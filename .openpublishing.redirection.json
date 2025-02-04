@@ -6778,6 +6778,11 @@
       "source_path": "docs/guide/resilience/resilience-overview.yml",
       "redirect_url": "/azure/architecture/identity/identity-start-here",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/identity/index.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/identity/azure-ad",
+      "redirect_document_id": false
     }
   ]
 }

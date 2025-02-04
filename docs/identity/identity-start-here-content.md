@@ -147,7 +147,6 @@ The following resources provide practical recommendations and information for sp
 [How Azure AD Delivers Cloud Governed Management for On-Premises Workloads]: /azure/active-directory/hybrid/cloud-governed-management-for-on-premises?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Identity management in multitenant applications]: ../multitenant-identity/index.yml
 [Implement Microsoft identity – Associate]: /training/paths/m365-identity-associate?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-[Integrate on-premises AD with Azure]: ../reference-architectures/identity/index.yml
 [Integrate on-premises AD domains with Azure AD]: ../reference-architectures/identity/azure-ad.yml
 [Introduction to Azure Active Directory Tenants]: /microsoft-365/education/deploy/intro-azure-active-directory?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Limit cross-tenant private endpoint connections in Azure]: /azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json

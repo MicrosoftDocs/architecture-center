@@ -1356,8 +1356,6 @@ items:
           href: guide/security/conditional-access-architecture.yml
         - name: Conditional Access framework
           href: guide/security/conditional-access-framework.md
-      - name: Integrate on-premises AD with Azure
-        href: reference-architectures/identity/index.yml
       - name: Deployment guidance
         items:
         - name: Microsoft Entra deployment checklist
