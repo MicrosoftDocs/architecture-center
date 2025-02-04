@@ -6773,6 +6773,11 @@
       "source_path": "docs/networking/guide/well-architected-network-address-translation-gateway.yml",
       "redirect_url": "/azure/nat-gateway",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/integration/logic-apps-data-integration.yml",
+      "redirect_url": "/data-integration/gateway/service-gateway-onprem",
+      "redirect_document_id": false
     }
   ]
 }

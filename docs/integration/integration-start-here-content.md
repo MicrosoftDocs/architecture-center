@@ -149,7 +149,6 @@ The following resources provide practical recommendations and information for sp
 [Custom business processes]: ../solution-ideas/articles/custom-business-processes.yml
 [Data analysis workloads for regulated industries]: /azure/architecture/example-scenario/data/data-warehouse
 [Data Factory ACOM page]: https://azure.microsoft.com/services/data-factory
-[Data integration with Logic Apps and SQL Server]: ../example-scenario/integration/logic-apps-data-integration.yml
 [Data integrations with Finance and Operations apps]: /training/modules/data-integrations-finance-operations
 [Design data integration]: /training/modules/design-data-integration
 [Designing interservice communication for microservices]: ../microservices/design/interservice-communication.yml
