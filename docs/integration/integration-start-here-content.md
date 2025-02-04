@@ -173,7 +173,6 @@ The following resources provide practical recommendations and information for sp
 [Monitor Azure Functions and Event Hubs]: ../serverless/event-hubs-functions/observability.yml
 [Patterns and implementations for a banking cloud transformation]: ../example-scenario/banking/patterns-and-implementations.yml
 [Performance and scale for Event Hubs and Azure Functions]: ../serverless/event-hubs-functions/performance-scale.yml
-[Publish internal APIs to external users]: ../example-scenario/apps/publish-internal-apis-externally.yml
 [Service Bus ACOM page]: https://azure.microsoft.com/services/service-bus
 [Transactional Outbox pattern with Azure Cosmos DB]: ../databases/guide/transactional-outbox-cosmos.yml
 [Web and mobile front ends]: ../solution-ideas/articles/front-end.yml

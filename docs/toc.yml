@@ -1508,8 +1508,6 @@ items:
         href: example-scenario/analytics/pipelines-disaster-recovery.yml
       - name: Enterprise integration - queues and events
         href: example-scenario/integration/queues-events.yml
-      - name: Publish internal APIs to external users
-        href: example-scenario/apps/publish-internal-apis-externally.yml
       - name: Real-time monitoring and observable systems for media
         href: example-scenario/monitoring/monitoring-observable-systems-media.yml
     - name: Solution ideas
