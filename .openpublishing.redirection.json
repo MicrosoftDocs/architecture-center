@@ -6788,6 +6788,11 @@
       "source_path": "docs/solution-ideas/articles/collaboration-microsoft-365.yml",
       "redirect_url": "/azure/azure-fluid-relay/overview/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/hybrid-identity.yml",
+      "redirect_url": "/entra/identity/hybrid/whatis-hybrid-identity",
+      "redirect_document_id": false
     }
   ]
 }

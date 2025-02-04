@@ -1439,10 +1439,6 @@ items:
         href: reference-architectures/identity/adfs.yml
       - name: On-premises AD domains with Microsoft Entra ID
         href: reference-architectures/identity/azure-ad.yml
-    - name: Solution ideas
-      items:
-      - name: Hybrid identity
-        href: solution-ideas/articles/hybrid-identity.yml
   - name: Integration
     items:
     - name: Get started
