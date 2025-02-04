@@ -6803,6 +6803,11 @@
       "source_path": "docs/solution-ideas/articles/lob.yml",
       "redirect_url": "/connectors/commondataserviceforapps/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/protect-backend-apis-azure-management.yml",
+      "redirect_url": "/azure/api-management/api-management-key-concepts",
+      "redirect_document_id": false
     }
   ]
 }

@@ -1510,10 +1510,6 @@ items:
         href: example-scenario/integration/queues-events.yml
       - name: Real-time monitoring and observable systems for media
         href: example-scenario/monitoring/monitoring-observable-systems-media.yml
-    - name: Solution ideas
-      items:
-      - name: Protect backend APIs in Azure
-        href: solution-ideas/articles/protect-backend-apis-azure-management.yml
   - name: Internet of Things
     items:
     - name: Guides
@@ -1810,8 +1806,6 @@ items:
         href: solution-ideas/articles/appconfig-key-vault.yml
       - name: Multilayered protection for Azure VMs
         href: solution-ideas/articles/multilayered-protection-azure-vm.yml
-      - name: Protect backend APIs
-        href: solution-ideas/articles/protect-backend-apis-azure-management.yml
       - name: Threat assessments
         items:
         - name: Map threats to your IT environment
