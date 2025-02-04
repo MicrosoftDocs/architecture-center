@@ -1512,8 +1512,6 @@ items:
         href: example-scenario/monitoring/monitoring-observable-systems-media.yml
     - name: Solution ideas
       items:
-      - name: Line of business extension
-        href: solution-ideas/articles/lob.yml
       - name: Protect backend APIs in Azure
         href: solution-ideas/articles/protect-backend-apis-azure-management.yml
   - name: Internet of Things

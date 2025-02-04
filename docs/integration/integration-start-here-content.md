@@ -164,7 +164,6 @@ The following resources provide practical recommendations and information for sp
 [Integrate IBM mainframe and midrange message queues with Azure]: ../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
 [Integration design for Dynamics 365 solutions]: /training/modules/integration
 [Integration Services]: https://azure.microsoft.com/product-categories/integration
-[Line of business extension]: ../solution-ideas/articles/lob.yml
 [Mainframe access to Azure databases]: ../solution-ideas/articles/mainframe-access-azure-databases.yml
 [Messaging services on Azure and AWS]: ../aws-professional/messaging.md
 [Migrate a web app using Azure APIM]: ../example-scenario/apps/apim-api-scenario.yml
