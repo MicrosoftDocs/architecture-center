@@ -1512,8 +1512,6 @@ items:
         href: example-scenario/monitoring/monitoring-observable-systems-media.yml
     - name: Solution ideas
       items:
-      - name: Elastic Enterprise Search on Azure
-        href: solution-ideas/articles/elastic-workplace-search.yml
       - name: Line of business extension
         href: solution-ideas/articles/lob.yml
       - name: Protect backend APIs in Azure

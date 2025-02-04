@@ -151,7 +151,6 @@ The following resources provide practical recommendations and information for sp
 [Data integrations with Finance and Operations apps]: /training/modules/data-integrations-finance-operations
 [Design data integration]: /training/modules/design-data-integration
 [Designing interservice communication for microservices]: ../microservices/design/interservice-communication.yml
-[Elastic Workplace Search on Azure]: ../solution-ideas/articles/elastic-workplace-search.yml
 [Enterprise business intelligence]: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
 [Event Grid ACOM page]: https://azure.microsoft.com/services/event-grid
 [Examine business integration for IoT solutions]: /training/modules/examine-business-integration-for-iot-solutions

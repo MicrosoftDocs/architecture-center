@@ -6793,6 +6793,11 @@
       "source_path": "docs/solution-ideas/articles/custom-business-processes.yml",
       "redirect_url": "/azure/architecture/integration/integration-start-here",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/elastic-workplace-search.yml",
+      "redirect_url": "/azure/search/search-what-is-azure-search",
+      "redirect_document_id": false
     }
   ]
 }
