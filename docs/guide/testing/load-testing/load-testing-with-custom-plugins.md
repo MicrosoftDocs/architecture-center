@@ -58,7 +58,7 @@ Azure Load Testing lets you take an existing Apache JMeter script, and use it to
 
 JMeter lets testers create and execute load tests, stress tests, and functional tests. It simulates multiple users simultaneously accessing a web application, enabling testers to identify potential performance bottlenecks or other issues that might arise under heavy loads. JMeter can be used to measure various performance metrics, such as response time, throughput, and error rate.
 
-JMeter uses a GUI-based interface to allow users to create test plans, which can include multiple test scenarios, each with different settings and configurations. Testers can also customize JMeter using plugins or by writing custom code, allowing them to extend its functionality beyond what comes out of the box. The plugins can help us to work with services that use non-HTTP protocols, such as AMQP and Websocket.
+JMeter uses a GUI-based interface to allow users to create test plans, which can include multiple test scenarios, each with different settings and configurations. Testers can also customize JMeter using plugins or by writing custom code, allowing them to extend its functionality beyond what comes out of the box. The plugins can help us to work with services that use non-HTTP protocols, such as AMQP and WebSocket.
 
 While JMeter provides a wide range of features and functions for load testing, there might be specific use cases or requirements that aren't covered by the built-in functionality. By developing custom plugins, testers can add new functionality or customize existing features to better suit their needs
 
@@ -70,7 +70,7 @@ In this example, we assume that there's a device that is reporting temperature a
 
 Using Azure Load Testing with custom plugins can be useful in various scenarios, such as:
 
-- Testing the performance of an application that uses non-HTTP protocols, such as AMQP and Websocket.
+- Testing the performance of an application that uses non-HTTP protocols, such as AMQP and WebSocket.
 - Testing the performance of an application that uses a custom protocol.
 - Testing the performance of an application that uses a non-Microsoft SDK.
 - Simulating a specific type of user or device behavior, or generating more realistic test data.

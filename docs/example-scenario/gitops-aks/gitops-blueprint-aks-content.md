@@ -28,7 +28,7 @@ The data flow for this scenario is:
 
 #### Alternatives for scenario 1
 
-- You can use Flux with other Git repositories such as Azure DevOps, GitLab, and BitBucket.
+- You can use Flux with other Git repositories such as Azure DevOps, GitLab, and Bitbucket.
 - Instead of Git repositories, [Flux Bucket API](https://fluxcd.io/flux/components/source/buckets) defines a source to produce an artifact for objects from storage solutions like Amazon S3 and Google Cloud Storage buckets. You can also use a solution that has an S3-compatible API. Two examples are Minio and Alibaba Cloud OSS, but there are others.
 - You can also configure Flux against an Azure Blob Storage container as a source to produce artifacts. For more information, see [GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-gitops-flux2).
 
