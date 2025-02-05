@@ -145,7 +145,7 @@ Import mode provides the fastest query response time, and should be considered w
 
 ![Screenshot of dashboard in Power BI.](./media/adventure-works-dashboard.png)
 
-[Power BI Premium](/power-bi/enterprise/service-premium-gen2-what-is) gives you the ability to handle large models, paginated reports, deployment pipelines, and built-in Analysis Services endpoint. You can also have dedicated [capacity](/power-bi/admin/service-premium-what-is#reserved-capacities) with unique value proposition.
+[Power BI Premium](/power-bi/enterprise/service-premium-gen2-what-is) gives you the ability to handle large models, paginated reports, deployment pipelines, and built-in Analysis Services endpoint. You can also have dedicated [capacity](/power-bi/admin/service-premium-what-is#capacities-and-skus) with unique value proposition.
 
 When the BI model grows or dashboard complexity increases, you can switch to composite models and start importing parts of look-up tables, via [hybrid tables](/power-bi/connect-data/service-dataset-modes-understand#hybrid-tables), and some preaggregated data. Enabling [query caching](/power-bi/connect-data/power-bi-query-caching) within Power BI for imported datasets and using [dual tables](/power-bi/transform-model/desktop-storage-mode) for the storage mode property are options.
 
@@ -180,7 +180,7 @@ Some common security questions include:
 - What are the tools that detect and notify me of threats?
   - Azure Synapse Analytics provides many [threat detection](/azure/synapse-analytics/guidance/security-white-paper-threat-protection) capabilities like: SQL auditing, SQL threat detection, and vulnerability assessment to audit, protect, and monitor databases.
 - What can I do to protect data in my storage account?
-  - Azure Storage accounts are ideal for workloads that require fast and consistent response times, or that have a high number of input/output operations (IOP) per second. Storage accounts contain all your Azure Storage data objects, and have many options for [storage account security](/azure/architecture/framework/services/storage/storage-accounts/security).
+  - Azure Storage accounts are ideal for workloads that require fast and consistent response times, or that have a high number of input/output operations (IOP) per second. Storage accounts contain all your Azure Storage data objects, and have many options for [storage account security](/azure/well-architected/service-guides/azure-blob-storage#security).
 
 ### Cost Optimization
 
@@ -271,7 +271,7 @@ Assume a linear scale, and determine how much you need to increase or decrease t
 - [Scale compute for an Azure Synapse Analytics SQL pool with the Azure portal](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal)
 - [Scale compute for a dedicated SQL pool with Azure PowerShell](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-powershell)
 - [Scale compute for a dedicated SQL pool in Azure Synapse Analytics using T-SQL](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-tsql)
-- [Pausing, monitoring, and automation](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview)
+- [Manage compute for a dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview)
 
 For scalability and performance optimization features of pipelines in Azure Synapse Analytics and the copy activity used, refer to the [Copy activity performance and scalability guide](/azure/data-factory/copy-activity-performance).
 
@@ -282,7 +282,7 @@ This article uses the [Power BI Premium F64 capacity](/power-bi/enterprise/servi
 To determine how much capacity you need:
 - [Evaluate the load](/fabric/enterprise/optimize-capacity) on your capacity.
 - Install the Fabric [capacity metrics app](/fabric/enterprise/metrics-app-install) for ongoing monitoring.
-- Consider using workload-related [capacity optimization techniques](/fabric/enterprise/optimize-capacity).
+- Consider using workload-related [capacity optimization techniques](/fabric/enterprise/optimize-capacity#compute-optimization-by-fabric-experience).
 
 ## Contributors
 
