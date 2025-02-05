@@ -41,6 +41,9 @@ They're are several ways to connect to an AKS private cluster. Planning access i
 > [!NOTE]
 > SSH, Remote Desktop Protocol (RDP), and Remote Desktop Services (RDS) are alternative protocols for remotely controlling jump boxes.
 
+> [!NOTE]
+> To access the AKS API server from on-premises, ensure that inbound HTTPS (TCP port 443) is open for secure communication and inbound DNS (UDP port 53) is allowed for resolving the server's FQDN.
+
 ## Azure Bastion
 
 Azure Bastion is a PaaS offering that enables secure RDP or SSH connections to a VM within your virtual network, without requiring a public IP address on the VM. When connecting to a private AKS cluster, you can use Azure Bastion to access a jump box in the hub virtual network, while the AKS cluster resides in a spoke network. A virtual network peering is used to connect the hub and spoke network. The jump box can resolve the AKS API server's FQDN using Azure Private Endpoint, a private DNS zone, and a DNS A record. This setup ensures that the API server's FQDN is only resolvable within the virtual network, providing a trusted connection to the private AKS cluster.
@@ -162,8 +165,6 @@ If you can't connect to your VM over SSH to manage your private cluster:
 > - Avoid using a public IP address to connect to resources in production environments. Public IPs should only be used in development or testing. In such cases, create an inbound network security group rule to allow traffic from your local machine's public IP. For more information about network security group rules, see [Create, change, or delete a network security group](/azure/virtual-network/manage-network-security-group).
 > - Refrain from using SSH to connect directly to AKS nodes or containers. Instead, use a dedicated external management solution. This is especially important when considering the use of `aks command invoke`, which creates a transient pod within your cluster for proxied access.
 
-> [!NOTE]
-> For more information about network security groups and AKS, see [Network security groups](https://learn.microsoft.com/en-us/azure/aks/concepts-network#network-security-groups).
 
 ## Conclusion
 
