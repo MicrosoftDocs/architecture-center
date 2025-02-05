@@ -2,7 +2,7 @@
 title: Azure Load Testing with custom plugins to simulate device behaviors
 description: Learn about designing KPIs and developing a dashboard for Azure Load Testing with custom JMeter plugins to simulate device behaviors.
 author: msetbar
-ms.author: msetayesh
+ms.author: msetayesh, ofimbres
 ms.date: 01/19/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
@@ -13,11 +13,13 @@ products:
 - load-testing
 ---
 
-# Azure Load Testing with custom plugins
+# Azure Load Testing with custom plugins for EventHub and IoT Hub
 
 [!INCLUDE [header_file](../../../../includes/sol-idea-header.md)]
 
-This solution provides guidance for how to use Azure Load Testing, a service that lets you run Apache JMeter scripts and custom plugins to simulate user and device behaviors. This solution also explains how to design Key Performance Indicators (KPIs) and develop a dashboard for monitoring and analyzing the results of the load test in a sample application with Azure Functions and Azure Event Hubs. The article assumes that you have some familiarity with JMeter, its plugins and custom plugins, as well as Azure Functions and Event Hubs.
+This solution provides guidance for how to use Azure Load Testing, a service that lets you run Apache JMeter scripts and custom plugins to simulate user and device behaviors. This solution also explains how to design Key Performance Indicators (KPIs) and develop a dashboard for monitoring and analyzing the results of the load test in a sample application with Azure Functions and Azure Event Hubs. While this example uses Azure Event Hubs, the same approach can be applied to Azure IoT Hub by changing the EventHub client to the IoT client. The article assumes that you have some familiarity with JMeter, its plugins and custom plugins, as well as Azure Functions and Event Hubs.
+
+Azure IoT hubs contain many core components from Azure Event Hubs, including partitions. This means that the load testing approach described here is also applicable to IoT Hub with minimal changes.
 
 ## Architecture
 
@@ -45,6 +47,8 @@ In this example, the following components are used:
 - **[Azure Load Testing](/azure/load-testing/overview-what-is-azure-load-testing)**: Azure Load Testing lets you run Apache JMeter scripts and custom plugins to simulate user and device behaviors. It provides a web-based interface for managing and running load tests and a set of APIs that can be used to automate the process. Azure Load Testing is a fully managed service, which means that you don't need to worry about managing servers or infrastructure. In this architecture, it is where you upload your JMeter scripts and custom plugins and is the compute where those scripts run.
 
 - **[Azure Event Hubs](/azure/event-hubs/event-hubs-about)**: Azure Event Hubs is a cloud-based event processing service that can be used to collect, process, and analyze events and streaming data from various sources in real-time. Event Hubs supports multiple protocols, including AMQP (Advanced Message Queuing Protocol), HTTPS, Kafka Protocol, MQTT (Message Queuing Telemetry Transport), and AMQP over WebSockets. This architecture is event based, so Azure Load Testing is populating events to load test the workload.
+
+- **[Azure IoT Hub](/azure/iot/iot-introduction)**: Azure IoT Hub is a managed service hosted in the cloud that acts as a central message hub for communication between an IoT application and its attached devices. You can connect millions of devices and their backend solutions reliably and securely. Almost any device can be connected to an IoT hub. This architecture can be adapted to use IoT Hub by changing the EventHub client to the IoT client.
 
 - **[Azure Functions](/azure/azure-functions/functions-overview)**: Azure Functions is a serverless compute service that lets you run code without having to manage servers or infrastructure. It supports multiple programming languages, including C#, F#, Java, JavaScript, PowerShell, Python, and TypeScript. This architecture uses Azure Functions as the primary compute tier. Azure functions trigger and are scaled out by event data in Azure Event Hubs.
 
@@ -245,6 +249,7 @@ For more information, see [Azure Load Testing](/azure/load-testing/).
 Principal author:
 
 - [Mahdi Setayesh](https://www.linkedin.com/in/mahdi-setayesh-a03aa644/) | Principal Software Engineer
+- [Oscar Fimbres](https://www.linkedin.com/in/ofimbres) | Senior Software Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
