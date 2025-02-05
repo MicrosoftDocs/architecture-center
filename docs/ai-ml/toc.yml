@@ -16,8 +16,6 @@ items:
         items:
         - name: Video ingestion and object detection on the edge
           href: idea/video-ingestion-object-detection-edge-cloud.yml
-        - name: Computer vision at the edge
-          href: ../reference-architectures/ai/end-to-end-smart-factory.yml
       - name: Document enrichment
         items:
         - name: Use AI enrichment with Azure AI Search
@@ -106,8 +104,8 @@ items:
           href: guide/rag/rag-information-retrieval.md
         - name: LLM end-to-end evaluation phase
           href: guide/rag/rag-llm-evaluation-phase.md
-      - name: Designing secure multitenant RAG inferencing solutions
-        href: guide/secure-multitenant-rag.yml
+      - name: Design a secure multitenant RAG inferencing solution
+        href: guide/secure-multitenant-rag.md
       - name: MLOps
         items:
         - name: Machine learning operations (MLOps) v2
@@ -160,8 +158,8 @@ items:
             href: guide/rag/rag-information-retrieval.md
           - name: LLM end-to-end evaluation phase
             href: guide/rag/rag-llm-evaluation-phase.md
-        - name: Designing secure multitenant RAG inferencing solutions
-          href: guide/secure-multitenant-rag.yml
+        - name: Design a secure multitenant RAG inferencing solution
+          href: guide/secure-multitenant-rag.md
         - name: Proxy Azure OpenAI usage
           items:
           - name: Use a gateway in front of Azure OpenAI

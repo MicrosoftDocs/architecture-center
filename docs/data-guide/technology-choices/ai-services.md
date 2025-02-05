@@ -49,5 +49,5 @@ Azure offers a number of AI services that can be grouped into categories based o
 
 ## Related resources
 
-- [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)
+- [Video ingestion and object detection on the edge and in the cloud](../../ai-ml/idea/video-ingestion-object-detection-edge-cloud.yml)
 - [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)

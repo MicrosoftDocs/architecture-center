@@ -2124,6 +2124,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/reference-architectures/ai/end-to-end-smart-factory.md",
+      "redirect_url": "/azure/architecture/ai-ml/idea/video-ingestion-object-detection-edge-cloud",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/ai/movie-recommendations.md",
       "redirect_url": "/azure/architecture/example-scenario/ai/movie-recommendations",
       "redirect_document_id": false
@@ -6752,6 +6757,96 @@
     {
       "source_path": "docs/example-scenario/devops/automate-sentinel-integration.yml",
       "redirect_url": "/azure/sentinel/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/mobile/mobile-start-here.md",
+      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.yml",
+      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml",
+      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml",
+      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/networking/idea/low-latency-network.yml",
+      "redirect_url": "/azure/private-5g-core/private-5g-core-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/networking/guide/network-level-segmentation.yml",
+      "redirect_url": "/azure/virtual-network/network-security-groups-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/networking/guide/well-architected-network-address-translation-gateway.yml",
+      "redirect_url": "/azure/nat-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/integration/logic-apps-data-integration.yml",
+      "redirect_url": "/data-integration/gateway/service-gateway-onprem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/power-automate/power-automate.yml",
+      "redirect_url": "/power-platform/guidance/coe/starter-kit",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/apps/publish-internal-apis-externally.yml",
+      "redirect_url": "/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/custom-business-processes.yml",
+      "redirect_url": "/azure/architecture/integration/integration-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/elastic-workplace-search.yml",
+      "redirect_url": "/azure/search/search-what-is-azure-search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/lob.yml",
+      "redirect_url": "/connectors/commondataserviceforapps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/protect-backend-apis-azure-management.yml",
+      "redirect_url": "/azure/api-management/api-management-key-concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/resilience/resilience-overview.yml",
+      "redirect_url": "/azure/architecture/identity/identity-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/identity/index.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/identity/azure-ad",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/collaboration-microsoft-365.yml",
+      "redirect_url": "/azure/azure-fluid-relay/overview/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/hybrid-identity.yml",
+      "redirect_url": "/entra/identity/hybrid/whatis-hybrid-identity",
       "redirect_document_id": false
     }
   ]

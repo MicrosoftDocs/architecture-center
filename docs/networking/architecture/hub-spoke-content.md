@@ -346,5 +346,4 @@ Explore the following related architectures:
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
 - [Troubleshoot a hybrid VPN connection](../../reference-architectures/hybrid-networking/troubleshoot-vpn.yml)
 - [Spoke-to-spoke networking](../../networking/spoke-to-spoke-networking.yml)
-- [Secure and govern workloads with network level segmentation](../guide/network-level-segmentation.yml)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
