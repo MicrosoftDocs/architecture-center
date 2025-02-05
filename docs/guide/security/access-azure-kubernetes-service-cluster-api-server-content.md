@@ -163,7 +163,7 @@ If you can't connect to your VM over SSH to manage your private cluster:
 > - Refrain from using SSH to connect directly to AKS nodes or containers. Instead, use a dedicated external management solution. This is especially important when considering the use of `aks command invoke`, which creates a transient pod within your cluster for proxied access.
 
 > [!NOTE]
-> For more information about networking security groups and AKS, please see [Network security groups](azure/aks/concepts-network#network-security-groups).
+> For more information about networking security groups and AKS, please see [Network security groups](https://learn.microsoft.com/en-us/azure/aks/concepts-network#network-security-groups).
 
 ## Conclusion
 
