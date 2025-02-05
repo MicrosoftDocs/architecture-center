@@ -1,14 +1,14 @@
 This example scenario shows how data can be ingested into a cloud environment from an on-premises data warehouse, then served using a business intelligence (BI) model. This approach could be an end goal or a first step toward full modernization with cloud-based components.
 
-The following steps build on the [Azure Synapse Analytics end-to-end][e2e-analytics] scenario. This process uses Azure Synapse Analytics pipelines to ingest data from a SQL database into SQL pools. Then it performs data transformation for analysis. This article focuses on Azure Synapse Analytics pipelines, but you can also use Azure Data Factory pipelines or Microsoft Fabric Data Factory pipelines to perform these tasks.
+The following steps build on the [Azure Synapse Analytics end-to-end][e2e-analytics] scenario. This process uses Azure Synapse Analytics pipelines to ingest data from a SQL database into SQL pools. Then it performs data transformation for analysis. This article focuses on Azure Synapse Analytics pipelines, but you can also use Azure Data Factory pipelines or Fabric Data Factory pipelines to perform these tasks.
 
 ## When to use this architecture
 
-There are many ways to deliver the business requirements that are associated with enterprise BI. Business requirements are defined by aspects, such as current technology investment, human skills, time horizon for modernization, future vision, and a preference for platform as a service (PaaS) or software as a service (SaaS). 
+You can use several methods to deliver business requirements that are associated with enterprise BI. Business requirements are defined by aspects, such as current technology investment, human skills, time horizon for modernization, future vision, and a preference for platform as a service (PaaS) or software as a service (SaaS). 
 
 Consider the following design approaches:
 
-- [A lakehouse in Fabric](/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
+- [A lakehouse in Microsoft Fabric](/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
 - [Fabric and Azure Databricks](/azure/architecture/solution-ideas/articles/small-medium-modern-data-platform) for customers that have existing investment in Azure Databricks and Power BI and want to modernize with Fabric 
 - Enterprise BI for small and medium businesses that use an [Azure SQL ecosystem and Fabric](/azure/architecture/example-scenario/data/small-medium-data-warehouse)
 - Data warehousing completely on Fabric for customers that prefer SaaS
@@ -16,8 +16,6 @@ Consider the following design approaches:
 The architecture in this article assumes that you selected Azure Synapse Analytics data warehouse as the persistent layer of the enterprise semantic model and selected Power BI for business intelligence. This PaaS approach has the flexibility to accommodate various business requirements and preferences.
 
 ## Architecture
-
-:::image type="content" source="./media/enterprise-bi-scoped-architecture.svg" lightbox="./media/enterprise-bi-scoped-architecture.svg" alt-text="Diagram that shows the enterprise BI architecture with Azure Synapse Analytics." border="false":::
 
 :::image type="complex" source="./media/enterprise-bi-scoped-architecture.svg" border="false" lightbox="./media/enterprise-bi-scoped-architecture.svg" alt-text="Diagram that shows the enterprise BI architecture with Azure Synapse Analytics.":::
 The diagram shows types of input, like data streams, databases, data services, unstructured data, and structured data. Components in the Ingest phase receive the data input. The Ingest phase components are Azure Event Hubs, Azure IoT Hub, Azure Synapse Analytics, and pipelines. Azure Synapse Analytics is also in the Store phase and the Process phase. The next step in the dataflow is the Store phase, which contains Azure Data Lake Storage. Then the data goes to the Process phase, which contains Azure Stream Analytics, Azure Data Explorer pools, Apache Spark pools, and serverless and dedicated SQL pools. Some of the machine learning model data goes to the Enrich phase, which contains Azure Cognitive Services and Azure Machine Learning. The other data goes to the Serve phase, which contains Power BI premium, Azure Cosmos DB, Azure AI Search, and Azure Data Share. The data outputs to business users, analytics, appliations, and shared datasets.
