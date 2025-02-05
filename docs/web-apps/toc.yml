@@ -75,7 +75,7 @@ items:
         items:
         - name: Multi-region App Service apps for disaster recovery
           href: guides/multi-region-app-service/multi-region-app-service.yml
-    - name: Hosting Wordpress on Azure
+    - name: Hosting WordPress on Azure
       items:
       - name: Overview
         href: ../guide/infrastructure/wordpress-overview.yml
