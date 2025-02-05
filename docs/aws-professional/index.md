@@ -1,9 +1,9 @@
 ---
-title: Azure for AWS professionals
-description: Learn the basics of Microsoft Azure accounts, platform, and services, and key similarities and differences between the AWS and Azure platforms.
+title: Azure for AWS Professionals
+description: Learn about the basics of the Microsoft Azure platform, accounts, and services and key similarities and differences between the AWS and Azure platforms.
 author: scaryghosts
 ms.author: adamcerini
-ms.date: 1/23/2025
+ms.date: 02/05/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -23,29 +23,29 @@ products:
 
 # Azure for AWS professionals
 
-This series of articles helps Amazon Web Services (AWS) experts understand the basics of Microsoft Azure accounts, platform, and services. These articles also cover key similarities and differences between AWS and Azure. Whether you are planning a multicloud solution with Azure and AWS or migrating to Azure, you can compare the capabilities of Azure and AWS services in all categories.
+This article introduces a series of articles that help Amazon Web Services (AWS) experts understand the basics of the Microsoft Azure platform, accounts, and services. This article also describes key similarities and differences between AWS and Azure. Whether you're designing a multicloud solution that uses Azure and AWS or migrating to Azure, you can compare the capabilities of Azure and AWS services in all categories.
 
-These articles describe:
+The articles in this series describe:
 
-- How to think about Azure capabilities coming from an AWS background.
+- How to think about Azure capabilities from an AWS perspective.
 - How Azure organizes accounts and resources.
-- How the major Azure services differ from AWS services or how they are similar.
+- How core Azure services differ from AWS services and how they're similar.
 
 Use the table of contents to select specific technology areas that are relevant to your workload. These articles compare services that are roughly comparable. Not every AWS service or Azure service is listed, and not every matched service has exact feature-for-feature parity.
 
 ## Similarities and differences
 
-Like AWS, Azure builds on a core set of AI, compute, storage, database, and networking services. In many cases, the platforms offer similar products and services. For example, both AWS and Azure can use Linux distributions and open-source software technologies. Both platforms support building highly available solutions on Windows or Linux hosts.
+AWS and Azure build on a core set of AI, compute, storage, database, and networking services. In many cases, the platforms offer similar products and services. For example, both AWS and Azure can use Linux distributions and open-source software technologies. Both platforms support building highly available solutions on Windows or Linux hosts.
 
-While the capabilities of both platforms are similar, the resources that provide those capabilities are often organized differently. Azure and AWS built their capabilities independently over time, so the platforms have important implementation and design differences. For instance, AWS relies heavily on AWS accounts to serve as a logical boundary for things like applying permissions or tracking spend. Azure has subscriptions which are similar to AWS accounts, it also and resource groups are used to logically group and manage resources at a more granular level.
+The capabilities of both platforms are similar, but the resources that provide those capabilities are often organized differently. Azure and AWS built their capabilities independently over time, so the platforms have important implementation and design differences. For instance, AWS relies heavily on its accounts to serve as a logical boundary for tasks like applying permissions or tracking spend. Azure uses subscriptions, which are similar to AWS accounts. Azure also uses resource groups to logically group and manage resources at a more granular level.
 
-Exact one-to-one correspondences between the services that you need to build a solution aren't always clear. Sometimes, only one of the platforms offers a particular service. 
+The services that each platform provide don't always clearly correspond. Sometimes, only one of the platforms provides a particular service. 
 
 ## Primary topics
 
-Use the following pages to learn about Azure technologies and how they map to technologies you are already familiar with in Amazon Web Services (AWS). These articles go into a bit more details on how Azure works in these specific areas
+Read the following articles to learn about Azure services and how they map to the services that you're already familiar with in AWS. These articles go into more detail about how Azure works in these specific areas:
 
-- [Azure and AWS accounts and subscriptions](./accounts.md)
+- [Accounts and subscriptions on Azure and AWS](./accounts.md)
 - [Compute services on Azure and AWS](./compute.md)
 - [Data and AI](./data-ai.md)
 - [Relational database technologies on Azure and AWS](./databases.md)
@@ -54,53 +54,51 @@ Use the following pages to learn about Azure technologies and how they map to te
 - [Regions and zones on Azure and AWS](./regions-zones.md)
 - [Resource management on Azure and AWS](./resources.md)
 - [Multicloud security and identity with Azure and AWS](./security-identity.md)
-- [Compare storage on Azure and AWS](./storage.md)
+- [Storage on Azure and AWS](./storage.md)
 
-## Additional categories
+## Additional services
 
-There are some services not covered in the prior articles. Those services are mapped here from their AWS service to their matching Azure service.
+The preceding list of articles doesn't include all services. The following tables describe some of those services and map each AWS service to its corresponding Azure service.
 
 ### Marketplace
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [AWS Marketplace](https://aws.amazon.com/marketplace) | [Azure Marketplace](https://azure.microsoft.com/marketplace) | Easy-to-deploy and automatically configured third-party applications, including single virtual machine or multiple virtual machine solutions. Both marketplaces also offer the ability purchase SaaS products. Many of these offers are eligible to count toward your consumption commitment. To understand which offers count toward your commitment, see [Azure consumption commitment benefit](/marketplace/azure-consumption-commitment-benefit#determine-which-offers-are-eligible-for-azure-consumption-commitments-maccctc). |
-
+| [AWS Marketplace](https://aws.amazon.com/marketplace) | [Azure Marketplace](https://azure.microsoft.com/marketplace) | Easy-to-deploy and automatically configured partner applications, including single virtual machine (VM) or multiple VM solutions. You can purchase software as a service (SaaS) products from both marketplaces. Many of these offers are eligible to count toward your consumption commitment. To understand which offers count toward your commitment, see [Azure consumption commitment benefit](/marketplace/azure-consumption-commitment-benefit#determine-which-offers-are-eligible-for-azure-consumption-commitments-maccctc). |
 
 ### Time series databases and analytics
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Amazon Timestream](https://aws.amazon.com/timestream) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series. |
-
+| [Amazon Timestream](https://aws.amazon.com/timestream) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data.|
 
 ### DevOps and application monitoring
 
 | AWS service | Azure service | Description |
 |-------------|---------------|-------------|
-| [CloudWatch](https://aws.amazon.com/cloudwatch), [X-Ray](https://aws.amazon.com/xray/) | [Azure Monitor](https://azure.microsoft.com/services/monitor) | Comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It offers the ability to instrument your code for deeper application performance monitoring with a feature called [Application Insights](/azure/azure-monitor/app/app-insights-overview). In AWS, you typically use both X-Ray and CloudWatch. |
-| [CodeDeploy](https://aws.amazon.com/codedeploy) <br/><br/>[CodeCommit (deprecated)](https://aws.amazon.com/codecommit/) <br/><br/>[CodePipeline](https://aws.amazon.com/codepipeline) <br/><br/> [CodeConnections](https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html) <br/><br/>[CodeBuild](https://aws.amazon.com/codebuild)  | [Azure DevOps](https://azure.microsoft.com/services/devops/)<br/><br/> [GitHub](https://github.com) <br/><br/> [GitHub Actions](https://github.com/features/actions) | Azure DevOps is a single solution focused on collaboration, CI/CD, code testing, code artifacts, security testing, and code management. GitHub is a cloud based platform to showcase, collaborate and manage code. GitHub Actions allows you to automate software development workflows. Many of these functions are supported across the AWS code family of products. AWS no longer offers new customers a code repository, but it does allow integration with 3rd party repositories via CodeConnections.|
-| [AWS CLI](https://aws.amazon.com/cli) <br/><br/>[AWS Tools for PowerShell](https://aws.amazon.com/powershell/) <br/><br/>[AWS SDKs](https://aws.amazon.com/developer/tools/)| [Azure CLI](/cli/azure/install-azure-cli) <br/><br/>[PowerShell](/powershell/azure/overview) <br/><br/>[Azure SDKs](https://azure.github.io/azure-sdk/) | Built on top of the native REST API across all cloud services, various programming language-specific wrappers provide easier ways to create solutions. |
+| [CloudWatch](https://aws.amazon.com/cloudwatch) and [X-Ray](https://aws.amazon.com/xray/) | [Azure Monitor](https://azure.microsoft.com/services/monitor) | Comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Use these services to instrument your code for more in-depth application performance monitoring. Monitor application performance by using [Application Insights](/azure/azure-monitor/app/app-insights-overview). In AWS, you typically use both X-Ray and CloudWatch. |
+| [CodeDeploy](https://aws.amazon.com/codedeploy) <br/><br/>[CodeCommit (deprecated)](https://aws.amazon.com/codecommit/) <br/><br/>[CodePipeline](https://aws.amazon.com/codepipeline) <br/><br/> [CodeConnections](https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html) <br/><br/>[CodeBuild](https://aws.amazon.com/codebuild)  | [Azure DevOps](https://azure.microsoft.com/services/devops/)<br/><br/> [GitHub](https://github.com) <br/><br/> [GitHub Actions](https://github.com/features/actions) | Azure DevOps is a single solution that focuses on collaboration, continuous integration and continuous delivery (CI/CD), code testing, code artifacts, security testing, and code management. GitHub is a cloud-based platform that you can use to showcase, collaborate on, and manage code. Use GitHub Actions to automate software development workflows. AWS code products support many of these functions. AWS no longer offers a code repository to new customers, but it does allow integration with partner repositories via CodeConnections.|
+| [AWS CLI](https://aws.amazon.com/cli) <br/><br/>[AWS Tools for PowerShell](https://aws.amazon.com/powershell/) <br/><br/>[AWS SDKs](https://aws.amazon.com/developer/tools/)| [Azure CLI](/cli/azure/install-azure-cli) <br/><br/>[Azure PowerShell](/powershell/azure/overview) <br/><br/>[Azure SDKs](https://azure.github.io/azure-sdk/) | Built on top of the native REST API across all cloud services. Various programming language-specific wrappers provide easier ways to create solutions. |
 | [AWS CloudShell](https://aws.amazon.com/cloudshell) | [Azure Cloud Shell](/azure/cloud-shell/overview) | Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources. It gives you the flexibility to choose the shell experience that best suits the way you work, either Bash or PowerShell. |
 | [AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/) | [Azure Automation](https://azure.microsoft.com/services/automation) | Configures and operates applications of all shapes and sizes. It provides templates to create and manage a collection of resources. |
-| [CloudFormation](https://aws.amazon.com/cloudformation) <br/><br/>[Cloud Development Kit](https://aws.amazon.com/cdk) | [Resource Manager](https://azure.microsoft.com/features/resource-manager) <br/><br/>[Bicep](/azure/azure-resource-manager/bicep/overview) <br/><br/>[VM extensions](/azure/virtual-machines/extensions/features-windows) <br/><br/>[Azure Automation](https://azure.microsoft.com/services/automation)  <br/><br/> [Azure Developer CLI](/azure/developer/azure-developer-cli/) | Provides ways for developers and cloud admins to build and deploy repeatable cloud environments using declarative syntax or common programming languages to define infrastructure as code. |
+| [CloudFormation](https://aws.amazon.com/cloudformation) <br/><br/>[Cloud Development Kit](https://aws.amazon.com/cdk) | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager) <br/><br/>[Bicep](/azure/azure-resource-manager/bicep/overview) <br/><br/>[VM extensions](/azure/virtual-machines/extensions/features-windows) <br/><br/>[Automation](https://azure.microsoft.com/services/automation)  <br/><br/> [Azure Developer CLI](/azure/developer/azure-developer-cli/) | Provides ways for developers and cloud admins to build and deploy repeatable cloud environments by using declarative syntax or common programming languages to define infrastructure as code. |
 
 ### Internet of Things (IoT)
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [IoT Core](https://aws.amazon.com/iot-core) | [IoT Hub](https://azure.microsoft.com/services/iot-hub) | A cloud gateway for managing bidirectional communication with billions of IoT devices, securely and at scale. |
-| [Greengrass](https://aws.amazon.com/greengrass) | [IoT Edge](https://azure.microsoft.com/services/iot-edge) | Deploy cloud intelligence directly onto IoT devices, catering to on-premises scenarios. |
-| [Kinesis Firehose](https://aws.amazon.com/kinesis/data-firehose), [Kinesis Streams](https://aws.amazon.com/kinesis/data-streams) | [Event Hubs](https://azure.microsoft.com/services/event-hubs) <br/><br/>[Azure Stream Analytics](https://azure.microsoft.com/products/stream-analytics) | Services that facilitate the mass ingestion of events (messages), typically from devices and sensors. The data can then be processed in real-time micro-batches or be written to storage for further analysis. Both Kinesis Streaming and Azure Stream Analytics have real-time data processing capabilities.|
-| [IoT Things Graph](https://aws.amazon.com/iot-things-graph) | [Digital Twins](https://azure.microsoft.com/services/digital-twins) | Services you can use to create digital representations of real-world things, places, business processes, and people. Use these services to gain insights, drive the creation of better products and new customer experiences, and optimize operations and costs. |
-| [IoT Device Management](https://aws.amazon.com/iot-device-management/)<br/><br/>[IoT Fleetwise](https://aws.amazon.com/iot-fleetwise/) | [Azure IoT Central](https://azure.microsoft.com/products/iot-central/) | Services used for connecting and managing IoT devices at scale. Azure IoT Central is for general use cases and vehicle-based use cases. AWS offers IoT Fleetwise specifically for vehicles.  |
+| [IoT Core](https://aws.amazon.com/iot-core) | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) | A cloud gateway for managing bidirectional communication securely and at scale with billions of IoT devices. |
+| [IoT Greengrass](https://aws.amazon.com/greengrass) | [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) | Deploy cloud intelligence directly onto IoT devices and cater to on-premises scenarios. |
+| [Amazon Data Firehose](https://aws.amazon.com/firehose/) and [Kinesis Data Streams](https://aws.amazon.com/kinesis/data-streams) | [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) <br/><br/>[Azure Stream Analytics](https://azure.microsoft.com/products/stream-analytics) | Services that facilitate the mass ingestion of events or messages, typically from devices and sensors. The data can then be processed in real-time microbatches or be written to storage for further analysis. Both Kinesis Data Streams and Stream Analytics have real-time data processing capabilities.|
+| [IoT TwinMaker](https://aws.amazon.com/iot-twinmaker/) | [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins) | Services that you can use to create digital representations of real-world things, places, business processes, and people. Use these services to gain insights, drive the creation of better products and new customer experiences, and optimize operations and costs. |
+| [IoT Device Management](https://aws.amazon.com/iot-device-management/)<br/><br/>[IoT FleetWise](https://aws.amazon.com/iot-fleetwise/) | [Azure IoT Central](https://azure.microsoft.com/products/iot-central/) | Services used for connecting and managing IoT devices at scale. Use Azure IoT Central for general use cases and vehicle-based use cases. AWS offers IoT FleetWise specifically for vehicles.  |
 | [IoT ExpressLink](https://aws.amazon.com/iot-expresslink/) | [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) | Device modules and software to build custom internet-connected devices. |
 
 ### Management and governance
 
 | AWS service | Azure service | Description |
 |-------------|---------------|-------------|
-| [AWS Organizations](https://aws.amazon.com/organizations) | [Management Groups](/azure/governance/management-groups)| Azure management groups help you organize your resources and subscriptions.|
+| [AWS Organizations](https://aws.amazon.com/organizations) | [Azure management groups](/azure/governance/management-groups)| Azure management groups help you organize your resources and subscriptions.|
 | [AWS Well-Architected Tool](https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html)| [Azure Well-Architected Review](/assessments/?mode=pre-assessment)| Examine your workload through the lenses of reliability, cost management, operational excellence, security, and performance efficiency. |
 | [Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor) | [Azure Advisor](https://azure.microsoft.com/services/advisor) | Provides analysis of cloud resource configuration and security, so that subscribers can ensure they're making use of best practices and optimum configurations. |
 | [AWS Billing and Cost Management](https://docs.aws.amazon.com/account-billing/index.html) | [Microsoft Cost Management](/azure/cost-management-billing) | Microsoft Cost Management helps you understand your Azure invoice (bill), manage your billing account and subscriptions, monitor and control Azure spending, and optimize resource use. |
@@ -109,7 +107,7 @@ There are some services not covered in the prior articles. Those services are ma
 | [Application Discovery Service](https://aws.amazon.com/application-discovery) | [Migrate](https://azure.microsoft.com/services/azure-migrate) | Assesses on-premises workloads for migration to Azure, performs performance-based sizing, and provides cost estimations. |
 | [Systems Manager](https://aws.amazon.com/systems-manager) | [Monitor](https://azure.microsoft.com/services/monitor) | Comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. |
 | [Personal Health Dashboard](https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard) | [Resource Health](/azure/resource-health/resource-health-overview) | Provides detailed information about the health of resources, as well as recommended actions for maintaining resource health. |
-| [CloudTrail](https://aws.amazon.com/cloudtrail) | [Activity log](/azure/azure-monitor/essentials/activity-log) | The Activity log is a platform log in Azure that provides insight into subscription-level events, such as when a resource is modified or when a virtual machine is started. |
+| [CloudTrail](https://aws.amazon.com/cloudtrail) | [Activity log](/azure/azure-monitor/essentials/activity-log) | The Activity log is a platform log in Azure that provides insight into subscription-level events, such as when a resource is modified or when a VM is started. |
 | [Config](https://aws.amazon.com/config) | [Azure Policy](/azure/governance/policy/overview)<br/><br/>[Application Change Analysis](/azure/azure-monitor/app/change-analysis) | Azure Policy helps implement governance for resource consistency, regulatory compliance, security, cost, and management. It allows for bulk remediation for existing resources and automatic remediation for new resources. AWS config is typically used to either monitor for configuration changes or to identify and remediate non-compliant resources.  |
 | [Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer) | [Cost Management](https://azure.microsoft.com/services/cost-management) | Perform cost analysis and optimize cloud costs. |
 | [Control Tower](https://aws.amazon.com/controltower) | [Azure Lighthouse](/azure/lighthouse/overview) | Set up and govern a multi account/subscription environment. |
