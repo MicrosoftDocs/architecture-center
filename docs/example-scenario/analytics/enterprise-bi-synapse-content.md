@@ -282,7 +282,7 @@ For scalability and performance optimization features of pipelines in Azure Syna
 This article uses the [Power BI Premium F64 capacity](/power-bi/enterprise/service-premium-what-is#capacities-and-skus) to demonstrate BI capabilities. Dedicated Power BI capacities in Fabric range from F64 (8 vCores) to F1024 (128 vCores).
 
 To determine how much capacity you need:
-- undergo [capacity loading evaluation](/power-bi/enterprise/service-premium-concepts)
+- [Evaluate the load](/fabric/enterprise/optimize-capacity) on your capacity.
 - Install the Fabric [capacity metrics app](/fabric/enterprise/metrics-app-install) for ongoing monitoring.
 - Consider using workload-related [capacity optimization techniques](/fabric/enterprise/optimize-capacity).
 
