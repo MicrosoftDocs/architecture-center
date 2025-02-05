@@ -6773,6 +6773,26 @@
       "source_path": "docs/networking/guide/well-architected-network-address-translation-gateway.yml",
       "redirect_url": "/azure/nat-gateway",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/resilience/resilience-overview.yml",
+      "redirect_url": "/azure/architecture/identity/identity-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/identity/index.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/identity/azure-ad",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/collaboration-microsoft-365.yml",
+      "redirect_url": "/azure/azure-fluid-relay/overview/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/hybrid-identity.yml",
+      "redirect_url": "/entra/identity/hybrid/whatis-hybrid-identity",
+      "redirect_document_id": false
     }
   ]
 }
