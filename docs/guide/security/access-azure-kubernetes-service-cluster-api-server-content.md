@@ -27,7 +27,7 @@ Cloud Shell is a shell built into the Azure portal. You can manage and connect t
 
 ## Access AKS private cluster
 
-There are several ways to connect to an AKS private cluster. Planning access is a day-zero activity based on your scenario's needs and limitations. You can connect to your private cluster using the following components and services:
+They're are several ways to connect to an AKS private cluster. Planning access is a day-zero activity based on your scenario's needs and limitations. You can connect to your private cluster using the following components and services:
 
 - Jump box deployed into a subnet as your operations workstation. This can be [stand-alone, persistent virtual machines (VMs)](/azure/virtual-machines/managed-disks-overview) in an [availability set](/azure/virtual-machines/availability-set-overview). You can also use [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
 - [Azure Bastion](/azure/bastion/bastion-overview).
@@ -137,7 +137,7 @@ ExpressRoute provides connectivity to your AKS private cluster from an on-premis
 
 ## Run aks command invoke
 
-With an AKS private cluster, you can connect from a VM that has access to the API server. Using the Azure CLI `aks command invoke`, you can run commands like `kubectl` or `helm` remotely via the Azure API. This creates a transient pod in the cluster, which lasts only for the duration of the command. aks command invoke serves as an alternative connection method if you lack a VPN, ExpressRoute, or peered virtual network. Ensure your cluster and node pool have sufficient resources to create the transient pod.
+With an AKS private cluster, you can connect from a VM that has access to the API server. Using the Azure CLI `aks command invoke`, you can run commands like `kubectl` or `helm` remotely via the Azure API. This creates a transient pod in the cluster, which lasts only for the duration of the command. The `aks command invoke` serves as an alternative connection method if you lack a VPN, ExpressRoute, or peered virtual network. Ensure your cluster and node pool have sufficient resources to create the transient pod.
 
 For more information, see [Use command invoke to access a private Azure Kubernetes Service (AKS) cluster](/azure/aks/command-invoke#limitations).
 
