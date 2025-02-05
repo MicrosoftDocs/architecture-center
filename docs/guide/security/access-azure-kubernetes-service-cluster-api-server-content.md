@@ -4,7 +4,7 @@ Planning API server access is a day-zero activity, and your access method depend
 
 ## AKS API server access
 
-To manage an AKS cluster, you interact with its API server. It’s essential to restrict API server access to only necessary users. Granular access can be provided by integrating the AKS cluster with Microsoft Entra ID. Administrators can use role-based access control (RBAC) to manage access, placing users and identities in Entra groups and assigning appropriate roles and permissions. Microsoft Entra authentication is enabled in AKS clusters via OpenID Connect. For more information, see these resources:
+To manage an AKS cluster, you interact with its API server. It's essential to restrict API server access to only necessary users. Granular access can be provided by integrating the AKS cluster with Microsoft Entra ID. Administrators can use role-based access control (RBAC) to manage access, placing users and identities in Entra groups and assigning appropriate roles and permissions. Microsoft Entra authentication is enabled in AKS clusters via OpenID Connect. For more information, see these resources:
 
 - [AKS-managed Microsoft Entra integration](/azure/aks/managed-aad)
 - [Integrate Microsoft Entra ID for the cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks#integrate-azure-active-directory-for-the-cluster)
@@ -16,10 +16,10 @@ To manage an AKS cluster, you interact with its API server. It’s essential to 
 
 ## Access AKS cluster over the internet
 
-When you create a nonprivate cluster that resolves to the API server's fully qualified domain name (FQDN), it's assigned a public IP address by default. You can connect to your cluster using the Azure portal or a shell such as Azure CLI, PowerShell, or Command Prompt.
+When you create a nonprivate cluster that resolves to the API server's fully qualified domain name (FQDN), it's assigned a public IP address by default. You can connect to your cluster using the Azure portal or a shell such as Azure CLI, PowerShell, or command prompt.
 
 > [!NOTE]
-> For more information about using the Kubernetes command-line client 'kubectl' to connect to a cluster over the internet, see [Connect to the cluster](/azure/aks/learn/quick-kubernetes-deploy-cli#connect-to-the-cluster).
+> For more information about using the Kubernetes command-line client `kubectl` to connect to a cluster over the internet, see [Connect to the cluster](/azure/aks/learn/quick-kubernetes-deploy-cli#connect-to-the-cluster).
 
 ## Azure Cloud Shell
 
@@ -163,6 +163,7 @@ If you can't connect to your VM over SSH to manage your private cluster:
 > We recommend that you:
 >
 > - Avoid using a public IP address to connect to resources in production environments. Public IPs should only be used in development or testing. In such cases, create an inbound network security group rule to allow traffic from your local machine's public IP. For more information about network security group rules, see [Create, change, or delete a network security group](/azure/virtual-network/manage-network-security-group).
+>
 > - Refrain from using SSH to connect directly to AKS nodes or containers. Instead, use a dedicated external management solution. This is especially important when considering the use of `aks command invoke`, which creates a transient pod within your cluster for proxied access.
 
 
