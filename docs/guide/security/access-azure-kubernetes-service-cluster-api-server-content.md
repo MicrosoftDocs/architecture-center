@@ -94,7 +94,7 @@ To further secure AKS workloads and your jump boxes, you can use just-in-time (J
 
 To secure AKS workloads and your jump boxes, use just-in-time (JIT) access and a privileged access workstation (PAW). JIT access, part of Microsoft Defender for Cloud, reduces the threat landscape by blocking inbound traffic to your jump box and allowing access only for a specified time when needed. After the time expires, the access is automatically revoked. For more information about JIT access, see [Understanding just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview).
 
-PAWs are hardened devices that provide high security for operators by blocking common attack vectors like email and web browsing.  It's difficult to compromise PAWs, because they block many common attack vectors such as email and web browsing. For more information about PAWs, see [Securing devices as part of the privileged access story](/security/compass/privileged-access-devices).
+PAWs are hardened devices that provide high security for operators by blocking common attack vectors like email and web browsing. It's difficult to compromise PAWs, because they block many common attack vectors such as email and web browsing. For more information about PAWs, see [Securing devices as part of the privileged access story](/security/compass/privileged-access-devices).
 
 ## Virtual Private Network (VPN)
 
@@ -173,7 +173,7 @@ If you can't connect to your VM over SSH to manage your private cluster:
 - VPNs and ExpressRoute provide hybrid connectivity to your private AKS cluster.
 - If no external connectivity solution is available, you can use `aks command invoke` remotely.
 - Cloud Shell can also be deployed directly into a virtual network you manage to access the private cluster.
-- Using Visual Studio Code with SSH on a jump box encrypts the connection and simplifies modifying manifest files,    though it exposes a public IP address in your environment.
+- Using Visual Studio Code with SSH on a jump box encrypts the connection and simplifies modifying manifest files, though it exposes a public IP address in your environment.
 
 ## Contributors
 
