@@ -34,10 +34,6 @@ To explore options for identity solutions, consult these resources:
 
 - For a comparison of three services that provide access to a central identity, see [Compare self-managed Active Directory Domain Services, Microsoft Entra ID, and managed Microsoft Entra Domain Services][Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services].
 
-- To learn how to make IAM resilient, see [Resilient identity and access management with Microsoft Entra ID][Resilient identity and access management with Azure AD].
-
-- To compare options for reducing latency when integrating with an Azure network, see [Integrate on-premises AD with Azure][Integrate on-premises AD with Azure].
-
 - For information on associating billing offers with a Microsoft Entra tenant, see [Azure billing offers and Active Directory tenants][Azure billing offers and Active Directory tenants].
 
 - To evaluate options for an identity and access foundation, see [Azure identity and access management design area][Azure identity and access management design area].

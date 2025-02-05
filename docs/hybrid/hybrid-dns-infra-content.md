@@ -61,7 +61,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 Use integrated DNS zones in AD DS to host DNS records for your on-premises datacenter and Azure. In this scenario, there are two sets of AD DS DNS servers: one on-premises and one in the hub VNet.
 
-We recommend [extending your AD DS domain to Azure][12]. We also recommend configuring the hub and spoke VNets to use the AD DS DNS servers in the hub VNet for all the VMs in Azure.
+We recommend extending your AD DS domain to Azure. We also recommend configuring the hub and spoke VNets to use the AD DS DNS servers in the hub VNet for all the VMs in Azure.
 
 > [!NOTE]
 > This recommendation is applicable only for organizations that use Active Directory Integrated DNS zone for name resolution. Others can consider implementing DNS servers that act as resolver/forwarder.
