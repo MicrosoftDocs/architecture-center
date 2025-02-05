@@ -87,7 +87,7 @@ The following key technologies implement this workload. For each component in th
 
 - [Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless solution that simplifies processing vehicle telemetry events at scale with event-driven triggers and bindings by using the language of your choice.
 
-- [Azure Managed Grafana](https://azure.microsoft.com/products/managed-grafana/) is a data visualization platform that's based on the software from Grafana Labs. Microsoft manages and supports Azure Managed Grafana.
+- [Azure Managed Grafana](/azure/managed-grafana/overview) is a data visualization platform that's based on the software from Grafana Labs. Microsoft manages and supports Azure Managed Grafana.
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs that provide access to the vehicle telemetry data that's stored in Fabric. This approach simplifies consumption.
 
@@ -189,9 +189,9 @@ It's important to understand the division of responsibility between the automoti
 
 All these features help automotive OEMs create a secure environment for their vehicle telemetry data. For more information, see [Security in Fabric](/fabric/security/security-overview).
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 This solution uses the following practices to help optimize costs:
 
@@ -205,9 +205,9 @@ This solution uses the following practices to help optimize costs:
 
 - Consider your real-time data analytics needs. Set up streaming ingestion for the live telemetry table to provide latency of less than one second between ingestion and query. This approach increases CPU cycles and cost.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - Consider using Batch to perform decoding if the number and size of recorded data files is more than 1,000 files or 300 MB per day.
 
@@ -258,5 +258,5 @@ Other contributors:
 ## Related resources
 
 - [Software-defined vehicle DevOps toolchain](../../ai-ml/architecture/software-defined-vehicle-reference-architecture.yml)
-- [Autonomous vehicle operations design guide](../../ai-ml/guide/avops-design-guide.md)
+- [Reference architecture for autonomous vehicle operations (AVOps)](/industry/mobility/architecture/ra-mobility-avops)
 - [Claim-Check pattern](../../patterns/claim-check.yml)

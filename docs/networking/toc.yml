@@ -2,10 +2,6 @@ items:
 - name: Networking
   href: index.md
   items: 
-    - name: Explore ideas about
-      items: 
-      - name: Low-latency network for industry
-        href: idea/low-latency-network.yml       
     - name: Design architectures
       items:
       - name: Network topology
@@ -28,20 +24,12 @@ items:
           href: architecture/trusted-internet-connections.yml          
     - name: Apply guidance
       items:
-      - name: Deploy private 5G networks
-        items:
-        - name: Overview
-          href: guide/deploy-private-mobile-network.md
-        - name: Build a private 5G network
-          href: guide/build-private-5g-network.md
       - name: Network topology
         items:
         - name: Spoke-to-spoke networking
           href: guide/spoke-to-spoke-networking.yml
       - name: Network security
         items:
-        - name: Segment virtual networks
-          href: guide/network-level-segmentation.yml
         - name: Use a split-brain DNS configuration to host a web app
           href: ../example-scenario/networking/split-brain-dns.yml        
       - name: Private link
@@ -50,8 +38,6 @@ items:
           href: guide/private-link-ip-constraints.yml        
         - name: Private Link in hub-and-spoke network
           href: guide/private-link-hub-spoke-network.yml
-        - name: Cross-tenant secure access to apps
-          href: guide/cross-tenant-secure-access-private-endpoints.yml
         - name: Guide to Private Link and DNS with Azure Virtual WAN
           items:
           - name: Guide overview
@@ -75,6 +61,4 @@ items:
         - name: Deploy highly available NVAs
           href: guide/nva-ha.yml        
         - name: SDWAN integration
-          href: guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml          
-      - name: NAT gateway framework review
-        href: guide/well-architected-network-address-translation-gateway.yml          
+          href: guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml     

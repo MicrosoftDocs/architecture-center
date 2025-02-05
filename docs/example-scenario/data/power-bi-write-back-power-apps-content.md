@@ -31,11 +31,11 @@ D. Use Power Apps to create a canvas app to provide the ability to interact with
 
 ### Components
 
-- [Dataverse](https://powerplatform.microsoft.com/dataverse). A back-end database solution that you can use to store data in a highly secure, customizable, scalable environment. This environment seamlessly connects to Dynamics 365, Azure, Visual Studio, and Power Query. Dataverse provides efficient data processing and an open-source shared data model that provides semantic consistency.
-- [Power BI](https://powerbi.microsoft.com). A collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, interactive insights.
+- [Dataverse](/power-apps/maker/data-platform/data-platform-intro). A back-end database solution that you can use to store data in a highly secure, customizable, scalable environment. This environment seamlessly connects to Dynamics 365, Azure, Visual Studio, and Power Query. Dataverse provides efficient data processing and an open-source shared data model that provides semantic consistency.
+- [Power BI](/power-bi/fundamentals/power-bi-overview). A collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, interactive insights.
    - You can also implement data write-back directly into [Power Query dataflows](/connectors/dataflows).
-- [Power Apps](https://powerapps.microsoft.com). A suite of apps, services, and connectors, all available on a comprehensive data platform. You can use this service to quickly create applications to meet custom business needs. In this solution, Power Apps is used for data updates and inserts in an intuitive UI. It also functions as a trigger for automation.
-- [Power Automate](https://us.flow.microsoft.com). A service that you can use to create automated workflows between a variety of connected apps and outside services. You can configure it to transfer data, send notifications, collect artifacts, and more. In this solution, Power Automate is used for bulk-processing of updated data and for data refresh in the PBIX or Dataflow layer to push updated data back into a Power BI report.
+- [Power Apps](/power-apps/powerapps-overview). A suite of apps, services, and connectors, all available on a comprehensive data platform. You can use this service to quickly create applications to meet custom business needs. In this solution, Power Apps is used for data updates and inserts in an intuitive UI. It also functions as a trigger for automation.
+- [Power Automate](/power-automate/getting-started). A service that you can use to create automated workflows between a variety of connected apps and outside services. You can configure it to transfer data, send notifications, collect artifacts, and more. In this solution, Power Automate is used for bulk-processing of updated data and for data refresh in the PBIX or Dataflow layer to push updated data back into a Power BI report.
 
 ### Alternatives
 
@@ -149,7 +149,6 @@ Microsoft Learn Training modules:
 - [Get started with Power Apps canvas apps](/training/modules/get-started-with-powerapps)
 - [Manage solutions in Power Apps and Power Automate](/training/modules/manage-solutions-power-automate)
 
-## Related resources
+## Related resource
 
 - [Extract text from objects using Power Automate and AI Builder](../../example-scenario/ai/extract-object-text.yml)
-- [Custom business processes](../../solution-ideas/articles/custom-business-processes.yml)

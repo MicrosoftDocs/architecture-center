@@ -28,13 +28,13 @@ APIOps is a methodology that applies the concepts of GitOps and [DevOps](/devops
 
 ### Components
 
-- [Azure API Management](https://azure.microsoft.com/services/api-management) creates consistent, modern API gateways for back-end services. Besides routing API calls to back ends, this platform also verifies credentials, enforces usage quotas, and logs metadata.
+- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) creates consistent, modern API gateways for back-end services. Besides routing API calls to back ends, this platform also verifies credentials, enforces usage quotas, and logs metadata.
 
-- [Azure DevOps](https://azure.microsoft.com/solutions/devops) is a service for managing your development lifecycle end-to-end, including planning and project management, code management, and continuing to build and release.
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a service for managing your development lifecycle end-to-end, including planning and project management, code management, and continuing to build and release.
 
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) enables continuous integration and continuous delivery (CI/CD) to test and build your code and ship it to any target.
+- [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) enables continuous integration and continuous delivery (CI/CD) to test and build your code and ship it to any target.
 
-- [Azure Repos](https://azure.microsoft.com/products/devops/repos) is a set of version control tools, including standard Git, that you can use to manage your code.
+- [Azure Repos](/azure/devops/repos/get-started) is a set of version control tools, including standard Git, that you can use to manage your code.
 
 ### Alternatives
 
@@ -182,4 +182,3 @@ Principal author:
 - [GitOps for Azure Kubernetes Service](../gitops-aks/gitops-blueprint-aks.yml)
 - [Migrate a web app using Azure API Management](../apps/apim-api-scenario.yml)
 - [Protect APIs with Application Gateway and API Management](../../web-apps/api-management/architectures/protect-apis.yml)
-- [Publish internal APIs to external users](../apps/publish-internal-apis-externally.yml)

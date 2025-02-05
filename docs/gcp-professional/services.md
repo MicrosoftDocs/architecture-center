@@ -77,7 +77,6 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | Architecture | Description |
 |----|----|
 | [Azure data platform end-to-end](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) | Use Azure services to ingest, process, store, serve, and visualize data from different sources. |
-| [Personalized offers](/azure/architecture/ai-ml/idea/personalized-offers) | This solution builds intelligent marketing systems that provide customer-tailored content by using machine learning models that analyze data from multiple sources.  |
 | [Big data analytics with Azure Data Explorer](/azure/architecture/solution-ideas/articles/big-data-azure-data-explorer) | Big data analytics with Azure Data Explorer demonstrates how Azure Data Explorer caters to volume, velocity, and variety of data, the three V's of big data. |
 
 [view all](../browse/index.yml?azure_categories=databases)
@@ -334,9 +333,7 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Architecture | Description |
 |----|----|
-| [Real-time fraud detection](/azure/architecture/example-scenario/data/fraud-detection) | Detect fraudulent activity in real-time by using Azure Event Hubs and Stream Analytics. |
 | [Securely managed web applications](/azure/architecture/example-scenario/apps/fully-managed-secure-apps) | Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall. |
-| [Threat indicators for cyber threat intelligence in Microsoft Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence) | Import threat indicators, view logs, create rules to generate security alerts and incidents, and visualize threat intelligence data with Microsoft Sentinel. |
 
 [view all](../browse/index.yml?azure_categories=security)
 

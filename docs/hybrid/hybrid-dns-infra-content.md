@@ -61,7 +61,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 Use integrated DNS zones in AD DS to host DNS records for your on-premises datacenter and Azure. In this scenario, there are two sets of AD DS DNS servers: one on-premises and one in the hub VNet.
 
-We recommend [extending your AD DS domain to Azure][12]. We also recommend configuring the hub and spoke VNets to use the AD DS DNS servers in the hub VNet for all the VMs in Azure.
+We recommend extending your AD DS domain to Azure. We also recommend configuring the hub and spoke VNets to use the AD DS DNS servers in the hub VNet for all the VMs in Azure.
 
 > [!NOTE]
 > This recommendation is applicable only for organizations that use Active Directory Integrated DNS zone for name resolution. Others can consider implementing DNS servers that act as resolver/forwarder.
@@ -134,10 +134,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-- If you require the use of DNSSEC, consider that Azure DNS currently does **not** support it.
-- For DNSSEC validation, deploy a custom DNS server and enable DNSEC validation.
+- If you require the use of DNSSEC, consider that Azure DNS has [support in preview](/azure/dns/dnssec). Alternatively, for DNSSEC validation, deploy a custom DNS server and enable DNSSEC validation.
 - [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ### DevOps
@@ -145,9 +144,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - Automate configuration of this architecture by combining Azure Resource Manager templates for configuration of all the resources. Both private and public DNS zones support full management from Azure CLI, PowerShell, .NET, and REST API.
 - If you're using a continuous integration and continuous development (CI/CD) pipeline to deploy and maintain workloads in Azure and on-premises, you can also configure autoregistration of DNS records.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Azure DNS zone costs are based on the number of DNS zones hosted in Azure and the number of received DNS queries.
 - Use the [Azure pricing calculator][17] to estimate costs. Pricing models for Azure DNS is explained [here](https://azure.microsoft.com/pricing/details/dns/).
@@ -183,7 +182,6 @@ Explore related architectures:
 [9]: /azure/load-balancer/load-balancer-overview
 [10]: /azure/application-gateway/overview
 [11]: /azure/private-link/private-link-service-overview
-[12]: ../reference-architectures/identity/index.yml#integrate-your-on-premises-domains-with-azure-ad
 [13]: /azure/dns/dns-zones-records
 [14]: /azure/dns/private-dns-overview
 [15]: /azure/dns/private-dns-autoregistration

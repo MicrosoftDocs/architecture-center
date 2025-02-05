@@ -25,7 +25,9 @@ items:
         - name: Standard deployment
           href: app-service-environment/architectures/ase-standard-deployment.yml
         - name: High availability deployment
-          href: app-service-environment/architectures/ase-high-availability-deployment.yml             
+          href: app-service-environment/architectures/ase-high-availability-deployment.yml
+        - name: Securely managed web apps
+          href: ../example-scenario/apps/fully-managed-secure-apps.yml          
       - name: Manage your APIs with Azure API Management (APIM)
         items:
         - name: Protect APIs with Application Gateway and APIM
@@ -73,7 +75,7 @@ items:
         items:
         - name: Multi-region App Service apps for disaster recovery
           href: guides/multi-region-app-service/multi-region-app-service.yml
-    - name: Hosting Wordpress on Azure
+    - name: Hosting WordPress on Azure
       items:
       - name: Overview
         href: ../guide/infrastructure/wordpress-overview.yml

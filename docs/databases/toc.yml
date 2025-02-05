@@ -44,20 +44,6 @@ items:
           href: architecture/azure-data-factory-enterprise-hardened.yml
         - name: Azure Data Factory mission critical architecture
           href: architecture/azure-data-factory-mission-critical.yml
-      - name: Master data management
-        items:
-        - name: Migrate master data services with CluedIn
-          href: architecture/migrate-master-data-services-with-cluedin.yml
-        - name: Master data management with Profisee
-          href: architecture/profisee-master-data-management-data-factory.yml
-        - name: Migrate master data services with Profisee
-          href: architecture/profisee-mds-migration-utility.yml
-      - name: Governance
-        items:
-        - name: Master data management with CluedIn
-          href: architecture/cluedin.yml
-        - name: Data governance with Profisee
-          href: architecture/profisee-master-data-management-purview.yml
       - name: NoSQL
         items:
         - name: Analyze MongoDB Atlas data
@@ -70,14 +56,10 @@ items:
           href: architecture/ecommerce-search.yml
       - name: Data movement
         items:
-        - name: Apache NiFi on Azure
-          href: ../example-scenario/data/azure-nifi.yml
         - name: Automated enterprise BI
           href: ../reference-architectures/data/enterprise-bi-adf.yml
         - name: Disaster recovery for data analytics pipelines
           href: ../example-scenario/analytics/pipelines-disaster-recovery.yml
-        - name: Helm-based deployments
-          href: ../guide/data/helm-deployments-apache-nifi.yml
       - name: Mainframe
         items:
         - name: Mainframe access to Azure databases

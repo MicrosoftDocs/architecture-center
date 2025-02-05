@@ -30,16 +30,16 @@ This article describes how to achieve Trusted Internet Connections (TIC) 3.0 com
 ### Components
 
 - Firewall. Your architecture will use one or more of the following firewalls. (For more information, see the [Alternatives](#alternatives) section of this article.) 
-  - [Azure Firewall](https://azure.microsoft.com/products/azure-firewall) is a cloud-native, intelligent network firewall security service that provides enhanced threat protection for cloud workloads that run on Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It's available in two performance tiers: Standard and Premium. Azure Firewall Premium includes all the functionality of Azure Firewall Standard and provides additional features like Transport Layer Security (TLS) inspection and an intrusion detection and prevention system (IDPS).
-  - [Application Gateway](https://azure.microsoft.com/products/application-gateway/) with [WAF](/azure/web-application-firewall/overview) is a regional web traffic load balancer that enables you to manage traffic to your web applications. WAF provides enhanced centralized protection of your web applications from common exploits and vulnerabilities. 
-  - [Azure Front Door](https://azure.microsoft.com/products/frontdoor/) with [WAF](/azure/web-application-firewall/overview) is a global web traffic load balancer that enables you to manage traffic to your web applications. It provides content delivery network (CDN) capabilities to speed up and modernize your applications. WAF provides enhanced centralized protection of your web applications from common exploits and vulnerabilities. 
+  - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native, intelligent network firewall security service that provides enhanced threat protection for cloud workloads that run on Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It's available in two performance tiers: Standard and Premium. Azure Firewall Premium includes all the functionality of Azure Firewall Standard and provides additional features like Transport Layer Security (TLS) inspection and an intrusion detection and prevention system (IDPS).
+  - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) with [WAF](/azure/web-application-firewall/overview) is a regional web traffic load balancer that enables you to manage traffic to your web applications. WAF provides enhanced centralized protection of your web applications from common exploits and vulnerabilities. 
+  - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) with [WAF](/azure/web-application-firewall/overview) is a global web traffic load balancer that enables you to manage traffic to your web applications. It provides content delivery network (CDN) capabilities to speed up and modernize your applications. WAF provides enhanced centralized protection of your web applications from common exploits and vulnerabilities. 
   - A third-party firewall is an NVA that runs on an Azure virtual machine and uses firewall services from non-Microsoft vendors. Microsoft supports a large ecosystem of third-party vendors that provide firewall services. 
 - Logging and authentication.
-  - Log Analytics is a tool that's available in the Azure portal that you can use to edit and run log queries against Azure Monitor Logs. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
-  - [Azure Monitor](https://azure.microsoft.com/services/monitor) is a comprehensive solution for collecting, analyzing, and acting on telemetry.
-  - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides identity services, single sign-on, and multifactor authentication across Azure workloads.
+  - Log Analytics is a tool that's available in the Azure portal that you can use to edit and run log queries against Azure Monitor Logs. For more information, see [Azure Well-Architected Framework perspective on Log Analytics](/azure/well-architected/service-guides/azure-log-analytics).
+  - [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive solution for collecting, analyzing, and acting on telemetry.
+  - [Microsoft Entra ID](/entra/fundamentals/whatis) provides identity services, single sign-on, and multifactor authentication across Azure workloads.
   - A [service principal](/azure/active-directory/develop/app-objects-and-service-principals) (registered application) is an entity that defines the access policy and permissions for a user or application in a Microsoft Entra tenant.
-  - [Event Hubs Standard](https://azure.microsoft.com/products/event-hubs) is a modern big data streaming platform and event ingestion service.
+  - [Event Hubs Standard](/azure/well-architected/service-guides/event-hubs) is a modern big data streaming platform and event ingestion service.
   - CISA TALON is a CISA-operated service that runs on Azure. TALON connects to your Event Hubs service, authenticates by using a CISA-supplied certificate that's associated with your service principal, and collects logs for CLAW consumption.
 
 ### Alternatives
@@ -249,5 +249,4 @@ Other contributor:
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
 - [Securely managed web applications](../../example-scenario/apps/fully-managed-secure-apps.yml)
-- [Secure and govern workloads with network-level segmentation](../guide/network-level-segmentation.yml)
 - [Improved-security access to multitenant web apps from an on-premises network](../../web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml)

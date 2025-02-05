@@ -177,14 +177,14 @@ Other contributors:
 - [Enterprise file shares with disaster recovery][Enterprise file shares with disaster recovery]
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster][Baseline architecture for an Azure Kubernetes Service (AKS) cluster]
 
-[AKS]: https://azure.microsoft.com/products/kubernetes-service
+[AKS]: /azure/well-architected/service-guides/azure-kubernetes-service
 [AKS baseline for multiregion clusters]: ../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
 [Astra Control Service documentation]: https://docs.netapp.com/us-en/astra-control-service/index.html
 [Azure Kubernetes Service (AKS)]: /azure/aks/intro-kubernetes
 [Azure NetApp Files Performance Calculator]: https://bluexp.netapp.com/azure-netapp-files/sizer
-[Azure NetApp Files service page]: /azure/azure-netapp-files/azure-netapp-files-introduction
+[Azure NetApp Files service page]: /azure/well-architected/service-guides/azure-netapp-files
 [Azure Pricing calculator]: https://azure.microsoft.com/pricing/calculator
-[Azure Virtual Network]: https://azure.microsoft.com/products/virtual-network
+[Azure Virtual Network]: /azure/well-architected/service-guides/azure-virtual-network/reliability
 [Baseline architecture for an Azure Kubernetes Service (AKS) cluster]: ../../reference-architectures/containers/aks/baseline-aks.yml
 [Configurable network features]: /azure/azure-netapp-files/azure-netapp-files-network-topologies#configurable-network-features
 [Create an Azure account for free]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F

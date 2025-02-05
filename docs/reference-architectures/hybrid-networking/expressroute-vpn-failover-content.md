@@ -158,7 +158,98 @@ If your provider already provisioned the circuit, and `ProvisioningState` is set
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Scalability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+ExpressRoute doesn't support router redundancy protocols like Hot Standby Routing Protocol (HSRP) and Virtual Router Redundancy Protocol (VRRP) for high availability. Instead, it uses a redundant pair of BGP sessions per peering. To facilitate highly available connections to your network, Azure provisions two redundant ports on two routers (part of the Microsoft edge) in an active-active configuration.
+
+By default, BGP sessions use an idle timeout value of 60 seconds. If a session times out three times (180 seconds total), the router is marked unavailable and all traffic is redirected to the remaining router. This 180-second timeout might be too long for critical applications. If you need to, you can change your BGP time-out settings on the on-premises router to a shorter duration. ExpressRoute also supports [Bidirectional Forwarding Detection (BFD)](/azure/expressroute/expressroute-bfd) over private peering. By enabling BFD over ExpressRoute, you can expedite link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit. You can terminate ExpressRoute over Customer Edge routing devices or Partner Edge routing devices (if you have a managed layer 3 connection service).
+
+You can configure high availability for your Azure connection in different ways, depending on the type of provider you use and the number of ExpressRoute circuits and virtual network gateway connections you're willing to configure. Here's a summary of your availability options:
+
+- If you use a layer 2 connection, deploy redundant routers in your on-premises network in an active-active configuration. Connect the primary circuit to one router and the secondary circuit to the other. This configuration provides a highly available connection at both ends. This configuration is necessary if you require the ExpressRoute service-level agreement (SLA). See [SLA for Azure ExpressRoute][sla-for-expressroute] for details.
+
+    The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for private peering. (Each peering is designated a pair of /30 address spaces, as described in the previous section.)
+
+    ![Diagram that shows using redundant routers with ExpressRoute primary and secondary circuits.](../_images/guidance-hybrid-network-expressroute/figure2.png)
+
+- If you use a layer 3 connection, verify that it provides redundant BGP sessions that handle availability for you.
+
+- Connect the virtual network to multiple ExpressRoute circuits that are supplied by different service providers. This strategy provides more high-availability and disaster recovery capabilities.
+
+- Configure a site-to-site VPN as a failover path for ExpressRoute. For more information about this option, see [Connect an on-premises network to Azure using ExpressRoute with VPN failover][highly-available-network-architecture]. This option only applies to private peering. For Azure and Microsoft 365 services, the internet is the only failover path.
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+You can configure security options for your Azure connection in different ways, depending on your security concerns and compliance needs.
+
+ExpressRoute operates in layer 3. You can provide protection from threats in the application layer by using a network security appliance that restricts traffic to legitimate resources.
+
+To maximize security, add network security appliances between the on-premises network and the provider edge routers. This helps to restrict the inflow of unauthorized traffic from the virtual network:
+
+![Diagram that shows adding security devices to the on-premises network.](../_images/guidance-hybrid-network-expressroute/figure3.png)
+
+For auditing or compliance, you might need to block direct internet access for components that run in the virtual network and implement forced tunneling. In this situation, internet traffic should be redirected back through a proxy that's running on-premises, where it can be audited. You can configure the proxy to block unauthorized traffic from flowing out and filter potentially malicious inbound traffic.
+
+![Diagram that shows using forced tunneling to audit internet-bound traffic.](../_images/guidance-hybrid-network-expressroute/figure4.png)
+
+To maximize security, don't enable a public IP address for your VMs, and use NSGs to help ensure that these VMs aren't publicly accessible. VMs should only be available via the internal IP address. You can make these addresses accessible through the ExpressRoute network, which enables on-premises DevOps staff to perform configuration or maintenance.
+
+If you must expose management endpoints for VMs to an external network, use NSGs or access control lists to restrict the visibility of these ports to an allowlist of IP addresses or networks.
+
+> [!NOTE]
+> Azure VMs deployed through the Azure portal can include a public IP address that provides sign-in access. However, it's a best practice to prohibit this access.
+
+For general Azure security considerations, see [Microsoft cloud services and network security][best-practices-security].
+
+#### Network monitoring
+
+Use Azure Network Watcher to monitor and troubleshoot network components. Tools like traffic analytics identify the systems in your virtual networks that generate the most traffic so you can visually identify bottlenecks before they become problems. Connection monitor can monitor ExpressRoute circuits.
+
+You also can use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor connectivity between your on-premises datacenter and Azure.
+
+For more information, see [Monitoring For DevOps][devops-monitoring].
+
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+For ExpressRoute cost considerations, see these articles:
+
+- [Cost considerations in configuring a Hybrid Network Architecture with Azure ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml#considerations).
+
+#### ExpressRoute
+
+In this architecture, an ExpressRoute circuit is used to join the on-premises network with Azure through the edge routers.
+
+ExpressRoute offers two pricing plans. With the Metered Data plan, all inbound data transfer is free. All outbound data transfer is charged based on a predetermined rate.
+
+With the Unlimited Data plan, all inbound and outbound data transfer is free. You're charged a fixed monthly port fee based on high availability dual ports.
+
+Calculate your utilization and choose a billing plan accordingly. We recommend the Unlimited Data plan if you exceed about 68% of utilization.
+
+For more information, see [Azure ExpressRoute pricing][expressroute-pricing].
+
+#### Azure Virtual Network
+
+All application tiers are hosted in a single virtual network and are segmented into subnets.
+
+Azure Virtual Network is free. For every subscription, you can create as many as 1,000 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free, so communication between two VMs in a single virtual network is free.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+For ExpressRoute DevOps considerations, see the [Configure a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
+
+For site-to-site VPN DevOps considerations, see the [Configure a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 ExpressRoute circuits provide a high-bandwidth path between networks. Generally, the higher the bandwidth, the higher the cost.
 
@@ -204,93 +295,6 @@ Although some providers allow you to change your bandwidth, be sure to choose an
     >
 
     You can upgrade the SKU without disruption, but you can't switch from the unlimited pricing plan to the metered plan. If you downgrade the SKU, your bandwidth consumption must remain within the default limit of the Standard SKU.
-
-### Availability
-
-ExpressRoute doesn't support router redundancy protocols like Hot Standby Routing Protocol (HSRP) and Virtual Router Redundancy Protocol (VRRP) for high availability. Instead, it uses a redundant pair of BGP sessions per peering. To facilitate highly available connections to your network, Azure provisions two redundant ports on two routers (part of the Microsoft edge) in an active-active configuration.
-
-By default, BGP sessions use an idle timeout value of 60 seconds. If a session times out three times (180 seconds total), the router is marked unavailable and all traffic is redirected to the remaining router. This 180-second timeout might be too long for critical applications. If you need to, you can change your BGP time-out settings on the on-premises router to a shorter duration. ExpressRoute also supports [Bidirectional Forwarding Detection (BFD)](/azure/expressroute/expressroute-bfd) over private peering. By enabling BFD over ExpressRoute, you can expedite link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit. You can terminate ExpressRoute over Customer Edge routing devices or Partner Edge routing devices (if you have a managed layer 3 connection service).
-
-You can configure high availability for your Azure connection in different ways, depending on the type of provider you use and the number of ExpressRoute circuits and virtual network gateway connections you're willing to configure. Here's a summary of your availability options:
-
-- If you use a layer 2 connection, deploy redundant routers in your on-premises network in an active-active configuration. Connect the primary circuit to one router and the secondary circuit to the other. This configuration provides a highly available connection at both ends. This configuration is necessary if you require the ExpressRoute service-level agreement (SLA). See [SLA for Azure ExpressRoute][sla-for-expressroute] for details.
-
-    The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for private peering. (Each peering is designated a pair of /30 address spaces, as described in the previous section.)
-
-    ![Diagram that shows using redundant routers with ExpressRoute primary and secondary circuits.](../_images/guidance-hybrid-network-expressroute/figure2.png)
-
-- If you use a layer 3 connection, verify that it provides redundant BGP sessions that handle availability for you.
-
-- Connect the virtual network to multiple ExpressRoute circuits that are supplied by different service providers. This strategy provides more high-availability and disaster recovery capabilities.
-
-- Configure a site-to-site VPN as a failover path for ExpressRoute. For more information about this option, see [Connect an on-premises network to Azure using ExpressRoute with VPN failover][highly-available-network-architecture]. This option only applies to private peering. For Azure and Microsoft 365 services, the internet is the only failover path.
-
-### Security
-
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the Security pillar](/azure/architecture/framework/security/overview).
-
-You can configure security options for your Azure connection in different ways, depending on your security concerns and compliance needs.
-
-ExpressRoute operates in layer 3. You can provide protection from threats in the application layer by using a network security appliance that restricts traffic to legitimate resources.
-
-To maximize security, add network security appliances between the on-premises network and the provider edge routers. This helps to restrict the inflow of unauthorized traffic from the virtual network:
-
-![Diagram that shows adding security devices to the on-premises network.](../_images/guidance-hybrid-network-expressroute/figure3.png)
-
-For auditing or compliance, you might need to block direct internet access for components that run in the virtual network and implement forced tunneling. In this situation, internet traffic should be redirected back through a proxy that's running on-premises, where it can be audited. You can configure the proxy to block unauthorized traffic from flowing out and filter potentially malicious inbound traffic.
-
-![Diagram that shows using forced tunneling to audit internet-bound traffic.](../_images/guidance-hybrid-network-expressroute/figure4.png)
-
-To maximize security, don't enable a public IP address for your VMs, and use NSGs to help ensure that these VMs aren't publicly accessible. VMs should only be available via the internal IP address. You can make these addresses accessible through the ExpressRoute network, which enables on-premises DevOps staff to perform configuration or maintenance.
-
-If you must expose management endpoints for VMs to an external network, use NSGs or access control lists to restrict the visibility of these ports to an allowlist of IP addresses or networks.
-
-> [!NOTE]
-> Azure VMs deployed through the Azure portal can include a public IP address that provides sign-in access. However, it's a best practice to prohibit this access.
-
-For general Azure security considerations, see [Microsoft cloud services and network security][best-practices-security].
-
-#### Network monitoring
-
-Use Azure Network Watcher to monitor and troubleshoot network components. Tools like traffic analytics identify the systems in your virtual networks that generate the most traffic so you can visually identify bottlenecks before they become problems. Connection monitor can monitor ExpressRoute circuits.
-
-You also can use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor connectivity between your on-premises datacenter and Azure.
-
-For more information, see [Monitoring For DevOps][devops-monitoring].
-
-### Cost Optimization
-
-Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost Optimization pillar](/azure/architecture/framework/cost/overview).
-
-For ExpressRoute cost considerations, see these articles:
-
-- [Cost considerations in configuring a Hybrid Network Architecture with Azure ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml#considerations).
-
-#### ExpressRoute
-
-In this architecture, an ExpressRoute circuit is used to join the on-premises network with Azure through the edge routers.
-
-ExpressRoute offers two pricing plans. With the Metered Data plan, all inbound data transfer is free. All outbound data transfer is charged based on a predetermined rate.
-
-With the Unlimited Data plan, all inbound and outbound data transfer is free. You're charged a fixed monthly port fee based on high availability dual ports.
-
-Calculate your utilization and choose a billing plan accordingly. We recommend the Unlimited Data plan if you exceed about 68% of utilization.
-
-For more information, see [Azure ExpressRoute pricing][expressroute-pricing].
-
-#### Azure Virtual Network
-
-All application tiers are hosted in a single virtual network and are segmented into subnets.
-
-Azure Virtual Network is free. For every subscription, you can create as many as 1,000 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free, so communication between two VMs in a single virtual network is free.
-
-### Operational Excellence
-
-Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational Excellence pillar](/azure/architecture/framework/devops/overview).
-
-For ExpressRoute DevOps considerations, see the [Configure a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
-
-For site-to-site VPN DevOps considerations, see the [Configure a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
 
 ## Deploy this scenario
 
@@ -361,7 +365,6 @@ Microsoft Learn modules:
 - [Spoke-to-spoke networking](../../networking/spoke-to-spoke-networking.yml)
 - [Connect an on-premises network to Azure](index.yml)
 - [Implement a secure hybrid network](../dmz/secure-vnet-dmz.yml)
-- [Integrate on-premises AD with Azure](../identity/index.yml)
 
 <!-- links -->
 

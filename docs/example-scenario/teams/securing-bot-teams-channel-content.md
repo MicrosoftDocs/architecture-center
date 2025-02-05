@@ -34,11 +34,11 @@ This example scenario helps secure the connection to a Microsoft Teams channel b
 
 ### Components
 
-- [Virtual Network](https://azure.microsoft.com/services/virtual-network)
-- [Azure Firewall](https://azure.microsoft.com/services/azure-firewall)
-- [Azure Bot Services](https://azure.microsoft.com/services/bot-services)
+- [Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability)
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall)
+- [Azure Bot Services](/azure/bot-service/bot-service-overview)
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps)
-- [Azure Private Link](https://azure.microsoft.com/services/private-link)
+- [Azure Private Link](/azure/private-link/private-link-overview)
 
 ### Alternatives
 
@@ -62,23 +62,32 @@ Organizations can utilize bots for mobile and desktop users. Some examples inclu
 
 ## Considerations
 
-### Monitoring
-
-Although monitoring isn't implemented in this example scenario, a bot's app service can utilize [Azure Monitor](/azure/azure-monitor) services to monitor its availability and performance.
-
-### Scalability
-
-The bots used in this scenario are hosted on Azure App Service. As a result, you can use the standard App Service autoscaling features to automatically scale the number of instances running your bot, which allows your bot to keep up with demand. For more information about autoscaling, see [Autoscaling best practices](../../best-practices/auto-scaling.md).
-
-For other scalability topics, see the Azure Architecture Center [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
-
-### DevOps
-
-It's a common practice to deploy web apps, API apps, and mobile apps to an Azure App Service plan by using continuous deployment pipelines. Because a secured bot's app service is protected with a private endpoint, externally hosted build agents don't have the access that's required to deploy updates. To work around this, you might need to use a solution such as Azure Pipeline [self-hosted DevOps agents](/azure/devops/pipelines/agents/agents?tabs=browser#install).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected).
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
 [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+#### Monitoring
+
+Although monitoring isn't implemented in this example scenario, a bot's app service can utilize [Azure Monitor](/azure/azure-monitor) services to monitor its availability and performance.
+
+#### DevOps
+
+It's a common practice to deploy web apps, API apps, and mobile apps to an Azure App Service plan by using continuous deployment pipelines. Because a secured bot's app service is protected with a private endpoint, externally hosted build agents don't have the access that's required to deploy updates. To work around this, you might need to use a solution such as Azure Pipeline [self-hosted DevOps agents](/azure/devops/pipelines/agents/agents?tabs=browser#install).
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+The bots used in this scenario are hosted on Azure App Service. As a result, you can use the standard App Service autoscaling features to automatically scale the number of instances running your bot, which allows your bot to keep up with demand. For more information about autoscaling, see [Autoscaling best practices](../../best-practices/auto-scaling.md).
+
 
 ## Deploy this scenario
 
@@ -373,9 +382,5 @@ Principal author:
 - Visit the [Azure Architecture Center](../../browse/index.yml) to review related architectures and guides.
 
 - [Azure Firewall Architecture Guide - Azure Architecture Center](../firewalls/index.yml)
-
-- [Microsoft Entra IDaaS in Security Operations - Azure Example Scenarios](../aadsec/azure-ad-security.yml)
-
-- [Threat indicators for cyber threat intelligence in Microsoft Sentinel - Azure Example Scenarios](../data/sentinel-threat-intelligence.yml)
 
 - [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)

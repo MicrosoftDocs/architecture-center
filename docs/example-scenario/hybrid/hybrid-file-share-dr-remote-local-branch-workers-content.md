@@ -21,9 +21,9 @@ This architecture uses Azure Files, Azure File Sync, and Azure Virtual Desktop t
 
 ### Components
 
-- [Azure Files](https://azure.microsoft.com/products/storage/files) provides fully managed file shares in the cloud. Azure File Sync is a feature of Azure Files that can provide caches of a file share on the cloud and on-premises on Windows Server.
-- [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop) is a desktop and app virtualization service that runs on the cloud to provide desktops for remote users.
-- [Azure Storage](https://azure.microsoft.com/product-categories/storage) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Azure Files](https://azure.microsoft.com/products/storage/files), [Azure Table Storage](https://azure.microsoft.com/products/storage/tables), and [Azure Queue Storage](https://azure.microsoft.com/products/storage/queues).
+- [Azure Files](/azure/well-architected/service-guides/azure-files) provides fully managed file shares in the cloud. Azure File Sync is a feature of Azure Files that can provide caches of a file share on the cloud and on-premises on Windows Server.
+- [Azure Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and app virtualization service that runs on the cloud to provide desktops for remote users.
+- [Azure Storage](/azure/storage/common/storage-introduction) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](/azure/well-architected/service-guides/queue-storage/reliability).
 
 ### Alternatives
 
@@ -88,7 +88,7 @@ Azure Files supports Azure Backup, and its use is highly recommended. This workl
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-Azure Files has a fully integrated API that can be deployed through Bicep, Terraform, and PowerShell, and therefore can be managed through Azure Devops and Azure Pipelines.
+Azure Files has a fully integrated API that can be deployed through Bicep, Terraform, and PowerShell, and therefore can be managed through Azure DevOps and Azure Pipelines.
 
 ### Performance efficiency
 
