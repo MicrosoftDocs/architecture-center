@@ -465,8 +465,6 @@ items:
         href: guide/power-platform/eventual-consistency.yml
       - name: Extract text using Power Automate
         href: example-scenario/ai/extract-object-text.yml
-      - name: Power Automate deployment at scale
-        href: example-scenario/power-automate/power-automate.yml
     - name: Azure and Microsoft 365 scenarios
       items:
       - name: Overview
@@ -475,8 +473,6 @@ items:
         href: /azure/architecture/browse/?products=m365
       - name: Manage Microsoft 365 with DevOps
         href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
-      - name: Real-time collaboration
-        href: solution-ideas/articles/collaboration-microsoft-365.yml
       - name: Secure a Teams channel bot with a firewall
         href: example-scenario/teams/securing-bot-teams-channel.yml
     - name: Azure and Dynamics 365 scenarios
@@ -841,6 +837,8 @@ items:
         href: example-scenario/data/small-medium-data-warehouse.yml
       - name: Power BI data write-back
         href: example-scenario/data/power-bi-write-back-power-apps.yml
+      - name: Disaster recovery for data analytics pipelines
+        href: example-scenario/analytics/pipelines-disaster-recovery.yml        
     - name: Solution ideas
       items:
       - name: Azure Data Explorer solutions
@@ -1333,19 +1331,10 @@ items:
       href: identity/identity-start-here.yml
     - name: Guides
       items:
-      - name: Microsoft Entra architecture
-        href: /azure/active-directory/fundamentals/active-directory-architecture
-        maintainContext: true
       - name: Cross-tenant communication
         href: patterns/cross-tenant-communication-using-multitenanted-applications.md
-      - name: Identity and access management in Azure
-        href: /security/compass/identity
-        maintainContext: true
-      - name: Compare identity services
-        href: /azure/active-directory-domain-services/compare-identity-solutions
-        maintainContext: true
-      - name: Build for resilience
-        href: guide/resilience/resilience-overview.yml
+      - name: Cross-tenant secure access to apps
+        href: networking/guide/cross-tenant-secure-access-private-endpoints.yml        
       - name: Conditional Access
         items:
         - name: Conditional Access for Zero trust
@@ -1356,81 +1345,6 @@ items:
           href: guide/security/conditional-access-architecture.yml
         - name: Conditional Access framework
           href: guide/security/conditional-access-framework.md
-      - name: Integrate on-premises AD with Azure
-        href: reference-architectures/identity/index.yml
-      - name: Deployment guidance
-        items:
-        - name: Microsoft Entra deployment checklist
-          href: /azure/active-directory/fundamentals/active-directory-deployment-checklist-p2
-          maintainContext: true
-        - name: Microsoft Entra deployment plans
-          href: /azure/active-directory/fundamentals/active-directory-deployment-plans
-          maintainContext: true
-        - name: Azure AD B2C deployment plans
-          href: /azure/active-directory/fundamentals/azure-active-directory-b2c-deployment-plans
-          maintainContext: true
-      - name: Migrate applications to Microsoft Entra ID
-        items:
-        - name: Migrate an AD FS app to Azure
-          href: /azure/active-directory/manage-apps/migrate-adfs-apps-to-azure
-          maintainContext: true
-        - name: Migrate app authentication to Microsoft Entra ID
-          href: /azure/active-directory/manage-apps/migrate-application-authentication-to-azure-active-directory
-          maintainContext: true
-        - name: Use the AD FS application activity report
-          href: /azure/active-directory/manage-apps/migrate-adfs-application-activity
-          maintainContext: true
-        - name: Resources for migrating to Microsoft Entra ID
-          href: /azure/active-directory/manage-apps/migration-resources
-          maintainContext: true
-      - name: Identity management
-        items:
-        - name: Azure billing and Microsoft Entra tenants
-          href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-billing-ad-tenant?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-          maintainContext: true
-        - name: Identity and access management
-          href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/identity-access?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-          maintainContext: true
-        - name: Limit cross-tenant private endpoints
-          href: /azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections
-          maintainContext: true
-        - name: Resource organization
-          href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-          maintainContext: true
-      - name: Hybrid identity
-        items:
-        - name: Choose a hybrid identity method
-          href: /azure/active-directory/hybrid/choose-ad-authn
-          maintainContext: true
-        - name: Cloud management for on-premises
-          href: /azure/active-directory/hybrid/cloud-governed-management-for-on-premises
-          maintainContext: true
-        - name: Hybrid identity foundation with Microsoft Entra ID
-          href: /azure/active-directory/hybrid/four-steps
-          maintainContext: true
-        - name: Microsoft Entra Connect for on-premises
-          href: /azure/active-directory/hybrid/whatis-azure-ad-connect
-          maintainContext: true
-      - name: Identity for education
-        items:
-        - name: Microsoft Entra ID for education
-          href: /microsoft-365/education/deploy/intro-azure-active-directory
-          maintainContext: true
-        - name: Multi-tenant for large institutions
-          href: /microsoft-365/education/deploy/design-multi-tenant-architecture
-          maintainContext: true
-        - name: Design a tenant configuration
-          href: /microsoft-365/education/deploy/design-tenant-configurations
-          maintainContext: true
-        - name: Design authentication and credentials
-          href: /microsoft-365/education/deploy/design-credential-authentication-strategies
-          maintainContext: true
-        - name: Design an account strategy
-          href: /microsoft-365/education/deploy/design-account-strategy
-          maintainContext: true
-        - name: Design identity governance
-          href: /microsoft-365/education/deploy/design-identity-governance
-          maintainContext: true
     - name: Architectures
       items:
       - name: AD DS resource forests in Azure
@@ -1443,49 +1357,12 @@ items:
         href: reference-architectures/identity/adfs.yml
       - name: On-premises AD domains with Microsoft Entra ID
         href: reference-architectures/identity/azure-ad.yml
-    - name: Solution ideas
-      items:
-      - name: Collaboration with Microsoft 365
-        href: solution-ideas/articles/collaboration-microsoft-365.yml
-      - name: Hybrid identity
-        href: solution-ideas/articles/hybrid-identity.yml
   - name: Integration
     items:
     - name: Get started
       href: integration/integration-start-here.yml
     - name: Guides
       items:
-      - name: Azure Logic Apps
-        items:
-        - name: Overview
-          href: /azure/logic-apps/logic-apps-overview
-          maintainContext: true
-        - name: Connectors overview
-          href: /azure/connectors/apis-list
-          maintainContext: true
-        - name: Access to virtual networks
-          href: /azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview
-          maintainContext: true
-        - name: Business disaster and recovery
-          href: /azure/logic-apps/business-continuity-disaster-recovery-guidance
-          maintainContext: true
-        - name: Azure Policy controls
-          href: /azure/logic-apps/security-controls-policy
-          maintainContext: true
-        - name: Security baseline
-          href: /security/benchmark/azure/baselines/logic-apps-security-baseline
-          maintainContext: true
-      - name: BizTalk Server to Azure Integration Services
-        items:
-        - name: Migration overview
-          href: /azure/logic-apps/biztalk-server-to-azure-integration-services-overview
-          maintainContext: true
-        - name: Which integration services to choose?
-          href: /azure/logic-apps/azure-integration-services-choose-capabilities
-          maintainContext: true
-        - name: Migration options and best practices
-          href: /azure/logic-apps/biztalk-server-azure-integration-services-migration-approaches
-          maintainContext: true
       - name: Event Hubs with Azure Functions
         items:
         - name: Overview
@@ -1504,28 +1381,10 @@ items:
         href: example-scenario/integration/app-gateway-internal-api-management-function.yml
       - name: Basic enterprise integration on Azure
         href: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
-      - name: Data integration with Logic Apps and SQL
-        href: example-scenario/integration/logic-apps-data-integration.yml
-      - name: Disaster recovery for data analytics pipelines
-        href: example-scenario/analytics/pipelines-disaster-recovery.yml
       - name: Enterprise integration - queues and events
         href: example-scenario/integration/queues-events.yml
-      - name: Power Automate deployment at scale
-        href: example-scenario/power-automate/power-automate.yml
-      - name: Publish internal APIs to external users
-        href: example-scenario/apps/publish-internal-apis-externally.yml
       - name: Real-time monitoring and observable systems for media
         href: example-scenario/monitoring/monitoring-observable-systems-media.yml
-    - name: Solution ideas
-      items:
-      - name: Custom business processes
-        href: solution-ideas/articles/custom-business-processes.yml
-      - name: Elastic Enterprise Search on Azure
-        href: solution-ideas/articles/elastic-workplace-search.yml
-      - name: Line of business extension
-        href: solution-ideas/articles/lob.yml
-      - name: Protect backend APIs in Azure
-        href: solution-ideas/articles/protect-backend-apis-azure-management.yml
   - name: Internet of Things
     items:
     - name: Guides
@@ -1775,8 +1634,6 @@ items:
         href: solution-ideas/articles/appconfig-key-vault.yml
       - name: Multilayered protection for Azure VMs
         href: solution-ideas/articles/multilayered-protection-azure-vm.yml
-      - name: Protect backend APIs
-        href: solution-ideas/articles/protect-backend-apis-azure-management.yml
       - name: Threat assessments
         items:
         - name: Map threats to your IT environment

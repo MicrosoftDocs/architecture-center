@@ -104,8 +104,8 @@ items:
           href: guide/rag/rag-information-retrieval.md
         - name: LLM end-to-end evaluation phase
           href: guide/rag/rag-llm-evaluation-phase.md
-      - name: Designing secure multitenant RAG inferencing solutions
-        href: guide/secure-multitenant-rag.yml
+      - name: Design a secure multitenant RAG inferencing solution
+        href: guide/secure-multitenant-rag.md
       - name: MLOps
         items:
         - name: Machine learning operations (MLOps) v2
@@ -158,8 +158,8 @@ items:
             href: guide/rag/rag-information-retrieval.md
           - name: LLM end-to-end evaluation phase
             href: guide/rag/rag-llm-evaluation-phase.md
-        - name: Designing secure multitenant RAG inferencing solutions
-          href: guide/secure-multitenant-rag.yml
+        - name: Design a secure multitenant RAG inferencing solution
+          href: guide/secure-multitenant-rag.md
         - name: Proxy Azure OpenAI usage
           items:
           - name: Use a gateway in front of Azure OpenAI

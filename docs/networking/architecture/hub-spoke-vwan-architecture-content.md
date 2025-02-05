@@ -208,8 +208,6 @@ Learn more:
 
 -   [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
--   [Secure and govern workloads with network level segmentation](../guide/network-level-segmentation.yml)
-
 ## Related resources
 
 -   [Strengthen your security posture with Azure](https://azure.microsoft.com/overview/security)
