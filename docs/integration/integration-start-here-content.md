@@ -70,18 +70,11 @@ To learn about scenario-specific architectures, see the solutions in the followi
 
 #### E-commerce
 
-- [Custom business processes][Custom business processes]: Automate workflows and connect to legacy airline systems.
 - [Migrate a web app using Azure APIM][Migrate a web app using Azure APIM]: Modernize the legacy browser-based software stack of an e-commerce company.
 
 #### Finance
 
 - [Patterns and implementations for a banking cloud transformation][Patterns and implementations for a banking cloud transformation]: Apply patterns that implement a banking system cloud transformation.
-
-#### Internal business solutions
-
-- [Elastic Workplace Search on Azure][Elastic Workplace Search on Azure]: Use Workplace Search to capture information from numerous heterogeneous sources and make it searchable.
-- [Power Automate deployment at scale][Power Automate deployment at scale]: Use a hub-and-spoke model to deploy Power Automate parent and child flows.
-- [Line-of-business extension][Line of business extension]: Retrieve data from legacy systems on an ongoing basis and make it available in Power BI.
 
 ## Best practices
 
@@ -102,12 +95,10 @@ These resources can help you spot-check your design against current recommended 
 These reference architectures provide baseline implementations for various scenarios:
 
 - [Data analysis workloads for regulated industries][Data analysis workloads for regulated industries]: Run data analytics workloads that take into account regulatory requirements.
-- [Publish internal APIs to external users][Publish internal APIs to external users]: Consolidate APIs and then expose them to external users.
 - [Basic enterprise integration on Azure][Basic enterprise integration on Azure]: Orchestrate synchronous calls to enterprise back-end systems.
 - [Enterprise integration using message broker and events](../example-scenario/integration/queues-events.yml): Orchestrate asynchronous calls to enterprise back-end systems by using queues and events.
 - [Enterprise business intelligence][Enterprise business intelligence]: Move data from an on-premises SQL Server database into Azure Synapse Analytics and transform the data for analysis.
 - [Web and mobile front ends][Web and mobile front ends]: Make third-party data available to web users.
-- [Data integration with Logic Apps and SQL Server][Data integration with Logic Apps and SQL Server]: Automate data integration tasks that you perform in response to API calls.
 
 ## Operations guide
 
