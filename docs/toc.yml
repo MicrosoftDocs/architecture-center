@@ -473,8 +473,6 @@ items:
         href: /azure/architecture/browse/?products=m365
       - name: Manage Microsoft 365 with DevOps
         href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
-      - name: Real-time collaboration
-        href: solution-ideas/articles/collaboration-microsoft-365.yml
       - name: Secure a Teams channel bot with a firewall
         href: example-scenario/teams/securing-bot-teams-channel.yml
     - name: Azure and Dynamics 365 scenarios
@@ -1333,21 +1331,10 @@ items:
       href: identity/identity-start-here.yml
     - name: Guides
       items:
-      - name: Microsoft Entra architecture
-        href: /azure/active-directory/fundamentals/active-directory-architecture
-        maintainContext: true
       - name: Cross-tenant communication
         href: patterns/cross-tenant-communication-using-multitenanted-applications.md
       - name: Cross-tenant secure access to apps
         href: networking/guide/cross-tenant-secure-access-private-endpoints.yml        
-      - name: Identity and access management in Azure
-        href: /security/compass/identity
-        maintainContext: true
-      - name: Compare identity services
-        href: /azure/active-directory-domain-services/compare-identity-solutions
-        maintainContext: true
-      - name: Build for resilience
-        href: guide/resilience/resilience-overview.yml
       - name: Conditional Access
         items:
         - name: Conditional Access for Zero trust
@@ -1358,81 +1345,6 @@ items:
           href: guide/security/conditional-access-architecture.yml
         - name: Conditional Access framework
           href: guide/security/conditional-access-framework.md
-      - name: Integrate on-premises AD with Azure
-        href: reference-architectures/identity/index.yml
-      - name: Deployment guidance
-        items:
-        - name: Microsoft Entra deployment checklist
-          href: /azure/active-directory/fundamentals/active-directory-deployment-checklist-p2
-          maintainContext: true
-        - name: Microsoft Entra deployment plans
-          href: /azure/active-directory/fundamentals/active-directory-deployment-plans
-          maintainContext: true
-        - name: Azure AD B2C deployment plans
-          href: /azure/active-directory/fundamentals/azure-active-directory-b2c-deployment-plans
-          maintainContext: true
-      - name: Migrate applications to Microsoft Entra ID
-        items:
-        - name: Migrate an AD FS app to Azure
-          href: /azure/active-directory/manage-apps/migrate-adfs-apps-to-azure
-          maintainContext: true
-        - name: Migrate app authentication to Microsoft Entra ID
-          href: /azure/active-directory/manage-apps/migrate-application-authentication-to-azure-active-directory
-          maintainContext: true
-        - name: Use the AD FS application activity report
-          href: /azure/active-directory/manage-apps/migrate-adfs-application-activity
-          maintainContext: true
-        - name: Resources for migrating to Microsoft Entra ID
-          href: /azure/active-directory/manage-apps/migration-resources
-          maintainContext: true
-      - name: Identity management
-        items:
-        - name: Azure billing and Microsoft Entra tenants
-          href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-billing-ad-tenant?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-          maintainContext: true
-        - name: Identity and access management
-          href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/identity-access?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-          maintainContext: true
-        - name: Limit cross-tenant private endpoints
-          href: /azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections
-          maintainContext: true
-        - name: Resource organization
-          href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-          maintainContext: true
-      - name: Hybrid identity
-        items:
-        - name: Choose a hybrid identity method
-          href: /azure/active-directory/hybrid/choose-ad-authn
-          maintainContext: true
-        - name: Cloud management for on-premises
-          href: /azure/active-directory/hybrid/cloud-governed-management-for-on-premises
-          maintainContext: true
-        - name: Hybrid identity foundation with Microsoft Entra ID
-          href: /azure/active-directory/hybrid/four-steps
-          maintainContext: true
-        - name: Microsoft Entra Connect for on-premises
-          href: /azure/active-directory/hybrid/whatis-azure-ad-connect
-          maintainContext: true
-      - name: Identity for education
-        items:
-        - name: Microsoft Entra ID for education
-          href: /microsoft-365/education/deploy/intro-azure-active-directory
-          maintainContext: true
-        - name: Multi-tenant for large institutions
-          href: /microsoft-365/education/deploy/design-multi-tenant-architecture
-          maintainContext: true
-        - name: Design a tenant configuration
-          href: /microsoft-365/education/deploy/design-tenant-configurations
-          maintainContext: true
-        - name: Design authentication and credentials
-          href: /microsoft-365/education/deploy/design-credential-authentication-strategies
-          maintainContext: true
-        - name: Design an account strategy
-          href: /microsoft-365/education/deploy/design-account-strategy
-          maintainContext: true
-        - name: Design identity governance
-          href: /microsoft-365/education/deploy/design-identity-governance
-          maintainContext: true
     - name: Architectures
       items:
       - name: AD DS resource forests in Azure
@@ -1445,12 +1357,6 @@ items:
         href: reference-architectures/identity/adfs.yml
       - name: On-premises AD domains with Microsoft Entra ID
         href: reference-architectures/identity/azure-ad.yml
-    - name: Solution ideas
-      items:
-      - name: Collaboration with Microsoft 365
-        href: solution-ideas/articles/collaboration-microsoft-365.yml
-      - name: Hybrid identity
-        href: solution-ideas/articles/hybrid-identity.yml
   - name: Integration
     items:
     - name: Get started
