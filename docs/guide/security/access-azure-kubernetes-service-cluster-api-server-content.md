@@ -42,7 +42,7 @@ They're are several ways to connect to an AKS private cluster. Planning access i
 > SSH, Remote Desktop Protocol (RDP), and Remote Desktop Services (RDS) are alternative protocols for remotely controlling jump boxes.
 
 > [!NOTE]
-> To access the AKS API server from on-premises, ensure that inbound HTTPS (TCP port 443) is open for secure communication and inbound DNS (UDP port 53) is allowed for resolving the server's FQDN.
+> All traffic to the API server is done over TCP to port 443 using HTTPS. All involved NSGs or other network firewalls must allow traffic from the point of origin to the API server's FQDN on port 443 for HTTPS traffic. Specific allowances should be restricted to only the FQDN for the cluster's API.
 
 ## Azure Bastion
 
