@@ -53,7 +53,6 @@ The Well-Architected Framework also provides these checklists:
  
 ### Identity and access management
 
-- [Resilient identity and access management with Microsoft Entra ID](/azure/architecture/guide/resilience/resilience-overview)
 - [Microsoft Entra identity management and access management for AWS](../../reference-architectures/aws/aws-azure-ad-security.yml)
 
 ### Threat protection

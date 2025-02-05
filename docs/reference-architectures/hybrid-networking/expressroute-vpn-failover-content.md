@@ -365,7 +365,6 @@ Microsoft Learn modules:
 - [Spoke-to-spoke networking](../../networking/spoke-to-spoke-networking.yml)
 - [Connect an on-premises network to Azure](index.yml)
 - [Implement a secure hybrid network](../dmz/secure-vnet-dmz.yml)
-- [Integrate on-premises AD with Azure](../identity/index.yml)
 
 <!-- links -->
 
