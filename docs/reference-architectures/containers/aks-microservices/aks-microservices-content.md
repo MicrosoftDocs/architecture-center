@@ -1,4 +1,4 @@
-This reference architecture shows a microservices application deployed to Azure Kubernetes Service (AKS). It describes a basic AKS configuration that can be the starting point for most deployments. This article assumes basic knowledge of Kubernetes. The article primarily highlights the infrastructure and DevOps aspects of managing a microservices architecture on AKS. For guidance on designing microservices, see [Building microservices on Azure](../../../microservices/index.yml).
+This reference architecture shows a microservices application deployed to Azure Kubernetes Service (AKS). It describes a basic AKS configuration that can be the starting point for most deployments. This article assumes basic knowledge of Kubernetes. The article primarily highlights the infrastructure and DevOps aspects of managing microservices on AKS. For guidance on designing microservices, see [Building microservices on Azure](../../../microservices/index.yml).
 
 ![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub][ri].
 
@@ -21,7 +21,7 @@ The architecture consists of the following components.
 
 **External data stores**. Microservices are typically stateless and write data & state information to external data stores, such as Azure SQL Database or Azure Cosmos DB. The reference implementation uses [Azure Cosmos DB](/azure/cosmos-db/), [Azure cache for Redis](/azure/azure-cache-for-redis/), [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) and [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) as data stores. 
 
-**Microsoft Entra ID**. AKS uses a Microsoft Entra ID identity to create and manage other Azure resources such as Azure load balancers. [Microsoft Entra ID](/azure/aks/workload-identity-overview) is also recommended for user authentication in client applications. In the reference architecture, Entra ID managed identities are used by AKS cluster to access other Azure resources, and is used to authenticate microservices to Azure Key Vault.
+**Microsoft Entra ID**. Workloads deployed on an Azure Kubernetes Services (AKS) cluster require Microsoft Entra application credentials or managed identities to access Microsoft Entra protected resources, such as Azure Key Vault and Microsoft Graph. [Microsoft Entra ID](/azure/aks/workload-identity-overview) is also recommended for user authentication in client applications. In the reference architecture, Entra ID managed identities are used by AKS cluster to access other Azure resources such as Azure Container Registry, and is used by microservices to authenticate against Azure Key Vault.
 
 **Azure Container Registry**. Azure Container Registry can be used to store private container images, which are deployed to the cluster. AKS can authenticate with Container Registry using its Microsoft Entra identity. In the reference implementation, microservice container images are built and pushed to Azure Container Registry.  
 
@@ -31,11 +31,11 @@ The architecture consists of the following components.
 
 **Azure Monitor**. Azure Monitor collects and stores metrics and logs, application telemetry, and platform metrics for the Azure services. Azure Monitor integrates with AKS to collect metrics from controllers, nodes, and containers.
 
-**Azure Application Insights** Azure application insights can be used to monitor microservices and containers. The health of the microservices and the relationships between them are displayed on a single Application Map. Application insights can be used to provide observability to microservices, including traffic flow, end-to-end latency, and error percentage. 
+**Azure Application Insights** Azure application insights can be used to monitor microservices and containers. Application insights can be used to provide observability to microservices, including traffic flow, end-to-end latency, and error percentage. The health of the microservices and the relationships between them can be displayed on a single Application Map in Azure application insights.  
 
 ## Alternatives 
 
-Azure Container Apps can be used as a platform to host microservices as well, when fidelity to Kubernetes APIs are not required. 
+Azure Container Apps can be used as a platform to host microservices as well, in scenarios where fidelity to Kubernetes APIs are not required. 
 
 Instead of the managed ingress gateway in AKS, you can use Application Gateway for containers, Istio Ingress Gateway, or third party solutions as the ingress controller. Please see [Ingress in AKS](/en-us/azure/aks/concepts-network-ingress) for a comparison of ingress options in AKS. 
 
@@ -76,7 +76,22 @@ API gateways are a general [microservices design pattern](https://microservices.
 - [Using API gateways in microservices](../../../microservices/design/gateway.yml)
 - [Choosing a gateway technology](../../../microservices/design/gateway.yml#choosing-a-gateway-technology)
 
-In Kubernetes, the functionality of an API gateway is primarily handled by an **Ingress controller**. The considerations are described in the [Ingress](#ingress) section.
+In Kubernetes, the functionality of an API gateway is primarily handled by an **Ingress controller**. In Kubernetes, the **Ingress controller** can be used to implement the API gateway pattern. In that case, **Ingress** and **Ingress controller** work in conjunction to provide these features:
+
+- Route client requests to the right backend microservices. This routing provides a single endpoint for clients, and helps to decouple clients from services.
+
+- Aggregate multiple requests into a single request, to reduce chattiness between the client and the backend.
+
+- Offload functionality from the backend services, such as SSL termination, authentication, IP restrictions, or client rate limiting (throttling).
+
+There are Ingress controllers for Nginx, HAProxy, Traefik, and Azure Application Gateway, among others. AKS provides multiple managed ingress options. You can choose from [managed Nginx based ingress controller](/azure/aks/app-routing) through application routing add-on, Application Gateway for containers, or Istio Ingress Gateway as the ingress controller. Please see [Ingress in AKS](/en-us/azure/aks/concepts-network-ingress) for a comparison of ingress options. 
+
+Ingress controller operates as the edge router or reverse proxy. A reverse proxy server is a potential bottleneck or single point of failure, so it is recommended to deploy at least two replicas for high availability.
+
+The Ingress controller also has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
+
+
+
 
 #### Service object
 
@@ -92,21 +107,8 @@ The following diagram shows the conceptual relation between services and pods. T
 
 ![Diagram showing services and pods.](./images/aks-services.svg)
 
-#### Ingress
 
-In Kubernetes, the **Ingress controller** can be used to implement the API gateway pattern. In that case, **Ingress** and **Ingress controller** work in conjunction to provide these features:
-
-- Route client requests to the right backend microservices. This routing provides a single endpoint for clients, and helps to decouple clients from services.
-
-- Aggregate multiple requests into a single request, to reduce chattiness between the client and the backend.
-
-- Offload functionality from the backend services, such as SSL termination, authentication, IP restrictions, or client rate limiting (throttling).
-
-There are Ingress controllers for Nginx, HAProxy, Traefik, and Azure Application Gateway, among others. AKS provides multiple managed ingress options. You can choose from [managed Nginx based ingress controller](/azure/aks/app-routing) through application routing add-on, Application Gateway for containers, or Istio Ingress Gateway as the ingress controller. Please see [Ingress in AKS](/en-us/azure/aks/concepts-network-ingress) for a comparison of ingress options. 
-
-Ingress controller operates as the edge router or reverse proxy. A reverse proxy server is a potential bottleneck or single point of failure, so it is recommended to deploy at least two replicas for high availability.
-
-The Ingress controller also has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
+### Reliability
 
 #### Partitioning microservices
 
