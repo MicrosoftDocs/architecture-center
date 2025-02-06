@@ -52,7 +52,7 @@ This solution uses the following Azure components:
 
   The Azure VMs that host Enterprise Server use [Azure Managed Disks](/azure/virtual-machines/windows/managed-disks-overview) block-level storage volumes. Available Managed Disk types are Ultra disks, Premium solid-state drives (SSDs), standard SSDs, and standard hard disk drives (HDDs). This solution uses Premium SSDs or Ultra disks.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block for private networks in Azure. An Azure Virtual Network is similar to a traditional network that you operate in your own datacenter, but adds Azure infrastructure benefits like scaling, availability, and isolation. Virtual Network lets Azure resources like VMs securely communicate with each other, the internet, and on-premises networks.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. An Azure Virtual Network is similar to a traditional network that you operate in your own datacenter, but adds Azure infrastructure benefits like scaling, availability, and isolation. Virtual Network lets Azure resources like VMs securely communicate with each other, the internet, and on-premises networks.
 
   A [virtual network interface card (NIC)](/azure/virtual-network/virtual-network-network-interface) lets an Azure VM communicate with internet, Azure, and on-premises resources over a virtual network. You can add NICs to an Azure VM to give child VMs their own dedicated network interface devices and IP addresses.
 

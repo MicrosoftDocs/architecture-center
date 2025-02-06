@@ -27,7 +27,7 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 
 The architecture uses these components:
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) provides a secure private network in the cloud. It can connect virtual machines (VMs) to one another, to the internet, and to on-premises networks.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) provides a secure private network in the cloud. It can connect virtual machines (VMs) to one another, to the internet, and to on-premises networks.
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) provides private connections between Azure datacenters and on-premises infrastructure.
 - [Azure Bastion](/azure/bastion/bastion-overview) provides private and fully managed RDP and SSH access to VMs.
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides the flexibility of virtualization without having to provide and maintain the hardware that hosts it. The operating system choices include Windows and Linux.

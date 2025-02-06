@@ -44,7 +44,7 @@ The preceding diagram shows how the typical components of an IBM z/OS mainframe 
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides on-demand, scalable computing resources. Virtual Machines gives you the flexibility of virtualization without requiring you to buy and maintain physical hardware.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block for Azure private networks. With Virtual Network, Azure resources, like VMs, can securely communicate with each other, the internet, and on-premises networks. Although a virtual network is similar to a traditional on-premises network, it offers the added Azure infrastructure benefits, such as scalability, availability, and isolation.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for Azure private networks. With Virtual Network, Azure resources, like VMs, can securely communicate with each other, the internet, and on-premises networks. Although a virtual network is similar to a traditional on-premises network, it offers the added Azure infrastructure benefits, such as scalability, availability, and isolation.
 
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) provide communication between Azure VMs and the internet, Azure resources, and on-premises resources. You can add several network interface cards to one Azure VM, so child VMs can have their own dedicated network interface devices and IP addresses.
 

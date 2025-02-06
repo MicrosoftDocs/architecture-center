@@ -66,7 +66,7 @@ H. A printer subsystem manages on-premises printers.
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides on-demand, scalable computing resources. Virtual Machines gives you the flexibility of virtualization without requiring you to buy and maintain physical hardware.
 
-- [Virtual networks](/azure/well-architected/service-guides/azure-virtual-network/reliability) are the fundamental building blocks for Azure private networks. Virtual networks let Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. Although a virtual network is similar to a traditional on-premises network, it offers the added Azure infrastructure benefits, such as scalability, availability, and isolation.
+- [Virtual networks](/azure/well-architected/service-guides/virtual-network) are the fundamental building blocks for Azure private networks. Virtual networks let Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. Although a virtual network is similar to a traditional on-premises network, it offers the added Azure infrastructure benefits, such as scalability, availability, and isolation.
 
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) let VMs communicate with the internet, Azure, and on-premises resources. You can add several network interface cards to one VM so that child VMs can have their own dedicated network interface devices and IP addresses.
 

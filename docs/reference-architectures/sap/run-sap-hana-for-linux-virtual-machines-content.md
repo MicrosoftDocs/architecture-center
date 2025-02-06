@@ -53,7 +53,7 @@ Because all other VMs supporting SAP HANA allow the choice of either Gen2 only o
 
 ### Components
 
-* [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability)
+* [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network)
 * [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute)
 * [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines)
 * [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files)

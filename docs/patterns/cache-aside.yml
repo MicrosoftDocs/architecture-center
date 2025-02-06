@@ -8,6 +8,7 @@ metadata:
   ms.topic: design-pattern
   ms.service: azure-architecture-center
   ms.subservice: design-pattern
+  ms.custom: arb-web
 azureCategories:
   - web
 products:

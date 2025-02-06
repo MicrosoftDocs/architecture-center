@@ -28,7 +28,7 @@ The architecture uses these components:
 
 -   [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) instances provide on-demand, scalable computing power. A virtual machine (VM) gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
 
--   [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block for your private network in Azure. 
+-   [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure. 
 As a software defined network, a virtual network (VNet) provides an isolated environment for VMs and other Azure resources to communicate with each other, the internet, and on-premises networks. 
 Learn more information on how Skytap on [Azure connectivity](https://www.skytap.com/blog/skytap-on-azure-networking-considerations/) works in the [Skytap Well-Architected Framework](https://skytap.github.io/well-architected-framework/).
 

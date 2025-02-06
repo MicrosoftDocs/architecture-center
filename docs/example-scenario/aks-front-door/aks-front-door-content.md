@@ -70,7 +70,7 @@ The architecture consists of the following components:
 
   - The [Text (TXT)](/azure/templates/microsoft.network/dnszones/txt) record contains the validation token for the custom domain. You can use a TXT record within a DNS zone to store arbitrary text information that's associated with a domain.
 - A [Private Link service](/azure/private-link/private-link-service-overview) is configured to reference the *kubernetes-internal* internal load balancer of the AKS cluster. When you enable Private Link to your origin in Azure Front Door Premium, Azure Front Door creates a private endpoint from an Azure Front Door-managed regional private network. You receive an Azure Front Door private endpoint request at the origin for your approval. For more information, see [Secure your origin with Private Link in Azure Front Door Premium](/azure/frontdoor/private-link).
-- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is used to create a single virtual network with six subnets:
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is used to create a single virtual network with six subnets:
   - *SystemSubnet* is used for the agent nodes of the system node pool.
 
   - *UserSubnet* is used for the agent nodes of the user node pool.

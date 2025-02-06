@@ -312,7 +312,7 @@ You can use Site Recovery in several different scenarios. For Virtual Desktop, u
 
 The following considerations and recommendations apply:
 
-- Site Recovery failover isn't automatic—an administrator must trigger it by using the Azure portal or [Powershell/API](/azure/site-recovery/azure-to-azure-powershell).
+- Site Recovery failover isn't automatic—an administrator must trigger it by using the Azure portal or [PowerShell/API](/azure/site-recovery/azure-to-azure-powershell).
 - You can script and automate the entire Site Recovery configuration and operations by using [PowerShell](/azure/site-recovery/azure-to-azure-powershell).
 - Site Recovery has a declared RTO inside its [service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2). Most of the time, Site Recovery can fail over VMs within minutes.
 - You can use Site Recovery with Azure Backup. For more information, see [Support for using Site Recovery with Azure Backup](/azure/site-recovery/site-recovery-backup-interoperability).
