@@ -1357,6 +1357,10 @@ items:
         href: reference-architectures/identity/adfs.yml
       - name: On-premises AD domains with Microsoft Entra ID
         href: reference-architectures/identity/azure-ad.yml
+    - name: Solution ideas
+      items:
+      - name: Migrate cloud workloads across security tenants
+        href: solution-ideas/articles/migrate-cloud-workloads-across-security-tenants.yml
   - name: Integration
     items:
     - name: Get started
@@ -1375,6 +1379,8 @@ items:
           href: serverless/event-hubs-functions/security.md
         - name: Observability
           href: serverless/event-hubs-functions/observability.yml
+      - name: Apache Kafka migration to Azure
+        href: guide/hadoop/apache-kafka-migration.yml
     - name: Architectures
       items:
       - name: API Management landing zone architecture
@@ -1511,18 +1517,6 @@ items:
       href: guide/migration/migration-start-here.md
     - name: Guides
       items:
-      - name: Hadoop migration to Azure
-        items:
-        - name: Overview
-          href: guide/hadoop/overview.md
-        - name: Apache HDFS migration to Azure
-          href: guide/hadoop/apache-hdfs-migration.yml
-        - name: Apache HBase migration to Azure
-          href: guide/hadoop/apache-hbase-migration.yml
-        - name: Apache Kafka migration to Azure
-          href: guide/hadoop/apache-kafka-migration.yml
-        - name: Apache Sqoop migration to Azure
-          href: guide/hadoop/apache-sqoop-migration.yml
       - name: BizTalk Server to Azure Integration Services
         items:
         - name: Migration overview
@@ -1570,22 +1564,6 @@ items:
       - name: VMware agent-based migration
         href: /azure/migrate/agent-based-migration-architecture
         maintainContext: true
-    - name: Architectures
-      items:
-      - name: General mainframe refactor to Azure
-        href: example-scenario/mainframe/general-mainframe-refactor.yml
-      - name: Migrate a web app with APIM
-        href: example-scenario/apps/apim-api-scenario.yml
-      - name: Modernize mainframe and midrange data
-        href: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
-    - name: Solution ideas
-      items:
-      - name: Lift and shift to containers with App Service
-        href: web-apps/idea/migrate-existing-applications-to-container-apps.yml
-      - name: Migrate cloud workloads across security tenants
-        href: solution-ideas/articles/migrate-cloud-workloads-across-security-tenants.yml
-      - name: Migrate IBM mainframe apps
-        href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
   - name: Mixed Reality
     items:
     - name: Guides

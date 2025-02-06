@@ -6848,6 +6848,26 @@
       "source_path": "docs/solution-ideas/articles/hybrid-identity.yml",
       "redirect_url": "/entra/identity/hybrid/whatis-hybrid-identity",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/hadoop/overview.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/hadoop/apache-hdfs-migration.yml",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/hadoop/apache-hbase-migration.yml",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/hadoop/apache-sqoop-migration.yml",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": false
     }
   ]
 }
