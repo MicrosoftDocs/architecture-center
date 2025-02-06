@@ -143,11 +143,9 @@ To create a sample JMeter test script:
 
 1. In the file, set the Event Hub connection values using the assigned Managed Identity of the test runners. That identity needs write access to the Event Hub instance.
 
-    ![managed-identity-assigned-roles.png](./images/managed-identity-assigned-roles.png)
+2. In the file, set the value of the `eventHubName` node to the event hub name, such as `telemetry-data-changed-eh`.
 
-1. In the file, set the value of the `eventHubName` node to the event hub name, such as `telemetry-data-changed-eh`.
-
-1. Set the value of the `liquidTemplateFileName` node to the file containing the message that is sent to the event hub. For example, create a file named `StreamingDataTemplate.liquid` as:
+3. Set the value of the `liquidTemplateFileName` node to the file containing the message that is sent to the event hub. For example, create a file named `StreamingDataTemplate.liquid` as:
 
    ```json
    {
@@ -161,7 +159,7 @@ To create a sample JMeter test script:
 
    In this example, the payload for the event hub message is a JSON object with three properties including `MachineId`, `Temperature`, and `Humidity` where `MachineId` is a randomly generated ID with the length of 27, and `Temperature` and `Humidity` are random integers less than 100. This file is a liquid template syntax. Liquid template is a popular templating language that is used in various web development frameworks. Liquid templates enable developers to create dynamic content that can be easily updated and modified. They allow you to insert variables, conditions, loops, and other dynamic elements into your event hub messages. The syntax is straightforward, and there are plenty of online resources available to help you get started. Overall, Liquid templates offer a powerful and flexible way to create dynamic, customizable messages.
 
-1. Save and close the file.
+4. Save and close the file.
 
     > [!IMPORTANT]
     > Don't include any personal data in the sampler name in the JMeter script. The sampler names appear in the Azure Load Testing test results dashboard. A sample of a liquid template along with the JMeter script file is available to download at [Azure Samples](https://github.com/Azure-Samples/load-testing-jmeter-plugins/tree/main/samples/eventhubplugin)
@@ -182,7 +180,7 @@ The current custom plugin uses EventHub as main target resource. In a nutshell, 
    producer.send(batch);
 ```
 
-You can reuse the same solution and change SDK client to use IoT, as shown in the following example:
+You can reuse the same solution, add the IoT dependencies and change SDK client to use IoT, as shown in the following example:
 
 ```java
    IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
