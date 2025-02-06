@@ -34,18 +34,18 @@ The dataflow for the solution is shown in the following diagram:
 
 The following are the key components in this data lakehouse solution:
 
-- [Azure Synapse](/azure/synapse-analytics/overview-what-is)
-- [Azure Files](/azure/well-architected/service-guides/azure-files)
-- [Event Hubs](/azure/well-architected/service-guides/event-hubs)
-- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage)
-- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
-- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops)
-- [Power BI](/power-bi/fundamentals/power-bi-overview)
-- [Data Factory](/azure/data-factory/introduction)
-- [Azure Bastion](/azure/bastion/bastion-overview)
-- [Azure Monitor](/azure/azure-monitor/overview)
-- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
-- [Azure Key Vault](/azure/key-vault/general/overview)
+- [Azure Synapse](/azure/synapse-analytics/overview-what-is) - Azure Synapse is an analytics service that unifies big data and data warehousing to deliver powerful insights across various data sources.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) - Azure Files offers fully managed cloud file shares accessible via SMB, NFS, and REST protocols, making it easy to share files across applications.
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs) - Event Hubs is a scalable event processing service designed to ingest and process large volumes of events and data with minimal latency.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) - Blob Storage is Microsoft's object storage solution optimized for storing vast amounts of unstructured data like text or binary data.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)  - Azure Data Lake Storage is a cloud-based data lake solution built on Azure Blob Storage, tailored for big data analytics.
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) - Azure DevOps provides a suite of services for end-to-end project management, including planning, development, testing, and deployment.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) - Power BI is a collection of software services, apps, and connectors that enable users to create, share, and consume business insights.
+- [Data Factory](/azure/data-factory/introduction) - Data Factory is a cloud-based ETL and data integration service that orchestrates data movement and transformation through data-driven workflows.
+- [Azure Bastion](/azure/bastion/bastion-overview) - Azure Bastion offers secure RDP/SSH connectivity to virtual machines without exposing them to the public internet.
+- [Azure Monitor](/azure/azure-monitor/overview) - Azure Monitor is a comprehensive monitoring solution that collects, analyzes, and responds to data from cloud and on-premises environments.
+- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) - Microsoft Defender for Cloud provides robust threat protection and security management across Azure, hybrid, and on-premises environments.
+- [Azure Key Vault](/azure/key-vault/general/overview) - Azure Key Vault securely stores and manages sensitive information like keys, secrets, and certificates.
 
 ### Alternatives
 
@@ -294,48 +294,10 @@ Other contributors:
 - Ian Chen | Principal Software Engineer Lead
 - [Jose Contreras](https://www.linkedin.com/in/josedanielcontreras) | Principal Software Engineering
 - Roy Chan | Principal Software Engineer Manager
+- [Gurkamal Rakhra](https://www.linkedin.com/in/gurkamaldeep/) | Principal Solutions Architect
 
 ## Next steps
-
-- Azure product documentation
-  - [Azure Synapse Analytics](/azure/synapse-analytics)
-  - [Azure Files](/azure/storage/files)
-  - [Event Hubs](/azure/event-hubs)
-  - [Blob Storage](/azure/storage/blobs)
-  - [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-  - [Azure DevOps](/azure/devops)
-  - [Power BI](https://powerbi.microsoft.com)
-  - [Data Factory](/azure/data-factory)
-  - [Azure Bastion](/azure/bastion)
-  - [Azure Monitor](/azure/azure-monitor)
-  - [Microsoft Defender for Cloud](/azure/defender-for-cloud)
-  - [Azure Key Vault](/azure/key-vault)
-- Other articles
-  - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
-  - [Serverless SQL pool in Azure Synapse Analytics](/azure/synapse-analytics/sql/on-demand-workspace-overview)
-  - [Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-overview)
-  - [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](/azure/data-factory/concepts-pipelines-activities?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics)
-  - [What is Azure Synapse Data Explorer? (Preview)](/azure/synapse-analytics/data-explorer/data-explorer-overview)
-  - [Machine Learning capabilities in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/what-is-machine-learning)
-  - [What is Microsoft Purview?](/azure/purview/overview)
-  - [Azure Synapse Analytics and Azure Purview Work Better Together](https://techcommunity.microsoft.com/t5/microsoft-purview-blog/azure-synapse-analytics-and-azure-purview-work-better-together/ba-p/2998968)
-  - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-  - [What is Azure Data Factory?](/azure/data-factory/introduction)
-  - [Current Data Patterns Blog Series: Data Lakehouse](https://blog.starburst.io/part-2-of-current-data-patterns-blog-series-data-lakehouse)
-  - [What is Microsoft Defender for Cloud?](/azure/defender-for-cloud/defender-for-cloud-introduction)
-  - The [Data Lakehouse, the Data Warehouse and a Modern Data platform architecture](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/the-data-lakehouse-the-data-warehouse-and-a-modern-data-platform/ba-p/2792337?msclkid=c7eddbcbb24411ecae0f0ec795c2ad28)
-  - The [best practices for organizing Azure Synapse workspaces and lakehouse](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/the-best-practices-for-organizing-synapse-workspaces-and/ba-p/3002506)
-  - [Understanding Azure Azure Synapse Private Endpoints](https://techcommunity.microsoft.com/t5/azure-architecture-blog/understanding-azure-synapse-private-endpoints/ba-p/2281463)
-  - [Azure Synapse Analytics – New Insights Into Data Security](https://dzone.com/articles/azure-synapse-analytics-new-insights-into-data-sec)
-  - [Azure security baseline for Azure Synapse dedicated SQL pool (formerly SQL DW)](/security/benchmark/azure/baselines/synapse-analytics-security-baseline)
-  - [Cloud Network Security 101: Azure Service Endpoints vs. Private Endpoints](https://www.fugue.co/blog/cloud-network-security-101-azure-service-endpoints-vs.-private-endpoints)
-  - [How to set up access control for your Azure Synapse workspace](/azure/synapse-analytics/security/how-to-set-up-access-control)
-  - [Connect to Azure Synapse Studio using Azure Private Link Hubs](/azure/synapse-analytics/security/synapse-private-link-hubs)
-  - [How-To Deploy your Azure Synapse Workspace Artifacts to a Managed VIRTUAL NETWORK Azure Synapse Workspace](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/how-to-deploy-your-synapse-workspace-artifacts-to-a-managed-vnet/ba-p/2764232)
-  - [Continuous integration and delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery)
-  - [Secure score in Microsoft Defender for Cloud](/azure/defender-for-cloud/secure-score-security-controls#:~:text=Defender%20for%20Cloud%20continually%20assesses,lower%20the%20identified%20risk%20level.)
-  - [Best practices for using Azure Key Vault](/azure/key-vault/general/best-practices)
-  - [Adatum Corporation scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-adatum?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+Review [Well Architected Framework Security Pillar](https://learn.microsoft.com/en-us/azure/well-architected/security/) design principles.
 
 ## Related resources
 
