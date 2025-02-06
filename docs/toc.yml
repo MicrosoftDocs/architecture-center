@@ -1162,13 +1162,6 @@ items:
       href: hybrid/hybrid-start-here.md
     - name: Guides
       items:
-      - name: Technology choices
-        items:
-        - name: Azure hybrid options
-          href: guide/technology-choices/hybrid-considerations.yml
-        - name: Compare Azure Stack Hub and Azure
-          href: /azure-stack/user/azure-stack-considerations
-          maintainContext: true
       - name: Connect an on-premises network to Azure
         href: reference-architectures/hybrid-networking/index.yml
       - name: Troubleshoot a hybrid VPN connection
