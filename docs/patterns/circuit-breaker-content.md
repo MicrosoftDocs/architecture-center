@@ -38,6 +38,9 @@ The Circuit Breaker pattern provides stability while the system recovers from a 
 
 The pattern is customizable and can be adapted according to the type of the possible failure. For example, you can apply an increasing timeout timer to a circuit breaker. You could place the circuit breaker in the **Open** state for a few seconds initially, and then if the failure hasn't been resolved, increase the timeout to a few minutes, and so on. In some cases, rather than the **Open** state returning failure and raising an exception, it could be useful to return a default value that is meaningful to the application.
 
+> [!NOTE]
+> Originally, Circuit Breakers relied on pre-configured thresholds such as failure count and timeout duration, resulting in a deterministic but sometimes suboptimal behavior. Today, adaptive techniques powered by AI and ML can dynamically adjust thresholds based on real-time traffic patterns, anomalies, and historical failure rates, making them more resilient and efficient.
+
 ## Issues and considerations
 
 You should consider the following points when deciding how to implement this pattern:
