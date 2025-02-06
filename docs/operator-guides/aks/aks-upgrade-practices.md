@@ -138,8 +138,7 @@ If a cluster maintenance window isn't configured, node image updates occur biwee
 > - splitting nodes into different node pools if your vCPU quota is almost full and you can't increase the vCPU quota
 > - configuring node surge to decrease the estimated upgrade time if your vCPU quota is enough
 
-To monitor the status of updates automatically you can use [AKS Service Communication Manager](/azure/aks/aks-communication-manager) to provide automatic alerts for planned maintenance activities.
-Alternatively you can monitor directly via [Azure activity logs](/azure/azure-monitor/essentials/activity-log), or by reviewing the [resource logs](/azure/aks/monitor-aks-reference#resource-logs) on the cluster directly via `kubectl get events`
+To monitor the status of updates automatically you can use [AKS Service Communication Manager](/azure/aks/aks-communication-manager) to provide automatic alerts for planned maintenance activities. Alternatively, you can monitor directly via [Azure activity logs](/azure/azure-monitor/essentials/activity-log) or by reviewing the [resource logs](/azure/aks/monitor-aks-reference#resource-logs) on the cluster directly via `kubectl get events`.
 
 You can [Subscribe to Azure Kubernetes Service (AKS) events with Azure Event Grid](/azure/aks/quickstart-event-grid) which includes AKS upgrade events. These events can alert you when new version of Kubernetes is available and help to track node status changes during upgrade processes.
 
