@@ -141,11 +141,11 @@ To create a sample JMeter test script:
 
    The implementation of `com.microsoft.eventhubplugin.EventHubPluginGui` and `com.microsoft.eventhubplugin.EventHubPlugin` are available at [Azure Samples](https://github.com/Azure-Samples/load-testing-jmeter-plugins).
 
-1. In the file, set the Event Hub connection values using the assigned Managed Identity of the test runners. That identity needs write access to the Event Hub instance.
+2. In the file, set the Event Hub connection values using the assigned Managed Identity of the test runners. That identity needs write access to the Event Hub instance.
 
-2. In the file, set the value of the `eventHubName` node to the event hub name, such as `telemetry-data-changed-eh`.
+3. In the file, set the value of the `eventHubName` node to the event hub name, such as `telemetry-data-changed-eh`.
 
-3. Set the value of the `liquidTemplateFileName` node to the file containing the message that is sent to the event hub. For example, create a file named `StreamingDataTemplate.liquid` as:
+4. Set the value of the `liquidTemplateFileName` node to the file containing the message that is sent to the event hub. For example, create a file named `StreamingDataTemplate.liquid` as:
 
    ```json
    {
@@ -159,7 +159,7 @@ To create a sample JMeter test script:
 
    In this example, the payload for the event hub message is a JSON object with three properties including `MachineId`, `Temperature`, and `Humidity` where `MachineId` is a randomly generated ID with the length of 27, and `Temperature` and `Humidity` are random integers less than 100. This file is a liquid template syntax. Liquid template is a popular templating language that is used in various web development frameworks. Liquid templates enable developers to create dynamic content that can be easily updated and modified. They allow you to insert variables, conditions, loops, and other dynamic elements into your event hub messages. The syntax is straightforward, and there are plenty of online resources available to help you get started. Overall, Liquid templates offer a powerful and flexible way to create dynamic, customizable messages.
 
-4. Save and close the file.
+5. Save and close the file.
 
     > [!IMPORTANT]
     > Don't include any personal data in the sampler name in the JMeter script. The sampler names appear in the Azure Load Testing test results dashboard. A sample of a liquid template along with the JMeter script file is available to download at [Azure Samples](https://github.com/Azure-Samples/load-testing-jmeter-plugins/tree/main/samples/eventhubplugin)
