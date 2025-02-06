@@ -1357,6 +1357,10 @@ items:
         href: reference-architectures/identity/adfs.yml
       - name: On-premises AD domains with Microsoft Entra ID
         href: reference-architectures/identity/azure-ad.yml
+    - name: Solution ideas
+      items:
+      - name: Migrate cloud workloads across security tenants
+        href: solution-ideas/articles/migrate-cloud-workloads-across-security-tenants.yml
   - name: Integration
     items:
     - name: Get started
@@ -1560,12 +1564,6 @@ items:
       - name: VMware agent-based migration
         href: /azure/migrate/agent-based-migration-architecture
         maintainContext: true
-    - name: Solution ideas
-      items:
-      - name: Migrate cloud workloads across security tenants
-        href: solution-ideas/articles/migrate-cloud-workloads-across-security-tenants.yml
-      - name: Migrate IBM mainframe apps
-        href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
   - name: Mixed Reality
     items:
     - name: Guides
