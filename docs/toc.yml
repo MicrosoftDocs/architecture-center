@@ -1513,16 +1513,8 @@ items:
       items:
       - name: Hadoop migration to Azure
         items:
-        - name: Overview
-          href: guide/hadoop/overview.md
-        - name: Apache HDFS migration to Azure
-          href: guide/hadoop/apache-hdfs-migration.yml
-        - name: Apache HBase migration to Azure
-          href: guide/hadoop/apache-hbase-migration.yml
         - name: Apache Kafka migration to Azure
           href: guide/hadoop/apache-kafka-migration.yml
-        - name: Apache Sqoop migration to Azure
-          href: guide/hadoop/apache-sqoop-migration.yml
       - name: BizTalk Server to Azure Integration Services
         items:
         - name: Migration overview
