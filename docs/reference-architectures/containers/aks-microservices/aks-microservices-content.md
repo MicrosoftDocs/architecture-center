@@ -90,24 +90,6 @@ Ingress controller operates as the edge router or reverse proxy. A reverse proxy
 
 The Ingress controller also has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
 
-
-
-
-#### Service object
-
-The Kubernetes **Service** object provides a set of capabilities that match the microservices requirements for service discoverability:
-
-- IP address. The Service object provides a static IP address for a group of pods (ReplicaSet). As pods are created or moved around, the service is always reachable at this IP address.
-
-- Load balancing. Traffic sent to the service's IP address is load balanced to the pods.
-
-- Service discovery. Services are assigned internal DNS entries by the Kubernetes DNS service. That means the API gateway can call a backend service using the DNS name. The same mechanism can be used for service-to-service communication. The DNS entries are organized by namespace, so if your namespaces correspond to bounded contexts, then the DNS name for a service will map naturally to the application domain.
-
-The following diagram shows the conceptual relation between services and pods. The actual mapping to endpoint IP addresses and ports is done by kube-proxy, the Kubernetes network proxy.
-
-![Diagram showing services and pods.](./images/aks-services.svg)
-
-
 ### Reliability
 
 #### Partitioning microservices
