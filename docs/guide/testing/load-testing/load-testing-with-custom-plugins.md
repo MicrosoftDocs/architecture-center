@@ -1,5 +1,5 @@
 ---
-title: Azure Load Testing with custom plugins to simulate device behaviors
+title: Azure Load Testing with custom plugins for EventHub and IoT Hub to simulate device behaviors
 description: Learn about designing KPIs and developing a dashboard for Azure Load Testing with custom JMeter plugins to simulate device behaviors.
 author: msetbar
 ms.author: msetayesh
@@ -128,6 +128,8 @@ To create a sample JMeter test script:
            <hashTree>
                 <com.microsoft.eventhubplugin.EventHubPlugin guiclass="com.microsoft.eventhubplugin.EventHubPluginGui" estclass="com.microsoft.eventhubplugin.EventHubPlugin" testname="Azure Event Hubs Sampler" enabled="true">
                    <!-- Azure Event Hub connection configuration using Managed Identity (see repository for instructions) -->
+                   <boolProp name="useManagedIdentity">true</boolProp>
+                   <stringProp name="eventHubNamespace">telemetry-ehn.servicebus.windows.net</stringProp>
                    <stringProp name="eventHubName">telemetry-data-changed-eh</stringProp>
                    <stringProp name="liquidTemplateFileName">StreamingDataTemplate.liquid</stringProp>
                </com.microsoft.eventhubplugin.EventHubPlugin>
@@ -140,6 +142,8 @@ To create a sample JMeter test script:
    The implementation of `com.microsoft.eventhubplugin.EventHubPluginGui` and `com.microsoft.eventhubplugin.EventHubPlugin` are available at [Azure Samples](https://github.com/Azure-Samples/load-testing-jmeter-plugins).
 
 1. In the file, set the Event Hub connection values using the assigned Managed Identity of the test runners. That identity needs write access to the Event Hub instance.
+
+    ![managed-identity-assigned-roles.png](./images/managed-identity-assigned-roles.png)
 
 1. In the file, set the value of the `eventHubName` node to the event hub name, such as `telemetry-data-changed-eh`.
 
@@ -161,6 +165,35 @@ To create a sample JMeter test script:
 
     > [!IMPORTANT]
     > Don't include any personal data in the sampler name in the JMeter script. The sampler names appear in the Azure Load Testing test results dashboard. A sample of a liquid template along with the JMeter script file is available to download at [Azure Samples](https://github.com/Azure-Samples/load-testing-jmeter-plugins/tree/main/samples/eventhubplugin)
+
+#### Updating the custom plugin from EventHub to IoT Hub
+
+The current custom plugin uses EventHub as main target resource. In a nutshell, this is the SDK client configuration for EventHub:
+
+```java
+   EventHubProducerClient producer = null;
+   EventHubClientBuilder producerBuilder = new EventHubClientBuilder();
+
+   producerBuilder.credential(getEventHubNamespace(), getEventHubName(), new DefaultAzureCredentialBuilder().build());
+   producer = producerBuilder.buildProducerClient();
+
+   EventDataBatch batch = producer.createBatch(new CreateBatchOptions());
+   batch.tryAdd(new EventData(msg));
+   producer.send(batch);
+```
+
+You can reuse the same solution and change SDK client to use IoT, as shown in the following example:
+
+```java
+   IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
+   ServiceClient client = new ServiceClient(getIoTHostName(), new DefaultAzureCredentialBuilder().build(), protocol);
+   client.open();
+
+   Message message = new Message(msg);
+   client.send(getDeviceName(), message);
+
+   client.close();
+```
 
 ### Run the load test using new plugin
 
