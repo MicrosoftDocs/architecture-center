@@ -1560,18 +1560,8 @@ items:
       - name: VMware agent-based migration
         href: /azure/migrate/agent-based-migration-architecture
         maintainContext: true
-    - name: Architectures
-      items:
-      - name: General mainframe refactor to Azure
-        href: example-scenario/mainframe/general-mainframe-refactor.yml
-      - name: Migrate a web app with APIM
-        href: example-scenario/apps/apim-api-scenario.yml
-      - name: Modernize mainframe and midrange data
-        href: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
     - name: Solution ideas
       items:
-      - name: Lift and shift to containers with App Service
-        href: web-apps/idea/migrate-existing-applications-to-container-apps.yml
       - name: Migrate cloud workloads across security tenants
         href: solution-ideas/articles/migrate-cloud-workloads-across-security-tenants.yml
       - name: Migrate IBM mainframe apps
