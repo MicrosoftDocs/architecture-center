@@ -184,7 +184,7 @@ Other contributors:
 [Azure NetApp Files Performance Calculator]: https://bluexp.netapp.com/azure-netapp-files/sizer
 [Azure NetApp Files service page]: /azure/well-architected/service-guides/azure-netapp-files
 [Azure Pricing calculator]: https://azure.microsoft.com/pricing/calculator
-[Azure Virtual Network]: /azure/well-architected/service-guides/azure-virtual-network/reliability
+[Azure Virtual Network]: /azure/well-architected/service-guides/virtual-network
 [Baseline architecture for an Azure Kubernetes Service (AKS) cluster]: ../../reference-architectures/containers/aks/baseline-aks.yml
 [Configurable network features]: /azure/azure-netapp-files/azure-netapp-files-network-topologies#configurable-network-features
 [Create an Azure account for free]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F

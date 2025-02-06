@@ -35,7 +35,7 @@ The web apps are the only components accessible to the internet via Application 
 
 The following services are key to locking down the App Service Environment in this architecture:
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is a private Azure cloud network that's owned by an enterprise. It provides enhanced network-based security and isolation. App Service Environment is an App Service deployment into a subnet of the enterprise-owned virtual network. It allows the enterprise to tightly control that network space and the resources it accesses by using network security groups and private endpoints.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a private Azure cloud network that's owned by an enterprise. It provides enhanced network-based security and isolation. App Service Environment is an App Service deployment into a subnet of the enterprise-owned virtual network. It allows the enterprise to tightly control that network space and the resources it accesses by using network security groups and private endpoints.
 
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is an application-level web traffic load balancer with TLS/SSL offloading and WAF. It listens on a public IP address and routes traffic to the application endpoint in the ILB App Service Environment. Since this is application-level routing, it can route traffic to multiple apps within the same ILB App Service Environment. For more information, see [Application Gateway multiple site hosting](/azure/application-gateway/multiple-site-overview).
 

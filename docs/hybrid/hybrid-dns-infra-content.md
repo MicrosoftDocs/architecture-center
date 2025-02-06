@@ -40,7 +40,7 @@ The architecture consists of the following components:
 
 ## Components
 
-- [Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability). Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
+- [Virtual Network](/azure/well-architected/service-guides/virtual-network). Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
 
 - [Azure Bastion](/azure/bastion/bastion-overview). Azure Bastion is a fully managed service that provides more secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to virtual machines (VMs) without any exposure through public IP addresses.
 

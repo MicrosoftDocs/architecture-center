@@ -33,7 +33,7 @@ This article doesn't address the application's underlying platforms, like App Se
 
 ### Components
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) enables many types of Azure resources to privately communicate with each other, the internet, and on-premises networks. In this architecture, the Application Gateway is responsible for tunneling public Internet traffic into this private network.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) enables many types of Azure resources to privately communicate with each other, the internet, and on-premises networks. In this architecture, the Application Gateway is responsible for tunneling public Internet traffic into this private network.
 
 - [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a web traffic load balancer that manages traffic to web applications. This type of routing is known as application layer (OSI layer 7) load balancing. In this architecture, not only is the gateway used for routing, the gateway also hosts a Web Application Firewall (WAF) to protect against common web-based attack vectors.
 

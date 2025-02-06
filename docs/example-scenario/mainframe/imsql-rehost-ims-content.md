@@ -44,7 +44,7 @@ I. Partitions run separate workloads and segregate work types within the environ
 
 ### Components
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, like virtual machines (VMs), to communicate with each other, the internet, and on-premises networks, all with improved security. Virtual Network is like a traditional network that you operate in your own datacenter, but it provides more of the benefits of the Azure infrastructure, like scale, availability, and isolation.  
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, like virtual machines (VMs), to communicate with each other, the internet, and on-premises networks, all with improved security. Virtual Network is like a traditional network that you operate in your own datacenter, but it provides more of the benefits of the Azure infrastructure, like scale, availability, and isolation.  
 - [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) provides automated and load-balanced VM scaling that simplifies the management of your applications and increases availability.
 - [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability), part of the Azure SQL service portfolio, is a managed, highly secure, always up-to-date SQL instance in the cloud.
 

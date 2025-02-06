@@ -42,7 +42,7 @@ Hub-spoke network topologies typically include the many of following architectur
 
 ### Components
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block for private networks in Azure. Virtual Network enables many Azure resources, such as Azure VMs, to securely communicate with each other, cross-premises networks, and the internet.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. Virtual Network enables many Azure resources, such as Azure VMs, to securely communicate with each other, cross-premises networks, and the internet.
 
    This architecture connects virtual networks to the hub by using [peering connections](/azure/virtual-network/virtual-network-peering-overview) which are non-transitive, low-latency connections between virtual networks. Peered virtual networks can exchange traffic over the Azure backbone without needing a router. In a hub-spoke architecture, directly peering virtual networks to each other is minimal and reserved for special case scenarios.
 
