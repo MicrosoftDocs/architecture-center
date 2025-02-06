@@ -134,25 +134,10 @@ items:
         href: operator-guides/aks/choose-bare-metal-kubernetes.yml
     - name: Choose a hybrid service
       items:
-      - name: Hybrid options
+      - name: Azure hybrid options
         href: guide/technology-choices/hybrid-considerations.yml
       - name: Compare Azure Stack Hub and Azure
         href: /azure-stack/user/azure-stack-considerations
-        maintainContext: true
-      - name: Compare Azure, Stack Hub, and Stack HCI
-        href: /azure-stack/operator/compare-azure-azure-stack
-        maintainContext: true
-      - name: Compare Azure Local and Stack Hub
-        href: /azure-stack/hci/concepts/compare-azure-stack-hub
-        maintainContext: true
-      - name: Compare Stack HCI and Windows Server
-        href: /azure-stack/hci/concepts/compare-windows-server
-        maintainContext: true
-      - name: Choose drives for Azure Local
-        href: /azure-stack/hci/concepts/choose-drives
-        maintainContext: true
-      - name: FSLogix in Azure Virtual Desktop
-        href: /azure/virtual-desktop/store-fslogix-profile
         maintainContext: true
     - name: Choose a security option
       items:
@@ -1181,9 +1166,6 @@ items:
         items:
         - name: Azure hybrid options
           href: guide/technology-choices/hybrid-considerations.yml
-        - name: Compare Azure Local to Windows Server
-          href: /azure/azure-local/concepts/compare-windows-server
-          maintainContext: true
         - name: Compare Azure Stack Hub and Azure
           href: /azure-stack/user/azure-stack-considerations
           maintainContext: true
