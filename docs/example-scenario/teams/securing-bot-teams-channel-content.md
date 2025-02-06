@@ -8,7 +8,7 @@ This example scenario helps secure the connection to a Microsoft Teams channel b
 
 ### Dataflow
 
-- [Azure Virtual Network](/azure/virtual-network) enables communications between Azure resources. The virtual network in this example uses the address space of 10.0.0.0/16, and contains three subnets for use by the scenario's required components:
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) enables communications between Azure resources. The virtual network in this example uses the address space of 10.0.0.0/16, and contains three subnets for use by the scenario's required components:
 
   - *Azure Firewall Subnet* (10.0.1.0/26).
 
@@ -34,7 +34,7 @@ This example scenario helps secure the connection to a Microsoft Teams channel b
 
 ### Components
 
-- [Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability)
+- [Virtual Network](/azure/well-architected/service-guides/virtual-network)
 - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall)
 - [Azure Bot Services](/azure/bot-service/bot-service-overview)
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps)

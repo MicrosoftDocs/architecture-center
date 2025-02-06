@@ -24,7 +24,7 @@ The following workflow corresponds to the previous diagram:
 - [Virtual WAN](/azure/virtual-wan/virtual-wan-about) is a networking service that provides optimized and automated branch to branch connectivity through Azure. It provides transit for networking and routing via ExpressRoute between your on-premises resources and your Azure resources.
   - Custom route tables optimize routing in the solution, so network-to-network traffic can bypass the firewalls. Traffic between networks and on-premises environments remains inspected.
   - Labels simplify the routing by eliminating the need to extensively propagate the routes of individual networks to all route tables.
-- [NVAs](/azure/well-architected/service-guides/network-virtual-appliances/reliability) are virtual machines that control routing to manage the flow of network traffic. This architecture uses NVAs. Large organizations with established investment in firewall technology and management often require NVAs.
+- Network Virtual Appliances are virtual machines that control routing to manage the flow of network traffic. This architecture uses NVAs. Large organizations with established investment in firewall technology and management often require NVAs.
 
 ### Alternatives
 

@@ -182,7 +182,7 @@ Fully deployable architectures that use Azure NetApp Files:
 [Azure NetApp Files]: /azure/well-architected/service-guides/azure-netapp-files
 [Azure NetApp Files documentation]: /azure/azure-netapp-files
 [Azure Virtual Machines]: /azure/well-architected/service-guides/virtual-machines
-[Azure Virtual Network]: /azure/well-architected/service-guides/azure-virtual-network/reliability
+[Azure Virtual Network]: /azure/well-architected/service-guides/virtual-network
 [Benefits of using Azure NetApp Files for SQL Server deployment - Detailed cost analysis]: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server#detailed-cost-analysis
 [Cluster architecture diagram in .svg format]: ./media/sql-server-azure-netapp-files-availability.svg
 [Convert existing SMB volumes to use Continuous Availability]: /azure/azure-netapp-files/enable-continuous-availability-existing-smb

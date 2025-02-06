@@ -58,7 +58,7 @@ The solution depicted in the architecture diagram uses the following components:
 
 - **Azure private endpoint** (component **7**) - A network interface that connects you privately and securely to a service powered by [Azure Private Link](/azure/private-link/private-link-overview). In this solution, an [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) private endpoint connects to Azure File Sync (**9**), and an [Azure Files](/azure/well-architected/service-guides/azure-files) private endpoint connects to Azure Files (**10**).
 
-- **DNS server/Azure private DNS resolver** (component **8**) in the [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) instance uses the [Azure DNS](/azure/dns/dns-overview) recursive resolver to resolve the private domain name and return a private IP address to the client, after receiving a forwarded DNS query from an on-premises DNS server.
+- **DNS server/Azure private DNS resolver** (component **8**) in the [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) instance uses the [Azure DNS](/azure/dns/dns-overview) recursive resolver to resolve the private domain name and return a private IP address to the client, after receiving a forwarded DNS query from an on-premises DNS server.
 
 - **Azure File Sync and cloud tiering** (component **9**) – Azure File Sync allows you to centralize your organization's file shares in Azure, while keeping the flexibility, performance, and compatibility of an on-premises file server. Cloud tiering is an optional feature of Azure File Sync in which frequently accessed files are cached locally on the server while all other files are tiered to Azure Files based on policy settings.
 

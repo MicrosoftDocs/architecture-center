@@ -71,7 +71,7 @@ The following diagram shows Azure services that provide similar functionality an
 
   Most Azure high-performance computing VM sizes feature a network interface for [RDMA connectivity](/azure/virtual-machines/sizes-hpc#rdma-capable-instances).
 
-- [Azure virtual networks](/azure/well-architected/service-guides/azure-virtual-network/reliability) are the fundamental building blocks for Azure private networks. Use virtual networks so that Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is similar to a traditional on-premises network but with the benefits of Azure infrastructure scalability, availability, and isolation.
+- [Azure virtual networks](/azure/well-architected/service-guides/virtual-network) are the fundamental building blocks for Azure private networks. Use virtual networks so that Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is similar to a traditional on-premises network but with the benefits of Azure infrastructure scalability, availability, and isolation.
 
   Virtual network interfaces enable communication between Azure VMs and the internet, Azure resources, and on-premises resources. You can add several network interface cards to one Azure VM so that child VMs can have their own dedicated network interface devices and IP addresses. That configuration is similar to this architecture.
 
