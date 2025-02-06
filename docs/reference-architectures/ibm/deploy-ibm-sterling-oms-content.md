@@ -25,7 +25,7 @@ The architecture meets infrastructure requirements in the following ways:
 
 - [Azure Red Hat OpenShift](/azure/openshift/intro-openshift) provides highly available, fully managed OpenShift clusters on demand. These clusters are monitored and operated jointly by Microsoft and Red Hat.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block for private networks in Azure. Virtual networks are used for communication between nodes, Azure services, and hybrid connectivity needs.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. Virtual networks are used for communication between nodes, Azure services, and hybrid connectivity needs.
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) provides fully managed file shares in the cloud that are accessible via the SMB and NFS protocols. In this solution, Azure Files hosts the stateful data for the databases and systems that are inside the cluster.
 

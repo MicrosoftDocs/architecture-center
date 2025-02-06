@@ -10,7 +10,7 @@ The following example focuses specifically on the SAP BW/4HANA application tier.
 
 This architecture makes use of the following technologies:
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) securely connects Azure resources to each other and to an on-premises environment. In this architecture, multiple VNets are [peered together](/azure/virtual-network/virtual-network-peering-overview).
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) securely connects Azure resources to each other and to an on-premises environment. In this architecture, multiple VNets are [peered together](/azure/virtual-network/virtual-network-peering-overview).
 
 - [Linux virtual machines](/azure/architecture/reference-architectures/n-tier/linux-vm) are used for the application tier, including:
   - The SAP BusinessObjects (BOBJ) server pool.

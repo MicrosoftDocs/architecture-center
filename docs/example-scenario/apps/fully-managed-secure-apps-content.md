@@ -134,7 +134,6 @@ Principal author:
 
 - [App Service web application reference architecture][app-service-reference-architecture]
 - [high-availability enterprise deployment using App Services Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
-- [Publish internal APIs to external users](/azure/architecture/example-scenario/apps/publish-internal-apis-externally)
 
 <!-- links -->
 
@@ -145,7 +144,7 @@ Principal author:
 [bring-your-own-dns]: /azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#specify-dns-servers
 [private-zones]: /azure/dns/private-dns-overview
 [create-ilb-ase]: /azure/app-service/environment/creation
-[azure-networking]: /azure/well-architected/service-guides/azure-virtual-network/reliability
+[azure-networking]: /azure/well-architected/service-guides/virtual-network
 [sql-service-endpoint]: /azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
 
 [architecture]: ./media/fully-managed-secure-apps.svg

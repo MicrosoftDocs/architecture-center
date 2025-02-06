@@ -11,6 +11,7 @@ metadata:
   ms.subservice: architecture-guide
   ms.category:
     - web
+  ms.custom: arb-web
 name: Eventual consistency between multiple Power Apps instances
 azureCategories:
   - web

@@ -49,7 +49,7 @@ The architecture consists of:
 
 ### Components
 
-* [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability)
+* [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network)
 * [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about)
 * [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 * [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute)

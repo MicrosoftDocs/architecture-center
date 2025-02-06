@@ -124,7 +124,6 @@ The following new and updated articles have recently been published in the Azure
 - [Azure Private Link service considerations for multitenancy](./guide/multitenant/service/private-link.md)  ([#ba1f99f5d4](https://github.com/MicrosoftDocs/architecture-center/commit/ba1f99f5d4))
 - [Mainframe and midrange Db2 applications accessing Azure SQL databases](./solution-ideas/articles/mainframe-access-azure-databases.yml)  ([#ba1f99f5d4](https://github.com/MicrosoftDocs/architecture-center/commit/ba1f99f5d4))
 - [Enterprise monitoring with Azure Monitor](./example-scenario/monitoring/enterprise-monitoring.yml)  ([#a57ebe778b](https://github.com/MicrosoftDocs/architecture-center/commit/a57ebe778b))
-- [Power Automate deployment at scale](./example-scenario/power-automate/power-automate.yml)  ([#a57ebe778b](https://github.com/MicrosoftDocs/architecture-center/commit/a57ebe778b))
 - [Quantum computing integration with classical apps](./example-scenario/quantum/quantum-computing-integration-with-classical-apps.yml)  ([#a57ebe778b](https://github.com/MicrosoftDocs/architecture-center/commit/a57ebe778b))
 - [Manage virtual machine compliance](./example-scenario/security/virtual-machine-compliance.yml)  ([#a57ebe778b](https://github.com/MicrosoftDocs/architecture-center/commit/a57ebe778b))
 - [Deploy microservices with Azure Container Apps](./example-scenario/serverless/microservices-with-container-apps.yml)  ([#a57ebe778b](https://github.com/MicrosoftDocs/architecture-center/commit/a57ebe778b))

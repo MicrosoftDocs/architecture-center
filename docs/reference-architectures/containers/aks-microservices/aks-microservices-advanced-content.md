@@ -46,7 +46,7 @@ The AKS infrastructure features used in this architecture include:
 - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
 - [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview)
 
-**[Azure virtual networks](/azure/well-architected/service-guides/azure-virtual-network/reliability)** are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user node pool subnets and the Azure Application Gateway subnet.
+**[Azure virtual networks](/azure/well-architected/service-guides/virtual-network)** are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user node pool subnets and the Azure Application Gateway subnet.
 
 **[Azure Private Link](/azure/private-link/private-link-overview)** allocates specific private IP addresses to access Azure Container Registry and Key Vault from [Private Endpoints](/azure/private-link/private-endpoint-overview) within the AKS system and user node pool subnet.
 

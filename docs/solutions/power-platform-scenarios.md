@@ -52,7 +52,6 @@ The following articles provide detailed analysis of solutions that feature integ
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Citizen AI with Power Platform](../example-scenario/ai/citizen-ai-power-platform.yml)|Learn how to use Azure Machine Learning and Power Platform to quickly create a machine learning proof of concept and a production version.|AI|
-|[Custom business processes](../solution-ideas/articles/custom-business-processes.yml)|Deploy portals that use Power Apps to automate manual or paper-based processes and provide rich user experiences. Use Power BI to generate reports.|Integration|
 |[Modern data warehouse for small and medium businesses](../example-scenario/data/small-medium-data-warehouse.yml)|Use Azure Synapse Analytics, Azure SQL Database, and Azure Data Lake Storage to modernize legacy and on-premises data. This solution integrates easily with Power Platform.| Analytics|
 
 [Browse all our Power Platform solutions](/azure/architecture/browse/?products=power-platform).
@@ -61,9 +60,7 @@ The following articles provide detailed analysis of solutions that feature integ
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Custom business processes](../solution-ideas/articles/custom-business-processes.yml)|Deploy portals that use Power Apps to automate manual or paper-based processes and provide rich user experiences. | Integration|
 [Eventual consistency between multiple Power Apps instances](/azure/architecture/guide/power-platform/eventual-consistency)|Handle dependent data in a resilient way in Power Apps.| Web|
-[Line of business extension](../solution-ideas/articles/lob.yml)|Modernize legacy systems by automating processes. Schedule calculations, connect to third-party data sources or legacy systems, and process and share data. Power Apps retrieves the data, and Power BI provides reporting.| Integration|
 [Web and mobile front ends](../solution-ideas/articles/front-end.yml) |Accelerate development by using a visual designer. Use Azure Functions for low-latency processing and Power Apps and Power Automate for out-of-the-box connectors.|Integration|
 
 [Browse all our Power Apps solutions](/azure/architecture/browse/?expanded=power-platform&products=power-apps).
@@ -73,7 +70,6 @@ The following articles provide detailed analysis of solutions that feature integ
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Extract text from objects using Power Automate and AI Builder](../example-scenario/ai/extract-object-text.yml)|Use AI Builder and Azure Form Recognizer in a Power Automate workflow to extract text from images. The text can be used for indexing and retrieval.| AI|
-|[Power Automate deployment at scale](../example-scenario/power-automate/power-automate.yml)|Learn how to use a hub-and-spoke architectural model to deploy Power Automate parent and child flows.| Integration|
 |[Web and mobile front ends](../solution-ideas/articles/front-end.yml)|Accelerate development by using a visual designer. Use Azure Functions for low-latency processing and Power Apps and Power Automate for out-of-the-box connectors. |Integration|
 
 [Browse all our Power Automate solutions](/azure/architecture/browse/?expanded=power-platform&products=power-automate).
@@ -85,7 +81,6 @@ The following articles provide detailed analysis of solutions that feature integ
 |[Data analysis for regulated industries](/azure/architecture/example-scenario/data/data-warehouse)|Learn about an architecture that you can use for data analysis workloads in regulated industries. The architecture includes ETL/ELT and Power BI.| Analytics|
 |[Intelligent apps using Azure Database for MySQL](../databases/idea/intelligent-apps-using-azure-database-for-mysql.yml)|Use Azure Database for MySQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on. Power BI provides visualization and data analysis.| Databases|
 |[Intelligent apps using Azure Database for PostgreSQL](../databases/idea/intelligent-apps-using-azure-database-for-postgresql.yml)|Use Azure Database for PostgreSQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on. Power BI provides visualization and data analysis.| Databases|
-|[Line of business extension](../solution-ideas/articles/lob.yml)|Modernize legacy systems by automating processes. Schedule calculations, connect to third-party data sources or legacy systems, and process and share data by using Power BI.| Integration|
 |[Loan charge-off prediction with HDInsight Spark](../solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)|Learn how lending institutions can use Azure HDInsight and machine learning to predict the likelihood of loans getting charged off. Power BI provides a visualization dashboard.| Databases|
 |[Medical data storage solutions](../solution-ideas/articles/medical-data-storage.yml)|Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security. Power BI provides data analysis.| Storage|
 |[Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)|Create a modern analytics architecture that uses Azure Databricks, Azure Data Lake Storage, Power BI, and other Azure services. Unify data, analytics, and AI workloads at any scale.| Analytics|

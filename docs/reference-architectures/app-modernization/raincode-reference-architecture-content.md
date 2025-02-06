@@ -65,7 +65,7 @@ This diagram shows how the legacy architecture can be migrated to Azure, taking 
 
 -   [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications in container-based compute clusters.
 
--   [Azure Virtual Network (VNet)](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. VNet is similar to a traditional network that you'd operate in your own datacenter, but it brings more benefits of Azure's infrastructure, such as scale, availability, and isolation.
+-   [Azure Virtual Network (VNet)](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. VNet is similar to a traditional network that you'd operate in your own datacenter, but it brings more benefits of Azure's infrastructure, such as scale, availability, and isolation.
 
 -   [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in the cloud that are accessible via the industry-standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
 
