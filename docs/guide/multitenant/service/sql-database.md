@@ -15,7 +15,7 @@ categories:
   - data
 ms.custom:
   - guide
-  - arg-saas
+  - arb-saas
 ---
 
 # Multitenancy and Azure SQL Database
