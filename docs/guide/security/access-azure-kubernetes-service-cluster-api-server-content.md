@@ -27,7 +27,7 @@ Cloud Shell is a shell built into the Azure portal. You can manage and connect t
 
 ## Access AKS private cluster
 
-They're are several ways to connect to an AKS private cluster. Planning access is a day-zero activity based on your scenario's needs and limitations. You can connect to your private cluster using the following components and services:
+There are several ways to connect to an AKS private cluster. Planning access is a day-zero activity based on your scenario's needs and limitations. You can connect to your private cluster using the following components and services:
 
 - Jump box deployed into a subnet as your operations workstation. This can be [stand-alone, persistent virtual machines (VMs)](/azure/virtual-machines/managed-disks-overview) in an [availability set](/azure/virtual-machines/availability-set-overview). You can also use [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
 - [Azure Bastion](/azure/bastion/bastion-overview).
