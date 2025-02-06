@@ -1300,7 +1300,7 @@ items:
               href: example-scenario/hybrid/aks-baseline.yml
             - name: AKS on Azure Local network architecture
               href: example-scenario/hybrid/aks-network.yml
-            - name: Deploy apps with AKS hybrid on Azure Stack ACI
+            - name: Deploy apps with AKS on Azure Local
               href: example-scenario/hybrid/aks-hybrid-azure-local.yml
           - name: Azure Virtual Desktop for Azure Local
             href: hybrid/azure-local-workload-virtual-desktop.yml
