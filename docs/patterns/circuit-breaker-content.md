@@ -45,6 +45,8 @@ The pattern is customizable and can be adapted according to the type of the poss
 
 You should consider the following points when deciding how to implement this pattern:
 
+**Service mesh circuit breakers**. Originally, circuit breakers were implemented at the application layer (i.e., Resilience4j, Netflix Hystrix), while modern implementations leverage service meshes (supported by AKS such as Istio or third party open-source project Linkerd or Consul) to enforce circuit breaking at the infrastructure layer, enabling fine-grained traffic control without modifying application code.
+
 **Exception Handling**. An application invoking an operation through a circuit breaker must be prepared to handle the exceptions raised if the operation is unavailable. The way exceptions are handled will be application specific. For example, an application could temporarily degrade its functionality, invoke an alternative operation to try to perform the same task or obtain the same data, or report the exception to the user and ask them to try again later.
 
 **Types of Exceptions**. A request might fail for many reasons, some of which might indicate a more severe type of failure than others. For example, a request might fail because a remote service has crashed and will take several minutes to recover, or because of a timeout due to the service being temporarily overloaded. A circuit breaker might be able to examine the types of exceptions that occur and adjust its strategy depending on the nature of these exceptions. For example, it might require a larger number of timeout exceptions to trip the circuit breaker to the **Open** state compared to the number of failures due to the service being completely unavailable.
