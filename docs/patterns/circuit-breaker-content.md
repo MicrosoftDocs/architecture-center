@@ -63,6 +63,8 @@ You should consider the following points when deciding how to implement this pat
 
 **Accelerated Circuit Breaking**. Sometimes a failure response can contain enough information for the circuit breaker to trip immediately and stay tripped for a minimum amount of time. For example, the error response from a shared resource that's overloaded could indicate that an immediate retry isn't recommended and that the application should instead try again in a few minutes.
 
+**Multi-Region Deployments**. A circuit breaker could be designed for single and/or multi-region deployments. The later can be implemented using global load balancers or custom region-aware circuit breaking strategies that ensure seamless failover, latency optimization, and regulatory compliance.
+
 > [!NOTE]
 > A service can return HTTP 429 (Too Many Requests) if it is throttling the client, or HTTP 503 (Service Unavailable) if the service is not currently available. The response can include additional information, such as the anticipated duration of the delay.
 
