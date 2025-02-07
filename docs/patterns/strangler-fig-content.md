@@ -30,7 +30,7 @@ Legacy systems often depend on a centralized database. Over time, a centralized 
 
 1. You introduce a new system, and the new system starts handling some requests from the client app. However, the new system still relies on the legacy database for all read and write operations. The legacy system remains operational, which facilitates a smooth transition without immediate structural changes.
 
-In the next phase, a new database is introduced, and historical data is migrated using an ETL (Extract, Transform, Load) process to synchronize it with the legacy database (Step 2). During this phase, the new system performs shadow writes, updating both databases in parallel while continuing to read from the legacy database to validate consistency.
+2. In the next phase, you introduce a new database. You migrate data load history to the new database using an ETL (Extract, Transform, Load) process. The ETL process synchronizes the new database with the legacy database. During this phase, the new system performs shadow writes. The new system updates both databases in parallel. The new system continues to read from the legacy database to validate consistency.
 
 Finally, the new system database becomes the SOR (System of Record), taking over all read and write operations (Step 3), while the legacy database and system are deprecated. Once validated, the legacy system database is fully retired, completing the migration process with minimal disruption.
 
