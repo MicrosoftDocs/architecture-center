@@ -32,7 +32,7 @@ Legacy systems often depend on a centralized database. Over time, a centralized 
 
 2. In the next phase, you introduce a new database. You migrate data load history to the new database using an ETL (Extract, Transform, Load) process. The ETL process synchronizes the new database with the legacy database. During this phase, the new system performs shadow writes. The new system updates both databases in parallel. The new system continues to read from the legacy database to validate consistency.
 
-Finally, the new system database becomes the SOR (System of Record), taking over all read and write operations (Step 3), while the legacy database and system are deprecated. Once validated, the legacy system database is fully retired, completing the migration process with minimal disruption.
+3. Finally, the new database becomes the System of Record (SOR). The new database takes over all read and write operations. You can start deprecating the legacy database and legacy system. Once validated, you can retire the legacy database. This retirement completes the migration process with minimal disruption.
 
 ## Issues and considerations
 
