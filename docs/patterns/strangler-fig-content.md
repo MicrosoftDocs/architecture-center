@@ -19,7 +19,7 @@ The Strangler Fig pattern enables a gradual transition from a legacy system to a
 
 3. Once you migrate all the functionality and there are no dependencies on the legacy system, you can decommission the legacy system. The Strangler Facade (proxy) routes all requests exclusively to the new system.
 
-In the final stage (Step 4), the Strangler Facade is removed, and the client application directly interacts with the new system. The client application is reconfigured to communicate directly with the new system, eliminating the need for the proxy. This marks the completion of the migration.
+4. You remove the Strangler Facade (proxy) and reconfigure the client app to communicate directly with the new system. This marks the completion of the migration.
 
 This pattern provides a controlled and phased approach to modernization, allowing the existing application to continue functioning throughout the transition. Over time, as the new system takes over, the legacy system is "strangled" and safely retired, ensuring minimal disruption and a seamless migration.
 
