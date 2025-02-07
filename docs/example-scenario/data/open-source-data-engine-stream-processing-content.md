@@ -185,7 +185,6 @@ To learn about related solutions, see the following information:
 - [Analytics architecture design][Analytics architecture design]
 - [Choose an analytical data store in Azure][Choose an analytical data store in Azure]
 - [Choose a data analytics technology in Azure][Choose a data analytics technology in Azure]
-- [Azure Kubernetes in event stream processing][Azure Kubernetes in event stream processing]
 - [Data streaming with AKS][Data streaming with AKS]
 
 [About Azure Cache for Redis]: /azure/azure-cache-for-redis/cache-overview
@@ -204,7 +203,6 @@ To learn about related solutions, see the following information:
 [Azure Database for PostgreSQL pricing]: https://azure.microsoft.com/pricing/details/postgresql/server
 [Azure Database for PostgreSQL single server deprecation]: https://azure.microsoft.com/en-us/updates/azure-database-for-postgresql-single-server-will-be-retired-migrate-to-flexible-server-by-28-march-2025/
 [Azure Event Hubs — A big data streaming platform and event ingestion service]: /azure/well-architected/service-guides/azure-databricks-security
-[Azure Kubernetes in event stream processing]: ../../solution-ideas/articles/serverless-event-processing-aks.yml
 [Azure Kubernetes Service]: /azure/aks/intro-kubernetes
 [Azure Kubernetes Service (AKS) service guide]: /azure/well-architected/service-guides/azure-kubernetes-service
 [Azure Kubernetes Service (AKS) pricing]: https://azure.microsoft.com/pricing/details/kubernetes-service

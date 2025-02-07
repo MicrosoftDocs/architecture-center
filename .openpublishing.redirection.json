@@ -2861,6 +2861,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/serverless-event-processing-aks.yml",
+      "redirect_url": "/azure/aks/keda-about",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/serverless-event-processing-filtering.yml",
       "redirect_url": "/azure/architecture/patterns/pipes-and-filters",
       "redirect_document_id": false
