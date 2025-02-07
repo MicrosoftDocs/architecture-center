@@ -24,7 +24,7 @@ The Strangler Fig pattern enables a gradual transition from a legacy system to a
 
 ## Strangler Fig pattern applied to datastore migrations
 
-Legacy systems often depend on a centralized database that, over time, can become increasingly complex with tangled dependencies, making it difficult to manage and evolve. To address these challenges, various database patterns have emerged to facilitate the transition away from such legacy systems. One effective approach is the Strangler Fig pattern, which can be applied at the database level. In this approach, the migration from a legacy database to a new one involves routing traffic to the new system while simultaneously syncing data between the two databases. Once both databases are in sync and have been thoroughly validated, the system fully transitions to the new database, allowing the legacy system to be gradually deprecated.
+Legacy systems often depend on a centralized database. Over time, a centralized database can become difficult to manage and evolve because of its many dependencies. To address these challenges, there are various database patterns to facilitate the transition away from such legacy systems. The Strangler Fig pattern is one of these patterns. The Strangler Fig pattern for database migration follows a phased approach to gradually transition from a legacy system to a new system while minimizing disruption.
 
  ![Diagram of the Strangler Fig pattern](./_images/strangler-fig-db.png)
 
