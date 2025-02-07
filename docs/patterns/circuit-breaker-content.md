@@ -92,6 +92,7 @@ This pattern isn't recommended:
 - When well-known retry algorithms are sufficient and your dependencies are designed to deal with retry mechanims, avoid introducing unnecessary complexity implementing a circuit breaker in your application.
 - When waiting for a circuit breaker to reset may introduce unacceptable delays.
 - Message-driven applications or event-driven architectures may not require to implement circuit breakers.
+- If failure recovery is managed at the infrastructure or platform level, such as with Global Load Balancers or Service Meshes, circuit breakers may not be necessary.
 
 ## Workload design
 
