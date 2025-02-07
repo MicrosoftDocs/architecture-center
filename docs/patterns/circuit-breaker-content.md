@@ -81,6 +81,7 @@ You should consider the following points when deciding how to implement this pat
 Use this pattern:
 
 - To prevent cascading failures by stopping excessive invokes a remote service or access a shared resource if this operation is highly likely to fail.
+- Enhance multi-region resilience by routing traffic intelligently based on real-time failure signals.
 
 This pattern isn't recommended:
 
