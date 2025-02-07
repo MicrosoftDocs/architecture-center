@@ -13,7 +13,6 @@ Before applying this pattern, it's crucial to understand the system architecture
 ## Solution
 
 The Strangler Fig pattern enables a gradual transition from a legacy system to a new system. It provides a controlled and phased approach to modernization, and it allows the existing application to continue functioning throughout the modernization effort. The pattern reduces risks in migration by enabling teams to move forward at a pace that suits the complexity of the project. As you migrate functionality to the new system, the legacy system becomes obsolete, and you decommission the legacy system. 
-The Strangler façade serves as an intermediary that ensures smooth transitions between the legacy and the new system. It helps mitigate the risks associated with large-scale migration by spreading the effort over time, enabling teams to move forward at a pace that suits the complexity of the project. Over time, as features are migrated, the legacy system is gradually "strangled" and can eventually be decommissioned.
 
  ![Diagram of the Strangler Fig pattern](./_images/strangler-fig.png)
 
