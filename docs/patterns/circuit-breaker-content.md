@@ -83,6 +83,7 @@ Use this pattern:
 - To prevent cascading failures by stopping excessive invokes a remote service or access a shared resource if this operation is highly likely to fail.
 - Enhance multi-region resilience by routing traffic intelligently based on real-time failure signals.
 - To protect against slow dependencies helping you to keep up with your Service Level Objectives (SLOs). Avoid performance degradation due to high-latency services.
+- To handle intermittent connectivity and reduce request failures in distributed environments.
 
 This pattern isn't recommended:
 
