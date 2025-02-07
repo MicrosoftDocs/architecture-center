@@ -1147,8 +1147,6 @@ items:
         href: guide/azure-sandbox/azure-sandbox.yml
       - name: Advanced ARM templates
         items:
-        - name: Overview
-          href: guide/azure-resource-manager/advanced-templates/index.md
         - name: Update a resource
           href: guide/azure-resource-manager/advanced-templates/update-resource.md
         - name: Use an object as a parameter

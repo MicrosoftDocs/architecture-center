@@ -2536,6 +2536,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/azure-resource-manager/advanced-templates/index.md",
+      "redirect_url": "/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/azure-resource-manager/advanced-templates/conditional-deploy.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-use-conditions",
       "redirect_document_id": false
