@@ -81,7 +81,7 @@ The system also contains the following components:
   - [Azure SSD managed disks](/azure/virtual-machines/windows/managed-disks-overview) are block-level storage volumes for Azure VMs.
   - [Azure virtual network interface cards (NICs)](/azure/virtual-network/virtual-network-network-interface) let Azure VMs communicate with internet, Azure, and on-premises resources. You can add several virtual NICs to an Azure VM, so child VMs can have their own dedicated network interface devices and IP addresses.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block for Azure private networks. Virtual Network lets many types of Azure resources, such as VMs, securely communicate with each other, the internet, and on-premises networks. Virtual Network offers Azure infrastructure benefits like scalability, availability, and isolation.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for Azure private networks. Virtual Network lets many types of Azure resources, such as VMs, securely communicate with each other, the internet, and on-premises networks. Virtual Network offers Azure infrastructure benefits like scalability, availability, and isolation.
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) storage offers fully managed file shares in the cloud that are accessible via the industry-standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure file shares concurrently.
 

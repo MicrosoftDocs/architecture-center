@@ -721,14 +721,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Power Automate deployment at scale]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/power-automate/power-automate</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/power-automate/power-automate"/>
-        <updated>2025-01-21T17:46:02.000Z</updated>
-        <summary type="html"><![CDATA[See how to use a hub-and-spoke architectural model to deploy Power Automate parent and child flows.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Quantum computing integration with classical apps]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps"/>

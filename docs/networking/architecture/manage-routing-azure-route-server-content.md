@@ -186,7 +186,7 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 [Quickstart: Create and configure Route Server using the Azure portal]: /azure/route-server/quickstart-configure-route-server-portal
 [Regions and availability zones]: /azure/reliability/availability-zones-overview
 [SLA for Azure Route Server]: https://azure.microsoft.com/support/legal/sla/route-server/v1_0
-[Virtual Network]: /azure/well-architected/service-guides/azure-virtual-network/reliability
+[Virtual Network]: /azure/well-architected/service-guides/virtual-network
 [Virtual network peering]: /azure/virtual-network/virtual-network-peering-overview
 [Virtual Network service endpoints]: /azure/virtual-network/virtual-network-service-endpoints-overview
 [Virtual network traffic routing - Custom routes]: /azure/virtual-network/virtual-networks-udr-overview#custom-routes

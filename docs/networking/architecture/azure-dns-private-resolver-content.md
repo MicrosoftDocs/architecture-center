@@ -171,7 +171,7 @@ The following diagram shows the traffic flow that results when VM 1 issues a DNS
 
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends on-premises networks into the Microsoft cloud. ExpressRoute establishes private connections to cloud components like Azure services and Microsoft 365 by using a connectivity provider.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks.
 
 - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) enforces application and network connectivity policies. This network security service centrally manages the policies across multiple virtual networks and subscriptions.
 

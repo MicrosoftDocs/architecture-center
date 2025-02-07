@@ -9,7 +9,7 @@ metadata:
   ms.topic: example-scenario
   ms.service: azure-architecture-center
   ms.subservice: example-scenario
-  ms.custom: fcp 
+  ms.custom: arb-web 
 azureCategories:
   - web
   - devops

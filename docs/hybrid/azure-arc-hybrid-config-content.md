@@ -212,7 +212,7 @@ Explore related architectures:
 [Azure Policy Guest Configuration]: /azure/governance/policy/concepts/guest-configuration
 [Azure Resource Group]: /azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group
 [Azure virtual machines]: /azure/virtual-machines/
-[Azure Virtual Network]: /azure/well-architected/service-guides/azure-virtual-network/reliability
+[Azure Virtual Network]: /azure/well-architected/service-guides/virtual-network
 [caf-arc-servers-automation]: /azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-automation-arc-server
 [CAF Arc Accelerator]: /azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone
 [windows-agent-download]: https://aka.ms/AzureConnectedMachineAgent

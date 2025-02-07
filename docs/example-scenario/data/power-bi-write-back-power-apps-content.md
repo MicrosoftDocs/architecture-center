@@ -149,7 +149,6 @@ Microsoft Learn Training modules:
 - [Get started with Power Apps canvas apps](/training/modules/get-started-with-powerapps)
 - [Manage solutions in Power Apps and Power Automate](/training/modules/manage-solutions-power-automate)
 
-## Related resources
+## Related resource
 
 - [Extract text from objects using Power Automate and AI Builder](../../example-scenario/ai/extract-object-text.yml)
-- [Custom business processes](../../solution-ideas/articles/custom-business-processes.yml)
