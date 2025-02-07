@@ -80,7 +80,7 @@ You should consider the following points when deciding how to implement this pat
 
 Use this pattern:
 
-- To prevent an application from trying to invoke a remote service or access a shared resource if this operation is highly likely to fail.
+- To prevent cascading failures by stopping excessive invokes a remote service or access a shared resource if this operation is highly likely to fail.
 
 This pattern isn't recommended:
 
