@@ -236,54 +236,54 @@ For more information, see [Power BI pricing](https://powerbi.microsoft.com/prici
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-- For guidance about how to use an Azure DevOps release pipeline and how to use GitHub Actions to automate the deployment of an Azure Synapse Analytics workspace across multiple environments, see [Continuous integration and continuous delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery).
-- Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a continuous integration and continuous delivery (CI/CD) process, making the automation process easier. In this architecture, there are four main workloads:
-  - The data warehouse server, and related resources
+- Use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse Analytics workspace across multiple environments. For more information, see [Continuous integration and continuous delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery).
+- Put each workload in a separate deployment template, and store the resources in source control systems. You can deploy the templates together or individually as part of a continuous integration and continuous delivery (CI/CD) process. This approach makes the automation process easier. This architecture has four main workloads:
+  - The data warehouse server and related resources
   - Azure Synapse Analytics pipelines
-  - Power BI assets: dashboards, apps, and datasets
+  - Power BI assets, including dashboards, apps, and datasets
   - An on-premises to cloud simulated scenario
 
-  Aim to have a separate deployment template for each of the workloads.
-- Consider staging your workloads where practical. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a controlled way and minimize unanticipated deployment problems. Use [blue-green deployment][blue-green-dep] and [canary release][canary-releases] strategies for updating live production environments.
-- Have a good rollback strategy for handling failed deployments. For example, you can automatically redeploy an earlier, successful deployment from your deployment history. See the `--rollback-on-error` flag in the Azure CLI.
-- [Azure Monitor][azure-monitor] is the recommended option for analyzing the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights about your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
+- Consider staging your workloads where practical. Deploy your workload to various stages. Run validation checks at each stage before moving to the next stage. This approach pushes updates to your production environments in a controlled way and minimizes unanticipated deployment problems. Use [blue-green deployment][blue-green-dep] and [canary release][canary-releases] strategies to update live production environments.
+- Use a rollback strategy to handle failed deployments. For example, you can automatically redeploy an earlier, successful deployment from your deployment history. Use the `--rollback-on-error` flag in the Azure CLI.
+- Use [Azure Monitor][azure-monitor] to analyze the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights about your data warehouse workload. Use the Azure portal to monitor your data warehouse. It provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
 
-#### Quick start
+For more information, see the following resources:
 
-- Tutorial: [Get started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
-- The Azure CLI: [Create an Azure Synapse Analytics workspace with Azure CLI](/azure/synapse-analytics/quickstart-create-workspace-cli)
+- [Tutorial: Get started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
+- [Create an Azure Synapse Analytics workspace with Azure CLI](/azure/synapse-analytics/quickstart-create-workspace-cli)
 
 ### Performance Efficiency
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-This section provides details on sizing decisions to accommodate this dataset.
+This section provides details about sizing decisions to accommodate this dataset.
 
 #### Azure Synapse Analytics provisioned pool
 
-There's a range of [data warehouse configurations](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview) to choose from.
+You can use various [data warehouse configurations](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview).
 
-|Data warehouse units |# of compute nodes  |# of distributions per node|
+|DWUs |# of compute nodes  |# of distributions per node|
 |---------------------|:------------------:|:-------------------------:|
 |DW100c               |1                   |60                         |
 |                     | `-- TO --`         |                           |
 |DW30000c             |60                  |1                          |
 
-To see the performance benefits of scaling out, especially for larger data warehouse units, use at least a 1-TB dataset. To find the best number of data warehouse units for your dedicated SQL pool, try scaling up and down. Run a few queries with different numbers of data warehouse units after loading your data. Since scaling is quick, you can try various performance levels in an hour or less.
+To see the performance benefits of scaling out, especially for larger DWUs, use at least a 1-TB dataset. To find the best number of DWUs for your dedicated SQL pool, try scaling up and down. Run queries that have different numbers of DWUs after you load your data. Scaling is quick, so you can easily experiment with various performance levels.
 
-##### Find the best number of data warehouse units
+##### Find the best number of DWUs
 
-For a dedicated SQL pool in development, begin by selecting a smaller number of data warehouse units. A good starting point is *DW400c* or *DW200c*. Monitor your application performance, observing the number of data warehouse units selected compared to the performance you observe.
-Assume a linear scale, and determine how much you need to increase or decrease the data warehouse units. Continue making adjustments until you reach an optimum performance level for your business requirements.
+For a dedicated SQL pool in development, select a small number of DWUs as a starting point, such as *DW400c* or *DW200c*. Monitor your application performance for each number of DWUs. Assume a linear scale, and determine how much you need to increase or decrease the DWUs. Continue making adjustments until you reach an optimum performance level for your business requirements.
 
 ##### Scale an Azure Synapse Analytics SQL pool
 
+For scalability and performance optimization features of pipelines in Azure Synapse Analytics and of the copy activity that you use, see [Copy activity performance and scalability guide](/azure/data-factory/copy-activity-performance).
+
+For more information, see the following resources:
+
 - [Scale compute for an Azure Synapse Analytics SQL pool with the Azure portal](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal)
 - [Scale compute for a dedicated SQL pool with Azure PowerShell](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-powershell)
-- [Scale compute for a dedicated SQL pool in Azure Synapse Analytics using T-SQL](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-tsql)
+- [Scale compute for a dedicated SQL pool in Azure Synapse Analytics by using T-SQL](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-tsql)
 - [Manage compute for a dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview)
-
-For scalability and performance optimization features of pipelines in Azure Synapse Analytics and the copy activity used, refer to the [Copy activity performance and scalability guide](/azure/data-factory/copy-activity-performance).
 
 #### Power BI Premium and Fabric
 
@@ -315,7 +315,7 @@ Other contributors:
 
 - [What is Power BI Premium?](/power-bi/enterprise/service-premium-what-is)
 - [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
-- [Accessing Data Lake Storage and Blob Storage with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-storage)
+- [Access Data Lake Storage and Azure Blob Storage with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-storage)
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 - [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](/azure/data-factory/concepts-pipelines-activities)
 - [What is Azure SQL?](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview)
