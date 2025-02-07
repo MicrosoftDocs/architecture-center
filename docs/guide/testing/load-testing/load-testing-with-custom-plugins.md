@@ -141,7 +141,7 @@ To create a sample JMeter test script:
 
    The implementation of `com.microsoft.eventhubplugin.EventHubPluginGui` and `com.microsoft.eventhubplugin.EventHubPlugin` are available at [Azure Samples](https://github.com/Azure-Samples/load-testing-jmeter-plugins).
 
-2. In the file, set the Event Hub connection values using the assigned Managed Identity of the test runners. That identity needs write access to the Event Hub instance.
+2. In the file, set the Event Hub connection values using the assigned Managed Identity of the test runners. That identity needs to have write access to the Event Hub instance.
 
 3. In the file, set the value of the `eventHubName` node to the event hub name, such as `telemetry-data-changed-eh`.
 
@@ -166,7 +166,7 @@ To create a sample JMeter test script:
 
 #### Updating the custom plugin from Event Hub to IoT Hub
 
-The current custom plugin uses Event Hub as main target resource. In a nutshell, this is the SDK client configuration for Event Hub:
+The current custom plugin uses Event Hub as main target resource. In a nutshell, this configuration is the SDK client setup for Event Hub:
 
 ```java
    EventHubProducerClient producer = null;
@@ -180,7 +180,7 @@ The current custom plugin uses Event Hub as main target resource. In a nutshell,
    producer.send(batch);
 ```
 
-You can reuse the same solution, add the IoT dependencies and change SDK client to use IoT, as shown in the following example:
+You can reuse the same solution, add the IoT dependencies, and change SDK client to use IoT, as shown in the following example:
 
 ```java
    IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
@@ -275,9 +275,9 @@ For more information, see [Azure Load Testing](/azure/load-testing/).
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors originally wrote it:*
 
-Principal author:
+Principal authors:
 
 - [Mahdi Setayesh](https://www.linkedin.com/in/mahdi-setayesh-a03aa644/) | Principal Software Engineer
 - [Oscar Fimbres](https://www.linkedin.com/in/ofimbres) | Senior Software Engineer
