@@ -297,7 +297,8 @@ Other contributors:
 - [Gurkamal Rakhra](https://www.linkedin.com/in/gurkamaldeep/) | Principal Solutions Architect
 
 ## Next steps
-Review [Well Architected Framework Security Pillar](https://learn.microsoft.com/en-us/azure/well-architected/security/) design principles.
+
+Review the [Azure Well-Architected Framework Security pillar](/azure/well-architected/security/) design principles.
 
 ## Related resources
 
