@@ -241,7 +241,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 You may want to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
 
 - [Data warehousing and analytics for sales and marketing](../../example-scenario/data/data-warehouse.yml)
-- [Enterprise BI in Azure with Azure Synapse Analytics](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse).
+- [Use Azure Synapse Analytics to design an enterprise BI solution](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse).
 
 <!-- links -->
 
