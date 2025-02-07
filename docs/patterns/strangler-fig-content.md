@@ -28,7 +28,7 @@ Legacy systems often depend on a centralized database. Over time, a centralized 
 
  ![Diagram of the Strangler Fig pattern](./_images/strangler-fig-db.png)
 
-The Strangler Fig pattern for database migration follows a phased approach to gradually transition from a legacy system to a new system while minimizing disruption (Step 1). The new system is introduced and starts handling some requests from the client application while still relying on the legacy database for all read and write operations. The legacy system remains operational, ensuring a smooth transition without immediate structural changes.
+1. You introduce a new system, and the new system starts handling some requests from the client app. However, the new system still relies on the legacy database for all read and write operations. The legacy system remains operational, which facilitates a smooth transition without immediate structural changes.
 
 In the next phase, a new database is introduced, and historical data is migrated using an ETL (Extract, Transform, Load) process to synchronize it with the legacy database (Step 2). During this phase, the new system performs shadow writes, updating both databases in parallel while continuing to read from the legacy database to validate consistency.
 
