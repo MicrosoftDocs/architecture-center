@@ -6,9 +6,6 @@ As systems age, the development tools, hosting technology, and even system archi
 
 Replacing an entire complex system is a huge undertaking. Instead, many teams prefer to migrate to a new system gradually while keeping the old system to handle unmigrated features. However, running two separate versions of an application forces clients to track the locations of individual features. Every time teams migrate a feature or service, they must direct clients to the new location. To overcome these challenges, adopt an approach that supports incremental migration while minimizing disruptions to clients. 
 
-To address these challenges, an approach that enables seamless incremental migration while minimizing disruption to clients is essential. The strangler fig pattern can help guide this process, providing a pathway to modern architectures over time.
-
-Before applying this pattern, it's crucial to understand the system architecture and decompose it into manageable, independent components. This involves aligning stakeholders on clear migration goals and identifying key integration points, as well as areas where functionality can be isolated and migrated incrementally without disrupting the overall system.
 
 ## Solution
 
