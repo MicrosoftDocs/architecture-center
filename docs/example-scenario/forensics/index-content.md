@@ -193,7 +193,7 @@ Azure provides services to all customers to monitor and alert on anomalies invol
 
 - [Microsoft Sentinel](https://aka.ms/azure-sentinel).
 - [Microsoft Defender for Cloud](https://aka.ms/asc).
-- [Azure Storage Advanced Threat Protection (ATP)](/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal).
+- [Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction?tabs=azure-portal).
 
 > [!NOTE]
 > The configuration of these services isn't described in this article.
@@ -232,7 +232,7 @@ In this scenario, you can customize the Copy‑VmDigitalEvidence runbook to enab
 Principal authors:
 
 - [Fabio Masciotra](https://www.linkedin.com/in/fabiomasciotra/) | Principal Consultant
-- [Simone Savi](https://www.linkedin.com/in/simone-savi-3b50aa7) | Senior Consultant
+- [Simone Savi](https://www.linkedin.com/in/sisavi/) | Senior Consultant
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -253,7 +253,7 @@ For more information about Azure logging and auditing features, see:
 For more information about Microsoft Azure compliance, see:
 
 - [Azure compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance)
-- [Microsoft Azure compliance offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/en-us)
+- [Microsoft compliance offerings](https://learn.microsoft.com/en-us/compliance/regulatory/offering-home)
 
 ## Related resource
 
