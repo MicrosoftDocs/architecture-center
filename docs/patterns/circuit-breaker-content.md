@@ -89,6 +89,7 @@ This pattern isn't recommended:
 
 - For handling access to local private resources in an application, such as in-memory data structure. In this environment, using a circuit breaker would add overhead to your system.
 - As a substitute for handling exceptions in the business logic of your applications.
+- When well-known retry algorithms are sufficient and your dependencies are designed to deal with retry mechanims, avoid introducing unnecessary complexity implementing a circuit breaker in your application.
 
 ## Workload design
 
