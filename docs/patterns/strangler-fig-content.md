@@ -4,7 +4,7 @@ Incrementally migrate a legacy system by gradually replacing specific pieces of 
 
 As systems age, the development tools, hosting technology, and even system architectures they were built on can become obsolete. As new features and functionality are added, the complexity of these applications can increase, making them harder to maintain or extend.
 
-Completely replacing a complex system can be a huge undertaking. Often, you will need a gradual migration to a new system, while keeping the old system to handle features that haven't been migrated yet. However, running two separate versions of an application means that clients have to know where particular features are located. Every time a feature or service is migrated, clients need to be updated to point to the new location.
+Replacing an entire complex system is a huge undertaking. Instead, many teams prefer to migrate to a new system gradually while keeping the old system to handle unmigrated features. However, running two separate versions of an application forces clients to track the locations of individual features. Every time teams migrate a feature or service, they must direct clients to the new location. To overcome these challenges, adopt an approach that supports incremental migration while minimizing disruptions to clients. 
 
 To address these challenges, an approach that enables seamless incremental migration while minimizing disruption to clients is essential. The strangler fig pattern can help guide this process, providing a pathway to modern architectures over time.
 
