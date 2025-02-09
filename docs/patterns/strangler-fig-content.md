@@ -13,7 +13,7 @@ The Strangler Fig pattern enables a gradual transition from a legacy system to a
 
  ![Diagram of the Strangler Fig pattern](./_images/strangler-fig.png)
 
-1. The Strangler Fig pattern begins by introducing a Strangler Facade (proxy) between the client app, the legacy system, and the new system. The Strangler Facade (proxy) acts as an intermediary. It allows the client app to interact with the legacy system and the new system. Initially, the Strangler Facade (proxy) routes most requests to the legacy system.
+1. The Strangler Fig pattern begins by introducing a façade (proxy) between the client app, the legacy system, and the new system. The façade (proxy) acts as an intermediary. It allows the client app to interact with the legacy system and the new system. Initially, the façade routes most requests to the legacy system.
 
 2. As the migration progresses, the Strangler Facade incrementally shifts requests from the legacy system to the new system. With each iteration, you implement additional pieces of functionality in the new system. This incremental approach enables a gradual reduction in the legacy system responsibilities while expanding the scope of the new system. The process is iterative. It allows the team to address complexities and dependencies in manageable stages. These stages help the system remain stable and functional.
 
