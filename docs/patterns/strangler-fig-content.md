@@ -53,7 +53,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 Legacy systems often depend on a centralized database. Over time, a centralized database can become difficult to manage and evolve because of its many dependencies. To address these challenges, there are various database patterns to facilitate the transition away from such legacy systems. The Strangler Fig pattern is one of these patterns. Apply the Strangler Fig pattern as a phased approach to gradually transition from a legacy system to a new system while minimizing disruption.
 
-:::image type="content" source="./_images/strangler-fig-db.png" alt-text="Diagram of the Strangler Fig pattern applied to a database." lightbox="./_images/strangler-fig-db.png":::
+:::image type="content" source="./_images/strangler-fig-database.png" alt-text="Diagram of the Strangler Fig pattern applied to a database." lightbox="./_images/strangler-fig-database.png":::
 
 1. You introduce a new system, and the new system starts handling some requests from the client app. However, the new system still has a depenency on the legacy database for all read and write operations. The legacy system remains operational, which facilitates a smooth transition without immediate structural changes.
 
