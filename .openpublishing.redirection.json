@@ -6873,6 +6873,11 @@
       "source_path": "docs/resiliency/recovery-loss-azure-region.md",
       "redirect_url": "/azure/reliability/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/azure-arc-hybrid-config.yml",
+      "redirect_url": "/azure/architecture/hybrid/azure-arc-hybrid-config",
+      "redirect_document_id": false
     }
   ]
 }

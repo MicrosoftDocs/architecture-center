@@ -93,7 +93,6 @@ The following sections provide links to reference architectures in some key mana
 - [Back up files and applications on Azure Stack Hub](/azure/backup/backup-mabs-files-applications-azure-stack)
 - [Enable virtual machine protection in Azure Site Recovery](/azure-stack/operator/protect-virtual-machines)
 - [Hybrid availability and performance monitoring](../../hybrid/hybrid-perf-monitoring.yml)
-- [Manage configurations for Azure Arc-enabled servers](../../hybrid/azure-arc-hybrid-config.yml)
 
 ### Update management
 
