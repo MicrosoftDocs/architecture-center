@@ -7,7 +7,7 @@ ms.date: 02/06/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
-ms.custom: load-testing, arb-iot
+ms.custom: arb-iot
 categories: azure
 products:
 - load-testing
@@ -48,7 +48,7 @@ In this example, the following components are used:
 
 - **[Azure Event Hubs](/azure/event-hubs/event-hubs-about)**: Azure Event Hubs is a cloud-based event processing service that can be used to collect, process, and analyze events and streaming data from various sources in real-time. Event Hubs supports multiple protocols, including AMQP (Advanced Message Queuing Protocol), HTTPS, Kafka Protocol, MQTT (Message Queuing Telemetry Transport), and AMQP over WebSockets. This architecture is event based, so Azure Load Testing is populating events to load test the workload.
 
-- **[Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub)**: Azure IoT Hub is a managed service hosted in the cloud that acts as a central message hub for communication between an IoT application and its attached devices. You can connect millions of devices and their backend solutions reliably and securely. Almost any device can be connected to an IoT hub. This architecture can be adapted to use IoT Hub by changing the Event Hub client to the IoT  client.
+- **[Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub)**: Azure IoT Hub is a managed service hosted in the cloud that acts as a central message hub for communication between an IoT application and its attached devices. You can connect millions of devices and their backend solutions reliably and securely. Almost any device can be connected to an IoT hub. This architecture can be adapted to use IoT Hub by changing the Event Hub client to the IoT client.
 
 - **[Azure Functions](/azure/azure-functions/functions-overview)**: Azure Functions is a serverless compute service that lets you run code without having to manage servers or infrastructure. It supports multiple programming languages, including C#, F#, Java, JavaScript, PowerShell, Python, and TypeScript. This architecture uses Azure Functions as the primary compute tier. Azure functions trigger and are scaled out by event data in Azure Event Hubs.
 
@@ -141,11 +141,11 @@ To create a sample JMeter test script:
 
    The implementation of `com.microsoft.eventhubplugin.EventHubPluginGui` and `com.microsoft.eventhubplugin.EventHubPlugin` are available at [Azure Samples](https://github.com/Azure-Samples/load-testing-jmeter-plugins).
 
-2. In the file, set the Event Hub connection values using the assigned Managed Identity of the test runners. That identity needs to have write access to the Event Hub instance.
+1. In the file, set the Event Hub connection values using the assigned Managed Identity of the test runners. That identity needs to have write access to the Event Hub instance.
 
-3. In the file, set the value of the `eventHubName` node to the event hub name, such as `telemetry-data-changed-eh`.
+1. In the file, set the value of the `eventHubName` node to the event hub name, such as `telemetry-data-changed-eh`.
 
-4. Set the value of the `liquidTemplateFileName` node to the file containing the message that is sent to the event hub. For example, create a file named `StreamingDataTemplate.liquid` as:
+1. Set the value of the `liquidTemplateFileName` node to the file containing the message that is sent to the event hub. For example, create a file named `StreamingDataTemplate.liquid` as:
 
    ```json
    {
@@ -159,38 +159,38 @@ To create a sample JMeter test script:
 
    In this example, the payload for the event hub message is a JSON object with three properties including `MachineId`, `Temperature`, and `Humidity` where `MachineId` is a randomly generated ID with the length of 27, and `Temperature` and `Humidity` are random integers less than 100. This file is a liquid template syntax. Liquid template is a popular templating language that is used in various web development frameworks. Liquid templates enable developers to create dynamic content that can be easily updated and modified. They allow you to insert variables, conditions, loops, and other dynamic elements into your event hub messages. The syntax is straightforward, and there are plenty of online resources available to help you get started. Overall, Liquid templates offer a powerful and flexible way to create dynamic, customizable messages.
 
-5. Save and close the file.
+1. Save and close the file.
 
     > [!IMPORTANT]
     > Don't include any personal data in the sampler name in the JMeter script. The sampler names appear in the Azure Load Testing test results dashboard. A sample of a liquid template along with the JMeter script file is available to download at [Azure Samples](https://github.com/Azure-Samples/load-testing-jmeter-plugins/tree/main/samples/eventhubplugin)
 
 #### Updating the custom plugin from Event Hub to IoT Hub
 
-The current custom plugin uses Event Hub as main target resource. In a nutshell, this configuration is the SDK client setup for Event Hub:
+The custom plugin uses Event Hub as main target resource. This configuration is the SDK client setup for Event Hub:
 
 ```java
-   EventHubProducerClient producer = null;
-   EventHubClientBuilder producerBuilder = new EventHubClientBuilder();
+EventHubProducerClient producer = null;
+EventHubClientBuilder producerBuilder = new EventHubClientBuilder();
 
-   producerBuilder.credential(getEventHubNamespace(), getEventHubName(), new DefaultAzureCredentialBuilder().build());
-   producer = producerBuilder.buildProducerClient();
+producerBuilder.credential(getEventHubNamespace(), getEventHubName(), new DefaultAzureCredentialBuilder().build());
+producer = producerBuilder.buildProducerClient();
 
-   EventDataBatch batch = producer.createBatch(new CreateBatchOptions());
-   batch.tryAdd(new EventData(msg));
-   producer.send(batch);
+EventDataBatch batch = producer.createBatch(new CreateBatchOptions());
+batch.tryAdd(new EventData(msg));
+producer.send(batch);
 ```
 
-You can reuse the same solution, add the IoT dependencies, and change SDK client to use IoT, as shown in the following example:
+You can reuse the same solution, add the IoT dependencies, and change SDK client to use IoT, as shown in the following example.
 
 ```java
-   IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
-   ServiceClient client = new ServiceClient(getIoTHostName(), new DefaultAzureCredentialBuilder().build(), protocol);
-   client.open();
+IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
+ServiceClient client = new ServiceClient(getIoTHostName(), new DefaultAzureCredentialBuilder().build(), protocol);
+client.open();
 
-   Message message = new Message(msg);
-   client.send(getDeviceName(), message);
+Message message = new Message(msg);
+client.send(getDeviceName(), message);
 
-   client.close();
+client.close();
 ```
 
 ### Run the load test using new plugin
