@@ -6948,6 +6948,11 @@
       "source_path": "docs/solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml",
       "redirect_url": "/azure/site-recovery/site-recovery-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/avops-architecture.yml",
+      "redirect_url": "/industry/mobility/architecture/avops-architecture-content",
+      "redirect_document_id": false
     }
   ]
 }

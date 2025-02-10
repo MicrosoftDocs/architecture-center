@@ -38,7 +38,7 @@ The architecture consists of six key building blocks:
 
    For information about data collection and analytics for component and system validation, see [Data analytics for automotive test fleets](/azure/architecture/industries/automotive/automotive-telemetry-analytics).
 
-1. [Autonomous vehicle operations (AVOps)](avops-architecture.yml) enable automotive OEMs to develop automated driving solutions on Azure. The AVOps solution describes:
+1. [Autonomous vehicle operations (AVOps)](a/industry/mobility/architecture/avops-architecture-content) enable automotive OEMs to develop automated driving solutions on Azure. The AVOps solution describes:
    * How to manage data operations (DataOps) for autonomous vehicles.
    * Automated feature extraction, labeling, and model training for perception and sensor fusion (MLOps).
    * Testing developed models in simulated environments (ValOps).
@@ -235,7 +235,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 * For build, validation, and testing tasks that aren't time-critical, consider using [Azure Spot Virtual Machines](/azure/virtual-machines/spot-vms). You can take advantage of unused capacity and incur significant cost savings.
 * If you have an [Azure Consumption Commitment](/azure/cost-management-billing/manage/track-consumption-commitment), consider using [eligible partner offerings](/marketplace/azure-consumption-commitment-benefit#determine-which-offers-are-eligible-for-azure-consumption-commitments-maccctc) from Azure Marketplace when you deploy development tools and vECUs in the run environment.
-* For tips about running autonomous vehicle development workloads, see [Create an AVOps solution](avops-architecture.yml#cost-optimization).
+* For tips about running autonomous vehicle development workloads, see [Create an AVOps solution](/industry/mobility/architecture/avops-architecture-content#cost-optimization).
 * Copilot provides real-time code suggestions and autocompletions, which accelerates the software-development process. Automotive software engineers can use Copilot to quickly and efficiently write code, which reduces the time to market for new vehicle features and updates.
 
 ### Operational excellence
@@ -359,4 +359,4 @@ Other contributors:
 
 ## Related resources
 
-* [Create an AVOps solution](avops-architecture.yml)
+* [Create an AVOps solution](/industry/mobility/architecture/avops-architecture-content)

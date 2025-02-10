@@ -445,7 +445,7 @@ The following articles describe interactions between components in the architect
 
 ### Related resources
 
-- [Create an Autonomous Vehicle Operations solution](avops-architecture.yml) provides a deeper look into automotive digital engineering for autonomous and assisted driving.
+- [Create an Autonomous Vehicle Operations solution](/industry/mobility/architecture/avops-architecture-content) provides a deeper look into automotive digital engineering for autonomous and assisted driving.
 - [SDV DevOps toolchain](software-defined-vehicle-reference-architecture.yml) describes how to build, validate, and deploy workloads to the vehicle.
 - [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml) is a dedicated scenario where the collected data is used for engineering validation and root cause analysis.
 

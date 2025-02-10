@@ -123,7 +123,7 @@ Data sharing is a common scenario in an AVOps data loop. Uses include data shari
 
 Recommended formats for label data exchange include [common objects in context (COCO) datasets](https://cocodataset.org/#home) and [Association for Standardization of Automation and Measuring Systems (ASAM) OpenLABEL datasets](https://www.asam.net/standards/detail/openlabel).
 
-In this solution, the labeled datasets are used in [MLOps](avops-architecture.yml#mlops) processes to create specialized algorithms such as perception and sensor fusion models. The algorithms can detect scenes and objects in an environment, such as the car changing lanes, blocked roads, pedestrian traffic, traffic lights, and traffic signs.
+In this solution, the labeled datasets are used in [MLOps](/industry/mobility/architecture/avops-architecture-content#mlops) processes to create specialized algorithms such as perception and sensor fusion models. The algorithms can detect scenes and objects in an environment, such as the car changing lanes, blocked roads, pedestrian traffic, traffic lights, and traffic signs.
 
 ### Data pipeline
 

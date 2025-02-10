@@ -43,7 +43,7 @@ Dynamic testing environments, facilitated by simulators or specialized on-premis
 
 Within the ValOps framework, you use two primary testing methodologies to ensure the robustness and reliability of ADAS and AD software: open-loop testing and closed-loop testing.
 
-[Open-loop testing](avops-architecture.yml#open-loop-testing) evaluates the system's responses to predefined inputs without any feedback that influences the ongoing simulation. This method lets you replay recorded sensor data and assess how the software processes this data under controlled conditions. Open-loop testing is useful for initial validation and debugging because it isolates the software's decision-making process from external variables.
+[Open-loop testing](/industry/mobility/architecture/avops-architecture-content#open-loop-testing) evaluates the system's responses to predefined inputs without any feedback that influences the ongoing simulation. This method lets you replay recorded sensor data and assess how the software processes this data under controlled conditions. Open-loop testing is useful for initial validation and debugging because it isolates the software's decision-making process from external variables.
 
 The following list describes some examples of open-loop testing.
 
@@ -54,7 +54,7 @@ The following list describes some examples of open-loop testing.
 - **Algorithm validation** tests individual algorithms for features like object detection and lane keeping by using prerecorded data to ensure that they perform correctly under various conditions.
 - **Scenario-based testing** runs the system through various predefined scenarios to evaluate its performance in different situations, such as pedestrian crossings, merging traffic, or adverse weather conditions.
 
-[Closed-loop testing](avops-architecture.yml#closed-loop-testing-and-simulation) creates a dynamic environment where the system's actions influence the ongoing simulation. This feedback loop enables real-time interaction between the vehicle and its surroundings. Real-time interaction provides a more realistic assessment of the software's performance. Closed-loop testing is essential for evaluating the system's ability to adapt to changing conditions and make decisions in real-world scenarios.
+[Closed-loop testing](/industry/mobility/architecture/avops-architecture-content#closed-loop-testing-and-simulation) creates a dynamic environment where the system's actions influence the ongoing simulation. This feedback loop enables real-time interaction between the vehicle and its surroundings. Real-time interaction provides a more realistic assessment of the software's performance. Closed-loop testing is essential for evaluating the system's ability to adapt to changing conditions and make decisions in real-world scenarios.
 
 The following list describes some examples of closed-loop testing.
 
@@ -76,7 +76,7 @@ Together, open-loop and closed-loop testing provide a comprehensive approach to 
 
 A key component in AD systems testing is validating the system across a diverse and expansive set of scenarios. To validate the AD capabilities via open-loop and closed-loop testing, use a catalog of real scenarios to test the AD solution's ability to simulate the behavior of autonomous vehicles.
 
-Within ValOps, use [scenario management](avops-architecture.yml#scenario-management) to accelerate the creation of scenario catalogs. Scenario management automatically reads the route network, which is a part of a scenario, from publicly accessible and freely available digital maps. Scenarios can be based on real-world data that you collect from sensors, or they can be synthetically generated to test specific aspects of the software.
+Within ValOps, use [scenario management](/industry/mobility/architecture/avops-architecture-content#scenario-management) to accelerate the creation of scenario catalogs. Scenario management automatically reads the route network, which is a part of a scenario, from publicly accessible and freely available digital maps. Scenarios can be based on real-world data that you collect from sensors, or they can be synthetically generated to test specific aspects of the software.
 
 For example, scenarios might include:
 
