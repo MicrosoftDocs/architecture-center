@@ -6903,6 +6903,11 @@
       "source_path": "docs/solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml",
       "redirect_url": "/azure/site-recovery/site-recovery-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml",
+      "redirect_url": "/azure/site-recovery/site-recovery-overview",
+      "redirect_document_id": false
     }
   ]
 }
