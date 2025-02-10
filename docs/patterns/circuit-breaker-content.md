@@ -45,8 +45,6 @@ The pattern is customizable and can be adapted according to the type of the poss
 
 You should consider the following points when deciding how to implement this pattern:
 
-**Service mesh circuit breakers**. Circuit breakers can be implemented at the application layer or as a cross-cutting, abstracted feature. For example, service meshes often support circuit breaking as a side car or as a standalone capability without modifying application code.
-
 **Exception Handling**. An application invoking an operation through a circuit breaker must be prepared to handle the exceptions raised if the operation is unavailable. The way exceptions are handled will be application specific. For example, an application could temporarily degrade its functionality, invoke an alternative operation to try to perform the same task or obtain the same data, or report the exception to the user and ask them to try again later.
 
 **Types of Exceptions**. A request might fail for many reasons, some of which might indicate a more severe type of failure than others. For example, a request might fail because a remote service has crashed and will take several minutes to recover, or because of a timeout due to the service being temporarily overloaded. A circuit breaker might be able to examine the types of exceptions that occur and adjust its strategy depending on the nature of these exceptions. For example, it might require a larger number of timeout exceptions to trip the circuit breaker to the **Open** state compared to the number of failures due to the service being completely unavailable.
@@ -66,6 +64,8 @@ You should consider the following points when deciding how to implement this pat
 **Accelerated Circuit Breaking**. Sometimes a failure response can contain enough information for the circuit breaker to trip immediately and stay tripped for a minimum amount of time. For example, the error response from a shared resource that's overloaded could indicate that an immediate retry isn't recommended and that the application should instead try again in a few minutes.
 
 **Multi-region Deployments**. A circuit breaker could be designed for single or multi-region deployments. The latter can be implemented using global load balancers or custom region-aware circuit breaking strategies that ensure controlled failover, latency optimization, and regulatory compliance.
+
+**Service mesh circuit breakers**. Circuit breakers can be implemented at the application layer or as a cross-cutting, abstracted feature. For example, service meshes often support circuit breaking as a side car or as a standalone capability without modifying application code.
 
 > [!NOTE]
 > A service can return HTTP 429 (Too Many Requests) if it is throttling the client, or HTTP 503 (Service Unavailable) if the service is not currently available. The response can include additional information, such as the anticipated duration of the delay.
