@@ -55,7 +55,7 @@ Consider these options when you want scripted and programmatic data transfer:
 
 - **AzCopy**. Use AzCopy from a [Windows](/azure/storage/common/storage-use-azcopy) or [Linux](/azure/storage/common/storage-use-azcopy-linux) command line to easily copy data to and from Blob Storage, Azure File Storage, and Azure Table Storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted. You can also use AzCopy to copy data from AWS to Azure. For programmatic access, the [Microsoft Azure Storage Data Movement Library](/azure/storage/common/storage-use-data-movement-library) is the core framework that powers AzCopy. It's provided as a .NET Core library.
 
-- With **PowerShell**, the [Start-AzureStorageBlobCopy PowerShell cmdlet](/azure/storage/blobs/storage-quickstart-blobs-powershell?view=azurermps-5.0.0&preserve-view=true) is an option for Windows administrators who are used to PowerShell.
+- With **PowerShell**, the [Start-AzureStorageBlobCopy PowerShell cmdlet](/powershell/module/az.storage/start-azstorageblobcopy) is an option for Windows administrators who are used to PowerShell.
 
 - [AdlCopy](/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) enables you to copy data from Blob Storage into Azure Data Lake Storage. It can also be used to copy data between two Data Lake Storage accounts. However, it can't be used to copy data from Data Lake Storage to Blob Storage.
 
