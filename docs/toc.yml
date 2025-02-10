@@ -1487,10 +1487,6 @@ items:
           href: hybrid/hybrid-perf-monitoring.yml
     - name: Solution ideas
       items:
-      - name: Archive on-premises data to cloud
-        href: solution-ideas/articles/backup-archive-on-premises.yml
-      - name: Back up on-premises applications
-        href: solution-ideas/articles/backup-archive-on-premises-applications.yml
       - name: Centralize app configuration and security
         href: solution-ideas/articles/appconfig-key-vault.yml
       - name: Enterprise-scale disaster recovery

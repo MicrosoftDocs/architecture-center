@@ -6883,6 +6883,16 @@
       "source_path": "docs/example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml",
       "redirect_url": "/azure/architecture/web-apps/app-service-environment/architectures/ase-standard-deployment",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/backup-archive-on-premises.yml",
+      "redirect_url": "/azure/storsimple/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/backup-archive-on-premises-applications.yml",
+      "redirect_url": "/azure/backup/backup-overview",
+      "redirect_document_id": false
     }
   ]
 }
