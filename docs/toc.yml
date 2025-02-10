@@ -1487,8 +1487,6 @@ items:
           href: hybrid/hybrid-perf-monitoring.yml
     - name: Solution ideas
       items:
-      - name: Enterprise-scale disaster recovery
-        href: solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml
       - name: High availability for BCDR
         href: solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml
       - name: SMB disaster recovery with Site Recovery

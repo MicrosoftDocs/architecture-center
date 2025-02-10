@@ -67,7 +67,6 @@ The following sections provide links to reference architectures in some key mana
 - [Integrate Azure ExpressRoute with disaster recovery for Azure VMs](/azure/site-recovery/azure-vm-disaster-recovery-with-expressroute?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Move Azure VMs to another Azure region](/azure/site-recovery/azure-to-azure-move-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Business continuity and disaster recovery (BCDR) for Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Enterprise-scale disaster recovery](../../solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml)
 - [SMB disaster recovery with Azure Site Recovery](../../solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml)
 - [SMB disaster recovery with Double-Take DR](../../solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml)
 - [Use Azure Local stretched clusters for disaster recovery](../../hybrid/azure-local-dr.yml)

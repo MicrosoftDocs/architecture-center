@@ -132,7 +132,6 @@ For additional high availability and disaster recovery reference architectures, 
 [docs-availability-sets]: /azure/virtual-machines/windows/manage-availability
 [calculator]: https://azure.com/e/6835332265044d6d931d68c917979e6d
 [Multi-region-load-balancing]: /azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway
-[Enterprise-scale-disaster-recovery]: /azure/architecture/solution-ideas/articles/disaster-recovery-enterprise-scale-dr
 [Set-up-disaster-recovery-for-Azure-VMs]: /azure/site-recovery/azure-to-azure-tutorial-enable-replication
 [Deploy-Traffic-Manager-in-Azure]: /azure/traffic-manager/quickstart-create-traffic-manager-profile
 [visio-download]: https://arch-center.azureedge.net/architecture-disaster-recovery-multi-tier-app.vsdx

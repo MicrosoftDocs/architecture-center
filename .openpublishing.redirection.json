@@ -6898,6 +6898,11 @@
       "source_path": "docs/solution-ideas/articles/appconfig-key-vault.yml",
       "redirect_url": "/azure/azure-app-configuration/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml",
+      "redirect_url": "/azure/site-recovery/site-recovery-overview",
+      "redirect_document_id": false
     }
   ]
 }
