@@ -210,7 +210,8 @@ To learn about related solutions, see the following information:
 [Azure regions with Availability Zones]: /azure/reliability/availability-zones-region-support
 [Azure Services that support Availability Zones]: /azure/reliability/availability-zones-service-support
 [Best practices for building an application with Azure Database for PostgreSQL]: /azure/postgresql/application-best-practices
-[Cache-Aside pattern]: ../../patterns/cache-aside.yml The [Cassandra Query Language (CQL)]: https://cassandra.apache.org/doc/latest/cassandra/cql/index.html
+[Cache-Aside pattern]: ../../patterns/cache-aside.yml
+[Cassandra Query Language (CQL)]: https://cassandra.apache.org/doc/latest/cassandra/cql/index.html
 [Cassandra Query Language]: https://cassandra.apache.org/doc/latest/cassandra/cql/index.html
 [Change feed in Azure Cosmos DB]: /azure/cosmos-db/change-feed
 [Change feed in Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-change-feed?tabs=java
@@ -220,7 +221,8 @@ To learn about related solutions, see the following information:
 [Create Azure Cosmos containers and databases with autoscale throughput]: /azure/cosmos-db/provision-throughput-autoscale
 [Data streaming with AKS]: ../../solution-ideas/articles/data-streaming-scenario.yml
 [Event Hubs pricing]: https://azure.microsoft.com/pricing/details/event-hubs
-[Frequently asked questions about Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-faq The [Gremlin Graph Traversal Machine and Language]: https://tinkerpop.apache.org/gremlin.html
+[Frequently asked questions about Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-faq
+[Gremlin Graph Traversal Machine and Language]: https://tinkerpop.apache.org/gremlin.html
 [Gremlin Graph Traversal Machine and Language]: https://tinkerpop.apache.org/gremlin.html
 [Introduction to Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-introduction
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction
