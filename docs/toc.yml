@@ -1564,30 +1564,6 @@ items:
       - name: VMware agent-based migration
         href: /azure/migrate/agent-based-migration-architecture
         maintainContext: true
-  - name: Mixed Reality
-    items:
-    - name: Guides
-      items:
-      - name: Education and entertainment scenarios
-        items:
-        - name: Immersive education
-          href: /windows/mixed-reality/enthusiast-guide/immersive-education
-          maintainContext: true
-        - name: Theme parks and family entertainment
-          href: /windows/mixed-reality/enthusiast-guide/theme-parks-family-entertainment
-          maintainContext: true
-        - name: Training and simulation
-          href: /windows/mixed-reality/enthusiast-guide/training-simulation
-          maintainContext: true
-        - name: Virtual museums and exhibits
-          href: /windows/mixed-reality/enthusiast-guide/virtual-museums
-          maintainContext: true
-        - name: Virtual reality arcades
-          href: /windows/mixed-reality/enthusiast-guide/virtual-reality-arcades
-          maintainContext: true
-      - name: Mixed reality samples and apps
-        href: /windows/mixed-reality/develop/features-and-samples
-        maintainContext: true
   - name: Networking
     href: networking/index.md
   - name: Security
