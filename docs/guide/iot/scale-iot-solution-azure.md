@@ -3,7 +3,7 @@ title: Scale out an Azure IoT Hub-based solution to support millions of devices
 description: Learn how to scale out your Azure IoT Hub-based solution to support millions of devices.
 author: MikeBazMSFT
 ms.author: micbaz
-ms.date: 12/10/2024
+ms.date: 02/09/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
