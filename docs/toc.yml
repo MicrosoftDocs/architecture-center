@@ -1473,8 +1473,6 @@ items:
       - name: Back up cloud applications
         href: /azure/backup/guidance-best-practices
         maintainContext: true
-      - name: Computer forensics
-        href: example-scenario/forensics/index.yml
       - name: Hybrid management
         items:
         - name: Azure Arc hybrid management with AKS
@@ -1584,6 +1582,8 @@ items:
         href: example-scenario/teams/securing-bot-teams-channel.yml
       - name: Secure research for regulated data
         href: ai-ml/architecture/secure-compute-for-research.yml
+      - name: Computer forensics
+        href: example-scenario/forensics/index.yml        
     - name: Solution ideas
       items:
       - name: Multilayered protection for Azure VMs
