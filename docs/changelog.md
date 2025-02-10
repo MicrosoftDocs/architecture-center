@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 02/03/2025
+ms.date: 02/10/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.author: robbag
@@ -25,8 +25,15 @@ The following new and updated articles have recently been published in the Azure
 
 ## February 2025
 
+### New articles
+
+- [Design a Secure Multitenant RAG Inferencing Solution](./ai-ml/guide/secure-multitenant-rag.md)
+
 ### Updated articles
 
+- [Azure Load Testing with custom plugins for Event Hub and IoT Hub to simulate device behaviors](./guide/testing/load-testing/load-testing-with-custom-plugins.md)  ([#effa93503a](https://github.com/MicrosoftDocs/architecture-center/commit/effa93503a))
+- [Access an Azure Kubernetes Service (AKS) API server](./guide/security/access-azure-kubernetes-service-cluster-api-server.yml)  ([#a8dcad5cea](https://github.com/MicrosoftDocs/architecture-center/commit/a8dcad5cea))
+- [AKS day-2 guide: Patch and upgrade guidance](./operator-guides/aks/aks-upgrade-practices.md)  ([#99864e6124](https://github.com/MicrosoftDocs/architecture-center/commit/99864e6124))
 - [Choose an Azure container service](./guide/choose-azure-container-service.md)  ([#17fa458266](https://github.com/MicrosoftDocs/architecture-center/commit/17fa458266))
 - [General considerations for choosing an Azure container service](./guide/container-service-general-considerations.md)  ([#17fa458266](https://github.com/MicrosoftDocs/architecture-center/commit/17fa458266))
 
@@ -149,7 +156,6 @@ The following new and updated articles have recently been published in the Azure
 - [Connect an On-Premises Network to Azure by Using ExpressRoute](./reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)  ([#51d18b3ff3](https://github.com/MicrosoftDocs/architecture-center/commit/51d18b3ff3))
 - [DataOps for autonomous vehicle operations](./ai-ml/architecture/autonomous-vehicle-operations-dataops.yml)  ([#aaecb71396](https://github.com/MicrosoftDocs/architecture-center/commit/aaecb71396))
 - [Measure Azure App Sustainability by Using the SCI Score](./example-scenario/apps/measure-azure-app-sustainability-sci-score.yml)  ([#aaecb71396](https://github.com/MicrosoftDocs/architecture-center/commit/aaecb71396))
-- [Publish internal APIs to external users](./example-scenario/apps/publish-internal-apis-externally.yml)  ([#aaecb71396](https://github.com/MicrosoftDocs/architecture-center/commit/aaecb71396))
 - [SAP deployment in Azure using an Oracle database](./example-scenario/apps/sap-production.yml)  ([#aaecb71396](https://github.com/MicrosoftDocs/architecture-center/commit/aaecb71396))
 - [Scalable cloud applications and SRE](./example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)  ([#aaecb71396](https://github.com/MicrosoftDocs/architecture-center/commit/aaecb71396))
 - [Data warehousing and analytics](./example-scenario/data/data-warehouse.yml)  ([#aaecb71396](https://github.com/MicrosoftDocs/architecture-center/commit/aaecb71396))
@@ -248,7 +254,6 @@ The following new and updated articles have recently been published in the Azure
 ### New articles
 
 - [Modern Web App Pattern for Java](./web-apps/guides/enterprise-app-patterns/modern-web-app/java/guidance.yml)
-- [Guide to design a secure multitenant RAG inferencing solution](./ai-ml/guide/secure-multitenant-rag.md)
 - [Data and AI](./aws-professional/data-ai.md)
 - [Multi-Region App Service App Approaches for Disaster Recovery](./web-apps/guides/multi-region-app-service/multi-region-app-service.yml)
 - [Use Azure IoT Hub to Privately Upload Files to an Azure Storage Account](./example-scenario/iot/iot-private-file-upload.yml)
@@ -287,7 +292,6 @@ The following new and updated articles have recently been published in the Azure
 - [Azure icons](./icons/index.md)  ([#65d273a36a](https://github.com/MicrosoftDocs/architecture-center/commit/65d273a36a))
 - [Azure Kubernetes Service (AKS) Considerations for Multitenancy](./guide/multitenant/service/aks.yml)  ([#e8c3419d24](https://github.com/MicrosoftDocs/architecture-center/commit/e8c3419d24))
 - [Event-driven architecture style](./guide/architecture-styles/event-driven.yml)  ([#837f359436](https://github.com/MicrosoftDocs/architecture-center/commit/837f359436))
-- [Line of business extension](./solution-ideas/articles/lob.yml)  ([#c38027e1d8](https://github.com/MicrosoftDocs/architecture-center/commit/c38027e1d8))
 - [Overview of Microsoft Machine Learning Products and Technologies](./ai-ml/guide/data-science-and-machine-learning.md)  ([#e9e0ae671b](https://github.com/MicrosoftDocs/architecture-center/commit/e9e0ae671b))
 - [AI Architecture Design](./ai-ml/index.md)  ([#e9e0ae671b](https://github.com/MicrosoftDocs/architecture-center/commit/e9e0ae671b))
 - [Esri ArcGIS Platform on Azure Virtual Desktop](./example-scenario/data/esri-arcgis-azure-virtual-desktop.yml)  ([#07114dc8b6](https://github.com/MicrosoftDocs/architecture-center/commit/07114dc8b6))
