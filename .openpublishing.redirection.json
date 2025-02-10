@@ -6868,6 +6868,11 @@
       "source_path": "docs/guide/hadoop/apache-sqoop-migration.yml",
       "redirect_url": "/azure/hdinsight/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/resiliency/recovery-loss-azure-region.md",
+      "redirect_url": "/azure/reliability/overview",
+      "redirect_document_id": false
     }
   ]
 }
