@@ -22,11 +22,11 @@ The Strangler Fig pattern enables a gradual transition from a legacy system to a
 
 ## Issues and considerations
 
-* Consider how to handle services and data stores that are potentially used by both new and legacy systems. Make sure both can access these resources side-by-side.
-* Structure new applications and services in a way that they can easily be intercepted and replaced in future strangler fig migrations. For example, strive to have clear demarcations between parts of your solution so that you can migrate each part individually.
-* At some point, when the migration is complete, the strangler fig façade will probably go away. Alternatively, you can maintain the façade as an adaptor for legacy clients to use while you update the core system for newer clients.
-* Make sure the façade keeps up with the migration.
-* Make sure the façade doesn't become a single point of failure or a performance bottleneck.
+- Consider how to handle services and data stores that are potentially used by both new and legacy systems. Make sure both can access these resources side-by-side.
+- Structure new applications and services in a way that they can easily be intercepted and replaced in future strangler fig migrations. For example, strive to have clear demarcations between parts of your solution so that you can migrate each part individually.
+- At some point, when the migration is complete, the strangler fig façade will probably go away. Alternatively, you can maintain the façade as an adaptor for legacy clients to use while you update the core system for newer clients.
+- Make sure the façade keeps up with the migration.
+- Make sure the façade doesn't become a single point of failure or a performance bottleneck.
 
 ## When to use this pattern
 
@@ -34,8 +34,8 @@ Use this pattern when gradually migrating a back-end application to a new archit
 
 This pattern may not be suitable:
 
-* When requests to the back-end system cannot be intercepted.
-* For smaller systems where the complexity of wholesale replacement is low.
+- When requests to the back-end system cannot be intercepted.
+- For smaller systems where the complexity of wholesale replacement is low.
 
 ## Workload design
 
@@ -63,8 +63,8 @@ Legacy systems often depend on a centralized database. Over time, a centralized 
 
 ## Next steps
 
-* Martin Fowler's blog post on [StranglerFigApplication](https://martinfowler.com/bliki/StranglerFigApplication.html)
+- Martin Fowler's blog post on [StranglerFigApplication](https://martinfowler.com/bliki/StranglerFigApplication.html)
 
 ## Related resources
 
-* [Messaging Bridge pattern](./messaging-bridge.yml)
+- [Messaging Bridge pattern](./messaging-bridge.yml)
