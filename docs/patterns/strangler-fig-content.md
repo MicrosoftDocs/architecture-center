@@ -10,7 +10,7 @@ Replacing an entire complex system is a huge undertaking. Instead, many teams pr
 
 The Strangler Fig pattern enables a gradual transition from a legacy system to a new system. It provides a controlled and phased approach to modernization, and it allows the existing application to continue functioning throughout the modernization effort. The pattern reduces risks in migration by enabling teams to move forward at a pace that suits the complexity of the project. As you migrate functionality to the new system, the legacy system becomes obsolete, and you decommission the legacy system.
 
-:::image type="content" source="./_images/strangler-fig.png" alt-text="Diagram of the Strangler Fig pattern." lightbox="./_images/strangler-fig.png":::
+:::image type="content" source="./_images/strangler.png" alt-text="Diagram of the Strangler Fig pattern." lightbox="./_images/strangler.png":::
 
 1. The Strangler Fig pattern begins by introducing a façade (proxy) between the client app, the legacy system, and the new system. The façade (proxy) acts as an intermediary. It allows the client app to interact with the legacy system and the new system. Initially, the façade routes most requests to the legacy system.
 
