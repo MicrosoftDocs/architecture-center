@@ -139,7 +139,7 @@ The following table provides a list of some of the capabilities available in Azu
 | [Audio transcription](/azure/ai-services/computer-vision/overview-identity#identification)| Converts speech to text over 50 languages and allows extensions. |
 | [Language detection](/azure/ai-services/computer-vision/overview-identity#identification)|Identifies the dominant spoken language. |
 | [Noise reduction](/azure/ai-services/computer-vision/overview-identity#identification)|Clears up telephony audio or noisy recordings (based on Skype filters). |
-| [Translation](/azure/ai-services/computer-vision/overview-identity#identification)|FCreates translations of the audio transcript to many different languages.  |
+| [Translation](/azure/ai-services/computer-vision/overview-identity#identification)|Creates translations of the audio transcript to many different languages.  |
 
 To review more capabilities of the Azure AI Video Indexer service, see the [Azure AI Video Indexer documentation](/azure/azure-video-indexer/video-indexer-overview).
 
