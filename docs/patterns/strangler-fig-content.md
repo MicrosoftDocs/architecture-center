@@ -14,13 +14,13 @@ Use an incremental process to replace specific pieces of functionality with new 
 
 The Strangler Fig pattern provides a controlled and phased approach to modernization. It allows the existing application to continue functioning throughout the modernization effort. A façade (proxy) intercepts requests going to the backend legacy system. The façade routes these requests either to the legacy application or the new services. The pattern reduces risks in migration by enabling teams to move forward at a pace that suits the complexity of the project. As you migrate functionality to the new system, the legacy system becomes obsolete, and you decommission the legacy system.
 
-1. The Strangler Fig pattern begins by introducing a façade (proxy) between the client app, the legacy system, and the new system. The façade (proxy) acts as an intermediary. It allows the client app to interact with the legacy system and the new system. Initially, the façade routes most requests to the legacy system.
+1. The Strangler Fig pattern begins by introducing a façade (proxy) between the client app, the legacy system, and the new  system. The façade acts as an intermediary. It allows the client app to interact with the legacy system and the new system. Initially, the façade routes most requests to the legacy system.
 
 2. As the migration progresses, the Strangler façade incrementally shifts requests from the legacy system to the new system. With each iteration, you implement additional pieces of functionality in the new system. This incremental approach enables a gradual reduction in the legacy system responsibilities while expanding the scope of the new system. The process is iterative. It allows the team to address complexities and dependencies in manageable stages. These stages help the system remain stable and functional.
 
 3. Once you migrate all the functionality and there are no dependencies on the legacy system, you can decommission the legacy system. The Strangler façade routes all requests exclusively to the new system.
 
-4. You remove the Strangler façade (proxy) and reconfigure the client app to communicate directly with the new system. This marks the completion of the migration.
+4. You remove the Strangler façade and reconfigure the client app to communicate directly with the new system. This marks the completion of the migration.
 
 ## Issues and considerations
 
@@ -32,7 +32,7 @@ The Strangler Fig pattern provides a controlled and phased approach to moderniza
 
 ## When to use this pattern
 
-Use this pattern when gradually migrating a back-end application to a new architecture, especially when there is untenable risk inroduced by replacing large systems, key components, or complex features.
+Use this pattern when gradually migrating a back-end application to a new architecture, especially when there is untenable risk introduced by replacing large systems, key components, or complex features.
 
 Use this pattern when the original system can continue to exist for a extended period of time during the migration effort.
 
@@ -40,7 +40,7 @@ This pattern may not be suitable:
 
 - When requests to the back-end system cannot be intercepted.
 - For smaller systems where the complexity of wholesale replacement is low.
-- Where fully decommissioning the original solution expiditiously is required.
+- Where fully decommissioning the original solution expeditiously is required.
 
 ## Workload design
 
@@ -60,7 +60,7 @@ Legacy systems often depend on a centralized database. Over time, a centralized 
 
 :::image type="content" source="./_images/strangler-fig-database.png" alt-text="Diagram of the Strangler Fig pattern applied to a database." lightbox="./_images/strangler-fig-database.png":::
 
-1. You introduce a new system, and the new system starts handling some requests from the client app. However, the new system still has a depenency on the legacy database for all read and write operations. The legacy system remains operational, which facilitates a smooth transition without immediate structural changes.
+1. You introduce a new system, and the new system starts handling some requests from the client app. However, the new system still has a dependency on the legacy database for all read and write operations. The legacy system remains operational, which facilitates a smooth transition without immediate structural changes.
 
 2. In the next phase, you introduce a new database. You migrate data load history to the new database using an ETL (Extract, Transform, Load) process. The ETL process synchronizes the new database with the legacy database. During this phase, the new system performs shadow writes. The new system updates both databases in parallel. The new system continues to read from the legacy database to validate consistency.
 
