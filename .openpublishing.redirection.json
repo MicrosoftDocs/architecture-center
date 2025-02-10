@@ -6906,8 +6906,19 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml",
+      "redirect_url": "/azure/site-recovery/site-recovery-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml",
       "redirect_url": "/azure/site-recovery/site-recovery-overview",
       "redirect_document_id": false
     }
   ]
 }
+
