@@ -39,19 +39,19 @@ The Circuit Breaker pattern provides stability while the system recovers from a 
 The pattern is customizable and can be adapted according to the type of the possible failure. For example, you can apply an increasing timeout timer to a circuit breaker. You could place the circuit breaker in the **Open** state for a few seconds initially, and then if the failure hasn't been resolved, increase the timeout to a few minutes, and so on. In some cases, rather than the **Open** state returning failure and raising an exception, it could be useful to return a default value that is meaningful to the application.
 
 > [!NOTE]
-> Originally, Circuit Breakers relied on pre-configured thresholds such as failure count and timeout duration, resulting in a deterministic but sometimes suboptimal behavior. Today, adaptive techniques powered by AI and ML can dynamically adjust thresholds based on real-time traffic patterns, anomalies, and historical failure rates, making them more resilient and efficient.
+> Traditionally, circuit breakers rely on pre-configured thresholds such as failure count and timeout duration, resulting in a deterministic but sometimes suboptimal behavior. However, adaptive techniques using AI and ML can dynamically adjust thresholds based on real-time traffic patterns, anomalies, and historical failure rates, making the circuit breaker more resilient and efficient.
 
 ## Issues and considerations
 
 You should consider the following points when deciding how to implement this pattern:
 
-**Service mesh circuit breakers**. Originally, circuit breakers were implemented at the application layer (i.e., Resilience4j, Netflix Hystrix), while modern implementations leverage service meshes (supported by AKS such as Istio or third party open-source project Linkerd or Consul) to enforce circuit breaking at the infrastructure layer, enabling fine-grained traffic control without modifying application code.
+**Service mesh circuit breakers**. Circuit breakers can be implemented at the application layer or as a cross-cutting, abstracted feature. For example, service meshes often support circuit breaking as a side car or as a standalone capability without modifying application code.
 
 **Exception Handling**. An application invoking an operation through a circuit breaker must be prepared to handle the exceptions raised if the operation is unavailable. The way exceptions are handled will be application specific. For example, an application could temporarily degrade its functionality, invoke an alternative operation to try to perform the same task or obtain the same data, or report the exception to the user and ask them to try again later.
 
 **Types of Exceptions**. A request might fail for many reasons, some of which might indicate a more severe type of failure than others. For example, a request might fail because a remote service has crashed and will take several minutes to recover, or because of a timeout due to the service being temporarily overloaded. A circuit breaker might be able to examine the types of exceptions that occur and adjust its strategy depending on the nature of these exceptions. For example, it might require a larger number of timeout exceptions to trip the circuit breaker to the **Open** state compared to the number of failures due to the service being completely unavailable.
 
-**Monitoring**. A circuit breaker should provide clear observability into both failed and successful requests, enabling operations teams to assess system health. Leverage distributed tracing for end-to-end visibility across services.
+**Monitoring**. A circuit breaker should provide clear observability into both failed and successful requests, enabling operations teams to assess system health. Use distributed tracing for end-to-end visibility across services.
 
 **Recoverability**. You should configure the circuit breaker to match the likely recovery pattern of the operation it's protecting. For example, if the circuit breaker remains in the **Open** state for a long period, it could raise exceptions even if the reason for the failure has been resolved. Similarly, a circuit breaker could fluctuate and reduce the response times of applications if it switches from the **Open** state to the **Half-Open** state too quickly.
 
@@ -65,7 +65,7 @@ You should consider the following points when deciding how to implement this pat
 
 **Accelerated Circuit Breaking**. Sometimes a failure response can contain enough information for the circuit breaker to trip immediately and stay tripped for a minimum amount of time. For example, the error response from a shared resource that's overloaded could indicate that an immediate retry isn't recommended and that the application should instead try again in a few minutes.
 
-**Multi-Region Deployments**. A circuit breaker could be designed for single and/or multi-region deployments. The later can be implemented using global load balancers or custom region-aware circuit breaking strategies that ensure seamless failover, latency optimization, and regulatory compliance.
+**Multi-region Deployments**. A circuit breaker could be designed for single or multi-region deployments. The latter can be implemented using global load balancers or custom region-aware circuit breaking strategies that ensure controlled failover, latency optimization, and regulatory compliance.
 
 > [!NOTE]
 > A service can return HTTP 429 (Too Many Requests) if it is throttling the client, or HTTP 503 (Service Unavailable) if the service is not currently available. The response can include additional information, such as the anticipated duration of the delay.
@@ -74,7 +74,7 @@ You should consider the following points when deciding how to implement this pat
 
 **Inappropriate Timeouts on External Services**. A circuit breaker might not be able to fully protect applications from operations that fail in external services that are configured with a lengthy timeout period. If the timeout is too long, a thread running a circuit breaker might be blocked for an extended period before the circuit breaker indicates that the operation has failed. In this time, many other application instances might also try to invoke the service through the circuit breaker and tie up a significant number of threads before they all fail.
 
-**Adaptability to Compute Diversification**. Modern Circuit Breakers should account for different compute environments, from serverless to containerized workloads, where factors like cold starts and scalability impact failure handling. Adaptive approaches can dynamically adjust strategies based on the compute type, ensuring resilience across heterogeneous architectures.
+**Adaptability to Compute Diversification**. Circuit breakers should account for different compute environments, from serverless to containerized workloads, where factors like cold starts and scalability impact failure handling. Adaptive approaches can dynamically adjust strategies based on the compute type, ensuring resilience across heterogeneous architectures.
 
 ## When to use this pattern
 
@@ -90,9 +90,9 @@ This pattern isn't recommended:
 - For handling access to local private resources in an application, such as in-memory data structure. In this environment, using a circuit breaker would add overhead to your system.
 - As a substitute for handling exceptions in the business logic of your applications.
 - When well-known retry algorithms are sufficient and your dependencies are designed to deal with retry mechanims, avoid introducing unnecessary complexity implementing a circuit breaker in your application.
-- When waiting for a circuit breaker to reset may introduce unacceptable delays.
-- Message-driven applications or event-driven architectures may not require to implement circuit breakers.
-- If failure recovery is managed at the infrastructure or platform level, such as with Global Load Balancers or Service Meshes, circuit breakers may not be necessary.
+- When waiting for a circuit breaker to reset might introduce unacceptable delays.
+- Message-driven applications or event-driven architectures might not require a circuit breaker implementation.
+- If failure recovery is managed at the infrastructure or platform level, such as with health checks in global load balancers or service meshes, circuit breakers might not be necessary.
 
 ## Workload design
 
