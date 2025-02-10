@@ -133,7 +133,7 @@ In a production environment, consider creating staging tables that have round-ro
 Columnstore indexes don't perform optimally for singleton lookups, or looking up a single row. If you need to perform frequent singleton lookups, you can add a nonclustered index to a table, which increases speed. However, singleton lookups are typically less common in data warehouse scenarios than online transaction processing workloads. For more information, see [Index tables in Azure Synapse Analytics](/azure/sql-data-warehouse/sql-data-warehouse-tables-index).
 
 > [!NOTE]
-> Clustered columnstore tables don't support `varchar(max)`, `nvarchar(max)`, or `varbinary(max)` data types. In you use those data types, consider a heap or clustered index. You might also consider putting these columns into a separate table.
+> Clustered columnstore tables don't support `varchar(max)`, `nvarchar(max)`, or `varbinary(max)` data types. If you use those data types, consider a heap or clustered index. You might also consider putting these columns into a separate table.
 
 ### Use Power BI Premium to access, model, and visualize data
 
@@ -158,7 +158,7 @@ Use [Power BI Premium](/power-bi/enterprise/service-premium-gen2-what-is) to man
 
 When the BI model grows or dashboard complexity increases, you can switch to composite models and import parts of lookup tables via [hybrid tables](/power-bi/connect-data/service-dataset-modes-understand#hybrid-tables), and import preaggregated data. You can enable [query caching](/power-bi/connect-data/power-bi-query-caching) within Power BI for imported datasets and use [dual tables](/power-bi/transform-model/desktop-storage-mode) for the storage mode property.
 
-Within the composite model, datasets act as a virtual pass-through layer. When users interact with visualizations, Power BI generates SQL queries to Azure Synapse Analytics SQL pools. Power BI determines whether to use in-memory or DirectQuery storage based on efficiency. The engine decides when to switch from in-memory to DirectQuery and pushes the logic to the Azure Synapse Analytics SQL pool. Depending on the context of the query tables, they can act as either cached (imported) or non-cached composite models. You can choose which table to cache into memory, combine data from one or more DirectQuery sources, or combine DirectQuery source data and imported data.
+Within the composite model, datasets serve as a virtual pass-through layer. When users interact with visualizations, Power BI generates SQL queries to Azure Synapse Analytics SQL pools. Power BI determines whether to use in-memory or DirectQuery storage based on efficiency. The engine decides when to switch from in-memory to DirectQuery and pushes the logic to the Azure Synapse Analytics SQL pool. Depending on the context of the query tables, they can act as either cached (imported) or non-cached composite models. You can choose which table to cache into memory, combine data from one or more DirectQuery sources, or combine DirectQuery source data and imported data.
 
 When you use DirectQuery with an Azure Synapse Analytics provisioned pool:
 
@@ -181,7 +181,7 @@ This scenario addresses the most demanding security concerns by using a combinat
 Some common security questions include:
 
 - Define who can see what data.
-  - Ensure that your data complies with federal, local, and company guidelines to mitigate data breach risks. Azure Synapse Analytics offers multiple [data protection capabilities](/azure/synapse-analytics/guidance/security-white-paper-data-protection) to achieve compliance.
+  - Ensure that your data complies with federal, local, and company guidelines to mitigate data breach risks. Azure Synapse Analytics provides multiple [data protection capabilities](/azure/synapse-analytics/guidance/security-white-paper-data-protection) to achieve compliance.
 
 - Determine how to verify a user's identity.
   - Use Azure Synapse Analytics to control who can access what data via [access control](/azure/synapse-analytics/guidance/security-white-paper-access-control) and [authentication](/azure/synapse-analytics/guidance/security-white-paper-authentication).
@@ -196,7 +196,7 @@ Some common security questions include:
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-This section provides information on pricing for different services involved in this solution, and mentions decisions made for this scenario with a sample dataset. Use this starting configuration in the [Azure pricing calculator](https://azure.com/e/598c407dc58545e090c8cfd6c7dbc190), and adjust it to fit your scenario.
+This section provides information about pricing for different services involved in this solution, and mentions decisions made for this scenario with a sample dataset. Use this starting configuration in the [Azure pricing calculator](https://azure.com/e/598c407dc58545e090c8cfd6c7dbc190), and adjust it to fit your scenario.
 
 #### Azure Synapse Analytics
 
@@ -224,7 +224,7 @@ For pricing details for an Azure Synapse Analytics dedicated pool, see the *Data
 
 #### Blob storage
 
-Consider using the Azure Storage reserved capacity to lower storage costs. With this model, you get a discount if you reserve fixed storage capacity for one or three years. For more information, see [Optimize costs for blob storage with reserved capacity][az-storage-reserved]. This scenario doesn't use persistent storage.
+Consider using the Azure Storage reserved capacity to reduce storage costs. With this model, you get a discount if you reserve fixed storage capacity for one or three years. For more information, see [Optimize costs for blob storage with reserved capacity][az-storage-reserved]. This scenario doesn't use persistent storage.
 
 #### Power BI Premium
 
@@ -237,20 +237,20 @@ For more information, see [Power BI pricing](https://powerbi.microsoft.com/prici
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 - Use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse Analytics workspace across multiple environments. For more information, see [Continuous integration and continuous delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery).
-- Put each workload in a separate deployment template, and store the resources in source control systems. You can deploy the templates together or individually as part of a continuous integration and continuous delivery (CI/CD) process. This approach makes the automation process easier. This architecture has four main workloads:
+- Put each workload in a separate deployment template, and store the resources in source control systems. You can deploy the templates together or individually as part of a continuous integration and continuous delivery (CI/CD) process. This approach simplifies the automation process. This architecture has four main workloads:
   - The data warehouse server and related resources
   - Azure Synapse Analytics pipelines
   - Power BI assets, including dashboards, apps, and datasets
   - An on-premises to cloud simulated scenario
 
-- Consider staging your workloads where practical. Deploy your workload to various stages. Run validation checks at each stage before moving to the next stage. This approach pushes updates to your production environments in a controlled way and minimizes unanticipated deployment problems. Use [blue-green deployment][blue-green-dep] and [canary release][canary-releases] strategies to update live production environments.
+- Consider staging your workloads where practical. Deploy your workload to various stages. Run validation checks at each stage before you move to the next stage. This approach pushes updates to your production environments in a controlled way and minimizes unanticipated deployment problems. Use [blue-green deployment][blue-green-dep] and [canary release][canary-releases] strategies to update live production environments.
 - Use a rollback strategy to handle failed deployments. For example, you can automatically redeploy an earlier, successful deployment from your deployment history. Use the `--rollback-on-error` flag in the Azure CLI.
 - Use [Azure Monitor][azure-monitor] to analyze the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights about your data warehouse workload. Use the Azure portal to monitor your data warehouse. It provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
 
 For more information, see the following resources:
 
 - [Tutorial: Get started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
-- [Create an Azure Synapse Analytics workspace with Azure CLI](/azure/synapse-analytics/quickstart-create-workspace-cli)
+- [Create an Azure Synapse Analytics workspace by using the Azure CLI](/azure/synapse-analytics/quickstart-create-workspace-cli)
 
 ### Performance Efficiency
 
@@ -262,7 +262,7 @@ This section provides details about sizing decisions to accommodate this dataset
 
 You can use various [data warehouse configurations](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview).
 
-|DWUs |# of compute nodes  |# of distributions per node|
+|DWUs |Number of compute nodes  |Number of distributions per node|
 |---------------------|:------------------:|:-------------------------:|
 |DW100c               |1                   |60                         |
 |                     | `-- TO --`         |                           |
