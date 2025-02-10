@@ -34,10 +34,6 @@ items:
         items:
         - name: Automotive messaging, data, and analytics
           href: ./architecture/automotive-messaging-data-analytics.yml  
-        - name: DataOps for autonomous vehicle operations
-          href: ./architecture/autonomous-vehicle-operations-dataops.yml
-        - name: Software-defined vehicle DevOps toolchain
-          href: ./architecture/software-defined-vehicle-reference-architecture.yml
         - name: ValOps for autonomous vehicle operations
           href: ./architecture/autonomous-vehicle-validation-operations.yml   
       - name: Chat bots

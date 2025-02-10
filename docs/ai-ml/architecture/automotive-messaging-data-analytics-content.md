@@ -313,7 +313,7 @@ This example architecture describes how automotive manufacturers and mobility pr
 
 OEM Automotive use cases are about enhancing vehicle performance, safety, and user experience.
 
-- **Continuous product improvement** enhances vehicle performance by analyzing real-time data and applying updates remotely. For more information about how to develop software for the vehicle, see [SDV DevOps toolchain](software-defined-vehicle-reference-architecture.yml).
+- **Continuous product improvement** enhances vehicle performance by analyzing real-time data and applying updates remotely. For more information about how to develop software for the vehicle, see [SDV DevOps toolchain](/industry/mobility/architecture/autonomous-vehicle-operations-dataops-content).
 
 - **Engineering test fleet validation** ensures vehicle safety and reliability by collecting and analyzing data from test fleets. For more information, see [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml).
 
@@ -446,7 +446,7 @@ The following articles describe interactions between components in the architect
 ### Related resources
 
 - [Create an Autonomous Vehicle Operations solution](/industry/mobility/architecture/avops-architecture-content) provides a deeper look into automotive digital engineering for autonomous and assisted driving.
-- [SDV DevOps toolchain](software-defined-vehicle-reference-architecture.yml) describes how to build, validate, and deploy workloads to the vehicle.
+- [SDV DevOps toolchain](/industry/mobility/architecture/autonomous-vehicle-operations-dataops-content) describes how to build, validate, and deploy workloads to the vehicle.
 - [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml) is a dedicated scenario where the collected data is used for engineering validation and root cause analysis.
 
 The following articles cover some of the patterns used in the architecture:
