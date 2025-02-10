@@ -120,7 +120,6 @@ Following are a few more management and governance architectures to consider:
 
 - [Management and monitoring for an Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring)
 - [Computer forensics chain of custody in Azure](../../example-scenario/forensics/index.yml)
-- [Centralized app configuration and security](../../solution-ideas/articles/appconfig-key-vault.yml)
 
 ### AWS or Google Cloud professionals
 

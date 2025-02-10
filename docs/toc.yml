@@ -1487,8 +1487,6 @@ items:
           href: hybrid/hybrid-perf-monitoring.yml
     - name: Solution ideas
       items:
-      - name: Centralize app configuration and security
-        href: solution-ideas/articles/appconfig-key-vault.yml
       - name: Enterprise-scale disaster recovery
         href: solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml
       - name: High availability for BCDR
@@ -1596,8 +1594,6 @@ items:
         href: ai-ml/architecture/secure-compute-for-research.yml
     - name: Solution ideas
       items:
-      - name: Centralize app configuration and security
-        href: solution-ideas/articles/appconfig-key-vault.yml
       - name: Multilayered protection for Azure VMs
         href: solution-ideas/articles/multilayered-protection-azure-vm.yml
       - name: Threat assessments

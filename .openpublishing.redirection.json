@@ -6893,6 +6893,11 @@
       "source_path": "docs/solution-ideas/articles/backup-archive-on-premises-applications.yml",
       "redirect_url": "/azure/backup/backup-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/appconfig-key-vault.yml",
+      "redirect_url": "/azure/azure-app-configuration/overview",
+      "redirect_document_id": false
     }
   ]
 }
