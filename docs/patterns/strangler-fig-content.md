@@ -8,9 +8,11 @@ Replacing an entire complex system is a huge undertaking. Instead, many teams pr
 
 ## Solution
 
-The Strangler Fig pattern enables a gradual transition from a legacy system to a new system. It provides a controlled and phased approach to modernization, and it allows the existing application to continue functioning throughout the modernization effort. The pattern reduces risks in migration by enabling teams to move forward at a pace that suits the complexity of the project. As you migrate functionality to the new system, the legacy system becomes obsolete, and you decommission the legacy system.
+Incrementally replace specific pieces of functionality with new applications and services. Create a façade that intercepts requests going to the backend legacy system. The façade routes these requests either to the legacy application or the new services. Existing features can be migrated to the new system gradually, and consumers can continue using the same interface, unaware that any migration has taken place.
 
 :::image type="content" source="./_images/strangler.png" alt-text="Diagram of the Strangler Fig pattern." lightbox="./_images/strangler.png":::
+
+The Strangler Fig pattern enables a gradual transition from a legacy system to a new system. This pattern provides a controlled and phased approach to modernization, and it allows the existing application to continue functioning throughout the modernization effort. The pattern reduces risks in migration by enabling teams to move forward at a pace that suits the complexity of the project. As you migrate functionality to the new system, the legacy system becomes obsolete, and you decommission the legacy system.
 
 1. The Strangler Fig pattern begins by introducing a façade (proxy) between the client app, the legacy system, and the new system. The façade (proxy) acts as an intermediary. It allows the client app to interact with the legacy system and the new system. Initially, the façade routes most requests to the legacy system.
 
@@ -30,12 +32,15 @@ The Strangler Fig pattern enables a gradual transition from a legacy system to a
 
 ## When to use this pattern
 
-Use this pattern when gradually migrating a back-end application to a new architecture.
+Use this pattern when gradually migrating a back-end application to a new architecture, especially when there is untenable risk inroduced by replacing large systems, key components, or complex features.
+
+Use this pattern when the original system can continue to exist for a extended period of time during the migration effort.
 
 This pattern may not be suitable:
 
 - When requests to the back-end system cannot be intercepted.
 - For smaller systems where the complexity of wholesale replacement is low.
+- Where fully decommissioning the original solution expiditiously is required.
 
 ## Workload design
 
