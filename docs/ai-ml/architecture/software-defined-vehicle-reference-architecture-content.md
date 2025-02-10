@@ -38,7 +38,7 @@ The architecture consists of six key building blocks:
 
    For information about data collection and analytics for component and system validation, see [Data analytics for automotive test fleets](/azure/architecture/industries/automotive/automotive-telemetry-analytics).
 
-1. [Autonomous vehicle operations (AVOps)](a/industry/mobility/architecture/avops-architecture-content) enable automotive OEMs to develop automated driving solutions on Azure. The AVOps solution describes:
+1. [Autonomous vehicle operations (AVOps)](/industry/mobility/architecture/avops-architecture-content) enable automotive OEMs to develop automated driving solutions on Azure. The AVOps solution describes:
    * How to manage data operations (DataOps) for autonomous vehicles.
    * Automated feature extraction, labeling, and model training for perception and sensor fusion (MLOps).
    * Testing developed models in simulated environments (ValOps).
