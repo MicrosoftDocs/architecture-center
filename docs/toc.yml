@@ -1429,50 +1429,10 @@ items:
       href: guide/management-governance/management-governance-start-here.md
     - name: Guides
       items:
-      - name: Governance best practices
-        href: /security/compass/governance
-        maintainContext: true
       - name: Update Windows VMs in Azure
         href: example-scenario/wsus/index.yml
-      - name: Backup
-        items:
-        - name: Backup architecture and components
-          href: /azure/backup/backup-architecture
-          maintainContext: true
-        - name: Azure Backup support matrix
-          href: /azure/backup/backup-support-matrix
-          maintainContext: true
-        - name: Backup cloud and on-premises
-          href: /azure/backup/guidance-best-practices
-          maintainContext: true
-      - name: Disaster recovery
-        items:
-        - name: Azure to Azure disaster recovery
-          href: /azure/site-recovery/azure-to-azure-architecture
-          maintainContext: true
-        - name: Support matrix for Azure VM DR
-          href: /azure/site-recovery/azure-to-azure-support-matrix
-          maintainContext: true
-        - name: ExpressRoute with Azure VM DR
-          href: /azure/site-recovery/azure-vm-disaster-recovery-with-expressroute
-          maintainContext: true
-        - name: Move Azure VMs to another region
-          href: /azure/site-recovery/azure-to-azure-move-overview
-          maintainContext: true
-        - name: BCDR for Azure VMware Solution
-          href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery
-          maintainContext: true
-      - name: Management for Azure environments
-        href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/management
-        maintainContext: true
-      - name: Management for VMware Solution
-        href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring
-        maintainContext: true
     - name: Architectures
       items:
-      - name: Back up cloud applications
-        href: /azure/backup/guidance-best-practices
-        maintainContext: true
       - name: Hybrid management
         items:
         - name: Azure Arc hybrid management with AKS
