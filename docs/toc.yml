@@ -1266,8 +1266,6 @@ items:
           href: hybrid/arc-hybrid-kubernetes.yml
         - name: Deploy an Azure Arc-enabled SQL managed instance for DR
           href: hybrid/arc-sql-managed-instance-disaster-recovery.yml
-        - name: Manage configurations for Azure Arc
-          href: hybrid/azure-arc-hybrid-config.yml
         - name: Optimize SQL Server with Azure Arc
           href: hybrid/azure-arc-sql-server.yml
       - name: Azure Automation solutions
@@ -1458,8 +1456,6 @@ items:
         - name: ExpressRoute with Azure VM DR
           href: /azure/site-recovery/azure-vm-disaster-recovery-with-expressroute
           maintainContext: true
-        - name: Recover from a region-wide disruption
-          href: resiliency/recovery-loss-azure-region.md
         - name: Move Azure VMs to another region
           href: /azure/site-recovery/azure-to-azure-move-overview
           maintainContext: true
@@ -1489,10 +1485,6 @@ items:
           href: hybrid/azure-stack-vm-disaster-recovery.yml
         - name: Hybrid availability and monitoring
           href: hybrid/hybrid-perf-monitoring.yml
-        - name: Manage configurations for Azure Arc
-          href: hybrid/azure-arc-hybrid-config.yml
-      - name: Line-of-business app with ASEv3
-        href: example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml
     - name: Solution ideas
       items:
       - name: Archive on-premises data to cloud

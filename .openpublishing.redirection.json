@@ -6878,6 +6878,11 @@
       "source_path": "docs/hybrid/azure-arc-hybrid-config.yml",
       "redirect_url": "/azure/architecture/hybrid/azure-arc-hybrid-config",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service-environment/architectures/ase-standard-deployment",
+      "redirect_document_id": false
     }
   ]
 }

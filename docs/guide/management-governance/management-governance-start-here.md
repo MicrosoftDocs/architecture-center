@@ -121,7 +121,6 @@ Following are a few more management and governance architectures to consider:
 - [Archive on-premises data to the cloud](../../solution-ideas/articles/backup-archive-on-premises.yml)
 - [Management and monitoring for an Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring)
 - [Computer forensics chain of custody in Azure](../../example-scenario/forensics/index.yml)
-- [Deploy a line-of-business application using Azure App Service Environment v3](../../example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml)
 - [Centralized app configuration and security](../../solution-ideas/articles/appconfig-key-vault.yml)
 
 ### AWS or Google Cloud professionals
