@@ -4,14 +4,13 @@ Incrementally migrate a legacy system by gradually replacing specific pieces of 
 
 As systems age, the development tools, hosting technology, and even system architectures they were built on can become obsolete. As new features and functionality are added, the complexity of these applications can increase, making them harder to maintain or extend.
 
-Replacing an entire complex system is a huge undertaking. Instead, many teams prefer to migrate to a new system gradually while keeping the old system to handle unmigrated features. However, running two separate versions of an application forces clients to track the locations of individual features. Every time teams migrate a feature or service, they must direct clients to the new location. To overcome these challenges, adopt an approach that supports incremental migration while minimizing disruptions to clients. 
-
+Replacing an entire complex system is a huge undertaking. Instead, many teams prefer to migrate to a new system gradually while keeping the old system to handle unmigrated features. However, running two separate versions of an application forces clients to track the locations of individual features. Every time teams migrate a feature or service, they must direct clients to the new location. To overcome these challenges, adopt an approach that supports incremental migration while minimizing disruptions to clients.
 
 ## Solution
 
-The Strangler Fig pattern enables a gradual transition from a legacy system to a new system. It provides a controlled and phased approach to modernization, and it allows the existing application to continue functioning throughout the modernization effort. The pattern reduces risks in migration by enabling teams to move forward at a pace that suits the complexity of the project. As you migrate functionality to the new system, the legacy system becomes obsolete, and you decommission the legacy system. 
+The Strangler Fig pattern enables a gradual transition from a legacy system to a new system. It provides a controlled and phased approach to modernization, and it allows the existing application to continue functioning throughout the modernization effort. The pattern reduces risks in migration by enabling teams to move forward at a pace that suits the complexity of the project. As you migrate functionality to the new system, the legacy system becomes obsolete, and you decommission the legacy system.
 
- ![Diagram of the Strangler Fig pattern](./_images/strangler-fig.png)
+:::image type="content" source="./_images/strangler-fig.png" alt-text="Diagram of the Strangler Fig pattern." lightbox="./_images/strangler-fig.png":::
 
 1. The Strangler Fig pattern begins by introducing a façade (proxy) between the client app, the legacy system, and the new system. The façade (proxy) acts as an intermediary. It allows the client app to interact with the legacy system and the new system. Initially, the façade routes most requests to the legacy system.
 
@@ -20,19 +19,6 @@ The Strangler Fig pattern enables a gradual transition from a legacy system to a
 3. Once you migrate all the functionality and there are no dependencies on the legacy system, you can decommission the legacy system. The Strangler façade routes all requests exclusively to the new system.
 
 4. You remove the Strangler façade (proxy) and reconfigure the client app to communicate directly with the new system. This marks the completion of the migration.
-
-
-## Strangler Fig pattern applied to datastore migrations
-
-Legacy systems often depend on a centralized database. Over time, a centralized database can become difficult to manage and evolve because of its many dependencies. To address these challenges, there are various database patterns to facilitate the transition away from such legacy systems. The Strangler Fig pattern is one of these patterns. The Strangler Fig pattern for database migration follows a phased approach to gradually transition from a legacy system to a new system while minimizing disruption.
-
- ![Diagram of the Strangler Fig pattern](./_images/strangler-fig-db.png)
-
-1. You introduce a new system, and the new system starts handling some requests from the client app. However, the new system still relies on the legacy database for all read and write operations. The legacy system remains operational, which facilitates a smooth transition without immediate structural changes.
-
-2. In the next phase, you introduce a new database. You migrate data load history to the new database using an ETL (Extract, Transform, Load) process. The ETL process synchronizes the new database with the legacy database. During this phase, the new system performs shadow writes. The new system updates both databases in parallel. The new system continues to read from the legacy database to validate consistency.
-
-3. Finally, the new database becomes the System of Record (SOR). The new database takes over all read and write operations. You can start deprecating the legacy database and legacy system. Once validated, you can retire the legacy database. This retirement completes the migration process with minimal disruption.
 
 ## Issues and considerations
 
@@ -63,6 +49,18 @@ An architect should evaluate how the Strangler Fig pattern can be used in their 
 
 As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
+## Example of using Strangler Fig in a datastore migration
+
+Legacy systems often depend on a centralized database. Over time, a centralized database can become difficult to manage and evolve because of its many dependencies. To address these challenges, there are various database patterns to facilitate the transition away from such legacy systems. The Strangler Fig pattern is one of these patterns. Apply the Strangler Fig pattern as a phased approach to gradually transition from a legacy system to a new system while minimizing disruption.
+
+:::image type="content" source="./_images/strangler-fig-db.png" alt-text="Diagram of the Strangler Fig pattern applied to a database." lightbox="./_images/strangler-fig-db.png":::
+
+1. You introduce a new system, and the new system starts handling some requests from the client app. However, the new system still has a depenency on the legacy database for all read and write operations. The legacy system remains operational, which facilitates a smooth transition without immediate structural changes.
+
+2. In the next phase, you introduce a new database. You migrate data load history to the new database using an ETL (Extract, Transform, Load) process. The ETL process synchronizes the new database with the legacy database. During this phase, the new system performs shadow writes. The new system updates both databases in parallel. The new system continues to read from the legacy database to validate consistency.
+
+3. Finally, the new database becomes the System of Record (SOR). The new database takes over all read and write operations. You can start deprecating the legacy database and legacy system. Once validated, you can retire the legacy database. This retirement completes the migration process with minimal disruption.
+
 ## Next steps
 
 * Martin Fowler's blog post on [StranglerFigApplication](https://martinfowler.com/bliki/StranglerFigApplication.html)
@@ -70,4 +68,3 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 ## Related resources
 
 * [Messaging Bridge pattern](./messaging-bridge.yml)
-
