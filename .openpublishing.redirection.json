@@ -6876,7 +6876,7 @@
     },
     {
       "source_path": "docs/hybrid/azure-arc-hybrid-config.yml",
-      "redirect_url": "/azure/architecture/hybrid/azure-arc-hybrid-config",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-security-governance-and-compliance",
       "redirect_document_id": false
     },
     {
