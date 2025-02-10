@@ -139,7 +139,7 @@ Data Lake Storage underpins Delta Lake because of its ability to efficiently sto
 
 1. The solution adds two more components to the foundational Azure services, which enable collaboration, governance, reliability, and security:
 
-    - [Microsoft Purview Data Governance](/purview/governance-home) provides data discovery services, a data catalog, and governance insights across the platform.
+    - Microsoft Purview provides data discovery services, a [Unified Catalog](/purview/unified-catalog), and governance insights across the platform.
 
     - [Site Recovery](/azure/site-recovery/) supports the backup and recovery of the VMs, which provide the compute to the Data Factory SHIR, required to ingest data from on-premises.
 
