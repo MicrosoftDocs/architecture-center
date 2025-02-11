@@ -4,7 +4,7 @@ This guidance builds on the [Azure Synapse Analytics end-to-end scenario][e2e-an
 
 ## When to use this architecture
 
-You can use various methods to meet business requirements for enterprise BI. Varius aspects define business requirements, such as current technology investments, human skills, the timeline for modernization, future goals, and whether you have a preference for platform as a service (PaaS) or software as a service (SaaS). 
+You can use various methods to meet business requirements for enterprise BI. Various aspects define business requirements, such as current technology investments, human skills, the timeline for modernization, future goals, and whether you have a preference for platform as a service (PaaS) or software as a service (SaaS). 
 
 Consider the following design approaches:
 
