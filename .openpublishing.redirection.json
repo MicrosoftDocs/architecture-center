@@ -2536,6 +2536,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/azure-resource-manager/advanced-templates/index.md",
+      "redirect_url": "/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/azure-resource-manager/advanced-templates/conditional-deploy.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-use-conditions",
       "redirect_document_id": false
@@ -2853,6 +2858,11 @@
     {
       "source_path": "docs/solution-ideas/articles/scalable-web-apps.yml",
       "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/serverless-event-processing-aks.yml",
+      "redirect_url": "/azure/aks/keda-about",
       "redirect_document_id": false
     },
     {

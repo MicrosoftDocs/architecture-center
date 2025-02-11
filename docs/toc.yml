@@ -1125,8 +1125,6 @@ items:
           href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml
         - name: Data streaming with AKS
           href: solution-ideas/articles/data-streaming-scenario.yml
-        - name: AKS in event stream processing
-          href: solution-ideas/articles/serverless-event-processing-aks.yml
     - name: PaaS container hosting
       items:
       - name: Architectures
@@ -1147,8 +1145,6 @@ items:
         href: guide/azure-sandbox/azure-sandbox.yml
       - name: Advanced ARM templates
         items:
-        - name: Overview
-          href: guide/azure-resource-manager/advanced-templates/index.md
         - name: Update a resource
           href: guide/azure-resource-manager/advanced-templates/update-resource.md
         - name: Use an object as a parameter
