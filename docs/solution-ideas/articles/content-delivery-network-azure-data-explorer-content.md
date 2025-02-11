@@ -39,7 +39,7 @@ You can use this solution to ingest large volumes of CDN logs for the purpose of
 
 Principal author:
 
- * [Ornat Spodek](https://www.linkedin.com/in/ornat-s-89123544) | Senior Content Manager
+- [Shlomo Sagir](https://www.linkedin.com/in/shlomo-sagir/) | Senior Content Developer
 
 ## Next steps
 
@@ -50,4 +50,3 @@ For more information, see [Azure Data Explorer documentation](/azure/data-explor
 - [Analytics architecture design](analytics-start-here.yml)
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 - [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.yml)
-
