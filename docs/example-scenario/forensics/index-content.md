@@ -38,13 +38,13 @@ The Copy-VmDigitalEvidence runbook implements these macro steps:
 
 ### Components
 
-- [Azure Automation](/azure/automation/overview) automates frequent, time-consuming, and error-prone cloud management tasks.
-- [Storage](/azure/storage/common/storage-introduction) is a cloud storage solution that includes object, file, disk, queue, and table storage.
-- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) provides optimized cloud object storage that manages massive amounts of unstructured data.
-- [Azure Files](/azure/well-architected/service-guides/azure-files) shares. You can concurrently mount shares through cloud or on-premises deployments of Windows, Linux, and macOS. Additionally, you can cache Azure Files shares on Windows Servers using Azure File Sync for quick access near the data usage location.
-- [Azure Monitor](/azure/azure-monitor/overview) supports your operations at scale by helping you to maximize the performance and availability of your resources, while proactively identifying potential issues.
-- [Key Vault](/azure/key-vault/general/overview) helps you safeguard cryptographic keys and other secrets used by cloud apps and services.
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity service that helps you control access to Azure and other cloud apps.
+- [Azure Automation](/azure/automation/overview) automates frequent, time-consuming, and error-prone cloud management tasks. It is used to automates the process of capturing and transferring VM disk snapshots to ensure evidence integrity.
+- [Storage](/azure/storage/common/storage-introduction) is a cloud storage solution that includes object, file, disk, queue, and table storage. It hosts disk snapshots in immutable blob storage to preserve evidence in a nonerasable and noneditable state.
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) provides optimized cloud object storage that manages massive amounts of unstructured data. It offers optimized cloud object storage for storing disk snapshots as immutable blobs.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) shares. You can concurrently mount shares through cloud or on-premises deployments of Windows, Linux, and macOS. Additionally, you can cache Azure Files shares on Windows Servers using Azure File Sync for quick access near the data usage location. It is used as a temporary repository to calculate the hash values of disk snapshots.
+- [Key Vault](/azure/key-vault/general/overview) helps you safeguard cryptographic keys and other secrets used by cloud apps and services. It is used to store the BitLocker encryption keys (BEKs) and hash values of disk snapshots to ensure secure access and integrity.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity service that helps you control access to Azure and other cloud apps. It is used to control accesses to Azure resources, ensuring secure identity management.
+- [Azure Monitor](/azure/azure-monitor/overview) supports your operations at scale by helping you to maximize the performance and availability of your resources, while proactively identifying potential issues. It archives activity logs to audit all relevant events for compliance and monitoring purposes.
 
 #### Automation
 
