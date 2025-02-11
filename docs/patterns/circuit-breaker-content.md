@@ -80,16 +80,16 @@ You should consider the following points when deciding how to implement this pat
 
 Use this pattern:
 
-- To prevent cascading failures by stopping excessive invokes a remote service or access a shared resource if this operation is highly likely to fail.
-- Enhance multi-region resilience by routing traffic intelligently based on real-time failure signals.
-- To protect against slow dependencies helping you to keep up with your Service Level Objectives (SLOs). Avoid performance degradation due to high-latency services.
-- To handle intermittent connectivity and reduce request failures in distributed environments.
+- To prevent cascading failures by stopping excessive invokes by a remote service or access a shared requests to a resource if these operations are highly likely to fail.
+- To enhance multi-region resilience by routing traffic intelligently based on real-time failure signals.
+- To protect against slow dependencies, helping you to keep up with your service level objectives (SLOs), and to avoid performance degradation due to high-latency services.
+- To handle intermittent connectivity issues and reduce request failures in distributed environments.
 
 This pattern isn't recommended:
 
 - For handling access to local private resources in an application, such as in-memory data structure. In this environment, using a circuit breaker would add overhead to your system.
 - As a substitute for handling exceptions in the business logic of your applications.
-- When well-known retry algorithms are sufficient and your dependencies are designed to deal with retry mechanims, avoid introducing unnecessary complexity implementing a circuit breaker in your application.
+- When well-known retry algorithms are sufficient and your dependencies are designed to deal with retry mechanisms. Implementing a circuit breaker in your application in this case, could add unnecessary complexity to your system.
 - When waiting for a circuit breaker to reset might introduce unacceptable delays.
 - Message-driven and event-driven architectures often route failed messages to a Dead Letter Queue (DLQ) for manual or deferred processing, making a circuit breaker in some cases unnecessary due to their built-in failure isolation and retry mechanisms.
 - If failure recovery is managed at the infrastructure or platform level, such as with health checks in global load balancers or service meshes, circuit breakers might not be necessary.
