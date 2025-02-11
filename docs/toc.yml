@@ -819,7 +819,7 @@ items:
         href: example-scenario/data/data-warehouse.yml
       - name: Employee retention with Databricks and AKS
         href: example-scenario/ai/employee-retention-databricks-kubernetes.yml
-      - name: Enterprise business intelligence
+      - name: Use Azure Synapse Analytics to design an enterprise BI solution
         href: example-scenario/analytics/enterprise-bi-synapse.yml
       - name: Near real-time lakehouse processing
         href: example-scenario/data/real-time-lakehouse-data-processing.yml
