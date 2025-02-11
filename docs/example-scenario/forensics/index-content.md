@@ -38,7 +38,7 @@ The Copy-VmDigitalEvidence runbook implements these macro steps:
 
 ### Components
 
-- [Azure Automation](/azure/automation/overview) automates frequent, time-consuming, and error-prone cloud management tasks. It is used to automates the process of capturing and transferring VM disk snapshots to ensure evidence integrity.
+- [Azure Automation](/azure/automation/overview) automates frequent, time-consuming, and error-prone cloud management tasks. It is used to automate the process of capturing and transferring VM disk snapshots to ensure evidence integrity.
 - [Storage](/azure/storage/common/storage-introduction) is a cloud storage solution that includes object, file, disk, queue, and table storage. It hosts disk snapshots in immutable blob storage to preserve evidence in a nonerasable and noneditable state.
 - [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) provides optimized cloud object storage that manages massive amounts of unstructured data. It offers optimized cloud object storage for storing disk snapshots as immutable blobs.
 - [Azure Files](/azure/well-architected/service-guides/azure-files) shares. You can concurrently mount shares through cloud or on-premises deployments of Windows, Linux, and macOS. Additionally, you can cache Azure Files shares on Windows Servers using Azure File Sync for quick access near the data usage location. It is used as a temporary repository to calculate the hash values of disk snapshots.
