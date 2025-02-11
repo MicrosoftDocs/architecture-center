@@ -1163,8 +1163,6 @@ items:
         href: example-scenario/devops/automated-api-deployments-apiops.yml
       - name: CI/CD pipeline using Azure DevOps
         href: example-scenario/apps/devops-dotnet-baseline.yml
-      - name: Enterprise monitoring with Azure Monitor
-        href: example-scenario/monitoring/enterprise-monitoring.yml
     - name: "Solution idea: DevSecOps for infrastructure as code"
       href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
   - name: Hybrid + Multicloud

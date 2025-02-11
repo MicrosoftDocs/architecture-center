@@ -6880,6 +6880,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/monitoring/enterprise-monitoring.yml",
+      "redirect_url": "/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-monitor",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/resiliency/recovery-loss-azure-region.md",
       "redirect_url": "/azure/reliability/overview",
       "redirect_document_id": false
