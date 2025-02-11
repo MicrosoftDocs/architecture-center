@@ -38,45 +38,61 @@ The Circuit Breaker pattern provides stability while the system recovers from a 
 
 The pattern is customizable and can be adapted according to the type of the possible failure. For example, you can apply an increasing timeout timer to a circuit breaker. You could place the circuit breaker in the **Open** state for a few seconds initially, and then if the failure hasn't been resolved, increase the timeout to a few minutes, and so on. In some cases, rather than the **Open** state returning failure and raising an exception, it could be useful to return a default value that is meaningful to the application.
 
+> [!NOTE]
+> Traditionally, circuit breakers rely on pre-configured thresholds such as failure count and timeout duration, resulting in a deterministic but sometimes suboptimal behavior. However, adaptive techniques using AI and ML can dynamically adjust thresholds based on real-time traffic patterns, anomalies, and historical failure rates, making the circuit breaker more resilient and efficient.
+
 ## Issues and considerations
 
 You should consider the following points when deciding how to implement this pattern:
 
-**Exception Handling**. An application invoking an operation through a circuit breaker must be prepared to handle the exceptions raised if the operation is unavailable. The way exceptions are handled will be application specific. For example, an application could temporarily degrade its functionality, invoke an alternative operation to try to perform the same task or obtain the same data, or report the exception to the user and ask them to try again later.
+**Exception handling**: An application invoking an operation through a circuit breaker must be prepared to handle the exceptions raised if the operation is unavailable. The way exceptions are handled will be application specific. For example, an application could temporarily degrade its functionality, invoke an alternative operation to try to perform the same task or obtain the same data, or report the exception to the user and ask them to try again later.
 
-**Types of Exceptions**. A request might fail for many reasons, some of which might indicate a more severe type of failure than others. For example, a request might fail because a remote service has crashed and will take several minutes to recover, or because of a timeout due to the service being temporarily overloaded. A circuit breaker might be able to examine the types of exceptions that occur and adjust its strategy depending on the nature of these exceptions. For example, it might require a larger number of timeout exceptions to trip the circuit breaker to the **Open** state compared to the number of failures due to the service being completely unavailable.
+**Types of exceptions**: A request might fail for many reasons, some of which might indicate a more severe type of failure than others. For example, a request might fail because a remote service has crashed and will take several minutes to recover, or because of a timeout due to the service being temporarily overloaded. A circuit breaker might be able to examine the types of exceptions that occur and adjust its strategy depending on the nature of these exceptions. For example, it might require a larger number of timeout exceptions to trip the circuit breaker to the **Open** state compared to the number of failures due to the service being completely unavailable.
 
-**Logging**. A circuit breaker should log all failed requests (and possibly successful requests) to enable an administrator to monitor the health of the operation.
+**Monitoring**: A circuit breaker should provide clear observability into both failed and successful requests, enabling operations teams to assess system health. Use distributed tracing for end-to-end visibility across services.
 
-**Recoverability**. You should configure the circuit breaker to match the likely recovery pattern of the operation it's protecting. For example, if the circuit breaker remains in the **Open** state for a long period, it could raise exceptions even if the reason for the failure has been resolved. Similarly, a circuit breaker could fluctuate and reduce the response times of applications if it switches from the **Open** state to the **Half-Open** state too quickly.
+**Recoverability**: You should configure the circuit breaker to match the likely recovery pattern of the operation it's protecting. For example, if the circuit breaker remains in the **Open** state for a long period, it could raise exceptions even if the reason for the failure has been resolved. Similarly, a circuit breaker could fluctuate and reduce the response times of applications if it switches from the **Open** state to the **Half-Open** state too quickly.
 
-**Testing Failed Operations**. In the **Open** state, rather than using a timer to determine when to switch to the **Half-Open** state, a circuit breaker can instead periodically ping the remote service or resource to determine whether it's become available again. This ping could take the form of an attempt to invoke an operation that had previously failed, or it could use a special operation provided by the remote service specifically for testing the health of the service, as described by the [Health Endpoint Monitoring pattern](./health-endpoint-monitoring.yml).
+**Testing failed operations**: In the **Open** state, rather than using a timer to determine when to switch to the **Half-Open** state, a circuit breaker can instead periodically ping the remote service or resource to determine whether it's become available again. This ping could take the form of an attempt to invoke an operation that had previously failed, or it could use a special operation provided by the remote service specifically for testing the health of the service, as described by the [Health Endpoint Monitoring pattern](./health-endpoint-monitoring.yml).
 
-**Manual Override**. In a system where the recovery time for a failing operation is extremely variable, it's beneficial to provide a manual reset option that enables an administrator to close a circuit breaker (and reset the failure counter). Similarly, an administrator could force a circuit breaker into the **Open** state (and restart the timeout timer) if the operation protected by the circuit breaker is temporarily unavailable.
+**Manual override**: In a system where the recovery time for a failing operation is extremely variable, it's beneficial to provide a manual reset option that enables an administrator to close a circuit breaker (and reset the failure counter). Similarly, an administrator could force a circuit breaker into the **Open** state (and restart the timeout timer) if the operation protected by the circuit breaker is temporarily unavailable.
 
-**Concurrency**. The same circuit breaker could be accessed by a large number of concurrent instances of an application. The implementation shouldn't block concurrent requests or add excessive overhead to each call to an operation.
+**Concurrency**: The same circuit breaker could be accessed by a large number of concurrent instances of an application. The implementation shouldn't block concurrent requests or add excessive overhead to each call to an operation.
 
-**Resource Differentiation**. Be careful when using a single circuit breaker for one type of resource if there might be multiple underlying independent providers. For example, in a data store that contains multiple shards, one shard might be fully accessible while another is experiencing a temporary issue. If the error responses in these scenarios are merged, an application might try to access some shards even when failure is highly likely, while access to other shards might be blocked even though it's likely to succeed.
+**Resource differentiation**: Be careful when using a single circuit breaker for one type of resource if there might be multiple underlying independent providers. For example, in a data store that contains multiple shards, one shard might be fully accessible while another is experiencing a temporary issue. If the error responses in these scenarios are merged, an application might try to access some shards even when failure is highly likely, while access to other shards might be blocked even though it's likely to succeed.
 
-**Accelerated Circuit Breaking**. Sometimes a failure response can contain enough information for the circuit breaker to trip immediately and stay tripped for a minimum amount of time. For example, the error response from a shared resource that's overloaded could indicate that an immediate retry isn't recommended and that the application should instead try again in a few minutes.
+**Accelerated circuit breaking**: Sometimes a failure response can contain enough information for the circuit breaker to trip immediately and stay tripped for a minimum amount of time. For example, the error response from a shared resource that's overloaded could indicate that an immediate retry isn't recommended and that the application should instead try again in a few minutes.
+
+**Multi-region deployments**: A circuit breaker could be designed for single or multi-region deployments. The latter can be implemented using global load balancers or custom region-aware circuit breaking strategies that ensure controlled failover, latency optimization, and regulatory compliance.
+
+**Service mesh circuit breakers**: Circuit breakers can be implemented at the application layer or as a cross-cutting, abstracted feature. For example, service meshes often support circuit breaking as a side car or as a standalone capability without modifying application code.
 
 > [!NOTE]
 > A service can return HTTP 429 (Too Many Requests) if it is throttling the client, or HTTP 503 (Service Unavailable) if the service is not currently available. The response can include additional information, such as the anticipated duration of the delay.
 
-**Replaying Failed Requests**. In the **Open** state, rather than simply failing quickly, a circuit breaker could also record the details of each request to a journal and arrange for these requests to be replayed when the remote resource or service becomes available.
+**Replaying failed requests**: In the **Open** state, rather than simply failing quickly, a circuit breaker could also record the details of each request to a journal and arrange for these requests to be replayed when the remote resource or service becomes available.
 
-**Inappropriate Timeouts on External Services**. A circuit breaker might not be able to fully protect applications from operations that fail in external services that are configured with a lengthy timeout period. If the timeout is too long, a thread running a circuit breaker might be blocked for an extended period before the circuit breaker indicates that the operation has failed. In this time, many other application instances might also try to invoke the service through the circuit breaker and tie up a significant number of threads before they all fail.
+**Inappropriate timeouts on external services**: A circuit breaker might not be able to fully protect applications from operations that fail in external services that are configured with a lengthy timeout period. If the timeout is too long, a thread running a circuit breaker might be blocked for an extended period before the circuit breaker indicates that the operation has failed. In this time, many other application instances might also try to invoke the service through the circuit breaker and tie up a significant number of threads before they all fail.
+
+**Adaptability to compute diversification**: Circuit breakers should account for different compute environments, from serverless to containerized workloads, where factors like cold starts and scalability impact failure handling. Adaptive approaches can dynamically adjust strategies based on the compute type, ensuring resilience across heterogeneous architectures.
 
 ## When to use this pattern
 
 Use this pattern:
 
-- To prevent an application from trying to invoke a remote service or access a shared resource if this operation is highly likely to fail.
+- To prevent cascading failures by stopping excessive invokes by a remote service or access a shared requests to a resource if these operations are highly likely to fail.
+- To enhance multi-region resilience by routing traffic intelligently based on real-time failure signals.
+- To protect against slow dependencies, helping you to keep up with your service level objectives (SLOs), and to avoid performance degradation due to high-latency services.
+- To handle intermittent connectivity issues and reduce request failures in distributed environments.
 
 This pattern isn't recommended:
 
 - For handling access to local private resources in an application, such as in-memory data structure. In this environment, using a circuit breaker would add overhead to your system.
 - As a substitute for handling exceptions in the business logic of your applications.
+- When well-known retry algorithms are sufficient and your dependencies are designed to deal with retry mechanisms. Implementing a circuit breaker in your application in this case, could add unnecessary complexity to your system.
+- When waiting for a circuit breaker to reset might introduce unacceptable delays.
+- If you have a message-driven or event-driven architecture, as they often route failed messages to a Dead Letter Queue (DLQ) for manual or deferred processing. The built-in failure isolation and retry mechanisms typically implemented in these deisgns are often sufficient.
+- If failure recovery is managed at the infrastructure or platform level, such as with health checks in global load balancers or service meshes, circuit breakers might not be necessary.
 
 ## Workload design
 
@@ -88,190 +104,6 @@ An architect should evaluate how the Circuit Breaker pattern can be used in thei
 | [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | This pattern avoids the retry-on-error approach which can lead to excessive resource utilization during dependency recovery and can also overload performance on a dependency that's attempting recovery.<br/><br/> - [PE:07 Code and infrastructure](/azure/well-architected/performance-efficiency/optimize-code-infrastructure)<br/> - [PE:11 Live-issues responses](/azure/well-architected/performance-efficiency/respond-live-performance-issues) |
 
 As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
-
-## Example
-
-In a web application, several of the pages are populated with data retrieved from an external service. If the system implements minimal caching, most hits to these pages will cause a round trip to the service. Connections from the web application to the service could be configured with a timeout period (typically 60 seconds), and if the service doesn't respond in this time the logic in each web page will assume that the service is unavailable and throw an exception.
-
-However, if the service fails and the system is very busy, users could be forced to wait for up to 60 seconds before an exception occurs. Eventually resources such as memory, connections, and threads could be exhausted, preventing other users from connecting to the system, even if they aren't accessing pages that retrieve data from the service.
-
-Scaling the system by adding further web servers and implementing load balancing might delay when resources become exhausted, but it won't resolve the issue because user requests will still be unresponsive and all web servers could still eventually run out of resources.
-
-Wrapping the logic that connects to the service and retrieves the data in a circuit breaker could help to solve this problem and handle the service failure more elegantly. User requests will still fail, but they'll fail more quickly and the resources won't be blocked.
-
-The `CircuitBreaker` class maintains state information about a circuit breaker in an object that implements the `ICircuitBreakerStateStore` interface shown in the following code.
-
-```csharp
-interface ICircuitBreakerStateStore
-{
-  CircuitBreakerStateEnum State { get; }
-
-  Exception LastException { get; }
-
-  DateTime LastStateChangedDateUtc { get; }
-
-  void Trip(Exception ex);
-
-  void Reset();
-
-  void HalfOpen();
-
-  bool IsClosed { get; }
-}
-```
-
-The `State` property indicates the current state of the circuit breaker, and will be either **Open**, **HalfOpen**, or **Closed** as defined by the `CircuitBreakerStateEnum` enumeration. The `IsClosed` property should be true if the circuit breaker is closed, but false if it's open or half open. The `Trip` method switches the state of the circuit breaker to the open state and records the exception that caused the change in state, together with the date and time that the exception occurred. The `LastException` and the `LastStateChangedDateUtc` properties return this information. The `Reset` method closes the circuit breaker, and the `HalfOpen` method sets the circuit breaker to half open.
-
-The `InMemoryCircuitBreakerStateStore` class in the example contains an implementation of the `ICircuitBreakerStateStore` interface. The `CircuitBreaker` class creates an instance of this class to hold the state of the circuit breaker.
-
-The `ExecuteAction` method in the `CircuitBreaker` class wraps an operation, specified as an `Action` delegate. If the circuit breaker is closed, `ExecuteAction` invokes the `Action` delegate. If the operation fails, an exception handler calls `TrackException`, which sets the circuit breaker state to open. The following code example highlights this flow.
-
-```csharp
-public class CircuitBreaker
-{
-  private readonly ICircuitBreakerStateStore stateStore =
-    CircuitBreakerStateStoreFactory.GetCircuitBreakerStateStore();
-
-  private readonly object halfOpenSyncObject = new object ();
-  ...
-  public bool IsClosed { get { return stateStore.IsClosed; } }
-
-  public bool IsOpen { get { return !IsClosed; } }
-
-  public void ExecuteAction(Action action)
-  {
-    ...
-    if (IsOpen)
-    {
-      // The circuit breaker is Open.
-      ... (see code sample below for details)
-    }
-
-    // The circuit breaker is Closed, execute the action.
-    try
-    {
-      action();
-    }
-    catch (Exception ex)
-    {
-      // If an exception still occurs here, simply
-      // retrip the breaker immediately.
-      this.TrackException(ex);
-
-      // Throw the exception so that the caller can tell
-      // the type of exception that was thrown.
-      throw;
-    }
-  }
-
-  private void TrackException(Exception ex)
-  {
-    // For simplicity in this example, open the circuit breaker on the first exception.
-    // In reality this would be more complex. A certain type of exception, such as one
-    // that indicates a service is offline, might trip the circuit breaker immediately.
-    // Alternatively it might count exceptions locally or across multiple instances and
-    // use this value over time, or the exception/success ratio based on the exception
-    // types, to open the circuit breaker.
-    this.stateStore.Trip(ex);
-  }
-}
-```
-
-The following example shows the code (omitted from the previous example) that is executed if the circuit breaker isn't closed. It first checks if the circuit breaker has been open for a period longer than the time specified by the local `OpenToHalfOpenWaitTime` field in the `CircuitBreaker` class. If this is the case, the `ExecuteAction` method sets the circuit breaker to half open, then tries to perform the operation specified by the `Action` delegate.
-
-If the operation is successful, the circuit breaker is reset to the closed state. If the operation fails, it is tripped back to the open state and the time the exception occurred is updated so that the circuit breaker will wait for a further period before trying to perform the operation again.
-
-If the circuit breaker has only been open for a short time, less than the `OpenToHalfOpenWaitTime` value, the `ExecuteAction` method simply throws a `CircuitBreakerOpenException` exception and returns the error that caused the circuit breaker to transition to the open state.
-
-Additionally, it uses a lock to prevent the circuit breaker from trying to perform concurrent calls to the operation while it's half open. A concurrent attempt to invoke the operation will be handled as if the circuit breaker was open, and it'll fail with an exception as described later.
-
-```csharp
-    ...
-    if (IsOpen)
-    {
-      // The circuit breaker is Open. Check if the Open timeout has expired.
-      // If it has, set the state to HalfOpen. Another approach might be to
-      // check for the HalfOpen state that had be set by some other operation.
-      if (stateStore.LastStateChangedDateUtc + OpenToHalfOpenWaitTime < DateTime.UtcNow)
-      {
-        // The Open timeout has expired. Allow one operation to execute. Note that, in
-        // this example, the circuit breaker is set to HalfOpen after being
-        // in the Open state for some period of time. An alternative would be to set
-        // this using some other approach such as a timer, test method, manually, and
-        // so on, and check the state here to determine how to handle execution
-        // of the action.
-        // Limit the number of threads to be executed when the breaker is HalfOpen.
-        // An alternative would be to use a more complex approach to determine which
-        // threads or how many are allowed to execute, or to execute a simple test
-        // method instead.
-        bool lockTaken = false;
-        try
-        {
-          Monitor.TryEnter(halfOpenSyncObject, ref lockTaken);
-          if (lockTaken)
-          {
-            // Set the circuit breaker state to HalfOpen.
-            stateStore.HalfOpen();
-
-            // Attempt the operation.
-            action();
-
-            // If this action succeeds, reset the state and allow other operations.
-            // In reality, instead of immediately returning to the Closed state, a counter
-            // here would record the number of successful operations and return the
-            // circuit breaker to the Closed state only after a specified number succeed.
-            this.stateStore.Reset();
-            return;
-          }
-        }
-        catch (Exception ex)
-        {
-          // If there's still an exception, trip the breaker again immediately.
-          this.stateStore.Trip(ex);
-
-          // Throw the exception so that the caller knows which exception occurred.
-          throw;
-        }
-        finally
-        {
-          if (lockTaken)
-          {
-            Monitor.Exit(halfOpenSyncObject);
-          }
-        }
-      }
-      // The Open timeout hasn't yet expired. Throw a CircuitBreakerOpen exception to
-      // inform the caller that the call was not actually attempted,
-      // and return the most recent exception received.
-      throw new CircuitBreakerOpenException(stateStore.LastException);
-    }
-    ...
-```
-
-To use a `CircuitBreaker` object to protect an operation, an application creates an instance of the `CircuitBreaker` class and invokes the `ExecuteAction` method, specifying the operation to be performed as the parameter. The application should be prepared to catch the `CircuitBreakerOpenException` exception if the operation fails because the circuit breaker is open. The following code shows an example:
-
-```csharp
-var breaker = new CircuitBreaker();
-
-try
-{
-  breaker.ExecuteAction(() =>
-  {
-    // Operation protected by the circuit breaker.
-    ...
-  });
-}
-catch (CircuitBreakerOpenException ex)
-{
-  // Perform some different action when the breaker is open.
-  // Last exception details are in the inner exception.
-  ...
-}
-catch (Exception ex)
-{
-  ...
-}
-```
 
 ## Related resources
 
