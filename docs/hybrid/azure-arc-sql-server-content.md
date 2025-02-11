@@ -187,12 +187,10 @@ Performance Efficiency is the ability of your workload to meet the demands place
 ## Related resources
 
 - [Azure Local switchless storage for retail, manufacturing or remote office use cases][Azure Local switchless storage for retail, manufacturing or remote office use cases]
-- [Manage configurations for Azure Arc-enabled servers][Manage configurations for Azure Arc-enabled servers]
 - [Azure Arc hybrid management and deployment for Kubernetes clusters][Azure Arc hybrid management and deployment for Kubernetes clusters]
 - [Azure hybrid options][Azure hybrid options]
 
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-arc-sql-server.vsdx
-[azure-well-architected-framerwork]: /azure/well-architected/
 [sql-server]: /sql/sql-server/
 [azure-arc]: /azure/azure-arc/overview
 [azure-arc-enabled-servers]: /azure/azure-arc/servers/overview
@@ -241,7 +239,6 @@ Performance Efficiency is the ability of your workload to meet the demands place
 [azure-arc-enabled-servers-service-page]: /azure/azure-arc/servers/overview
 [azure-arc-enabled-sql-server-service-page]: /sql/sql-server/azure-arc/overview
 [azure-kubernetes-service-service-page]: /azure/well-architected/service-guides/azure-kubernetes-service
-[azs-hci-service-page]: /azure/well-architected/service-guides/azure-local
 [azure-kubernetes-service-on-azs-hci-service-page]: /azure/aks/hybrid/overview
 [azure-arc-enabled-kubernetes-service-page]: /azure/azure-arc/kubernetes/overview
 [azure-arc-enabled-data-services-service-page]: /azure/azure-arc/data/overview

@@ -115,7 +115,6 @@ Principal author:
 For additional high availability and disaster recovery reference architectures, see:
 
 - [Multi-region load balancing][Multi-region-load-balancing]
-- [Enterprise-scale disaster recovery][Enterprise-scale-disaster-recovery]
 
 <!-- links -->
 
