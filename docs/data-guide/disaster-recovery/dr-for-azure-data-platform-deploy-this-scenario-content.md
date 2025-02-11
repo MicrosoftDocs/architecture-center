@@ -241,7 +241,6 @@ There is strong guidance for:
 - [Architecting for resiliency and availability](/azure/architecture/reliability/architect)
 - [Business continuity and disaster recovery](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery)
 - [Backup and disaster recovery for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)
-    - [Recover from the loss of an Azure region](/azure/architecture/resiliency/recovery-loss-azure-region)
 - [Resiliency in Azure](/azure/reliability/overview)
     - [Business continuity management in Azure](/azure/reliability/business-continuity-management-program)
 - [service-level agreements (SLAs) Summary](https://azure.microsoft.com/support/legal/sla/summary/)

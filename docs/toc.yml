@@ -1262,8 +1262,6 @@ items:
           href: hybrid/arc-hybrid-kubernetes.yml
         - name: Deploy an Azure Arc-enabled SQL managed instance for DR
           href: hybrid/arc-sql-managed-instance-disaster-recovery.yml
-        - name: Manage configurations for Azure Arc
-          href: hybrid/azure-arc-hybrid-config.yml
         - name: Optimize SQL Server with Azure Arc
           href: hybrid/azure-arc-sql-server.yml
       - name: Azure Automation solutions
@@ -1427,54 +1425,10 @@ items:
       href: guide/management-governance/management-governance-start-here.md
     - name: Guides
       items:
-      - name: Governance best practices
-        href: /security/compass/governance
-        maintainContext: true
       - name: Update Windows VMs in Azure
         href: example-scenario/wsus/index.yml
-      - name: Backup
-        items:
-        - name: Backup architecture and components
-          href: /azure/backup/backup-architecture
-          maintainContext: true
-        - name: Azure Backup support matrix
-          href: /azure/backup/backup-support-matrix
-          maintainContext: true
-        - name: Backup cloud and on-premises
-          href: /azure/backup/guidance-best-practices
-          maintainContext: true
-      - name: Disaster recovery
-        items:
-        - name: Azure to Azure disaster recovery
-          href: /azure/site-recovery/azure-to-azure-architecture
-          maintainContext: true
-        - name: Support matrix for Azure VM DR
-          href: /azure/site-recovery/azure-to-azure-support-matrix
-          maintainContext: true
-        - name: ExpressRoute with Azure VM DR
-          href: /azure/site-recovery/azure-vm-disaster-recovery-with-expressroute
-          maintainContext: true
-        - name: Recover from a region-wide disruption
-          href: resiliency/recovery-loss-azure-region.md
-        - name: Move Azure VMs to another region
-          href: /azure/site-recovery/azure-to-azure-move-overview
-          maintainContext: true
-        - name: BCDR for Azure VMware Solution
-          href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery
-          maintainContext: true
-      - name: Management for Azure environments
-        href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/management
-        maintainContext: true
-      - name: Management for VMware Solution
-        href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring
-        maintainContext: true
     - name: Architectures
       items:
-      - name: Back up cloud applications
-        href: /azure/backup/guidance-best-practices
-        maintainContext: true
-      - name: Computer forensics
-        href: example-scenario/forensics/index.yml
       - name: Hybrid management
         items:
         - name: Azure Arc hybrid management with AKS
@@ -1485,26 +1439,8 @@ items:
           href: hybrid/azure-stack-vm-disaster-recovery.yml
         - name: Hybrid availability and monitoring
           href: hybrid/hybrid-perf-monitoring.yml
-        - name: Manage configurations for Azure Arc
-          href: hybrid/azure-arc-hybrid-config.yml
-      - name: Line-of-business app with ASEv3
-        href: example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml
     - name: Solution ideas
       items:
-      - name: Archive on-premises data to cloud
-        href: solution-ideas/articles/backup-archive-on-premises.yml
-      - name: Back up on-premises applications
-        href: solution-ideas/articles/backup-archive-on-premises-applications.yml
-      - name: Centralize app configuration and security
-        href: solution-ideas/articles/appconfig-key-vault.yml
-      - name: Enterprise-scale disaster recovery
-        href: solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml
-      - name: High availability for BCDR
-        href: solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml
-      - name: SMB disaster recovery with Site Recovery
-        href: solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml
-      - name: SMB disaster recovery with Double-Take DR
-        href: solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml
       - name: Video capture and analytics for retail
         href: solution-ideas/articles/video-analytics.yml
   - name: Migration
@@ -1578,10 +1514,10 @@ items:
         href: example-scenario/teams/securing-bot-teams-channel.yml
       - name: Secure research for regulated data
         href: ai-ml/architecture/secure-compute-for-research.yml
+      - name: Computer forensics
+        href: example-scenario/forensics/index.yml        
     - name: Solution ideas
       items:
-      - name: Centralize app configuration and security
-        href: solution-ideas/articles/appconfig-key-vault.yml
       - name: Multilayered protection for Azure VMs
         href: solution-ideas/articles/multilayered-protection-azure-vm.yml
       - name: Threat assessments

@@ -87,7 +87,7 @@ Different events will have a different scope of impact and, therefore, a differe
 
 ### Disaster strategy options
 
-There are four high-level options for a [disaster recovery strategy](/azure/architecture/resiliency/recovery-loss-azure-region#strategies):
+There are four high-level options for a disaster recovery strategy:
 
 - **Wait for Microsoft** - As the name suggests, the solution is offline until the complete recovery of services in the affected region by Microsoft. Once recovered, the solution is validated by the customer and then brought up-to-date for service recovery.
 - **Redeploy on Disaster** - The solution is redeployed manually into an available region from scratch, post-disaster event.
