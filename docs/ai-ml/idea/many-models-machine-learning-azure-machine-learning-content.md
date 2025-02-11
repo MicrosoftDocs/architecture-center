@@ -53,7 +53,7 @@ A companion article, [Many models machine learning at scale in Azure with Spark]
 
 - [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that allows the creation of data-driven workflows for orchestrating and automating data movement and transformation. In this architecture, Azure Data Factory is used to ingest enterprise data and third-party metadata into Azure Data Lake Storage.
 
-- [Azure Stream Analytics](/azure/stream-analytics/overview) is a real-time analytics and complex event-processing service designed to analyze and process high volumes of fast streaming data. In this architecture, Azure Stream Analytics could potentially be used for real-time data processing, although it is not explicitly shown in the workflow.
+- [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) is a real-time analytics and complex event-processing service designed to analyze and process high volumes of fast streaming data. In this architecture, Azure Stream Analytics could potentially be used for real-time data processing, although it is not explicitly shown in the workflow.
 
 - [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an enterprise-grade machine learning service for building and deploying models quickly. It provides users at all skill levels with tools such as a low-code designer, automated ML (AutoML), and a hosted Jupyter notebook environment that supports various IDEs. In this architecture, Azure Machine Learning is used to manage the lifecycle of machine learning models, including training, evaluation, deployment, and orchestrating pipelines like training, promotion, and scoring.
 

@@ -2536,6 +2536,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/azure-resource-manager/advanced-templates/index.md",
+      "redirect_url": "/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/azure-resource-manager/advanced-templates/conditional-deploy.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-use-conditions",
       "redirect_document_id": false
@@ -2853,6 +2858,11 @@
     {
       "source_path": "docs/solution-ideas/articles/scalable-web-apps.yml",
       "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/serverless-event-processing-aks.yml",
+      "redirect_url": "/azure/aks/keda-about",
       "redirect_document_id": false
     },
     {
@@ -6868,6 +6878,57 @@
       "source_path": "docs/guide/hadoop/apache-sqoop-migration.yml",
       "redirect_url": "/azure/hdinsight/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/resiliency/recovery-loss-azure-region.md",
+      "redirect_url": "/azure/reliability/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/azure-arc-hybrid-config.yml",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-security-governance-and-compliance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service-environment/architectures/ase-standard-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/backup-archive-on-premises.yml",
+      "redirect_url": "/azure/storsimple/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/backup-archive-on-premises-applications.yml",
+      "redirect_url": "/azure/backup/backup-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/appconfig-key-vault.yml",
+      "redirect_url": "/azure/azure-app-configuration/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml",
+      "redirect_url": "/azure/site-recovery/site-recovery-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml",
+      "redirect_url": "/azure/site-recovery/site-recovery-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml",
+      "redirect_url": "/azure/site-recovery/site-recovery-overview",
+      "redirect_document_id": false
     }
   ]
 }
+

@@ -99,4 +99,3 @@ Principal author:
 
 - [Microsoft security best practices for identity and access management](/security/compass/identity)
 - [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-baseline.yml)
-- [Back up on-premises applications and data to the cloud](../../solution-ideas/articles/backup-archive-on-premises-applications.yml)
