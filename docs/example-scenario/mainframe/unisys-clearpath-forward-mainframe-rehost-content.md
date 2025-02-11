@@ -56,7 +56,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Unisys CPF in Azure uses Site Recovery to ensure system availability and consistency.
+Unisys CPF in Azure uses Site Recovery to ensure system availability and consistency. 
 
 ### Security
 
