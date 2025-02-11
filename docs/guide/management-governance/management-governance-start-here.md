@@ -62,11 +62,11 @@ The following sections provide links to reference architectures in some key mana
 
 ### Disaster recovery
 
-- [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Support matrix for Azure VM disaster recovery between Azure regions](/azure/site-recovery/azure-to-azure-support-matrix?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Integrate Azure ExpressRoute with disaster recovery for Azure VMs](/azure/site-recovery/azure-vm-disaster-recovery-with-expressroute?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Move Azure VMs to another Azure region](/azure/site-recovery/azure-to-azure-move-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Business continuity and disaster recovery (BCDR) for Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture)
+- [Support matrix for Azure VM disaster recovery between Azure regions](/azure/site-recovery/azure-to-azure-support-matrix)
+- [Integrate Azure ExpressRoute with disaster recovery for Azure VMs](/azure/site-recovery/azure-vm-disaster-recovery-with-expressroute)
+- [Move Azure VMs to another Azure region](/azure/site-recovery/azure-to-azure-move-overview)
+- [Business continuity and disaster recovery (BCDR) for Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery)
 - [Use Azure Local stretched clusters for disaster recovery](../../hybrid/azure-local-dr.yml)
 
 ### High availability
