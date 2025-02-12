@@ -36,7 +36,7 @@ Specifically, you can use natural language processing to:
 - Tag documents with keywords by using identified entities.
 - Conduct content-based search and retrieval by using tags.
 - Summarize a document's key topics by using identified entities.
-- Categorize documents for navigation by using the detected topics.
+- Categorize documents for navigation by using detected topics.
 - Enumerate related documents based on a selected topic.
 - Assess text sentiment to understand its positive or negative tone.
 
@@ -48,8 +48,6 @@ Natural language processing is a comprehensive field that encompasses various te
 
 > [!NOTE]
 > This article focuses on natural language processing. The relationship between natural language processing and language models demonstrates that language models enhance natural language processing processes through superior language understanding and generation capabilities.
-
-*Apache®, [Apache Spark](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Potential use cases
 
@@ -69,25 +67,27 @@ Business scenarios that can benefit from custom natural language processing incl
 
 - Automated report generation. Synthesize and generate comprehensive textual reports from structured data inputs. These tasks help sectors such as finance and compliance where thorough documentation is necessary.
 
-- Voice-activated interfaces that integrate natural language processing for voice recognition and natural conversation capabilities. This integration enhances user interactions in Internet of Things and smart device applications.
+- Voice-activated interfaces that integrate natural language processing for voice recognition and natural conversation capabilities. This integration enhances user interactions in Internet of Things applications and smart device applications.
 
 - Adaptive language models that can dynamically adjust language output to suit various audience comprehension levels. This capability is crucial for educational content and accessibility improvements.
 
-- Cybersecurity text analysis to analyze communication patterns and language usage in real time. This analysis help you identify potential security threats in digital communication and improve the detection of phishing attempts or misinformation.
+- Cybersecurity text analysis to analyze communication patterns and language usage in real time. This analysis helps you identify potential security threats in digital communication and improve the detection of phishing attempts or misinformation.
 
 ## Apache Spark as a customized natural language processing framework
 
-Apache Spark is a powerful parallel processing framework that enhances the performance of big-data analytic applications by using in-memory processing. [Azure Synapse Analytics](/azure/synapse-analytics), [Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview), and [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) continue to provide robust access to Spark's processing capabilities. This access helps you run large-scale data operations seamlessly.
+Apache Spark is a powerful parallel processing framework that enhances the performance of big-data analytic applications by using in-memory processing. [Azure Synapse Analytics](/azure/synapse-analytics), [Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview), and [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) provide robust access to Spark's processing capabilities. This access helps you run large-scale data operations seamlessly.
 
-Spark NLP is an efficient framework that can process large volumes of text for customized natural language processing workloads. This open-source library provides extensive functionality by using Python, Java, and Scala libraries. These libraries deliver the sophistication that you can find in prominent natural language processing libraries like spaCy and Natural Language Toolkit. Spark NLP includes advanced features like spell check, sentiment analysis, and document classification. These features help you consistently ensure state-of-the-art accuracy and scalability.
+Spark NLP is an efficient framework that can process large volumes of text for customized natural language processing workloads. This open-source library provides extensive functionality by using Python, Java, and Scala libraries. These libraries deliver the sophistication that you can find in prominent natural language processing libraries like spaCy and Natural Language Toolkit. Spark NLP includes advanced features like spell check, sentiment analysis, and document classification. These features help you consistently ensure optimal accuracy and scalability.
 
 :::image type="content" border="false" source="../images/natural-language-processing-functionality.png" alt-text="Diagram that shows areas of natural language processing functionality, such as entity recognition. Various boxes list natural language processing annotators, models, and supported languages." lightbox="../images/natural-language-processing-functionality.png":::
+
+*Apache®, [Apache Spark](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 Recent public benchmarks highlight Spark NLP's performance. These benchmarks show significant speed improvements over other libraries. Spark NLP also maintains comparable accuracy for training custom models. Notably, the integration of the Llama 2 models and OpenAI Whisper enhances conversational interfaces and multilingual speech recognition. These capabilities mark significant strides in optimized processing capabilities.
 
 Spark NLP effectively utilizes a distributed Spark cluster that functions as a native extension of Spark ML and operates directly on data frames. This integration supports enhanced performance gains on clusters, which facilitates the creation of unified natural language processing and machine learning pipelines for tasks like document classification and risk prediction. MPNet embeddings and extensive ONNX support further enrich these capabilities and allow for precise and context-aware processing.
 
-Spark NLP delivers state-of-the-art accuracy across an expanding array of natural language processing tasks. The library comes with prebuilt deep learning models for named entity recognition, document classification, sentiment detection, and more. Its feature-rich design includes pretrained language models that support word, chunk, sentence, and document embeddings.
+Spark NLP delivers highly accurate results across an expanding array of natural language processing tasks. The library comes with prebuilt deep learning models for named entity recognition, document classification, and sentiment detection. Its feature-rich design includes pretrained language models that support word, chunk, sentence, and document embeddings.
 
 Spark NLP's infrastructure scales by using optimized builds for CPUs, GPUs, and the latest Intel Xeon chips, which enable training and inference processes to fully utilize Spark clusters. This capability helps ensure efficient handling of natural language processing tasks across diverse environments and applications.
 
@@ -101,15 +101,15 @@ Spark NLP's infrastructure scales by using optimized builds for CPUs, GPUs, and 
 
 ## Key selection criteria
 
-In Azure, Spark services like Azure Databricks, Microsoft Fabric, and HDInsight provide natural language processing functionality when you use them with Spark NLP. Azure AI services is another option for natural language processing functionality. To help you decide which service to use, consider the following questions:
+In Azure, Spark services like Azure Databricks, Microsoft Fabric, and HDInsight provide natural language processing functionality when you use them with Spark NLP. Azure AI services is another option for natural language processing functionality. To help you decide which service to use, consider the following aspects:
 
-- **Do you want to use prebuilt or pretrained models?** If yes, consider using the APIs that AI services provides. Or you can download your model of choice through Spark NLP, which now includes advanced models like Llama 2 and MPNet for enhanced capabilities.
+- If you want to use prebuilt or pretrained models, consider using the APIs that AI services provides. Or you can download your model of choice through Spark NLP, which includes advanced models like Llama 2 and MPNet for enhanced capabilities.
 
-- **Do you need to train custom models against a large collection of text data?** If yes, consider using Azure Databricks, Microsoft Fabric, or HDInsight with Spark NLP. These platforms provide the computational power and flexibility that you need for extensive model training.
+- If you need to train custom models against a large collection of text data, consider using Azure Databricks, Fabric, or HDInsight with Spark NLP. These platforms provide the computational power and flexibility that you need for extensive model training.
 
-- **Do you need low-level natural language processing capabilities like tokenization, stemming, lemmatization, and term frequency/inverse document frequency (TF/IDF)?** If yes, consider using Azure Databricks, Microsoft Fabric, or HDInsight with Spark NLP. Alternatively, use an open-source software library in your processing tool of choice.
+- If you need low-level natural language processing capabilities like tokenization, stemming, lemmatization, and term frequency/inverse document frequency (TF/IDF), consider using Azure Databricks, Fabric, or HDInsight with Spark NLP. Alternatively, use an open-source software library in your processing tool of choice.
 
-- **Do you need simple, high-level natural language processing capabilities like entity and intent identification, topic detection, spell check, or sentiment analysis?** If yes, consider using the APIs that AI services provides. Or download your model of choice through Spark NLP to use prebuilt functions for these tasks.
+- If you need simple, high-level natural language processing capabilities like entity and intent identification, topic detection, spell check, or sentiment analysis, consider using the APIs that AI services provides. Or download your model of choice through Spark NLP to use prebuilt functions for these tasks.
 
 ## Capability matrix
 
@@ -117,7 +117,7 @@ The following tables summarize the key differences in the capabilities of natura
 
 ### General capabilities
 
-| Capability | Spark service (Azure Databricks, Microsoft Fabric, HDInsight) with Spark NLP | AI services |
+| Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | AI services |
 | --- | --- | --- |
 | Provides pretrained models as a service | Yes | Yes |
 | REST API | Yes | Yes |
@@ -126,7 +126,7 @@ The following tables summarize the key differences in the capabilities of natura
 
 ### Annotator capabilities
 
-| Capability | Spark service (Azure Databricks, Microsoft Fabric, HDInsight) with Spark NLP | AI services |
+| Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | AI services |
 | --- | --- | --- |
 | Sentence detector | Yes | No |
 | Deep sentence detector | Yes | Yes |
@@ -143,16 +143,16 @@ The following tables summarize the key differences in the capabilities of natura
 | Normalizer | Yes | Yes |
 | Text matcher | Yes | No |
 | TF/IDF | Yes | No |
-| Regular expression matcher | Yes | Embedded in Conversational Language Understanding (CLU) |
+| Regular expression matcher | Yes | Embedded in the conversational language understanding (CLU) feature |
 | Date matcher | Yes | Possible in CLU through DateTime recognizers |
 | Chunker | Yes | No |
 
 > [!NOTE]
-> Microsoft Language Understanding (LUIS) will be retired on October 1, 2025. Existing LUIS applications are encouraged to migrate to Conversational Language Understanding (CLU), a capability of AI services for language, which enhances language understanding capabilities and provides new features.
+> Language Understanding (LUIS) will be retired on October 1, 2025. You should migrate existing LUIS applications to the conversational language understanding (CLU) feature of Azure AI Language, which enhances language understanding capabilities and provides new features.
 
 ### High-level natural language processing capabilities
 
-| Capability | Spark service (Azure Databricks, Microsoft Fabric, HDInsight) with Spark NLP | AI services |
+| Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | AI services |
 | --- | --- | --- |
 | Spell check | Yes | No |
 | Summarization | Yes | Yes |
@@ -162,14 +162,14 @@ The following tables summarize the key differences in the capabilities of natura
 | Token classification | Yes | Yes, through custom models |
 | Text classification | Yes | Yes, through custom models |
 | Text representation | Yes | No |
-| NER | Yes | Yes - text analytics provide a set of NER, and custom models are in entity recognition |
+| NER | Yes | Yes, text analytics provide a set of NER |
 | Entity recognition | Yes | Yes, through custom models |
 | Language detection | Yes | Yes |
 | Supports languages besides English | Yes, supports over 200 languages | Yes, supports over 97 languages |
 
 ## Set up Spark NLP in Azure
 
-To install Spark NLP, use the following code, but replace `<version>` with the latest version number. For more information, see the [Spark NLP documentation](https://sparknlp.org/docs/en/quickstart).
+To install Spark NLP, use the following code, but replace `<version>` with the latest version number. For more information, see [Spark NLP documentation](https://sparknlp.org/docs/en/quickstart).
 
 ```bash
 # Install Spark NLP from PyPI.
@@ -199,25 +199,25 @@ Spark NLP follows the same development concept as traditional Spark ML machine l
 
 A Spark NLP pipeline includes the following core components:
 
-- **DocumentAssembler**: A transformer that prepares data by converting it into a format that Spark NLP can process. This stage is the entry point for every Spark NLP pipeline. DocumentAssembler reads either a `String` column or an `Array[String]` and can preprocess the text by using `setCleanupMode`, which is off by default.
+- **DocumentAssembler** is a transformer that prepares data by converting it into a format that Spark NLP can process. This stage is the entry point for every Spark NLP pipeline. DocumentAssembler reads either a `String` column or an `Array[String]` and can preprocess the text by using `setCleanupMode`, which is off by default.
 
-- **SentenceDetector**: An annotator that identifies sentence boundaries by using predefined approaches. It can return each detected sentence in an `Array` or in separate rows when `explodeSentences` is set to true.
+- **SentenceDetector** is an annotator that identifies sentence boundaries by using predefined approaches. It can return each detected sentence in an `Array` or in separate rows when `explodeSentences` is set to true.
 
-- **Tokenizer**: An annotator that divides raw text into discrete tokens, like words, numbers, and symbols, and outputs them as a `TokenizedSentence`. The Tokenizer is nonfitted and uses input configuration within the `RuleFactory` to create tokenizing rules. You can add custom rules if the default ones are insufficient.
+- **Tokenizer** is an annotator that divides raw text into discrete tokens, like words, numbers, and symbols, and outputs them as a `TokenizedSentence`. Tokenizer is nonfitted and uses input configuration within the `RuleFactory` to create tokenizing rules. You can add custom rules if the default ones are insufficient.
 
-- **Normalizer**: An annotator tasked with refining tokens. Normalizer applies regular expressions and dictionary transformations to clean text and remove extraneous characters.
+- **Normalizer** is an annotator tasked with refining tokens. Normalizer applies regular expressions and dictionary transformations to clean text and remove extraneous characters.
 
-- **WordEmbeddings**: Lookup annotators that map tokens to vectors and facilitate semantic processing. You can specify a custom embedding dictionary by using `setStoragePath`, where each line contains a token and its vector, separated by spaces. Unresolved tokens default to zero vectors.
+- **WordEmbeddings** are lookup annotators that map tokens to vectors and facilitate semantic processing. You can specify a custom embedding dictionary by using `setStoragePath`, where each line contains a token and its vector, separated by spaces. Unresolved tokens default to zero vectors.
 
-Spark NLP uses Spark MLlib pipelines that have native support from [MLflow](https://mlflow.org), an open-source platform that manages the machine learning lifecycle. MLflow's key components include:
+Spark NLP uses Spark MLlib pipelines that have native support from [MLflow](https://mlflow.org), an open-source platform that manages the machine learning lifecycle. MLflow has the following key components:
 
-- **MLflow Tracking**: Records experimental runs and provides robust querying capabilities to analyze outcomes.
+- **MLflow Tracking** records experimental runs and provides robust querying capabilities to analyze outcomes.
 
-- **MLflow Projects**: Lets you run data science code on diverse platforms. This capability enhances portability and reproducibility.
+- **MLflow Projects** lets you run data science code on diverse platforms. This capability enhances portability and reproducibility.
 
-- **MLflow Models**: Supports versatile model deployment across different environments through a consistent framework.
+- **MLflow Models** supports versatile model deployment across different environments through a consistent framework.
 
-- **Model Registry**: Provides comprehensive model management by storing versions centrally for streamlined access and deployment. This step facilitates production-readiness.
+- **Model Registry** provides comprehensive model management by storing versions centrally for streamlined access and deployment. This step facilitates production-readiness.
 
 MLflow is integrated with platforms like Azure Databricks, but you can also install it in other Spark-based environments to manage and track your experiments. This integration allows you to use the MLflow Model Registry to make models available for production purposes. You can streamline the deployment process and maintain model governance.
 
@@ -248,19 +248,19 @@ Principal authors:
 
 - Azure components:
 
-  - [Microsoft Fabric](/fabric/)
+  - [Fabric](/fabric/)
   - [HDInsight](/azure/hdinsight/spark/apache-spark-overview)
   - [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
   - [AI services](/azure/ai-services/what-are-ai-services)
 
 - Learn resources:
 
-  - [Microsoft Azure AI Fundamentals: Explore natural language processing](/training/paths/explore-natural-language-processing)
-  - [Create a Language Understanding solution](/training/paths/create-language-understanding-solution)
+  - [Microsoft Azure AI fundamentals: Explore natural language processing](/training/paths/explore-natural-language-processing)
+  - [Develop natural language processing solutions with AI Services](/training/paths/develop-language-solutions-azure-ai)
 
 ## Related resources
 
 - [Choose an AI services technology](./ai-services.md)
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
-- [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow)
 - [AI enrichment with image and natural language processing in Azure AI Search](../../solution-ideas/articles/cognitive-search-with-skillsets.yml)
