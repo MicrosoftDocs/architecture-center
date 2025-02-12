@@ -39,7 +39,7 @@ The Circuit Breaker pattern provides stability while the system recovers from a 
 The pattern is customizable and can be adapted according to the type of the possible failure. For example, you can apply an increasing timeout timer to a circuit breaker. You could place the circuit breaker in the **Open** state for a few seconds initially, and then if the failure hasn't been resolved, increase the timeout to a few minutes, and so on. In some cases, rather than the **Open** state returning failure and raising an exception, it could be useful to return a default value that is meaningful to the application.
 
 > [!NOTE]
-> Traditionally, circuit breakers rely on pre-configured thresholds such as failure count and timeout duration, resulting in a deterministic but sometimes suboptimal behavior. However, adaptive techniques using AI and ML can dynamically adjust thresholds based on real-time traffic patterns, anomalies, and historical failure rates, making the circuit breaker more resilient and efficient.
+> Traditionally, circuit breakers relied on pre-configured thresholds such as failure count and timeout duration, resulting in a deterministic but sometimes suboptimal behavior. However, adaptive techniques using AI and ML can dynamically adjust thresholds based on real-time traffic patterns, anomalies, and historical failure rates, making the circuit breaker more resilient and efficient.
 
 ## Issues and considerations
 
@@ -65,7 +65,7 @@ You should consider the following points when deciding how to implement this pat
 
 **Multi-region deployments**: A circuit breaker could be designed for single or multi-region deployments. The latter can be implemented using global load balancers or custom region-aware circuit breaking strategies that ensure controlled failover, latency optimization, and regulatory compliance.
 
-**Service mesh circuit breakers**: Circuit breakers can be implemented at the application layer or as a cross-cutting, abstracted feature. For example, service meshes often support circuit breaking as a side car or as a standalone capability without modifying application code.
+**Service mesh circuit breakers**: Circuit breakers can be implemented at the application layer or as a cross-cutting, abstracted feature. For example, service meshes often support circuit breaking as a [sidecar](./sidecar.md) or as a standalone capability without modifying application code.
 
 > [!NOTE]
 > A service can return HTTP 429 (Too Many Requests) if it is throttling the client, or HTTP 503 (Service Unavailable) if the service is not currently available. The response can include additional information, such as the anticipated duration of the delay.
