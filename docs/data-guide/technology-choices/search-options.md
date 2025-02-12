@@ -97,4 +97,4 @@ Principal author:
 
 - [Process free-form text for search](../scenarios/search.yml)
 - [Choose a search data store in Azure](../technology-choices/search-options.md)
-- [Natural language processing technology](../technology-choices/natural-language-processing.yml)
+- [Natural language processing technology](../technology-choices/natural-language-processing.md)

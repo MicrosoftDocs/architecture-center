@@ -658,6 +658,6 @@ Other contributors:
 ## Related resources
 
 - [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/ai-services.md)
-- [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
+- [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.md)
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [What is the Team Data Science Process?](../../data-science-process/overview.yml)

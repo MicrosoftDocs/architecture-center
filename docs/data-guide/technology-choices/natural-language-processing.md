@@ -13,7 +13,7 @@ products:
   - azure-databricks
   - azure-hdinsight
   - azure-synapse-analytics
-azureCategories:
+azure.category:
   - ai-machine-learning
   - analytics
   - compute
