@@ -747,7 +747,7 @@ items:
   - name: Static Content Hosting
     href: patterns/static-content-hosting.yml
   - name: Strangler Fig
-    href: patterns/strangler-fig.yml
+    href: patterns/strangler-fig.md
   - name: Throttling
     href: patterns/throttling.yml
   - name: Valet Key
