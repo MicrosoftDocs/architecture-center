@@ -134,25 +134,10 @@ items:
         href: operator-guides/aks/choose-bare-metal-kubernetes.yml
     - name: Choose a hybrid service
       items:
-      - name: Hybrid options
+      - name: Azure hybrid options
         href: guide/technology-choices/hybrid-considerations.yml
       - name: Compare Azure Stack Hub and Azure
         href: /azure-stack/user/azure-stack-considerations
-        maintainContext: true
-      - name: Compare Azure, Stack Hub, and Stack HCI
-        href: /azure-stack/operator/compare-azure-azure-stack
-        maintainContext: true
-      - name: Compare Azure Local and Stack Hub
-        href: /azure-stack/hci/concepts/compare-azure-stack-hub
-        maintainContext: true
-      - name: Compare Stack HCI and Windows Server
-        href: /azure-stack/hci/concepts/compare-windows-server
-        maintainContext: true
-      - name: Choose drives for Azure Local
-        href: /azure-stack/hci/concepts/choose-drives
-        maintainContext: true
-      - name: FSLogix in Azure Virtual Desktop
-        href: /azure/virtual-desktop/store-fslogix-profile
         maintainContext: true
     - name: Choose a security option
       items:
@@ -819,7 +804,7 @@ items:
         href: example-scenario/data/data-warehouse.yml
       - name: Employee retention with Databricks and AKS
         href: example-scenario/ai/employee-retention-databricks-kubernetes.yml
-      - name: Enterprise business intelligence
+      - name: Use Azure Synapse Analytics to design an enterprise BI solution
         href: example-scenario/analytics/enterprise-bi-synapse.yml
       - name: Near real-time lakehouse processing
         href: example-scenario/data/real-time-lakehouse-data-processing.yml
@@ -1163,8 +1148,6 @@ items:
         href: example-scenario/devops/automated-api-deployments-apiops.yml
       - name: CI/CD pipeline using Azure DevOps
         href: example-scenario/apps/devops-dotnet-baseline.yml
-      - name: Enterprise monitoring with Azure Monitor
-        href: example-scenario/monitoring/enterprise-monitoring.yml
     - name: "Solution idea: DevSecOps for infrastructure as code"
       href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
   - name: Hybrid + Multicloud
@@ -1173,85 +1156,8 @@ items:
       href: hybrid/hybrid-start-here.md
     - name: Guides
       items:
-      - name: Hybrid app design considerations
-        href: /hybrid/app-solutions/overview-app-design-considerations
-        maintainContext: true
-      - name: Technology choices
-        items:
-        - name: Azure hybrid options
-          href: guide/technology-choices/hybrid-considerations.yml
-        - name: Compare Azure Stack Hub and Azure
-          href: /azure-stack/user/azure-stack-considerations
-          maintainContext: true
-        - name: Compare Azure, Stack Hub, Stack HCI
-          href: /azure-stack/operator/compare-azure-azure-stack
-          maintainContext: true
-        - name: Compare Azure Local and Stack Hub
-          href: /azure-stack/hci/concepts/compare-azure-stack-hub
-          maintainContext: true
-        - name: Compare Stack HCI to Windows Server
-          href: /azure-stack/hci/concepts/compare-windows-server
-          maintainContext: true
-        - name: Choose drives for Azure Local
-          href: /azure-stack/hci/concepts/choose-drives
-          maintainContext: true
-      - name: Azure Arc guidance
-        items:
-        - name: App Service on Azure Arc
-          href: /azure/app-service/overview-arc-integration
-          maintainContext: true
-        - name: Security baseline for Arc-enabled servers
-          href: /security/benchmark/azure/baselines/azure-arc-enabled-servers-security-baseline
-          maintainContext: true
-      - name: Azure VMware Solution guidance
-        items:
-        - name: API Management for AVS
-          href: /azure/azure-vmware/concepts-api-management
-          maintainContext: true
-        - name: BCDR for AVS
-          href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery
-          maintainContext: true
-        - name: Govern AVS
-          href: /azure/cloud-adoption-framework/scenarios/azure-vmware/govern
-          maintainContext: true
-        - name: Internet connectivity design
-          href: /azure/azure-vmware/concepts-design-public-internet-access
-          maintainContext: true
-        - name: Manage and monitor AVS
-          href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring
-          maintainContext: true
-        - name: Migrate with AVS
-          href: /azure/cloud-adoption-framework/scenarios/azure-vmware/migrate
-          maintainContext: true
-        - name: Migration assessment
-          href: /azure/migrate/concepts-azure-vmware-solution-assessment-calculation
-          maintainContext: true
-        - name: Networking for AVS
-          items:
-          - name: Network design
-            href: /azure/azure-vmware/concepts-network-design-considerations
-            maintainContext: true
-          - name: Network interconnectivity
-            href: /azure/azure-vmware/concepts-networking
-            maintainContext: true
-          - name: Network planning
-            href: /azure/azure-vmware/tutorial-network-checklist
-            maintainContext: true
-          - name: Network topology and connectivity
-            href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity
-            maintainContext: true
-        - name: Platform automation for AVS
-          href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
-          maintainContext: true
-        - name: Security and governance for AVS
-          href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-security-governance-and-compliance
-          maintainContext: true
-        - name: Storage for AVS
-          href: /azure/azure-vmware/concepts-storage
-          maintainContext: true
       - name: Connect an on-premises network to Azure
         href: reference-architectures/hybrid-networking/index.yml
-
       - name: Troubleshoot a hybrid VPN connection
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.yml
     - name: Architectures
@@ -1298,9 +1204,6 @@ items:
               href: example-scenario/hybrid/aks-hybrid-azure-local.yml
           - name: Azure Virtual Desktop for Azure Local
             href: hybrid/azure-local-workload-virtual-desktop.yml
-      - name: Azure VMware Solution in hub-and-spoke
-        href: /azure/azure-vmware/concepts-hub-and-spoke
-        maintainContext: true
       - name: Connect on-premises with ExpressRoute
         href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
       - name: Design a hybrid Domain Name System
