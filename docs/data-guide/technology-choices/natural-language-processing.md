@@ -13,7 +13,7 @@ products:
   - azure-databricks
   - azure-hdinsight
   - azure-synapse-analytics
-azure.category:
+categories:
   - ai-machine-learning
   - analytics
   - compute
@@ -169,7 +169,7 @@ The following tables summarize the key differences in the capabilities of natura
 
 ## Set up Spark NLP in Azure
 
-To install Spark NLP, use the following code, but replace `<version>` with the latest version number. For more information, see the [Spark NLP documentation](https://natural language processing.johnsnowlabs.com/docs/en/quickstart).
+To install Spark NLP, use the following code, but replace `<version>` with the latest version number. For more information, see the [Spark NLP documentation](https://sparknlp.org/docs/en/quickstart).
 
 ```bash
 # Install Spark NLP from PyPI.
@@ -238,13 +238,13 @@ Principal authors:
 
 - Spark NLP documentation:
 
-  - [Spark NLP](https://natural language processing.johnsnowlabs.com)
-  - [Spark NLP general documentation](https://natural language processing.johnsnowlabs.com/docs/en/quickstart)
-  - [Spark NLP GitHub](https://github.com/JohnSnowLabs/spark-natural language processing)
-  - [Spark NLP demo](https://github.com/JohnSnowLabs/spark-natural language processing-workshop)
-  - [Spark NLP pipelines](https://natural language processing.johnsnowlabs.com/docs/en/pipelines)
-  - [Spark NLP annotators](https://natural language processing.johnsnowlabs.com/docs/en/annotators#available-annotators)
-  - [Spark NLP transformers](https://natural language processing.johnsnowlabs.com/docs/en/annotators#available-transformers)
+  - [Spark NLP](https://nlp.johnsnowlabs.com/)
+  - [Spark NLP general documentation](https://sparknlp.org/docs/en/quickstart)
+  - [Spark NLP GitHub](https://github.com/JohnSnowLabs/spark-nlp)
+  - [Spark NLP demo](https://github.com/JohnSnowLabs/spark-nlp-workshop)
+  - [Spark NLP pipelines](https://sparknlp.org/docs/en/pipelines)
+  - [Spark NLP annotators](https://sparknlp.org/docs/en/annotators#available-annotators)
+  - [Spark NLP transformers](https://sparknlp.org/docs/en/annotators#available-transformers)
 
 - Azure components:
 
