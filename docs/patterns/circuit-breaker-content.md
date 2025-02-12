@@ -91,7 +91,7 @@ This pattern isn't recommended:
 - As a substitute for handling exceptions in the business logic of your applications.
 - When well-known retry algorithms are sufficient and your dependencies are designed to deal with retry mechanisms. Implementing a circuit breaker in your application in this case, could add unnecessary complexity to your system.
 - When waiting for a circuit breaker to reset might introduce unacceptable delays.
-- If you have a message-driven or event-driven architecture, as they often route failed messages to a Dead Letter Queue (DLQ) for manual or deferred processing. The built-in failure isolation and retry mechanisms typically implemented in these deisgns are often sufficient.
+- If you have a message-driven or event-driven architecture, as they often route failed messages to a Dead Letter Queue (DLQ) for manual or deferred processing. The built-in failure isolation and retry mechanisms typically implemented in these designs are often sufficient.
 - If failure recovery is managed at the infrastructure or platform level, such as with health checks in global load balancers or service meshes, circuit breakers might not be necessary.
 
 ## Workload design
