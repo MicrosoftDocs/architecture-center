@@ -106,7 +106,7 @@ Each AVOps data domain is set up based on a blueprint structure. That structure 
 Each data domain is decentralized and individually manages its corresponding AVOps data products. For central data discovery and to know where data products are located, two components are required:
 
 - A metadata store that persists metadata about processed measurement files and data streams, such as video sequences. This component makes the data discoverable and traceable with annotations that need to be indexed, such as for searching the metadata of unlabeled files. For example, you might want the metadata store to return all frames for specific vehicle identification numbers (VINs) or frames with pedestrians or other enrichment-based objects.
-- A data catalog that shows lineage, the dependencies between AVOps data domains, and which data stores are involved in the AVOps data loop. An example of a data catalog is [Microsoft Purview](/purview/purview).
+- A data catalog that shows lineage, the dependencies between AVOps data domains, and which data stores are involved in the AVOps data loop. An example is [Microsoft Purview Unified Catalog](/purview/unified-catalog).
 
 You can use Azure Data Explorer or Azure Cognitive Search to extend a metadata store that's based on Azure Cosmos DB. Your selection depends on the final scenario that you need for data discovery. Use Azure Cognitive Search for semantic search capabilities.
 

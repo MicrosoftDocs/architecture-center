@@ -158,7 +158,7 @@ Some generative AI solutions involve deploying custom-trained models or fine-tun
 
 #### Training and fine-tuning
 
-You should use your existing MLOps investments, with some possible adjustments, to deploy generative AI models and fine-tune foundational models. For example, to fine-tune a large language model in Azure OpenAI, you need to ensure that your training and validation datasets are in JSONL format, and you need to upload the data via a REST API. You also need to create a fine-tuning job. To deploy a trained small language model, you can take advantage of your existing MLOps investments.
+You should use your existing MLOps investments, with some possible adjustments, to deploy generative AI models and fine-tune foundation models. For example, to fine-tune a large language model in Azure OpenAI, you need to ensure that your training and validation datasets are in JSONL format, and you need to upload the data via a REST API. You also need to create a fine-tuning job. To deploy a trained small language model, you can take advantage of your existing MLOps investments.
 
 #### RAG and prompt engineering
 
@@ -198,7 +198,7 @@ Solutions that use generative models to reason over grounding data use [metrics 
 
 Solutions that use generative models for nonpredictive tasks, like RAG solutions, often benefit from human feedback from end users to evaluate usefulness sentiments. User interfaces can capture feedback like thumbs up or down, and you can use this data to periodically evaluate the responses.
 
-A common pattern for generative AI solutions is to [deploy a gateway in front of the generative models](/azure/architecture/ai-ml/guide/azure-openai-gateway-guide). One of the [use cases for the gateway is for monitoring the foundational models](/azure/architecture/ai-ml/openai/architecture/log-monitor-azure-openai). You can use the gateway to log input prompts and output.
+A common pattern for generative AI solutions is to [deploy a gateway in front of the generative models](/azure/architecture/ai-ml/guide/azure-openai-gateway-guide). One of the [use cases for the gateway is for monitoring the foundation models](/azure/architecture/ai-ml/openai/architecture/log-monitor-azure-openai). You can use the gateway to log input prompts and output.
 
 Another key area to monitor for generative solutions is content safety. The goal is to moderate responses and detect harmful or undesirable content. [Azure AI Content Safety Studio](/azure/ai-services/content-safety/overview#content-safety-studio) is an example of a tool that you can use to moderate content.
 

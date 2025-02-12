@@ -185,7 +185,6 @@ To learn about related solutions, see the following information:
 - [Analytics architecture design][Analytics architecture design]
 - [Choose an analytical data store in Azure][Choose an analytical data store in Azure]
 - [Choose a data analytics technology in Azure][Choose a data analytics technology in Azure]
-- [Azure Kubernetes in event stream processing][Azure Kubernetes in event stream processing]
 - [Data streaming with AKS][Data streaming with AKS]
 
 [About Azure Cache for Redis]: /azure/azure-cache-for-redis/cache-overview
@@ -204,7 +203,6 @@ To learn about related solutions, see the following information:
 [Azure Database for PostgreSQL pricing]: https://azure.microsoft.com/pricing/details/postgresql/server
 [Azure Database for PostgreSQL single server deprecation]: https://azure.microsoft.com/en-us/updates/azure-database-for-postgresql-single-server-will-be-retired-migrate-to-flexible-server-by-28-march-2025/
 [Azure Event Hubs — A big data streaming platform and event ingestion service]: /azure/well-architected/service-guides/azure-databricks-security
-[Azure Kubernetes in event stream processing]: ../../solution-ideas/articles/serverless-event-processing-aks.yml
 [Azure Kubernetes Service]: /azure/aks/intro-kubernetes
 [Azure Kubernetes Service (AKS) service guide]: /azure/well-architected/service-guides/azure-kubernetes-service
 [Azure Kubernetes Service (AKS) pricing]: https://azure.microsoft.com/pricing/details/kubernetes-service
@@ -212,7 +210,8 @@ To learn about related solutions, see the following information:
 [Azure regions with Availability Zones]: /azure/reliability/availability-zones-region-support
 [Azure Services that support Availability Zones]: /azure/reliability/availability-zones-service-support
 [Best practices for building an application with Azure Database for PostgreSQL]: /azure/postgresql/application-best-practices
-[Cache-Aside pattern]: ../../patterns/cache-aside.yml The [Cassandra Query Language (CQL)]: https://cassandra.apache.org/doc/latest/cassandra/cql/index.html
+[Cache-Aside pattern]: ../../patterns/cache-aside.yml
+[Cassandra Query Language (CQL)]: https://cassandra.apache.org/doc/latest/cassandra/cql/index.html
 [Cassandra Query Language]: https://cassandra.apache.org/doc/latest/cassandra/cql/index.html
 [Change feed in Azure Cosmos DB]: /azure/cosmos-db/change-feed
 [Change feed in Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-change-feed?tabs=java
@@ -222,7 +221,8 @@ To learn about related solutions, see the following information:
 [Create Azure Cosmos containers and databases with autoscale throughput]: /azure/cosmos-db/provision-throughput-autoscale
 [Data streaming with AKS]: ../../solution-ideas/articles/data-streaming-scenario.yml
 [Event Hubs pricing]: https://azure.microsoft.com/pricing/details/event-hubs
-[Frequently asked questions about Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-faq The [Gremlin Graph Traversal Machine and Language]: https://tinkerpop.apache.org/gremlin.html
+[Frequently asked questions about Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-faq
+[Gremlin Graph Traversal Machine and Language]: https://tinkerpop.apache.org/gremlin.html
 [Gremlin Graph Traversal Machine and Language]: https://tinkerpop.apache.org/gremlin.html
 [Introduction to Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-introduction
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction
