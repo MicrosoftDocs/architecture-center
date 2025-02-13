@@ -485,7 +485,7 @@ var client = serviceProxyFactory.CreateServiceProxy<ISomeService>(
 
 ### Retry mechanism
 
-[Azure SQL Database](/azure/azure-sql/database/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql-db&preserve-view=true) and [SQL database in Fabric](/fabric/database/sql/overview) are operational cloud databases based on the SQL Database Engine. Azure SQL Database and SQL database in Fabric have no built-in support for retries when accessed using ADO.NET. However, the return codes from requests can be used to determine why a request failed. 
+[Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview?view=azuresql-db&preserve-view=true) and [SQL database in Fabric](/fabric/database/sql/overview) are operational cloud databases based on the SQL Database Engine. Azure SQL Database and SQL database in Fabric have no built-in support for retries when accessed using ADO.NET. However, the return codes from requests can be used to determine why a request failed. 
 
 For a list of relevant error codes, see [SQL error codes for SQL Database client applications](/azure/sql-database/sql-database-develop-error-messages).
 
@@ -565,7 +565,7 @@ using (var reader = await sqlCommand.ExecuteReaderWithRetryAsync())
 
 ## SQL Database using Entity Framework 6
 
-[Azure SQL Database](/azure/azure-sql/database/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql-db&preserve-view=true) and [SQL database in Fabric](/fabric/database/sql/overview) are operational cloud databases based on the SQL Database Engine. Entity Framework is an object-relational mapper that enables .NET developers to work with relational data using domain-specific objects. It eliminates the need for most of the data-access code that developers usually need to write.
+[Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview?view=azuresql-db&preserve-view=true) and [SQL database in Fabric](/fabric/database/sql/overview) are operational cloud databases based on the SQL Database Engine. Entity Framework is an object-relational mapper that enables .NET developers to work with relational data using domain-specific objects. It eliminates the need for most of the data-access code that developers usually need to write.
 
 ### Retry mechanism
 
