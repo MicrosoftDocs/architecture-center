@@ -4,7 +4,7 @@ titleSuffix: Best practices for cloud applications
 description: Learn about the retry mechanism features for many Azure services. Retry mechanisms differ because services have different characteristics and requirements.
 ms.author: robbag
 author: RobBagby
-ms.date: 09/16/2020
+ms.date: 02/13/2025
 ms.topic: best-practice
 ms.service: azure-architecture-center
 ms.subservice: best-practice
@@ -37,9 +37,9 @@ The following table summarizes the retry features for the Azure services describ
 | **[Search](#azure-search)** |Native in client |Programmatic |Client |Event Tracing for Windows (ETW) or Custom |
 | **[Service Bus](#service-bus)** |Native in client |Programmatic |Namespace Manager, Messaging Factory, and Client |ETW |
 | **[Service Fabric](#service-fabric)** |Native in client |Programmatic |Client |None |
-| **[SQL Database with ADO.NET](#sql-database-using-adonet)** |[Polly](#transient-fault-handling-with-polly) |Declarative and programmatic |Single statements or blocks of code |Custom |
-| **[SQL Database with Entity Framework](#sql-database-using-entity-framework-6)** |Native in client |Programmatic |Global per AppDomain |None |
-| **[SQL Database with Entity Framework Core](#sql-database-using-entity-framework-core)** |Native in client |Programmatic |Global per AppDomain |None |
+| **[Azure SQL Database or SQL database in Fabric with ADO.NET](#sql-database-using-adonet)** |[Polly](#transient-fault-handling-with-polly) |Declarative and programmatic |Single statements or blocks of code |Custom |
+| **[Azure SQL Database or SQL database in Fabric with Entity Framework](#sql-database-using-entity-framework-6)** |Native in client |Programmatic |Global per AppDomain |None |
+| **[Azure SQL Database or SQL database in Fabric with Entity Framework Core](#sql-database-using-entity-framework-core)** |Native in client |Programmatic |Global per AppDomain |None |
 | **[Storage](#azure-storage)** |Native in client |Programmatic |Client and individual operations |TraceSource |
 
 > [!NOTE]
@@ -483,21 +483,23 @@ var client = serviceProxyFactory.CreateServiceProxy<ISomeService>(
 
 ## SQL Database using ADO.NET
 
-SQL Database is a hosted SQL Database available in a range of sizes and as both a standard (shared) and premium (non-shared) service.
-
 ### Retry mechanism
 
-SQL Database has no built-in support for retries when accessed using ADO.NET. However, the return codes from requests can be used to determine why a request failed. For more information about SQL Database throttling, see [Azure SQL Database resource limits](/azure/sql-database/sql-database-resource-limits). For a list of relevant error codes, see [SQL error codes for SQL Database client applications](/azure/sql-database/sql-database-develop-error-messages).
+[Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview?view=azuresql-db&preserve-view=true) and [SQL database in Fabric](/fabric/database/sql/overview) are operational cloud databases based on the SQL Database Engine. Azure SQL Database and SQL database in Fabric have no built-in support for retries when accessed using ADO.NET. However, the return codes from requests can be used to determine why a request failed. 
 
-You can use the Polly library to implement retries for SQL Database. For more information, see [Transient fault handling with Polly](#transient-fault-handling-with-polly).
+For a list of relevant error codes, see [SQL error codes for SQL Database client applications](/azure/sql-database/sql-database-develop-error-messages).
+
+For more information about Azure SQL Database throttling, see [Azure SQL Database resource limits](/azure/sql-database/sql-database-resource-limits).  For more information about performance monitoring in SQL database in Microsoft Fabric, see [Performance Dashboard for SQL database](/fabric/database/sql/performance-dashboard).
+
+You can use the Polly library to implement retries for Azure SQL Database or SQL database in Fabric. For more information, see [Transient fault handling with Polly](#transient-fault-handling-with-polly).
 
 ### Retry usage guidance
 
-Consider the following guidelines when accessing SQL Database using ADO.NET:
+Consider the following guidelines when accessing Azure SQL Database or SQL database in Fabric using ADO.NET:
 
 - Choose the appropriate service option (shared or premium). A shared instance may suffer longer than usual connection delays and throttling due to the usage by other tenants of the shared server. If more predictable performance and reliable low latency operations are required, consider choosing the premium option.
 - Ensure that you perform retries at the appropriate level or scope to avoid non-idempotent operations causing inconsistency in the data. Ideally, all operations should be idempotent so that they can be repeated without causing inconsistency. Where this isn't the case, the retry should be performed at a level or scope that allows all related changes to be undone if one operation fails; for example, from within a transactional scope. For more information, see [Cloud Service Fundamentals Data Access Layer – Transient Fault Handling](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx#Idempotent_Guarantee).
-- A fixed interval strategy isn't recommended for use with Azure SQL Database except for interactive scenarios where there are only a few retries at short intervals. Instead, consider using an exponential back-off strategy for most scenarios.
+- A fixed interval strategy isn't recommended for use with Azure SQL Database or SQL database in Fabric except for interactive scenarios where there are only a few retries at short intervals. Instead, consider using an exponential back-off strategy for most scenarios.
 - Choose a suitable value for the connection and command timeouts when defining connections. Too short a timeout may result in premature failures of connections when the database is busy. Too long a timeout may prevent the retry logic working correctly by waiting too long before detecting a failed connection. The value of the timeout is a component of the end-to-end latency; it's effectively added to the retry delay specified in the retry policy for every retry attempt.
 - Close the connection after some retries, even when using an exponential back off retry logic, and retry the operation on a new connection. Retrying the same operation multiple times on the same connection can be a factor that contributes to connection problems. For an example of this technique, see [Cloud Service Fundamentals Data Access Layer – Transient Fault Handling](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx).
 - When connection pooling is in use (the default) there's a chance that the same connection will be chosen from the pool, even after closing and reopening a connection. If so, a technique to resolve it's to call the **ClearPool** method of the **SqlConnection** class to mark the connection as not reusable. However, you should do this only after several connection attempts have failed, and only when encountering the specific class of transient failures such as SQL timeouts (error code -2) related to faulty connections.
@@ -515,7 +517,7 @@ Consider starting with the following settings for retrying operations. These set
 
 ### Examples
 
-This section shows how you can use Polly to access Azure SQL Database using a set of retry policies configured in the `Policy` class.
+This section shows how you can use Polly to access Azure SQL Database or SQL database in Fabric using a set of retry policies configured in the `Policy` class.
 
 The following code shows an extension method on the `SqlCommand` class that calls `ExecuteAsync` with exponential backoff.
 
@@ -563,11 +565,11 @@ using (var reader = await sqlCommand.ExecuteReaderWithRetryAsync())
 
 ## SQL Database using Entity Framework 6
 
-SQL Database is a hosted SQL Database available in a range of sizes and as both a standard (shared) and premium (non-shared) service. Entity Framework is an object-relational mapper that enables .NET developers to work with relational data using domain-specific objects. It eliminates the need for most of the data-access code that developers usually need to write.
+[Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview?view=azuresql-db&preserve-view=true) and [SQL database in Fabric](/fabric/database/sql/overview) are operational cloud databases based on the SQL Database Engine. Entity Framework is an object-relational mapper that enables .NET developers to work with relational data using domain-specific objects. It eliminates the need for most of the data-access code that developers usually need to write.
 
 ### Retry mechanism
 
-Retry support is provided when accessing SQL Database using Entity Framework 6.0 and higher through a mechanism called [Connection resiliency / retry logic](/ef/ef6/fundamentals/connection-resiliency/retry-logic). The main features of the retry mechanism are:
+Retry support is provided when accessing Azure SQL Database or SQL database in Fabric using Entity Framework 6.0 and higher through a mechanism called [Connection resiliency / retry logic](/ef/ef6/fundamentals/connection-resiliency/retry-logic). The main features of the retry mechanism are:
 
 - The primary abstraction is the **IDbExecutionStrategy** interface. This interface:
   - Defines synchronous and asynchronous **Execute** methods.
@@ -575,15 +577,15 @@ Retry support is provided when accessing SQL Database using Entity Framework 6.0
   - Defines when to retry a failed connection, and how.
 - It includes several built-in implementations of the **IDbExecutionStrategy** interface:
   - Default: no retrying.
-  - Default for SQL Database (automatic): no retrying, but inspects exceptions and wraps them with suggestion to use the SQL Database strategy.
-  - Default for SQL Database: exponential (inherited from base class) plus SQL Database detection logic.
+  - Default (automatic): no retrying, but inspects exceptions and wraps them with suggestion.
+  - Default: exponential (inherited from base class) plus detection logic.
 - It implements an exponential back-off strategy that includes randomization.
 - The built-in retry classes are stateful and aren't thread-safe. However, they can be reused after the current operation is completed.
 - If the specified retry count is exceeded, the results are wrapped in a new exception. It doesn't bubble up the current exception.
 
 ### Policy configuration
 
-Retry support is provided when accessing SQL Database using Entity Framework 6.0 and higher. Retry policies are configured programmatically. The configuration can't be changed on a per-operation basis.
+Retry support is provided when accessing Azure SQL Database or SQL database in Fabric using Entity Framework 6.0 and higher. Retry policies are configured programmatically. The configuration can't be changed on a per-operation basis.
 
 When configuring a strategy on the context as the default, you specify a function that creates a new strategy on demand. The following code shows how you can create a retry configuration class that extends the **DbConfiguration** base class.
 
@@ -647,11 +649,11 @@ The following table shows the default settings for the built-in retry policy whe
 
 ### Retry usage guidance
 
-Consider the following guidelines when accessing SQL Database using EF6:
+Consider the following guidelines when accessing Azure SQL Database or SQL database in Fabric using EF6:
 
 - Choose the appropriate service option (shared or premium). A shared instance may suffer longer than usual connection delays and throttling due to the usage by other tenants of the shared server. If predictable performance and reliable low latency operations are required, consider choosing the premium option.
 
-- A fixed interval strategy isn't recommended for use with Azure SQL Database. Instead, use an exponential back-off strategy because the service may be overloaded, and longer delays allow more time for it to recover.
+- A fixed interval strategy isn't recommended for use with Azure SQL Database or SQL database in Fabric. Instead, use an exponential back-off strategy because the service may be overloaded, and longer delays allow more time for it to recover.
 
 - Choose a suitable value for the connection and command timeouts when defining connections. Base the timeout on both your business logic design and through testing. You may need to modify this value over time as the volumes of data or the business processes change. Too short a timeout may result in premature failures of connections when the database is busy. Too long a timeout may prevent the retry logic working correctly by waiting too long before detecting a failed connection. The value of the timeout is a component of the end-to-end latency, although you can't easily determine how many commands will execute when saving the context. You can change the default timeout by setting the **CommandTimeout** property of the **DbContext** instance.
 
@@ -722,9 +724,9 @@ More examples of using the Entity Framework retry mechanism can be found in [Con
 
 ### Retry mechanism
 
-Retry support is provided when accessing SQL Database using Entity Framework Core through a mechanism called [connection resiliency](/ef/core/miscellaneous/connection-resiliency). Connection resiliency was introduced in EF Core 1.1.0.
+Retry support is provided when accessing Azure SQL Database or SQL database in Fabric using Entity Framework Core through a mechanism called [connection resiliency](/ef/core/miscellaneous/connection-resiliency). Connection resiliency was introduced in EF Core 1.1.0.
 
-The primary abstraction is the `IExecutionStrategy` interface. The execution strategy for SQL Server, including Azure SQL, is aware of the exception types that can be retried and has sensible defaults for maximum retries, delay between retries, and so on.
+The primary abstraction is the `IExecutionStrategy` interface. The execution strategy for SQL Server, including Azure SQL Database, Azure SQL Managed Instance, or SQL database in Fabric, is aware of the exception types that can be retried and has sensible defaults for maximum retries, delay between retries, and so on.
 
 ### Examples
 
