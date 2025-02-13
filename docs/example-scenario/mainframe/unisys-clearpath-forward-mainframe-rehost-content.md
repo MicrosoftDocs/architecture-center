@@ -1,8 +1,8 @@
 <!-- cSpell:ignore Unisys ClearPath postmigration HDDs Tmax tmaxsoft openframe replatforming replatformed -->
 
-The Unisys mainframe systems trace their heritage to the first commercially available mainframes. The Unisys ClearPath Forward (CPF) Dorado (legacy Sperry 1100/2200) and Libra (legacy Burroughs A Series/Master Control Program) systems are full-featured mainframe operating environments. They can scale vertically to handle mission-critical workloads. These systems can be emulated, converted, or modernized into Azure. Azure offers similar or even improved performance characteristics and service-level agreement (SLA) metrics.
+The Unisys mainframe systems trace their heritage to the first commercially available mainframes. The Unisys ClearPath Forward (CPF) Dorado (1100/2200) and Libra (Master Control Program) systems are full-featured mainframe operating environments. They can scale vertically to handle mission-critical workloads. These systems can be emulated, converted, or modernized into Azure. Azure offers similar or even improved performance characteristics and service-level agreement (SLA) metrics.
 
-This article shows how to use virtualization technologies from Microsoft partner Unisys with a legacy Unisys CPF Libra mainframe. This approach allows an accelerated move into Azure. It eliminates the need to rewrite the application code or redesign the database architecture. Legacy code is maintained in its original form—eliminating the need to recompile application code. The application screens, user interactions, and data structures behind the scenes are unchanged, which eliminates the need to retrain your users.
+This article shows how to use virtualization technologies from Microsoft partner Unisys with a legacy Unisys CPF Libra mainframe. This approach allows an accelerated move into Azure. It eliminates the need to rewrite the application code or redesign the database architecture. Legacy code is maintained in its original form — eliminating the need to recompile application code. The application screens, user interactions, and data structures behind the scenes are unchanged, which eliminates the need to retrain your users.
 
 Unisys replatforming lifts the entire Libra system from today's proprietary hardware to Azure as a virtual machine (VM). The Master Control Program (MCP) OS and all processors, libraries, and data appear just as they did on the proprietary environment. The OS requires a license from Unisys. The architecture includes support VMs, which handle functions such as virtual tapes operations, automation and workload management (OpCon), web services, and other support functions.
 
@@ -14,11 +14,11 @@ Depending upon the client's end goal, the transitioned Azure MCP could be the en
 
 - Move existing Unisys ClearPath Forward Libra workloads to Azure rapidly, with low risk.
 - Use [Azure Arc](https://azure.microsoft.com/services/azure-arc/) so Azure can become the disaster recovery (DR) plan for an existing on-premises workload.
-- Add Unisys Cloud Forte or Azure data services to existing client capabilities.
+- Add Azure data services to existing client capabilities.
 
 ## Architecture
 
-**Example source (premigration) architecture.** The architecture below illustrates a typical, on-premises Unisys ClearPath Forward Libra (legacy Burroughs A Series/MCP) mainframe.
+**Example source (premigration) architecture.** The architecture below illustrates a typical, on-premises Unisys ClearPath Forward Libra (MCP) mainframe.
 
 [![Diagram of a typical on-premises mainframe architecture with Unisys ClearPath Forward Libra.](./media/unisys-clearpath-forward-mainframe-rehost-diagram-premigration-inline.png)](./media/unisys-clearpath-forward-mainframe-rehost-diagram-premigration-expanded.png#lightbox)
 *Download an [SVG of this premigration diagram](./media/unisys-clearpath-forward-mainframe-rehost-diagram-premigration.svg).*
@@ -56,15 +56,13 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Unisys CPF in Azure uses Site Recovery to ensure system availability and consistency. 
+Unisys CPF in Azure uses Site Recovery to ensure system availability and consistency.  ASR estabishes a baseline to be used for backup systems or for disaster recovery (DR) purposes.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Unisys CPF is inherently a very secure system on its own.
-
-Unisys Stealth technology effectively hides endpoints. Azure offers other security controls.
+Unisys CPF is inherently a very secure system on its own.  THe added value of Azure security with encryption in motion as we as with data at rest provides a secure enterprise solution.
 
 ### Cost Optimization
 
@@ -74,7 +72,7 @@ Unisys CPF in Azure eliminates hardware maintenance and facility costs upfront. 
 
 You can also optimize your costs by following the process to right-size the capacity of your VMs, from the beginning, along with simplified resizing, as needed. For more information, see the Azure Well-Architected Framework's [Principles of Cost Optimization](/azure/architecture/framework/cost/overview).
 
-To estimate the cost of Azure products and configurations, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+To estimate the cost of Azure products and configurations, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).  VMs will be used for the MCP along with any support VMs for print or tape.  Storage would range from Premium SSD to Blob storage dependant upon perfomance needs and data retention policies.  
 
 To learn more about Unisys CPF offerings and pricing, visit the [Unisys ClearPath Forward Products webpage](https://stealthsecurity.unisys.com/solutions/clearpath-forward/).
 
@@ -108,9 +106,7 @@ For more information, please contact **legacy2azure@microsoft.com**, or check ou
 
 - [Azure Mainframe and midrange migration](https://azure.microsoft.com/migration/mainframe)
 - [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
-- [Unisys CloudForte for Azure in the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/unisys-azuremp-stealth.cloudforte_for_azure?tab=Overview)
 - [Unisys Cloud Migration Services](https://www.unisys.com/solutions/cloud-management/)
-- [Unisys Stealth](https://stealthsecurity.unisys.com)
 - [Unisys Documentation Libraries](https://public.support.unisys.com/common/epa/documentationlibraries.aspx)
 - [Azure Virtual Network documentation](/azure/virtual-network)
 - [Manage Azure Virtual Network interface cards](/azure/virtual-network/virtual-network-network-interface)
@@ -121,10 +117,11 @@ For more information, please contact **legacy2azure@microsoft.com**, or check ou
 ## Related resources
 
 - [Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure](../../mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)
+- [SMA OpCon in Azure](../../solution-ideas/articles/sma-opcon-azure.yml)
 - [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
 - [Azure Database Migration Guides](https://datamigration.microsoft.com)
 - [Unisys mainframe migration to Azure using Avanade AMT](../../reference-architectures/migration/unisys-mainframe-migration.yml)
 - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
 - [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)
-- [SMA OpCon in Azure](../../solution-ideas/articles/sma-opcon-azure.yml)
+
