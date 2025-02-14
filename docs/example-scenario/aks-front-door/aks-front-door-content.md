@@ -112,7 +112,7 @@ The architecture consists of the following components:
   - Azure network security groups
   - Container Registry
   - Storage accounts
-- [Deployment scripts in Bicep](/azure/azure-resource-manager/bicep/deployment-script-bicep) are used to run a Bash script. The Bash script creates the following objects in the AKS cluster:
+- A [Bicep Deployment Script](/azure/azure-resource-manager/bicep/deployment-script-bicep) is used to run a Bash script that creates the following objects in the AKS cluster:
   - A Kubernetes [deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) and [service](https://kubernetes.io/docs/concepts/services-networking/service/) for the sample [httpbin](https://httpbin.org/) web application.
   - A Kubernetes [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) object to expose the web application via the NGINX ingress controller.
   - A [SecretProviderClass](https://learn.microsoft.com/en-us/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified Azure Key Vault by using the user-defined managed identity of the [Azure Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret containing the TLS certificate referenced by the ingress object.
