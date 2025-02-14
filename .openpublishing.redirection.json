@@ -5766,12 +5766,12 @@
     },
     {
       "source_path": "docs/guide/iot/azure-iot-migration-best-practices.md",
-      "redirect_url": "/azure/architecture/iot/iot-introduction",
+      "redirect_url": "/azure/iot/iot-introduction",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/iot/migrate-iot-solution-azure.yml",
-      "redirect_url": "/azure/architecture/iot/iot-introduction",
+      "redirect_url": "/azure/iot/iot-introduction",
       "redirect_document_id": false
     },
     {

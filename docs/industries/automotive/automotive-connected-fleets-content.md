@@ -283,10 +283,9 @@ The following reference architectures expand the connected fleets scenario:
 
 ## Related resources
 
-The following reference architectures are related to the connected fleets scenario:
+The following reference architecture is related to the connected fleets scenario:
 
 - [Reference architecture for autonomous vehicle operations (AVOps)](/industry/mobility/architecture/ra-mobility-avops) contains the approach for the development and model training of autonomous vehicle fleets.
-- [Automotive connected fleets](../../industries/automotive/automotive-connected-fleets.yml) shows an end-to-end approach to control automated guided vehicles (AGVs) for just-in-time manufacturing and automated show-floor logistics.
 
 The following patterns are relevant when implementing this architecture:
 
