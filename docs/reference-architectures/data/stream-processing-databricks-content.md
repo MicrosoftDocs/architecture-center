@@ -16,29 +16,29 @@ This reference architecture shows an end-to-end stream processing pipeline. The 
 
 The following dataflow corresponds to the previous diagram:
 
-1. **Data sources.** In this architecture, there are two data sources that generate data streams in real time. The first stream contains ride information, and the second contains fare information. The reference architecture includes a simulated data generator that reads from a set of static files and pushes the data to Azure Event Hubs. The data sources in a real application would be devices installed in the taxi cabs.
+1. **In this architecture, there are two data sources that generate data streams in real time.** The first stream contains ride information, and the second stream contains fare information. The reference architecture includes a simulated data generator that reads from a set of static files and pushes the data to Azure Event Hubs. The data sources in a real application would be devices installed in the taxi cabs.
 
 1. **[Event Hubs](/azure/well-architected/service-guides/event-hubs)** is an event ingestion service. This architecture uses two event hub instances, one for each data source. Each data source sends a stream of data to the associated event hub.
 
-1. **[Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security)** is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Azure Databricks is used to correlate the taxi ride and fare data, and to enrich the correlated data with neighborhood data stored in the Azure Databricks file system.
+1. **[Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security)** is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Azure Databricks is used to correlate the taxi ride and fare data, and to enrich the correlated data with neighborhood data that's stored in the Azure Databricks file system.
 
-1. **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed, globally distributed, multi-model database service. The output of an Azure Databricks job is a series of records, which are written to [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction). Azure Cosmos DB for Apache Cassandra is used because it supports time series data modeling.
+1. **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed, multi-model database service. The output of an Azure Databricks job is a series of records, which are written to [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction). Azure Cosmos DB for Apache Cassandra is used because it supports time series data modeling.
 
-    1. **[Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link)** enables you to run near real-time analytics over operational data in Azure Cosmos DB, without any performance or cost effects on your transactional workload, by using the two analytics engines available from your Azure Synapse workspace: [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview).
+    - **[Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link)** enables you to run near real-time analytics on operational data in Azure Cosmos DB, without any performance or cost effects on your transactional workload. You can achieve this by using the two analytics engines available from your Azure Synapse workspace, which are [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview).
 
-    1. **[Microsoft Fabric mirroring Azure Cosmos DB for NoSQL](/fabric/database/mirrored-database/azure-cosmos-db)** allows you to integrate Azure Cosmos DB data with the rest of your data in Microsoft Fabric.
+    - **[Microsoft Fabric mirroring Azure Cosmos DB for NoSQL](/fabric/database/mirrored-database/azure-cosmos-db)** allows you to integrate Azure Cosmos DB data with the rest of your data in Microsoft Fabric.
 
-1. **[Azure Log Analytics](/azure/well-architected/service-guides/azure-log-analytics)** is a tool within Azure Monitor that allows you to query and analyze log data from various sources. Application log data collected by [Azure Monitor](/azure/monitoring-and-diagnostics) is stored in a [Log Analytics workspace](/azure/log-analytics). You can use Log Analytics queries to analyze and visualize metrics and inspect log messages to identify problems within the application.
+1. **[Azure Log Analytics](/azure/well-architected/service-guides/azure-log-analytics)** is a tool within Azure Monitor that allows you to query and analyze log data from various sources. Application log data that [Azure Monitor](/azure/monitoring-and-diagnostics) collects is stored in a [Log Analytics workspace](/azure/log-analytics). You can use Log Analytics queries to analyze and visualize metrics and inspect log messages to identify problems within the application.
 
 ## Scenario details
 
-A taxi company collects data about each taxi trip. For this scenario, we assume there are two separate devices sending data. The taxi has a meter that sends information about each ride, including the duration, distance, and pickup and drop-off locations. A separate device accepts payments from customers and sends data about fares. To spot ridership trends, the taxi company wants to calculate the average tip per mile driven, in real time, for each neighborhood.
+A taxi company collects data about each taxi trip. For this scenario, we assume there are two separate devices sending data. The taxi has a meter that sends information about each ride, including the duration, distance, and pickup and drop-off locations. A separate device accepts payments from customers and sends data about fares. To spot ridership trends, the taxi company wants to calculate the average tip per mile driven for each neighborhood, in real time.
 
 ## Data ingestion
 
-To simulate a data source, this reference architecture uses the [New York City taxi data dataset](https://uofi.app.box.com/v/NYCtaxidata/folder/2332218797)<sup>[[1]](#note1)</sup>. This dataset contains data about taxi trips in New York City over a four-year period, from 2010 - 2013. It contains both ride and fare data records. Ride data includes trip duration, trip distance, and pickup and drop-off location. Fare data includes fare, tax, and tip amounts. Fields in both record types include medallion number, hack license, and vendor ID. The combination of these three fields uniquely identify a taxi plus a driver. The data is stored in CSV format.
+To simulate a data source, this reference architecture uses the [New York City taxi data dataset](https://uofi.app.box.com/v/NYCtaxidata/folder/2332218797)<sup id="note1">[1](#note1)</sup>. This dataset contains data about taxi trips in New York City over a four-year period, from 2010 - 2013. It contains both ride and fare data records. Ride data includes trip duration, trip distance, and pick-up and drop-off location. Fare data includes fare, tax, and tip amounts. Fields in both record types include medallion number, hack license, and vendor ID. The combination of these three fields uniquely identify a taxi plus a driver. The data is stored in CSV format.
 
-<span id="note1">[1]</span> Donovan, Brian; Work, Dan (2016): New York City Taxi Trip Data (2010-2013). University of Illinois at Urbana-Champaign. <https://doi.org/10.13012/J8PN93H8>
+<span id="note1">[1]</span> Donovan, Brian; Work, Dan (2016): New York City Taxi Trip Data (2010-2013). University of Illinois at Urbana-Champaign. [https://doi.org/10.13012/J8PN93H8](https://doi.org/10.13012/J8PN93H8)
 
 The data generator is a .NET Core application that reads the records and sends them to Event Hubs. The generator sends ride data in JSON format and fare data in CSV format.
 
@@ -278,7 +278,7 @@ For more information, see [Azure Databricks pricing][azure-databricks-pricing].
 
 #### Azure Cosmos DB cost considerations
 
-In this architecture, a series of records is written to Azure Cosmos DB by the Azure Databricks job. You're charged for the capacity that you reserve, measured in Request Units per second (RU/s). This capacity is used to perform insert operations. The unit for billing is 100 RU/sec per hour. For example, the cost of writing 100-KB items is 50 RU/s.
+In this architecture, the Azure Databricks job writes a series of records to Azure Cosmos DB. You're charged for the capacity that you reserve, measured in Request Units per second (RU/s). This capacity is used to perform insert operations. The unit for billing is 100 RU/sec per hour. For example, the cost of writing 100-KB items is 50 RU/s.
 
 For write operations, provision enough capacity to support the number of writes needed per second. You can increase the provisioned throughput by using the portal or Azure CLI before you perform write operations and then reduce the throughput after those operations are complete. Your throughput for the write period is the sum of the minimum throughput needed for the specific data and the throughput required for the insert operation. This calculation assumes that there is no other workload running.
 
@@ -292,7 +292,7 @@ For 720 hours or 7,200 units (of 100 RUs), you're billed $57.60 for the month.
 
 Storage is also billed for each GB used for your stored data and index. For more information, see [Azure Cosmos DB pricing model][cosmosdb-pricing].
 
-Use the [Azure Cosmos DB capacity calculator][cosmos-calculator] to get a quick estimate of the workload cost.
+Use the [Azure Cosmos DB capacity calculator][cosmos-calculator] for a quick estimate of the workload cost.
 
 ### Operational Excellence
 
@@ -300,9 +300,9 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 #### Monitoring
 
-Azure Databricks is based on Apache Spark, and both use [Log4j](https://logging.apache.org/log4j/2.x) as the standard library for logging. In addition to the default logging that Apache spark provides, you can implement logging to Log Analytics outlined in the article [Monitoring Azure Databricks](/azure/architecture/databricks-monitoring/).
+Azure Databricks is based on Apache Spark, and both use [Apache Log4j](https://logging.apache.org/log4j/2.x) as the standard library for logging. In addition to the default logging that Apache spark provides, you can implement logging to Log Analytics outlined in the article [Monitoring Azure Databricks](/azure/architecture/databricks-monitoring/).
 
-As the `com.microsoft.pnp.TaxiCabReader` class processes ride and fare messages, it's possible that either one might be malformed and therefore not valid. In a production environment, it's important to analyze these malformed messages to identify a problem with the data sources so that it can be fixed quickly to prevent data loss. The `com.microsoft.pnp.TaxiCabReader` class registers an Apache Spark Accumulator that tracks the number of malformed fare and ride records:
+As the `com.microsoft.pnp.TaxiCabReader` class processes ride and fare messages, it's possible that either one might be malformed and therefore not valid. In a production environment, it's important to analyze these malformed messages to identify a problem with the data sources so that it can be fixed quickly to prevent data loss. The `com.microsoft.pnp.TaxiCabReader` class registers an Apache Spark Accumulator that tracks the number of malformed fare records and ride records:
 
 ```scala
 @transient val appMetrics = new AppMetrics(spark.sparkContext)
@@ -349,13 +349,11 @@ SparkMetric_CL
 | render timechart
 ```
 
-For more information, see [Monitoring Azure Databricks](/azure/architecture/databricks-monitoring/).
-
 #### Resource organization and deployments
 
 - Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
 
-- Use [Azure Resource Manager template][arm-template] to deploy the Azure resources following the infrastructure-as-code process. By using templates, you can easily automate deployments with [Azure DevOps services][az-devops] or other continuous integration and continuous delivery (CI/CD) solutions.
+- Use the [Azure Resource Manager template][arm-template] to deploy the Azure resources according to the infrastructure-as-code process. By using templates, you can easily automate deployments with [Azure DevOps services][az-devops] or other continuous integration and continuous delivery (CI/CD) solutions.
 
 - Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process. This approach simplifies the automation process.
 
