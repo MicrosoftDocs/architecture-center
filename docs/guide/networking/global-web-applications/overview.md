@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn how to develop highly resilient global web applications.
 author: johndowns
 ms.author: jodowns
-ms.date: 03/10/2023
+ms.date: 02/17/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -32,13 +32,13 @@ In the **[baseline architecture for a mission-critical application](/azure/archi
 - Serve static content from edge nodes by using integrated content delivery networks (CDNs)
 - Block unauthorized access with integrated web application firewall
 
-Azure Front Door is designed to provide the utmost resiliency and availability for not only our external customers, but also for multiple properties across Microsoft. For more information about Azure Front Door's capabilities, see [Accelerate and secure your web application with Azure Front Door](/azure/frontdoor/scenarios).
+For more information about Azure Front Door's capabilities, see [Accelerate and secure your web application with Azure Front Door](/azure/frontdoor/scenarios).
 
-Azure Front Door capabilities are more than enough to meet most business requirements, however, with any distributed system, expect failure. If the business requirements demand a higher composite SLO or zero-down time in case of an outage, you'll need to rely on an alternate traffic ingress path. However, the pursuit of a higher SLO comes with significant costs, operational overhead, and can lower your overall reliability. Carefully consider the [tradeoffs](#tradeoffs) and potential issues that the alternate path might introduce in other components that are on the critical path. Even when the impact of unavailability is significant, complexity might outweigh the benefit.
+Azure Front Door is designed to provide the utmost resiliency and availability for not only our external customers, but also for multiple properties across Microsoft. Azure Front Door capabilities are more than enough to meet most business requirements, however, with any distributed system, expect failure. No component or system is infallible. Microsoft offers an [industry-leading service level agreement (SLA) for Azure Front Door](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services). Even with a 100% uptime SLA from another provider, it's important to note that that isn't a guarantee of zero downtime, and that SLAs typically provide for service credits in the event of an outage.
+
+If the business requirements demand a higher composite SLO or zero-down time in case of an outage, you'll need to rely on multiple alternate traffic ingress paths. Many large organizations and high-profile web properties use this approach to ensure the highest possibile availability and to optimize delivery performance. However, the pursuit of a higher SLO comes with significant costs, operational overhead, and can lower your overall reliability. Carefully consider the [tradeoffs](#tradeoffs) and potential issues that the alternate path might introduce in other components that are on the critical path. Even when the impact of unavailability is significant, complexity might outweigh the benefit.
 
 One approach is to define a secondary path, with alternate service(s), which becomes active only when Azure Front Door is unavailable. Feature parity with Azure Front Door shouldn't be treated as a hard requirement. Prioritize features that you absolutely need for business continuity purposes, even potentially running in a limited capacity.
-
-Another approach is using third-party technology for global routing. This approach will require a multicloud active-active deployment with stamps hosted across two or more cloud providers. Even though Azure can effectively be integrated with other cloud platforms, this approach isn't recommended because of operational complexity across the different cloud platforms.
 
 This article describes some strategies for global routing using Azure Traffic Manager as the alternate router in situations where Azure Front Door isn't available.
 
@@ -56,7 +56,7 @@ With this approach, we will introduce several components and provide guidance th
 
     > [!IMPORTANT]
     >
-    > This solution mitigates risks associated with Azure Front Door outages, but it's susceptible to Azure Traffic Manager outages as a global point of failure.
+    > This solution mitigates risks associated with outages in Azure Front Door or other providers, but it's susceptible to Azure Traffic Manager outages as a global point of failure. For more information, see [Availability of Azure Traffic Manager](#availability-of-azure-traffic-manager).
 
     You can also consider using a different global traffic routing system, such as a global load balancer. However, Traffic Manager works well for many situations.
 
@@ -66,7 +66,7 @@ With this approach, we will introduce several components and provide guidance th
 
     - Another router is used as a backup for Azure Front Door. Traffic only flows through this secondary path if Front Door is unavailable.
 
-    The specific service that you select for the secondary router depends on many factors. You might choose to use Azure-native services, or third-party services. In these articles we provide Azure-native options to avoid adding additional operational complexity to the solution. If you use third-party services, you need to use multiple control planes to manage your solution.
+    The specific service that you select for the secondary router depends on many factors. You might choose to use Azure-native services, or third-party services. In these articles we provide Azure-native options where possible, to avoid adding additional operational complexity to the solution. If you use third-party services, you need to use multiple control planes to manage your solution.
 
 1. Your origin application servers need to be ready to accept traffic from either service. Consider how you [secure traffic to your origin](#origin-security), and what responsibilities Azure Front Door and other upstream services provide. Ensure that your application can handle traffic from whichever path your traffic flows through.
 
@@ -89,13 +89,13 @@ While this mitigation strategy can make the application be available during plat
 
 ## Availability of Azure Traffic Manager
 
-Azure Traffic Manager is a reliable service, but the service level agreement doesn't guarantee 100% availability. If Traffic Manager is unavailable, your users might not be able to access your application, even if Azure Front Door and your alternative service are both available. It's important to plan how your solution will continue to operate under these circumstances.
+Azure Traffic Manager is a reliable service with an industry-leading SLA, but can't guarantee 100% availability. If Traffic Manager is unavailable, your users might not be able to access your application, even if Azure Front Door and your alternative service are both available. It's important to plan how your solution will continue to operate under these circumstances.
 
 Traffic Manager returns cacheable DNS responses. If time to live (TTL) on your DNS records allows caching, short outages of Traffic Manager might not be a concern. That is because downstream DNS resolvers might have cached a previous response. You should plan for prolonged outages. You might choose to manually reconfigure your DNS servers to direct users to Azure Front Door if Traffic Manager is unavailable.
 
 ## Traffic routing consistency
 
-It's important to understand the Azure Front Door capabilities and features that you use and rely on. When you choose the alternate service, decide the minimum capabilities that you need and omit other features when your solution is in a degraded mode.
+It's important to understand the Azure Front Door capabilities and features that you use and rely on if you are going to use another service as well. When you choose the alternate service, decide the minimum capabilities that you need and omit other features when your solution is in a degraded mode.
 
 When planning an alternative traffic path, here are some key questions you should consider:
 
@@ -155,7 +155,7 @@ However, there will be additional operations related to renewing and updating yo
 
 ## Origin security
 
-When you [configure your origin](/azure/frontdoor/origin-security) to only accept traffic through Azure Front Door, you gain protection against layer 3 and layer 4 [DDoS attacks](/azure/frontdoor/front-door-ddos). Because Azure Front Door only responds to valid HTTP traffic, it also helps to reduce your exposure to many protocol-based threats. If you change your architecture to allow alternative ingress paths, you need to evaluate whether you've accidentally increased your origin's exposure to threats.
+When you [configure your origin](/azure/frontdoor/origin-security) to only accept traffic through Azure Front Door, you gain protection against layer 3 and layer 4 [DDoS attacks](/azure/frontdoor/front-door-ddos). Azure Front Door only responds to valid HTTP traffic, which also helps to reduce your exposure to many protocol-based threats. If you change your architecture to allow alternative ingress paths, you need to evaluate whether you've accidentally increased your origin's exposure to threats.
 
 If you use Private Link to connect from Azure Front Door to your origin server, how does traffic flow through your alternative path? Can you use private IP addresses to access your origins, or must you use public IP addresses?
 

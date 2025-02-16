@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn how to develop highly resilient global HTTP applications when your focus is on HTTP ingress.
 author: johndowns
 ms.author: jodowns
-ms.date: 03/10/2023
+ms.date: 02/17/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -23,6 +23,8 @@ ms.custom:
 
 Mission-critical applications need to maintain a high level of uptime, even when network components are unavailable or degraded. When you design web traffic ingress, routing, and security, you can consider combining multiple Azure services to achieve a higher level of availability and to avoid having a single point of failure.
 
+Microsoft offers an [industry-leading service level agreement (SLA) for Azure Front Door](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services). Even with a 100% uptime SLA from another provider, it's important to note that that isn't a guarantee of zero downtime, and that SLAs typically provide for service credits in the event of an outage. For this reason, even Microsoft's competitors recommend using multiple ingress paths for mission-critical workloads.
+
 If you decide to adopt this approach, you'll need to implement separate network path to your application servers, and each path needs to be configured and tested separately. You must carefully consider the full implications of this approach.  
 
 This article describes an approach to support global HTTP traffic ingress through Azure Front Door and Azure Application Gateway. This approach might suit your needs if your solution needs:
@@ -38,7 +40,7 @@ Caching at the network edge isn't critical part of your application delivery. If
 
 ## Approach
 
-This DNS-based load balancing solution uses multiple Azure Traffic Manager profiles to monitor Azure Front Door. In the unlikely event of an availability issue, Traffic Manager redirects traffic through Application Gateway.
+This DNS-based load balancing solution uses multiple Azure Traffic Manager profiles to monitor Azure Front Door. In the unlikely event of an availability issue with Azure Front Door, Traffic Manager redirects traffic through Application Gateway.
 
 :::image type="content" source="./media/mission-critical-global-http-ingress/front-door-application-gateway.png" alt-text="Diagram showing Azure Traffic Manager with priority routing to Azure Front Door, and a nested Traffic Manager profile using performance routing to send to Application Gateway instances in two regions." border="false":::
 
@@ -82,7 +84,7 @@ If you use Private Link to connect to your origins, consider deploying a private
 
 #### Scaling
 
-When you deploy Application Gateway, you deploy dedicated compute resources for your solution. If large amounts of traffic arrive at your Application Gateway unexpectedly, you might observe performance or reliability issues.
+When you deploy Application Gateway, dedicated compute resources are deployed automatically to support the Application Gateway instance's operation. If large amounts of traffic arrive at your Application Gateway unexpectedly, you might observe performance or reliability issues.
 
 To mitigate this risk, consider how you [scale your Application Gateway instance](/azure/application-gateway/application-gateway-autoscaling-zone-redundant). Either use autoscaling, or ensure that you've manually scaled it to handle the amount of traffic that you might receive after failing over.
 
@@ -90,7 +92,7 @@ To mitigate this risk, consider how you [scale your Application Gateway instance
 
 If you use Azure Front Door's caching features, then it's important to be aware that after your traffic switches to the alternative path and uses Application Gateway, content is no longer served from the Azure Front Door caches. 
 
-If you depend on caching for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses a partner CDN as a fallback to Azure Front Door.
+If you depend on caching for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses an alternative content delivery network (CDN) as a fallback to Azure Front Door.
 
 Alternatively, if you use caching but it's not an essential part of your application delivery strategy, consider whether you can scale out or scale up your origins to cope with the increased load that was caused by the higher number of cache misses during a failover.
 
@@ -110,7 +112,7 @@ However, there are tradeoffs:
 
 - **Cost**. You typically need to deploy an Application Gateway instance into each region where you have an origin. Because each Application Gateway instance is billed separately, the cost can become high when you have origins deployed into several regions.
 
-  If cost is a significant factor for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses a partner content delivery network (CDN) as a fallback to Azure Front Door. Some CDNs bill for traffic on a consumption basis, so this approach might be more cost-effective. However, you might lose some of the other advantages of using Application Gateway for your solution.
+  If cost is a significant factor for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses an alternative content delivery network (CDN) as a fallback to Azure Front Door. Some CDNs bill for traffic on a consumption basis, so this approach might be more cost-effective. However, you might lose some of the other advantages of using Application Gateway for your solution.
 
   Alternatively, you could consider deploying an alternative architecture where Traffic Manager can route traffic directly to platform as a service (PaaS) application services, avoiding the need for Application Gateway and reducing your costs. You could consider this approach if you use a service like Azure App Service or Azure Container Apps for your solution. However, if you follow this approach, there are several important tradeoffs to consider:
 

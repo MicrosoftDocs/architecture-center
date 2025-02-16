@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn how to develop highly resilient global HTTP applications when your focus is on content delivery and caching.
 author: johndowns
 ms.author: jodowns
-ms.date: 01/29/2025
+ms.date: 02/17/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -23,7 +23,9 @@ ms.custom:
 
 Caching is a common way to reduce load on the backend services and optimize performance for users. Content delivery networks (CDNs), including Azure Front Door, provide caching at the network edge.
 
-Mission-critical workloads often use multiple CDNs to achieve a higher level of uptime. If one CDN experiences outage or degraded performance, your traffic is automatically diverted to another CDN.
+CDNs are an essential component in some solution architectures, so it’s an industry best practice for mission-critical workloads to use multiple CDNs to achieve a higher level of uptime. If one CDN experiences outage or degraded performance, your traffic is automatically diverted to another CDN.
+
+Microsoft offers an [industry-leading service level agreement (SLA) for Azure Front Door](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services). Even with a 100% uptime SLA from another provider, it's important to note that that isn't a guarantee of zero downtime, and that SLAs typically provide for service credits in the event of an outage. For this reason, even Microsoft's competitors recommend using multiple CDNs for mission-critical workloads, and many companies who manage their own CDN also utilize other CDNs too.
 
 If you implement multiple CDNs, consider the implications of this approach. Each CDN provides a separate network path to your application servers, and you need to configure and test each CDN separately.
 
@@ -39,7 +41,7 @@ A third-party CDN can be integrated into your Azure solution. The platform is is
 
 This isolation provides a high degree of resiliency from disaster scenarios. If an outage or disaster occurs, traffic is automatically shifted between Azure Front Door and the alternative CDN. You can use Azure Traffic Manager to detect an outage and redirect traffic to the alternative CDN.
 
-:::image type="content" source="./media/mission-critical-content-delivery/front-door-verizon-cdn.png" alt-text="Diagram of Traffic Manager routing between Azure Front Door and another CDN." border="false":::
+:::image type="content" source="./media/mission-critical-content-delivery/front-door-alternative-cdn.png" alt-text="Diagram of Traffic Manager routing between Azure Front Door and another CDN." border="false":::
 
 - **Traffic Manager using priority routing mode** has two [endpoints](/azure/traffic-manager/traffic-manager-endpoint-types). By default, Traffic Manager sends requests through Azure Front Door. If Azure Front Door is unavailable, Traffic Manager sends the request through the alternative CDN instead.
 
@@ -55,13 +57,13 @@ The considerations described in [Mission-critical global web applications](./ove
 
 #### Choice of CDN
 
-TODO
+Microsoft offers several CDN products. Our flagship CDN offering is Azure Front Door Standard and Premium, and other CDN products are being retired. The other CDN products also share physical infrastructure with Azure Front Door, so we recommend you select a different CDN product for this type of architecture described within this article. Make sure you select an alternative CDN that meets your needs for feature capabilities, uptime, and cost.
 
 You might choose to use multiple CDNs depending on your requirements and risk tolerance.
 
 #### Feature parity
 
-Azure Front Door provides distinct capabilities from many CDNs, and features aren't equivalent between the two products. For example, there might be differences in handling of TLS certificates, WAF, and HTTP rules.
+Azure Front Door provides distinct capabilities from many CDNs, and features aren't equivalent between the CDN products. For example, there might be differences in handling of TLS certificates, web application firewall (WAF), and HTTP routing rules.
 
 Carefully consider the features of Azure Front Door that you use, and whether your alternative CDN has equivalent capabilities. For more information, see [Consistency of ingress paths](./overview.md#traffic-routing-consistency).
 
@@ -81,11 +83,15 @@ If your solution is at risk from performance issues during cache fills, consider
 
 Using multiple CDNs comes with some tradeoffs. 
 
-- **Cost**. There might be an increase in the overall cost of the solution. When you deploy a multi-CDN architecture, you're billed for multiple CDNs. Make sure that you understand how you're charged for each CDN in your solution, and all of the other components you deploy.
+- There might be an increase in the overall cost of the solution. When you deploy a multi-CDN architecture, you're billed for multiple CDNs. Make sure that you understand how you're charged for each CDN in your solution, and all of the other components you deploy.
 
-- **Performance**. There might be performance issues during failover between Azure Front Door and your alternative CDN.
+- Each additional component you add to your solution increases your management overhead.
 
-  A common issue is [cache refilling](#cache-fill) when CDNs are running in an active-passive mode. The CDN configured in passive mode needs refill its cache from the origin. It can overload origin systems during that process.
+- There might be performance issues during failover between Azure Front Door and your alternative CDN.
+
+- By using a DNS traffic manager, you can randomize which CDN is chosen for a request. If you're not careful to implement consistent cache settings across CDNs (for example, [caching in Azure Front Door](/azure/frontdoor/front-door-caching)) you could you risk lower performance and higher costs for origin egress bandwidth.
+
+- A common issue is [cache refilling](#cache-fill) when CDNs are running in an active-passive mode. The CDN configured in passive mode needs refill its cache from the origin. It can overload origin systems during that process.
 
 ## Next steps
 
