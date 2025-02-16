@@ -59,7 +59,7 @@ The considerations described in [Mission-critical global web applications](./ove
 
 Microsoft offers several CDN products. Our flagship CDN offering is Azure Front Door Standard and Premium, and other CDN products are being retired. The other CDN products also share physical infrastructure with Azure Front Door, so we recommend you select a different CDN product for this type of architecture described within this article. Make sure you select an alternative CDN that meets your needs for feature capabilities, uptime, and cost.
 
-You might choose to use multiple CDNs depending on your requirements and risk tolerance.
+You might choose to use more than two CDNs depending on your requirements and risk tolerance.
 
 #### Feature parity
 
