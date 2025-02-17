@@ -33,7 +33,7 @@ The architecture consists of the following components.
 
 **Azure Application Insights** Azure Application Insights can be used to monitor microservices and containers. It can be used to provide observability to microservices, including traffic flow, end-to-end latency, and error percentage. The health of the microservices and the relationships between them can be displayed on a single application map.  
 
-## Alternatives 
+### Alternatives
 
 Azure Container Apps can be used as a platform to host microservices in scenarios where fidelity to Kubernetes APIs aren't required. 
 
