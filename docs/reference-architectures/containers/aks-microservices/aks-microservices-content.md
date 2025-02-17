@@ -230,7 +230,7 @@ Here are some points to consider for some of the services used in this architect
 
 [In the free tier](/azure/aks/free-standard-pricing-tiers), there are no costs associated for AKS in deployment, management, and operations of the Kubernetes cluster. You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster.
 
-Consider using [horizontal pod autoscaler](/azure/aks/concepts-scale#horizontal-pod-autoscaler) to automatically scale up or down microservices according to load. 
+Consider using [horizontal pod autoscaler](/azure/aks/concepts-scale#horizontal-pod-autoscaler) to automatically scale microservices in or out according to load.
 
 Configure [cluster autoscaler](/azure/aks/concepts-scale#cluster-autoscaler) to scale up or down the number of nodes according to load. 
 
