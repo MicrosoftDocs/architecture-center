@@ -234,7 +234,7 @@ Consider using [horizontal pod autoscaler](/azure/aks/concepts-scale#horizontal-
 
 Configure [cluster autoscaler](/azure/aks/concepts-scale#cluster-autoscaler) to scale the nodes in or out according to load. 
 
-Consider using [spot nodes](/azure/aks/spot-node-pool) and burstable nodepool types to host non-critical microservices. 
+Consider using [spot nodes](/azure/aks/spot-node-pool) and burstable node pool types to host non-critical microservices. 
 
 To estimate the cost of the required resources please see the [Container Services calculator][aks-Calculator].
 
