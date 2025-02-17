@@ -31,7 +31,7 @@ The architecture consists of the following components.
 
 **Azure Monitor**. Azure Monitor collects and stores metrics and logs, application telemetry, and platform metrics for the Azure services. Azure Monitor integrates with AKS to collect metrics from controllers, nodes, and containers.
 
-**Azure Application Insights** Azure application insights can be used to monitor microservices and containers. Application insights can be used to provide observability to microservices, including traffic flow, end-to-end latency, and error percentage. The health of the microservices and the relationships between them can be displayed on a single Application Map in Azure application insights.  
+**Azure Application Insights** Azure Application Insights can be used to monitor microservices and containers. It can be used to provide observability to microservices, including traffic flow, end-to-end latency, and error percentage. The health of the microservices and the relationships between them can be displayed on a single application map.  
 
 ## Alternatives 
 
