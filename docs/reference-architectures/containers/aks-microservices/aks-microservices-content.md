@@ -232,7 +232,7 @@ Here are some points to consider for some of the services used in this architect
 
 Consider using [horizontal pod autoscaler](/azure/aks/concepts-scale#horizontal-pod-autoscaler) to automatically scale microservices in or out according to load.
 
-Configure [cluster autoscaler](/azure/aks/concepts-scale#cluster-autoscaler) to scale up or down the number of nodes according to load. 
+Configure [cluster autoscaler](/azure/aks/concepts-scale#cluster-autoscaler) to scale the nodes in or out according to load. 
 
 Consider using [spot nodes](/azure/aks/spot-node-pool) and burstable nodepool types to host non-critical microservices. 
 
