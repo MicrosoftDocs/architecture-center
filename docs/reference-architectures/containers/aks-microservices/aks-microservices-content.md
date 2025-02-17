@@ -175,7 +175,7 @@ Even with managed identities, you'll probably need to store some credentials or 
 
 - Kubernetes secrets. Another option is simply to use Kubernetes secrets. This option is the easiest to configure but is the least secure. Secrets are stored in etcd, which is a distributed key-value store. AKS [encrypts etcd at rest](https://github.com/Azure/kubernetes-kms#azure-kubernetes-service-aks). Microsoft manages the encryption keys.
 
-Using a system such as Azure Key Vault provides several advantages, such as:
+Using a solution like Azure Key Vault provides several advantages, such as:
 
 - Centralized control of secrets.
 - Ensuring that all secrets are encrypted at rest.
