@@ -214,7 +214,7 @@ Here are some goals of a robust CI/CD process for a microservices architecture:
 
 To learn more about the challenges, see [CI/CD for microservices architectures](../../../microservices/ci-cd.yml).
 
-Use of [service mesh](/azure/aks/istio-about) can aid in CI/CD processes, such as in canary deployments, A/B testing of microservices, and staged rollouts with percentage-based traffic splits.
+Use of a [service mesh like Istio](/azure/aks/istio-about) can aid in CI/CD processes, like canary deployments, A/B testing of microservices, and staged rollouts with percentage-based traffic splits.
 
 For specific recommendations and best practices, see [CI/CD for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.yml).
 
