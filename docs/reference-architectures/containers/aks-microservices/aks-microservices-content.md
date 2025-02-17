@@ -256,7 +256,7 @@ For Azure Monitor Log Analytics, you're charged for data ingestion and retention
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-This reference architecture provides [Bicep templates](/azure/azure-resource-manager/bicep/overview?tabs=bicep) for provisioning the cloud resources, and its dependencies. With the use of bicep templates you can use [Azure DevOps Services](/azure/devops/user-guide/services) to provision different environments in minutes, for example to replicate production scenarios. This allows you to save cost and provision load testing environment only when needed.
+This reference architecture provides [Bicep files](/azure/azure-resource-manager/bicep/overview) for provisioning the cloud resources, and its dependencies. You can deploy the Bicep files with [Azure DevOps Services](/azure/devops/user-guide/services) to provision different environments in minutes, for example to replicate production scenarios. This allows you to save cost and provision load testing environment only when needed.
 
 Consider following the workload isolation criteria to structure your bicep template, a workload is typically defined as an arbitrary unit of functionality; you could, for example, have a separate template for the cluster and then other for the dependent services. Workload isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD), since every workload is associated and managed by its corresponding DevOps team.
 
