@@ -27,7 +27,7 @@ The architecture consists of the following components.
 
 **Azure Pipelines**. Azure Pipelines are part of the Azure DevOps Services and run automated builds, tests, and deployments. [Continous integration and deployment](C/azure/architecture/microservices/ci-cd) is highly encouraged in microservice environments. Microservices can be independently built and deployed by various teams to AKS using Azure DevOps pipelines. 
 
-**Helm**. Helm is a package manager for Kubernetes, provides a mechanism to bundle and generalize Kubernetes objects into a single unit that can be published, deployed, versioned, and updated. 
+**Helm**. Helm is a package manager for Kubernetes that provides a mechanism to bundle and generalize Kubernetes objects into a single unit that can be published, deployed, versioned, and updated. 
 
 **Azure Monitor**. Azure Monitor collects and stores metrics and logs, application telemetry, and platform metrics for the Azure services. Azure Monitor integrates with AKS to collect metrics from controllers, nodes, and containers.
 
