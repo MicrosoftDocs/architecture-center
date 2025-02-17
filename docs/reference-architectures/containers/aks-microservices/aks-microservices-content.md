@@ -17,7 +17,7 @@ The architecture consists of the following components.
 
 **Azure Kubernetes Service (AKS)**. AKS is a managed Kubernetes cluster hosted in the Azure cloud. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure. 
 
-**Ingress**. An ingress server exposes HTTP(S) routes to services inside the cluster. The reference implementation uses [managed Nginx based ingress controller](/azure/aks/app-routing) through application routing add-on. Ingress controller implements the [API Gateway](#api-gateway) pattern for microservices.
+**Ingress**. An ingress server exposes HTTP(S) routes to services inside the cluster. The reference implementation uses a [managed Nginx based ingress controller](/azure/aks/app-routing) through an application routing add-on. The ingress controller implements the [API Gateway](#api-gateway) pattern for microservices.
 
 **External data stores**. Microservices are typically stateless and write data & state information to external data stores, such as Azure SQL Database or Azure Cosmos DB. The reference implementation uses [Azure Cosmos DB](/azure/cosmos-db/), [Azure cache for Redis](/azure/azure-cache-for-redis/), [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) and [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) as data stores. 
 
