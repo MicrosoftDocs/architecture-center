@@ -26,7 +26,7 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
   * Sends an HTTPS request to the Package microservice, which passes data to MongoDB external data storage.
     
 3. An HTTPS GET request is used to return delivery status. This request passes through the managed ingress controller into the Delivery microservice.
-  *  The delivery microservice reads data from Azure Cache for Redis.
+  * The delivery microservice reads data from Azure Cache for Redis.
   
 For more details of the sample microservices application, please see the [microservices reference implementation sample](https://github.com/mspnp/microservices-reference-implementation). 
 
@@ -65,6 +65,18 @@ For microservices that need to maintain state information, [Dapr](/azure/aks/dap
 GitHub Actions can be used to build and deploy microservices. You can also third-party CI/CD solutions like Jenkins. 
 
 Microservice observability can be achieved through alternate tools like [Kiali](https://kiali.io/). 
+
+### Scenario details
+
+The example [microservice reference implementation](https://github.com/mspnp/microservices-reference-implementation) implements the architectural components and practices discussed in this article. In this example, Fabrikam, Inc., a fictitious company, manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the drone's location with a continuously updated ETA.
+
+The scenario is intended to demonstrate microservices architecture and deployment best practices in Azure Kubernetes Service. 
+
+### Potential use cases
+
+Best practices from the scenario can be adopted to architect complex microservices based applications in Azure Kubernetes Service, including
+* Complex web applications
+* Business logic developed using microservice design principles.
 
 ## Considerations
 
