@@ -30,10 +30,6 @@ items:
           href: idea/many-models-machine-learning-azure-machine-learning.yml
     - name: Design architectures
       items:
-      - name: Automotive
-        items:
-        - name: Automotive messaging, data, and analytics
-          href: ./architecture/automotive-messaging-data-analytics.yml  
       - name: Chat bots
         items:
         - name: Azure OpenAI chat basic architecture

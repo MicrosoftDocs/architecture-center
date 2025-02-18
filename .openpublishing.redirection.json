@@ -6968,6 +6968,11 @@
       "source_path": "docs/ai-ml/architecture/software-defined-vehicle-reference-architecture.yml",
       "redirect_url": "/industry/mobility/architecture/software-defined-vehicle-reference-architecture-content",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/automotive-messaging-data-analytics.yml",
+      "redirect_url": "/industry/mobility/architecture/automotive-messaging-data-analytics-content",
+      "redirect_document_id": false
     }
   ]
 }
