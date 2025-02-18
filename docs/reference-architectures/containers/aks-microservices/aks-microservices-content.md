@@ -136,7 +136,7 @@ Here are some considerations when designing probes for microservices:
 
 Resource contention can affect the availability of a service. Define [resource constraints for containers](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/), so that a single container cannot overwhelm the cluster resources (memory and CPU). For non-container resources, such as threads or network connections, consider using the [Bulkhead Pattern](../../../patterns/bulkhead.yml) to isolate resources.
 
-Use [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) to limit the total resources allowed for a namespace. That way, the front end can't starve the backend services for resources or vice-versa. Resource quotas can be handy to allocate resources within the same cluster to multiple microservice development teams. 
+Use [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) to limit the total resources allowed for a namespace. That way, the front end can't starve the backend services for resources or vice-versa. Resource quotas can help allocate resources within the same cluster to multiple microservice development teams. 
 
 ### Security
 
