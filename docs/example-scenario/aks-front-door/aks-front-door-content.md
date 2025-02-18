@@ -20,8 +20,13 @@ The following diagram shows the steps for the message flow during deployment and
 
 You can use one of the following methods to deploy the [NGINX ingress controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/): 
 
-- `Managed`: You can deploy a managed NGINX ingress controller using the [application routing add-on for AKS](https://learn.microsoft.com/en-us/azure/aks/app-routing). The deployment script configures the managed NGINX ingress controller to use a private IP address as a frontend IP configuration of the `kubernetes-internal` internal load balancer. For more information, see [Configure NGINX ingress controller to support Azure private DNS zone with application routing add-on](https://learn.microsoft.com/en-us/azure/aks/create-nginx-ingress-private-controller).
-- `Unmanaged`: You can install an unmanaged NGINX ingress controller via Helm. The deployment script configures the unmanaged NGINX ingress controller to use a private IP address as a frontend IP configuration of the `kubernetes-internal` internal load balancer. For more information, see [Create an ingress controller using an internal IP address](https://learn.microsoft.com/en-us/azure/aks/ingress-basic?tabs=azure-cli#create-an-ingress-controller-using-an-internal-ip-address).
+- **Managed**: You deploy a managed NGINX ingress controller using the [application routing add-on for AKS](/azure/aks/app-routing). The deployment configures the managed NGINX ingress controller to use a private IP address as a frontend IP configuration of the `kubernetes-internal` internal load balancer.
+
+  For more information, see [Configure NGINX ingress controller to support Azure private DNS zone with application routing add-on](/azure/aks/create-nginx-ingress-private-controller).
+
+- **Unmanaged**: You install an unmanaged NGINX ingress controller via Helm. The deployment script configures the unmanaged NGINX ingress controller to use a private IP address as a frontend IP configuration of the `kubernetes-internal` internal load balancer.
+
+  For more information, see [Create an ingress controller using an internal IP address](/azure/aks/ingress-basic?tabs=azure-cli#create-an-ingress-controller-using-an-internal-ip-address).
 
 The following steps describe the deployment process. This workflow corresponds to the green numbers in the preceding diagram.
 
@@ -38,7 +43,7 @@ The following steps describe the deployment process. This workflow corresponds t
    - A Kubernetes [deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) and [service](https://kubernetes.io/docs/concepts/services-networking/service/) for the sample [httpbin](https://httpbin.org/) web application.
    - A Kubernetes [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) object to expose the web application via the NGINX ingress controller.
    - A [SecretProviderClass](https://learn.microsoft.com/en-us/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified Azure Key Vault by using the user-defined managed identity of the [Azure Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret containing the TLS certificate referenced by the ingress object.
-4. An Azure Front Door [secret resource](/azure/templates/microsoft.cdn/profiles/secrets) is used to manage and store the TLS certificate that's in the Key Vault. This certificate is used by the [custom domain](/azure/templates/microsoft.cdn/profiles/customdomains) that's associated with the Azure Front Door endpoint. The Azure Front Door profile uses a user-assigned managed identity with the `Key Vault Administrator` role assignment to retrieve the TLS certificate from Key Vault.
+4. An Azure Front Door [secret resource](/azure/templates/microsoft.cdn/profiles/secrets) is used to manage and store the TLS certificate that's in the Key Vault. This certificate is used by the [custom domain](/azure/templates/microsoft.cdn/profiles/customdomains) that's associated with the Azure Front Door endpoint. The Azure Front Door profile uses a user-assigned managed identity with the *Key Vault Administrator* role assignment to retrieve the TLS certificate from Key Vault.
 
 > [!NOTE]
 > At the end of the deployment, you need to approve the private endpoint connection before traffic can pass to the origin privately. For more information, see [Secure your origin with Private Link in Azure Front Door Premium](/azure/frontdoor/private-link). To approve private endpoint connections, use the Azure portal, the Azure CLI, or Azure PowerShell. For more information, see [Manage a private endpoint connection](/azure/private-link/manage-private-endpoint).
@@ -112,7 +117,7 @@ The architecture consists of the following components:
   - Azure network security groups
   - Container Registry
   - Storage accounts
-- A [Bicep Deployment Script](/azure/azure-resource-manager/bicep/deployment-script-bicep) is used to run a Bash script that creates the following objects in the AKS cluster:
+- A [Bicep deployment script](/azure/azure-resource-manager/bicep/deployment-script-bicep) is used to run a Bash script that creates the following objects in the AKS cluster:
   - A Kubernetes [deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) and [service](https://kubernetes.io/docs/concepts/services-networking/service/) for the sample [httpbin](https://httpbin.org/) web application.
   - A Kubernetes [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) object to expose the web application via the NGINX ingress controller.
   - A [SecretProviderClass](https://learn.microsoft.com/en-us/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified Azure Key Vault by using the user-defined managed identity of the [Azure Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret containing the TLS certificate referenced by the ingress object.
