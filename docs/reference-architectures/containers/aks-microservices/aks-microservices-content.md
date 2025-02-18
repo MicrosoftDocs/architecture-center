@@ -171,7 +171,7 @@ Even with managed identities, you'll probably need to store some credentials or 
 
     The pod authenticates itself by using either a workload identity or by using a user or system-assigned managed identity. See [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-identity-access) for more considerations.
 
-- HashiCorp Vault. Kubernetes applications can authenticate with HashiCorp Vault using Microsoft Entra managed identities. You can deploy [Vault itself to Kubernetes](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-azure-aks). Consider running it in a separate dedicated cluster from your application cluster.
+- HashiCorp Vault. Kubernetes applications can authenticate with HashiCorp Vault using Microsoft Entra managed identities. You can deploy the [Vault itself to Kubernetes](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-azure-aks). Consider running it in a separate dedicated cluster from your application cluster.
 
 - Kubernetes secrets. Another option is simply to use Kubernetes secrets. This option is the easiest to configure but is the least secure. Secrets are stored in etcd, which is a distributed key-value store. AKS [encrypts etcd at rest](https://github.com/Azure/kubernetes-kms#azure-kubernetes-service-aks). Microsoft manages the encryption keys.
 
