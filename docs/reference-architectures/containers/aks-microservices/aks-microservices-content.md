@@ -184,7 +184,7 @@ Using a solution like Azure Key Vault provides several advantages, such as:
 - Key lifecycle management
 - Auditing
 
-The reference implementation stores credentials such as Cosmos DB connection string in Azure Key Vault. The reference implementation uses managed identity for microservices, to authenticate to Key vault and access azure key vault secrets.  
+The reference implementation stores Cosmos DB connection strings and other secrets in Azure Key Vault. The reference implementation uses a managed identity for microservices, to authenticate to Key Vault and access secrets.  
 
 #### Container and Orchestrator security
 
