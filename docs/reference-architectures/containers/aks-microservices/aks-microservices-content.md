@@ -314,6 +314,7 @@ This article is maintained by Microsoft. It was originally written by the follow
 
 Principal author:
 * [Francis Simy Nazareth](https://www.linkedin.com/in/francis-simy-nazereth-971440a/) | Senior Technical Specialist
+
 Contributors: 
 * [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer
 * Alessandro Vossa | Senior Technical Specialist
