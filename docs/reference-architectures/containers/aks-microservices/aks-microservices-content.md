@@ -37,7 +37,7 @@ The architecture consists of the following components.
 
 Azure Container Apps can be used as a platform to host microservices in scenarios where fidelity to Kubernetes APIs aren't required. [Azure Container Apps](/azure/container-apps/) provides a simpler and more serverless experience than AKS, where direct access to Kubernetes APIs or control over the cluster infrastructure is not required. 
 
-Instead of the managed ingress gateway in AKS, you can use Application Gateway for containers, Istio Ingress Gateway, or third party solutions as the ingress controller. Please see [Ingress in AKS](/en-us/azure/aks/concepts-network-ingress) for a comparison of ingress options in AKS. 
+Instead of the managed ingress gateway in AKS, you can use Application Gateway for Containers, Istio Ingress Gateway, or a third-party solution. See [Ingress in AKS](/en-us/azure/aks/concepts-network-ingress) for a comparison of ingress options in AKS. 
 
 Third party container registries such as DockerHub can be used to store container images as well. 
 
