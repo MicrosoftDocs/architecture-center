@@ -43,7 +43,7 @@ Third-party container registries such as Docker Hub can be used to store contain
 
 For microservices that need to maintain state information, [DAPR](/azure/aks/dapr-overview) provides a good abstraction layer for microservice state management. 
 
-GitHub actions can be used to build and deploy microservices. You can also third-party CI/CD solutions such as Jenkins. 
+GitHub Actions can be used to build and deploy microservices. You can also third-party CI/CD solutions like Jenkins. 
 
 Microservice observability can be achieved through alternate tools such as [Kiali](https://kiali.io/) as well. 
 
