@@ -103,7 +103,6 @@ Route Server is a fully managed service that offers high availability. For this 
 
 Most components in this solution are managed services that automatically scale. But there are a few exceptions:
 
-- Route Server can advertise at most 1,000 routes to ExpressRoute or a VPN gateway.
 - Route Server can support at most 4,000 VMs per virtual network, including peered virtual networks.
 
 ### Security
