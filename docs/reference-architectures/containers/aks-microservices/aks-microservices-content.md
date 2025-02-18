@@ -157,7 +157,7 @@ When multiple teams are working on developing and deploying microservices, AKS r
 
 #### Authentication and Authorization
 
-Microservices can demand that the consuming services or users authenticate and authorize access to the microservice, using certificates, credentials, and role based access control mechanisms. Microsoft Entra ID can be used to implement [OAuth 2.0 tokens for authorization](/entra/architecture/auth-oauth2). [Service meshes such as Istio](/azure/aks/istio-about) provides authorization and authentication mechanisms for microservices as well, including OAuth token validation and token based routing. The reference implementation doe snot cover microservice authentication and authorization scenarios.  
+Microservices can require that the consuming services or users authenticate and authorize access to the microservice, using certificates, credentials, and role based access control mechanisms. Microsoft Entra ID can be used to implement [OAuth 2.0 tokens for authorization](/entra/architecture/auth-oauth2). [Service meshes such as Istio](/azure/aks/istio-about) provide authorization and authentication mechanisms for microservices as well, including OAuth token validation and token-based routing. The reference implementation doesn't cover microservice authentication and authorization scenarios.  
 
 #### Secrets management and application credentials
 
