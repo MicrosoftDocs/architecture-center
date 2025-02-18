@@ -1294,10 +1294,6 @@ items:
       items:
       - name: Enable machine learning inference
         href: guide/iot/machine-learning-inference-iot-edge.yml
-      - name: Migration to Azure IoT best practices
-        href: guide/iot/azure-iot-migration-best-practices.md
-      - name: Migrate your IoT solutions to Azure
-        href: guide/iot/migrate-iot-solution-azure.yml
       - name: Scale your IoT Hub solutions
         href: guide/iot/scale-iot-solution-azure.md
       - name: Move IoT Hub solutions to production
@@ -1306,8 +1302,6 @@ items:
         href: guide/multitenant/approaches/iot.md
     - name: Architectures
       items:
-      - name: Automated guided vehicles fleet control
-        href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
       - name: Automotive connected fleets
         href: industries/automotive/automotive-connected-fleets.yml
       - name: Automotive test data analytics
