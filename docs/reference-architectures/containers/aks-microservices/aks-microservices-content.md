@@ -16,15 +16,17 @@ If you would prefer to see a more advanced microservices example that is built u
 This request flow implements the [Publisher-Subscriber](/azure/architecture/patterns/publisher-subscriber), [Competing Consumers](/azure/architecture/patterns/competing-consumers), and [Gateway Routing](/azure/architecture/patterns/gateway-routing) cloud design patterns. The messaging flow proceeds as follows:
 
 1. Client application sends a JSON payload over HTTPS to the public FQDN of the load balancer (managed ingress controller),  to schedule a drone pickup.
-* The managed ingress controller routes the request to the ingestion microservice.
-* The ingestion microservice processes the request and queues up delivery requests in an Azure service bus queue.
+  * The managed ingress controller routes the request to the ingestion microservice.
+  * The ingestion microservice processes the request and queues up delivery requests in an Azure service bus queue.
 
 2. The workflow microservice:
-* Consumes message information from the Service Bus message queue.
-* Sends an HTTPS request to the Delivery microservice, which passes data to Azure Cache for Redis external data storage.
-* Sends an HTTPS request to the Drone Scheduler microservice.
-* Sends an HTTPS request to the Package microservice, which passes data to MongoDB external data storage.
-3. An HTTPS GET request is used to return delivery status. This request passes through the managed ingress controller into the Delivery microservice. The delivery microservice reads data from Azure Cache for Redis.
+  * Consumes message information from the Service Bus message queue.
+  * Sends an HTTPS request to the Delivery microservice, which passes data to Azure Cache for Redis external data storage.
+  * Sends an HTTPS request to the Drone Scheduler microservice.
+  * Sends an HTTPS request to the Package microservice, which passes data to MongoDB external data storage.
+    
+3. An HTTPS GET request is used to return delivery status. This request passes through the managed ingress controller into the Delivery microservice.
+  *  The delivery microservice reads data from Azure Cache for Redis.
   
 For more details of the sample microservices application, please see the [microservices reference implementation sample](https://github.com/mspnp/microservices-reference-implementation). 
 
