@@ -90,7 +90,7 @@ Each pattern in this catalog describes the problem that the pattern addresses, c
 | [Sharding](./sharding.yml) | Divide a data store into a set of horizontal partitions or shards. | <ul><li>Reliability <li> Cost&nbsp;Optimization </ul> |
 | [Sidecar](./sidecar.yml) | Deploy components of an application into a separate process or container to provide isolation and encapsulation. | <ul><li>Security <li> Operational&nbsp;Excellence </ul> |
 | [Static Content Hosting](./static-content-hosting.yml) | Deploy static content to a cloud-based storage service that can deliver them directly to the client. | <ul><li>Cost&nbsp;Optimization  </ul> |
-| [Strangler Fig](./strangler-fig.yml) | Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services. | <ul><li>Reliability <li> Cost&nbsp;Optimization <li> Operational&nbsp;Excellence </ul> |
+| [Strangler Fig](./strangler-fig.md) | Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services. | <ul><li>Reliability <li> Cost&nbsp;Optimization <li> Operational&nbsp;Excellence </ul> |
 | [Throttling](./throttling.yml) | Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service. | <ul><li>Reliability <li> Security <li> Cost&nbsp;Optimization <li> Performance&nbsp;Efficiency </ul> |
 | [Valet Key](./valet-key.yml) | Use a token or key that provides clients with restricted direct access to a specific resource or service. | <ul><li>Security <li> Cost&nbsp;Optimization <li> Performance&nbsp;Efficiency </ul> |
 
