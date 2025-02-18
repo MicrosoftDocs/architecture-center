@@ -1629,8 +1629,6 @@ items:
         href: example-scenario/data/esri-arcgis-azure-virtual-desktop.yml
       - name: Multiple Active Directory forests
         href: example-scenario/azure-virtual-desktop/multi-forest.yml
-      - name: Multiple forests with Microsoft Entra Domain Services
-        href: example-scenario/azure-virtual-desktop/multi-forest-azure-managed.yml
   - name: Web applications
     href: web-apps/index.md
 - name: Microsoft Azure Well-Architected Framework

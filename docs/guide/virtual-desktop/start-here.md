@@ -59,7 +59,6 @@ The following sections, organized by category, provide links to example scenario
 - [Authentication in Azure Virtual Desktop](/azure/virtual-desktop/authentication?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Deploy Microsoft Entra joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/azure-ad-joined-session-hosts?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Multiple forests with AD DS and Microsoft Entra ID](../../example-scenario/azure-virtual-desktop/multi-forest.yml)
-- [Multiple forests with AD DS, Microsoft Entra ID, and Microsoft Entra Domain Services](../../example-scenario/azure-virtual-desktop/multi-forest-azure-managed.yml)
 
 ### Azure Virtual Desktop for the enterprise
 

@@ -52,7 +52,6 @@ For information about solutions in which Azure services integrate with the other
 |[Enable VM protection in Azure Site Recovery](/azure-stack/operator/protect-virtual-machines) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Azure Site Recovery integrates with Windows Server-based apps and roles, including Active Directory Domain Services.|Hybrid|
 |[Extend on-premises AD FS to Azure](../reference-architectures/identity/adfs.yml) |Implement a highly secure hybrid network architecture by using Active Directory Federation Services (AD FS) authorization on Azure.|Identity|
 |[Multiple forests with AD DS and Microsoft Entra ID](../example-scenario/azure-virtual-desktop/multi-forest.yml)|Create multiple Active Directory forests by using Azure Virtual Desktop.|Virtual Desktop|
-|[Multiple forests with AD DS, Microsoft Entra ID, and Microsoft Entra Domain Services](../example-scenario/azure-virtual-desktop/multi-forest-azure-managed.yml) |Create multiple Active Directory forests by using Azure Virtual Desktop and AD DS.|Virtual Desktop|
 |[On-premises Active Directory domains with Microsoft Entra ID](../reference-architectures/identity/azure-ad.yml) |Learn how to implement a secure hybrid network architecture that integrates on-premises Active Directory domains with Microsoft Entra ID.|Identity|
 |[Use Azure file shares in a hybrid environment](../hybrid/azure-file-share.yml) |Use identity-based authentication to control access to Azure file shares via AD DS users and groups.|Hybrid|
 
