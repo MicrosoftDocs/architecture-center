@@ -122,11 +122,11 @@ When thinking about probes, it's useful to recall how a service works in Kuberne
 
 Sometimes, a pod may not be ready to receive traffic, even though the pod started successfully. For example, there may be initialization tasks, where the application running in the container loads things into memory or reads configuration data. To indicate that a pod is healthy but not ready to receive traffic, define a readiness probe.
 
-Liveness probes handle the case where a pod is still running, but is unhealthy and should be recycled. For example, suppose that a container is serving HTTP requests but hangs for some reason. The container doesn't crash, but it has stopped serving any requests. If you define an HTTP liveness probe, the probe will stop responding and that informs Kubernetes to restart the pod.
+Liveness probes handle the case where a pod is still running, but is unhealthy and should be recycled. For example, suppose that a container is serving HTTP requests but hangs for some reason. The container doesn't crash, but it has stopped serving any requests. Liveness probe determines when to restart a container. If you define a liveness probe, the probe will stop responding and will inform Kubernetes to restart the pod.
 
 Here are some considerations when designing probes for microservices:
 
-- If your code has a long startup time, there is a danger that a liveness probe will report failure before the startup completes. To prevent probe failure, use the `initialDelaySeconds` setting, which delays the probe from starting.
+- If your code has a long startup time, there is a danger that a liveness probe will report failure before the startup completes. If you wish to wait before executing a liveness probe, use the `initialDelaySeconds` setting, or use the startup probe.
 
 - A liveness probe doesn't help unless restarting the pod is likely to restore it to a healthy state. You can use a liveness probe to mitigate against memory leaks or unexpected deadlocks, but there's no point in restarting a pod that's going to immediately fail again.
 
