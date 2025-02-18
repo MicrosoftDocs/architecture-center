@@ -11,6 +11,16 @@ This reference architecture shows a microservices application deployed to Azure 
 
 If you would prefer to see a more advanced microservices example that is built upon the [AKS Baseline architecture](https://github.com/mspnp/aks-secure-baseline), see [Advanced Azure Kubernetes Service (AKS) microservices architecture](./aks-microservices-advanced.yml)
 
+## Workflow
+
+* Client application sends a JSON payload over HTTPS to the public FQDN of the load balancer (managed ingress controller).
+* The managed ingress controller routes the request to the ingestion microservice.
+* The ingestion microservice processes the request and queues up delivery requests in an Azure service bus queue.
+* The workflow microservice picks up delivery requests from the service bus queue, and triggers the package microservice, drone scheduler microservice, and delivery microservice.
+* Package microservice creates a record in the Cosmos DB for MongoDB
+* Drone scheduler microservice stores the scheduling information in Cosmos DB
+* Delivery microservice stores the delivery transaction record in Cosmos DB
+
 ## Components
 
 The architecture consists of the following components.
