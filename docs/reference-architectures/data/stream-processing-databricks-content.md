@@ -6,7 +6,7 @@ This reference architecture shows an end-to-end stream processing pipeline. The 
 
 ## Architecture
 
-:::image type="complex" border="false" source="./images/stream-processing-databricks.svg" alt-text="Diagram that shows the Stream processing with Azure Databricks architecture." lightbox="./images/stream-processing-databricks.svg":::
+:::image type="complex" border="false" source="./images/stream-processing-databricks.svg" alt-text="Diagram that shows a reference architecture for stream processing with Azure Databricks." lightbox="./images/stream-processing-databricks.svg":::
    Diagram that shows a reference architecture for stream processing with Azure Databricks. In the diagram, two data sources produce real-time streams of ride and fare information. Data is ingested via Azure Event Hubs, processed by Azure Databricks, stored in Azure Cosmos DB, and then analyzed by using Azure Synapse Link and Azure Log Analytics.
 :::image-end:::
 
@@ -20,7 +20,7 @@ The following dataflow corresponds to the previous diagram:
 
 1. **[Event Hubs](/azure/well-architected/service-guides/event-hubs)** is an event ingestion service. This architecture uses two event hub instances, one for each data source. Each data source sends a stream of data to the associated event hub.
 
-1. **[Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security)** is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Azure Databricks is used to correlate the taxi ride and fare data, and to enrich the correlated data with neighborhood data that's stored in the Azure Databricks file system.
+1. **[Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security)** is an Apache Spark-based analytics platform that's optimized for the Microsoft Azure cloud services platform. Azure Databricks is used to correlate the taxi ride and fare data, and to enrich the correlated data with neighborhood data that's stored in the Azure Databricks file system.
 
 1. **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed, multi-model database service. The output of an Azure Databricks job is a series of records, which are written to [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction). Azure Cosmos DB for Apache Cassandra is used because it supports time series data modeling.
 
@@ -32,11 +32,11 @@ The following dataflow corresponds to the previous diagram:
 
 ## Scenario details
 
-A taxi company collects data about each taxi trip. For this scenario, we assume there are two separate devices sending data. The taxi has a meter that sends information about each ride, including the duration, distance, and pickup and drop-off locations. A separate device accepts payments from customers and sends data about fares. To spot ridership trends, the taxi company wants to calculate the average tip per mile driven for each neighborhood, in real time.
+A taxi company collects data about each taxi trip. For this scenario, we assume that two separate devices send data. The taxi has a meter that sends information about each ride, including the duration, distance, and pickup and drop-off locations. A separate device accepts payments from customers and sends data about fares. To spot ridership trends, the taxi company wants to calculate the average tip per mile driven for each neighborhood, in real time.
 
 ## Data ingestion
 
-To simulate a data source, this reference architecture uses the [New York City taxi data dataset](https://uofi.app.box.com/v/NYCtaxidata/folder/2332218797)<sup id="note1">[1](#note1)</sup>. This dataset contains data about taxi trips in New York City over a four-year period, from 2010 - 2013. It contains both ride and fare data records. Ride data includes trip duration, trip distance, and pick-up and drop-off location. Fare data includes fare, tax, and tip amounts. Fields in both record types include medallion number, hack license, and vendor ID. The combination of these three fields uniquely identify a taxi plus a driver. The data is stored in CSV format.
+To simulate a data source, this reference architecture uses the [New York City taxi data dataset](https://uofi.app.box.com/v/NYCtaxidata/folder/2332218797)<sup id="note1">[1](#note1)</sup>. This dataset contains data about taxi trips in New York City from 2010 - 2013. It contains both ride and fare data records. Ride data includes trip duration, trip distance, and the pick-up and drop-off location. Fare data includes fare, tax, and tip amounts. Fields in both record types include medallion number, hack license, and vendor ID. The combination of these three fields uniquely identifies a taxi plus a driver. The data is stored in CSV format.
 
 <span id="note1">[1]</span> Donovan, Brian; Work, Dan (2016): New York City Taxi Trip Data (2010-2013). University of Illinois at Urbana-Champaign. [https://doi.org/10.13012/J8PN93H8](https://doi.org/10.13012/J8PN93H8)
 
@@ -78,7 +78,7 @@ public abstract class TaxiData
     }
 ```
 
-This property is used to provide an explicit partition key when it sends data to Event Hubs:
+This property is used to provide an explicit partition key when it sends data to Event Hubs.
 
 ```csharp
 using (var client = pool.GetObject())
@@ -94,7 +94,7 @@ The throughput capacity of Event Hubs is measured in [throughput units](/azure/e
 
 ### Stream processing
 
-In Azure Databricks, a job performs data processing. The job is assigned to a cluster and runs on it. The job can either be custom code written in Java or a Spark [notebook](/azure/databricks/notebooks/).
+In Azure Databricks, a job performs data processing. The job is assigned to a cluster and then runs on it. The job can either be custom code written in Java or a Spark [notebook](/azure/databricks/notebooks/).
 
 In this reference architecture, the job is a Java archive with classes written in Java and Scala. When you specify the Java archive for a Databricks job, the Databricks cluster specifies the class for operation. Here, the `main` method of the `com.microsoft.pnp.TaxiCabReader` class contains the data processing logic.
 
@@ -129,7 +129,7 @@ val fareEvents = spark.readStream
 
 The ride data includes the latitude and longitude coordinates of the pick-up and drop-off locations. These coordinates are useful but not easily consumed for analysis. Therefore, this data is enriched with neighborhood data that's read from a [shapefile](https://en.wikipedia.org/wiki/Shapefile).
 
-The shapefile format is binary and not easily parsed. But the [GeoTools](http://geotools.org) library provides tools for geospatial data that use the shapefile format. This library is used in the `com.microsoft.pnp.GeoFinder` class to determine the neighborhood name based on the pick-up and drop-off coordinates.
+The shapefile format is binary and not easily parsed. But the [GeoTools](http://geotools.org) library provides tools for geospatial data that use the shapefile format. This library is used in the `com.microsoft.pnp.GeoFinder` class to determine the neighborhood name based on the coordinates for pick-up and drop-off locations.
 
 ```scala
 val neighborhoodFinder = (lon: Double, lat: Double) => {
@@ -225,7 +225,7 @@ Access to the Azure Databricks workspace is controlled by using the [administrat
 
 #### Manage secrets
 
-Azure Databricks includes a [secret store](/azure/databricks/security/secrets/) that's used to store credentials and reference them in notebooks and jobs. Secrets within the Azure Databricks secret store are partitioned by scopes, such as:
+Azure Databricks includes a [secret store](/azure/databricks/security/secrets/) that's used to store credentials and reference them in notebooks and jobs. Scopes partition secrets within the Azure Databricks secret store:
 
 ```bash
 databricks secrets create-scope --scope "azure-databricks-job"
@@ -252,11 +252,11 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. 
 
 This reference architecture deploys Event Hubs in the Standard tier. The pricing model is based on throughput units, ingress events, and capture events. An ingress event is a unit of data that's 64 KB or less. Larger messages are billed in multiples of 64 KB. You specify throughput units either through the Azure portal or Event Hubs management APIs.
 
-If you need more retention days, consider the Dedicated tier. This tier provides single-tenant deployments with most demanding requirements. This offering builds a cluster based on capacity units that isn't bound by throughput units.
+If you need more retention days, consider the Dedicated tier. This tier provides single-tenant deployments with most demanding requirements. This offering builds a cluster based on capacity units that isn't dependent on throughput units.
 
 The Standard tier is also billed based on ingress events and throughput units.
 
-For more information about Event Hubs pricing, see [Event Hubs pricing][event-hubs-pricing].
+For more information, see [Event Hubs pricing][event-hubs-pricing].
 
 #### Azure Databricks cost considerations
 
@@ -264,7 +264,7 @@ Azure Databricks provides the Standard tier and the Premium tier, both of which 
 
 Data engineering workloads should run on a job cluster. They're for data engineers to build and perform jobs. Data analytics workloads should run on an all-purpose cluster and are intended for data scientists to explore, visualize, manipulate, and share data and insights interactively.
 
-Azure Databricks provides many pricing models.
+Azure Databricks provides multiple pricing models.
 
 - **Pay-as-you-go plan**
 
@@ -280,7 +280,7 @@ For more information, see [Azure Databricks pricing][azure-databricks-pricing].
 
 In this architecture, the Azure Databricks job writes a series of records to Azure Cosmos DB. You're charged for the capacity that you reserve, measured in Request Units per second (RU/s). This capacity is used to perform insert operations. The unit for billing is 100 RU/sec per hour. For example, the cost of writing 100-KB items is 50 RU/s.
 
-For write operations, provision enough capacity to support the number of writes needed per second. You can increase the provisioned throughput by using the portal or Azure CLI before you perform write operations and then reduce the throughput after those operations are complete. Your throughput for the write period is the sum of the minimum throughput needed for the specific data and the throughput required for the insert operation. This calculation assumes that there is no other workload running.
+For write operations, provision enough capacity to support the number of writes needed per second. You can increase the provisioned throughput by using the portal or Azure CLI before you perform write operations and then reduce the throughput after those operations are complete. Your throughput for the write period is the sum of the minimum throughput needed for the specific data and the throughput required for the insert operation. This calculation assumes that there's no other workload running.
 
 ##### Example cost analysis
 
@@ -290,7 +290,7 @@ The container is billed at 10 units of 100 RU/sec per hour for each hour. Ten un
 
 For 720 hours or 7,200 units (of 100 RUs), you're billed $57.60 for the month.
 
-Storage is also billed for each GB used for your stored data and index. For more information, see [Azure Cosmos DB pricing model][cosmosdb-pricing].
+Storage is also billed for each GB that's used for your stored data and index. For more information, see [Azure Cosmos DB pricing model][cosmosdb-pricing].
 
 Use the [Azure Cosmos DB capacity calculator][cosmos-calculator] for a quick estimate of the workload cost.
 
@@ -300,7 +300,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 #### Monitoring
 
-Azure Databricks is based on Apache Spark, and both use [Apache Log4j](https://logging.apache.org/log4j/2.x) as the standard library for logging. In addition to the default logging that Apache spark provides, you can implement logging to Log Analytics outlined in the article [Monitoring Azure Databricks](/azure/architecture/databricks-monitoring/).
+Azure Databricks is based on Apache Spark. Both Azure Databricks and Apache Spark use [Apache Log4j](https://logging.apache.org/log4j/2.x) as the standard library for logging. In addition to the default logging that Apache spark provides, you can implement logging to Log Analytics outlined in the article [Monitoring Azure Databricks](/azure/architecture/databricks-monitoring/).
 
 As the `com.microsoft.pnp.TaxiCabReader` class processes ride and fare messages, it's possible that either one might be malformed and therefore not valid. In a production environment, it's important to analyze these malformed messages to identify a problem with the data sources so that it can be fixed quickly to prevent data loss. The `com.microsoft.pnp.TaxiCabReader` class registers an Apache Spark Accumulator that tracks the number of malformed fare records and ride records:
 
@@ -359,7 +359,7 @@ SparkMetric_CL
 
   In this architecture, Event Hubs, Log Analytics, and Azure Cosmos DB are identified as a single workload. These resources are included in a single Azure Resource Manager template.
 
-- Consider staging your workloads. Deploy to various stages and run validation checks at each stage before you move to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment problems.
+- Consider staging your workloads. Deploy to various stages and run validation checks at each stage before you move to the next stage. That way you can control how you push updates to your production environments and minimize unanticipated deployment problems.
 
   In this architecture, there are multiple deployment stages. Consider creating an Azure DevOps pipeline and adding those stages. You can automate the following stages:
 
