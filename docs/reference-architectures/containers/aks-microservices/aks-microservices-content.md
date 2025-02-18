@@ -53,7 +53,7 @@ Instead of the managed ingress gateway in AKS, you can use Application Gateway f
 
 Third-party container registries such as Docker Hub can be used to store container images. 
 
-For microservices that need to maintain state information, [DAPR](/azure/aks/dapr-overview) provides a good abstraction layer for microservice state management. 
+For microservices that need to maintain state information, [Dapr](/azure/aks/dapr-overview) provides an abstraction layer for microservice state management.
 
 GitHub Actions can be used to build and deploy microservices. You can also third-party CI/CD solutions like Jenkins. 
 
