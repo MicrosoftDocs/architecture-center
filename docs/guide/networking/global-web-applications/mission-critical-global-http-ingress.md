@@ -4,16 +4,16 @@ titleSuffix: Azure Architecture Center
 description: Learn how to develop highly resilient global HTTP applications when your focus is on HTTP ingress.
 author: johndowns
 ms.author: jodowns
-ms.date: 02/17/2025
+ms.date: 02/19/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
-  - azure
+  - azure-traffic-manager
+  - azure-front-door
+  - azure-application-gateway
 categories:
-  - management-and-governance
-ms.category:
-  - fcp
+  - networking
 ms.custom:
   - checklist
   - guide
@@ -23,7 +23,7 @@ ms.custom:
 
 Mission-critical applications need to maintain a high level of uptime, even when network components are unavailable or degraded. When you design web traffic ingress, routing, and security, you can consider combining multiple Azure services to achieve a higher level of availability and to avoid having a single point of failure.
 
-Microsoft offers an [industry-leading service level agreement (SLA) for Azure Front Door](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services). Even with a 100% uptime SLA from another provider, it's important to note that that isn't a guarantee of zero downtime, and that SLAs typically provide for service credits in the event of an outage. For this reason, even Microsoft's competitors recommend using multiple ingress paths for mission-critical workloads.
+Microsoft offers an [industry-leading service level agreement (SLA) for Azure Front Door](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services). Even if another provider offers a 100% uptime SLA, it's important to note that that isn't a guarantee of zero downtime, and that SLAs typically provide for service credits in the event of an outage. For this reason, even Microsoft's competitors recommend using multiple ingress paths for mission-critical workloads.
 
 If you decide to adopt this approach, you'll need to implement separate network path to your application servers, and each path needs to be configured and tested separately. You must carefully consider the full implications of this approach.  
 

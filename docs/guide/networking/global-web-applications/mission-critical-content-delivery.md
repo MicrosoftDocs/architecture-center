@@ -4,16 +4,15 @@ titleSuffix: Azure Architecture Center
 description: Learn how to develop highly resilient global HTTP applications when your focus is on content delivery and caching.
 author: johndowns
 ms.author: jodowns
-ms.date: 02/17/2025
+ms.date: 02/19/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
-  - azure
+  - azure-traffic-manager
+  - azure-front-door
 categories:
-  - management-and-governance
-ms.category:
-  - fcp
+  - networking
 ms.custom:
   - checklist
   - guide
@@ -25,7 +24,7 @@ Caching is a common way to reduce load on the backend services and optimize perf
 
 CDNs are an essential component in some solution architectures, so it’s an industry best practice for mission-critical workloads to use multiple CDNs to achieve a higher level of uptime. If one CDN experiences outage or degraded performance, your traffic is automatically diverted to another CDN.
 
-Microsoft offers an [industry-leading service level agreement (SLA) for Azure Front Door](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services). Even with a 100% uptime SLA from another provider, it's important to note that that isn't a guarantee of zero downtime, and that SLAs typically provide for service credits in the event of an outage. For this reason, even Microsoft's competitors recommend using multiple CDNs for mission-critical workloads, and many companies who manage their own CDN also utilize other CDNs too.
+Microsoft offers an [industry-leading service level agreement (SLA) for Azure Front Door](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services). Even if another provider offers a 100% uptime SLA, it's important to note that that isn't a guarantee of zero downtime, and that SLAs typically provide for service credits in the event of an outage. For this reason, even Microsoft's competitors recommend using multiple CDNs for mission-critical workloads, and many companies who manage their own CDN also utilize other CDNs too.
 
 If you implement multiple CDNs, consider the implications of this approach. Each CDN provides a separate network path to your application servers, and you need to configure and test each CDN separately.
 
@@ -57,7 +56,7 @@ The considerations described in [Mission-critical global web applications](./ove
 
 #### Choice of CDN
 
-Microsoft offers several CDN products. Our flagship CDN offering is Azure Front Door Standard and Premium, and other CDN products are being retired. The other CDN products also share physical infrastructure with Azure Front Door, so we recommend you select a different CDN product for this type of architecture described within this article. Make sure you select an alternative CDN that meets your needs for feature capabilities, uptime, and cost.
+Microsoft offers several CDN products. Our flagship CDN offering is Azure Front Door Standard and Premium, and retirement has been announced for all other CDN products. The other CDN products also share physical infrastructure with Azure Front Door, so we recommend you select a different CDN product for the type of architecture described within this article. Make sure you select an alternative CDN that meets your needs for feature capabilities, uptime, and cost.
 
 You might choose to use more than two CDNs depending on your requirements and risk tolerance.
 
