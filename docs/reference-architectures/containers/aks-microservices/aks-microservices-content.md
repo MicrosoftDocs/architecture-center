@@ -76,7 +76,7 @@ API gateways are a general [microservices design pattern](https://microservices.
 - [Using API gateways in microservices](../../../microservices/design/gateway.yml)
 - [Choosing a gateway technology](../../../microservices/design/gateway.yml#choosing-a-gateway-technology)
 
-In Kubernetes, the functionality of an API gateway is primarily handled by an **Ingress controller**. In Kubernetes, the **Ingress controller** can be used to implement the API gateway pattern. In that case, **Ingress** and **Ingress controller** work in conjunction to provide these features:
+In Kubernetes, the functionality of an API gateway is primarily handled by an **Ingress controller**. In that case, **Ingress** and **Ingress controller** work in conjunction to provide these features:
 
 - Route client requests to the right backend microservices. This routing provides a single endpoint for clients, and helps to decouple clients from services.
 
