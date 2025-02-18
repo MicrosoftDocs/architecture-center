@@ -2801,6 +2801,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/iot/automated-guided-vehicles-fleet-control.yml",
+      "redirect_url": "/azure/architecture/industries/automotive/automotive-connected-fleets",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/power-platform/eventual-consistency.yml",
       "redirect_url": "/azure/architecture/guide/power-platform/eventual-consistency",
       "redirect_document_id": true
@@ -5760,6 +5765,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/iot/azure-iot-migration-best-practices.md",
+      "redirect_url": "/azure/iot/iot-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/iot/migrate-iot-solution-azure.yml",
+      "redirect_url": "/azure/iot/iot-introduction",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/infrastructure/linux-vdi-citrix.yml",
       "redirect_url": "/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/landing-zone-citrix/citrix-enterprise-scale-landing-zone",
       "redirect_document_id": false
@@ -6932,6 +6947,31 @@
     {
       "source_path": "docs/solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml",
       "redirect_url": "/azure/site-recovery/site-recovery-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/avops-architecture.yml",
+      "redirect_url": "/industry/mobility/architecture/avops-architecture-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/autonomous-vehicle-operations-dataops.yml",
+      "redirect_url": "/industry/mobility/architecture/autonomous-vehicle-operations-dataops-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/autonomous-vehicle-validation-operations.yml",
+      "redirect_url": "/industry/mobility/architecture/autonomous-vehicle-validation-operations-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/software-defined-vehicle-reference-architecture.yml",
+      "redirect_url": "/industry/mobility/architecture/software-defined-vehicle-reference-architecture-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/automotive-messaging-data-analytics.yml",
+      "redirect_url": "/industry/mobility/architecture/automotive-messaging-data-analytics-content",
       "redirect_document_id": false
     }
   ]
