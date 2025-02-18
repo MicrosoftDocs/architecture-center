@@ -45,7 +45,7 @@ For microservices that need to maintain state information, [DAPR](/azure/aks/dap
 
 GitHub Actions can be used to build and deploy microservices. You can also third-party CI/CD solutions like Jenkins. 
 
-Microservice observability can be achieved through alternate tools such as [Kiali](https://kiali.io/) as well. 
+Microservice observability can be achieved through alternate tools like [Kiali](https://kiali.io/). 
 
 ## Considerations
 
