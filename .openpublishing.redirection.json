@@ -6963,6 +6963,11 @@
       "source_path": "docs/ai-ml/architecture/ai-ml/architecture/autonomous-vehicle-validation-operations.yml",
       "redirect_url": "/industry/mobility/architecture/autonomous-vehicle-validation-operations-content",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/software-defined-vehicle-reference-architecture.yml",
+      "redirect_url": "/industry/mobility/architecture/software-defined-vehicle-reference-architecture-content",
+      "redirect_document_id": false
     }
   ]
 }
