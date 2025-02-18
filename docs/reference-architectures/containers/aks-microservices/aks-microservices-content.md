@@ -39,7 +39,7 @@ Azure Container Apps can be used as a platform to host microservices in scenario
 
 Instead of the managed ingress gateway in AKS, you can use Application Gateway for Containers, Istio Ingress Gateway, or a third-party solution. See [Ingress in AKS](/en-us/azure/aks/concepts-network-ingress) for a comparison of ingress options in AKS. 
 
-Third party container registries such as DockerHub can be used to store container images as well. 
+Third-party container registries such as Docker Hub can be used to store container images. 
 
 For microservices that need to maintain state information, [DAPR](/azure/aks/dapr-overview) provides a good abstraction layer for microservice state management. 
 
