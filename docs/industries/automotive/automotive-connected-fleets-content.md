@@ -90,7 +90,7 @@ You can use data connectors to perform two operations:
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/connected-fleets-diagrams.vsdx) of the diagrams in the architecture.*
 
-The following trigger and actions correspond to the previous diagram.:
+The following trigger and actions correspond to the previous diagram:
 
 1. **Triggers**
     1. *Incoming event messages*: Start a workflow on Microsoft Power Apps or Microsoft Power Platform based on an event message type. The payload of the message can be parsed and accessed in Microsoft Power Platform.
