@@ -117,9 +117,20 @@ In Kubernetes, the functionality of an API gateway is primarily handled by an **
 
 There are Ingress controllers for Nginx, HAProxy, Traefik, and Azure Application Gateway, among others. AKS provides multiple managed ingress options. You can choose from [managed Nginx based ingress controller](/azure/aks/app-routing) through application routing add-on, Application Gateway for containers, or Istio Ingress Gateway as the ingress controller. Please see [Ingress in AKS](/en-us/azure/aks/concepts-network-ingress) for a comparison of ingress options. 
 
+The Ingress resources Kubernetes objects have evolved into the more comprehensive and powerful Kubernetes Gateway API. Ingress Controller and Gateway API are both Kubernetes objects used for managing traffic routing and load balancing. Designed to be generic, expressive, extensible, and role-oriented, the Gateway API is a modern set of APIs for defining L4 and L7 routing rules in Kubernetes.
+
 The ingress controller operates as the edge router or reverse proxy. A reverse proxy server is a potential bottleneck or single point of failure, so it is recommended to deploy at least two replicas for high availability.
 
-The Ingress controller also has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
+#### When to Choose Ingress Controllers or Gateway API
+Ingress resources are suitable for specific use cases:
+
+* Ingress Controllers are a straightforward option for setting up and are well-suited for smaller and less complex Kubernetes deployments that prioritize easy configuration.
+* If you currently have Ingress controllers configured in your Kubernetes cluster and they meet your requirements effectively, there may not be an immediate necessity to transition to the Kubernetes Gateway API.
+
+Gateway API is the recommended option in the following situations:
+
+* When dealing with complex routing configurations, traffic splitting, and advanced traffic management strategies, the flexibility provided by Kubernetes Gateway API's Route resources is essential.
+* In cases where networking requirements call for custom solutions or the integration of third-party plugins, the Kubernetes Gateway API's CRD-based approach offers enhanced extensibility.
 
 ### Reliability
 
@@ -297,6 +308,17 @@ To deploy the reference implementation for this architecture, follow the steps i
 
 > [!div class="nextstepaction"]
 > [AKS Microservices Reference Implementation](https://github.com/mspnp/microservices-reference-implementation)
+
+## Contributors
+This article is maintained by Microsoft. It was originally written by the following contributors.
+
+Principal author:
+* [Francis Simy Nazareth](https://www.linkedin.com/in/francis-simy-nazereth-971440a/) | Senior Technical Specialist
+Contributors: 
+* [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer
+* Alessandro Vossa | Senior Technical Specialist
+
+To see non-public LinkedIn profiles, sign in to LinkedIn.
 
 ## Next steps
 
