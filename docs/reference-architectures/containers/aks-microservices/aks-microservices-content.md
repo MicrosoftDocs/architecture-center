@@ -126,7 +126,7 @@ Liveness probes handle the case where a pod is still running, but is unhealthy a
 
 Here are some considerations when designing probes for microservices:
 
-- If your code has a long startup time, there is a danger that a liveness probe will report failure before the startup completes. To prevent the probe failure, use the `initialDelaySeconds` setting, which delays the probe from starting.
+- If your code has a long startup time, there is a danger that a liveness probe will report failure before the startup completes. To prevent probe failure, use the `initialDelaySeconds` setting, which delays the probe from starting.
 
 - A liveness probe doesn't help unless restarting the pod is likely to restore it to a healthy state. You can use a liveness probe to mitigate against memory leaks or unexpected deadlocks, but there's no point in restarting a pod that's going to immediately fail again.
 
