@@ -23,7 +23,7 @@ If you would prefer to see a more advanced microservices example that is built u
   
 For more details of the sample microservices application, please see the [microservices reference implementation sample](https://github.com/mspnp/microservices-reference-implementation). 
 
-## Components
+### Components
 
 The architecture consists of the following components.
 
