@@ -34,8 +34,6 @@ items:
         items:
         - name: Automotive messaging, data, and analytics
           href: ./architecture/automotive-messaging-data-analytics.yml  
-        - name: ValOps for autonomous vehicle operations
-          href: ./architecture/autonomous-vehicle-validation-operations.yml   
       - name: Chat bots
         items:
         - name: Azure OpenAI chat basic architecture
