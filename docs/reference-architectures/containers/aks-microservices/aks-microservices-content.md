@@ -20,6 +20,8 @@ If you would prefer to see a more advanced microservices example that is built u
 * Package microservice creates a record in the Cosmos DB for MongoDB
 * Drone scheduler microservice stores the scheduling information in Cosmos DB
 * Delivery microservice stores the delivery transaction record in Cosmos DB
+  
+For more details of the sample microservices application, please see the [microservices reference implementation sample](https://github.com/mspnp/microservices-reference-implementation). 
 
 ## Components
 
