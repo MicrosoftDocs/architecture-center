@@ -144,7 +144,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 #### TLS/SSL encryption
 
-In common implementations, the Ingress controller is used for SSL termination. So, as part of deploying the Ingress controller, you will need to create or import a TLS certificate. Use of self-signed certificates is recommended only for dev/test purposes. For more information, see 
+In common implementations, the Ingress controller is used for SSL termination. So, as part of deploying the Ingress controller, you will need to create or import a TLS certificate. Only use self-signed certificates for dev/test purposes. For more information, see 
 [Set up a custom domain name and SSL certificate with the application routing add-on](/azure/aks/app-routing-dns-ssl).
 
 For production workloads, get signed certificates from trusted certificate authorities (CA). 
