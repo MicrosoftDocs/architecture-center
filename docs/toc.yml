@@ -689,7 +689,7 @@ items:
   - name: Compute Resource Consolidation
     href: patterns/compute-resource-consolidation.yml
   - name: CQRS
-    href: patterns/cqrs.md
+    href: patterns/cqrs-content.md
   - name: Deployment Stamps
     href: patterns/deployment-stamp.yml
   - name: Edge Workload Configuration
