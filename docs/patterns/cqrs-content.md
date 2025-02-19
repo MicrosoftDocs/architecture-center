@@ -2,7 +2,7 @@ Command Query Responsibility Segregation (CQRS) is a design pattern that segrega
 
 ## Context and problem
 
-In a traditional architecture, a single data model is often used for both read and write operations. This approach is straightforward and is suited for basic create, read, update, delete (CRUD) operations.
+In a traditional architecture, a single data model is often used for both read and write operations. This approach is straightforward and is suited for basic create, read, update, and delete (CRUD) operations.
 
 :::image type="content" source="./_images/command-and-query-responsibility-segregation-cqrs-tradition-crud.png" alt-text="Diagram that shows a traditional CRUD architecture." lightbox="./_images/command-and-query-responsibility-segregation-cqrs-tradition-crud.png" border="false":::
 
@@ -28,13 +28,13 @@ Use the CQRS pattern to separate write operations, or *commands*, from read oper
 |---------|----------------|
 | Client-side validation  | Validate specific conditions before you send the command to prevent obvious failures. For example, if no rooms are available, disable the "Book" button and provide a clear, user-friendly message in the UI that explains why booking isn’t possible. This setup reduces unnecessary server requests and provides immediate feedback to users, which enhances their experience. |
 | Server-side logic | Enhance the business logic to handle edge cases and failures gracefully. For example, to address race conditions such as multiple users attempting to book the last available room, consider adding users to a waiting list or suggesting alternatives. |
-| Asynchronous processing | You can also [process commands asynchronously](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication) by placing them on a queue, instead of handling them synchronously. |
+| Asynchronous processing | You can also [process commands asynchronously](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication) by placing them in a queue, instead of handling them synchronously. |
 
 - **Understand queries.** Queries never alter data. Instead, they return data transfer objects (DTOs) that present the required data in a convenient format, without any domain logic. This distinct separation of responsibilities simplifies the design and implementation of the system.
 
 ### Separation of read models and write models
 
-Separating the read model from the write model simplifies system design and implementation by addressing specific concerns for data writes and reads. This separation improves clarity, scalability, and performance but introduces some trade-offs. For example, scaffolding tools like object-relational mapping (O/RM) frameworks can't automatically generate CQRS code from a database schema, which requires custom logic to bridge the gap.
+Separating the read model from the write model simplifies system design and implementation by addressing specific concerns for data writes and data reads. This separation improves clarity, scalability, and performance but introduces some trade-offs. For example, scaffolding tools like object-relational mapping (O/RM) frameworks can't automatically generate CQRS code from a database schema, which requires custom logic to bridge the gap.
 
 The following sections describe two primary approaches to implement read model and write model separation in CQRS. Each approach has unique benefits and challenges, such as synchronization and consistency management.
 
@@ -56,9 +56,9 @@ A more advanced CQRS implementation uses distinct data stores for the read and w
 
 :::image type="content" source="./_images/command-and-query-responsibility-segregation-cqrs-separate-stores.png" alt-text="Diagram that shows a CQRS architecture with separate read data stores and write data stores." lightbox="./_images/command-and-query-responsibility-segregation-cqrs-separate-stores.png" border="false":::
 
-**Synchronize separate data stores:** When you use separate data stores, you must ensure that both remain synchronized. A common pattern is to have the write model publish events when it updates the database, which the read model uses to refresh its data. For more information about how to use events, see [Event-driven architecture style](../guide/architecture-styles/event-driven.yml). However, you usually can't enlist message brokers and databases into a single distributed transaction. So, there can be challenges in consistency when you update the database and publishing events. For more information, see [Idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
+**Synchronize separate data stores:** When you use separate data stores, you must ensure that both remain synchronized. A common pattern is to have the write model publish events when it updates the database, which the read model uses to refresh its data. For more information about how to use events, see [Event-driven architecture style](../guide/architecture-styles/event-driven.yml). Because you usually can't enlist message brokers and databases into a single distributed transaction, challenges in consistency can occur when you update the database and publishing events. For more information, see [Idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 
-**Read data store:** The read data store can use its own data schema that's optimized for queries. For example, it can store a [materialized view](./materialized-view.yml) of the data to avoid complex joins or O/RM mappings. The read store can be a read-only replica of the write store or have a different structure. Deploying multiple read-only replicas can improve performance by reducing latency and increasing availability, specifically in distributed scenarios.
+**Read data store:** The read data store can use its own data schema that's optimized for queries. For example, it can store a [materialized view](./materialized-view.yml) of the data to avoid complex joins or O/RM mappings. The read data store can be a read-only replica of the write store or have a different structure. Deploying multiple read-only replicas can improve performance by reducing latency and increasing availability, specifically in distributed scenarios.
 
 ### Benefits of CQRS
 
@@ -94,7 +94,7 @@ The CQRS pattern is useful in scenarios that require a clear separation between 
   
   - The read model has no business logic or validation stack. It returns a DTO for use in a view model. The read model is eventually consistent with the write model.
 
-- **Performance tuning:** Systems where the performance of data reads must be fine-tuned separately from performance of data writes, specifically when the number of reads is greater than the number of writes, benefit from CQRS. The read model scales horizontally to handle large query volumes. The write model runs on fewer instances to minimize merge conflicts and maintain consistency.
+- **Performance tuning:** Systems where the performance of data reads must be fine-tuned separately from performance of data writes benefit from CQRS. Specifically, this pattern is beneficial when the number of reads is greater than the number of writes. The read model scales horizontally to handle large query volumes. The write model runs on fewer instances to minimize merge conflicts and maintain consistency.
 
 - **Separation of development concerns:** CQRS allows teams to work independently. One team implements the complex business logic in the write model, and another team develops the read model and user interface components.
 
@@ -132,7 +132,7 @@ Some implementations of CQRS incorporate the [Event Sourcing pattern](./event-so
 
 The same events that update the write model can serve as inputs to the read model. The read model can then build a real-time snapshot of the current state. These snapshots optimize queries by providing efficient and precomputed views of the data.
 
-Instead of directly storing the current state, the system uses a stream of events as the write store. This approach reduces update conflicts on aggregates and enhances performance and scalability. The system can process these events asynchronously to build or update materialized views for the read store.
+Instead of directly storing the current state, the system uses a stream of events as the write store. This approach reduces update conflicts on aggregates and enhances performance and scalability. The system can process these events asynchronously to build or update materialized views for the read data store.
 
 Because the event store acts as the single source of truth, you can easily regenerate materialized views or adapt to changes in the read model by replaying historical events. Basically, materialized views function as a durable, read-only cache optimized for fast and efficient queries.
 
@@ -140,9 +140,9 @@ Because the event store acts as the single source of truth, you can easily regen
 
 Before you combine the CQRS pattern with the [Event Sourcing pattern](./event-sourcing.yml), evaluate the following considerations:
 
-- **Eventual consistency:** Because the write and read stores are separate, updates to the read store might lag behind event generation. This delay results in eventual consistency.
+- **Eventual consistency:** Because the write and read data stores are separate, updates to the read data store might lag behind event generation. This delay results in eventual consistency.
 
-- **Increased complexity:** Combining the CQRS pattern with the Event Sourcing pattern requires a different design approach, which can make successful implementation more challenging. You must write code to generate, process, and handle events, and assemble or update views for the read model. However, the Event Sourcing pattern simplifies domain modeling and allows you to rebuild or create new views easily by preserving the history and intent of all data changes.
+- **Increased complexity:** Combining the CQRS pattern with the Event Sourcing pattern requires a different design approach, which can make a successful implementation more challenging. You must write code to generate, process, and handle events, and assemble or update views for the read model. However, the Event Sourcing pattern simplifies domain modeling and allows you to rebuild or create new views easily by preserving the history and intent of all data changes.
 
 - **Performance of view generation:** Generating materialized views for the read model can consume significant time and resources. The same applies to projecting data by replaying and processing events for specific entities or collections. This effect increases when calculations involve analyzing or summing values over long periods because all related events must be examined. Implement snapshots of the data at regular intervals. For example, store the current state of an entity or periodic snapshots of aggregated totals, which is the number of times a specific action occurs. Snapshots reduce the need to process the full event history repeatedly, which improves performance.
 
