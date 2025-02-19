@@ -391,19 +391,19 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 #### Built-in prompt flow runtimes
 
-Like in the basic architecture, this architecture uses the **Automatic Runtime** to minimize operational burden. The automatic runtime is a serverless compute option within Machine Learning that simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. This makes this choice low maintenance, ephemeral, and application-driven. Using **Compute Instance Runtime** or externalized compute, such as in this architecture, requires a more workload team-managed lifecycle of the compute, and should be selected when workload requirements exceed the configuration capabilities of the automatic runtime option.
+Like in the basic architecture, this architecture uses automatic runtime to minimize operational burden. The automatic runtime is a serverless compute option within Machine Learning that simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. This choice is low maintenance, ephemeral, and application-driven. Using compute instance runtime or externalized compute, like in this architecture, requires the workload team to manage the lifecycle of the compute. You should use compute instance runtime when your workload requirements exceed the configuration capabilities of the automatic runtime option.
 
 #### Monitoring
 
-Like in the basic architecture, diagnostics are configured for all services. All services but App Service are configured to capture all logs. App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs, and AppServicePlatformLogs. In production, all logs are likely excessive. Tune log streams to your operational needs. For this architecture, the Azure Machine Learning logs used by the Azure AI Foundry project that are of interest include: AmlComputeClusterEvent, AmlDataSetEvent, AmlEnvironmentEvent, and AmlModelsEvent.
+Like in the basic architecture, diagnostics are configured for all services. All services except App Service are configured to capture all logs. App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs, and AppServicePlatformLogs. In production, all logs are likely excessive. Tune log streams to your operational needs. For this architecture, the Machine Learning logs used by the Azure AI Foundry project that are important include AmlComputeClusterEvent, AmlDataSetEvent, AmlEnvironmentEvent, and AmlModelsEvent.
 
-Evaluate building custom alerts for the resources in this architecture such as those found in the Azure Monitor baseline alerts. For example:
+Evaluate building custom alerts, such as those found in the Azure Monitor baseline alerts, for the resources in this architecture. For example:
 
 - [Container Registry alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/ContainerRegistry/registries/)
 - [Machine Learning and Azure OpenAI alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/CognitiveServices/accounts/)
-- [Azure Web Apps alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/Web/serverFarms/)
+- [Web Apps alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/Web/serverFarms/)
 
-Be sure to track usage of tokens against your Azure OpenAI model deployments. In this architecture, Prompt flow tracks [token usage](/azure/ai-studio/how-to/monitor-quality-safety) through its integration with Azure Application Insights.
+Be sure to track usage of tokens against your Azure OpenAI model deployments. In this architecture, prompt flow tracks [token usage](/azure/ai-studio/how-to/monitor-quality-safety) through its integration with Application Insights.
 
 #### Language model operations
 
@@ -514,7 +514,7 @@ Some components in this architecture exist with a lifecycle that extends beyond 
 - Container Registry
 - AI Search
 - Azure OpenAI
-- Azure Application Insights
+- Application Insights
 - Azure Bastion
 - Azure Virtual Machine for the jump box
 
