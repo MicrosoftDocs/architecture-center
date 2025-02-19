@@ -216,6 +216,8 @@ This solution simplifies private DNS resolution in hybrid networks. It applies t
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
+We don't recommend deploying Azure DNS Private Resolver into a virtual network that has an ExpressRoute virtual network gateway and setting wildcard rules to direct all name resolution to a specific DNS server. Such a configuration can cause management connectivity problems, see [Azure DNS Private Resolver with wildcard rules on ExpressRoute gateway](/azure/expressroute/expressroute-about-virtual-network-gateways#gwsub).
+
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
