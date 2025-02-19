@@ -11,7 +11,7 @@ This reference architecture shows a microservices application deployed to Azure 
 
 If you would prefer to see a more advanced microservices example that is built upon the [AKS Baseline architecture](https://github.com/mspnp/aks-secure-baseline), see [Advanced Azure Kubernetes Service (AKS) microservices architecture](./aks-microservices-advanced.yml)
 
-## Workflow
+### Workflow
 
 This request flow implements the [Publisher-Subscriber](/azure/architecture/patterns/publisher-subscriber), [Competing Consumers](/azure/architecture/patterns/competing-consumers), and [Gateway Routing](/azure/architecture/patterns/gateway-routing) cloud design patterns. The messaging flow proceeds as follows:
 
@@ -66,7 +66,7 @@ GitHub Actions can be used to build and deploy microservices. You can also third
 
 Microservice observability can be achieved through alternate tools like [Kiali](https://kiali.io/). 
 
-### Scenario details
+## Scenario details
 
 The example [microservice reference implementation](https://github.com/mspnp/microservices-reference-implementation) implements the architectural components and practices discussed in this article. In this example, Fabrikam, Inc., a fictitious company, manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the drone's location with a continuously updated ETA.
 
@@ -162,13 +162,13 @@ Kubernetes defines three types of health probes that a pod can expose:
 
 When thinking about probes, it's useful to recall how a service works in Kubernetes. A service has a label selector that matches a set of (zero or more) pods. Kubernetes load balances traffic to the pods that match the selector. Only pods that started successfully and are healthy receive traffic. If a container crashes, Kubernetes kills the pod and schedules a replacement.
 
-Sometimes, a pod may not be ready to receive traffic, even though the pod started successfully. For example, there may be initialization tasks, where the application running in the container loads things into memory or reads configuration data. To indicate that a pod is healthy but not ready to receive traffic, define a readiness probe.
+Sometimes, a pod may not be ready to receive traffic, even though the pod started successfully. For example, there may be initialization tasks, where the application running in the container loads things into memory or reads configuration data. A startup probe can be used to adopt liveness checks on slow starting containers, avoiding them getting killed by the kubelet before they are up and running.
 
-Liveness probes handle the case where a pod is still running, but is unhealthy and should be recycled. For example, suppose that a container is serving HTTP requests but hangs for some reason. The container doesn't crash, but it has stopped serving any requests. Liveness probe determines when to restart a container. If you define a liveness probe, the probe will stop responding and will inform Kubernetes to restart the pod.
+Liveness probes handle the case where a pod is still running, but is unhealthy and should be recycled. For example, suppose that a container is serving HTTP requests but hangs for some reason. The container doesn't crash, but it has stopped serving any requests. Liveness probe determines when to restart a container. If you define a liveness probe, the probe will stop responding. If a container fails its liveness probe repeatedly, the kubelet restarts the container.
 
 Here are some considerations when designing probes for microservices:
 
-- If your code has a long startup time, there is a danger that a liveness probe will report failure before the startup completes. If you wish to wait before executing a liveness probe, use the `initialDelaySeconds` setting, or use the startup probe.
+- If your code has a long startup time, there is a danger that a liveness probe will report failure before the startup completes. If you wish to wait before executing a liveness probe, use the startup probe, or use the `initialDelaySeconds` setting with liveness probe.
 
 - A liveness probe doesn't help unless restarting the pod is likely to restore it to a healthy state. You can use a liveness probe to mitigate against memory leaks or unexpected deadlocks, but there's no point in restarting a pod that's going to immediately fail again.
 
