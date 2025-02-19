@@ -136,7 +136,7 @@ Gateway API is the recommended option in the following situations:
 
 #### Partitioning microservices
 
-Use namespaces to organize services within the cluster. Every object in a Kubernetes cluster belongs to a namespace. It is a good practice to create namespaces that are more descriptive to help organize the resources in the cluster.
+Use namespaces to organize services within the cluster. Every object in a Kubernetes cluster belongs to a namespace. It's a good practice to usue namespaces to organize the resources in the cluster.
 
 Namespaces help prevent naming collisions. When multiple teams deploy microservices into the same cluster, with possibly hundreds of microservices, it gets hard to manage if they all go into the same namespace. In addition, namespaces allow you to:
 
