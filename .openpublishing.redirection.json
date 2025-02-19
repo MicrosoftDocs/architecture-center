@@ -6948,6 +6948,36 @@
       "source_path": "docs/solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml",
       "redirect_url": "/azure/site-recovery/site-recovery-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/azure-virtual-desktop/multi-forest-azure-managed.yml",
+      "redirect_url": "/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/avops-architecture.yml",
+      "redirect_url": "/industry/mobility/architecture/avops-architecture-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/autonomous-vehicle-operations-dataops.yml",
+      "redirect_url": "/industry/mobility/architecture/autonomous-vehicle-operations-dataops-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/autonomous-vehicle-validation-operations.yml",
+      "redirect_url": "/industry/mobility/architecture/autonomous-vehicle-validation-operations-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/software-defined-vehicle-reference-architecture.yml",
+      "redirect_url": "/industry/mobility/architecture/software-defined-vehicle-reference-architecture-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/automotive-messaging-data-analytics.yml",
+      "redirect_url": "/industry/mobility/architecture/automotive-messaging-data-analytics-content",
+      "redirect_document_id": false
     }
   ]
 }

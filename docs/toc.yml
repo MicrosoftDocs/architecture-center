@@ -747,7 +747,7 @@ items:
   - name: Static Content Hosting
     href: patterns/static-content-hosting.yml
   - name: Strangler Fig
-    href: patterns/strangler-fig.yml
+    href: patterns/strangler-fig.md
   - name: Throttling
     href: patterns/throttling.yml
   - name: Valet Key
@@ -1619,50 +1619,8 @@ items:
       items:
       - name: Windows 365 Azure network connection
         href: guide/virtual-desktop/windows-365-azure-network-connection.yml
-      - name: Azure Virtual Desktop environment
-        href: /azure/virtual-desktop/environment-setup
-        maintainContext: true
-      - name: Azure Virtual Desktop Agent
-        href: /azure/virtual-desktop/agent-overview
-        maintainContext: true
-      - name: Authentication in Azure Virtual Desktop
-        href: /azure/virtual-desktop/authentication
-        maintainContext: true
-      - name: Network connectivity
-        items:
-        - name: Overview
-          href: /azure/virtual-desktop/network-connectivity
-          maintainContext: true
-        - name: RDP Shortpath
-          href: /azure/virtual-desktop/shortpath
-          maintainContext: true
-        - name: Implement Quality of Service
-          href: /azure/virtual-desktop/rdp-quality-of-service-qos
-          maintainContext: true
-        - name: RDP bandwidth
-          href: /azure/virtual-desktop/rdp-bandwidth
-          maintainContext: true
-        - name: Proxy server guidelines
-          href: /azure/virtual-desktop/proxy-server-support
-          maintainContext: true
-        - name: Connection quality
-          href: /azure/virtual-desktop/connection-latency
-          maintainContext: true
       - name: Multiregion BCDR for AVD
         href: example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml
-      - name: AVD for Azure Local
-        href: /azure/virtual-desktop/azure-local-overview
-        maintainContext: true
-      - name: FSLogix guidance
-        items:
-        - name: FSLogix configuration examples
-          href: /fslogix/concepts-configuration-examples
-        - name: FSLogix profile containers and files
-          href: /azure/virtual-desktop/fslogix-containers-azure-files
-          maintainContext: true
-        - name: Storage FSLogix profile container
-          href: /azure/virtual-desktop/store-fslogix-profile
-          maintainContext: true
     - name: Architectures
       items:
       - name: Azure Virtual Desktop for the enterprise
@@ -1671,8 +1629,6 @@ items:
         href: example-scenario/data/esri-arcgis-azure-virtual-desktop.yml
       - name: Multiple Active Directory forests
         href: example-scenario/azure-virtual-desktop/multi-forest.yml
-      - name: Multiple forests with Microsoft Entra Domain Services
-        href: example-scenario/azure-virtual-desktop/multi-forest-azure-managed.yml
   - name: Web applications
     href: web-apps/index.md
 - name: Microsoft Azure Well-Architected Framework
