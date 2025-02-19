@@ -197,7 +197,7 @@ You may also need to rotate your certificates as per the organization's policies
 
 When multiple teams are working on developing and deploying microservices, AKS role-based access control mechanisms can provide granular control and filtering of user actions. You can either use Kubernetes RBAC or Azure RBAC with Microsoft Entra ID to control access to the cluster resources. For more information, please see [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity#azure-role-based-access-control).
 
-#### Authentication and Authorization
+#### Authentication and authorization
 
 Microservices can require that the consuming services or users authenticate and authorize access to the microservice, using certificates, credentials, and role based access control mechanisms. Microsoft Entra ID can be used to implement [OAuth 2.0 tokens for authorization](/entra/architecture/auth-oauth2). [Service meshes such as Istio](/azure/aks/istio-about) provide authorization and authentication mechanisms for microservices as well, including OAuth token validation and token-based routing. The reference implementation doesn't cover microservice authentication and authorization scenarios.  
 
