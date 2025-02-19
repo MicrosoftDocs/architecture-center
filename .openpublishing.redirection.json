@@ -6950,6 +6950,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/azure-virtual-desktop/multi-forest-azure-managed.yml",
+      "redirect_url": "/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/ai-ml/architecture/avops-architecture.yml",
       "redirect_url": "/industry/mobility/architecture/avops-architecture-content",
       "redirect_document_id": false
