@@ -6,18 +6,16 @@ author: johndowns
 ms.author: jodowns
 ms.date: 12/19/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure
   - azure-sql-database
 categories:
   - data
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Multitenancy and Azure SQL Database
@@ -26,7 +24,7 @@ Multitenant solutions on Azure commonly use Azure SQL Database. On this page, we
 
 ## Guidance
 
-The Azure SQL Database team publishes extensive guidance on implementing multitenant architectures with Azure SQL Database. See [Multi-tenant SaaS patterns with Azure SQL Database](/azure/azure-sql/database/saas-tenancy-app-design-patterns). Also, consider the guidance for [partitioning Azure SQL databases](../../../best-practices/data-partitioning-strategies.yml#partitioning-azure-sql-database).
+The Azure SQL Database team publishes extensive guidance on implementing multitenant architectures with Azure SQL Database. See [Multitenant SaaS patterns with Azure SQL Database](/azure/azure-sql/database/saas-tenancy-app-design-patterns). Also, consider the guidance for [partitioning Azure SQL databases](../../../best-practices/data-partitioning-strategies.yml#partitioning-azure-sql-database).
 
 ## Features of Azure SQL Database that support multitenancy
 
@@ -48,7 +46,7 @@ The [Sharding pattern](../../../patterns/sharding.yml) enables you to scale your
 
 More information:
 
-* [Multi-tenant applications with elastic database tools and row-level security](/azure/azure-sql/database/saas-tenancy-elastic-tools-multi-tenant-row-level-security)
+* [Multitenant applications with elastic database tools and row-level security](/azure/azure-sql/database/saas-tenancy-elastic-tools-multi-tenant-row-level-security)
 * [Scaling out with Azure SQL Database](/azure/azure-sql/database/elastic-scale-introduction)
 * [Elastic database jobs](/azure/azure-sql/database/job-automation-overview)
 * The [Elastic Jobs tutorial](/azure/azure-sql/database/elastic-jobs-overview) describes the process of creating, configuring, and managing elastic jobs.
@@ -61,7 +59,7 @@ More information:
 
 * [Video overview](https://azure.microsoft.com/resources/videos/row-level-security-in-azure-sql-database)
 * [Documentation](/sql/relational-databases/security/row-level-security)
-* [Multi-tenant applications with elastic database tools and row-level security](/azure/azure-sql/database/saas-tenancy-elastic-tools-multi-tenant-row-level-security)
+* [Multitenant applications with elastic database tools and row-level security](/azure/azure-sql/database/saas-tenancy-elastic-tools-multi-tenant-row-level-security)
 
 ### Key management
 
@@ -77,15 +75,15 @@ More information:
 
 Principal author:
 
- * [Paul Burpo](http://linkedin.com/in/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Program Manager
+ * [Paul Burpo](https://linkedin.com/in/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 
  * [Silvano Coriani](https://www.linkedin.com/in/scoriani) | Principal Program Manager, Azure SQL
  * [Dimitri Furman](https://www.linkedin.com/in/dimitri-furman-200a555) | Principal Program Manager, Azure SQL
  * [Sanjay Mishra](https://www.linkedin.com/in/sanjaymishra0) | Principal Group Program Manager, Azure SQL
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

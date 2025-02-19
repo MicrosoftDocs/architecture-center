@@ -41,7 +41,7 @@ Most big data architectures include some or all of the following components:
 
 - **Analytical data store**. Many big data solutions prepare data for analysis and then serve the processed data in a structured format that can be queried using analytical tools. The analytical data store used to serve these queries can be a Kimball-style relational data warehouse, as seen in most traditional business intelligence (BI) solutions. Alternatively, the data could be presented through a low-latency NoSQL technology such as HBase, or an interactive Hive database that provides a metadata abstraction over data files in the distributed data store. Azure Synapse Analytics provides a managed service for large-scale, cloud-based data warehousing. HDInsight supports Interactive Hive, HBase, and Spark SQL, which can also be used to serve data for analysis.
 
-- **Analysis and reporting**. The goal of most big data solutions is to provide insights into the data through analysis and reporting. To empower users to analyze the data, the architecture may include a data modeling layer, such as a multidimensional OLAP cube or tabular data model in Azure Analysis Services. It might also support self-service BI, using the modeling and visualization technologies in Microsoft Power BI or Microsoft Excel. Analysis and reporting can also take the form of interactive data exploration by data scientists or data analysts. For these scenarios, many Azure services support analytical notebooks, such as Jupyter, enabling these users to leverage their existing skills with Python or R. For large-scale data exploration, you can use Microsoft R Server, either standalone or with Spark.
+- **Analysis and reporting**. The goal of most big data solutions is to provide insights into the data through analysis and reporting. To empower users to analyze the data, the architecture may include a data modeling layer, such as a multidimensional OLAP cube or tabular data model in Azure Analysis Services. It might also support self-service BI, using the modeling and visualization technologies in Microsoft Power BI or Microsoft Excel. Analysis and reporting can also take the form of interactive data exploration by data scientists or data analysts. For these scenarios, many Azure services support analytical notebooks, such as Jupyter, enabling these users to use their existing skills with Python or Microsoft R. For large-scale data exploration, you can use Microsoft R Server, either standalone or with Spark.
 
 - **Orchestration**. Most big data solutions consist of repeated data processing operations, encapsulated in workflows, that transform source data, move data between multiple sources and sinks, load the processed data into an analytical data store, or push the results straight to a report or dashboard. To automate these workflows, you can use an orchestration technology such Azure Data Factory or Apache Oozie and Sqoop.
 
@@ -113,14 +113,6 @@ The boxes that are shaded gray show components of an IoT system that are not dir
 
 - Some IoT solutions allow **command and control messages** to be sent to devices.
 
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal author:
-
-- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
-
 ## Next steps
 
 See the following relevant Azure services:
@@ -132,8 +124,5 @@ See the following relevant Azure services:
 
 ## Related resources
 
-- [Azure IoT reference architecture](../../reference-architectures/iot.yml)
-- [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
+- [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
 - [Big data architecture style](../../guide/architecture-styles/big-data.yml)
-- [Real-time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
-

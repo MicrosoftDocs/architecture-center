@@ -38,7 +38,7 @@ SD-WAN products can use proprietary protocols and features to detect, once dynam
 The high-level architecture of a global SD-WAN that uses the Microsoft backbone, the public internet, and dedicated ER connections as underlays is shown in the following picture.
 
 :::image type="content" source="images/sdwan-integration-sdwan-high-level-arch.png" alt-text="Diagram that shows the high level SD-WAN architecture." border="false" lightbox="images/sdwan-integration-sdwan-high-level-arch.png#lightbox":::
-*Figure 1: High-level architecture of a global SD-WAN that uses the Microsoft backbone, the public internet and dedicated ER connections as underlays. The black dashed line shows how traffic between two on-premises sites can be routed through SD-WAN NVAs deployed in Azure regions geographically close to the sites. The Microsoft backbone, due to its reach, capacity and "cold potato" routing policy can lead to substantially better/predicatable performance than the public internet, especially for long-haul connections.*
+*Figure 1: High-level architecture of a global SD-WAN that uses the Microsoft backbone, the public internet and dedicated ER connections as underlays. The black dashed line shows how traffic between two on-premises sites can be routed through SD-WAN NVAs deployed in Azure regions geographically close to the sites. The Microsoft backbone, due to its reach, capacity and "cold potato" routing policy can lead to substantially better/predictable performance than the public internet, especially for long-haul connections.*
 
 ## SD-WAN products in Azure hub-and-spoke networks
 
@@ -227,7 +227,7 @@ Principal authors:
 
 ## Next steps
 
-- [Microsoft Well-Architected Framework](/azure/architecture/framework)
+- [Microsoft Well-Architected Framework](/azure/well-architected/)
 
 ## Related resources
 

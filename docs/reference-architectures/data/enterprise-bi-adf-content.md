@@ -8,7 +8,7 @@ This example is about how to perform incremental loading in an [extract, load, a
 
 *Download a [Visio file](https://arch-center.azureedge.net/enterprise-bi-adf.vsdx) of this architecture.*
 
-This architecture builds on the one shown in [Enterprise BI with Azure Synapse](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse), but adds some features that are important for enterprise data warehousing scenarios.
+This architecture builds on the one shown in [Enterprise BI with Azure Synapse Analytics](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse), but adds some features that are important for enterprise data warehousing scenarios.
 
 - Automation of the pipeline using Data Factory.
 - Incremental loading.
@@ -41,18 +41,18 @@ The architecture consists of the following services and components.
 
 #### Authentication
 
-**Microsoft Entra ID** (Microsoft Entra ID) authenticates users who connect to the Analysis Services server through Power BI.
+**Microsoft Entra ID** authenticates users who connect to the Analysis Services server through Power BI.
 
-Data Factory can also use Microsoft Entra ID to authenticate to Azure Synapse, by using a service principal or Managed Service Identity (MSI). 
+Data Factory can also use Microsoft Entra ID to authenticate to Azure Synapse, by using a service principal or Managed Service Identity (MSI).
 
 ### Components
 
-- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs)
-- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/#overview)
-- [Azure Data Factory](https://azure.microsoft.com/products/data-factory)
-- [Azure Analysis Services](https://azure.microsoft.com/products/analysis-services)
-- [Power BI](https://powerbi.microsoft.com)
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory)
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage)
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)
+- [Azure Data Factory](/azure/data-factory/introduction)
+- [Azure Analysis Services](/azure/analysis-services/analysis-services-overview)
+- [Power BI](/power-bi/fundamentals/power-bi-overview)
+- [Microsoft Entra ID](/entra/fundamentals/whatis)
 
 ## Scenario details
 
@@ -73,7 +73,7 @@ When you run an automated ETL or ELT process, it's most efficient to load only t
 Starting with SQL Server 2016, you can use [temporal tables](/sql/relational-databases/tables/temporal-tables). These are system-versioned tables that keep a full history of data changes. The database engine automatically records the history of every change in a separate history table. You can query the historical data by adding a FOR SYSTEM_TIME clause to a query. Internally, the database engine queries the history table, but this is transparent to the application.
 
 > [!NOTE]
-> For earlier versions of SQL Server, you can use [Change Data Capture](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) (CDC). This approach is less convenient than temporal tables, because you have to query a separate change table, and changes are tracked by a log sequence number, rather than a timestamp.
+> For earlier versions of SQL Server, you can use [Change Data Capture (CDC)](/sql/relational-databases/track-changes/about-change-data-capture-sql-server). This approach is less convenient than temporal tables, because you have to query a separate change table, and changes are tracked by a log sequence number, rather than a timestamp.
 >
 
 Temporal tables are useful for dimension data, which can change over time. Fact tables usually represent an immutable transaction such as a sale, in which case keeping the system version history doesn't make sense. Instead, transactions usually have a column that represents the transaction date, which can be used as the watermark value. For example, in the Wide World Importers OLTP database, the Sales.Invoices and Sales.InvoiceLines tables have a `LastEditedWhen` field that defaults to `sysdatetime()`.
@@ -137,11 +137,11 @@ For each Sales fact, you want to associate that fact with a single row in City d
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-## Security
+### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 For additional security, you can use [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) to secure Azure service resources to only your virtual network. This fully removes public Internet access to those resources, allowing traffic only from your virtual network.
 
@@ -155,32 +155,9 @@ Be aware of the following limitations:
 
 - To enable Analysis Services to read data from Azure Synapse, deploy a Windows VM to the virtual network that contains the Azure Synapse service endpoint. Install [Azure On-premises Data Gateway](/azure/analysis-services/analysis-services-gateway) on this VM. Then connect your Azure Analysis service to the data gateway.
 
-### DevOps
+### Cost Optimization
 
-- Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
-
-- Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier.
-
-    In this architecture, there are three main workloads:
-    - The data warehouse server, Analysis Services, and related resources.
-    - Azure Data Factory.
-    - An on-premises to cloud simulated scenario.
-
-    Each workload has its own deployment template.
-
-    The data warehouse server is set up and configured by using Azure CLI commands which follows the imperative approach of the IaC practice. Consider using deployment scripts and integrate them in the automation process.
-
-- Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. Use [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases]  strategies for updating live production environments.
-
-    Have a good rollback strategy for handling failed deployments. For example, you can automatically redeploy an earlier, successful deployment from your deployment history. See the --rollback-on-error flag parameter in Azure CLI.
-
-- [Azure Monitor][azure-monitor] is the recommended option for analyzing the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
-
-For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
-
-### Cost optimization
-
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
 
@@ -228,6 +205,29 @@ Consider using the Azure Storage reserved capacity feature to lower cost on stor
 
 For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+- Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
+
+- Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier.
+
+    In this architecture, there are three main workloads:
+    - The data warehouse server, Analysis Services, and related resources.
+    - Azure Data Factory.
+    - An on-premises to cloud simulated scenario.
+
+    Each workload has its own deployment template.
+
+    The data warehouse server is set up and configured by using Azure CLI commands which follows the imperative approach of the IaC practice. Consider using deployment scripts and integrate them in the automation process.
+
+- Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. Use [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases]  strategies for updating live production environments.
+
+    Have a good rollback strategy for handling failed deployments. For example, you can automatically redeploy an earlier, successful deployment from your deployment history. See the --rollback-on-error flag parameter in Azure CLI.
+
+- [Azure Monitor][azure-monitor] is the recommended option for analyzing the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
+
 ## Next steps
 
 - [Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics)
@@ -241,7 +241,7 @@ For more information, see the Cost section in [Microsoft Azure Well-Architected 
 You may want to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
 
 - [Data warehousing and analytics for sales and marketing](../../example-scenario/data/data-warehouse.yml)
-- [Enterprise BI in Azure with Azure Synapse](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse).
+- [Use Azure Synapse Analytics to design an enterprise BI solution](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse).
 
 <!-- links -->
 

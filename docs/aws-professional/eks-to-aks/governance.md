@@ -1,12 +1,14 @@
 ---
 title: Governance options for a Kubernetes cluster
 description: Understand governance options for a Kubernetes cluster, and compare Amazon EKS and Azure Kubernetes Service (AKS) governance options.
-author:  gjoshevski
-ms.author: mgjoshevski
-ms.date: 03/29/2023
+author:  paolosalvatori
+ms.author: paolos
+ms.date: 01/28/2025
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
+ms.custom:
+  - arb-containers
 categories:
   - containers
   - management-and-governance
@@ -39,15 +41,14 @@ For more information, see [Kubernetes governance, what you should know](https://
 
 ## Governance in EKS and AKS
 
-- Amazon Web Services (AWS) customers usually use Kyverno, Gatekeeper, or other third-party solutions to define and implement a governance strategy for their Amazon EKS clusters. The [aws-eks-best-practices/policies](https://github.com/aws/aws-eks-best-practices/tree/master/policies) GitHub repository contains a collection of example policies for Kyverno and Gatekeeper.
-
+- Amazon Web Services (AWS) customers usually use [Kyverno](https://kyverno.io), [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), or other third-party solutions to define and implement a governance strategy for their Amazon EKS clusters. The [aws-eks-best-practices/policies](https://github.com/aws/aws-eks-best-practices/tree/master/policies) GitHub repository contains a collection of example policies for Kyverno and Gatekeeper.
 - Azure customers can also use Kyverno or Gatekeeper, and can use the [Azure Policy for Kubernetes Add-on](/azure/governance/policy/concepts/policy-for-kubernetes) to extend Gatekeeper for an AKS governance strategy.
 
 ## Gatekeeper
 
 The [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io) sponsors the open-source [Gatekeeper Policy Controller for Kubernetes](https://github.com/open-policy-agent/gatekeeper) for enforcing policies in Kubernetes clusters. Gatekeeper is a Kubernetes admission controller that enforces policies created with [Open Policy Agent (OPA)](https://www.openpolicyagent.org), a general-purpose policy engine.
 
-OPA uses a high-level declarative language called [Rego](https://www.openpolicyagent.org/docs/latest/#rego) to create policies that can run pods from tenants on separate instances or at different priorities. For a collection of common OPA policies, see the [OPA Gatekeeper Library]( https://open-policy-agent.github.io/gatekeeper-library).
+OPA uses a high-level declarative language called [Rego](https://www.openpolicyagent.org/docs/latest/#rego) to create policies that can run pods from tenants on separate instances or at different priorities. For a collection of common OPA policies, see the [OPA Gatekeeper Library](https://open-policy-agent.github.io/gatekeeper-library).
 
 ## Kyverno
 
@@ -59,23 +60,23 @@ Kyverno uses `kustomize`-style overlays for validation, supports JSON patch and 
 
 Kyverno, unlike Gatekeeper or Azure Policy for AKS, can generate new Kubernetes objects with policies, not just validate or mutate existing resources. For example, you can define a Kyverno policy to automate the creation of a default network policy for any new namespace.
 
-For more information, see the official [Kyverno installation guide](https://kyverno.io/docs/installation). For a list of ready-to-use or customizable policies, see the Kyverno [Policies](https://kyverno.io/policies) library. For troubleshooting reference (*eg. APIServer failing webhook calls*), see the [Kyverno troubleshooting documentation](https://kyverno.io/docs/troubleshooting/#api-server-is-blocked).
+For more information, see the official [Kyverno installation guide](https://kyverno.io/docs/installation). For a list of ready-to-use or customizable policies, see the Kyverno [Policies](https://kyverno.io/policies) library. For troubleshooting reference (such as *APIServer failing webhook calls*), see the [Kyverno troubleshooting documentation](https://kyverno.io/docs/troubleshooting/#api-server-is-blocked).
 
 Optionally, you can deploy Kyverno's implementation of the [Kubernetes Pod Security Standards (PSS)](https://kubernetes.io/docs/concepts/security/pod-security-standards) as [Kyverno policies](https://artifacthub.io/packages/helm/kyverno/kyverno-policies). The PSS controls provide a starting point for general Kubernetes cluster operational security.
 
 ## Azure Policy Add-on for AKS
 
-[The Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) extends [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) to apply at-scale enforcements and safeguards on AKS clusters in a centralized, consistent manner. [Azure Policy](https://azure.microsoft.com/products/azure-policy) enables centralized compliance management and reporting for multiple Kubernetes clusters from a single location. This capability makes management and governance of multicluster environments more efficient than deploying and managing Kyverno or Gatekeeper for each cluster.
+The [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) extends [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) v3, an *admission controller webhook* for [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), to apply at-scale enforcements and safeguards on your cluster components in a centralized, consistent manner. Cluster components include pods, containers, and namespaces. [Azure Policy](https://azure.microsoft.com/products/azure-policy) enables centralized compliance management and reporting for multiple Kubernetes clusters from a single location. This capability makes management and governance of multicluster environments more efficient than deploying and managing Kyverno or Gatekeeper for each cluster.
 
-The Azure Policy Add-on for AKS enacts the following functions:
+The [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) performs the following functions:
 
-- Checks with the Azure Policy service for policy assignments to the cluster.
-- Deploys policy definitions into the cluster as constraint template and constraint custom resources.
-- Reports auditing and compliance details back to the Azure Policy service.
+- It checks for policy assignments to the cluster with the Azure Policy service.
+- It deploys policy definitions into the cluster as constraint template and constraint custom resources.
+- It reports auditing and compliance details back to the Azure Policy service.
 
-The Azure Policy Add-on supports the [AKS](/azure/aks) and [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes) cluster environments. For more information, see [Understand Azure Policy for Kubernetes clusters](/azure/governance/policy/concepts/policy-for-kubernetes). To install the add-on on new and existing clusters, see [Install the Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes#install-azure-policy-add-on-for-aks).
+The Azure Policy Add-on is compatible with both [AKS](/azure/aks) and [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes) cluster environments. For more information, refer to the [Understand Azure Policy for Kubernetes clusters](/azure/governance/policy/concepts/policy-for-kubernetes) documentation. To install the add-on on new and existing clusters, follow the instructions on [Install the Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes#install-azure-policy-add-on-for-aks).
 
-After you install the Azure Policy Add-on for AKS, you can apply individual policy definitions or groups of policy definitions called initiatives to your AKS cluster. You can apply and enforce [Azure Policy built-in policy and initiative definitions](/azure/aks/policy-reference) from the outset, or [create and assign your own custom policy definitions](/azure/aks/use-azure-policy#create-and-assign-a-custom-policy-definition). The [Azure Policy](/azure/governance/policy/overview) built-in security policies help improve the security posture of your AKS cluster, enforce organizational standards, and assess compliance at scale.
+Once you have installed the Azure Policy Add-on for AKS, you can apply individual policy definitions or groups of policy definitions called initiatives to your AKS cluster. You can enforce [Azure Policy built-in policy and initiative definitions](/azure/aks/policy-reference) from the beginning or create and assign your own custom policy definitions using the steps outlined in [Create and assign a custom policy definition](/azure/aks/use-azure-policy#create-and-assign-a-custom-policy-definition). The [Azure Policy](/azure/governance/policy/overview) built-in security policies are designed to enhance the security posture of your AKS cluster, enforce organizational standards, and assess compliance at scale.
 
 ## Contributors
 
@@ -83,8 +84,8 @@ After you install the Azure Policy Add-on for AKS, you can apply individual poli
 
 Principal authors:
 
-- [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski) | Senior Service Engineer
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
+- [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski) | Senior Service Engineer
 
 Other contributors:
 

@@ -8,7 +8,8 @@
   "MetadataMultilineValues": true,
   "MarkdownListIndicator": "-",
   "Exclude": [
-    "SECURITY.md"
+    "SECURITY.md",
+    "docs/_bread/toc.yml"
   ],
   "TermFiles": [
     "Bundle-Standard.txt",
@@ -17,7 +18,12 @@
     "Dictionary-AAC.ps1"
   ],
   "RemoveTermSets": [
-//    "invalid-microsoft-can-may",
-//    "*azure-batch*"
+    "*-cni-*",
+    "*-llm-*",
+    "*-nlp-*",
+    "*-tts-*",
+    "*-stt-*",
+    "invalid-product-azure-machine-learning-*",
+    "invalid-spelling-various-0011"
   ]
 }

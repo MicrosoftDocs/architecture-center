@@ -12,21 +12,21 @@ The [design strategies for mission-critical baseline](/azure/architecture/refere
 
     Ingress or inbound communication into the virtual network must be restricted to prevent malicious attacks.
 
-    Apply Web Application Firewall (WAF) capabilities at the global level to _stop attacks at the network edge closer to the attack source_.
+    Apply Web Application Firewall (WAF) capabilities at the global level to *stop attacks at the network edge closer to the attack source*.
 
-    _Eliminate public connectivity to Azure services_. One approach is to use private endpoints.
+    *Eliminate public connectivity to Azure services*. One approach is to use private endpoints.
 
-    _Inspect traffic before it enters the network_. Network security groups (NSGs) on subnets help filter traffic by allowing or denying flow to the configured IP addresses and ports. This level of control also helps in granular logging.
+    *Inspect traffic before it enters the network*. Network security groups (NSGs) on subnets help filter traffic by allowing or denying flow to the configured IP addresses and ports. This level of control also helps in granular logging.
 
 - **Control egress traffic**
 
     Egress traffic from a virtual network to entities outside that network must be restricted. Lack of controls might lead to data exfiltration attacks by malicious third-party services.
 
-    _Restrict outbound traffic to the internet using Azure Firewall_. Firewall can filter traffic granularly using fully qualified domain name (FQDN).
+    *Restrict outbound traffic to the internet using Azure Firewall*. Firewall can filter traffic granularly using fully qualified domain name (FQDN).
 
 - **Balance tradeoffs with security**
 
-    There are significant trade-offs when security features are added to a workload architecture. You might notice some impact on performance, operational agility, and even reliability. However, _attacks, such as Denial-Of-Service (DDoS), data intrusion, and others, can target the system's overall reliability and eventually cause unavailability_.
+    There are significant trade-offs when security features are added to a workload architecture. You might notice some impact on performance, operational agility, and even reliability. However, *attacks, such as Denial-Of-Service (DDoS), data intrusion, and others, can target the system's overall reliability and eventually cause unavailability*.
   
 > The strategies are based on the overall guidance provided for mission-critical workloads in [Well-architected mission critical workloads](/azure/architecture/framework/mission-critical/). We suggest that you explore the [design area of networking and connectivity](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity) for recommendations and best practices when defining your own mission critical architecture.
 
@@ -56,7 +56,7 @@ The global resources are long living and share the lifetime of the system. They 
 
 ### Regional resources
 
-The regional resources are provisioned as part of a _deployment stamp_ to a single Azure region. They are short-lived to provide more resiliency, scale, and proximity to users. These resources share nothing with resources in another region. They can be independently removed or replicated to other regions. They, however, share [global resources](#global-resources) between each other. For more information, see [**Regional stamp resources**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#deployment-stamp-resources).
+The regional resources are provisioned as part of a *deployment stamp* to a single Azure region. They are short-lived to provide more resiliency, scale, and proximity to users. These resources share nothing with resources in another region. They can be independently removed or replicated to other regions. They, however, share [global resources](#global-resources) between each other. For more information, see [**Regional stamp resources**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#deployment-stamp-resources).
 
 **Static website in an Azure Storage Account** hosts a single page application (SPA) that send requests to backend services. This component has the same configuration as the [baseline frontend](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#frontend). Access is limited to authorized private endpoint connections.
 
@@ -84,7 +84,7 @@ Build and release pipelines for a mission critical application must be fully aut
 
 **GitHub** is still used for source control as a highly available git-based platform.
 
-**Azure Pipelines** is chosen to automate pipelines that are required for building, testing, and deploying a workload in preproduction _and_ production environments.
+**Azure Pipelines** is chosen to automate pipelines that are required for building, testing, and deploying a workload in preproduction *and* production environments.
 
 > Refer to [Well-architected mission critical workloads: DevOps processes](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures#devops-processes).
 

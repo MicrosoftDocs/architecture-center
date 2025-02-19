@@ -51,7 +51,7 @@ Alternatively, AKS main traffic can run on top of IPv6, and IPv4 ingress serves 
 
 The example consists of the following components:
 
-- **Dual-stack** [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service) is a managed Kubernetes cluster hosted in the Azure cloud. Azure manages the Kubernetes API service. You only manage the agent nodes. Dual-stack AKS needs to run on a dual-stack Azure Virtual Network.
+- **Dual-stack** [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) is a managed Kubernetes cluster hosted in the Azure cloud. Azure manages the Kubernetes API service. You only manage the agent nodes. Dual-stack AKS needs to run on a dual-stack Azure Virtual Network.
 
 - **Dual-stack** [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) provides highly secure virtual network environments on Azure infrastructure. By default, Azure Virtual Network supports IPv4 only. Enable IPv6 during the deployment process.
 
@@ -75,7 +75,7 @@ When AKS can fully support dual-stack deployment at the service layer, you can r
 
 ## Scenario details
 
-Due to IPv4 address exhaustion, IPv6 was introduced in 1995 and became an internet standard in 2017. It's estimated that more than 50 percent of traffic in the United States is over IPv6. The IPv4 and IPv6 protocols aren't compatible. Your infrastructure runs on either an IPv4 network or an IPv6 network. This example workload describes several configurations to run dual-stack networking in the Azure Kubernetes Service. For more information, see [Dual-stack kubenet networking](/azure/aks/configure-kubenet-dual-stack).
+Due to IPv4 address exhaustion, IPv6 was introduced in 1995 and became an internet standard in 2017. It's estimated that more than 50 percent of traffic in the United States is over IPv6. The IPv4 and IPv6 protocols aren't compatible. Your infrastructure runs on either an IPv4 network or an IPv6 network. This example workload describes several configurations to run dual-stack networking in the Azure Kubernetes Service. For more information, see [Azure CNI Overlay dual-stack networking](/azure/aks/azure-cni-overlay#dual-stack-networking).
 
 Due to current [limitations](/azure/aks/configure-kubenet-dual-stack#expose-the-workload-via-a-loadbalancer-type-service), traffic has to be proxied to the same IP version before processing. Configure ingress as `externalTrafficPolicy: Local`. Once the limitations are addressed, you can create an AKS service that uses the mode `RequireDualStack` or `PreferDualStack`. Each Kubernetes service can handle dual-stack traffic.
 
@@ -95,7 +95,7 @@ IPv6 enables direct node-to-node addressing, which improves connectivity, eases 
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -146,11 +146,11 @@ This solution offers two performance advantages:
 
 Principal author:
 
-[Andy Nguyen](https://www.linkedin.com/in/anh-nguyen-37150465) | Senior Software Engineer
+[Andy Nguyen](https://www.linkedin.com/in/anh-nguyen-37150465/) | Senior Software Engineer
 
 Other contributor:
 
-[Senthil Chandran](https://www.linkedin.com/in/senthilchandran) | Principal Software Engineering Manager
+[Senthil Chandran](https://www.linkedin.com/in/senthilchandran/) | Principal Software Engineering Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -170,4 +170,3 @@ Other contributor:
 - [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced microservices on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
 - [AKS baseline for multi-region cluster](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
-- [Build and deploy apps on AKS](../aks/aks-cicd-github-actions-and-gitops.yml)

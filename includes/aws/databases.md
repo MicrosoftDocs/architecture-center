@@ -2,7 +2,7 @@
 author: svchandramohan
 ms.author: schandra
 ms.topic: include
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ---
 
 | Type | AWS Service | Azure Service | Description |
@@ -12,13 +12,3 @@ ms.service: architecture-center
 | NoSQL | [DynamoDB](https://aws.amazon.com/dynamodb) (Key-Value)<br/><br/>[SimpleDB](https://aws.amazon.com/simpledb/)<br/><br/>[Amazon DocumentDB](https://aws.amazon.com/documentdb) (Document)<br /><br />[Amazon Neptune](https://aws.amazon.com/neptune/) (Graph) | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) | Azure Cosmos DB is a globally distributed, multi-model database that natively supports multiple data models including key-value pairs, documents, graphs, and columnar. |
 | Caching | [ElastiCache](https://aws.amazon.com/elasticache)<br /><br />[Amazon MemoryDB for Redis](https://aws.amazon.com/memorydb/) | [Cache for Redis](https://azure.microsoft.com/services/cache) | An in-memory–based, distributed caching service that provides a high-performance store that's typically used to offload nontransactional work from a database. |
 | Database migration | [Database Migration Service](https://aws.amazon.com/dms) | [Database Migration Service](https://azure.microsoft.com/campaigns/database-migration) | A service that executes the migration of database schema and data from one database format to a specific database technology in the cloud. |
-
-### Database architectures
-
-<ul class="grid">
-
-[!INCLUDE [Gaming using Azure Cosmos DB](../../includes/cards/gaming-using-cosmos-db.md)]
-
-</ul>
-
-[view all](/azure/architecture/browse/#databases)

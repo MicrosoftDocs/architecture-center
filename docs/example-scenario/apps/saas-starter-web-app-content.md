@@ -30,8 +30,8 @@ The following table describes terms that appear in this article.
 | Tenant       | A purchased instance of the SaaS application from SaaS Vendor. | Fourth Coffee Shop. |
 | SaaS customer admin | People who purchase or administer an application tenant. | Joe, owner of Fourth Coffee Shop. |
 | SaaS customer user | People who use an application tenant without administering it and usually belong to the same company or group as the SaaS customer admin. | Jill, event manager at Fourth Coffee Shop, and Susan, customer of Fourth Coffee Shop. |
-| End user         | A SaaS customer admin, SaaS customer user, or any other user types that are introduced. This is a generic term to describe users who sign into the application. | Joe, Jill, and Susan are all end users (from the ISV perspective). |
-| Front-end application | Any front-end application. | The Onboarding & admin app and SaaS app are both front-end applications. |
+| End user         | A SaaS customer admin, SaaS customer user, or any other user types that are introduced. This is a generic term to describe users who sign in to the application. | Joe, Jill, and Susan are all end users (from the ISV perspective). |
+| Front-end application | Any front-end application. | The Onboarding and admin app and SaaS app are both front-end applications. |
 
 ### Workflow
 
@@ -153,13 +153,13 @@ The addition of a user to a tenant workflow consists of the following steps:
 
 This architecture uses the following Azure services:
 
-- [App Service](https://azure.microsoft.com/services/app-service) enables you to build and host web apps and API apps in the programming language that you choose without needing to manage infrastructure.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps and API apps in the programming language that you choose without needing to manage infrastructure.
 
-- [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) easily enables identity and access management for end user applications.
+- [Azure Active Directory B2C](/azure/active-directory-b2c/overview) easily enables identity and access management for end user applications.
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is a general-purpose relational database managed service that supports relational data, spatial data, JSON, and XML.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a general-purpose relational database managed service that supports relational data, spatial data, JSON, and XML.
 
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) lets you quickly build powerful integrations using a simple GUI tool.
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) lets you quickly build powerful integrations using a simple graphical user interface (GUI) tool.
 
 ### Alternatives
 
@@ -173,7 +173,7 @@ The effectiveness of any alternative choices depends greatly on the [tenancy mod
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can follow to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can follow to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -187,7 +187,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 The components in this solution have some cost associated with their operation, but the cost is modest for most web applications and SaaS solutions. Also, you can control the cost by managing the following resource settings:
 
-- You can scale the App Service plan that runs the application to fit the throughput that you need. In addition, you could run each app on a separate plan if you require higher throughput, but you'll incur a higher cost as a result. For more information, see [Azure App Service plan overview](/azure/app-service/overview-hosting-plans).
+- You can scale the app service plan that runs the application to fit the throughput that you need. In addition, you could run each app on a separate plan if you require higher throughput, but you'll incur a higher cost as a result. For more information, see [Azure App Service plan overview](/azure/app-service/overview-hosting-plans).
 
 - Azure AD B2C provides two SKUs: Premium P1 and Premium P2. Both SKUs include a free allowance for the number of monthly active users (MAUs), but you need to evaluate which features that each SKU provides to determine which is required for your use case. For more information, see [Microsoft Entra External ID pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
 
@@ -197,12 +197,11 @@ The components in this solution have some cost associated with their operation, 
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Overview of the performance efficiency pillar](/azure/architecture/framework/scalability/overview).
 
-This architecture should be able to scale to easily meet most medium to medium-large workloads. Since the architecture mostly uses Azure's platform (PaaS) services, you have many options to adjust the scale of the solution based on your requirements and load.
+This architecture should be able to scale to easily meet most medium to medium-large workloads. Since the architecture mostly uses the Azure platform (platform as a service (PaaS)) services, you have many options to adjust the scale of the solution based on your requirements and load.
 
 ## Deploy this scenario
 
 If you'd like to deploy this scenario, see the [Azure SaaS Dev Kit](https://github.com/Azure/azure-saas) on GitHub. It's a deployable reference implementation of this architecture.
-
 
 ## Contributors
 
@@ -210,19 +209,19 @@ If you'd like to deploy this scenario, see the [Azure SaaS Dev Kit](https://gith
 
 Principal author:
 
- - [Landon Pierce](https://www.linkedin.com/in/landon-pierce-a84b37b6) | Customer Engineer
+- [Landon Pierce](https://www.linkedin.com/in/landon-pierce-a84b37b6) | Customer Engineer
 
-Other contributors: 
+Other contributors:
 
- - [Chris Ayers](https://www.linkedin.com/in/chris-l-ayers/) | Senior Customer Engineer
- - [John Downs](https://www.linkedin.com/in/john-downs) | Senior Customer Engineer
- - [LaBrina Loving](https://www.linkedin.com/in/chixcancode/) | Principal SVC Engineering Manager
- - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
- - [Nick Pinheiro](https://www.linkedin.com/in/nickpinheiro/) | Senior Consultant
- - [William Salazar](https://www.linkedin.com/in/whsalazar/) | Senior Customer Engineer
- - [Ali Sanjabi](https://www.linkedin.com/in/alisanjabi/) | Senior Customer Engineer
- - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer
- - [Jason Young](https://www.linkedin.com/in/jasony) | Principal SVC Engineering Manager
+- [Chris Ayers](https://www.linkedin.com/in/chris-l-ayers/) | Senior Customer Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs) | Senior Customer Engineer
+- [LaBrina Loving](https://www.linkedin.com/in/chixcancode/) | Principal SVC Engineering Manager
+- [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+- [Nick Pinheiro](https://www.linkedin.com/in/nickpinheiro/) | Senior Consultant
+- [William Salazar](https://www.linkedin.com/in/whsalazar/) | Senior Customer Engineer
+- [Ali Sanjabi](https://www.linkedin.com/in/alisanjabi/) | Senior Customer Engineer
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer
+- [Jason Young](https://www.linkedin.com/in/jasony) | Principal SVC Engineering Manager
 
 ## Next steps
 
@@ -230,7 +229,7 @@ Here are some additional recommended resources for building a SaaS application o
 
 - [Architect multitenant solutions on Azure](../../guide/multitenant/overview.md) - Describes best practices.
 - [ISV Considerations for Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/isv-landing-zone)
-- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)
+- [Microsoft Azure Well-Architected Framework](/azure/well-architected/)
 - [WingTips Tickets SaaS application](/azure/azure-sql/database/saas-tenancy-welcome-wingtip-tickets-app) - Provides details about tradeoffs between various tenancy models within the database layer.
 
 ## Related resources

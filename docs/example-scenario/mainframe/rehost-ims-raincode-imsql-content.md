@@ -88,12 +88,12 @@ This architecture describes how to implement an Information Management System (I
 
 ### Components
 
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) lets you quickly build powerful integration solutions. Mainframe users are familiar with 3270 terminals and on-premises connectivity. They can use the Logic Apps [IBM 3270 connector](/azure/connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270) to access and run IBM mainframe apps. In the migrated system, they interact with Azure applications via the public internet or a private connection that is implemented via Azure ExpressRoute. [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides authentication.
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network on Azure. Virtual Network enables many types of Azure resources, like Azure virtual machines (VMs), to communicate with each other, the internet, and on-premises networks, all with improved security. Virtual Network is like a traditional network that you operate in your own datacenter, but it brings more of the benefits of the Azure infrastructure, like scale, availability, and isolation.  
-- [ExpressRoute](https://azure.microsoft.com/services/expressroute) lets you extend your on-premises networks into the Microsoft Cloud over a private connection that a connectivity provider facilitates. You can use ExpressRoute to establish connections to Microsoft Cloud services like Azure and Office 365.
-- [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets) provides automated and load balanced VM scaling that simplifies the management of your applications and increases availability.
-- [SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance), part of the Azure SQL service portfolio, is a managed, highly secure, always up-to-date SQL instance in the cloud.
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a cloud-based enterprise identity and access management service. Microsoft Entra single sign-on and multifactor authentication help users sign in and access resources while helping to protect against cybersecurity attacks.
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) lets you quickly build powerful integration solutions. Mainframe users are familiar with 3270 terminals and on-premises connectivity. They can use the Logic Apps [IBM 3270 connector](/azure/connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270) to access and run IBM mainframe apps. In the migrated system, they interact with Azure applications via the public internet or a private connection that is implemented via Azure ExpressRoute. [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides authentication.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network on Azure. Virtual Network enables many types of Azure resources, like Azure virtual machines (VMs), to communicate with each other, the internet, and on-premises networks, all with improved security. Virtual Network is like a traditional network that you operate in your own datacenter, but it brings more of the benefits of the Azure infrastructure, like scale, availability, and isolation.  
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) lets you extend your on-premises networks into the Microsoft Cloud over a private connection that a connectivity provider facilitates. You can use ExpressRoute to establish connections to Microsoft Cloud services like Azure and Office 365.
+- [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) provides automated and load balanced VM scaling that simplifies the management of your applications and increases availability.
+- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability), part of the Azure SQL service portfolio, is a managed, highly secure, always up-to-date SQL instance in the cloud.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based enterprise identity and access management service. Microsoft Entra single sign-on and multifactor authentication help users sign in and access resources while helping to protect against cybersecurity attacks.
 
 ### Alternatives
 
@@ -119,18 +119,18 @@ This solution provides the following benefits:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - This OLTP architecture can be deployed in multiple regions and can incorporate a geo-replication data layer.
 - The Azure database services support zone redundancy and can fail over to a secondary node during outages or to enable maintenance activities.
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - ExpressRoute provides a private and efficient connection to Azure from on-premises.
 - You can use Microsoft Entra ID to authenticate Azure resources. You can use role-based access control to manage permissions.
@@ -142,9 +142,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 For general guidance on designing highly secure data solutions, see [Azure security recommendations](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database?view=sql-server-ver16). 
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Virtual Machine Scale Sets optimizes costs by minimizing the number of unnecessary hardware instances that run your application when demand is low.
 - SQL Managed Instance provides various pricing tiers, like general purpose and business critical, to optimize costs based on usage and business criticality.  
@@ -153,9 +153,9 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution. Here's an [estimate based on the components of this solution, at a reasonable scale](https://azure.com/e/f5d10c617bfa410cb7566ee7f30a8e2f).
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - Virtual Machine Scale Sets ensures that enough VMs are available to meet mission-critical online and batch processing needs.
 - Azure Blob Storage is a scalable system for storing backups, archival data, secondary data files, and other unstructured digital objects.

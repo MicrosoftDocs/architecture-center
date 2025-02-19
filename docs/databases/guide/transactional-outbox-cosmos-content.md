@@ -1,8 +1,8 @@
 Implementing reliable messaging in distributed systems can be challenging. This article describes how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events, an important part of supporting [idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing). To accomplish this, you'll use Azure Cosmos DB transactional batches and change feed in combination with Azure Service Bus.
 
-## Overview 
+## Overview
 
-Microservice architectures are becoming increasingly popular and show promise in solving problems like scalability, maintainability, and agility, especially in large applications. But this architectural pattern also introduces challenges when it comes to data handling. In distributed applications, each service independently maintains the data it needs to operate in a dedicated service-owned datastore. To support such a scenario, you typically use a messaging solution like RabbitMQ, Kafka, or Azure Service Bus that distributes data (events) from one service via a messaging bus to other services of the application. Internal or external consumers can then subscribe to those messages and get notified of changes as soon as data is manipulated.
+Microservice architectures are gaining popularity and show promise in solving problems like scalability, maintainability, and agility, especially in large applications. But this architectural pattern also introduces challenges when it comes to data handling. In distributed applications, each service independently maintains the data it needs to operate in a dedicated service-owned datastore. To support such a scenario, you typically use a messaging solution like RabbitMQ, Kafka, or Azure Service Bus that distributes data (events) from one service via a messaging bus to other services of the application. Internal or external consumers can then subscribe to those messages and get notified of changes as soon as data is manipulated.
 
 A well-known example in that area is an ordering system: when a user wants to create an order, an `Ordering` service receives data from a client application via a REST endpoint. It maps the payload to an internal representation of an `Order` object to validate the data. After a successful commit to the database, it publishes an `OrderCreated` event to a message bus. Any other service interested in new orders (for example an `Inventory` or `Invoicing` service), would subscribe to `OrderCreated` messages, process them, and store them in its own database.
 
@@ -34,7 +34,6 @@ Whatever the error is, the result is that the `OrderCreated` event can't be publ
 
 :::image source="_images/event-handling-before-pattern.png" alt-text="Diagram that shows event handling without the Transactional Outbox pattern.":::
 
-
 ## Solution
 
 There's a well-known pattern called *Transactional Outbox* that can help you avoid these situations. It ensures events are saved in a datastore (typically in an Outbox table in your database) before they're ultimately pushed to a message broker. If the business object and the corresponding events are saved within the same database transaction, it's guaranteed that no data will be lost. Everything will be committed, or everything will roll back if there's an error. To eventually publish the event, a different service or worker process queries the Outbox table for unhandled entries, publishes the events, and marks them as processed. This pattern ensures events won't be lost after a business object is created or modified.
@@ -49,7 +48,7 @@ In practice, things aren't as easy as they might look at first. Most importantly
 
 ## Implementation in Azure Cosmos DB
 
-This section shows how to implement the Transactional Outbox pattern in Azure Cosmos DB to achieve reliable, in-order messaging between different services with the help of the Azure Cosmos DB change feed and Service Bus. It demonstrates a sample service that manages `Contact` objects (`FirstName`, `LastName`, `Email`, `Company` information, and so on). It uses the Command and Query Responsibility Segregation (CQRS) pattern and follows basic domain-driven design concepts. You can find the sample code for the implementation on [GitHub](https://github.com/mspnp/transactional-outbox-pattern).
+This section shows how to implement the Transactional Outbox pattern in Azure Cosmos DB to achieve reliable, in-order messaging between different services with the help of the Azure Cosmos DB change feed and Service Bus. It demonstrates a sample service that manages `Contact` objects (`FirstName`, `LastName`, `Email`, `Company` information, and so on). It uses the Command and Query Responsibility Segregation (CQRS) pattern and follows basic domain-driven design (DDD) concepts. You can find the sample code for the implementation on [GitHub](https://github.com/mspnp/transactional-outbox-pattern).
 
 A `Contact` object in the sample service has the following structure:
 
@@ -83,7 +82,7 @@ As soon as a `Contact` is created or updated, it emits events that contain infor
 
 ### Transactional batches
 
-To implement this pattern, you need to ensure the `Contact` business object and the corresponding events will be saved in the same database transaction. In Azure Cosmos DB, transactions work differently than they do in relational database systems. Azure Cosmos DB transactions, called *transactional batches*, operate on a single logical partition, so they guarantee Atomicity, Consistency, Isolation, and Durability (ACID) properties. You can't save two documents in a transactional batch operation in different containers or logical partitions. For the sample service, that means that both the business object and the event or events will be put in the same container and logical partition.
+To implement this pattern, you need to ensure the `Contact` business object and the corresponding events will be saved in the same database transaction. In Azure Cosmos DB, transactions work differently than they do in relational database systems. Azure Cosmos DB transactions, called *transactional batches*, operate on a single [logical partition](https://learn.microsoft.com/azure/cosmos-db/partitioning-overview), so they guarantee Atomicity, Consistency, Isolation, and Durability (ACID) properties. You can't save two documents in a transactional batch operation in different containers or logical partitions. For the sample service, that means that both the business object and the event or events will be put in the same container and logical partition.
 
 ### Context, repositories, and UnitOfWork
 
@@ -195,7 +194,7 @@ public void SetName(string firstName, string lastName)
 
     Name = new Name(firstName, lastName);
 
-    if (IsNew) return;
+    if (IsNew) return; // if an object is newly created, all modifications will be handled by ContactCreatedEvent
 
     AddEvent(new ContactNameUpdatedEvent(Id, Name));
     ModifiedAt = DateTimeOffset.UtcNow;
@@ -300,7 +299,7 @@ private async Task<List<IDataObject<Entity>>> SaveInTransactionalBatchAsync(
     }
 
     // Return copy of current list as result.
-    var result = new List<IDataObject<Entity>>(DataObjects); 
+    var result = new List<IDataObject<Entity>>(DataObjects);
 
     // Work has been successfully done. Reset DataObjects list.
     DataObjects.Clear();
@@ -435,7 +434,7 @@ private async Task<ChangeFeedProcessor> StartChangeFeedProcessorAsync()
 
 A handler method (`HandleChangesAsync` here) then processes the messages. In this sample, events are published to a Service Bus topic that's partitioned for scalability and has the [de-duplication feature enabled](/azure/service-bus-messaging/duplicate-detection). Any service interested in changes to `Contact` objects can then subscribe to that Service Bus topic and receive and process the changes for its own context.
 
-The Service Bus messages produced have a `SessionId` property. When you use sessions in Service Bus, you guarantee that the order of the messages is preserved ([FIFO](/azure/service-bus-messaging/message-sessions)). Preserving the order is necessary for this use case.
+The Service Bus messages produced have a `SessionId` property. When you use sessions in Service Bus, you guarantee that the order of the messages is preserved ([first in, first out (FIFO)](/azure/service-bus-messaging/message-sessions)). Preserving the order is necessary for this use case.
 
 Here's the snippet that handles messages from the change feed:
 
@@ -542,7 +541,7 @@ The advantages of this solution are:
 - Reliable messaging and guaranteed delivery of events.
 - Preserved order of events and message de-duplication via Service Bus.
 - No need to maintain an extra `Processed` property that indicates successful processing of an event document.
-- Deletion of events from Azure Cosmos DB via TTL. The process doesn't consume request units that are needed for handling user/application requests. Instead, it uses "leftover" request units in a background task.
+- Deletion of events from Azure Cosmos DB via time to live (TTL). The process doesn't consume request units that are needed for handling user/application requests. Instead, it uses "leftover" request units in a background task.
 - Error-proof processing of messages via `ChangeFeedProcessor` (or an Azure function).
 - Optional: Multiple change feed processors, each maintaining its own pointer in the change feed.
 
@@ -560,9 +559,9 @@ You can find the source code, deployment files, and instructions to test this sc
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author: 
+Principal author:
 
- - [Christian Dennig](https://www.linkedin.com/in/christian-dennig/) | Senior Software Engineer
+ - [Christian Dennig](https://www.linkedin.com/in/christian-dennig/) | Principal Software Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

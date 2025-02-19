@@ -1,6 +1,6 @@
 This article provides an overview of the Azure database solutions described in Azure Architecture Center.
 
-![Diagram that contrasts relational database management system and big data solutions.](_images/data-service-classifications.png)
+![Diagram that contrasts relational database management system (RDBMS) and big data solutions.](_images/data-service-classifications.png)
 
 *Apache®, Apache Cassandra®, and the Hadoop logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -8,7 +8,7 @@ Azure Database solutions include traditional relational database management syst
 
 RDBMS workloads include online transaction processing (OLTP) and online analytical processing (OLAP).
 Data from multiple sources in the organization can be consolidated into a data warehouse.
-You can use an extract, transform, and load (ETL) or extract, load, and transform (ELT) process to move and transform the source data. For more information on RDBMS Databases, see [Explore Relational Databases in Azure](/training/modules/explore-provision-deploy-relational-database-offerings-azure/).
+You can use an extract, transform, load (ETL) or extract, load, transform (ELT) process to move and transform the source data. For more information on RDBMS Databases, see [Explore Relational Databases in Azure](/training/modules/explore-provision-deploy-relational-database-offerings-azure/).
 
 A big data architecture is designed to handle the ingestion, processing, and analysis of large or complex data.
 Big data solutions typically involve a large amount of relational and nonrelational data, which traditional RDBMS systems aren't well suited to store. These typically involve solutions such as Data Lakes, Delta Lakes, and lakehouses. See more information in [Analytics Architecture Design](/azure/architecture/solution-ideas/articles/analytics-start-here).
@@ -24,7 +24,7 @@ We also provide solution ideas for you to build on, which include links to all t
 
 As you start thinking about possible architectures for your solution, it's vital that you choose the correct data store. If you're new to databases on Azure, the best place to start is Microsoft Learn. This free online platform provides videos and tutorials for hands-on learning. Microsoft Learn offers learning paths that are based on your job role, such as developer or data analyst.
 
-You can start with a general description of the [different databases](https://azure.microsoft.com/products/category/databases) in Azure and their use. You can also browse [Azure data modules](/training/browse/?products=azure&terms=database) and [Choose a data storage approach in Azure](/training/modules/choose-storage-approach-in-azure). These articles help you understand your choices in Azure data solutions and learn why some solutions are recommended in specific scenarios.  
+You can start with a general description of the [different databases](https://azure.microsoft.com/products/category/databases) in Azure and their use. You can also browse [Azure data modules](/training/browse/?products=azure&terms=database) and [Choose a data storage approach in Azure](/training/modules/choose-storage-approach-in-azure). These articles help you understand your choices in Azure data solutions and learn why some solutions are recommended in specific scenarios.
 
 Here are some Learn modules you might find useful:
 
@@ -63,7 +63,6 @@ Review these best practices when designing your solutions.
 
 | Best practices | Description |
 |--------------- |------------ |
-| [Data management patterns](../patterns/category/data-management.md) | Data management is the key element of cloud applications. It influences most quality attributes. |
 | [Transactional Outbox pattern with Azure Cosmos DB](../databases/guide/transactional-outbox-cosmos.yml) | Learn how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events. |
 | [Distribute your data globally with Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally) | To achieve low latency and high availability, some applications need to be deployed in datacenters that are close to their users. |
 | [Security in Azure Cosmos DB](/azure/cosmos-db/database-security) | Security best practices help prevent, detect, and respond to database breaches. |
@@ -91,12 +90,6 @@ Refer to [Azure updates](https://azure.microsoft.com/updates/?category=databases
 
 ## Related resources
 
-These architectures use database technologies.
-
-- [SQL Managed Instance with customer-managed keys](../databases/architecture/sql-managed-instance-cmk.yml)
-
-Here are some other resources:
-
 - [Adatum Corporation scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-adatum)
 - [Lamna Healthcare scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-lamna)
 - [Optimize administration of SQL Server instances](../hybrid/azure-arc-sql-server.yml)
@@ -104,12 +97,8 @@ Here are some other resources:
 
 ### Example solutions
 
-These solution ideas are some of the example approaches that you can adapt to your needs.
+This solution idea provides example approaches that you can adapt to your needs.
 
-- [Data cache](../databases/idea/data-cache-with-redis-cache.yml)
-- [Enterprise data warehouse](../solution-ideas/articles/enterprise-data-warehouse.yml)
-- [Messaging](../databases/idea/messaging.yml)
-- [Mining equipment monitoring](../solution-ideas/articles/monitor-mining-equipment.yml)
 - [Serverless apps using Azure Cosmos DB](../databases/idea/serverless-apps-using-cosmos-db.yml)
 
 ### Similar database products

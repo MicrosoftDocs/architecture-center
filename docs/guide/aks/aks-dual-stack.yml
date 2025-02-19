@@ -4,10 +4,10 @@ metadata:
   description: Discover infrastructure considerations for an Azure Kubernetes Service cluster on a dual-stack network using both IPv4 and IPv6 addresses.
   author: andy-anhnguyen
   ms.author: anhnguye 
-  ms.date: 06/02/2023
+  ms.date: 09/26/2024
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.service: azure-architecture-center
+  ms.subservice: architecture-guide
   ms.category:
     - containers
     - kubernetes
@@ -15,6 +15,7 @@ metadata:
   ms.custom:
     - containers
     - reference-architecture
+    - arb-containers
 name: Enable dual-stack network traffic on Azure Kubernetes Service
 azureCategories:
   - containers

@@ -21,16 +21,16 @@ The Infinite i suite is from Microsoft partner Infinite Corporation. The archite
 
 The architecture uses these components:
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) VMs are on-demand, scalable computing resources that give you the flexibility of virtualization but eliminate the maintenance demands of physical hardware. The operating system choices include Windows and Linux. The VMs are an on-demand and scalable resource.
-- [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/en-us/services/virtual-machine-scale-sets/) is automated and load-balanced VM scaling that simplifies management of your applications and increases availability.
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) is a secure private network in the cloud. It connects VMs to one another, to the internet, and to on-premises networks.
-- [Azure Private Link](https://azure.microsoft.com/en-us/services/private-link/) carries private connections to Azure services.
-- [Azure load balancing services](https://azure.microsoft.com/products/azure-load-balancing/) scale VMs for high availability and high performance. This architecture uses [Load Balancer](https://azure.microsoft.com/services/load-balancer/), which provides low-latency balancing of traffic among VMs and across multi-tiered hybrid apps.
-- [Azure Disk Storage](https://azure.microsoft.com/en-us/services/storage/disks/) is highly durable and high-performance block storage for Azure VMs. There are four disk storage options for the cloud: Ultra Disk SSD Managed Disks, Premium SSD Managed Disks, Standard SSD Managed Disks, and Standard HDD Managed Disks.
-- [Azure Files](https://azure.microsoft.com/services/storage/files/) offers simple, secure, and serverless enterprise-grade file shares in the cloud. The shares support access by the industry-standard Server Message Block (SMB) and Network File System (NFS) protocols. They can be mounted concurrently by cloud and on-premises deployments of Windows, Linux, and macOS.
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) carries private connections between on-premises infrastructure and Azure datacenters.
-- [Azure SQL](https://azure.microsoft.com/services/azure-sql/) is a family of SQL cloud databases that provides a unified experience for your entire SQL portfolio, and a wide range of deployment options from edge to cloud.
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/), part of the Azure SQL family, is a fully managed platform as a service (PaaS) database engine. It handles most database management functions, such as upgrading, patching, backups, and monitoring, without your involvement. Azure SQL Database is always running on the latest stable version of the SQL Server database engine and patched OS, with 99.99 percent availability.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) VMs are on-demand, scalable computing resources that give you the flexibility of virtualization but eliminate the maintenance demands of physical hardware. The operating system choices include Windows and Linux. The VMs are an on-demand and scalable resource.
+- [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) is automated and load-balanced VM scaling that simplifies management of your applications and increases availability.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a secure private network in the cloud. It connects VMs to one another, to the internet, and to on-premises networks.
+- [Azure Private Link](/azure/private-link/private-link-overview) carries private connections to Azure services.
+- [Azure load balancing services](../../guide/technology-choices/load-balancing-overview.yml) scale VMs for high availability and high performance. This architecture uses [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability), which provides low-latency balancing of traffic among VMs and across multi-tiered hybrid apps.
+- [Azure Disk Storage](/azure/virtual-machines/managed-disks-overview) is highly durable and high-performance block storage for Azure VMs. There are four disk storage options for the cloud: Ultra Disk SSD Managed Disks, Premium SSD Managed Disks, Standard SSD Managed Disks, and Standard HDD Managed Disks.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) offers simple, secure, and serverless enterprise-grade file shares in the cloud. The shares support access by the industry-standard Server Message Block (SMB) and Network File System (NFS) protocols. They can be mounted concurrently by cloud and on-premises deployments of Windows, Linux, and macOS.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) carries private connections between on-premises infrastructure and Azure datacenters.
+- [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) is a family of SQL cloud databases that provides a unified experience for your entire SQL portfolio, and a wide range of deployment options from edge to cloud.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework), part of the Azure SQL family, is a fully managed platform as a service (PaaS) database engine. It handles most database management functions, such as upgrading, patching, backups, and monitoring, without your involvement. Azure SQL Database is always running on the latest stable version of the SQL Server database engine and patched OS, with 99.99 percent availability.
 
 ## Scenario details
 
@@ -135,7 +135,7 @@ Principal author:
   - [Migrate Legacy Cold Storage AS/400](https://www.infinitecorporation.com/data-migration)
   - [Infinite Cloud: beautiful screens from IBM i / AS400 green screens](https://www.infinitecorporation.com/infinite-cloud)
 - Optimizing costs:
-  - [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) has information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
+  - [Microsoft Azure Well-Architected Framework](/azure/well-architected/) has information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
   - [Checklist - Optimize cost](/azure/architecture/framework/cost/optimize-checklist)
   - [Virtual machines](/azure/architecture/framework/cost/optimize-vm)
 
@@ -144,7 +144,7 @@ Principal author:
 - [Understand data store models](../../guide/technology-choices/data-store-overview.md)
 - Migrating IBM system workloads:
   - [High-volume batch transaction processing](./process-batch-transactions.yml)
-  - [IBM z/OS mainframe migration with Avanade AMT](./asysco-zos-migration.yml)
+  - [IBM z/OS mainframe migration with Avanade AMT](./avanade-amt-zos-migration.yml)
   - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
   - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml)
   - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)

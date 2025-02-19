@@ -4,7 +4,7 @@ This article describes an end-to-end modernization plan for mainframe and midran
 
 ## Architecture
 
-:::image source="./media/modernize-mainframe-data.png" alt-text="Architecture diagram that shows how to modernize mainframe and midrange systems by migrating data to Azure." border="false" lightbox="./media/modernize-mainframe-data.png":::
+:::image source="./media/modernize-mainframe-data-azure.svg" alt-text="Architecture diagram that shows how to modernize mainframe and midrange systems by migrating data to Azure." border="false" lightbox="./media/modernize-mainframe-data-azure.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/modernize-mainframe-data-azure.vsdx) of this architecture.*
 
@@ -12,19 +12,20 @@ This article describes an end-to-end modernization plan for mainframe and midran
 
 The following dataflow outlines a process for modernizing a mainframe data tier. It corresponds to the preceding diagram.
 
-1. Mainframe and midrange systems store data in data sources, like file systems (VSAM, flat file, LTFS), relational databases (Db2 for z/OS, Db2 for IBM i, Db2 for Linux UNIX and Windows), or non-relational databases (IMS, ADABAS, IDMS).
+1. Mainframe and midrange systems store data in data sources, like file systems (VSAM, flat file, LTFS), relational databases (Db2 for z/OS, Db2 for IBM i, Db2 for Linux UNIX and Windows), or nonrelational databases (IMS, ADABAS, IDMS).
 
 1. The object conversion process extracts object definitions from source objects. The definitions are then converted into corresponding objects in the target data store.
 
-   - [SQL Server Migration Assistant](/sql/ssma/sql-server-migration-assistant) (SSMA) for Db2 migrates schemas and data from IBM Db2 databases to Azure databases.
+   - [SQL Server Migration Assistant (SSMA)](/sql/ssma/sql-server-migration-assistant) for Db2 migrates schemas and data from IBM Db2 databases to Azure databases.
    - [Managed Data Provider for Host Files](/host-integration-server/core/managed-data-provider-for-host-files-programmer-s-guide2) converts objects by:
        - Parsing COBOL and RPG record layouts, or *copybooks*.
        - Mapping the copybooks to C# objects that .NET applications use.
-   - Third-party tools perform automated object conversion on non-relational databases, file systems, and other data stores.
+   - Use a custom tool to convert database objects from Db2 to Azure Database for PostgreSQL. Note that you might have to request access to this tool.  
+   - Third-party tools perform automated object conversion on nonrelational databases, file systems, and other data stores.
 
 1. Data is ingested and transformed. Mainframe and midrange systems store their file system data in EBCDIC-encoded format in file formats like:
    - Indexed [VSAM](https://www.ibm.com/docs/cobol-zos/6.3?topic=files-vsam) files
-   - Non-indexed [GDG](https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zconcepts/zconcepts_175.htm) files
+   - Nonindexed [GDG](https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zconcepts/zconcepts_175.htm) files
    - Flat files
    
     COBOL, PL/I, and assembly language copybooks define the data structure of these files.
@@ -48,9 +49,9 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
      - Data Factory uses a Db2 connector to extract and integrate data from the databases.
      - SQL Server Integration Services handles various data [ETL](https://www.ibm.com/cloud/learn/etl) tasks.
 
-   d. Non-relational database data is migrated.
+   d. Nonrelational database data is migrated.
 
-      IBM mainframe and midrange systems store data in non-relational databases like these:
+      IBM mainframe and midrange systems store data in nonrelational databases like these:
     - [IDMS](https://www.broadcom.com/products/mainframe/databases-database-mgmt/idms), a [network model](https://web.archive.org/web/20060904190944/http:/coronet.iicm.edu/wbtmaster/allcoursescontent/netlib/ndm1.htm) database management system (DBMS)
     - [IMS](https://www.ibm.com/it-infrastructure/z/ims), a [hierarchical model](https://www.ibm.com/support/knowledgecenter/SSEPH2_14.1.0/com.ibm.ims14.doc.apg/ims_comparehierandreldbs.htm) DBMS
     - [Adabas](https://www.softwareag.com/en_corporate/platform/adabas-natural.html)
@@ -66,7 +67,6 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
      - [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview)
      - [Azure Cosmos DB](/azure/cosmos-db/introduction)
      - [Azure Database for MySQL](/azure/mysql/overview)
-     - [Azure Database for MariaDB](/azure/mariadb)
      - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
    - Storage:
      - [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
@@ -80,22 +80,21 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 
 #### Data storage
 
-- [SQL Database](https://azure.microsoft.com/services/sql-database) is part of the [Azure SQL family](https://azure.microsoft.com/services/azure-sql). It's built for the cloud and provides all the benefits of a fully managed and evergreen platform as a service. SQL Database also provides AI-powered automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options](/azure/azure-sql/database/service-tier-hyperscale) automatically scale resources on demand.
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is a fully managed relational database service that's based on the community edition of the open-source [PostgreSQL](https://www.postgresql.org) database engine. 
-- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a globally distributed [multimodel](https://www.infoworld.com/article/2861579/the-rise-of-the-multimodel-database.html) [NoSQL](https://www.infoworld.com/article/3240644/what-is-nosql-databases-for-a-cloud-scale-future.html) database.
-- [Azure Database for MySQL](https://azure.microsoft.com/products/mysql) is a fully managed relational database service that's based on the community edition of the open-source [MySQL](https://www.mysql.com/products/community) database engine.
-- [Azure Database for MariaDB](https://azure.microsoft.com/products/mariadb) is a cloud-based relational database service. It's based on the [MariaDB](https://mariadb.org) community edition database engine.
-- [SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) is an intelligent, scalable cloud database service that offers all the benefits of a fully managed and evergreen platform as a service. SQL Managed Instance has near-100% compatibility with the latest SQL Server Enterprise edition database engine. It also provides a native virtual network implementation that addresses common security concerns.
-- [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) is a storage repository that holds large amounts of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources. It can be structured, semi-structured, or unstructured.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is part of the [Azure SQL family](/azure/azure-sql/). It's built for the cloud and provides all the benefits of a fully managed and evergreen platform as a service. SQL Database also provides AI-powered automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options](/azure/azure-sql/database/service-tier-hyperscale) automatically scale resources on demand.
+- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service that's based on the community edition of the open-source [PostgreSQL](https://www.postgresql.org) database engine. 
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed [multimodel](https://www.infoworld.com/article/2861579/the-rise-of-the-multimodel-database.html) [NoSQL](https://www.infoworld.com/article/3240644/what-is-nosql-databases-for-a-cloud-scale-future.html) database.
+- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed relational database service that's based on the community edition of the open-source [MySQL](https://www.mysql.com/products/community) database engine.
+- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is an intelligent, scalable cloud database service that offers all the benefits of a fully managed and evergreen platform as a service. SQL Managed Instance has near-100% compatibility with the latest SQL Server Enterprise edition database engine. It also provides a native virtual network implementation that addresses common security concerns.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a storage repository that holds large amounts of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources. It can be structured, semi-structured, or unstructured.
 
 #### Compute
 
-- Data Factory integrates data across different network environments by using an [integration runtime](/azure/data-factory/concepts-integration-runtime) (IR), which is a compute infrastructure. Data Factory copies data between cloud data stores and data stores in on-premises networks by using [self-hosted IRs](/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime).
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) provides on-demand, scalable computing resources. An Azure virtual machine (VM) provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
+- Data Factory integrates data across different network environments by using an [integration runtime (IR)](/azure/data-factory/concepts-integration-runtime), which is a compute infrastructure. Data Factory copies data between cloud data stores and data stores in on-premises networks by using [self-hosted IRs](/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime).
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides on-demand, scalable computing resources. An Azure virtual machine (VM) provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
 
 #### Data integrators
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a hybrid data integration service. In this solution, an Azure Data Factory custom connector uses the Host File client component of Host Integration Server to convert mainframe datasets. With minimal setup, you can use a custom connector to convert your mainframe dataset just as you'd use any other Azure Data Factory connector.
+- [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service. In this solution, an Azure Data Factory custom connector uses the Host File client component of Host Integration Server to convert mainframe datasets. With minimal setup, you can use a custom connector to convert your mainframe dataset just as you'd use any other Azure Data Factory connector.
 - [AzCopy](/azure/storage/common/storage-use-azcopy-v10) is a command-line utility that moves blobs or files into and out of storage accounts.
 - [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) is a platform for creating enterprise-level data integration and transformation solutions. You can use it to solve complex business problems by:
    - Copying or downloading files.
@@ -103,7 +102,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
    - Cleansing and mining data.
    - Managing SQL Server objects and data.
 - [Host Integration Server](/host-integration-server/what-is-his) technologies and tools enable you to integrate existing IBM host systems, programs, messages, and data with Azure applications. The Host File client component provides flexibility for data that's converted from EBCDIC to ASCII. For example, you can generate JSON/XML from the data that's converted.
-- [Azure Synapse](https://azure.microsoft.com/products/synapse-analytics) brings together data integration, enterprise data warehousing, and big data analytics. The Azure Synapse conversion solution used in this architecture is based on Apache Spark and is a good candidate for large mainframe-dataset workload conversion. It supports a wide range of mainframe data structures and targets and requires minimal coding effort.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) brings together data integration, enterprise data warehousing, and big data analytics. The Azure Synapse conversion solution used in this architecture is based on Apache Spark and is a good candidate for large mainframe-dataset workload conversion. It supports a wide range of mainframe data structures and targets and requires minimal coding effort.
 
 #### Other tools
 
@@ -136,31 +135,33 @@ Organizations that use mainframe and midrange systems can benefit from this solu
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). When you use the Data Provider for Host Files client to convert data, [turn on connection pooling](/host-integration-server/core/data-for-host-files#configuringForPerformance) to reduce the connection startup time. When you use Data Factory to extract data, [tune the performance of the copy activity](/azure/data-factory/copy-activity-performance#performance-tuning-steps).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/). 
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Be aware of the differences between on-premises client identities and client identities in Azure. You need to compensate for any differences.
 - Use [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for component-to-component data flows.
 - When you use Data Provider for Host Files to convert data, follow the recommendations in [Data Providers for Host Files security and protection](/host-integration-server/core/data-providers-for-host-files-security-and-protection).
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - SQL Server Migration Assistant is a free, supported tool that simplifies database migration from Db2 to SQL Server, SQL Database, and SQL Managed Instance. SQL Server Migration Assistant automates all aspects of migration, including migration assessment analysis, schema and SQL statement conversion, and data migration.
 - The Azure Synapse Spark-based solution is built from open-source libraries. It eliminates the financial burden of licensing conversion tools.
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see the [Performance efficiency pillar overview](/azure/well-architected/scalability/overview).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - The key pillars of performance efficiency are performance management, capacity planning, [scalability](https://azure.microsoft.com/product-categories/databases/), and choosing an appropriate performance pattern.
 - You can [scale out the self-hosted IR](/azure/data-factory/concepts-integration-runtime#self-hosted-ir-compute-resource-and-scaling) by associating the logical instance with multiple on-premises machines in active-active mode.
 - Azure SQL Database offers the ability to dynamically scale your databases. In a serverless tier, it can automatically scale the compute resources. Elastic Pool, which allows databases to share resources in a pool, can only be scaled manually.
+
+When you use the Data Provider for Host Files client to convert data, [turn on connection pooling](/host-integration-server/core/data-for-host-files#configuringForPerformance) to reduce the connection startup time. When you use Data Factory to extract data, [tune the performance of the copy activity](/azure/data-factory/copy-activity-performance#performance-tuning-steps).
 
 ## Contributors
 
@@ -168,12 +169,11 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Principal author:
 
-- [Ashish Khandelwal]( https://www.linkedin.com/in/ashish-khandelwal-839a851a3) | Principal Engineering Architect Manager
+- [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3) | Principal Engineering Architect Manager
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
-- [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect 
+- [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -181,7 +181,8 @@ Other contributors:
 
 Review the [Azure Database Migration Guides](/data-migration). Contact [Azure Data Engineering - Mainframe & Midrange Modernization](mailto:datasqlninja@microsoft.com) for more information.
 
-See these articles: 
+See the following articles:
+
 - [IBM workloads on Azure](/azure/virtual-machines/workloads/mainframe-rehosting/ibm/get-started)
 - [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 - [Mainframe workloads supported on Azure](/azure/virtual-machines/workloads/mainframe-rehosting/partner-workloads)

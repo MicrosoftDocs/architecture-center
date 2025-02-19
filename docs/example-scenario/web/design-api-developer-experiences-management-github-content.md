@@ -4,7 +4,7 @@ As the publisher of APIs, you need a website that effectively markets your APIs 
 
 :::image type="content" alt-text="Diagram of the components of this architecture and the workflow through the internet portals and Azure services that constitute the solution, including Microsoft Entra B 2 C, Azure A P I Management, the A P I gateway, and line-of-business services." source="media/design-api-developer-experiences-management-github-architecture.png" lightbox="media/design-api-developer-experiences-management-github-architecture.png":::
 
-_Download a [PowerPoint file](https://arch-center.azureedge.net/design-api-developer-experiences-management-github.pptx) of this architecture._
+*Download a [PowerPoint file](https://arch-center.azureedge.net/design-api-developer-experiences-management-github.pptx) of this architecture.*
 
 ### Dataflow
 
@@ -48,19 +48,19 @@ The processing sequence in this solution flows as follows:
 
 The solution is composed of the following software as a service (SaaS) offerings:
 
-- [Azure API Management](https://azure.microsoft.com/services/api-management) is a managed platform as a service that allows organizations to publish APIs to both internal and external consumers. With API Management, you can publish APIs that may be hosted anywhere. Basically, API Management allows for decoupling of API hosting from the published gateway that acts as the single-entry point for the full landscape of APIs that your enterprise publishes. For more information, see [Gateway Routing pattern](../../patterns/gateway-routing.yml).
+- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) is a managed platform as a service that allows organizations to publish APIs to both internal and external consumers. With API Management, you can publish APIs that may be hosted anywhere. Basically, API Management allows for decoupling of API hosting from the published gateway that acts as the single-entry point for the full landscape of APIs that your enterprise publishes. For more information, see [Gateway Routing pattern](../../patterns/gateway-routing.yml).
 
   API Management also provides a governance layer on top of all published APIs. By using API Management policies, various other capabilities, such as [rate limits and quotas](/azure/api-management/api-management-sample-flexible-throttling), you can throttle API requests based on a key or subscription. API Management includes a [developer portal](/azure/api-management/api-management-howto-developer-portal) that provides a fully customizable website to serve as the documentation of the APIs that you publish through it.
 
-- [GitHub](https://docs.github.com) is a popular SaaS offering from Microsoft that's frequently used by developers to build, ship, and maintain their software projects. It provides important features that you can use in solutions:
+- [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git) is a popular SaaS offering from Microsoft that's frequently used by developers to build, ship, and maintain their software projects. It provides important features that you can use in solutions:
 
-  - [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages) enables your enterprise to host a rich [HTML-based website](https://pages.github.com) directly from within a [GitHub repository](https://docs.github.com/repositories).
+  - [GitHub Pages](https://docs.github.com/pages/getting-started-with-github-pages/about-github-pages) enables your enterprise to host a rich [HTML-based website](https://pages.github.com) directly from within a [GitHub repository](https://docs.github.com/repositories).
 
   - [GitHub Discussions](https://docs.github.com/discussions) and [GitHub Issues](https://docs.github.com/issues) help you to activate community collaboration.
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) is a fully managed compute platform for hosting custom web applications.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed compute platform for hosting custom web applications.
 
-- [Azure Active Directory B2C (Azure AD B2C)](https://azure.microsoft.com/services/active-directory/external-identities/b2c) is an extension of Microsoft Entra ID that your application can use to manage external customer or partner identities for access and authorization. You can make use of the [Microsoft identify platform](/azure/active-directory/develop/v2-overview) to easily integrate identity and authorization in your custom applications.
+- [Azure Active Directory (Azure AD) B2C](/azure/active-directory-b2c/overview) is an extension of Microsoft Entra ID that your application can use to manage external customer or partner identities for access and authorization. You can make use of the [Microsoft identify platform](/azure/active-directory/develop/v2-overview) to easily integrate identity and authorization in your custom applications.
 
 ## Scenario details
 
@@ -85,7 +85,7 @@ At the top of the value chain is the API service provider. Next are the API cons
 
 :::image type="content" alt-text="Diagram of features and capabilities of the enhanced A P I developer experience." source="media/design-api-developer-experiences-management-github-basic-features.png" lightbox="media/design-api-developer-experiences-management-github-basic-features.png":::
 
-_Download a [PowerPoint file](https://arch-center.azureedge.net/design-api-developer-experiences-management-github.pptx) of this diagram._
+*Download a [PowerPoint file](https://arch-center.azureedge.net/design-api-developer-experiences-management-github.pptx) of this diagram.*
 
 The API developer experience features three portals:
 
@@ -97,7 +97,7 @@ The API developer experience features three portals:
 
 ### Functional requirements
 
-At a high level, the functional requirements for an enterprise-scale API platform fit into three categories, namely _productization_, _platform administration_, and _consumer experiences_.
+At a high level, the functional requirements for an enterprise-scale API platform fit into three categories, namely *productization*, *platform administration*, and *consumer experiences*.
 
 :::image type="content" alt-text="Diagram that shows three broad functional requirements of an enterprise-scale A P I platform." source="media/design-api-developer-experiences-management-github-functional-requirements.png":::
 
@@ -161,21 +161,25 @@ Consumer experiences comprise the following components:
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected).
+
 The components in this scenario address issues of performance, reliability, and security.
 
 API Management supports [autoscaling](/azure/api-management/api-management-howto-autoscale), which quickly expands API Management capabilities in response to growing numbers of incoming requests. API Management also supports zone redundancy and multi-region deployments to provide resiliency and high availability. For more information about zone redundancy, see [Availability zone support for Azure API Management](/azure/api-management/zone-redundancy). For more information about API Management security, see [Azure security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline).
 
 App Service is a fully managed platform as a service that features built-in security and autoscaling with an [SLA](https://azure.microsoft.com//support/legal/sla/app-service/v1_5) that promises high availability. App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/trustcenter), and it supports authenticating users with Microsoft Entra ID, Google, Facebook, Twitter, or Microsoft account. With App Service, you can also [create IP address restrictions](/azure/app-service/app-service-ip-restrictions).
 
-Azure AD B2C offers high availability and scales to supporting hundreds of millions of users. Azure AD B2C supports [OpenID Connect](/azure/active-directory/develop/v2-protocols-oidc) and multiple identity providers so that customers can choose their preferred provider. Azure AD B2C also supports application-based and policy-based multi-factor authentication, adding additional layers of security. For more information about Azure AD B2C, see [What is Azure Active Directory B2C](/azure/active-directory-b2c/overview)? For more information about using external identities, see [External Identities in Microsoft Entra ID](/azure/active-directory/external-identities/external-identities-overview).
+Azure AD B2C offers high availability and scales to supporting hundreds of millions of users. Azure AD B2C supports [OpenID Connect](/azure/active-directory/develop/v2-protocols-oidc) and multiple identity providers so that customers can choose their preferred provider. Azure AD B2C also supports application-based and policy-based multifactor authentication, adding additional layers of security. For more information about Azure AD B2C, see [What is Azure Active Directory B2C](/azure/active-directory-b2c/overview)? For more information about using external identities, see [External Identities in Microsoft Entra ID](/azure/active-directory/external-identities/external-identities-overview).
 
 GitHub makes security reviews an automated part of code reviews, scanning every new commit for potential security issues. This service helps you to discover problems as soon as they're offered as additions to the code base. GitHub security allows you to customize searches for security concerns and integrate third-party scanning engines. For more features and details, see [Security](https://github.com/features/security) on GitHub.
 
-### Cost optimization
+### Cost Optimization
 
-You can develop the consumer portal by using the _Team_ or _Enterprise_ [pricing plan for GitHub](https://github.com/pricing). Refer to the feature matrix to identify which plan best suits your enterprise.
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-For API Management, you can use the _Standard_ or the _Premium_ tiers. To better understand the differences between the tiers, see [API Management pricing options](https://azure.microsoft.com/pricing/details/api-management).
+You can develop the consumer portal by using the *Team* or *Enterprise* [pricing plan for GitHub](https://github.com/pricing). Refer to the feature matrix to identify which plan best suits your enterprise.
+
+For API Management, you can use the *Standard* or the *Premium* tiers. To better understand the differences between the tiers, see [API Management pricing options](https://azure.microsoft.com/pricing/details/api-management).
 
 For Azure App Service, refer to the pricing options that are available for [Windows](https://azure.microsoft.com/pricing/details/app-service/windows) and [Linux](https://azure.microsoft.com/pricing/details/app-service/linux) environments for hosting your applications.
 

@@ -27,28 +27,28 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 
 The architecture uses these components:
 
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) provides a secure private network in the cloud. It can connect virtual machines (VMs) to one another, to the internet, and to on-premises networks.
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) provides private connections between Azure datacenters and on-premises infrastructure.
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) provides private and fully managed RDP and SSH access to VMs.
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) provides the flexibility of virtualization without having to provide and maintain the hardware that hosts it. The operating system choices include Windows and Linux.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) provides a secure private network in the cloud. It can connect virtual machines (VMs) to one another, to the internet, and to on-premises networks.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) provides private connections between Azure datacenters and on-premises infrastructure.
+- [Azure Bastion](/azure/bastion/bastion-overview) provides private and fully managed RDP and SSH access to VMs.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides the flexibility of virtualization without having to provide and maintain the hardware that hosts it. The operating system choices include Windows and Linux.
 - A VM created with accelerated networking uses single root I/O virtualization (SR-IOV), greatly improving its networking performance. For more information, see [Create a Windows VM with accelerated networking using Azure PowerShell](/azure/virtual-network/create-vm-accelerated-networking-powershell) and [Overview of Single Root I/O Virtualization (SR-IOV)](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-).
 - An Azure network interface connects a VM to the internet, and to Azure and on-premises resources. As shown in this architecture, you can give each child VM its own network interface and IP address. For more information on network interfaces, see [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface).
-- [Azure Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/) are high-performance, highly durable block storage for VMs. There are four disk storage options for the cloud: Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD.
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is a fully managed Kubernetes service for deploying and managing containerized applications.
-- [Service Bus](https://azure.microsoft.com/services/service-bus/) provides reliable cloud messaging as a service (MaaS) and simple hybrid integration.
-- [Azure load balancing services](https://azure.microsoft.com/products/azure-load-balancing/) provides scaling for high availability and high performance. This architecture uses [Load Balancer](https://azure.microsoft.com/services/load-balancer/). It provides low-latency Layer 4 (TCP, UDP) load balancing capabilities to balance traffic between VMs, and across multi-tiered hybrid apps.
-- [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) is a lightning-fast and fully managed in-memory caching service for sharing  data and state among compute resources.
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a fast NoSQL database with open APIs for any scale.
-- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) provides real-time analytics on fast-moving streams of data from applications and devices.
-- [Azure Databricks](https://azure.microsoft.com/services/databricks/) is a fast, easy, and collaborative big data analytics service based on Apache Spark<sup>TM</sup>.
-- [Azure SQL](https://azure.microsoft.com/services/azure-sql/) is a family of SQL cloud databases that provides a unified experience for your entire SQL portfolio, and a wide range of deployment options from edge to cloud.
-- [Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance/), part of the Azure SQL service portfolio, is a  managed, secure, and always up-to-date SQL instance in the cloud.
-- [Data Factory](https://azure.microsoft.com/services/data-factory/) is a fully managed and serverless data integration solution for preparing, and transforming all your data at scale.
+- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) are high-performance, highly durable block storage for VMs. There are four disk storage options for the cloud: Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD.
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications.
+- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) provides reliable cloud messaging as a service (MaaS) and simple hybrid integration.
+- [Azure load balancing services](/azure/architecture/guide/technology-choices/load-balancing-overview) provides scaling for high availability and high performance. This architecture uses [Load Balancer](https://azure.microsoft.com/services/load-balancer/). It provides low-latency Layer 4 (TCP, UDP) load balancing capabilities to balance traffic between VMs, and across multi-tiered hybrid apps.
+- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is a lightning-fast and fully managed in-memory caching service for sharing  data and state among compute resources.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fast NoSQL database with open APIs for any scale.
+- [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) provides real-time analytics on fast-moving streams of data from applications and devices.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a fast, easy, and collaborative big data analytics service based on Apache Spark<sup>TM</sup>.
+- [Azure SQL](/azure/azure-sql/) is a family of SQL cloud databases that provides a unified experience for your entire SQL portfolio, and a wide range of deployment options from edge to cloud.
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability), part of the Azure SQL service portfolio, is a  managed, secure, and always up-to-date SQL instance in the cloud.
+- [Data Factory](/azure/data-factory/introduction) is a fully managed and serverless data integration solution for preparing, and transforming all your data at scale.
 - Data Factory supports the Parquet file data format. For more information, see [Parquet format in Azure Data Factory](/azure/data-factory/format-parquet).
-- Log Analytics is a tool in the Azure portal used to edit and run log queries on [Azure Monitor](https://azure.microsoft.com/services/monitor/) logs. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
-- The geo-redundant storage (GRS) option of [Azure Storage](https://azure.microsoft.com/services/storage/) copies your data synchronously three times within a single physical location in the primary region, then copies it asynchronously to a single physical location in the secondary region. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) is massively scalable and secure REST-based object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning.
-- [Azure Files](https://azure.microsoft.com/services/storage/files/) provides simple, secure, and serverless enterprise-grade file shares in the cloud. You use the industry-standard Server Message Block (SMB) and Network File System (NFS) protocols to access the shares.
+- Log Analytics is a tool in the Azure portal used to edit and run log queries on [Azure Monitor](/azure/azure-monitor/overview) logs. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/well-architected/service-guides/azure-log-analytics).
+- The geo-redundant storage (GRS) option of [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) copies your data synchronously three times within a single physical location in the primary region, then copies it asynchronously to a single physical location in the secondary region. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is massively scalable and secure REST-based object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) provides simple, secure, and serverless enterprise-grade file shares in the cloud. You use the industry-standard Server Message Block (SMB) and Network File System (NFS) protocols to access the shares.
 
 ## Scenario details
 
@@ -66,32 +66,25 @@ The solution is ideal for the finance, education, and science industries. This a
 
 ## Considerations
 
-The following considerations, based on the [Azure Well-Architected Framework](https://www.microsoft.com/azure/partners/well-architected), apply to this solution:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Availability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) disaster recovery service protects against major outages. It's dependable, cost-effective, and easy to deploy.
 - Availability sets for VMs ensure that enough VMs are available to meet mission-critical batch process needs.
 - Service Bus, AKS, and Azure SQL Managed Instance provide high availability and recoverability across geographic regions.
 
-### Operational
-
-- [Azure Resource Manager templates (ARM templates)](https://azure.microsoft.com/services/arm-templates/) provide a configuration language to describe your resources in templates that you can use for scripted deployment. The templates also provide monitoring and alerting capabilities.
-
-### Performance efficiency
-
-- The architecture is designed to accommodate parallel processing of independent transactions.
-- Service Bus, AKS, and other Azure PaaS features provide high performance for transaction processing, computing, and data storage.
-
-### Scalability
-
-- Service Bus, AKS, and other Azure PaaS features dynamically scale as needed.
-
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - All the components within the Service Bus batch architecture work with Azure security components, such as Microsoft Entra ID, Virtual Network, and encryption.
 
-### Cost optimization
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 To estimate costs for your implementation of this solution, use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
@@ -113,6 +106,20 @@ Here are pricing considerations for specific components:
   - Your activity run volume determines the cost of [Data Factory](https://azure.microsoft.com/pricing/details/data-factory/).
   - For [Azure Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network), IP addresses carry a nominal charge.
   - Outbound data transfer volume determines [Azure Bastion](https://azure.microsoft.com/pricing/details/azure-bastion/) costs.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+- [Azure Resource Manager templates (ARM templates)](https://azure.microsoft.com/services/arm-templates/) provide a configuration language to describe your resources in templates that you can use for scripted deployment. The templates also provide monitoring and alerting capabilities.
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+- The architecture is designed to accommodate parallel processing of independent transactions.
+- Service Bus, AKS, and other Azure PaaS features provide high performance for transaction processing, computing, and data storage.
+- Service Bus, AKS, and other Azure PaaS features dynamically scale as needed.
 
 ## Next steps
 

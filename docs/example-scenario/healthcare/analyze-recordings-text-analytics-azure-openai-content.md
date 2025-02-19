@@ -60,14 +60,14 @@ The solution consists of two pipelines:
 
 ### Components
 
-- [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) provides massively scalable cloud-native object storage. As a data lake that's built on top of [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs), Data Lake Storage offers optimized cost and performance for data that's used in analytics, machine learning, and other applications.
-- [Azure Functions](https://azure.microsoft.com/products/functions) is an Azure-native serverless solution that hosts lightweight code that's used in analytics pipelines. Functions supports various languages and frameworks, including .NET, Java, and Python. By using lightweight virtualization technology, Functions can quickly scale out to support a large number of concurrent requests while maintaining enterprise-grade service-level agreements (SLAs).
-- [Key Vault](https://azure.microsoft.com/products/key-vault) stores secrets such as tokens, passwords, and client keys. To help control access to secrets, Key Vault provides fine-grained authorization and authentication that's based on Microsoft Entra ID. Key Vault also supports native integrations to many Azure services.
-- [Azure AI Speech](https://azure.microsoft.com/products/ai-services/ai-speech) provides speech capabilities such as speech-to-text, text-to-speech, speech translation, and speaker recognition services. As part of [Azure AI Services](https://azure.microsoft.com/products/ai-services), this speech service helps you create applications by offering out-of-the-box, prebuilt, customizable APIs and models.
-- [Text analytics for health](https://azure.microsoft.com/products/ai-services/text-analytics) is a feature of [Azure AI Language](https://azure.microsoft.com/products/ai-services/ai-language) that you can use to extract, classify, and understand text within healthcare documents. You can use text analytics for health to extract medical entities, medical entity metadata like SNOMED codes, and medical entity relationships from complex natural language that involves medicine, such as medical notes.
-- [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service) is a cloud-based service that offers advanced language AI by providing REST API access to OpenAI models like GPT-3, Codex, and DALL-E. The Azure OpenAI APIs are developed with OpenAI to help ensure compatibility with OpenAI. With Azure OpenAI, you benefit from the security capabilities of Azure during model runs. Azure OpenAI offers private networking, regional availability, and responsible AI content filtering. The completions endpoint is the core component of the API service. This API provides access to the model's text-in, text-out interface. When you provide an input prompt that contains an English text command, the model generates a text completion.
-- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) is a full-featured enterprise analytics platform that provides data ingestion, orchestration, processing, and serving capabilities at scale.
-- [Power BI](https://powerbi.microsoft.com) is a business dashboard and visualization tool with integrated semantic modeling capabilities.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) provides massively scalable cloud-native object storage. As a data lake that's built on top of [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage), Data Lake Storage offers optimized cost and performance for data that's used in analytics, machine learning, and other applications.
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is an Azure-native serverless solution that hosts lightweight code that's used in analytics pipelines. Functions supports various languages and frameworks, including .NET, Java, and Python. By using lightweight virtualization technology, Functions can quickly scale out to support a large number of concurrent requests while maintaining enterprise-grade service-level agreements (SLAs).
+- [Key Vault](/azure/key-vault/general/overview) stores secrets such as tokens, passwords, and client keys. To help control access to secrets, Key Vault provides fine-grained authorization and authentication that's based on Microsoft Entra ID. Key Vault also supports native integrations to many Azure services.
+- [Azure AI Speech](/azure/ai-services/speech-service/overview) provides speech capabilities such as speech-to-text, text-to-speech, speech translation, and speaker recognition services. As part of [Azure AI Services](/azure/ai-services/what-are-ai-services), this speech service helps you create applications by offering out-of-the-box, prebuilt, customizable APIs and models.
+- [Text analytics for health](/azure/ai-services/language-service/text-analytics-for-health/overview) is a feature of [Azure AI Language](/azure/ai-services/language-service/overview) that you can use to extract, classify, and understand text within healthcare documents. You can use text analytics for health to extract medical entities, medical entity metadata like SNOMED codes, and medical entity relationships from complex natural language that involves medicine, such as medical notes.
+- [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is a cloud-based service that offers advanced language AI by providing REST API access to OpenAI models like GPT-3, Codex, and DALL-E. The Azure OpenAI APIs are developed with OpenAI to help ensure compatibility with OpenAI. With Azure OpenAI, you benefit from the security capabilities of Azure during model runs. Azure OpenAI offers private networking, regional availability, and responsible AI content filtering. The completions endpoint is the core component of the API service. This API provides access to the model's text-in, text-out interface. When you provide an input prompt that contains an English text command, the model generates a text completion.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a full-featured enterprise analytics platform that provides data ingestion, orchestration, processing, and serving capabilities at scale.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a business dashboard and visualization tool with integrated semantic modeling capabilities.
 
 ### Alternatives
 
@@ -94,7 +94,7 @@ You can use this solution for many purposes, including:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -150,7 +150,4 @@ Principal authors:
 
 ## Related resources
 
-- [Build a telehealth system on Azure](../apps/telehealth-system.yml)
-- [Clinical insights with Microsoft Cloud for Healthcare](../mch-health/medical-data-insights.yml)
-- [Precision medicine pipeline with genomics](../precision-medicine/genomic-analysis-reporting.yml)
 - [Other healthcare architectures](../../browse/index.yml?terms=healthcare)

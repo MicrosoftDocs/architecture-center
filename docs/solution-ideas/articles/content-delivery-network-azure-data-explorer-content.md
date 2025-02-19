@@ -50,4 +50,4 @@ For more information, see [Azure Data Explorer documentation](/azure/data-explor
 - [Analytics architecture design](analytics-start-here.yml)
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 - [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.yml)
-- [Azure Data Explorer monitoring](monitor-azure-data-explorer.yml)
+

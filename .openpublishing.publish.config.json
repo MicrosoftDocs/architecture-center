@@ -42,6 +42,12 @@
       "url": "https://github.com/Azure/CAE-Bits",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "docs/reusable-content",
+      "url": "https://github.com/MicrosoftDocs/reusable-content",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {

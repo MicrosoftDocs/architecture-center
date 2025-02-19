@@ -25,7 +25,7 @@ This solution is primarily for the healthcare, medical, medical insurance, and f
 - [Data Factory](https://azure.microsoft.com/services/data-factory): Hybrid data integration at enterprise scale, made easy
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage): Hyperscale repository for big data analytics workloads
 - [Cognitive Services](https://azure.microsoft.com/services/cognitive-services): Add smart API capabilities to enable contextual interactions
-- [Web Apps](https://azure.microsoft.com/services/app-service/web): Quickly create and deploy mission critical web apps at scale
+- [Web Apps](/azure/well-architected/service-guides/app-service-web-apps): Quickly create and deploy mission critical web apps at scale
 - [Defender for Cloud](https://azure.microsoft.com/services/security-center): Unify security management and enable advanced threat protection across hybrid cloud workloads
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
 - [Key Vault](https://azure.microsoft.com/services/key-vault): Safeguard and maintain control of keys and other secrets

@@ -98,7 +98,7 @@ This pattern might not be useful when:
 
 ## Workload design
 
-An architect should evaluate how the Geodes pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+An architect should evaluate how the Publisher/Subscriber pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
@@ -114,7 +114,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 The following diagram shows an enterprise integration architecture that uses Service Bus to coordinate workflows, and Event Grid to notify subsystems of events that occur. For more information, see [Enterprise integration on Azure using message queues and events](../example-scenario/integration/queues-events.yml).
 
-![Enterprise integration architecture](../reference-architectures/enterprise-integration/_images/enterprise-integration-queues-events.png)
+![Enterprise integration architecture](../example-scenario/integration/media/enterprise-integration-message-broker-events.svg)
 
 ## Next steps
 

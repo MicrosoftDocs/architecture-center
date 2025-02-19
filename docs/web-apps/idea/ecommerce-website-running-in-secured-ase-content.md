@@ -35,8 +35,8 @@ Other relevant use cases include:
 
 ### Components
 
-* [App Service](https://azure.microsoft.com/services/app-service): Quickly create powerful cloud apps for web and mobile
-* [Web Apps](https://azure.microsoft.com/services/app-service/web): An App Service Web App runs in a single region, accessible to web and mobile browsers
+* [App Service](/azure/well-architected/service-guides/app-service-web-apps): Quickly create powerful cloud apps for web and mobile
+* [Web Apps](/azure/well-architected/service-guides/app-service-web-apps): An App Service Web App runs in a single region, accessible to web and mobile browsers
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database): Managed, intelligent SQL in the cloud
 * [API Apps](https://azure.microsoft.com/services/app-service/api): Publish APIs to external, partner, and employee developers securely and at scale.
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services

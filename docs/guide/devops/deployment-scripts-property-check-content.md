@@ -2,8 +2,8 @@ This article describes how to use Bicep and a deployment script to pause a deplo
 
 This article uses an Azure Virtual WAN scenario to illustrate the technique. The resource check and pause is implemented in these files:
 
-> - [orchestration.bicep](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/orchestration.bicep)
-> - [azResourceStateCheck.bicep](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/modules/azResourceStateCheck.bicep)
+> - [`orchestration.bicep`](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/orchestration.bicep)
+> - [`azResourceStateCheck.bicep`](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/modules/azResourceStateCheck.bicep)
 > - [Invoke-AzResourceStateCheck.ps1](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/scripts/Invoke-AzResourceStateCheck.ps1)
 
 You can adapt the files for your deployment. The azResourceStateCheck.bicep module is parameterized for ease of reuse. Be sure to note how the **dependsOn** property is used in orchestration.bicep to make the vwanvhcs.bicep module deployment depend on the azResourceStateCheck.bicep nodule deployment.

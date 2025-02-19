@@ -6,10 +6,10 @@ ms.author: yubaijna
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
-azureCategories: 
-  - analytics 
+azureCategories:
+  - analytics
   - database
   - storage
   - web
@@ -75,8 +75,6 @@ Azure provides a package of products and services designed to capture, organize,
 [!INCLUDE [Database Services](../../includes/aws/databases.md)]
 
 ### See also
-
-- [Azure AI Gallery](https://gallery.azure.ai/)
 
 - [Cloud-scale analytics](https://azure.microsoft.com/solutions/big-data/#overview)
 

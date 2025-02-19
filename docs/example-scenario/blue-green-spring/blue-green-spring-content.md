@@ -28,15 +28,15 @@ This article describes a high-availability blue/green deployment solution for ap
 
 This solution uses the following components:
 
-- [Azure Spring Apps](https://azure.microsoft.com/services/spring-cloud) is a modern microservices platform for running Java Spring Boot and Steeltoe .NET Core apps. It eliminates boilerplate code for running microservices and helps you quickly develop robust apps in the cloud. You can also use Azure Spring Apps to deploy code on a per-application basis.
+- [Azure Spring Apps](/azure/spring-apps/basic-standard/overview) is a modern microservices platform for running Java Spring Boot and Steeltoe .NET Core apps. It eliminates boilerplate code for running microservices and helps you quickly develop robust apps in the cloud. You can also use Azure Spring Apps to deploy code on a per-application basis.
 
-- [GitHub](https://github.com) is a code-hosting platform that provides version control and collaboration. GitHub provides Git distributed version control, source code management, and other features.
+- [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git) is a code-hosting platform that provides version control and collaboration. GitHub provides Git distributed version control, source code management, and other features.
 
 - [GitHub Actions](https://docs.github.com/actions) helps you automate software development and deployment workflows from within a repository. You can use it to create a fully automated continuous integration and continuous delivery (CI/CD) setup. You can also use GitHub Actions to create environments for which you can configure rules, like requiring reviewers.
 
 ### Alternatives
 
-This solution uses GitHub Actions to automate deployment. You can use [Azure Pipelines](https://dev.azure.com) or any other CI/CD automation system as an alternative. The sample described in the deployment section of this document uses Azure CLI statements as much as possible, so you can easily translate this setup to another automation tool. Use a CI/CD tool to set up an environment and create an approval flow on it.
+This solution uses GitHub Actions to automate deployment. You can use [Azure Pipelines](https://dev.azure.com) or any other CI/CD automation system as an alternative. The sample described in the deployment section of this document uses the Azure CLI statements as much as possible, so you can easily translate this setup to another automation tool. Use a CI/CD tool to set up an environment and create an approval flow on it.
 
 This architecture uses Azure Spring Apps with Deployments as a target service. You can use Azure App Service staging slots as an alternative. A slot contains the new version of the application, which can be reloaded, warmed up, and tested before a slot swap is done. The slot swap puts the new version in production. This process is built into the service, so the setup is easy.
 
@@ -44,7 +44,7 @@ As another alternative, you can place any Azure service that hosts web endpoints
 
 ## Scenario details
 
-For some cloud applications, keeping uptime as high as possible is critical. One solution is to use a high availability configuration, which can double costs. Another solution is a disaster recovery plan, which brings up the application again in another region after an outage. The cost for the latter might be lower, but bringing the entire application online again takes time.
+For some cloud applications, keeping uptime as high as possible is critical. One solution is to use a high-availability configuration, which can double costs. Another solution is a disaster recovery plan, which brings up the application again in another region after an outage. The cost for the latter might be lower, but bringing the entire application online again takes time.
 
 This article describes a process for ensuring high availability during the deployment of a new version of an application. In a traditional configuration, the new bits of the application are deployed to the service that's hosting the application. This configuration often leads to a reload and restart of the application. During that process, the application is unavailable.
 
@@ -62,11 +62,11 @@ You can further improve your availability by implementing zero-downtime deployme
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Availability
 
-This solution helps you maintain availability for your application during the deployment of a new version. It doesn't increase the overall SLA that Azure Spring Apps provides. Service failures on the platform can still affect your app.
+This solution helps you maintain availability for your application during the deployment of a new version. It doesn't increase the overall service-level agreement (SLA) that Azure Spring Apps provides. Service failures on the platform can still affect your app.
 
 If you want a solution to increase the overall SLA of your configuration, look into setting up a high-availability Azure Spring Apps service over multiple regions and fronting it with a global load-balancing solution.
 
@@ -137,6 +137,4 @@ Principal author:
 ## Related resources
 
 - [Azure Spring Apps reference architecture](/azure/spring-cloud/reference-architecture)
-- [Expose Azure Spring Apps through a reverse proxy](../../reference-architectures/microservices/spring-cloud-reverse-proxy.yml)
-- [DevTest and DevOps for microservice solutions](../../solution-ideas/articles/dev-test-microservice.yml)
 - [Deploy Azure Spring Apps to multiple regions](../../reference-architectures/microservices/spring-apps-multi-region.yml)

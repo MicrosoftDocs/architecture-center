@@ -20,9 +20,9 @@ In this solution, you use the following services and components:
 
 ### Components
 
-- [Azure Automation](https://azure.microsoft.com/products/automation)
-- [Azure Monitor](https://azure.microsoft.com/products/monitor)
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines)
+- [Azure Automation](/azure/automation/overview)
+- [Azure Monitor](/azure/azure-monitor/overview)
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines)
 
 ## Scenario details
 
@@ -88,11 +88,11 @@ For more information about monitoring Azure Automation State Configuration, see 
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Configuration management includes the configuration pull service and change tracking capabilities. Billing is based on the number of nodes that are registered with the service and on the quantity of log data that's stored in the Azure Log Analytics service.
 
@@ -176,7 +176,6 @@ For detailed information and additional deployment options, see the ARM template
 - [Azure Monitor documentation](/azure/azure-monitor)
 - [PowerShell documentation](/powershell)
 
-## Related resources
+## Related resource
 
 - [Browse additional solutions](/azure/architecture/browse)
-- [Azure Automation update management](/azure/architecture/hybrid/azure-update-mgmt)

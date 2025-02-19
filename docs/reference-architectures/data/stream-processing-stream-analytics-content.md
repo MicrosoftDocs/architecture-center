@@ -14,7 +14,7 @@ The architecture consists of the following components:
 
 **Data sources**. In this architecture, there are two data sources that generate data streams in real time. The first stream contains ride information, and the second contains fare information. The reference architecture includes a simulated data generator that reads from a set of static files and pushes the data to Event Hubs. In a real application, the data sources would be devices installed in the taxi cabs.
 
-**Azure Event Hubs**. [Event Hubs](/azure/event-hubs/) is an event ingestion service. This architecture uses two event hub instances, one for each data source. Each data source sends a stream of data to the associated event hub.
+**Azure Event Hubs**. [Event Hubs](/azure/well-architected/service-guides/event-hubs) is an event ingestion service. This architecture uses two event hub instances, one for each data source. Each data source sends a stream of data to the associated event hub.
 
 **Azure Stream Analytics**. [Stream Analytics](/azure/stream-analytics/) is an event-processing engine. A Stream Analytics job reads the data streams from the two event hubs and performs stream processing.
 
@@ -148,39 +148,29 @@ In the architecture shown here, only the results of the Stream Analytics job are
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Scalability
+### Cost Optimization
 
-#### Event Hubs
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-The throughput capacity of Event Hubs is measured in [throughput units](/azure/event-hubs/event-hubs-scalability#throughput-units). You can autoscale an event hub by enabling [auto-inflate](/azure/event-hubs/event-hubs-auto-inflate), which automatically scales the throughput units based on traffic, up to a configured maximum.
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
 
-#### Stream Analytics
+#### Azure Stream Analytics
 
-For Stream Analytics, the computing resources allocated to a job are measured in Streaming Units. Stream Analytics jobs scale best if the job can be parallelized. That way, Stream Analytics can distribute the job across multiple compute nodes.
+Azure Stream Analytics is priced by the number of streaming units ($0.11/hour) required to process the data into the service.
 
-For Event Hubs input, use the `PARTITION BY` keyword to partition the Stream Analytics job. The data will be divided into subsets based on the Event Hubs partitions.
+Stream Analytics can be expensive if you are not processing the data in real-time or small amounts of data. For those use cases, consider using Azure Functions or Logic Apps to move data from Azure Event Hubs to a data store.
 
-Windowing functions and temporal joins require additional SU. When possible, use `PARTITION BY` so that each partition is processed separately. For more information, see [Understand and adjust Streaming Units](/azure/stream-analytics/stream-analytics-streaming-unit-consumption#windowed-aggregates).
+#### Azure Event Hubs and Azure Cosmos DB
 
-If it's not possible to parallelize the entire Stream Analytics job, try to break the job into multiple steps, starting with one or more parallel steps. That way, the first steps can run in parallel. For example, in this reference architecture:
+For cost considerations about Azure Event Hubs and Azure Cosmos DB, see Cost considerations see the [Stream processing with Azure Databricks](stream-processing-databricks.yml) reference architecture.
 
-- Steps 1 and 2 are simple `SELECT` statements that select records within a single partition.
-- Step 3 performs a partitioned join across two input streams. This step takes advantage of the fact that matching records share the same partition key, and so are guaranteed to have the same partition ID in each input stream.
-- Step 4 aggregates across all of the partitions. This step cannot be parallelized.
+### Operational Excellence
 
-Use the Stream Analytics [job diagram](/azure/stream-analytics/stream-analytics-job-diagram-with-metrics) to see how many partitions are assigned to each step in the job. The following diagram shows the job diagram for this reference architecture:
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-![Diagram showing Stream Analytics jobs.](./images/stream-processing-asa/job-diagram.png)
-
-#### Azure Cosmos DB
-
-Throughput capacity for Azure Cosmos DB is measured in [Request Units](/azure/cosmos-db/request-units) (RU). In order to scale an Azure Cosmos DB container past 10,000 RU, you must specify a [partition key](/azure/cosmos-db/partition-data) when you create the container, and include the partition key in every document.
-
-In this reference architecture, new documents are created only once per minute (the hopping window interval), so the throughput requirements are quite low. For that reason, there's no need to assign a partition key in this scenario.
-
-### Monitoring
+#### Monitoring
 
 With any stream processing solution, it's important to monitor the performance and health of the system. [Azure Monitor](/azure/monitoring-and-diagnostics/) collects metrics and diagnostics logs for the Azure services used in the architecture. Azure Monitor is built into the Azure platform and does not require any additional code in your application.
 
@@ -206,23 +196,7 @@ Auto-inflate was enabled at about the 06:35 mark. You can see the p drop in thro
 
 Interestingly, this had the side effect of increasing the SU utilization in the Stream Analytics job. By throttling, Event Hubs was artificially reducing the ingestion rate for the Stream Analytics job. It's actually common that resolving one performance bottleneck reveals another. In this case, allocating additional SU for the Stream Analytics job resolved the issue.
 
-### Cost optimization
-
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
-
-#### Azure Stream Analytics
-
-Azure Stream Analytics is priced by the number of streaming units ($0.11/hour) required to process the data into the service.
-
-Stream Analytics can be expensive if you are not processing the data in real-time or small amounts of data. For those use cases, consider using Azure Functions or Logic Apps to move data from Azure Event Hubs to a data store.
-
-#### Azure Event Hubs and Azure Cosmos DB
-
-For cost considerations about Azure Event Hubs and Azure Cosmos DB, see Cost considerations see the [Stream processing with Azure Databricks](stream-processing-databricks.yml) reference architecture.
-
-### DevOps
+#### DevOps
 
 - Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
 
@@ -238,16 +212,46 @@ For cost considerations about Azure Event Hubs and Azure Cosmos DB, see Cost con
 
 For more information, see the operational excellence pillar in [Microsoft Azure Well-Architected Framework][AAF-devops].
 
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+#### Event Hubs
+
+The throughput capacity of Event Hubs is measured in [throughput units](/azure/event-hubs/event-hubs-scalability#throughput-units). You can autoscale an event hub by enabling [auto-inflate](/azure/event-hubs/event-hubs-auto-inflate), which automatically scales the throughput units based on traffic, up to a configured maximum.
+
+#### Stream Analytics
+
+For Stream Analytics, the computing resources allocated to a job are measured in Streaming Units. Stream Analytics jobs scale best if the job can be parallelized. That way, Stream Analytics can distribute the job across multiple compute nodes.
+
+For Event Hubs input, use the `PARTITION BY` keyword to partition the Stream Analytics job. The data will be divided into subsets based on the Event Hubs partitions.
+
+Windowing functions and temporal joins require additional SU. When possible, use `PARTITION BY` so that each partition is processed separately. For more information, see [Understand and adjust Streaming Units](/azure/stream-analytics/stream-analytics-streaming-unit-consumption#windowed-aggregates).
+
+If it's not possible to parallelize the entire Stream Analytics job, try to break the job into multiple steps, starting with one or more parallel steps. That way, the first steps can run in parallel. For example, in this reference architecture:
+
+- Steps 1 and 2 are simple `SELECT` statements that select records within a single partition.
+- Step 3 performs a partitioned join across two input streams. This step takes advantage of the fact that matching records share the same partition key, and so are guaranteed to have the same partition ID in each input stream.
+- Step 4 aggregates across all of the partitions. This step cannot be parallelized.
+
+Use the Stream Analytics [job diagram](/azure/stream-analytics/stream-analytics-job-diagram-with-metrics) to see how many partitions are assigned to each step in the job. The following diagram shows the job diagram for this reference architecture:
+
+![Diagram showing Stream Analytics jobs.](./images/stream-processing-asa/job-diagram.png)
+
+#### Azure Cosmos DB
+
+Throughput capacity for Azure Cosmos DB is measured in [Request Units (RUs)](/azure/cosmos-db/request-units). In order to scale an Azure Cosmos DB container past 10,000 RU, you must specify a [partition key](/azure/cosmos-db/partition-data) when you create the container, and include the partition key in every document.
+
+In this reference architecture, new documents are created only once per minute (the hopping window interval), so the throughput requirements are quite low. For that reason, there's no need to assign a partition key in this scenario.
+
 ## Deploy this scenario
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
 
 ## Related resources
 
-You may want to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
-
-- [IoT and data analytics in the construction industry](../../example-scenario/data/big-data-with-iot.yml)
-- [Real-time fraud detection](../../example-scenario/data/fraud-detection.yml)
+- [Stream processing with Azure Databricks](stream-processing-databricks.yml)
+- [Stream processing with open-source data](../../example-scenario/data/open-source-data-engine-stream-processing.yml)
 
 <!-- links -->
 [AAF-devops]: /azure/architecture/framework/devops/overview

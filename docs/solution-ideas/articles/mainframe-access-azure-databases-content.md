@@ -26,7 +26,7 @@ Various scenarios can benefit from this solution:
 
 1. A mainframe or midrange application sends a SQL request to the local Db2 subsystem. Db2 configurations reroute the request to the HIS server.
 
-1. The HIS server receives the request and forwards it to the target database. Microsoft Service for DRDA is a component of HIS that functions as a DRDA Application Server (AS). In this role, Microsoft Service for DRDA converts the Db2 SQL statements and runs them on the Azure database.
+1. The HIS server receives the request and forwards it to the target database. Microsoft Service for DRDA is a component of HIS that functions as a DRDA application server. In this role, Microsoft Service for DRDA converts the Db2 SQL statements and runs them on the Azure database.
 
 1. The target database handles the request. This solution can configure the following target databases:
 
@@ -52,7 +52,7 @@ This solution uses the following components. See the [Azure pricing calculator][
 
 - [HIS][What is HIS] software connects IBM systems with Azure systems. HIS runs on an on-premises or Azure VM. HIS provides integration services for networks, data, applications, messaging, and security features.
 
-- [Microsoft Service for DRDA][Microsoft Service for DRDA] is a component of HIS. Microsoft Service for DRDA is an Application Server (AS) that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM Db2 for z/OS and Db2 for i. These clients use the AS to convert Db2 SQL statements and run them on SQL Server.
+- [Microsoft Service for DRDA][Microsoft Service for DRDA] is a component of HIS. Microsoft Service for DRDA is an application server that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM Db2 for z/OS and Db2 for i. These clients use the application server to convert Db2 SQL statements and run them on SQL Server.
 
 ## Contributors
 
@@ -60,25 +60,25 @@ This solution uses the following components. See the [Azure pricing calculator][
 
 Principal authors:
 
- * [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
- * [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwas-839a851a3) | Senior Engineering Architect
+- [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b/) | Engineering Architect
+- [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Senior Engineering Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- For general information on mainframe modernization and database migration:
+For general information on mainframe modernization and database migration:
 
-  - Contact Azure Data Engineering - Mainframe & Midrange Modernization at [datasqlninja@microsoft.com][Email address for information on mainframe modernization].
-  - See [Azure Database Migration Guides][Azure Database Migration Guides].
-  - See [Planning and architecting solutions using Microsoft Service for DRDA][Planning and Architecting Solutions Using Microsoft Service for DRDA].
-  - See [Migrate databases and data][Migrate databases and data].
+- Contact Azure Data Engineering - Mainframe & Midrange Modernization at [datasqlninja@microsoft.com][Email address for information on mainframe modernization].
+- See [Azure Database Migration Guides][Azure Database Migration Guides].
+- See [Planning and architecting solutions using Microsoft Service for DRDA][Planning and Architecting Solutions Using Microsoft Service for DRDA].
+- See [Migrate databases and data][Migrate databases and data].
 
-- For implementation information:
+For implementation information:
 
-  - See [Install and configure HIS 2020][Install and configure HIS 2020].
-  - Learn how to [add information on a target database to an HIS server configuration][Configuring SQL Server Connections].
-  - See how to [configure a Db2 database to reroute requests to an HIS server][Configuring DB2 for z-OS].
+- See [Install and configure HIS 2020][Install and configure HIS 2020].
+- Learn how to [add information on a target database to an HIS server configuration][Configuring SQL Server Connections].
+- See how to [configure a Db2 database to reroute requests to an HIS server][Configuring DB2 for z-OS].
 
 ## Related resources
 
@@ -91,7 +91,6 @@ Principal authors:
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Configuring DB2 for z-OS]: /host-integration-server/core/configuring-db2-for-z-os
 [Configuring SQL Server Connections]: /host-integration-server/core/configuring-sql-server-connections
-[DRDA]: https://en.wikipedia.org/wiki/DRDA
 [Email address for information on mainframe modernization]: mailto:datasqlninja@microsoft.com
 [Five reasons a data-first strategy works]: http://www.enterpriseappstoday.com/data-management/5-reasons-a-data-first-strategy-works.html
 [Install and configure HIS 2020]: /host-integration-server/install-and-config-guides/installing-his-2020

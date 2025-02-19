@@ -78,7 +78,7 @@ This solution applies to systems that run stateful applications:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -155,6 +155,10 @@ Principal author:
 
 - [Arnt de Gier](https://www.linkedin.com/in/arntdegier) | Technical Marketing Engineer
 
+Other contributors:
+
+- [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer
+
 ## Next steps
 
 - For information about using AKS to deploy a cluster, see [Tutorial: Deploy an Azure Kubernetes Service (AKS) cluster][Tutorial: Deploy an Azure Kubernetes Service (AKS) cluster].
@@ -171,17 +175,16 @@ Principal author:
 ## Related resources
 
 - [Enterprise file shares with disaster recovery][Enterprise file shares with disaster recovery]
-- [Magento e-commerce platform in Azure Kubernetes Service][Magento e-commerce platform in Azure Kubernetes Service]
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster][Baseline architecture for an Azure Kubernetes Service (AKS) cluster]
 
-[AKS]: https://azure.microsoft.com/products/kubernetes-service
+[AKS]: /azure/well-architected/service-guides/azure-kubernetes-service
 [AKS baseline for multiregion clusters]: ../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
 [Astra Control Service documentation]: https://docs.netapp.com/us-en/astra-control-service/index.html
 [Azure Kubernetes Service (AKS)]: /azure/aks/intro-kubernetes
 [Azure NetApp Files Performance Calculator]: https://bluexp.netapp.com/azure-netapp-files/sizer
-[Azure NetApp Files service page]: /azure/azure-netapp-files/azure-netapp-files-introduction
+[Azure NetApp Files service page]: /azure/well-architected/service-guides/azure-netapp-files
 [Azure Pricing calculator]: https://azure.microsoft.com/pricing/calculator
-[Azure Virtual Network]: https://azure.microsoft.com/products/virtual-network
+[Azure Virtual Network]: /azure/well-architected/service-guides/virtual-network
 [Baseline architecture for an Azure Kubernetes Service (AKS) cluster]: ../../reference-architectures/containers/aks/baseline-aks.yml
 [Configurable network features]: /azure/azure-netapp-files/azure-netapp-files-network-topologies#configurable-network-features
 [Create an Azure account for free]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
@@ -195,12 +198,11 @@ Principal author:
 [Enterprise file shares with disaster recovery]: ./enterprise-file-shares-disaster-recovery.yml
 [Guidelines for Azure NetApp Files network planning - Subnets]: /azure/azure-netapp-files/azure-netapp-files-network-topologies#subnets
 [How Azure NetApp Files snapshots work]: /azure/azure-netapp-files/snapshots-introduction
-[Magento e-commerce platform in Azure Kubernetes Service]: ../magento/magento-azure.yml
 [Manage apps]: https://docs.netapp.com/us-en/astra-control-service/use/manage-apps.html#manage-apps
 [Start managing apps]: https://docs.netapp.com/us-en/astra-control-service/use/manage-apps.html
 [Manage disaster recovery using cross-region replication]: /azure/azure-netapp-files/cross-region-replication-manage-disaster-recovery
 [Monitor Astra Trident]: https://docs.netapp.com/us-en/trident/trident-use/monitor-trident.html
-[NetApp Astra Control Service]: https://azuremarketplace.microsoft.com/marketplace/apps/netapp.netapp-astra-acs
+[NetApp Astra Control Service]: https://docs.netapp.com/us-en/astra-control-service/
 [NetApp BlueXP pricing]: https://bluexp.netapp.com/pricing
 [Products available by region]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service%2Cnetapp&regions=all
 [Protect apps with snapshots and backups]: https://docs.netapp.com/us-en/astra-control-service/use/protect-apps.html

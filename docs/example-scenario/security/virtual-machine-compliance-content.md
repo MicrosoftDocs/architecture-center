@@ -180,19 +180,19 @@ By using the Azure Automanage Machine configuration feature of Azure Policy with
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Scalability 
+### Reliability
 
-You can configure the number of replicas that Compute Gallery stores of each image. A higher number of replicas minimizes the risk of throttling when you provision multiple VMs simultaneously. For general guidance on scaling and configuring an appropriate number of replicas, see [Scaling for Azure Compute Gallery][Scaling for Azure Compute Gallery].
-
-### Resiliency 
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 This solution uses managed components that are automatically resilient at a regional level. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][Designing resilient applications for Azure].
 
-### Cost optimization
+You can configure the number of replicas that Compute Gallery stores of each image. A higher number of replicas minimizes the risk of throttling when you provision multiple VMs simultaneously. For general guidance on scaling and configuring an appropriate number of replicas, see [Scaling for Azure Compute Gallery][Scaling for Azure Compute Gallery].
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Unless you use a third-party service such as Ansible or Terraform, this approach is nearly free of charge. Storage and egress costs might apply. Other potential charges involve these components:
 
@@ -226,7 +226,6 @@ Principal author:
 
 - [DevTest and DevOps for IaaS solutions][DevTest and DevOps for IaaS solutions]
 - [DevSecOps on AKS][DevSecOps on AKS]
-- [A computer-aided engineering service][A computer-aided engineering service]
 
 [Azure Compute Gallery]: /azure/virtual-machines/shared-image-galleries
 [Azure VM Image Builder]: /azure/virtual-machines/image-builder-overview
@@ -237,7 +236,6 @@ Principal author:
 [Azure Shared Image Galleries]: /azure/virtual-machines/shared-image-galleries#billing
 [Azure VM Image Builder - pricing]: https://azure.microsoft.com/pricing/details/image-builder
 [Bulkhead pattern]: ../../patterns/bulkhead.yml
-[A computer-aided engineering service]: ../apps/hpc-saas.yml#considerations
 [Control and audit your resources by using Azure Policy]: /training/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
 [Custom Script Extensions]: /azure/virtual-machines/extensions/custom-script-windows
 [Deployment Stamps pattern]: ../../patterns/deployment-stamp.yml

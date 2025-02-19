@@ -30,14 +30,14 @@ Key technologies used to implement this architecture:
 - [Microsoft Entra ID][Azure-Active-Directory] is a cloud-based identity and access management service that lets employees access cloud apps developed for your organization.
 - [Azure DNS][Azure-DNS] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as `contoso.com`), create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service](/azure/app-service-web/web-sites-custom-domain-name).
 - [Azure Content Delivery Network][Azure-Content-Delivery-Network] is a global solution for delivering high-bandwidth content by caching it at strategically placed physical nodes across the world.
-- [Azure Front Door][Azure-Front-Door] is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a [web application firewall](/azure/frontdoor/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities. Front Door is also used for a [Content Delivery Network](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) (CDN) solution in this design.
+- [Azure Front Door][Azure-Front-Door] is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a [web application firewall (WAF)](/azure/frontdoor/waf-overview) that protects the application from common exploits and vulnerabilities. Front Door is also used for a [Content Delivery Network (CDN)](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) solution in this design.
 - [Azure AppService][Azure-AppService] is a fully managed platform for creating and deploying cloud applications. It lets you define a set of compute resources for a web app to run, deploy web apps, and configure deployment slots.
 - [Azure Function Apps][Azure-Function] can be used to run background tasks. Functions are invoked by a trigger, such as a timer event or a message being placed on queue. For long-running stateful tasks, use [Durable Functions][durable-functions].
 - [Azure Storage][Azure-Storage] is a cloud storage solution for modern data storage scenarios, offering highly available, massively scalable, durable, and secure storage for a variety of data objects in the cloud.
 - [Azure Redis Cache][Azure-Redis-Cache] is a high-performance caching service that provides an in-memory data store for faster retrieval of data, based on the open-source implementation Redis cache.
 - [Azure SQL Database][Azure-SQL-Database] is a relational database-as-a-service in the cloud. SQL Database shares its code base with the Microsoft SQL Server database engine.
 - [Azure Cosmos DB][Azure-Cosmos-DB] is a globally distributed, fully managed, low latency, multi-model, multi query-API database for managing data at large scale.
-- [Azure Cognitive Search][Azure-Search] can be used to add search functionality such as search suggestions, fuzzy search, and language-specific search. Azure Search is typically used in conjunction with another data store, especially if the primary data store requires strict consistency. In this approach, store authoritative data in the other data store and the search index in Azure Search. Azure Search can also be used to consolidate a single search index from multiple data stores.
+- [Azure AI Search][Azure-Search] can be used to add search functionality such as search suggestions, fuzzy search, and language-specific search. Azure Search is typically used in conjunction with another data store, especially if the primary data store requires strict consistency. In this approach, store authoritative data in the other data store and the search index in Azure Search. Azure Search can also be used to consolidate a single search index from multiple data stores.
 
 ## Scenario details
 
@@ -49,7 +49,7 @@ There are several general approaches to achieve high availability across regions
 
 - Active/Active: both regions are active, and requests are load balanced between them. If one region becomes unavailable, it's taken out of rotation.
 
-This reference focuses on active/passive with hot standby. 
+This reference focuses on active/passive with hot standby. For information about designing solutions that use the other approaches, see [Multi-region App Service app approaches for disaster recovery](../../guides/multi-region-app-service/multi-region-app-service.yml).
 
 ### Potential use cases
 
@@ -67,13 +67,20 @@ Your requirements might differ from the architecture described here. Use the rec
 
 ### Regional pairing
 
-Each Azure region is paired with another region within the same geography. In general, choose regions from the same regional pair (for example, East US 2 and Central US). Benefits of doing so include:
+Many Azure regions are paired with another region within the same geography. Some regions don't have a paired region. For more information about regional pairs, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions][regional-pairs].
+
+If your primary region has a pair, consider using the paired region as your secondary region (for example, East US 2 and Central US). Benefits of doing so include:
 
 - If there's a broad outage, recovery of at least one region out of every pair is prioritized.
 - Planned Azure system updates are rolled out to paired regions sequentially to minimize possible downtime.
 - In most cases, regional pairs reside within the same geography to meet data residency requirements.
 
-However, make sure that both regions support all of the Azure services needed for your application. See [Services by region][services-by-region]. For more information about regional pairs, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions][regional-pairs].
+If your primary region doesn't have a pair, consider the following factors when selecting a secondary region:
+
+- Minimize latency by selecting regions that are geographically close to your users.
+- Meet your data residency requirements by select regions that are in geographies you can store and process data in.
+
+Whether your regions are paired or unpaired, make sure that both regions support all of the Azure services needed for your application. See [Services by region][services-by-region].
 
 ### Resource groups
 
@@ -112,7 +119,7 @@ Azure Cosmos DB supports geo-replication across regions in active-active pattern
 
 ### Storage
 
-For Azure Storage, use [read-access geo-redundant storage][ra-grs] (RA-GRS). With RA-GRS storage, the data is replicated to a secondary region. You have read-only access to the data in the secondary region through a separate endpoint. [User-initiated failover](/azure/storage/common/storage-initiate-account-failover?tabs=azure-portal) to the secondary region is supported for geo-replicated storage accounts.  Initiating a storage account failover automatically updates DNS records to make the secondary storage account the new primary storage account.  Failovers should only be undertaken when you deem it's necessary. This requirement is defined by your organization's disaster recovery plan, and you should consider the implications as described in the Considerations section below.
+For Azure Storage, use [read-access geo-redundant storage (RA-GRS)][ra-grs]. With RA-GRS storage, the data is replicated to a secondary region. You have read-only access to the data in the secondary region through a separate endpoint. [User-initiated failover](/azure/storage/common/storage-initiate-account-failover?tabs=azure-portal) to the secondary region is supported for geo-replicated storage accounts.  Initiating a storage account failover automatically updates DNS records to make the secondary storage account the new primary storage account.  Failovers should only be undertaken when you deem it's necessary. This requirement is defined by your organization's disaster recovery plan, and you should consider the implications as described in the Considerations section below.
 
 If there's a regional outage or disaster, the Azure Storage team might decide to perform a geo-failover to the secondary region. For these types of failovers, there's no customer action required.  Fail back to the primary region is also managed by the Azure storage team in these cases.
 
@@ -128,13 +135,13 @@ Queue storage is referenced as an alternative messaging option to Azure Service 
 
 In order to benefit from the highest resilience offered for Azure Service Bus, use the premium tier for your namespaces. The premium tier makes use of [availability zones](/azure/service-bus-messaging/service-bus-geo-dr#availability-zones), which makes your namespaces resilient to data center outages. If there's a widespread disaster affecting multiple data centers, the [Geo-disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr) feature included with the premium tier can help you recover. The Geo-Disaster recovery feature ensures that the entire configuration of a namespace (queues, topics, subscriptions, and filters) is continuously replicated from a primary namespace to a secondary namespace when paired. It allows you to initiate a once-only failover move from the primary to the secondary at any time. The failover move will repoint the chosen alias name for the namespace to the secondary namespace and then break the pairing. The failover is nearly instantaneous once initiated.
 
-### Azure Cognitive Search
+### Azure AI Search
 
-In Cognitive Search, availability is achieved through multiple replicas, whereas business continuity and disaster recovery (BCDR) is achieved through multiple search services.
+In AI Search, availability is achieved through multiple replicas, whereas business continuity and disaster recovery (BCDR) is achieved through multiple search services.
 
-In Cognitive Search, replicas are copies of your index. Having multiple replicas allows Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas. For more information about adding replicas, see [Add or reduce replicas and partitions](/azure/search/search-capacity-planning#adjust-capacity). 
+In AI Search, replicas are copies of your index. Having multiple replicas allows Azure AI Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas. For more information about adding replicas, see [Add or reduce replicas and partitions](/azure/search/search-capacity-planning#adjust-capacity). 
 
-You can utilize [Availability Zones](/azure/availability-zones/az-overview) with Azure Cognitive Search by adding two or more replicas to your search service. Each replica will be placed in a different Availability Zone within the region.
+You can utilize [Availability Zones](/azure/reliability/availability-zones-overview) with Azure AI Search by adding two or more replicas to your search service. Each replica will be placed in a different Availability Zone within the region.
 
 For BCDR considerations, refer to the [Multiple services in separate geographic regions](/azure/search/search-performance-optimization#multiple-services-in-separate-geographic-regions) documentation.
 
@@ -144,11 +151,11 @@ While all tiers of Azure Cache for Redis offer [Standard replication for high av
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview). Consider these points when designing for high availability across regions.
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 #### Azure Front Door
 
@@ -197,7 +204,7 @@ It's important to understand that the Geo-disaster recovery feature included in 
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 **Restrict incoming traffic**
 Configure the application to accept traffic only from Front Door. This ensures that all traffic goes through the WAF before reaching the app. For more information, see How do I lock down the access to my backend to only Azure Front Door?
@@ -219,9 +226,9 @@ When you define identities for the components in this architecture, use [system 
 **Service firewalls**
 When configuring the service firewalls for the components, ensure both that only the region-local services have access to the services and that the services only allow outbound connections, which is explicitly required for replication and application functionality. Consider using [Azure Private Link][private-link] for further enhanced control and segmentation. For more information on securing web applications, see [Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant).
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 **Caching**
 Use caching to reduce the load on servers that serve content that doesn't change frequently. Every render cycle of a page can impact cost because it consumes compute, memory, and bandwidth. Those costs can be reduced significantly by using caching, especially for static content services, such as JavaScript single-page apps and media streaming content.
@@ -254,7 +261,9 @@ There are two factors that determine Azure Cosmos DB pricing:
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
 
-### Performance efficiency
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 A major benefit of Azure App Service is the ability to scale your application based on load. Here are some considerations to keep in mind when planning to scale your application.
 
@@ -277,20 +286,6 @@ Front Door can perform SSL offload and also reduces the total number of TCP conn
 
 Azure Search removes the overhead of performing complex data searches from the primary data store, and it can scale to handle load. See [Scale resource levels for query and indexing workloads in Azure Search][azure-search-scaling].
 
-### Operational excellence
-
-[Operational excellence](/azure/architecture/framework/devops/overview) refers to the operations processes that deploy an application and keep it running in production and is an extension of the [Well-Architected Framework Reliability](/azure/architecture/framework/resiliency/overview) guidance.  This guidance provides a detailed overview of architecting resiliency into your application framework to ensure your workloads are available and can recover from failures at any scale.  A core tenet of this approach is to design your application infrastructure to be highly available, optimally across multiple geographic regions as this design illustrates.  
-
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
-
-Principal author:
-
- - Arvind Boggaram Pandurangaiah Setty | Senior Consultant
- 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
-
 ## Next steps
 
 - Deep dive on [Azure Front Door - traffic routing methods][front-door-routing]
@@ -302,8 +297,6 @@ Principal author:
 - [Ensure business continuity and disaster recovery using Azure Paired Regions](/azure/best-practices-availability-paired-regions)
 
 ## Related resources
-
-- [Multi-region N-tier application](../../../reference-architectures/n-tier/multi-region-sql-server.yml) is a similar scenario. It shows an N-tier application running in multiple Azure regions
 
 - [Design principles for Azure applications][Design-principles-for-Azure-Application]
 
@@ -323,17 +316,17 @@ Principal author:
 [storage-outage]: /azure/storage/storage-disaster-recovery-guidance
 [system-managed-identities]: /azure/active-directory/managed-identities-azure-resources/overview
 [visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures-multi-region-webapp.vsdx
-[Azure-Active-Directory]: https://azure.microsoft.com/services/active-directory
-[Azure-DNS]: https://azure.microsoft.com/services/dns
-[Azure-Content-Delivery-Network]: https://azure.microsoft.com/services/cdn
-[Azure-Front-Door]: https://azure.microsoft.com/services/frontdoor
-[Azure-AppService]: https://azure.microsoft.com/services/app-service
-[Azure-Function]: https://azure.microsoft.com/services/functions
-[Azure-Storage]: https://azure.microsoft.com/product-categories/storage
-[Azure-Redis-Cache]: https://azure.microsoft.com/services/cache
-[Azure-SQL-Database]: https://azure.microsoft.com/products/azure-sql/database
-[Azure-Cosmos-DB]: https://azure.microsoft.com/services/cosmos-db
-[Azure-Search]: https://azure.microsoft.com/services/search
+[Azure-Active-Directory]: /entra/fundamentals/whatis
+[Azure-DNS]: /azure/dns/dns-overview
+[Azure-Content-Delivery-Network]: /azure/cdn/cdn-overview
+[Azure-Front-Door]: /azure/well-architected/service-guides/azure-front-door
+[Azure-AppService]: /azure/well-architected/service-guides/app-service-web-apps
+[Azure-Function]: /azure/well-architected/service-guides/azure-functions-security
+[Azure-Storage]: /azure/storage/common/storage-introduction
+[Azure-Redis-Cache]: /azure/well-architected/service-guides/azure-cache-redis/reliability
+[Azure-SQL-Database]: /azure/well-architected/service-guides/azure-sql-database-well-architected-framework
+[Azure-Cosmos-DB]: /azure/well-architected/service-guides/cosmos-db
+[Azure-Search]: /azure/search/search-what-is-azure-search
 [front-door-routing]: /azure/frontdoor/front-door-routing-methods
 [front-door-tier]: /azure/frontdoor/standard-premium/tier-comparison
 [endpoint-monitoring]: /azure/architecture/patterns/health-endpoint-monitoring

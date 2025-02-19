@@ -32,7 +32,7 @@ In a hub-and-spoke network, the hub virtual network is a central point of connec
 
 ### Components
 
-- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is the fundamental building block for private networks in Azure. Virtual Network enables many Azure resources, such as Azure Virtual Machines, to securely communicate with each other, cross-premises networks, and the internet.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. Virtual Network enables many Azure resources, such as Azure Virtual Machines, to securely communicate with each other, cross-premises networks, and the internet.
 - A [virtual network interface](/azure/virtual-network/virtual-network-network-interface) is required for virtual-machine communication. You can set up virtual machines and other resources to have multiple network interfaces, which allows you to create dual-stack (IPv4 and IPv6) configurations.
 - [A public IP address](/azure/virtual-network/ip-services/public-ip-addresses) is used for inbound IPv4 and IPv6 connectivity to Azure resources.
 - [Virtual Network Manager](/azure/virtual-network-manager/overview) is used to create and manage [network groups](/azure/virtual-network-manager/concept-network-groups) and their connections.
@@ -165,7 +165,4 @@ Other contributors:
 - [Transition to IPv6](ipv6-ip-planning.md)
 - [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
-- [Virtual network-integrated serverless microservices](../../example-scenario/integrated-multiservices/virtual-network-integration.yml)
 - [Deploy AD DS in an Azure virtual network](../../example-scenario/identity/adds-extend-domain.yml)
-
-

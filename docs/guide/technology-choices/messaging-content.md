@@ -4,7 +4,7 @@ At an architectural level, a message is a datagram created by an entity (_produc
 
 ![Diagram demonstrating entities that take part in asynchronous messaging.](./images/messaging.png)
 
-We can classify messages into two main categories. If the producer expects an action from the consumer, that message is a _command_. If the message informs the consumer that an action has taken place, then the message is an _event_.
+We can classify messages into two main categories. If the producer expects an action from the consumer, that message is a *command*. If the message informs the consumer that an action has taken place, then the message is an *event*.
 
 ## Commands
 
@@ -18,7 +18,7 @@ Commands are often used to manage the workflow of a multistep business transacti
 
 An event is a type of message that a producer raises to announce facts.
 
-The producer (known as the _publisher_ in this context) has no expectations that the events result in any action.
+The producer (known as the *publisher* in this context) has no expectations that the events result in any action.
 
 Interested consumer(s) can subscribe, listen for events, and take actions depending on their consumption scenario. Events can have multiple subscribers or no subscribers at all. Two different subscribers can react to an event with different actions and not be aware of one another.
 
@@ -210,7 +210,7 @@ The Capture feature allows you to store the event stream to an [Azure Blob stora
 
 > Storage services can also offer additional features for analyzing events. For example, by taking advantage of the access tiers of a blob storage account, you can store events in a hot tier for data that needs frequent access. You might use that data for visualization. Alternately, you can store data in the archive tier and retrieve it occasionally for auditing purposes.
 
-Capture stores _all_ events ingested by Event Hubs and is useful for batch processing. You can generate reports on the data by using a MapReduce function. Captured data can also serve as the source of truth. If certain facts were missed while aggregating the data, you can refer to the captured data.
+Capture stores *all* events ingested by Event Hubs and is useful for batch processing. You can generate reports on the data by using a MapReduce function. Captured data can also serve as the source of truth. If certain facts were missed while aggregating the data, you can refer to the captured data.
 
 For details about this feature, see [Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage](/azure/event-hubs/event-hubs-capture-overview).
 

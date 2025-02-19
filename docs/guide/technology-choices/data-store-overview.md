@@ -6,8 +6,8 @@ author: PageWriter-MSFT
 ms.author: prwilk
 ms.date: 07/25/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 azureCategories: developer-tools
 categories: developer-tools
 products: azure
@@ -39,9 +39,9 @@ This model is very useful when strong consistency guarantees are important &mdas
 ### Azure services
 
 - [Azure SQL Database][sql-db] | [(Security Baseline)](/security/benchmark/azure/baselines/sql-database-security-baseline)
-- [Azure Database for MySQL][mysql] | [(Security Baseline)](/azure/mysql/security-baseline)
-- [Azure Database for PostgreSQL][postgres] | [(Security Baseline)](/azure/postgresql/security-baseline)
-- [Azure Database for MariaDB][mariadb] | [(Security Baseline)](/azure/mariadb/security-baseline)
+- [Azure Database for MySQL][mysql] | [(Security Baseline)](/security/benchmark/azure/baselines/azure-database-for-mysql-flexible-server-security-baseline)
+- [Azure Database for PostgreSQL][postgres] | [(Security Baseline)](/security/benchmark/azure/baselines/azure-database-for-postgresql-flexible-server-security-baseline)
+- [Azure Database for MariaDB][mariadb] | [(Security Baseline)](/security/benchmark/azure/baselines/azure-database-for-mariadb-security-baseline)
 
 ### Workload
 

@@ -6,7 +6,7 @@ This article provides a set of proven practices for improving the security of in
 
 [![Diagram that shows a solution for internet-facing communication for SAP on Azure.](media/sap-internet-communication-architecture-main.svg)](media/sap-internet-communication-architecture-main.svg#lightbox)
 
-_Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article._
+*Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article.*
 
 This solution illustrates a common production environment. You can reduce the size and scope of the configuration to fit your requirements. This reduction might apply to the SAP landscape: fewer virtual machines (VMs), no high availability, or embedded SAP Web Dispatchers instead of discrete VMs. It can also apply to alternatives to the network design, as described later in this article.
 
@@ -30,7 +30,7 @@ Disaster recovery (DR) isn't covered in this architecture. For the network desig
 
 Separation into subnets by workload makes it easier to use network security groups (NSGs) to set security rules for application VMs or Azure services that are deployed.
 
-**Zone-redundant gateway.** A gateway connects distinct networks, extending your on-premises network to the Azure virtual network. We recommend that you use [ExpressRoute](https://azure.microsoft.com/services/expressroute) to create private connections that don't use the public internet. You can also use a [site-to-site](../../reference-architectures/hybrid-networking/expressroute.yml) connection. You can deploy ExpressRoute or VPN gateways across zones to help avoid zone failures. See [Zone-redundant virtual network gateways](/azure/vpn-gateway/about-zone-redundant-vnet-gateways) for an explanation of the differences between a zonal deployment and a zone-redundant deployment. For a zone deployment of the gateways, you need to use Standard SKU IP addresses.
+**Zone-redundant gateway.** A gateway connects distinct networks, extending your on-premises network to the Azure virtual network. We recommend that you use [ExpressRoute](https://azure.microsoft.com/services/expressroute) to create private connections that don't use the public internet. You can also use a [site-to-site](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml) connection. Use zone-redundant Azure ExpressRoute or VPN gateways to guard against zone failures. See [Zone-redundant virtual network gateways](/azure/vpn-gateway/about-zone-redundant-vnet-gateways) for an explanation of the differences between a zonal deployment and a zone-redundant deployment. For a zone deployment of the gateways, you need to use Standard SKU IP addresses.
 
 **NSGs.** To restrict network traffic to and from the virtual network, create [NSGs](/azure/virtual-network/tutorial-filter-network-traffic-cli) and assign them to specific subnets. Provide security for individual subnets by using workload-specific NSGs.
 
@@ -65,7 +65,7 @@ To address the recommendations in this article but limit the drawbacks, you can 
 
 [![Diagram that shows a simplified architecture for internet-facing communication for SAP on Azure.](media/sap-internet-communication-architecture-simplified.svg)](media/sap-internet-communication-architecture-simplified.svg#lightbox)
 
-_Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article._
+*Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article.*
 
 For deployments that are smaller in size and scope, the simplified architecture might be a better fit, and it still adheres to the principles of the more complex architecture. This article, unless otherwise noted, refers to the more complex architecture.
 
@@ -73,9 +73,9 @@ The simplified architecture uses a NAT gateway in the SAP perimeter subnet. This
 
 A [NAT gateway](/azure/virtual-network/nat-gateway/nat-overview) is a service that provides static public IP addresses for outbound connectivity. The NAT gateway is assigned to a subnet. All outbound communications use the NAT gateway's IP addresses for internet access. Inbound connections don't use the NAT gateway. Applications like SAP Cloud Connector, or VM OS update services that access repositories on the internet, can use the NAT gateway instead of routing all outbound traffic through the central firewall. Frequently, [user-defined rules](/azure/virtual-network/ip-services/default-outbound-access) are implemented on all subnets to force internet-bound traffic from all virtual networks through the central firewall.
 
-Depending on your requirements, you might be able to use the NAT gateway as an alternative to the central firewall, on outbound connections only. By doing so, you can reduce load on the central firewall while communicating with NSG-allowed public endpoints. You also get outbound IP control, because you can configure destination firewall rules on a set IP list of the NAT gateway. Examples include reaching Azure public endpoints that are used by public services, OS patch repositories, or third-party interfaces.
+Depending on your requirements, you might be able to use the NAT gateway as an alternative to the central firewall, for outbound connections. By doing so, you can reduce load on the central firewall while communicating with NSG-allowed public endpoints. You also get outbound IP control, because you can configure destination firewall rules on a set IP list of the NAT gateway. Examples include reaching Azure public endpoints that are used by public services, OS patch repositories, or third-party interfaces.
 
-For a high-availability configuration, keep in mind that NAT gateway is deployed in a [specific zone only](/azure/virtual-network/nat-gateway/faq#how-does-virtual-network-nat-gateway-work-with-availability-zones) and isn't currently cross-zone redundant. With a single NAT gateway it's not ideal for SAP deployments that use zone-redundant (cross-zone) deployment for virtual machines.
+For a high-availability configuration, keep in mind that NAT gateway is deployed in a [single zone only](/azure/nat-gateway/faq#how-does-a-nat-gateway-work-with-availability-zones) and isn't currently cross-zone redundant. With a single NAT gateway, it's not ideal for SAP deployments that use zone-redundant (cross-zone) deployment for virtual machines.
 
 ### Use of network components across an SAP landscape
 
@@ -134,9 +134,9 @@ To implement cascading SAProuters, you can define as many as two SAProuters for 
 
 SAP Fiori and other HTTPS front ends for SAP applications are often consumed from outside of the internal corporate network. The need to be available on the internet requires a high-security solution to help protect the SAP application. Application Gateway with [Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) is the ideal service for this purpose.
 
-For users who access the public host name of the public IP that's tied to Application Gateway, the HTTPS session is terminated on Application Gateway. A back-end pool of two or more SAP Web Dispatcher VMs gets round-robin sessions from the Application Gateway. This internal traffic application gateway to Web Dispatcher can be either HTTP or HTTPS, depending on requirements. The web application firewall helps to protect the SAP Web Dispatcher from attacks coming over the internet with the [OWASP core rule set](/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules). SAP NetWeaver, often tied to Microsoft Entra ID via [single sign-on](/azure/active-directory/saas-apps/sap-fiori-tutorial) (SSO), performs user authentication. For the steps needed to configure SSO for Fiori by using Application Gateway, see [Single Sign On Configuration using SAML and Microsoft Entra ID for Public and Internal URLs](https://blogs.sap.com/2020/12/10/sap-on-azure-single-sign-on-configuration-using-saml-and-azure-active-directory-for-public-and-internal-urls).
+For users and applications that access the public host name of the public IP that's tied to Application Gateway, the HTTPS session is terminated on Application Gateway. A back-end pool of two or more SAP Web Dispatcher VMs gets round-robin sessions from the Application Gateway. This internal traffic application gateway to Web Dispatcher can be either HTTP or HTTPS, depending on requirements. With HTTPS between Application Gateway and Web Dispatcher VMs, use a certificate and certificate chain well known to the SAP team, for any periodic certificate rotation. The web application firewall helps to protect the SAP Web Dispatcher from attacks coming over the internet with the [OWASP core rule set](/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules). SAP NetWeaver, often tied to Microsoft Entra ID via [single sign-on (SSO)](/azure/active-directory/saas-apps/sap-fiori-tutorial), performs user authentication. For the steps needed to configure SSO for Fiori by using Application Gateway, see [Single Sign On Configuration using SAML and Microsoft Entra ID for Public and Internal URLs](https://blogs.sap.com/2020/12/10/sap-on-azure-single-sign-on-configuration-using-saml-and-azure-active-directory-for-public-and-internal-urls).
 
-Keep in mind that you need to secure the SAP Web Dispatcher in any situation. Even if it's open only internally, open toward Application Gateway via public IP, or accessible through any other network means. For more information, see [Security Information for SAP Web Dispatcher](https://help.sap.com/docs/ABAP_PLATFORM/683d6a1797a34730a6e005d1e8de6f22/489ab29948c673e8e10000000a42189b.html?version=1709.008).
+Keep in mind that you need to secure the SAP Web Dispatcher in any situation, even if it's open only internally, accessed through Application Gateway via public IP, or accessible by other network means. For more information, see [Security Information for SAP Web Dispatcher](https://help.sap.com/docs/ABAP_PLATFORM/683d6a1797a34730a6e005d1e8de6f22/489ab29948c673e8e10000000a42189b.html?version=1709.008).
 
 #### Azure Firewall and Application Gateway
 
@@ -190,9 +190,11 @@ If SAP operates your SAP system under an SAP RISE/ECS contract, SAP is the manag
 
 ### Other SAP communication requirements
 
-Additional considerations regarding internet-bound communications might apply to an SAP landscape operating on Azure. Traffic flow in this architecture uses a central Azure firewall for this outbound traffic. User-defined rules in the spoke virtual networks route internet-bound traffic requests to the firewall. Alternatively, you can use NAT gateways on specific subnets, [default Azure outbound](/azure/virtual-network/ip-services/default-outbound-access) communication, public IP addresses on VMs (not recommended), or a public load balancer with outbound rules.
+Additional considerations regarding internet-bound communications might apply to an SAP landscape operating on Azure. Traffic flow in this architecture uses a central Azure firewall for this outbound traffic. User-defined rules in the spoke virtual networks route internet-bound traffic requests to the firewall. Alternatively, you can use NAT gateways on specific subnets, [default Azure outbound](/azure/virtual-network/ip-services/default-outbound-access) communication, public IP addresses on VMs (not recommended), or a public load balancer with outbound rules. Typical scenarios reach public endpoints of Microsoft Entra ID, Azure management APIs at management.azure.com, and services of third-party applications or government applications via outbound network access.
 
-For VMs that are behind a standard internal load balancer, like those in clustered environments, keep in mind that Standard Load Balancer modifies the behavior for public connectivity. For more information, see article [Public endpoint connectivity for VMs using Azure Standard Load Balancer in SAP high-availability scenarios](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).
+Because of changes to default outbound access in Azure, ensure a scalable outbound access is defined. For VMs that are behind a standard internal load balancer, like those in clustered environments, keep in mind that Standard Load Balancer modifies the behavior for public connectivity. For more information, see [Public endpoint connectivity for VMs using Azure Standard Load Balancer in SAP high-availability scenarios](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).
+
+For more information about default outbound connectivity from VMs, see [Routing options for VMs from Private Subnets](https://techcommunity.microsoft.com/t5/azure-networking-blog/routing-options-for-vms-from-private-subnets/ba-p/4271244) on the Azure Networking blog.
 
 #### Operating system updates
 
@@ -206,7 +208,7 @@ For Linux operating systems, you can access the following repositories if you ob
 
 #### High-availability cluster management
 
-Highly available systems like clustered SAP ASCS/SCS or databases might use a cluster manager with Azure fence agent as a STONITH device. These systems depend on reaching Azure Resource Manager. Resource Manager is used for status queries about Azure resources and for operations to stop and start VMs. Because Resource Manager is a public endpoint, available under management.azure.com, VM outbound communication needs to be able to reach it. This architecture relies on a central firewall with user-defined rules routing traffic from SAP virtual networks. For alternatives, see the preceding sections.
+Highly available systems like clustered SAP ASCS/SCS or databases might use a cluster manager with Azure fence agent as a STONITH device. These systems depend on reaching Azure Resource Manager. Resource Manager is used for status queries about Azure resources and for operations to stop and start VMs. Because Resource Manager is a public endpoint, available under `management.azure.com`, VM outbound communication needs to be able to reach it. This architecture relies on a central firewall with user-defined rules routing traffic from SAP virtual networks. For alternatives, see the preceding sections.
 
 ## Contributors
 
@@ -236,6 +238,7 @@ Consider using these communities to get answers to questions and for help with s
 - [SAP Blogs | SAP on Azure: Azure Application Gateway Web Application Firewall v2 Setup for Internet-facing SAP Fiori Apps](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps)
 - [SAP Blogs | Getting Started with BTP Private Link Service for Azure](https://blogs.sap.com/2021/12/29/getting-started-with-btp-private-link-service-for-azure)
 - [SAP Blogs | BTP private linky swear with Azure – running Cloud Connector and SAP Private Link side-by-side](https://blogs.sap.com/2022/07/07/btp-private-linky-swear-with-azure-running-cloud-connector-and-sap-private-link-side-by-side)
+- [Azure Networking Blog | Routing options for VMs from Private Subnets](https://techcommunity.microsoft.com/t5/azure-networking-blog/routing-options-for-vms-from-private-subnets/ba-p/4271244)
 - [SAP on Azure Tech Community | SAProuter configuration with Azure Firewall](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/saprouter-configuration-with-azure-firewall/ba-p/3293496)
 - [SAP on Azure Tech Community | Use SAP Virtual Host Names with Linux in Azure](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/use-sap-virtual-host-names-with-linux-in-azure/ba-p/3251593)
 - [SAP Documentation | What is Cloud Connector?](https://help.sap.com/docs/CP_CONNECTIVITY/cca91383641e40ffbe03bdc78f00f681/e6c7616abb5710148cfcf3e75d96d596.html)

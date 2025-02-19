@@ -14,19 +14,19 @@ The architecture has the following components.
 
 - **Resource group**. [Resource groups][resource-manager-overview] are used to group Azure resources so they can be managed by lifetime, owner, or other criteria.
 
-- **Availability zones**. [Availability zones](/azure/availability-zones/az-overview) are physical locations within an Azure region. Each zone consists of one or more datacenters with independent power, cooling, and networking. By placing VMs across zones, the application becomes resilient to failures within a zone.
+- **Availability zones**. [Availability zones](/azure/reliability/availability-zones-overview) are physical locations within an Azure region. Each zone consists of one or more datacenters with independent power, cooling, and networking. By placing VMs across zones, the application becomes resilient to failures within a zone.
 
 #### Networking and load balancing
 
 - **Virtual network and subnets**. Every Azure VM is deployed into a virtual network that can be segmented into subnets. Create a separate subnet for each tier.
 
-- **Application gateway**. [Application Gateway](/azure/application-gateway/) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Application Gateway also provides a [web application firewall](/azure/application-gateway/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities.
+- **Application gateway**. [Application Gateway](/azure/application-gateway/) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Application Gateway also provides a [web application firewall (WAF)](/azure/application-gateway/waf-overview) that protects the application from common exploits and vulnerabilities.
 
-- **Load balancers**. Use [Azure Standard Load Balancer][load-balancer] to distribute network traffic from the web tier to the business tier.
+- **Load balancers**. Use [Azure Standard load balancer][load-balancer] to distribute network traffic from the web tier to the business tier.
 
-- **Network security groups** (NSGs). Use [NSGs][nsg] to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the database tier does not accept traffic from the web front end, only from the business tier and the management subnet.
+- **Network security groups (NSGs)**. Use [NSGs][nsg] to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the database tier does not accept traffic from the web front end, only from the business tier and the management subnet.
 
-- **DDoS Protection**. Although the Azure platform provides basic protection against distributed denial of service (DDoS) attacks, we recommend using [Azure DDoS Network Protection][ddos], which has enhanced DDoS mitigation features. See the [Security](#security) considerations.
+- **DDoS Protection**. Although the Azure platform provides basic protection against distributed denial-of-service (DDoS) attacks, we recommend using [Azure DDoS Network Protection][ddos], which has enhanced DDoS mitigation features. See the [Security](#security) considerations.
 
 - **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains. It provides name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 
@@ -36,7 +36,7 @@ The architecture has the following components.
 
 - **OpsCenter**. Deploy a monitoring solution such as [DataStax OpsCenter](https://docs.datastax.com/en/opscenter/6.1/opsc/about_c.html) to monitor the Cassandra cluster.
 
-- **Jumpbox**. Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic.
+- **Jump box**. Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jump box has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit Remote Desktop Protocol (RDP) traffic.
 
 ## Recommendations
 
@@ -48,9 +48,9 @@ For recommendations on configuring the VMs, see [Run a Linux VM on Azure](../../
 
 ### Virtual network
 
-When you create the virtual network, determine how many IP addresses your resources in each subnet require. Specify a subnet mask and a network address range large enough for the required IP addresses, using [CIDR] notation. Use an address space that falls within the standard [private IP address blocks][private-ip-space], which are 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.
+When you create the virtual network, determine how many IP addresses your resources in each subnet require. Specify a subnet mask and a network address range large enough for the required IP addresses, using [classless inter-domain routing (CIDR)] notation. Use an address space that falls within the standard [private IP address blocks][private-ip-space], which are 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.
 
-Choose an address range that doesn't overlap with your on-premises network, in case you need to set up a gateway between the VNet and your on-premises network later. Once you create the VNet, you can't change the address range.
+Choose an address range that doesn't overlap with your on-premises network, in case you need to set up a gateway between the virtual network and your on-premises network later. Once you create the virtual network, you can't change the address range.
 
 Design subnets with functionality and security requirements in mind. All VMs within the same tier or role should go into the same subnet, which can be a security boundary. For more information about designing VNets and subnets, see [Plan and design Azure Virtual Networks][plan-network].
 
@@ -60,7 +60,7 @@ For information about configuring Application Gateway, see [Application Gateway 
 
 ### Load balancers
 
-Do not expose the VMs directly to the Internet. Instead, give each VM a private IP address. Clients connect using the IP address associated with the Application Gateway.
+Do not expose the VMs directly to the Internet. Instead, give each VM a private IP address. Clients connect using the IP address associated with the application gateway.
 
 Define load balancer rules to direct network traffic to the VMs. For example, to enable HTTP traffic, create a rule that maps port 80 from the front-end configuration to port 80 on the back-end address pool. When a client sends an HTTP request to port 80, the load balancer selects a back-end IP address by using a [hashing algorithm][load-balancer-hashing] that includes the source IP address. Client requests are distributed across all the VMs.
 
@@ -68,10 +68,10 @@ Define load balancer rules to direct network traffic to the VMs. For example, to
 
 Use NSG rules to restrict traffic between tiers. For example, in the three-tier architecture shown above, the web tier does not communicate directly with the database tier. To enforce this, the database tier should block incoming traffic from the web tier subnet.
 
-1. Deny all inbound traffic from the VNet. (Use the `VIRTUAL_NETWORK` tag in the rule.)
+1. Deny all inbound traffic from the virtual network. (Use the `VIRTUAL_NETWORK` tag in the rule.)
 2. Allow inbound traffic from the business tier subnet.
 3. Allow inbound traffic from the database tier subnet itself. This rule allows communication between the database VMs, which is needed for database replication and failover.
-4. Allow ssh traffic (port 22) from the jumpbox subnet. This rule lets administrators connect to the database tier from the jumpbox.
+4. Allow SSH traffic (port 22) from the jumpbox subnet. This rule lets administrators connect to the database tier from the jumpbox.
 
 Create rules 2 &ndash; 4 with higher priority than the first rule, so they override it.
 
@@ -90,13 +90,19 @@ The deployment scripts for this architecture use name resolution to initialize t
 
 ### Jumpbox
 
-Don't allow ssh access from the public Internet to the VMs that run the application workload. Instead, all ssh access to these VMs must come through the jumpbox. An administrator logs into the jumpbox, and then logs into the other VM from the jumpbox. The jumpbox allows ssh traffic from the Internet, but only from known, safe IP addresses.
+Don't allow SSH access from the public Internet to the VMs that run the application workload. Instead, all SSH access to these VMs must come through the jumpbox. An administrator logs into the jumpbox, and then logs into the other VM from the jumpbox. The jumpbox allows SSH traffic from the Internet, but only from known, safe IP addresses.
 
-The jumpbox has minimal performance requirements, so select a small VM size. Create a [public IP address] for the jumpbox. Place the jumpbox in the same VNet as the other VMs, but in a separate management subnet.
+The jumpbox has minimal performance requirements, so select a small VM size. Create a [public IP address] for the jumpbox. Place the jumpbox in the same virtual network as the other VMs, but in a separate management subnet.
 
-To secure the jumpbox, add an NSG rule that allows ssh connections only from a safe set of public IP addresses. Configure the NSGs for the other subnets to allow ssh traffic from the management subnet.
+To secure the jumpbox, add an NSG rule that allows SSH connections only from a safe set of public IP addresses. Configure the NSGs for the other subnets to allow SSH traffic from the management subnet.
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 ### Scalability
 
@@ -123,15 +129,11 @@ Each Azure subscription has default limits in place, including a maximum number 
 
 Application Gateway supports fixed capacity mode or autoscaling mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Consider using autoscaling mode for workloads with variable traffic. For more information, see [Autoscaling and Zone-redundant Application Gateway v2][app-gw-scaling].
 
-### Performance efficiency
-
-To get the best performance from Cassandra on Azure VMs, see the recommendations in [Run Apache Cassandra on Azure VMs](../../databases/guide/cassandra.md).
-
 ### Availability
 
 Availability zones provide the best resiliency within a single region. If you need even higher availability, consider replicating the application across two regions.
 
-Not all regions support availability zones, and not all VM sizes are supported in all zones. Run the following Azure CLI command to find the supported zones for each VM size within a region:
+Not all regions support availability zones, and not all VM sizes are supported in all zones. Run the following the Azure CLI command to find the supported zones for each VM size within a region:
 
 ```bash
 az vm list-skus --resource-type virtualMachines --zone false --location <location> \
@@ -170,7 +172,23 @@ For more information about health probes, see:
 
 For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.yml).
 
-### Cost optimization
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+Virtual networks are a traffic isolation boundary in Azure. VMs in one virtual network can't communicate directly with VMs in a different virtual network. VMs within the same virtual network can communicate, unless you create [network security groups (NSGs)][nsg] to restrict traffic. For more information, see [Microsoft cloud services and network security][network-security].
+
+For incoming Internet traffic, the load balancer rules define which traffic can reach the back end. However, load balancer rules don't support IP safe lists, so if you want to add certain public IP addresses to a safe list, add an NSG to the subnet.
+
+**DMZ**. Consider adding a network virtual appliance (NVA) to create a DMZ between the Internet and the Azure virtual network. NVA is a generic term for a virtual appliance that can perform network-related tasks, such as firewall, packet inspection, auditing, and custom routing. For more information, see [Implementing a DMZ between Azure and the Internet][dmz].
+
+**Encryption**. Encrypt sensitive data at rest and use [Azure Key Vault][azure-key-vault] to manage the database encryption keys. Key Vault can store encryption keys in hardware security modules (HSMs). It's also recommended to store application secrets, such as database connection strings, in Key Vault.
+
+**DDoS protection**. The Azure platform provides basic DDoS Protection by default. This basic protection is targeted at protecting the Azure infrastructure as a whole. Although basic DDoS Protection is automatically enabled, we recommend using [Azure DDoS Network Protection][ddos]. Network Protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. Network Protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures][ddos-best-practices].
+
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations.
 
@@ -182,23 +200,13 @@ For single VMs pricing options See [Linux VMs pricing][Linux-vm-pricing].
 
 #### Load balancers
 
-You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
+You are charged only for the number of configured load-balancing and outbound rules. Inbound network address translation (NAT) rules are free. There is no hourly charge for the Standard load balancer when no rules are configured.
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
 
-### Security
+### Operational Excellence
 
-Virtual networks are a traffic isolation boundary in Azure. VMs in one VNet can't communicate directly with VMs in a different VNet. VMs within the same VNet can communicate, unless you create [network security groups][nsg] (NSGs) to restrict traffic. For more information, see [Microsoft cloud services and network security][network-security].
-
-For incoming Internet traffic, the load balancer rules define which traffic can reach the back end. However, load balancer rules don't support IP safe lists, so if you want to add certain public IP addresses to a safe list, add an NSG to the subnet.
-
-**DMZ**. Consider adding a network virtual appliance (NVA) to create a DMZ between the Internet and the Azure virtual network. NVA is a generic term for a virtual appliance that can perform network-related tasks, such as firewall, packet inspection, auditing, and custom routing. For more information, see [Implementing a DMZ between Azure and the Internet][dmz].
-
-**Encryption**. Encrypt sensitive data at rest and use [Azure Key Vault][azure-key-vault] to manage the database encryption keys. Key Vault can store encryption keys in hardware security modules (HSMs). It's also recommended to store application secrets, such as database connection strings, in Key Vault.
-
-**DDoS protection**. The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure as a whole. Although basic DDoS protection is automatically enabled, we recommend using [Azure DDoS Network Protection][ddos]. Network Protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. Network Protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures][ddos-best-practices].
-
-### Operational excellence
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 Since all the main resources and their dependencies are in the same virtual network in this architecture, they are isolated in the same basic workload. That fact makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps Teams and Services to perform continuous integration and continuous delivery (CI/CD).
 
@@ -206,13 +214,19 @@ Also, you can use different deployment templates and integrate them with [Azure 
 
 In this scenario, your virtual machines are configured by using Virtual Machine Extensions, since they offer the possibility of installing certain additional software, such as Apache Cassandra. In particular, the Custom Script Extension allows the download and execution of arbitrary code on a Virtual Machine, allowing unlimited customization of the Operating System of an Azure VM. VM Extensions are installed and executed only at VM creation time. That means if the Operating System gets configured incorrectly at a later stage, it will require a manual intervention to move it back to its correct state. Configuration Management Tools can be used to address this issue.
 
-Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines. Application Insights is actually one of the components of Azure Monitor, which gives you rich metrics and logs to verify the state of your complete Azure landscape. Azure Monitor will help you to follow the state of your infrastructure.
+Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without signing in to your virtual machines. Application Insights is actually one of the components of Azure Monitor, which gives you rich metrics and logs to verify the state of your complete Azure landscape. Azure Monitor will help you to follow the state of your infrastructure.
 
 Make sure not only to monitor your compute elements supporting your application code, but your data platform as well, in particular your databases, since a low performance of the data tier of an application could have serious consequences.
 
 In order to test the Azure environment where the applications are running, it should be version-controlled and deployed through the same mechanisms as application code, then it can be tested and validated using DevOps testing paradigms too.
 
 For more information, see the Operational Excellence section in [Microsoft Azure Well-Architecture Framework][WAF-devops].
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+To get the best performance from Cassandra on Azure VMs, see the recommendations in [Run Apache Cassandra on Azure VMs](../../databases/guide/cassandra.md).
 
 ## Next steps
 

@@ -7,7 +7,7 @@ metadata:
   ms.author: askhande
   ms.date: 06/09/2023
   ms.topic: conceptual
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
 name: Modernize mainframe and midrange data
 azureCategories:
@@ -19,6 +19,6 @@ products:
   - azure-sql-database
   - azure-sql-managed-instance
   - azure-storage
-thumbnailUrl: /azure/architecture/browse/thumbs/modernize-mainframe-data-with-azure.png
+thumbnailUrl: /azure/architecture/browse/thumbs/modernize-mainframe-data-azure.png
 content: |
-   [!include[](modernize-mainframe-data-to-azure-content.md)]
+   [!INCLUDE[](modernize-mainframe-data-to-azure-content.md)]

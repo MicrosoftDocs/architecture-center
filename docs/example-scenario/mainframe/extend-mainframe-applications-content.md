@@ -62,19 +62,19 @@ The following workflow corresponds to the preceding diagram:
 
 ### Components
 
-- [Power Platform](https://powerplatform.microsoft.com) increases agility across your organization by helping you build low-code apps that modernize processes and solve tough challenges.
+- [Power Platform](/power-platform) increases agility across your organization by helping you build low-code apps that modernize processes and solve tough challenges.
 
-- [Azure API Management](https://azure.microsoft.com/services/api-management) provides a hybrid, multicloud management platform for APIs across all environments. APIs enable digital experiences, simplify application integration, underpin new digital products, and make data and services reusable and universally accessible.
+- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) provides a hybrid, multicloud management platform for APIs across all environments. APIs enable digital experiences, simplify application integration, underpin new digital products, and make data and services reusable and universally accessible.
 
-- [Azure Monitor](https://azure.microsoft.com/services/monitor) helps maximize the availability and performance of your applications and services. It's a comprehensive solution for collecting, analyzing, and acting on customer data from your cloud and on-premises environments. This information helps you understand how your applications perform and proactively identify issues that affect them and the resources they depend on.
+- [Azure Monitor](/azure/azure-monitor/overview) helps maximize the availability and performance of your applications and services. It's a comprehensive solution for collecting, analyzing, and acting on customer data from your cloud and on-premises environments. This information helps you understand how your applications perform and proactively identify issues that affect them and the resources they depend on.
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is one of several Azure services that provide on-demand, scalable computing resources. With Azure VMs, you get the flexibility of virtualization without having to buy and maintain physical hardware.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is one of several Azure services that provide on-demand, scalable computing resources. With Azure VMs, you get the flexibility of virtualization without having to buy and maintain physical hardware.
 
-- [Microsoft Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for Azure private networks. Virtual Network lets many types of Azure resources, such as VMs, communicate with each other, the internet, and on-premises networks. Virtual Network is similar to a traditional network that you'd operate in your own datacenter but offers Azure infrastructure benefits like scalability, availability, and isolation.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for Azure private networks. Virtual Network lets many types of Azure resources, such as VMs, communicate with each other, the internet, and on-premises networks. Virtual Network is similar to a traditional network that you'd operate in your own datacenter but offers Azure infrastructure benefits like scalability, availability, and isolation.
 
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends an on-premises network into Microsoft cloud services over a private connection, facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends an on-premises network into Microsoft cloud services over a private connection, facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365.
 
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) simplifies deploying managed Kubernetes clusters in Azure by offloading the operational overhead to Azure. AKS helps you deploy and manage the containerized components in this architecture, including your custom-made web UI applications. Because Kubernetes masters are managed by Azure, you only manage and maintain the agent nodes.
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) simplifies deploying managed Kubernetes clusters in Azure by offloading the operational overhead to Azure. AKS helps you deploy and manage the containerized components in this architecture, including your custom-made web UI applications. Because Kubernetes masters are managed by Azure, you only manage and maintain the agent nodes.
 
 ### Alternatives
 
@@ -117,7 +117,7 @@ Many scenarios can benefit from the extend-to-Azure architecture, including thes
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -188,5 +188,4 @@ For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@m
 ## Related resources
 
 - [General mainframe refactor to Azure](general-mainframe-refactor.yml)
-- [Azure mainframe and midrange architecture design](../../mainframe/mainframe-midrange-architecture.md)
 - [Make the switch from mainframes to Azure](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies)
