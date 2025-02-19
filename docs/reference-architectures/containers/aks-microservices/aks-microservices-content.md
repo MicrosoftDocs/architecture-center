@@ -207,7 +207,7 @@ Applications and services often need credentials that allow them to connect to e
 
 For Azure resources, use managed identities where possible. The idea of a managed identity is that an application or service has an identity stored in Microsoft Entra ID, and uses this identity to authenticate with an Azure service. The application or service has a Service Principal created for it in Microsoft Entra ID, and authenticates using OAuth 2.0 tokens. The executing process code can transparently get the token to use. That way, you don't need to store any passwords or connection strings. You can use managed identities in AKS by assigning Microsoft Entra identities to individual pods, using [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview).
 
-Even with managed identities, you'll probably need to store some credentials or other application secrets, whether for Azure services that don't support managed identities, third-party services, API keys, and so on. Here are some options for storing secrets securely:
+Even when you use managed identities, you'll probably need to store some credentials or other application secrets, whether for Azure services that don't support managed identities, third-party services, API keys, and so on. Here are some options for storing secrets securely:
 
 - Azure Key Vault. In AKS, you can mount one or more secrets from Key Vault as a volume. The volume reads the secrets from Key Vault. The pod can then read the secrets just like a regular volume. For more information, see the [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster](/azure/aks/csi-secrets-store-driver).
 
