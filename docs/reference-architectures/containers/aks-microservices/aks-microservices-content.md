@@ -228,7 +228,7 @@ Using a solution like Azure Key Vault provides several advantages, such as:
 
 The reference implementation stores Cosmos DB connection strings and other secrets in Azure Key Vault. The reference implementation uses a managed identity for microservices, to authenticate to Key Vault and access secrets.  
 
-#### Container and Orchestrator security
+#### Container and orchestrator security
 
 These are recommended practices for securing your pods and containers:
 
