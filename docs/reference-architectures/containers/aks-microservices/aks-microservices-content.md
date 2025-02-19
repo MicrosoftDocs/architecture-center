@@ -148,7 +148,7 @@ When microservices are developed and deployed by multiple teams, namespaces can 
 
 For a microservices architecture, consider organizing the microservices into bounded contexts, and creating namespaces for each bounded context. For example, all microservices related to the "Order Fulfillment" bounded context could go into the same namespace. Alternatively, create a namespace for each development team.
 
-A good practice is to place utility services into their own separate namespace. For example, you might deploy cluster monitoring tools such as Elasticsearch and Prometheus to a monitoring namespace.
+Place utility services into their own separate namespace. For example, you might deploy cluster monitoring tools such as Elasticsearch and Prometheus to a *monitoring* namespace.
 
 #### Health probes
 
