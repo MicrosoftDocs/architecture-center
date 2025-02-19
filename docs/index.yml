@@ -116,7 +116,7 @@ conceptualContent:
         url: ./guide/technology-choices/compute-decision-tree.yml
         itemType: reference
       - text: CQRS design pattern
-        url: ./patterns/cqrs.yml
+        url: ./patterns/cqrs.md
         itemType: concept
 
     - title: AI & Machine Learning
