@@ -212,7 +212,7 @@ The following new and updated articles have recently been published in the Azure
 - [Automate PDF forms processing](./ai-ml/architecture/automate-pdf-forms-processing.yml)  ([#8b11bb996f](https://github.com/MicrosoftDocs/architecture-center/commit/8b11bb996f))
 - [Deploy Azure landing zones](./landing-zones/landing-zone-deploy.md)  ([#e4e5a01e1a](https://github.com/MicrosoftDocs/architecture-center/commit/e4e5a01e1a))
 - [Develop a RAG Solution—Information-Retrieval Phase](./ai-ml/guide/rag/rag-information-retrieval.md)  ([#581cc1fd26](https://github.com/MicrosoftDocs/architecture-center/commit/581cc1fd26))
-- [CQRS pattern](./patterns/cqrs.yml)  ([#68f7b0269a](https://github.com/MicrosoftDocs/architecture-center/commit/68f7b0269a))
+- [CQRS pattern](./patterns/cqrs.md)  ([#68f7b0269a](https://github.com/MicrosoftDocs/architecture-center/commit/68f7b0269a))
 - [Compare Storage Services on Azure and AWS](./aws-professional/storage.md)  ([#3501c9c49c](https://github.com/MicrosoftDocs/architecture-center/commit/3501c9c49c))
 - [Choose an Azure service for vector search](./guide/technology-choices/vector-search.md)  ([#4b9fec8d86](https://github.com/MicrosoftDocs/architecture-center/commit/4b9fec8d86))
 - [Stream processing with Databricks](./reference-architectures/data/stream-processing-databricks.yml)  ([#a75ca75c29](https://github.com/MicrosoftDocs/architecture-center/commit/a75ca75c29))
