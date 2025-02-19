@@ -6978,6 +6978,26 @@
       "source_path": "docs/ai-ml/architecture/automotive-messaging-data-analytics.yml",
       "redirect_url": "/industry/mobility/architecture/automotive-messaging-data-analytics-content",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/azure-resource-manager/advanced-templates/update-resource.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/azure-resource-manager/advanced-templates/objects-as-parameters.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/azure-resource-manager/advanced-templates/collector.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml",
+      "redirect_url": "/azure/azure-resource-manager/templates/overview",
+      "redirect_document_id": false
     }
   ]
 }
