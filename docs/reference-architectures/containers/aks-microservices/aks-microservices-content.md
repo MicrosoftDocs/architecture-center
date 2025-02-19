@@ -195,7 +195,7 @@ You may also need to rotate your certificates as per the organization's policies
 
 #### Role-based access control (RBAC)
 
-When multiple teams are working on developing and deploying microservices, AKS role based access control mechanisms can be utilized to control granular filtering of user actions. You can either use Kubernetes RBAC or Azure RBAC with Microsoft Entra ID to control access to the cluster resources. For more information, please see [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity#azure-role-based-access-control).
+When multiple teams are working on developing and deploying microservices, AKS role-based access control mechanisms can provide granular control and filtering of user actions. You can either use Kubernetes RBAC or Azure RBAC with Microsoft Entra ID to control access to the cluster resources. For more information, please see [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity#azure-role-based-access-control).
 
 #### Authentication and Authorization
 
