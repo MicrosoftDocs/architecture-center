@@ -9,7 +9,7 @@ ms.service: azure-architecture-center
 ms.subservice: design-pattern
 products:
   - azure-storage
-azure.category:
+azureCategories:
   - storage
   - databases
 ---
