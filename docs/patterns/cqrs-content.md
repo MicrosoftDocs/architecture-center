@@ -20,15 +20,15 @@ Combining these responsibilities can result in an overly complicated model.
 
 ## Solution
 
-Use the CQRS pattern to separate write operations, or *commands*, from read operations, or *queries*. Commands update data. Queries retrieve data.
+Use the CQRS pattern to separate write operations, or *commands*, from read operations, or *queries*. Commands update data. Queries retrieve data. The CQRS pattern is useful in scenarios that require a clear separation between commands and reads.
 
 - **Understand commands.** Commands should represent specific business tasks instead of low-level data updates. For example, in a hotel-booking app, use the command "Book hotel room" instead of "Set ReservationStatus to Reserved." This approach better captures the intent of the user and aligns commands with business processes. To help ensure that commands are successful, you might need to refine the user interaction flow and server-side logic and consider asynchronous processing.
 
-| Area of refinement  | Recommendation |
-|---------|----------------|
-| Client-side validation  | Validate specific conditions before you send the command to prevent obvious failures. For example, if no rooms are available, disable the "Book" button and provide a clear, user-friendly message in the UI that explains why booking isn’t possible. This setup reduces unnecessary server requests and provides immediate feedback to users, which enhances their experience. |
-| Server-side logic | Enhance the business logic to handle edge cases and failures gracefully. For example, to address race conditions such as multiple users attempting to book the last available room, consider adding users to a waiting list or suggesting alternatives. |
-| Asynchronous processing | [Process commands asynchronously](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication) by placing them in a queue, instead of handling them synchronously. |
+  | Area of refinement  | Recommendation |
+  |---------|----------------|
+  | Client-side validation  | Validate specific conditions before you send the command to prevent obvious failures. For example, if no rooms are available, disable the "Book" button and provide a clear, user-friendly message in the UI that explains why booking isn’t possible. This setup reduces unnecessary server requests and provides immediate feedback to users, which enhances their experience. |
+  | Server-side logic | Enhance the business logic to handle edge cases and failures gracefully. For example, to address race conditions such as multiple users attempting to book the last available room, consider adding users to a waiting list or suggesting alternatives. |
+  | Asynchronous processing | [Process commands asynchronously](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication) by placing them in a queue, instead of handling them synchronously. |
 
 - **Understand queries.** Queries never alter data. Instead, they return data transfer objects (DTOs) that present the required data in a convenient format, without any domain logic. This distinct separation of responsibilities simplifies the design and implementation of the system.
 
@@ -84,27 +84,25 @@ Consider the following points as you decide how to implement this pattern:
 
 ## When to use this pattern
 
-The CQRS pattern is useful in scenarios that require a clear separation between data modifications (or commands) and data queries (or reads). Consider using CQRS in the following scenarios:
+Use this pattern when:
 
-- **Collaborative domains:** In environments where multiple users access and modify the same data simultaneously, CQRS helps reduce merge conflicts. Commands can include enough granularity to prevent conflicts, and the system can resolve any conflicts that occur within the command logic.
+- **You work in collaborative environments.** In environments where multiple users access and modify the same data simultaneously, CQRS helps reduce merge conflicts. Commands can include enough granularity to prevent conflicts, and the system can resolve any conflicts that occur within the command logic.
 
-- **Task-based user interfaces:** Applications that guide users through complex processes as a series of steps or with complex domain models benefit from CQRS.
+- **You have task-based user interfaces.** Applications that guide users through complex processes as a series of steps or with complex domain models benefit from CQRS.
 
   - The write model has a full command-processing stack with business logic, input validation, and business validation. The write model might treat a set of associated objects as a single unit for data changes, which is known as an *aggregate* in domain-driven design terminology. The write model might also help ensure that these objects are always in a consistent state.
   
   - The read model has no business logic or validation stack. It returns a DTO for use in a view model. The read model is eventually consistent with the write model.
 
-- **Performance tuning:** Systems where the performance of data reads must be fine-tuned separately from performance of data writes benefit from CQRS. This pattern is especially beneficial when the number of reads is greater than the number of writes. The read model scales horizontally to handle large query volumes. The write model runs on fewer instances to minimize merge conflicts and maintain consistency.
+- **You need performance tuning.** Systems where the performance of data reads must be fine-tuned separately from performance of data writes benefit from CQRS. This pattern is especially beneficial when the number of reads is greater than the number of writes. The read model scales horizontally to handle large query volumes. The write model runs on fewer instances to minimize merge conflicts and maintain consistency.
 
-- **Separation of development concerns:** CQRS allows teams to work independently. One team implements the complex business logic in the write model, and another team develops the read model and user interface components.
+- **You have separation of development concerns.** CQRS allows teams to work independently. One team implements the complex business logic in the write model, and another team develops the read model and user interface components.
 
-- **Evolving systems:** CQRS supports systems that evolve over time. It accommodates new model versions, frequent changes to business rules, or other modifications without affecting existing functionality.
+- **You have evolving systems.** CQRS supports systems that evolve over time. It accommodates new model versions, frequent changes to business rules, or other modifications without affecting existing functionality.
 
-- **System integration:** Systems that integrate with other subsystems, especially systems that use the Event Sourcing pattern, remain available even if a subsystem temporarily fails. CQRS isolates failures, which prevents a single component from affecting the entire system.
+- **You need system integration:** Systems that integrate with other subsystems, especially systems that use the Event Sourcing pattern, remain available even if a subsystem temporarily fails. CQRS isolates failures, which prevents a single component from affecting the entire system.
 
-## When not to use the CQRS pattern
-
-Avoid using CQRS in the following scenarios:
+This pattern might not be suitable when:
 
 - The domain or the business rules are simple.
 
@@ -263,4 +261,4 @@ The following information might be relevant when you implement this pattern:
 
 - [Event Sourcing pattern](./event-sourcing.yml). This pattern describes how to simplify tasks in complex domains and improve performance, scalability, and responsiveness. It also explains how to provide consistency for transactional data while maintaining full audit trails and history that can enable compensating actions.
 
-- [Materialized View pattern](./materialized-view.yml). This pattern creates prepopulated views, known as *materialized views*, for efficient querying and data extraction from one or more data stores. It enhances performance by providing a more suitable data format for queries, which reduces the need for repeated computations. The read model of a CQRS implementation can contain materialized views of the write model data, or the read model can be used to generate materialized views.
+- [Materialized View pattern](./materialized-view.yml). This pattern creates prepopulated views, known as *materialized views*, for efficient querying and data extraction from one or more data stores. The read model of a CQRS implementation can contain materialized views of the write model data, or the read model can be used to generate materialized views.
