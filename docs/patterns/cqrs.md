@@ -9,8 +9,9 @@ ms.service: azure-architecture-center
 ms.subservice: design-pattern
 products:
   - azure-storage
-azureCategories:
+azure.category:
   - storage
+  - databases
 ---
 
 # CQRS Pattern
