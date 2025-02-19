@@ -146,7 +146,7 @@ Namespaces help prevent naming collisions. When multiple teams deploy microservi
 
 When microservices are developed and deployed by multiple teams, namespaces can be used as a convenient mechanism to control areas to which each team can deploy to. For example, development team A can be given access only to namespace A, and development team B can be given access only to namespace B through Kubernetes [role-based access control policies](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole). 
 
-For a microservices architecture, considering organizing the microservices into bounded contexts, and creating namespaces for each bounded context. For example, all microservices related to the "Order Fulfillment" bounded context could go into the same namespace. Alternatively, create a namespace for each development team.
+For a microservices architecture, consider organizing the microservices into bounded contexts, and creating namespaces for each bounded context. For example, all microservices related to the "Order Fulfillment" bounded context could go into the same namespace. Alternatively, create a namespace for each development team.
 
 A good practice is to place utility services into their own separate namespace. For example, you might deploy cluster monitoring tools such as Elasticsearch and Prometheus to a monitoring namespace.
 
