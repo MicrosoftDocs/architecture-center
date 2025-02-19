@@ -6985,7 +6985,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "guide/azure-resource-manager/advanced-templates/objects-as-parameters.md",
+      "source_path": "docs/guide/azure-resource-manager/advanced-templates/objects-as-parameters.md",
       "redirect_url": "/azure/azure-resource-manager/templates/overview",
       "redirect_document_id": false
     },
