@@ -50,7 +50,6 @@ Consider these patterns, guidelines, and architectures as you plan and implement
 
 - [Basic web application](app-service/architectures/basic-web-app.yml)
 - [Baseline zone-redundant web application](app-service/architectures/baseline-zone-redundant.yml)
-- [Multi-region active-passive web application](app-service/architectures/multi-region.yml)
 - [Common web application architectures](/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures)
 - [Design principles for Azure applications](../guide/design-principles/index.md)
 - [Enterprise deployment using App Services Environment](../web-apps/app-service-environment/architectures/ase-standard-deployment.yml)
@@ -87,10 +86,6 @@ The following sections, organized by category, provide links to sample web app a
 ### Multi-tier apps
 
 - [Multi-tier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
-
-### Multi-region apps
-
-- [Highly available multi-region web application](../web-apps/app-service/architectures/multi-region.yml)
 
 ### Scalability
 

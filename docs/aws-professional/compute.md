@@ -55,4 +55,3 @@ Principal author:
 - [Run a Linux virtual machine on Azure](../reference-architectures/n-tier/linux-vm.yml)
 - [Basic web application](../web-apps/app-service/architectures/basic-web-app.yml)
 - [Baseline App Service web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
-- [Active-passive multiregion App Service web application](../web-apps/app-service/architectures/multi-region.yml)

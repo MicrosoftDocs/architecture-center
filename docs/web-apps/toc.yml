@@ -14,8 +14,6 @@ items:
           href: app-service/architectures/basic-web-app.yml
         - name: Baseline web application with zone redundancy
           href: app-service/architectures/baseline-zone-redundant.yml
-        - name: Active-passive multi-region web app
-          href: app-service/architectures/multi-region.yml
       - name: Host web apps with App Service Environment
         items:
         - name: Standard deployment
