@@ -4281,11 +4281,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/patterns/cqrs-content.md",
-      "redirect_url": "/azure/architectures/docs/patterns/cqrs",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "docs/solution-ideas/articles/loan-credit-risk-with-sql-server.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false  
