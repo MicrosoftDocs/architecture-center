@@ -6998,6 +6998,16 @@
       "source_path": "docs/guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml",
       "redirect_url": "/azure/azure-resource-manager/templates/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/idea/ecommerce-website-running-in-secured-ase.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service-environment/architectures/ase-standard-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/idea/migrate-existing-applications-to-container-apps.yml",
+      "redirect_url": "/azure/architecture/guide/choose-azure-container-service",
+      "redirect_document_id": false
     }
   ]
 }
