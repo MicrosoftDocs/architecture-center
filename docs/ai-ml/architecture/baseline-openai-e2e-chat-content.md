@@ -522,9 +522,9 @@ Some components in this architecture exist with a lifecycle that extends beyond 
 
 ###### Temporary components
 
-Some Azure resources are more tightly coupled to the design of specific prompt flows. This approach allows these resources to be bound to the lifecycle of the component and become temporary in this architecture. Azure resources are affected when the workload evolves, such as when flows are added or removed or when new models are introduced. These resources get re-created and prior instances removed. Some of these resources are direct Azure resources and some are data plane manifestations within their containing service.
+Some Azure resources are more tightly coupled with the design of specific prompt flows. This approach allows these resources to be bound to the lifecycle of the component and become temporary in this architecture. Azure resources are affected when the workload evolves, such as when flows are added or removed or when new models are introduced. These resources are re-created, and prior instances of them are removed. Some of these resources are Azure resources and some are data plane manifestations within their containing service.
 
-- The model in the Machine Learning model registry should be updated, if changed, as part of the CD pipeline.
+- The model in the Machine Learning model registry should be updated, if it changes, as part of the CD pipeline.
 
 - The container image should be updated in the container registry as part of the CD pipeline.
 
@@ -536,52 +536,52 @@ Some Azure resources are more tightly coupled to the design of specific prompt f
 
 ###### On-demand managed virtual network
 
-The managed virtual network is automatically provisioned when you first create a compute instance. If you're using infrastructure as code to deploy your hub, and you don't have Azure AI Foundry compute resources in the Bicep, the managed virtual network isn't deployed and you'll receive an error when connecting to Azure AI Foundry portal. You'll need to perform a one-time action to [manually provision the managed virtual network](/azure/ai-studio/how-to/configure-managed-network#manually-provision-a-managed-vnet) after your IaC deployment.
+The managed virtual network is automatically provisioned when you first create a compute instance. If you're using IaC to deploy your hub, and you don't have Azure AI Foundry compute resources in Bicep, the managed virtual network isn't deployed and you receive an error when you connect to Azure AI Foundry portal. You need to [manually provision the managed virtual network](/azure/ai-studio/how-to/configure-managed-network#manually-provision-a-managed-vnet) after your IaC deployment.
 
 #### Resource organization
 
-If you have a scenario where the hub is centrally owned by a team other than the workload team, you may choose to deploy projects to separate resource groups. If you're using infrastrastructure as code, you can accomplish that by setting a different resource group in the Bicep. If you're using the portal, you can set the `defaultWorkspaceResourceGroup` property under the `workspaceHubConfig` to the resource group you would like your projects to be created.
+If you have a scenario where the hub is centrally owned by a team other than the workload team, you might choose to deploy projects to separate resource groups. If you use IaC, you can deploy projects to separate resource groups by setting a different resource group in Bicep. If you use the portal, you can set the `defaultWorkspaceResourceGroup` property under the `workspaceHubConfig` to the resource group you where you want to create your projects.
 
 ### Performance Efficiency
 
-Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-This section describes performance efficiency from the perspective of Azure Search, Azure OpenAI, and Machine Learning.
+This section describes performance efficiency from the perspective of AI Search, Azure OpenAI, and Machine Learning.
 
-#### Azure Search - performance efficiency
+#### Performance Efficiency in AI Search
 
 Follow the guidance to [analyze performance in AI Search](/azure/search/search-performance-analysis).
 
-#### Azure OpenAI - performance efficiency
+#### Performance Efficiency in Azure OpenAI
 
-- Determine whether your application requires [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) or the shared hosting, or consumption, model. Provisioned throughput ensures reserved processing capacity for your OpenAI model deployments, which provides predictable performance and throughput for your models. This billing model is unlike the shared hosting, or consumption, model. The consumption model is best-effort and might be subject to noisy neighbor or other stressors on the platform.
+- Determine whether your application requires [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) or the shared hosting, or consumption, model. Provisioned throughput ensures reserved processing capacity for your OpenAI model deployments. Reserved capacity provides predictable performance and throughput for your models. This billing model is unlike the shared hosting, or consumption, model. The consumption model is best-effort and might be subject to noisy neighbor or other stressors on the platform.
 
 - Monitor [provision-managed utilization](/azure/ai-services/openai/how-to/monitoring) for provisioned throughput.
 
-#### Machine Learning - performance efficiency
+#### Performance Efficiency in Machine Learning
 
 If you deploy to Machine Learning online endpoints:
 
-- Follow the guidance about how to [autoscale an online endpoint](/azure/machine-learning/how-to-autoscale-endpoints). Do this to remain closely aligned with demand without excessive overprovisioning, especially in low-usage periods.
+- Follow the guidance about how to [autoscale an online endpoint](/azure/machine-learning/how-to-autoscale-endpoints). Autoscaling helps you remain closely aligned with demand without overprovisioning, especially in low-usage periods.
 
-- Choose the appropriate VM SKU for the online endpoint to meet your performance targets. Test the performance of both lower instance count and bigger SKUs versus larger instance count and smaller SKUs to find an optimal configuration.
+- Choose the appropriate VM SKU for the online endpoint to meet your performance targets. Test the performance of both lower instance counts and larger SKUs versus larger instance counts and smaller SKUs to find an optimal configuration.
 
 ## Deploy this scenario
 
-To deploy and run the reference implementation, follow the steps in the [OpenAI end-to-end baseline reference implementation](https://github.com/Azure-Samples/openai-end-to-end-baseline/).
+To deploy and run this reference implementation, follow the steps in the [OpenAI end-to-end baseline reference implementation](https://github.com/Azure-Samples/openai-end-to-end-baseline/).
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
-- [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Patterns & Practices - Microsoft
-- [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) | Cloud Solution Architect - Microsoft
-- [Prabal Deb](https://www.linkedin.com/in/prabaldeb/) | Senior Software Engineer - Microsoft
 - [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/) | Software Engineer II - Microsoft
+- [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) | Cloud Solution Architect - Microsoft
+- [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Patterns & Practices - Microsoft
+- [Prabal Deb](https://www.linkedin.com/in/prabaldeb/) | Senior Software Engineer - Microsoft
 - [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/) | Principal Software Engineer - Microsoft
 - [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/) | Senior Solution Architect - Microsoft
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next step
 
