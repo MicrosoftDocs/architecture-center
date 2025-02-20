@@ -1128,16 +1128,6 @@ items:
       items:
       - name: Azure Sandbox
         href: guide/azure-sandbox/azure-sandbox.yml
-      - name: Advanced ARM templates
-        items:
-        - name: Update a resource
-          href: guide/azure-resource-manager/advanced-templates/update-resource.md
-        - name: Use an object as a parameter
-          href: guide/azure-resource-manager/advanced-templates/objects-as-parameters.md
-        - name: Property transformer and collector
-          href: guide/azure-resource-manager/advanced-templates/collector.md
-        - name: Infrastructure as code with Bicep
-          href: guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml
       - name: DevSecOps on AKS
         href: guide/devsecops/devsecops-on-aks.yml
       - name: Use deployment scripts to check resource properties
