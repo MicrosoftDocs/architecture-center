@@ -266,7 +266,7 @@ Private endpoint access is also required to connect to the Machine Learning work
     The diagram shows a user connecting to a jump box virtual machine through Azure Bastion. An arrow points from the jump box to a Machine Learning workspace private endpoint. Another arrow points from the private endpoint to the Machine Learning workspace. From the workspace, four arrows point to four private endpoints that connect to Container Registry, Storage, Azure OpenAI, and AI Search.
 :::image-end:::
 
-The diagram shows a prompt flow author that connects through Azure Bastion to a virtual machine jump box. From that jump box, the author can connect to the Machine Learning workspace through a private endpoint in the same network as the jump box. The author can also connect to the virtual network through Azure ExpressRoute or VPN gateways and virtual network peering.
+The diagram shows a prompt flow author that connects through Azure Bastion to a virtual machine (VM) jump box. From that jump box, the author can connect to the Machine Learning workspace through a private endpoint in the same network as the jump box. The author can also connect to the virtual network through Azure ExpressRoute or VPN gateways and virtual network peering.
 
 ##### Flow from the Azure AI Foundry managed virtual network to Azure PaaS services
 
@@ -284,7 +284,7 @@ The network in this architecture has separate subnets for the following purposes
 - App Service integration components
 - Private endpoints
 - Azure Bastion
-- Jump box virtual machines
+- Jump box VMs
 - Scoring
 - Training and Scoring subnets
    > [!NOTE]
@@ -391,7 +391,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 #### Built-in prompt flow runtimes
 
-Like in the basic architecture, this architecture uses automatic runtime to minimize operational burden. The automatic runtime is a serverless compute option within Machine Learning that simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. This choice is low maintenance, ephemeral, and application-driven. Using compute instance runtime or externalized compute, like in this architecture, requires the workload team to manage the lifecycle of the compute. You should use compute instance runtime when your workload requirements exceed the configuration capabilities of the automatic runtime option.
+Like in the basic architecture, this architecture uses automatic runtime to minimize operational burden. The automatic runtime is a serverless compute option within Machine Learning that simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. This choice is low maintenance, temporary, and application-driven. Using compute instance runtime or externalized compute, like in this architecture, requires the workload team to manage the lifecycle of the compute. You should use compute instance runtime when your workload requirements exceed the configuration capabilities of the automatic runtime option.
 
 #### Monitoring
 
@@ -407,64 +407,66 @@ Be sure to track usage of tokens against your Azure OpenAI model deployments. In
 
 #### Language model operations
 
-Deployment for Azure OpenAI-based chat solutions like this architecture should follow the guidance in [GenAIOps with prompt flow with Azure DevOps](/azure/machine-learning/prompt-flow/how-to-end-to-end-azure-devops-with-prompt-flow) and [with GitHub](/azure/machine-learning/prompt-flow/how-to-end-to-end-llmops-with-prompt-flow). Additionally, it must consider best practices for continuous integration and continuous delivery (CI/CD) and network-secured architectures. The following guidance addresses the implementation of flows and their associated infrastructure based on the GenAIOps recommendations. This deployment guidance doesn't include the front-end application elements, which are unchanged from in the [Baseline highly available zone-redundant web application architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#deployment).
+Deployment for Azure OpenAI-based chat solutions like this architecture should follow the guidance in [GenAIOps with prompt flow with Azure DevOps](/azure/machine-learning/prompt-flow/how-to-end-to-end-azure-devops-with-prompt-flow) and [with GitHub](/azure/machine-learning/prompt-flow/how-to-end-to-end-llmops-with-prompt-flow). Additionally, it must consider best practices for continuous integration and continuous delivery (CI/CD) and network-secured architectures. The following guidance addresses the implementation of flows and their associated infrastructure based on the GenAIOps recommendations. This deployment guidance doesn't include the front-end application elements, which are unchanged from the [baseline highly available zone-redundant web application architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#deployment-flow).
 
 ##### Development
 
-Prompt flow offers both a browser-based authoring experience in Azure AI Foundry portal or through a [Visual Studio Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension). Both options store the flow code as files. When you use Azure AI Foundry portal, the files are stored in a Storage account. When you work in Microsoft Visual Studio Code, the files are stored in your local file system.
+Prompt flow offers both a browser-based authoring experience in Azure AI Foundry portal or through a [Visual Studio Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension). Both of these options store the flow code as files. When you use Azure AI Foundry portal, the files are stored in a Storage account. When you work in VS Code, the files are stored in your local file system.
 
-In order to follow [best practices for collaborative development](/azure/machine-learning/prompt-flow/how-to-integrate-with-llm-app-devops#best-practice-for-collaborative-development), the source files should be maintained in an online source code repository such as GitHub. This approach facilitates tracking of all code changes, collaboration between flow authors and integration with [deployment flows](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#deployment-flow) that test and validate all code changes.
+To follow [best practices for collaborative development](/azure/machine-learning/prompt-flow/how-to-integrate-with-llm-app-devops#follow-collaborative-development-best-practices),  maintain the source files in an online source code repository like GitHub. This approach helps track code changes, collaborate between flow authors, and integrate with [deployment flows](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#deployment-flow) that test and validate all code changes.
 
-For enterprise development, use the [Microsoft Visual Studio Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension) and the [prompt flow SDK/CLI](/azure/machine-learning/prompt-flow/community-ecosystem#prompt-flow-sdkcli) for development. Prompt flow authors can build and test their flows from Microsoft Visual Studio Code and integrate the locally stored files with the online source control system and pipelines. While the browser-based experience is well suited for exploratory development, with some work, it can be integrated with the source control system. The flow folder can be downloaded from the flow page in the `Files` panel, unzipped, and pushed to the source control system.
+For enterprise development, use the [VS Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension) and the [prompt flow SDK/CLI](/azure/machine-learning/prompt-flow/community-ecosystem#prompt-flow-sdkcli) for development. Prompt flow authors can build and test their flows from VS Code and integrate the locally stored files with the online source control system and pipelines. Although the browser-based experience is designed for exploratory development, you can work to integrate it with the source control system. You can download the flow folder from the flow page in the `Files` panel, unzip the folder, and push it to the source control system.
 
 ##### Evaluation
 
-Test the flows used in a chat application just as you test other software artifacts. It's challenging to specify and assert a single "right" answer for language model outputs, but you can use a language model itself to evaluate responses. Consider implementing the following automated evaluations of your language model flows:
+Test the flows that the chat application uses by using the same methods that you use to test other software artifacts. It's challenging to specify and assert a single correct answer for language model outputs, but you can use a language model to evaluate responses. Consider implementing the following automated evaluations of your language model flows:
 
-- **Classification accuracy:** Evaluates whether the language model gives a "correct" or "incorrect" score and aggregates the outcomes to produce an accuracy grade.
+- **Classification accuracy** evaluates whether the language model gives a correct or incorrect score and aggregates the outcomes to produce an accuracy grade.
 
-- **Coherence:** Evaluates how well the sentences in a model's predicted answer are written and how they coherently connect with each other.
+- **Coherence** evaluates how well the sentences in a model's predicted answer are written and how they coherently connect with each other.
 
-- **Fluency:** Assesses the model's predicted answer for its grammatical and linguistic accuracy.
+- **Fluency** assesses the model's predicted answer for its grammatical and linguistic accuracy.
 
-- **Groundedness against context:** Evaluates how well the model's predicted answers are based on preconfigured context. Even if the language model responses are correct, if they can't be validated against the given context, then such responses aren't grounded.
+- **Groundedness against context** evaluates how well the model's predicted answers are based on preconfigured context. Even if the language model responses are correct, if they can't be validated against the given context, then the responses aren't grounded.
 
-- **Relevance:** Evaluates how well the model's predicted answers align with the question asked.
+- **Relevance** evaluates how well the model's predicted answers align with the question asked.
 
-Consider the following guidance when implementing automated evaluations:
+Consider the following guidance when you implement automated evaluations:
 
-- Produce scores from evaluations and measure them against a predefined success threshold. Use these scores to report test pass/fail in your pipelines.
+- Produce scores from evaluations and measure them against a predefined success threshold. Use these scores to report whether tests passed or failed in your pipelines.
 
 - Some of these tests require preconfigured data inputs of questions, context, and ground truth.
 
-- Include enough question-answer pairs to ensure the results of the tests are reliable, with at least 100-150 pairs recommended. These question-answer pairs are referred to as your "golden dataset." A larger population might be required depending on the size and domain of your dataset.
+- Include enough question and answer pairs to help ensure that the results of the tests are reliable. We recommend that you include at least 100-150 pairs. These question and answer pairs are also known as your *golden dataset*. A larger number of pairs might be required depending on the size and domain of your dataset.
 
 - Avoid using language models to generate any of the data in your golden dataset.
 
 ##### Deployment flow
 
 :::image type="complex" source="_images/openai-end-to-end-deployment-flow.svg" border="false" lightbox="_images/openai-end-to-end-deployment-flow.svg" alt-text="Diagram that shows the deployment flow for a prompt flow.":::
-  The diagram shows the deployment flow for a prompt flow. The following are annotated with numbers: 1. The local development step, 2. A box containing a pull request (PR) pipeline, 3. A manual approval, 4. Development environment, 5. Test environment, 6. Production environment, 7. A list of monitoring tasks, and a CI pipeline and b. CD pipeline.
+  The diagram shows the deployment flow for a prompt flow. It separates the flow into boxes, and arrows that show the direction of the flow connect the boxes. The diagram includes a local development step, a box that contains a pull request pipeline, a manual approval step, a development environment, a test environment, a production environment, a list of monitoring tasks, a CI pipeline, and a CD pipeline.
 :::image-end:::
 
-1. The prompt engineer/data scientist opens a feature branch where they work on the specific task or feature. The prompt engineer/data scientist iterates on the flow using prompt flow for Microsoft Visual Studio Code, periodically committing changes and pushing those changes to the feature branch.
+The following dataflow corresponds to the previous diagram:
 
-1. Once local development and experimentation are completed, the prompt engineer/data scientist opens a pull request from the Feature branch to the Main branch. The pull request (PR) triggers a PR pipeline. This pipeline runs fast quality checks that should include:
+1. The prompt engineer or data scientist opens a feature branch where they work on a specific task or feature. The prompt engineer or data scientist iterates on the flow by using prompt flow for VS Code and periodically commits changes and pushes those changes to the feature branch.
+
+1. After local development and experimentation is complete, the prompt engineer or data scientist opens a pull request (PR) from the feature branch to the main branch. The PR triggers a PR pipeline. This pipeline runs fast quality checks that should include:
 
     - Execution of experimentation flows.
     - Execution of configured unit tests.
     - Compilation of the codebase.
     - Static code analysis.
 
-1. The pipeline can contain a step that requires at least one team member to manually approve the PR before merging. The approver can't be the committer and they mush have prompt flow expertise and familiarity with the project requirements. If the PR isn't approved, the merge is blocked. If the PR is approved, or there's no approval step, the feature branch is merged into the Main branch.
+1. The pipeline can contain a step that requires at least one team member to manually approve the PR before merging. The approver can't be the committer, and they must have prompt flow expertise and familiarity with the project's requirements. If the PR isn't approved, the merge is blocked. If the PR is approved, or if there's no approval step, the feature branch is merged into the main branch.
 
-1. The merge to Main triggers the build and release process for the Development environment. Specifically:
+1. The merge to the main branch triggers the build and release process for the development environment.
 
-   a. The CI pipeline is triggered from the merge to Main. The CI pipeline performs all the steps done in the PR pipeline, and the following steps:
+   a. The CI pipeline is triggered from the merge to the main branch. The CI pipeline performs all the steps in the PR pipeline, and the following steps:
 
       - Experimentation flow
       - Evaluation flow
-      - Registers the flows in the Machine Learning Registry when changes are detected
+      - Flow registration in the Machine Learning registry when changes are detected
 
    b. The CD pipeline is triggered after the completion of the CI pipeline. This flow performs the following steps:
 
@@ -472,55 +474,55 @@ Consider the following guidance when implementing automated evaluations:
       - Runs integration tests that target the online endpoint
       - Runs smoke tests that target the online endpoint
 
-1. An approval process is built into the release promotion process – upon approval, the CI & CD processes described in steps *4.a* and *4.b* are repeated, targeting the Test environment. Steps *a* and *b* are the same, except that user acceptance tests are run after the smoke tests in the Test environment.
+1. An approval process is built into the release promotion process. After approval, the CI/CD processes repeat, targeting the test environment. Steps *a.* and *b.* are the same, except that user acceptance tests run after the smoke tests in the test environment.
 
-1. The CI & CD processes described in steps *4.a* and *4.b* are run to promote the release to the Production environment after the Test environment is verified and approved.
+1. The CI/CD processes run to promote the release to the production environment after the test environment is verified and approved.
 
-1. After release into a live environment, the operational tasks of monitoring performance metrics and evaluating the deployed language models take place. This includes but isn't limited to:
+1. After release into a live environment, the operational tasks of monitoring performance metrics and evaluating the deployed language models take place. These tasks include:
 
-    - Detecting data drifts
-    - Observing the infrastructure
-    - Managing costs
-    - Communicating the model's performance to stakeholders
+    - Detecting data drifts.
+    - Observing the infrastructure.
+    - Managing costs.
+    - Communicating the model's performance to stakeholders.
 
 ##### Deployment guidance
 
-You can use Machine Learning endpoints to deploy models in a way that enables flexibility when releasing to production. Consider the following strategies to ensure the best model performance and quality:
+You can use Machine Learning endpoints to deploy models in a way that enables flexibility when you release them to production. Consider the following strategies to help ensure high model performance and quality:
 
-- Blue/green deployments: With this strategy, you can safely deploy your new version of the web service to a limited group of users or requests before directing all traffic over to the new deployment.
+- Use blue-green deployments to safely deploy your new version of the web service to a limited group of users or requests before you direct all traffic to the new deployment.
 
-- A/B testing: Not only are blue/green deployments effective for safely rolling out changes, they can also be used to deploy new behavior that allows a subset of users to evaluate the impact of the change.
+- Use A/B testing to deploy new behavior. A/B testing allows a subset of users to evaluate the effects of the change.
 
 - Include linting of Python files that are part of the prompt flow in your pipelines. Linting checks for compliance with style standards, errors, code complexity, unused imports, and variable naming.
 
-- When you deploy your flow to the network-isolated Machine Learning workspace, use a self-hosted agent to deploy artifacts to your Azure resources.
+- Use a self-hosted agent to deploy artifacts to your Azure resources when you deploy your flow to the network-isolated Machine Learning workspace.
 
-- The Machine Learning model registry should only be updated when there are changes to the model.
+- Only update the Machine Learning model registry when there are changes to the model.
 
-- The language models, the flows, and the client UI should be loosely coupled. Updates to the flows and the client UI can and should be able to be made without affecting the model and vice versa.
+- Ensure that the language models, flows, and client UI are loosely coupled. You should be able to update the flows and the client UI without affecting the model and vice versa.
 
-- When you develop and deploy multiple flows, each flow should have its own lifecycle, which allows for a loosely coupled experience when promoting flows from experimentation to production.
+- When you develop and deploy multiple flows, each flow should have its own lifecycle. This approach helps you keep flows loosely coupled when you promote them from experimentation to production.
 
 ##### Infrastructure
 
-When you deploy the baseline Azure OpenAI end-to-end chat components, some of the services provisioned are foundational and permanent within the architecture, whereas other components are more ephemeral in nature, their existence tied to a deployment. Also, while the managed virtual network is foundational, it's automatically provisioned when you create a compute instance which leads to some considerations.
+When you deploy the baseline Azure OpenAI end-to-end chat components, some of the provisioned services are foundational and permanent within the architecture. Other components' lifecycles are tied to a deployment. Although the managed virtual network is foundational, it's automatically provisioned when you create a compute instance, so you should consideration the following components.
 
 ###### Foundational components
 
-Some components in this architecture exist with a lifecycle that extends beyond any individual prompt flow or any model deployment. These resources are typically deployed once as part of the foundational deployment by the workload team, and maintained apart from new, removed, or updates to the prompt flows or model deployments.
+Some components in this architecture exist with a lifecycle that extends beyond any individual prompt flow or model deployment. These resources are typically deployed once as part of the foundational deployment by the workload team. The workload team then maintains these resources separately from creating, removing, or updating the prompt flows or model deployments. These components include:
 
-- Machine Learning workspace
-- Storage account for the Machine Learning workspace
-- Container Registry
-- AI Search
-- Azure OpenAI
-- Application Insights
-- Azure Bastion
-- Azure Virtual Machine for the jump box
+- The Machine Learning workspace.
+- The Storage account for the Machine Learning workspace.
+- Container Registry.
+- AI Search.
+- Azure OpenAI.
+- Application Insights.
+- Azure Bastion.
+- The Azure VM for the jump box.
 
-###### Ephemeral components
+###### Temporary components
 
-Some Azure resources are more tightly coupled to the design of specific prompt flows. This approach allows these resources to be bound to the lifecycle of the component and become ephemeral in this architecture. Azure resources are affected when the workload evolves, such as when flows are added or removed or when new models are introduced. These resources get re-created and prior instances removed. Some of these resources are direct Azure resources and some are data plane manifestations within their containing service.
+Some Azure resources are more tightly coupled to the design of specific prompt flows. This approach allows these resources to be bound to the lifecycle of the component and become temporary in this architecture. Azure resources are affected when the workload evolves, such as when flows are added or removed or when new models are introduced. These resources get re-created and prior instances removed. Some of these resources are direct Azure resources and some are data plane manifestations within their containing service.
 
 - The model in the Machine Learning model registry should be updated, if changed, as part of the CD pipeline.
 
@@ -562,7 +564,7 @@ If you deploy to Machine Learning online endpoints:
 
 - Follow the guidance about how to [autoscale an online endpoint](/azure/machine-learning/how-to-autoscale-endpoints). Do this to remain closely aligned with demand without excessive overprovisioning, especially in low-usage periods.
 
-- Choose the appropriate virtual machine SKU for the online endpoint to meet your performance targets. Test the performance of both lower instance count and bigger SKUs versus larger instance count and smaller SKUs to find an optimal configuration.
+- Choose the appropriate VM SKU for the online endpoint to meet your performance targets. Test the performance of both lower instance count and bigger SKUs versus larger instance count and smaller SKUs to find an optimal configuration.
 
 ## Deploy this scenario
 
