@@ -1,9 +1,9 @@
 ---
 title: Azure Application Architecture Fundamentals
-description: A structured approach for designing applications on Azure that are scalable, resilient, and highly available
+description: Learn about a structured approach to designing scalable, resilient, and highly available applications on Azure.
 author: RobBagby
 ms.author: pnp
-ms.date: 01/03/2025
+ms.date: 02/25/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -17,60 +17,63 @@ categories:
 
 # Azure application architecture fundamentals
 
-An application designed for cloud-hosted workloads addresses the solution's business requirements and incorporates cloud native components and functionality. A well designed cloud application addresses reliability, security, cost, operations, and performance considerations. Those considerations are aligned to business requirements and to specific characteristics and provided functionality of the cloud hosting platform.
+An application that's designed for cloud-hosted workloads addresses the solution's business requirements and incorporates cloud native components and functionality. A well designed cloud application addresses reliability, security, cost, operations, and performance considerations. These considerations align with the business requirements, the specific characteristics of the cloud hosting platform, and the functionality that the platform provides.
 
-Designing applications for cloud workloads doesn't require any specific application style, such as microservices. However, cloud hosting makes many application design patterns more approachable than hosting solutions that don't natively offer a diverse selection of application & data platform options, scaling capabilities, security controls, and messaging options. To that end, cloud workloads benefit from applications that are decomposed into smaller, decentralized services by design. These services communicate through APIs or by using asynchronous messaging or eventing. Applications scale horizontally, adding new instances as demand requires.
+Application design for cloud workloads doesn't require any specific application style, such as microservices. However, cloud hosting makes many application design patterns more approachable than hosting solutions that don't natively offer a diverse selection of application and data platform options, scaling capabilities, security controls, and messaging options. To that end, cloud workloads benefit from applications that are decomposed into smaller, decentralized services by design. These services communicate through APIs or by using asynchronous messaging or eventing. Applications scale horizontally by adding new instances when demand increases.
 
-Applications that take advantage of the cloud's application hosting platforms, messaging capabilities, and decomposed services are subject to concerns common to distributed system. Application state is distributed. Operations are performed in parallel and asynchronously. Applications must be resilient when failures occur. Malicious actors continuously target applications. Deployments must be automated and predictable. Monitoring and telemetry are critical for gaining insight into the system.
+Applications that use the cloud's application hosting platforms, messaging capabilities, and decomposed services are subject to common concerns for distributed systems. In these systems, the application state is distributed, and operations are performed in parallel and asynchronously. Applications must be resilient when failures occur. Malicious actors continuously target applications. Deployments must be automated and predictable. Monitoring and telemetry are critical for gaining insight into the system.
+
+The following columns list some common characteristics of on-premises design and cloud design.
 
 :::row:::
     :::column:::
         **Typical on-premises design**
-
+        <br>
         - Monolithic and colocated functionality and data
-        - Designed for predictable scale or overprovisioned
+        - Designed for predictable scale or is overprovisioned
         - Relational database
         - Synchronized processing
-        - Design to avoid failures (MTBF)
-        - Resources provisioned through IT functions
+        - Designed to avoid failures and measures the mean time between failures (MTBF)
+        - Resources are provisioned through IT functions
         - Snowflake and pet servers
     :::column-end:::
     :::column:::
         **Typical cloud design**
-
+        <br>
         - Decomposed and distributed functionality and data
         - Designed for elastic scale
-        - Polyglot persistence (mix of storage technologies)
+        - Polyglot persistence by using a mix of storage technologies
         - Asynchronous processing
-        - Design to withstand malfunctions (MTBF) and design for failure (MTTR)
-        - Resources provisioned through infrastructure as code as needed
+        - Designed to withstand malfunctions and measures MTBF
+        - Prepared for failure and measures the mean time to repair.
+        - Resources are provisioned as needed through infrastructure as code
         - Immutable and replaceable infrastructure
     :::column-end:::
 :::row-end:::
 
-## Designing applications for Azure
+## Design applications for Azure
 
-Applications must be designed by cloud architects to specifically take advantage of cloud hosting and to make strategic tradeoff decisions. Azure offers resources specifically to help architects achieve good design and guide development teams in their implementation. To achieve workload and application design, architects need to:
+Cloud architects must design applications because they have expertise in cloud hosting and can make strategic tradeoff decisions. Azure provides resources to help architects achieve good design and guide development teams in their implementation. To achieve workload and application design, architects need to:
 
-- [Align to organizational cloud adoption standards](#align-to-organizational-cloud-adoption-standards)
-- [Design following the Azure Well-Architected Framework](#design-following-the-azure-well-architected-framework)
-- Understand typical [architecture styles](#understand-typical-architecture-styles), [workloads](#workloads-in-the-azure-well-architected-framework), and [best practices](#best-practices)
-- [Use design patterns to solve common problems and introduce strategic tradeoffs](#use-design-patterns-to-solve-common-problems-and-introduce-strategic-tradeoffs)
-- [Make well-informed technology choices](#make-well-informed-technology-choices)
-- [Evaluate reference architectures](#evaluate-reference-architectures)
-- [Review service-specific guides](#review-service-specific-guides)
+- [Align to organizational cloud adoption standards](#align-to-organizational-cloud-adoption-standards).
+- [Ensure that the design follows the Azure Well-Architected Framework](#follow-the-well-architected-framework).
+- Understand typical [architecture styles](#understand-typical-architecture-styles), [workloads](#workloads-in-the-azure-well-architected-framework), and [best practices](#best-practices).
+- [Use design patterns to solve common problems and introduce strategic tradeoffs](#use-design-patterns-to-solve-common-problems-and-introduce-strategic-tradeoffs).
+- [Make informed technology choices](#make-informed-technology-choices).
+- [Evaluate reference architectures](#evaluate-reference-architectures).
+- [Review service-specific guides](#review-service-specific-guides).
 
-Azure can be used to host and rehost applications that weren't specifically designed for the cloud. While workload applications may be adjusted to leverage cloud functionality, rehosting an application designed for fixed resources and scale is not considered cloud-native deployment.
+You can use Azure to host and rehost applications that weren't specifically designed for the cloud. You can adjust workload applications to use cloud functionality, but rehosting an application that is designed for fixed resources and scale isn't considered a cloud-native deployment.
 
 ## Align to organizational cloud adoption standards
 
-Your application is part of a workload which is likely subject to organizational standards and governance. Organizations of any size and cloud maturity can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to formalize their Azure-wide adoption strategy, readiness, innovation, management & governance, and security. Part of that approach is standardizing on a consistent approach across workloads, such as using [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/). Azure landing zones offer a blend of organizational wide governance while allowing workload teams and architects democratized access to resources to fulfill localized business objectives. As an architect designing applications, it's vital you understand the macro environment and expectations the workload will operate under, such as application landing zones.
+Your application is part of a workload that likely needs to meet organizational standards and governance. Organizations of any size and cloud maturity can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to formalize their Azure-wide adoption strategy, readiness, innovation, management and governance, and security. Part of that approach is to standardize a consistent approach across workloads, such as using [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/). Azure landing zones provide a blend of organizational-wide governance while giving workload teams and architects democratized access to resources to fulfill localized business objectives. As an architect who designs applications, it's crucial that you understand the macro environment and expectations for workload operations, such as application landing zones.
 
-Your organization's adoption strategy of Azure shouldn't impact your architectural style choice, but it might put constraints on technology choices or security boundaries.
+Your organization's Azure adoption strategy shouldn't affect your architectural style choice, but it might put constraints on technology choices or security boundaries.
 
-## Design following the Azure Well-Architected Framework
+## Follow the Well-Architected Framework
 
-All workloads can be evaluated in their design and implementation through various lenses. Azure provides the Azure Well-Architected Framework to help a workload architect evaluate and align their decisions to design principles across five key architectural pillars.
+You can evaluate any workload's design and implementation through various lenses. Use the Well-Architected Framework to evaluate and align your decisions with design principles across these five key architectural pillars:
 
 - [Reliability](/azure/well-architected/reliability/principles)
 - [Security](/azure/well-architected/security/principles)
@@ -78,9 +81,9 @@ All workloads can be evaluated in their design and implementation through variou
 - [Operational Excellence](/azure/well-architected/operational-excellence/principles)
 - [Performance Efficiency](/azure/well-architected/performance-efficiency/principles)
 
-Generally speaking, following these principles and evaluating tradeoffs between these architectural pillars produces a design that meets business requirements and is sufficiently durable, maintainable, secure, cost optimized for running in Azure. These decisions should impact your architectural style choice and put constraints on technology choices or security boundaries as it relates to your specific workload's needs.
+By following these principles and evaluating the tradeoffs between these architectural pillars, you can produce a design that meets business requirements and is sufficiently durable, maintainable, secure, and cost optimized to run in Azure. These decisions should inform your architectural style choice and help narrow your technology choices or security boundaries as they relate to your specific workload's needs.
 
-Your team or organization might have other design principles as well that your workload can be evaluated from, such as [sustainability](/azure/well-architected/sustainability/sustainability-get-started) and ethics.
+Your team or organization might have other design principles, such as [sustainability](/azure/well-architected/sustainability/sustainability-get-started) and ethics, that you can use to evaluate your workload.
 
 ## Understand typical architecture styles
 
