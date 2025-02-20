@@ -230,6 +230,18 @@ Here are common scenarios where this design can be used:
 > [!WARNING]
 > If you're not careful in how you design and implement a complex multi-ingress solution, you can actually make your availability worse. Increasing the number of components in your architecture increases the number of failure points. It also means you have a higher level of operational complexity. When you add extra components, every change that you make needs to be carefully reviewed to understand how it affects your overall solution.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Dave Burkhardt](https://linkedin.com/in/dave-burkhardt-13b79b3/) | Principal Program Manager, Azure Front Door
+- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer
+- [Priyanka Wilkins](https://linkedin.com/in/priyanka-w/) | Principal Content Developer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Review the [global HTTP ingress](./mission-critical-global-http-ingress.md) and [global content delivery](./mission-critical-content-delivery.md) scenarios to understand whether they apply to your solution.
