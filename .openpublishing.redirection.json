@@ -7018,6 +7018,11 @@
       "source_path": "docs/web-apps/guides/networking/automation-application-gateway.yml",
       "redirect_url": "/azure/container-instances/container-instances-application-gateway",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/wordpress-iaas.yml",
+      "redirect_url": "/azure/architecture/example-scenario/infrastructure/wordpress-app-service",
+      "redirect_document_id": false
     }
   ]
 }
