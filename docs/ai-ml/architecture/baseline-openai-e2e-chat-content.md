@@ -5,7 +5,7 @@ Enterprise chat applications can empower employees through conversational intera
 - Language models that reason over the domain-specific data to produce a relevant response.
 - An orchestrator that oversees the interactions between components.
 
-This article provides a baseline architecture to help you build and deploy enterprise chat applications that use [Azure OpenAI Service language models](/azure/ai-services/openai/concepts/models). The architecture uses prompt flow to create executable flows. These executable flows orchestrate the workflow from incoming prompts out to data stores to fetch grounding data for the language models and other required Python logic. The executable flow is deployed to a managed online endpoint that has managed compute.
+This article provides a baseline architecture to help you build and deploy enterprise chat applications that use [Azure OpenAI Service language models](/azure/ai-services/openai/concepts/models). The architecture uses prompt flow to create executable flows. These executable flows orchestrate the workflow from incoming prompts out to data stores to fetch grounding data for the language models and other required Python logic. The executable flow is deployed to a managed online endpoint that uses managed compute.
 
 The hosting of the custom chat UI follows the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) guidance for deploying a secure, zone-redundant, and highly available web application on Azure App Service. In that architecture, App Service communicates to the Azure platform as a service (PaaS) solution through virtual network integration over private endpoints. In the chat UI architecture, App Service communicates with the managed online endpoint for the flow over a private endpoint. Public access to Azure AI Foundry portal is disabled.
 
@@ -17,7 +17,7 @@ The Azure AI Foundry hub is configured with [managed virtual network isolation](
 A hub is the top-level Azure AI Foundry resource that provides a central way to govern security, connectivity, and other concerns across multiple projects. This architecture requires only one project for its workload. If you have more experiences that require different prompt flows that use different logic and potentially different back-end resources such as data stores, you might consider implementing those experiences in a different project.
 
 > [!TIP]
-> ![GitHub logo.](../../_images/github.svg) This article is backed by a [reference implementation](https://github.com/Azure-Samples/openai-end-to-end-baseline) that showcases a baseline end-to-end chat implementation on Azure. You can use this implementation as a basis for custom solution development in your first step toward production.
+> ![GitHub logo.](../../_images/github.svg) A [reference implementation](https://github.com/Azure-Samples/openai-end-to-end-baseline) that showcases a baseline end-to-end chat implementation on Azure supports this article. You can use this implementation as a basis for custom solution development in your first step toward production.
 
 ## Architecture
 
@@ -29,11 +29,11 @@ A hub is the top-level Azure AI Foundry resource that provides a central way to 
 
 ### Components
 
-Many of the components of this architecture are the same as the resources in the [basic Azure OpenAI end-to-end chat architecture](./basic-openai-e2e-chat.yml#components). The following list highlights the differnces between the basic architecture and the baseline architecture.
+Many of the components of this architecture are the same as the resources in the [basic Azure OpenAI end-to-end chat architecture](./basic-openai-e2e-chat.yml#components). The following list highlights the differences between the basic architecture and the baseline architecture.
 
 - [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is used in both architectures. Azure OpenAI is a fully managed service that provides REST API access to Azure OpenAI language models, including the GPT-4, GPT-3.5-Turbo, and embeddings set of models. The baseline architecture uses enterprise features like [virtual networks and private links](/azure/ai-services/cognitive-services-virtual-networks) that the basic architecture doesn't implement.
 
-- [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) is a platform that you can use to build, test, and deploy AI solutions. This architecutre uses Azure AI Foundry portal to build, test, and deploy the prompt flow orchestration logic for the chat application. In this architecture, Azure AI Foundry provides the [managed virtual network](/azure/ai-studio/how-to/configure-managed-network) for network security. For more information, see the [networking](#networking) section in this article.
+- [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) is a platform that you can use to build, test, and deploy AI solutions. This architecture uses Azure AI Foundry portal to build, test, and deploy the prompt flow orchestration logic for the chat application. In this architecture, Azure AI Foundry provides the [managed virtual network](/azure/ai-studio/how-to/configure-managed-network) for network security. For more information, see the [networking](#networking) section in this article.
 
 - [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer 7 (HTTP/S) load balancer and web traffic router. It uses URL path-based routing to distribute incoming traffic across availability zones and offloads encryption to improve application performance.
 
@@ -109,7 +109,7 @@ The following dataflow corresponds to the previous diagram:
 
 Azure OpenAI doesn't currently support availability zones. To mitigate the potential effects of a datacenter-level catastrophe on model deployments in Azure OpenAI, you must deploy Azure OpenAI to various regions and deploy a load balancer to distribute calls among the regions. You can use health checks to help ensure that calls are only routed to clusters that are functioning properly.
 
-To support multiple instances effectively, we recommend that you externalize fine-tuning files, such as to a geographically-redundant Storage account. This approach minimizes the state that's stored in Azure OpenAI for each region. You must still fine-tune files for each instance to host the model deployment.
+To support multiple instances effectively, we recommend that you externalize fine-tuning files, such as to a geographically redundant Storage account. This approach minimizes the state that's stored in Azure OpenAI for each region. You must still fine-tune files for each instance to host the model deployment.
 
 It's important to monitor the required throughput in terms of tokens per minute (TPM) and requests per minute (RPM). Ensure that you assign sufficient TPM from your quota to meet the demand for your deployments and prevent calls to your deployed models from being throttled. You can deploy a gateway like Azure API Management in front of your Azure OpenAI service or services and configure it for retry if transient errors and throttling occur. You can also use API Management as a [circuit breaker](/azure/api-management/backends?tabs=bicep#circuit-breaker-preview) to prevent the service from getting overwhelmed with call and exceeding its quota. For more information, see [Use a gateway in front of multiple Azure OpenAI deployments or instances](../guide/azure-openai-gateway-multi-backend.yml).
 
@@ -192,7 +192,7 @@ When you onboard users to Azure AI Foundry projects to perform functions like au
 
 Like in the basic architecture, the system automatically creates role assignments for the system-assigned managed identities. Because the system doesn't know which features of the hub and projects you might use, it creates role assignments that support all of the potential features. The automatically created role assignments might overprovision privileges based on your use case. One example is when the system assigns the Contributor role to the hub for the container registry, but the hub likely only requires Reader access to the control plane. If you need to limit permissions for least-privilege goals, you must use user-assigned identities. You create and maintain these role assignments yourself.
 
-Because of the maintenance burden of managing all the required assignments, this architecture favors operational excellence over absolute least privilege role assignments. Note that you have to make all the assignments listed in the table.
+Because of the maintenance burden of managing all the required assignments, this architecture favors operational excellence over absolute least privilege role assignments. You have to make all the assignments listed in the table.
 
 | Managed identity | Scope | Role assignments |
 | --- | --- | --- |
@@ -343,7 +343,7 @@ To help ensure alignment with security, consider using Azure Policy and network 
 
 #### Azure AI Foundry role assignments for Key Vault
 
-The Azure AI Foundry managed identity requires both control plane (`Contributor`) and data plane (`Key Vault Administrator`) role assignments. These assignment give this identity read and write access to all secrets, keys, and certificates stored in the Azure key vault. If your workload has services other than Azure AI Foundry that require access to secrets, keys, or certificates in Key Vault, your workload or security team might prefer that the Azure AI Foundry hub managed identity doesn't have access to those artifacts. In this scenario, consider deploying a Key Vault instance specifically for the Azure AI Foundry hub and other Key Vault instances as appropriate for other parts of your workload.
+The Azure AI Foundry managed identity requires both control plane (`Contributor`) and data plane (`Key Vault Administrator`) role assignments. These assignments give this identity read and write access to all secrets, keys, and certificates stored in the Azure key vault. If your workload uses services other than Azure AI Foundry that require access to secrets, keys, or certificates in Key Vault, your workload or security team might prefer that the Azure AI Foundry hub managed identity doesn't have access to those artifacts. In this scenario, consider deploying a Key Vault instance specifically for the Azure AI Foundry hub and other Key Vault instances as appropriate for other parts of your workload.
 
 ### Cost Optimization
 
@@ -395,7 +395,7 @@ Like in the basic architecture, this architecture uses automatic runtime to mini
 
 #### Monitoring
 
-Like in the basic architecture, diagnostics are configured for all services. All services except App Service are configured to capture all logs. App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs, and AppServicePlatformLogs. In production, all logs are likely excessive. Tune log streams to your operational needs. For this architecture, the Machine Learning logs used by the Azure AI Foundry project that are important include AmlComputeClusterEvent, AmlDataSetEvent, AmlEnvironmentEvent, and AmlModelsEvent.
+Like in the basic architecture, diagnostics are configured for all services. All services except App Service are configured to capture all logs. App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs, and AppServicePlatformLogs. In production, all logs are likely excessive. Tune log streams to your operational needs. For this architecture, the Azure AI Foundry project  uses the AmlComputeClusterEvent, AmlDataSetEvent, AmlEnvironmentEvent, and AmlModelsEvent Machine Learning logs.
 
 Evaluate building custom alerts, such as those found in the Azure Monitor baseline alerts, for the resources in this architecture. For example:
 
@@ -505,7 +505,7 @@ You can use Machine Learning endpoints to deploy models in a way that enables fl
 
 ##### Infrastructure
 
-When you deploy the baseline Azure OpenAI end-to-end chat components, some of the provisioned services are foundational and permanent within the architecture. Other components' lifecycles are tied to a deployment. Although the managed virtual network is foundational, it's automatically provisioned when you create a compute instance, so you should consideration the following components.
+When you deploy the baseline Azure OpenAI end-to-end chat components, some of the provisioned services are foundational and permanent within the architecture. Other components' lifecycles are tied to a deployment. Although the managed virtual network is foundational, it's automatically provisioned when you create a compute instance, so you need to consider the following components.
 
 ###### Foundational components
 
@@ -554,7 +554,7 @@ Follow the guidance to [analyze performance in AI Search](/azure/search/search-p
 
 #### Performance Efficiency in Azure OpenAI
 
-- Determine whether your application requires [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) or the shared hosting, or consumption, model. Provisioned throughput ensures reserved processing capacity for your OpenAI model deployments. Reserved capacity provides predictable performance and throughput for your models. This billing model is unlike the shared hosting, or consumption, model. The consumption model is best-effort and might be subject to noisy neighbor or other stressors on the platform.
+- Determine whether your application requires [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) or the shared hosting, or consumption, model. Provisioned throughput ensures reserved processing capacity for your OpenAI model deployments. Reserved capacity provides predictable performance and throughput for your models. This billing model is unlike the shared hosting, or consumption, model. The consumption model is best-effort and might be subject to noisy neighbor or other problems on the platform.
 
 - Monitor [provision-managed utilization](/azure/ai-services/openai/how-to/monitoring) for provisioned throughput.
 
