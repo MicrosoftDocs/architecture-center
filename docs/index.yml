@@ -116,7 +116,7 @@ conceptualContent:
         url: ./guide/technology-choices/compute-decision-tree.yml
         itemType: reference
       - text: CQRS design pattern
-        url: ./patterns/cqrs.yml
+        url: ./patterns/cqrs.md
         itemType: concept
 
     - title: AI & Machine Learning
@@ -151,7 +151,7 @@ conceptualContent:
         - text: Analytics end-to-end with Azure Synapse 
           itemType: architecture
           url: ./example-scenario/dataplate2e/data-platform-end-to-end.yml
-        - text: Enterprise business intelligence
+        - text: Enterprise BI with Azure Synapse Analytics
           itemType: architecture
           url: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
         - text: Near real-time lakehouse data processing

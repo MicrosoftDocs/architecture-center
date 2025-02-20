@@ -187,7 +187,6 @@ Related architectures:
 - [Baseline architecture for AKS on Azure Local](../example-scenario/hybrid/aks-baseline.yml)
 - [Network architecture for AKS on Azure Local](../example-scenario/hybrid/aks-network.yml)
 - [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](../hybrid/azure-arc-sql-server.yml)
-- [Enterprise monitoring with Azure Monitor](../example-scenario/monitoring/enterprise-monitoring.yml)
 
 [Architecture visio]: https://arch-center.azureedge.net/arc-hybrid-kubernetes.vsdx
 [Azure Arc]: /azure/azure-arc

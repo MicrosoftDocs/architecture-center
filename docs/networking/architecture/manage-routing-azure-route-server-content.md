@@ -87,7 +87,7 @@ Consider these points when implementing this solution:
 
 - Route Server establishes connections and exchanges routes. It doesn't transfer data packets. As a result, the VMs that Route Server runs in its back end don't require significant CPU power or computational power.
 
-- When you deploy Route Server, create a subnet called `RouteServerSubnet` that uses an IPv4 subnet mask of `/27`. Place Route Server in that subnet.
+- When you deploy Route Server, create a subnet called `RouteServerSubnet` that uses an IPv4 subnet mask of `/26`. Place Route Server in that subnet.
 
 - In Azure gateways, the Basic pricing tier doesn't support coexisting ExpressRoute and VPN Gateway connections. For other limitations with coexisting configurations, see [Limits and limitations][Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell - Limits and limitations].
 
@@ -101,10 +101,9 @@ Route Server is a fully managed service that offers high availability. For this 
 
 ### Scalability
 
-Most components in this solution are managed services that automatically scale. But there are a few exceptions:
+Most components in this solution are managed services that automatically scale. But there are some exceptions:
 
-- Route Server can advertise at most 200 routes to ExpressRoute or a VPN gateway.
-- Route Server can support at most 2,000 VMs per virtual network, including peered virtual networks.
+- Route Server can support at most 4,000 VMs per virtual network, including peered virtual networks.
 
 ### Security
 

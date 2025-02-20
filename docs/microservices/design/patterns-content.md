@@ -20,7 +20,7 @@ The goal of microservices is to increase the velocity of application releases, b
 
 [**Sidecar**](../../patterns/sidecar.yml) deploys helper components of an application as a separate container or process to provide isolation and encapsulation.
 
-[**Strangler Fig**](../../patterns/strangler-fig.yml) supports incremental refactoring of an application, by gradually replacing specific pieces of functionality with new services.
+[**Strangler Fig**](../../patterns/strangler-fig.md) supports incremental refactoring of an application, by gradually replacing specific pieces of functionality with new services.
 
 For the complete catalog of cloud design patterns on the Azure Architecture Center, see [Cloud Design Patterns](../../patterns/index.md).
 

@@ -22,7 +22,7 @@ Azure provides these virtual desktop solutions:
 
 - [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) is a desktop and application virtualization service.
 - [Omnissa Horizon Cloud on Microsoft Azure](https://www.omnissa.com/products/horizon-cloud/) is an Omnissa service that simplifies the delivery of virtual desktops and applications on Azure by extending Azure Virtual Desktop.
-- [Citrix Virtual Apps and Desktops for Azure](https://docs.citrix.com/citrix-virtual-apps-desktops.html) is a desktop and app virtualization service that you can use to provision Windows desktops and apps on Azure with Citrix and Azure Virtual Desktop.
+- [Citrix Virtual Apps and Desktops for Azure](https://docs.citrix.com/en-us/citrix-virtual-apps-desktops.html) is a desktop and app virtualization service that you can use to provision Windows desktops and apps on Azure with Citrix and Azure Virtual Desktop.
 - [Microsoft Dev Box](https://azure.microsoft.com/services/dev-box) is a service that gives developers access to ready-to-code, project-specific workstations that are preconfigured and centrally managed in the cloud.
 
 ## Introduction to virtual desktop architecture on Azure
@@ -59,7 +59,6 @@ The following sections, organized by category, provide links to example scenario
 - [Authentication in Azure Virtual Desktop](/azure/virtual-desktop/authentication?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Deploy Microsoft Entra joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/azure-ad-joined-session-hosts?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Multiple forests with AD DS and Microsoft Entra ID](../../example-scenario/azure-virtual-desktop/multi-forest.yml)
-- [Multiple forests with AD DS, Microsoft Entra ID, and Microsoft Entra Domain Services](../../example-scenario/azure-virtual-desktop/multi-forest-azure-managed.yml)
 
 ### Azure Virtual Desktop for the enterprise
 
