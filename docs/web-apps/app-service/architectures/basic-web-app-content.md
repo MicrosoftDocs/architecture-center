@@ -171,8 +171,6 @@ The guidance is backed by an [example implementation](https://github.com/Azure-S
 ## Related resources
 
 - [Baseline zone-redundant web application](./baseline-zone-redundant.yml)
-- [Highly available multi-region web application](./multi-region.yml)
-- [Multi-region App Service app approaches for disaster recovery](../../guides/multi-region-app-service/multi-region-app-service.yml)
 
 Product documentation:
 
