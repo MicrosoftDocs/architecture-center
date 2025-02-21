@@ -20,7 +20,7 @@ ms.custom:
 
 # Mission-critical global content delivery
 
-In addition to the global layer 7 load balancing CDNs offer to optimize performance for users, Caching is another common way to reduce load on the backend services and provider further resilancy. Content delivery networks (CDNs), including Azure Front Door, provide caching at the network edge.
+Content delivery networks (CDNs) offer a range of capabilities to optimize performance for users, including global layer 7 load balancing and optimized network routing. Caching is also a common way to reduce load on the backend services and provider further resiliency to a range of issues. CDNs, including Azure Front Door, provide caching at the network edge.
 
 CDNs are an essential component in some solution architectures, so it’s an industry best practice for mission-critical workloads to use multiple CDNs to achieve a higher level of uptime. If one CDN experiences outage or degraded performance, your traffic is automatically diverted to another CDN.
 
@@ -30,7 +30,7 @@ If you implement multiple CDNs, consider the implications of this approach. Each
 
 This article describes an approach for using Azure Front Door with another CDN. This approach is suitable for solutions that rely heavily on caching for delivering static content delivery, media, and high-scale eCommerce applications.
 
-Please also note that Microsoft offer a service to route your origin traffic to another CDN with zero data transfer (aka, "0-DTO") fees to another CDN - this service is called [Routing Preferences (aka, CDN Interconnect)](/azure/virtual-network/ip-services/routing-preference-unmetered).
+Microsoft offers a CDN interconnect service to route your origin traffic to another CDN with zero data transfer fees. For more details, see [Routing preferences](/azure/virtual-network/ip-services/routing-preference-unmetered).
 
 > [!NOTE]
 >
