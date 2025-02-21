@@ -1094,8 +1094,6 @@ items:
             href: reference-architectures/containers/aks-gpu/gpu-aks.yml
       - name: Solution ideas
         items:
-        - name: Build CNCF projects by using AKS
-          href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml
         - name: Data streaming with AKS
           href: solution-ideas/articles/data-streaming-scenario.yml
     - name: PaaS container hosting

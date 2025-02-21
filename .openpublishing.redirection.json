@@ -7028,6 +7028,11 @@
       "source_path": "docs/guide/aks/aks-dual-stack.yml",
       "redirect_url": "/azure/aks/configure-kubenet-dual-stack",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks/baseline-aks",
+      "redirect_document_id": false
     }
   ]
 }
