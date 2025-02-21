@@ -17,7 +17,6 @@ products:
   - azure-functions
   - azure-app-service
   - azure-openai
-  - azure-ai-foundry
   - ai-services
   - azure-cognitive-search
   - document-intelligence
