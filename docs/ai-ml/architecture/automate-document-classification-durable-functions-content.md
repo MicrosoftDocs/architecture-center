@@ -63,7 +63,10 @@ You can use this solution to:
 - **Report titles.** Many government agencies and municipalities manage paper records that don't have a digital form. An effective automated solution can generate a file that contains all the documents that you need to satisfy a document request.
 
 - **Manage maintenance records.** You might need to scan and send paper records, such as aircraft, locomotive, and machinery maintenance records, to outside organizations.
+
 - **Process permits.** City and county permitting departments maintain paper documents that they generate for permit inspection reporting. You can take a picture of several inspection documents and automatically identify, classify, and search across these records.
+
+- **Planogram Analysis.** Retail and consumer goods companies manage inventory and compliance through store shelf planogram analysis. You can take a picture of a store shelf and extract label information from varying products and automatically identify, classify, and quantify the product information.
 
 ## Considerations
 
