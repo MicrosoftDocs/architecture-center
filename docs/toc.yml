@@ -1203,17 +1203,17 @@ items:
         - name: Use file shares in a hybrid environment
           href: hybrid/azure-file-share.yml
     - name: Solution ideas
-    items:
-    - name: Azure Automation State Configuration
-      href: example-scenario/state-configuration/state-configuration.yml
-    - name: 'Enhanced-security hybrid: client access'
-      href: example-scenario/hybrid/secure-hybrid-messaging-client.yml
-    - name: 'Enhanced-security hybrid: mobile access'
-      href: example-scenario/hybrid/secure-hybrid-messaging-mobile.yml
-    - name: 'Enhanced-security hybrid: web access'
-      href: example-scenario/hybrid/secure-hybrid-messaging-web.yml
-    - name: Hybrid availability and monitoring
-      href: hybrid/hybrid-perf-monitoring.yml
+      items:
+      - name: Azure Automation State Configuration
+        href: example-scenario/state-configuration/state-configuration.yml
+      - name: 'Enhanced-security hybrid: client access'
+        href: example-scenario/hybrid/secure-hybrid-messaging-client.yml
+      - name: 'Enhanced-security hybrid: mobile access'
+        href: example-scenario/hybrid/secure-hybrid-messaging-mobile.yml
+      - name: 'Enhanced-security hybrid: web access'
+        href: example-scenario/hybrid/secure-hybrid-messaging-web.yml
+      - name: Hybrid availability and monitoring
+        href: hybrid/hybrid-perf-monitoring.yml
   - name: Identity
     items:
     - name: Get started
