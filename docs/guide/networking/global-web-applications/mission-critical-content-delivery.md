@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn how to develop highly resilient global HTTP applications when your focus is on content delivery and caching.
 author: johndowns
 ms.author: jodowns
-ms.date: 02/19/2025
+ms.date: 02/21/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -30,17 +30,17 @@ If you implement multiple CDNs, consider the implications of this approach. Each
 
 This article describes an approach for using Azure Front Door with another CDN. This approach is suitable for solutions that rely heavily on caching for delivering static content delivery, media, and high-scale eCommerce applications.
 
-Microsoft offers a CDN interconnect service to route your origin traffic to another CDN with zero data transfer fees. For more details, see [Routing preferences](/azure/virtual-network/ip-services/routing-preference-unmetered).
-
 > [!NOTE]
->
 > This use case is part of an overall design strategy that covers an alternate approach when Azure Front Door is unavailable. For information about the context and considerations, see [Mission-critical global web applications](./overview.md).
 
 ## Approach
 
-A third-party CDN can be integrated into your Azure solution to provide isolation from Microsoft's infrastructure.
+A third-party CDN can be integrated into your Azure solution to provide isolation from Microsoft's infrastructure. This isolation provides a high degree of resiliency from disaster scenarios. If an outage or disaster occurs, traffic is automatically shifted between Azure Front Door and the alternative CDN. You can use Azure Traffic Manager to detect an outage and redirect traffic to the alternative CDN.
 
-This isolation provides a high degree of resiliency from disaster scenarios. If an outage or disaster occurs, traffic is automatically shifted between Azure Front Door and the alternative CDN. You can use Azure Traffic Manager to detect an outage and redirect traffic to the alternative CDN.
+> [!NOTE]
+> Microsoft offers a CDN interconnect service to route your origin traffic to another CDN with zero data transfer fees. For more details, see [Routing preferences](/azure/virtual-network/ip-services/routing-preference-unmetered).
+
+The following diagram shows how traffic flows between the CDNs:
 
 :::image type="content" source="./media/mission-critical-content-delivery/front-door-alternative-cdn.png" alt-text="Diagram of Traffic Manager routing between Azure Front Door and another CDN." border="false":::
 
