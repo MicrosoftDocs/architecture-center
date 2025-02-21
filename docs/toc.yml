@@ -1090,8 +1090,6 @@ items:
             href: example-scenario/aks-front-door/aks-front-door.yml
           - name: Multitenancy with AKS and AGIC
             href: example-scenario/aks-agic/aks-agic.yml
-          - name: AKS dual-stack network traffic
-            href: guide/aks/aks-dual-stack.yml
           - name: Use Azure Kubernetes Service to host GPU-based workloads
             href: reference-architectures/containers/aks-gpu/gpu-aks.yml
       - name: Solution ideas

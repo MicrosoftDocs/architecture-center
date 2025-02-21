@@ -7023,6 +7023,11 @@
       "source_path": "docs/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml",
       "redirect_url": "/azure/architecture/operator-guides/aks/aks-backup-and-recovery",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/aks/aks-dual-stack.yml",
+      "redirect_url": "/azure/aks/configure-kubenet-dual-stack",
+      "redirect_document_id": false
     }
   ]
 }
