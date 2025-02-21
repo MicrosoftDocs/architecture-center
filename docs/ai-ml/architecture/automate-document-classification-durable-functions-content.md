@@ -127,6 +127,7 @@ Other contributors:
 Introductory articles:
 
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
+- [What is Azure Service Bus?](/azure/service-bus-messaging/service-bus-messaging-overview)
 - [What are durable functions?](/azure/azure-functions/durable/durable-functions-overview)
 - [What is Azure AI Foundry?](/azure/ai-studio/what-is-ai-studio)
 - [What is Azure OpenAI Service?](/azure/ai-services/openai/overview)
@@ -148,6 +149,7 @@ Product documentation:
 - [Azure OpenAI Service documentation](/azure/ai-services/openai)
 - [Semantic Kernel documentation](/semantic-kernel/overview)
 - [Azure API Management documentation](/azure/api-management)
+- [Azure Service Bus documentation](/azure/service-bus-messaging)
 
 ## Related resources
 
