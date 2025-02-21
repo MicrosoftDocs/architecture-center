@@ -126,30 +126,29 @@ Other contributors:
 
 Introductory articles:
 
-- [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
+- [What is Azure Blob Storage?](/azure/storage/blobs/storage-blobs-overview)
 - [What is Azure Service Bus?](/azure/service-bus-messaging/service-bus-messaging-overview)
 - [What are durable functions?](/azure/azure-functions/durable/durable-functions-overview)
 - [What is Azure AI Foundry?](/azure/ai-studio/what-is-ai-studio)
 - [What is Azure OpenAI Service?](/azure/ai-services/openai/overview)
-- [What is Azure AI services?](/azure/ai-services/what-are-ai-services)
 - [What is Azure AI Document Intelligence?](/azure/ai-services/document-intelligence/overview)
 - [What is Azure AI Search?](/azure/search/search-what-is-azure-search)
 - [What is Azure AI Search Vector Storage?](/azure/search/vector-store)
-- [App Service overview](/azure/app-service/overview)
+- [Getting started with Azure App Service](/azure/app-service/getting-started)
 - [Introduction to Azure Cosmos DB](/azure/cosmos-db/introduction)
-- [What is Azure Service Bus?](/azure/service-bus-messaging/service-bus-messaging-overview)
 - [What is Azure API Management?](/azure/api-management/api-management-key-concepts)
 
 Product documentation:
 
 - [Azure documentation for all products](/azure?product=all)
 - [Durable functions documentation](/azure/azure-functions/durable)
-- [Azure AI services documentation](/azure/ai-services)
-- [AI Search documentation](/azure/search)
 - [Azure OpenAI Service documentation](/azure/ai-services/openai)
+- [Azure AI Document Intelligence documentation](/azure/ai-services/document-intelligence)
+- [Azure AI Search documentation](/azure/search)
+- [Azure AI Foundry documentation](/azure/ai-studio)
 - [Semantic Kernel documentation](/semantic-kernel/overview)
-- [Azure API Management documentation](/azure/api-management)
 - [Azure Service Bus documentation](/azure/service-bus-messaging)
+- [Azure API Management documentation](/azure/api-management)
 
 ## Related resources
 
