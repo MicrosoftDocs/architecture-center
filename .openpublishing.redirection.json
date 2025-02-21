@@ -6998,6 +6998,11 @@
       "source_path": "docs/guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml",
       "redirect_url": "/azure/azure-resource-manager/templates/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aro/ha-zr-aro.yml",
+      "redirect_url": "/azure/openshift/intro-openshift",
+      "redirect_document_id": false
     }
   ]
 }
