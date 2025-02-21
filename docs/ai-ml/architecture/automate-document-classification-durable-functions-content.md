@@ -9,33 +9,34 @@ This article describes an architecture that you can use to process various docum
 
 ### Workflow
 
-1. A user uploads a document file to a web app. The file contains multiple embedded documents of various types, such as PDF or multipage Tag Image File Format (TIFF) files. The document file is stored in Azure Blob Storage (**1a**). To initiate pipeline processing, the web app adds a command message to a storage queue (**1b**).
+1. A user uploads a document file to a web app. The file contains multiple embedded documents of various types, such as PDF or multipage Tag Image File Format (TIFF) files. The document file is stored in Azure Blob Storage (**1a**). To initiate pipeline processing, the web app adds a command message to a service bus queue (**1b**).
 
 1. The command message triggers the durable functions orchestration. The message contains metadata that identifies the Blob Storage location of the document file to be processed. Each durable functions instance processes only one document file.
 1. The *analyze* activity function calls the Document Intelligence Analyze Document API, which passes the storage location of the document file to be processed. The analyze function reads and identifies each document within the document file. This function returns the name, type, page ranges, and content of each embedded document to the orchestration.
 1. The *metadata store* activity function saves the document type, location, and page range information for each document in an Azure Cosmos DB store.
-1. The *embedding* activity function uses Semantic Kernel to chunck each document and create embeddings for each chunck. Embeddings and associated content are sent to Azure AI Search and stored in a vector enabled index. A correlation ID is also added to the search document so that the search results can be matched with the corresponding document metadata from Azure Cosmos DB.
+1. The *embedding* activity function uses Semantic Kernel to chunk each document and create embeddings for each chunk. Embeddings and associated content are sent to Azure AI Search and stored in a vector enabled index. A correlation ID is also added to the search document so that the search results can be matched with the corresponding document metadata from Azure Cosmos DB.
 1. Semantic Kernel retrieves embeddings from Azure AI Search Vector store for NLP.
-1. Users can chat with their data using natrual language processing using grounded data stored within Azure AI Search. To look up document records that are in Azure Cosmos DB, they can use correlation IDs in the search result set. The records include links to the original document file in Blob Storage.
+1. Users can chat with their data using natrual language processing using grounded data retrieved from the vector store. To look up document records that are in Azure Cosmos DB, they use correlation IDs included in the search result set. The records include links to the original document file in Blob Storage.
 
 ### Components
 
-- [Durable functions](/azure/azure-functions/durable/durable-functions-overview) is a feature of [Azure Functions](/azure/azure-functions/functions-overview) that you can use to write stateful functions in a serverless compute environment. In this architecture, a message in a storage queue triggers a durable functions instance, which initiates and orchestrates the document-processing pipeline.
+- [Durable functions](/azure/azure-functions/durable/durable-functions-overview) is a feature of [Azure Functions](/azure/azure-functions/functions-overview) that you can use to write stateful functions in a serverless compute environment. In this architecture, a message in a service bus queue triggers a durable functions instance, which initiates and orchestrates the document-processing pipeline.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multi-model database that you can use in your solutions to scale throughput and storage capacity across any number of geographic regions. Comprehensive service-level agreements (SLAs) guarantee throughput, latency, availability, and consistency. This architecture uses Azure Cosmos DB as the metadata store for the document classification information.
 - [Azure Storage](/azure/storage/common/storage-introduction) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage), [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction). This architecture uses Blob Storage to store the document files that the user uploads and that the durable functions pipeline processes.
+- [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is a fully managed enterprise message broker with message [queues](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#queues) and publish-subscribe [topics](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#topics-and-subscriptions). This architecture uses Service Bus to trigger durable functions instances.
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a framework to build, deploy, and scale web apps. The Web Apps feature of App Service is an HTTP-based tool that you can use to host web applications, REST APIs, and mobile back ends. Use Web Apps to develop in .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications can easily run and scale in Windows and Linux-based environments. In this architecture, users interact with the document-processing system through an App Service-hosted web app.
 - [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) is a service that you can use to extract insights from your documents, forms, and images. This architecture uses AI Document Intelligence to analyze the document files and extract the embedded documents along with content and metadata information.
 - [Azure AI Search](/azure/search/search-what-is-azure-search) provides a rich search experience for private, diverse content in web, mobile, and enterprise applications. This architecture uses AI Search [Vector Storage](/azure/search/vector-store) to index embeddings of the extracted document content and metadata information so that users can search and retrieve documents using natural language processing.
 - [Semantic Kernel](/semantic-kernel/overview) is a framework that you can use to integrate large language models (LLMs) into your applications. This architecture uses Semantic Kernel to create embeddings for the document content and metadata information, which are stored in Azure AI Search.
 - [Azure OpenAI Service](/azure/ai-services/openai/overview) provides access to OpenAI's powerful models. This architecture uses Azure OpenAI Service to provide a natural language interface for users to interact with the document-processing system.
-- [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) is a set of tools and services that you can use to build and deploy AI solutions.
+- [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) is a comprehensive platform for building, customizing, and managing AI-driven applications. It offers a unified SDK and seamless integration with popular developer tools.
 
 ### Alternatives
 
 - To facilitate global distribution, this solution stores metadata in Azure Cosmos DB. [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is another persistent storage option for document metadata and information.
 
-- To trigger durable functions instances, you can use other messaging platforms, including [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview).
+- To trigger durable functions instances, you can use other messaging platforms, including [Azure Event Grid](/azure/event-grid/overview).
 
 - Semantic Kernel is one of several options for creating embeddings. You can also use [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) or [Azure AI services](/azure/ai-services/overview) to create embeddings.
 
@@ -74,6 +75,8 @@ Reliability ensures your application can meet the commitments you make to your c
 
 A reliable workload has both resiliency and availability. Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability measures whether your users can access your workload when they need to.
 
+To ensure reliability and availability to Azure OpenAI Service endpoints, consider utilizing Azure API Management's GenAI capabilities for [backend load balancing and circuit breaker patterns](/azure/api-management/genai-gateway-capabilities#backend-load-balancer-and-circuit-breaker). The backend load balancer supports round-robin, weighted, and priority-based load balancing, giving you flexibility to define an Azure Open AI load distribution strategy that meets your specific requirements.
+
 For reliability information about solution components, see [SLA information for Azure online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
 
 ### Cost Optimization
@@ -92,7 +95,7 @@ To optimize costs:
 
 - Use reserved capacity and lifecycle policies to [rightsize storage accounts](/azure/well-architected/service-guides/storage-accounts/cost-optimization).
 
-- Use the pay-as-you-go strategy for your architecture and [scale out](/azure/well-architected/cost-optimization/optimize-scaling-costs) as needed rather than investing in large-scale resources at the start.
+- Use the pay-as-you-go strategy for your architecture and [scale out](/azure/well-architected/cost-optimization/optimize-scaling-costs) as needed rather than investing in large-scale resources at the start. As your solution matures, [Azure App Service reservations](/azure/cost-management-billing/reservations/reservation-discount-app-service) can be used to help reduce costs where applicable.
 
 - Consider opportunity costs in your architecture and balance a first-mover advantage strategy versus a fast-follow strategy. To estimate the initial cost and operational costs, use the [pricing calculator](https://azure.microsoft.com/pricing/calculator).
 - Establish [budgets and controls](/azure/well-architected/cost-optimization/collect-review-cost-data) that set cost limits for your solution. To set up forecasting and actual cost alerts, use [budget alerting](/azure/cost-management-billing/costs/tutorial-acm-create-budgets).
@@ -113,6 +116,10 @@ Principal author:
 
 - [Kevin Kraus](https://www.linkedin.com/in/kevin-w-kraus) | Principal Azure Technical Specialist
 
+Other contributors:
+
+- [Brian Swiger](https://www.linkedin.com/in/brianswiger) | Principal Azure Technical Specialist
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
@@ -130,6 +137,7 @@ Introductory articles:
 - [App Service overview](/azure/app-service/overview)
 - [Introduction to Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [What is Azure Service Bus?](/azure/service-bus-messaging/service-bus-messaging-overview)
+- [What is Azure API Management?](/azure/api-management/api-management-key-concepts)
 
 Product documentation:
 
@@ -139,6 +147,7 @@ Product documentation:
 - [AI Search documentation](/azure/search)
 - [Azure OpenAI Service documentation](/azure/ai-services/openai)
 - [Semantic Kernel documentation](/semantic-kernel/overview)
+- [Azure API Management documentation](/azure/api-management)
 
 ## Related resources
 
