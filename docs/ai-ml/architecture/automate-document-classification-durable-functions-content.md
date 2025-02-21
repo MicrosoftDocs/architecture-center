@@ -27,7 +27,7 @@ This article describes an architecture that you can use to process various docum
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a framework to build, deploy, and scale web apps. The Web Apps feature of App Service is an HTTP-based tool that you can use to host web applications, REST APIs, and mobile back ends. Use Web Apps to develop in .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications can easily run and scale in Windows and Linux-based environments. In this architecture, users interact with the document-processing system through an App Service-hosted web app.
 - [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) is a service that you can use to extract insights from your documents, forms, and images. This architecture uses AI Document Intelligence to analyze the document files and extract the embedded documents along with content and metadata information.
 - [Azure AI Search](/azure/search/search-what-is-azure-search) provides a rich search experience for private, diverse content in web, mobile, and enterprise applications. This architecture uses AI Search [Vector Storage](/azure/search/vector-store) to index embeddings of the extracted document content and metadata information so that users can search and retrieve documents using natural language processing.
-- [Semantic Kernel](/semantic-kernel/overview/) is a framework that you can use to integrate large language models (LLMs) into your applications. This architecture uses Semantic Kernel to create embeddings for the document content and metadata information, which are stored in Azure AI Search.
+- [Semantic Kernel](/semantic-kernel/overview) is a framework that you can use to integrate large language models (LLMs) into your applications. This architecture uses Semantic Kernel to create embeddings for the document content and metadata information, which are stored in Azure AI Search.
 - [Azure OpenAI Service](/azure/ai-services/openai/overview) provides access to OpenAI's powerful models. This architecture uses Azure OpenAI Service to provide a natural language interface for users to interact with the document-processing system.
 - [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) is a set of tools and services that you can use to build and deploy AI solutions.
 
@@ -137,6 +137,8 @@ Product documentation:
 - [Durable functions documentation](/azure/azure-functions/durable)
 - [Azure AI services documentation](/azure/ai-services)
 - [AI Search documentation](/azure/search)
+- [Azure OpenAI Service documentation](/azure/ai-services/openai)
+- [Semantic Kernel documentation](/semantic-kernel/overview)
 
 ## Related resources
 
