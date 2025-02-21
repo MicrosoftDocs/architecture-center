@@ -220,6 +220,5 @@ Other contributors:
 
 ## Related articles
 
-- [Example migration from Service Fabric to AKS](migrate-app-service-fabric-azure-kubernetes-service.md)
 - [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
 - [AKS architecture design](../../reference-architectures/containers/aks-start-here.md)

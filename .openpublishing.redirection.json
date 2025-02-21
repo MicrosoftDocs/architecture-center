@@ -7008,6 +7008,11 @@
       "source_path": "docs/reference-architectures/containers/aks/windows-containers-on-aks.yml",
       "redirect_url": "/azure/architecture/reference-architectures/containers/aks/baseline-aks",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/aks/migrate-app-service-fabric-azure-kubernetes-service.md",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks/baseline-aks",
+      "redirect_document_id": false
     }
   ]
 }
