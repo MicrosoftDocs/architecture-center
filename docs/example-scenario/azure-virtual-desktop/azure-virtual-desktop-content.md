@@ -1,10 +1,10 @@
-[Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) is a desktop and application virtualization service that runs in Azure. This article is intended to help desktop infrastructure architects, cloud architects, desktop administrators, and system administrators explore Azure Virtual Desktop and build virtualized desktop infrastructure (virtual desktop infrastructure (VDI)) solutions at enterprise scale. Enterprise-scale solutions generally cover 1,000 or more virtual desktops.
+[Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) (AVD) is a desktop and application virtualization service that runs in Azure. This article is intended to help desktop infrastructure architects, cloud architects, desktop administrators, and system administrators explore AVD and build virtualized desktop infrastructure (virtual desktop infrastructure (VDI)) solutions at enterprise scale. Enterprise-scale solutions generally cover 1,000 or more virtual desktops.
 
 ## Architecture
 
-A typical architectural setup for Azure Virtual Desktop is illustrated in the following diagram:
+A typical architectural setup for AVD is illustrated in the following diagram:
 
-![Diagram of an Azure Virtual Desktop service architecture.](images/azure-virtual-desktop.png)
+![Diagram of an AVD service architecture.](images/azure-virtual-desktop.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/wvdatscale.vsdx) of this architecture.*
 
@@ -14,9 +14,9 @@ The diagram's dataflow elements are described here:
 
 - The application endpoints are in a customer's on-premises network. Azure ExpressRoute extends the on-premises network into Azure, and Microsoft Entra Connect integrates the customer's Active Directory Domain Services (AD DS) with Microsoft Entra ID.
 
-- The Azure Virtual Desktop control plane handles web access, gateway, broker, diagnostics, and extensibility components such as REST APIs.
+- The AVD control plane handles web access, gateway, broker, diagnostics, and extensibility components such as REST APIs.
 
-- The customer manages AD DS and Microsoft Entra ID, Azure subscriptions, virtual networks, [Azure Files or Azure NetApp Files](/azure/virtual-desktop/store-fslogix-profile), and the Azure Virtual Desktop host pools and workspaces.
+- The customer manages AD DS and Microsoft Entra ID, Azure subscriptions, virtual networks, [Azure Files or Azure NetApp Files](/azure/virtual-desktop/store-fslogix-profile), and the AVD host pools and workspaces.
 
 - To increase capacity, the customer uses two Azure subscriptions in a hub-spoke architecture and connects them via virtual network peering.
 
@@ -24,37 +24,37 @@ For more information about FSLogix Profile Container - Azure Files and Azure Net
 
 ### Components
 
-[Azure Virtual Desktop](/azure/virtual-desktop/overview) service architecture is similar to [Windows Server Remote Desktop Services (RDS)](/windows-server/remote/remote-desktop-services/welcome-to-rds). Although Microsoft manages the infrastructure and brokering components, enterprise customers manage their own desktop host virtual machines (VMs), data, and clients.
+[AVD](/azure/virtual-desktop/overview) service architecture is similar to [Windows Server Remote Desktop Services (RDS)](/windows-server/remote/remote-desktop-services/welcome-to-rds). Although Microsoft manages the infrastructure and brokering components, enterprise customers manage their own desktop host virtual machines (VMs), data, and clients.
 
 #### Components that Microsoft manages
 
-Microsoft manages the following Azure Virtual Desktop services, as part of Azure:
+Microsoft manages the following AVD services, as part of Azure:
 
-- **Web Access**: By using the [Web Access](/azure/virtual-desktop/connect-web) service within Azure Virtual Desktop you can access virtual desktops and remote apps through an HTML5-compatible web browser just as you would with a local PC, from anywhere and on any device. You can secure web access by using multifactor authentication in Microsoft Entra ID.
+- **Web Access**: By using the [Web Access](/azure/virtual-desktop/connect-web) service within AVD you can access virtual desktops and remote apps through an HTML5-compatible web browser just as you would with a local PC, from anywhere and on any device. You can secure web access by using multifactor authentication in Microsoft Entra ID.
 
-- **Gateway**: The Remote Connection Gateway service connects remote users to Azure Virtual Desktop apps and desktops from any internet-connected device that can run an Azure Virtual Desktop client. The client connects to a gateway, which then orchestrates a connection from a VM back to the same gateway.
+- **Gateway**: The Remote Connection Gateway service connects remote users to AVD apps and desktops from any internet-connected device that can run an AVD client. The client connects to a gateway, which then orchestrates a connection from a VM back to the same gateway.
 
 - **Connection Broker**: The Connection Broker service manages user connections to virtual desktops and remote apps. Connection Broker provides load balancing and reconnection to existing sessions.
 
-- **Diagnostics**: Remote Desktop Diagnostics is an event-based aggregator that marks each user or administrator action on the Azure Virtual Desktop deployment as a success or failure. Administrators can query the event aggregation to identify failing components.
+- **Diagnostics**: Remote Desktop Diagnostics is an event-based aggregator that marks each user or administrator action on the AVD deployment as a success or failure. Administrators can query the event aggregation to identify failing components.
 
-- **Extensibility components**: Azure Virtual Desktop includes several extensibility components. You can manage Azure Virtual Desktop by using Windows PowerShell or with the provided REST APIs, which also enable support from third-party tools.
+- **Extensibility components**: AVD includes several extensibility components. You can manage AVD by using Windows PowerShell or with the provided REST APIs, which also enable support from third-party tools.
 
 #### Components that you manage
 
-You manage the following components of Azure Virtual Desktop solutions:
+You manage the following components of AVD solutions:
 
-- **Azure Virtual Network**: With [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network), Azure resources such as VMs can communicate privately with each other and with the internet. By connecting Azure Virtual Desktop host pools to an Active Directory domain, you can define network topology to access virtual desktops and virtual apps from the intranet or internet, based on organizational policy. You can connect an Azure Virtual Desktop instance to an on-premises network by using a virtual private network (VPN), or you can use [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) to extend the on-premises network into Azure over a private connection.
+- **Azure Virtual Network**: With [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network), Azure resources such as VMs can communicate privately with each other and with the internet. By connecting AVD host pools to an Active Directory domain, you can define network topology to access virtual desktops and virtual apps from the intranet or internet, based on organizational policy. You can connect an AVD instance to an on-premises network by using a virtual private network (VPN), or you can use [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) to extend the on-premises network into Azure over a private connection.
 
-- **Microsoft Entra ID**: Azure Virtual Desktop uses [Microsoft Entra ID](/entra/fundamentals/whatis) for identity and access management. Microsoft Entra integration applies Microsoft Entra security features, such as conditional access, multifactor authentication, and [Intelligent Security Graph](/windows/security/application-security/application-control/app-control-for-business/design/use-appcontrol-with-intelligent-security-graph), and it helps maintain app compatibility in domain-joined VMs.
+- **Microsoft Entra ID**: AVD uses [Microsoft Entra ID](/entra/fundamentals/whatis) for identity and access management. Microsoft Entra integration applies Microsoft Entra security features, such as conditional access, multifactor authentication, and [Intelligent Security Graph](/windows/security/application-security/application-control/app-control-for-business/design/use-appcontrol-with-intelligent-security-graph), and it helps maintain app compatibility in domain-joined VMs.
 
-- **Active Directory Domain Services (Optional)**: Azure Virtual Desktop VMs can either be domain joined to an [AD DS](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) service or use [Deploy Microsoft Entra joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/azure-ad-joined-session-hosts?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- **Active Directory Domain Services (Optional)**: AVD VMs can either be domain joined to an [AD DS](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) service or use [Deploy Microsoft Entra joined virtual machines in AVD](/azure/virtual-desktop/azure-ad-joined-session-hosts?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
     - When using an AD DS domain, the domain must be in sync with Microsoft Entra ID to associate users between the two services. You can use [Microsoft Entra Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect) to associate AD DS with Microsoft Entra ID.
     - When using Microsoft Entra join, review the [supported configurations](/azure/virtual-desktop/azure-ad-joined-session-hosts#supported-configurations) to ensure your scenario is supported.
 
-- **Azure Virtual Desktop session hosts**: Session hosts are VMs that users connect to for their desktops and applications. Several versions of Windows are supported and you can create images with your applications and customizations. You can choose VM sizes, including GPU-enabled VMs. Each session host has an Azure Virtual Desktop host agent, which registers the VM as part of the Azure Virtual Desktop workspace or tenant. Each host pool can have one or more app groups, which are collections of remote applications or desktop sessions that you can access. To see which versions of Windows are supported, see [Operating systems and licenses](/azure/virtual-desktop/prerequisites#operating-systems-and-licenses).
+- **AVD session hosts**: Session hosts are VMs that users connect to for their desktops and applications. Several versions of Windows are supported and you can create images with your applications and customizations. You can choose VM sizes, including GPU-enabled VMs. Each session host has an AVD host agent, which registers the VM as part of the AVD workspace or tenant. Each host pool can have one or more app groups, which are collections of remote applications or desktop sessions that you can access. To see which versions of Windows are supported, see [Operating systems and licenses](/azure/virtual-desktop/prerequisites#operating-systems-and-licenses).
 
-- **Azure Virtual Desktop workspace**: The Azure Virtual Desktop workspace or tenant is a management construct for managing and publishing host pool resources.
+- **AVD workspace**: The AVD workspace or tenant is a management construct for managing and publishing host pool resources.
 
 ## Scenario details
 
@@ -84,10 +84,10 @@ Pooled desktop solutions, also called *non-persistent desktops*, assign users to
 
 ## Windows servicing
 
-There are several options for updating Azure Virtual Desktop instances. Deploying an updated image every month guarantees compliance and state.
+There are several options for updating AVD instances. Deploying an updated image every month guarantees compliance and state.
 
 - [Microsoft Endpoint Configuration Manager (MECM)](/mem/configmgr) updates server and desktop operating systems.
-- [Windows Updates for Business](/windows/deployment/update/waas-manage-updates-wufb) updates desktop operating systems such as Windows 10 Enterprise multi-session.
+- [Windows Updates for Business](/windows/deployment/update/waas-manage-updates-wufb) updates desktop operating systems such as Windows 10/11 Enterprise multi-session.
 - [Azure Update Management](/azure/automation/update-management/overview) updates server operating systems.
 - [Azure Log Analytics](/azure/azure-monitor/platform/log-analytics-agent) checks compliance.
 - Deploy a new (custom) image to session hosts every month for the latest Windows and applications updates. You can use an image from Azure Marketplace or a [custom Azure-managed image](/azure/virtual-machines/windows/capture-image-resource).
@@ -106,14 +106,14 @@ The relationships between host pools, workspaces, and other key logical componen
 - *(4)* It's possible to have an empty workspace, but it can't service users.
 - *(5)* It's possible to have an empty host pool, but it can't service users.
 - *(6)* It's possible for a host pool not to have any application groups assigned to it but it can't service users.
-- *(7)* Microsoft Entra ID is required for Azure Virtual Desktop. This is because Microsoft Entra user accounts and groups must always be used to assign users to Azure Virtual Desktop application groups. Microsoft Entra ID is also used to authenticate users into the Azure Virtual Desktop service. Azure Virtual Desktop session hosts can also be members of a Microsoft Entra domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions will also be launched and run (not just assigned) by using Microsoft Entra accounts.
-    - *(7)* Alternatively, Azure Virtual Desktop session hosts can be members of an AD DS domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions will be launched and run (but not assigned) by using AD DS accounts. To reduce user and administrative overhead, AD DS can be synchronized with Microsoft Entra ID through Microsoft Entra Connect.
-    - *(7)* Finally, Azure Virtual Desktop session hosts can, instead, be members of a Microsoft Entra Domain Services domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions will be launched and run (but not assigned) by using Microsoft Entra Domain Services accounts. Microsoft Entra ID is automatically synchronized with Microsoft Entra Domain Services, one way, from Microsoft Entra ID to Microsoft Entra Domain Services only.
+- *(7)* Microsoft Entra ID is required for AVD. This is because Microsoft Entra user accounts and groups must always be used to assign users to AVD application groups. Microsoft Entra ID is also used to authenticate users into the AVD service. AVD session hosts can also be members of a Microsoft Entra domain, and in this situation the AVD-published applications and desktop sessions will also be launched and run (not just assigned) by using Microsoft Entra accounts.
+    - *(7)* Alternatively, AVD session hosts can be members of an AD DS domain, and in this situation the AVD-published applications and desktop sessions will be launched and run (but not assigned) by using AD DS accounts. To reduce user and administrative overhead, AD DS can be synchronized with Microsoft Entra ID through Microsoft Entra Connect.
+    - *(7)* Finally, AVD session hosts can, instead, be members of a Microsoft Entra Domain Services domain, and in this situation the AVD-published applications and desktop sessions will be launched and run (but not assigned) by using Microsoft Entra Domain Services accounts. Microsoft Entra ID is automatically synchronized with Microsoft Entra Domain Services, one way, from Microsoft Entra ID to Microsoft Entra Domain Services only.
 
 | Resource | Purpose | Logical relationships |
 |--- |--- |--- |
-| Published desktop | A Windows desktop environment that runs on Azure Virtual Desktop session hosts and is delivered to users over the network | Member of one and only one application group *(1)* |
-| Published application | A Windows application that runs on Azure Virtual Desktop session hosts and is delivered to users over the network | Member of one and only one application group |
+| Published desktop | A Windows desktop environment that runs on AVD session hosts and is delivered to users over the network | Member of one and only one application group *(1)* |
+| Published application | A Windows application that runs on AVD session hosts and is delivered to users over the network | Member of one and only one application group |
 | Application group | A logical grouping of published applications or a published desktop |  - Contains a published desktop *(1)* or one or more published applications<br> - Assigned to one and only one host pool *(2)*<br> - Member of one and only one workspace *(2)*<br> - One or more Microsoft Entra user accounts or groups are assigned to it *(3)* |
 | Microsoft Entra user account/group | Identifies the users who are permitted to launch published desktops or applications | - Member of one and only one Microsoft Entra ID <br> - Assigned to one or more application groups *(3)* |
 | Microsoft Entra ID *(7)* | Identity provider | - Contains one or more user accounts or groups, which must be used to assign users to application groups, and can also be used to sign in to the session hosts<br> - Can hold the memberships of the session hosts <br> - Can be synchronized with AD DS or Microsoft Entra Domain Services |
@@ -127,58 +127,94 @@ The relationships between host pools, workspaces, and other key logical componen
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-The numbers in the following sections are approximate. They're based on a variety of large customer deployments and are subject to change over time.
+The Well-Architected Framework, for the AVD workload, offers an [assessment tool](/azure/well-architected/azure-virtual-desktop/assessment) to self-assess the readiness of your AVD workload in production; this is an effective tool to check your alignment to best practices defined in the [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/well-architected/reliability).
+
+- **Capacity Allocation**: To ensure guaranteed allocation of compute resources, you can request an [On-demand capacity reservation](/azure/virtual-machines/capacity-reservation-overview) with no term commitment and can be combined with reserved instances.
+- **Intra-region Resiliency**: Use [Availability zones](/azure/reliability/availability-zones-overview) for Azure services that support them such as:
+    - Virtual Machines (Session Hosts)
+    - Azure Storage (FSLogix or App Attach). For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
+- **Business Continuity**: If [Availability zones](/azure/reliability/availability-zones-overview) do not meet your **RTO/RPO targets**, review the guidance on [Multiregion Business Continuity and Disaster Recovery (BCDR)](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr) for AVD.
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+Consider the following security-related factors when you deploy Azure Virtual Desktop.
+
+> [!NOTE]
+> For a more extensive list, see the guidance on [Security recommendations for Azure Virtual Desktop](/azure/virtual-desktop/security-recommendations)
+
+- **Antivirus Exclusions**: For profile solutions like FSLogix that mount virtual hard disk files, it's recommended to exclude those file extensions. For more information, see [Configure Antivirus file and folder exclusions](/fslogix/overview-prerequisites#configure-antivirus-file-and-folder-exclusions).
+- **Microsoft Entra**: Users can sign into AVD from anywhere using different devices and clients. To minimize the risk of unauthorized access and provide your organization with the ability to manage sign-in risks, [Enforce Microsoft Entra multifactor authentication using Conditional Access](/azure/virtual-desktop/set-up-mfa?tabs=avd).
+- **Encryption**: By default, most Azure managed disks are encrypted at rest when persisting to the cloud. If your session hosts require more extensive encryption, like end-to-end encryption, review the guidance on [managed disk encryption options](https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview) to protect stored data from unauthorized access.
+- **Private Networking**: If you require private connectivity to Azure Virtual Desktop resources, use [Azure Private Link with AVD](/azure/virtual-desktop/private-link-overview) to retain traffic between your virtual network and the service on the Microsoft Network rather than the public internet.
+
+### Cost Optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+Consider the following cost-related factors when you deploy Azure Virtual Desktop.
+
+- **Multi-Session**: For workloads with identical compute requirements, generally pooled host pools, [Windows Enterprise multi-session](/azure/virtual-desktop/windows-multisession-faq) offers the ability to accept more users to sign in to a single VM at once; reducing costs and administrative overhead.
+- **Licensing**: If you have Software Assurance, you can use [Azure Hybrid Benefit](/azure/virtual-machines/windows/hybrid-use-benefit-licensing) to reduce the cost of your Azure Compute Infrastructure.
+- **Reservations**: You can commit to one-year or three-year plans, [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), based on your VM usage to receive a discount to significantly reduce your resource cost. This can be combined with Azure Hybrid Benefit for up to 80 percent savings over list prices. 
+- **Scaling**: If committing to Azure Reservations is too demanding for your current needs, consider [Autoscale scaling plans](/azure/virtual-desktop/autoscale-scenarios) for power management or dynamic provisioning/deprovisioning of session hosts as the demand changes through the day/week.
+- **Load-Balancing Options**: If your organization is cost-conscious then configure your host pool load balancing algorithm to depth-first. However, this can degrade the users experience; the default breadth-first could be optimal if you value user experience. For more information, see [Configure host pool load balancing in Azure Virtual Desktop](/azure/virtual-desktop/configure-host-pool-load-balancing?tabs=portal)
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+- **Alerts**:  Configure [Service Health](https://learn.microsoft.com/en-us/azure/service-health/service-health-portal-update) and [Resource Health](/azure/service-health/resource-health-overview) alerts to stay informed about the health of the Azure services and regions that you use.
+    - Monitor the Azure Storage solution that you use for hosting FSLogix Profiles or App Attach shares to ensure that thresholds aren't exceeded, which might have a negative impact on your user experience.
+- **Data Collection**: Install the [Azure Monitoring Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) on your AVD session hosts to extract and monitor performance counters and event logs. For more information, see the [list of configurable performance metrics/counters and event logs](/azure/well-architected/azure-virtual-desktop/monitoring#session-host-performance).
+- **Insights**: Use [Azure Virtual Desktop Insights](/azure/virtual-desktop/insights-use-cases) to help with checks such as which client versions are connecting, opportunities for cost saving, or knowing if you have resource limitations or connectivity issues.
+- **Diagnostic Settings**:  Enable diagnostic settings for all services, AVD workspaces, application groups, host pools, storage accounts. Determine which settings are meaningful to your operations. Turn off settings that aren't meaningful to avoid undue costs; storage accounts (specifically the file service) that see a high amount of IOPS can incur high monitoring costs.
+
+### Performance Efficiency 
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance Efficiency pillar overview](/azure/well-architected/performance-efficiency).
+
+- **Latency**: For clients using a Point-to-Site (P2S) VPN connection use a split tunnel that's based on User Datagram Protocol (UDP) to reduce latency and optimize your tunnel bandwidth usage. For on-site clients who use a VPN or Azure ExpressRoute, use [RDP Shortpath](/azure/virtual-desktop/rdp-shortpath?tabs=public-networks) to reduce the round-trip time, which improves the user experience in latency-sensitive applications and input methods.
+- **Right-Sizing**: [Virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs) lists the maximum suggested number of users per virtual central processing unit (vCPU) and minimum VM configurations for different workloads. This data helps estimate the VMs you need in your host pool.
+    - Utilize simulation tools to test deployments with both stress tests and real-life usage simulations. Make sure that the system is responsive and resilient enough to meet user needs, and remember to vary the load sizes when testing.
+- **Ephemeral OS disks**: If you treat your session hosts like cattle as opposed to pets, [Ephemeral OS disks](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks) are great way to improve performance, latency similar to temporary disks, and simultaneously save costs as they are free.
+
+### Limitations
+
+AVD, much like Azure, has certain service limitations that you need to be aware of. To avoid having to make changes in the scaling phase, it's a good idea to address some of these limitations during the design phase.
+
+For more information about the AVD Service limitations, see [AVD Service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-desktop-service-limits).
 
 Also, note that:
 
 - You can't create more than 500 application groups per single Microsoft Entra tenant\*.
+  - If you require more than 500 application groups, submit a support ticket via the Azure portal.
 - We recommend that you do *not* publish more than 50 applications per application group.
-
-### Azure Virtual Desktop limitations
-
-Azure Virtual Desktop, much like Azure, has certain service limitations that you need to be aware of. To avoid having to make changes in the scaling phase, it's a good idea to address some of these limitations during the design phase.
-
-| Azure Virtual Desktop object | Per Parent container object | Service limit |
-|--- |--- |---: |
-| Workspace | Microsoft Entra tenant | 1300 |
-| HostPool | Workspace | 400 |
-| Application group | Microsoft Entra tenant | 500\* |
-| RemoteApp | Application group | 500 |
-| Role assignment | Any Azure Virtual Desktop object | 200 |
-| Session host | HostPool | 10,000 |
-
-`*` If you require more than 500 application groups, submit a support ticket via the Azure portal.
-
 - We recommend that you deploy no more than 5,000 VMs per Azure subscription per region. This recommendation applies to both personal and pooled host pools, based on Windows Enterprise single and multi-session. Most customers use Windows Enterprise multi-session, which allows multiple users to sign in to each VM. You can increase the resources of individual session-host VMs to accommodate more user sessions.
 - For automated session-host scaling tools, the limits are around 2,500 VMs per Azure subscription per region, because VM status interaction consumes more resources.
 - To manage enterprise environments with more than 5,000 VMs per Azure subscription in the same region, you can create multiple Azure subscriptions in a hub-spoke architecture and connect them via virtual network peering (using one subscription per spoke). You could also deploy VMs in a different region in the same subscription to increase the number of VMs.
 - Azure Resource Manager subscription API throttling limits don't allow more than 600 Azure VM reboots per hour via the Azure portal. You can reboot all your machines at once via the operating system, which doesn't consume any Azure Resource Manager subscription API calls. For more information about counting and troubleshooting throttling limits based on your Azure subscription, see [Troubleshoot API throttling errors](/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors).
-- You can currently deploy up to 132 VMs in a single ARM template deployment in the Azure Virtual Desktop portal. To create more than 132 VMs, run the ARM template deployment in the Azure Virtual Desktop portal multiple times.
+- You can currently deploy up to 132 VMs in a single ARM template deployment in the AVD portal. To create more than 132 VMs, run the ARM template deployment in the AVD portal multiple times.
 - Azure VM session-host name prefixes can't exceed 11 characters, due to auto-assigning of instance names and the NetBIOS limit of 15 characters per computer account.
 - By default, you can deploy up to 800 instances of most resource types in a resource group. Azure Compute doesn't have this limit.
 
 For more information about Azure subscription limitations, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
-### VM sizing
-
-[Virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs) lists the maximum suggested number of users per virtual central processing unit (vCPU) and minimum VM configurations for different workloads. This data helps estimate the VMs you need in your host pool.
-
-Use simulation tools to test deployments with both stress tests and real-life usage simulations. Make sure that the system is responsive and resilient enough to meet user needs, and remember to vary the load sizes when testing.
-
-### Cost optimization
-
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
-You can architect your Azure Virtual Desktop solution to realize cost savings. Here are five different options to help manage costs for enterprises:
-
-- **Windows 10 multi-session**: By delivering a multi-session desktop experience for users with identical compute requirements, you can let more users sign in to a single VM at once, an approach that can result in considerable cost savings.
-- **Azure Hybrid Benefit**: If you have Software Assurance, you can use [Azure Hybrid Benefit for Windows Server](/azure/virtual-machines/windows/hybrid-use-benefit-licensing) to save on the cost of your Azure infrastructure.
-- **Azure Reserved VM Instances**: You can prepay for your VM usage and save money. Combine [Azure Reserved VM Instances](https://azure.microsoft.com/pricing/reserved-vm-instances) with Azure Hybrid Benefit for up to 80 percent savings over list prices.
-- **Session-host load-balancing**: When you're setting up session hosts, *breadth-first* mode, which spreads users randomly across the session hosts, is the standard default mode. Alternatively, you can use *depth-first* mode to fill up a session-host server with the maximum number of users before it moves on to the next session host. You can adjust this setting for maximum cost benefits.
-
 ## Deploy this scenario
 
-Use the [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to automate the deployment of your Azure Virtual Desktop environment. These ARM templates support only the Azure Resource Manager Azure Virtual Desktop objects. These ARM templates don't support Azure Virtual Desktop (classic).
+A collection of [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) can be employed automate the deployment of your AVD environment. These ARM templates support only the Azure Resource Manager AVD objects. These ARM templates don't support AVD (classic).
+
+More scenarios are available from Microsoft Developer Tools which supports several deployment options:
+
+- [Azure Virtual Desktop with Microsoft Entra ID Join](https://learn.microsoft.com/en-us/samples/azure/azure-quickstart-templates/azure-virtual-desktop/)
+- [Azure Virtual Desktop with FSLogix and AD DS Join](https://learn.microsoft.com/en-us/samples/azure/azure-quickstart-templates/azure-virtual-desktop-with-fslogix/)
+
+Consider [Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/) (AVM) to develop your own scenario using Bicep or Terraform.
 
 ## Contributors
 
@@ -186,7 +222,7 @@ Use the [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-w
 
 Principal author:
 
-- [Tom Hickling](https://www.linkedin.com/in/tomhickling/) | Senior Product Manager, Azure Virtual Desktop Engineering
+- [Tom Hickling](https://www.linkedin.com/in/tomhickling/) | Senior Product Manager, AVD Engineering
 
  Other contributor:
 
@@ -194,12 +230,13 @@ Principal author:
 
 ## Next steps
 
-- [Azure Virtual Desktop partner integrations](/azure/virtual-desktop/partners) lists approved Azure Virtual Desktop partner providers and independent software vendors.
-- Use the [Virtual Desktop Optimization Tool](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) to help optimize performance in a Windows 10 Enterprise VDI (virtual desktop infrastructure) environment.
-- For more information, see [Deploy Microsoft Entra joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-ad-joined-vm).
+- [AVD partner integrations](/azure/virtual-desktop/partners) lists approved AVD partner providers and independent software vendors.
+- Use the [Virtual Desktop Optimization Tool](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) to help optimize performance in a Windows 10/11 Enterprise VDI (virtual desktop infrastructure) environment.
+- For more information, see [Deploy Microsoft Entra joined virtual machines in AVD](/azure/virtual-desktop/deploy-azure-ad-joined-vm).
 - Learn more about [Active Directory Domain Services](/windows-server/identity/ad-ds/active-directory-domain-services).
 - [What is Microsoft Entra Connect?](/azure/active-directory/hybrid/whatis-azure-ad-connect)
+- Learn more about the [Azure Virtual Desktop Well-Architected Framework](/azure/well-architected/azure-virtual-desktop/overview)
 
 ## Related resources
 
-- For more information about multiple Active Directory forests architecture, see [Multiple Active Directory forests architecture in Azure Virtual Desktop](./multi-forest.yml).
+- For more information about multiple Active Directory forests architecture, see [Multiple Active Directory forests architecture in AVD](./multi-forest.yml).
