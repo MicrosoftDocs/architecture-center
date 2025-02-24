@@ -150,7 +150,7 @@ Consider the following security-related factors when you deploy Azure Virtual De
 - **Use private networking**: If you require private connectivity to Azure Virtual Desktop resources, use [Azure Private Link with Azure Virtual Desktop](/azure/virtual-desktop/private-link-overview) to constrain traffic between your virtual network and the service on the Microsoft Network.
 
 > [!NOTE]
-> For a more extensive list, see the guidance on [Security recommendations for Azure Virtual Desktop](/azure/virtual-desktop/security-recommendations)
+> For more security recommendations, see the guidance on [Security recommendations for Azure Virtual Desktop](/azure/virtual-desktop/security-recommendations).
 
 ### Cost Optimization
 
@@ -178,7 +178,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance Efficiency pillar overview](/azure/well-architected/performance-efficiency).
 
-- **Use Antivirus exclusions**: For profile solutions like FSLogix that mount virtual hard disk files, it's recommended to exclude those file extensions. For more information, see [Configure Antivirus file and folder exclusions](/fslogix/overview-prerequisites#configure-antivirus-file-and-folder-exclusions).
+- **Use antivirus exclusions**: For profile solutions like FSLogix that mount virtual hard disk files, it's recommended to exclude those file extensions. For more information, see [Configure Antivirus file and folder exclusions](/fslogix/overview-prerequisites#configure-antivirus-file-and-folder-exclusions).
 - **Tune for latency**: For clients using a Point-to-Site (P2S) VPN connection use a split tunnel that's based on User Datagram Protocol (UDP) to reduce latency and optimize your tunnel bandwidth usage. For on-site clients who use a VPN or Azure ExpressRoute, use [RDP Shortpath](/azure/virtual-desktop/rdp-shortpath?tabs=public-networks) to reduce the round-trip time, which improves the user experience in latency-sensitive applications and input methods.
 - **Use right-size compute**: [Virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs) lists the maximum suggested number of users per virtual central processing unit (vCPU) and minimum VM configurations for different workloads. This data helps estimate the VMs you need in your host pool.
   - Utilize simulation tools to test deployments with both stress tests and real-life usage simulations. Make sure that the system is responsive and resilient enough to meet user needs and remember to vary the load sizes when testing.
