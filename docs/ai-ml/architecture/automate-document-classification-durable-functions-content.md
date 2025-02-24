@@ -9,7 +9,7 @@ This article describes an architecture that you can use to process various docum
 
 ### Workflow
 
-1. A user uploads a document file to a web app. The file contains multiple embedded documents of various types, such as PDF or multipage Tag Image File Format (TIFF) files. The document file is stored in Azure Blob Storage (**1a**). To initiate pipeline processing, the web app adds a command message to a service bus queue (**1b**).
+1. A user uploads a document file to a web app. The file contains multiple embedded documents of various types, such as PDF or multipage Tag Image File Format (TIFF) files. The document file is stored in Azure Blob Storage (**1a**). To initiate pipeline processing, the web app adds a command message to a Service Bus queue (**1b**).
 
 1. The command message triggers the durable functions orchestration. The message contains metadata that identifies the Blob Storage location of the document file to be processed. Each durable functions instance processes only one document file.
 1. The *analyze* activity function calls the Document Intelligence Analyze Document API, which passes the storage location of the document file to be processed. The analyze function reads and identifies each document within the document file. This function returns the name, type, page ranges, and content of each embedded document to the orchestration.
@@ -20,7 +20,7 @@ This article describes an architecture that you can use to process various docum
 
 ### Components
 
-- [Durable functions](/azure/azure-functions/durable/durable-functions-overview) is a feature of [Azure Functions](/azure/azure-functions/functions-overview) that you can use to write stateful functions in a serverless compute environment. In this architecture, a message in a service bus queue triggers a durable functions instance, which initiates and orchestrates the document-processing pipeline.
+- [Durable functions](/azure/azure-functions/durable/durable-functions-overview) is a feature of [Azure Functions](/azure/azure-functions/functions-overview) that you can use to write stateful functions in a serverless compute environment. In this architecture, a message in a Service Bus queue triggers a durable functions instance, which initiates and orchestrates the document-processing pipeline.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multi-model database that you can use in your solutions to scale throughput and storage capacity across any number of geographic regions. Comprehensive service-level agreements (SLAs) guarantee throughput, latency, availability, and consistency. This architecture uses Azure Cosmos DB as the metadata store for the document classification information.
 - [Azure Storage](/azure/storage/common/storage-introduction) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage), [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction). This architecture uses Blob Storage to store the document files that the user uploads and that the durable functions pipeline processes.
@@ -30,8 +30,6 @@ This article describes an architecture that you can use to process various docum
 - [Azure AI Search](/azure/search/search-what-is-azure-search) provides a rich search experience for private, diverse content in web, mobile, and enterprise applications. This architecture uses AI Search [Vector Storage](/azure/search/vector-store) to index embeddings of the extracted document content and metadata information so that users can search and retrieve documents using natural language processing.
 - [Semantic Kernel](/semantic-kernel/overview) is a framework that you can use to integrate large language models (LLMs) into your applications. This architecture uses Semantic Kernel to create embeddings for the document content and metadata information, which are stored in Azure AI Search.
 - [Azure OpenAI Service](/azure/ai-services/openai/overview) provides access to OpenAI's powerful models. This architecture uses Azure OpenAI Service to provide a natural language interface for users to interact with the document-processing system.
-- [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) is a comprehensive platform for building, customizing, and managing AI-driven applications. It offers a unified SDK and seamless integration with popular developer tools.
-
 ### Alternatives
 
 - To facilitate global distribution, this solution stores metadata in Azure Cosmos DB. [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is another persistent storage option for document metadata and information.
@@ -66,7 +64,7 @@ You can use this solution to:
 
 - **Process permits.** City and county permitting departments maintain paper documents that they generate for permit inspection reporting. You can take a picture of several inspection documents and automatically identify, classify, and search across these records.
 
-- **Planogram Analysis.** Retail and consumer goods companies manage inventory and compliance through store shelf planogram analysis. You can take a picture of a store shelf and extract label information from varying products and automatically identify, classify, and quantify the product information.
+- **Planogram analysis.** Retail and consumer goods companies manage inventory and compliance through store shelf planogram analysis. You can take a picture of a store shelf and extract label information from varying products and automatically identify, classify, and quantify the product information.
 
 ## Considerations
 
@@ -78,7 +76,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 A reliable workload has both resiliency and availability. Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability measures whether your users can access your workload when they need to.
 
-To ensure reliability and availability to Azure OpenAI Service endpoints, consider utilizing Azure API Management's GenAI capabilities for [backend load balancing and circuit breaker patterns](/azure/api-management/genai-gateway-capabilities#backend-load-balancer-and-circuit-breaker). The backend load balancer supports round-robin, weighted, and priority-based load balancing, giving you flexibility to define an Azure Open AI load distribution strategy that meets your specific requirements.
+To ensure reliability and availability to Azure OpenAI Service endpoints, consider utilizing a generative API gateway for [multiple Azure OpenAI deployments or instances](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend). The backend load balancer supports round-robin, weighted, and priority-based load balancing, giving you flexibility to define an Azure Open AI load distribution strategy that meets your specific requirements.
 
 For reliability information about solution components, see [SLA information for Azure online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
 
@@ -86,7 +84,7 @@ For reliability information about solution components, see [SLA information for 
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-The most significant costs for this architecture will lie in the Azure OpenAI model token usage, Azure AI Document Intelligence image processing, and index capacity requirements in Azure AI Search.
+The most significant costs for this architecture are the Azure OpenAI model token usage, Azure AI Document Intelligence image processing, and index capacity requirements in Azure AI Search.
 
 To optimize costs:
 
@@ -109,7 +107,7 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 
 This solution can expose performance bottlenecks when you process high volumes of data. To ensure proper performance efficiency for your solution, make sure that you understand and plan for [Azure Functions scaling options](/azure/azure-functions/functions-scale#scale), [Azure AI services autoscaling](/azure/ai-services/autoscale), and [Azure Cosmos DB partitioning](/azure/cosmos-db/partitioning-overview).
 
-Azure OpenAI [provisioned throughput units (PTU)](/azure/ai-services/openai/concepts/provisioned-throughput) offer guaranteed performance and availability, along with [global deployments](/azure/ai-services/openai/how-to/deployment-types#global-provisioned) that leverage Azure's global infrastructure to dynamically route customer traffic to the data center with the best availability for the customer’s inference requests.
+Azure OpenAI [provisioned throughput units (PTU)](/azure/ai-services/openai/concepts/provisioned-throughput) offer guaranteed performance and availability, along with [global deployments](/azure/ai-services/openai/how-to/deployment-types#global-provisioned) that use Azure's global infrastructure to dynamically route customer traffic to the data center with the best availability for the customer’s inference requests.
 
 ## Contributors
 
@@ -139,7 +137,6 @@ Introductory articles:
 - [What is Azure AI Search Vector Storage?](/azure/search/vector-store)
 - [Getting started with Azure App Service](/azure/app-service/getting-started)
 - [Introduction to Azure Cosmos DB](/azure/cosmos-db/introduction)
-- [What is Azure API Management?](/azure/api-management/api-management-key-concepts)
 
 Product documentation:
 
@@ -150,8 +147,6 @@ Product documentation:
 - [Azure AI Search documentation](/azure/search)
 - [Azure AI Foundry documentation](/azure/ai-studio)
 - [Semantic Kernel documentation](/semantic-kernel/overview)
-- [Azure Service Bus documentation](/azure/service-bus-messaging)
-- [Azure API Management documentation](/azure/api-management)
 
 ## Related resources
 
