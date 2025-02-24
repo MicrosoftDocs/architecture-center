@@ -88,7 +88,7 @@ You can optimize your operational efficiency by deploying your solution with Azu
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Unisys matches operational performance in Azure with Bronze, Silver, Gold, Platinum, and Titanium offerings to match client workload to operational needs.  The Unisys virtualization methodology is unique in the mainframe to cloud marketspace.
+Unisys matches operational performance in Azure with Bronze, Silver, Gold, Platinum, and Titanium offerings to match client workload to operational needs. The Unisys virtualization methodology is unique in the mainframe to cloud marketspace.
 
 ## Contributors
 
