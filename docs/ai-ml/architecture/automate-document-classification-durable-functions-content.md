@@ -30,8 +30,6 @@ This article describes an architecture that you can use to process various docum
 - [Azure AI Search](/azure/search/search-what-is-azure-search) provides a rich search experience for private, diverse content in web, mobile, and enterprise applications. This architecture uses AI Search [Vector Storage](/azure/search/vector-store) to index embeddings of the extracted document content and metadata information so that users can search and retrieve documents using natural language processing.
 - [Semantic Kernel](/semantic-kernel/overview) is a framework that you can use to integrate large language models (LLMs) into your applications. This architecture uses Semantic Kernel to create embeddings for the document content and metadata information, which are stored in Azure AI Search.
 - [Azure OpenAI Service](/azure/ai-services/openai/overview) provides access to OpenAI's powerful models. This architecture uses Azure OpenAI Service to provide a natural language interface for users to interact with the document-processing system.
-- [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) is a comprehensive platform for building, customizing, and managing AI-driven applications. It offers a unified SDK and seamless integration with popular developer tools.
-
 ### Alternatives
 
 - To facilitate global distribution, this solution stores metadata in Azure Cosmos DB. [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is another persistent storage option for document metadata and information.
