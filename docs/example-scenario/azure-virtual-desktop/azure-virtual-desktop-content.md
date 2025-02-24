@@ -87,7 +87,7 @@ Pooled desktop solutions, also called *non-persistent desktops*, assign users to
 There are several options for updating Azure Virtual Desktop instances. Deploying an updated image every month guarantees compliance and state.
 
 - [Microsoft Endpoint Configuration Manager (MECM)](/mem/configmgr) updates server and desktop operating systems.
-- [Windows Updates for Business](/windows/deployment/update/waas-manage-updates-wufb) updates desktop operating systems such as Windows 10/11 Enterprise multi-session.
+- [Windows Updates for Business](/windows/deployment/update/waas-manage-updates-wufb) updates desktop operating systems such as Windows 11 Enterprise multi-session.
 - [Azure Update Management](/azure/automation/update-management/overview) updates server operating systems.
 - [Azure Log Analytics](/azure/azure-monitor/platform/log-analytics-agent) checks compliance.
 - Deploy a new (custom) image to session hosts every month for the latest Windows and applications updates. You can use an image from Azure Marketplace or a [custom Azure-managed image](/azure/virtual-machines/windows/capture-image-resource).
@@ -127,17 +127,17 @@ The relationships between host pools, workspaces, and other key logical componen
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-The Well-Architected Framework, for the Azure Virtual Desktop workload, offers an [assessment tool](/azure/well-architected/azure-virtual-desktop/assessment) to self-assess the readiness of your Azure Virtual Desktop workload in production; this is an effective tool to check your alignment to best practices defined in the [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+Use the [assessment tool](/azure/well-architected/azure-virtual-desktop/assessment) to assess the readiness of your Azure Virtual Desktop workload. This tool checks your alignment to best practices described in the [Azure Virtual Desktop workload documentation](/azure/well-architected/azure-virtual-desktop/).
 
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/well-architected/reliability).
 
-- **Capacity Allocation**: To ensure guaranteed allocation of compute resources, you can request an [On-demand capacity reservation](/azure/virtual-machines/capacity-reservation-overview) with no term commitment and can be combined with reserved instances.
-- **Intra-region Resiliency**: Use [Availability zones](/azure/reliability/availability-zones-overview) for Azure services that support them such as:
-    - Virtual Machines (Session Hosts)
-    - Azure Storage (FSLogix or App Attach). For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
-- **Business Continuity**: If [Availability zones](/azure/reliability/availability-zones-overview) do not meet your **RTO/RPO targets**, review the guidance on [Multiregion Business Continuity and Disaster Recovery (BCDR)](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr) for Azure Virtual Desktop.
+- **Ensure capacity is reserved**: To ensure guaranteed allocation of compute resources, you can request an [On-demand capacity reservation](/azure/virtual-machines/capacity-reservation-overview) with no term commitment and can be combined with reserved instances.
+- **Add Intra-region resiliency**: Use [Availability zones](/azure/reliability/availability-zones-overview) for Azure services that support them such as:
+  - Virtual Machines (Session Hosts)
+  - Azure Storage (FSLogix or App Attach). For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
+- **Build a business continuity plan**: If [availability zones](/azure/reliability/availability-zones-overview) do not meet your RTO or RPO targets, review the guidance on [Multiregion Business Continuity and Disaster Recovery (BCDR)](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr) for Azure Virtual Desktop.
 
 ### Security
 
@@ -145,13 +145,13 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Consider the following security-related factors when you deploy Azure Virtual Desktop.
 
+- **Use Antivirus exclusions**: For profile solutions like FSLogix that mount virtual hard disk files, it's recommended to exclude those file extensions. For more information, see [Configure Antivirus file and folder exclusions](/fslogix/overview-prerequisites#configure-antivirus-file-and-folder-exclusions).
+- **Use Microsoft Entra ID**: Users can sign into Azure Virtual Desktop from anywhere using different devices and clients. To minimize the risk of unauthorized access and provide your organization with the ability to manage sign-in risks, [Enforce Microsoft Entra multifactor authentication using Conditional Access](/azure/virtual-desktop/set-up-mfa).
+- **Use encryption**: By default, most Azure managed disks are encrypted at rest when persisting to the cloud. If your session hosts require more extensive encryption, like end-to-end encryption, review the guidance on [managed disk encryption options](/azure/virtual-machines/disk-encryption-overview) to protect stored data from unauthorized access.
+- **Use private networking**: If you require private connectivity to Azure Virtual Desktop resources, use [Azure Private Link with Azure Virtual Desktop](/azure/virtual-desktop/private-link-overview) to constrain traffic between your virtual network and the service on the Microsoft Network.
+
 > [!NOTE]
 > For a more extensive list, see the guidance on [Security recommendations for Azure Virtual Desktop](/azure/virtual-desktop/security-recommendations)
-
-- **Antivirus Exclusions**: For profile solutions like FSLogix that mount virtual hard disk files, it's recommended to exclude those file extensions. For more information, see [Configure Antivirus file and folder exclusions](/fslogix/overview-prerequisites#configure-antivirus-file-and-folder-exclusions).
-- **Microsoft Entra**: Users can sign into Azure Virtual Desktop from anywhere using different devices and clients. To minimize the risk of unauthorized access and provide your organization with the ability to manage sign-in risks, [Enforce Microsoft Entra multifactor authentication using Conditional Access](/azure/virtual-desktop/set-up-mfa).
-- **Encryption**: By default, most Azure managed disks are encrypted at rest when persisting to the cloud. If your session hosts require more extensive encryption, like end-to-end encryption, review the guidance on [managed disk encryption options](/azure/virtual-machines/disk-encryption-overview) to protect stored data from unauthorized access.
-- **Private Networking**: If you require private connectivity to Azure Virtual Desktop resources, use [Azure Private Link with Azure Virtual Desktop](/azure/virtual-desktop/private-link-overview) to retain traffic between your virtual network and the service on the Microsoft Network rather than the public internet.
 
 ### Cost Optimization
 
@@ -159,30 +159,30 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Consider the following cost-related factors when you deploy Azure Virtual Desktop.
 
-- **Multi-Session**: For workloads with identical compute requirements, generally pooled host pools, [Windows Enterprise multi-session](/azure/virtual-desktop/windows-multisession-faq) offers the ability to accept more users to sign in to a single VM at once; reducing costs and administrative overhead.
-- **Licensing**: If you have Software Assurance, you can use [Azure Hybrid Benefit](/azure/virtual-machines/windows/hybrid-use-benefit-licensing) to reduce the cost of your Azure Compute Infrastructure.
-- **Reservations**: You can commit to one-year or three-year plans, [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), based on your VM usage to receive a discount to significantly reduce your resource cost. This can be combined with Azure Hybrid Benefit for up to 80 percent savings over list prices. 
-- **Scaling**: If committing to Azure Reservations is too demanding for your current needs, consider [Autoscale scaling plans](/azure/virtual-desktop/autoscale-scenarios) for power management or dynamic provisioning/deprovisioning of session hosts as the demand changes through the day/week.
-- **Load-Balancing Options**: If your organization is cost-conscious then configure your host pool load balancing algorithm to depth-first. However, this can degrade the users experience; the default breadth-first could be optimal if you value user experience. For more information, see [Configure host pool load balancing in Azure Virtual Desktop](/azure/virtual-desktop/configure-host-pool-load-balancing?tabs=portal)
+- **Plan multi-session support**: For workloads with identical compute requirements, generally pooled host pools, [Windows Enterprise multi-session](/azure/virtual-desktop/windows-multisession-faq) offers the ability to accept more users to sign in to a single VM at once; reducing costs and administrative overhead.
+- **Optimize licensing**: If you have Software Assurance, you can use [Azure Hybrid Benefit](/azure/virtual-machines/windows/hybrid-use-benefit-licensing) to reduce the cost of your Azure compute infrastructure.
+- **Pre-purchase compute**: You can commit to one-year or three-year plans, [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), based on your VM usage to receive a discount to significantly reduce your resource cost. This can be combined with Azure Hybrid Benefit for additional savings.
+- **Scale in and out as needed**: If committing to Azure Reservations is not appropriate for your current needs, consider [Autoscale scaling plans](/azure/virtual-desktop/autoscale-scenarios) for dynamic provisioning/deprovisioning of session hosts as the demand changes through the day/week.
+- **Evaluate load-balancing options**: Configure your host pool load balancing algorithm to depth-first. Be aware however, this can configuration degrades the users experience; the default breadth-first optimized user experience. For more information, see [Configure host pool load balancing in Azure Virtual Desktop](/azure/virtual-desktop/configure-host-pool-load-balancing).
 
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-- **Alerts**:  Configure [Service Health](https://learn.microsoft.com/en-us/azure/service-health/service-health-portal-update) and [Resource Health](/azure/service-health/resource-health-overview) alerts to stay informed about the health of the Azure services and regions that you use.
-    - Monitor the Azure Storage solution that you use for hosting FSLogix Profiles or App Attach shares to ensure that thresholds aren't exceeded, which might have a negative impact on your user experience.
-- **Data Collection**: Install the [Azure Monitoring Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) on your Azure Virtual Desktop session hosts to extract and monitor performance counters and event logs. For more information, see the [list of configurable performance metrics/counters and event logs](/azure/well-architected/azure-virtual-desktop/monitoring#session-host-performance).
-- **Insights**: Use [Azure Virtual Desktop Insights](/azure/virtual-desktop/insights-use-cases) to help with checks such as which client versions are connecting, opportunities for cost saving, or knowing if you have resource limitations or connectivity issues.
-- **Diagnostic Settings**:  Enable diagnostic settings for all services, Azure Virtual Desktop workspaces, application groups, host pools, storage accounts. Determine which settings are meaningful to your operations. Turn off settings that aren't meaningful to avoid undue costs; storage accounts (specifically the file service) that see a high amount of IOPS can incur high monitoring costs.
+- **Configure alerts**:  Configure [Service Health](/azure/service-health/service-health-portal-update) and [Resource Health](/azure/service-health/resource-health-overview) alerts to stay informed about the health of the Azure services and regions that you use.
+  - Monitor the Azure Storage solution that you use for hosting FSLogix Profiles or App Attach shares to ensure that thresholds aren't exceeded, which might have a negative impact on your user experience.
+- **Collect performance data**: Install the [Azure Monitoring Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) on your Azure Virtual Desktop session hosts to extract and monitor performance counters and event logs. For more information, see the [list of configurable performance metrics/counters and event logs](/azure/well-architected/azure-virtual-desktop/monitoring#session-host-performance).
+- **Collect usage insights**: Use [Azure Virtual Desktop Insights](/azure/virtual-desktop/insights-use-cases) to help with checks such as which client versions are connecting, opportunities for cost saving, or knowing if you have resource limitations or connectivity issues.
+- **Tune diagnostic settings**:  Enable diagnostic settings for all services, Azure Virtual Desktop workspaces, application groups, host pools, storage accounts. Determine which settings are meaningful to your operations. Turn off settings that aren't meaningful to avoid undue costs; storage accounts (specifically the file service) that see a high amount of IOPS can incur high monitoring costs.
 
 ### Performance Efficiency 
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance Efficiency pillar overview](/azure/well-architected/performance-efficiency).
 
-- **Latency**: For clients using a Point-to-Site (P2S) VPN connection use a split tunnel that's based on User Datagram Protocol (UDP) to reduce latency and optimize your tunnel bandwidth usage. For on-site clients who use a VPN or Azure ExpressRoute, use [RDP Shortpath](/azure/virtual-desktop/rdp-shortpath?tabs=public-networks) to reduce the round-trip time, which improves the user experience in latency-sensitive applications and input methods.
-- **Right-Sizing**: [Virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs) lists the maximum suggested number of users per virtual central processing unit (vCPU) and minimum VM configurations for different workloads. This data helps estimate the VMs you need in your host pool.
+- **Tune for latency**: For clients using a Point-to-Site (P2S) VPN connection use a split tunnel that's based on User Datagram Protocol (UDP) to reduce latency and optimize your tunnel bandwidth usage. For on-site clients who use a VPN or Azure ExpressRoute, use [RDP Shortpath](/azure/virtual-desktop/rdp-shortpath?tabs=public-networks) to reduce the round-trip time, which improves the user experience in latency-sensitive applications and input methods.
+- **Use right-size compute**: [Virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs) lists the maximum suggested number of users per virtual central processing unit (vCPU) and minimum VM configurations for different workloads. This data helps estimate the VMs you need in your host pool.
     - Utilize simulation tools to test deployments with both stress tests and real-life usage simulations. Make sure that the system is responsive and resilient enough to meet user needs, and remember to vary the load sizes when testing.
-- **Ephemeral OS disks**: If you treat your session hosts like cattle as opposed to pets, [Ephemeral OS disks](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks) are great way to improve performance, latency similar to temporary disks, and simultaneously save costs as they are free.
+- **Use ephemeral OS disks**: If you treat your session hosts like cattle as opposed to pets, [Ephemeral OS disks](/azure/virtual-machines/ephemeral-os-disks) are great way to improve performance, latency similar to temporary disks, and simultaneously save costs as they are free.
 
 ### Limitations
 
@@ -211,10 +211,8 @@ A collection of [ARM templates](https://github.com/Azure/RDS-Templates/tree/mast
 
 More scenarios are available from Microsoft Developer Tools which supports several deployment options:
 
-- [Azure Virtual Desktop with Microsoft Entra ID Join](https://learn.microsoft.com/en-us/samples/azure/azure-quickstart-templates/azure-virtual-desktop/)
-- [Azure Virtual Desktop with FSLogix and AD DS Join](https://learn.microsoft.com/en-us/samples/azure/azure-quickstart-templates/azure-virtual-desktop-with-fslogix/)
-
-Consider [Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/) (AVM) to develop your own scenario using Bicep or Terraform.
+- [Azure Virtual Desktop with Microsoft Entra ID Join](/samples/azure/azure-quickstart-templates/azure-virtual-desktop/)
+- [Azure Virtual Desktop with FSLogix and AD DS Join](/samples/azure/azure-quickstart-templates/azure-virtual-desktop-with-fslogix/)
 
 ## Contributors
 
@@ -231,7 +229,7 @@ Principal author:
 ## Next steps
 
 - [Azure Virtual Desktop partner integrations](/azure/virtual-desktop/partners) lists approved Azure Virtual Desktop partner providers and independent software vendors.
-- Use the [Virtual Desktop Optimization Tool](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) to help optimize performance in a Windows 10/11 Enterprise VDI (virtual desktop infrastructure) environment.
+- Use the [Virtual Desktop Optimization Tool](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) to help optimize performance in a Windows 11 Enterprise VDI (virtual desktop infrastructure) environment.
 - For more information, see [Deploy Microsoft Entra joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-ad-joined-vm).
 - Learn more about [Active Directory Domain Services](/windows-server/identity/ad-ds/active-directory-domain-services).
 - [What is Microsoft Entra Connect?](/azure/active-directory/hybrid/whatis-azure-ad-connect)
