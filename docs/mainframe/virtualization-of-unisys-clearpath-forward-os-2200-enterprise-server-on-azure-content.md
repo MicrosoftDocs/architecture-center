@@ -2,7 +2,7 @@ This article describes how to use virtualization technologies from Unisys, a Mic
 
 ## Architecture
 
-**Example source (premigration) architecture**: The following architecture illustrates a typical, on-premises Unisys CPF Dorado (Sperry 1100/2200) enterprise server.
+**Example source (premigration) architecture**: The following architecture illustrates a typical, on-premises Unisys CPF Dorado (2200) enterprise server.
 
 :::image type="content" source="./images/unisys-clearpath-forward-os-2200-mainframe-rehost-diagram-premigration.svg" alt-text="Diagram of the premigration architecture." lightbox="./images/unisys-clearpath-forward-os-2200-mainframe-rehost-diagram-premigration.svg" border="false":::
 
@@ -43,7 +43,7 @@ Other ways to transfer data and processes to Azure include:
 
 ## Scenario details
 
-The Unisys enterprise servers trace their heritage to the first commercially available enterprise servers. The Unisys CPF Dorado (Sperry 1100/2200) and Libra (Burroughs A Series/Master Control Program) systems are full-featured enterprise server operating environments. They can scale vertically to handle mission-critical workloads. You can emulate, convert, or modernize these systems into Azure. Azure offers similar or even improved performance characteristics and service-level agreement (SLA) metrics.
+The Unisys enterprise servers trace their heritage to the first commercially available enterprise servers. The Unisys CPF Dorado (2200) and Libra (Master Control Program) systems are full-featured enterprise server operating environments. They can scale vertically to handle mission-critical workloads. You can emulate, convert, or modernize these systems into Azure. Azure offers similar or even improved performance characteristics and service-level agreement (SLA) metrics.
 
 A Unisys transition moves the entire Dorado system from today's hardware to Azure via a VM. The 2200 Exec OS and all processors, libraries, and data appear as they did on the physical environment. The OS requires a license from Unisys. The architecture includes support VMs, which handle functions such as virtual tapes operations, automation and workload management (OpCon), web services, and other support functions. The architecture also uses Azure storage features, including:
 
@@ -52,13 +52,13 @@ A Unisys transition moves the entire Dorado system from today's hardware to Azur
 
 The benefit of this approach is a rapid move to Azure compared to other methodologies. Because hardware maintenance and facility costs are decreased, there's a quick return on investment (ROI). Because the Dorado environment is unchanged, there's no cost associated with retraining users and programmers.
 
-Depending upon your end goal, a transition can be the end state or a first step toward modernizing applications within the Dorado environment or within Azure. This approach provides a measured, planned path for updating applications. It retains the investment in the existing application code. After conversion, you can use other Unisys CloudForte and Azure data analytic services.
+Depending upon your end goal, a transition can be the end state or a first step toward modernizing applications within the Dorado environment or within Azure. This approach provides a measured, planned path for updating applications. It retains the investment in the existing application code. After conversion, you can use other Unisys and Azure data analytic services.
 
 ### Potential use cases
 
 - Move existing Unisys CPF Dorado workloads to Azure rapidly, with low risk.
 - Use [Azure Arc](https://azure.microsoft.com/services/azure-arc/) to create a DR plan for an existing on-premises workload.
-- Add Unisys CloudForte or Azure data services to existing client capabilities.
+- Add Unisys Azure data services to existing client capabilities.
 - Use Azure-based CPF to serve as a DR, test, or development environment without the need for more hardware or facility resources.
 
 ## Considerations
@@ -76,8 +76,6 @@ Unisys CPF in Azure uses Site Recovery to ensure system availability and consist
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Unisys CPF is a secure system on its own. Azure adds a layer of encryption for data at rest and in motion.
-
-Unisys Stealth technology hides endpoints. Azure offers other security controls.
 
 ### Cost Optimization
 
@@ -104,6 +102,7 @@ You can optimize your operational efficiency by deploying your solution with Azu
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 Unisys matches the operational performance in Azure with Developer Studio. You can use the gold or platinum tier depending on your workload and operational needs. Use Developer Studio to increase the speed of tasks including new code development, queries, report generation, and other tasks.
+Unisys CPF virtualiztion is unique in the mainframe migration to cloud market space.
 
 ## Contributors
 
@@ -120,16 +119,15 @@ Principal authors:
 
 For more information, contact [**legacy2azure@microsoft.com**](mailto:legacy2azure@microsoft.com), or see the following resources:
 
+- [SMA OpCon in Azure](/azure/architecture/solution-ideas/articles/sma-opcon-azure)
+- [Unisys cloud management](https://www.unisys.com/solutions/cloud-management)
+- [Unisys CPF MCP mainframe rehost to Azure using Unisys virtualization](/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost)
 - [Azure ExpressRoute documentation](/azure/expressroute/expressroute-introduction)
 - [Azure mainframe and midrange migration](https://azure.microsoft.com/migration/mainframe)
 - [Azure Virtual Network documentation](/azure/virtual-network)
 - [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface)
 - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
 - [Mainframe rehosting on Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
-- [SMA OpCon in Azure](/azure/architecture/solution-ideas/articles/sma-opcon-azure)
-- [Unisys CloudForte for Azure in Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/unisys-azuremp-stealth.cloudforte_for_azure?tab=Overview)
-- [Unisys cloud management](https://www.unisys.com/solutions/cloud-management)
-- [Unisys CPF MCP mainframe rehost to Azure using Unisys virtualization](/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost)
 - [Unisys cybersecurity](https://www.unisys.com/solutions/cybersecurity-solutions)
 - [What is Azure Files?](/azure/storage/files/storage-files-introduction)
 
