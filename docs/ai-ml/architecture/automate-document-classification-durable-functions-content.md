@@ -1,5 +1,5 @@
 
-This article describes an architecture that you can use to process various documents. The architecture uses the durable functions feature of Azure Functions to implement pipelines. The pipelines process documents via Azure AI Document Intelligence for document spliting, named entity recognition (NER), and classification.  Documents content and metadata are used for Retrieval Augmented Generation (RAG) based natrual language processing.
+This article describes an architecture that you can use to process various documents. The architecture uses the durable functions feature of Azure Functions to implement pipelines. The pipelines process documents via Azure AI Document Intelligence for document splitting, named entity recognition (NER), and classification. Documents content and metadata are used for Retrieval Augmented Generation (RAG) based natural language processing.
 
 ## Architecture
 
@@ -16,7 +16,7 @@ This article describes an architecture that you can use to process various docum
 1. The *metadata store* activity function saves the document type, location, and page range information for each document in an Azure Cosmos DB store.
 1. The *embedding* activity function uses Semantic Kernel to chunk each document and create embeddings for each chunk. Embeddings and associated content are sent to Azure AI Search and stored in a vector enabled index. A correlation ID is also added to the search document so that the search results can be matched with the corresponding document metadata from Azure Cosmos DB.
 1. Semantic Kernel retrieves embeddings from Azure AI Search Vector store for NLP.
-1. Users can chat with their data using natrual language processing using grounded data retrieved from the vector store. To look up document records that are in Azure Cosmos DB, they use correlation IDs included in the search result set. The records include links to the original document file in Blob Storage.
+1. Users can chat with their data using natural language processing using grounded data retrieved from the vector store. To look up document records that are in Azure Cosmos DB, they use correlation IDs included in the search result set. The records include links to the original document file in Blob Storage.
 
 ### Components
 

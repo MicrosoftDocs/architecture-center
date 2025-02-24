@@ -15,7 +15,6 @@ azureCategories:
   - ai-machine-learning
 products:
   - azure-functions
-  - azure-app-service
   - azure-openai
   - ai-services
   - azure-cognitive-search
