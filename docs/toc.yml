@@ -1278,8 +1278,6 @@ items:
         href: guide/multitenant/approaches/iot.md
     - name: Architectures
       items:
-      - name: Automotive connected fleets
-        href: industries/automotive/automotive-connected-fleets.yml
       - name: Automotive test data analytics
         href: industries/automotive/automotive-telemetry-analytics.yml
     - name: Solution ideas
