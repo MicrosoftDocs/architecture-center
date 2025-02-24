@@ -5,7 +5,7 @@ metadata:
   description: Learn how to secure a data lakehouse that's implemented by using Azure Synapse Analytics.
   author: icchan
   ms.author: iache
-  ms.date: 06/21/2022
+  ms.date: 02/06/2025
   ms.topic: example-scenario
   ms.service: azure-architecture-center
   ms.subservice: example-scenario

@@ -4,6 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn how to develop highly resilient global web applications.
 author: johndowns
 ms.author: jodowns
+ms.reviewer: dburkhardt
 ms.date: 02/19/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
