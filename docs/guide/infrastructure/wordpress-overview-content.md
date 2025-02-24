@@ -102,8 +102,6 @@ Large WordPress installations can be storage intensive. In these scenarios, you 
 
 For a container deployment of WordPress, you should use AKS. With Azure NetApp Files, implement storage via a Kubernetes Container Storage Interface (CSI) driver. Azure NetApp Files offers a `ReadWriteMany` mode so that all the nodes can read from and write to the same storage. For more information, see [AKS WordPress architecture](../../example-scenario/infrastructure/wordpress-container.yml).
 
-For a large WordPress installation that runs on VMs, you should mount Azure NetApp Files via the network file system (NFS) protocol. For more information, see [WordPress on virtual machines](../../example-scenario/infrastructure/wordpress-iaas.yml).
-
 ### Immutable WordPress container
 
 An alternative approach to traditional hosting methods is to deploy WordPress into an immutable container. This approach has advantages and disadvantages. The source code and all resources within immutable containers are fixed and can't be modified after deployment. You need to make all changes, including new plug-in installations or WordPress core updating, in a new version of the container image. Although this approach helps ensure consistency and simplifies rollbacks, you have to build a deployment pipeline to make changes. Also, immutable containers can be limited in the persistent storage options that they offer. You might need to develop a solution for handling media files and other data. Despite these limitations, immutable container deployments offer benefits in terms of security, scalability, and portability.
