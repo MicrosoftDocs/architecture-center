@@ -25,10 +25,8 @@ The following new and updated articles have recently been published in the Azure
 
 ## February 2025
 
-### New articles
+### New article
 
-- [CQRS Pattern](./patterns/cqrs.md)
-- [Strangler Fig Pattern](./patterns/strangler-fig.md)
 - [Design a Secure Multitenant RAG Inferencing Solution](./ai-ml/guide/secure-multitenant-rag.md)
 
 ### Updated articles
