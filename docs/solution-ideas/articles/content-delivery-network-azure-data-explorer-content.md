@@ -17,10 +17,10 @@ This solution idea demonstrates low-latency, high-throughput ingestion of large 
 
 ### Components
 
-- [Azure Storage Azure Data Explorer connector](/azure/data-explorer/ingest-data-event-grid): Continuous ingestion from Azure Storage (Blob storage and ADLSv2) with Azure Event Grid subscription to stream these notifications to Azure Data Explorer.
-- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer): Fast, fully managed and highly scalable data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more.
-- [Azure Data Explorer Dashboards](/azure/data-explorer/azure-data-explorer-dashboards): Natively export Kusto queries that were explored in the Web UI to optimized dashboards.
-- [Azure Logic Apps Azure Data Explorer connector](/azure/data-explorer/kusto/tools/logicapps): Run Kusto queries and commands automatically as part of a scheduled or triggered task.
+- [Azure Storage Azure Data Explorer connector](/azure/data-explorer/ingest-data-event-grid): Continuous ingestion from Azure Storage (Blob storage and ADLSv2) with Azure Event Grid subscription to stream these notifications to Azure Data Explorer. With this component, you automatically ingest new CDN logs written to Azure Data Lake Storage into Azure Data Explorer.
+- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer): Fast, fully managed and highly scalable data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. Azure Data Explorer stores large volumes of your CDN logs so you can perform real-time analysis on both historical and streaming data.
+- [Azure Data Explorer Dashboards](/azure/data-explorer/azure-data-explorer-dashboards): Natively export Kusto queries that were explored in the Web UI to optimized dashboards. With this component, you create near real-time analytics dashboards based on your analysis of CDN logs.
+- [Azure Logic Apps Azure Data Explorer connector](/azure/data-explorer/kusto/tools/logicapps): Run Kusto queries and commands automatically as part of a scheduled or triggered task. Use this to create and schedule alerts and notifications whenever one or more configured instances occur. For example, a parameter within a CDN log crossing a specified threshold.
 
 ## Scenario details
 
@@ -39,7 +39,7 @@ You can use this solution to ingest large volumes of CDN logs for the purpose of
 
 Principal author:
 
- * [Ornat Spodek](https://www.linkedin.com/in/ornat-s-89123544) | Senior Content Manager
+- [Shlomo Sagir](https://www.linkedin.com/in/shlomo-sagir/) | Senior Content Developer
 
 ## Next steps
 
@@ -50,4 +50,3 @@ For more information, see [Azure Data Explorer documentation](/azure/data-explor
 - [Analytics architecture design](analytics-start-here.yml)
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 - [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.yml)
-

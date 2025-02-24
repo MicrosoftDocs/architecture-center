@@ -3,9 +3,9 @@ metadata:
   title: Content Delivery Network analytics
   titleSuffix: Azure Solution Ideas
   description: This architecture pattern demonstrates low-latency high throughput ingestion for large volumes of Content Delivery Network (CDN) logs for building near real-time analytics dashboards.
-  author: orspod
-  ms.author: orspodek
-  ms.date: 03/04/2024
+  author: shsagir
+  ms.author: shsagir
+  ms.date: 02/11/2025
   ms.topic: solution-idea
   ms.service: azure-architecture-center
   ms.subservice: solution-idea
