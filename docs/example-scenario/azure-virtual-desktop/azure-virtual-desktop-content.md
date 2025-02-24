@@ -153,6 +153,9 @@ Consider the following security-related factors when you deploy Azure Virtual De
 - **Encryption**: By default, most Azure managed disks are encrypted at rest when persisting to the cloud. If your session hosts require more extensive encryption, like end-to-end encryption, review the guidance on [managed disk encryption options](/azure/virtual-machines/disk-encryption-overview) to protect stored data from unauthorized access.
 - **Private Networking**: If you require private connectivity to Azure Virtual Desktop resources, use [Azure Private Link with Azure Virtual Desktop](/azure/virtual-desktop/private-link-overview) to retain traffic between your virtual network and the service on the Microsoft Network rather than the public internet.
 
+> [!NOTE]
+> For more security recommendations, see the guidance on [Security recommendations for Azure Virtual Desktop](/azure/virtual-desktop/security-recommendations).
+
 ### Cost Optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
