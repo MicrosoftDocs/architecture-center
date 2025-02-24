@@ -102,7 +102,8 @@ You can optimize your operational efficiency by deploying your solution with Azu
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 Unisys matches the operational performance in Azure with Developer Studio. You can use the gold or platinum tier depending on your workload and operational needs. Use Developer Studio to increase the speed of tasks including new code development, queries, report generation, and other tasks.
-Unisys CPF virtualiztion is unique in the mainframe migration to cloud market space.
+
+Unisys CPF virtualization is unique in the mainframe migration to cloud market space.
 
 ## Contributors
 
