@@ -7023,6 +7023,11 @@
       "source_path": "docs/example-scenario/infrastructure/wordpress-iaas.yml",
       "redirect_url": "/azure/architecture/example-scenario/infrastructure/wordpress-app-service",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs//industries/automotive/automotive-connected-fleets.yml",
+      "redirect_url": "/industry/mobility/architecture/automotive-connected-fleets-content",
+      "redirect_document_id": false
     }
   ]
 }
