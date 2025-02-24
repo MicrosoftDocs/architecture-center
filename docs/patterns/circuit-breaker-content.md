@@ -105,6 +105,10 @@ An architect should evaluate how the Circuit Breaker pattern can be used in thei
 
 As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
+## Example
+
+*Fer to insert new example here*
+
 ## Related resources
 
 The following patterns might also be useful when implementing this pattern:
