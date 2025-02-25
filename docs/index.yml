@@ -116,7 +116,7 @@ conceptualContent:
         url: ./guide/technology-choices/compute-decision-tree.yml
         itemType: reference
       - text: CQRS design pattern
-        url: ./patterns/cqrs.yml
+        url: ./patterns/cqrs.md
         itemType: concept
 
     - title: AI & Machine Learning
@@ -151,7 +151,7 @@ conceptualContent:
         - text: Analytics end-to-end with Azure Synapse 
           itemType: architecture
           url: ./example-scenario/dataplate2e/data-platform-end-to-end.yml
-        - text: Enterprise business intelligence
+        - text: Enterprise BI with Azure Synapse Analytics
           itemType: architecture
           url: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
         - text: Near real-time lakehouse data processing
@@ -283,9 +283,6 @@ conceptualContent:
         - text: Highly available network virtual appliances
           itemType: concept
           url: networking/guide/nva-ha.yml
-        - text : Segment virtual networks
-          itemType: concept
-          url: networking/guide/network-level-segmentation.yml
 
     - title: Security
       links:
@@ -298,9 +295,6 @@ conceptualContent:
         - text: Zero-trust network with Azure Firewall and Application Gateway
           itemType: concept
           url: /azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall
-        - text: Homomorphic encryption with SEAL
-          itemType: architecture
-          url: /azure/architecture/solution-ideas/articles/homomorphic-encryption-seal
         - text: Securely managed web applications
           itemType: architecture
           url: /azure/architecture/example-scenario/apps/fully-managed-secure-apps
@@ -316,9 +310,6 @@ conceptualContent:
         - text: Baseline zone-redundant web application
           itemType: architecture
           url: web-apps/app-service/architectures/baseline-zone-redundant.yml
-        - text: Multi-region deployment
-          itemType: architecture
-          url: web-apps/app-service/architectures/multi-region.yml
         - text: E-commerce product search
           itemType: get-started
           url:  ./databases/architecture/ecommerce-search.yml

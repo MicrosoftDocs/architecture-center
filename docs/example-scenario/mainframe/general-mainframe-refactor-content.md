@@ -75,7 +75,7 @@ This example features the following Azure components. Several of these component
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) offers many sizes and types of on-demand, scalable computing resources. With Azure VMs, you get the flexibility of virtualization without having to buy and maintain physical hardware.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block of Azure private networks. Azure VMs within virtual networks can communicate securely with each other, the internet, and on-premises networks. A virtual network is like a traditional on-premises network, but with Azure infrastructure benefits like scalability, high availability, and isolation.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block of Azure private networks. Azure VMs within virtual networks can communicate securely with each other, the internet, and on-premises networks. A virtual network is like a traditional on-premises network, but with Azure infrastructure benefits like scalability, high availability, and isolation.
 
 - [Azure Private Link](/azure/private-link/private-link-overview) provides private connectivity from a virtual network to Azure services. Private Link simplifies network architecture and secures the connection between Azure endpoints by eliminating public internet exposure.
 

@@ -3,7 +3,7 @@ title: Develop a RAG Solution - Large Language Model End-to-End Evaluation Phase
 description: Learn about how to evaluate your RAG solution from end to end by calculating and evaluating key large language model and similarity metrics.
 author: robbagby
 ms.author: robbag
-ms.date: 01/07/2025 
+ms.date: 01/29/2025 
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.collection: ce-skilling-ai-copilot
@@ -24,13 +24,13 @@ In this phase, you evaluate your Retrieval-Augmented Generation (RAG) solution b
 
 This grounding data forms the context for the prompt that you send to the language model to address the user's query. [Prompt engineering strategies](https://platform.openai.com/docs/guides/prompt-engineering) are beyond the scope of this article. This article addresses the evaluation of the engineered call to the language model from the perspective of the grounding data. This article covers common language model evaluation metrics and specific similarity and evaluation metrics that you can use in model evaluation calculations or as standalone metrics.
 
-This article doesn't attempt to provide an exhaustive list of language model metrics or similarity and evaluation metrics. The number of these metrics grows every day. What's important for you to take away from this article is that there are various metrics that each have distinct use cases. Only you have a holistic understanding your workload. You and your data scientists must determine what you want to measure and which metrics are appropriate.
+This article doesn't attempt to provide an exhaustive list of language model metrics or similarity and evaluation metrics. What's important for you to take away from this article is that there are various metrics that each have distinct use cases. Only you have a holistic understanding your workload. You and your data scientists must determine what you want to measure and which metrics are appropriate.
 
 This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md) first.
 
 ## Language model evaluation metrics
 
-There are several metrics that you can use to evaluate the language model's response. A few of these metrics are groundedness, completeness, utilization, and relevancy.
+There are several metrics that you should use to evaluate the language model's response, including groundedness, completeness, utilization, relevancy, and correctness. Because the overall goal of the RAG pattern is to provide relevant data as context to a language model when generating a response, ideally, each of the above metrics should score highly. However, depending on your workload, you may need to prioritize one over another.
 
 > [!IMPORTANT]
 > Language model responses are nondeterministic, which means that the same prompt to a language model often returns different results. This concept is important to understand when you use a language model as part of your evaluation process. Consider using a target range instead of a single target when you evaluate language model use.
@@ -114,13 +114,32 @@ When relevance is low, do the following tasks:
 
 The scores that evaluation methods like [completeness](#completeness) output should yield results that are similar to the relevance score.
 
+### Correctness
+
+*Correctness* measures the degree to which the response is accurate and factual.
+
+#### Calculate correctness
+
+There are several ways to evaluate correctness, including:
+
+- **Language model** - Use a language model to calculate correctness. You can pass the response to the language model, ideally a different language model than the one used to generate the result. You can ask the language model to determine whether the response is factual or not.
+- **External trusted source** - Use an external trusted source to validate the correctness of the response. Depending upon the API of your trusted source, you can use the trusted source alone, or with a language model.
+
+#### Evaluate correctness
+
+When correctness is low, do the following tasks:
+
+1. Ensure that the chunks provided to the language model are factually correct and there's no data bias. You may need to correct any issues in the source documents or content.
+1. If the chunks are factually correct, evaluate your prompt.
+1. Evaluate if there are inherit inaccuracies in the model that needs to be overcome with additional factual grounding data or fine-tuning.
+
 ## Similarity and evaluation metrics
 
 There are hundreds of similarity and evaluation metrics that you can use in data science. Some algorithms are specific to a domain, such as speech-to-text or language-to-language translation. Each algorithm has a unique strategy for calculating its metric.
 
 Data scientists determine what you want to measure and which metric or combination of metrics you can use to measure it. For example, for language translation, the bilingual evaluation understudy (BLEU) metric checks how many n-grams appear in both the machine translation and human translation to measure similarity based on whether the translations use the same words. Cosine similarity uses embeddings between the machine and human translations to measure semantic similarity. If your goal is to have high semantic similarity and use similar words to the human translation, you want a high BLEU score with high cosine similarity. If you only care about semantic similarity, focus on cosine similarity.
 
-The following list contains a sample of common similarity and evaluation metrics. Notice that the listed similarity metrics are described as token based, sequence based, or edit based. These descriptions illustrate which approaches the metrics use to calculate similarity. The list also contains three algorithms to evaluate the quality of text translation from one language to another.
+The following list contains a sample of common similarity and evaluation metrics. Notice that the listed similarity metrics are described as token based, sequence based, or edit based. These descriptions illustrate which approach the metrics use to calculate similarity. The list also contains three algorithms to evaluate the quality of text translation from one language to another.
 
 - **[Longest common substring](https://en.wikipedia.org/wiki/Longest_common_substring)** is a sequence-based algorithm that finds the longest common substring between two strings. The longest common substring percentage takes the longest common substring and divides it by the number of characters of the smaller or larger input string.
 - **[Longest common subsequence (LCS)](https://en.wikipedia.org/wiki/Longest_common_subsequence)** is a sequence-based algorithm that finds the longest subsequence between two strings. LCS doesn't require the subsequences to be in consecutive order.
@@ -137,6 +156,24 @@ For more information about common similarity and evaluation metrics, see the fol
 
 - [PyPi textdistance package](https://pypi.org/project/textdistance/)
 - [Wikipedia list of similarity algorithms](https://en.wikipedia.org/wiki/Similarity_measure)
+
+## Using multiple evaluation metrics together
+
+You should use the language model evaluation metrics together to get a better understanding of how well your RAG solution is performing. The following are several examples of using multiple evaluation metrics together.
+
+### Groundedness and correctness
+
+Groundedness and correctness metrics together help determine if the system is accurately interpreting and using the context. If groundedness is high but correctness is low, it means the language model is using the context but providing an incorrect response. The incorrect response could be due to improper use of context or issues with the source data. For example, if groundedness is 0.9 but correctness is 0.4, it indicates that the system is referencing the correct source material but drawing incorrect conclusions. Consider a response stating 'Einstein developed quantum mechanics' based on a context that separately mentions both Einstein and quantum mechanics. This response is grounded but factually incorrect.
+
+This metric combination is one where prioritizing one over the other could be very important for your specific workload. For example, if the source data contains potentially false information by design and it might be critical for the system to retain that false information in its responses. In that case you want to prioritize a grounded response over a correct response. In other cases, your workload would rather have context data be consulted, but ultimate correctness still be the priority.
+
+### Utilization and completeness
+
+Utilization and completeness metrics together help evaluate the effectiveness of the retrieval system. High utilization (0.9) with low completeness (0.3) indicates the system retrieves accurate but incomplete information. For instance, when asked about World War II causes, the system might perfectly retrieve information about the invasion of Poland but miss other crucial factors. This scenario may indicate that there are chunks with relevant information that weren't used as part of the context. To address this scenario, consider returning more chunks, evaluating your chunk ranking strategy, and evaluating your prompt.
+
+### Groundedness and utilization and similarity
+
+Groundedness, utilization, and similarity metrics together help identify how well the system maintains truth while transforming information. High groundedness (0.9) and utilization (.9) with low similarity (0.3) indicates that the system is using accurate grounding data, but paraphrasing poorly. To address this scenario, evaluate your prompt. Modify the prompt and test the results.
 
 ## Documentation, reporting, and aggregation
 

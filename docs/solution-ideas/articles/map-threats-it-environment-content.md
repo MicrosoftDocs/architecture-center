@@ -4,7 +4,7 @@ This article outlines how to diagram your organization's core IT environment and
 
 Computer systems hold information that is not only valuable to the organizations that generate it but also to malicious actors. These actors, whether individuals or groups, engage in harmful activities aimed at compromising or damaging the computers, devices, systems, and networks of companies. Their goal is often to steal or corrupt sensitive data using threats like malware or brute force attacks.
 
-In this article, we explore a method for mapping threats to your IT environment, enabling you to plan the implementation of Microsoft security services as part of your security strategy. This is the second article in a series of five, as introduced in the previous installment. [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml).
+In this article, we explore a method for mapping threats to your IT environment, enabling you to plan the implementation of Microsoft security services as part of your security strategy. 
 
 The good news is that you don’t need to create a threat map from scratch. The MITRE ATT&CK matrix offers an excellent resource to help you develop one. MITRE ATT&CK is a global knowledge base that maps real-world threats based on observed tactics and techniques. The MITRE Corporation documents every known threat in detail, providing valuable insights into how these threats operate and how you can defend against them. This publicly accessible resource is available online at MITRE ATT&CK®.
 
@@ -134,7 +134,6 @@ This document refers to some services, technologies, and terminologies. You can 
 
 For more details about this reference architecture, see the other articles in this series:
 
-- Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
-- Part 3: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
-- Part 4: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
-- Part 5: [Integrate Azure and Microsoft Defender XDR security services](./microsoft-365-defender-security-integrate-azure.yml)
+- Part 2: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
+- Part 3: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
+- Part 4: [Integrate Azure and Microsoft Defender XDR security services](./microsoft-365-defender-security-integrate-azure.yml)

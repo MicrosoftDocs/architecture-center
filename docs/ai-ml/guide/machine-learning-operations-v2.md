@@ -1,8 +1,8 @@
 ---
-title: Machine learning operations v2
+title: Machine learning operations
 description: Learn about a single deployable set of repeatable and maintainable patterns for creating machine learning CI/CD and retraining pipelines.
-author: sdonohoo
-ms.author: robbag
+author: setuc
+ms.author: setuchokshi
 ms.date: 07/03/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
@@ -625,15 +625,13 @@ Monitor the ongoing service of an API for performance optimization, security, an
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
-- [Scott Donohoo](https://www.linkedin.com/in/scottdonohoo) | Senior Cloud Solution Architect
-- [Moritz Steller](https://www.linkedin.com/in/moritz-steller-426430116/) | Senior Cloud Solution Architect
+- [Setu Chokshi](https://www.linkedin.com/in/setuchokshi/) | Senior Technical Specialist
 
 Other contributors:
 
 - [Scott Mckinnon](https://www.linkedin.com/in/scott-mckinnon-96756a83/) | Cloud Solution Architect
-- [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore/) | Cloud Solution Architect
 - [Darren Turchiarelli](https://www.linkedin.com/in/darren-turchiarelli/) | Cloud Solution Architect
 - [Leo Kozhushnik](https://www.linkedin.com/in/leo-kozhushnik-ab16707/) | Cloud Solution Architect
 

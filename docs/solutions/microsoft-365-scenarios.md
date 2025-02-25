@@ -65,7 +65,6 @@ The following articles provide detailed analysis of solutions that feature integ
 |[Microsoft Entra security for AWS](../reference-architectures/aws/aws-azure-ad-security.yml)|Learn how Microsoft Entra ID can help secure and protect Amazon Web Services (AWS) identity management and account access. If you already use Microsoft Entra ID for Microsoft 365, this solution is easy to deploy.| Identity|
 |[Defender for Cloud Apps and Microsoft Sentinel for AWS](../guide/aws/aws-azure-security-solutions.yml)|Learn how Microsoft Defender for Cloud Apps and Microsoft Sentinel can help secure and protect AWS account access and environments. If you already use Microsoft Entra ID for Microsoft 365, this solution is easy to deploy.| Security|
 |[Manage Microsoft 365 tenant configuration with Azure DevOps](../example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml)|Learn how to manage Microsoft 365 tenant configuration by using Microsoft365DSC and Azure DevOps.| Web|
-|[Power Automate deployment at scale](../example-scenario/power-automate/power-automate.yml)|Learn how to use a hub-and-spoke architectural model to deploy Power Automate parent and child flows. This architecture is for Power Automate workflows that replace SharePoint 2010 workflows, and for new SharePoint Online sites.| Integration|
 
 ### Exchange Online
 
@@ -79,7 +78,6 @@ The following articles provide detailed analysis of solutions that feature integ
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Enterprise-scale disaster recovery](../solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml)|Learn about a large-enterprise architecture for SharePoint, Dynamics CRM, and Linux web servers that runs on an on-premises datacenter and fails over to Azure infrastructure.| Management/Governance|
 |[Highly available SharePoint farm](../solution-ideas/articles/highly-available-sharepoint-farm.yml)|Deploy a highly available SharePoint farm that uses Microsoft Entra ID, a SQL Server Always On instance, and SharePoint resources.|Web|
 
 ### Teams

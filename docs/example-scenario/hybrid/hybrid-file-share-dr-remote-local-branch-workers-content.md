@@ -88,7 +88,7 @@ Azure Files supports Azure Backup, and its use is highly recommended. This workl
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-Azure Files has a fully integrated API that can be deployed through Bicep, Terraform, and PowerShell, and therefore can be managed through Azure Devops and Azure Pipelines.
+Azure Files has a fully integrated API that can be deployed through Bicep, Terraform, and PowerShell, and therefore can be managed through Azure DevOps and Azure Pipelines.
 
 ### Performance efficiency
 

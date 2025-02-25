@@ -57,7 +57,7 @@ Here are two types of managed identities:
   - A service principal of a special type is created in Microsoft Entra ID for the identity. The service principal is tied to the lifecycle of that Azure resource. When the Azure resource is deleted, Azure automatically deletes the service principal for you.
   - By design, only that Azure resource can use this identity to request tokens from Microsoft Entra ID.
   - You authorize the managed identity to have access to one or more services.
-  - The name of the system-assigned service principal is always the same as the name of the Azure resource it's created for. For a deployment slot, the name of its system-assigned identity is `<app-name>/slots/<slot-name>`.
+  - The name of the system-assigned service principal is always the same as the name of the Azure resource it's created for.
 
 - **User-assigned**. You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) and assign it to one or more Azure Resources. When you enable a user-assigned managed identity:
   - A service principal of a special type is created in Microsoft Entra ID for the identity. The service principal is managed separately from the resources that use it.
@@ -143,13 +143,12 @@ For more information, documentation, and automation related to Microsoft Entra W
 
 An example workload running on an AKS cluster consists of a frontend and a backend service. These services use Microsoft Entra Workload ID to access Azure services, including Azure Key Vault, Azure Cosmos DB, Azure Storage account, and Azure Service Bus namespace. To set up this example workload, the following prerequisites must be met:
 
-1. Set up an AKS cluster with [OIDC issuer](/azure/aks/use-oidc-issuer) enabled.
-2. Install the [mutating admission webhook](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html).
-3. Create a Kubernetes service account for the workloads.
-4. Create a Microsoft Entra application as shown in the [quickstart guide](https://azure.github.io/azure-workload-identity/docs/quick-start.html).
-5. Assign the necessary roles with appropriate permissions to the Microsoft Entra registered applications.
-6. Establish a federated identity credential between the Microsoft Entra application and the service account issuer and subject.
-7. Deploy the workload application to the AKS cluster.
+1. Set up an AKS cluster with the [OpenID Connect issuer](/azure/aks/use-oidc-issuer) and [Microsoft Entra Workload ID](/azure/aks/workload-identity-deploy-cluster) enabled.
+2. Create a Kubernetes [service account](https://kubernetes.io/docs/concepts/security/service-accounts/) in the workload [namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
+3. Create a Microsoft Entra [user-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview) or [registered application](/entra/identity/enterprise-apps/what-is-application-management).
+4. Establish a federated identity credential between the Microsoft Entra managed identity or registered application and the workload service account.
+5. Assign the necessary roles with appropriate permissions to the Microsoft Entra managed identity or registered application.
+6. Deploy the workload and verify authentication with the workload identity.
 
 #### Microsoft Entra Workload ID message flow
 

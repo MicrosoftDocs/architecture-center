@@ -143,7 +143,6 @@ For more Service Bus recommendations, see [Best practices for performance improv
 
 - [Basic enterprise integration on Azure](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml)
 - [Enterprise business intelligence](../../example-scenario/analytics/enterprise-bi-synapse.yml)
-- [Custom business processes](../../solution-ideas/articles/custom-business-processes.yml)
 
 
 [aaf-cost]: /azure/architecture/framework/cost/overview

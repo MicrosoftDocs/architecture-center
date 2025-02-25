@@ -40,7 +40,7 @@ The architecture consists of the following components:
 
 ## Components
 
-- [Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability). Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
+- [Virtual Network](/azure/well-architected/service-guides/virtual-network). Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
 
 - [Azure Bastion](/azure/bastion/bastion-overview). Azure Bastion is a fully managed service that provides more secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to virtual machines (VMs) without any exposure through public IP addresses.
 
@@ -61,7 +61,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 Use integrated DNS zones in AD DS to host DNS records for your on-premises datacenter and Azure. In this scenario, there are two sets of AD DS DNS servers: one on-premises and one in the hub VNet.
 
-We recommend [extending your AD DS domain to Azure][12]. We also recommend configuring the hub and spoke VNets to use the AD DS DNS servers in the hub VNet for all the VMs in Azure.
+We recommend extending your AD DS domain to Azure. We also recommend configuring the hub and spoke VNets to use the AD DS DNS servers in the hub VNet for all the VMs in Azure.
 
 > [!NOTE]
 > This recommendation is applicable only for organizations that use Active Directory Integrated DNS zone for name resolution. Others can consider implementing DNS servers that act as resolver/forwarder.
@@ -182,7 +182,6 @@ Explore related architectures:
 [9]: /azure/load-balancer/load-balancer-overview
 [10]: /azure/application-gateway/overview
 [11]: /azure/private-link/private-link-service-overview
-[12]: ../reference-architectures/identity/index.yml#integrate-your-on-premises-domains-with-azure-ad
 [13]: /azure/dns/dns-zones-records
 [14]: /azure/dns/private-dns-overview
 [15]: /azure/dns/private-dns-autoregistration

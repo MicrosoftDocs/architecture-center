@@ -61,7 +61,7 @@ Each pattern in this catalog describes the problem that the pattern addresses, c
 | [Compensating Transaction](./compensating-transaction.yml) | Undo the work performed by a series of steps, which together define an eventually consistent operation. | <ul><li>Reliability </ul> |
 | [Competing Consumers](./competing-consumers.yml) | Enable multiple concurrent consumers to process messages received on the same messaging channel. | <ul><li>Reliability <li> Cost&nbsp;Optimization <li> Performance&nbsp;Efficiency </ul> |
 | [Compute Resource Consolidation](./compute-resource-consolidation.yml) | Consolidate multiple tasks or operations into a single computational unit. | <ul><li>Cost&nbsp;Optimization <li> Operational&nbsp;Excellence <li> Performance&nbsp;Efficiency </ul> |
-| [CQRS](./cqrs.yml) | Segregate operations that read data from operations that update data by using separate interfaces. | <ul><li>Performance&nbsp;Efficiency </ul> |
+| [CQRS](./cqrs.md) | Segregate operations that read data from operations that update data by using separate interfaces. | <ul><li>Performance&nbsp;Efficiency </ul> |
 | [Deployment Stamps](./deployment-stamp.yml) | Deploy multiple independent copies of application components, including data stores. | <ul><li>Operational&nbsp;Excellence <li> Performance&nbsp;Efficiency </ul> |
 | [Edge Workload Configuration](./edge-workload-configuration.md) | Centralize configuration to address the challenge of configuring multiple systems and devices on the shop floor. |  </ul> |
 | [Event Sourcing](./event-sourcing.yml) | Use an append-only store to record the full series of events that describe actions taken on data in a domain. | <ul><li>Reliability <li> Performance&nbsp;Efficiency </ul> |
@@ -90,7 +90,7 @@ Each pattern in this catalog describes the problem that the pattern addresses, c
 | [Sharding](./sharding.yml) | Divide a data store into a set of horizontal partitions or shards. | <ul><li>Reliability <li> Cost&nbsp;Optimization </ul> |
 | [Sidecar](./sidecar.yml) | Deploy components of an application into a separate process or container to provide isolation and encapsulation. | <ul><li>Security <li> Operational&nbsp;Excellence </ul> |
 | [Static Content Hosting](./static-content-hosting.yml) | Deploy static content to a cloud-based storage service that can deliver them directly to the client. | <ul><li>Cost&nbsp;Optimization  </ul> |
-| [Strangler Fig](./strangler-fig.yml) | Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services. | <ul><li>Reliability <li> Cost&nbsp;Optimization <li> Operational&nbsp;Excellence </ul> |
+| [Strangler Fig](./strangler-fig.md) | Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services. | <ul><li>Reliability <li> Cost&nbsp;Optimization <li> Operational&nbsp;Excellence </ul> |
 | [Throttling](./throttling.yml) | Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service. | <ul><li>Reliability <li> Security <li> Cost&nbsp;Optimization <li> Performance&nbsp;Efficiency </ul> |
 | [Valet Key](./valet-key.yml) | Use a token or key that provides clients with restricted direct access to a specific resource or service. | <ul><li>Security <li> Cost&nbsp;Optimization <li> Performance&nbsp;Efficiency </ul> |
 

@@ -42,7 +42,7 @@ The legend matches both diagrams to highlight the similarities between the origi
 ### Components
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure offers. An Azure virtual machine gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
-- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, such as Azure Virtual Machines, to securely communicate with each other, the internet, and on-premises networks. Virtual Network is similar to a traditional network that you'd operate in your own datacenter, but with the added benefits of Azure's infrastructure, such as scale, availability, and isolation.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, such as Azure Virtual Machines, to securely communicate with each other, the internet, and on-premises networks. Virtual Network is similar to a traditional network that you'd operate in your own datacenter, but with the added benefits of Azure's infrastructure, such as scale, availability, and isolation.
 - [Azure Virtual Network interface cards](/azure/virtual-network/virtual-networks-overview) enable an Azure VM to communicate with internet, Azure, and on-premises resources. As shown in this architecture, you can add more network interface cards to the same Azure VM, which allows the Solaris child-VMs to have their own dedicated network interface device and IP address.
 - [Azure SSD managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes managed by Azure and used with Azure Virtual Machines. The available types of disks are ultra disks, premium solid-state drives (SSDs), standard SSDs, and standard hard disk drives (HDDs). For this architecture, we recommend either premium SSDs or ultra disk SSDs.
 - [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in the cloud that are accessible by using the industry-standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
@@ -108,9 +108,7 @@ For more information, please contact **legacy2azure@microsoft.com**, or check ou
 
 - [Azure Mainframe and midrange migration](https://azure.microsoft.com/migration/mainframe)
 - [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
-- [Unisys CloudForte for Azure in the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/unisys-azuremp-stealth.cloudforte_for_azure?tab=Overview)
 - [Unisys Cloud Migration Services](https://www.unisys.com/solutions/cloud-management/)
-- [Unisys Stealth](https://stealthsecurity.unisys.com)
 - [Unisys Documentation Libraries](https://public.support.unisys.com/common/epa/documentationlibraries.aspx)
 - [Azure Virtual Network documentation](/azure/virtual-network)
 - [Manage Azure Virtual Network interface cards](/azure/virtual-network/virtual-network-network-interface)

@@ -35,8 +35,7 @@ Here are two learning paths to get you started:
 
 - To secure Azure application workloads, you use protective measures like authentication and encryption in the applications themselves. You can also add security layers to the virtual machine (VM) networks that host the applications. See [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml) for an overview.
 - Zero Trust is a proactive, integrated approach to security across all layers of the digital estate. It explicitly and continuously verifies every transaction, asserts least privilege, and relies on intelligence, advanced detection, and real-time response to threats.
-   - For an implementation strategy for web apps, see [Zero Trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.yml). 
-   - For an architecture that shows how to incorporate Microsoft Entra identity and access capabilities into an overall Zero Trust security strategy, see [Microsoft Entra IDaaS in security operations](../../example-scenario/aadsec/azure-ad-security.yml).
+   - For an implementation strategy for web apps, see [Zero Trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.yml).
 - Azure governance establishes the tooling needed to support cloud governance, compliance auditing, and automated guardrails. See [Azure governance design area guidance](/azure/cloud-adoption-framework/ready/landing-zone/design-area/governance) for information about governing your Azure environment. 
 
 ## Best practices
@@ -50,24 +49,15 @@ The Well-Architected Framework also provides these checklists:
 - [Data protection considerations](/azure/architecture/framework/security/design-storage) 
 - [Governance, risk, and compliance](/azure/architecture/framework/security/design-governance)
 
- 
-For information about security for sensitive IaaS workloads, see [Security considerations for highly sensitive IaaS apps in Azure](../../reference-architectures/n-tier/high-security-iaas.yml).
-
 ## Security architectures
  
 ### Identity and access management
 
-- [Resilient identity and access management with Microsoft Entra ID](/azure/architecture/guide/resilience/resilience-overview)
 - [Microsoft Entra identity management and access management for AWS](../../reference-architectures/aws/aws-azure-ad-security.yml)
 
 ### Threat protection
 
-- [Threat indicators for cyber threat intelligence in Microsoft Sentinel](../../example-scenario/data/sentinel-threat-intelligence.yml)
 - [Multilayered protection for Azure virtual machine access](../../solution-ideas/articles/multilayered-protection-azure-vm.yml)
-
-### Information protection
-
-- [Homomorphic encryption with SEAL](../../solution-ideas/articles/homomorphic-encryption-seal.yml)
 
 ## Stay current with security
 
@@ -77,7 +67,6 @@ Get the latest updates on [Azure security services and features](https://azure.m
 
 ### Example solutions 
 
-- [Hybrid Security Monitoring using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
 - [Improved-security access to multitenant web apps from an on-premises network](../../web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml)
 - [Restrict interservice communications](../../example-scenario/service-to-service/restrict-communications.yml)
 - [Securely managed web applications](../../example-scenario/apps/fully-managed-secure-apps.yml)

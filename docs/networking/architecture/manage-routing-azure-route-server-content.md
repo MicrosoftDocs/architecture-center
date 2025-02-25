@@ -87,7 +87,7 @@ Consider these points when implementing this solution:
 
 - Route Server establishes connections and exchanges routes. It doesn't transfer data packets. As a result, the VMs that Route Server runs in its back end don't require significant CPU power or computational power.
 
-- When you deploy Route Server, create a subnet called `RouteServerSubnet` that uses an IPv4 subnet mask of `/27`. Place Route Server in that subnet.
+- When you deploy Route Server, create a subnet called `RouteServerSubnet` that uses an IPv4 subnet mask of `/26`. Place Route Server in that subnet.
 
 - In Azure gateways, the Basic pricing tier doesn't support coexisting ExpressRoute and VPN Gateway connections. For other limitations with coexisting configurations, see [Limits and limitations][Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell - Limits and limitations].
 
@@ -101,10 +101,9 @@ Route Server is a fully managed service that offers high availability. For this 
 
 ### Scalability
 
-Most components in this solution are managed services that automatically scale. But there are a few exceptions:
+Most components in this solution are managed services that automatically scale. But there are some exceptions:
 
-- Route Server can advertise at most 200 routes to ExpressRoute or a VPN gateway.
-- Route Server can support at most 2,000 VMs per virtual network, including peered virtual networks.
+- Route Server can support at most 4,000 VMs per virtual network, including peered virtual networks.
 
 ### Security
 
@@ -186,7 +185,7 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 [Quickstart: Create and configure Route Server using the Azure portal]: /azure/route-server/quickstart-configure-route-server-portal
 [Regions and availability zones]: /azure/reliability/availability-zones-overview
 [SLA for Azure Route Server]: https://azure.microsoft.com/support/legal/sla/route-server/v1_0
-[Virtual Network]: /azure/well-architected/service-guides/azure-virtual-network/reliability
+[Virtual Network]: /azure/well-architected/service-guides/virtual-network
 [Virtual network peering]: /azure/virtual-network/virtual-network-peering-overview
 [Virtual Network service endpoints]: /azure/virtual-network/virtual-network-service-endpoints-overview
 [Virtual network traffic routing - Custom routes]: /azure/virtual-network/virtual-networks-udr-overview#custom-routes

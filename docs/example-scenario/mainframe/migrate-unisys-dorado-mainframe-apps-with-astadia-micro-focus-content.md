@@ -112,7 +112,7 @@ This architecture uses the following components:
 
   Premium SSDs or Ultra Disks work best with this architecture.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network operating in a datacenter. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of Azure's infrastructure.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network operating in a datacenter. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of Azure's infrastructure.
 
   [Virtual network interface cards][Create, change, or delete a network interface] provide a way for VMs to communicate with internet, Azure, and on-premises resources. You can add network interface cards to a VM to give Solaris child VMs their own dedicated network interface devices and IP addresses.
 

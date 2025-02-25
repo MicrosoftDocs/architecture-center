@@ -29,7 +29,9 @@ This article provides a basic architecture intended for learning about running w
 - [Azure Monitor](/azure/azure-monitor/overview) is a monitoring service that collects, analyzes, and acts on telemetry data across your deployment.
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a managed relational database service for relational data.
 
-## Recommendations and considerations
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 The [components](#components) listed in this architecture link to Azure Well-Architected service guides. Service guides detail recommendations and considerations for specific services. This section extends that guidance by highlighting key Azure Well-Architected Framework recommendations and considerations that apply to this architecture. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
@@ -48,10 +50,9 @@ Because this architecture isn't designed for production deployments, the followi
 
 See how to overcome these reliability concerns in the [reliability section in the Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#reliability).
 
-If this workload will eventually require a multi-region active-active or active-passive architecture, see the following resources:
+If this workload will eventually require a multi-region active-active or active-passive architecture, see the following resource:
 
 - [Multi-region App Service app approaches for disaster recovery](../../guides/multi-region-app-service/multi-region-app-service.yml) for guidance on deploying your App Service-hosted workload across multiple regions.
-- [Highly available multi-region web application](./multi-region.yml) for a reference architecture that follows an active-passive approach.
 
 ### Security
 
@@ -121,6 +122,16 @@ The following are configuration recommendations and considerations:
   - Using Azure Key Vault, you're able to log every interaction with secrets, including every time a secret is accessed.
 - When you move into production, you can maintain your use of both Azure Key Vault and App Service configuration by [using Key Vault references](/azure/app-service/app-service-key-vault-references).
 
+#### Containers
+
+The basic architecture can be used to deploy supported code directly to Windows or Linux instances. Alternatively, App Service is also a container hosting platform to run your containerized web application. App Service offers various built-in containers. If you're using custom or multi-container apps to further fine-tune your runtime environment or to support a code language not natively supported, you'll need to introduce a container registry.
+
+#### Control plane
+
+During the POC phase, get comfortable with Azure App Service's control plane as exposed through the Kudu service. This service exposes common deployment APIs, such as ZIP deployments, exposes raw logs and environment variables.
+
+If using containers, be sure to understand Kudu's ability to Open an SSH session to a container to support advanced debugging capabilities.
+
 #### Diagnostics and monitoring
 
 During the proof of concept phase, it's important to get an understanding of what logs and metrics are available to be captured. The following are recommendations and considerations for monitoring in the proof of concept phase:
@@ -139,19 +150,9 @@ The following lists guidance around deploying your App Service application.
 
 For more information, see the DevOps section in [Azure Well-Architected Framework](/azure/architecture/framework/devops/overview).
 
-#### Containers
-
-The basic architecture can be used to deploy supported code directly to Windows or Linux instances. Alternatively, App Service is also a container hosting platform to run your containerized web application. App Service offers various built-in containers. If you're using custom or multi-container apps to further fine-tune your runtime environment or to support a code language not natively supported, you'll need to introduce a container registry.
-
-#### Control plane
-
-During the POC phase, get comfortable with Azure App Service's control plane as exposed through the Kudu service. This service exposes common deployment APIs, such as ZIP deployments, exposes raw logs and environment variables.
-
-If using containers, be sure to understand Kudu's ability to Open an SSH session to a container to support advanced debugging capabilities.
-
 ### Performance Efficiency
 
-Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 Because this architecture isn't designed for production deployments, the following outlines some of the critical performance efficiency features that were omitted in this architecture, along with other recommendations and considerations.
 
@@ -174,7 +175,6 @@ The guidance is backed by an [example implementation](https://github.com/Azure-S
 ## Related resources
 
 - [Baseline zone-redundant web application](./baseline-zone-redundant.yml)
-- [Highly available multi-region web application](./multi-region.yml)
 - [Multi-region App Service app approaches for disaster recovery](../../guides/multi-region-app-service/multi-region-app-service.yml)
 
 Product documentation:
