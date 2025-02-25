@@ -31,13 +31,9 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
     COBOL, PL/I, and assembly language copybooks define the data structure of these files.
 
    a. FTP transfers mainframe and midrange file system datasets with single layouts and unpacked fields in binary format and corresponding copybook to Azure.
+
+   b. Data conversion is accomplished by developing custom programs using the Host File component of the Host integration servers, or by utilizing the built-in connector for IBM host files in Azure Logic Apps.The Spark Notebook converters are developed using open-source Spark frameworks and are compatible with Spark environments such as Microsoft Fabric, Azure Synapse Analytics, and Databricks.  
    
-   b. Data is converted. The Azure Data Factory custom connector is a solution developed by using the Host File client component of Host Integration Server to convert mainframe datasets.
-
-      [Host Integration Server](/host-integration-server/what-is-his) integrates existing IBM host systems, programs, messages, and data with Azure applications. Host Integration Server is a Host File client component that you can use to develop a custom solution for dataset conversion.
-
-      The Azure Data Factory custom connector is based on the open-source Spark framework, and it runs on [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics). Like other solutions, it can parse the copybook and convert data. Manage the service for data conversion by using the [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) Parse Host File Contents connector.
-
    c. Relational database data is migrated.
 
       IBM mainframe and midrange systems store data in relational databases like these:
@@ -48,6 +44,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
       These services migrate the database data:
      - Data Factory uses a Db2 connector to extract and integrate data from the databases.
      - SQL Server Integration Services handles various data [ETL](https://www.ibm.com/cloud/learn/etl) tasks.
+     - [Microsoft Fabric] Data Factory utilizes the IBM Db2 connector for migrating Db2 data. 
 
    d. Nonrelational database data is migrated.
 
@@ -68,9 +65,11 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
      - [Azure Cosmos DB](/azure/cosmos-db/introduction)
      - [Azure Database for MySQL](/azure/mysql/overview)
      - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
+     - Microsoft Fabric Native SQL
    - Storage:
      - [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
      - [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview#about-blob-storage)
+     - Microsoft Fabric Lakehouse
 
 1. Azure services use the modernized data tier for computing, analytics, storage, and networking.
 
@@ -90,6 +89,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 #### Compute
 
 - Data Factory integrates data across different network environments by using an [integration runtime (IR)](/azure/data-factory/concepts-integration-runtime), which is a compute infrastructure. Data Factory copies data between cloud data stores and data stores in on-premises networks by using [self-hosted IRs](/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime).
+- The on-premises data gateway is a locally installed Windows client application that acts as a bridge between your local on-premises data sources and services in the Microsoft cloud.
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides on-demand, scalable computing resources. An Azure virtual machine (VM) provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
 
 #### Data integrators
@@ -103,6 +103,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
    - Managing SQL Server objects and data.
 - [Host Integration Server](/host-integration-server/what-is-his) technologies and tools enable you to integrate existing IBM host systems, programs, messages, and data with Azure applications. The Host File client component provides flexibility for data that's converted from EBCDIC to ASCII. For example, you can generate JSON/XML from the data that's converted.
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) brings together data integration, enterprise data warehousing, and big data analytics. The Azure Synapse conversion solution used in this architecture is based on Apache Spark and is a good candidate for large mainframe-dataset workload conversion. It supports a wide range of mainframe data structures and targets and requires minimal coding effort.
+- [Microsoft Fabric] is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It supports these capabilities with integrated services like Data Engineering, Data Factory, Data Science, Real-Time Analytics, Data Warehouse, and Databases.
 
 #### Other tools
 
