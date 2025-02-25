@@ -18,7 +18,7 @@ categories:
 
 # Conceptual planning for IPv6 networking
 
-This guide outlines strategies for transitioning an IPv4 network environment in Azure to IPv6. This transition is necessary as the number of internet-connected devices expands and IPv4 addresses near exhaustion. The IPv6 protocol provides a larger pool of internet addresses to accommodate future growth and offers enhanced security features (native IPSec), flow labeling, and simplified network configurations. This article helps you understand IPv6, acquire IPv6 addresses, and transition to IPv6.
+This guide outlines strategies for transitioning an IPv4 network environment in Azure to IPv6. This transition is necessary as the number of internet-connected devices expands and IPv4 addresses near exhaustion. The IPv6 protocol provides a larger pool of internet addresses to accommodate future growth and offers enhanced security features (native IPsec), flow labeling, and simplified network configurations. This article helps you understand IPv6, acquire IPv6 addresses, and transition to IPv6.
 
 ## Understand IPv6
 

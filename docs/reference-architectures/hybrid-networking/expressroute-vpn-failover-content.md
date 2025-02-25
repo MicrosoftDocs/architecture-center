@@ -28,7 +28,7 @@ The architecture consists of the following components.
 
 - **VPN virtual network gateway**. The VPN virtual network gateway enables the Azure virtual network to connect to the VPN appliance in the on-premises network. The VPN virtual network gateway is configured to accept requests from the on-premises network only through the VPN appliance. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
 
-- **VPN connection**. The connection has properties that specify the connection type (IPSec) and the key shared with the on-premises VPN appliance to encrypt traffic.
+- **VPN connection**. The connection has properties that specify the connection type (IPsec) and the key shared with the on-premises VPN appliance to encrypt traffic.
 
 - **Azure public services**. Azure services that can be used within a hybrid application. These services are also available over the internet, but accessing them by using an ExpressRoute circuit provides low latency and more predictable performance, because traffic doesn't go through the internet.
 
@@ -46,7 +46,7 @@ The architecture consists of the following components.
 
 ## Scenario details
 
-This reference architecture shows how to connect an on-premises network to an Azure virtual network by using ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection. Traffic flows between the on-premises network and the Azure virtual network through an ExpressRoute connection. If there's a loss of connectivity in the ExpressRoute circuit, traffic is routed through an IPSec VPN tunnel. [**Deploy this solution**](#deploy-this-scenario).
+This reference architecture shows how to connect an on-premises network to an Azure virtual network by using ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection. Traffic flows between the on-premises network and the Azure virtual network through an ExpressRoute connection. If there's a loss of connectivity in the ExpressRoute circuit, traffic is routed through an IPsec VPN tunnel. [**Deploy this solution**](#deploy-this-scenario).
 
 If the ExpressRoute circuit is unavailable, the VPN route handles only private peering connections. Public peering and Microsoft peering connections pass over the Internet.
 
