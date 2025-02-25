@@ -41,7 +41,9 @@ Mainframe and midrange systems update on-premises application databases at regul
    - Azure Data Lake Storage
    - Azure Database for MySQL 
 
-1. SQL Server Integration Services (SSIS): This platform can extract, transform, and load data. 
+1. SQL Server Integration Services (SSIS): This platform can extract, transform, and load data.
+1. The on-premises data gateway is a locally installed Windows client application that acts as a bridge between your local on-premises data sources and services in Azure.
+1. A data pipeline in Microsoft Fabric is a logical grouping of activities that perform data ingestion from Db2 to Azure storage and databases.
 1. Non-Microsoft tools: When the solution requires near real-time replication, you can use non-Microsoft tools.
 
 ### Components
@@ -91,6 +93,8 @@ This section describes other tools that you can use during data modernization, s
 - [Azure Cosmos DB][Azure Cosmos DB] is a globally distributed, [multimodel][The rise of the multimodel database] database. Use Azure Cosmos DB to ensure that your solutions can elastically and independently scale throughput and storage across any number of geographic regions. This fully managed [NoSQL][What is NoSQL? Databases for a cloud-scale future] database service guarantees single-digit, millisecond latencies at the ninety-ninth percentile anywhere in the world.
 
 - [Data Lake Storage][Azure Data Lake Storage] is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple, heterogeneous sources and can be structured, semi-structured, or unstructured. [Data Lake Storage Gen2][Azure Data Lake Storage Gen2] combines Data Lake Storage Gen1 capabilities with Blob Storage. This next-generation data lake solution provides file system semantics, file-level security, and scale. It also offers the tiered storage, high availability, and disaster recovery capabilities of Blob Storage.
+
+- [Microsoft Fabric] is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It supports these capabilities with integrated services like Data Engineering, Data Factory, Data Science, Real-Time Analytics, Data Warehouse, and Databases.
 
 - [Azure Database for MySQL][Azure Database for MySQL] is a fully managed relational database service based on the [community edition of the open-source MySQL database engine][MySQL Community Edition].
 
