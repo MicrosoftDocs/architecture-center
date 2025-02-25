@@ -86,6 +86,12 @@ This architecture describes how to implement an Information Management System (I
 1. The application database consists of the raw segment data for processing IMS online and batch processing.
 1. The IMS read/write views consist of segment data that is expanded based on the copybook layout.
 
+### IMS DB data migration using Raincode zBridge
+
+Raincode zBridge facilitates access to mainframe non-relational data on Azure, including data from IMS/DB segments. This data becomes available in Azure SQL databases for   distributed applications, reporting, and analytical purposes.
+
+IMS segment Data files are imported into zBridge with a matching COBOL copybook or PL/I include. The data appears as SQL rows, with mainframe numeric types converted to SQL types and strings to ASCII if needed. Complex data structures are also supported seamlessly.
+
 ### Components
 
 - [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) lets you quickly build powerful integration solutions. Mainframe users are familiar with 3270 terminals and on-premises connectivity. They can use the Logic Apps [IBM 3270 connector](/azure/connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270) to access and run IBM mainframe apps. In the migrated system, they interact with Azure applications via the public internet or a private connection that is implemented via Azure ExpressRoute. [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides authentication.
