@@ -204,11 +204,11 @@ If you must expose management endpoints for VMs to an external network, use NSGs
 > [!NOTE]
 > Azure VMs deployed through the Azure portal can include a public IP address that provides sign-in access. However, it's a best practice to prohibit this access.
 
-By default, traffic traversing an ExpressRoute connection is not encrypted. You can optionally configure encryption to be either Point-to-point encryption by MACsec or End-to-end encryption by IPSec; MACsec only available for ExpressRoute Direct. For more information, see [About encryption for Azure ExpressRoute](/azure/expressroute/expressroute-about-encryption#end-to-end-encryption-by-ipsec-faq).
+By default, traffic traversing an ExpressRoute connection is not encrypted. You can optionally configure encryption to be either Point-to-point encryption by MACsec or end-to-end encryption by IPsec; MACsec only available for ExpressRoute Direct. For more information, see [About encryption for Azure ExpressRoute](/azure/expressroute/expressroute-about-encryption#end-to-end-encryption-by-ipsec-faq).
 
-To ensure your data hasn't been tampered with during transit, you can configure an MD5 hash on ExpressRoute Circuit during the [configuration of private peering or Microsoft peering](/azure/expressroute/expressroute-howto-routing-portal-resource-manager#prerequisites) to secure messages between the on-premises route and the MSEE routers.
+To ensure your data hasn't been tampered with during transit, you can configure an MD5 hash on the ExpressRoute circuit during the [configuration of private peering or Microsoft peering](/azure/expressroute/expressroute-howto-routing-portal-resource-manager#prerequisites) to secure messages between the cross-premises route and the MSEE routers.
 
-For more security considerations, see [Azure security baseline for ExpressRoute][/security/benchmark/azure/baselines/expressroute-security-baseline].
+For more security considerations, see [Azure security baseline for ExpressRoute](/security/benchmark/azure/baselines/expressroute-security-baseline).
 
 ### Cost Optimization
 
@@ -240,7 +240,7 @@ Azure Virtual Network is free. For every subscription, you can create as many as
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-- Configure [Connection Monitor](/azure/expressroute/how-to-configure-connection-monitor) so you can detect network issues by identifying where along the network path the problem is and help you quickly resolve configuration or hardware failures.
+- Configure [Connection Monitor](/azure/expressroute/how-to-configure-connection-monitor) to detect network issues by identifying where along the network path the problem is and help you resolve configuration or hardware failures.
 - Consider configuring [Dynamic Routing](/azure/expressroute/expressroute-routing#dynamic-route-exchange) over the eBGP protocol to allow for more efficient and flexible routing, ensuring optimal path selection and automatic updates to route tables in response to network changes.
 - Configure [Traffic Collector for ExpressRoute](/azure/expressroute/how-to-configure-traffic-collector) and [ExpressRoute Insights with Network Insights](/azure/expressroute/expressroute-network-insights) for near-real time performance and network health metrics.
 
