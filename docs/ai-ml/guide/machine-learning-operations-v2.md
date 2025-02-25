@@ -1,8 +1,8 @@
 ---
-title: Machine learning operations v2
+title: Machine learning operations
 description: Learn about a single deployable set of repeatable and maintainable patterns for creating machine learning CI/CD and retraining pipelines.
-author: sdonohoo
-ms.author: robbag
+author: setuc
+ms.author: setuchokshi
 ms.date: 07/03/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
