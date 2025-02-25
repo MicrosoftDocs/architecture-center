@@ -625,7 +625,7 @@ Monitor the ongoing service of an API for performance optimization, security, an
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 - [Setu Chokshi](https://www.linkedin.com/in/setuchokshi/) | Senior Technical Specialist
 
