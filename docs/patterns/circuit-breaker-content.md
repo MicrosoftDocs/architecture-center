@@ -126,7 +126,7 @@ This strategy not only enhances resilience but also provides strong business jus
 1. Subsequent requests are immediately short-circuited, returning default or cached responses while informing users of temporary degradation, thereby protecting the application from further overload.
 1. Logs and telemetry data are captured and sent to Azure Monitor so it can be evaluated against dynamic thresholds. An alert is triggered if the conditions of the alert rule are met.
 1. An action group proactively notifies the management team of the overload situation.
-1. Upon management approval, the operations team can increase the provisioned throughput to mitigate the overload.
+1. Upon management approval, the operations team can increase the provisioned throughput to alleviate overload, or they might delay scaling if the load subsides naturally.
 
 #### Flow C - Half-Open State
 
