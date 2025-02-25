@@ -7073,6 +7073,11 @@
       "source_path": "docs/data-guide/disaster-recovery/dr-for-azure-data-platform-summary.yml",
       "redirect_url": "/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/open-source-data-engine-stream-processing.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/data/stream-processing-databricks",
+      "redirect_document_id": false
     }
   ]
 }
