@@ -177,7 +177,7 @@ You can configure high availability for your Azure connection in different ways,
 - If you use a layer 3 connection, verify that it provides redundant BGP sessions that handle availability for you.
 
 - If you require maximum resiliency, create multiple circuits to different peering locations. For high resiliency, [ExpressRoute Metro](/azure/expressroute/metro) provides a single circuit with multiple peering locations.
- - For each circuit, consider a different service provider to minimize the risk of network downtime by a single provider outage.
+  - For each circuit, consider a different service provider to minimize the risk of network downtime by a single provider outage.
 
 - Configure a site-to-site VPN as a failover path for ExpressRoute. For more information about this option, see [Connect an on-premises network to Azure using ExpressRoute with VPN failover][highly-available-network-architecture]. This option only applies to private peering. For Azure and Microsoft 365 services, the internet is the only failover path.
 
@@ -240,23 +240,20 @@ Azure Virtual Network is free. For every subscription, you can create as many as
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-For ExpressRoute DevOps considerations, see the [Configure a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
+- Configure [Connection Monitor](/azure/expressroute/how-to-configure-connection-monitor) so you can detect network issues by identifying where along the network path the problem is and help you quickly resolve configuration or hardware failures.
+- Consider configuring [Dynamic Routing](/azure/expressroute/expressroute-routing#dynamic-route-exchange) over the eBGP protocol to allow for more efficient and flexible routing, ensuring optimal path selection and automatic updates to route tables in response to network changes.
+- Configure [Traffic Collector for ExpressRoute](/azure/expressroute/how-to-configure-traffic-collector) and [ExpressRoute Insights with Network Insights](/azure/expressroute/expressroute-network-insights) for near-real time performance and network health metrics.
 
 For site-to-site VPN DevOps considerations, see the [Configure a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
-
-#### Network monitoring
-
-Use Azure Network Watcher to monitor and troubleshoot network components. Tools like traffic analytics identify the systems in your virtual networks that generate the most traffic so you can visually identify bottlenecks before they become problems. Connection monitor can monitor ExpressRoute circuits.
-
-You also can use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor connectivity between your on-premises datacenter and Azure.
-
-For more information, see [Monitoring For DevOps][devops-monitoring].
 
 ### Performance Efficiency
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-ExpressRoute circuits provide a high-bandwidth path between networks. Generally, the higher the bandwidth, the higher the cost.
+ExpressRoute circuits provide a high-bandwidth path between networks. Generally, the higher the bandwidth, the higher the cost. 
+
+> [!NOTE]
+> Use the [Azure Connectivity Toolkit](/azure/expressroute/expressroute-troubleshooting-network-performance#azurect---the-azure-connectivity-toolkit) to ensure the ExpressRoute gateway meets workload requirements.
 
 ExpressRoute offers two [pricing plans][expressroute-pricing]: the Metered Plan and the Unlimited Data plan. Charges vary according to circuit bandwidth. Available bandwidth will probably vary from provider to provider. Use the `Get-AzExpressRouteServiceProvider` cmdlet to see the providers available in your region and the bandwidths that they offer.
 
@@ -301,6 +298,10 @@ Although some providers allow you to change your bandwidth, be sure to choose an
 
     You can upgrade the SKU without disruption, but you can't switch from the unlimited pricing plan to the metered plan. If you downgrade the SKU, your bandwidth consumption must remain within the default limit of the Standard SKU.
 
+[ExpressRoute scalable gateways](azure/expressroute/expressroute-about-virtual-network-gateways#expressroute-scalable-gateway-preview) offers the ability automatically scale the ExpressRoute Virtual Network Gateway to accommodate for performance needs without having to intervene manually.
+
+For higher throughput, enable [ExpressRoute FastPath](/azure/expressroute/about-fastpath) to bypass the gateway and improve the data path performance between your on-premises network and Azure virtual networks.
+
 ## Deploy this scenario
 
 **Prerequisites**. You must have an existing on-premises infrastructure already configured with a suitable network appliance.
@@ -332,6 +333,11 @@ To deploy the solution, perform the following steps.
 1. To complete the deployment of site-to-site VPN as a backup to ExpressRoute, see [Create a site-to-site VPN connection](/azure/vpn-gateway/tutorial-site-to-site-portal).
 
 1. Once you've successfully configured a VPN connection to the same on-premises network you configured ExpressRoute, you'll then have completed the setup to back up your ExpressRoute connection if there's total failure at the peering location.
+
+Alternatively, Microsoft Developer Tools offers other scenarios:
+
+- [ExpressRoute circuit with private peering and Azure VNet](/samples/azure/azure-quickstart-templates/expressroute-private-peering-vnet/)
+- [Create an ExpressRoute Circuit with BGP Peering](/samples/azure/azure-quickstart-templates/expressroute-circuit-public-private-peering/)
 
 ## Contributors
 
