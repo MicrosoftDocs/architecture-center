@@ -107,7 +107,11 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-*Fer to insert new example here*
+This example shows the Circuit Breaker pattern implemented in a cloud-native application using the [Azure Cosmos DB lifetime free tier](/azure/cosmos-db/free-tier). The database’s throughput is governed by a capacity plan that provisions a designated quota of resource units per second, considering it primarily serves non-critical data. During seasonal events, demand can exceed the provided capacity of 1000 RU/s, resulting in `429` (Too Many Requests) responses. Although the database supports both pay-as-you-go pricing and autoscaling, management vigilantly monitors monthly budgets and must explicitly authorize any increases in costs.
+
+When these demand spikes occur, [Azure Monitor alerts with dynamic thresholds](/azure/azure-monitor/alerts/alerts-dynamic-thresholds) detects and proactively notify the operations and management teams indicating that scaling-up the database capacity could be required. Simultaneously, a circuit breaker—tuned using historical error patterns—trips to prevent cascading failures. In this state, the application gracefully degrades by returning default or cached responses, thereby informing users of the temporary unavailability of certain data while preserving overall system stability.
+
+This strategy not only enhances resilience but also provides strong business justification: by controlling capacity surges and managing cost increases deliberately, we maintain service quality without unexpectedly inflating our operating expenses. Once demand subsides and increased capacity is confirmed, the circuit breaker resets automatically, allowing the system to resume full functionality in alignment with both technical and budgetary objectives.
 
 ## Related resources
 
