@@ -176,7 +176,8 @@ You can configure high availability for your Azure connection in different ways,
 
 - If you use a layer 3 connection, verify that it provides redundant BGP sessions that handle availability for you.
 
-- Connect the virtual network to multiple ExpressRoute circuits that are supplied by different service providers. This strategy provides more high-availability and disaster recovery capabilities.
+- If you require maximum resiliency, create multiple circuits to different peering locations. For high resiliency, [ExpressRoute Metro](/azure/expressroute/metro) provides a single circuit with multiple peering locations.
+ - For each circuit, consider a different service provider to minimize the risk of network downtime by a single provider outage.
 
 - Configure a site-to-site VPN as a failover path for ExpressRoute. For more information about this option, see [Connect an on-premises network to Azure using ExpressRoute with VPN failover][highly-available-network-architecture]. This option only applies to private peering. For Azure and Microsoft 365 services, the internet is the only failover path.
 
@@ -203,15 +204,11 @@ If you must expose management endpoints for VMs to an external network, use NSGs
 > [!NOTE]
 > Azure VMs deployed through the Azure portal can include a public IP address that provides sign-in access. However, it's a best practice to prohibit this access.
 
-For general Azure security considerations, see [Microsoft cloud services and network security][best-practices-security].
+By default, traffic traversing an ExpressRoute connection is not encrypted. You can optionally configure encryption to be either Point-to-point encryption by MACsec or End-to-end encryption by IPSec; MACsec only available for ExpressRoute Direct. For more information, see [About encryption for Azure ExpressRoute](/azure/expressroute/expressroute-about-encryption#end-to-end-encryption-by-ipsec-faq).
 
-#### Network monitoring
+To ensure your data hasn't been tampered with during transit, you can configure an MD5 hash on ExpressRoute Circuit during the [configuration of private peering or Microsoft peering](azure/expressroute/expressroute-howto-routing-portal-resource-manager#prerequisites) to secure messages between the on-premises route and the MSEE routers.
 
-Use Azure Network Watcher to monitor and troubleshoot network components. Tools like traffic analytics identify the systems in your virtual networks that generate the most traffic so you can visually identify bottlenecks before they become problems. Connection monitor can monitor ExpressRoute circuits.
-
-You also can use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor connectivity between your on-premises datacenter and Azure.
-
-For more information, see [Monitoring For DevOps][devops-monitoring].
+For more security considerations, see [Azure security baseline for ExpressRoute][/security/benchmark/azure/baselines/expressroute-security-baseline].
 
 ### Cost Optimization
 
@@ -246,6 +243,14 @@ Operational Excellence covers the operations processes that deploy an applicatio
 For ExpressRoute DevOps considerations, see the [Configure a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
 
 For site-to-site VPN DevOps considerations, see the [Configure a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
+
+#### Network monitoring
+
+Use Azure Network Watcher to monitor and troubleshoot network components. Tools like traffic analytics identify the systems in your virtual networks that generate the most traffic so you can visually identify bottlenecks before they become problems. Connection monitor can monitor ExpressRoute circuits.
+
+You also can use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor connectivity between your on-premises datacenter and Azure.
+
+For more information, see [Monitoring For DevOps][devops-monitoring].
 
 ### Performance Efficiency
 
