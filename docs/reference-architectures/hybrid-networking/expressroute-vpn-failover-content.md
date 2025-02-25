@@ -206,7 +206,7 @@ If you must expose management endpoints for VMs to an external network, use NSGs
 
 By default, traffic traversing an ExpressRoute connection is not encrypted. You can optionally configure encryption to be either Point-to-point encryption by MACsec or End-to-end encryption by IPSec; MACsec only available for ExpressRoute Direct. For more information, see [About encryption for Azure ExpressRoute](/azure/expressroute/expressroute-about-encryption#end-to-end-encryption-by-ipsec-faq).
 
-To ensure your data hasn't been tampered with during transit, you can configure an MD5 hash on ExpressRoute Circuit during the [configuration of private peering or Microsoft peering](azure/expressroute/expressroute-howto-routing-portal-resource-manager#prerequisites) to secure messages between the on-premises route and the MSEE routers.
+To ensure your data hasn't been tampered with during transit, you can configure an MD5 hash on ExpressRoute Circuit during the [configuration of private peering or Microsoft peering](/azure/expressroute/expressroute-howto-routing-portal-resource-manager#prerequisites) to secure messages between the on-premises route and the MSEE routers.
 
 For more security considerations, see [Azure security baseline for ExpressRoute][/security/benchmark/azure/baselines/expressroute-security-baseline].
 
@@ -298,7 +298,7 @@ Although some providers allow you to change your bandwidth, be sure to choose an
 
     You can upgrade the SKU without disruption, but you can't switch from the unlimited pricing plan to the metered plan. If you downgrade the SKU, your bandwidth consumption must remain within the default limit of the Standard SKU.
 
-[ExpressRoute scalable gateways](azure/expressroute/expressroute-about-virtual-network-gateways#expressroute-scalable-gateway-preview) offers the ability automatically scale the ExpressRoute Virtual Network Gateway to accommodate for performance needs without having to intervene manually.
+[ExpressRoute scalable gateways](/azure/expressroute/expressroute-about-virtual-network-gateways#expressroute-scalable-gateway-preview) offers the ability automatically scale the ExpressRoute Virtual Network Gateway to accommodate for performance needs without having to intervene manually.
 
 For higher throughput, enable [ExpressRoute FastPath](/azure/expressroute/about-fastpath) to bypass the gateway and improve the data path performance between your on-premises network and Azure virtual networks.
 
