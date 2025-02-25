@@ -627,13 +627,11 @@ Monitor the ongoing service of an API for performance optimization, security, an
 
 Principal authors:
 
-- [Scott Donohoo](https://www.linkedin.com/in/scottdonohoo) | Senior Cloud Solution Architect
-- [Moritz Steller](https://www.linkedin.com/in/moritz-steller-426430116/) | Senior Cloud Solution Architect
+- [Setu Chokshi](https://www.linkedin.com/in/setuchokshi/) | Senior Technical Specialist
 
 Other contributors:
 
 - [Scott Mckinnon](https://www.linkedin.com/in/scott-mckinnon-96756a83/) | Cloud Solution Architect
-- [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore/) | Cloud Solution Architect
 - [Darren Turchiarelli](https://www.linkedin.com/in/darren-turchiarelli/) | Cloud Solution Architect
 - [Leo Kozhushnik](https://www.linkedin.com/in/leo-kozhushnik-ab16707/) | Cloud Solution Architect
 
