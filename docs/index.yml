@@ -116,7 +116,7 @@ conceptualContent:
         url: ./guide/technology-choices/compute-decision-tree.yml
         itemType: reference
       - text: CQRS design pattern
-        url: ./patterns/cqrs.yml
+        url: ./patterns/cqrs.md
         itemType: concept
 
     - title: AI & Machine Learning
@@ -310,9 +310,6 @@ conceptualContent:
         - text: Baseline zone-redundant web application
           itemType: architecture
           url: web-apps/app-service/architectures/baseline-zone-redundant.yml
-        - text: Multi-region deployment
-          itemType: architecture
-          url: web-apps/app-service/architectures/multi-region.yml
         - text: E-commerce product search
           itemType: get-started
           url:  ./databases/architecture/ecommerce-search.yml

@@ -74,7 +74,6 @@ Your architecture could be expanded in many ways, such as:
 
 - Adding Artificial Intelligence via [Retrieval Augmented Generation (RAG)](../../ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.md)
 - Enhancing resiliency through a [zone-redundant deployment](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
-- Enhancing resiliency through a [highly available multi-region deployment](../../web-apps/app-service/architectures/multi-region.yml)
 - Enhancing security through a [network hardened technology stack](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 
 ## Extract
