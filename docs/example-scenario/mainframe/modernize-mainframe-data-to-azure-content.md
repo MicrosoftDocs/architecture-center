@@ -65,11 +65,11 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
      - [Azure Cosmos DB](/azure/cosmos-db/introduction)
      - [Azure Database for MySQL](/azure/mysql/overview)
      - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
-     - [Microsoft Fabric Native SQL]
+     - Microsoft Fabric Native SQL
    - Storage:
      - [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
      - [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview#about-blob-storage)
-     - [Microsoft Fabric Lakehouse]
+     - Microsoft Fabric Lakehouse
 
 1. Azure services use the modernized data tier for computing, analytics, storage, and networking.
 
