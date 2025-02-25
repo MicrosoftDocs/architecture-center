@@ -115,6 +115,24 @@ This strategy not only enhances resilience but also provides strong business jus
 
 ![Azure cloud-native app with DB circuit breaker deployed into App Services sends telemetry to Azure Monitor and triggers scale alerts during seasonal 429 spikes, serving defaults for non-critical data.](./_images/cb-example.png)
 
+#### Flow A - Closed State
+
+1. The system operates normally, and all requests reach the database without returning any `HTTP429` (Too Many Requests).
+1. The circuit breaker remains closed, and no default or cached responses are necessary.
+
+#### Flow B - Open State
+
+1. Upon receiving the first `HTTP429` response, the circuit breaker trips to an open state.
+1. Subsequent requests are immediately short-circuited, returning default or cached responses while informing users of temporary degradation, thereby protecting the application from further overload and potential cascading failtures.
+1. Logs and telemetry data are captured and sent to Azure Monitor so it can be evaluated against dynamic thresholds. An alert is triggered if the conditions of the alert rule are met.
+1. An action group proactively notifies the management team of the overload situation.
+1. Upon management approval, the operations team can increase the provisioned throughput to mitigate the overload.
+
+#### Flow C - Half-Open State
+
+1. After a predefined timeout, the circuit breaker enters a half-open state, permitting a limited number of trial requests.
+1. If these trial requests succeed without returning `HTTP429` responses, the breaker resets to a closed state, restoring normal operations back to Flow A. If failures persist, it reverts to the open state which is Flow B.
+
 ## Related resources
 
 The following patterns might also be useful when implementing this pattern:
