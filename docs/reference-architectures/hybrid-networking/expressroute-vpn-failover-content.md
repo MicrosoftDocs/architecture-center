@@ -334,7 +334,7 @@ To deploy the solution, perform the following steps.
 
 1. Once you've successfully configured a VPN connection to the same on-premises network you configured ExpressRoute, you'll then have completed the setup to back up your ExpressRoute connection if there's total failure at the peering location.
 
-Alternatively, Microsoft Developer Tools offers other scenarios:
+Alternatively, Microsoft Developer Tools offers other deployable scenarios:
 
 - [ExpressRoute circuit with private peering and Azure VNet](/samples/azure/azure-quickstart-templates/expressroute-private-peering-vnet/)
 - [Create an ExpressRoute Circuit with BGP Peering](/samples/azure/azure-quickstart-templates/expressroute-circuit-public-private-peering/)
