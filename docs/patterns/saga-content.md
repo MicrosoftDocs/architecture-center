@@ -6,7 +6,7 @@ A *transaction* represents a unit of work, which can include multiple operations
 
 Transactions must adhere to the principles of atomicity, consistency, isolation, and durability (ACID).
 
-- **Atomicity:** All operations succeed or none succeed.
+- **Atomicity:** All operations succeed or no operations succeed.
 - **Consistency:** Data transitions from one valid state to another.
 - **Isolation:** Concurrent transactions yield the same results as sequential transactions.
 - **Durability:** Changes persist after being committed, even when failures occur.
@@ -35,7 +35,7 @@ Each local transaction:
 1. Completes its work atomically within a single service.
 1. Updates the service's database.
 1. Initiates the next transaction via an event or message.
-1. If a local transaction fails, the saga performs a series of *compensating transactions* to reverse the changes that the preceding local transactions made.
+   1. If a local transaction fails, the saga performs a series of *compensating transactions* to reverse the changes that the preceding local transactions made.
 
 ### Key concepts in the Saga pattern
 
@@ -47,7 +47,7 @@ Each local transaction:
   
   - **Boundary between reversible and committed:** It can be the last undoable, or compensable, transaction. Or it can be the first retryable operation in the saga.
 
-- **Retryable transactions:** These transactions follow the pivot transaction. Retryable transactions are idempotent and help ensure that the saga can reach its final state, even if temporary failures occur. It helps guarantee that the saga achieves a consistent state eventually.
+- **Retryable transactions:** These transactions follow the pivot transaction. Retryable transactions are idempotent and help ensure that the saga can reach its final state, even if temporary failures occur. It helps guarantee that the saga eventually achieves a consistent state.
 
 ### Saga implementation approaches
 
@@ -61,9 +61,9 @@ In the choreography approach, services exchange events without a centralized con
 
 | Benefits of choreography | Drawbacks of choreography |
 |--------------|---------------|
-| Good for simple workflows that have few services and don't need a coordination logic. | Workflow can become confusing when you add new steps. It's difficult to track which commands each saga participant responds to. |
+| Good for simple workflows that have few services and don't need a coordination logic. | Workflow can be confusing when you add new steps. It's difficult to track which commands each saga participant responds to. |
 | No other service is required for coordination. | There's a risk of cyclic dependency between saga participants because they have to consume each other's commands. |
-| Doesn't introduce a single point of failure because the responsibilities are distributed across the saga participants. | Integration testing is difficult because all services must be running to simulate a transaction. |
+| Doesn't introduce a single point of failure because the responsibilities are distributed across the saga participants. | Integration testing is difficult because all services must run to simulate a transaction. |
 
 #### Orchestration
 
@@ -113,7 +113,7 @@ To reduce or prevent these anomalies, consider the following countermeasures:
 
 - **Pessimistic view:** Reorder the sequence of the saga so that data updates occur in retryable transactions to eliminate dirty reads. Otherwise, one saga could read dirty data, or *uncommitted changes*, while another saga simultaneously performs a compensable transaction to roll back its updates.
 
-- **Reread values:** Confirm that data remains unchanged before you make updates. If data changes, abort the current step and restart the saga as needed.
+- **Reread values:** Confirm that data remains unchanged before you make updates. If data changes, stop the current step and restart the saga as needed.
 
 - **Version files:** Maintain a log of all operations on a record and ensure that they're performed in the correct sequence to prevent conflicts.
 
