@@ -376,6 +376,7 @@ Microsoft Learn modules:
 - [Spoke-to-spoke networking](../../networking/spoke-to-spoke-networking.yml)
 - [Connect an on-premises network to Azure](index.yml)
 - [Implement a secure hybrid network](../dmz/secure-vnet-dmz.yml)
+- [Architecture best practices for Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute)
 
 <!-- links -->
 
