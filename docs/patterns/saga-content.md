@@ -35,19 +35,20 @@ Each local transaction:
 1. Completes its work atomically within a single service.
 1. Updates the service's database.
 1. Initiates the next transaction via an event or message.
-   1. If a local transaction fails, the saga performs a series of *compensating transactions* to reverse the changes that the preceding local transactions made.
+
+If a local transaction fails, the saga performs a series of *compensating transactions* to reverse the changes that the preceding local transactions made.
 
 ### Key concepts in the Saga pattern
 
-- **Compensable transactions:** Transactions that can be undone or compensated by other transactions with the opposite effect. If a step in the saga fails, compensating transactions undo the changes that the compensable transactions made.
+- **Compensable transactions** can be undone or compensated for by other transactions with the opposite effect. If a step in the saga fails, compensating transactions undo the changes that the compensable transactions made.
 
-- **Pivot transaction:** A transaction that serves as the point of no return in the saga. After the pivot transaction succeeds, compensable transactions are no longer relevant. All subsequent actions must complete for the system to achieve a consistent final state. A pivot transaction can assume different roles, depending on the flow of the saga:
+- **Pivot transactions** serve as the point of no return in the saga. After a pivot transaction succeeds, compensable transactions are no longer relevant. All subsequent actions must be completed for the system to achieve a consistent final state. A pivot transaction can assume different roles, depending on the flow of the saga:
 
-  - **Irreversible, or noncompensable:** It can't be undone or retried.
+  - **Irreversible or noncompensable transactions** can't be undone or retried.
   
-  - **Boundary between reversible and committed:** It can be the last undoable, or compensable, transaction. Or it can be the first retryable operation in the saga.
+  - **The boundary between reversible and committed** means that the pivot transaction can be the last undoable, or compensable, transaction. Or it can be the first retryable operation in the saga.
 
-- **Retryable transactions:** These transactions follow the pivot transaction. Retryable transactions are idempotent and help ensure that the saga can reach its final state, even if temporary failures occur. It helps guarantee that the saga eventually achieves a consistent state.
+- **Retryable transactions** follow the pivot transaction. Retryable transactions are idempotent and help ensure that the saga can reach its final state, even if temporary failures occur. They help the saga eventually achieve a consistent state.
 
 ### Saga implementation approaches
 
@@ -99,7 +100,7 @@ Data anomalies are inconsistencies that can occur when sagas operate across mult
 
 - **Lost updates:** When one saga modifies data without considering changes made by another saga, it results in overwritten or missing updates.
 
-- **Dirty reads:** When a saga or transaction reads data that another saga has modified but not yet completed.
+- **Dirty reads:** When a saga or transaction reads data that another saga has modified, but the modification isn't complete.
 
 - **Fuzzy, or nonrepeatable, reads:** When different steps in a saga read inconsistent data because updates occur between the reads.
 
@@ -115,9 +116,9 @@ To reduce or prevent these anomalies, consider the following countermeasures:
 
 - **Reread values:** Confirm that data remains unchanged before you make updates. If data changes, stop the current step and restart the saga as needed.
 
-- **Version files:** Maintain a log of all operations on a record and ensure that they're performed in the correct sequence to prevent conflicts.
+- **Version files:** Maintain a log of all operations performed on a record and ensure that they're performed in the correct sequence to prevent conflicts.
 
-- **Risk-based concurrency, by value:** Dynamically choose the appropriate concurrency mechanism based on the potential business risk. For example, use sagas for low-risk updates and distributed transactions for high-risk updates.
+- **Risk-based concurrency based on value:** Dynamically choose the appropriate concurrency mechanism based on the potential business risk. For example, use sagas for low-risk updates and distributed transactions for high-risk updates.
 
 ## When to use this pattern
 
@@ -134,18 +135,18 @@ This pattern might not be suitable when:
 
 ## Next step
 
-- [Distributed data](/dotnet/architecture/cloud-native/distributed-data)
+- [Cloud-native data patterns](/dotnet/architecture/cloud-native/distributed-data)
 
 ## Related resources
 
-The following patterns might also be useful when you implement this pattern:
+The following patterns might be relevant when you implement this pattern:
 
-- [Choreography](./choreography.yml) has each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control.
+- The [Choreography pattern](./choreography.yml) has each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control.
 
-- [Compensating transactions](./compensating-transaction.yml) undo work performed by a series of steps, and eventually define a consistent operation if one or more steps fail. Cloud-hosted applications that implement complex business processes and workflows often follow this *eventual consistency model*.
+- The [Compensating Transaction pattern](./compensating-transaction.yml) undoes work performed by a series of steps, and eventually defines a consistent operation if one or more steps fail. Cloud-hosted applications that implement complex business processes and workflows often follow this *eventual consistency model*.
 
-- [Retry](./retry.yml) lets an application handle transient failures when it tries to connect to a service or network resource by transparently retrying the failed operation. Retry can improve the stability of the application.
+- The [Retry pattern](./retry.yml) lets an application handle transient failures when it tries to connect to a service or network resource by transparently retrying the failed operation. This pattern can improve the stability of the application.
 
-- [Circuit breaker](./circuit-breaker.yml) handles faults that take a variable amount of time to recover from, when you connect to a remote service or resource. Circuit breaker can improve the stability and resiliency of an application.
+- The [Circuit Breaker pattern](./circuit-breaker.yml) handles faults that take a variable amount of time to recover from, when you connect to a remote service or resource. This pattern can improve the stability and resiliency of an application.
 
-- [Health endpoint monitoring](./health-endpoint-monitoring.yml) implements functional checks in an application that external tools can access through exposed endpoints at regular intervals. Health endpoint monitoring can help you verify that applications and services are performing correctly.
+- The [Health Endpoint Monitoring pattern](./health-endpoint-monitoring.yml) implements functional checks in an application that external tools can access through exposed endpoints at regular intervals. This pattern can help you verify that applications and services are performing correctly.
