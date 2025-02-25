@@ -7,9 +7,9 @@ A *transaction* represents a unit of work, which can include multiple operations
 Transactions must adhere to the principles of atomicity, consistency, isolation, and durability (ACID).
 
 - **Atomicity:** All operations succeed or no operations succeed.
-- **Consistency:** Data transitions from one valid state to another.
+- **Consistency:** Data transitions from one valid state to another valid state.
 - **Isolation:** Concurrent transactions yield the same results as sequential transactions.
-- **Durability:** Changes persist after being committed, even when failures occur.
+- **Durability:** Changes persist after they're committed, even when failures occur.
 
 In a single service, transactions follow ACID principles because they operate within a single database. However, it can be more complex to achieve ACID compliance across multiple services.
 
