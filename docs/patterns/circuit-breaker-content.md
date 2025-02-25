@@ -133,6 +133,13 @@ This strategy not only enhances resilience but also provides strong business jus
 1. After a predefined timeout, the circuit breaker enters a half-open state, permitting a limited number of trial requests.
 1. If these trial requests succeed without returning `HTTP429` responses, the breaker resets to a closed state, restoring normal operations back to Flow A. If failures persist, it reverts to the open state which is Flow B.
 
+### Design
+
+- [Azure App Services](/azure/app-service/overview) is hosting the web application acting as the primary entry point for client requests. The cloud-native application implements the logic that enforces circuit breaker policies, and delivers default or cached responses when the circuit is open. This architecture prevents overload on downstream systems and ensures that the user experience is maintained even during peak demand or failures.
+- [Azure Cosmos DB](/azure/cosmos-db/introduction) is one of the data store for the application serving non-critical data using the free tier that is meant for running small production workloads. The circuit breaker mechanism helps limiting traffic to the database during periods of high demand.
+- [Azure Monitor](/azure/azure-monitor/overview) functions as the centralized monitoring solution, aggregating all activity logs to ensure comprehensive, end-to-end observability. Continuously collects logs and telemetry data from Azure App Services and tracks key metrics from Azure Cosmos DB (such as the number of 429 responses).
+- [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview) help to evaluate alert rules against [dynamic thresholds](/azure/azure-monitor/alerts/alerts-dynamic-thresholds) helping to recognize what is considered an outage based on historical data. Notifies the management team when thresholds are breached. If the management approves the increase in provisioned throughput but the operations team opts to wait, anticipating recovery as the load isn't too high, the circuit breaker timeout elapses naturally. During this time, if the `HTTP429` responses cease, the threshold calculation detects the prolonged outages and excludes them from the learning algorithm. As a result, next time the threshold waits for higher error rate in Azure Cosmos DB, so the notification is delayed, allowing the circuit breaker to handle the issue without an immediate alert reducing costs.
+
 ## Related resources
 
 The following patterns might also be useful when implementing this pattern:
