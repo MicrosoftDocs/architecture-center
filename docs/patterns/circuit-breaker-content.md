@@ -113,6 +113,8 @@ When these demand spikes occur, [Azure Monitor alerts with dynamic thresholds](/
 
 This strategy not only enhances resilience but also provides strong business justification: by controlling capacity surges and managing cost increases deliberately, we maintain service quality without unexpectedly inflating our operating expenses. Once demand subsides and increased capacity is confirmed, the circuit breaker resets automatically, allowing the system to resume full functionality in alignment with both technical and budgetary objectives.
 
+![Azure cloud-native app with DB circuit breaker deployed into App Services sends telemetry to Azure Monitor and triggers scale alerts during seasonal 429 spikes, serving defaults for non-critical data.](./_images/cb-example.png)
+
 ## Related resources
 
 The following patterns might also be useful when implementing this pattern:
