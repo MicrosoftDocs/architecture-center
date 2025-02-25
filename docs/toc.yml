@@ -778,10 +778,6 @@ items:
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml
         - name: Recommendations
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml
-        - name: Deploy this scenario
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml
-        - name: Summary
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-summary.yml
       - name: Monitor Azure Databricks jobs
         items:
         - name: Overview

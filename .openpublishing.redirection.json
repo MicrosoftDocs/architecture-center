@@ -7060,10 +7060,19 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs//industries/automotive/automotive-connected-fleets.yml",
+      "source_path": "docs/industries/automotive/automotive-connected-fleets.yml",
       "redirect_url": "/industry/mobility/architecture/automotive-connected-fleets-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml",
+      "redirect_url": "/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/disaster-recovery/dr-for-azure-data-platform-summary.yml",
+      "redirect_url": "/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture",
       "redirect_document_id": false
     }
   ]
 }
-
