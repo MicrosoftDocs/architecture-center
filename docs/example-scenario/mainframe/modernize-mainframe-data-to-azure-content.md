@@ -60,18 +60,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 
 1. Azure services like Data Factory and [AzCopy](/azure/storage/common/storage-ref-azcopy) load data into Azure databases and Azure data storage. You can also use third-party solutions and custom loading solutions to load data.
 
-1. Azure provides many managed data storage solutions:
-   - Databases:
-     - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
-     - [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview)
-     - [Azure Cosmos DB](/azure/cosmos-db/introduction)
-     - [Azure Database for MySQL](/azure/mysql/overview)
-     - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
-     - SQL DB in Microsoft Fabric
-   - Storage:
-     - [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
-     - [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview#about-blob-storage)
-     - Microsoft Fabric Lakehouse
+1. Azure offers various managed data storage solutions, including databases like Azure SQL Database and Azure Cosmos DB, and storage options such as Azure Data Lake Storage and Azure Blob Storage.
 
 1. Azure services use the modernized data tier for computing, analytics, storage, and networking.
 
@@ -80,6 +69,8 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 ### Components
 
 #### Data storage
+
+The architecture provides scalable, secure cloud storage and managed databases for flexible, intelligent data management.
 
 - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is part of the [Azure SQL family](/azure/azure-sql/). It's built for the cloud and provides all the benefits of a fully managed and evergreen platform as a service. SQL Database also provides AI-powered automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options](/azure/azure-sql/database/service-tier-hyperscale) automatically scale resources on demand.
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service that's based on the community edition of the open-source [PostgreSQL](https://www.postgresql.org) database engine. 
@@ -91,12 +82,12 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 #### Compute
 
 - Data Factory integrates data across different network environments by using an [integration runtime (IR)](/azure/data-factory/concepts-integration-runtime), which is a compute infrastructure. Data Factory copies data between cloud data stores and data stores in on-premises networks by using [self-hosted IRs](/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime).
-- The on-premises data gateway is a locally installed Windows client application that acts as a bridge between your local on-premises data sources and services in the Microsoft cloud.
+- The [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) is a locally installed Windows client application that acts as a bridge between your local on-premises data sources and services in the Microsoft cloud.
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides on-demand, scalable computing resources. An Azure virtual machine (VM) provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
 
 #### Data integrators
 
-- [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service. In this solution, an Azure Data Factory custom connector uses the Host File client component of Host Integration Server to convert mainframe datasets. With minimal setup, you can use a custom connector to convert your mainframe dataset just as you'd use any other Azure Data Factory connector.
+- [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service. In this solution, an Azure Data Factory With minimal setup to migrate data from Db2 sorurce Azure databases targets using native connetors.
 - [AzCopy](/azure/storage/common/storage-use-azcopy-v10) is a command-line utility that moves blobs or files into and out of storage accounts.
 - [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) is a platform for creating enterprise-level data integration and transformation solutions. You can use it to solve complex business problems by:
    - Copying or downloading files.
@@ -105,7 +96,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
    - Managing SQL Server objects and data.
 - [Host Integration Server](/host-integration-server/what-is-his) technologies and tools enable you to integrate existing IBM host systems, programs, messages, and data with Azure applications. The Host File client component provides flexibility for data that's converted from EBCDIC to ASCII. For example, you can generate JSON/XML from the data that's converted.
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) brings together data integration, enterprise data warehousing, and big data analytics. The Azure Synapse conversion solution used in this architecture is based on Apache Spark and is a good candidate for large mainframe-dataset workload conversion. It supports a wide range of mainframe data structures and targets and requires minimal coding effort.
-- Microsoft Fabric is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It supports these capabilities with integrated services like Data Engineering, Data Factory, Data Science, Real-Time Analytics, Data Warehouse, and Databases.
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It supports these capabilities with integrated services like Data Engineering, Data Factory, Data Science, Real-Time Analytics, Data Warehouse, and Databases.
 
 #### Other tools
 
