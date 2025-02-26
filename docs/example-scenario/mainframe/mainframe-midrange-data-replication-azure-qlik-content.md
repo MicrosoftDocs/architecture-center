@@ -40,23 +40,39 @@ This architecture consists of several Azure cloud services and is divided into f
 
 #### Networking and identity
 
+When designing application architecture, it is crucial to prioritize networking and identity components to ensure security, performance, and manageability during interactions over public internet or private connections. The following components in the architecture are essential to addressing this requirement effectively.
+
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into cloud services offered by Microsoft over a private connection from a connectivity provider. With ExpressRoute, you can establish connections to cloud services such as Microsoft Azure and Office 365.
 - [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a specific type of virtual network gateway that sends encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that can synchronize with an on-premises active directory.
 
 #### Application
 
+Azure offers a comprehensive suite of managed services intended to support the secure, scalable, and efficient deployment of applications. The application tier services cited in the above architecture can contribute to achieving optimal application architecture.
+
 - [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service that can store Db2, IMS, and VSAM change data messages. It can receive and process millions of messages per second. Data sent to an event hub can be transformed and stored by using a real-time analytics provider or a custom adapter.
 - [Apache Kafka](https://kafka.apache.org) is an open-source distributed event streaming platform that's used for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications. It can be easily integrated with Qlik data integration to store Db2 change data.
 - [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) Azure Data Lake Storage provides a data lake for storing the processed on-premises change log data.
 - [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a cloud-based data engineering tool that's based on Apache Spark. It can process and transform massive quantities of data. You can explore the data by using machine learning models. Jobs can be written in R, Python, Java, Scala, and Spark SQL.
 
-#### Storage
+#### Storage and Database
+
+The architecture addresses scalable and secure cloud storage as well as managed databases for flexible and intelligent data management.
 
 - [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues). Azure Files is often an effective tool for migrating mainframe workloads.
+- [Azure SQL](/azure/azure-sql/) is a family of SQL cloud databases that provides flexible options for application migration, modernization, and development. The family includes:
+  - [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
+  - [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability)
+  - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework)
+  - [Azure SQL Edge](/azure/azure-sql-edge/overview)
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service with open-source APIs for MongoDB and Cassandra. A possible application is to migrate mainframe non-tabular data to Azure.
+- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed, intelligent, and scalable PostgreSQL that has native connectivity with Azure services.
+- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed, scalable MySQL database.
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service with open-source APIs for MongoDB and Cassandra. A possible application is to migrate mainframe non-tabular data to Azure.
 
 #### Monitoring
+
+The monitoring tools outlined below provide comprehensive data analysis and valuable insights into application performance.
 
 - [Azure Monitor](/azure/azure-monitor/overview) delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It includes:
   - Application Insights, for analyzing and presenting telemetry.
