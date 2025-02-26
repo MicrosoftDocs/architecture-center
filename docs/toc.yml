@@ -778,10 +778,6 @@ items:
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml
         - name: Recommendations
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml
-        - name: Deploy this scenario
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml
-        - name: Summary
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-summary.yml
       - name: Monitor Azure Databricks jobs
         items:
         - name: Overview
@@ -816,12 +812,8 @@ items:
         href: reference-architectures/data/stream-processing-databricks.yml
       - name: Stream processing with Stream Analytics
         href: reference-architectures/data/stream-processing-stream-analytics.yml
-      - name: Stream processing with open-source data
-        href: example-scenario/data/open-source-data-engine-stream-processing.yml
       - name: Modern data warehouse for small business
         href: example-scenario/data/small-medium-data-warehouse.yml
-      - name: Power BI data write-back
-        href: example-scenario/data/power-bi-write-back-power-apps.yml
       - name: Disaster recovery for data analytics pipelines
         href: example-scenario/analytics/pipelines-disaster-recovery.yml        
     - name: Solution ideas
@@ -830,12 +822,8 @@ items:
         items:
         - name: Big data analytics with Data Explorer
           href: solution-ideas/articles/big-data-azure-data-explorer.yml
-      - name: Content Delivery Network analytics
-        href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
       - name: Ingestion, ETL, and stream processing
         href: solution-ideas/articles/ingest-etl-stream-with-adb.yml
-      - name: Manage event data with HDInsight and Delta Lake
-        href: solution-ideas/articles/hdinsight-kafka-spark-delta-lake.yml
       - name: Modern analytics with Azure Databricks
         href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
       - name: Modern data platform for small and medium businesses
@@ -1032,10 +1020,6 @@ items:
               href: reference-architectures/containers/aks-pci/aks-pci-policy.yml
             - name: Summary
               href: reference-architectures/containers/aks-pci/aks-pci-summary.yml
-          - name: Deploy web apps on Azure Red Hat OpenShift
-            href: reference-architectures/containers/aro/ha-zr-aro.yml
-          - name: Running Windows containers on AKS
-            href: reference-architectures/containers/aks/windows-containers-on-aks.yml
           - name: Use Azure Red Hat OpenShift in the financial services industry
             href: reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml
           - name: CI/CD for microservices on Kubernetes
@@ -1050,8 +1034,6 @@ items:
             href: guide/aks/aks-cicd-azure-pipelines.yml
           - name: GitOps for AKS
             href: example-scenario/gitops-aks/gitops-blueprint-aks.yml
-          - name: Migrate an app from Service Fabric to AKS
-            href: guide/aks/migrate-app-service-fabric-azure-kubernetes-service.md
         - name: Infrastructure
           items:
           - name: Access an AKS API server
@@ -1096,18 +1078,10 @@ items:
             href: example-scenario/aks-front-door/aks-front-door.yml
           - name: Multitenancy with AKS and AGIC
             href: example-scenario/aks-agic/aks-agic.yml
-          - name: Overview of migration from Service Fabric to AKS
-            href: guide/aks/service-fabric-azure-kubernetes-service.md
-          - name: AKS data protection on Azure NetApp Files
-            href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
-          - name: AKS dual-stack network traffic
-            href: guide/aks/aks-dual-stack.yml
           - name: Use Azure Kubernetes Service to host GPU-based workloads
             href: reference-architectures/containers/aks-gpu/gpu-aks.yml
       - name: Solution ideas
         items:
-        - name: Build CNCF projects by using AKS
-          href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml
         - name: Data streaming with AKS
           href: solution-ideas/articles/data-streaming-scenario.yml
     - name: PaaS container hosting
@@ -1292,8 +1266,6 @@ items:
         href: guide/multitenant/approaches/iot.md
     - name: Architectures
       items:
-      - name: Automotive connected fleets
-        href: industries/automotive/automotive-connected-fleets.yml
       - name: Automotive test data analytics
         href: industries/automotive/automotive-telemetry-analytics.yml
     - name: Solution ideas
@@ -1569,8 +1541,6 @@ items:
         href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
       - name: Azure NetApp Files solutions
         items:
-        - name: AKS data protection on ANF
-          href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
         - name: Enterprise file shares with DR
           href: example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml
         - name: Moodle deployment with ANF

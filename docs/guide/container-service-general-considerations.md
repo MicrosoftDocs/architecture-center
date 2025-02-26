@@ -691,4 +691,3 @@ Other contributors:
 
 - [AKS - Plan your design and operations](../reference-architectures/containers/aks-start-here.md)
 - [Deploy microservices with Azure Container Apps](../example-scenario/serverless/microservices-with-container-apps.yml)
-- [Lift and shift to containers with Azure App Service](../web-apps/idea/migrate-existing-applications-to-container-apps.yml)

@@ -2437,7 +2437,7 @@
     },
     {
       "source_path": "docs/example-scenario/manufacturing/azure-ai-siemens-industrial-edge.yml",
-      "redirect_url": "/industry/manufacturing/",
+      "redirect_url": "/industry/manufacturing/architecture/azure-ai-siemens-industrial-edge",
       "redirect_document_id": false
     },
     {
@@ -6998,7 +6998,101 @@
       "source_path": "docs/guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml",
       "redirect_url": "/azure/azure-resource-manager/templates/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aro/ha-zr-aro.yml",
+      "redirect_url": "/azure/openshift/intro-openshift",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks/windows-containers-on-aks.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks/baseline-aks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/aks/migrate-app-service-fabric-azure-kubernetes-service.md",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks/baseline-aks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/aks/service-fabric-azure-kubernetes-service.md",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks/baseline-aks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml",
+      "redirect_url": "/azure/architecture/operator-guides/aks/aks-backup-and-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/aks/aks-dual-stack.yml",
+      "redirect_url": "/azure/aks/configure-kubenet-dual-stack",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks/baseline-aks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/idea/ecommerce-website-running-in-secured-ase.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service-environment/architectures/ase-standard-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/idea/migrate-existing-applications-to-container-apps.yml",
+      "redirect_url": "/azure/architecture/guide/choose-azure-container-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/app-service/architectures/multi-region.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/guides/networking/automation-application-gateway.yml",
+      "redirect_url": "/azure/container-instances/container-instances-application-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/wordpress-iaas.yml",
+      "redirect_url": "/azure/architecture/example-scenario/infrastructure/wordpress-app-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/automotive/automotive-connected-fleets.yml",
+      "redirect_url": "/industry/mobility/architecture/automotive-connected-fleets-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml",
+      "redirect_url": "/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/disaster-recovery/dr-for-azure-data-platform-summary.yml",
+      "redirect_url": "/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/open-source-data-engine-stream-processing.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/data/stream-processing-databricks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/power-bi-write-back-power-apps.yml",
+      "redirect_url": "/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/content-delivery-network-azure-data-explorer.yml",
+      "redirect_url": "/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/hdinsight-kafka-spark-delta-lake.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/data/stream-processing-databricks",
+      "redirect_document_id": false
     }
   ]
 }
-
