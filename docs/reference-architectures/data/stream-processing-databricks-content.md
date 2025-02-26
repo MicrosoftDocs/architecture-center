@@ -1,6 +1,6 @@
 <!-- cSpell:ignore eventhubs shapefile malformedrides malformedfares Dropwizard dropoff timechart DBUs DBCU -->
 
-This reference architecture shows an end-to-end stream processing pipeline. The four stages of this pipeline are ingest, process, store, and analysis and reporting. For this reference architecture, the pipeline ingests data from two sources, performs a join on related records from each stream, enriches the result, and calculates an average in real time. The results are then stored for further analysis.
+This reference architecture shows an end-to-end stream processing pipeline. The four stages of this pipeline are ingest, process, store, and analyze and report. For this reference architecture, the pipeline ingests data from two sources, performs a join on related records from each stream, enriches the result, and calculates an average in real time. The results are then stored for further analysis.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
@@ -16,19 +16,19 @@ This reference architecture shows an end-to-end stream processing pipeline. The 
 
 The following dataflow corresponds to the previous diagram:
 
-1. **In this architecture, there are two data sources that generate data streams in real time.** The first stream contains ride information, and the second stream contains fare information. The reference architecture includes a simulated data generator that reads from a set of static files and pushes the data to Azure Event Hubs. The data sources in a real application would be devices installed in the taxi cabs.
+1. **In this architecture, there are two data sources that generate data streams in real time.** The first stream contains ride information, and the second stream contains fare information. The reference architecture includes a simulated data generator that reads from a set of static files and pushes the data to Azure Event Hubs. The data sources in a real application are devices installed in the taxi cabs.
 
 1. **[Event Hubs](/azure/well-architected/service-guides/event-hubs)** is an event ingestion service. This architecture uses two event hub instances, one for each data source. Each data source sends a stream of data to the associated event hub.
 
-1. **[Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security)** is an Apache Spark-based analytics platform that's optimized for the Microsoft Azure cloud services platform. Azure Databricks is used to correlate the taxi ride and fare data, and to enrich the correlated data with neighborhood data that's stored in the Azure Databricks file system.
+1. **[Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security)** is an Apache Spark-based analytics platform that's optimized for the Microsoft Azure cloud services platform. Azure Databricks is used to correlate the taxi ride and fare data and to enrich the correlated data with neighborhood data that's stored in the Azure Databricks file system.
 
-1. **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed, multi-model database service. The output of an Azure Databricks job is a series of records, which are written to [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction). Azure Cosmos DB for Apache Cassandra is used because it supports time series data modeling.
+1. **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed, multiple-model database service. The output of an Azure Databricks job is a series of records, which are written to [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction). Azure Cosmos DB for Apache Cassandra is used because it supports time series data modeling.
 
-    - **[Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link)** enables you to run near real-time analytics on operational data in Azure Cosmos DB, without any performance or cost effects on your transactional workload. You can achieve this by using the two analytics engines available from your Azure Synapse workspace, which are [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview).
+    - **[Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link)** enables you to run near real-time analytics on operational data in Azure Cosmos DB, without any performance or cost effects on your transactional workload. You can achieve these results by using [serverless SQL pool](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark pools](/azure/synapse-analytics/spark/apache-spark-overview). These analytics engines are available from your Azure Synapse Analytics workspace.
 
-    - **[Microsoft Fabric mirroring Azure Cosmos DB for NoSQL](/fabric/database/mirrored-database/azure-cosmos-db)** allows you to integrate Azure Cosmos DB data with the rest of your data in Microsoft Fabric.
+    - **[Mirroring Azure Cosmos DB for NoSQL in Microsoft Fabric](/fabric/database/mirrored-database/azure-cosmos-db)** allows you to integrate Azure Cosmos DB data with the rest of your data in Microsoft Fabric.
 
-1. **[Azure Log Analytics](/azure/well-architected/service-guides/azure-log-analytics)** is a tool within Azure Monitor that allows you to query and analyze log data from various sources. Application log data that [Azure Monitor](/azure/monitoring-and-diagnostics) collects is stored in a [Log Analytics workspace](/azure/log-analytics). You can use Log Analytics queries to analyze and visualize metrics and inspect log messages to identify problems within the application.
+1. **[Log Analytics](/azure/well-architected/service-guides/azure-log-analytics)** is a tool within Azure Monitor that allows you to query and analyze log data from various sources. Application log data that [Azure Monitor](/azure/monitoring-and-diagnostics) collects is stored in a [Log Analytics workspace](/azure/log-analytics). You can use Log Analytics queries to analyze and visualize metrics and inspect log messages to identify problems within the application.
 
 ## Scenario details
 
@@ -36,7 +36,7 @@ A taxi company collects data about each taxi trip. For this scenario, we assume 
 
 ## Data ingestion
 
-To simulate a data source, this reference architecture uses the [New York City taxi data dataset](https://uofi.app.box.com/v/NYCtaxidata/folder/2332218797)<sup id="note1">[1](#note1)</sup>. This dataset contains data about taxi trips in New York City from 2010 - 2013. It contains both ride and fare data records. Ride data includes trip duration, trip distance, and the pick-up and drop-off location. Fare data includes fare, tax, and tip amounts. Fields in both record types include medallion number, hack license, and vendor ID. The combination of these three fields uniquely identifies a taxi plus a driver. The data is stored in CSV format.
+To simulate a data source, this reference architecture uses the [New York City taxi data dataset](https://uofi.app.box.com/v/NYCtaxidata/folder/2332218797)<sup id="note1">[1](#note1)</sup>. This dataset contains data about taxi trips in New York City from 2010 to 2013. It contains both ride and fare data records. Ride data includes trip duration, trip distance, and the pickup and drop-off locations. Fare data includes fare, tax, and tip amounts. Fields in both record types include medallion number, hack license, and vendor ID. The combination of these three fields uniquely identifies a taxi and a driver. The data is stored in CSV format.
 
 <span id="note1">[1]</span> Donovan, Brian; Work, Dan (2016): New York City Taxi Trip Data (2010-2013). University of Illinois at Urbana-Champaign. [https://doi.org/10.13012/J8PN93H8](https://doi.org/10.13012/J8PN93H8)
 
@@ -44,7 +44,7 @@ The data generator is a .NET Core application that reads the records and sends t
 
 Event Hubs uses [partitions](/azure/event-hubs/event-hubs-features#partitions) to segment the data. Partitions allow a consumer to read each partition in parallel. When you send data to Event Hubs, you can specify the partition key directly. Otherwise, records are assigned to partitions in round-robin fashion.
 
-In this scenario, ride data and fare data should be assigned the same partition ID for a specific taxi cab. This enables Databricks to apply a degree of parallelism when it correlates the two streams. For example, a record in partition *n* of the ride data matches a record in partition *n* of the fare data.
+In this scenario, ride data and fare data should be assigned the same partition ID for a specific taxi cab. This assignment enables Databricks to apply a degree of parallelism when it correlates the two streams. For example, a record in partition *n* of the ride data matches a record in partition *n* of the fare data.
 
 :::image type="content" source="./images/stream-processing-databricks-event-hubs.svg" alt-text="Diagram of stream processing with Azure Databricks and Event Hubs." border="false" lightbox="./images/stream-processing-databricks-event-hubs.svg" :::
 
@@ -94,9 +94,9 @@ The throughput capacity of Event Hubs is measured in [throughput units](/azure/e
 
 ### Stream processing
 
-In Azure Databricks, a job performs data processing. The job is assigned to a cluster and then runs on it. The job can either be custom code written in Java or a Spark [notebook](/azure/databricks/notebooks/).
+In Azure Databricks, a job performs data processing. The job is assigned to a cluster and then runs on it. The job can be custom code written in Java or a Spark [notebook](/azure/databricks/notebooks/).
 
-In this reference architecture, the job is a Java archive with classes written in Java and Scala. When you specify the Java archive for a Databricks job, the Databricks cluster specifies the class for operation. Here, the `main` method of the `com.microsoft.pnp.TaxiCabReader` class contains the data processing logic.
+In this reference architecture, the job is a Java archive that has classes written in Java and Scala. When you specify the Java archive for a Databricks job, the Databricks cluster specifies the class for operation. Here, the `main` method of the `com.microsoft.pnp.TaxiCabReader` class contains the data processing logic.
 
 #### Read the stream from the two event hub instances
 
@@ -127,9 +127,9 @@ val fareEvents = spark.readStream
 
 #### Enrich the data with the neighborhood information
 
-The ride data includes the latitude and longitude coordinates of the pick-up and drop-off locations. These coordinates are useful but not easily consumed for analysis. Therefore, this data is enriched with neighborhood data that's read from a [shapefile](https://en.wikipedia.org/wiki/Shapefile).
+The ride data includes the latitude and longitude coordinates of the pickup and drop-off locations. These coordinates are useful but not easily consumed for analysis. Therefore, this data is enriched with neighborhood data that's read from a [shapefile](https://en.wikipedia.org/wiki/Shapefile).
 
-The shapefile format is binary and not easily parsed. But the [GeoTools](http://geotools.org) library provides tools for geospatial data that use the shapefile format. This library is used in the `com.microsoft.pnp.GeoFinder` class to determine the neighborhood name based on the coordinates for pick-up and drop-off locations.
+The shapefile format is binary and not easily parsed. But the [GeoTools](http://geotools.org) library provides tools for geospatial data that use the shapefile format. This library is used in the `com.microsoft.pnp.GeoFinder` class to determine the neighborhood name based on the coordinates for pickup and drop-off locations.
 
 ```scala
 val neighborhoodFinder = (lon: Double, lat: Double) => {
@@ -184,7 +184,7 @@ Then the ride data is joined with the fare data:
 val mergedTaxiTrip = rides.join(fares, Seq("medallion", "hackLicense", "vendorId", "pickupTime"))
 ```
 
-#### Process the data and insert into Azure Cosmos DB
+#### Process the data and insert it into Azure Cosmos DB
 
 The average fare amount for each neighborhood is calculated for a specific time interval:
 
@@ -252,7 +252,7 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. 
 
 This reference architecture deploys Event Hubs in the Standard tier. The pricing model is based on throughput units, ingress events, and capture events. An ingress event is a unit of data that's 64 KB or less. Larger messages are billed in multiples of 64 KB. You specify throughput units either through the Azure portal or Event Hubs management APIs.
 
-If you need more retention days, consider the Dedicated tier. This tier provides single-tenant deployments with most demanding requirements. This offering builds a cluster based on capacity units that isn't dependent on throughput units.
+If you need more retention days, consider the Dedicated tier. This tier provides single-tenant deployments that have demanding requirements. This offering builds a cluster that's based on capacity units and isn't dependent on throughput units.
 
 The Standard tier is also billed based on ingress events and throughput units.
 
@@ -260,33 +260,33 @@ For more information, see [Event Hubs pricing][event-hubs-pricing].
 
 #### Azure Databricks cost considerations
 
-Azure Databricks provides the Standard tier and the Premium tier, both of which support three workloads. This reference architecture deploys Azure Databricks workspace in the Premium tier.
+Azure Databricks provides the Standard tier and the Premium tier, both of which support three workloads. This reference architecture deploys an Azure Databricks workspace in the Premium tier.
 
-Data engineering workloads should run on a job cluster. They're for data engineers to build and perform jobs. Data analytics workloads should run on an all-purpose cluster and are intended for data scientists to explore, visualize, manipulate, and share data and insights interactively.
+Data engineering workloads should run on a job cluster. Data engineers use clusters to build and perform jobs. Data analytics workloads should run on an all-purpose cluster and are intended for data scientists to explore, visualize, manipulate, and share data and insights interactively.
 
 Azure Databricks provides multiple pricing models.
 
 - **Pay-as-you-go plan**
 
-  You're billed for virtual machines (VMs) provisioned in clusters and Azure Databricks Units (DBUs) based on the chosen VM instance. A DBU is a unit of processing capability that's billed on a per-second usage. The DBU consumption depends on the size and type of instance that runs Azure Databricks. Pricing depends on the chosen workload and tier.
+  You're billed for virtual machines (VMs) provisioned in clusters and Azure Databricks units (DBUs) based on the chosen VM instance. A DBU is a unit of processing capability that's billed by usage per second. The DBU consumption depends on the size and type of instance that runs in Azure Databricks. Pricing depends on the chosen workload and tier.
 
 - **Pre-purchase plan**
 
-  You commit to DBU as Databricks Commit Units for either one or three years to reduce the total cost of ownership over that time period when compared to the pay-as-you-go model.
+  You commit to DBUs as Azure Databricks commit units for either one or three years to reduce the total cost of ownership over that time period when compared to the pay-as-you-go model.
 
 For more information, see [Azure Databricks pricing][azure-databricks-pricing].
 
 #### Azure Cosmos DB cost considerations
 
-In this architecture, the Azure Databricks job writes a series of records to Azure Cosmos DB. You're charged for the capacity that you reserve, measured in Request Units per second (RU/s). This capacity is used to perform insert operations. The unit for billing is 100 RU/sec per hour. For example, the cost of writing 100-KB items is 50 RU/s.
+In this architecture, the Azure Databricks job writes a series of records to Azure Cosmos DB. You're charged for the capacity that you reserve, which is measured in Request Units per second (RU/s). This capacity is used to perform insert operations. The unit for billing is 100 RU/s per hour. For example, the cost of writing 100-KB items is 50 RU/s.
 
-For write operations, provision enough capacity to support the number of writes needed per second. You can increase the provisioned throughput by using the portal or Azure CLI before you perform write operations and then reduce the throughput after those operations are complete. Your throughput for the write period is the sum of the minimum throughput needed for the specific data and the throughput required for the insert operation. This calculation assumes that there's no other workload running.
+For write operations, provision enough capacity to support the number of writes needed per second. You can increase the provisioned throughput by using the portal or Azure CLI before you perform write operations and then reducing the throughput after those operations are complete. Your throughput for the write period is the sum of the minimum throughput needed for the specific data and the throughput required for the insert operation. This calculation assumes that there's no other workload running.
 
 ##### Example cost analysis
 
-Suppose you configure a throughput value of 1,000 RU/sec on a container. It's deployed for 24 hours for 30 days, for a total of 720 hours.
+Suppose you configure a throughput value of 1,000 RU/s on a container. It's deployed for 24 hours for 30 days, for a total of 720 hours.
 
-The container is billed at 10 units of 100 RU/sec per hour for each hour. Ten units at $0.008 (per 100 RU/sec per hour) are charged at $0.08 per hour.
+The container is billed at 10 units of 100 RU/s per hour for each hour. Ten units at $0.008 (per 100 RU/s per hour) are charged at $0.08 per hour.
 
 For 720 hours or 7,200 units (of 100 RUs), you're billed $57.60 for the month.
 
@@ -300,9 +300,9 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 #### Monitoring
 
-Azure Databricks is based on Apache Spark. Both Azure Databricks and Apache Spark use [Apache Log4j](https://logging.apache.org/log4j/2.x) as the standard library for logging. In addition to the default logging that Apache spark provides, you can implement logging to Log Analytics outlined in the article [Monitoring Azure Databricks](/azure/architecture/databricks-monitoring/).
+Azure Databricks is based on Apache Spark. Both Azure Databricks and Apache Spark use [Apache Log4j](https://logging.apache.org/log4j/2.x) as the standard library for logging. In addition to the default logging that Apache Spark provides, you can implement logging in Log Analytics. For more information, see [Monitoring Azure Databricks](/azure/architecture/databricks-monitoring/).
 
-As the `com.microsoft.pnp.TaxiCabReader` class processes ride and fare messages, it's possible that either one might be malformed and therefore not valid. In a production environment, it's important to analyze these malformed messages to identify a problem with the data sources so that it can be fixed quickly to prevent data loss. The `com.microsoft.pnp.TaxiCabReader` class registers an Apache Spark Accumulator that tracks the number of malformed fare records and ride records:
+As the `com.microsoft.pnp.TaxiCabReader` class processes ride and fare messages, a message might be malformed and therefore not valid. In a production environment, it's important to analyze these malformed messages to identify a problem with the data sources so that it can be fixed quickly to prevent data loss. The `com.microsoft.pnp.TaxiCabReader` class registers an Apache Spark Accumulator that tracks the number of malformed fare records and ride records:
 
 ```scala
 @transient val appMetrics = new AppMetrics(spark.sparkContext)
@@ -311,7 +311,7 @@ appMetrics.registerGauge("metrics.malformedfares", AppAccumulators.getFareInstan
 SparkEnv.get.metricsSystem.registerSource(appMetrics)
 ```
 
-Apache Spark uses the Dropwizard library to send metrics. Some of the native Dropwizard metrics fields are incompatible with Log Analytics, which is why this reference architecture includes a custom Dropwizard sink and reporter. It formats the metrics in the format expected by Log Analytics. When Apache Spark reports metrics, the custom metrics for the malformed ride and fare data are also sent.
+Apache Spark uses the Dropwizard library to send metrics. Some of the native Dropwizard metrics fields are incompatible with Log Analytics, which is why this reference architecture includes a custom Dropwizard sink and reporter. It formats the metrics in the format that Log Analytics expects. When Apache Spark reports metrics, the custom metrics for the malformed ride and fare data are also sent.
 
 You can use the following example queries in your Log Analytics workspace to monitor the operation of the streaming job. The argument `ago(1d)` in each query returns all records that were generated in the last day. You can adjust this parameter to view a different time period.
 
