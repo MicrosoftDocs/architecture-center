@@ -48,7 +48,7 @@ In this scenario, ride data and fare data should be assigned the same partition 
 
 :::image type="content" source="./images/stream-processing-databricks-event-hubs.svg" alt-text="Diagram of stream processing with Azure Databricks and Event Hubs." border="false" lightbox="./images/stream-processing-databricks-event-hubs.svg" :::
 
-*Download a [Visio file](https://arch-center.azureedge.net/stream-processing-databricks-eh.vsdx)* of this architecture.
+*Download a [Visio file](https://arch-center.azureedge.net/stream-processing-databricks-event-hubs.vsdx)* of this architecture.
 
 In the data generator, the common data model for both record types has a `PartitionKey` property that is the concatenation of `Medallion`, `HackLicense`, and `VendorId`.
 
