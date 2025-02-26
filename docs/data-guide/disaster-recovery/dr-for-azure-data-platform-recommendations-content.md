@@ -118,9 +118,8 @@ For this outage scenario, the relative impact on the four high-level DR Strategi
 
 ## Next steps
 
-- [Cloud Adoption Framework](/azure/cloud-adoption-framework/secure/business-resilience)
 - [Mission-critical workload](/azure/architecture/framework/mission-critical/mission-critical-overview)
-- [Well-Architected Framework](/azure/architecture/framework/resiliency/)
+- [Well-Architected Framework recommendations for designing a disaster recovery strategy](/azure/well-architected/reliability/disaster-recovery)
 
 ## Related resources
 
