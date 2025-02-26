@@ -1,5 +1,5 @@
 ---
-title: Apache scenarios on Azure
+title: Apache Scenarios on Azure
 description: Review a list of architectures and solutions that use Apache open-source solutions.
 author: martinekuan
 ms.date: 07/26/2022
@@ -27,11 +27,11 @@ ms.custom: fcp
 
 # Apache open-source scenarios on Azure
 
-Microsoft is proud to support open-source projects, initiatives, and foundations and contribute to thousands of open-source communities. By using open-source technologies on Azure, you can run applications your way while optimizing your investments. 
+Microsoft is proud to support open-source projects, initiatives, and foundations and contribute to thousands of open-source communities. By using open-source technologies on Azure, you can run applications your way while optimizing your investments.
 
 This article provides a summary of architectures and solutions that use Azure together with Apache open-source solutions.
 
-*Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+*Apache®, Apache Cassandra, Apache CouchDB, Apache Hadoop, Apache HBase, Apache Hive, Apache Ignite, Apache JMeter, Apache Kafka, Apache MapReduce, Apache Oozie, Apache Solr, Apache Spark, Apache Sqoop, Apache ZooKeeper, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Apache Cassandra
 
