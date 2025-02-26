@@ -1,7 +1,5 @@
  This article describes an architecture for many models that uses Machine Learning and compute clusters. It provides great versatility for situations that require complex setup.
 
-A companion article, [Many models machine learning at scale in Azure with Spark](many-models-machine-learning-azure-spark.yml), uses Apache Spark in either Azure Databricks or Azure Synapse Analytics.
-
 ## Architecture
 
 :::image type="content" source="_images/many-models-machine-learning-azure.png" alt-text="Architecture diagram for many models machine learning at scale on Azure with Azure Machine Learning." lightbox="_images/many-models-machine-learning-azure.png":::
@@ -142,4 +140,3 @@ Principal author:
 - [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 - [Choose a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
-- [Many models machine learning at scale in Azure with Spark](many-models-machine-learning-azure-spark.yml)

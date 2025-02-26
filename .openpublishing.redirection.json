@@ -7098,6 +7098,11 @@
       "source_path": "docs/ai-ml/idea/video-ingestion-object-detection-edge-cloud.yml",
       "redirect_url": "/azure/databox-online/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/idea/many-models-machine-learning-azure-spark.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/many-models-machine-learning-azure-machine-learning",
+      "redirect_document_id": false
     }
   ]
 }
