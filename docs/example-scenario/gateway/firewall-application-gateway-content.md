@@ -1,32 +1,40 @@
-To secure Azure application workloads, you should use protective measures, such as authentication and encryption, in the applications themselves. You can also add security layers to the virtual networks (VNets) that host the applications. These security layers protect the application's inbound flows from unintended utilization. They also limit outbound flows to the internet to only those endpoints your application requires. This article describes [Azure Virtual Network][azure-virtual-network] security services like Azure DDoS Protection, Azure Firewall and Azure Application Gateway, when to use each service, and network design options that combine both.
+To help secure Azure application workloads, use protective measures such as authentication and encryption in the applications themselves. You can add security layers to the virtual networks that host the applications. These security layers help protect the application's inbound flows from unintended usage. They also limit outbound flows to the internet to only those endpoints that your application requires. This article describes [Azure Virtual Network][azure-virtual-network] security services like Azure DDoS Protection, Azure Firewall, and Azure Application Gateway. It also describes when to use each service and network design options that combine both.
 
-- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
-- [Azure Firewall][azfw-overview] is a managed next-generation firewall that offers [network address translation (NAT)][nat]. Azure Firewall bases packet filtering on Internet Protocol (IP) addresses and Transmission Control Protocol and User Datagram Protocol (TCP/UDP) ports, or on application-based HTTP(S) or SQL attributes. Azure Firewall also applies Microsoft threat intelligence to identify malicious IP addresses. For more information, see the [Azure Firewall documentation][azfw-docs].
-- [Azure Firewall Premium][azfw-premium-features] includes all functionality of Azure Firewall Standard and other features, such as TLS-inspection and Intrusion Detection and Protection System (IDPS).
-- [Azure Application Gateway][appgw-overview] is a managed web traffic load balancer and HTTP(S) full reverse proxy that can do Secure Socket Layer (SSL) encryption and decryption. Application gateway preserves the original client IP address in an X-Forwarded-For HTTP header. Application Gateway also uses Web Application Firewall to inspect web traffic and detect attacks at the HTTP layer. For more information, see the [Application Gateway documentation][appgw-docs].
-- [Azure Web Application Firewall (WAF)][web-application-firewall] is an optional addition to Azure Application Gateway. It provides inspection of HTTP requests, and it prevents malicious attacks at the web layer, such as SQL Injection or Cross-Site Scripting. For more information, see the [Web Application Firewall documentation][waf-docs].
+- [DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
-These Azure services are complementary. One or the other may be best for your workloads, or you can use them together for optimal protection at both the network and application layers. Use the following decision tree and the examples in this article to determine the best security option for your application's virtual network.
+- [Azure Firewall][azfw-overview] is a managed next-generation firewall that provides [network address translation (NAT)][nat]. Azure Firewall bases packet filtering on internet protocol (IP) addresses and Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) ports, or on application-based HTTP(s) or SQL attributes. Azure Firewall also applies Microsoft threat intelligence to identify malicious IP addresses. For more information, see [Azure Firewall documentation][azfw-docs].
 
-Azure Firewall and Azure Application Gateway use different technologies, and they support securitization of different flows:
+- [Azure Firewall Premium][azfw-premium-features] includes all functionality of Azure Firewall Standard and other features, such as TLS-inspection and intrusion detection and protection system (IDPS).
+
+- [Application Gateway][appgw-overview] is a managed web traffic load balancer and HTTP(s) full reverse proxy that can do Secure Socket Layer (SSL) encryption and decryption. Application gateway preserves the original client IP address in an *X-Forwarded-For*HTTP header. Application Gateway also uses Web Application Firewall to inspect web traffic and detect attacks at the HTTP layer. For more information, see the [Application Gateway documentation][appgw-docs].
+
+- [Azure Web Application Firewall (WAF)][web-application-firewall] is an optional addition to Application Gateway. It provides inspection of HTTP requests, and it prevents malicious attacks at the web layer, such as SQL Injection or Cross-Site Scripting. For more information, see the [Web Application Firewall documentation][waf-docs].
+
+These Azure services are complementary. One or the other might be best for your workloads, or you can use them together for optimal protection at both the network and application layers. Use the following decision tree and the examples in this article to determine the best security option for your application's virtual network.
+
+Azure Firewall and Application Gateway use different technologies, and they support securitization of different flows:
 
 |Application Flow| Can be filtered by Azure Firewall | Can be filtered by WAF on Application Gateway |
 | --- | :---: |:---: |
-| HTTP(S) traffic from on-premises/internet to Azure (inbound) | Yes | Yes |
-| HTTP(S) traffic from Azure to on-premises/internet (outbound) | Yes | No |
-| Non-HTTP(S) traffic, inbound/outbound | Yes | No |
+| HTTP(s) traffic from on-premises or internet to Azure (inbound) | Yes | Yes |
+| HTTP(s) traffic from Azure to on-premises or internet (outbound) | Yes | No |
+| Non-HTTP(s) traffic, inbound or outbound | Yes | No |
 
-Depending on the network flows an application requires, the design can be different on a per-application basis. The following diagram offers a simplified decision tree that helps choosing the recommended approach for an application. The decision depends on whether the application is published via HTTP(S) or some other protocol:
+Depending on the network flows an application requires, the design can be different on a per-application basis. The following diagram provides a simplified decision tree that helps you choose the recommended approach for an application. The decision depends on whether the application is published via HTTP(s) or some other protocol:
 
 ![Diagram that demonstrates the virtual network security decision tree.](./images/decision-tree-simple.png)
 
-This article will cover the widely recommended designs from the flow chart, and others that are applicable in less common scenarios:
+This article covers the widely recommended designs from the flow chart, and others that are applicable in less common scenarios:
 
-- [Azure Firewall alone](#azure-firewall-only), when there are no web applications in the virtual network. It will control both inbound traffic to the applications and outbound traffic.
-- [Application Gateway alone](#application-gateway-only), when only web applications are in the virtual network, and [network security groups (NSGs)][nsgs] provide sufficient output filtering. The functionalities provided by Azure Firewall can prevent many attack scenarios (such as data exfiltration, IDPS, and so on). Due to this reason, the Application Gateway alone scenario isn't typically recommended and hence not documented and is not in the flow chart above.
-- [Azure Firewall and Application Gateway in parallel](#firewall-and-application-gateway-in-parallel), which is one of the most common designs. Use this combination when you want Azure Application Gateway to protect HTTP(S) applications from web attacks, and Azure Firewall to protect all other workloads and filter outbound traffic.
+- [Azure Firewall alone](#azure-firewall-only), when there are no web applications in the virtual network. It controls both inbound traffic to the applications and outbound traffic.
+
+- [Application Gateway alone](#application-gateway-only), when only web applications are in the virtual network, and [network security groups (NSGs)][nsgs] provide sufficient output filtering. The functionalities provided by Azure Firewall can prevent many attack scenarios, such as data exfiltration, IDPS, and so on. Because of this reason, the Application Gateway alone scenario isn't typically recommended and hence not documented and isn't in the flow previous chart.
+
+- [Azure Firewall and Application Gateway in parallel](#firewall-and-application-gateway-in-parallel), which is one of the most common designs. Use this combination when you want Application Gateway to protect HTTP(s) applications from web attacks, and Azure Firewall to protect all other workloads and filter outbound traffic.
+
 - [Application Gateway in front of Azure Firewall](#application-gateway-before-firewall), when you want Azure Firewall to inspect all traffic, WAF to protect web traffic, and the application to know the client's source IP address. With Azure Firewall Premium and TLS inspection, this design supports the end-to-end SSL scenario as well.
-- [Azure Firewall in front of Application Gateway](#application-gateway-after-firewall), when you want Azure Firewall to inspect and filter traffic before it reaches the Application Gateway. Because the Azure Firewall isn't going to decrypt HTTPS traffic, the functionality that it's adding to the Application Gateway is limited. This scenario isn't documented in the flow chart above.
+
+- [Azure Firewall in front of Application Gateway](#application-gateway-after-firewall), when you want Azure Firewall to inspect and filter traffic before it reaches the Application Gateway. Because the Azure Firewall doesn't go to decrypt HTTPS traffic, the functionality that it adds to the Application Gateway is limited. This scenario isn't documented in the previous flow chart.
 
 In the last part of this article, variations of the previous fundamental designs are described. These variations include:
 
@@ -34,73 +42,82 @@ In the last part of this article, variations of the previous fundamental designs
 - [Hub and spoke networks](#hub-and-spoke-topology).
 - [Azure Kubernetes Service (AKS)](#azure-kubernetes-service) implementations.
 
-You can add other reverse proxy services like an [API Management][apim-overview] gateway or [Azure Front Door][frontdoor]. Or you can replace the Azure resources with third-party [network virtual appliances](#other-network-virtual-appliances).
+You can add other reverse proxy services like an [API Management][api-management-overview] gateway or [Azure Front Door][frontdoor]. Or you can replace the Azure resources with third-party [network virtual appliances](#other-network-virtual-appliances).
 
  > [!NOTE]
- > In the following scenarios an Azure virtual machine is used as an example of web application workload. The scenarios are also valid to other workload types such as containers or Azure Web Apps. For setups including private endpoints please consider the recommendations in [Use Azure Firewall to inspect traffic destined to a private endpoint][azfw-endpoint]
+ > In the following scenarios, an Azure virtual machine is used as an example of web application workload. The scenarios are also valid to other workload types such as containers or Azure Web Apps. For setups that include private endpoints, consider the recommendations in [Use Azure Firewall to inspect traffic destined to a private endpoint][azfw-endpoint]
 
 ## Azure Firewall only
 
-If there are no web-based workloads in the virtual network that can benefit from WAF, you can use Azure Firewall only. The design in this case is simple, but reviewing the packet flow will help understand more complex designs. In this design, all inbound traffic is sent to the Azure Firewall via user defined routes (UDRs) for connections from on-premises or other Azure VNets. It is addressed to the Azure Firewall's public IP address for connections from the public internet, as the diagram below shows. Outbound traffic from Azure VNets is sent to the Firewall via UDRs, as shown in the dialog below.
+If there are no web-based workloads in the virtual network that can benefit from WAF, you can use Azure Firewall only. The design in this case is simple, but reviewing the packet flow helps understand more complex designs. In this design, all inbound traffic is sent to the Azure Firewall via user defined routes (UDRs) for connections from on-premises or other Azure virtual networks. It's addressed to the Azure Firewall's public IP address for connections from the public internet, as shown in the following diagram. Outbound traffic from Azure virtual networks is sent to the Firewall via UDRs, as shown in the following dialog.
 
 The following table summarizes the traffic flows for this scenario:
 
 | Flow | Goes through Application Gateway / WAF | Goes through Azure Firewall |
 | ---- | :--: | :--: |
-| HTTP(S) traffic from internet/onprem to Azure     | N/A | Yes (see below) |
-| HTTP(S) traffic from Azure to internet/onprem     | N/A | Yes |
-| Non-HTTP(S) traffic from internet/onprem to Azure | N/A | Yes |
-| Non-HTTP(S) traffic from Azure to internet/onprem | N/A | Yes |
+| HTTP(s) traffic from internet or on-premises to Azure     | N/A | Yes (see below) |
+| HTTP(s) traffic from Azure to internet or on-premises     | N/A | Yes |
+| Non-HTTP(s) traffic from internet or on-premises to Azure | N/A | Yes |
+| Non-HTTP(s) traffic from Azure to internet or on-premises | N/A | Yes |
 
-Azure Firewall won't inspect inbound HTTP(S) traffic. But it will be able to apply layer 3 & layer 4 rules and FQDN-based application rules. Azure Firewall will inspect outbound HTTP(S) traffic depending on the Azure Firewall tier and whether you configure TLS inspection:
+Azure Firewall won't inspect inbound HTTP(s) traffic. But it can apply layer 3 and layer 4 rules and fully qualified domain name (FQDN)-based application rules. Azure Firewall inspects outbound HTTP(s) traffic, depending on the Azure Firewall tier and whether you configure TLS inspection:
 
-- Azure Firewall Standard will only inspect layer 3 & layer 4 attributes of the packets in network rules, and the Host HTTP header in application rules.
-- Azure Firewall Premium adds capabilities such as inspecting other HTTP headers (such as the User-Agent) and enabling TLS inspection for deeper packet analysis. Azure Firewall isn't equivalent to a Web Application Firewall. If you have web workloads in your Virtual Network, using WAF is highly recommended.
+- Azure Firewall Standard only inspects layer 3 and layer 4 attributes of the packets in network rules, and the Host HTTP header in application rules.
+
+- Azure Firewall Premium adds capabilities such as inspecting other HTTP headers, such as the User-Agent, and enabling TLS inspection for deeper packet analysis. Azure Firewall isn't equivalent to a Web Application Firewall. If you have web workloads in your Virtual Network, we recommend that you use WAF.
 
 The following packet walk example shows how a client accesses a VM-hosted application from the public internet. The diagram includes only one VM for simplicity. For higher availability and scalability, you'd have multiple application instances behind a load balancer.
 In this design, Azure Firewall inspects both incoming connections from the public internet, and outbound connections from the application subnet VM by using the UDR.
 
-- Azure Firewall service deploys several instances under the covers, here with the front-end IP address 192.168.100.4 and internal addresses from the range 192.168.100.0/26.  These individual instances are normally invisible to the Azure administrator.  But noticing the difference is useful in some cases, such as when troubleshooting network issues. 
-- If traffic comes from an on-premises virtual private network (VPN) or [Azure ExpressRoute][expressroute] gateway instead of the internet, the client starts the connection to the VM's IP address. It doesn't start the connection to the firewall's IP address, and the firewall will do no Source NAT per default.
+- Azure Firewall service deploys several instances under the covers, here with the front-end IP address `192.168.100.4` and internal addresses from the range `192.168.100.0/26`. These individual instances are normally invisible to the Azure administrator. But noticing the difference is useful in some cases, such as when you troubleshoot network problems.
+
+- If traffic comes from an on-premises virtual private network (VPN) or [Azure ExpressRoute][expressroute] gateway instead of the internet, the client starts the connection to the VM's IP address. It doesn't start the connection to the firewall's IP address, and the firewall doesn't do source NAT by default.
 
 ### Architecture
 
-The following diagram shows the traffic flow assuming the instance IP address is `192.168.100.7`.
+The following diagram shows the traffic flow, assuming that the instance IP address is `192.168.100.7`.
 
 ![Diagram that shows Azure Firewall only.](./images/design1_500.png)
 
 #### Workflow
 
 1. The client starts the connection to the public IP address of the Azure Firewall:
-   - Source IP address: ClientPIP
-   - Destination IP address: AzFwPIP
-2. The request to the Azure Firewall public IP is distributed to a back-end instance of the firewall, in this case 192.168.100.7. The Azure Firewall [Destination NAT (DNAT) rule][azfw-dnat] translates the destination IP address to the application IP address inside the virtual network. The Azure Firewall also *Source NATs (SNATs)* the packet if it does DNAT. For more information, see [Azure Firewall known issues][azfw-issues]. The VM sees the following IP addresses in the incoming packet:
-   - Source IP address: 192.168.100.7
-   - Destination IP address: 192.168.1.4
-3. The VM answers the application request, reversing source and destination IP addresses. The inbound flow doesn't require a *user-defined route (UDR)*, because the source IP is Azure Firewall's IP address. The UDR in the diagram for 0.0.0.0/0 is for outbound connections, to make sure packets to the public internet go through the Azure Firewall.
-   - Source IP address: 192.168.1.4
-   - Destination IP address: 192.168.100.7
+
+   - Source IP address: `ClientPIP`
+   - Destination IP address: `AzFwPIP`
+
+2. The request to the Azure Firewall public IP is distributed to a back-end instance of the firewall, in this case `192.168.100.7`. The Azure Firewall [Destination NAT (DNAT) rule][azfw-dnat] translates the destination IP address to the application IP address inside the virtual network. The Azure Firewall also *Source NATs (SNATs)* the packet if it does DNAT. For more information, see [Azure Firewall known problems][azfw-known-problems]. The VM sees the following IP addresses in the incoming packet:
+
+   - Source IP address: `192.168.100.7`
+   - Destination IP address: `192.168.1.4`
+
+3. The VM answers the application request, which reverses the source and destination IP addresses. The inbound flow doesn't require a user-defined route (UDR), because the source IP is Azure Firewall's IP address. The UDR in the diagram for `0.0.0.0/0` is for outbound connections, to make sure packets to the public internet go through the Azure Firewall.
+
+   - Source IP address: `192.168.1.4`
+   - Destination IP address: `192.168.100.7`
+
 4. Finally, Azure Firewall undoes the SNAT and DNAT operations, and delivers the response to the client:
-   - Source IP address: AzFwPIP
-   - Destination IP address: ClientPIP
+
+   - Source IP address: `AzFwPIP`
+   - Destination IP address: `ClientPIP`
 
 ## Application Gateway only
 
 This design covers the situation where only web applications exist in the virtual network, and inspecting outbound traffic with NSGs is sufficient to protect outbound flows to the internet.
 
  > [!NOTE]
- > This is not a recommended design since using Azure Firewall to control outbound flows (instead of only NSGs) will prevent certain attack scenarios such as data exfiltration, where you make sure that your workloads are only sending data to an approved list of URLs. Further, NSGs only work on layer 3 and layer 4 and have no FQDN support.
+ > This isn't a recommended design because using Azure Firewall to control outbound flows, instead of only NSGs, prevents certain attack scenarios such as data exfiltration, where you make sure that your workloads are only sending data to an approved list of URLs. Further, NSGs only work on layer 3 and layer 4 and have no FQDN support.
 
-The main difference from the previous design with only the Azure Firewall is that the Application Gateway doesn't act as a routing device with NAT. It behaves as a full reverse application proxy. That is, Application Gateway stops the web session from the client, and establishes a separate session with one of its backend servers. Inbound HTTP(S) connections from the Internet need to be sent to the public IP address of the Application Gateway, connections from Azure or on-premises to the gateway's private IP address. Return traffic from the Azure VMs will follow standard VNet routing back to the Application Gateway (see the packet walk further down for more details). Outbound internet flows from Azure VMs will go straight to the internet.
+The main difference from the previous design with only the Azure Firewall is that the Application Gateway doesn't act as a routing device with NAT. It behaves as a full reverse application proxy. That is, Application Gateway stops the web session from the client, and establishes a separate session with one of its backend servers. Inbound HTTP(s) connections from the internet need to be sent to the public IP address of the Application Gateway, connections from Azure or on-premises to the gateway's private IP address. Return traffic from the Azure VMs follow standard virtual network routing back to the Application Gateway. For more information, see the packet walk later in this article. Outbound internet flows from Azure VMs go straight to the internet.
 
 The following table summarizes traffic flows:
 
 | Flow | Goes through Application Gateway / WAF | Goes through Azure Firewall |
 | ---- | :--: | :--: |
-| HTTP(S) traffic from internet/onprem to Azure     | Yes | N/A |
-| HTTP(S) traffic from Azure to internet/onprem     | No  | N/A |
-| Non-HTTP(S) traffic from internet/onprem to Azure | No  | N/A |
-| Non-HTTP(S) traffic from Azure to internet/onprem | No  | N/A |
+| HTTP(s) traffic from internet or on-premises to Azure     | Yes | N/A |
+| HTTP(s) traffic from Azure to internet or on-premises     | No  | N/A |
+| Non-HTTP(s) traffic from internet or on-premises to Azure | No  | N/A |
+| Non-HTTP(s) traffic from Azure to internet or on-premises | No  | N/A |
 
 ### Architecture
 
@@ -110,53 +127,60 @@ The following packet walk example shows how a client accesses the VM-hosted appl
 
 #### Workflow
 
-1. The client starts the connection to the public IP address of the Azure Application Gateway:
-   - Source IP address: ClientPIP
-   - Destination IP address: AppGwPIP
+1. The client starts the connection to the public IP address of the Application Gateway:
+
+   - Source IP address: `ClientPIP`
+   - Destination IP address: `AppGwPIP`
+
 2. The request to the Application Gateway public IP is distributed to a back-end instance of the gateway, in this case 192.168.200.7. The Application Gateway instance that receives the request stops the connection from the client, and establishes a new connection with one of the back ends. The back end sees the Application Gateway instance as the source IP address. The Application Gateway inserts an *X-Forwarded-For* HTTP header with the original client IP address.
-   - Source IP address: 192.168.200.7 (the private IP address of the Application Gateway instance)
-   - Destination IP address: 192.168.1.4
-   - X-Forwarded-For header: ClientPIP
+
+   - Source IP address: `192.168.200.7` (the private IP address of the Application Gateway instance)
+   - Destination IP address: `192.168.1.4`
+   - *X-Forwarded-For*header: `ClientPIP`
+
 3. The VM answers the application request, reversing source and destination IP addresses. The VM already knows how to reach the Application Gateway, so doesn't need a UDR.
-   - Source IP address: 192.168.1.4
-   - Destination IP address: 192.168.200.7
+
+   - Source IP address: `192.168.1.4`
+   - Destination IP address: `192.168.200.7`
+
 4. Finally, the Application Gateway instance answers the client:
-   - Source IP address: AppGwPIP
-   - Destination IP address: ClientPIP
 
-Azure Application Gateway adds metadata to the packet HTTP headers, such as the *X-Forwarded-For* header containing the original client's IP address. Some application servers need the source client IP address to serve geolocation-specific content, or for logging. For more information, see [How an application gateway works][appgw-networking].
+   - Source IP address: `AppGwPIP`
+   - Destination IP address: `ClientPIP`
 
-- The IP address `192.168.200.7` is one of the instances the Azure Application Gateway service deploys under the covers, here with the internal, private front-end IP address `192.168.200.4`. These individual instances are normally invisible to the Azure administrator. But noticing the difference is useful in some cases, such as when troubleshooting network issues.
+Application Gateway adds metadata to the packet HTTP headers, such as the *X-Forwarded-For* header containing the original client's IP address. Some application servers need the source client IP address to serve geolocation-specific content, or for logging. For more information, see [How an application gateway works][appgw-networking].
+
+- The IP address `192.168.200.7` is one of the instances the Application Gateway service deploys under the covers, here with the internal, private front-end IP address `192.168.200.4`. These individual instances are normally invisible to the Azure administrator. But noticing the difference is useful in some cases, such as when troubleshooting network problems.
 
 - The flow is similar if the client comes from an on-premises network over a VPN or ExpressRoute gateway. The difference is the client accesses the private IP address of the Application Gateway instead of the public address.
 
 > [!NOTE]
-> See [Preserve the original HTTP host name between a reverse proxy and its back-end web application][preserve-http-host] for more information on X-Forwarded-For and preserving the host name on a request.
+> For more information about X-Forwarded-For and preserving the host name on a request, see [Preserve the original HTTP host][preserve-http-host].
 
 ## Firewall and Application Gateway in parallel
 
 Because of its simplicity and flexibility, running Application Gateway and Azure Firewall in parallel is often the best scenario.
 
-Implement this design if there's a mix of web and non-web workloads in the virtual network. Azure WAF in Azure Application Gateway protects inbound traffic to the web workloads, and the Azure Firewall inspects inbound traffic for the other applications. The Azure Firewall will cover outbound flows from both workload types.
+Implement this design if there's a mix of web and non-web workloads in the virtual network. Azure WAF in Application Gateway protects inbound traffic to the web workloads, and the Azure Firewall inspects inbound traffic for the other applications. The Azure Firewall covers outbound flows from both workload types.
 
-Inbound HTTP(S) connections from the Internet should be sent to the public IP address of the Application Gateway, HTTP(S) connections from Azure or on-premises to its private IP address. Standard VNet routing will send the packets from the Application Gateway to the destination VMs, as well as from the destination VMs back to the Application Gateway (see the packet walk further down for more details). For inbound non-HTTP(S) connections, traffic should be targeting the public IP address of the Azure Firewall (if coming from the public Internet), or it will be sent through the Azure Firewall by UDRs (if coming from other Azure VNets or on-premises networks). All outbound flows from Azure VMs will be forwarded to the Azure Firewall by UDRs.
+Inbound HTTP(s) connections from the internet should be sent to the public IP address of the Application Gateway, HTTP(s) connections from Azure or on-premises to its private IP address. Standard virtual network routing sends the packets from the Application Gateway to the destination VMs, and from the destination VMs back to the Application Gateway (see the packet walk further down for more details). For inbound non-HTTP(s) connections, traffic should target the public IP address of the Azure Firewall if it comes from the public internet, or it sent through the Azure Firewall by UDRs if it comes from other Azure virtual networks or on-premises networks. All outbound flows from Azure VMs are forwarded to the Azure Firewall by UDRs.
 
 The following table summarizes the traffic flows for this scenario:
 
 | Flow | Goes through Application Gateway / WAF | Goes through Azure Firewall |
 | ---- | :--: | :--: |
-| HTTP(S) traffic from internet/onprem to Azure     | Yes | No |
-| HTTP(S) traffic from Azure to internet/onprem     | No  | Yes |
-| Non-HTTP(S) traffic from internet/onprem to Azure | No  | Yes |
-| Non-HTTP(S) traffic from Azure to internet/onprem | No  | Yes |
+| HTTP(s) traffic from internet or on-premises to Azure     | Yes | No |
+| HTTP(s) traffic from Azure to internet or on-premises     | No  | Yes |
+| Non-HTTP(s) traffic from internet or on-premises to Azure | No  | Yes |
+| Non-HTTP(s) traffic from Azure to internet or on-premises | No  | Yes |
 
-This design gives much more granular egress filtering than NSGs. For example, if applications need connectivity to a specific Azure Storage Account, you can use *fully qualified domain name (FQDN)*-based filters. With FQDN-based filters, applications aren't sending data to rogue storage accounts. That scenario couldn't be prevented just by using NSGs. This design is often used where outbound traffic requires FQDN-based filtering. One example situation is when [limiting egress traffic from an Azure Kubernetes Services cluster][aks-egress].
+This design gives much more granular egress filtering than NSGs. For example, if applications need connectivity to a specific Azure Storage Account, you can use FQDN-based filters. With FQDN-based filters, applications aren't sending data to rogue storage accounts. That scenario couldn't be prevented just by using NSGs. This design is often used where outbound traffic requires FQDN-based filtering. One situation is when you [limit egress traffic from an AKS cluster][aks-egress].
 
 ### Architectures
 
-The following diagram illustrates the traffic flow for inbound HTTP(S) connections from an outside client:
+The following diagram illustrates the traffic flow for inbound HTTP(s) connections from an outside client:
 
-![Diagram that shows Application Gateway and Azure Firewall in parallel, ingress flow,](./images/design3_ingress_500.png)
+![Diagram that shows Application Gateway and Azure Firewall in parallel, ingress flow.](./images/design3_ingress_500.png)
 
 The following diagram illustrates the traffic flow for outbound connections from the network VMs to the internet. One example is to connect to backend systems or get operating system updates:
 
@@ -166,34 +190,36 @@ The packet flow steps for each service are the same as in the previous standalon
 
 ## Application Gateway before Firewall
 
-This design is explained in more detail in [Zero-trust network for web applications with Azure Firewall and Application Gateway][azfw-appgw-zt], this document will focus on the comparison with the other design options. In this topology, inbound web traffic goes through both Azure Firewall and WAF. The WAF provides protection at the web application layer. Azure Firewall acts as a central logging and control point, and it inspects traffic between the Application Gateway and the backend servers. The Application Gateway and Azure Firewall aren't sitting in parallel, but one after the other.
+This design is explained in more detail in [Zero-trust network for web applications with Azure Firewall and Application Gateway][azfw-appgw-zt], this article focuses on the comparison with the other design options. In this topology, inbound web traffic goes through both Azure Firewall and WAF. The WAF provides protection at the web application layer. Azure Firewall acts as a central logging and control point, and it inspects traffic between the Application Gateway and the backend servers. The Application Gateway and Azure Firewall aren't sitting in parallel, but one after the other.
 
 With [Azure Firewall Premium][azfw-premium-features], this design can support end-to-end scenarios, where the Azure Firewall applies TLS inspection to perform IDPS on the encrypted traffic between the Application Gateway and the web backend.
 
 This design is appropriate for applications that need to know incoming client source IP addresses, for example to serve geolocation-specific content or for logging. Application Gateway in front of Azure Firewall captures the incoming packet's source IP address in the *X-forwarded-for* header, so the web server can see the original IP address in this header. For more information, see [How an application gateway works][appgw-networking].
 
-Inbound HTTP(S) connections from the Internet need to be sent to the public IP address of the Application Gateway, HTTP(S) connections from Azure or on-premises to the private IP address. From the Application Gateway UDRs will make sure that the packets are routed through the Azure Firewall (see the packet walk further down for more details). For inbound non-HTTP(S) connections, traffic should be targeting the public IP address of the Azure Firewall (if coming from the public Internet), or it will be sent through the Azure Firewall by UDRs (if coming from other Azure VNets or on-premises networks). All outbound flows from Azure VMs will be forwarded to the Azure Firewall by UDRs.
+Inbound HTTP(s) connections from the internet need to be sent to the public IP address of the Application Gateway, HTTP(s) connections from Azure or on-premises to the private IP address. From the Application Gateway, UDRs make sure that the packets are routed through the Azure Firewall (see the packet walk further down for more details). For inbound non-HTTP(s) connections, traffic should be targeting the public IP address of the Azure Firewall (if coming from the public internet), or sent through the Azure Firewall by UDRs (if coming from other Azure virtual networks or on-premises networks). All outbound flows from Azure VMs are forwarded to the Azure Firewall by UDRs.
 
-An important remark of this design is that Azure Firewall Premium will see traffic with a source IP address from the Application Gateway subnet. If this subnet is configured with a private IP address (in `10.0.0.0/8`, `192.168.0.0/16`, `172.16.0.0/12` or `100.64.0.0/10`), Azure Firewall Premium will treat traffic from the Application Gateway as internal, and will not apply IDPS rules for inbound traffic. You can find more information about Azure Firewall IDPS rule directions and private IP prefixes for IDPS in [Azure Firewall IDPS Rules][azfw-idps-rules]. Consequently, it is recommended to modify the IDPS private prefixes in the Azure Firewall policy so that the Application Gateway subnet is not considered as an internal source, to apply inbound and outbound IDPS signatures to the traffic.
+An important remark of this design is that Azure Firewall Premium sees traffic with a source IP address from the Application Gateway subnet. If this subnet is configured with a private IP address (in `10.0.0.0/8`, `192.168.0.0/16`, `172.16.0.0/12` or `100.64.0.0/10`), Azure Firewall Premium treats traffic from the Application Gateway as internal, and won't apply IDPS rules for inbound traffic. You can find more information about Azure Firewall IDPS rule directions and private IP prefixes for IDPS in [Azure Firewall IDPS Rules][azfw-idps-rules]. Consequently, it is recommended to modify the IDPS private prefixes in the Azure Firewall policy so that the Application Gateway subnet isn't considered as an internal source, to apply inbound and outbound IDPS signatures to the traffic.
 
 The following table summarizes the traffic flows for this scenario:
 
 | Flow | Goes through Application Gateway / WAF | Goes through Azure Firewall |
 | ---- | :--: | :--: |
-| HTTP(S) traffic from internet/onprem to Azure     | Yes | Yes |
-| HTTP(S) traffic from Azure to internet/onprem     | No  | Yes |
-| Non-HTTP(S) traffic from internet/onprem to Azure | No  | Yes |
-| Non-HTTP(S) traffic from Azure to internet/onprem | No  | Yes |
+| HTTP(s) traffic from internet or on-premises to Azure     | Yes | Yes |
+| HTTP(s) traffic from Azure to internet or on-premises     | No  | Yes |
+| Non-HTTP(s) traffic from internet or on-premises to Azure | No  | Yes |
+| Non-HTTP(s) traffic from Azure to internet or on-premises | No  | Yes |
 
-For web traffic from on-premises or internet to Azure, the Azure Firewall will inspect flows that the WAF has already allowed. Depending on whether the Application Gateway encrypts backend traffic (traffic from the Application Gateway to the application servers), you'll have different potential scenarios:
+For web traffic from on-premises or internet to Azure, the Azure Firewall inspects flows that the WAF has already allowed. Depending on whether the Application Gateway encrypts backend traffic (traffic from the Application Gateway to the application servers), you'll have different potential scenarios:
 
-1. The Application Gateway encrypts traffic following zero-trust principles ([End-to-End TLS encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption)), and the Azure Firewall will receive encrypted traffic. Still, Azure Firewall Standard will be able to apply inspection rules, such as layer 3 & layer 4 filtering in network rules, or FQDN filtering in application rules using the TLS Server Name Indication (SNI) header. [Azure Firewall Premium][azfw-premium-features] provides deeper visibility with TLS inspection, such as URL-based filtering.
-1. If the Application Gateway is sending unencrypted traffic to the application servers, the Azure Firewall will see inbound traffic in clear text. TLS inspection isn't needed in the Azure Firewall.
-1. If IDPS is enabled in the Azure Firewall, it will verify that the HTTP Host header matches the destination IP. With that purpose, it will need name resolution for the FQDN that's specified in the Host header. This name resolution can be achieved with Azure DNS Private Zones and the default Azure Firewall DNS settings using Azure DNS. It can also be achieved with custom DNS servers that need to be configured in the Azure Firewall settings. (For more information, see [Azure Firewall DNS Settings][azfw-dns].) If there isn't administrative access to the Virtual Network where the Azure Firewall is deployed, the latter method is the only possibility. One example is with Azure Firewalls deployed in Virtual WAN Secured Hubs.
+1. The Application Gateway encrypts traffic following zero-trust principles [End-to-End TLS encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption), and the Azure Firewall receives encrypted traffic. Still, Azure Firewall Standard can apply inspection rules, such as layer 3 and layer 4 filtering in network rules, or FQDN filtering in application rules using the TLS Server Name Indication (SNI) header. [Azure Firewall Premium][azfw-premium-features] provides deeper visibility with TLS inspection, such as URL-based filtering.
+
+1. If the Application Gateway is sending unencrypted traffic to the application servers, the Azure Firewall sees inbound traffic in clear text. TLS inspection isn't needed in the Azure Firewall.
+
+1. If IDPS is enabled in the Azure Firewall, it verifies that the HTTP Host header matches the destination IP. With that purpose, it needs the name resolution for the FQDN that's specified in the Host header. This name resolution can be achieved with Azure DNS Private Zones and the default Azure Firewall DNS settings using Azure DNS. It can also be achieved with custom DNS servers that need to be configured in the Azure Firewall settings. For more information, see [Azure Firewall DNS Settings][azfw-dns]. If there isn't administrative access to the Virtual Network where the Azure Firewall is deployed, the latter method is the only possibility. One example is with Azure Firewalls deployed in Virtual WAN Secured Hubs.
 
 ### Architecture
 
-For the rest of the flows (inbound non-HTTP(S) traffic and any outbound traffic), the Azure Firewall will provide IDPS inspection and TLS inspection where appropriate. It also provides [FQDN-based filtering in network rules][azfw-dns] based on DNS.
+For the rest of the flows (inbound non-HTTP(s) traffic and any outbound traffic), the Azure Firewall provides IDPS inspection and TLS inspection where appropriate. It also provides [FQDN-based filtering in network rules][azfw-dns] based on DNS.
 
 ![Diagram that shows Application Gateway before Azure Firewall.](./images/design4_500.png)
 
@@ -201,56 +227,69 @@ For the rest of the flows (inbound non-HTTP(S) traffic and any outbound traffic)
 
 Network traffic from the public internet follows this flow:
 
-1. The client starts the connection to the public IP address of the Azure Application Gateway:
+1. The client starts the connection to the public IP address of the Application Gateway:
+
    - Source IP address: ClientPIP
    - Destination IP address: AppGwPIP
-2. The request to the Application Gateway public IP is distributed to a back-end instance of the gateway, in this case 192.168.200.7. The Application Gateway instance stops the connection from the client, and establishes a new connection with one of the back ends. The UDR to `192.168.1.0/24` in the Application Gateway subnet forwards the packet to the Azure Firewall, while preserving the destination IP to the web application:
-   - Source IP address: 192.168.200.7 (private IP address of the Application Gateway instance)
-   - Destination IP address: 192.168.1.4
-   - X-Forwarded-For header: ClientPIP
-3. Azure Firewall doesn't SNAT the traffic, because the traffic is going to a private IP address. It forwards the traffic to the application VM if rules allow it. For more information, see [Azure Firewall SNAT][azfw-snat]. However, if the traffic hits an application rule in the firewall, the workload will see the source IP address of the specific firewall instance that processed the packet, since the Azure Firewall will proxy the connection:
-   - Source IP address if the traffic is allowed by an Azure Firewall network rule: 192.168.200.7 (the private IP address of one of the Application Gateway instances).
+
+2. The request to the Application Gateway public IP is distributed to a back-end instance of the gateway, in this case `192.168.200.7`. The Application Gateway instance stops the connection from the client, and establishes a new connection with one of the back ends. The UDR to `192.168.1.0/24` in the Application Gateway subnet forwards the packet to the Azure Firewall, while preserving the destination IP to the web application:
+
+   - Source IP address: `192.168.200.7` (private IP address of the Application Gateway instance)
+   - Destination IP address: `192.168.1.4`
+   - *X-Forwarded-For*header: `ClientPIP`
+
+3. Azure Firewall doesn't SNAT the traffic, because the traffic goes to a private IP address. It forwards the traffic to the application VM if rules allow it. For more information, see [Azure Firewall SNAT][azfw-snat]. However, if the traffic hits an application rule in the firewall, the workload sees the source IP address of the specific firewall instance that processed the packet because the Azure Firewall proxies the connection:
+
+   - Source IP address if the traffic is allowed by an Azure Firewall network rule: `192.168.200.7` (the private IP address of one of the Application Gateway instances).
    - Source IP address if the traffic is allowed by an Azure Firewall application rule: 192.168.100.7 (the private IP address of one of the Azure Firewall instances).
-   - Destination IP address: 192.168.1.4
-   - X-Forwarded-For header: ClientPIP
-4. The VM answers the request, reversing source and destination IP addresses. The UDR to `192.168.200.0/24` captures the packet sent back to the Application Gateway and redirects it to Azure Firewall, while preserving the destination IP toward the Application Gateway.
-   - Source IP address: 192.168.1.4
-   - Destination IP address: 192.168.200.7
-5. Here again the Azure Firewall doesn't SNAT the traffic, since it's going to a private IP address, and forwards the traffic to the Application Gateway.
-   - Source IP address: 192.168.1.4
-   - Destination IP address: 192.168.200.7
+   - Destination IP address: `192.168.1.4`
+   - *X-Forwarded-For*header: `ClientPIP`
+
+4. The VM answers the request, which reverses source and destination IP addresses. The UDR to `192.168.200.0/24` captures the packet sent back to the Application Gateway and redirects it to Azure Firewall, while preserving the destination IP toward the Application Gateway.
+
+   - Source IP address: `192.168.1.4`
+   - Destination IP address: `192.168.200.7`
+
+5. Here again the Azure Firewall doesn't SNAT the traffic because it goes to a private IP address, and forwards the traffic to the Application Gateway.
+
+   - Source IP address: `192.168.1.4`
+   - Destination IP address: `192.168.200.7`
+
 6. Finally, the Application Gateway instance answers the client:
-   - Source IP address: AppGwPIP
-   - Destination IP address: ClientPIP
+
+   - Source IP address: `AppGwPIP`
+   - Destination IP address: `ClientPIP`
 
 Outbound flows from the VMs to the public internet go through Azure Firewall, as defined by the UDR to `0.0.0.0/0`.
 
-As a variation of this design you could configure private Destination Network Address Translation (DNAT) in the Azure Firewall, so that the application workload would see Azure Firewall instances' IP addresses as source, and no user-defined routes would be required. The source IP address of the application clients is already preserved in the `X-Forwarded-For` HTTP header by Azure Application Gateway, so even if Azure Firewall DNATs the traffic no information is lost. You can refer to [Tutorial: Filter inbound Internet or intranet traffic with Azure Firewall policy DNAT using the Azure portal][azfw-dnat] for more details on how to configure DNAT for Azure Firewall's private IP address.
+As a variation of this design you could configure private Destination Network Address Translation (DNAT) in the Azure Firewall, so that the application workload would see Azure Firewall instances' IP addresses as source, and no user-defined routes would be required. The source IP address of the application clients is already preserved in the `X-Forwarded-For` HTTP header by Application Gateway, so even if Azure Firewall DNATs the traffic no information is lost. You can refer to [Filter inbound internet or intranet traffic with Azure Firewall policy DNAT by using the Azure portal][azfw-dnat] for more information on how to configure DNAT for Azure Firewall's private IP address.
 
 ## Application Gateway after firewall
 
 This design lets Azure Firewall filter and discard malicious traffic before it reaches the Application Gateway. For example, it can apply features like threat intelligence-based filtering. Another benefit is that the application gets the same public IP address for both inbound and outbound traffic, regardless of protocol. There are three modes in which you could theoretically configure the Azure Firewall:
 
-1. Azure Firewall with DNAT rules: Azure Firewall will just swap IP addresses at the IP layer, but it will not process the payload, and consequently it will not change any of the HTTP headers.
-2. Azure Firewall with application rules and TLS inspection disabled: Azure Firewall can look at the SNI header in TLS, but it will not decrypt it. A new TCP connection will be created from the firewall to the next hop (Azure Application Gateway in this example).
-3. Azure Firewall with application rules and TLS inspection enabled: Azure Firewall will look into the packet contents and decrypt them. It will act as an HTTP proxy and will be able to set the HTTP headers `X-Forwarded-For` to preserve the IP address. However, it will present a self-generated certificate to the client. For Internet-based applications this is not an option, since the application clients would receive a security warning from their browser.
+1. Azure Firewall with DNAT rules: Azure Firewall only swaps IP addresses at the IP layer, but it won't process the payload, and consequently it won't change any of the HTTP headers.
 
-In the first two options, which are the only valid ones for Internet-based applications, Azure Firewall SNATs the incoming traffic without setting the `X-Forwarded-For` header, so the application will not have visibility to the original IP address of the HTTP requests. From an administration perspective, for example for troubleshooting purposes, you can obtain the actual client IP for a specific connection by correlating it with the SNAT logs of the Azure Firewall.
+1. Azure Firewall with application rules and TLS inspection disabled: Azure Firewall can look at the SNI header in TLS, but it won't decrypt it. A new TCP connection is created from the firewall to the next hop (Application Gateway in this example).
 
-There's limited benefit in this scenario, because Azure Firewall will only see encrypted traffic going to the Application Gateway, unless using TLS inspection and presenting self-generated certificates to the clients (typically only possible for internal applications). However, there might be scenarios where this design is preferred: One case is if another WAF is earlier in the network (for example, with [Azure Front Door][afd-overview]), which could capture the original source IP in the `X-Forwarded-For` HTTP header. This design could be preferred as well if many public IP addresses are required, since Azure Application Gateway supports a single IP addresses.
+1. Azure Firewall with application rules and TLS inspection enabled: Azure Firewall looks into the packet contents and decrypt them. It serves as an HTTP proxy and can set the HTTP headers `X-Forwarded-For` to preserve the IP address. However, it presents a self-generated certificate to the client. For internet-based applications this isn't an option because the application clients would receive a security warning from their browser.
 
-HTTP(S) inbound flows from the public Internet should target the public IP address of the Azure Firewall, and the Azure Firewall will DNAT (and SNAT) the packets to the private IP address of the Application Gateway. From other Azure VNets or on-premises networks, HTTP(S) traffic should be sent to the Application Gateway's private IP, and forwarded through the Azure Firewall with UDRs. Standard VNet routing will make sure that return traffic from the Azure VMs goes back to the Application Gateway, and from the Application Gateway to the Azure Firewall if DNAT rules were used. For traffic from on-premises or Azure UDRs in the Application Gateway subnet should be used (see the packet walk further down for more details). All outbound traffic from the Azure VMs to the internet will be sent through the Azure Firewall by UDRs.
+In the first two options, which are the only valid ones for internet-based applications, Azure Firewall SNATs the incoming traffic without setting the `X-Forwarded-For` header, so the application won't have visibility to the original IP address of the HTTP requests. From an administration perspective, such as troubleshooting purposes, you can obtain the actual client IP for a specific connection by correlating it with the SNAT logs of the Azure Firewall.
+
+There's limited benefit in this scenario, because Azure Firewall only sees encrypted traffic that goes to the Application Gateway, unless you use TLS inspection and present self-generated certificates to the clients. This is typically only possible for internal applications. However, there might be scenarios where this design is preferred: One case is if another WAF is earlier in the network (for example, with [Azure Front Door][afd-overview]), which could capture the original source IP in the `X-Forwarded-For` HTTP header. This design could be preferred as well if many public IP addresses are required because Application Gateway supports a single IP addresses.
+
+HTTP(s) inbound flows from the public internet should target the public IP address of the Azure Firewall, and the Azure Firewall will DNAT (and SNAT) the packets to the private IP address of the Application Gateway. From other Azure virtual networks or on-premises networks, HTTP(s) traffic should be sent to the Application Gateway's private IP, and forwarded through the Azure Firewall with UDRs. Standard virtual network routing makes sure that return traffic from the Azure VMs goes back to the Application Gateway, and from the Application Gateway to the Azure Firewall if DNAT rules were used. For traffic from on-premises or Azure UDRs in the Application Gateway subnet should be used (see the packet walk further down for more details). All outbound traffic from the Azure VMs to the internet is sent through the Azure Firewall by UDRs.
 
 The following table summarizes the traffic flows for this scenario:
 
 | Flow | Goes through Application Gateway / WAF | Goes through Azure Firewall |
 | ---- | :--: | :--: |
-| HTTP(S) traffic from internet/onprem to Azure     | Yes | Yes (see below) |
-| HTTP(S) traffic from Azure to internet/onprem     | No  | Yes |
-| Non-HTTP(S) traffic from internet/onprem to Azure | No  | Yes |
-| Non-HTTP(S) traffic from Azure to internet/onprem | No  | Yes |
+| HTTP(s) traffic from internet or on-premises to Azure     | Yes | Yes (see below) |
+| HTTP(s) traffic from Azure to internet or on-premises     | No  | Yes |
+| Non-HTTP(s) traffic from internet or on-premises to Azure | No  | Yes |
+| Non-HTTP(s) traffic from Azure to internet or on-premises | No  | Yes |
 
-For inbound HTTP(S) traffic, the Azure Firewall would typically not decrypt traffic. It would instead apply IDPS policies that don't require TLS inspection, like IP-based filtering or using HTTP headers.
+For inbound HTTP(s) traffic, the Azure Firewall would typically not decrypt traffic. It would instead apply IDPS policies that don't require TLS inspection, like IP-based filtering or using HTTP headers.
 
 ### Architecture
 
@@ -263,46 +302,58 @@ The application can't see the original source IP address of the web traffic; the
 Network traffic from the public internet follows this flow:
 
 1. The client starts the connection to the public IP address of the Azure Firewall:
-   - Source IP address: ClientPIP
-   - Destination IP address: AzFWPIP
-2. The request to the Azure Firewall public IP is distributed to a back-end instance of the firewall, in this case 192.168.100.7. The Azure Firewall DNATs the web port, usually TCP 443, to the private IP address of the Application Gateway instance. Azure Firewall also SNATs when doing DNAT. For more information, see [Azure Firewall known issues][azfw-issues]:
-   - Source IP address: 192.168.100.7 (the private IP address of the Azure Firewall instance)
-   - Destination IP address: 192.168.200.4
+
+   - Source IP address: `ClientPIP`
+   - Destination IP address: `AzFWPIP`
+
+2. The request to the Azure Firewall public IP is distributed to a back-end instance of the firewall, in this case `192.168.100.7`. The Azure Firewall DNATs the web port, usually TCP 443, to the private IP address of the Application Gateway instance. Azure Firewall also SNATs when you do DNAT. For more information, see [Azure Firewall known issues][azfw-known-problems]:
+
+   - Source IP address: `192.168.100.7` (the private IP address of the Azure Firewall instance)
+   - Destination IP address: `192.168.200.4`
+
 3. The Application Gateway establishes a new session between the instance handling the connection and one of the backend servers. The original IP address of the client isn't in the packet:
-   - Source IP address: 192.168.200.7 (the private IP address of the Application Gateway instance)
-   - Destination IP address: 192.168.1.4
-   - X-Forwarded-For header: 192.168.100.7
-4. The VM answers the Application Gateway, reversing source and destination IP addresses:
-   - Source IP address: 192.168.1.4
-   - Destination IP address: 192.168.200.7
+
+   - Source IP address: `192.168.200.7` (the private IP address of the Application Gateway instance)
+   - Destination IP address: `192.168.1.4`
+   - *X-Forwarded-For*header: `192.168.100.7`
+
+4. The VM answers the Application Gateway, which reverses source and destination IP addresses:
+
+   - Source IP address: `192.168.1.4`
+   - Destination IP address: `192.168.200.7`
+
 5. The Application Gateway replies to the SNAT source IP address of the Azure Firewall instance. Even if the connection is coming from a specific Application Gateway instance like `.7`, Azure Firewall sees the internal IP address of the Application Gateway `.4` as the source IP:
-   - Source IP address: 192.168.200.4
-   - Destination IP address: 192.168.100.7
+   - Source IP address: `192.168.200.4`
+   - Destination IP address: `192.168.100.7`
+
 6. Finally, Azure Firewall undoes SNAT and DNAT and answers the client:
-   - Source IP address: AzFwPIP
-   - Destination IP address: ClientPIP
+
+   - Source IP address: `AzFwPIP`
+   - Destination IP address: `ClientPIP`
 
 Even if the Application Gateway has no listeners configured for applications, it still needs a public IP address so Microsoft can manage it.
 
 > [!NOTE]
-> A default route to `0.0.0.0/0` in the Application Gateway subnet pointing to the Azure Firewall is not supported, since it would break the control plane traffic required for the correct operation of the Azure Application Gateway.
+> A default route to `0.0.0.0/0` in the Application Gateway subnet that points to the Azure Firewall isn't supported because it would break the control plane traffic required for the correct operation of the Application Gateway.
 
 ## On-premises clients
 
-The preceding designs all show application clients coming from the public internet. On-premises networks also access applications. Most of the preceding information and traffic flows are the same as for internet clients, but there are some notable differences:
+The preceding designs all show application clients coming from the public internet. On-premises networks also access applications. Most of the previous information and traffic flows are the same as for internet clients, but there are some notable differences:
 
 - A VPN gateway or ExpressRoute gateway sits in front of Azure Firewall or Application Gateway.
 - WAF uses the private IP address of the Application Gateway.
+
 - Azure Firewall doesn't support DNAT for private IP addresses. That's why you must use UDRs to send inbound traffic to Azure Firewall from the VPN or ExpressRoute gateways.
-- Make sure to verify caveats around *forced tunneling* for the [Azure Application Gateway][appgw-defaultroute] and for the [Azure Firewall][azfw-defaultroute]. Even if your workload doesn't need outbound connectivity to the public internet, you can't inject a default route like `0.0.0.0/0` for the Application Gateway that points to the on-premises network, or you'll break control traffic. For Azure Application Gateway, the default route needs to point to the public internet.
+
+- Make sure to verify caveats around *forced tunneling* for the [Application Gateway][appgw-defaultroute] and for the [Azure Firewall][azfw-defaultroute]. Even if your workload doesn't need outbound connectivity to the public internet, you can't inject a default route like `0.0.0.0/0` for the Application Gateway that points to the on-premises network, or you'll break control traffic. For Application Gateway, the default route needs to point to the public internet.
 
 ### Architecture
 
-The following diagram shows the Azure Application Gateway and Azure Firewall parallel design. Application clients come from an on-premises network connected to Azure over VPN or ExpressRoute:
+The following diagram shows the Application Gateway and Azure Firewall parallel design. Application clients come from an on-premises network connected to Azure over VPN or ExpressRoute:
 
 ![Diagram that shows a hybrid design with a VPN or an ExpressRoute gateway.](./images/hybrid_500.png)
 
-Even if all clients are located on-premises or in Azure, Azure Application Gateway and Azure Firewall both need to have public IP addresses. The public IP addresses allow Microsoft to manage the services.
+Even if all clients are located on-premises or in Azure, Application Gateway and Azure Firewall both need to have public IP addresses. The public IP addresses allow Microsoft to manage the services.
 
 ## Hub and spoke topology
 
@@ -316,44 +367,47 @@ The designs in this article still apply in a *hub and spoke* topology. Shared re
 
 Some considerations for this topology include:
 
-- The Azure Firewall is deployed in the central hub virtual network. The diagram above shows the practice of deploying the Application Gateway in the hub. Application teams often manage components such as Azure Application Gateways or Azure API Management gateways, though. In this case, these components are deployed in the spoke virtual networks.
-- Pay special attention to UDRs in the spoke networks: When an application server in a spoke receives traffic from a specific Azure Firewall instance, like the `192.168.100.7` address in the previous examples, it should send return traffic back to the same instance. If a UDR in the spoke sets the next hop of traffic addressed to the hub to the Azure Firewall IP address (`192.168.100.4` in the diagrams above), return packets might end up on a different Azure Firewall instance, causing asymmetric routing. Make sure that if you have UDRs in the spoke VNets to send traffic to shared services in the hub through the Azure Firewall, these UDRs don't include the prefix of the Azure Firewall subnet.
-- The previous recommendation applies equally to the Application Gateway subnet and any other Network Virtual Appliances or reverse proxies that might be deployed in the hub VNet.
-- You can't set the next hop for the Application Gateway or Azure Firewall subnets through static routes with a next hop type of `Virtual Network`. This next hop type is only valid in the local VNet and not across VNet peerings. For more information about user-defined routes and next hop types, see [Virtual network traffic routing][udr].
+- The Azure Firewall is deployed in the central hub virtual network. The previous diagram shows how to deploy the Application Gateway in the hub. Application teams often manage components such as Application Gateways or Azure API Management gateways, though. In this case, these components are deployed in the spoke virtual networks.
+
+- Pay special attention to UDRs in the spoke networks: When an application server in a spoke receives traffic from a specific Azure Firewall instance, like the `192.168.100.7` address in the previous examples, it should send return traffic back to the same instance. If a UDR in the spoke sets the next hop of traffic addressed to the hub to the Azure Firewall IP address (`192.168.100.4` in the previous diagrams), return packets might end up on a different Azure Firewall instance, which causes asymmetric routing. Make sure that if you have UDRs in the spoke VNets to send traffic to shared services in the hub through the Azure Firewall, these UDRs don't include the prefix of the Azure Firewall subnet.
+
+- The previous recommendation applies equally to the Application Gateway subnet and any other Network Virtual Appliances or reverse proxies that might be deployed in the hub virtual network.
+
+- You can't set the next hop for the Application Gateway or Azure Firewall subnets through static routes with a next hop type of `Virtual Network`. This next hop type is only valid in the local virtual network and not across virtual network peerings. For more information about user-defined routes and next hop types, see [Virtual network traffic routing][udr].
 
 ### Asymmetric routing
 
-The diagram below shows how a spoke sends back SNATted traffic back to the ALB of an Azure Firewall. This setup causes asymmetric routing:
+The following diagram shows how a spoke sends back SNATted traffic back to the ALB of an Azure Firewall. This setup causes asymmetric routing:
 
 ![Diagram that shows an asymmetric routing in a hub-and-spoke topology.](./images/asymmetric_routing.png)
 
-To solve this problem, define UDRs in the spoke without the Azure Firewall subnet but with only the subnets where the shared services are located. In the example, the correct UDR in the spoke should only contain 192.168.1.0/24. It shouldn't contain the whole 192.168.0.0/16, as marked in red.
+To solve this problem, define UDRs in the spoke without the Azure Firewall subnet but with only the subnets where the shared services are located. In the example, the correct UDR in the spoke should only contain `192.168.1.0/24`. It shouldn't contain the whole `192.168.0.0/16`, as marked in red.
 
 ## Integration with other Azure products
 
-You can integrate Azure Firewall and Azure Application Gateway with other Azure products and services.
+You can integrate Azure Firewall and Application Gateway with other Azure products and services.
 
 ### API Management Gateway
 
-Integrate reverse proxy services like [API Management][apim] gateway into the previous designs to provide functionality like API throttling or authentication proxy. Integrating an API Management gateway doesn't greatly alter the designs. The main difference is that instead of the single Application Gateway reverse proxy, there are two reverse proxies chained behind each other.
+Integrate reverse proxy services like [API Management][api-management] gateway into the previous designs to provide functionality like API throttling or authentication proxy. Integrating an API Management gateway doesn't greatly alter the designs. The main difference is that instead of the single Application Gateway reverse proxy, there are two reverse proxies chained behind each other.
 
 For more information, see the [Design Guide to integrate API Management and Application Gateway in a virtual network][appgw-apim] and the application pattern [API Gateways for Microservices][app-gws].
 
-### Azure Kubernetes Service
+### AKS
 
-For workloads running on an AKS cluster, you can deploy Azure Application Gateway independently of the cluster. Or you can integrate it with the AKS cluster using the [Azure Application Gateway Ingress Controller][agic_overview]. When configuring certain objects at the Kubernetes levels (such as services and ingresses), the Application Gateway automatically adapts without needing extra manual steps.
+For workloads that run on an AKS cluster, you can deploy Application Gateway independently of the cluster. Or you can integrate it with the AKS cluster by using the [Application Gateway Ingress Controller][agic_overview]. When you configure specific objects at the Kubernetes levels, such as services and ingresses, the Application Gateway automatically adapts without needing extra manual steps.
 
-Azure Firewall plays an important role in AKS cluster security. It offers the required functionality to filter egress traffic from the AKS cluster based on FQDN, not just IP address. For more information, see [Control egress traffic for AKS cluster nodes][aks-egress].
+Azure Firewall plays an important role in AKS cluster security. It provides the required functionality to filter egress traffic from the AKS cluster based on FQDN, not just IP address. For more information, see [Control egress traffic for AKS cluster nodes][aks-egress].
 
-When you combine Application Gateway and Azure Firewall to protect an AKS cluster, it's best to use the parallel design option. The Application Gateway with WAF processes inbound connection requests to web applications in the cluster. Azure Firewall permits only explicitly allowed outbound connections. See [Baseline architecture for an Azure Kubernetes Service (AKS) cluster][aks-secure-baseline] for an example of the parallel design option.
+When you combine Application Gateway and Azure Firewall to protect an AKS cluster, it's best to use the parallel design option. The Application Gateway with WAF processes inbound connection requests to web applications in the cluster. Azure Firewall permits only explicitly allowed outbound connections. See [Baseline architecture for an AKS cluster][aks-secure-baseline] for an example of the parallel design option.
 
 ### Azure Front Door
 
-[Azure Front Door][frontdoor] functionality partly overlaps with Azure Application Gateway. For example, both services offer web application firewalling, SSL offloading, and URL-based routing. One main difference is that while Azure Application Gateway is inside a virtual network, Azure Front Door is a global, decentralized service.
+[Azure Front Door][frontdoor] functionality partly overlaps with Application Gateway. For example, both services provide web application firewalling, SSL offloading, and URL-based routing. One main difference is that while Application Gateway is inside a virtual network, Azure Front Door is a global, decentralized service.
 
 You sometimes can simplify virtual network design by replacing Application Gateway with a decentralized Azure Front Door. Most designs described here remain valid, except for the option of placing Azure Firewall in front of Azure Front Door.
 
-An interesting use case is using Azure Firewall in front of Application Gateway in your virtual network. As described earlier, the `X-Forwarded-For` header injected by the Application Gateway will contain the firewall instance's IP address, not the client's IP address. A workaround is to use Azure Front Door in front of the firewall to inject the client's IP address as a `X-Forwarded-For` header before the traffic enters the virtual network and hits the Azure Firewall.  A second option is to [Secure your Origin with Private Link in Azure Front Door Premium][azure-front-door-private-link].
+An interesting use case is using Azure Firewall in front of Application Gateway in your virtual network. As described previously, the `X-Forwarded-For` header injected by the Application Gateway contains the firewall instance's IP address, not the client's IP address. A workaround is to use Azure Front Door in front of the firewall to inject the client's IP address as a `X-Forwarded-For` header before the traffic enters the virtual network and hits the Azure Firewall.  A second option is to [Secure your Origin with Private Link in Azure Front Door Premium][azure-front-door-private-link].
 
 For more information about the differences between the two services, or when to use each one, see [Frequently Asked Questions for Azure Front Door][afd-vs-appgw].
 
@@ -361,28 +415,33 @@ For more information about the differences between the two services, or when to 
 
 Microsoft products aren't the only choice to implement web application firewall or next-generation firewall functionality in Azure. A wide range of Microsoft partners provide network virtual appliances (NVAs). The concepts and designs are essentially the same as in this article, but there are some important considerations:
 
-- Partner NVAs for next-generation firewalling may offer more control and flexibility for NAT configurations unsupported by the Azure Firewall. Examples include DNAT from on-premises or DNAT from the internet without SNAT.
-- Azure-managed NVAs (like Application Gateway and Azure Firewall) reduce complexity, compared to NVAs where users need to handle scalability and resiliency across many appliances.
-- When using NVAs in Azure, use *active-active* and *autoscaling* setups, so these appliances aren't a bottleneck for applications running in the virtual network.
+- Partner NVAs for next-generation firewalling might provide more control and flexibility for NAT configurations that the Azure Firewall don't support. Examples include DNAT from on-premises or DNAT from the internet without SNAT.
+
+- Azure-managed NVAs, like Application Gateway and Azure Firewall, reduce complexity, compared to NVAs where users need to handle scalability and resiliency across many appliances.
+
+- When you use NVAs in Azure, use *active-active* and *autoscaling* setups so that these appliances aren't a bottleneck for applications that run in the virtual network.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal author:
 
-* [Jose Moreno](https://de.linkedin.com/in/erjosito) | Principal Customer Engineer
+- [Jose Moreno](https://de.linkedin.com/in/erjosito) | Principal Customer Engineer
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 Learn more about the component technologies:
 
-- [What is Azure Application Gateway?](/azure/application-gateway/overview)
+- [What is Application Gateway?](/azure/application-gateway/overview)
 - [What is Azure Firewall?](/azure/firewall/overview)
 - [What is Azure Front Door?](/azure/frontdoor/front-door-overview)
-- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [AKS](/azure/aks/intro-kubernetes)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [What is Azure Web Application Firewall?](/azure/web-application-firewall/overview)
+- [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 
 ## Related resources
 
@@ -390,44 +449,42 @@ Explore related architectures:
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
 - [Securely managed web applications](../apps/fully-managed-secure-apps.yml)
-- [Securing your Microsoft Teams channel bot and web app behind a firewall](../teams/securing-bot-teams-channel.yml)
-- [Multitenant SaaS on Azure](../multi-saas/multitenant-saas.yml)
-- [Enterprise deployment using App Services Environment](../../web-apps/app-service-environment/architectures/ase-standard-deployment.yml)
-- [High availability enterprise deployment using App Services Environment](../../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
+- [Secure your Microsoft Teams channel bot and web app behind a firewall](../teams/securing-bot-teams-channel.yml)
+- [Multitenant software as a service on Azure](../multi-saas/multitenant-saas.yml)
+- [Enterprise deployment by using App Services Environment](../../web-apps/app-service-environment/architectures/ase-standard-deployment.yml)
+- [High availability enterprise deployment by using App Services Environment](../../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
 
-[azfw-appgw-zt]: /azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall
-[azfw-overview]: /azure/firewall/overview
-[azfw-premium-features]: /azure/firewall/premium-features
-[azfw-idps-rules]: /azure/firewall/premium-features#idps-signature-rules
-[azfw-docs]: /azure/firewall/
-[azfw-dnat]: /azure/firewall/tutorial-firewall-dnat-policy
-[azfw-snat]: /azure/firewall/snat-private-range
-[azfw-issues]: /azure/firewall/overview#known-issues
-[azfw-dns]: /azure/firewall/fqdn-filtering-network-rules
-[azfw-endpoint]: /azure/private-link/inspect-traffic-with-azure-firewall
-[appgw-overview]: /azure/application-gateway/overview
-[appgw-docs]: /azure/application-gateway/
-[waf-docs]: /azure/web-application-firewall/
-[appgw-apim]: /azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
-[api-gws]: ../../microservices/design/gateway.md
-[agic_overview]: /azure/application-gateway/ingress-controller-overview
-[apim-overview]: /azure/api-management/api-management-key-concepts
-[aks-egress]: /azure/aks/limit-egress-traffic
-[afd-overview]: /azure/frontdoor/front-door-overview
-[afd-vs-appgw]: /azure/frontdoor/front-door-faq#what-is-the-difference-between-azure-front-door-and-azure-application-gateway
-[appgw-networking]: /azure/application-gateway/how-application-gateway-works
-[azure-virtual-network]: https://azure.microsoft.com/services/virtual-network/
-[web-application-firewall]: https://azure.microsoft.com/services/web-application-firewall/
-[nat]: /azure/virtual-network/nat-overview
-[udr]: /azure/virtual-network/virtual-networks-udr-overview
-[expressroute]: https://azure.microsoft.com/services/expressroute/
-[apim]: https://azure.microsoft.com/services/api-management/
-[app-gws]: https://microservices.io/patterns/apigateway.html
-[frontdoor]: https://azure.microsoft.com/services/frontdoor/
-[nsgs]: /azure/virtual-network/security-overview
-[azfw-defaultroute]: /azure/firewall/forced-tunneling
-[appgw-defaultroute]:/azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet
-[aks-secure-baseline]: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks
-[azure-front-door-private-link]: /azure/frontdoor/private-link
-[preserve-http-host]: /azure/architecture/best-practices/host-name-preservation
+[afd-overview]: /azure/frontdoor/front-door-overview  
+[afd-vs-appgw]: /azure/frontdoor/front-door-faq#what-is-the-difference-between-azure-front-door-and-azure-application-gateway  
+[agic_overview]: /azure/application-gateway/ingress-controller-overview  
+[aks-egress]: /azure/aks/limit-egress-traffic  
+[aks-secure-baseline]: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks  
+[api-management]: https://azure.microsoft.com/services/api-management/  
+[api-management-overview]: /azure/api-management/api-management-key-concepts  
+[app-gws]: https://microservices.io/patterns/apigateway.html  
+[appgw-apim]: /azure/api-management/api-management-howto-integrate-internal-vnet-appgateway  
+[appgw-defaultroute]: /azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet  
+[appgw-docs]: /azure/application-gateway/  
+[appgw-networking]: /azure/application-gateway/how-application-gateway-works  
+[appgw-overview]: /azure/application-gateway/overview  
+[azfw-appgw-zt]: /azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall  
+[azfw-defaultroute]: /azure/firewall/forced-tunneling  
+[azfw-dnat]: /azure/firewall/tutorial-firewall-dnat-policy  
+[azfw-dns]: /azure/firewall/fqdn-filtering-network-rules  
+[azfw-docs]: /azure/firewall/  
+[azfw-endpoint]: /azure/private-link/inspect-traffic-with-azure-firewall  
+[azfw-idps-rules]: /azure/firewall/premium-features#idps-signature-rules  
+[azfw-overview]: /azure/firewall/overview  
+[azfw-premium-features]: /azure/firewall/premium-features  
+[azfw-known-problems]: /azure/firewall/overview#known-issues  
+[azfw-snat]: /azure/firewall/snat-private-range  
+[azure-front-door-private-link]: /azure/frontdoor/private-link  
+[azure-virtual-network]: https://azure.microsoft.com/services/virtual-network/  
+[expressroute]: https://azure.microsoft.com/services/expressroute/  
+[frontdoor]: https://azure.microsoft.com/services/frontdoor/  
+[nat]: /azure/virtual-network/nat-overview  
+[nsgs]: /azure/virtual-network/security-overview  
+[preserve-http-host]: /azure/architecture/best-practices/host-name-preservation  
+[udr]: /azure/virtual-network/virtual-networks-udr-overview  
+[waf-docs]: /azure/web-application-firewall/  
+[web-application-firewall]: https://azure.microsoft.com/services/web-application-firewall/  
