@@ -1190,6 +1190,14 @@ items:
           href: hybrid/hybrid-dns-infra.yml
         - name: Implement a secure hybrid network
           href: reference-architectures/dmz/secure-vnet-dmz.yml
+      - name: Hybrid messaging
+        items:
+        - name: 'Enhanced-security hybrid: client access'
+          href: example-scenario/hybrid/secure-hybrid-messaging-client.yml
+        - name: 'Enhanced-security hybrid: mobile access'
+          href: example-scenario/hybrid/secure-hybrid-messaging-mobile.yml
+        - name: 'Enhanced-security hybrid: web access'
+          href: example-scenario/hybrid/secure-hybrid-messaging-web.yml
       - name: Hybrid storage solutions
         items:
         - name: Azure enterprise cloud file share
@@ -1206,12 +1214,6 @@ items:
       items:
       - name: Azure Automation State Configuration
         href: example-scenario/state-configuration/state-configuration.yml
-      - name: 'Enhanced-security hybrid: client access'
-        href: example-scenario/hybrid/secure-hybrid-messaging-client.yml
-      - name: 'Enhanced-security hybrid: mobile access'
-        href: example-scenario/hybrid/secure-hybrid-messaging-mobile.yml
-      - name: 'Enhanced-security hybrid: web access'
-        href: example-scenario/hybrid/secure-hybrid-messaging-web.yml
       - name: Hybrid availability and monitoring
         href: hybrid/hybrid-perf-monitoring.yml
   - name: Identity

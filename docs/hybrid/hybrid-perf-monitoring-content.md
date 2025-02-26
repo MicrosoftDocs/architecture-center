@@ -1,3 +1,5 @@
+[!INCLUDE [header_file](../../../../includes/sol-idea-header.md)]
+
 This reference architecture shows how to use Azure Monitor to monitor the performance and availability of operating system (OS) workloads that run in virtual machines (VMs). The VMs can be in Microsoft Azure, in on-premises environments, or in non-Azure clouds.
 
 ## Architecture
