@@ -2437,7 +2437,7 @@
     },
     {
       "source_path": "docs/example-scenario/manufacturing/azure-ai-siemens-industrial-edge.yml",
-      "redirect_url": "/industry/manufacturing/",
+      "redirect_url": "/industry/manufacturing/architecture/azure-ai-siemens-industrial-edge",
       "redirect_document_id": false
     },
     {
@@ -7060,10 +7060,39 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs//industries/automotive/automotive-connected-fleets.yml",
+      "source_path": "docs/industries/automotive/automotive-connected-fleets.yml",
       "redirect_url": "/industry/mobility/architecture/automotive-connected-fleets-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml",
+      "redirect_url": "/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/disaster-recovery/dr-for-azure-data-platform-summary.yml",
+      "redirect_url": "/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/open-source-data-engine-stream-processing.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/data/stream-processing-databricks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/power-bi-write-back-power-apps.yml",
+      "redirect_url": "/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/content-delivery-network-azure-data-explorer.yml",
+      "redirect_url": "/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/hdinsight-kafka-spark-delta-lake.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/data/stream-processing-databricks",
       "redirect_document_id": false
     }
   ]
 }
-
