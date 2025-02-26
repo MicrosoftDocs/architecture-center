@@ -121,7 +121,7 @@ The following tables summarize the key differences in the capabilities of natura
 | --- | --- | --- |
 | Provides pretrained models as a service | Yes | Yes |
 | REST API | Yes | Yes |
-| Programmability | Python, Scala | See [supported programming languages](/azure/ai-services/openai/supported-languages) |
+| Programmability | Python, Scala | See [supported programming languages](/azure/ai-foundry/model-inference/supported-languages) |
 | Supports processing of large datasets and large documents | Yes | No |
 
 ### Annotator capabilities
