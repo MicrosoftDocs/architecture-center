@@ -7096,7 +7096,7 @@
     },
     {
       "source_path": "docs/ai-ml/idea/video-ingestion-object-detection-edge-cloud.yml",
-      "redirect_url": "/azure/databox-online/",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-overview",
       "redirect_document_id": false
     },
     {
@@ -7110,4 +7110,4 @@
       "redirect_document_id": false
     }
   ]
-}  
+}
