@@ -1,3 +1,5 @@
+[!INCLUDE [sol-idea-header](../../../includes/sol-idea-header.md)]
+
 Azure Automation State Configuration is an Azure configuration management service that makes it possible for you to configure and enforce state on virtual and physical machines in any cloud or on-premises datacenter. You can use Azure Automation State Configuration in a report-only mode to see configuration compliance data for a virtual or physical machine.
 
 ## Architecture
