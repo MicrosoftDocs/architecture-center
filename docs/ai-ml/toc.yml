@@ -12,10 +12,6 @@ items:
         items:
         - name: Customer order forecasting
           href: idea/next-order-forecasting.yml
-      - name: AI at the edge
-        items:
-        - name: Video ingestion and object detection on the edge
-          href: idea/video-ingestion-object-detection-edge-cloud.yml
       - name: Document enrichment
         items:
         - name: Use AI enrichment with Azure AI Search

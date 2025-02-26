@@ -7093,6 +7093,11 @@
       "source_path": "docs/solution-ideas/articles/hdinsight-kafka-spark-delta-lake.yml",
       "redirect_url": "/azure/architecture/reference-architectures/data/stream-processing-databricks",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/idea/video-ingestion-object-detection-edge-cloud.yml",
+      "redirect_url": "/azure/databox-online/",
+      "redirect_document_id": false
     }
   ]
 }
