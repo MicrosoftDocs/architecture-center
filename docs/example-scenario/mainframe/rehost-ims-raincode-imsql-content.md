@@ -88,7 +88,7 @@ This architecture describes how to implement an Information Management System (I
 
 ### IMS DB data migration using Raincode zBridge
 
-   Raincode zBridge facilitates access to mainframe non-relational data on Azure, including data from IMS/DB segments. This data becomes available in Azure SQL databases for   distributed applications, reporting, and analytical purposes.
+   [Raincode zBridge] (https://www.raincode.com/zbridge/) facilitates access to mainframe non-relational data on Azure, including data from IMS/DB segments. This data becomes available in Azure SQL databases for   distributed applications, reporting, and analytical purposes.
 
    IMS segment Data files are imported into zBridge with a matching COBOL copybook or PL/I include. The data appears as SQL rows, with mainframe numeric types converted to SQL types and strings to ASCII if needed. Complex data structures are also supported seamlessly.
 
