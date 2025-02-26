@@ -252,9 +252,7 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. 
 
 This reference architecture deploys Event Hubs in the Standard tier. The pricing model is based on throughput units, ingress events, and capture events. An ingress event is a unit of data that's 64 KB or less. Larger messages are billed in multiples of 64 KB. You specify throughput units either through the Azure portal or Event Hubs management APIs.
 
-If you need more retention days, consider the Dedicated tier. This tier provides single-tenant deployments that have demanding requirements. This offering builds a cluster that's based on capacity units and isn't dependent on throughput units.
-
-The Standard tier is also billed based on ingress events and throughput units.
+If you need more retention days, consider the Dedicated tier. This tier provides single-tenant deployments that have stringent requirements. This offering builds a cluster that's based on capacity units and isn't dependent on throughput units. The Standard tier is also billed based on ingress events and throughput units.
 
 For more information, see [Event Hubs pricing][event-hubs-pricing].
 
