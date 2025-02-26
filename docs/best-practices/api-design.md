@@ -524,7 +524,7 @@ This approach is arguably the purest of the versioning mechanisms and lends itse
 
 ## Open API Initiative
 
-The [Open API Initiative](https://www.openapis.org) was created by an industry consortium to standardize REST API descriptions across vendors. As part of this initiative, the Swagger 2.0 specification was renamed the OpenAPI Specification (OAS) and brought under the Open API Initiative.
+The [Open API Initiative](https://www.openapis.org) was created by an industry consortium to standardize REST API descriptions across vendors. At that time, the Swagger 2.0 specification was renamed the OpenAPI Specification (OAS) and brought under the Open API Initiative.
 
 You might want to adopt OpenAPI for your web APIs. Some points to consider:
 
