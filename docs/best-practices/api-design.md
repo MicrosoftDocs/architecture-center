@@ -38,7 +38,7 @@ This guidance describes issues that you should consider when designing a web API
 
 In 2000, Roy Fielding proposed Representational State Transfer (REST) as an architectural approach to designing web services. REST is an architectural style for building distributed systems based on hypermedia. REST is independent of any underlying protocol and is not necessarily tied to HTTP. However, most common REST API implementations use HTTP as the application protocol, and this guide focuses on designing REST APIs for HTTP.
 
-A primary advantage of REST over HTTP is that it uses open standards, and does not bind the implementation of the API or the client applications to any specific implementation. For example, a REST web service could be written in ASP.NET, and client applications can use any language or toolset that can generate HTTP requests and parse HTTP responses.
+A primary advantage of REST over HTTP is that it uses open standards, and does not bind the implementation of the API or the client applications to any specific implementation. For example, a REST web service could be written in ASP.NET Core, and client applications can use any language or toolset that can generate HTTP requests and parse HTTP responses.
 
 Here are some of the main design principles of RESTful APIs using HTTP:
 
@@ -532,7 +532,7 @@ You might want to adopt OpenAPI for your web APIs. Some points to consider:
 
 - OpenAPI promotes a contract-first approach, rather than an implementation-first approach. Contract-first means you design the API contract (the interface) first and then write code that implements the contract.
 
-- Tools like Swagger can generate client libraries or documentation from API contracts. For example, see [ASP.NET Web API help pages using Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger).
+- Tools like Swagger (OpenAPI) can generate client libraries or documentation from API contracts. For example, see [ASP.NET Core web API documentation with Swagger / OpenAPI](/aspnet/core/tutorials/web-api-help-pages-using-swagger).
 
 ## Next steps
 
