@@ -16,6 +16,7 @@ metadata:
     - reference-architecture
     - e2e-hybrid
     - internal-intro
+    - arb-hybrid
 name: Connect an on-premises network to Azure
 azureCategories:
   - hybrid

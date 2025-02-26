@@ -1146,8 +1146,6 @@ items:
       href: hybrid/hybrid-start-here.md
     - name: Guides
       items:
-      - name: Connect an on-premises network to Azure
-        href: reference-architectures/hybrid-networking/index.yml
       - name: Troubleshoot a hybrid VPN connection
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.yml
     - name: Architectures
@@ -1184,6 +1182,8 @@ items:
             href: hybrid/azure-local-workload-virtual-desktop.yml
       - name: Hybrid connectivity
         items:
+        - name: Connect an on-premises network to Azure
+          href: reference-architectures/hybrid-networking/index.yml
         - name: Connect on-premises with ExpressRoute
           href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
         - name: Design a hybrid Domain Name System
