@@ -814,8 +814,6 @@ items:
         href: reference-architectures/data/stream-processing-stream-analytics.yml
       - name: Modern data warehouse for small business
         href: example-scenario/data/small-medium-data-warehouse.yml
-      - name: Power BI data write-back
-        href: example-scenario/data/power-bi-write-back-power-apps.yml
       - name: Disaster recovery for data analytics pipelines
         href: example-scenario/analytics/pipelines-disaster-recovery.yml        
     - name: Solution ideas

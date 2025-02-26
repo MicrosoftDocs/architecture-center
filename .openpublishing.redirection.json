@@ -7078,6 +7078,11 @@
       "source_path": "docs/example-scenario/data/open-source-data-engine-stream-processing.yml",
       "redirect_url": "/azure/architecture/reference-architectures/data/stream-processing-databricks",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/power-bi-write-back-power-apps.yml",
+      "redirect_url": "/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric",
+      "redirect_document_id": false
     }
   ]
 }
