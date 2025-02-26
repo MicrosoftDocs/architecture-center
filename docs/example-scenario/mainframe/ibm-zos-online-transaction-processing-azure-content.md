@@ -46,6 +46,8 @@ This architecture consists of several Azure cloud services and is divided into f
 
 #### Networking and identity
 
+When designing application architecture, it is crucial to prioritize networking and identity components to ensure security, performance, and manageability during interactions over public internet or private connections. The following components in the architecture are essential to addressing this requirement effectively.
+
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) carries private connections between on-premises infrastructure and Azure datacenters.
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that can synchronize with an on-premises directory.
 - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) provides global HTTP load balancing with instant failover. Its caching option can quicken delivery of static content.
@@ -57,6 +59,8 @@ This architecture consists of several Azure cloud services and is divided into f
 
 #### Application
 
+Azure offers a comprehensive suite of managed services intended to support the secure, scalable, and efficient deployment of applications. The application tier services cited in the above architecture can contribute to achieving optimal application architecture.
+
 - [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) supports the publishing, routing, securing, logging, and analytics of APIs. You can control how the data is presented and extended, and which apps can access it. You can restrict access to your apps, or allow third parties.
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed service for building, deploying, and scaling web apps. You can build apps using .NET, .NET Core, Node.js, Java, Python, or PHP. The apps can run in containers or on Windows or Linux. In a mainframe migration, the front-end screens or web interface can be coded as HTTP-based REST APIs. They can be segregated as per the mainframe application, and can be stateless to orchestrate a microservices-based system.
 - WebJobs is a feature of Azure App Service that runs a program or script in the same instance as a web app, API app, or mobile app. A web job can be a good choice for implementing sharable and reusable program logic. For technical information, see [Run background tasks with WebJobs in Azure App Service](/azure/app-service/webjobs-create).
@@ -66,7 +70,9 @@ This architecture consists of several Azure cloud services and is divided into f
 - [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) provides an environment for running small pieces of code, called functions, without having to establish an application infrastructure. You can use it to process bulk data, integrate systems, work with IoT, and build simple APIs and microservices. With microservices, you can create servers that connect to Azure services and are always up to date.
 - [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is a fully managed in-memory caching service for sharing data and state among compute resources. It includes both the open-source Redis (OSS Redis) and a commercial product from Redis Labs (Redis Enterprise) as a managed service. You can improve performance of high-throughput OLTP applications by designing them to scale and to make use of an in-memory data store such as Azure Cache for Redis.
 
-#### Storage
+#### Storage and Database
+
+The architecture addresses scalable and secure cloud storage as well as managed databases for flexible and intelligent data management.
 
 - [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues). Azure Files is often an effective tool for migrating mainframe workloads.
 - [Azure SQL](/azure/azure-sql/) is a family of SQL cloud databases that provides flexible options for application migration, modernization, and development. The family includes:
@@ -80,6 +86,8 @@ This architecture consists of several Azure cloud services and is divided into f
 - In-Memory OLTP is a feature of [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) and [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) that provides fast in-memory data storage. For technical information, see [Optimize performance by using in-memory technologies in Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/in-memory-oltp-overview).
 
 #### Monitoring
+
+The monitoring tools outlined below provide comprehensive data analysis and valuable insights into application performance.
 
 - [Azure Monitor](/azure/azure-monitor/overview) collects, analyzes, and acts on personal data from your Azure and on-premises environments.
 - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a tool in the Azure portal used to query Monitor logs using a powerful query language. You can work with the results of your queries interactively or use them with other Azure Monitor features such as log query alerts or workbooks. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
