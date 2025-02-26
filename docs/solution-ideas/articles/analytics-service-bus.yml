@@ -5,7 +5,7 @@ metadata:
   description: Learn how to use Azure Service Bus and Azure Data Explorer to enhance an existing message broker architecture with near real-time analytics.
   author: shsagir
   ms.author: shsagir
-  ms.date: 10/30/2023
+  ms.date: 02/17/2025
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.subservice: solution-idea
@@ -23,4 +23,4 @@ name: Real-time analytics on data with Azure Service Bus and Azure Data Explorer
 summary: Learn how to use Azure Service Bus and Azure Data Explorer to enhance an existing message broker architecture with near real-time analytics.
 thumbnailUrl: /azure/architecture/browse/thumbs/analytics-service-bus.png
 content: |
-  [!include[](analytics-service-bus-content.md)]
+  [!INCLUDE[](analytics-service-bus-content.md)]
