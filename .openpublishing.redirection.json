@@ -7088,6 +7088,11 @@
       "source_path": "docs/solution-ideas/articles/content-delivery-network-azure-data-explorer.yml",
       "redirect_url": "/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/hdinsight-kafka-spark-delta-lake.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/data/stream-processing-databricks",
+      "redirect_document_id": false
     }
   ]
 }
