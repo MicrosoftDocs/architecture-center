@@ -2437,7 +2437,7 @@
     },
     {
       "source_path": "docs/example-scenario/manufacturing/azure-ai-siemens-industrial-edge.yml",
-      "redirect_url": "/industry/manufacturing/",
+      "redirect_url": "/industry/manufacturing/architecture/azure-ai-siemens-industrial-edge",
       "redirect_document_id": false
     },
     {
