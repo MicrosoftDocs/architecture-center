@@ -5,10 +5,10 @@ metadata:
   description: Learn about options and best practices for how to use Azure Firewall and Azure Application Gateway security in virtual networks.
   author: erjosito
   ms.author: jomore
-  ms.date: 02/26/2025
-  ms.topic: example-scenario
-  ms.service: azure-architecture-center
-  ms.subservice: example-scenario
+  ms.date: 02/28/2025
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-workload
   ms.category:
     - networking
     - security
