@@ -129,7 +129,7 @@ val fareEvents = spark.readStream
 
 The ride data includes the latitude and longitude coordinates of the pickup and drop-off locations. These coordinates are useful but not easily consumed for analysis. Therefore, this data is enriched with neighborhood data that's read from a [shapefile](https://en.wikipedia.org/wiki/Shapefile).
 
-The shapefile format is binary and not easily parsed. But the [GeoTools](http://geotools.org) library provides tools for geospatial data that use the shapefile format. This library is used in the `com.microsoft.pnp.GeoFinder` class to determine the neighborhood name based on the coordinates for pickup and drop-off locations.
+The shapefile format is binary and not easily parsed. But the [GeoTools](https://geotools.org) library provides tools for geospatial data that use the shapefile format. This library is used in the `com.microsoft.pnp.GeoFinder` class to determine the neighborhood name based on the coordinates for pickup and drop-off locations.
 
 ```scala
 val neighborhoodFinder = (lon: Double, lat: Double) => {
