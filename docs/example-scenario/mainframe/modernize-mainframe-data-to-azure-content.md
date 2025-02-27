@@ -79,7 +79,7 @@ The architecture discusses the data migration to scalable, secure cloud storage 
 - [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is an intelligent, scalable cloud database service that offers all the benefits of a fully managed and evergreen platform as a service. SQL Managed Instance has near-100% compatibility with the latest SQL Server Enterprise edition database engine. It also provides a native virtual network implementation that addresses common security concerns.
 - [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a storage repository that holds large amounts of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources. It can be structured, semi-structured, or unstructured.
 - [SQL database in Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a developer-friendly transactional database, based on Azure SQL Database, that allows you to easily create your operational database in Fabric. A SQL database in Fabric uses the same SQL Database Engine as Azure SQL Database.
-- [Microsoft Fabric Lakehouse](fabric/data-engineering/lakehouse-overview) is a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location.
+- [Microsoft Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview) is a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location.
 
 #### Compute
 
@@ -88,6 +88,8 @@ The architecture discusses the data migration to scalable, secure cloud storage 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides on-demand, scalable computing resources. An Azure virtual machine (VM) provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
 
 #### Data integrators
+
+This architecture outlines various Azure-native migration tools that can be utilized depending on the mainframe source data and the target database.
 
 - [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service. In this solution, an Azure Data Factory With minimal setup to migrate data from Db2 sorurce Azure databases targets using native connetors.
 - [AzCopy](/azure/storage/common/storage-use-azcopy-v10) is a command-line utility that moves blobs or files into and out of storage accounts.
