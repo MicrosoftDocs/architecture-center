@@ -162,7 +162,7 @@ Kubernetes defines three types of health probes that a pod can expose:
 
 When thinking about probes, it's useful to recall how a service works in Kubernetes. A service has a label selector that matches a set of (zero or more) pods. Kubernetes load balances traffic to the pods that match the selector. Only pods that started successfully and are healthy receive traffic. If a container crashes, Kubernetes kills the pod and schedules a replacement.
 
-Sometimes, a pod may not be ready to receive traffic, even though the pod started successfully. For example, there may be initialization tasks, where the application running in the container loads things into memory or reads configuration data. A startup probe can be used to adopt liveness checks on slow starting containers, avoiding them getting killed by the kubelet before they are up and running.
+Sometimes, a pod may not be ready to receive traffic, even though the pod started successfully. For example, there may be initialization tasks underway, such as when the application running in the container loads things into memory or reads configuration data. You can use a startup probe on these slow-starting containers, avoiding them getting killed by Kubernetes before they have a chance to get up and running.
 
 Liveness probes handle the case where a pod is still running, but is unhealthy and should be recycled. For example, suppose that a container is serving HTTP requests but hangs for some reason. The container doesn't crash, but it has stopped serving any requests. Liveness probe determines when to restart a container. If you define a liveness probe, the probe will stop responding. If a container fails its liveness probe repeatedly, the kubelet restarts the container.
 
