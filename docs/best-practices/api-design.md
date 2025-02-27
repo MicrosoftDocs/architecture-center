@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn best practices for designing web APIs that support platform independence and service evolution.
 ms.author: robbag
 author: RobBagby
-ms.date: 07/25/2022
+ms.date: 02/27/2025
 ms.topic: best-practice
 ms.service: azure-architecture-center
 ms.subservice: best-practice
