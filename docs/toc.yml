@@ -250,7 +250,7 @@ items:
       - name: Image and video processing
         href: data-guide/ai-services/image-video-processing.md
       - name: Natural language processing
-        href: data-guide/technology-choices/natural-language-processing.yml
+        href: data-guide/technology-choices/natural-language-processing.md
       - name: Machine learning
         href: ai-ml/guide/data-science-and-machine-learning.md
       - name: Compare MLflow and Azure ML
