@@ -88,7 +88,7 @@ This section describes other tools that you can use during data modernization, s
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service that's based on the community edition of the open-source [PostgreSQL](https://www.postgresql.org/) database engine. Use this service to focus on application innovation instead of database management. You can also scale your workload quickly and easily.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, [multimodel](/azure/cosmos-db/nosql/modeling-data) database. Use Azure Cosmos DB to ensure that your solutions can elastically and independently scale throughput and storage across any number of geographic regions. This fully managed [NoSQL](/resources/cloud-computing-dictionary/what-is-nosql-database/?ef_id=_k_4cc42460ead913b6e14e43a05677db06_k_&OCID=AIDcmme9zx2qiz_SEM__k_4cc42460ead913b6e14e43a05677db06_k_&msclkid=4cc42460ead913b6e14e43a05677db06) database service guarantees single-digit, millisecond latencies at the ninety-ninth percentile anywhere in the world.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, [multimodel](/azure/cosmos-db/nosql/modeling-data) database. Use Azure Cosmos DB to ensure that your solutions can elastically and independently scale throughput and storage across any number of geographic regions. This fully managed [NoSQL](/resources/cloud-computing-dictionary/what-is-nosql-database/?msockid=204e81b2ba436861280495c3bbcd69af) database service guarantees single-digit, millisecond latencies at the ninety-ninth percentile anywhere in the world.
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple, heterogeneous sources and can be structured, semi-structured, or unstructured. [Data Lake Storage Gen2](/azure/databricks/connect/storage/azure-storage) combines Data Lake Storage Gen1 capabilities with Blob Storage. This next-generation data lake solution provides file system semantics, file-level security, and scale. It also offers the tiered storage, high availability, and disaster recovery capabilities of Blob Storage.
 - Microsoft Fabric is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It supports these capabilities with integrated services like Data Engineering, Data Factory, Data Science, Real-Time Analytics, Data Warehouse, and Databases.
@@ -129,7 +129,7 @@ Keep these points in mind when you consider this architecture.
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- Infrastructure management, including [availability](/products/category/databases/), is automated in Azure databases.
+- Infrastructure management, including [availability](/reliability/concept-business-continuity-high-availability-disaster-recovery), is automated in Azure databases.
 
 - See [Pooling and failover](/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#pooling-and-failover) for information about Microsoft Service for DRDA failover protection.
 
@@ -159,7 +159,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-- Infrastructure management, including [scalability](/products/category/databases/), is automated in Azure databases.
+- Infrastructure management, including [scalability](/azure/architecture/guide/design-principles/scale-out), is automated in Azure databases.
 
 - You can [scale out the self-hosted IR](/azure/data-factory/concepts-integration-runtime#self-hosted-ir-compute-resource-and-scaling) by associating the logical instance with multiple on-premises machines in active-active mode.
 
