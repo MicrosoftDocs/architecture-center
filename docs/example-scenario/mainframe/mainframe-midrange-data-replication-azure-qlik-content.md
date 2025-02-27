@@ -13,13 +13,13 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
 
 ### Workflow
 
-1. **Host agent:** The Host agent on the on-premises system captures change log information from Db2, IMS, and VSAM data stores, and passes it to the Qlik Replication server.
+1. **Host agent:** The Host agent on the on-premises system captures changes log information from Db2, IMS(Information Management System), and VSAM(Virtual Storage Access Method) data stores, and passes it to the Qlik Replication server.
 1. **Replication server:** The Qlik Replication server software passes the change log information to Kafka and Azure Event Hubs. Qlik in this example is on-premises, but it could instead be deployed on a virtual machine in Azure.
 1. **Stream ingestion:** Kafka and Event Hubs provide message brokers  to receive and store change log information.
 1. **Kafka Connect:** The Kafka Connect API is used to get data from Kafka for updating Azure data stores such as Azure Data Lake Storage, Azure Databricks,  and Azure Synapse Analytics.
 1. **Data Lake Storage:** Data Lake Storage is a staging area for the change log data.
 1. **Databricks:** Databricks processes the change log data and updates the corresponding files on Azure.
-1. **Azure data services:** Azure provides a variety of efficient data storage services. Prominent among these are:
+1. **Azure data services:** Azure provides various efficient data storage services. including:
    - Relational databases services:
      - SQL Server on Azure Virtual Machines
      - Azure SQL Database
@@ -40,7 +40,7 @@ This architecture consists of several Azure cloud services and is divided into f
 
 #### Networking and identity
 
-When designing application architecture, it is crucial to prioritize networking and identity components to ensure security, performance, and manageability during interactions over public internet or private connections. The following components in the architecture are essential to addressing this requirement effectively.
+When designing application architecture, it's crucial to prioritize networking and identity components to ensure security, performance, and manageability during interactions over public internet or private connections.
 
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into cloud services offered by Microsoft over a private connection from a connectivity provider. With ExpressRoute, you can establish connections to cloud services such as Microsoft Azure and Office 365.
 - [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a specific type of virtual network gateway that sends encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
@@ -48,12 +48,12 @@ When designing application architecture, it is crucial to prioritize networking 
 
 #### Application
 
-Azure offers a comprehensive suite of managed services intended to support the secure, scalable, and efficient deployment of applications. The application tier services cited in the above architecture can contribute to achieving optimal application architecture.
+Azure offers a comprehensive suite of managed services intended to support the secure, scalable, and efficient deployment of applications. The application tier services cited in the architecture can contribute to achieving optimal application architecture.
 
 - [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service that can store Db2, IMS, and VSAM change data messages. It can receive and process millions of messages per second. Data sent to an event hub can be transformed and stored by using a real-time analytics provider or a custom adapter.
 - [Apache Kafka](https://kafka.apache.org) is an open-source distributed event streaming platform that's used for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications. It can be easily integrated with Qlik data integration to store Db2 change data.
 - [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) Azure Data Lake Storage provides a data lake for storing the processed on-premises change log data.
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a cloud-based data engineering tool that's based on Apache Spark. It can process and transform massive quantities of data. You can explore the data by using machine learning models. Jobs can be written in R, Python, Java, Scala, and Spark SQL.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a cloud-based data engineering tool built on Apache Spark. It can process and transform massive quantities of data. You can explore the data by using machine learning models. Jobs can be written in R, Python, Java, Scala, and Spark SQL.
 
 #### Storage and Database
 
@@ -65,18 +65,18 @@ The architecture addresses scalable and secure cloud storage as well as managed 
   - [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability)
   - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework)
   - [Azure SQL Edge](/azure/azure-sql-edge/overview)
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service with open-source APIs for MongoDB and Cassandra. A possible application is to migrate mainframe non-tabular data to Azure.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service with open-source APIs for MongoDB and Cassandra. A possible application is to migrate mainframe nontabular data to Azure.
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed, intelligent, and scalable PostgreSQL that has native connectivity with Azure services.
 - [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed, scalable MySQL database.
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service with open-source APIs for MongoDB and Cassandra. A possible application is to migrate mainframe non-tabular data to Azure.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service with open-source APIs for MongoDB and Cassandra. A possible application is to migrate mainframe nontabular data to Azure.
 
 #### Monitoring
 
-The monitoring tools outlined below provide comprehensive data analysis and valuable insights into application performance.
+The monitoring tools provide comprehensive data analysis and valuable insights into application performance.
 
 - [Azure Monitor](/azure/azure-monitor/overview) delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It includes:
   - Application Insights, for analyzing and presenting telemetry.
-  - Monitor Logs, which collects and organizes log and performance data from monitored resources. Data from different sources such as platform logs from Azure services, log and performance data from virtual machines agents, and usage and performance data from applications can be consolidated into a single workspace to be analyzed together. Analysis uses a sophisticated query language that's capable of quickly analyzing millions of records.
+  - Monitor Logs, which collects and organizes log and performance data from monitored resources. Data from sources like Azure platform logs, VM agents, and application performance can be combined into one workspace for analysis. The query language used allows for quick analysis of millions of records.
   - Log Analytics, which can query Monitor logs. A powerful query language lets you join data from multiple tables, aggregate large sets of data, and perform complex operations with minimal code.
 
 ### Alternatives
@@ -87,7 +87,7 @@ The monitoring tools outlined below provide comprehensive data analysis and valu
 
 ## Scenario details
 
-Many organizations use mainframe and midrange systems to run demanding and critical workloads. Most applications use one or more databases, and most databases are shared by many applications, often on multiple systems. In such an environment, modernizing to the cloud means that on-premises data must be provided to cloud-based applications. Therefore, data replication becomes an important modernization tactic.
+Many organizations use mainframe and midrange systems to run demanding and critical workloads. Most applications use shared databases, often across multiple systems. In such an environment, modernizing to the cloud means that on-premises data must be provided to cloud-based applications. Therefore, data replication becomes an important modernization tactic.
 
 The [Qlik](https://www.qlik.com/products/technology/qlik-microsoft-azure-migration) Data Integration platform includes Qlik Replication, which does data replication. It uses change data capture (CDC) to replicate on-premises data stores in real time to Azure. The change data can come from Db2, IMS, and VSAM change logs. This replication technique eliminates inconvenient batch bulk loads. This solution uses an on-premises instance of Qlik to replicate on-premises data sources to Azure in real time.
 
@@ -108,15 +108,15 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - Qlik Data Integration can be configured in a high-availability cluster.
-- The Azure database services support zone redundancy and can be designed to fail over to a secondary node in case of an outage or during a maintenance window.
+- The Azure database services support zone redundancy and can be designed to fail over to a secondary node if there is an outage or during a maintenance window.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-- ExpressRoute provides a private and efficient connection to Azure from on-premises, but you could instead use [site-to-site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal).
-- Azure resources can be authenticated by using Microsoft Entra ID. Permissions can be managed by role-based access control.
-- Database services in Azure support various security options, such as:
+- Azure ExpressRoute provides a private and efficient connection to Azure from on-premises, but you could instead use [site-to-site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal).
+- Azure resources can be authenticated by using Microsoft Entra ID, and permissions are managed through role-based access control.
+- Azure Database services support various security options, such as:
   - Data Encryption at rest.
   - Dynamic data masking.
   - Always-encrypted database.
@@ -132,14 +132,13 @@ Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculato
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-- You can combine Monitor's Application Insights and Log Analytics features to monitor the health of Azure resources. You can set alerts so that you can manage proactively.
-- For guidance on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
+- You can combine Monitor's Application Insights and Log Analytics features to monitor the health of Azure resources. You can set alerts so that you can manage proactively.For guidance on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ### Performance Efficiency
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Databricks, Data Lake Storage, and other Azure databases have auto-scaling capabilities. For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
+Databricks, Data Lake Storage, and other Azure databases have autoscaling capabilities. For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
 
 ## Contributors
 
@@ -159,7 +158,7 @@ Principal author:
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 - [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
-- [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
+- [Azure Event Hubs—A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 - [Introduction to the core Azure Storage services](/azure/storage/common/storage-introduction)
 - [What is Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
