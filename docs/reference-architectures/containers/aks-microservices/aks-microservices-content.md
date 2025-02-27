@@ -44,7 +44,7 @@ The architecture consists of the following components.
 
 **Azure Container Registry**. Azure Container Registry can be used to store private container images, which are deployed to the cluster. AKS can authenticate with Container Registry using its Microsoft Entra identity. In the reference implementation, microservice container images are built and pushed to Azure Container Registry.  
 
-**Azure Pipelines**. Azure Pipelines are part of the Azure DevOps suite and run automated builds, tests, and deployments. Using a [continuous integration and continuous deployment (CI/CD)](C/azure/architecture/microservices/ci-cd) approach is highly encouraged in microservice environments. Microservices can be independently built and deployed by various teams to AKS using Azure DevOps pipelines. 
+**Azure Pipelines**. Azure Pipelines are part of the Azure DevOps suite and run automated builds, tests, and deployments. Using a [continuous integration and continuous deployment (CI/CD)](/azure/architecture/microservices/ci-cd) approach is highly encouraged in microservice environments. Microservices can be independently built and deployed by various teams to AKS using Azure DevOps pipelines. 
 
 **Helm**. Helm is a package manager for Kubernetes that provides a mechanism to bundle and generalize Kubernetes objects into a single unit that can be published, deployed, versioned, and updated. 
 
@@ -105,7 +105,7 @@ For more information, see [Storage options for application in Azure Kubernetes S
 API gateways are a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An *API gateway* sits between external clients and the microservices. API gateway acts as a reverse proxy, routing requests from clients to microservices. An API gateway may also perform various cross-cutting tasks such as authentication, SSL termination, and rate-limiting. For more information, see:
 
 - [Using API gateways in microservices](../../../microservices/design/gateway.yml)
-- [Choosing a gateway technology](../../../microservices/design/gateway.yml#choosing-a-gateway-technology)
+- [Choosea an API gateway technology](../../../microservices/design/gateway#choose-an-api-gateway-technology)
 
 In Kubernetes, the functionality of an API gateway is primarily handled by an **Ingress controller**. In that case, **Ingress** and **Ingress controller** work in conjunction to provide these features:
 
