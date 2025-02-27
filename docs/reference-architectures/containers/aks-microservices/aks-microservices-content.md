@@ -164,7 +164,7 @@ When thinking about probes, it's useful to recall how a service works in Kuberne
 
 Sometimes, a pod may not be ready to receive traffic, even though the pod started successfully. For example, there may be initialization tasks underway, such as when the application running in the container loads things into memory or reads configuration data. You can use a startup probe on these slow-starting containers, avoiding them getting killed by Kubernetes before they have a chance to get up and running.
 
-Liveness probes handle the case where a pod is still running, but is unhealthy and should be recycled. For example, suppose that a container is serving HTTP requests but hangs for some reason. The container doesn't crash, but it has stopped serving any requests. Liveness probe determines when to restart a container. If you define a liveness probe, the probe will stop responding. If a container fails its liveness probe repeatedly, the kubelet restarts the container.
+Liveness probes handle the case where a pod is still running, but is unhealthy and should be recycled. For example, suppose that a container is serving HTTP requests but hangs for some reason. The container doesn't crash, but it has stopped serving any requests. The liveness probe determines when to restart the pod with the container. If you define a liveness probe, the probe will stop responding when the container crashes. When a container fails its liveness probe repeatedly, Kubernetes restarts the pod.
 
 Here are some considerations when designing probes for microservices:
 
