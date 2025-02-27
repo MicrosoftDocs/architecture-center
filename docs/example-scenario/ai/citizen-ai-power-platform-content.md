@@ -29,10 +29,10 @@ Use [Azure Synapse Pipelines](/azure/data-factory/concepts-pipelines-activities)
     [Azure Synapse Pipelines](/azure/data-factory/concepts-pipelines-activities?tabs=data-factory) can be triggered based on a predefined schedule or in response to an event. They can also be invoked by calling REST APIs.
 
 #### Store
-Ingested data can land directly in raw format and then be transformed on the [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction). Data once curated and transformed to relational structures can be presented for consumption in [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics).
+Ingested data can land directly in raw format and then be transformed on the [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction). Data once curated and transformed to relational structures can be presented for consumption in [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is).
 
 #### Train and deploy a model
-[Machine Learning](https://azure.microsoft.com/services/machine-learning) provides an enterprise-grade ML service for building and deploying models faster. It provides users at all skill levels with a low-code designer, automated ML, and a hosted Jupyter notebook environment. Models can be deployed either as real-time endpoints on [Azure Kubernetes Service or as a Machine Learning managed endpoint](/azure/machine-learning/concept-endpoints). For batch inferencing of ML models, you can use [Machine Learning pipelines](/azure/machine-learning/concept-ml-pipelines).
+[Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) provides an enterprise-grade ML service for building and deploying models faster. It provides users at all skill levels with a low-code designer, automated ML, and a hosted Jupyter notebook environment. Models can be deployed either as real-time endpoints on [Azure Kubernetes Service or as a Machine Learning managed endpoint](/azure/machine-learning/concept-endpoints). For batch inferencing of ML models, you can use [Machine Learning pipelines](/azure/machine-learning/concept-ml-pipelines).
 
 #### Consume
 A batch or real-time model published in Machine Learning can generate a REST endpoint that can be consumed in a [custom application built by using the low-code Power Apps platform](/connectors/custom-connectors/use-custom-connector-powerapps). You can also call a [real-time Machine Learning endpoint from a Power BI report](/power-bi/connect-data/service-aml-integrate) to present predictions in business reports.
@@ -81,7 +81,7 @@ To create a design that respects these recommendations, consider the following s
 
 ### Alternatives
 
-A machine learning MVP benefits from speed to outcome. In some cases, the needs of a custom model can be met by pretrained [Azure AI Services](https://learn.microsoft.com/en-us/azure/ai-services/what-are-ai-services). In other cases, [Power Apps AI Builder](https://powerapps.microsoft.com/ai-builder) might provide a fit for a purpose model.
+A machine learning MVP benefits from speed to outcome. In some cases, the needs of a custom model can be met by pretrained [Azure AI Services](/azure/ai-services/what-are-ai-services). In other cases, [Power Apps AI Builder](/ai-builder/use-in-powerapps-overview) might provide a fit for a purpose model.
 
 ## Scenario details
 
@@ -99,7 +99,7 @@ Because of a well-known high failure rate to such initiatives, the ability to ra
   - Enables users to build custom applications and automation workflows
   - Creates workflows so that consumers and business processes can interact with an ML model
 
-[Machine Learning](https://azure.microsoft.com/services/machine-learning) fulfills the role of a low-code GUI for ML development. It has automated ML and deployment to batch or real-time endpoints. [Power Platform](https://powerplatform.microsoft.com), which includes [Power Apps](https://powerapps.microsoft.com) and [Power Automate](https://flow.microsoft.com), provides the toolkits to rapidly build a custom application and workflow that implements your ML algorithm. Business users can now build production-grade ML applications to transform legacy business processes.
+[Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) fulfills the role of a low-code GUI for ML development. It has automated ML and deployment to batch or real-time endpoints. [Power Platform](https://powerplatform.microsoft.com), which includes [Power Apps](/power-apps/powerapps-overview) and [Power Automate](/power-automate/flow-types), provides the toolkits to rapidly build a custom application and workflow that implements your ML algorithm. Business users can now build production-grade ML applications to transform legacy business processes.
 
 ### Potential use cases
 
@@ -126,7 +126,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 **Azure pricing:** First-party infrastructure as a service (IaaS) and platform as a service (PaaS) services on Azure use a consumption-based pricing model. They don't require a license or subscription fee. In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost optimization](/azure/architecture/framework/cost/index) in the Well-Architected Framework.
 
-**Power Platform pricing:** [Power Apps](https://powerapps.microsoft.com/pricing), [Power Automate](https://flow.microsoft.com/pricing) and [Power BI](https://powerbi.microsoft.com/pricing) are software as a service (SaaS) applications and have their own pricing models, including per app plan and per user.
+**Power Platform pricing:** [Power Apps](https://www.microsoft.com/power-platform/products/power-apps/#pricing), [Power Automate](https://www.microsoft.com/power-platform/products/power-automate/#Pricing) and [Power BI](https://www.microsoft.com/power-platform/products/power-bi/pricing#Pricing) are software as a service (SaaS) applications and have their own pricing models, including per app plan and per user.
 
 ### Operational Excellence
 
