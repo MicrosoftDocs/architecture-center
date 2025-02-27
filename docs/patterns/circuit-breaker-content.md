@@ -109,7 +109,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 This example shows the Circuit Breaker pattern implemented to prevent quota overrun using the [Azure Cosmos DB lifetime free tier](/azure/cosmos-db/free-tier). This tier is primarily used for non-critical data, the throughput is governed by a capacity plan that provisions a designated quota of resource units per second. During seasonal events, demand might exceed the provided capacity, resulting in `429` (Too Many Requests) responses.
 
-When these demand spikes occur, [Azure Monitor alerts with dynamic thresholds](/azure/azure-monitor/alerts/alerts-dynamic-thresholds) detects and proactively notifies the operations and management teams indicating that scaling-up the database capacity could be required. Simultaneously, a circuit breaker—tuned using historical error patterns—trips to prevent cascading failures. In this state, the application gracefully degrades by returning default or cached responses, thereby informing users of the temporary unavailability of certain data while preserving overall system stability.
+When demand spikes occur, [Azure Monitor alerts with dynamic thresholds](/azure/azure-monitor/alerts/alerts-dynamic-thresholds) detects and proactively notifies the operations and management teams indicating that scaling-up the database capacity could be required. Simultaneously, a circuit breaker—tuned using historical error patterns—trips to prevent cascading failures. In this state, the application gracefully degrades by returning default or cached responses, thereby informing users of the temporary unavailability of certain data while preserving overall system stability.
 
 This strategy enhances resilience aligned with business justification. Controlling capacity surges enables the workload team to managing cost increases deliberately, service quality is maintained without unexpectedly inflating operating expenses. Once demand subsides or increased capacity is confirmed, and the circuit breaker resets, the application resumes full functionality in alignment with both technical and budgetary objectives.
 
@@ -117,29 +117,29 @@ This strategy enhances resilience aligned with business justification. Controlli
    PUT A LONG DESCRIPTION IN HERE. THIS DESCRIPTION SHOULD BE AN ACTUAL DESCRIPTION OF THE IMAGE.  Think of it as a game, if someone read your text and tried to draw it without seeing the image, would they get close to reproducing it. This is for accessibility.
 :::image-end:::
 
-#### Flow A - Closed State
+#### Flow A - Closed state
 
-1. The system operates normally, and all requests reach the database without returning any `HTTP429` (Too Many Requests).
+1. The system operates normally, and all requests reach the database without returning any `429` (Too Many Requests) HTTP responses.
 1. The circuit breaker remains closed, and no default or cached responses are necessary.
 
-#### Flow B - Open State
+#### Flow B - Open state
 
-1. Upon receiving the first `HTTP429` response, the circuit breaker trips to an open state.
+1. Upon receiving the first `429` response, the circuit breaker trips to an open state.
 1. Subsequent requests are immediately short-circuited, returning default or cached responses while informing users of temporary degradation, and the application is protected from further overload.
 1. Logs and telemetry data are captured and sent to Azure Monitor to be evaluated against dynamic thresholds. An alert is triggered if the conditions of the alert rule are met.
 1. An action group proactively notifies the operations team of the overload condition.
 1. Upon workload team approval, the operations team could increase the provisioned throughput to alleviate overload, or they might delay scaling if the load subsides naturally.
 
-#### Flow C - Half-Open State
+#### Flow C - Half-open state
 
 1. After a predefined timeout, the circuit breaker enters a half-open state, permitting a limited number of trial requests.
-1. If these trial requests succeed without returning `HTTP429` responses, the breaker resets to a closed state, restoring normal operations back to Flow A. If failures persist, it reverts to the open state which is Flow B.
+1. If these trial requests succeed without returning `429` responses, the breaker resets to a closed state, restoring normal operations back to Flow A. If failures persist, it reverts to the open state which is Flow B.
 
 ### Design
 
 - [Azure App Services](/azure/app-service/overview) hosts the web application acting as the primary entry point for client requests. The application code implements the logic that enforces circuit breaker policies, and delivers default or cached responses when the circuit is open. This architecture prevents overload on downstream systems and ensures that the user experience is maintained during peak demand or failures.
 - [Azure Cosmos DB](/azure/cosmos-db/introduction) is one of the application's data stores. It serves non-critical data using the free tier. The free tier is best used for running small production workloads. The circuit breaker mechanism helps limit traffic to the database during periods of high demand.
-- [Azure Monitor](/azure/azure-monitor/overview) functions as the centralized monitoring solution, aggregating all activity logs to ensure comprehensive, end-to-end observability. Logs and telemetry data from Azure App Services and key metrics from Azure Cosmos DB (like the number of 429 responses) are sent to Azure Monitor for aggregation and analysis.
+- [Azure Monitor](/azure/azure-monitor/overview) functions as the centralized monitoring solution, aggregating all activity logs to ensure comprehensive, end-to-end observability. Logs and telemetry data from Azure App Services and key metrics from Azure Cosmos DB (like the number of `429` responses) are sent to Azure Monitor for aggregation and analysis.
 - [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview) weigh alert rules against [dynamic thresholds](/azure/azure-monitor/alerts/alerts-dynamic-thresholds) to identify potential outages based on historical data.  Pre-defined alerts notify the operations team when thresholds are breached. There might be times that the workload team approves the increase in provisioned throughput, but the operations team anticipates that the system will recover on its own as the load isn't too high. In these cases, the circuit breaker timeout elapses naturally. During this time, if the `429` responses cease, the threshold calculation detects the prolonged outages and excludes them from the learning algorithm. As a result, the next time an overload occurs, the threshold waits for a higher error rate in Azure Cosmos DB, and the notification is delayed. This change allows the circuit breaker to handle the issue without an immediate alert, and efficiencies in costs and operational burden are realized.
 
 ## Related resources
