@@ -12,10 +12,6 @@ items:
         items:
         - name: Customer order forecasting
           href: idea/next-order-forecasting.yml
-      - name: AI at the edge
-        items:
-        - name: Video ingestion and object detection on the edge
-          href: idea/video-ingestion-object-detection-edge-cloud.yml
       - name: Document enrichment
         items:
         - name: Use AI enrichment with Azure AI Search
@@ -24,8 +20,6 @@ items:
         items:
         - name: Use Azure Databricks to orchestrate MLOps
           href: idea/orchestrate-machine-learning-azure-databricks.yml
-        - name: Many models ML with Spark
-          href: idea/many-models-machine-learning-azure-spark.yml
         - name: Many models with Machine Learning
           href: idea/many-models-machine-learning-azure-machine-learning.yml
     - name: Design architectures
@@ -124,8 +118,6 @@ items:
           href: openai/architecture/call-center-openai-analytics.yml
         - name: Monitor OpenAI models
           href: openai/architecture/log-monitor-azure-openai.yml
-        - name: Analysis using text analytics for health and Azure OpenAI
-          href: ../example-scenario/healthcare/analyze-recordings-text-analytics-azure-openai.yml          
       - name: Apply guidance
         items:
         - name: Developing and evaluating RAG solutions
