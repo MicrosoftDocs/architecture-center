@@ -64,10 +64,10 @@ The pipeline that's used for data enrichment depends on the use case.
    - Retrieves the extracted data from Azure Cosmos DB.
    - Posts requests to these features of the AI Language API:
 
-     - [NER][What is Named Entity Recognition (NER) in Azure Cognitive Service for Language?]
-     - [Personal information][What is Personal Information detection in Azure Cognitive Service for Language?]
-     - [Key phrase extraction][What is key phrase extraction in Azure Cognitive Service for Language?]
-     - [Text Analytics for health][What is Text Analytics for health in Azure Cognitive Service for Language?]
+     - [NER][What is Named Entity Recognition (NER) in Azure AI Language?]
+     - [Personal information][What is Personal Information detection in Azure AI Language?]
+     - [Key phrase extraction][What is key phrase extraction in Azure AI Language?]
+     - [Text Analytics for health][What is Text Analytics for health in Azure AI Language?]
      - [Custom NER][What is Custom Named Entity Recognition (NER) (preview)?], which is in preview
      - [Sentiment analysis][Sentiment analysis]
      - [Opinion mining][Opinion mining]
@@ -115,7 +115,7 @@ The pipeline that's used for data enrichment depends on the use case.
 
 - [Azure Cosmos DB][Azure Cosmos DB] is a fully managed, highly responsive, scalable NoSQL database. Azure Cosmos DB offers enterprise-grade security and supports APIs for many databases, languages, and platforms. Examples include SQL, MongoDB, Gremlin, Table, and Apache Cassandra. Serverless, automatic scaling options in Azure Cosmos DB efficiently manage capacity demands of applications.
 
-- [AI Language][Azure Cognitive Service service page] offers many NLP services that you can use to understand and analyze text. Some of these services are customizable, such as custom NER, custom text classification, conversational language understanding, and question answering.
+- [AI Language][Azure AI services service page] offers many NLP services that you can use to understand and analyze text. Some of these services are customizable, such as custom NER, custom text classification, conversational language understanding, and question answering.
 
 - [Machine Learning][Azure Machine Learning service page] is an open platform for managing the development and deployment of machine-learning models at scale. Machine Learning caters to skill levels of different users, such as data scientists or business analysts. The platform supports commonly used open frameworks and offers automated featurization and algorithm selection. You can deploy models for [inferencing using endpoints](/azure/machine-learning/concept-endpoints) where you can use [online endpoints](/azure/machine-learning/concept-endpoints-online) for real-time inferencing and [batch endpoints](/azure/machine-learning/concept-endpoints-batch) to perform asynchronous or long-running inferencing. If you are building a custom model by finetuning a foundation model from [model catalog](/azure/machine-learning/concept-model-catalog), you can also deploy this model as [Serverless API endpoints](/azure/machine-learning/how-to-deploy-models-serverless).You can also deploy models to [AKS and Azure Arc-enabled Kubernetes Cluster](/azure/machine-learning/how-to-attach-kubernetes-anywhere) for inferencing. 
 
@@ -123,7 +123,7 @@ The pipeline that's used for data enrichment depends on the use case.
 
 - [Power BI][Power BI] is a collection of software services and apps that display analytics information.
 
-- [Azure AI Search][Azure Cognitive Search] is a cloud search service that supplies infrastructure, APIs, and tools for searching. You can use Azure AI Search to build search experiences over private, heterogeneous content in web, mobile, and enterprise applications.
+- [Azure AI Search][Azure AI Search] is a cloud search service that supplies infrastructure, APIs, and tools for searching. You can use Azure AI Search to build search experiences over private, heterogeneous content in web, mobile, and enterprise applications.
 
 ### Alternatives
 
@@ -185,7 +185,7 @@ The availability of the architecture depends on the Azure services that make up 
 
 - Azure AI Document Intelligence is part of Azure AI services. For this service's availability guarantee, see [Service-level agreement (SLA) for Azure AI services][SLA for Azure Applied AI Services].
 
-- AI Language is part of Azure AI services. For the availability guarantee for these services, see [SLA for Azure AI services][SLA for Azure Cognitive Services].
+- AI Language is part of Azure AI services. For the availability guarantee for these services, see [SLA for Azure AI services][SLA for Azure AI services].
 
 - Azure Cosmos DB provides high availability by maintaining four replicas of data within each region and by replicating data across regions. The exact availability guarantee depends on whether you replicate within a single region or across multiple regions. For more information, see [Achieve high availability with Azure Cosmos DB][Achieve high availability with Azure Cosmos DB].
 
@@ -218,7 +218,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Azure Functions supports virtual network integration. By using this functionality, function apps can access resources inside a virtual network. For more information, see [Azure Functions networking options](/azure/azure-functions/functions-networking-options).
 
-- You can configure Azure AI Document Intelligence and AI Language for access from specific virtual networks or from private endpoints. These services encrypt data at rest. You can use subscription keys, tokens, or Microsoft Entra ID to authenticate requests to these services. For more information, see [Authenticate requests to Azure AI services][Authenticate requests to Azure Cognitive Services].
+- You can configure Azure AI Document Intelligence and AI Language for access from specific virtual networks or from private endpoints. These services encrypt data at rest. You can use subscription keys, tokens, or Microsoft Entra ID to authenticate requests to these services. For more information, see [Authenticate requests to Azure AI services][Authenticate requests to Azure AI services].
 
 - Machine Learning offers many levels of security:
 
@@ -289,7 +289,7 @@ Principal author:
 
 - [What is AI Document Intelligence?][What is Azure Form Recognizer?]
 - [Use Azure AI Document Intelligence SDKs or REST API][Use Form Recognizer SDKs or REST API]
-- [What is AI Language?][What is Azure Cognitive Service for Language?]
+- [What is AI Language?][What is Azure AI Language?]
 - [What is Azure Machine Learning?][What is Azure Machine Learning?]
 - [Introduction to Azure Functions][Introduction to Azure Functions]
 - [How to configure Azure Functions with a virtual network][How to configure Azure Functions with a virtual network]
@@ -306,11 +306,11 @@ Principal author:
 [App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/windows
 [Application Gateway pricing]: https://azure.microsoft.com/pricing/details/application-gateway
 [Application Gateway service page]: /azure/well-architected/service-guides/azure-application-gateway
-[Authenticate requests to Azure Cognitive Services]: /azure/cognitive-services/authentication
+[Authenticate requests to Azure AI services]: /azure/cognitive-services/authentication
 [Azure Blob Storage]: /azure/well-architected/service-guides/azure-blob-storage
 [Azure Blob Storage pricing]: https://azure.microsoft.com/pricing/details/storage/blobs
-[Azure Cognitive Search]: /azure/search/search-what-is-azure-search
-[Azure Cognitive Service service page]: /azure/ai-services/language-service/overview
+[Azure AI Search]: /azure/search/search-what-is-azure-search
+[Azure AI services service page]: /azure/ai-services/language-service/overview
 [Azure Cosmos DB]: /azure/well-architected/service-guides/cosmos-db
 [Azure Cosmos DB pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
 [Azure Data Lake Storage]: /azure/storage/blobs/data-lake-storage-introduction
@@ -365,7 +365,7 @@ Principal author:
 [SLA for App Service]: https://azure.microsoft.com/support/legal/sla/app-service/v1_4
 [SLA for Application Gateway]: https://azure.microsoft.com/support/legal/sla/application-gateway/v1_2
 [SLA for Azure Applied AI Services]: https://azure.microsoft.com/support/legal/sla/azure-applied-ai-services/v1_0
-[SLA for Azure Cognitive Services]: https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1
+[SLA for Azure AI services]: https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1
 [SLA for Azure Functions]: https://azure.microsoft.com/support/legal/sla/functions/v1_2
 [SLA for Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1
 [Tutorial: Automate tasks to process emails by using Azure Logic Apps, Azure Functions, and Azure Storage]: /azure/logic-apps/tutorial-process-email-attachments-workflow
@@ -376,13 +376,13 @@ Principal author:
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/automate-document-processing-form-recognizer-architecture.vsdx
 [Welcome to Azure Cosmos DB]: /azure/cosmos-db/introduction
 [What is Azure Application Gateway?]: /azure/application-gateway/overview
-[What is Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/overview
+[What is Azure AI Language?]: /azure/cognitive-services/language-service/overview
 [What is Azure Form Recognizer?]: /azure/applied-ai-services/form-recognizer/overview
 [What is Azure Machine Learning?]: /azure/machine-learning/overview-what-is-azure-machine-learning
 [What is Azure Web Application Firewall on Azure Application Gateway?]: /azure/web-application-firewall/ag/ag-overview
 [What is Custom Named Entity Recognition (NER) (preview)?]: /azure/cognitive-services/language-service/custom-named-entity-recognition/overview
-[What is key phrase extraction in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/key-phrase-extraction/overview
+[What is key phrase extraction in Azure AI Language?]: /azure/cognitive-services/language-service/key-phrase-extraction/overview
 [What is Kubernetes?]: https://azure.microsoft.com/topic/what-is-kubernetes/#overview
-[What is Named Entity Recognition (NER) in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/named-entity-recognition/overview
-[What is Personal Information detection in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/personally-identifiable-information/overview
-[What is Text Analytics for health in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/text-analytics-for-health/overview?tabs=ner
+[What is Named Entity Recognition (NER) in Azure AI Language?]: /azure/cognitive-services/language-service/named-entity-recognition/overview
+[What is Personal Information detection in Azure AI Language?]: /azure/cognitive-services/language-service/personally-identifiable-information/overview
+[What is Text Analytics for health in Azure AI Language?]: /azure/cognitive-services/language-service/text-analytics-for-health/overview?tabs=ner

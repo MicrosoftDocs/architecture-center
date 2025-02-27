@@ -24,8 +24,8 @@ This article presents a solution for automating data analysis and visualization 
 - [Functions](https://azure.microsoft.com/products/functions)
 - [Event Hubs](https://azure.microsoft.com/products/event-hubs)
 - [Blob Storage](https://azure.microsoft.com/products/storage/blobs)
-- [Cognitive Services](https://azure.microsoft.com/products/cognitive-services)
-- [Cognitive Service for Language](https://azure.microsoft.com/products/cognitive-services/language-service/)
+- [Azure AI services](https://azure.microsoft.com/products/ai-services)
+- [Azure AI Language](https://azure.microsoft.com/products/ai-services/ai-language)
 - [Azure Database for MySQL](https://azure.microsoft.com/products/mysql)
 - [Machine Learning studio](https://azure.microsoft.com/products/machine-learning/#faq)
 - [Power BI](https://powerbi.microsoft.com)
@@ -63,9 +63,9 @@ This solution is ideal for organizations that run predictive analytics on data f
 
 ## Considerations
 
-- For most features, the Azure AI Language API has a maximum size of 5120 characters for a single document. For all features, the maximum request size is 1 MB. For more information about data and rate limits, see [Service limits for Azure Cognitive Service for Language](/azure/cognitive-services/language-service/concepts/data-limits#maximum-characters-per-document).
+- For most features, the Azure AI Language API has a maximum size of 5120 characters for a single document. For all features, the maximum request size is 1 MB. For more information about data and rate limits, see [Service limits for Language](/azure/ai-services/language-service/concepts/data-limits#maximum-characters-per-document).
 
-- Previous versions of this solution used the Azure AI services Text Analytics API. Azure AI Language now unifies three individual language services in Azure AI services: Text Analytics, QnA Maker, and Language Understanding (LUIS). You can easily migrate from the Text Analytics API to the Azure AI Language API. For instructions, see [Migrate to the latest version of Azure Cognitive Service for Language](/azure/cognitive-services/language-service/concepts/migrate-language-service-latest).
+- Previous versions of this solution used the Azure AI services Text Analytics API. Azure AI Language now unifies three individual language services in Azure AI services: Text Analytics, QnA Maker, and Language Understanding (LUIS). You can easily migrate from the Text Analytics API to the Azure AI Language API. For instructions, see [Migrate to the latest version of Language](/azure/ai-services/language-service/concepts/migrate-language-service-latest).
 
 ## Contributors
 
@@ -84,8 +84,8 @@ Principal author:
 - [Data Factory](/azure/data-factory/introduction)
 - [Event Hubs](/azure/event-hubs)
 - [Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
-- [Cognitive Services](/azure/cognitive-services/what-are-cognitive-services)
-- [Azure Cognitive Service for Language](/azure/cognitive-services/language-service/overview)
+- [AI services](/azure/ai-services/what-are-ai-services)
+- [Language](/azure/ai-services/language-service/overview)
 - [Azure Database for MySQL](/azure/mysql)
 - [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning)
 - [Power BI](/power-bi/fundamentals/power-bi-overview)

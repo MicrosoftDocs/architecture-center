@@ -371,7 +371,7 @@ items:
         maintainContext: true
       - name: Guidelines for human-AI interaction
         href: /ai/guidelines-human-ai-interaction/?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-      - name: Responsible AI with Cognitive Services
+      - name: Responsible AI with Azure AI services
         href: /azure/cognitive-services/responsible-use-of-ai-overview
         maintainContext: true
       - name: Machine learning

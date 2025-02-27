@@ -164,6 +164,6 @@ Other contributors:
 ## Related resources
 
 - [Custom document processing models on Azure](../../example-scenario/document-processing/build-deploy-custom-models.yml)
-- [Index file content and metadata by using Azure Cognitive Search](../../example-scenario/data/search-blob-metadata.yml)
+- [Index file content and metadata by using Azure AI Search](../../example-scenario/data/search-blob-metadata.yml)
 - [Automate document identification, classification, and search by using Durable Functions](../../example-scenario/ai/automate-document-classification-durable-functions.yml)
 - [Automate document processing by using Azure AI Document Intelligence](../../example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)

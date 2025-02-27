@@ -216,7 +216,7 @@ Principal authors:
   - [Microsoft Fabric](/fabric/)
   - [Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview)
   - [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
-  - [Cognitive Services](/azure/cognitive-services/what-are-cognitive-services)
+  - [Azure AI services](/azure/ai-services/what-are-ai-services)
 
 - Learn resources:
 
@@ -228,4 +228,4 @@ Principal authors:
 - [Choose a Microsoft Azure AI services technology](./ai-services.md)
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [AI enrichment with image and natural language processing in Azure Cognitive Search](../../solution-ideas/articles/cognitive-search-with-skillsets.yml)
+- [AI enrichment with image and natural language processing in Azure AI Search](../../solution-ideas/articles/ai-search-skillsets.yml)

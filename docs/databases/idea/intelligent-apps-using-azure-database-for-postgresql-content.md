@@ -25,7 +25,7 @@ This article presents a solution for automating data analysis and visualization 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a fully managed platform for quickly building, deploying, and scaling web apps and APIs.
 - [Functions](https://azure.microsoft.com/services/functions) is an event-driven serverless compute platform. For information about how to use an activity to run a function as part of a Data Factory pipeline, see [Azure Function activity in Azure Data Factory](/azure/data-factory/control-flow-azure-function-activity).
 - [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed big data streaming platform.
-- [Cognitive Services](https://azure.microsoft.com/services/cognitive-services) provides a suite of AI services and APIs that you can use to build cognitive intelligence into apps.
+- [Azure AI services](/azure/ai-services/what-are-ai-services) provides a suite of AI services and APIs that you can use to build cognitive intelligence into apps.
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is a fully managed relational database service. It provides [high availability](https://azure.microsoft.com/support/legal/sla/postgresql/v1_1), elastic scaling, patching, and other management capabilities for PostgreSQL.
 - [Azure Machine Learning](https://azure.microsoft.com/products/machine-learning/#faq) is a cloud service that you can use to train, deploy, and automate machine learning models. The studio supports code-first and no-code approaches.
 - [Power BI](https://powerbi.microsoft.com) is a collection of software services and apps that display analytics information and help you derive insights from data.
@@ -60,7 +60,7 @@ Azure Database for PostgreSQL is a cloud-based solution. As a result, this solut
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-- For most features, the Azure AI Language API has a maximum size of 5120 characters for a single document. For all features, the maximum request size is 1 MB. For more information about data and rate limits, see [Service limits for Azure Cognitive Service for Language](/azure/cognitive-services/language-service/concepts/data-limits#maximum-characters-per-document).
+- For most features, the Azure AI Language API has a maximum size of 5120 characters for a single document. For all features, the maximum request size is 1 MB. For more information about data and rate limits, see [Service limits for Azure AI Language](/azure/ai-services/language-service/concepts/data-limits#maximum-characters-per-document).
 
 - In Azure Database for PostgreSQL, your ingress volume and velocity determine your selection of service and deployment mode. Two services are available:
   - Azure Database for PostgreSQL
@@ -68,7 +68,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
   If you mine large workloads of customer opinions and reviews, use Azure Cosmos DB for PostgreSQL. Within Azure Database for PostgreSQL, two modes are available: single server and flexible server. To understand when to use each deployment mode, see [What is Azure Database for PostgreSQL?](/training/modules/intro-to-postgres/2-what-is-azure-database-postgresql).
 
-- Previous versions of this solution used the Azure AI services Text Analytics API. Azure AI Language now unifies three individual language services in Azure AI services: Text Analytics, QnA Maker, and Language Understanding (LUIS). You can easily migrate from the Text Analytics API to the Azure AI Language API. For instructions, see [Migrate to the latest version of Azure Cognitive Service for Language](/azure/cognitive-services/language-service/concepts/migrate-language-service-latest).
+- Previous versions of this solution used the Azure AI services Text Analytics API. Azure AI Language now unifies three individual language services in Azure AI services: Text Analytics, QnA Maker, and Language Understanding (LUIS). You can easily migrate from the Text Analytics API to the Azure AI Language API. For instructions, see [Migrate to the latest version of Language](/azure/ai-services/language-service/concepts/migrate-language-service-latest).
 
 ### Security
 
@@ -86,17 +86,17 @@ You can also automate your machine learning lifecycle by using [Azure Pipelines]
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Azure AI Language offers various pricing tiers. The number of text records that you process affects your cost. For more information, see [Cognitive Service for Language pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service).
+Azure AI Language offers various pricing tiers. The number of text records that you process affects your cost. For more information, see [Language pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service).
 
 ## Next steps
 
 - [Azure Functions overview](/azure/azure-functions/functions-overview)
 - [Azure Function activity in Azure Data Factory](/azure/data-factory/control-flow-azure-function-activity)
 - [Azure Event Hubs—A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
-- [What is Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
-- [What is Azure Cognitive Service for Language?](/azure/cognitive-services/language-service/overview)
-- [How to use Language service features asynchronously](/azure/cognitive-services/language-service/concepts/use-asynchronously)
-- [Azure Cognitive Services for Language API testing console](https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-05-01/operations/ConversationAnalysis_AnalyzeConversations)
+- [What are AI services?](/azure/ai-services/what-are-ai-services)
+- [What is Language?](/azure/ai-services/language-service/overview)
+- [How to use Language service features asynchronously](/azure/ai-services/language-service/concepts/use-asynchronously)
+- [Language API testing console](https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-05-01/operations/ConversationAnalysis_AnalyzeConversations)
 - [Use DirectQuery to link PostgreSQL to Power BI](/power-bi/connect-data/desktop-directquery-about)
 - [Create an Azure Cosmos DB for PostgreSQL cluster in the Azure portal](/azure/cosmos-db/postgresql/quickstart-create-portal?tabs=direct)
 - [Tutorial: Consume Azure Machine Learning models in Power BI](/power-bi/connect-data/service-aml-integrate)

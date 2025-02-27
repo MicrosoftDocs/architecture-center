@@ -98,17 +98,17 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 If you are using Azure Cache for Redis as a temporary data cache and not as a persistent store, these recommendations may not apply.
 
-## Cognitive Search
+## Azure AI Search
 
 **Provision more than one replica.** Use at least two replicas for read high-availability, or three for read-write high-availability.
 
-**Use zone redundancy.** You can deploy Cognitive Search replicas across multiple availability zones. This approach helps your service to remain operational even when datacenter outages occur. For more information, see [Reliability in Azure Cognitive Search](/azure/search/search-reliability#availability-zone-support)
+**Use zone redundancy.** You can deploy AI Search replicas across multiple availability zones. This approach helps your service to remain operational even when datacenter outages occur. For more information, see [Reliability in AI Search](/azure/search/search-reliability#availability-zone-support)
 
 **Configure indexers for multi-region deployments.** If you have a multi-region deployment, consider your options for continuity in indexing.
 
-- If the data source is geo-replicated, you should generally point each indexer of each regional Azure Cognitive Search service to its local data source replica. However, that approach is not recommended for large datasets stored in Azure SQL Database. The reason is that Azure Cognitive Search cannot perform incremental indexing from secondary SQL Database replicas, only from primary replicas. Instead, point all indexers to the primary replica. After a failover, point the Azure Cognitive Search indexers at the new primary replica.
+- If the data source is geo-replicated, you should generally point each indexer of each regional AI Search service to its local data source replica. However, that approach is not recommended for large datasets stored in Azure SQL Database. The reason is that AI Search cannot perform incremental indexing from secondary SQL Database replicas, only from primary replicas. Instead, point all indexers to the primary replica. After a failover, point the AI Search indexers at the new primary replica.
 
-- If the data source is not geo-replicated, point multiple indexers at the same data source, so that Azure Cognitive Search services in multiple regions continuously and independently index from the data source. For more information, see [Azure Search performance and optimization considerations][search-optimization].
+- If the data source is not geo-replicated, point multiple indexers at the same data source, so that AI Search services in multiple regions continuously and independently index from the data source. For more information, see [AI Search performance and optimization considerations][search-optimization].
 
 ## Service Bus
 

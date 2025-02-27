@@ -23,7 +23,7 @@ This scenario covers an e-commerce solution where customers can search through a
 - [Azure SQL Database][docs-sql-database-service-page] is a general-purpose relational database-managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML.
 - [AI Search][docs-search-service-page] is a cloud solution that provides a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications.
 - [Azure AI Bot Service][docs-botservice-service-page] provides tools to build, test, deploy, and manage intelligent bots.
-- [Azure AI services][docs-cognitive-service-page] lets you use intelligent algorithms to see, hear, speak, understand, and interpret your user needs through natural methods of communication.
+- [Azure AI services][docs-ai-services-service-page] lets you use intelligent algorithms to see, hear, speak, understand, and interpret your user needs through natural methods of communication.
 
 ### Alternatives
 
@@ -126,7 +126,7 @@ To find out more about other Azure components, see these resources:
 - [What is Azure SQL Database?][docs-sql-database]
 - [App Service overview][docs-webapps]
 - [Azure AI Bot Service documentation][docs-botservice]
-- [What is Azure AI services?][docs-cognitive]
+- [What is Azure AI services?][docs-ai-services]
 
 ## Related resources
 
@@ -142,8 +142,8 @@ To find out more about other Azure components, see these resources:
 [docs-webapps]: /azure/app-service/app-service-web-overview
 [docs-botservice]: /azure/bot-service/
 [docs-botservice-service-page]: https://azure.microsoft.com/products/bot-services
-[docs-cognitive]: /azure/cognitive-services/what-are-cognitive-services
-[docs-cognitive-service-page]: https://azure.microsoft.com/products/cognitive-services
+[docs-ai-services]: /azure/ai-services/what-are-ai-services
+[docs-ai-services-service-page]: https://azure.microsoft.com/products/ai-services
 [apache-lucene]: https://lucene.apache.org/
 [elastic-marketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp
 [end-to-end-walkthrough]: https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs
