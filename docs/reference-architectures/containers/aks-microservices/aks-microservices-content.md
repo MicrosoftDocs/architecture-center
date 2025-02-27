@@ -4,7 +4,8 @@ This reference architecture shows a microservices application deployed to Azure 
 
 ## Architecture
 
-:::image type="complex" border="false" source="./images/aks.png" alt-text="Diagram that shows the microservices on AKS reference architecture." lightbox="./images/aks.png":::This diagram shows an application comprised of multiple microservices deployed to Azure Kubernetes services (AKS). 
+:::image type="complex" border="false" source="./images/aks.png" alt-text="Diagram that shows the microservices on AKS reference architecture." lightbox="./images/aks.png":::
+   This diagram shows an application comprised of multiple microservices deployed to Azure Kubernetes services (AKS).
 :::image-end:::
 
 *Download a [Visio file][visio-download] of this architecture.*
@@ -104,8 +105,8 @@ For more information, see [Storage options for application in Azure Kubernetes S
 
 API gateways are a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An *API gateway* sits between external clients and the microservices. API gateway acts as a reverse proxy, routing requests from clients to microservices. An API gateway may also perform various cross-cutting tasks such as authentication, SSL termination, and rate-limiting. For more information, see:
 
-- [Using API gateways in microservices](../../../microservices/design/gateway.yml)
-- [Choosea an API gateway technology](../../../microservices/design/gateway#choose-an-api-gateway-technology)
+- [Using API gateways in microservices](/azure/architecture/microservices/design/gateway)
+- [Choosea an API gateway technology](/azure/architecture/microservices/design/gateway#choose-an-api-gateway-technology)
 
 In Kubernetes, the functionality of an API gateway is primarily handled by an **Ingress controller**. In that case, **Ingress** and **Ingress controller** work in conjunction to provide these features:
 
