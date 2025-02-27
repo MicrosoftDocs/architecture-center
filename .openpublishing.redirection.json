@@ -5055,6 +5055,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/networking/guide/private-link-ip-constraints.yml",
+      "redirect_url": "/azure/architecture/networking/guide/spoke-to-spoke-networking",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/networking/private-link-hub-spoke-network.yml",
       "redirect_url": "/azure/architecture/networking/guide/private-link-hub-spoke-network",
       "redirect_document_id": true
@@ -7092,6 +7097,21 @@
     {
       "source_path": "docs/solution-ideas/articles/hdinsight-kafka-spark-delta-lake.yml",
       "redirect_url": "/azure/architecture/reference-architectures/data/stream-processing-databricks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/idea/video-ingestion-object-detection-edge-cloud.yml",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/idea/many-models-machine-learning-azure-spark.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/many-models-machine-learning-azure-machine-learning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/healthcare/analyze-recordings-text-analytics-azure-openai.yml ",
+      "redirect_url": "/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics",
       "redirect_document_id": false
     }
   ]
