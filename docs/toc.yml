@@ -1140,7 +1140,7 @@ items:
         href: example-scenario/apps/devops-dotnet-baseline.yml
     - name: "Solution idea: DevSecOps for infrastructure as code"
       href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
-  - name: Hybrid + Multicloud
+  - name: Hybrid + Adaptive Cloud
     items:
     - name: Get started
       href: hybrid/hybrid-start-here.md
