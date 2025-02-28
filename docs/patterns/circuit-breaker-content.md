@@ -117,12 +117,12 @@ This strategy enhances resilience aligned with business justification. Controlli
    The diagram is organized into three primary sections. The first section contains two identical web browser icons, where the first icon displays a fully functional user interface, while the second icon shows a degraded user experience with an on-screen warning to indicate the issue to users. The second section is enclosed within a dashed-line rectangle, which is divided into two groups. The top group includes the workload resources, consisting of Azure Application Services and Azure Cosmos DB. Arrows from both web browser icons point to the Azure Application Services instance, representing incoming requests from the client. Additionally, arrows from the Azure Application Services instance point to the Azure Cosmos DB, indicating the data interactions between the application services and the database. An additional arrow loops from the Azure Application Services instance back to itself, symbolizing the circuit breaker timeout mechanism. This loop signifies that when a 429 Too Many Requests response is detected, the system falls back to serving cached responses, degrading the user experience until the situation resolves. The bottom group of this section focuses on observability and alerting, featuring Azure Monitor collecting data from the Azure resources at the top group, and connected to an alert rule icon. The third section illustrates the scalability workflow triggered upon the alert being raised. An arrow connects the alert icon to the approvers, indicating that the notification is sent to them for review. Another arrow leads from the approvers to a development console, signifying the approval process for scaling the database. Finally, a subsequent arrow extends from the development console to the Azure Cosmos DB, depicting the action of scaling the database in response to the overload condition.
 :::image-end:::
 
-#### Flow A - Closed state
+### Flow A - Closed state
 
 1. The system operates normally, and all requests reach the database without returning any `429` (Too Many Requests) HTTP responses.
 1. The circuit breaker remains closed, and no default or cached responses are necessary.
 
-#### Flow B - Open state
+### Flow B - Open state
 
 1. Upon receiving the first `429` response, the circuit breaker trips to an open state.
 1. Subsequent requests are immediately short-circuited, returning default or cached responses while informing users of temporary degradation, and the application is protected from further overload.
@@ -130,7 +130,7 @@ This strategy enhances resilience aligned with business justification. Controlli
 1. An action group proactively notifies the operations team of the overload condition.
 1. Upon workload team approval, the operations team could increase the provisioned throughput to alleviate overload, or they might delay scaling if the load subsides naturally.
 
-#### Flow C - Half-open state
+### Flow C - Half-open state
 
 1. After a predefined timeout, the circuit breaker enters a half-open state, permitting a limited number of trial requests.
 1. If these trial requests succeed without returning `429` responses, the breaker resets to a closed state, restoring normal operations back to Flow A. If failures persist, it reverts to the open state which is Flow B.
