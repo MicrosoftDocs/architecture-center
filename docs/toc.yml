@@ -1198,7 +1198,7 @@ items:
           href: example-scenario/hybrid/secure-hybrid-messaging-mobile.yml
         - name: 'Enhanced-security hybrid: web access'
           href: example-scenario/hybrid/secure-hybrid-messaging-web.yml
-      - name: Hybrid storage solutions
+      - name: Hybrid storage
         items:
         - name: Azure enterprise cloud file share
           href: hybrid/azure-files-private.yml
