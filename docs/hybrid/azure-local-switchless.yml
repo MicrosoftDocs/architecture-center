@@ -21,7 +21,6 @@ products:
   - azure-local
   - azure-arc
   - azure-key-vault
-  - azure-blob-storage
   - azure-monitor
   - defender-for-cloud
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-local-switchless-thumbnail.png
