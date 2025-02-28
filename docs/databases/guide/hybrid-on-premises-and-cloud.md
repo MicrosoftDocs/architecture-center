@@ -8,6 +8,8 @@ ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
+ms.custom:
+  - arb-hybrid
 azureCategories:
   - analytics
   - compute
@@ -15,7 +17,10 @@ azureCategories:
   - storage
   - web
 products:
-  - azure-stack
+  - azure
+  - azure-expressroute
+  - azure-storage-accounts
+  - azure-stack-hub
 ms.custom:
   - guide
   - e2e-hybrid
@@ -67,17 +72,17 @@ Another option is to move a portion of the data to cloud storage, while keeping 
 
 A third option is to keep all data on-premises, but use cloud computing to host applications. With this option, you host your application in the cloud and connect it to your on-premises data store over a secure connection.
 
-## Azure Stack
+## Azure Stack Hub
 
-For a complete hybrid cloud solution, consider using [Azure Stack](/azure/azure-stack). Azure Stack is a hybrid cloud platform that lets you provide Azure services from your datacenter. This solution helps maintain consistency between on-premises and Azure systems, by using identical tools and requiring no code changes.
+For a complete hybrid cloud solution, consider using [Azure Stack Hub](/azure/azure-stack). Azure Stack Hub is a hybrid cloud platform that lets you provide Azure services from your datacenter. This solution helps maintain consistency between on-premises and Azure systems, by using identical tools and requiring no code changes.
 
-Azure and Azure Stack are appropriate in the following use cases:
+Azure and Azure Stack Hub are appropriate in the following use cases:
 
-- **Edge and disconnected solutions**. Address latency and connectivity requirements by processing data locally in Azure Stack and then aggregating in Azure for further analytics, with common application logic across both.
+- **Edge and disconnected solutions**. Address latency and connectivity requirements by processing data locally in Azure Stack Hub and then aggregating in Azure for further analytics, with common application logic across both.
 
-- **Cloud applications that meet varied regulations**. Develop and deploy applications in Azure, with the flexibility to deploy the same applications on-premises on Azure Stack to meet regulatory or policy requirements.
+- **Cloud applications that meet varied regulations**. Develop and deploy applications in Azure, with the flexibility to deploy the same applications on-premises on Azure Stack Hub to meet regulatory or policy requirements.
 
-- **Cloud application model on-premises**. Use Azure to update and extend existing applications or build new ones. Use consistent DevOps processes across Azure in the cloud and Azure Stack on-premises.
+- **Cloud application model on-premises**. Use Azure to update and extend existing applications or build new ones. Use consistent DevOps processes across Azure in the cloud and Azure Stack Hub on-premises.
 
 ## SQL Server data stores
 
