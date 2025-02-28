@@ -1,4 +1,4 @@
-This article is part of a series that builds on the [Azure Local baseline reference architecture](azure-local-baseline.yml). To effectively deploy Azure Local by using a **storage switchless** design, it's important to understand the baseline architecture. This process includes familiarizing yourself with the cluster design choices for the physical nodes that deliver local compute, storage, and networking capabilities. This knowledge helps you identify the necessary changes for a successful deployment. The guidance in this article applies to **two-node, three-node or four-node storage switchless** deployments, with a requirement that you make necessary adjustments based on the number of physical nodes in the instance, which can range between two and [four nodes](/azure/azure-local/plan/four-node-switchless-two-switches-two-links).
+This article is part of a series that builds on the [Azure Local baseline reference architecture](azure-local-baseline.yml). To effectively deploy Azure Local using a **storage switchless** design, it's important to understand the baseline architecture. This process includes familiarizing yourself with the cluster design choices for the physical nodes that deliver local compute, storage, and networking capabilities. This knowledge helps you identify the necessary changes for a successful deployment. The guidance in this article applies to **two-node, three-node or four-node storage switchless** deployments, with a requirement that you make necessary adjustments based on the number of physical nodes in the instance, which can range between two and [four nodes](/azure/azure-local/plan/four-node-switchless-two-switches-two-links).
 
 The storage switchless network design removes the requirement for storage class network switches to connect the network adapter ports that are used for storage traffic. Instead, nodes are directly connected by using interlink ethernet cables. This configuration is commonly used in retail, manufacturing, or remote office scenarios. This configuration is also suitable for smaller edge use cases that don't have or require extensive datacenter network switches for storage replication traffic.
 
@@ -13,7 +13,7 @@ This architecture is a starting point for a [Azure Local instance that uses a st
 |&#9642; [Architecture diagram](#architecture) <br>&#9642; [Potential use cases](#potential-use-cases) <br>&#9642; [Deploy this scenario](#deploy-this-scenario) <br>|&#9642; [Instance design choices](#instance-design-choices)<br>&#9642; [Networking](#network-design) <br>|&#9642; [Cost optimization](#cost-optimization)<br>&#9642; [Performance efficiency](#performance-efficiency)<br>|
 
 > [!TIP]
-> ![GitHub logo](../_images/github.svg) This [reference implementation](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs) describes how to deploy a **three-node storage switchless Azure Local instance** by using an ARM template and parameter file.
+> ![GitHub logo](../_images/github.svg) This [reference implementation](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs) describes how to deploy a **three-node storage switchless Azure Local instance** using an ARM template and parameter file.
 
 ## Architecture
 
@@ -101,9 +101,9 @@ The logical network topology provides an overview for how the network data flows
 
   - Before cluster deployment, the two ToR network switches need to be configured with the required VLAN IDs and maximum transmission unit (MTU) settings for the management and compute ports. For more information, see the [physical network requirements](/azure-stack/hci/concepts/physical-network-requirements) or ask your switch hardware vendor or systems integrator (SI) partner for assistance.
   
-- Azure Local applies network automation and _intent-based network configuration_ by using the [Network ATC service](/azure-stack/hci/deploy/network-atc).
+- Azure Local applies network automation and _intent-based network configuration_ using the [Network ATC service](/azure-stack/hci/deploy/network-atc).
 
-  - Network ATC is designed to ensure optimal networking configuration and traffic flow by using network traffic _intents_. Network ATC defines which physical network adapter ports are used for the different network traffic intents (or types), such as for the cluster _management_, workload _compute_, and cluster _storage_ intents.
+  - Network ATC is designed to ensure optimal networking configuration and traffic flow using network traffic _intents_. Network ATC defines which physical network adapter ports are used for the different network traffic intents (or types), such as for the cluster _management_, workload _compute_, and cluster _storage_ intents.
   
   - Intent-based policies simplify the network configuration requirements by automating the node network configuration based on parameter inputs that are specified as part of the Azure Local cloud deployment process.
 
@@ -115,11 +115,11 @@ The logical network topology provides an overview for how the network data flows
   
   - Management network intent uses the Converged Switch Embedded Teaming (SET) virtual interface, which enables the cluster management IP address and control plane resources to communicate externally.
   
-  - For the compute network intent, you can create one or more logical networks in Azure with the specific VLAN IDs for your environment. The workload resources, such as virtual machines (VMs), use these IDs to give access to the physical network. The logical networks use the two physical network adapter ports that are converged by using SET for the compute and management intents.
+  - For the compute network intent, you can create one or more logical networks in Azure with the specific VLAN IDs for your environment. The workload resources, such as virtual machines (VMs), use these IDs to give access to the physical network. The logical networks use the two physical network adapter ports that are converged using SET for the compute and management intents.
   
 - Storage traffic:
 
-  - The nodes communicate with each other directly for storage traffic by using the four direct interconnect ethernet ports per node, which use six separate nonroutable (or Layer 2) networks for the storage traffic.
+  - The nodes communicate with each other directly for storage traffic using the four direct interconnect ethernet ports per node, which use six separate nonroutable (or Layer 2) networks for the storage traffic.
   
   - There's _no default gateway_ configured on the four storage intent network adapter ports within the Azure Stack HCI OS.
 
@@ -164,10 +164,10 @@ Performance efficiency considerations include:
 
 For more information about how to design, procure, and deploy an Azure Local solution, see the **Deploy this scenario** section of the [Azure Local baseline reference architecture](/azure/architecture/hybrid/azure-local-baseline#deploy-this-scenario).
 
-Use the following deployment automation template as an example of how to deploy Azure Local by using the three-node storage switchless architecture.
+Use the following deployment automation template as an example of how to deploy Azure Local using the three-node storage switchless architecture.
 
 > [!TIP]
-> ![GitHub logo](../_images/github.svg) **Deployment automation**: This [reference template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs) describes how to deploy a **three-node storage switchless Azure Local solution** by using an ARM template and parameter file.
+> ![GitHub logo](../_images/github.svg) **Deployment automation**: This [reference template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs) describes how to deploy a **three-node storage switchless Azure Local solution** using an ARM template and parameter file.
 
 ## Related resources
 
@@ -175,7 +175,7 @@ Use the following deployment automation template as an example of how to deploy 
 - [Azure hybrid options](../guide/technology-choices/hybrid-considerations.yml)
 - [Azure Automation in a hybrid environment](azure-automation-hybrid.yml)
 - [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
-- [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](azure-arc-sql-server.yml)
+- [Optimize administration of SQL Server instances in on-premises and multicloud environments using Azure Arc](azure-arc-sql-server.yml)
 
 ## Next steps
 
