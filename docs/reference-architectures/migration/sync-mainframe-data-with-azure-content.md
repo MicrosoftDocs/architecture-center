@@ -91,6 +91,7 @@ This section describes other tools that you can use during data modernization, s
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, [multimodel](/azure/cosmos-db/nosql/modeling-data) database. Use Azure Cosmos DB to ensure that your solutions can elastically and independently scale throughput and storage across any number of geographic regions. This fully managed [NoSQL](/resources/cloud-computing-dictionary/what-is-nosql-database/?msockid=204e81b2ba436861280495c3bbcd69af) database service guarantees single-digit, millisecond latencies at the ninety-ninth percentile anywhere in the world.
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple, heterogeneous sources and can be structured, semi-structured, or unstructured. [Data Lake Storage Gen2](/azure/databricks/connect/storage/azure-storage) combines Data Lake Storage Gen1 capabilities with Blob Storage. This next-generation data lake solution provides file system semantics, file-level security, and scale. It also offers the tiered storage, high availability, and disaster recovery capabilities of Blob Storage.
+
 - Microsoft Fabric is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It supports these capabilities with integrated services like Data Engineering, Data Factory, Data Science, Real-Time Analytics, Data Warehouse, and Databases.
 
 - [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed relational database service based on the [community edition of the open-source MySQL database engine](https://www.mysql.com/products/community/).
@@ -153,7 +154,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 - Pricing models vary between component services. Review the pricing models of the available component services to ensure that they fit your budget.
 
-- Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to estimate the cost of implementing this solution.
+- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the cost of implementing this solution.
 
 ### Operational Excellence
 

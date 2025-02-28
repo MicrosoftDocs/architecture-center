@@ -13,13 +13,13 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
 
 ### Workflow
 
-1. **Host agent:** The Host agent on the on-premises system captures changes log information from Db2, IMS(Information Management System), and VSAM(Virtual Storage Access Method) data stores, and passes it to the Qlik Replication server.
+1. **Host agent:** The Host agent on the on-premises system captures changes log information from Db2, IMS (Information Management System), and VSAM (virtual storage access method) data stores, and passes it to the Qlik Replication server.
 1. **Replication server:** The Qlik Replication server software passes the change log information to Kafka and Azure Event Hubs. Qlik in this example is on-premises, but it could instead be deployed on a virtual machine in Azure.
 1. **Stream ingestion:** Kafka and Event Hubs provide message brokers  to receive and store change log information.
 1. **Kafka Connect:** The Kafka Connect API is used to get data from Kafka for updating Azure data stores such as Azure Data Lake Storage, Azure Databricks,  and Azure Synapse Analytics.
 1. **Data Lake Storage:** Data Lake Storage is a staging area for the change log data.
 1. **Databricks:** Databricks processes the change log data and updates the corresponding files on Azure.
-1. **Azure data services:** Azure provides various efficient data storage services. including:
+1. **Azure data services:** Azure provides various efficient data storage services including:
    - Relational databases services:
      - SQL Server on Azure Virtual Machines
      - Azure SQL Database

@@ -12,7 +12,7 @@ This article describes an end-to-end modernization plan for mainframe and midran
 
 The following dataflow outlines a process for modernizing a mainframe data tier. It corresponds to the preceding diagram.
 
-1. Mainframe and midrange systems store data in data sources, like file systems (VSAM(Virtual Storage Access Method), flat file, LTFS), relational databases (Db2 for z/OS, Db2 for IBM i, Db2 for Linux UNIX and Windows), or nonrelational databases IMS(Information Management System), ADABAS, IDMS(Integrated Database Management System).
+1. Mainframe and midrange systems store data in data sources, like file systems (virtual storage access method (VSAM), flat file, LTFS), relational databases (Db2 for z/OS, Db2 for IBM i, Db2 for Linux UNIX and Windows), or nonrelational databases IMS (Information Management System), ADABAS, IDMS (Integrated Database Management System).
 
 1. The object conversion process extracts object definitions from source objects. The definitions are then converted into corresponding objects in the target data store.
 
@@ -34,7 +34,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
    
    b. Data conversion is accomplished by developing custom programs using the Host File component of the Host integration servers, or by utilizing the built-in connector for IBM host files in Azure Logic Apps.
 
-   The Spark Notebook converter is developed using open-source Spark frameworks and are compatible with Spark environments such as Microsoft Fabric, Azure Synapse Analytics, and Databricks.  
+   The Spark Notebook converter is developed using open-source Spark frameworks and are compatible with Spark environments such as Microsoft Fabric, Azure Synapse Analytics, and Databricks.
 
    c. Relational database data is migrated.
 
@@ -46,7 +46,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
       These services migrate the database data:
      - Data Factory uses a Db2 connector to extract and integrate data from the databases.
      - SQL Server Integration Services handles various data [ETL](https://www.ibm.com/cloud/learn/etl) tasks.
-     - Microsoft Fabric Data Factory utilizes the IBM Db2 connector for migrating Db2 data. 
+     - Microsoft Fabric Data Factory utilizes the IBM Db2 connector for migrating Db2 data.
 
    d. Nonrelational database data is migrated.
 
