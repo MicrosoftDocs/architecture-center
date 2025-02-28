@@ -1164,7 +1164,7 @@ items:
           items:
           - name: Azure Local baseline
             href: hybrid/azure-local-baseline.yml
-          - name: Azure Local storage switchless configuration
+          - name: Azure Local storage switchless
             href: hybrid/azure-local-switchless.yml
           - name: Azure Local stretched clusters for DR
             href: hybrid/azure-local-dr.yml
