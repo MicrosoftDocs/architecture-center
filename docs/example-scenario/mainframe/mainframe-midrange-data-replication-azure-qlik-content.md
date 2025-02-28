@@ -48,7 +48,7 @@ When designing application architecture, it's crucial to prioritize networking a
 
 #### Application
 
-Azure offers a comprehensive suite of managed services intended to support the secure, scalable, and efficient deployment of applications. The application tier services cited in the architecture can contribute to achieving optimal application architecture.
+Azure offers managed services intended to support the secure, scalable, and efficient deployment of applications. The application tier services cited in the architecture can contribute to achieving optimal application architecture.
 
 - [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service that can store Db2, IMS, and VSAM change data messages. It can receive and process millions of messages per second. Data sent to an event hub can be transformed and stored by using a real-time analytics provider or a custom adapter.
 - [Apache Kafka](https://kafka.apache.org) is an open-source distributed event streaming platform that's used for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications. It can be easily integrated with Qlik data integration to store Db2 change data.
@@ -76,7 +76,7 @@ The monitoring tools provide comprehensive data analysis and valuable insights i
 
 - [Azure Monitor](/azure/azure-monitor/overview) delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It includes:
   - Application Insights, for analyzing and presenting telemetry.
-  - Monitor Logs, which collects and organizes log and performance data from monitored resources. Data from sources like Azure platform logs, VM agents, and application performance can be combined into one workspace for analysis. The query language used allows for quick analysis of millions of records.
+  - Monitor Logs, which collects and organizes log and performance data from monitored resources. Data from sources like Azure platform logs, VM agents, and application performance can be combined into one workspace for analysis. The query language used allows for analysis of your records.
   - Log Analytics, which can query Monitor logs. A powerful query language lets you join data from multiple tables, aggregate large sets of data, and perform complex operations with minimal code.
 
 ### Alternatives
@@ -132,7 +132,7 @@ Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculato
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-- You can combine Monitor's Application Insights and Log Analytics features to monitor the health of Azure resources. You can set alerts so that you can manage proactively.For guidance on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
+- You can combine Monitor's Application Insights and Log Analytics features to monitor the health of Azure resources. You can set alerts so that you can manage proactively.
 
 ### Performance Efficiency
 

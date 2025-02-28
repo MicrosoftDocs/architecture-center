@@ -59,7 +59,7 @@ When designing application architecture, it is crucial to prioritize networking 
 
 #### Application
 
-Azure offers a comprehensive suite of managed services intended to support the secure, scalable, and efficient deployment of applications. The application tier services cited in the above architecture can contribute to achieving optimal application architecture.
+Azure offers a managed to support the secure, scalable, and efficient deployment of applications. The application tier services cited in the above architecture can contribute to achieving optimal application architecture.
 
 - [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) supports the publishing, routing, securing, logging, and analytics of APIs. You can control how the data is presented and extended, and which apps can access it. You can restrict access to your apps, or allow third parties.
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed service for building, deploying, and scaling web apps. You can build apps using .NET, .NET Core, Node.js, Java, Python, or PHP. The apps can run in containers or on Windows or Linux. In a mainframe migration, the front-end screens or web interface can be coded as HTTP-based REST APIs. They can be segregated as per the mainframe application, and can be stateless to orchestrate a microservices-based system.
