@@ -54,15 +54,8 @@ This section describes other tools that you can use during data modernization, s
 
 - [Microsoft Service for Distributed Relational Database Architecture (DRDA)](/host-integration-server/what-is-his#Data) is a component of [Host Integration Server (HIS)](/host-integration-server/what-is-his). Microsoft Service for DRDA is an application server that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM Db2 for z/OS and Db2 for i5/OS. These clients use the application server to convert Db2 SQL statements and run them on SQL Server.
 
-- [SQL Server Migration Assistant (SSMA) for Db2](/sql/ssma/sql-server-migration-assistant) automates migration from Db2 to Microsoft database services. While it runs on a virtual machine (VM), this tool converts Db2 database objects into SQL Server database objects and creates those objects in SQL Server. SSMA for Db2 then migrates data from Db2 to the following services:
-
-  - SQL Server 2012
-  - SQL Server 2014
-  - SQL Server 2016
-  - SQL Server 2017 on Windows and Linux
-  - SQL Server 2019 on Windows and Linux
-  - Azure SQL Database
-
+- [SQL Server Migration Assistant (SSMA) for Db2](/sql/ssma/sql-server-migration-assistant) automates migration from Db2 to Microsoft database services. While it runs on a virtual machine (VM), this tool converts Db2 database objects into SQL Server database objects and creates those objects in SQL.
+  
 #### Data integrators
 
 - [Data Factory](/azure/data-factory/introduction) is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate extract, transform, and load (ETL) workflows and extract, load, and transform ETL workflows.
@@ -182,8 +175,6 @@ Performance Efficiency is the ability of your workload to meet the demands place
 - [Azure data architecture guide](/azure/architecture/databases/)
 - [Azure data platform end-to-end](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
 
-[Azure Blob Storage]: /azure/well-architected/service-guides/azure-blob-storage
-[Azure Cosmos DB]: /azure/well-architected/service-guides/cosmos-db
 [Azure Data Factory]: /azure/data-factory/introduction
 [Azure Data Lake Storage]: /azure/storage/blobs/data-lake-storage-introduction
 [Azure Data Lake Storage Gen2]: /azure/databricks/data/data-sources/azure/azure-datalake-gen2
