@@ -1140,7 +1140,7 @@ items:
         href: example-scenario/apps/devops-dotnet-baseline.yml
     - name: "Solution idea: DevSecOps for infrastructure as code"
       href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
-  - name: Hybrid + Adaptive Cloud
+  - name: Hybrid + Adaptive cloud
     items:
     - name: Get started
       href: hybrid/hybrid-start-here.md
@@ -1150,7 +1150,7 @@ items:
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.yml
     - name: Architectures
       items:
-      - name: Adaptive Cloud
+      - name: Adaptive cloud
         items:
         - name: Azure Arc solutions
           items:
