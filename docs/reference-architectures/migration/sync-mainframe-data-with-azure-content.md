@@ -123,7 +123,7 @@ Keep these points in mind when you consider this architecture.
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- Infrastructure management, including [availability](/azure/azure-sql/database/high-availability-disaster-recovery-checklist?view=azuresql), is automated in Azure databases.
+- Infrastructure management, including [availability](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql), is automated in Azure databases.
 
 - See [Pooling and failover](/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#pooling-and-failover) for information about Microsoft Service for DRDA failover protection.
 
