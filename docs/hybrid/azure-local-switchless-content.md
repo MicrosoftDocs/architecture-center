@@ -10,7 +10,7 @@ This architecture is a starting point for a [Azure Local instance that uses a st
 
 | Architecture | Design decisions | Well-Architected Framework approach|
 |---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Potential use cases](#potential-use-cases) <br>&#9642; [Deploy this scenario](#deploy-this-scenario) <br>|&#9642; [Instance design choices](#instance-design-choices)<br>&#9642; [Networking](#network-design) <br>|&#9642; [Cost optimization](#cost-optimization)<br>&#9642; [Performance efficiency](#performance-efficiency)<br>|
+|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Potential use cases](#potential-use-cases) <br>&#9642; [Deploy this scenario](#deploy-this-scenario) <br>|&#9642; [Cluster design choices](#cluster-design-choices)<br>&#9642; [Networking](#network-design) <br>|&#9642; [Cost optimization](#cost-optimization)<br>&#9642; [Performance efficiency](#performance-efficiency)<br>|
 
 > [!TIP]
 > ![GitHub logo](../_images/github.svg) This [reference implementation](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs) describes how to deploy a **three-node storage switchless Azure Local instance** using an ARM template and parameter file.
@@ -37,9 +37,9 @@ Use this design and the designs described in the [Azure Local baseline reference
 
 The architecture resources remain mostly unchanged from the baseline reference architecture. For more information, see the [platform resources and platform supporting resources](/azure/architecture/hybrid/azure-local-baseline#components) used for Azure Local deployments.
 
-## Instance design choices
+## Cluster design choices
 
-For help to determine your Azure Local instance design choices, refer to the [baseline reference architecture](azure-local-baseline.yml). Use these insights and the [Azure Local Sizer Tool](https://azurestackhcisolutions.azure.microsoft.com/#sizer) to appropriately scale an Azure Local instance according to the workload requirements.
+For guidance and recommendations for your Azure Local instance design choices, refer to the [baseline reference architecture](azure-local-baseline.yml). Use these insights and the [Azure Local Sizer Tool](https://azurestackhcisolutions.azure.microsoft.com/#sizer) to appropriately scale an Azure Local instance according to the workload requirements.
 
 When you use the storage switchless design, it's crucial to remember that four nodes is the maximum instance size supported. This limitation is a key consideration for your instance design choices because you must ensure that your workload's capacity requirements don't exceed the physical capacity capabilities of the four-node instance specifications. Because you can't perform an add-node gesture to expand a storage switchless instance beyond four nodes, it's **critically important** to understand your workload capacity requirements beforehand and plan for future growth. This way you can ensure that your workload doesn't exceed the storage and compute capacity over the expected lifespan of the Azure Local instance hardware.
 
