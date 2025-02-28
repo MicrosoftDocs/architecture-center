@@ -119,7 +119,7 @@ While the entirety of the [Azure Well-Architected Framework](/azure/well-archite
 ### AI/ML
 
 * [Guide to design a secure multitenant RAG inferencing solution](../../ai-ml/guide/secure-multitenant-rag.md): This document describes how to apply the Retrieval-Augmented Generation (RAG) pattern within multitenant solutions, where tenant-specific data needs to be used for inferencing.
-* [Design patterns for multitenant SaaS applications and Azure Cognitive Search](/azure/search/search-modeling-multitenant-saas-applications): This document discusses tenant isolation strategies for multitenant applications that are built with Azure Cognitive Search.
+* [Design patterns for multitenant SaaS applications and Azure AI Search](/azure/search/search-modeling-multitenant-saas-applications): This document discusses tenant isolation strategies for multitenant applications that are built with AI Search.
 * [A Solution for ML Pipeline in Multi-tenancy Manner](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/a-solution-for-ml-pipeline-in-multi-tenancy-manner/ba-p/4124818): This blog post describes how Azure Machine Learning pipelines can be designed to support multiple tenants by using Azure Machine Learning workspaces.
 
 ## Community content
