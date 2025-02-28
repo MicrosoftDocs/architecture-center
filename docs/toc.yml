@@ -250,7 +250,7 @@ items:
       - name: Image and video processing
         href: data-guide/ai-services/image-video-processing.md
       - name: Natural language processing
-        href: data-guide/technology-choices/natural-language-processing.yml
+        href: data-guide/technology-choices/natural-language-processing.md
       - name: Machine learning
         href: ai-ml/guide/data-science-and-machine-learning.md
       - name: Compare MLflow and Azure ML
@@ -778,10 +778,6 @@ items:
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml
         - name: Recommendations
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml
-        - name: Deploy this scenario
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml
-        - name: Summary
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-summary.yml
       - name: Monitor Azure Databricks jobs
         items:
         - name: Overview
@@ -816,12 +812,8 @@ items:
         href: reference-architectures/data/stream-processing-databricks.yml
       - name: Stream processing with Stream Analytics
         href: reference-architectures/data/stream-processing-stream-analytics.yml
-      - name: Stream processing with open-source data
-        href: example-scenario/data/open-source-data-engine-stream-processing.yml
       - name: Modern data warehouse for small business
         href: example-scenario/data/small-medium-data-warehouse.yml
-      - name: Power BI data write-back
-        href: example-scenario/data/power-bi-write-back-power-apps.yml
       - name: Disaster recovery for data analytics pipelines
         href: example-scenario/analytics/pipelines-disaster-recovery.yml        
     - name: Solution ideas
@@ -830,12 +822,8 @@ items:
         items:
         - name: Big data analytics with Data Explorer
           href: solution-ideas/articles/big-data-azure-data-explorer.yml
-      - name: Content Delivery Network analytics
-        href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
       - name: Ingestion, ETL, and stream processing
         href: solution-ideas/articles/ingest-etl-stream-with-adb.yml
-      - name: Manage event data with HDInsight and Delta Lake
-        href: solution-ideas/articles/hdinsight-kafka-spark-delta-lake.yml
       - name: Modern analytics with Azure Databricks
         href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
       - name: Modern data platform for small and medium businesses

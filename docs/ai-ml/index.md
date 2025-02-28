@@ -116,7 +116,7 @@ For more information, see the following resources:
 
 - [Choose an Azure AI services technology](../data-guide/technology-choices/ai-services.md)
 - [Azure AI services documentation](/azure/ai-services/what-are-ai-services)
-- [Choose a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.yml)
+- [Choose a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.md)
 
 ## AI language models
 
