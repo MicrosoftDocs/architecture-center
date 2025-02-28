@@ -1140,7 +1140,7 @@ items:
         href: example-scenario/apps/devops-dotnet-baseline.yml
     - name: "Solution idea: DevSecOps for infrastructure as code"
       href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
-  - name: Hybrid + Multicloud
+  - name: Hybrid + multicloud
     items:
     - name: Get started
       href: hybrid/hybrid-start-here.md
@@ -1198,6 +1198,10 @@ items:
           href: example-scenario/hybrid/secure-hybrid-messaging-mobile.yml
         - name: 'Enhanced-security hybrid: web access'
           href: example-scenario/hybrid/secure-hybrid-messaging-web.yml
+      - name: Hybrid monitoring
+        items:
+        - name: Hybrid availability and monitoring
+          href: hybrid/hybrid-perf-monitoring.yml
       - name: Hybrid storage
         items:
         - name: Azure enterprise cloud file share
@@ -1210,12 +1214,6 @@ items:
           href: example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml
         - name: Use file shares in a hybrid environment
           href: hybrid/azure-file-share.yml
-    - name: Solution ideas
-      items:
-      - name: Azure Automation State Configuration
-        href: example-scenario/state-configuration/state-configuration.yml
-      - name: Hybrid availability and monitoring
-        href: hybrid/hybrid-perf-monitoring.yml
   - name: Identity
     items:
     - name: Get started
@@ -1320,6 +1318,8 @@ items:
         href: example-scenario/wsus/index.yml
     - name: Architectures
       items:
+      - name: Azure Automation State Configuration
+        href: example-scenario/state-configuration/state-configuration.yml
       - name: Hybrid management
         items:
         - name: Azure Arc hybrid management with AKS
