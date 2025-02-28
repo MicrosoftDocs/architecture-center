@@ -14,6 +14,7 @@ ms.custom:
   - fcp
   - reference-architecture
   - e2e-hybrid
+  - arb-hybrid
 products:
   - azure
 ---
