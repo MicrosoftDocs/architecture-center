@@ -8,8 +8,6 @@ ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
-ms.custom:
-  - arb-hybrid
 azureCategories:
   - analytics
   - compute
@@ -25,6 +23,7 @@ ms.custom:
   - guide
   - e2e-hybrid
   - arb-data
+  - arb-hybrid
 ---
 
 # Extend on-premises data solutions to the cloud
