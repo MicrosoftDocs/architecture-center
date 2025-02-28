@@ -18,6 +18,7 @@ products:
   - azure-kubernetes-service
   - azure-local
   - azure-arc
+  - windows-server
   - github
   - azure-pipelines
 name: Deploy and operate apps with AKS enabled by Arc on Azure Local or Windows Server
