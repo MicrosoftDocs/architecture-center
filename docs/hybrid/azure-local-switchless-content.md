@@ -159,6 +159,7 @@ Performance Efficiency is the ability of your workload to meet the demands place
 Performance efficiency considerations include:
 
 - You can't increase the scale (or perform an add-node operation) of an existing four-node storage switchless Azure Local instance without redeploying the instance and adding extra networking capabilities such as network switches, ports and cables for storage traffic, and the other required machines. Four nodes is the maximum supported instance size for the storage switchless network design. Factor this limitation into the instance design phase to ensure that the hardware can support future workload capacity growth.
+- Review the [supported scenarios for add-node](/azure/azure-local/manage/add-server?view=azloc-24112#supported-scenarios) operations for Azure Local, specifically the storage network architecture requirement when increasing the scale (add-node) of an existing Azure Local instance. Capacity planning, which includes determining your current and future workload capacity requirements is critically important when selecting to deploy Azure Local using the storage switchless architecture.
 
 ## Deploy this scenario
 
