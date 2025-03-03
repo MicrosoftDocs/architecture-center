@@ -7148,6 +7148,11 @@
       "source_path": "docs/databases/architecture/n-tier-cassandra.yml",
       "redirect_url": "/azure/managed-instance-apache-cassandra/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/mainframe-replication-precisely-connect.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure",
+      "redirect_document_id": false
     }
   ]
 }
