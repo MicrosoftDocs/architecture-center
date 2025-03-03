@@ -7143,6 +7143,11 @@
       "source_path": "docs/databases/idea/serverless-apps-using-cosmos-db.yml",
       "redirect_url": "/azure/cosmos-db/nosql/serverless-computing-database",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/architecture/n-tier-cassandra.yml",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/",
+      "redirect_document_id": false
     }
   ]
 }
