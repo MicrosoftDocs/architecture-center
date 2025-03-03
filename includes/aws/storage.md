@@ -54,8 +54,4 @@ ms.service: azure-architecture-center
 
 #### Storage architectures
 
-| Architecture | Description |
-|----|----|
-| [Medical data storage solutions](/azure/architecture/solution-ideas/articles/medical-data-storage) | Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security. |
-
 [View Azure storage architectures](/azure/architecture/browse/?azure_categories=storage)

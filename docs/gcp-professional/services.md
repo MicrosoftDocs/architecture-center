@@ -360,10 +360,6 @@ Here are some architectures that use AKS as the orchestrator.
 
 #### Storage architectures
 
-| Architecture | Description |
-|----|----|
-| [Medical data storage solutions](/azure/architecture/solution-ideas/articles/medical-data-storage) | Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security. |
-
 [view all](/azure/architecture/browse/#storage)
 
 ### Bulk data transfer

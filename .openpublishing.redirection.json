@@ -7118,6 +7118,11 @@
       "source_path": "docs/solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml",
       "redirect_url": "/azure/storage/common/storage-redundancy",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/medical-data-storage.yml",
+      "redirect_url": "/industry/healthcare/",
+      "redirect_document_id": false
     }
   ]
 }

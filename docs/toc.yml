@@ -1413,8 +1413,6 @@ items:
           href: example-scenario/file-storage/sql-server-azure-netapp-files.yml
       - name: Hybrid file services
         href: hybrid/hybrid-file-services.yml
-      - name: Multi-region web app with replication
-        href: solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml
       - name: Mainframe
         items:
         - name: Mainframe file and tape backup to Azure using Luminex
@@ -1427,8 +1425,6 @@ items:
           href: example-scenario/mainframe/move-archive-data-mainframes.yml
     - name: Solution ideas
       items:
-      - name: Medical data storage
-        href: solution-ideas/articles/medical-data-storage.yml
       - name: Two-region app with Table storage failover
         href: solution-ideas/articles/multi-region-web-app-azure-table-failover.yml
   - name: Virtual Desktop
