@@ -34,8 +34,6 @@ The following new and updated articles have recently been published in the Azure
 ### New articles
 
 - [Natural Language Processing Technology](./data-guide/technology-choices/natural-language-processing.md)
-- [CQRS Pattern](./patterns/cqrs.md)
-- [Strangler Fig Pattern](./patterns/strangler-fig.md)
 - [Design a Secure Multitenant RAG Inferencing Solution](./ai-ml/guide/secure-multitenant-rag.md)
 
 ### Updated articles
