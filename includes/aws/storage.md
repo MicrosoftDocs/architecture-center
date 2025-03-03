@@ -51,7 +51,3 @@ ms.service: azure-architecture-center
 | ----------- | ------------- | ----------- |
 | [Import/Export Disk](https://aws.amazon.com/snowball/disk/details/) | [Import/Export](/azure/storage/common/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
 | [Snowball Edge](https://aws.amazon.com/snowball-edge/) | [Data Box](https://azure.microsoft.com/services/storage/databox/) | Petabyte-scale to exabyte-scale data transport solution that uses enhanced-security data storage devices to transfer large amounts of data to and from Azure. |
-
-#### Storage architectures
-
-[View Azure storage architectures](/azure/architecture/browse/?azure_categories=storage)

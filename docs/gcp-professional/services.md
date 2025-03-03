@@ -358,10 +358,6 @@ Here are some architectures that use AKS as the orchestrator.
 | [Filestore](https://cloud.google.com/filestore/docs) | [Azure Files](https://azure.microsoft.com/services/storage/files/), [Azure NetApp Files](https://azure.microsoft.com/services/netapp/#overview) | File based storage and hosted NetApp Appliance Storage. |
 | [Google Drive](https://workspace.google.com/products/drive) | [OneDrive For business](https://products.office.com/onedrive/onedrive-for-business) | Cloud storage and file sharing solution for businesses to store, access, and share files anytime and anywhere. |
 
-#### Storage architectures
-
-[view all](/azure/architecture/browse/#storage)
-
 ### Bulk data transfer
 
 | Google Cloud service | Azure service | Description |
