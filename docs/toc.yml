@@ -1413,8 +1413,6 @@ items:
           href: example-scenario/file-storage/sql-server-azure-netapp-files.yml
       - name: Hybrid file services
         href: hybrid/hybrid-file-services.yml
-      - name: Minimal storage – change feed replication
-        href: databases/idea/minimal-storage-change-feed-replicate-data.yml
       - name: Multi-region web app with replication
         href: solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml
       - name: Mainframe
