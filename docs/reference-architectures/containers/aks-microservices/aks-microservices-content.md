@@ -65,7 +65,7 @@ Third-party container registries such as Docker Hub can be used to store contain
 
 For microservices that need to maintain state information, [Dapr](/azure/aks/dapr-overview) provides an abstraction layer for microservice state management.
 
-GitHub Actions can be used to build and deploy microservices. You can also third-party CI/CD solutions like Jenkins. 
+GitHub Actions can be used to build and deploy microservices. You can also use third-party CI/CD solutions like Jenkins. 
 
 Microservice observability can be achieved through alternate tools like [Kiali](https://kiali.io/). 
 
@@ -110,7 +110,7 @@ API gateways are a general [microservices design pattern](https://microservices.
 - [Using API gateways in microservices](/azure/architecture/microservices/design/gateway)
 - [Choosea an API gateway technology](/azure/architecture/microservices/design/gateway#choose-an-api-gateway-technology)
 
-In Kubernetes, the functionality of an API gateway is primarily handled by an **Ingress controller**. In that case, **Ingress** and **Ingress controller** work in conjunction to provide these features:
+In Kubernetes, the functionality of an API gateway is primarily handled by an **Ingress controller**. The **Ingress** and **Ingress controller** work in conjunction to provide these features:
 
 - Route client requests to the right backend microservices. This routing provides a single endpoint for clients, and helps to decouple clients from services.
 
@@ -259,7 +259,7 @@ Here are some goals of a robust CI/CD process for a microservices architecture:
 
 To learn more about the challenges, see [CI/CD for microservices architectures](../../../microservices/ci-cd.yml).
 
-Use of a [service mesh like Istio](/azure/aks/istio-about) can aid in CI/CD processes, like canary deployments, A/B testing of microservices, and staged rollouts with percentage-based traffic splits.
+Using a [service mesh like Istio](/azure/aks/istio-about) can help in CI/CD processes, like canary deployments, A/B testing of microservices, and staged rollouts with percentage-based traffic splits.
 
 For specific recommendations and best practices, see [CI/CD for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.yml).
 
@@ -281,7 +281,7 @@ Here are some points to consider for some of the services used in this architect
 
 - Consider using [spot nodes](/azure/aks/spot-node-pool) to host non-critical microservices. 
 
-- Please review [cost optimization best practices for AKS](/azure/aks/best-practices-cost).
+- Review the [cost optimization best practices for AKS](/azure/aks/best-practices-cost).
 
 - To estimate the cost of the required resources please see the [Container Services calculator][aks-Calculator].
 
