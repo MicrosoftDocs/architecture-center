@@ -25,7 +25,7 @@ The following new and updated articles have recently been published in the Azure
 
 ## March 2025
 
-### Updated articles
+### Updated article
 
 - [Circuit Breaker pattern](./patterns/circuit-breaker.yml)  ([#070f172cd8](https://github.com/MicrosoftDocs/architecture-center/commit/070f172cd8))
 
