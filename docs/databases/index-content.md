@@ -95,12 +95,6 @@ Refer to [Azure updates](https://azure.microsoft.com/updates/?category=databases
 - [Optimize administration of SQL Server instances](../hybrid/azure-arc-sql-server.yml)
 - [Relecloud scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-relecloud)
 
-### Example solutions
-
-This solution idea provides example approaches that you can adapt to your needs.
-
-- [Serverless apps using Azure Cosmos DB](../databases/idea/serverless-apps-using-cosmos-db.yml)
-
 ### Similar database products
 
 If you're familiar with Amazon Web Services (AWS) or Google Cloud, refer to the following comparisons:
