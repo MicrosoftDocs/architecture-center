@@ -105,6 +105,43 @@ An architect should evaluate how the Circuit Breaker pattern can be used in thei
 
 As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
+## Example
+
+This example shows the Circuit Breaker pattern implemented to prevent quota overrun using the [Azure Cosmos DB lifetime free tier](/azure/cosmos-db/free-tier). This tier is primarily used for non-critical data, the throughput is governed by a capacity plan that provisions a designated quota of resource units per second. During seasonal events, demand might exceed the provided capacity, resulting in `429` (Too Many Requests) responses.
+
+When demand spikes occur, [Azure Monitor alerts with dynamic thresholds](/azure/azure-monitor/alerts/alerts-dynamic-thresholds) detects and proactively notifies the operations and management teams indicating that scaling-up the database capacity could be required. Simultaneously, a circuit breaker—tuned using historical error patterns—trips to prevent cascading failures. In this state, the application gracefully degrades by returning default or cached responses, informing users of the temporary unavailability of certain data while preserving overall system stability.
+
+This strategy enhances resilience aligned with business justification. Controlling capacity surges enables the workload team to manage cost increases deliberately and service quality is maintained without unexpectedly inflating operating expenses. Once demand subsides or increased capacity is confirmed, and the circuit breaker resets and the application returns to full functionality in alignment with both technical and budgetary objectives.
+
+:::image type="complex" source="./_images/circuit-breaker-example.png" alt-text="Diagram showing CosmosDB and a circuit breaker implementation in Azure App Service.":::
+   The diagram is organized into three primary sections. The first section contains two identical web browser icons, where the first icon displays a fully functional user interface, while the second icon shows a degraded user experience with an on-screen warning to indicate the issue to users. The second section is enclosed within a dashed-line rectangle, which is divided into two groups. The top group includes the workload resources, consisting of Azure Application Services and Azure Cosmos DB. Arrows from both web browser icons point to the Azure Application Services instance, representing incoming requests from the client. Additionally, arrows from the Azure Application Services instance point to the Azure Cosmos DB, indicating the data interactions between the application services and the database. An additional arrow loops from the Azure Application Services instance back to itself, symbolizing the circuit breaker timeout mechanism. This loop signifies that when a 429 Too Many Requests response is detected, the system falls back to serving cached responses, degrading the user experience until the situation resolves. The bottom group of this section focuses on observability and alerting, featuring Azure Monitor collecting data from the Azure resources at the top group, and connected to an alert rule icon. The third section illustrates the scalability workflow triggered upon the alert being raised. An arrow connects the alert icon to the approvers, indicating that the notification is sent to them for review. Another arrow leads from the approvers to a development console, signifying the approval process for scaling the database. Finally, a subsequent arrow extends from the development console to the Azure Cosmos DB, depicting the action of scaling the database in response to the overload condition.
+:::image-end:::
+
+### Flow A - Closed state
+
+1. The system operates normally, and all requests reach the database without returning any `429` (Too Many Requests) HTTP responses.
+1. The circuit breaker remains closed, and no default or cached responses are necessary.
+
+### Flow B - Open state
+
+1. Upon receiving the first `429` response, the circuit breaker trips to an open state.
+1. Subsequent requests are immediately short-circuited, returning default or cached responses while informing users of temporary degradation, and the application is protected from further overload.
+1. Logs and telemetry data are captured and sent to Azure Monitor to be evaluated against dynamic thresholds. An alert is triggered if the conditions of the alert rule are met.
+1. An action group proactively notifies the operations team of the overload condition.
+1. Upon workload team approval, the operations team could increase the provisioned throughput to alleviate overload, or they might delay scaling if the load subsides naturally.
+
+### Flow C - Half-open state
+
+1. After a predefined timeout, the circuit breaker enters a half-open state, permitting a limited number of trial requests.
+1. If these trial requests succeed without returning `429` responses, the breaker resets to a closed state, restoring normal operations back to Flow A. If failures persist, it reverts to the open state which is Flow B.
+
+### Design
+
+- [Azure App Services](/azure/well-architected/service-guides/app-service-web-apps) hosts the web application acting as the primary entry point for client requests. The application code implements the logic that enforces circuit breaker policies, and delivers default or cached responses when the circuit is open. This architecture prevents overload on downstream systems and ensures that the user experience is maintained during peak demand or failures.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is one of the application's data stores. It serves non-critical data using the free tier. The free tier is best used for running small production workloads. The circuit breaker mechanism helps limit traffic to the database during periods of high demand.
+- [Azure Monitor](/azure/well-architected/service-guides/azure-log-analytics) functions as the centralized monitoring solution, aggregating all activity logs to ensure comprehensive, end-to-end observability. Logs and telemetry data from Azure App Services and key metrics from Azure Cosmos DB (like the number of `429` responses) are sent to Azure Monitor for aggregation and analysis.
+- [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview) weigh alert rules against [dynamic thresholds](/azure/azure-monitor/alerts/alerts-dynamic-thresholds) to identify potential outages based on historical data.  Pre-defined alerts notify the operations team when thresholds are breached. There might be times that the workload team approves the increase in provisioned throughput, but the operations team anticipates that the system will recover on its own as the load isn't too high. In these cases, the circuit breaker timeout elapses naturally. During this time, if the `429` responses cease, the threshold calculation detects the prolonged outages and excludes them from the learning algorithm. As a result, the next time an overload occurs, the threshold waits for a higher error rate in Azure Cosmos DB, and the notification is delayed. This change allows the circuit breaker to handle the issue without an immediate alert, and efficiencies in costs and operational burden are realized.
+
 ## Related resources
 
 The following patterns might also be useful when implementing this pattern:
