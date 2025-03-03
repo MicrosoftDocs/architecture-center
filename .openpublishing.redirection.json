@@ -7133,6 +7133,11 @@
       "source_path": "docs/databases/idea/intelligent-apps-using-azure-database-for-mysql.yml",
       "redirect_url": "/azure/architecture/solutions/power-platform-scenarios",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/idea/intelligent-apps-using-azure-database-for-postgresql.yml",
+      "redirect_url": "/azure/architecture/solutions/power-platform-scenarios",
+      "redirect_document_id": false
     }
   ]
 }
