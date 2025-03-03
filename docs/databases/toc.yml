@@ -6,8 +6,6 @@ items:
       items:
       - name: Relational
         items:
-        - name: Intelligent apps using MySQL
-          href: idea/intelligent-apps-using-azure-database-for-mysql.yml
         - name: Intelligent apps using PostgreSQL
           href: idea/intelligent-apps-using-azure-database-for-postgresql.yml
         - name: Migrate an Oracle database to Azure

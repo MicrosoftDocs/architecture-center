@@ -105,4 +105,4 @@ Azure AI Language offers various pricing tiers. The number of text records that 
 
 ## Related resources
 
-- [Intelligent apps using Azure Database for MySQL](./intelligent-apps-using-azure-database-for-mysql.yml)
+- [Azure Database for PostgreSQL](/azure/postgresql/)

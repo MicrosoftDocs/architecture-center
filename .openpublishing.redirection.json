@@ -7128,6 +7128,11 @@
       "source_path": "docs/solution-ideas/articles/multi-region-web-app-azure-table-failover.yml",
       "redirect_url": "/azure/storage/common/storage-redundancy",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/idea/intelligent-apps-using-azure-database-for-mysql.yml",
+      "redirect_url": "/azure/architecture/solutions/power-platform-scenarios",
+      "redirect_document_id": false
     }
   ]
 }
