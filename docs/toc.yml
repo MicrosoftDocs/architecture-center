@@ -1423,10 +1423,6 @@ items:
           href: example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml
         - name: Move mainframe archive data to Azure
           href: example-scenario/mainframe/move-archive-data-mainframes.yml
-    - name: Solution ideas
-      items:
-      - name: Two-region app with Table storage failover
-        href: solution-ideas/articles/multi-region-web-app-azure-table-failover.yml
   - name: Virtual Desktop
     items:
     - name: Get started
