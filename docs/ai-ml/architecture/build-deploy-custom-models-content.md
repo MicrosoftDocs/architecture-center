@@ -50,13 +50,13 @@ The following dataflow corresponds to the previous diagram:
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a set of capabilities built on Blob Storage for big data analytics. Data Lake Storage maintains the cost effectiveness of Blob Storage and provides features like file-level security and file system semantics with hierarchical a namespace.
 
-- [Document Intelligence](/azure/ai-services/document-intelligence/overview) is part of [Azure AI services](/azure/ai-services/what-are-ai-services). Document Intelligence has built-in document analysis capabilities that you can use to extract printed and handwritten text, tables, and key-value pairs. Document Intelligence has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Document Intelligence also has a [custom template](/azure/applied-ai-services/form-recognizer/concept-custom-template) form model and a [custom neural](/azure/applied-ai-services/form-recognizer/concept-custom-neural) document model that you can use to train and deploy custom models.
+- [Document Intelligence](/azure/ai-services/document-intelligence/overview) is part of [Azure AI services](/azure/ai-services/what-are-ai-services). Document Intelligence has built-in document analysis capabilities that you can use to extract printed and handwritten text, tables, and key-value pairs. Document Intelligence has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Document Intelligence also has a [custom template](/azure/applied-ai-services/form-recognizer/concept-custom-template) form model and a [custom neural](/azure/applied-ai-services/form-recognizer/concept-custom-neural) document model that you can use to train and deploy custom models. 
 
-  - [Document Intelligence Studio](/azure/ai-services/document-intelligence/studio-overview) provides a UI that you can use to explore Document Intelligence features and models, and to build, tag, train, and deploy custom models.
+- [Document Intelligence Studio](/azure/ai-services/document-intelligence/studio-overview) provides a UI that you can use to explore Document Intelligence features and models, and to build, tag, train, and deploy custom models.
 
 - [Azure AI Language](/azure/ai-services/language-service/overview) consolidates the Azure natural language processing (NLP) services. The suite provides prebuilt and customizable options. For more information, see [What is Language?](/azure/ai-services/language-service/overview#available-features).
 
-  - [Language Studio](/azure/ai-services/language-service/language-studio) provides a UI that you can use to explore and analyze Language features. It also provides options for building, tagging, training, and deploying custom models.
+- [Language Studio](/azure/ai-services/language-service/language-studio) provides a UI that you can use to explore and analyze Language features. It also provides options for building, tagging, training, and deploying custom models.
 
 - [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed machine learning platform for model development and deployment at scale.
 
@@ -124,7 +124,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 - For more information about the service-level agreements for each architecture component, see [Licensing documents](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
-- For configuration options to design high-availability applications with Storage accounts, see [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design).
+- For more information about configuration options to design high-availability applications with Storage accounts, see [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design).
 
 #### Resiliency
 
