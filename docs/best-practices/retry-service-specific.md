@@ -328,9 +328,9 @@ For more examples, see [Configuration](https://github.com/StackExchange/StackExc
 
 - [Redis website](https://redis.io)
 
-## Azure Search
+## Azure AI Search
 
-Azure Search can be used to:
+Azure AI Search can be used to:
 - Add powerful and sophisticated search capabilities to a website or application
 - Quickly and easily tune search results
 - Construct rich and fine-tuned ranking models
@@ -339,7 +339,7 @@ Azure Search can be used to:
 
 Azure SDK for .NET includes an [Azure.Search.Documents](/dotnet/api/overview/azure/search) client library from the Azure SDK team that is functionally equivalent to the previous client library, [Microsoft.Azure.Search](/dotnet/api/microsoft.azure.search).
 
-Retry behavior in [Microsoft.Azure.Search](/dotnet/api/microsoft.azure.search) is controlled by the SetRetryPolicy method on the SearchServiceClient and SearchIndexClient classes. The default policy retries with exponential backoff when Azure Search returns a 5xx or 408 (Request Timeout) response.
+Retry behavior in [Microsoft.Azure.Search](/dotnet/api/microsoft.azure.search) is controlled by the SetRetryPolicy method on the SearchServiceClient and SearchIndexClient classes. The default policy retries with exponential backoff when AI Search returns a 5xx or 408 (Request Timeout) response.
 
 Retry behavior in [Azure.Search.Documents](/dotnet/api/overview/azure/search) is controlled by [SearchClientOptions](/dotnet/api/azure.search.documents.searchclientoptions) (It is part of  the [SearchClient constructor](/dotnet/api/azure.search.documents.searchclient.-ctor#azure-search-documents-searchclient-ctor(system-uri-system-string-azure-azurekeycredential-azure-search-documents-searchclientoptions))) in the property Retry, which belongs to the class [Azure.Core.RetryOptions](/dotnet/api/azure.core.retryoptions)(where all configurations are available).
 

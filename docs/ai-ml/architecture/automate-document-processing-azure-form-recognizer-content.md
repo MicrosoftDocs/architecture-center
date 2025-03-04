@@ -183,7 +183,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 The availability of the architecture depends on the Azure services that make up the solution:
 
-- Azure AI Document Intelligence is part of Azure AI services. For this service's availability guarantee, see [Service-level agreement (SLA) for Azure AI services][SLA for Azure Applied AI Services].
+- Azure AI Document Intelligence is part of Azure AI services. For this service's availability guarantee, see [Service-level agreement (SLA) for Azure AI services][SLA for Azure AI services].
 
 - AI Language is part of Azure AI services. For the availability guarantee for these services, see [SLA for Azure AI services][SLA for Azure AI services].
 
@@ -306,7 +306,7 @@ Principal author:
 [App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/windows
 [Application Gateway pricing]: https://azure.microsoft.com/pricing/details/application-gateway
 [Application Gateway service page]: /azure/well-architected/service-guides/azure-application-gateway
-[Authenticate requests to Azure AI services]: /azure/cognitive-services/authentication
+[Authenticate requests to Azure AI services]: /azure/ai-services/authentication
 [Azure Blob Storage]: /azure/well-architected/service-guides/azure-blob-storage
 [Azure Blob Storage pricing]: https://azure.microsoft.com/pricing/details/storage/blobs
 [Azure AI Search]: /azure/search/search-what-is-azure-search
@@ -344,28 +344,28 @@ Principal author:
 [US tax document models]: /azure/ai-services/document-intelligence/concept-tax-document
 [Get started: Form Recognizer Studio]: /azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0
 [Get started with AzCopy]: /azure/storage/common/storage-use-azcopy-v10
-[How to: Use Sentiment analysis and Opinion Mining - Data limits]: /azure/cognitive-services/language-service/sentiment-opinion-mining/how-to/call-api#data-limits
+[How to: Use Sentiment analysis and Opinion Mining - Data limits]: /azure/ai-services/language-service/sentiment-opinion-mining/how-to/call-api#data-limits
 [How to configure Azure Functions with a virtual network]: /azure/azure-functions/configure-networking-how-to
-[How to detect and redact Personal Information - Data limits]: /azure/cognitive-services/language-service/personally-identifiable-information/how-to-call#data-limits
-[How to use named entity recognition (NER) - Data limits]: /azure/cognitive-services/language-service/named-entity-recognition/how-to-call#data-limits
-[How to use Text Analytics for health - Data limits]: /azure/cognitive-services/language-service/text-analytics-for-health/how-to/call-api?tabs=ner#data-limits
+[How to detect and redact Personal Information - Data limits]: /azure/ai-services/language-service/personally-identifiable-information/how-to-call#data-limits
+[How to use named entity recognition (NER) - Data limits]: /azure/ai-services/language-service/named-entity-recognition/how-to-call#data-limits
+[How to use Text Analytics for health - Data limits]: /azure/ai-services/language-service/text-analytics-for-health/how-to/call-api?tabs=ner#data-limits
 [Introduction to Azure Functions]: /azure/azure-functions/functions-overview
 [Language Service pricing]: https://azure.microsoft.com/pricing/details/cognitive-services/language-service
 [Load data into Azure Data Lake Storage Gen2 with Azure Data Factory]: /azure/data-factory/load-azure-data-lake-storage-gen2
 [Manage access to an Azure Machine Learning workspace]: /azure/machine-learning/how-to-assign-roles
-[Opinion mining]: /azure/cognitive-services/language-service/sentiment-opinion-mining/overview#opinion-mining
+[Opinion mining]: /azure/ai-services/language-service/sentiment-opinion-mining/overview#opinion-mining
 [ParallelRunStep Class]: /python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py
 [Power BI]: /power-bi/fundamentals/power-bi-overview
 [Regenerate storage account access keys]: /azure/machine-learning/how-to-change-storage-access-key
 [Resiliency checklist for specific Azure services]: ../../checklist/resiliency-per-service.md
 [Secure an Azure Machine Learning workspace with virtual networks]: /azure/machine-learning/how-to-secure-workspace-vnet?tabs=pe
 [Security in Azure App Service - Resources inside an Azure Virtual Network]: /azure/app-service/overview-security#resources-inside-an-azure-virtual-network
-[Sentiment analysis]: /azure/cognitive-services/language-service/sentiment-opinion-mining/overview#sentiment-analysis
+[Sentiment analysis]: /azure/ai-services/language-service/sentiment-opinion-mining/overview#sentiment-analysis
 [Set up authentication for Azure Machine Learning resources and workflows]: /azure/machine-learning/how-to-setup-authentication
 [SLA for App Service]: https://azure.microsoft.com/support/legal/sla/app-service/v1_4
 [SLA for Application Gateway]: https://azure.microsoft.com/support/legal/sla/application-gateway/v1_2
-[SLA for Azure Applied AI Services]: https://azure.microsoft.com/support/legal/sla/azure-applied-ai-services/v1_0
-[SLA for Azure AI services]: https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1
+[SLA for Azure AI services]: https://azure.microsoft.com/support/legal/sla/azure-applied-ai-services/v1_0
+[SLA for Azure AI services]: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1
 [SLA for Azure Functions]: https://azure.microsoft.com/support/legal/sla/functions/v1_2
 [SLA for Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1
 [Tutorial: Automate tasks to process emails by using Azure Logic Apps, Azure Functions, and Azure Storage]: /azure/logic-apps/tutorial-process-email-attachments-workflow
@@ -376,13 +376,13 @@ Principal author:
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/automate-document-processing-form-recognizer-architecture.vsdx
 [Welcome to Azure Cosmos DB]: /azure/cosmos-db/introduction
 [What is Azure Application Gateway?]: /azure/application-gateway/overview
-[What is Azure AI Language?]: /azure/cognitive-services/language-service/overview
+[What is Azure AI Language?]: /azure/ai-services/language-service/overview
 [What is Azure Form Recognizer?]: /azure/applied-ai-services/form-recognizer/overview
 [What is Azure Machine Learning?]: /azure/machine-learning/overview-what-is-azure-machine-learning
 [What is Azure Web Application Firewall on Azure Application Gateway?]: /azure/web-application-firewall/ag/ag-overview
-[What is Custom Named Entity Recognition (NER) (preview)?]: /azure/cognitive-services/language-service/custom-named-entity-recognition/overview
-[What is key phrase extraction in Azure AI Language?]: /azure/cognitive-services/language-service/key-phrase-extraction/overview
+[What is Custom Named Entity Recognition (NER) (preview)?]: /azure/ai-services/language-service/custom-named-entity-recognition/overview
+[What is key phrase extraction in Azure AI Language?]: /azure/ai-services/language-service/key-phrase-extraction/overview
 [What is Kubernetes?]: https://azure.microsoft.com/topic/what-is-kubernetes/#overview
-[What is Named Entity Recognition (NER) in Azure AI Language?]: /azure/cognitive-services/language-service/named-entity-recognition/overview
-[What is Personal Information detection in Azure AI Language?]: /azure/cognitive-services/language-service/personally-identifiable-information/overview
-[What is Text Analytics for health in Azure AI Language?]: /azure/cognitive-services/language-service/text-analytics-for-health/overview?tabs=ner
+[What is Named Entity Recognition (NER) in Azure AI Language?]: /azure/ai-services/language-service/named-entity-recognition/overview
+[What is Personal Information detection in Azure AI Language?]: /azure/ai-services/language-service/personally-identifiable-information/overview
+[What is Text Analytics for health in Azure AI Language?]: /azure/ai-services/language-service/text-analytics-for-health/overview?tabs=ner
