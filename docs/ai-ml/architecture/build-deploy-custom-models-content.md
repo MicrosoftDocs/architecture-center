@@ -76,7 +76,7 @@ The following dataflow corresponds to the previous diagram:
 
 You can add more workflows to this scenario based on specific use cases.
 
-- If the document is an image or PDF, you can extract the data by using Azure [optical character recognition](/azure/cognitive-services/computer-vision/overview-ocr), the [Document Intelligence Read API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-prebuilt-read), or open-source libraries.
+- If the document is an image or PDF, you can extract the data by using Azure [optical character recognition](/azure/cognitive-services/computer-vision/overview-ocr), the [Document Intelligence Read API](/azure/ai-services/document-intelligence/prebuilt/read), or open-source libraries.
 
 - You can use the prebuilt model in Language for [document and conversation summarization](/azure/cognitive-services/language-service/text-summarization/overview).
 
