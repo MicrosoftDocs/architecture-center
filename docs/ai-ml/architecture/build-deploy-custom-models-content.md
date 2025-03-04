@@ -207,8 +207,8 @@ Principal author:
 
 ## Next steps
 
-- [Get started: Document Intelligence Studio](/azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0)
-- [Use Document Intelligence models through SDKs or REST API](/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api)
+- [Get started with custom projects in Document Intelligence Studio](/azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0)
+- [Use Document Intelligence models](/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api)
 - [Quickstart: Get started with Language Studio](/azure/cognitive-services/language-service/language-studio)
 - [What is optical character recognition?](/azure/cognitive-services/computer-vision/overview-ocr)
 - [How to configure Functions with a virtual network](/azure/azure-functions/configure-networking-how-to)
