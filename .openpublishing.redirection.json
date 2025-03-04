@@ -7110,8 +7110,23 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/example-scenario/healthcare/analyze-recordings-text-analytics-azure-openai.yml ",
+      "source_path": "docs/example-scenario/healthcare/analyze-recordings-text-analytics-azure-openai.yml",
       "redirect_url": "/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml",
+      "redirect_url": "/azure/storage/common/storage-redundancy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/medical-data-storage.yml",
+      "redirect_url": "/industry/healthcare/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/multi-region-web-app-azure-table-failover.yml",
+      "redirect_url": "/azure/storage/common/storage-redundancy",
       "redirect_document_id": false
     }
   ]
