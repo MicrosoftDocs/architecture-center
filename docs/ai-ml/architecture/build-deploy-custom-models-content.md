@@ -18,9 +18,13 @@ The following dataflow corresponds to the previous diagram:
 
    - Consider using Azure Data Factory to move data in bulk.
 
+<<<<<<< HEAD
 1. The orchestrators send ingested data to Azure Blob Storage or Azure Data Lake Storage. They organize the data within these stores based on characteristics like file extensions or customer details.
 
 1. You can use the following Azure services for training documents and building custom models, either independently or in combination, to address various use cases.
+=======
+1. The orchestrators send ingested data to Azure Blob Storage or Azure Data Lake Storage. They organize the data within these stores based on characteristics like file extensions or customer details. You can use the following Azure services, either independently or in combination, for training documents and building custom models to address various use cases.
+>>>>>>> ac72cc7871e0ab3dd73f7a21376e926c516697b4
 
    - [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio): If the document requires you to extract key-value pairs or create a custom table from an image or PDF, use Document Intelligence Studio to tag the data and train the custom model. If there's a requirement to identify the type of document, called *document classification*, before you invoke the correct extraction model, use Document Intelligent Studio to label the documents and build the models.
 
@@ -32,7 +36,7 @@ The following dataflow corresponds to the previous diagram:
 
 1. To deploy the custom models and use them for inferencing:
 
-   - Azure AI Document Intelligence has built-in model deployment. [Use Document Intelligence SDKs or REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api) to apply custom models for inferencing. Include the [model ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) or [custom model name](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) in the Document Intelligence request URL, depending on the API version. Document Intelligence doesn't require any further deployment steps.
+   - Azure AI Document Intelligence has built-in model deployment. [Use Document Intelligence SDKs or the REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api) to apply custom models for inferencing. Include the [model ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) or [custom model name](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) in the Document Intelligence request URL, depending on the API version. Document Intelligence doesn't require any further deployment steps.
 
    - Language Studio provides an option to deploy custom language models. Get the REST endpoint [prediction URL](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api) by selecting the model for deployment. You can inference models by using either the REST endpoint or the Azure SDK client libraries.
 
@@ -72,7 +76,7 @@ The following dataflow corresponds to the previous diagram:
 
 You can add more workflows to this scenario based on specific use cases.
 
-- If the document is an image or PDF, you can extract the data by using Azure [computer vision](/azure/cognitive-services/computer-vision/overview-ocr), [Document Intelligence Read API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-prebuilt-read), or open-source libraries.
+- If the document is an image or PDF, you can extract the data by using Azure [optical character recognition](/azure/cognitive-services/computer-vision/overview-ocr), the [Document Intelligence Read API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-prebuilt-read), or open-source libraries.
 
 - You can use the prebuilt model in Language for [document and conversation summarization](/azure/cognitive-services/language-service/text-summarization/overview).
 
