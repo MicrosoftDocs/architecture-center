@@ -177,7 +177,6 @@ For information on general Cassandra settings, not specific to Azure, see:
 
 ## Related resources
 
-- [Linux N-tier application in Azure with Apache Cassandra](../../databases/architecture/n-tier-cassandra.yml)
 - [N-tier architecture style](../../guide/architecture-styles/n-tier.yml)
 - [Data partitioning guidance](../../best-practices/data-partitioning.yml)
 

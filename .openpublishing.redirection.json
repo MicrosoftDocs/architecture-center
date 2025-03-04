@@ -7128,6 +7128,41 @@
       "source_path": "docs/solution-ideas/articles/multi-region-web-app-azure-table-failover.yml",
       "redirect_url": "/azure/storage/common/storage-redundancy",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/idea/intelligent-apps-using-azure-database-for-mysql.yml",
+      "redirect_url": "/azure/architecture/solutions/power-platform-scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/idea/intelligent-apps-using-azure-database-for-postgresql.yml",
+      "redirect_url": "/azure/architecture/solutions/power-platform-scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/idea/serverless-apps-using-cosmos-db.yml",
+      "redirect_url": "/azure/cosmos-db/nosql/serverless-computing-database",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/architecture/n-tier-cassandra.yml",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/mainframe-replication-precisely-connect.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/sma-opcon-azure.yml",
+      "redirect_url": "https://help.smatechnologies.com/opcon/connectors/azure-vm/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/guide/hybrid-on-premises-and-cloud.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/hybrid/",
+      "redirect_document_id": false
     }
   ]
 }
