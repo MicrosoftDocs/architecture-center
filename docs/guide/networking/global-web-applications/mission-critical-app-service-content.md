@@ -75,7 +75,7 @@ In complex multi-tier workloads that spread across multiple datacenters and geog
 
 The previous diagram shows how an outage or a degradation of a single component, like App Configuration, can cause potential performance degradation for the customer. When you separate components into scale units, it allows you to stop sending traffic to the affected part of the application, such as an affected scale unit or the complete region.
 
-What is needed to decide if a scale unit is healthy, is defined in the Health Model. This model is then connected to the _health endpoint_ of the scale unit, which allows the global load balancer to query the health state of a scale unit and use that information for routing decisions. 
+The criteria for determining the health of a scale unit are defined in the Health Model. This model is then connected to the _health endpoint_ of the scale unit, which allows the global load balancer to query the health state of a scale unit and use that information for routing decisions. 
 
 For more information, see [Health modeling and observability of mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-health-modeling).
 
