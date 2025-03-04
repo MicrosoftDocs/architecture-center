@@ -1,14 +1,12 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure Firewall and Application Gateway for Virtual Networks
-  titleSuffix: Azure Example Scenarios
   description: Learn about options and best practices for how to use Azure Firewall and Azure Application Gateway security in virtual networks.
   author: erjosito
   ms.author: jomore
   ms.date: 03/02/2025
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: example-workload
+  ms.subservice: example-scenario
   ms.category:
     - networking
     - security
@@ -16,7 +14,7 @@ metadata:
     - fcp
     - example-scenario
     - internal-intro
-name: Firewall and Application Gateway for virtual networks
+name: Azure Firewall and Application Gateway for virtual networks
 azureCategories:
   - networking
   - security

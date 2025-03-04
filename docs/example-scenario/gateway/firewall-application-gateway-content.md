@@ -365,7 +365,7 @@ The designs in this article apply to a *hub-and-spoke* topology. Shared resource
 
 ### Architecture
 
-![Diagram that shows a hybrid design with VPN/ER Gateway and a hub-and-spoke topology.](./images/hubnspoke_500.png)
+![Diagram that shows a hybrid design with a VPN and Expressroute gateway and a hub-and-spoke topology.](./images/hubnspoke_500.png)
 
 #### Considerations
 
