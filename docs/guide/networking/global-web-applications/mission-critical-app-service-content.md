@@ -81,7 +81,7 @@ For more information, see [Health modeling and observability of mission-critical
 
 ## Security and networking
 
-There are strict networking and security requirements for Mission-Critical workloads. Particular diligence should be applied to workloads that migrate from an on-premises environments, since not all established on-premises security practices translate into a cloud environment. It is recommended to re-evaluate security requirements during the application migration.
+There are strict networking and security requirements for Mission-Critical workloads. Particular diligence should be applied to workloads migrated from an on-premises environments, since not all established on-premises security practices translate into a cloud environment. It is recommended to re-evaluate security requirements during the application migration.
 
 Identity is often the primary security perimeter for cloud-native patterns. Enterprise customers might need more substantial security measures. To address their network security requirements, Azure PaaS services can use Azure Private Link to implement the network as a security perimeter. Private Link can ensure that services are only accessible from within a virtual network. All services are then accessible via private endpoints only. The following diagram shows how the only public internet-facing endpoint is Azure Front Door.
 
