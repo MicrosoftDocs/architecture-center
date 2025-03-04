@@ -18,13 +18,11 @@ The following dataflow corresponds to the previous diagram:
 
    - Consider using Azure Data Factory to move data in bulk.
 
-<<<<<<< HEAD
 1. The orchestrators send ingested data to Azure Blob Storage or Azure Data Lake Storage. They organize the data within these stores based on characteristics like file extensions or customer details.
 
 1. You can use the following Azure services for training documents and building custom models, either independently or in combination, to address various use cases.
-=======
+
 1. The orchestrators send ingested data to Azure Blob Storage or Azure Data Lake Storage. They organize the data within these stores based on characteristics like file extensions or customer details. You can use the following Azure services, either independently or in combination, for training documents and building custom models to address various use cases.
->>>>>>> ac72cc7871e0ab3dd73f7a21376e926c516697b4
 
    - [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio): If the document requires you to extract key-value pairs or create a custom table from an image or PDF, use Document Intelligence Studio to tag the data and train the custom model. If there's a requirement to identify the type of document, called *document classification*, before you invoke the correct extraction model, use Document Intelligent Studio to label the documents and build the models.
 
@@ -139,7 +137,6 @@ Reliability helps ensure that your application can meet the commitments that you
 - [Back up and recover your Document Intelligence models](/azure/ai-services/document-intelligence/how-to-guides/disaster-recovery).
 
 - Back up and recover your custom [text classification models](/azure/ai-services/language-service/custom-text-classification/fail-over) and [NER models](/azure/ai-services/language-service/custom-named-entity-recognition/fail-over) in Language.
-
 
 - Machine Learning depends on constituent services like Blob Storage, compute services, and AKS. To provide resiliency for Machine Learning, configure each of these services to be resilient. For more information, see [Failover for business continuity and disaster recovery (BCDR)](/azure/machine-learning/how-to-high-availability-machine-learning).
 
