@@ -277,7 +277,6 @@ Principal author:
 
 - [Unisys ClearPath MCP virtualization on Azure][Unisys ClearPath MCP virtualization on Azure]
 - [Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure][Virtualization of Unisys ClearPath Forward OS 2200 enterprise server on Azure]
-- [SMA OpCon in Azure][SMA OpCon in Azure]
 - [Mainframe rehosting on Azure virtual machines][Mainframe rehosting on Azure virtual machines]
 - Reference architectures:
 
@@ -321,7 +320,6 @@ Principal author:
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/
 [Unisys mainframe migration]: ../../reference-architectures/migration/unisys-mainframe-migration.yml
 [Optimize VM costs]: /azure/architecture/framework/cost/optimize-vm
-[SMA OpCon in Azure]: /azure/architecture/solution-ideas/articles/sma-opcon-azure
 [Unisys ClearPath MCP virtualization on Azure]: /azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost
 [Use auto-failover groups to enable transparent and coordinated failover of multiple databases]: /azure/azure-sql/database/auto-failover-group-overview
 [Virtualization of Unisys ClearPath Forward OS 2200 enterprise server on Azure]: /azure/architecture/mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure
