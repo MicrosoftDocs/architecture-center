@@ -271,7 +271,7 @@ In the **Virtual node usage** column:
 | `kubernetes.azure.com/vnet` | `<nodepool virtual network name>` | `vnetName` | Virtual node virtual network |
 | `kubernetes.azure.com/ppg` | `<nodepool ppg name>` | `ppgName` | N/A |
 | `kubernetes.azure.com/encrypted-set` | `<nodepool encrypted-set name>` | `encrypted-set-name` | N/A |
-| `kubernetes.azure.com/accelerator` | `<accelerator>` | `NVIDIA` | N/A |
+| `kubernetes.azure.com/accelerator` | `<accelerator>` | `nvidia` | N/A |
 | `kubernetes.azure.com/fips_enabled` | `<fips enabled>` | `True` | N/A |
 | `kubernetes.azure.com/os-sku` | `<os/sku>` | See [Create or update OS SKU](/rest/api/aks/agent-pools/create-or-update#ossku) | Linux SKU |
 
