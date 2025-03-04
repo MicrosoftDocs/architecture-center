@@ -82,7 +82,7 @@ You can add more workflows to this scenario based on specific use cases.
 
 - Use preprocessing code to perform text processing steps. These steps include cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data according to document processing requirements. You can expose the code as REST APIs for automation. Manually complete or automate these steps by integrating with the [Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
 
-- You can use [Azure AI Foundry portal](/azure/ai-studio/what-is-ai-studio) to [fine-tune and deploy foundation models](/azure/ai-studio/concepts/fine-tuning-overview), excluding Azure OpenAI models. It also enables you to build generative AI applications. Because there's overlap between Machine Learning and Azure AI Foundry, you must [evaluate their capabilities](/ai/ai-studio-experiences-overview) and choose the best platform for your scenario.
+- You can use [Azure AI Foundry portal](/azure/ai-studio/what-is-ai-studio) to [fine-tune and deploy foundation models](/azure/ai-studio/concepts/fine-tuning-overview). It also enables you to build generative AI applications. Because there's overlap between Machine Learning and Azure AI Foundry, you must [evaluate their capabilities](/ai/ai-studio-experiences-overview) and choose the best platform for your scenario.
 
 - You can use [Azure AI Content Understanding](/azure/ai-services/content-understanding/overview) to create a [custom analyzer](/azure/ai-services/content-understanding/quickstart/use-rest-api?tabs=document) by defining a field schema for extracting structured data from the document.
 
