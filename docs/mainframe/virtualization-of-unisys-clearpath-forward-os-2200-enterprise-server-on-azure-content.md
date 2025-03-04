@@ -126,7 +126,6 @@ For more information, contact [**legacy2azure@microsoft.com**](mailto:legacy2azu
 - [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface)
 - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
 - [Mainframe rehosting on Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
-- [SMA OpCon in Azure](/azure/architecture/solution-ideas/articles/sma-opcon-azure)
 - [Unisys CloudForte for Azure in Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/unisys-azuremp-stealth.cloudforte_for_azure?tab=Overview)
 - [Unisys cloud management](https://www.unisys.com/solutions/cloud-management)
 - [Unisys CPF MCP mainframe rehost to Azure using Unisys virtualization](/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost)
