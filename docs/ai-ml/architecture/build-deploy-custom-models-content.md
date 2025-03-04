@@ -3,7 +3,7 @@ This article describes Azure solutions for building, training, deploying, and us
 ## Architecture
 
 :::image type="complex" border="false" source="_images/build-deploy-custom-models.svg" alt-text="Diagram that shows several alternatives for a custom document processing model build and deployment process." lightbox="_images/build-deploy-custom-models.svg":::
-  Diagram that shows several alternatives for a custom document processing model build and deployment process. This dataflow begins with orchestrators, such as Azure Logic Apps, Azure Functions, or Azure Data Factory, that ingest messages, email attachments, and files from sources like email servers, FTP servers, or web applications. The data is then stored in Azure Blob Storage or Azure Data Lake Storage and organized by attributes such as file extensions or customer details. Next, it's used to train custom models with tools like Document Intelligence Studio for extracting key-value pairs or classifying documents, Language Studio for custom text classification and named entity recognition (NER), Azure Machine Learning for advanced workflows with frameworks like PyTorch or TensorFlow, or Azure OpenAI Service for fine-tuning models for tasks like summarization or Q&A. Lastly, the trained models are deployed for inferencing by using SDKs, REST APIs, managed endpoints, or Azure Kubernetes Service, with support for real-time and batch inferencing.
+  Diagram that shows several alternatives for a custom document processing model build and deployment process. This dataflow begins with orchestrators, such as Azure Logic Apps, Azure Functions, or Azure Data Factory. These orchestrators ingest messages, email attachments, and files from sources like email servers, FTP servers, or web applications. The data is then stored in Azure Blob Storage or Azure Data Lake Storage and organized by attributes such as file extensions or customer details. Next, it's used to train custom models with tools like Document Intelligence Studio for extracting key-value pairs or classifying documents, Language Studio for custom text classification and named entity recognition (NER), Azure Machine Learning for advanced workflows with frameworks like PyTorch or TensorFlow, or Azure OpenAI Service for fine-tuning models for tasks like summarization or Q&A. Lastly, the trained models are deployed for inferencing by using SDKs, REST APIs, managed endpoints, or Azure Kubernetes Service, with support for real-time and batch inferencing.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/build-deploy-custom-models.vsdx) of this architecture.*
@@ -138,7 +138,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 - Machine Learning depends on constituent services like Blob Storage, compute services, and AKS. To provide resiliency for Machine Learning, configure each of these services to be resilient. For more information, see [Failover for business continuity and disaster recovery (BCDR)](/azure/machine-learning/how-to-high-availability-machine-learning).
 
-- For Azure OpenAI, help ensure continuous availability by provisioning two or more Azure OpenAI resources in different regions. This approach allows failover to another region in case of a problem. For more information, see [BCDR with Azure OpenAI](/azure/ai-services/openai/how-to/business-continuity-disaster-recovery).
+- For Azure OpenAI, help ensure continuous availability by provisioning two or more Azure OpenAI resources in different regions. This approach allows failover to another region if there's a problem. For more information, see [BCDR with Azure OpenAI](/azure/ai-services/openai/how-to/business-continuity-disaster-recovery).
 
 ### Security
 
@@ -156,7 +156,7 @@ The major costs for this solution include:
 
 - The compute cost to train and deploy Machine Learning models.
 
-    Choose the right node type, cluster size, and number of nodes to help optimize costs. For training, Machine Learning provides the options to set the minimum number of compute cluster nodes to zero and to set the idle time before scaling down. For more information, see [Manage and optimize Machine Learning costs](/azure/machine-learning/how-to-manage-optimize-cost).
+    Choose the right node type, cluster size, and number of nodes to help optimize costs. Machine Learning provides options for training, such as setting the minimum number of compute cluster nodes to zero and defining the idle time before scaling down. For more information, see [Manage and optimize Machine Learning costs](/azure/machine-learning/how-to-manage-optimize-cost).
 
 - Data orchestration duration and activities. For Azure Data Factory, the charges for copy activities on the Azure integration runtime are based on the number of data integration units used and the time taken to perform the activities. Added orchestration activity runs are also charged, based on their number.
 
