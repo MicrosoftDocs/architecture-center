@@ -2,7 +2,7 @@ This article describes an architecture for many models that uses Azure Machine L
 
 ## Architecture
 
-:::image type="complex" border="false" source="_images/many-models-machine-learning-azure.png" alt-text="Diagram that shows the many models architecture." lightbox="_images/many-models-machine-learning-azure.png":::
+:::image type="complex" border="false" source="_images/many-models-machine-learning-azure.svg" alt-text="Diagram that shows the many models architecture." lightbox="_images/many-models-machine-learning-azure.svg":::
    This diagram illustrates the many models architecture. It starts with data ingestion, where Azure Data Factory transfers data to Azure Data Lake Storage and stores it in a Machine Learning data store as a tabular dataset. The model-training pipeline prepares and groups data into datasets to train multiple models in parallel, then registers them and their metrics. The model-promotion pipeline evaluates models and registers those that meet the criteria for deployment. The batch-scoring pipeline scores datasets in parallel and writes results to Data Lake Storage, with real-time scoring handled through a managed online endpoint. Predictions and metrics are saved in Synapse SQL, where Power BI retrieves them for presentation.
 :::image-end:::
 
@@ -80,7 +80,7 @@ The following dataflow corresponds to the previous diagram:
 
 ### Components  
 
-- [Azure Data Factory](/azure/well-architected/service-guides/azure-machine-learning) is a cloud-based data integration service that allows the creation of data-driven workflows for orchestrating and automating data movement and transformation. In this architecture, Azure Data Factory ingests enterprise data and third-party metadata into Data Lake Storage.
+- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that allows the creation of data-driven workflows for orchestrating and automating data movement and transformation. In this architecture, Azure Data Factory ingests enterprise data and third-party metadata into Data Lake Storage.
 
 - [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a set of developer services that provide comprehensive application and infrastructure lifecycle management. It includes tools for continuous integration and continuous delivery (CI/CD) pipelines, work tracking, source control, build pipelines, package management, and testing solutions. In this architecture, Azure DevOps is used to manage CI/CD pipelines for automating model promotion, testing, and deployment to production environments.
 
@@ -146,7 +146,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Cost Optimization
 
-Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 To better understand the cost to run this scenario on Azure, use the [pricing calculator](https://azure.microsoft.com/pricing/calculator). You should assume that:
 
@@ -176,7 +176,7 @@ Principal author:
 - [Many models solution accelerator GitHub repository](https://github.com/microsoft/solution-accelerator-many-models#many-models-solution-accelerator)
 - [ParallelRunStep class](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py)
 - [DataTransferStep class](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep)
-- [Connect to storage services on Azure](/azure/machine-learning/how-to-access-data)
+- [Create datastores](/azure/machine-learning/how-to-datastore)
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 - [Deploy a model to an AKS cluster](/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python)
 
