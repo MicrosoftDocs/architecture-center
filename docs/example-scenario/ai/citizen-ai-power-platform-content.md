@@ -29,12 +29,15 @@ Use [Azure Synapse Pipelines](/azure/data-factory/concepts-pipelines-activities)
     [Azure Synapse Pipelines](/azure/data-factory/concepts-pipelines-activities?tabs=data-factory) can be triggered based on a predefined schedule or in response to an event. They can also be invoked by calling REST APIs.
 
 #### Store
+
 Ingested data can land directly in raw format and then be transformed on the [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction). Data once curated and transformed to relational structures can be presented for consumption in [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is).
 
 #### Train and deploy a model
+
 [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) provides an enterprise-grade ML service for building and deploying models faster. It provides users at all skill levels with a low-code designer, automated ML, and a hosted Jupyter notebook environment. Models can be deployed either as real-time endpoints on [Azure Kubernetes Service or as a Machine Learning managed endpoint](/azure/machine-learning/concept-endpoints). For batch inferencing of ML models, you can use [Machine Learning pipelines](/azure/machine-learning/concept-ml-pipelines).
 
 #### Consume
+
 A batch or real-time model published in Machine Learning can generate a REST endpoint that can be consumed in a [custom application built by using the low-code Power Apps platform](/connectors/custom-connectors/use-custom-connector-powerapps). You can also call a [real-time Machine Learning endpoint from a Power BI report](/power-bi/connect-data/service-aml-integrate) to present predictions in business reports.
 
 > [!NOTE]
@@ -47,15 +50,17 @@ You can use the following components.
 #### Microsoft Power Platform services
 
 - [Power Platform](/power-platform): A set of tools for analyzing data, building solutions, automating processes, and creating virtual agents. It includes Power Apps, Power Automate, Power BI, and Microsoft Copilot Studio (formerly Power Virtual Agents). Together these AI powered, low-code tools will be used to develop the user experience and integration with data sources.
-- [Power Apps](/power-apps/powerapps-overview): A suite of apps, services, connectors, and data platform. It provides a rapid application development environment to build custom apps for your business needs. The low-code design environment is used to develop the user interface, collecting inputs from the user and presenting prediction outputs. 
-- [Power Automate](/power-automate/getting-started): A service that helps you create automated workflows between your favorite apps and services. Use it to synchronize files, get notifications, collect data, and so on. The workflow uses inputs from the user interface to execute ML activities such as predictions and return these for display in the Power App
+- [Power Apps](/power-apps/powerapps-overview): A suite of apps, services, connectors, and data platform. It provides a rapid application development environment to build custom apps for your business needs. The low-code design environment is used to develop the user interface, collecting inputs from the user and presenting prediction outputs.
+- [Power Automate](/power-automate/getting-started): A service that helps you create automated workflows between your favorite apps and services. Use it to synchronize files, get notifications, collect data, and so on. The workflow uses inputs from the user interface to execute ML activities such as predictions and return these for display in the Power App.
 - [Power BI](/power-bi/fundamentals/power-bi-overview): A collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights. It provides a highly proficient environment to design reports and dashboard and present them to the end user.
 
 #### Azure services
 
 - [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning): An enterprise-grade ML service for building and deploying models quickly. It provides users at all skill levels with a low-code designer, automated ML, and a hosted Jupyter notebook environment to develop machine learning models.
 - [Machine Learning managed endpoints](/azure/machine-learning/how-to-deploy-managed-online-endpoints): Online endpoints that enable you to deploy your model without having to create and manage the underlying infrastructure. The hosted endpoint is used by applications such as a Power App for interactive predictions.
-- [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction): A Hadoop-compatible file system with an integrated hierarchical namespace and the massive scale and economy of Azure Blob Storage. It provides the storage layer for data use in the process of training a machine learning model
+
+- [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction): A Hadoop-compatible file system with an integrated hierarchical namespace and the massive scale and economy of Azure Blob Storage. It provides the storage layer for data use in the process of training machine learning models.
+
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is): A limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. This integrated capability is used to store and transform data using in the machine learning and report creation activities.
 - [Event Hubs](/azure/well-architected/service-guides/event-hubs) and [IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub): Both services ingest data streams generated by client applications or IoT devices. They then ingest and store streaming data, preserving the sequence of events received. Consumers can connect to the hub endpoints to retrieve messages for processing.
 
