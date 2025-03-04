@@ -1,4 +1,4 @@
-This article describes Azure solutions for building, training, deploying, and using custom document processing models. These Azure services also provide user interface (UI) capabilities to do labeling or tagging for text processing.
+This article describes Azure solutions for building, training, deploying, and using custom document processing models. These Azure services also provide user interface (UI) capabilities for labeling or tagging text during processing.
 
 ## Architecture
 
@@ -12,19 +12,19 @@ This article describes Azure solutions for building, training, deploying, and us
 
 The following dataflow corresponds to the previous diagram:
 
-1. Orchestrators like Azure Logic Apps, Azure Data Factory, or Azure Functions ingest messages and attachments from email servers and files from FTP servers or web applications.
+1. Orchestrators like Azure Logic Apps, Azure Data Factory, or Azure Functions ingest messages and attachments from email servers and files from file transfer protocol servers or web applications.
 
    - Functions and Logic Apps enable serverless workloads. The service that you choose depends on your preference for service capabilities like development, connectors, management, and operational context. For more information, see [Compare Functions and Logic Apps](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps).
 
    - Consider using Azure Data Factory to move data in bulk.
 
-1. The orchestrators send ingested data to Azure Blob Storage or Azure Data Lake Storage. They organize the data within these stores based on characteristics like file extensions or customer details. The different services that you can use for training documents and building custom models on Azure independently or in various combinations to address different use cases are:
+1. The orchestrators send ingested data to Azure Blob Storage or Azure Data Lake Storage. They organize the data within these stores based on characteristics like file extensions or customer details. You can use the following Azure services for training documents and building custom models, either independently or in combination, to address various use cases.
 
    - [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio): If the document requires you to extract key-value pairs or create a custom table from an image or PDF, use Document Intelligence Studio to tag the data and train the custom model. If there's a requirement to identify the type of document, called *document classification*, before you invoke the correct extraction model, use Document Intelligent Studio to label the documents and build the models.
 
    - [Language Studio](https://aka.ms/languageStudio): For document classification based on content, or for domain-specific entity extraction, you can train a custom text classification or named entity recognition (NER) model in Language Studio.
 
-   - [Azure Machine Learning studio](https://ml.azure.com/): If you want to label data for text classification or entity extraction that you can use with open-source frameworks like PyTorch or TensorFlow, use [Machine Learning studio](/azure/machine-learning/how-to-train-with-ui) or [Python SDK, Azure CLI, or REST API](/azure/machine-learning/how-to-train-model). Machine Learning studio provides a [model catalog](/azure/machine-learning/concept-model-catalog) of foundation models. These foundation models have fine-tuning capabilities for various tasks like text classification, question answering, and summarization. To fine-tune foundation models, use [Machine Learning studio UI](/azure/machine-learning/how-to-use-foundation-models) or [code](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune).
+   - [Azure Machine Learning studio](https://ml.azure.com/): For labeling data for text classification or entity extraction to use with open-source frameworks like PyTorch or TensorFlow, use [Machine Learning studio](/azure/machine-learning/how-to-train-with-ui) or [Python SDK, Azure CLI, or REST API](/azure/machine-learning/how-to-train-model). Machine Learning studio provides a [model catalog](/azure/machine-learning/concept-model-catalog) of foundation models. These foundation models have fine-tuning capabilities for various tasks like text classification, question answering, and summarization. To fine-tune foundation models, use [Machine Learning studio UI](/azure/machine-learning/how-to-use-foundation-models) or [code](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune).
 
    - [Azure OpenAI Service](/azure/ai-services/openai/concepts/fine-tuning-considerations): To [fine-tune Azure OpenAI models](/azure/ai-services/openai/how-to/fine-tuning) on your own data or domain for various tasks like text summarization and question answering, use [Azure AI Foundry portal](https://ai.azure.com/), [Python SDK](/azure/ai-services/openai/how-to/fine-tuning), or [REST API](/azure/ai-services/openai/how-to/fine-tuning).
 
@@ -48,11 +48,11 @@ The following dataflow corresponds to the previous diagram:
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is the object storage solution for raw files in this scenario. Blob Storage supports libraries for multiple languages, such as .NET, Node.js, and Python. Applications can access files on Blob Storage via HTTP or HTTPS. Blob Storage has [hot, cool, and archive access tiers](/azure/storage/blobs/access-tiers-overview) to support cost optimization for storing large amounts of data.
 
-- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a set of capabilities built on Blob Storage for big data analytics. Data Lake Storage maintains the cost effectiveness of Blob Storage and provides features like file-level security and file system semantics with hierarchical a namespace.
+- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a set of capabilities built on Blob Storage for big data analytics. Data Lake Storage maintains the cost effectiveness of Blob Storage and provides features like file-level security and file system semantics with a hierarchical namespace.
 
-- [Document Intelligence](/azure/ai-services/document-intelligence/overview) is part of [Azure AI services](/azure/ai-services/what-are-ai-services). Document Intelligence has built-in document analysis capabilities that you can use to extract printed and handwritten text, tables, and key-value pairs. Document Intelligence has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Document Intelligence also has a [custom template](/azure/applied-ai-services/form-recognizer/concept-custom-template) form model and a [custom neural](/azure/applied-ai-services/form-recognizer/concept-custom-neural) document model that you can use to train and deploy custom models. 
+- [Document Intelligence](/azure/ai-services/document-intelligence/overview) is a component of [Azure AI services](/azure/ai-services/what-are-ai-services). Document Intelligence has built-in document analysis capabilities for extracting printed and handwritten text, tables, and key-value pairs. Document Intelligence has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Document Intelligence also has a [custom template](/azure/applied-ai-services/form-recognizer/concept-custom-template) form model and a [custom neural](/azure/applied-ai-services/form-recognizer/concept-custom-neural) document model that you can use to train and deploy custom models.
 
-- [Document Intelligence Studio](/azure/ai-services/document-intelligence/studio-overview) provides a UI that you can use to explore Document Intelligence features and models, and to build, tag, train, and deploy custom models.
+- [Document Intelligence Studio](/azure/ai-services/document-intelligence/studio-overview) provides an interface to explore its features and models. It also enables you to build, tag, train, and deploy custom models.
 
 - [Azure AI Language](/azure/ai-services/language-service/overview) consolidates the Azure natural language processing (NLP) services. The suite provides prebuilt and customizable options. For more information, see [What is Language?](/azure/ai-services/language-service/overview#available-features).
 
@@ -64,7 +64,7 @@ The following dataflow corresponds to the previous diagram:
 
   - [Export labeled data](/azure/machine-learning/how-to-use-labeled-dataset#export-data-labels) as [COCO](https://cocodataset.org) or Machine Learning datasets. You can use these datasets to train and deploy models in Machine Learning notebooks.
 
-- [Azure OpenAI](/azure/ai-services/openai/overview) provides powerful [language models and multimodal models](/azure/ai-services/openai/concepts/models) as REST APIs which you can use to perform various tasks. [Specific models can be fine-tuned](/azure/ai-services/openai/concepts/models#fine-tuning-models) to improve the model performance on data that was missing or underrepresented when the base model was originally trained.
+- [Azure OpenAI](/azure/ai-services/openai/overview) provides powerful [language models and multimodal models](/azure/ai-services/openai/concepts/models) as REST APIs that you can use to perform various tasks. [Specific models can be fine-tuned](/azure/ai-services/openai/concepts/models#fine-tuning-models) to improve the model performance on data that was missing or underrepresented when the base model was originally trained.
 
 ### Alternatives
 
@@ -76,7 +76,7 @@ You can add more workflows to this scenario based on specific use cases.
 
 - Use preprocessing code to perform text processing steps. These steps include cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data according to document processing requirements. You can expose the code as REST APIs for automation. Manually complete or automate these steps by integrating with the [Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
 
-- You can use [Azure AI Foundry portal](/azure/ai-studio/what-is-ai-studio) to [fine-tune and deploy foundation models](/azure/ai-studio/concepts/fine-tuning-overview), excluding Azure OpenAI models, and build generative AI applications. Because there's overlap between Machine Learning and Azure AI Foundry, you must [evaluate their capabilities](/ai/ai-studio-experiences-overview) and choose the best platform for your scenario.
+- You can use [Azure AI Foundry portal](/azure/ai-studio/what-is-ai-studio) to [fine-tune and deploy foundation models](/azure/ai-studio/concepts/fine-tuning-overview), excluding Azure OpenAI models. It also enables you to build generative AI applications. Because there's overlap between Machine Learning and Azure AI Foundry, you must [evaluate their capabilities](/ai/ai-studio-experiences-overview) and choose the best platform for your scenario.
 
 - You can use [Azure AI Content Understanding](/azure/ai-services/content-understanding/overview) to create a [custom analyzer](/azure/ai-services/content-understanding/quickstart/use-rest-api?tabs=document) by defining a field schema for extracting structured data from the document.
 
@@ -98,7 +98,7 @@ The following use cases can take advantage of custom models for document process
 
 - Build custom NER and text classification models based on open-source frameworks.
 
-- Extract custom key-values from documents for various industry verticals like insurance and healthcare.
+- Extract custom key values from documents for various industry verticals like insurance and healthcare.
 
 - Tag and extract specific domain-dependent entities beyond the [prebuilt NER models](/azure/cognitive-services/luis/luis-concept-prebuilt-model) for domains like security or finance.
 
@@ -144,7 +144,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Implement data protection, identity and access management, and network security recommendations for [Blob Storage](/azure/storage/blobs/security-recommendations), [AI Services](/security/benchmark/azure/baselines/cognitive-services-security-baseline) for Document Intelligence and Language Studio, [Machine Learning](/security/benchmark/azure/baselines/machine-learning-security-baseline) and [Azure OpenAI](/security/benchmark/azure/baselines/azure-openai-security-baseline).
+Implement data protection, identity and access management, and network security recommendations for [Blob Storage](/azure/storage/blobs/security-recommendations), [AI Services](/security/benchmark/azure/baselines/cognitive-services-security-baseline) for Document Intelligence and Language Studio, [Machine Learning](/security/benchmark/azure/baselines/machine-learning-security-baseline), and [Azure OpenAI](/security/benchmark/azure/baselines/azure-openai-security-baseline).
 
 ### Cost Optimization
 
@@ -156,7 +156,7 @@ The major costs for this solution include:
 
 - The compute cost to train and deploy Machine Learning models.
 
-    Choose the right node type, cluster size, and number of nodes to help optimize costs. Machine Learning provides options for training, such as setting the minimum number of compute cluster nodes to zero and defining the idle time before scaling down. For more information, see [Manage and optimize Machine Learning costs](/azure/machine-learning/how-to-manage-optimize-cost).
+    To help optimize costs, choose the right node type, cluster size, and number of nodes. Machine Learning provides options for training, such as setting the minimum number of compute cluster nodes to zero and defining the idle time before scaling down. For more information, see [Manage and optimize Machine Learning costs](/azure/machine-learning/how-to-manage-optimize-cost).
 
 - Data orchestration duration and activities. For Azure Data Factory, the charges for copy activities on the Azure integration runtime are based on the number of data integration units used and the time taken to perform the activities. Added orchestration activity runs are also charged, based on their number.
 
