@@ -18,7 +18,9 @@ The following dataflow corresponds to the previous diagram:
 
    - Consider using Azure Data Factory to move data in bulk.
 
-1. The orchestrators send ingested data to Azure Blob Storage or Azure Data Lake Storage. They organize the data within these stores based on characteristics like file extensions or customer details. You can use the following Azure services for training documents and building custom models, either independently or in combination, to address various use cases.
+1. The orchestrators send ingested data to Azure Blob Storage or Azure Data Lake Storage. They organize the data within these stores based on characteristics like file extensions or customer details.
+
+1. You can use the following Azure services for training documents and building custom models, either independently or in combination, to address various use cases.
 
    - [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio): If the document requires you to extract key-value pairs or create a custom table from an image or PDF, use Document Intelligence Studio to tag the data and train the custom model. If there's a requirement to identify the type of document, called *document classification*, before you invoke the correct extraction model, use Document Intelligent Studio to label the documents and build the models.
 
@@ -32,9 +34,9 @@ The following dataflow corresponds to the previous diagram:
 
    - Azure AI Document Intelligence has built-in model deployment. [Use Document Intelligence SDKs or REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api) to apply custom models for inferencing. Include the [model ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) or [custom model name](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) in the Document Intelligence request URL, depending on the API version. Document Intelligence doesn't require any further deployment steps.
 
-   - Language Studio provides an option to deploy custom language models. Get the REST endpoint [prediction URL](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api) by selecting the model for deployment. You can inference models by using either the REST endpoint or the [Azure SDK client libraries](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api).
+   - Language Studio provides an option to deploy custom language models. Get the REST endpoint [prediction URL](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api) by selecting the model for deployment. You can inference models by using either the REST endpoint or the Azure SDK client libraries.
 
-   - Machine Learning deploys custom models to online or batch [Machine Learning managed endpoints](/azure/machine-learning/concept-endpoints). You can also use the Machine Learning SDK to [deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service) as a web service. Fine-tuned foundation models can be deployed from the model catalog via managed compute or a [serverless API](/azure/machine-learning/how-to-deploy-models-serverless). Models deployed through managed compute can be inferenced by using [managed endpoints](/azure/machine-learning/concept-endpoints), which include online endpoints for real-time inferencing and batch endpoints for batch inferencing.
+   - Machine Learning deploys custom models to online or batch [Machine Learning managed endpoints](/azure/machine-learning/concept-endpoints). You can also use the Machine Learning SDK to [deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service) as a web service. Fine-tuned foundation models can be deployed from the model catalog via managed compute or a [serverless API](/azure/machine-learning/how-to-deploy-models-serverless). Models deployed through managed compute can be inferenced by using managed endpoints, which include online endpoints for real-time inferencing and batch endpoints for batch inferencing.
 
    - Azure AI Foundry provides options to [deploy fine-tuned Azure OpenAI models](/azure/ai-services/openai/how-to/fine-tuning). You can also deploy fine-tuned Azure OpenAI models by using the Python SDK or REST API.
 
@@ -44,7 +46,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Azure Data Factory](/azure/data-factory/introduction) is a managed cloud extract, transform, and load service for data integration and transformation. Azure Data Factory can add [transformation activities](/azure/data-factory/transform-data) to a pipeline that include invoking a REST endpoint or running a notebook on the ingested data.
 
-- [Functions](/azure/azure-functions/functions-overview) is a serverless compute service that can host event-driven workloads that have short-lived processes.
+- [Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute service that can host event-driven workloads that have short-lived processes.
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is the object storage solution for raw files in this scenario. Blob Storage supports libraries for multiple languages, such as .NET, Node.js, and Python. Applications can access files on Blob Storage via HTTP or HTTPS. Blob Storage has [hot, cool, and archive access tiers](/azure/storage/blobs/access-tiers-overview) to support cost optimization for storing large amounts of data.
 
@@ -56,7 +58,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Azure AI Language](/azure/ai-services/language-service/overview) consolidates the Azure natural language processing (NLP) services. The suite provides [prebuilt and customizable options](/azure/ai-services/language-service/overview#available-features).
 
-- [Language Studio](/azure/ai-services/language-service/language-studio) provides a UI that you can use to explore and analyze Language features. It also provides options for building, tagging, training, and deploying custom models.
+- [Language Studio](/azure/ai-services/language-service/overview) provides a UI that you can use to explore and analyze Language features. It also provides options for building, tagging, training, and deploying custom models.
 
 - [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed machine learning platform for model development and deployment at scale.
 
@@ -190,7 +192,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 - For Machine Learning custom models hosted as web services on AKS, the [azureml-fe](/azure/machine-learning/how-to-deploy-azure-kubernetes-service) front-end component automatically scales as needed. This component also routes incoming inference requests to deployed services.
 
-- For deployments as managed endpoints, support [autoscaling](/azure/machine-learning/concept-endpoints#autoscaling) by integrating with the [Azure Monitor autoscale feature](/azure/azure-monitor/autoscale/autoscale-overview).
+- For deployments as managed endpoints, support autoscaling by integrating with the [Azure Monitor autoscale feature](/azure/azure-monitor/autoscale/autoscale-overview). For more information, see [Endpoints for inference in production](/azure/machine-learning/concept-endpoints).
 
 - The API service limits on [custom NER](/azure/cognitive-services/language-service/custom-named-entity-recognition/service-limits#api-limits) and [custom text classification](/azure/cognitive-services/language-service/custom-classification/service-limits#api-limits) for inferencing are 20 GET or POST requests per minute.
 
@@ -208,12 +210,12 @@ Principal author:
 
 - [Get started with custom projects in Document Intelligence Studio](/azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio)
 - [Use Document Intelligence models](/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api)
-- [Quickstart: Get started with Language Studio](/azure/cognitive-services/language-service/language-studio)
+- [What is Azure AI Language?](/azure/ai-services/language-service/overview)
 - [What is optical character recognition?](/azure/cognitive-services/computer-vision/overview-ocr)
 - [How to configure Functions with a virtual network](/azure/azure-functions/configure-networking-how-to)
 
 ## Related resources
 
 - [Extract text from objects by using Power Automate and AI Builder](../../example-scenario/ai/extract-object-text.yml)
-- [Suggest content tags with NLP by using deep learning](../../solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
+- [Suggest content tags with NLP by using deep learning](../../data-guide/technology-choices/natural-language-processing.md)
 - [Automate document processing by using Document Intelligence](../../example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)

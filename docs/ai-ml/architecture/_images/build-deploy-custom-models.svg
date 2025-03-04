@@ -220,7 +220,7 @@
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(9000):26"/>
 			</v:userDefs>
 			<title>App Services.195</title>
-			<desc>Web Apps</desc>
+			<desc>Web apps</desc>
 			<g id="group119-12" v:mID="119" v:groupContext="group">
 				<v:userDefs>
 					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
@@ -322,7 +322,7 @@
 			<g id="shape118-44" v:mID="118" v:groupContext="groupContent">
 				<v:textBlock v:margins="rect(0,0,0,0)"/>
 				<v:textRect cx="21.4733" cy="429.602" width="85.9" height="13.2037"/>
-				<text x="-3.63" y="432.9" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Web Apps</text>			</g>
+				<text x="-2.88" y="432.9" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Web apps</text>			</g>
 		</g>
 		<g id="group131-46" transform="translate(328.313,-310.38)" v:mID="131" v:groupContext="group">
 			<v:userDefs>
@@ -695,13 +695,13 @@
 		</g>
 		<g id="shape179-146" v:mID="179" v:groupContext="shape" transform="translate(286.13,-140.894)">
 			<title>Function Apps.1128</title>
-			<desc>Function Apps</desc>
+			<desc>Azure Functions</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(15000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)"/>
 			<v:textRect cx="56.7915" cy="429.602" width="113.59" height="13.2037"/>
-			<text x="21.95" y="432.9" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Function Apps</text>		</g>
+			<text x="18.03" y="432.9" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Functions</text>		</g>
 		<g id="shape186-148" v:mID="186" v:groupContext="shape" v:layerMember="0" transform="translate(226.869,-221.66)">
 			<title>Dynamic connector</title>
 			<v:userDefs>
@@ -1231,12 +1231,12 @@
 			</g>
 			<g id="shape1082-320" v:mID="1082" v:groupContext="shape" transform="translate(-8.37881,0.5)">
 				<title>Sheet.1082</title>
-				<desc>Machine Learning Studio</desc>
+				<desc>Machine Learning studio</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="56.7915" cy="405" width="113.59" height="36"/>
 				<rect x="0" y="387" width="113.583" height="36" class="st30"/>
 				<text x="13.6" y="401.7" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Machine Learning <tspan
-							x="41.1" dy="1.2em" class="st20">Studio</tspan></text>			</g>
+							x="41.69" dy="1.2em" class="st20">studio</tspan></text>			</g>
 		</g>
 		<g id="group1086-324" transform="translate(837.634,-288.146)" v:mID="1086" v:groupContext="group">
 			<v:userDefs>
@@ -1411,22 +1411,23 @@
 								 0 0 13.77 421.99 A21.5327 21.5327 -180 0 0 6.88 421 Z" class="st41"/>
 				</g>
 			</g>
-			<g id="shape1102-377" v:mID="1102" v:groupContext="shape">
+			<g id="shape1102-377" v:mID="1102" v:groupContext="shape" transform="translate(0,7.4233)">
 				<title>Sheet.1102</title>
-				<desc>Data Factory</desc>
+				<desc>Azure Data Factory</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="36" cy="410.478" width="72" height="25.044"/>
 				<rect x="0" y="397.956" width="72" height="25.044" class="st30"/>
-				<text x="5.49" y="413.78" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Data Factory</text>			</g>
+				<text x="9.24" y="407.18" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Data <tspan
+							x="18.32" dy="1.2em" class="st20">Factory</tspan></text>			</g>
 		</g>
-		<g id="shape1104-380" v:mID="1104" v:groupContext="shape" transform="translate(554.36,28.06)">
+		<g id="shape1104-381" v:mID="1104" v:groupContext="shape" transform="translate(554.36,28.06)">
 			<title>Sheet.1104</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(39000):26"/>
 			</v:userDefs>
 			<rect x="0" y="403" width="152" height="20" class="st30"/>
 		</g>
-		<g id="group1105-382" transform="translate(143.077,-301.5)" v:mID="1105" v:groupContext="group">
+		<g id="group1105-383" transform="translate(143.077,-301.5)" v:mID="1105" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
 				<v:ud v:nameU="ShapeClass" v:prompt="" v:val="VT0(5):26"/>
@@ -1436,21 +1437,21 @@
 			</v:userDefs>
 			<title>Mail server.1</title>
 			<desc>Email servers</desc>
-			<g id="shape1106-383" v:mID="1106" v:groupContext="shape" transform="translate(17.0934,-14.5981)">
+			<g id="shape1106-384" v:mID="1106" v:groupContext="shape" transform="translate(17.0934,-14.5981)">
 				<title>Sheet.1106</title>
 				<path d="M0 423 L18.09 423" class="st46"/>
 			</g>
-			<g id="shape1107-386" v:mID="1107" v:groupContext="shape" transform="translate(37.0353,-18.5295)">
+			<g id="shape1107-387" v:mID="1107" v:groupContext="shape" transform="translate(37.0353,-18.5295)">
 				<title>Sheet.1107</title>
 			</g>
-			<g id="shape1108-387" v:mID="1108" v:groupContext="shape" transform="translate(35.181,-12.2207)">
+			<g id="shape1108-388" v:mID="1108" v:groupContext="shape" transform="translate(35.181,-12.2207)">
 				<title>Sheet.1108</title>
 				<path d="M0.83 423 L18 423 L18 418.29 L0.83 418.29 L0.83 423 ZM18.04 419.18 L18.82 419.18 L18.82 422.12 L18.07 422.12
 							 L18.04 419.18 ZM0.84 422.12 L0 422.12 L0 419.18 L0.84 419.18 L0.84 422.12 Z" class="st47"/>
 				<path d="M0.83 423 L18 423 L18 418.29 L0.83 418.29 L0.83 423M18.04 419.18 L18.82 419.18 L18.82 422.12 L18.07 422.12M0.84
 							 422.12 L0 422.12 L0 419.18 L0.84 419.18" class="st46"/>
 			</g>
-			<g id="shape1109-390" v:mID="1109" v:groupContext="shape" transform="translate(2.71783E-13,-14.0618)">
+			<g id="shape1109-391" v:mID="1109" v:groupContext="shape" transform="translate(2.71783E-13,-14.0618)">
 				<title>Sheet.1109</title>
 				<path d="M0 417.08 L11.41 407 L0 397.12 L0 417.08 ZM0 417.08 L31.17 417.08 L19.67 406.99 L19.66 406.99 L17.79 408.61
 							 C17.75 408.64 17.71 408.67 17.67 408.7 C17.41 408.88 17.06 409 16.73 409 L16.71 409 L14.35 409 C14.3
@@ -1473,12 +1474,12 @@
 				<path d="M48.21 421.99 L52.13 421.99" class="st46"/>
 				<path d="M48.21 422.97 L52.13 422.97" class="st46"/>
 			</g>
-			<g id="shape1105-399" v:mID="1105" v:groupContext="groupContent">
+			<g id="shape1105-400" v:mID="1105" v:groupContext="groupContent">
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="27" cy="433.602" width="73.76" height="21.2037"/>
 				<text x="-4.37" y="436.9" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Email servers</text>			</g>
 		</g>
-		<g id="shape211-401" v:mID="211" v:groupContext="shape" transform="translate(1.29643,-3.25861)">
+		<g id="shape211-402" v:mID="211" v:groupContext="shape" transform="translate(1.29643,-3.25861)">
 			<title>Sheet.211</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(41000):26"/>
