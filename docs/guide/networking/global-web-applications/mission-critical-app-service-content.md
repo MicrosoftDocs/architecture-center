@@ -60,7 +60,7 @@ Regardless of the chosen application platform, it is recommended to prioritize t
 
 ## Choose the data platform
 
-The database platform you choose affects the overall workload architecture, especially the platform's active-active or active-passive configuration support. The reliable web app pattern uses Azure SQL, which doesn't natively support active-active deployments with write operations in more than one instance. So in this case the data platform is limited to an active-passive strategy. A (partial) active-active strategy on the application level is possible if there are read-only replicas in all regions and you write to a single region only.
+The database platform you choose affects the overall workload architecture, especially the platform's active-active or active-passive configuration support. The reliable web app pattern uses Azure SQL, which doesn't natively support active-active deployments with write operations in more than one instance. In this configuration, the data platform is limited to an active-passive strategy. A (partial) active-active strategy on the application level is possible if there are read-only replicas in all regions and you only write to a single region.
 
 :::image type="content" source="./media/mission-critical-web-apps/data-replication-architecture.svg" alt-text="A diagram that shows the architecture with SQL Database replicated in each region." lightbox="./media/mission-critical-web-apps/data-replication-architecture.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-webapp-pattern1.vsdx) of this architecture.*
