@@ -27,7 +27,7 @@ This article describes how to use Precisely Connect to migrate mainframe and mid
 - [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) enables you to create virtual network gateways that send encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that synchronizes with on-premises Active Directory.
 
-#### Storage
+#### Database and Storage
 
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is part of the Azure SQL family. It's built for the cloud and provides all the benefits of a fully managed and evergreen platform as a service (PaaS). SQL Database also provides AI-powered automated features that optimize performance and durability. Serverless compute and Hyperscale storage options automatically scale resources on demand.
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service that's based on the community edition of the open-source PostgreSQL database engine.
@@ -36,11 +36,9 @@ This article describes how to use Precisely Connect to migrate mainframe and mid
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a fast and flexible cloud data warehouse that helps you scale, compute, and store elastically and independently, with a massively parallel processing architecture.
 - [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a cloud storage solution that includes object, file, disk, queue, and table storage. Services include hybrid storage solutions and tools for transferring, sharing, and backing up data.
 
-#### Analysis and reporting
+#### Analysis and monitoring
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a suite of business analytics tools that can deliver insights throughout your organization. By using Power BI, you can connect to hundreds of data sources, simplify data preparation, and drive ad hoc analysis.
-
-#### Monitoring
 
 - [Azure Monitor](/azure/azure-monitor/overview) provides a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. Features include Application Insights, Azure Monitor Logs, and Log Analytics.
 
