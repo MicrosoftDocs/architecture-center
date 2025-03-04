@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Many Models Machine Learning with Azure Machine Learning
-  titleSuffix: Azure Example Scenarios
   description: Many machine learning problems are too complex for a single machine learning model to solve. Learn about many models machine learning at scale with Azure Machine Learning.
   author: james-tn
   ms.author: janguy

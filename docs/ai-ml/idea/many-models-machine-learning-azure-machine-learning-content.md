@@ -3,12 +3,12 @@ This article describes an architecture for many models that uses Azure Machine L
 ## Architecture
 
 :::image type="complex" border="false" source="_images/many-models-machine-learning-azure.png" alt-text="Diagram that shows the many models architecture." lightbox="_images/many-models-machine-learning-azure.png":::
-   This diagram illustrates the many models architecture. It starts with data ingestion, where Azure Data Factory transfers data to Azure Data Lake Storage and stores it in a Machine Learning data store as a tabular dataset. The model-training pipeline prepares and groups data into datasets to train multiple models in parallel, then registers them and their metrics. The model-promotion pipeline evaluates models and registers those meeting criteria for deployment. The batch-scoring pipeline scores datasets in parallel and writes results to Azure Data Lake, with real-time scoring handled through a managed online endpoint. Predictions and metrics are saved in Synapse SQL, where Microsoft Power BI retrieves them for presentation.
+   This diagram illustrates the many models architecture. It starts with data ingestion, where Azure Data Factory transfers data to Azure Data Lake Storage and stores it in a Machine Learning data store as a tabular dataset. The model-training pipeline prepares and groups data into datasets to train multiple models in parallel, then registers them and their metrics. The model-promotion pipeline evaluates models and registers those that meet the criteria for deployment. The batch-scoring pipeline scores datasets in parallel and writes results to Data Lake Storage, with real-time scoring handled through a managed online endpoint. Predictions and metrics are saved in Synapse SQL, where Power BI retrieves them for presentation.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/many-models-machine-learning-azure.vsdx) of this architecture.*
 
-### Workflow
+### Dataflow
 
 The following dataflow corresponds to the previous diagram:
 
@@ -82,11 +82,11 @@ The following dataflow corresponds to the previous diagram:
 
 - [Azure Data Factory](/azure/well-architected/service-guides/azure-machine-learning) is a cloud-based data integration service that allows the creation of data-driven workflows for orchestrating and automating data movement and transformation. In this architecture, Azure Data Factory ingests enterprise data and third-party metadata into Data Lake Storage.
 
-- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a set of developer services that provide comprehensive application and infrastructure lifecycle management. It includes tools for continuous integration and continuous delivery (CI/CD), work tracking, source control, build, package management, and testing solutions. In this architecture, Azure DevOps is used to manage CI/CD pipelines for automating model promotion, testing, and deployment to production environments.
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a set of developer services that provide comprehensive application and infrastructure lifecycle management. It includes tools for continuous integration and continuous delivery (CI/CD) pipelines, work tracking, source control, build pipelines, package management, and testing solutions. In this architecture, Azure DevOps is used to manage CI/CD pipelines for automating model promotion, testing, and deployment to production environments.
 
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed relational database as a service. In this architecture, SQL Database is used to store structured data that might be queried or analyzed as part of the data pipeline.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed relational cloud database. In this architecture, SQL Database is used to store structured data that might be queried or analyzed as part of the data pipeline.
 
-- [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) is a real-time analytics and complex event-processing service designed to analyze and process high volumes of fast streaming data. In this architecture, Stream Analytics might be used for real-time data processing. However, it's not directly shown in the workflow.
+- [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) is a real-time analytics and complex event-processing service designed to analyze and process high volumes of fast streaming data. In this architecture, Stream Analytics can be used for real-time data processing.
 
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an analytics service that unifies data integration, enterprise data warehousing, and big data analytics. It's used in this architecture to store batch-scoring results. This approach enables efficient querying and retrieval of predictions for reporting or analysis. Synapse SQL is used to serve predictions to downstream applications and enable visualization tools like Power BI to access aggregated results.
 
@@ -94,23 +94,23 @@ The following dataflow corresponds to the previous diagram:
 
 - [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an enterprise-grade machine learning service for building and deploying models quickly. It provides users at all skill levels with tools such as a low-code designer, automated machine learning, and a hosted Jupyter notebook environment that supports various integrated development environments. In this architecture, Machine Learning is used to manage the lifecycle of models, including training, evaluation, and deployment. It also orchestrates pipelines for tasks such as training, promotion, and scoring.
 
-  - [Managed online endpoint](/azure/machine-learning/how-to-deploy-online-endpoints) is a feature of Machine Learning used for real-time scoring. In this architecture, it helps provide a scalable and secure way to serve predictions in near real-time by loading machine learning models on demand.
+  - [Managed online endpoints](/azure/machine-learning/how-to-deploy-online-endpoints) are a feature of Machine Learning used for real-time scoring. In this architecture, a managed online endpoint helps provide a scalable and secure way to serve predictions in near real-time by loading machine learning models on demand.
 
-  - [`ParallelRunStep`](/azure/machine-learning/how-to-use-parallel-run-step) is a component of Machine Learning pipelines used to run parallel jobs efficiently. It enables scalable processing of batch tasks, such as training or scoring many models simultaneously. In this architecture, the `ParallelRunStep` is used in both the model-training and batch-scoring pipelines to train or score multiple datasets or models in parallel, which significantly reduces the runtime of these operations.
+  - The [ParallelRunStep class](/azure/machine-learning/how-to-use-parallel-run-step) is a component of Machine Learning pipelines used to run parallel jobs efficiently. It enables scalable processing of batch tasks, such as training or scoring many models simultaneously. In this architecture, the `ParallelRunStep` class is used in both the model-training and batch-scoring pipelines to train or score multiple datasets or models in parallel, which significantly reduces the runtime of these operations.
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to turn unrelated sources of data into coherent, visually immersive, and interactive insights. In this architecture, Power BI connects to Synapse SQL to retrieve and present predictions and aggregated metrics through interactive dashboards.
   
 ### Alternatives
 
-- The source data can come from any database.
+- You can use any database for source data.
 
-- You can use Azure Kubernetes Service (AKS) for real-time inferencing instead of managed online endpoints. AKS allows you to deploy containerized models and provides more control over deployment. This capability enables dynamic loading of models to handle incoming requests without depleting resources.
+- You can use Azure Kubernetes Service (AKS) for real-time inferencing instead of managed online endpoints. AKS allows you to deploy containerized models and provides more control over deployment. These capabilities enable dynamic loading of models to handle incoming requests without depleting resources.
 
 ## Scenario details
 
-Many machine learning problems are too complex for a single machine learning model to solve. Whether it's predicting sales for every item of every store, or modeling maintenance for hundreds of oil wells, having a model for each instance might improve results on many machine learning problems. This *many models* pattern is common across a wide variety of industries, and has many real-world use cases. With the use of Machine Learning, an end-to-end many models pipeline can include model training, batch-inferencing deployment, and real-time deployment.
+Many machine learning problems are too complex for a single machine learning model to solve. Whether it's predicting sales for every item of every store or modeling maintenance for hundreds of oil wells, having a model for each instance might improve results on many machine learning problems. This *many models* pattern is common across a wide variety of industries, and has many real-world use cases. With the use of Machine Learning, an end-to-end many models pipeline can include model training, batch-inferencing deployment, and real-time deployment.
 
-A many models solution requires a different dataset for every model during training and scoring. For instance, if the task is to predict sales for every item of every store, each dataset is for a unique item-store combination.
+A many models solution requires a different dataset for every model during training and scoring. For instance, if the task is to predict sales for each item in every store, each dataset corresponds to a unique item-store combination.
 
 ### Potential use cases
 
@@ -124,7 +124,7 @@ A many models solution requires a different dataset for every model during train
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
-- **Data partitions** Dividing the data into partitions is essential for implementing the many models pattern. If you want one model for each store, a dataset comprises all the data for one store, and there are as many datasets as there are stores. If you want to model products by store, there will be a dataset for every combination of product and store. Depending on the source data format, it might be easy to partition the data, or it might require extensive data shuffling and transformation. Spark and Synapse SQL scale well for these tasks, while Python pandas doesn't because it runs only on one node and process.
+- **Data partitions:** Dividing the data into partitions is essential for implementing the many models pattern. If you want one model for each store, each dataset contains all the data for a single store, so there are as many datasets as there are stores. If you want to model products by store, there's a dataset for every combination of product and store. Depending on the source data format, it might be easy to partition the data, or it might require extensive data shuffling and transformation. Spark and Synapse SQL scale well for these tasks, while Python pandas doesn't because it runs on a single node and process.
 
 - **Model management:** The training and scoring pipelines identify and invoke the right model for each dataset. They do this by calculating tags that characterize the dataset, and then use the tags to find the matching model. The tags identify the data partition key and the model version, and might also provide other information.
 
@@ -132,15 +132,15 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
   - Spark is suitable when your training pipeline has complex data transformation and grouping requirements. It provides flexible splitting and grouping techniques to group data by combinations of characteristics, such as product-store or location-product. The results can be placed in a Spark DataFrame for use in subsequent steps.
   
-  - If your machine learning training and scoring algorithms are straightforward, you might be able to partition data with libraries such as scikit-learn. In this scenario, you might not need Spark, so you can avoid possible complexities that can arise when you install Azure Synapse or Azure Databricks.
+  - If your machine learning training and scoring algorithms are straightforward, you might be able to partition data with libraries such as scikit-learn. In this scenario, you might not need Spark, so you can avoid possible complexities that arise when you install Azure Synapse Analytics or Azure Databricks.
   
   - If your training datasets are already created, like when they're stored in separate files or organized into distinct rows or columns, you don't need Spark for complex data transformations.
   
   - The Machine Learning and compute clusters solution provides versatility for situations that require complex setup. For example, you can make use of a custom Docker container, download files, or download pretrained models. Computer vision and natural language processing deep learning are examples of applications that might require this versatility.
 
-- **Separate model repos:** To protect the deployed models, consider storing them in their own repository that the training and testing pipelines don't touch.
+- **Separate model repos:** To protect the deployed models, consider storing them in their own repository that the training and testing pipelines don't access.
 
-- **ParallelRunStep class:** The Python [ParallelRunStep class](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py) is a powerful option for running many models training and inferencing. It can partition your data in various ways and then apply your machine learning script on elements of the partition in parallel. Like other forms of Machine Learning training, you can specify a custom training environment with access to Python Package Index (PyPI) packages, or a more advanced custom Docker environment for configurations that require more than standard PyPI. There are many CPUs and GPUs to choose from.
+- **ParallelRunStep class:** The Python [ParallelRunStep class](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) is a powerful option for running many models training and inferencing. It can partition your data in various ways and then apply your machine learning script on elements of the partition in parallel. Like other forms of Machine Learning training, you can specify a custom training environment that has access to Python Package Index (PyPI) packages, or a more advanced custom Docker environment for configurations that require more than standard PyPI. There are many CPUs and GPUs to choose from.
 
 - **Online inferencing:** If a pipeline loads and caches all models from the beginning, the models might deplete the container's memory. Therefore, load the models on demand in the run method, even though it might increase latency slightly.
 
@@ -152,17 +152,17 @@ To better understand the cost to run this scenario on Azure, use the [pricing ca
 
 - The serving models are trained daily to keep them current.
 
-- For a dataset of 40 million rows that have 10 thousand combinations of store and product, training on Azure Databricks by using a cluster provisioned with 12 virtual machines (VMs) that use Ls16_v2 instances, takes about 30 minutes. Batch scoring with the same set of data takes about 20 minutes.
+- You need about 30 minutes to process a dataset that contains 40 million rows of 10 thousand unique store-product combinations. The dataset trains on Azure Databricks by using a cluster that's provisioned with 12 virtual machines (VMs) that use Ls16_v2 instances. Batch scoring with the same set of data takes about 20 minutes.
 
 - You can use Machine Learning to deploy real-time inferencing. Depending on your request volume, choose a suitable type of VM and cluster size.
 
-- An AKS cluster autoscales as needed, which results in an average of two nodes for each month being active.
+- An AKS cluster automatically scales as needed, which results in an average of two active nodes each month.
 
-To see how pricing differs for your use case, change the variables to match your expected data size and serving load requirements. For larger or smaller training data sizes, increase or decrease the size of the Azure Databricks cluster. To handle more concurrent users during model serving, increase the AKS cluster size.
+To see how pricing differs for your use case, change the variables in the pricing calculator to match your expected data size and serving load requirements. For larger or smaller training data sizes, increase or decrease the size of the Azure Databricks cluster. To handle more concurrent users during model serving, increase the AKS cluster size.
 
 ## Contributors
 
-*Microsoft maintains this article. The following contributors originally wrote the article.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal author:
 
