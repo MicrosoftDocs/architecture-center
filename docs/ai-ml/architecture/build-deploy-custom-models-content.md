@@ -24,9 +24,9 @@ The following dataflow corresponds to the previous diagram:
 
    - [Language Studio](https://aka.ms/languageStudio): For document classification based on content, or for domain-specific entity extraction, you can train a custom text classification or named entity recognition (NER) model in Language Studio.
 
-   - [Azure Machine Learning studio](https://ml.azure.com/): For labeling data for text classification or entity extraction to use with open-source frameworks like PyTorch or TensorFlow, use [Machine Learning studio](/azure/machine-learning/how-to-train-with-ui) or [Python SDK, Azure CLI, or REST API](/azure/machine-learning/how-to-train-model). Machine Learning studio provides a [model catalog](/azure/machine-learning/concept-model-catalog) of foundation models. These foundation models have fine-tuning capabilities for various tasks like text classification, question answering, and summarization. To fine-tune foundation models, use [Machine Learning studio UI](/azure/machine-learning/how-to-use-foundation-models) or [code](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune).
+   - [Azure Machine Learning studio](https://ml.azure.com/): For labeling data for text classification or entity extraction to use with open-source frameworks like PyTorch or TensorFlow, use [Machine Learning studio](/azure/machine-learning/how-to-train-with-ui), the [Python SDK, Azure CLI, or the REST API](/azure/machine-learning/how-to-train-model). Machine Learning studio provides a [model catalog](/azure/machine-learning/concept-model-catalog) of foundation models. These foundation models have fine-tuning capabilities for various tasks like text classification, question answering, and summarization. To fine-tune foundation models, use the [Machine Learning studio UI](/azure/machine-learning/how-to-use-foundation-models) or [code](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune).
 
-   - [Azure OpenAI Service](/azure/ai-services/openai/concepts/fine-tuning-considerations): To [fine-tune Azure OpenAI models](/azure/ai-services/openai/how-to/fine-tuning) on your own data or domain for various tasks like text summarization and question answering, use [Azure AI Foundry portal](https://ai.azure.com/), [Python SDK](/azure/ai-services/openai/how-to/fine-tuning), or [REST API](/azure/ai-services/openai/how-to/fine-tuning).
+   - [Azure OpenAI Service](/azure/ai-services/openai/concepts/fine-tuning-considerations): To [fine-tune Azure OpenAI models](/azure/ai-services/openai/how-to/fine-tuning) on your own data or domain for various tasks like text summarization and question answering, use [Azure AI Foundry portal](/azure/ai-services/openai/how-to/fine-tuning?branch=main&tabs=azure-openai%2Cpython-new&pivots=programming-language-studio), [Python SDK](/azure/ai-services/openai/how-to/fine-tuning?tabs=azure-openai%2Cpython-new&pivots=programming-language-python), or [REST API](/azure/ai-services/openai/how-to/fine-tuning?tabs=azure-openai%2Cpython-new&pivots=rest-api).
 
 1. To deploy the custom models and use them for inferencing:
 
@@ -36,7 +36,7 @@ The following dataflow corresponds to the previous diagram:
 
    - Machine Learning deploys custom models to online or batch [Machine Learning managed endpoints](/azure/machine-learning/concept-endpoints). You can also use the Machine Learning SDK to [deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service) as a web service. Fine-tuned foundation models can be deployed from the model catalog via managed compute or a [serverless API](/azure/machine-learning/how-to-deploy-models-serverless). Models deployed through managed compute can be inferenced by using [managed endpoints](/azure/machine-learning/concept-endpoints), which include online endpoints for real-time inferencing and batch endpoints for batch inferencing.
 
-   - Azure AI Foundry provides options to [deploy fine-tuned Azure OpenAI models](/azure/ai-services/openai/how-to/fine-tuning). You can also deploy fine-tuned Azure OpenAI models by using Python SDK or REST API.
+   - Azure AI Foundry provides options to [deploy fine-tuned Azure OpenAI models](/azure/ai-services/openai/how-to/fine-tuning). You can also deploy fine-tuned Azure OpenAI models by using the Python SDK or REST API.
 
 ### Components
 
@@ -52,9 +52,9 @@ The following dataflow corresponds to the previous diagram:
 
 - [Document Intelligence](/azure/ai-services/document-intelligence/overview) is a component of [Azure AI services](/azure/ai-services/what-are-ai-services). Document Intelligence has built-in document analysis capabilities for extracting printed and handwritten text, tables, and key-value pairs. Document Intelligence has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Document Intelligence also has a [custom template](/azure/applied-ai-services/form-recognizer/concept-custom-template) form model and a [custom neural](/azure/applied-ai-services/form-recognizer/concept-custom-neural) document model that you can use to train and deploy custom models.
 
-- [Document Intelligence Studio](/azure/ai-services/document-intelligence/studio-overview) provides an interface to explore its features and models. It also enables you to build, tag, train, and deploy custom models.
+- [Document Intelligence Studio](/azure/ai-services/document-intelligence/studio-overview) provides an interface to explore Document Intelligence features and models. It also enables you to build, tag, train, and deploy custom models.
 
-- [Azure AI Language](/azure/ai-services/language-service/overview) consolidates the Azure natural language processing (NLP) services. The suite provides prebuilt and customizable options. For more information, see [What is Language?](/azure/ai-services/language-service/overview#available-features).
+- [Azure AI Language](/azure/ai-services/language-service/overview) consolidates the Azure natural language processing (NLP) services. The suite provides [prebuilt and customizable options](/azure/ai-services/language-service/overview#available-features).
 
 - [Language Studio](/azure/ai-services/language-service/language-studio) provides a UI that you can use to explore and analyze Language features. It also provides options for building, tagging, training, and deploying custom models.
 
@@ -64,7 +64,7 @@ The following dataflow corresponds to the previous diagram:
 
   - [Export labeled data](/azure/machine-learning/how-to-use-labeled-dataset#export-data-labels) as [COCO](https://cocodataset.org) or Machine Learning datasets. You can use these datasets to train and deploy models in Machine Learning notebooks.
 
-- [Azure OpenAI](/azure/ai-services/openai/overview) provides powerful [language models and multimodal models](/azure/ai-services/openai/concepts/models) as REST APIs that you can use to perform various tasks. [Specific models can be fine-tuned](/azure/ai-services/openai/concepts/models#fine-tuning-models) to improve the model performance on data that was missing or underrepresented when the base model was originally trained.
+- [Azure OpenAI](/azure/ai-services/openai/overview) provides powerful [language models and multimodal models](/azure/ai-services/openai/concepts/models) as REST APIs that you can use to perform various tasks. [Specific models can be fine-tuned](/azure/ai-services/openai/concepts/models#fine-tuning-models) to improve the model performance on data that's missing or underrepresented when the base model is originally trained.
 
 ### Alternatives
 
@@ -128,13 +128,12 @@ Reliability helps ensure that your application can meet the commitments that you
 
 #### Resiliency
 
-- Handle failure modes of individual services like Functions and Storage to help ensure resiliency of the compute services and data stores in this scenario. For more information, see [Resiliency checklist for specific Azure services](/azure/architecture/checklist/resiliency-per-service).
+- Address failure modes of individual services like Functions and Storage to help ensure resiliency of the compute services and data stores in this scenario. For more information, see [Resiliency checklist for specific Azure services](/azure/architecture/checklist/resiliency-per-service).
 
-- For Document Intelligence, [back up and recover your Document Intelligence models](/azure/applied-ai-services/form-recognizer/disaster-recovery).
+- [Back up and recover your Document Intelligence models](/azure/ai-services/document-intelligence/how-to-guides/disaster-recovery).
 
-- For custom text classification with Language, [back up and recover your custom text classification models](/azure/cognitive-services/language-service/custom-classification/fail-over).
+- Back up and recover your custom [text classification models](/azure/ai-services/language-service/custom-text-classification/fail-over) and [NER models](/azure/ai-services/language-service/custom-named-entity-recognition/fail-over) in Language.
 
-- For custom NER in Language, [back up and recover your custom NER models](/azure/cognitive-services/language-service/custom-named-entity-recognition/fail-over).
 
 - Machine Learning depends on constituent services like Blob Storage, compute services, and AKS. To provide resiliency for Machine Learning, configure each of these services to be resilient. For more information, see [Failover for business continuity and disaster recovery (BCDR)](/azure/machine-learning/how-to-high-availability-machine-learning).
 
@@ -144,7 +143,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Implement data protection, identity and access management, and network security recommendations for [Blob Storage](/azure/storage/blobs/security-recommendations), [AI Services](/security/benchmark/azure/baselines/cognitive-services-security-baseline) for Document Intelligence and Language Studio, [Machine Learning](/security/benchmark/azure/baselines/machine-learning-security-baseline), and [Azure OpenAI](/security/benchmark/azure/baselines/azure-openai-security-baseline).
+Implement data protection, identity and access management, and network security recommendations for [Blob Storage](/azure/storage/blobs/security-recommendations), [AI services](/security/benchmark/azure/baselines/cognitive-services-security-baseline) for Document Intelligence and Language Studio, [Machine Learning](/security/benchmark/azure/baselines/machine-learning-security-baseline), and [Azure OpenAI](/security/benchmark/azure/baselines/azure-openai-security-baseline).
 
 ### Cost Optimization
 
@@ -189,11 +188,11 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 - By default, Document Intelligence supports 15 concurrent requests per second. To increase this quota, [create an Azure support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
-- For Machine Learning custom models hosted as web services on AKS, the [`azureml-fe`](/azure/machine-learning/how-to-deploy-azure-kubernetes-service) front end automatically scales as needed. This component also routes incoming inference requests to deployed services.
+- For Machine Learning custom models hosted as web services on AKS, the [azureml-fe](/azure/machine-learning/how-to-deploy-azure-kubernetes-service) front-end component automatically scales as needed. This component also routes incoming inference requests to deployed services.
 
 - For deployments as managed endpoints, support [autoscaling](/azure/machine-learning/concept-endpoints#autoscaling) by integrating with the [Azure Monitor autoscale feature](/azure/azure-monitor/autoscale/autoscale-overview).
 
-- The API service limits on [custom NER](/azure/cognitive-services/language-service/custom-named-entity-recognition/service-limits#apis-limits) and [custom text classification](/azure/cognitive-services/language-service/custom-classification/service-limits#api-limits) for inferencing are 20 GET or POST requests per minute.
+- The API service limits on [custom NER](/azure/cognitive-services/language-service/custom-named-entity-recognition/service-limits#api-limits) and [custom text classification](/azure/cognitive-services/language-service/custom-classification/service-limits#api-limits) for inferencing are 20 GET or POST requests per minute.
 
 ## Contributors
 
@@ -203,11 +202,11 @@ Principal author:
 
 - [Jyotsna Ravi](https://www.linkedin.com/in/jyotsna-ravi-50182624) | Senior Customer Engineer
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- [Get started with custom projects in Document Intelligence Studio](/azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0)
+- [Get started with custom projects in Document Intelligence Studio](/azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio)
 - [Use Document Intelligence models](/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api)
 - [Quickstart: Get started with Language Studio](/azure/cognitive-services/language-service/language-studio)
 - [What is optical character recognition?](/azure/cognitive-services/computer-vision/overview-ocr)
