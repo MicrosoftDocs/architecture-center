@@ -23,9 +23,9 @@ The following diagram applies the previous considerations to the [reliable web a
 
 The red box represents a scale unit with services that scale together. To effectively scale them together, optimize each service's size, SKU, and available IP addresses. For example, the maximum number of requests that Azure App Configuration serves correlates to the number of requests per second that a scale unit provides. When you add more capacity in a region, you must also add more individual scale units.
 
-These individual scale units don't have any inter-dependencies and only communicate with shared services outside of the individual scale unit. You can test independent scale units upfront. To avoid affecting other areas of deployment, roll out independent scale units and introduce the option to replace services in a new release.
+These individual scale units don't have any dependencies on one another and only communicate with shared services outside of the individual scale unit. You can use these scale units in a [blue-green deployment](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test#deployment-zero-downtime-updates), by rolling out new scale units, validating that they function correctly, and gradually moving production traffic onto them. 
 
-For mission-critical workloads, independent scale units are temporary, which optimizes the rollout processes and provides scalability within and across regions. Avoid storing state in independent scale units. Consider using Azure Cache for Redis for storage in the scale unit, and only store critical state or data that's also stored in the database. If there's a scale-unit outage or you switch to another scale unit, there might be a slowdown or a new sign-in required, but Azure Cache for Redis still runs.
+In this case we consider scale units as temporary, which optimizes the rollout processes and provides scalability within and across regions. This means that data should only be stored in the database, since that will be replicated to the secondary region. If you do need to store data in the scale unit, consider using Azure Cache for Redis for storage in the scale unit. In case a scale unit must be abandoned, repopulating the cache may cause increased latency, but will not cause outages.  
 
 Application Insights is excluded from the scale unit. Exclude services that store or monitor data. Separate them into their own resource group with their own lifecycle.
 
@@ -47,24 +47,20 @@ This architecture uses the following components.
 
 In the reliable web app pattern, you can:
 
-- Use Azure Kubernetes Service (AKS) instead of App Service. This option works well for complex workloads that have a large number of microservices. AKS provides more control over the underlying infrastructure and allows complex multitier setups.
+- [Use Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro) instead of App Service. This option works well for complex workloads that have a large number of microservices. AKS provides more control over the underlying infrastructure and allows complex multitier setups.
 - Containerize the workload. App Service supports containerization, but in this example the workload isn't containerized. Use containers to increase reliability and portability.
 
 For more information, see [Application platform considerations for mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-application-platform).
 
-## Choose the application platform
+## High Availability Considerations
 
-The level of availability depends on your choice and configuration of the application platform. Consider the following mission-critical guidance:
-
-- Use availability zones when possible.
-- Select the right platform service for your workload.
-- Containerize the workload.
+Regardless of the chosen application platform, it is recommended to prioritize the use of Availability Zones for production workloads. 
 
 *Availability sets* spread deployments across multiple fault and update domains within a datacenter. *Availability zones* spread deployments across individual datacenters within an Azure region. Availability zones are often prioritized, but which strategy you use depends on your workload. For example, latency-sensitive or chatty workloads might benefit from prioritizing availability sets. If you spread the workload across availability zones, it can increase latency and cost for cross-zone traffic. When you use availability zones, ensure that all services in a scale unit support them. All services in the reliable web app pattern support availability zones.
 
 ## Choose the data platform
 
-The database platform you choose affects the overall workload architecture, especially the platform's active-active or active-passive configuration support. The reliable web app pattern uses Azure SQL, which doesn't natively support active-active deployments with write operations in more than one instance. So the database level is limited to an active-passive strategy. An active-active strategy on the application level is possible if there are read-only replicas and you write to a single region only.
+The database platform you choose affects the overall workload architecture, especially the platform's active-active or active-passive configuration support. The reliable web app pattern uses Azure SQL, which doesn't natively support active-active deployments with write operations in more than one instance. In this configuration, the data platform is limited to an active-passive strategy. A (partial) active-active strategy on the application level is possible if there are read-only replicas in all regions and you only write to a single region.
 
 :::image type="content" source="./media/mission-critical-web-apps/data-replication-architecture.svg" alt-text="A diagram that shows the architecture with SQL Database replicated in each region." lightbox="./media/mission-critical-web-apps/data-replication-architecture.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-webapp-pattern1.vsdx) of this architecture.*
@@ -73,23 +69,21 @@ Multiple databases are common in complex architectures, such as microservices ar
 
 ## Define a health model
 
-In complex multitier workloads that spread across multiple datacenters and geographical regions, you must define a health model. Define user and system flows, specify and understand the dependencies between the services, understand the effect that outages or a performance degradation on one of the services can have on the overall workload, and monitor and visualize the customer experience to enable proper monitoring and improve manual and automated actions.
+In complex multi-tier workloads that spread across multiple datacenters and geographical regions, you must define a health model. Define user and system flows, specify and understand the dependencies between the services, understand the effect that outages or a performance degradation on one of the services can have on the overall workload, and monitor and visualize the customer experience to enable proper monitoring and improve manual and automated actions.
 
 :::image type="content" source="./media/mission-critical-web-apps/outage-example.svg" alt-text="A diagram that shows how an App Configuration outage creates outages for other services." lightbox="./media/mission-critical-web-apps/outage-example.svg" border="false":::
 
-The previous diagram shows how an outage or a degradation of a single component, like App Configuration, can cause potential performance degradation for the customer.
+The previous diagram shows how an outage or a degradation of a single component, like App Configuration, can cause potential performance degradation for the customer. When you separate components into scale units, it allows you to stop sending traffic to the affected part of the application, such as an affected scale unit or the complete region.
 
-:::image type="content" source="./media/mission-critical-web-apps/outage-example-2.svg" alt-text="A diagram that shows how the outages can be split into separate scale units." lightbox="./media/mission-critical-web-apps/outage-example-2.svg" border="false":::
-
-When you separate components into scale units, it allows you to stop sending traffic to the affected part of the application, such as an affected scale unit or the complete region.
+The criteria for determining the health of a scale unit are defined in the Health Model. This model is then connected to the _health endpoint_ of the scale unit, which allows the global load balancer to query the health state of a scale unit and use that information for routing decisions. 
 
 For more information, see [Health modeling and observability of mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-health-modeling).
 
 ## Security and networking
 
-There are strict networking and security requirements for workloads that migrate from an on-premises enterprise deployment. Not all established on-premises processes translate into a cloud environment. Evaluate these requirements if they're applicable in cloud environments.
+There are strict networking and security requirements for Mission-Critical workloads. Particular diligence should be applied to workloads migrated from an on-premises environments, since not all established on-premises security practices translate into a cloud environment. It is recommended to re-evaluate security requirements during the application migration.
 
-Identity is often the primary security perimeter for cloud-native patterns. Enterprise customers might need more substantial security measures. To address their network security requirements, most of the Azure PaaS services can use Azure Private Link to implement the network as a security perimeter. Private Link can ensure that services are only accessible from within a virtual network. All services are accessible via private endpoints only. The following diagram shows how the only public internet-facing endpoint is Azure Front Door.
+Identity is often the primary security perimeter for cloud-native patterns. Enterprise customers might need more substantial security measures. To address their network security requirements, Azure PaaS services can use Azure Private Link to implement the network as a security perimeter. Private Link can ensure that services are only accessible from within a virtual network. All services are then accessible via private endpoints only. The following diagram shows how the only public internet-facing endpoint is Azure Front Door.
 
 :::image type="content" source="./media/mission-critical-web-apps/front-end-architecture.svg" alt-text="A diagram that shows the internet-facing endpoints in the architecture." lightbox="./media/mission-critical-web-apps/front-end-architecture.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-webapp-pattern1.vsdx) of this architecture.*
