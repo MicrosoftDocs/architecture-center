@@ -21,7 +21,7 @@ products:
   - power-automate
   - power-bi
 name: Citizen AI with Power Platform and Azure Synapse Analytics
-summary: Learn how to use Azure Machine Learning, Azure Synapse Analytics and Microsoft Power Platform to quickly create a machine learning proof of concept and a production version.
+summary: Learn how to use Azure Machine Learning, Azure Synapse Analytics, and Microsoft Power Platform to create a machine learning proof of concept and a production version.
 thumbnailUrl: /azure/architecture/browse/thumbs/citizen-ai-power-platform-thumbnail.png
 content: |
   [!INCLUDE[](citizen-ai-power-platform-content.md)]
