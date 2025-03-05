@@ -34,7 +34,7 @@ The following dataflow corresponds to the previous diagram:
 
 1. To deploy the custom models and use them for inferencing:
 
-   - Azure AI Document Intelligence has built-in model deployment. [Use Document Intelligence SDKs or the REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api) to apply custom models for inferencing. Include the [model ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) or [custom model name](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) in the Document Intelligence request URL, depending on the API version. Document Intelligence doesn't require any further deployment steps.
+   - Azure AI Document Intelligence has built-in model deployment. Inferencing with the custom models is done by using [SDKs](/python/api/overview/azure/ai-documentintelligence-readme) or [document models REST API](/rest/api/aiservices/document-models/get-analyze-result). The [modelId](/azure/ai-services/document-intelligence/how-to-guides/build-a-custom-model), or *model name*, specified during model creation is included in the request URL for document analysis. Document Intelligence doesn't require any further deployment steps.
 
    - Language Studio provides an option to deploy custom language models. Get the REST endpoint [prediction URL](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api) by selecting the model for deployment. You can inference models by using either the REST endpoint or the Azure SDK client libraries.
 
@@ -80,7 +80,7 @@ You can add more workflows to this scenario based on specific use cases.
 
 - Use preprocessing code to perform text processing steps. These steps include cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data according to document processing requirements. You can expose the code as REST APIs for automation. Manually complete or automate these steps by integrating with the [Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
 
-- You can use [Azure AI Foundry portal](/azure/ai-studio/what-is-ai-studio) to [fine-tune and deploy foundation models](/azure/ai-studio/concepts/fine-tuning-overview). It also enables you to build generative AI applications. Because there's overlap between Machine Learning and Azure AI Foundry, you must [evaluate their capabilities](/ai/ai-studio-experiences-overview) and choose the best platform for your scenario.
+- You can explore Azure OpenAI models and a collection of foundation models in the [model catalog](/azure/machine-learning/concept-model-catalog). You can also use [Azure AI Foundry portal](/azure/ai-studio/what-is-ai-studio) to [fine-tune](/azure/ai-studio/concepts/fine-tuning-overview) and deploy foundation models, and build generative AI applications. Because there's overlap between Machine Learning and Azure AI Foundry, you must [evaluate their capabilities](/ai/ai-studio-experiences-overview) and choose the best platform for your scenario.
 
 - You can use [Azure AI Content Understanding](/azure/ai-services/content-understanding/overview) to create a [custom analyzer](/azure/ai-services/content-understanding/quickstart/use-rest-api?tabs=document) by defining a field schema for extracting structured data from the document.
 
