@@ -21,7 +21,7 @@ categories:
 
 # Design a secure multitenant RAG inferencing solution
 
-Retrieval-Augmented Generation (RAG) is a pattern for building applications that use foundational models to reason over proprietary information or other data that isn't publicly available on the internet. Generally, a client application calls to an orchestration layer that fetches relevant information from a data store, such as a vector database. The orchestration layer passes that data as part of the context as grounding data to the foundational model.
+Retrieval-Augmented Generation (RAG) is a pattern for building applications that use foundation models to reason over proprietary information or other data that isn't publicly available on the internet. Generally, a client application calls to an orchestration layer that fetches relevant information from a data store, such as a vector database. The orchestration layer passes that data as part of the context as grounding data to the foundation model.
 
 A multitenant solution is used by multiple customers. Each customer, or tenant, consists of multiple users from the same organization, company, or group. In multitenant scenarios, you need to make sure that tenants, or individuals within tenants, are only able to incorporate grounding data that they're authorized to access.
 
@@ -33,18 +33,18 @@ There are multitenant concerns beyond ensuring that users only access the inform
 ## Single-tenant RAG architecture with an orchestrator
 
 :::image type="complex" source="./_images/multitenant-rag-single-tenant-architecture.svg" lightbox="./_images/multitenant-rag-single-tenant-architecture.svg" alt-text="Diagram that shows a RAG architecture that uses a single-tenant database instance." border="false":::
-   In the diagram, a user connects to an intelligent application. The intelligent application connects to an identity provider. The intelligent application then connects to an orchestrator. The orchestrator connects to databases and vector stores. The orchestrator then connects to the foundational model.
+   In the diagram, a user connects to an intelligent application. The intelligent application connects to an identity provider. The intelligent application then connects to an orchestrator. The orchestrator connects to databases and vector stores. The orchestrator then connects to the foundation model.
 :::image-end:::
 
 ### Workflow
 
-In this single-tenant RAG architecture, an orchestrator fetches relevant proprietary tenant data from the data stores and provides it as grounding data to the foundational model. The following steps describe a high-level workflow.
+In this single-tenant RAG architecture, an orchestrator fetches relevant proprietary tenant data from the data stores and provides it as grounding data to the foundation model. The following steps describe a high-level workflow.
 
 1. A user issues a request to the intelligent web application.
 2. An identity provider authenticates the requestor.
 3. The intelligent application calls the orchestrator API with the user's query and the authorization token for the user.
-4. The orchestration logic extracts the user's query from the request and calls the appropriate data store to fetch relevant grounding data for the query. The grounding data is added to the prompt that's sent to the foundational model, like a model that's exposed in Azure OpenAI, in the next step.
-5. The orchestration logic connects to the foundational model's inferencing API and sends the prompt that includes the retrieved grounding data. The results are returned to the intelligent application.
+4. The orchestration logic extracts the user's query from the request and calls the appropriate data store to fetch relevant grounding data for the query. The grounding data is added to the prompt that's sent to the foundation model, like a model that's exposed in Azure OpenAI, in the next step.
+5. The orchestration logic connects to the foundation model's inferencing API and sends the prompt that includes the retrieved grounding data. The results are returned to the intelligent application.
 
 For more information, see [Design and develop a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide).
 
@@ -61,7 +61,7 @@ This variant of the single-tenant RAG architecture uses the [On Your Data featur
 
 ### Workflow
 
-In this RAG architecture, the service that provides the foundational model fetches the appropriate proprietary tenant data from the data stores and uses that data as grounding data to the foundational model. The following steps describe a high-level workflow. The italicized steps are identical to the preceding single-tenant RAG architecture that has an orchestrator workflow.
+In this RAG architecture, the service that provides the foundation model fetches the appropriate proprietary tenant data from the data stores and uses that data as grounding data to the foundation model. The following steps describe a high-level workflow. The italicized steps are identical to the preceding single-tenant RAG architecture that has an orchestrator workflow.
 
 1. *A user issues a request to the intelligent web application.*
 1. *An identity provider authenticates the requestor.*
@@ -75,7 +75,7 @@ If you want to use this architecture in a multitenant solution, then the service
 In multitenant solutions, tenant data might exist in a tenant-specific store or coexist with other tenants in a multitenant store. Data might also be in a store that's shared across tenants. Only data that the user is authorized to access should be used as grounding data. The user should see only common or all-tenant data or data from their tenant that's filtered to help ensure that they see only the data that they're authorized to access.
 
 :::image type="complex" source="./_images/multitenant-rag-multitenant-architecture.svg" lightbox="./_images/multitenant-rag-multitenant-architecture.svg" alt-text="Diagram that shows a RAG architecture that uses a shared database, a multitenant database, and two single-tenant databases." border="false":::
-   In the diagram, a user connects to an intelligent application. The intelligent application connects to an identity provider. The intelligent application then connects to an orchestrator. The orchestrator connects to a single-tenant database, a multitenant database, or a shared database. The orchestrator then connects to the foundational model.
+   In the diagram, a user connects to an intelligent application. The intelligent application connects to an identity provider. The intelligent application then connects to an orchestrator. The orchestrator connects to a single-tenant database, a multitenant database, or a shared database. The orchestrator then connects to the foundation model.
 :::image-end:::
 
 ### Workflow
@@ -89,7 +89,7 @@ The following steps describe a high-level workflow. The italicized steps are ide
     1. The orchestration logic fetches grounding data from the appropriate tenant-specific data store instance and potentially applies security filtering rules to return only the data that the user is authorized to access.
     2. The orchestration logic fetches the appropriate tenant's grounding data from the multitenant data store and potentially applies security filtering rules to return only the data that the user is authorized to access.
     3. The orchestration logic fetches data from a data store that's shared across tenants.
-1. *The orchestration logic connects to the foundational model's inferencing API and sends the prompt that includes the retrieved grounding data. The results are returned to the intelligent application.*
+1. *The orchestration logic connects to the foundation model's inferencing API and sends the prompt that includes the retrieved grounding data. The results are returned to the intelligent application.*
 
 ## Design considerations for multitenant data in RAG
 
@@ -158,7 +158,7 @@ You can use data platform capabilities like row-level security to implement filt
 We recommend that you have an API in front of the storage mechanism that you use. The API acts like a gatekeeper that helps ensure that users only get access to information they're authorized to access.
 
 :::image type="complex" source="./_images/multitenant-rag-multitenant-api-architecture.svg" lightbox="./_images/multitenant-rag-multitenant-api-architecture.svg" alt-text="Diagram that shows a RAG architecture with a shared database, a multitenant database, and two single-tenant databases. An API layer is between the orchestrator and the databases." border="false":::
-   In the diagram, a user connects to an intelligent application. The intelligent application connects to an identity provider. The intelligent application then connects to an orchestrator. The orchestrator connects to an API layer. The API layer connects to databases and vector stores. The orchestrator then connects to the foundational model.
+   In the diagram, a user connects to an intelligent application. The intelligent application connects to an identity provider. The intelligent application then connects to an orchestrator. The orchestrator connects to an API layer. The API layer connects to databases and vector stores. The orchestrator then connects to the foundation model.
 :::image-end:::
 
 Users' access to data can be limited by:

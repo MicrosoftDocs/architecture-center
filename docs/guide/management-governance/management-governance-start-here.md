@@ -62,23 +62,17 @@ The following sections provide links to reference architectures in some key mana
 
 ### Disaster recovery
 
-- [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Support matrix for Azure VM disaster recovery between Azure regions](/azure/site-recovery/azure-to-azure-support-matrix?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Integrate Azure ExpressRoute with disaster recovery for Azure VMs](/azure/site-recovery/azure-vm-disaster-recovery-with-expressroute?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Recover from a region-wide service disruption](../../resiliency/recovery-loss-azure-region.md)
-- [Move Azure VMs to another Azure region](/azure/site-recovery/azure-to-azure-move-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Business continuity and disaster recovery (BCDR) for Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Enterprise-scale disaster recovery](../../solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml)
-- [SMB disaster recovery with Azure Site Recovery](../../solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml)
-- [SMB disaster recovery with Double-Take DR](../../solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml)
+- [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture)
+- [Support matrix for Azure VM disaster recovery between Azure regions](/azure/site-recovery/azure-to-azure-support-matrix)
+- [Integrate Azure ExpressRoute with disaster recovery for Azure VMs](/azure/site-recovery/azure-vm-disaster-recovery-with-expressroute)
+- [Move Azure VMs to another Azure region](/azure/site-recovery/azure-to-azure-move-overview)
+- [Business continuity and disaster recovery (BCDR) for Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery)
 - [Use Azure Local stretched clusters for disaster recovery](../../hybrid/azure-local-dr.yml)
 
 ### High availability
 
-- [Build high availability into your BCDR strategy](../../solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml)
 - [High availability enterprise deployment using App Service Environment](../../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
 - [Baseline zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
-- [Highly available multi-region web application](../../web-apps/app-service/architectures/multi-region.yml)
 - [Deploy highly available NVAs](../../networking/guide/nva-ha.yml)
 - [Highly available SharePoint farm](../../solution-ideas/articles/highly-available-sharepoint-farm.yml)
 - [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones)
@@ -94,7 +88,6 @@ The following sections provide links to reference architectures in some key mana
 - [Back up files and applications on Azure Stack Hub](/azure/backup/backup-mabs-files-applications-azure-stack)
 - [Enable virtual machine protection in Azure Site Recovery](/azure-stack/operator/protect-virtual-machines)
 - [Hybrid availability and performance monitoring](../../hybrid/hybrid-perf-monitoring.yml)
-- [Manage configurations for Azure Arc-enabled servers](../../hybrid/azure-arc-hybrid-config.yml)
 
 ### Update management
 
@@ -120,11 +113,8 @@ Get the latest updates on [Azure management](https://azure.microsoft.com/updates
 
 Following are a few more management and governance architectures to consider:
 
-- [Archive on-premises data to the cloud](../../solution-ideas/articles/backup-archive-on-premises.yml)
 - [Management and monitoring for an Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring)
 - [Computer forensics chain of custody in Azure](../../example-scenario/forensics/index.yml)
-- [Deploy a line-of-business application using Azure App Service Environment v3](../../example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml)
-- [Centralized app configuration and security](../../solution-ideas/articles/appconfig-key-vault.yml)
 
 ### AWS or Google Cloud professionals
 

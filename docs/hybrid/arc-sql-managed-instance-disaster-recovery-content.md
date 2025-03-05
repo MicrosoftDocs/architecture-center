@@ -167,7 +167,6 @@ Other contributor:
 
 ## Related resources
 
-- [Manage configurations for Azure Arc-enabled servers](azure-arc-hybrid-config.yml)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](arc-hybrid-kubernetes.yml)
 
 [Arc Jumpstart]: https://aka.ms/AzureArcJumpstart

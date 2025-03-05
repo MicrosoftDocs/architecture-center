@@ -340,7 +340,7 @@ query: {original_query}
 
 #### The HyDE technique
 
-[HyDE](https://towardsdatascience.com/how-to-use-hyde-for-better-llm-rag-retrieval-a0aa5d0e23e8) is an alternate information-retrieval technique for RAG solutions. Rather than converting a query into embeddings and using those embeddings to find the closest matches in a vector database, HyDE uses a language model to generate answers from the query. These answers are converted into embeddings, which are used to find the closest matches. This process enables HyDE to perform answer-to-answer embedding-similarity searches.
+[HyDE](https://medium.com/towards-data-science/how-to-use-hyde-for-better-llm-rag-retrieval-a0aa5d0e23e8) is an alternate information-retrieval technique for RAG solutions. Rather than converting a query into embeddings and using those embeddings to find the closest matches in a vector database, HyDE uses a language model to generate answers from the query. These answers are converted into embeddings, which are used to find the closest matches. This process enables HyDE to perform answer-to-answer embedding-similarity searches.
 
 ### Combine query translations into a pipeline
 

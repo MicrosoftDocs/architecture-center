@@ -124,4 +124,3 @@ For more information, please contact **legacy2azure@microsoft.com**, or check ou
 - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
 - [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)
-

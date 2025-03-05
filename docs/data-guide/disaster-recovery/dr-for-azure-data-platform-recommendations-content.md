@@ -87,7 +87,7 @@ Different events will have a different scope of impact and, therefore, a differe
 
 ### Disaster strategy options
 
-There are four high-level options for a [disaster recovery strategy](/azure/architecture/resiliency/recovery-loss-azure-region#strategies):
+There are four high-level options for a disaster recovery strategy:
 
 - **Wait for Microsoft** - As the name suggests, the solution is offline until the complete recovery of services in the affected region by Microsoft. Once recovered, the solution is validated by the customer and then brought up-to-date for service recovery.
 - **Redeploy on Disaster** - The solution is redeployed manually into an available region from scratch, post-disaster event.
@@ -117,11 +117,12 @@ For this outage scenario, the relative impact on the four high-level DR Strategi
 > The above table should be read as a comparison between the options - a strategy that has a green indicator is better for that classification than another strategy with a yellow or red indicator.
 
 ## Next steps
-Now that you've learned about the recommendations related to the scenario, you can learn how to  [deploy this scenario](../disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml)
+
+- [Mission-critical workload](/azure/architecture/framework/mission-critical/mission-critical-overview)
+- [Well-Architected Framework recommendations for designing a disaster recovery strategy](/azure/well-architected/reliability/disaster-recovery)
 
 ## Related resources
 
 - [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.yml)
 - [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.yml)
 - [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.yml)
-- [DR for Azure Data Platform - Summary](dr-for-azure-data-platform-summary.yml)

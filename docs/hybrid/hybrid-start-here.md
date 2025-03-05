@@ -20,7 +20,7 @@ products:
 
 # Hybrid architecture design
 
-Many organizations need a hybrid approach to analytics, automation, and services because their data is hosted both on-premises and in the cloud. Organizations often [extend on-premises data solutions to the cloud](../databases/guide/hybrid-on-premises-and-cloud.md). To connect environments, organizations start by [choosing a hybrid network architecture](../reference-architectures/hybrid-networking/index.yml).
+Many organizations need a hybrid approach to analytics, automation, and services because their data is hosted both on-premises and in the cloud. Organizations often extend on-premises data solutions to the cloud. To connect environments, organizations start by [choosing a hybrid network architecture](../reference-architectures/hybrid-networking/index.yml).
 
 ## Learn about hybrid solutions
 
@@ -40,6 +40,7 @@ Explore some options for [connecting an on-premises network to Azure](../referen
 
 When you adopt a hybrid model, you can choose from multiple solutions to confidently deliver hybrid workloads. See these documents for information on running Azure data services anywhere, modernizing applications anywhere, and managing your workloads anywhere:
 
+- [Azure hybrid options](../guide/technology-choices/hybrid-considerations.yml)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](arc-hybrid-kubernetes.yml)
 - [Use Azure file shares](azure-file-share.yml)
 - [Back up files](/azure/backup/backup-mabs-files-applications-azure-stack)
