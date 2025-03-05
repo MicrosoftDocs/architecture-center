@@ -84,7 +84,7 @@ The following tables summarize the key differences in the capabilities of NLP se
 | --- | --- | --- |
 | Provides pretrained models as a service | Yes | Yes |
 | REST API | Yes | Yes |
-| Programmability | Python, Scala | For supported languages, see [Additional Resources](/azure/cognitive-services/#additional-resources) |
+| Programmability | Python, Scala | For supported languages, see [Additional Resources](/azure/ai-services/#additional-resources) |
 | Supports processing of big data sets and large documents | Yes | No |
 
 ### Low-level NLP capabilities

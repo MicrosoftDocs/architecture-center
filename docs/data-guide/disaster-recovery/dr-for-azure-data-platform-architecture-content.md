@@ -297,9 +297,9 @@ The following tables present a breakdown of each Azure service and component use
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Microsoft
     - Contoso SKU selection: Pay As You Go
-    - DR uplift options: N/A, the APIs for AI services are hosted by [Microsoft-managed data centers](/azure/cognitive-services/what-are-cognitive-services#regional-availability).
+    - DR uplift options: N/A, the APIs for AI services are hosted by [Microsoft-managed data centers](/azure/ai-services/what-are-ai-services#regional-availability).
     - Notes
-        - If AI services has been deployed via customer deployed [Docker containers](/azure/cognitive-services/cognitive-services-container-support), recovery remains the responsibility of the customer.
+        - If AI services has been deployed via customer deployed [Docker containers](/azure/ai-services/cognitive-services-container-support), recovery remains the responsibility of the customer.
 
 - **Azure AI Search (formerly Cognitive Search)**
     - Component recovery responsibility: Microsoft

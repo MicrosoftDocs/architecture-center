@@ -34,7 +34,7 @@ The following table summarizes the retry features for the Azure services describ
 | **[Event Hubs](#event-hubs)** |Native in client |Programmatic |Client |None |
 | **[IoT Hub](#iot-hub)** |Native in client SDK |Programmatic |Client |None |
 | **[Azure Cache for Redis](#azure-cache-for-redis)** |Native in client |Programmatic |Client |TextWriter |
-| **[Search](#azure-search)** |Native in client |Programmatic |Client |Event Tracing for Windows (ETW) or Custom |
+| **[Search](#azure-ai-search)** |Native in client |Programmatic |Client |Event Tracing for Windows (ETW) or Custom |
 | **[Service Bus](#service-bus)** |Native in client |Programmatic |Namespace Manager, Messaging Factory, and Client |ETW |
 | **[Service Fabric](#service-fabric)** |Native in client |Programmatic |Client |None |
 | **[Azure SQL Database or SQL database in Fabric with ADO.NET](#sql-database-using-adonet)** |[Polly](#transient-fault-handling-with-polly) |Declarative and programmatic |Single statements or blocks of code |Custom |
