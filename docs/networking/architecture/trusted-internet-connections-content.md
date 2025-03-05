@@ -62,7 +62,7 @@ For more information on CLAW, TIC 3.0, and MTIPS, see:
 
 - [Trusted Internet Connections guidance](/azure/azure-government/compliance/compliance-tic)
 - [TIC 3.0 core guidance documents](https://www.cisa.gov/publication/tic-30-core-guidance-documents)
-- [National Cybersecurity Protection System (NCPS) documents](https://www.cisa.gov/publication/national-cybersecurity-protection-system-documents)
+- [National Cybersecurity Protection System (NCPS) documents](https://www.cisa.gov/resources-tools/resources/cybersecurity-publications)
 - [EINSTEIN](https://www.cisa.gov/einstein)
 - [Managed Trusted Internet Protocol Services (MTIPS)](https://www.gsa.gov/technology/it-contract-vehicles-and-purchasing-programs/information-technology-category/it-security/trusted-internet-connections-tic/mtips-features-and-price-structure)
 
@@ -220,7 +220,7 @@ Other contributor:
 ## Next steps
 
 - [TIC 3.0 core guidance documents](https://www.cisa.gov/publication/tic-30-core-guidance-documents)
-- [National Cybersecurity Protection System (NCPS) documents](https://www.cisa.gov/publication/national-cybersecurity-protection-system-documents)
+- [National Cybersecurity Protection System (NCPS) documents](https://www.cisa.gov/resources-tools/resources/cybersecurity-publications)
 - [EINSTEIN](https://www.cisa.gov/einstein)
 - [Managed Trusted Internet Protocol Services (MTIPS)](https://www.gsa.gov/technology/it-contract-vehicles-and-purchasing-programs/information-technology-category/it-security/trusted-internet-connections-tic/mtips-features-and-price-structure)
 - [Azure Trusted Internet Connection - Extended](https://github.com/Azure/trusted-internet-connection)
