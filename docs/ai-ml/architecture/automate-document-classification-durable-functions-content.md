@@ -36,7 +36,7 @@ This article describes an architecture that you can use to process various docum
 
 - To trigger durable functions instances, you can use other messaging platforms, including [Azure Event Grid](/azure/event-grid/overview).
 
-- Semantic Kernel is one of several options for creating embeddings. You can also use [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) or [Azure AI services](/azure/ai-services/overview) to create embeddings.
+- Semantic Kernel is one of several options for creating embeddings. You can also use [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) or [Azure AI services](/azure/ai-services/what-are-ai-services) to create embeddings.
 
 - To provide a natural language interface for users, you can use other large language models (LLMs) within Azure AI Foundry. The platform supports a variety of models from different providers, including Mistral, Meta, Cohere, and Hugging Face.
 
