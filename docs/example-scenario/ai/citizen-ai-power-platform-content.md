@@ -56,7 +56,8 @@ You can use the following components.
 
 #### Azure services
 
-- [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning): An enterprise-grade ML service for building and deploying models quickly. It provides users at all skill levels with a low-code designer, automated ML, and a hosted Jupyter notebook environment to develop machine learning models.
+- [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning): An enterprise-grade ML service for building and deploying models quickly. You use its low-code designer, automated ML, and a hosted Jupyter notebook environment to develop machine learning models.
+
 - [Machine Learning managed endpoints](/azure/machine-learning/how-to-deploy-managed-online-endpoints): Online endpoints that enable you to deploy your model without having to create and manage the underlying infrastructure. The hosted endpoint is used by applications such as a Power App for interactive predictions.
 
 - [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction): A Hadoop-compatible file system with an integrated hierarchical namespace and the massive scale and economy of Azure Blob Storage. It provides the storage layer for data use in the process of training machine learning models.
