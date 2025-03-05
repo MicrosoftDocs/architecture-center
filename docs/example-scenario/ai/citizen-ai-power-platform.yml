@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Citizen AI with Power Platform
+  title: Citizen AI with Microsoft Power Platform
   titleSuffix: Azure Architecture Center
   description: Learn how to use Azure Machine Learning and Microsoft Power Platform to quickly create a machine learning proof of concept and a production version.
   author: vyasdev
@@ -20,7 +20,7 @@ products:
   - power-apps
   - power-automate
   - power-bi
-name: Citizen AI with Power Platform
+name: Citizen AI with Microsoft Power Platform
 summary: Learn how to use Azure Machine Learning and Microsoft Power Platform to quickly create a machine learning proof of concept and a production version.
 thumbnailUrl: /azure/architecture/browse/thumbs/citizen-ai-power-platform-thumbnail.png
 content: |
