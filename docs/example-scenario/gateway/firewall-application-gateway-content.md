@@ -309,7 +309,7 @@ Network traffic from the public internet follows this flow:
    - Source IP address: `ClientPIP`
    - Destination IP address: `AzFWPIP`
 
-2. The request to the Azure Firewall public IP address is distributed to a back-end instance of the firewall, which is `192.168.100.7` in this example. Azure Firewall DNATs the web port, usually TCP 443, to the private IP address of the Application Gateway instance. Azure Firewall also SNATs when you do DNAT. For more information, see [Azure Firewall known issues][azfw-known-issues].
+2. The request to the Azure Firewall public IP address is distributed to a back-end instance of the firewall, which is `192.168.100.7` in this example. Azure Firewall applies DNAT to the web port, usually TCP 443, to the private IP address of the Application Gateway instance. Azure Firewall also applies SNAT when you perform DNAT. For more information, see [Azure Firewall known issues][azfw-known-issues].
 
    - Source IP address, which is the private IP address of the Azure Firewall instance: `192.168.100.7`
    - Destination IP address: `192.168.200.4`
