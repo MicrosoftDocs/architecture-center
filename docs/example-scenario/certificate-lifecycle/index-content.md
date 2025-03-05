@@ -51,7 +51,7 @@ This image shows the automatic workflow for certificate renewal within the Azure
 
 1. **Key Vault extension configuration:** You must equip the servers that need to use the certificates with the Key Vault extension, a versatile tool compatible with [Windows](/azure/virtual-machines/extensions/key-vault-windows) and [Linux](/azure/virtual-machines/extensions/key-vault-linux) systems. Azure infrastructure as a service (IaaS) servers and on-premises or other cloud servers that integrate through [Azure Arc](/azure/azure-arc/overview) are supported. Configure the Key Vault extension to periodically poll Key Vault for any updated certificates. The polling interval is customizable and flexible so it can align with specific operational requirements.
  > [!NOTE]
- > As of this writing, the Key Vault extension is unavailable on Linux Redhat and CentOS. To extend the solution to these systems, schedule the [**following script**](https://github.com/Azure/certlc/raw/refs/heads/main/.scripts/script_for_not_supported_Linux_distro.zip) that periodically checks Key Vault for certificate updates and applies them to servers. The script can run on both Azure native VMs (IaaS) and on-premises servers integrated with Azure Arc.
+ > As of this writing, the Key Vault extension is unavailable on Linux Redhat and CentOS. To extend the solution to these systems, schedule the [**following script**](https://github.com/Azure/certlc/raw/refs/heads/main/.scripts/script_for_not_supported_ARC_on_Linux_distro.zip) that periodically checks Key Vault for certificate updates and applies them to servers. The script can run on both Azure native VMs (IaaS) and on-premises servers integrated with Azure Arc.
 
 3. **Event Grid integration:** As a certificate approaches expiration, two Event Grid subscriptions intercept this important lifetime event from the key vault.
 
@@ -73,7 +73,7 @@ This image shows the automatic workflow for certificate renewal within the Azure
 
 1. **Monitoring and email notification:** All operations that various Azure components run, such as an Automation account, Key Vault, a storage account queue, and Event Grid, are logged within the Azure Monitor Logs workspace to enable monitoring. After the certificate merges into the key vault, the script sends an email message to administrators to notify them of the outcome.
 
-1. **Certificate retrieval:** The Key Vault extension on the server plays an important role during this phase. It automatically downloads the latest version of the certificate from the key vault into the local store of the server that's using the certificate. You can configure multiple servers with the Key Vault extension to retrieve the same certificate (wildcard or with multiple Subject Alternative Name (SAN) certificates) from the key vault. For Linux distributions where Azure Key Vault Extension cannot be installed, [this script](https://github.com/Azure/certlc/raw/refs/heads/main/.scripts/script_for_not_supported_Linux_distro.zip) can be scheduled to achieve the same functionality as the extension.
+1. **Certificate retrieval:** The Key Vault extension on the server plays an important role during this phase. It automatically downloads the latest version of the certificate from the key vault into the local store of the server that's using the certificate. You can configure multiple servers with the Key Vault extension to retrieve the same certificate (wildcard or with multiple Subject Alternative Name (SAN) certificates) from the key vault. For Linux distributions where Azure Key Vault Extension cannot be installed, [this script](https://github.com/Azure/certlc/raw/refs/heads/main/.scripts/script_for_not_supported_ARC_on_Linux_distro.zip) can be scheduled to achieve the same functionality as the extension.
 
 ### Components
 
@@ -104,7 +104,7 @@ The Key Vault extension configuration parameters include:
 > Specify the Key Vault extension parameters only during the initial setup. This ensures they won't undergo any changes throughout the renewal process.
 
 > [!TIP]
-> As previously mentioned, for Linux distributions that do not support Azure Key Vault Extension installation, the following [script](https://github.com/Azure/certlc/raw/refs/heads/main/.scripts/script_for_not_supported_Linux_distro.zip)  can be scheduled with similar parameters to achieve the same functionality as the extension.
+> As previously mentioned, for Linux distributions that do not support Azure Key Vault Extension installation, the following [script](https://github.com/Azure/certlc/raw/refs/heads/main/.scripts/script_for_not_supported_ARC_on_Linux_distro.zip)  can be scheduled with similar parameters to achieve the same functionality as the extension.
 
 #### Automation account
 
