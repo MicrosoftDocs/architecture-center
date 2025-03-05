@@ -50,7 +50,7 @@ This image shows the automatic workflow for certificate renewal within the Azure
 
 1. **Key Vault extension configuration:** You must equip the servers that need to use the certificates with the Key Vault extension, a versatile tool compatible with [Windows](/azure/virtual-machines/extensions/key-vault-windows) and [Linux](/azure/virtual-machines/extensions/key-vault-linux) systems. Azure infrastructure as a service (IaaS) servers and on-premises or other cloud servers that integrate through [Azure Arc](/azure/azure-arc/overview) are supported. Configure the Key Vault extension to periodically poll Key Vault for any updated certificates. The polling interval is customizable and flexible so it can align with specific operational requirements.
 
-    > [!NOTE]
+   > [!NOTE]
    > The Key Vault extension is unavailable on Linux RedHat and CentOS. To extend the solution to these systems, schedule the [**script_for_not_supported_ARC_on_Linux_distro script**](https://github.com/Azure/certlc/tree/main/.scripts) that periodically checks Key Vault for certificate updates and applies them to the server. The script can run on both Azure native VMs (IaaS) and on-premises servers integrated with Azure Arc.
 
 1. **Event Grid integration:** As a certificate approaches expiration, two Event Grid subscriptions intercept this important lifetime event from the key vault.
