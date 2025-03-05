@@ -1,7 +1,5 @@
  This article describes an architecture for many models that uses Machine Learning and compute clusters. It provides great versatility for situations that require complex setup.
 
-A companion article, [Many models machine learning at scale in Azure with Spark](many-models-machine-learning-azure-spark.yml), uses Apache Spark in either Azure Databricks or Azure Synapse Analytics.
-
 ## Architecture
 
 :::image type="content" source="_images/many-models-machine-learning-azure.png" alt-text="Architecture diagram for many models machine learning at scale on Azure with Azure Machine Learning." lightbox="_images/many-models-machine-learning-azure.png":::
@@ -53,7 +51,7 @@ A companion article, [Many models machine learning at scale in Azure with Spark]
 
 - [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that allows the creation of data-driven workflows for orchestrating and automating data movement and transformation. In this architecture, Azure Data Factory is used to ingest enterprise data and third-party metadata into Azure Data Lake Storage.
 
-- [Azure Stream Analytics](/azure/stream-analytics/overview) is a real-time analytics and complex event-processing service designed to analyze and process high volumes of fast streaming data. In this architecture, Azure Stream Analytics could potentially be used for real-time data processing, although it is not explicitly shown in the workflow.
+- [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) is a real-time analytics and complex event-processing service designed to analyze and process high volumes of fast streaming data. In this architecture, Azure Stream Analytics could potentially be used for real-time data processing, although it is not explicitly shown in the workflow.
 
 - [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an enterprise-grade machine learning service for building and deploying models quickly. It provides users at all skill levels with tools such as a low-code designer, automated ML (AutoML), and a hosted Jupyter notebook environment that supports various IDEs. In this architecture, Azure Machine Learning is used to manage the lifecycle of machine learning models, including training, evaluation, deployment, and orchestrating pipelines like training, promotion, and scoring.
 
@@ -142,4 +140,3 @@ Principal author:
 - [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 - [Choose a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
-- [Many models machine learning at scale in Azure with Spark](many-models-machine-learning-azure-spark.yml)

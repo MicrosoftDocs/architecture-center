@@ -130,7 +130,6 @@ For more information, contact [**legacy2azure@microsoft.com**](mailto:legacy2azu
 - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
 - [Mainframe rehosting on Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 - [Unisys cybersecurity](https://www.unisys.com/solutions/cybersecurity-solutions)
-- [What is Azure Files?](/azure/storage/files/storage-files-introduction)
 
 ## Related resources
 

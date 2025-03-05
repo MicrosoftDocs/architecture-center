@@ -59,4 +59,3 @@ Now that you have learned about the scenario at a high level, you can move on to
 - [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.yml)
 - [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.yml)
 - [DR for Azure Data Platform - Recommendations](dr-for-azure-data-platform-recommendations.yml)
-- [DR for Azure Data Platform - Deploy this scenario](dr-for-azure-data-platform-deploy-this-scenario.yml)

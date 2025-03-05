@@ -253,10 +253,10 @@ Other contributors:
 - [Create Data Activator alerts from a real-time dashboard](/fabric/data-activator/data-activator-get-data-real-time-dashboard)
 - [Power BI report](/fabric/real-time-intelligence/create-powerbi-report)
 - [Visualize data from Azure Data Explorer in Grafana](/azure/data-explorer/grafana)
-- [Automotive messaging, data, and analytics reference architecture](./automotive-connected-fleets.yml)
+- [Automotive messaging, data, and analytics reference architecture](/industry/mobility/architecture/automotive-connected-fleets-content)
 
 ## Related resources
 
-- [Software-defined vehicle DevOps toolchain](../../ai-ml/architecture/software-defined-vehicle-reference-architecture.yml)
+- [Software-defined vehicle DevOps toolchain](/industry/mobility/architecture/autonomous-vehicle-operations-dataops-content)
 - [Reference architecture for autonomous vehicle operations (AVOps)](/industry/mobility/architecture/ra-mobility-avops)
 - [Claim-Check pattern](../../patterns/claim-check.yml)

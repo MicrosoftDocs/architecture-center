@@ -145,8 +145,6 @@ Use a single [Azure Resource Manager template][arm-template] for provisioning th
 
 Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
 
-For higher availability architecture see [Linux N-tier application in Azure with Apache Cassandra](./n-tier-cassandra.yml), the reference architecture includes more than one VM and each VM is included in an availability set.
-
 Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
 
 ## Next steps
@@ -156,9 +154,8 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 - To provision a Linux VM, see [Create and Manage Linux VMs with the Azure CLI](/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access)
 
-## Related resources
+## Related resource
 
-- [Linux N-tier application in Azure with Apache Cassandra](./n-tier-cassandra.yml)
 - [Run a Windows VM on Azure](windows-vm.yml)
 
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups

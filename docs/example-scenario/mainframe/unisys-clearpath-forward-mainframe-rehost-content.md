@@ -108,9 +108,7 @@ For more information, please contact **legacy2azure@microsoft.com**, or check ou
 
 - [Azure Mainframe and midrange migration](https://azure.microsoft.com/migration/mainframe)
 - [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
-- [Unisys CloudForte for Azure in the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/unisys-azuremp-stealth.cloudforte_for_azure?tab=Overview)
 - [Unisys Cloud Migration Services](https://www.unisys.com/solutions/cloud-management/)
-- [Unisys Stealth](https://stealthsecurity.unisys.com)
 - [Unisys Documentation Libraries](https://public.support.unisys.com/common/epa/documentationlibraries.aspx)
 - [Azure Virtual Network documentation](/azure/virtual-network)
 - [Manage Azure Virtual Network interface cards](/azure/virtual-network/virtual-network-network-interface)
@@ -127,4 +125,3 @@ For more information, please contact **legacy2azure@microsoft.com**, or check ou
 - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
 - [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)
-- [SMA OpCon in Azure](../../solution-ideas/articles/sma-opcon-azure.yml)
