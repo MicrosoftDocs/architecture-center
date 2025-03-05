@@ -294,7 +294,7 @@ For more information, see [Virtual network restrictions](/azure/dns/dns-private-
 
 Principal author:
 
-- [Moorthy Annadurai](https://www.linkedin.com/in/moorthy-annadurai) | Sr Technical Specialist
+- [Moorthy Annadurai](https://www.linkedin.com/in/moorthy-annadurai) | Sr. Technical Specialist
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
