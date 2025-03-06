@@ -52,7 +52,7 @@ You can use the following recommended practices to achieve BCDR for Data Factory
 
 ### Automated recovery with Azure disaster recovery
 
-With automated recovery provided Azure Backup and disaster recovery, when there is a complete regional outage for an Azure region that has a paired region, Data Factory or Azure Synapse pipelines automatically fail over to the paired region when you [Set up automated recovery](#deploy-this-scenario). The exceptions are Southeast Asia and Brazil regions, where data residency requirements require data to stay in those regions.
+With automated recovery provided backup and disaster recovery, when there is a complete regional outage for an Azure region that has a paired region, Data Factory or Azure Synapse pipelines automatically fail over to the paired region when you [Set up automated recovery](#deploy-this-scenario). The exceptions are Southeast Asia and Brazil regions, where data residency requirements require data to stay in those regions.
 
 In DR failover, Data Factory recovers the production pipelines. If you need to validate your recovered pipelines, you can back up the Azure Resource Manager templates for your production pipelines in secret storage, and compare the recovered pipelines to the backups.
 
@@ -169,27 +169,24 @@ In general, you need to design your pipelines to include activities, like fail a
 Principal authors:
 
 - [Krishnakumar Rukmangathan](https://www.linkedin.com/in/krishnakumar-rukmangathan) | Senior Program Manager - Azure Data Factory team
-
 - [Sunil Sabat](https://www.linkedin.com/in/sunilsabat) | Principal Program Manager - Azure Data Factory team
 
 Other contributors:
 
 - [Mario Zimmermann](https://www.linkedin.com/in/mario-zimmermann-11614755) | Principal Software Engineering Manager - Azure Data Factory team
-
 - [Wee Hyong Tok](https://www.linkedin.com/in/weehyongtok) | Principal Director of PM - Azure Data Factory team
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- [Business continuity management in Azure](/azure/reliability/business-continuity-management-program)
-- [Resiliency in Azure](/azure/reliability/overview)
-- [Azure resiliency terminology](/azure/reliability/glossary)
-- [Regions and availability zones](/azure/reliability/availability-zones-overview)
-- [Cross-region replication in Azure](/azure/reliability/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies)
+- [What are business continuity, high availability, and disaster recovery?](/azure/reliability/concept-business-continuity-high-availability-disaster-recovery)
+- [Reliability in Azure](/azure/reliability/overview)
+- [What are Azure regions?](/azure/reliability/regions-overview)
+- [What are Azure availability zones?](/azure/reliability/availability-zones-overview)
 - [Azure regions decision guide](/azure/cloud-adoption-framework/migrate/azure-best-practices/multiple-regions)
 - [Azure services that support availability zones](/azure/reliability/availability-zones-region-support)
-- [Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility)
+- [Shared responsibility for reliability](/azure/reliability/concept-shared-responsibility)
 - [Azure Data Factory data redundancy](/azure/data-factory/concepts-data-redundancy)
 - [Integration runtime in Azure Data Factory](/azure/data-factory/concepts-integration-runtime)
 - [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](https://learn.microsoft.com/azure/data-factory/concepts-pipelines-activities)

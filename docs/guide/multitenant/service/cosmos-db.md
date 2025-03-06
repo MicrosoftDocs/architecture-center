@@ -217,5 +217,4 @@ Learn more about multitenancy and Azure Cosmos DB:
 Refer to some of our other Azure Cosmos DB architectural scenarios:
 
 - [Storage and data approaches for multitenancy](../approaches/storage-data.yml)
-- [Serverless apps using Azure Cosmos DB](../../../databases/idea/serverless-apps-using-cosmos-db.yml)
 - [Transactional Outbox pattern with Azure Cosmos DB](../../../databases/guide/transactional-outbox-cosmos.yml)
