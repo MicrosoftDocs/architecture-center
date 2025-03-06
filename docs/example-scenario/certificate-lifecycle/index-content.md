@@ -153,7 +153,7 @@ Here is how certificate information is retrieved and presented in the workbook:
 - **Data ingestion runbook execution:** A runbook, executed directly from Azure (without requiring the context of a Hybrid Worker), retrieves certificate data from the Key Vault and sends this information to a custom table defined in the Log Analytics Workspace. The runbook runs on a scheduled cadence.
 - **Workbook visualization:** A Workbook queries the data from the custom table and displays it in both a pie chart and a detailed table, highlighting certificates based on their expiration status.
 
-By integrating these additional components, the solution ensures a comprehensive approach to certificate lifecycle management, providing both automated certificate retrieval and real-time monitoring through intuitive dashboards.
+By integrating these additional components, your solution builds a more comprehensive approach to certificate lifecycle management.
 
 ![Dashboard of the certificates status](./media/Workbook.png)
 
