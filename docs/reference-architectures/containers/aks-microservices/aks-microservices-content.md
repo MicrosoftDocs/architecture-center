@@ -62,7 +62,7 @@ For more information about the sample microservices application, see [Microservi
 
 [Azure Container Apps](/azure/container-apps/) provides a managed serverless Kubernetes experience. It serves as a simpler alternative to AKS for hosting microservices when you don't need direct access to Kubernetes or its APIs and don't require control over the cluster infrastructure.
 
-Instead of the managed ingress gateway in AKS, you can use alternatives like Application Gateway for Containers, Istio ingress gateway, or non-Microsoft solutions. For more details, see [Ingress in AKS](/en-us/azure/aks/concepts-network-ingress).
+Instead of the managed ingress gateway in AKS, you can use alternatives like Application Gateway for Containers, Istio ingress gateway, or non-Microsoft solutions. For more information, see [Ingress in AKS](/en-us/azure/aks/concepts-network-ingress).
 
 You can store container images in non-Microsoft container registries such as Docker Hub.
 
@@ -119,7 +119,7 @@ In Kubernetes, an ingress controller primarily handles the functionality of an A
 
 - Offload functionality from the back end services, such as SSL termination, authentication, IP address restrictions, or client rate limiting (called *throttling*).
 
-There are ingress controllers for reverse proxies, which includes NGINX, HAProxy, Traefik, and Azure Application Gateway. AKS provides multiple managed ingress options. You can choose from a [managed NGINX-based ingress controller](/azure/aks/app-routing) through the application routing add-on, Application Gateway for Containers, or Istio ingress gateway as the ingress controller. For more information, see [Ingress in AKS](/en-us/azure/aks/concepts-network-ingress).
+There are ingress controllers for reverse proxies, which include NGINX, HAProxy, Traefik, and Azure Application Gateway. AKS provides multiple managed ingress options. You can choose from a [managed NGINX-based ingress controller](/azure/aks/app-routing) through the application routing add-on, Application Gateway for Containers, or Istio ingress gateway as the ingress controller. For more information, see [Ingress in AKS](/en-us/azure/aks/concepts-network-ingress).
 
 The ingress resources Kubernetes objects have evolved into the more comprehensive and powerful Kubernetes Gateway API. Ingress controller and Gateway API are both Kubernetes objects used for traffic management routing and load balancing. Designed to be generic, expressive, extensible, and role oriented, the Gateway API is a modern set of APIs for defining L4 and L7 routing rules in Kubernetes.
 
@@ -173,7 +173,7 @@ When you think about probes, it's important to remember how a service works in K
 
 Sometimes a pod might not be ready to receive traffic, even though it has started successfully. For example, there might be initialization tasks underway, such as when the application running in the container loads data into memory or reads configuration files. You can use a startup probe for these slow-starting containers. This approach helps prevent Kubernetes from terminating them before they have a chance to fully initialize.
 
-Liveness probes are used to check if a pod is running but not working properly and needs to be restarted. For instance, if a container is handling HTTP requests but suddenly stops responding without crashing, the liveness probe will detect this and trigger a restart of the pod. If you set up a liveness probe, it will notice when a container isn't responding and prompt Kubernetes to restart the pod if the container repeatedly fails the probe.
+Liveness probes are used to check if a pod is running but not working properly and needs to be restarted. For instance, if a container is handling HTTP requests but suddenly stops responding without crashing, the liveness probe detects this and triggers a restart of the pod. If you set up a liveness probe, it notices when a container isn't responding and prompt Kubernetes to restart the pod if the container repeatedly fails the probe.
 
 Consider the following points when you design probes for microservices.
 
@@ -215,7 +215,7 @@ Applications and services often need credentials that allow them to connect to e
 
 For Azure resources, use managed identities when possible. A managed identity is like a unique ID for an application or service that's stored in Microsoft Entra ID. It uses this identity to authenticate with an Azure service. The application or service has a service principal created for it in Microsoft Entra ID and authenticates by using OAuth 2.0 tokens. The code running within the process can transparently obtain the token. This approach helps ensure that you don't need to store any passwords or connection strings. You can assign Microsoft Entra identities to individual pods in AKS by using [Microsoft Entra workload ID](/azure/aks/workload-identity-overview) to take advantage of managed identities.
 
-Even when you use managed identities, you might still need to store some credentials or other application secrets. This is necessary for Azure services that don't support managed identities, non-Microsoft services, or API keys. You can use the following options to help store secrets more securely:
+Even when you use managed identities, you might still need to store some credentials or other application secrets. This storage is necessary for Azure services that don't support managed identities, non-Microsoft services, or API keys. You can use the following options to help store secrets more securely:
 
 - **Key Vault.** In AKS, you can mount one or more secrets from Key Vault as a volume. The volume reads the secrets from Key Vault. The pod can then read the secrets like a regular volume. For more information, see [Use the Key Vault provider for Secrets Store CSI driver in an AKS cluster](/azure/aks/csi-secrets-store-driver). The pod authenticates itself by using either a workload identity or a user or system-assigned managed identity. For more information, see [Connect your Azure identity provider to the Azure Key Vault Secrets Store CSI Driver in Azure Kubernetes Service (AKS)](/azure/aks/csi-secrets-store-identity-access).
 
@@ -284,7 +284,7 @@ Consider the following points for some of the services used in this architecture
 
 - Configure [cluster autoscaler](/azure/aks/concepts-scale#cluster-autoscaler) to scale the nodes in or scale them out depending on load.
 
-- Consider using [spot nodes](/azure/aks/spot-node-pool) to host non-critical microservices.
+- Consider using [spot nodes](/azure/aks/spot-node-pool) to host noncritical microservices.
 
 - Review the [cost optimization best practices for AKS](/azure/aks/best-practices-cost).
 
@@ -308,7 +308,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 This reference architecture includes [Bicep files](/azure/azure-resource-manager/bicep/overview) for provisioning cloud resources and their dependencies. You can use [Azure Pipelines](/azure/devops/user-guide/services) to deploy these Bicep files and quickly set up different environments, such as replicating production scenarios. This approach helps you save costs by provisioning load testing environments only when needed.
 
-Consider following the workload isolation criteria to structure your Bicep file. A workload is typically defined as an arbitrary unit of functionality. For example, you could have a separate Bicep file for the cluster and then another for the dependent services. Workload isolation enables you to use Azure DevOps to perform CI/CD because every workload is associated and managed by its own team.
+Consider following the workload isolation criteria to structure your Bicep file. A workload is typically defined as an arbitrary unit of functionality. For example, you could have a separate Bicep file for the cluster and then another for the dependent services. You can use Azure DevOps to perform CI/CD with workload isolation because each workload is associated and managed by its own team.
 
 ## Deploy this scenario
 
