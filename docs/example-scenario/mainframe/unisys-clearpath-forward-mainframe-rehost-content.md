@@ -10,6 +10,7 @@ The benefit of this approach is a rapid move to Azure compared to other methodol
 
 Depending upon the client's end goal, the transitioned Azure MCP could be the end state or a first step toward modernizing applications within the MCP environment or within Azure. This approach to landing in Azure permits a measured, planned path to updating applications. It retains the investment made in existing application code. After conversion, other Unisys Cloud Forte and Azure data analytic services can be employed as well.
 
+
 ## Potential use cases
 
 - Move existing Unisys ClearPath Forward Libra workloads to Azure rapidly, with low risk.
