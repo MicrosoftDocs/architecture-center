@@ -107,7 +107,7 @@ Avoid storing persistent data in local cluster storage because that binds the da
 
 API gateways are a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An API gateway sits between external clients and the microservices. API gateway serves as a reverse proxy and routes requests from clients to microservices. An API gateway might also perform various cross-cutting tasks such as authentication, Secure Sockets Layer (SSL) termination, and rate limiting. For more information, see the following resources:
 
-- [Using API gateways in microservices](/azure/architecture/microservices/design/gateway)
+- [Use API gateways in microservices](/azure/architecture/microservices/design/gateway)
 
 - [Choose an API gateway technology](/azure/architecture/microservices/design/gateway#choose-an-api-gateway-technology)
 
@@ -217,7 +217,7 @@ For Azure resources, use managed identities when possible. A managed identity is
 
 Even when you use managed identities, you might still need to store some credentials or other application secrets. This is necessary for Azure services that don't support managed identities, non-Microsoft services, or API keys. You can use the following options to help store secrets more securely:
 
-- **Key Vault.** In AKS, you can mount one or more secrets from Key Vault as a volume. The volume reads the secrets from Key Vault. The pod can then read the secrets like a regular volume. For more information, see [Use the Key Vault provider for Secrets Store CSI driver in an AKS cluster](/azure/aks/csi-secrets-store-driver). The pod authenticates itself by using either a workload identity or a user or system-assigned managed identity. For more information, see ["Provide an identity to access the Key Vault provider for Secrets Store CSI driver](/azure/aks/csi-secrets-store-identity-access).
+- **Key Vault.** In AKS, you can mount one or more secrets from Key Vault as a volume. The volume reads the secrets from Key Vault. The pod can then read the secrets like a regular volume. For more information, see [Use the Key Vault provider for Secrets Store CSI driver in an AKS cluster](/azure/aks/csi-secrets-store-driver). The pod authenticates itself by using either a workload identity or a user or system-assigned managed identity. For more information, see [Connect your Azure identity provider to the Azure Key Vault Secrets Store CSI Driver in Azure Kubernetes Service (AKS)](/azure/aks/csi-secrets-store-identity-access).
 
 - **HashiCorp Vault.** Microsoft Entra managed identities allow Kubernetes applications to authenticate with HashiCorp Vault. You can [deploy the vault to Kubernetes](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-azure-aks). Consider running it in a separate dedicated cluster from your application cluster.
 
@@ -226,7 +226,7 @@ Even when you use managed identities, you might still need to store some credent
 Using a solution like Key Vault provides several advantages, including:
 
 - Centralized control of secrets.
-- Helping to ensure that all secrets are encrypted at rest.
+- Helps to ensure that all secrets are encrypted at rest.
 - Centralized key management.
 - Access control of secrets.
 - Key lifecycle management.
@@ -266,7 +266,7 @@ To learn more about the challenges, see [CI/CD for microservices architectures](
 
 Using a service mesh like Istio can help with CI/CD processes, like canary deployments, A/B testing of microservices, and staged rollouts with percentage-based traffic splits.
 
-For more information about specific recommendations and best practices, see [CI/CD for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.yml).
+For more information about specific recommendations and best practices, see [Build a CI/CD pipeline for microservices on Kubernetes with Azure DevOps and Helm](../../../microservices/ci-cd-kubernetes.yml).
 
 ### Cost Optimization
 
@@ -296,7 +296,7 @@ You're charged only for the number of configured load-balancing and outbound rul
 
 #### Azure Pipelines
 
-This reference architecture only uses Azure Pipelines. Azure provides the Azure Pipeline as an individual service. You're allowed a free Microsoft-hosted job with 1,800 minutes for each month for CI/CD and one self-hosted job with unlimited minutes for each month. Extra jobs incur extra costs. For more information, see [Azure DevOps services pricing](https://azure.microsoft.com/pricing/details/devops/azure-devops-services).
+This reference architecture only uses Azure Pipelines. Azure provides the Azure Pipeline as an individual service. You're allowed a free Microsoft-hosted job with 1,800 minutes for each month for CI/CD and one self-hosted job with unlimited minutes for each month. Extra jobs incur more costs. For more information, see [Azure DevOps services pricing](https://azure.microsoft.com/pricing/details/devops/azure-devops-services).
 
 #### Azure Monitor
 
