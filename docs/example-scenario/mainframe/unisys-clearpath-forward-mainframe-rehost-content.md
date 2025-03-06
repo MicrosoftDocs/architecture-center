@@ -63,7 +63,7 @@ Unisys CPF in Azure uses Site Recovery to ensure system availability and consist
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Unisys CPF is inherently a very secure system on its own.  THe added value of Azure security with encryption in motion as we as with data at rest provides a secure enterprise solution.
+Unisys CPF is inherently a very secure system on its own. The added value of Azure security with encryption in motion as well as with data at rest provides a secure enterprise solution.
 
 ### Cost Optimization
 
