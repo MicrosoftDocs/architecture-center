@@ -52,7 +52,7 @@ In the reliable web app pattern, you can:
 
 For more information, see [Application platform considerations for mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-application-platform).
 
-## High Availability Considerations
+## Considerations for high availability
 
 Regardless of the application platform that you choose, we recommend that you prioritize the use of availability zones for production workloads. 
 
@@ -90,7 +90,7 @@ For the reliable web app pattern to set up a network as a security perimeter, it
 
 - Private Link for all services that support it.
 - Azure Front Door Premium as the only internet-facing public endpoint.
-- Jumpboxes to access services via Azure Bastion.
+- Jump boxes to access services via Azure Bastion.
 - Self-hosted build agents that can access the services.
 
 Another common network requirement for mission-critical applications is to restrict egress traffic to prevent data exfiltration. Restrict egress traffic by routing an Azure firewall through a proper firewall device. Then, filter traffic by using the device. The [Azure mission-critical baseline architecture with network controls](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture) uses a firewall and Private Link.
