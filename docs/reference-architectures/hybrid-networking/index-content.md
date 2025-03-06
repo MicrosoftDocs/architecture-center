@@ -1,5 +1,4 @@
 
-
 This article compares three options for connecting an on-premises network to an Azure Virtual Network (VNet). For each option, a more detailed reference architecture is available.
 
 ## VPN connection
@@ -40,14 +39,13 @@ This architecture is suitable for hybrid applications running large-scale, missi
 
 > [!NOTE]
 > In the context of ExpressRoute, the Microsoft edge describes the edge routers on the Microsoft side of the ExpressRoute circuit. This is the ExpressRoute circuit's point of entry into Microsoft's network.
-> 
 
 ### Benefits
 
 - High bandwidth available; up to 10 Gbps depending on the connectivity provider.
 - Lower and more consistent latencies compared to typical connections over the Internet.
 - Supports dynamic scaling of bandwidth to help reduce costs during periods of lower demand. However, not all connectivity providers have this option.
-- May allow your organization direct access to national clouds, depending on the connectivity provider.
+- Allow your organization direct access to national clouds, depending on the connectivity provider.
 - 99.9% availability SLA across the entire connection.
 
 ### Challenges
@@ -77,8 +75,6 @@ This architecture is suitable for hybrid applications that need the high bandwid
 ### Reference architecture
 
 - [Hybrid network with ExpressRoute and VPN failover](./expressroute-vpn-failover.yml)
-
-<!-- markdownlint-disable MD024 -->
 
 ### Reference architectures
 

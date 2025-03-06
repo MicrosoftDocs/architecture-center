@@ -9,12 +9,14 @@ metadata:
   ms.topic: example-scenario
   ms.service: azure-architecture-center
   ms.subservice: example-scenario
-  ms.custom:
-    - arb-hybrid
+  ms.custom: arb-hybrid
 azureCategories:
   - hybrid
   - compute
 products:
+  - azure-kubernetes-service
+  - azure-local
+  - azure-arc
   - windows-server
 name: Network architecture for AKS on Azure Local
 summary: Learn how to design and implement network concepts for deploying Azure Kubernetes Service (AKS) nodes on AKS clusters.
