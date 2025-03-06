@@ -53,7 +53,7 @@ Network design refers to the overall arrangement of physical and logical compone
 > [!NOTE]
 > This three-node storage switchless architecture requires **six network adapter ports** to provide redundant links for all network intents. Take this into consideration if you plan to use a _small form-factor hardware_ SKU, or if there is limited physical space in the server chassis for extra network cards. Consult your preferred hardware manufacturer partner for more information.
 >
-> A [four-node storage switchless](/azure/azure-local/plan/four-node-switchless-two-switches-two-links) Azure Local instance with dual links, would require **eight network adapters ports** per node; six ports for the storage intent, and two ports for the management and compute intent.
+> A [four-node storage switchless](/azure/azure-local/plan/four-node-switchless-two-switches-two-links) Azure Local instance with dual links would require **eight network adapters ports** per node; six ports for the storage intent, and two ports for the management and compute intent.
 
 #### Physical network topology
 
