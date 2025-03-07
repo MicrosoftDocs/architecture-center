@@ -153,7 +153,7 @@ To find out more about other Azure components, see these resources:
 [search-security]: /azure/search/search-security-overview
 [search-analysis]: /azure/search/search-traffic-analytics
 [search-languages]: /rest/api/searchservice/language-support
-[search-analyzers]: /rest/api/searchservice/custom-analyzers-in-azure-search
+[search-analyzers]: /azure/search/index-add-custom-analyzers
 [search-scoring]: /rest/api/searchservice/add-scoring-profiles-to-a-search-index
 [search-samples]: https://azure.microsoft.com/resources/samples/?service=search&sort=0
 [small-pricing]: https://azure.com/e/db2672a55b6b4d768ef0060a8d9759bd

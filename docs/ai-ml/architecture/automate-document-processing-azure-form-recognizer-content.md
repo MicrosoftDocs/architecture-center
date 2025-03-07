@@ -134,7 +134,7 @@ The pipeline that's used for data enrichment depends on the use case.
    
 - You can use [Azure AI Content Understanding (Preview)](/azure/ai-services/content-understanding/overview) for ingesting documents, images, videos and audio different [use cases](/azure/ai-services/content-understanding/overview#content-understanding-use-cases).
 
-- You can use [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) for building, testing & deploying custom models and also developing, evaluating, deploying & monitoring generative AI applications. 
+- You can use [Azure AI Foundry](/azure/ai-foundry/what-is-ai-foundry) for building, testing & deploying custom models and also developing, evaluating, deploying & monitoring generative AI applications. 
   
 - You can choose another [Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree) instead of App Service to host your application.
 
@@ -329,7 +329,7 @@ Principal author:
 [Azure Storage documentation]: /azure/storage
 [Azure Storage service page]: /azure/storage/common/storage-introduction
 [Azure Web Application Firewall service page]: /azure/web-application-firewall/ag/ag-overview
-[Back up and recover your Form Recognizer models]: /azure/applied-ai-services/form-recognizer/disaster-recovery
+[Back up and recover your Form Recognizer models]: /azure/ai-services/form-recognizer/disaster-recovery
 [Create an Autoscale Setting for Azure resources based on performance data or a schedule]: /azure/azure-monitor/autoscale/tutorial-autoscale-performance-schedule
 [Create an Azure support request]: /azure/azure-portal/supportability/how-to-create-azure-support-request
 [Deploy and score a machine learning model by using an online endpoint (preview)]: /azure/machine-learning/how-to-deploy-managed-online-endpoints
@@ -337,10 +337,10 @@ Principal author:
 [Extract text from objects using Power Automate and AI Builder]: ../../example-scenario/ai/extract-object-text.yml
 [Failover for business continuity and disaster recovery]: /azure/machine-learning/how-to-high-availability-machine-learning
 [Document Intelligence general document model]: /azure/ai-services/document-intelligence/prebuilt/general-document?view=doc-intel-4.0.0&view%3C=doc-intel-3.1.0&preserve-view=true
-[Form Recognizer ID document model]: /azure/applied-ai-services/form-recognizer/concept-id-document
-[Form Recognizer invoice model]: /azure/applied-ai-services/form-recognizer/concept-invoice
+[Form Recognizer ID document model]: /azure/ai-services/form-recognizer/concept-id-document
+[Form Recognizer invoice model]: /azure/ai-services/form-recognizer/concept-invoice
 [Document intelligence layout model]: /azure/ai-services/document-intelligence/prebuilt/layout
-[Form Recognizer receipt model]: /azure/applied-ai-services/form-recognizer/concept-receipt
+[Form Recognizer receipt model]: /azure/ai-services/form-recognizer/concept-receipt
 [US tax document models]: /azure/ai-services/document-intelligence/concept-tax-document
 [Get started: Form Recognizer Studio]: /azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0
 [Get started with AzCopy]: /azure/storage/common/storage-use-azcopy-v10
@@ -364,20 +364,20 @@ Principal author:
 [Set up authentication for Azure Machine Learning resources and workflows]: /azure/machine-learning/how-to-setup-authentication
 [SLA for App Service]: https://azure.microsoft.com/support/legal/sla/app-service/v1_4
 [SLA for Application Gateway]: https://azure.microsoft.com/support/legal/sla/application-gateway/v1_2
-[SLA for Azure AI services]: https://azure.microsoft.com/support/legal/sla/azure-applied-ai-services/v1_0
+[SLA for Azure AI services]: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1
 [SLA for Azure AI services]: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1
 [SLA for Azure Functions]: https://azure.microsoft.com/support/legal/sla/functions/v1_2
 [SLA for Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1
 [Tutorial: Automate tasks to process emails by using Azure Logic Apps, Azure Functions, and Azure Storage]: /azure/logic-apps/tutorial-process-email-attachments-workflow
 [Tutorial: How to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint]: /azure/data-factory/tutorial-managed-virtual-network-on-premise-sql-server
 [Use batch endpoints (preview) for batch scoring]: /azure/machine-learning/how-to-use-batch-endpoint
-[Use Form Recognizer SDKs or REST API]: /azure/applied-ai-services/form-recognizer/how-to-guides/v3-0-sdk-rest-api?tabs=windows&pivots=programming-language-python
+[Use Form Recognizer SDKs or REST API]: /azure/ai-services/form-recognizer/how-to-guides/v3-0-sdk-rest-api?tabs=windows&pivots=programming-language-python
 [Use TLS to secure a web service through Azure Machine Learning]: /azure/machine-learning/how-to-secure-web-service
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/automate-document-processing-form-recognizer-architecture.vsdx
 [Welcome to Azure Cosmos DB]: /azure/cosmos-db/introduction
 [What is Azure Application Gateway?]: /azure/application-gateway/overview
 [What is Azure AI Language?]: /azure/ai-services/language-service/overview
-[What is Azure Form Recognizer?]: /azure/applied-ai-services/form-recognizer/overview
+[What is Azure Form Recognizer?]: /azure/ai-services/document-intelligence/overview
 [What is Azure Machine Learning?]: /azure/machine-learning/overview-what-is-azure-machine-learning
 [What is Azure Web Application Firewall on Azure Application Gateway?]: /azure/web-application-firewall/ag/ag-overview
 [What is Custom Named Entity Recognition (NER) (preview)?]: /azure/ai-services/language-service/custom-named-entity-recognition/overview

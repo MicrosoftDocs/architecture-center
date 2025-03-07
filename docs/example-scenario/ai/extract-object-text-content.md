@@ -99,7 +99,7 @@ Principal author:
 
 ## Next steps
 
-- Understand the types of documents that would be well suited for this solution. Typical documents include schematic diagrams, manufacturing control processes, and diagrams that contain many shapes that need to be isolated. For more information, see [Document Intelligence custom models](/azure/applied-ai-services/form-recognizer/concept-custom).
+- Understand the types of documents that would be well suited for this solution. Typical documents include schematic diagrams, manufacturing control processes, and diagrams that contain many shapes that need to be isolated. For more information, see [Document Intelligence custom models](/azure/ai-services/document-intelligence/train/custom-model).
 - Become familiar with the capabilities that AI Builder offers. For more information, see [AI Builder in Power Automate overview](/ai-builder/use-in-flow-overview).
 - Define an information architecture that can receive and process your metadata. For more information, see [Azure AI Search skill set](../../solution-ideas/articles/ai-search-skillsets.yml).
 - For information on how the solution works and whether it's suitable for your use cases, see [Extract text from objects](https://powerusers.microsoft.com/t5/Power-Automate-Community-Blog/Extract-Text-From-Objects/ba-p/1249705).

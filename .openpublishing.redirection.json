@@ -2350,7 +2350,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/anomaly-detection-in-real-time-data-streams.md",
-      "redirect_url": "/azure/cognitive-services/anomaly-detector/"
+      "redirect_url": "/azure/ai-services/anomaly-detector/"
     },
     {
       "source_path": "docs/solution-ideas/articles/sap-s4-hana-vm-on-linux.md",

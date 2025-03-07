@@ -46,11 +46,11 @@ You can implement the flow orchestrator in any number of languages and deploy it
 
 Many of the components of this architecture are the same as the resources in the [basic App Service web application architecture](../../web-apps/app-service/architectures/basic-web-app.yml) because the chat UI is based on that architecture. This section highlights the components that you can use to build and orchestrate chat flows, data services, and the services that expose the language models.
 
-- [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) is a platform that you can use to build, test, and deploy AI solutions. This architecture uses AI Foundry to build, test, and deploy the prompt flow orchestration logic for the chat application.
+- [Azure AI Foundry](/azure/ai-foundry/what-is-ai-foundry) is a platform that you can use to build, test, and deploy AI solutions. This architecture uses AI Foundry to build, test, and deploy the prompt flow orchestration logic for the chat application.
 
-  - [AI Foundry hub](/azure/ai-studio/concepts/ai-resources) is the top-level resource for AI Foundry. It's the central place where you can govern security, connectivity, and compute resources for use in your AI Foundry projects. You define connections to resources like Azure OpenAI in the AI Foundry hub. The AI Foundry projects inherit these connections.
+  - [AI Foundry hub](/azure/ai-foundry/concepts/ai-resources) is the top-level resource for AI Foundry. It's the central place where you can govern security, connectivity, and compute resources for use in your AI Foundry projects. You define connections to resources like Azure OpenAI in the AI Foundry hub. The AI Foundry projects inherit these connections.
 
-  - [AI Foundry projects](/azure/ai-studio/how-to/create-projects) are the environments that you use to collaborate while you develop, deploy, and evaluate AI models and solutions.
+  - [AI Foundry projects](/azure/ai-foundry/how-to/create-projects) are the environments that you use to collaborate while you develop, deploy, and evaluate AI models and solutions.
 
 - [Prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) is a development tool that you can use to build, evaluate, and deploy flows that link user prompts, actions through Python code, and calls to language learning models. This architecture uses prompt flow as the layer that orchestrates flows between the prompt, different data stores, and the language model. For development, you can host your prompt flows in two types of runtimes.
 
@@ -198,7 +198,7 @@ We recommend that you use the serverless compute option when you develop and tes
 
 ##### Evaluation
 
-You can conduct an evaluation of your Azure OpenAI model deployment by using user experience in AI Foundry. We recommend that you become familiar with how to [evaluate generative AI applications](/azure/ai-studio/concepts/evaluation-approach-gen-ai) to help ensure that the model that you choose meets customer and workload design requirements.
+You can conduct an evaluation of your Azure OpenAI model deployment by using user experience in AI Foundry. We recommend that you become familiar with how to [evaluate generative AI applications](/azure/ai-foundry/concepts/evaluation-approach-gen-ai) to help ensure that the model that you choose meets customer and workload design requirements.
 
 One important evaluation tool that you should familiarize yourself with during your workload's development phase is the [Responsible AI dashboards in Machine Learning](/azure/machine-learning/how-to-responsible-ai-dashboard?view=azureml-api-2). This tool helps you evaluate the fairness, model interpretability, and other key assessments of your deployments and is useful to help establish an early baseline to prevent future regressions.
 
