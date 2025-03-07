@@ -2,13 +2,15 @@ The following architecture expands on the [analytics end-to-end with Azure Synap
 
 ## Architecture
 
-:::image type="content" border="false" source="media/citizen-ai-power-platform.svg" alt-text="Diagram that shows the architecture for citizen AI with Microsoft Power Platform." lightbox="media/citizen-ai-power-platform.svg":::
+:::image type="complex" border="false" source="media/citizen-ai-power-platform.svg" alt-text="Diagram that shows the architecture for citizen AI with Microsoft Power Platform." lightbox="media/citizen-ai-power-platform.svg":::
+   The diagram shows how data moves through the ingest, store, train and deploy, and consume stages. Boxes are labeled with each stage and contain the services that each stage uses. Numbered arrows track how each data type moves through the architecture.
+:::image-end:::
 
 Download a [Visio file](https://arch-center.azureedge.net/citizen-ai-power-platform.vsdx) of this architecture.
 
 ### Workflow
 
-The following dataflow corresponds to the previous diagram. It consists of the following steps:
+The following dataflow corresponds to the previous diagram.
 
 - Ingest
 - Store
@@ -43,10 +45,10 @@ Ingested data can land directly in raw format and then be transformed on [Azure 
 
 #### Consume
 
-A batch or real-time model that's published in Machine Learning can generate a REST endpoint that can be consumed in a [custom application built by using the low-code Power Apps platform](/connectors/custom-connectors/use-custom-connector-powerapps). You can also call a [real-time Machine Learning endpoint from a Power BI report](/power-bi/connect-data/service-aml-integrate) to present predictions in business reports.
+A batch or real-time model that's published in Machine Learning can generate a REST endpoint that can be consumed in a [custom application that's built by using the low-code Power Apps platform](/connectors/custom-connectors/use-custom-connector-powerapps). You can also call a [real-time Machine Learning endpoint from a Power BI report](/power-bi/connect-data/service-aml-integrate) to present predictions in business reports.
 
 > [!NOTE]
-> Both Machine Learning and Microsoft Power Platform stacks have a range of built-in connectors to help ingest data directly. These connectors might be useful for a one-off minimum viable product (MVP). However, the *Ingest* and *Store* sections of the architecture describe the role of standardized data pipelines to source and store data from different sources at scale. These patterns are typically implemented and maintained by the enterprise data platform teams.
+> Both Machine Learning and Microsoft Power Platform stacks have a range of built-in connectors to help ingest data directly. These connectors might be useful for a one-off minimum viable product (MVP). However, the *Ingest* and *Store* sections of the architecture describe the role of standardized data pipelines to source and store data from different sources at scale. The enterprise data platform teams typically implement and maintain these patterns.
 
 ### Components
 
@@ -65,17 +67,17 @@ You can use the following components.
 - [Machine Learning managed endpoints](/azure/machine-learning/how-to-deploy-managed-online-endpoints) are online endpoints that enable you to deploy your model without having to create and manage the underlying infrastructure. Applications like Power Apps use the hosted endpoint for interactive predictions.
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a Hadoop-compatible file system. It has an integrated hierarchical namespace and the massive scale and economy of Azure Blob Storage. It provides the storage layer for data use in the machine learning model training process.
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. This integrated capability stores and transforms data that's used in machine learning and report creation activities.
-- [Event Hubs](/azure/well-architected/service-guides/event-hubs) and [IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) ingest data streams that client applications or IoT devices generate. Then, they ingest and store streaming data while preserving the sequence of events received. Consumers can connect to the hub endpoints to retrieve messages for processing.
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs) and [IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) ingest data streams that client applications or IoT devices generate. Then they ingest and store streaming data while preserving the sequence of events received. Consumers can connect to the hub endpoints to retrieve messages for processing.
 
 #### Platform services
 
 To improve the quality of your Azure solutions, follow the recommendations and guidelines in the [Azure Well-Architected Framework](/azure/well-architected/). The framework consists of five pillars of architectural excellence:
 
+- Reliability
+- Security
 - Cost Optimization
 - Operational Excellence
 - Performance Efficiency
-- Reliability
-- Security
 
 To create a design that follows these recommendations, consider the following services:
 
@@ -93,14 +95,14 @@ A machine learning MVP benefits from speed to outcome. In some cases, pretrained
 
 ## Scenario details
 
-A general technology trend is the growing popularity of citizen AI roles. These roles are business practitioners who want to improve business processes through the application of machine learning and AI technologies. A significant contributor to this trend is the growing maturity and availability of low-code tools to develop machine learning models.
+A general trend in technology is the increasing popularity of citizen AI roles. These roles include business practitioners who want to improve business processes through the application of machine learning and AI technologies. A key factor that drives this trend is the growing maturity and availability of low-code tools to develop machine learning models.
 
-Because of a well-known high failure rate to such initiatives, the ability to rapidly prototype and validate an AI application in a real-world setting becomes a key enabler to a fail-fast approach. There are two key tools for developing models that modernize processes and drive transformative outcomes:
+Because of a well-known high failure rate to such initiatives, the ability to rapidly prototype and validate an AI application in a real-world setting becomes a key enabler to a fail-fast approach. The two key tools for developing models that modernize processes and drive transformative outcomes are a machine learning toolkit for all skill levels and a low-code application development toolkit.
 
 - **A machine learning toolkit for all skill levels:**
   - Supports no-code to fully coded machine learning development.
   - Has a flexible, low-code graphical user interface (GUI).
-  - Enables users to rapidly source and prep data.
+  - Enables users to rapidly source and prepare data.
   - Enables users to rapidly build and deploy models.
   - Has advanced, automated machine learning capabilities for machine learning algorithm development.
 
@@ -154,7 +156,7 @@ The model might prove the concept, but a user has no easy way to consume a model
 
 :::image type="content" border="false" source="media/citizen-ai-power-platform-rest-ui.png" alt-text="Screenshot that shows a machine learning model that's created in Machine Learning. The model obtains car data from Data Lake Storage and provides inferences to an endpoint." lightbox="media/citizen-ai-power-platform-rest-ui.png":::
 
-Here's a user interface for the app, which was created in Power Apps by using the low-code interface that Power Apps provides.
+The following image shows a user interface for the app, which was created in Power Apps by using the low-code interface that Power Apps provides.
 
 :::image type="content" source="media/citizen-ai-power-platform-car-price.png" alt-text="Screenshot that shows buttons and dropdown lists for users to enter car data. The app predicts a price and displays it when the user selects the Predict button." lightbox="media/citizen-ai-power-platform-car-price.png":::
 
@@ -166,7 +168,7 @@ You can use Power Automate to build a low-code workflow to parse the user's inpu
 
 Consider the following scenarios.
 
-### Deploy to Teams
+### Deploy to Microsoft Teams
 
 Youcan also deploy the Power Apps developed user interface in the preceding example to Microsoft Teams. Teams provides a great distribution channel for your apps and gives your users a collaborative app experience. For more information about how to deploy an app to Teams by using Power Apps, see [Publish your app in Teams](/powerapps/teams/publish-and-share-apps).
 
