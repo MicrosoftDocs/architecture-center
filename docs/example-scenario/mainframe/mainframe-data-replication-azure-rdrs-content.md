@@ -26,11 +26,55 @@ Rocket® Data Replicate and Sync (RDRS), formerly tcVISION, is a data replicatio
 1. The mainframe database backup and unload files are copied to an Azure VM by using RDRS for bulk-load processing.
 1. The RDRS bulk load performs an initial target database load by using mainframe source data. Source data can be read directly from the mainframe data store or from a mainframe backup or unload file. The bulk load provides an automatic translation of mainframe data types, like extended binary coded decimal interchange code (EBCDIC)-packed fields. Use the backup or unload data for the best performance instead of a direct read of the mainframe database. You shouldn't read the database directly because moving unload or backup data to the requisite RDRS Azure VM and using native database loaders minimizes network input/output (I/O) and reduces load time.
 
+### Change Data Replication from Db2 z/OS to Microsoft Fabric Native SQL Database using RDRS
+
+Rocket® Data Replicate and Sync (RDRS) is a data replication solution from Rocket Software. It provides an IBM mainframe integration solution for mainframe data replication, data synchronization, data migration, and change data capture (CDC) to multiple Azure data platform services.
+
+This reference architecture specifically highlights an overview of replicating Db2 zOS data to Microsoft Fabric Native SQL Database in near real-time. 
+
+:::image type="content" source="./media/mainframe-realtime-batch-data-replication-azure-rdrs-db2-sql-db-one-way.svg" alt-text="Full and Change Data Replication from Db2 z/OS to Microsoft Fabric Native SQL Database using RDRS." border="false" lightbox="./media/mainframe-realtime-batch-data-replication-azure-rdrs-db2-sql-db-one-way.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/mainframe-realtime-batch-data-replication-azure-rdrs.vsdx) of this architecture.*
+
+### Initial Data Load
+
+1.	Db2 installed on IBM Mainframe in Customer Data Center which is a source of data for replication to Azure Cloud.
+1. For full copy Db2 data is fetched by RDRS Capture agent using SELECT Queries on source Db2 database. If the size of data is large Image copy backup of data can be sent from Mainframe to Capture LUW VM in binary format.
+1. The Open Platform Manager acts as a replication server. This server contains utilities for automatic data mapping to generate metadata for sources and targets. It contains the rule set for extracting the data from the source. And the server transforms and processes the data for the target systems and writes the data into the targets. You can install this component in Linux, Unix, and Windows Operating System.
+1. RDRS Capture Apply Agent receives data from Db2 (output of SELECT or Image copy). RDRS Apply Agent after performing configured transformation writes data to target Fabric SQL database.
+1. The RDRS Dashboard provides administration, review, operation, control, and monitoring of the data exchange processes. The RDRS command line utilities help automate data exchange processes and manage the unattended operations of the data synchronization process.
+1. RDRS Apply agent using Microsoft ODBC Driver v18 with Entra ID Authentication for Azure SQL writes data efficiently to the target Fabric Native SQL Database.
+1. Microsoft Fabric SQL Native database is a developer-friendly transactional database, based on Azure SQL Database, that allows you to easily create your operational database in Fabric. A SQL database in Fabric uses the same SQL Database Engine as Azure SQL Database.
+1. After data lands in Azure data platform, it's consumed by Azure services or others that are permitted to see it. Examples include Fabric Analytics, Power BI or even a custom application.
+
+
+### Change Data Capture
+
+a. Db2 installed on IBM Mainframe in Customer Data Center which is a source of data for replication to Azure Cloud. RDRS provides the capability to get log based changed data from Db2.
+   
+b. RDRS defines Db2 User Defined Table Process to read Db2 Logs. UDT runs in IBM Work Load Manager Environment and is operationalized by Db2 DBMS. UDT read log data and keeps in memory for transmission.
+
+c.	The Open Platform Manager acts as a replication server. This server contains utilities for automatic data mapping to generate metadata for sources and targets. It contains the rule set for extracting the data from the source. And the server transforms and processes the data for the target systems and writes the data into the targets. You can install this component in Linux, Unix, and Windows Operating System. RDRS Capture Apply Agent receives data from UDT process. Apply Agent after performing configured transformation writes data to target Fabric SQL database. 
+
+d.	The RDRS Dashboard provides administration, review, operation, control, and monitoring of the data exchange processes. The RDRS command line utilities help automate data exchange processes and manage the unattended operations of the data synchronization process.
+
+e.	RDRS Apply agent using Microsoft ODBC Driver v18 with Entra ID Authentication for Azure SQL runs DML queries on target Fabric Native SQL Database. 
+
+f.	Microsoft Fabric SQL Native database is a developer-friendly transactional database, based on Azure SQL Database that allows you to easily create your operational database in Fabric. A SQL database in Fabric uses the same SQL Database Engine as Azure SQL Database. After data lands in Azure data platform, it's consumed by Azure services or others that are permitted to see it. Examples include Fabric Analytics, Power BI or even a custom application.
+
+g.	RDRS also provides capabilities to write captured data as JSON to Azure Event Hub / Kafka. 
+
+h.	Azure Event Hub acts as storage of CDC data messages. 
+
+i.	Messages in Azure Event Hub can be consumed by Azure Logic App, Azure Function or IaaS based custom logic solution in Azure VM to perform custom processing.  
+
 ### Components
 
 The solution uses the following components.
 
 #### Networking and identity components
+
+This architecture refers to below networking services that can be used individually or in combination for security.
 
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute): ExpressRoute lets you extend your on-premises networks into the Microsoft Cloud over a private connection that's handled by a connectivity provider. You can use ExpressRoute to establish connections to cloud services, like Microsoft Azure and Microsoft 365.
 - [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways): A VPN gateway is a specific type of virtual network gateway that sends encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
@@ -42,11 +86,14 @@ The solution uses the following components.
 - [Azure Functions](/azure/well-architected/service-guides/azure-functions-security): Azure Functions lets you run small pieces of code, called functions, without worrying about application infrastructure. When you use Functions, the cloud infrastructure provides the up-to-date servers that you need to keep your application running at scale.
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines): Azure VMs are on-demand, scalable computing resources. An Azure VM provides the flexibility of virtualization and eliminates the maintenance demands of physical hardware. Azure VMs operate on both Windows and Linux systems.
 
-#### Storage components
+#### Storage and Database components
+
+The architecture discusses the data migration to scalable, secure cloud storage and managed databases for flexible, intelligent data management in Azure.
 
 - [Storage](/azure/storage/common/storage-introduction): Storage offers unmanaged storage solutions like Azure Blob Storage, Azure Table Storage, Azure Queue Storage, and Azure Files. Azure Files is especially useful for re-engineered mainframe solutions and provides an effective add-on with managed SQL storage.
 - [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview): Azure SQL is a fully managed platform as a service (PaaS) for SQL Server from Azure. Relational data can be migrated and used efficiently with other Azure components, such as Azure SQL Managed Instance, Azure SQL VMs, Azure Database for PostgreSQL, Azure Database for MariaDB, and Azure Database for MySQL.
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db): Azure Cosmos DB is a no-SQL offering that you can use to migrate non-tabular data off of the mainframe.
+- [SQL Database in Fabric](/fabric/database/sql/overview)– SQL database in Fabric is a) The home in Fabric for OLTP workloads b) Easy to configure and manage c) Set up for analytics by automatically replicating the data into OneLake near real time d) Integrated with development frameworks and analytics e) Queried in all the same ways as Azure SQL Database, plus a web-based editor in the Fabric portal.
 
 #### Monitoring components
 
