@@ -1114,45 +1114,31 @@ items:
         href: example-scenario/apps/devops-dotnet-baseline.yml
     - name: "Solution idea: DevSecOps for infrastructure as code"
       href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
-  - name: Hybrid + Multicloud
+  - name: Hybrid + multicloud
     items:
     - name: Get started
       href: hybrid/hybrid-start-here.md
     - name: Guides
       items:
-      - name: Connect an on-premises network to Azure
-        href: reference-architectures/hybrid-networking/index.yml
       - name: Troubleshoot a hybrid VPN connection
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.yml
     - name: Architectures
       items:
-      - name: Azure Arc solutions
+      - name: Adaptive cloud
         items:
-        - name: Azure Arc hybrid management with AKS
-          href: hybrid/arc-hybrid-kubernetes.yml
-        - name: Deploy an Azure Arc-enabled SQL managed instance for DR
-          href: hybrid/arc-sql-managed-instance-disaster-recovery.yml
-        - name: Optimize SQL Server with Azure Arc
-          href: hybrid/azure-arc-sql-server.yml
-      - name: Azure Automation solutions
-        items:
-        - name: Azure Automation State Configuration
-          href: example-scenario/state-configuration/state-configuration.yml
-        - name: Implement a secure hybrid network
-          href: reference-architectures/dmz/secure-vnet-dmz.yml
-      - name: Azure enterprise cloud file share
-        href: hybrid/azure-files-private.yml
-      - name: Azure files secured by AD DS
-        href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
-      - name: Azure Functions in a hybrid environment
-        href: hybrid/azure-functions-hybrid.yml
-      - name: Azure Local solutions
-        items:
+        - name: Azure Arc solutions
+          items:
+          - name: Manage Kubernetes using Azure Arc
+            href: hybrid/arc-hybrid-kubernetes.yml
+          - name: Deploy an Azure Arc-enabled SQL managed instance for DR
+            href: hybrid/arc-sql-managed-instance-disaster-recovery.yml
+          - name: Optimize SQL Server with Azure Arc
+            href: hybrid/azure-arc-sql-server.yml
         - name: Azure Local infrastructure
           items:
           - name: Azure Local baseline
             href: hybrid/azure-local-baseline.yml
-          - name: Azure Local storage switchless configuration
+          - name: Azure Local storage switchless
             href: hybrid/azure-local-switchless.yml
           - name: Azure Local stretched clusters for DR
             href: hybrid/azure-local-dr.yml
@@ -1168,24 +1154,40 @@ items:
               href: example-scenario/hybrid/aks-hybrid-azure-local.yml
           - name: Azure Virtual Desktop for Azure Local
             href: hybrid/azure-local-workload-virtual-desktop.yml
-      - name: Connect on-premises with ExpressRoute
-        href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
-      - name: Design a hybrid Domain Name System
-        href: hybrid/hybrid-dns-infra.yml
-      - name: 'Enhanced-security hybrid: client access'
-        href: example-scenario/hybrid/secure-hybrid-messaging-client.yml
-      - name: 'Enhanced-security hybrid: mobile access'
-        href: example-scenario/hybrid/secure-hybrid-messaging-mobile.yml
-      - name: 'Enhanced-security hybrid: web access'
-        href: example-scenario/hybrid/secure-hybrid-messaging-web.yml
-      - name: Hybrid availability and monitoring
-        href: hybrid/hybrid-perf-monitoring.yml
-      - name: Hybrid file services
-        href: hybrid/hybrid-file-services.yml
-      - name: Hybrid file share with disaster recovery
-        href: example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml
-      - name: Use file shares in a hybrid environment
-        href: hybrid/azure-file-share.yml
+      - name: Hybrid connectivity
+        items:
+        - name: Connect an on-premises network to Azure
+          href: reference-architectures/hybrid-networking/index.yml
+        - name: Connect on-premises with ExpressRoute
+          href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
+        - name: Design a hybrid Domain Name System
+          href: hybrid/hybrid-dns-infra.yml
+        - name: Implement a secure hybrid network
+          href: reference-architectures/dmz/secure-vnet-dmz.yml
+      - name: Hybrid messaging
+        items:
+        - name: 'Enhanced-security hybrid: client access'
+          href: example-scenario/hybrid/secure-hybrid-messaging-client.yml
+        - name: 'Enhanced-security hybrid: mobile access'
+          href: example-scenario/hybrid/secure-hybrid-messaging-mobile.yml
+        - name: 'Enhanced-security hybrid: web access'
+          href: example-scenario/hybrid/secure-hybrid-messaging-web.yml
+      - name: Hybrid monitoring
+        items:
+        - name: Hybrid availability and monitoring
+          href: hybrid/hybrid-perf-monitoring.yml
+      - name: Hybrid storage
+        items:
+        - name: Azure enterprise cloud file share
+          href: hybrid/azure-files-private.yml
+        - name: Azure files secured by AD DS
+          href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
+        - name: Hybrid file services
+          href: hybrid/hybrid-file-services.yml
+        - name: Hybrid file share with disaster recovery
+          href: example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml
+        - name: Use file shares in a hybrid environment
+          href: hybrid/azure-file-share.yml
   - name: Identity
     items:
     - name: Get started
@@ -1288,14 +1290,12 @@ items:
         href: example-scenario/wsus/index.yml
     - name: Architectures
       items:
+      - name: Azure Automation State Configuration
+        href: example-scenario/state-configuration/state-configuration.yml
       - name: Hybrid management
         items:
         - name: Azure Arc hybrid management with AKS
           href: hybrid/arc-hybrid-kubernetes.yml
-        - name: Back up files on Azure Stack Hub
-          href: hybrid/azure-stack-backup.yml
-        - name: Disaster recovery for Azure Stack Hub
-          href: hybrid/azure-stack-vm-disaster-recovery.yml
         - name: Hybrid availability and monitoring
           href: hybrid/hybrid-perf-monitoring.yml
     - name: Solution ideas
