@@ -170,7 +170,7 @@ Consider the following scenarios.
 
 ### Deploy to Microsoft Teams
 
-Youcan also deploy the Power Apps developed user interface in the preceding example to Microsoft Teams. Teams provides a great distribution channel for your apps and gives your users a collaborative app experience. For more information about how to deploy an app to Teams by using Power Apps, see [Publish your app in Teams](/powerapps/teams/publish-and-share-apps).
+You can also deploy the Power Apps developed user interface in the preceding example to Microsoft Teams. Teams provides a great distribution channel for your apps and gives your users a collaborative app experience. For more information about how to deploy an app to Teams by using Power Apps, see [Publish your app in Teams](/powerapps/teams/publish-and-share-apps).
 
 ### Consume the API from multiple apps and automations
 
