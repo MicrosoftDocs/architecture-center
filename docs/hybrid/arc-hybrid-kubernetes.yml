@@ -11,6 +11,8 @@ metadata:
   ms.category:
     - hybrid
     - management-and-governance
+  ms.custom:
+    - arb-hybrid
 name: Azure Arc hybrid management and deployment for Kubernetes clusters
 azureCategories:
   - hybrid

@@ -13,6 +13,7 @@ metadata:
   ms.custom:
     - example-scenario
     - linux-related-content
+    - arb-hybrid
 name: Azure Automation State Configuration
 azureCategories:
   - devops

@@ -16,6 +16,7 @@ metadata:
     - fcp
     - reference-architecture
     - e2e-hybrid
+    - arb-hybrid
 name: Hybrid availability and performance monitoring
 azureCategories:
   - hybrid

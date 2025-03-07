@@ -11,6 +11,7 @@ metadata:
   ms.subservice: example-scenario
   ms.category:
     - hybrid
+  ms.custom: arb-hybrid
 name: Deploy an Azure Arc-enabled SQL managed instance for disaster recovery
 azureCategories:
   - hybrid

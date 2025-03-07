@@ -11,14 +11,15 @@ metadata:
   ms.category:
     - hybrid
     - databases
-name: Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc
+  ms.custom: arb-hybrid
+name: Optimize administration of SQL Server instances in on-premises and multicloud environments using Azure Arc
 azureCategories:
   - hybrid
   - databases
 summary: Optimize management, maintenance, and monitoring of SQL Server with Azure Arc enabled SQL Server and Azure Arc enabled data services in on-premises and multicloud environments.
 products:
-  - azure
   - azure-arc
+  - sql-server
   - azure-kubernetes-service
   - azure-resource-manager
   - azure-sql-managed-instance
