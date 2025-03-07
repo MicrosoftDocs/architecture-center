@@ -15,7 +15,6 @@ azureCategories:
   - ai-machine-learning
 products:
   - azure-data-lake-analytics
-  - microsoft-fabric
   - azure-databricks
   - azure-iot-hub
   - azure-machine-learning
