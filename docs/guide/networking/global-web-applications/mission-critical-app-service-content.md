@@ -7,7 +7,7 @@ This article describes how to deploy mission-critical web applications by using 
 
 The following sections describe how to:
 
-- Review the existing workload to understand its components, user and system flows, and availability and scalability requirements.
+- Review an existing workload to understand its components, user and system flows, and availability and scalability requirements.
 - Develop and implement a [scale-unit architecture](/azure/well-architected/mission-critical/mission-critical-application-design#scale-unit-architecture) to optimize end-to-end scalability through compartmentalization and to standardize the process of adding and removing capacity.
 - Implement stateless, ephemeral scale units or deployment stamps to enable scalability and zero-downtime deployments.
 - Determine whether you can split the workload into components to prepare for scalability. Individual components are required for scalability and decoupling flows.
@@ -18,14 +18,14 @@ The following sections describe how to:
 
 The following diagram applies the previous considerations to the [reliable web app pattern](/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview#architecture-and-pattern).
 
-:::image type="content" source="./media/mission-critical-web-apps/app-service-architecture.svg" alt-text="A diagram that shows the reliable we app pattern with a scale unit applied." lightbox="./media/mission-critical-web-apps/app-service-architecture.svg" border="false":::
+:::image type="content" source="./media/mission-critical-web-apps/app-service-architecture.svg" alt-text="A diagram that shows the reliable web app pattern with a scale unit applied." lightbox="./media/mission-critical-web-apps/app-service-architecture.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-webapp-pattern1.vsdx) of this architecture.*
 
 The red box represents a scale unit with services that scale together. To effectively scale them together, optimize each service's size, SKU, and available IP addresses. For example, the maximum number of requests that Azure App Configuration serves correlates to the number of requests per second that a scale unit provides. When you add more capacity in a region, you must also add more individual scale units.
 
 These individual scale units don't have any dependencies on one another and only communicate with shared services outside of the individual scale unit. You can use these scale units in a [blue-green deployment](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test#deployment-zero-downtime-updates) by rolling out new scale units, validating that they function correctly, and gradually moving production traffic onto them.
 
-In this scenario, we consider scale units as temporary, which optimizes the rollout processes and provides scalability within and across regions. When you take this approach, you should store data only in the database because the database is replicated to the secondary region. If you need to store data in the scale unit, consider using Azure Cache for Redis for storage in the scale unit. If a scale unit must be abandoned, repopulating the cache might cause increased latency, but it doesn't cause outages.  
+In this scenario, we consider scale units as temporary, which optimizes the rollout processes and provides scalability within and across regions. When you take this approach, you should store data only in the database because the database is replicated to the secondary region. If you need to store data in the scale unit, consider using Azure Cache for Redis for storage in the scale unit. If a scale unit must be abandoned, repopulating the cache might increase latency, but it doesn't cause outages.  
 
 Application Insights is excluded from the scale unit. Exclude services that store or monitor data. Separate them into their own resource group with their own lifecycle.
 
@@ -68,7 +68,14 @@ Multiple databases are common in complex architectures, such as microservices ar
 
 ## Define a health model
 
-In complex multitier workloads that spread across multiple datacenters and geographical regions, you must define a health model. Define user and system flows, specify and understand the dependencies between the services, understand the effect that outages or a performance degradation on one of the services can have on the overall workload, and monitor and visualize the customer experience to enable proper monitoring and improve manual and automated actions.
+In complex multitier workloads that spread across multiple datacenters and geographical regions, you must define a health model. 
+
+To define a health model:
+
+- Define user and system flows
+- Specify and understand the dependencies between the services
+- Understand the effect that outages or a performance degradation on one of the services can have on the overall workload
+- Monitor and visualize the customer experience to enable proper monitoring and improve manual and automated actions.
 
 :::image type="content" source="./media/mission-critical-web-apps/outage-example.svg" alt-text="A diagram that shows how an App Configuration outage creates outages for other services." lightbox="./media/mission-critical-web-apps/outage-example.svg" border="false":::
 

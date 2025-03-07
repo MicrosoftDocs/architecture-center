@@ -89,7 +89,7 @@
 		.st74 {fill:#ffffff;stroke:#000000;stroke-dasharray:0.75,1.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st75 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
 		.st76 {fill:#bfbfbf;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
-		.st77 {fill:#000000;font-family:Calibri;font-size:1.00001em}
+		.st77 {fill:#000000;font-family:Segoe UI;font-size:0.916672em}
 		.st78 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
 	</style>
@@ -282,7 +282,7 @@
 			<rect x="0" y="0" width="864" height="576" class="st1"/>
 		</g>
 	</g>
-	<g v:mID="8" v:index="4" v:groupContext="foregroundPage">
+	<g v:mID="8" v:index="5" v:groupContext="foregroundPage">
 		<v:userDefs>
 			<v:ud v:nameU="visNavType" v:val="VT0(1):26"/>
 		</v:userDefs>
@@ -915,7 +915,7 @@
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(10000):26"/>
 			</v:userDefs>
 			<title>App Services.1109</title>
-			<desc>Web Apps (Web front-end)</desc>
+			<desc>Web Apps (Web front end)</desc>
 			<g id="group407-120" v:mID="407" v:groupContext="group">
 				<v:userDefs>
 					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
@@ -1017,7 +1017,7 @@
 				<v:textBlock v:margins="rect(0,0,0,0)"/>
 				<v:textRect cx="17.28" cy="586.802" width="69.12" height="21.6036"/>
 				<text x="-3.26" y="584.1" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Web Apps <v:lf/><tspan
-							x="-14.9" dy="1.2em" class="st8">(Web front</tspan>-end)</text>			</g>
+							x="-14.33" dy="1.2em" class="st8">(Web front end)</tspan></text>			</g>
 		</g>
 		<g id="group419-155" transform="translate(209.25,-307.88)" v:mID="419" v:groupContext="group">
 			<v:userDefs>
@@ -1337,7 +1337,7 @@
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(18000):26"/>
 			</v:userDefs>
 			<title>App Services.1763</title>
-			<desc>Web Apps (Web front-end)</desc>
+			<desc>Web Apps (Web front end)</desc>
 			<g id="group458-248" v:mID="458" v:groupContext="group">
 				<v:userDefs>
 					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
@@ -1439,7 +1439,7 @@
 				<v:textBlock v:margins="rect(0,0,0,0)"/>
 				<v:textRect cx="17.28" cy="586.802" width="69.12" height="21.6036"/>
 				<text x="-3.26" y="584.1" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Web Apps <v:lf/><tspan
-							x="-14.9" dy="1.2em" class="st8">(Web front</tspan>-end)</text>			</g>
+							x="-14.33" dy="1.2em" class="st8">(Web front end)</tspan></text>			</g>
 		</g>
 		<g id="group470-280" transform="translate(685.805,-331.831)" v:mID="470" v:groupContext="group">
 			<v:userDefs>
@@ -2583,7 +2583,7 @@
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(56000):26"/>
 			</v:userDefs>
-			<path d="M0 576 L36.05 576 L36.05 668.68" class="st37"/>
+			<path d="M0 576 L36.94 576 L36.94 668.68" class="st37"/>
 		</g>
 		<g id="group615-654" transform="translate(383.932,-168.447)" v:mID="615" v:groupContext="group">
 			<v:userDefs>
@@ -3484,13 +3484,13 @@
 			</v:userDefs>
 			<path d="M0 576 L-159.1 576 L-159.1 668.68" class="st37"/>
 		</g>
-		<g id="shape680-834" v:mID="680" v:groupContext="shape" transform="translate(138.37,-54)">
+		<g id="shape680-834" v:mID="680" v:groupContext="shape" transform="translate(139.5,-48.375)">
 			<title>Sheet.680</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(72000):26"/>
 			</v:userDefs>
-			<path d="M55.13 182.25 L55.13 360 L55.13 414 L1.13 414 L0 576 L311.63 576 L311.63 499.5 L172.13 499.5 L172.13 409.5 L280.13
-						 409.5 L280.13 184.5 L280.13 182.25 L55.13 182.25 Z" class="st73"/>
+			<path d="M55.24 184.56 L55.24 361.26 L55.24 414.95 L1.13 414.95 L0 576 L312.27 576 L312.27 499.95 L172.48 499.95 L172.48
+						 410.47 L280.7 410.47 L280.7 186.79 L280.7 184.56 L55.24 184.56 Z" class="st73"/>
 		</g>
 		<g id="shape689-836" v:mID="689" v:groupContext="shape" transform="translate(270.281,-301.5)">
 			<title>Sheet.689</title>
@@ -3631,12 +3631,11 @@
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="124.587" cy="565.998" width="249.18" height="20.0036"/>
 				<rect x="0" y="555.996" width="249.174" height="20.0036" class="st6"/>
-				<text x="1.12em 1.663em 2.161em 2.631em 2.861em 3.388em 3.913em 4.14em 4.646em" y="569" class="st16"
-						v:langID="1033"><v:paragraph v:indentLeft="7.2" v:horizAlign="3"/><v:tabList/>Region 1 <tspan x="4.872em"
-							dy="0em" class="st8">-</tspan><tspan x="5.179em" dy="0em" class="st8"> </tspan><tspan x="5.405em 6.294em
-								 6.792em 7.317em 7.543em 8.122em 8.647em 9.173em 9.564em 9.79em 10.139em 10.636em 11.027em 11.555em
-								 12.08em 12.429em 12.851em 13.349em 13.575em 14.046em 14.394em 14.922em 15.447em" dy="0em"
-							class="st8">Web Apps resource group</tspan></text>			</g>
+				<text x="1.12em 1.718em 2.241em 2.83em 3.072em 3.658em 4.224em 4.498em 5.037em" y="569" class="st7" v:langID="1033"><v:paragraph
+							v:indentLeft="7.2" v:horizAlign="3"/><v:tabList/>Region 1 <tspan x="5.311em" dy="0em" class="st8">-</tspan><tspan
+							x="5.711em" dy="0em" class="st8"> </tspan><tspan x="5.985em 6.919em 7.442em 8.03em 8.304em 8.949em 9.537em
+								 10.124em 10.549em 10.823em 11.17em 11.693em 12.118em 12.704em 13.269em 13.617em 14.079em 14.602em
+								 14.876em 15.465em 15.812em 16.398em 16.964em" dy="0em" class="st8">Web Apps resource group</tspan></text>			</g>
 			<g id="group345-889" transform="translate(7.2,-405.495)" v:mID="345" v:groupContext="group">
 				<title>Resource Groups</title>
 				<desc>Resource Groups</desc>
@@ -3719,8 +3718,8 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="32.0625" cy="550.66" width="64.13" height="50.68"/>
 			<rect x="0" y="525.32" width="64.125" height="50.68" class="st76"/>
-			<text x="17.99" y="539.86" class="st77" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <tspan
-						x="5.42" dy="1.2em" class="st8">Front Door<v:newlineChar/></tspan><tspan x="9.96" dy="1.2em" class="st8">and WAF</tspan></text>		</g>
+			<text x="18.13" y="540.76" class="st77" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <tspan
+						x="5.55" dy="1.2em" class="st8">Front Door<v:newlineChar/></tspan><tspan x="10.04" dy="1.2em" class="st8">and WAF</tspan></text>		</g>
 		<g id="shape2-919" v:mID="2" v:groupContext="shape" transform="translate(392.763,-517.795)">
 			<title>Sheet.2</title>
 			<v:userDefs>
