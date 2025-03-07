@@ -35,11 +35,11 @@ Use [Azure Synapse Analytics pipelines](/azure/data-factory/concepts-pipelines-a
 
 #### Store
 
-Ingested data can land directly in raw format and then be transformed on [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). After the data is curated and transformed to relational structures, it can be presented for consumption in [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics).
+Ingested data can land directly in raw format and then be transformed on [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). After the data is curated and transformed to relational structures, it can be presented for consumption in [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is).
 
 #### Train and deploy a model
 
-[Machine Learning](https://azure.microsoft.com/services/machine-learning) provides an enterprise-grade machine learning service that you can use to quickly build and deploy models. It provides a low-code designer, automated machine learning, and a hosted Jupyter notebook environment to users at any skill level. Models can be deployed either as [real-time endpoints](/azure/machine-learning/concept-endpoints) on Azure Kubernetes Service (AKS) or as a Machine Learning managed endpoint. For batch inferencing of machine learning models, you can use [Machine Learning pipelines](/azure/machine-learning/concept-ml-pipelines).
+[Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) provides an enterprise-grade machine learning service that you can use to quickly build and deploy models. It provides a low-code designer, automated machine learning, and a hosted Jupyter notebook environment to users at any skill level. Models can be deployed either as [real-time endpoints](/azure/machine-learning/concept-endpoints) on Azure Kubernetes Service (AKS) or as a Machine Learning managed endpoint. For batch inferencing of machine learning models, you can use [Machine Learning pipelines](/azure/machine-learning/concept-ml-pipelines).
 
 #### Consume
 
@@ -54,18 +54,17 @@ You can use the following components.
 
 #### Microsoft Power Platform services
 
-- [Power Platform](/power-platform) is a set of tools to analyze data, build solutions, automate processes, and create virtual agents. It includes Power Apps, Power Automate, Power BI, and Microsoft Copilot Studio (formerly Power Virtual Agents).
-- [Power Apps](/power-apps/powerapps-overview) is a suite of apps, services, connectors, and a data platform. It provides a rapid application development environment to build custom apps for your business needs.
-- [Power Automate](/power-automate/getting-started) is a service that helps you create automated workflows between your favorite apps and services. Use it to synchronize files, get notifications, and collect data.
-- [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
+- [Power Platform](/power-platform) is a set of tools to analyze data, build solutions, automate processes, and create virtual agents. It includes Power Apps, Power Automate, Power BI, and Microsoft Copilot Studio (formerly Power Virtual Agents). Use these low-code tools to develop the user experience and integration with data sources.
+- [Power Apps](/power-apps/powerapps-overview) is a suite of apps, services, connectors, and a data platform. It provides a rapid application development environment to build custom apps for your business needs. Use the low-code design environment to develop the user interface, collect inputs from the user, and present prediction outputs.
+- [Power Automate](/power-automate/getting-started) is a service that helps you create automated workflows between your favorite apps and services. Use it to synchronize files, get notifications, and collect data. The workflow uses inputs from the user interface to run machine learning activities like predictions and return results that display in Power Apps.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights. This environment is where you design reports and dashboards and host them for users.
 
 #### Azure services
 
-- [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an enterprise-grade machine learning service that you can use to build and deploy models quickly. It provides users at any skill level with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment to support your preferred integrated development environment.
-- [Machine Learning managed endpoints](/azure/machine-learning/how-to-deploy-managed-online-endpoints) are online endpoints that enable you to deploy your model without having to create and manage the underlying infrastructure.
-- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a machine-learning supported compute target. It's suited for enterprise-grade, real-time model endpoints.
-- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a Hadoop-compatible file system. It has an integrated hierarchical namespace and the massive scale and economy of Azure Blob Storage.
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics.
+- [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an enterprise-grade machine learning service that you can use to build and deploy models quickly. Use its low-code designer, automated machine learning, and a hosted Jupyter notebook environment to develop machine learning models.
+- [Machine Learning managed endpoints](/azure/machine-learning/how-to-deploy-managed-online-endpoints) are online endpoints that enable you to deploy your model without having to create and manage the underlying infrastructure. Applications like Power Apps use the hosted endpoint for interactive predictions.
+- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a Hadoop-compatible file system. It has an integrated hierarchical namespace and the massive scale and economy of Azure Blob Storage. It provides the storage layer for data use in the machine learning model training process.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. This integrated capability stores and transforms data that's used in machine learning and report creation activities.
 - [Event Hubs](/azure/well-architected/service-guides/event-hubs) and [IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) ingest data streams that client applications or IoT devices generate. Then, they ingest and store streaming data while preserving the sequence of events received. Consumers can connect to the hub endpoints to retrieve messages for processing.
 
 #### Platform services
@@ -90,7 +89,7 @@ To create a design that follows these recommendations, consider the following se
 
 ### Alternatives
 
-A machine learning MVP benefits from speed to outcome. In some cases, pretrained [Azure AI services](https://learn.microsoft.com/en-us/azure/ai-services/what-are-ai-services) can meet the needs of a custom model. In other cases, [Power Apps AI Builder](https://powerapps.microsoft.com/ai-builder) might provide a fit-for-a-purpose model.
+A machine learning MVP benefits from speed to outcome. In some cases, pretrained [Azure AI services](/azure/ai-services/what-are-ai-services) can meet the needs of a custom model. In other cases, [Power Apps AI Builder](/ai-builder/use-in-powerapps-overview) might provide a fit-for-a-purpose model.
 
 ## Scenario details
 
@@ -109,7 +108,7 @@ Because of a well-known high failure rate to such initiatives, the ability to ra
   - Enables users to build custom applications and automation workflows.
   - Creates workflows so that consumers and business processes can interact with a machine learning model.
 
-[Machine Learning](https://azure.microsoft.com/services/machine-learning) fulfills the role of a low-code GUI for machine learning development. It has automated machine learning and deployment to batch or real-time endpoints. [Microsoft Power Platform](https://powerplatform.microsoft.com), which includes [Power Apps](https://powerapps.microsoft.com) and [Power Automate](https://flow.microsoft.com), provides the toolkits to rapidly build a custom application and workflow that implements your machine learning algorithm. Business users can build production-grade machine learning applications to transform legacy business processes.
+[Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) fulfills the role of a low-code GUI for machine learning development. It has automated machine learning and deployment to batch or real-time endpoints. [Microsoft Power Platform](https://powerplatform.microsoft.com), which includes [Power Apps](/power-apps/powerapps-overview) and [Power Automate](/power-automate/flow-types), provides the toolkits to rapidly build a custom application and workflow that implements your machine learning algorithm. Business users can build production-grade machine learning applications to transform legacy business processes.
 
 ### Potential use cases
 
@@ -137,7 +136,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 **Azure pricing:** Microsoft infrastructure as a service and platform as a service services on Azure use a consumption-based pricing model. They don't require a license or subscription fee. In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For more information, see [Cost Optimization](/azure/architecture/framework/cost/index).
 
-**Microsoft Power Platform pricing:** [Power Apps](https://powerapps.microsoft.com/pricing), [Power Automate](https://flow.microsoft.com/pricing) and [Power BI](https://powerbi.microsoft.com/pricing) are software as a service applications and have their own pricing models, including per-app plans and per-user plans.
+**Microsoft Power Platform pricing:** [Power Apps](https://www.microsoft.com/power-platform/products/power-apps/#pricing), [Power Automate](https://www.microsoft.com/power-platform/products/power-automate/#Pricing) and [Power BI](https://www.microsoft.com/power-platform/products/power-bi/pricing#Pricing) are software as a service applications and have their own pricing models, including per-app plans and per-user plans.
 
 ### Operational Excellence
 
@@ -147,7 +146,7 @@ This example uses DevOps practices to orchestrate its end-to-end approach. The [
 
 You can apply DevOps automation to the Microsoft Power Platform solution provided in this example. For more information, see [Microsoft Power Platform build tools for Azure DevOps](/power-platform/alm/devops-build-tools).
 
-## Deploy this scenario
+## Example scenario
 
 Consider the following business scenario. A field agent uses an app that estimates a car's market price. You can use Machine Learning to quickly prototype a machine learning model of this app. Use a low-code designer and machine learning features to create the model, and then deploy it as a real-time REST endpoint.
 
@@ -163,15 +162,13 @@ You can use Power Automate to build a low-code workflow to parse the user's inpu
 
 :::image type="content" source="media/citizen-ai-power-platform-dashboard.png" alt-text="Diagram of an architecture that shows the schematic of the workflow." lightbox="media/citizen-ai-power-platform-dashboard.png":::
 
-To deploy this end-to-end example, follow the instructions in [Car Price Predictor - Azure Machine Learning and Power App solution](https://github.com/Azure/carprice-aml-powerapp).
-
-## Other scenarios
+## More scenarios
 
 Consider the following scenarios.
 
 ### Deploy to Teams
 
-The sample app provided in the preceding example can also be deployed to Microsoft Teams. Teams provides a great distribution channel for your apps and gives your users a collaborative app experience. For more information about how to deploy an app to Teams by using Power Apps, see [Publish your app in Teams](/powerapps/teams/publish-and-share-apps).
+Youcan also deploy the Power Apps developed user interface in the preceding example to Microsoft Teams. Teams provides a great distribution channel for your apps and gives your users a collaborative app experience. For more information about how to deploy an app to Teams by using Power Apps, see [Publish your app in Teams](/powerapps/teams/publish-and-share-apps).
 
 ### Consume the API from multiple apps and automations
 
