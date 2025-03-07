@@ -121,7 +121,7 @@ In Kubernetes, an ingress controller primarily handles the functionality of an A
 
 There are ingress controllers for reverse proxies, which include NGINX, HAProxy, Traefik, and Azure Application Gateway. AKS provides multiple managed ingress options. You can choose from a [managed NGINX-based ingress controller](/azure/aks/app-routing) through the application routing add-on, Application Gateway for Containers. Or you can choose Istio ingress gateway as the ingress controller. For more information, see [Ingress in AKS](/en-us/azure/aks/concepts-network-ingress).
 
-The ingress resources Kubernetes objects have evolved into the more comprehensive and powerful Kubernetes Gateway API. Ingress controller and Gateway API are both Kubernetes objects used for traffic management routing and load balancing. Designed to be generic, expressive, extensible, and role oriented, the Gateway API is a modern set of APIs for defining L4 and L7 routing rules in Kubernetes.
+The ingress resources Kubernetes objects have been replaced by the more advanced and versatile Kubernetes Gateway API. Ingress controller and Gateway API are both Kubernetes objects used for traffic management routing and load balancing. Designed to be generic, expressive, extensible, and role oriented, the Gateway API is a modern set of APIs for defining L4 and L7 routing rules in Kubernetes.
 
 The ingress controller operates as the edge router or reverse proxy. A reverse proxy server is a potential bottleneck or single point of failure, so we recommend that you deploy at least two replicas to help ensure high availability.
 
