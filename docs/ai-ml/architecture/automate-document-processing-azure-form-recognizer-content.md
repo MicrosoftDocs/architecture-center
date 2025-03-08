@@ -329,7 +329,7 @@ Principal author:
 [Azure Storage documentation]: /azure/storage
 [Azure Storage service page]: /azure/storage/common/storage-introduction
 [Azure Web Application Firewall service page]: /azure/web-application-firewall/ag/ag-overview
-[Back up and recover your Form Recognizer models]: /azure/ai-services/form-recognizer/disaster-recovery
+[Back up and recover your Form Recognizer models]: /azure/ai-services/document-intelligence/how-to-guides/disaster-recovery
 [Create an Autoscale Setting for Azure resources based on performance data or a schedule]: /azure/azure-monitor/autoscale/tutorial-autoscale-performance-schedule
 [Create an Azure support request]: /azure/azure-portal/supportability/how-to-create-azure-support-request
 [Deploy and score a machine learning model by using an online endpoint (preview)]: /azure/machine-learning/how-to-deploy-managed-online-endpoints
@@ -337,10 +337,10 @@ Principal author:
 [Extract text from objects using Power Automate and AI Builder]: ../../example-scenario/ai/extract-object-text.yml
 [Failover for business continuity and disaster recovery]: /azure/machine-learning/how-to-high-availability-machine-learning
 [Document Intelligence general document model]: /azure/ai-services/document-intelligence/prebuilt/general-document?view=doc-intel-4.0.0&view%3C=doc-intel-3.1.0&preserve-view=true
-[Form Recognizer ID document model]: /azure/ai-services/form-recognizer/concept-id-document
-[Form Recognizer invoice model]: /azure/ai-services/form-recognizer/concept-invoice
+[Form Recognizer ID document model]: /azure/ai-services/document-intelligence/prebuilt/id-document
+[Form Recognizer invoice model]: /azure/ai-services/document-intelligence/prebuilt/invoice
 [Document intelligence layout model]: /azure/ai-services/document-intelligence/prebuilt/layout
-[Form Recognizer receipt model]: /azure/ai-services/form-recognizer/concept-receipt
+[Form Recognizer receipt model]: /azure/ai-services/document-intelligence/prebuilt/receipt
 [US tax document models]: /azure/ai-services/document-intelligence/concept-tax-document
 [Get started: Form Recognizer Studio]: /azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0
 [Get started with AzCopy]: /azure/storage/common/storage-use-azcopy-v10
@@ -371,7 +371,7 @@ Principal author:
 [Tutorial: Automate tasks to process emails by using Azure Logic Apps, Azure Functions, and Azure Storage]: /azure/logic-apps/tutorial-process-email-attachments-workflow
 [Tutorial: How to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint]: /azure/data-factory/tutorial-managed-virtual-network-on-premise-sql-server
 [Use batch endpoints (preview) for batch scoring]: /azure/machine-learning/how-to-use-batch-endpoint
-[Use Form Recognizer SDKs or REST API]: /azure/ai-services/form-recognizer/how-to-guides/v3-0-sdk-rest-api?tabs=windows&pivots=programming-language-python
+[Use Form Recognizer SDKs or REST API]: /azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api
 [Use TLS to secure a web service through Azure Machine Learning]: /azure/machine-learning/how-to-secure-web-service
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/automate-document-processing-form-recognizer-architecture.vsdx
 [Welcome to Azure Cosmos DB]: /azure/cosmos-db/introduction
