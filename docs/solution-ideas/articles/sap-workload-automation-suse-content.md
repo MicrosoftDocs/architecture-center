@@ -53,7 +53,7 @@ SUSE provides support with:
 
 ### Solution templates
 
-SUSE SAP ARM template to create the SAP infrastructure:
+Explore SUSE SAP deployment template to create SAP infrastructure on Azure:
 
 - [Infrastructure for SAP NetWeaver and SAP HANA](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/suse.sles-sap-15-sp6-byos?tab=Overview) (Azure Marketplace)
 - [SUSE and Microsoft Solution Templates for SAP Applications](https://documentation.suse.com/sbp/all/single-html/SBP-SAP-AzureSolutionTemplates) (SUSE)
@@ -69,12 +69,9 @@ Principal author:
 
 ## Next steps
 
-### Azure services
-
-- [SAP on Azure](https://azure.microsoft.com/en-us/solutions/sap/?msockid=24cc4c0933d463670195593332b56221)
-
 ### SAP
 
+- [SAP on Azure](https://azure.microsoft.com/en-us/solutions/sap/?msockid=24cc4c0933d463670195593332b56221)
 - [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/bread/toc.json)
 - [Automated SAP/HA Deployments in Public/Private Clouds with Terraform](https://github.com/SUSE/ha-sap-terraform-deployments) (GitHub project)
 
