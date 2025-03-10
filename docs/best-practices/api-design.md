@@ -28,7 +28,7 @@ categories: featured
 
 Most modern web applications expose APIs that clients can use to interact with the application. A well-designed web API should aim to support:
 
-- **Platform independence**. Any client should be able to call the API, regardless of how the API is implemented internally. This requires using standard protocols, and having a mechanism whereby the client and the web service can agree on the format of the data to exchange.
+- **Platform independence**. Any client should be able to call the API, regardless of how the API is implemented internally. This requires using standard protocols, provide with clear documentation, and having a mechanism whereby the client and the web service can agree on the format of the data to exchange.
 
 - **Service evolution**. The web API should be able to evolve and add functionality independently from client applications. As the API evolves, existing client applications should continue to function without modification. All functionality should be discoverable so that client applications can fully use it.
 
