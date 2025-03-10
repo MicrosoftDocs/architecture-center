@@ -100,7 +100,7 @@ If you need to recompute the entire data set (equivalent to what the batch layer
 
 ## Lakehouse architecture
 
-A data lake is a centralized repository that allows you to store all your structured(like database tables), semi-structured data (like XML files), and unstructured data (like images and audio files) in its raw, original format, without requiring any predefined schema at any scale. They are designed to handle large volumes of data, making them suitable for big data processing and analytics. By using low-cost storage solutions, data lakes provide a cost-effective way to store large amounts of data. 
+A data lake is a centralized data repository that allows you to store all your structured (like database tables), semi-structured data (like XML files), and unstructured data (like images and audio files) in its raw, original format, without requiring any predefined schema. The data lake is designed to handle large volumes of data, making it suitable for big data processing and analytics. By using low-cost storage solutions, data lakes provide a cost-effective way to store large amounts of data.
 
 A data warehouse is a centralized repository that stores structured and semi-structured data for reporting, analysis, and business intelligence purposes.Data warehouses are essential for organizations to make informed decisions by providing a consistent and comprehensive view of their data
 
