@@ -150,16 +150,16 @@ The boxes that are shaded gray show components of an IoT system that are not dir
 
 See the following relevant Azure services:
 
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub)
-- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs)
-- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics)
-- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)
-- [Microsoft Fabric](https://www.microsoft.com/en-us/microsoft-fabric/resources/data-101/what-is-fabric?msockid=1487b5703d786ad80891a0f839786c48)
-- [Azure Databricks](https://azure.microsoft.com/en-us/free/databricks/search/?ef_id=_k_3a76d0ce8d941041974db709bcca84b8_k_&OCID=AIDcmm5edswduu_SEM__k_3a76d0ce8d941041974db709bcca84b8_k_&msclkid=3a76d0ce8d941041974db709bcca84b8)
+- [Azure IoT Hub](https://learn.microsoft.com/en-us/azure/iot-hub/)
+- [Azure Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/)
+- [Azure Stream Analytics](https://learn.microsoft.com/en-us/azure/stream-analytics/stream-analytics-introduction)
+- [Azure Data Explorer](https://learn.microsoft.com/en-us/azure/data-explorer/)
+- [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/)
+- [Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/)
 
 ## Related resources
 
 - [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
 - [Big data architecture style](../../guide/architecture-styles/big-data.yml)
-- [Modern Analytics Architecture with Azure Databricks](https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
+- [Modern Analytics Architecture with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
 - [Big data architectures with Microsoft Fabric](/azure/architecture/browse/?azure_categories=analytics&products=fabric)
