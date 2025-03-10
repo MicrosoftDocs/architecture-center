@@ -497,18 +497,18 @@ As with the previous two approaches, implementing HATEOAS requires including the
 
 When a client application sends an HTTP GET request to a web server it should stipulate the format of the content that it can handle by using an Accept header, as described earlier in this guidance. Frequently the purpose of the *Accept* header is to allow the client application to specify whether the body of the response should be XML, JSON, or some other common format that the client can parse. However, it is possible to define custom media types that include information enabling the client application to indicate which version of a resource it is expecting.
 
-The following example shows a request that specifies an *Accept* header with the value *application/vnd.adventure-works.v1+json*. The *vnd.adventure-works.v1* element indicates to the web server that it should return version 1 of the resource, while the *json* element specifies that the format of the response body should be JSON:
+The following example shows a request that specifies an *Accept* header with the value *application/vnd.fabrikam.v1+json*. The *vnd.fabrikam.v1* element indicates to the web server that it should return version 1 of the resource, while the *json* element specifies that the format of the response body should be JSON:
 
 ```http
 GET https://api.fabrikam.com/customers/3 HTTP/1.1
-Accept: application/vnd.adventure-works.v1+json
+Accept: application/vnd.fabrikam.v1+json
 ```
 
 The code handling the request is responsible for processing the *Accept* header and honoring it as far as possible (the client application may specify multiple formats in the *Accept* header, in which case the web server can choose the most appropriate format for the response body). The web server confirms the format of the data in the response body by using the Content-Type header:
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.adventure-works.v1+json; charset=utf-8
+Content-Type: application/vnd.fabrikam.v1+json; charset=utf-8
 
 {"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
 ```
