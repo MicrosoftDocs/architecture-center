@@ -1376,7 +1376,7 @@ items:
       - name: Computer forensics
         href: example-scenario/forensics/index.yml
       - name: Certificate lifecycle management on Azure
-        href: example-scenario/certificate-lifecycle/
+        href: example-scenario/certificate-lifecycle/index.yml
     - name: Solution ideas
       items:
       - name: Multilayered protection for Azure VMs
