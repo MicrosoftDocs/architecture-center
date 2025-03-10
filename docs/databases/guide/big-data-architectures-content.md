@@ -31,7 +31,14 @@ Most big data architectures include some or all of the following components:
 
 - **Data storage**. Data for batch processing operations is typically stored in a distributed file store that can hold high volumes of large files in various formats. This kind of store is often called a *data lake*. Options for implementing this storage include Azure Data Lake Store, blob containers in Azure Storage, or One Lake in Microsoft Fabric.
 
-- **Batch processing**. Because the data sets are so large, often a big data solution must process data files using long-running batch jobs to filter, aggregate, and otherwise prepare the data for analysis. Usually these jobs involve reading source files, processing them, and writing the output to new files. Options include running U-SQL jobs in Azure Data Lake Analytics, using Hive, Pig, or custom Map/Reduce jobs in an HDInsight Hadoop cluster, or using Java, Scala, or Python programs in an HDInsight Spark cluster or using Python, Scala or Sql language in notebooks of Azure Databricks which is Apache Spark-based Analytics platform or using Python, Scala or Sql language in notebooks of Microsoft Fabric which is An All-in-One analytics and data platform.
+- **Batch processing**. Because the data sets are so large, often a big data solution must process data files using long-running batch jobs to filter, aggregate, and otherwise prepare the data for analysis. Usually these jobs involve reading source files, processing them, and writing the output to new files. Options include:
+
+  - Run U-SQL jobs in Azure Data Lake Analytics
+  - Use Hive, Pig, or custom Map/Reduce jobs in an HDInsight Hadoop cluster
+  - Use Java, Scala, or Python programs in an HDInsight Spark cluster
+  - Use Python, Scala or SQL language in notebooks of Azure Databricks 
+  - Use Python, Scala or SQL language in notebooks of Microsoft Fabric
+
 
 - **Real-time message ingestion**. If the solution includes real-time sources, the architecture must include a way to capture and store real-time messages for stream processing. This might be a simple data store, where incoming messages are dropped into a folder for processing. However, many solutions need a message ingestion store to act as a buffer for messages, and to support scale-out processing, reliable delivery, and other message queuing semantics. This portion of a streaming architecture is often referred to as stream buffering. Options include Azure Event Hubs, Azure IoT Hub, and Kafka.
 
