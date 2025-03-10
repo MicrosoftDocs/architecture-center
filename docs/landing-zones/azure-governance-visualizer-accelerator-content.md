@@ -67,7 +67,7 @@ Restricting the reporting HTML to only those users authorized to view this data 
 
 - Enable access logging on the Azure web app to be able to audit access. Configure the Azure web app to send those logs to a Log Analytics workspace.
 
-- Ensure secure communication is enabled on the Azure web app. Only HTTPS and FTPs are allowed, and the minimum version of TLS is configured as 1.2.
+- Ensure secure communication is enabled on the Azure web app. Only HTTPS and FTPS are allowed, and the minimum version of TLS is configured as 1.2.
 
 - Consider using [Microsoft Defender for Cloud's Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction).
 
