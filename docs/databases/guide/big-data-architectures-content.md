@@ -157,4 +157,4 @@ See the following relevant Azure services:
 - [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
 - [Big data architecture style](../../guide/architecture-styles/big-data.yml)
 - [Modern Analytics Architecture with Azure Databricks](https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
-- [Big data architectures with Microsoft Fabric](https://learn.microsoft.com/en-us/azure/architecture/browse/?azure_categories=analytics&products=fabric)
+- [Big data architectures with Microsoft Fabric](/azure/architecture/browse/?azure_categories=analytics&products=fabric)
