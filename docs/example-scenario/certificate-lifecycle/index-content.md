@@ -145,12 +145,14 @@ Event Grid handles event-driven communication within Azure. Configure Event Grid
 
 The solution uses Log Analytics Workspace and Azure Workbook to enhance monitoring and visualization of certificate statuses stored in Key Vault. These components play a crucial role in maintaining visibility into certificate health:
 
-  - **Log Analytics Workspace:** Collects and stores data regarding certificate states, identifying whether they are expired, expiring soon, or still valid.
-  - **Azure Workbook:** Retrieves data from the Log Analytics Workspace and presents it in a dashboard with visual representations, such as pie charts and detailed tables, categorizing certificates into "Not Expired" (green), "Expiring Soon" (yellow), and "Expired" (red).
+- **Log Analytics Workspace:** Collects and stores data regarding certificate states, identifying whether they are expired, expiring soon, or still valid.
+
+- **Azure Workbook:** Retrieves data from the Log Analytics Workspace and presents it in a dashboard with visual representations, such as pie charts and detailed tables, categorizing certificates into "Not Expired" (green), "Expiring Soon" (yellow), and "Expired" (red).
 
 Here is how certificate information is retrieved and presented in the workbook:
 
 - **Data ingestion runbook execution:** A runbook, executed directly from Azure (without requiring the context of a Hybrid Worker), retrieves certificate data from the Key Vault and sends this information to a custom table defined in the Log Analytics Workspace. The runbook runs on a scheduled cadence.
+
 - **Workbook visualization:** A Workbook queries the data from the custom table and displays it in both a pie chart and a detailed table, highlighting certificates based on their expiration status.
 
 By integrating these additional components, your solution builds a more comprehensive approach to certificate lifecycle management.
