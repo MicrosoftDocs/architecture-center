@@ -2,7 +2,7 @@
 
 This architecture demonstrates how to use the SUSE SAP automation solution on Azure.
 
-SUSE and Microsoft have long term partneship in providing Azure-optimized solutions for SUSE Linux Enterprise Server (SLES). SLES for SAP Applications is the leading platform for SAP solutions on Linux, with over 90 percent of SAP HANA deployments and 70 percent of SAP NetWeaver applications running on SUSE.
+SUSE and Microsoft have long term partnership in providing Azure-optimized solutions for SUSE Linux Enterprise Server (SLES). SLES for SAP Applications is the leading platform for SAP solutions on Linux, with over 90 percent of SAP HANA deployments and 70 percent of SAP NetWeaver applications running on SUSE.
 
 Automating SAP workloads in the cloud leads to better business outcomes by bolstering productivity and facilitating innovation. The task of building and manually deploying SAP infrastructures in the cloud involves a range of technical processes that can be inefficient and time-consuming. These processes also require configuration management and entail many steps. With each step, the level of complexity and the amount of specialized knowledge that's required increases if extra high availability (HA) is needed. Most SAP systems are important and require HA. The manual implementation of each step generates many opportunities for error that can render the entire infrastructure defective and delay success. Automation helps organizations streamline deployment of SAP infrastructure and accelerate customer cloud migration on Azure. Successful cloud migration allows customers to quickly and easily benefit from the power and flexibility of the cloud.
 
