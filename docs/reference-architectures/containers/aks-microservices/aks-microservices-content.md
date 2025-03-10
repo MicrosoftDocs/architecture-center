@@ -50,7 +50,7 @@ For more information about the sample microservices application, see [Microservi
 
 - **Container Registry** can be used to store private container images, which are deployed to the cluster. AKS can authenticate with Container Registry by using its Microsoft Entra identity. In the reference implementation, microservice container images are built and pushed to Container Registry.  
 
-- **Azure Pipelines** is part of the Azure DevOps suite and runs automated builds, tests, and deployments. A [continuous integration and continuous deployment (CI/CD)](/azure/architecture/microservices/ci-cd) approach is highly encouraged in microservice environments. Various teams can independently build and deploy microservices to AKS by using Azure DevOps pipelines.
+- **Azure Pipelines** is part of the Azure DevOps suite and runs automated builds, tests, and deployments. A [continuous integration and continuous deployment (CI/CD)](/azure/architecture/microservices/ci-cd) approach is highly encouraged in microservice environments. Various teams can independently build and deploy microservices to AKS by using Azure Pipelines.
 
 - **Helm** is a package manager for Kubernetes that provides a mechanism to bundle and standardize Kubernetes objects into a single unit that can be published, deployed, versioned, and updated.
 
