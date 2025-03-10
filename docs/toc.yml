@@ -1374,7 +1374,9 @@ items:
       - name: Secure research for regulated data
         href: ai-ml/architecture/secure-compute-for-research.yml
       - name: Computer forensics
-        href: example-scenario/forensics/index.yml        
+        href: example-scenario/forensics/index.yml
+      - name: Certificate lifecycle management on Azure
+        href: example-scenario/certificate-lifecycle/
     - name: Solution ideas
       items:
       - name: Multilayered protection for Azure VMs
