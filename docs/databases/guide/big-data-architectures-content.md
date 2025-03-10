@@ -58,7 +58,7 @@ Most big data architectures include some or all of the following components:
   - Microsoft Fabric provides a variety of data stores, including SQL Databases, Data Warehouses, lakehouses, and eventhouses, which can be used for serving data for analysis.
   - Azure offers other analytical data stores such as Azure Databricks, Azure Data Explorer, Azure SQL Database, and Azure Cosmos DB.
 
-- **Analysis and reporting**. The goal of most big data solutions is to provide insights into the data through analysis and reporting. To empower users to analyze the data, the architecture may include a data modeling layer, such as a multidimensional OLAP cube or tabular data model in Azure Analysis Services. It might also support self-service BI, using the modeling and visualization technologies in Microsoft Power BI or Microsoft Excel. Analysis and reporting can also take the form of interactive data exploration by data scientists or data analysts. For these scenarios, many Azure services support analytical notebooks, such as Jupyter, enabling these users to use their existing skills with Python or Microsoft R. For large-scale data exploration, you can use Microsoft R Server, either standalone or with Spark. Additionally, Microsoft Fabric now offers the capability to edit data models directly within the service, enhancing the flexibility and efficiency of data modeling and analysis.
+- **Analysis and reporting**. The goal of most big data solutions is to provide insights into the data through analysis and reporting. To empower users to analyze the data, the architecture may include a data modeling layer, such as a multidimensional OLAP cube or tabular data model in Azure Analysis Services. It might also support self-service BI, using the modeling and visualization technologies in Microsoft Power BI or Microsoft Excel. Analysis and reporting can also take the form of interactive data exploration by data scientists or data analysts. For these scenarios, many Azure services support analytical notebooks, such as Jupyter, enabling these users to use their existing skills with Python or Microsoft R. For large-scale data exploration, you can use Microsoft R Server, either standalone or with Spark. Additionally, Microsoft Fabric offers the capability to edit data models directly within the service, adding flexibility and efficiency to the task of data modeling and analysis.
 
 - **Orchestration**. Most big data solutions consist of repeated data processing operations, encapsulated in workflows, that transform source data, move data between multiple sources and sinks, load the processed data into an analytical data store, or push the results straight to a report or dashboard. To automate these workflows, you can use an orchestration technology such Azure Data Factory,Microsoft Fabric, or Apache Oozie and Sqoop.
 
@@ -100,15 +100,15 @@ If you need to recompute the entire data set (equivalent to what the batch layer
 
 ## Lakehouse architecture
 
-A data lake is a centralized repository that allows you to store all your structured(like database tables), semi-structured data (like XML files), and unstructured data (like images and audio files) in its raw, original format, without requiring any predefined schema at any scale. They are designed to handle large volumes of data, making them suitable for big data processing and analytics. By using low-cost storage solutions, data lakes provide a cost-effective way to store large amounts of data. 
+A data lake is a centralized data repository that allows you to store all your structured (like database tables), semi-structured data (like XML files), and unstructured data (like images and audio files) in its raw, original format, without requiring any predefined schema. The data lake is designed to handle large volumes of data, making it suitable for big data processing and analytics. By using low-cost storage solutions, data lakes provide a cost-effective way to store large amounts of data.
 
-A data warehouse is a centralized repository that stores structured and semi-structured data for reporting, analysis, and business intelligence purposes.Data warehouses are essential for organizations to make informed decisions by providing a consistent and comprehensive view of their data
+A data warehouse is a centralized repository that stores structured and semi-structured data for reporting, analysis, and business intelligence purposes. Data warehouses are essential for organizations to make informed decisions by providing a consistent and comprehensive view of their data.
 
-The **Lakehouse architecture** combines the best elements of data lakes and data warehouses. It aims to provide a unified platform that supports both structured and unstructured data, enabling efficient data management and analytics. Utilizes low-cost cloud storage in open formats, such as Parquet or ORC, to store raw and processed data.
+The **Lakehouse architecture** combines the best elements of data lakes and data warehouses. The pattern aims to provide a unified platform that supports both structured and unstructured data, enabling efficient data management and analytics. These systems typically utilize low-cost cloud storage in open formats, such as Parquet or ORC, to store raw and processed data.
 
 ![A data flow component diagram showing source to consumption](../../_images/lakehousedataflow.png)
 
-Some common use Cases for considering lakehouse architecture:
+Some common use cases for using a lakehouse architecture are:
 
 - Unified analytics: Ideal for organizations needing a single platform for both historical and real-time data analysis.
 - Machine learning: Supports advanced analytics and machine learning workloads with integrated data management.
