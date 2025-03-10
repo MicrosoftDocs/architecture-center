@@ -150,12 +150,12 @@ The boxes that are shaded gray show components of an IoT system that are not dir
 
 See the following relevant Azure services:
 
-- [Azure IoT Hub](https://learn.microsoft.com/en-us/azure/iot-hub/)
-- [Azure Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/)
-- [Azure Stream Analytics](https://learn.microsoft.com/en-us/azure/stream-analytics/stream-analytics-introduction)
-- [Azure Data Explorer](https://learn.microsoft.com/en-us/azure/data-explorer/)
-- [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/)
-- [Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/)
+- [Azure IoT Hub](/azure/iot-hub/)
+- [Azure Event Hubs](/azure/event-hubs/)
+- [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
+- [Azure Data Explorer](/azure/data-explorer/)
+- [Microsoft Fabric](/fabric/)
+- [Azure Databricks](/azure/databricks/)
 
 ## Related resources
 
