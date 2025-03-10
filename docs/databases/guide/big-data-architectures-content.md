@@ -29,17 +29,34 @@ Most big data architectures include some or all of the following components:
   - Static files produced by applications, such as web server log files.
   - Real-time data sources, such as IoT devices.
 
-- **Data storage**. Data for batch processing operations is typically stored in a distributed file store that can hold high volumes of large files in various formats. This kind of store is often called a *data lake*. Options for implementing this storage include Azure Data Lake Store or blob containers in Azure Storage or One Lake in Microsoft Fabric.
+- **Data storage**. Data for batch processing operations is typically stored in a distributed file store that can hold high volumes of large files in various formats. This kind of store is often called a *data lake*. Options for implementing this storage include Azure Data Lake Store, blob containers in Azure Storage, or One Lake in Microsoft Fabric.
 
-- **Batch processing**. Because the data sets are so large, often a big data solution must process data files using long-running batch jobs to filter, aggregate, and otherwise prepare the data for analysis. Usually these jobs involve reading source files, processing them, and writing the output to new files. Options include running U-SQL jobs in Azure Data Lake Analytics, using Hive, Pig, or custom Map/Reduce jobs in an HDInsight Hadoop cluster, or using Java, Scala, or Python programs in an HDInsight Spark cluster or using Python, Scala or Sql language in notebooks of Azure Databricks which is Apache Spark-based Analytics platform or using Python, Scala or Sql language in notebooks of Microsoft Fabric which is An All-in-One analytics and data platform.
+- **Batch processing**. Because the data sets are so large, often a big data solution must process data files using long-running batch jobs to filter, aggregate, and otherwise prepare the data for analysis. Usually these jobs involve reading source files, processing them, and writing the output to new files. Options include:
+
+  - Run U-SQL jobs in Azure Data Lake Analytics
+  - Use Hive, Pig, or custom Map/Reduce jobs in an HDInsight Hadoop cluster
+  - Use Java, Scala, or Python programs in an HDInsight Spark cluster
+  - Use Python, Scala or SQL language in notebooks of Azure Databricks 
+  - Use Python, Scala or SQL language in notebooks of Microsoft Fabric
+
 
 - **Real-time message ingestion**. If the solution includes real-time sources, the architecture must include a way to capture and store real-time messages for stream processing. This might be a simple data store, where incoming messages are dropped into a folder for processing. However, many solutions need a message ingestion store to act as a buffer for messages, and to support scale-out processing, reliable delivery, and other message queuing semantics. This portion of a streaming architecture is often referred to as stream buffering. Options include Azure Event Hubs, Azure IoT Hub, and Kafka.
 
-- **Stream processing**. After capturing real-time messages, the solution must process them by filtering, aggregating, and otherwise preparing the data for analysis. The processed stream data is then written to an output sink. Azure Stream Analytics provides a managed stream processing service based on perpetually running SQL queries that operate on unbounded streams. You can also use open source Apache streaming technologies like Spark Streaming in an HDInsight cluster or in Azure Databricks, Azure Functions is A serverless compute service that can run event-driven code which is ideal for lightweight stream processing tasks, Microsoft Fabric Supports real-time data processing with Event Streams and Spark processing.
+- **Stream processing**. After capturing real-time messages, the solution must process them by filtering, aggregating, and otherwise preparing the data for analysis. The processed stream data is then written to an output sink.
 
-- **Machine learning**. Reading the prepared data for analysis (from batch or stream processing), you can use machine learning algorithms to build models that predict outcomes or classify data. These models can be trained on large datasets, and the resulting models can be used to analyze new data and make predictions. This can be done using [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning), which provides tools for building, training, and deploying models. Alternatively, you can use pre-built APIs for common machine learning tasks such as vision, speech, language, and decision-making offered by Azure Cognitive Services.
+  - Azure Stream Analytics provides a managed stream processing service based on perpetually running SQL queries that operate on unbounded streams.
+  - You can also use open source Apache streaming technologies like Spark Streaming in an HDInsight cluster or in Azure Databricks
+  - Azure Functions is a serverless compute service that can run event-driven code which is ideal for lightweight stream processing tasks
+  - Microsoft Fabric supports real-time data processing with event streams and Spark processing.
 
-- **Analytical data store**. Many big data solutions prepare data for analysis and then serve the processed data in a structured format that can be queried using analytical tools. The analytical data store used to serve these queries can be a Kimball-style relational data warehouse, as seen in most traditional business intelligence (BI) solutions. Alternatively, the data could be presented through a low-latency NoSQL technology such as HBase, or an interactive Hive database that provides a metadata abstraction over data files in the distributed data store. Azure Synapse Analytics provides a managed service for large-scale, cloud-based data warehousing. HDInsight supports Interactive Hive, HBase, and Spark SQL, which can also be used to serve data for analysis. Additionally, Azure offers other analytical data stores such as Azure Databricks, Azure Data Explorer, Azure SQL Database, and Azure Cosmos DB. Microsoft Fabric also provides a variety of data stores, including SQL Databases, Data Warehouses, Lakehouses, and Eventhouses, which can be leveraged for serving data for analysis
+- **Machine learning**. Reading the prepared data for analysis (from batch or stream processing), you use machine learning algorithms to build models that predict outcomes or classify data. These models can be trained on large datasets, and the resulting models are used to analyze new data and make predictions. This can be done using [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning), which provides tools for building, training, and deploying models. Alternatively, you can use pre-built APIs for common machine learning tasks such as vision, speech, language, and decision-making offered by Azure AI Services.
+
+- **Analytical data store**. Many big data solutions prepare data for analysis and then serve the processed data in a structured format that can be queried using analytical tools. The analytical data store used to serve these queries can be a Kimball-style relational data warehouse, as seen in most traditional business intelligence (BI) solutions. Alternatively, the data could be presented through a low-latency NoSQL technology such as HBase, or an interactive Hive database that provides a metadata abstraction over data files in the distributed data store.
+
+  - Azure Synapse Analytics provides a managed service for large-scale, cloud-based data warehousing.
+  - HDInsight supports Interactive Hive, HBase, and Spark SQL, which can also be used to serve data for analysis.
+  - Microsoft Fabric provides a variety of data stores, including SQL Databases, Data Warehouses, lakehouses, and eventhouses, which can be used for serving data for analysis.
+  - Azure offers other analytical data stores such as Azure Databricks, Azure Data Explorer, Azure SQL Database, and Azure Cosmos DB.
 
 - **Analysis and reporting**. The goal of most big data solutions is to provide insights into the data through analysis and reporting. To empower users to analyze the data, the architecture may include a data modeling layer, such as a multidimensional OLAP cube or tabular data model in Azure Analysis Services. It might also support self-service BI, using the modeling and visualization technologies in Microsoft Power BI or Microsoft Excel. Analysis and reporting can also take the form of interactive data exploration by data scientists or data analysts. For these scenarios, many Azure services support analytical notebooks, such as Jupyter, enabling these users to use their existing skills with Python or Microsoft R. For large-scale data exploration, you can use Microsoft R Server, either standalone or with Spark. Additionally, Microsoft Fabric now offers the capability to edit data models directly within the service, enhancing the flexibility and efficiency of data modeling and analysis.
 
@@ -93,9 +110,9 @@ The **Lakehouse architecture** combines the best elements of data lakes and data
 
 Some common use Cases for considering lakehouse architecture:
 
-Unified Analytics: Ideal for organizations needing a single platform for both historical and real-time data analysis.
-Machine Learning: Supports advanced analytics and machine learning workloads with integrated data management.
-Data Governance: Ensures compliance and data quality across large datasets.
+- Unified analytics: Ideal for organizations needing a single platform for both historical and real-time data analysis.
+- Machine learning: Supports advanced analytics and machine learning workloads with integrated data management.
+- Data governance: Ensures compliance and data quality across large datasets.
 
 ## Internet of Things (IoT)
 
@@ -133,16 +150,16 @@ The boxes that are shaded gray show components of an IoT system that are not dir
 
 See the following relevant Azure services:
 
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub)
-- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs)
-- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics)
-- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)
-- [Microsoft Fabric](https://www.microsoft.com/en-us/microsoft-fabric/resources/data-101/what-is-fabric?msockid=1487b5703d786ad80891a0f839786c48)
-- [Azure Databricks](https://azure.microsoft.com/en-us/free/databricks/search/?ef_id=_k_3a76d0ce8d941041974db709bcca84b8_k_&OCID=AIDcmm5edswduu_SEM__k_3a76d0ce8d941041974db709bcca84b8_k_&msclkid=3a76d0ce8d941041974db709bcca84b8)
+- [Azure IoT Hub](https://learn.microsoft.com/en-us/azure/iot-hub/)
+- [Azure Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/)
+- [Azure Stream Analytics](https://learn.microsoft.com/en-us/azure/stream-analytics/stream-analytics-introduction)
+- [Azure Data Explorer](https://learn.microsoft.com/en-us/azure/data-explorer/)
+- [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/)
+- [Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/)
 
 ## Related resources
 
 - [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
 - [Big data architecture style](../../guide/architecture-styles/big-data.yml)
-- [Modern Analytics Architecture with Azure Databricks](https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
-- [Big data architectures with Microsoft Fabric](https://learn.microsoft.com/en-us/azure/architecture/browse/?azure_categories=analytics&products=fabric)
+- [Modern Analytics Architecture with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
+- [Big data architectures with Microsoft Fabric](/azure/architecture/browse/?azure_categories=analytics&products=fabric)
