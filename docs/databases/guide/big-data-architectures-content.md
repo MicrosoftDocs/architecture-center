@@ -89,7 +89,7 @@ A data warehouse is a centralized repository that stores structured and semi-str
 
 The **Lakehouse architecture** combines the best elements of data lakes and data warehouses. It aims to provide a unified platform that supports both structured and unstructured data, enabling efficient data management and analytics. Utilizes low-cost cloud storage in open formats, such as Parquet or ORC, to store raw and processed data.
 
-![Lakehouse architecture diagram](C:\Users\vibhav\Source\Repos\architecture-center-pr-mine\docs\_images\lakehousearchitecture.png)
+![Lakehouse architecture diagram](../../_images/lakehousearchitecture.png)
 
 Some common use Cases for considering lakehouse architecture:
 
