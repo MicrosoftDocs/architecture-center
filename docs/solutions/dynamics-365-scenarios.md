@@ -78,12 +78,6 @@ Azure Active Directory is now Microsoft Entra ID. For more information, see [New
 |[Eventual consistency between multiple Power Apps instances](/azure/architecture/guide/power-platform/eventual-consistency)|Handle dependent data in a resilient way in Power Apps. Includes information about replicating data between Dynamics 365 instances.|Web|
 |[Multitenancy and identity management](../multitenant-identity/index.yml) |Learn authentication, authorization, and identity management best practices for multitenant applications. In these architectures, Dynamics CRM tenants store user profiles in Microsoft Entra ID. |Identity|
 
-### Dynamics 365 Customer Insights
-
-|Architecture|Summary|Technology focus|
-|--|--|--|
-|[Enhanced customer dimension with Dynamics 365 Customer Insights](../solution-ideas/articles/customer-insights-synapse.yml) |Use Customer Insights to create an enhanced customer dataset and make it available in Azure Data Lake for consumption by Azure Synapse Analytics.|Analytics|
-
 ### Service
 
 |Architecture|Summary|Technology focus|
