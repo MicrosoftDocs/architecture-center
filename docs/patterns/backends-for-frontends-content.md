@@ -1,4 +1,4 @@
-Create separate backend services to be consumed by specific frontend applications or interfaces. This pattern is useful when you want to avoid customizing a single backend for multiple interfaces. This pattern was first described by Sam Newman.
+Decouple backend services from the frontend applications or interfaces to handle different client requirements. This pattern is based on [Pattern: Backends For Frontends](https://samnewman.io/patterns/architectural/bff/) described by Sam Newman.
 
 ## Context and problem
 
