@@ -108,7 +108,7 @@ The **Lakehouse architecture** combines the best elements of data lakes and data
 
 ![Lakehouse architecture diagram](../../_images/lakehouse archtiecture.png)
 
-Some common use Cases for considering lakehouse architecture:
+Some common use cases for using a lakehouse architecture are:
 
 - Unified analytics: Ideal for organizations needing a single platform for both historical and real-time data analysis.
 - Machine learning: Supports advanced analytics and machine learning workloads with integrated data management.
