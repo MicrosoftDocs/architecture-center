@@ -104,7 +104,7 @@ A data lake is a centralized data repository that allows you to store all your s
 
 A data warehouse is a centralized repository that stores structured and semi-structured data for reporting, analysis, and business intelligence purposes. Data warehouses are essential for organizations to make informed decisions by providing a consistent and comprehensive view of their data.
 
-The **Lakehouse architecture** combines the best elements of data lakes and data warehouses. It aims to provide a unified platform that supports both structured and unstructured data, enabling efficient data management and analytics. Utilizes low-cost cloud storage in open formats, such as Parquet or ORC, to store raw and processed data.
+The **Lakehouse architecture** combines the best elements of data lakes and data warehouses. The pattern aims to provide a unified platform that supports both structured and unstructured data, enabling efficient data management and analytics. These systems typically utilize low-cost cloud storage in open formats, such as Parquet or ORC, to store raw and processed data.
 
 ![Lakehouse architecture diagram](../../_images/lakehouse archtiecture.png)
 
