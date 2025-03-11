@@ -15,19 +15,19 @@ To address business transformations like acquisitions or divesture, teams need t
 The following dataflow corresponds to the previous diagram:
 
 1.
-    a. Extract the Azure Resource Manager template and configuration artifacts and store them in a source code repository or configuration repository. This step conforms with infrastructure as code practices and helps ensure that the migrated resources have the same resource deployment definition. It also facilitates deployment automation.
+   a. Extract the Azure Resource Manager template and configuration artifacts and store them in a source code repository or configuration repository. This step conforms with infrastructure as code practices and helps ensure that the migrated resources have the same resource deployment definition. It also facilitates deployment automation.
 
-    b. Deploy both the infrastructure and configuration artifacts to the target resource group or groups in the new tenant subscription.
+   b. Deploy both the infrastructure and configuration artifacts to the target resource group or groups in the new tenant subscription.
 
-2. Create a sidecar subscription in the existing tenant to host cloned data service resources and backups of virtual machines (VMs). Most organizations have a cloud platform team or subscription vending process that can create this subscription.
+1. Create a sidecar subscription in the existing tenant to host cloned data service resources and backups of virtual machines (VMs). Most organizations have a cloud platform team or subscription vending process that can create this subscription.
 
-3. Clone the resources by using a tool like Azure Data Factory, AzCopy for data migration, or native backup and restore.
+1. Clone the resources by using a tool like Azure Data Factory, AzCopy for data migration, or native backup and restore.
 
-4. Move the subscription to the new tenant.
+1. Move the subscription to the new tenant.
 
-5. Either move the resources to the target resource group or migrate data to the pre-created resources in the target resource group. Alternatively, restore VMs from the backups. Your implementation plan should describe the provisioning method.
+1. Either move the resources to the target resource group or migrate data to the pre-created resources in the target resource group. Alternatively, restore VMs from the backups. Your implementation plan should describe the provisioning method.
 
-6. Delete the sidecar subscription.
+1. Delete the sidecar subscription.
 
 ### Components
 
