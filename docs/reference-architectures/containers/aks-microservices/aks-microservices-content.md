@@ -1,6 +1,6 @@
 This reference architecture shows a microservices application deployed to Azure Kubernetes Service (AKS). It describes a basic AKS configuration that you can use as the starting point for most deployments. This article assumes that you have a basic understanding of Kubernetes. The article primarily highlights the infrastructure and DevOps aspects of how to manage microservices on AKS. For more information about how to design microservices, see [Microservices architecture design](../../../microservices/index.yml).
 
-![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub][reference-implementation].
+![GitHub logo.](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub][reference-implementation].
 
 *Helm is a trademark of its respective company. No endorsement is implied by the use of this mark.*
 
@@ -52,7 +52,7 @@ For more information about the sample microservices application, see [Microservi
 
 - **Container Registry** can be used to store private container images, which are deployed to the cluster. AKS can authenticate with Container Registry by using its Microsoft Entra identity. In the reference implementation, microservice container images are built and pushed to Container Registry.  
 
-- **Azure Pipelines** is part of the Azure DevOps suite and runs automated builds, tests, and deployments. A [continuous integration and continuous deployment (CI/CD)](/azure/architecture/microservices/ci-cd) approach is highly encouraged in microservice environments. Various teams can independently build and deploy microservices to AKS by using Azure DevOps pipelines.
+- **Azure Pipelines** is part of the Azure DevOps suite and runs automated builds, tests, and deployments. A [continuous integration and continuous deployment (CI/CD)](/azure/architecture/microservices/ci-cd) approach is highly encouraged in microservice environments. Various teams can independently build and deploy microservices to AKS by using Azure Pipelines.
 
 - **Helm** is a package manager for Kubernetes that provides a mechanism to bundle and standardize Kubernetes objects into a single unit that can be published, deployed, versioned, and updated.
 
@@ -76,7 +76,7 @@ Microservice observability can be achieved with alternative tools like [Kiali](h
 
 ## Scenario details
 
-The example [microservice reference implementation](https://github.com/mspnp/microservices-reference-implementation) implements the architectural components and practices described in this article. In this example, a fictitious company called Fabrikam, Inc. manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the back-end system assigns a drone and notifies the user with an estimated delivery time. When the delivery is in progress, the customer can track the drone's location with a continuously updated estimated delivery time.
+The example [microservice reference implementation](https://github.com/mspnp/microservices-reference-implementation) implements the architectural components and practices described in this article. In this example, a fictitious company called Fabrikam, Inc., manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the back-end system assigns a drone and notifies the user with an estimated delivery time. When the delivery is in progress, the customer can track the drone's location with a continuously updated estimated delivery time.
 
 The scenario aims to demonstrate the microservices architecture and deployment best practices in AKS.
 
