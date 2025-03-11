@@ -7168,6 +7168,11 @@
       "source_path": "docs/guide/technology-choices/multiparty-computing-service.yml",
       "redirect_url": "/training/paths/ethereum-blockchain-development/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/operator-guides/aks/choose-bare-metal-kubernetes.yml",
+      "redirect_url": "/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option",
+      "redirect_document_id": false
     }
   ]
 }

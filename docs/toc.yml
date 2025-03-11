@@ -119,8 +119,7 @@ items:
       items:
       - name: Kubernetes at the edge
         href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
-      - name: Bare-metal Kubernetes at the edge
-        href: operator-guides/aks/choose-bare-metal-kubernetes.yml
+
     - name: Choose a hybrid service
       items:
       - name: Azure hybrid options
@@ -777,8 +776,6 @@ items:
         items:
         - name: Choose a Kubernetes at the edge option
           href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
-        - name: Choose a bare-metal Kubernetes option
-          href: operator-guides/aks/choose-bare-metal-kubernetes.yml
       - name: Architectures
         items:
         - name: Application
