@@ -2,7 +2,7 @@ This reference architecture shows a microservices application deployed to Azure 
 
 ![GitHub logo.](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub][reference-implementation].
 
-*Helm is a trademark of its respective company. No endorsement is implied by the use of this mark.*
+*Helm is a trademark of the Cloud Native Computing Foundation (CNCF). No endorsement is implied by the use of this mark.*
 
 ## Architecture
 
