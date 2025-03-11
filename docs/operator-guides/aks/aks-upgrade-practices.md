@@ -4,13 +4,12 @@ description: Learn about day-2 patching and upgrading practices for Azure Kubern
 author: aionic
 ms.author: anevico
 ms.date: 02/06/2025
-ms.topic: reference-architecture
-ms.subservice: reference-architecture
+ms.topic: conceptual
+ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
   - devx-track-azurecli
   - arb-containers
-azureCategories: compute
 categories: compute
 products:
   - azure-kubernetes-service
@@ -59,9 +58,9 @@ To ensure that your AKS cluster operates smoothly during maintenance, follow the
    > [!WARNING]
    > Misconfigured PDBs can block the upgrade process because the Kubernetes API prevents the necessary cordon and drain that occurs with a rolling node-image upgrade. Additionally, if too many pods are moved simultaneously, an application outage can occur. PDB configuration mitigates this risk.
 
-- **Check available compute and network limits.**  Verify the available compute and network limits in your Azure subscription via the [quota page](/azure/quotas/view-quotas) in the Azure portal, or by using the [az quota](/cli/azure/quota/usage?view=azure-cli-latest#az-quota-usage-list) command. Check compute and network resources, especially virtual machine (VM) vCPUs for your nodes, and the number of VMs and virtual machine scale sets. If you're close to a limit, request a quota increase before you upgrade.
+- **Check available compute and network limits.**  Verify the available compute and network limits in your Azure subscription via the [quota page](/azure/quotas/view-quotas) in the Azure portal, or by using the [az quota](/cli/azure/quota/usage?view=azure-cli-latest#az-quota-usage-list&preserve-view=true) command. Check compute and network resources, especially virtual machine (VM) vCPUs for your nodes, and the number of VMs and virtual machine scale sets. If you're close to a limit, request a quota increase before you upgrade.
 
-- **Check available IP address space in node subnets.** During updates, extra surge nodes are created in your cluster and pods are moved to these nodes. It's important that you monitor the IP address space in your node subnets to ensure that there's sufficient address space for these changes to occur. Different Kubernetes [network configurations](/azure/aks/concepts-network#azure-virtual-networks) have different IP address requirements. As a starting point, review these considerations:
+- **Check available IP address space in node subnets.** During updates, extra surge nodes are created in your cluster and pods are moved to these nodes. It's important that you monitor the IP address space in your node subnets to ensure that there's sufficient address space for these changes to occur. Different Kubernetes [network configurations](/azure/aks/concepts-network#azure-virtual-networks) have different IP address requirements. To start, review these considerations:
 
   - During an upgrade, the number of node IP addresses increases according to your surge value. The minimum surge value is 1.
   - Clusters that are based on Azure Container Network Interface assign IP addresses to individual pods, so there needs to be sufficient address space for pod movement.
@@ -314,7 +313,7 @@ By following this approach, you can minimize disruptions during the upgrade proc
       --kubernetes-version <KubernetesVersion>
    ```
 
-1. Run the [az aks nodepool upgrade](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-upgrade) command to upgrade node pools to the target version:
+1. Run the [az aks nodepool upgrade](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-upgrade&preserve-view=true) command to upgrade node pools to the target version:
 
    ```azurecli
    az aks nodepool upgrade \
