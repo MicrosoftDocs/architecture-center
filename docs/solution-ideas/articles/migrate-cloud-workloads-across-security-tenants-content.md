@@ -14,7 +14,7 @@ To address business transformations like acquisitions or divesture, teams need t
 
 The following dataflow corresponds to the previous diagram:
 
-1.
+1.  
    a. Extract the Azure Resource Manager template and configuration artifacts and store them in a source code repository or configuration repository. This step conforms with infrastructure as code practices and helps ensure that the migrated resources have the same resource deployment definition. It also facilitates deployment automation.
 
    b. Deploy both the infrastructure and configuration artifacts to the target resource group or groups in the new tenant subscription.
