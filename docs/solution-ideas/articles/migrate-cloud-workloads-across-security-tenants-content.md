@@ -1,11 +1,11 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-To address business transformations like acquisitions or divesture, teams need to plan for the separation or joining of their cloud workloads from an existing security tenant to a new Microsoft Entra tenant. This article describes how to define and implement a cross-tenant workload migration strategy.
+To address business transformations like acquisitions or divesture, teams need to plan for the separation or joining of their cloud workloads from an existing security tenant to a new Microsoft Entra ID tenant. This article describes how to define and implement a cross-tenant workload migration strategy.
 
 ## Architecture
 
 :::image type="complex" border="false" source="../media/cross-tenant-migration-strategy.svg" alt-text="Diagram that shows a cross-tenant migration architecture." lightbox="../media/cross-tenant-migration-strategy.svg":::
-   This diagram outlines a resource migration process. First, the Azure Resource Manager template and configuration files are extracted and stored in a source code or configuration repository. Then those files are deployed to target resource groups in a new tenant. Next, a temporary subscription, known as a sidecar subscription, is created in the original tenant to hold backups and cloned data service resources. Resources are then cloned by using tools like Azure Data Factory or AzCopy. After the resources are cloned, the subscription is moved to the new tenant. Finally, the resources are migrated or restored in their target groups before the temporary subscription is deleted.
+   This diagram outlines a resource migration process. First the Azure Resource Manager template and configuration files are extracted and stored in a source code repository or configuration repository. Then those files are deployed to target resource groups in a new tenant. A temporary subscription, known as a sidecar subscription, is created in the original tenant to hold backups and cloned data service resources. Resources are then cloned by using tools like Azure Data Factory or AzCopy. After the resources are cloned, the subscription is moved to the new tenant. Finally, the resources are migrated or restored in their target groups before the temporary subscription is deleted.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/cross-tenant-migration-strategy.vsdx) of this architecture.*
@@ -15,25 +15,25 @@ To address business transformations like acquisitions or divesture, teams need t
 The following dataflow corresponds to the previous diagram:
 
 1.
-   a. Extract the Azure Resource Manager template and configuration artifacts and store them in a source code or configuration repository. This step conforms with infrastructure as code practices and helps ensure that the migrated resources have the same resource deployment definition. It also facilitates deployment automation.
+   a. Extract the Azure Resource Manager template and configuration artifacts and store them in a source code repository or configuration repository. This step conforms with infrastructure as code practices and helps ensure that the migrated resources have the same resource deployment definition. It also facilitates deployment automation.
 
    b. Deploy the infrastructure and configuration artifacts to the target resource group or groups in the new tenant subscription.
 
-2. Create a sidecar subscription in the existing tenant to host cloned data service resources and backups of virtual machines (VMs). Most organizations have a cloud platform team or subscription vending process that can create this subscription.
+1. Create a sidecar subscription in the existing tenant to host cloned data service resources and backups of virtual machines (VMs). Most organizations have a cloud platform team or subscription vending process that can create this subscription.
 
-3. Clone the resources by using a tool like Azure Data Factory, AzCopy for data migration, or native backup and restore.
+1. Clone the resources by using a tool like Azure Data Factory, AzCopy for data migration, or native backup and restore.
 
-4. Move the subscription to the new tenant.
+1. Move the subscription to the new tenant.
 
-5. Either move the resources to the target resource group or migrate data to the pre-created resources in the target resource group. Alternatively, restore VMs from the backups. The implementation plan should describe the provisioning method.
+1. Either move the resources to the target resource group or migrate data to the pre-created resources in the target resource group. Alternatively, restore VMs from the backups. Your implementation plan should describe the provisioning method.
 
-6. Delete the sidecar subscription.
+1. Delete the sidecar subscription.
 
 ### Components
 
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is a cloud-based identity and access management service. Your Microsoft Entra tenant represents your organization and helps you manage an instance of cloud services for your internal and guests.
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is a cloud-based identity and access management service. Your Microsoft Entra tenant represents your organization and helps you manage an instance of cloud services for your internal and external guests.
 
-- [An Azure subscription](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) is a logical container for your resources. Each Azure resource is associated with only one subscription. Creating a subscription is the first step in adopting Azure.
+- [An Azure subscription](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) is a logical container for your resources. Each Azure resource is associated with only one subscription. Creating a subscription is the first step in Azure adoption.
 
 - [Azure DevOps](https://azure.microsoft.com/products/devops) provides developer services that can help your teams plan work, collaborate on code development, and build and deploy applications.
 
@@ -51,7 +51,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) provides a unified set of tools that you can use to build, deploy, share, and maintain enterprise-grade data solutions at scale.
 
-- [Azure Cognitive Services](https://azure.microsoft.com/products/cognitive-services) is a set of cloud-based AI services that can help developers build cognitive intelligence into applications, even if they don't have AI or data science skills or knowledge.
+- [Azure AI services](https://azure.microsoft.com/products/ai-services/) is a set of cloud-based AI services that can help developers build cognitive intelligence into applications, even if they don't have AI or data science skills or knowledge.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL and relational database for modern app development.
 
@@ -65,27 +65,27 @@ The following dataflow corresponds to the previous diagram:
 
 ## Scenario details
 
-Modern cloud workloads use cloud-native security standards and policy-driven governance to establish standardization across environments and maximize total cost of ownership (TCO) by reducing non-standard operations management. To address business transformations like acquisitions or divesture, the organizational team, including developers, architects, operations, and technical decision makers, need to plan for the separation or joining of their cloud workloads from an existing tenant to a new security Microsoft Entra tenant. This planning can help ensure that all data and application services that rely on infrastructure as a service or platform as a service (PaaS) cloud components are migrated, secured, and isolated to their respective business boundaries.
+Modern cloud workloads use cloud-native security standards and policy-driven governance to establish standardization across environments and maximize total cost of ownership (TCO) by reducing nonstandard operations management. To address business transformations like acquisitions or divesture, the organizational team, including developers, architects, operations, and technical decision makers, needs to plan for the separation or joining of their cloud workloads from an existing tenant to a new security Microsoft Entra ID tenant. This planning can help ensure that all data and application services that rely on infrastructure as a service (IaaS) or platform as a service (PaaS) cloud components are migrated, secured, and isolated to their respective business boundaries.
 
-You can use the built-in subscription-move capability to move the entire subscription under a new Microsoft Entra tenant. However, in practice, most divesture organization workloads are mixed with the retaining organization workloads before the split, so the complete isolation requires more granular workload migrations.
+You can use the built-in subscription-move feature to transfer the entire subscription to a new Microsoft Entra tenant. Because most divestiture organization workloads are intertwined with retaining organization workloads before the split, achieving complete isolation requires more detailed workload migrations.
 
-In this scenario, a healthcare company that has multiple global business units wants to divest a business. To do that, they need to define and implement a cross-tenant workload migration strategy.
+In this scenario, a healthcare company that has multiple global business units wants to divest a business. To divest, they need to define and implement a cross-tenant workload migration strategy.
 
-To begin, the company should classify workload resources into three categories. One group consists of compute resources managed by using PaaS. A second group includes data services that require both PaaS and IaaS support. The final group consists of compute resources managed by using IaaS. Following are three approaches, one for each of these resource types. These approaches provide a quick, enhanced-security migration that can result in reduced TCO.
+To begin, the company should classify workload resources into three categories. One group includes compute resources managed by using PaaS. A second group includes data services that require both PaaS and IaaS support. The final group includes compute resources managed by using IaaS. There are three approaches, one for each of these resource types. These approaches provide a quick, enhanced-security migration that can result in reduced TCO.
 
-- PaaS (or compute) resources that run based on logic and configuration
+- PaaS, or compute, resources that run based on logic and configuration
 
    ![Diagram that shows the components of the PaaS solution.](../media/paas-compute.png)
 
   **Solution:** Re-create these resources in the target tenant. Use DevOps processes.
 
-- PaaS and IaaS (or data services) resources that store data
+- PaaS and IaaS, or data services, resources that store data
 
    ![Diagram that shows the components of the PaaS and IaaS solution.](../media/paas-iaas.png)
 
    **Solution:** Azure subscriptions can be relocated from one Microsoft Entra tenant to another. Move these resources to the new tenant via a sidecar subscription. You need to carefully evaluate the resources before you move them. For example, Azure SQL databases with Microsoft Entra authentication integration enabled can't be moved as they are. Use backup and restore instead. This process removes all role-based access control (RBAC) assignments. After the resource is moved to the new tenant, you need to restore those RBAC assignments.
 
-- IaaS (or compute) resources that provide hosting for customized logic, such as VMs
+- IaaS, or compute, resources such as VMs that provide hosting for customized logic
 
    ![Diagram that shows the components of the IaaS solution.](../media/iaas-compute.png)
 
