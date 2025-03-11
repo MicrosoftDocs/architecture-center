@@ -533,14 +533,21 @@ APIs must distinguish between tenant requests, which impacts endpoint structure,
 Use Subdomain or Domain-Based Isolation (DNS-Level Tenancy). This approach provides the highest level of isolation by directing each tenant to a dedicated environment, ensuring governance, infrastructure, and workloads remain fully segregated. Because isolation is enforced at the environment level, tenant-specific logic within the application is minimized. However, this comes with increased operational overhead. Alternatively, multiple domains can route traffic to the same shared environment, reducing complexity and infrastructure cost but forfeiting the true isolation benefits of DNS-based routing.
 
 ```http
-GET https://tenant42.api.contoso.com/orders/3 HTTP/1.1
+GET https://adventureworks.api.contoso.com/orders/3 HTTP/1.1
 ```
 
 Pass tenant-specific information through custom HTTP headers (like `X-Tenant-ID` or `X-Orgnization-ID`), use http host-based headers (like `Host`, `X-Forwarded-Host`), or extract the tenant from JSON Web Token (JWT) claims. The method you choose depends on the routing capabilities supported by your API gateway or reverse proxy, with header-based solutions often requiring Layer 7 (L7) load balancing. This introduces additional compute requirements, which can increase operational costs, as it demands more processing power for routing and tenant context management. Some of these solutions also support centralized authentication, streamlining security management across multi-tenant APIs. By leveraging SDKs or API clients, tenant context is dynamically managed at runtime, reducing the need for complex client-side configuration and enhancing the overall developer experience. This not only simplifies implementation but also reduces operational costs. Furthermore, managing tenant context via headers ensures a cleaner, more RESTful architecture by keeping tenant-specific data out of the URI. It also promotes better density by allowing the sharing of infrastructure resources more efficiently, ultimately driving down costs.
 
 ```http
 GET https://api.contoso.com/orders/3 HTTP/1.1
-X-Tenant-ID: tenant42
+X-Tenant-ID: adventureworks
+```
+
+or
+
+```http
+GET https://api.contoso.com/orders/3 HTTP/1.1
+Host: adventureworks
 ```
 
 or
@@ -550,17 +557,11 @@ GET https://api.contoso.com/orders/3 HTTP/1.1
 Authorization: Bearer <JWT-token>
 ```
 
-or
-
-```http
-GET https://api.contoso.com/orders/3 HTTP/1.1
-host: tenant42
-```
 
 Pass tenant-specific information through the URI path by appending tenant identifiers within the resource hierarchy. This method relies on the API gateway or reverse proxy to determine which tenant's data to serve based on the path segment. While effective, path-based isolation compromises the RESTful nature of the API and reduces flexibility. It also demands more complex routing logic, increasing compute costs due to the overhead of pattern matching or string parsing. In contrast, header-based isolation conveys tenant information through HTTP headers, typically as key-value pairs, simplifying routing by utilizing easily parsed headers. This method is less resource-intensive and more efficient than path-based approaches. Both strategies facilitate the efficient use of shared infrastructure, reducing operational costs and improving performance in large-scale, multi-tenant web APIs.
 
 ```http
-GET https://api.contoso.com/tenants/tenant42/orders/3
+GET https://api.contoso.com/tenants/adventureworks/orders/3
 ```
 
 ## Open API Initiative
