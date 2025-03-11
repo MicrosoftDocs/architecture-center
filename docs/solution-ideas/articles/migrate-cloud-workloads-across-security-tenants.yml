@@ -1,12 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Migrate Cloud Workloads Across Security Tenants
-  description: Learn how to define and implement a cross-tenant workload migration strategy to address business transformations like acquisitions or divestiture.
+  description: Learn how to define and implement a cross-tenant workload migration strategy to address business transformations like acquisitions or divestitures.
   author: lapate
   ms.author: lapate
   ms.date: 06/07/2024
   ms.topic: solution-idea
-  ms.service: azure-architecture-center
   ms.subservice: solution-idea
 azureCategories:
   - "migration"

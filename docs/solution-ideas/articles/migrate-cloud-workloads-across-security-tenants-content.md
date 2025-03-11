@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-To address business transformations like acquisitions or divesture, teams need to plan for the separation or joining of their cloud workloads from an existing security Microsoft Entra ID tenant to a new tenant. This article describes how to define and implement a cross-tenant workload migration strategy.
+To address business transformations like acquisitions or divestitures, teams need to plan for the separation or joining of their cloud workloads from an existing Microsoft Entra tenant to a new tenant. This article describes how to define and implement a cross-tenant workload migration strategy.
 
 ## Architecture
 
@@ -14,7 +14,7 @@ To address business transformations like acquisitions or divesture, teams need t
 
 The following dataflow corresponds to the previous diagram:
 
-1. Begin by preparing the infrastructure and configuration artifacts:
+1. Prepare the infrastructure and configuration artifacts:
 
    a. Extract the Azure Resource Manager template and configuration artifacts and store them in a source code repository or configuration repository. This step conforms with infrastructure as code practices and helps ensure that the migrated resources have the same resource deployment definition. It also facilitates deployment automation.
 
@@ -22,7 +22,7 @@ The following dataflow corresponds to the previous diagram:
 
 1. Create a sidecar subscription in the existing tenant to host cloned data service resources and backups of virtual machines (VMs). Most organizations have a cloud platform team or subscription vending process that can create this subscription.
 
-1. Clone the resources by using a tool like Azure Data Factory, AzCopy for data migration, or native backup and restore.
+1. Clone the resources by using a tool like Azure Data Factory, AzCopy for data migration, or native backup and restore capabilities.
 
 1. Move the subscription to the new tenant.
 
@@ -34,7 +34,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is a cloud-based identity and access management service. Your Microsoft Entra tenant represents your organization and helps you manage an instance of cloud services for your internal and external guests.
 
-- [An Azure subscription](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) is a logical container for your resources. Each Azure resource is associated with only one subscription. Creating a subscription is the first step in Azure adoption.
+- An [Azure subscription](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) is a logical container for your resources. Each Azure resource is associated with only one subscription. Creating a subscription is the first step in Azure adoption.
 
 - [Azure DevOps](https://azure.microsoft.com/products/devops) provides developer services that can help your teams plan work, collaborate on code development, and build and deploy applications.
 
@@ -44,7 +44,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed and intelligent relational database service that's built for the cloud. You can use SQL Database to create a high-performance data storage layer for modern cloud applications.
 
-- The [Azure Storage](https://azure.microsoft.com/products/category/storage) platform is the Microsoft cloud solution for modern data storage scenarios. Azure Storage provides highly available, massively scalable, durable storage for various data objects in the cloud.
+- The [Azure Storage](https://azure.microsoft.com/products/category/storage) platform is the Microsoft cloud solution for modern data storage scenarios. Azure Storage provides highly available, massively scalable, and durable storage for various data objects in the cloud.
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems.
 
@@ -62,11 +62,11 @@ The following dataflow corresponds to the previous diagram:
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure provides. You typically use a VM when you need more control over the computing environment than other choices provide.
 
-- [Resource groups](/azure/azure-resource-manager/management/manage-resource-groups-cli) are logical containers for Azure resources. Resource groups are used to organize all resources that are related to this architecture.
+- [Resource groups](/azure/azure-resource-manager/management/manage-resource-groups-cli) are logical containers for Azure resources. This architecture uses resource groups to organize all resources.
 
 ## Scenario details
 
-Modern cloud workloads use cloud-native security standards and policy-driven governance to establish standardization across environments and maximize total cost of ownership (TCO) by reducing nonstandard operations management. To address business transformations like acquisitions or divesture, the organizational team, including developers, architects, operations, and technical decision makers, needs to plan for the separation or joining of their cloud workloads from an existing tenant to a new security Microsoft Entra ID tenant. This planning can help ensure that all data and application services that rely on infrastructure as a service (IaaS) or platform as a service (PaaS) cloud components are migrated, secured, and isolated to their respective business boundaries.
+Modern cloud workloads use cloud-native security standards and policy-driven governance to establish standardization across environments and maximize total cost of ownership (TCO) by reducing nonstandard operations management. To address business transformations like acquisitions or divesture, the organizational team, including developers, architects, operations, and technical decision makers, needs to plan for the separation or joining of their cloud workloads from an existing tenant to a new Microsoft Entra tenant. This planning can help ensure that all data and application services that rely on infrastructure as a service (IaaS) or platform as a service (PaaS) cloud components are migrated, secured, and isolated to their respective business boundaries.
 
 You can use the built-in subscription-move feature to transfer the entire subscription to a new Microsoft Entra tenant. Because most divestiture organization workloads are intertwined with retaining organization workloads before the split, achieving complete isolation requires more detailed workload migrations.
 
@@ -113,7 +113,7 @@ Principal author:
 - [Azure RBAC documentation](/azure/role-based-access-control)
 - [Migrate an Azure subscription](/azure/cost-management-billing/manage/billing-subscription-transfer#transfer-a-subscription-to-another-azure-ad-tenant-account)
 - [Query to list affected resources when transferring an Azure subscription](/azure/governance/resource-graph/samples/samples-by-category?tabs=azure-cli#list-impacted-resources-when-transferring-an-azure-subscription)
-- [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Microsoft Entra ID?](/entra/fundamentals/whatis)
 - [Azure Backup documentation](/azure/backup)
 - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
 - [Microsoft security best practices for identity and access management](/security/compass/identity)
