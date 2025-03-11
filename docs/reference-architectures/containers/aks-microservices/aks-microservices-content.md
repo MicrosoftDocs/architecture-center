@@ -10,6 +10,8 @@ This reference architecture shows a microservices application deployed to Azure 
    The diagram shows the microservices on the AKS reference architecture. It depicts an application composed of multiple microservices deployed to AKS. The request flow uses the publisher-subscriber, competing consumers, and gateway routing cloud design patterns. The flow starts with the client application sending a JSON payload over HTTPS to the load balancer's public fully qualified domain name to schedule a drone pickup. The load balancer routes the request to the ingestion microservice, which processes and queues delivery requests in an Azure Service Bus queue. The workflow microservice then consumes messages from the Service Bus queue and sends HTTPS requests to multiple microservices. These services include the drone scheduler, delivery, and package microservices. The delivery microservice stores data in Azure Cache for Redis, and the package microservice stores data in MongoDB. An HTTPS GET request returns the delivery status. It passes through the load balancer to the delivery microservice, which reads data from Azure Cache for Redis.
 :::image-end:::
 
+*Helm is a trademark of the Cloud Native Computing Foundation (CNCF). No endorsement is implied by the use of this mark.*
+
 *Download a [Visio file](https://arch-center.azureedge.net/microservices-architecture.vsdx) of this architecture.*
 
 If you want to see an example of a more advanced microservice that's built on the [AKS baseline architecture](https://github.com/mspnp/aks-secure-baseline), see the [advanced AKS microservices architecture](./aks-microservices-advanced.yml).
