@@ -14,10 +14,10 @@ To address business transformations like acquisitions or divesture, teams need t
 
 The following dataflow corresponds to the previous diagram:
 
-1.  
-   a. Extract the Azure Resource Manager template and configuration artifacts and store them in a source code repository or configuration repository. This step conforms with infrastructure as code practices and helps ensure that the migrated resources have the same resource deployment definition. It also facilitates deployment automation.
+1.
+    a. Extract the Azure Resource Manager template and configuration artifacts and store them in a source code repository or configuration repository. This step conforms with infrastructure as code practices and helps ensure that the migrated resources have the same resource deployment definition. It also facilitates deployment automation.
 
-   b. Deploy both the infrastructure and configuration artifacts to the target resource group or groups in the new tenant subscription.
+    b. Deploy both the infrastructure and configuration artifacts to the target resource group or groups in the new tenant subscription.
 
 2. Create a sidecar subscription in the existing tenant to host cloned data service resources and backups of virtual machines (VMs). Most organizations have a cloud platform team or subscription vending process that can create this subscription.
 
