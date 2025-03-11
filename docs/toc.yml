@@ -1256,7 +1256,7 @@ items:
     items:
     - name: Guides
       items:
-      - name: Enable machine learning inference
+      - name: Enable ML inference on IoT Edge
         href: guide/iot/machine-learning-inference-iot-edge.yml
       - name: Scale your IoT Hub solutions
         href: guide/iot/scale-iot-solution-azure.md
@@ -1270,11 +1270,11 @@ items:
         href: industries/automotive/automotive-telemetry-analytics.yml
     - name: Solution ideas
       items:
-      - name: Azure load testing
+      - name: Azure Load Testing for IoT Hub
         href: guide/testing/load-testing/load-testing-with-custom-plugins.md
-      - name: IoT analytics with Azure Data Explorer
+      - name: IoT Hub analytics with Azure Data Explorer
         href: solution-ideas/articles/iot-azure-data-explorer.yml
-      - name: IoT private file upload to Azure Storage
+      - name: IoT Hub private file upload to Azure Storage
         href: example-scenario/iot/iot-private-file-upload.yml
       - name: Project 15 IoT sustainability
         href: solution-ideas/articles/project-15-iot-sustainability.yml
