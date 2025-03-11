@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-To address business transformations like acquisitions or divesture, teams need to plan for the separation or joining of their cloud workloads from an existing security tenant to a new Microsoft Entra ID tenant. This article describes how to define and implement a cross-tenant workload migration strategy.
+To address business transformations like acquisitions or divesture, teams need to plan for the separation or joining of their cloud workloads from an existing security Microsoft Entra ID tenant to a new tenant. This article describes how to define and implement a cross-tenant workload migration strategy.
 
 ## Architecture
 
@@ -17,7 +17,7 @@ The following dataflow corresponds to the previous diagram:
 1.
    a. Extract the Azure Resource Manager template and configuration artifacts and store them in a source code repository or configuration repository. This step conforms with infrastructure as code practices and helps ensure that the migrated resources have the same resource deployment definition. It also facilitates deployment automation.
 
-   b. Deploy the infrastructure and configuration artifacts to the target resource group or groups in the new tenant subscription.
+   b. Deploy both the infrastructure and configuration artifacts to the target resource group or groups in the new tenant subscription.
 
 1. Create a sidecar subscription in the existing tenant to host cloned data service resources and backups of virtual machines (VMs). Most organizations have a cloud platform team or subscription vending process that can create this subscription.
 
