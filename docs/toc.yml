@@ -117,9 +117,10 @@ items:
         href: /azure/architecture/microservices/design/compute-options
     - name: Choose a container option
       items:
+      - name: Container options
+        href: guide/choose-azure-container-service.md      
       - name: Kubernetes at the edge
         href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
-
     - name: Choose a hybrid service
       items:
       - name: Azure hybrid options

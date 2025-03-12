@@ -409,3 +409,9 @@ Web app assessment and migration | [Google Cloud Application Migration](https://
 ## Next steps
 
 If you are new to Azure, review the interactive [Core Cloud Services - Introduction to Azure](/training/modules/welcome-to-azure) module on [Microsoft Learn training](/training).
+
+## Related resources
+
+- [Discover Google Cloud instances](/azure/migrate/tutorial-discover-gcp)
+- [Assess Google Cloud VM instances](/azure/migrate/tutorial-assess-gcp)
+- [Migrate Google Cloud VMs to Azure](/azure/migrate/tutorial-migrate-gcp-virtual-machines)
