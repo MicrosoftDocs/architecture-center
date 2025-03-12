@@ -234,8 +234,6 @@ items:
       href: best-practices/message-encode.md
     - name: Monitoring and diagnostics
       href: best-practices/monitoring.yml
-    - name: Retry guidance for specific services
-      href: best-practices/retry-service-specific.md
     - name: Transient fault handling
       href: best-practices/transient-faults.md
   - name: Performance tuning and antipatterns

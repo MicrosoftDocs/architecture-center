@@ -214,7 +214,7 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 
 **Recovery:**
 
-1. Retry on transient failures. Azure Cache for Redis supports built-in retry. For more information, see [Azure Cache for Redis retry guidelines][redis-retry].
+1. Retry on transient failures. Azure Cache for Redis supports built-in retry.
 2. Treat nontransient failures as a cache miss, and fall back to the original data source.
 
 **Diagnostics**. Use [Azure Cache for Redis diagnostics][redis-monitor].
@@ -225,7 +225,7 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 
 **Recovery:**
 
-1. Retry on transient failures. Azure Cache for Redis supports built-in retry. For more information, see [Azure Cache for Redis retry guidelines][redis-retry].
+1. Retry on transient failures. Azure Cache for Redis supports built-in retry.
 2. If the error is nontransient, ignore it and let other transactions write to the cache later.
 
 **Diagnostics**. Use [Azure Cache for Redis diagnostics][redis-monitor].
@@ -284,7 +284,7 @@ For more information, see [Service Bus messaging exceptions][sb-messaging-except
 
 **Recovery:**
 
-1. Retry on transient failures. See [Service Bus retry guidelines][sb-retry].
+1. Retry on transient failures.
 2. Messages that cannot be delivered to any receiver are placed in a *dead-letter queue*. Use this queue to see which messages could not be received. There is no automatic cleanup of the dead-letter queue. Messages remain there until you explicitly retrieve them. See [Overview of Service Bus dead-letter queues][sb-dead-letter-queue].
 
 ### Writing a message to a Service Bus queue fails.
@@ -295,7 +295,7 @@ For more information, see [Service Bus messaging exceptions][sb-messaging-except
 
 **Recovery:**
 
-- The Service Bus client automatically retries after transient errors. By default, it uses exponential back-off. After the maximum retry count or maximum timeout period, the client throws an exception. For more information, see [Service Bus retry guidelines][sb-retry].
+- The Service Bus client automatically retries after transient errors. By default, it uses exponential back-off. After the maximum retry count or maximum timeout period, the client throws an exception.
 - If the queue quota is exceeded, the client throws [QuotaExceededException][QuotaExceededException]. The exception message gives more details. Drain some messages from the queue before retrying, and consider using the Circuit Breaker pattern to avoid continued retries while the quota is exceeded. Also, make sure the [BrokeredMessage.TimeToLive] property is not set too high.
 - Within a region, resiliency can be improved by using [partitioned queues or topics][sb-partition]. A non-partitioned queue or topic is assigned to one messaging store. If this messaging store is unavailable, all operations on that queue or topic will fail. A partitioned queue or topic is partitioned across multiple messaging stores.
 - Use zone redundancy to automatically replicate changes between multiple availability zones. If one availability zone fails, failover happens automatically. For more information, see [Best practices for insulating applications against Service Bus outages and disasters](/azure/service-bus-messaging/service-bus-outages-disasters).
@@ -489,7 +489,6 @@ See [Resiliency and dependencies](/azure/well-architected/resiliency/design-resi
 [QuotaExceededException]: /dotnet/api/microsoft.servicebus.messaging.quotaexceededexception?view=azure-dotnet&preserve-view=true
 [ra-web-apps-basic]: ../web-apps/app-service/architectures/basic-web-app.yml
 [redis-monitor]: /azure/azure-cache-for-redis/cache-how-to-monitor
-[redis-retry]: ../best-practices/retry-service-specific.md#azure-cache-for-redis
 [RoleEntryPoint.OnStop]: /previous-versions/azure/reference/ee772844(v=azure.100)
 [RoleEnvironment.Stopping]: /previous-versions/azure/reference/ee758136(v=azure.100)
 [rm-locks]: /azure/azure-resource-manager/resource-group-lock-resources/
@@ -499,7 +498,6 @@ See [Resiliency and dependencies](/azure/well-architected/resiliency/design-resi
 [sb-messaging-exceptions]: /azure/service-bus-messaging/service-bus-messaging-exceptions
 [sb-partition]: /azure/service-bus-messaging/service-bus-partitioning
 [sb-poison-message]: /azure/app-service/webjobs-sdk-how-to#automatic-triggers
-[sb-retry]: ../best-practices/retry-service-specific.md#service-bus
 [search-sdk]:  /dotnet/api/overview/azure/search?view=azure-dotnet&preserve-view=true
 [scheduler-agent-supervisor]: /previous-versions/msp-n-p/dn589780(v=pandp.10)
 [search-analytics]: /azure/search/search-traffic-analytics
