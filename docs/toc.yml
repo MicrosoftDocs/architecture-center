@@ -178,8 +178,6 @@ items:
       items:
       - name: Analytical data stores
         href: data-guide/technology-choices/analytical-data-stores.md
-      - name: Microsoft Fabric deployment patterns
-        href: analytics/architecture/fabric-deployment-patterns.yml
       - name: Stream processing
         href: data-guide/technology-choices/stream-processing.md
     - name: Choose an AI service
