@@ -66,17 +66,11 @@ The following dataflow corresponds to the previous diagram:
 
       - Predictions are passed from Azure Data Lake to Synapse SQL for serving.
 
-1. **Real-time scoring:**
+      - The managed online endpoint provides real-time scoring.
 
-   - The managed online endpoint provides real-time scoring.
+      - Because of the large number of models, they're loaded on demand instead of pre-loaded.
 
-   - Because of the large number of models, they're loaded on demand instead of pre-loaded.
-
-1. **Results:**
-
-   1. **Predictions:** The batch-scoring pipeline saves predictions to Synapse SQL.
-
-   1. **Metrics:** Microsoft Power BI connects to the model predictions to retrieve and aggregate results for presentation.
+The results of the batch-scoring pipeline include saving predictions to Synapse SQL. Also, Microsoft Power BI connects to the model predictions to retrieve and aggregate results for presentation.
 
 ### Components  
 
