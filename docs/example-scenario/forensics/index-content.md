@@ -102,7 +102,7 @@ The [Storage account](/azure/well-architected/service-guides/azure-blob-storage)
 
 Make sure that you enable the [secure transfer](/azure/storage/common/storage-require-secure-transfer) and [storage firewall](/azure/storage/common/storage-network-security?tabs=azure-portal#grant-access-from-a-virtual-network) properties. The firewall grants access only from the SOC virtual network.
 
-The storage account also hosts an [Azure file share](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal) as a temporary repository that's used to calculate the snapshot's hash value.
+The storage account also hosts an [Azure file share](/azure/storage/files/storage-how-to-create-file-share) as a temporary repository that's used to calculate the snapshot's hash value.
 
 #### Key Vault
 
