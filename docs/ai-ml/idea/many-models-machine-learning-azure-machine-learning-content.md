@@ -70,7 +70,11 @@ The following dataflow corresponds to the previous diagram:
 
       - Because of the large number of models, they're loaded on demand instead of pre-loaded.
 
-The results of the batch-scoring pipeline include saving predictions to Synapse SQL. Also, Microsoft Power BI connects to the model predictions to retrieve and aggregate results for presentation.
+1. **Results:**
+
+   1. **Predictions:** The batch-scoring pipeline saves predictions to Synapse SQL.
+
+   1. **Metrics:** Microsoft Power BI connects to the model predictions to retrieve and aggregate results for presentation.
 
 ### Components  
 
