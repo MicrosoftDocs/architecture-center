@@ -7178,6 +7178,11 @@
       "source_path": "docs/data-guide/scenarios/advanced-analytics.md",
       "redirect_url": "/azure/architecture/ai-ml/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/best-practices/retry-service-specific.md",
+      "redirect_url": "/azure/reliability/overview",
+      "redirect_document_id": false
     }
   ]
 }
