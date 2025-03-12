@@ -14,67 +14,67 @@ The following dataflow corresponds to the previous diagram:
 
 1. **Data ingestion:**
 
-   - Azure Data Factory retrieves data from a source database and copies it to Azure Data Lake Storage.
+   1. Azure Data Factory retrieves data from a source database and copies it to Azure Data Lake Storage.
 
-   - The data is then stored in a Machine Learning data store as a tabular dataset.
+   1. The data is then stored in a Machine Learning data store as a tabular dataset.
 
 1. **Model-training pipeline:**
 
    1. **Prepare data:**
 
-      - The training pipeline retrieves the data from the data store and transforms it as needed.
+      1. The training pipeline retrieves the data from the data store and transforms it as needed.
 
-      - The data is grouped into datasets for training the models.
+      1. The data is grouped into datasets for training the models.
 
    1. **Train models:**
 
-      - The pipeline trains models for all the datasets created during data preparation.
+      1. The pipeline trains models for all the datasets created during data preparation.
 
-      - It uses the `ParallelRunStep` class to train multiple models in parallel.
+      1. It uses the `ParallelRunStep` class to train multiple models in parallel.
 
-      - After the models are trained, the pipeline registers the models and their testing metrics in Machine Learning.
+      1. After the models are trained, the pipeline registers the models and their testing metrics in Machine Learning.
 
 1. **Model-promotion pipeline:**
 
    1. **Evaluate models:**
 
-      - The promotion pipeline evaluates the trained models before it moves them to production.
+      1. The promotion pipeline evaluates the trained models before it moves them to production.
 
-      - A DevOps pipeline applies business logic to determine whether a model meets the criteria for deployment. For example, it might verify that the accuracy on testing data exceeds 80%.
+      1. A DevOps pipeline applies business logic to determine whether a model meets the criteria for deployment. For example, it might verify that the accuracy on testing data exceeds 80%.
 
    1. **Register models:**
 
-      - The promotion pipeline registers qualifying models into the production Machine Learning workspace.
+      1. The promotion pipeline registers qualifying models into the production Machine Learning workspace.
 
 1. **Model batch-scoring pipeline:**
 
    1. **Prepare data:**
 
-      - The batch-scoring pipeline retrieves data from the data store and transforms each file as needed.
+      1. The batch-scoring pipeline retrieves data from the data store and transforms each file as needed.
 
-      - The data is grouped into datasets for scoring.
+      1. The data is grouped into datasets for scoring.
 
    1. **Score models:**
 
-      - The pipeline uses the `ParallelRunStep` class to score multiple datasets in parallel.
+      1. The pipeline uses the `ParallelRunStep` class to score multiple datasets in parallel.
 
-      - It identifies the appropriate model for each dataset in Machine Learning by searching model tags.
+      1. It identifies the appropriate model for each dataset in Machine Learning by searching model tags.
 
-      - The model is downloaded and used to score the dataset.
+      1. The model is downloaded and used to score the dataset.
 
-      - The `DataTransferStep` class writes the results back to Azure Data Lake.
+      1. The `DataTransferStep` class writes the results back to Azure Data Lake.
 
-      - Predictions are passed from Azure Data Lake to Synapse SQL for serving.
+      1. Predictions are passed from Azure Data Lake to Synapse SQL for serving.
 
-      - The managed online endpoint provides real-time scoring.
+      1. The managed online endpoint provides real-time scoring.
 
-      - Because of the large number of models, they're loaded on demand instead of pre-loaded.
+      1. Because of the large number of models, they're loaded on demand instead of pre-loaded.
 
 1. **Results:**
 
-   1. **Predictions:** The batch-scoring pipeline saves predictions to Synapse SQL.
+   - **Predictions:** The batch-scoring pipeline saves predictions to Synapse SQL.
 
-   1. **Metrics:** Microsoft Power BI connects to the model predictions to retrieve and aggregate results for presentation.
+   - **Metrics:** Microsoft Power BI connects to the model predictions to retrieve and aggregate results for presentation.
 
 ### Components  
 
