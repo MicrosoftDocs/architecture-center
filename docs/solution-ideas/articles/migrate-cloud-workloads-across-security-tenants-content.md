@@ -32,33 +32,33 @@ The following dataflow corresponds to the previous diagram:
 
 ### Components
 
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is a cloud-based identity and access management service. Your Microsoft Entra tenant represents your organization and helps you manage an instance of cloud services for your internal and external guests.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Your Microsoft Entra tenant represents your organization and helps you manage an instance of cloud services for your internal and external guests.
 
 - An [Azure subscription](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) is a logical container for your resources. Each Azure resource is associated with only one subscription. Creating a subscription is the first step in Azure adoption.
 
-- [Azure DevOps](https://azure.microsoft.com/products/devops) provides developer services that can help your teams plan work, collaborate on code development, and build and deploy applications.
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) provides developer services that can help your teams plan work, collaborate on code development, and build and deploy applications.
 
-- [Azure Backup](https://azure.microsoft.com/products/backup) provides cost-effective solutions for backing up your data and recovering it from Azure.
+- [Azure Backup](/azure/backup/backup-overview) provides cost-effective solutions for backing up your data and recovering it from Azure.
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. It provides [continuous deployment](/azure/app-service/deploy-continuous-deployment) and other DevOps capabilities.
 
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed and intelligent relational database service that's built for the cloud. You can use SQL Database to create a high-performance data storage layer for modern cloud applications.
 
-- The [Azure Storage](https://azure.microsoft.com/products/category/storage) platform is the Microsoft cloud solution for modern data storage scenarios. Azure Storage provides highly available, massively scalable, and durable storage for various data objects in the cloud.
+- The [Azure Storage](/azure/storage/common/storage-introduction) platform is the Microsoft cloud solution for modern data storage scenarios. Azure Storage provides highly available, massively scalable, and durable storage for various data objects in the cloud.
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems.
 
 - [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a cloud service for accelerating and managing the machine learning project lifecycle. Machine learning professionals, data scientists, and engineers can use it in their day-to-day workflows.
 
 - [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) provides a unified set of tools that you can use to build, deploy, share, and maintain enterprise-grade data solutions at scale.
 
-- [Azure AI services](https://azure.microsoft.com/products/ai-services/) is a set of cloud-based AI services that can help developers build cognitive intelligence into applications, even if they don't have AI or data science skills or knowledge.
+- [Azure AI services](/azure/ai-services/what-are-ai-services) is a set of cloud-based AI services that can help developers build cognitive intelligence into applications, even if they don't have AI or data science skills or knowledge.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL and relational database for modern app development.
 
 - [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service.
 
-- [Azure Key Vault](https://azure.microsoft.com/products/key-vault) is a cloud service that you can use to provide access to secrets and store them with enhanced security.
+- [Azure Key Vault](/azure/key-vault/general/overview) is a cloud service that you can use to provide access to secrets and store them with enhanced security.
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure provides. You typically use a VM when you need more control over the computing environment than other choices provide.
 
@@ -72,29 +72,23 @@ You can use the built-in subscription-move feature to transfer the entire subscr
 
 In this scenario, a healthcare company that has multiple global business units wants to divest a business. To divest, they need to define and implement a cross-tenant workload migration strategy.
 
-To begin, the company should classify workload resources into three categories. One group includes compute resources managed by using PaaS. A second group includes data services that require both PaaS and IaaS support. The final group includes compute resources managed by using IaaS. There are three approaches, one for each of these resource types. These approaches provide a quick, enhanced-security migration that can result in reduced TCO.
+To begin, the company should classify workload resources into three categories. One group includes compute resources managed by using PaaS. A second group includes data services that require both PaaS and IaaS support. The final group includes compute resources managed by using IaaS. For each resource type, use the following approach to provide a quick, enhanced-security migration that can result in reduced TCO.
 
-- PaaS, or compute, resources that run based on logic and configuration
+For PaaS, or compute, resources that run based on logic and configuration, recreate these resources in the target tenant. Use DevOps processes.
 
-   ![Diagram that shows the components of the PaaS solution.](../media/paas-compute.png)
+Paas compute resources include Key Vault, Machine Learning, Azure Data Factory, and Azure Databricks.
 
-  **Solution:** Re-create these resources in the target tenant. Use DevOps processes.
+For PaaS and IaaS, or data service, resources that store data, relocate Azure subscriptions from one Microsoft Entra tenant to another. Move these resources to the new tenant via a sidecar subscription. You need to carefully evaluate the resources before you move them. For example, an Azure SQL database with Microsoft Entra authentication integration enabled can't be moved in its existing state. Use backup and restore instead. This process removes all role-based access control (RBAC) assignments. After the resource is moved to the new tenant, you need to restore those RBAC assignments.
 
-- PaaS and IaaS, or data services, resources that store data
+PaaS and IaaS data services include Azure SQL Database, Azure Data Lake, Azure Data Lake Storage, and Azure Cosmos DB.
 
-   ![Diagram that shows the components of the PaaS and IaaS solution.](../media/paas-iaas.png)
+For IaaS, or compute, resources that provide hosting for customized logic, create backups and restore the resources in the target environment.
 
-   **Solution:** Azure subscriptions can be relocated from one Microsoft Entra tenant to another. Move these resources to the new tenant via a sidecar subscription. You need to carefully evaluate the resources before you move them. For example, Azure SQL databases with Microsoft Entra authentication integration enabled can't be moved as they are. Use backup and restore instead. This process removes all role-based access control (RBAC) assignments. After the resource is moved to the new tenant, you need to restore those RBAC assignments.
-
-- IaaS, or compute, resources such as VMs that provide hosting for customized logic
-
-   ![Diagram that shows the components of the IaaS solution.](../media/iaas-compute.png)
-
-   **Solution:** For this type of resource, take backups and restore the resources in the target environment.
+IaaS compute resources include VMs ---.
 
 ### Potential use cases
 
-- Organizational divesture and acquisition
+- Organizational divestiture and acquisition
 - Internal organization spin-offs
 - Investing natively in Azure and moving away from a service provider model
 
@@ -116,7 +110,7 @@ Principal author:
 - [What is Microsoft Entra ID?](/entra/fundamentals/whatis)
 - [Azure Backup documentation](/azure/backup)
 - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
-- [Microsoft security best practices for identity and access management](/security/compass/identity)
+- [Secure identity with Zero Trust](/security/zero-trust/deploy/identity)
 
 ## Related resource
 
