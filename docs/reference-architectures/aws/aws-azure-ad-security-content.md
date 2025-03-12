@@ -371,7 +371,6 @@ If you have Defender for Cloud Apps, you can use Conditional Access to configure
 - [Security and identity on Azure and AWS](../../aws-professional/security-identity.md)
 - [Defender for Cloud Apps and Microsoft Sentinel for AWS](/azure/architecture/guide/aws/aws-azure-security-solutions)
 - [Onboard an AWS account](/azure/active-directory/cloud-infrastructure-entitlement-management/onboard-aws)
-- [Amazon Managed Grafana](/azure/active-directory/saas-apps/amazon-managed-grafana-tutorial)
 - [AWS single-account access](/azure/active-directory/saas-apps/amazon-web-service-tutorial)
 - [AWS Single Sign-on](/azure/active-directory/saas-apps/aws-single-sign-on-tutorial)
 - [Configure AWS Single Sign-On](/azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial)
