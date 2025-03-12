@@ -1,4 +1,3 @@
-
 This article outlines an infrastructure and workflow process designed to help teams provide digital evidence that demonstrates a valid chain of custody (CoC) in response to legal requests. This article describes how to maintain a valid CoC throughout the stages of evidence acquisition, preservation, and access.
 
 > [!NOTE]
@@ -261,13 +260,13 @@ For more information about Azure data-protection features, see:
 
 - [Storage encryption for data at rest](/azure/storage/common/storage-service-encryption)
 - [Overview of managed disk encryption options](/azure/security/fundamentals/azure-disk-encryption-vms-vmss)
-- [Store business-critical blob data with immutable storage](/azure/storage/blobs/storage-blob-immutable-storage)
+- [Store business-critical blob data with immutable storage in a WORM state](/azure/storage/blobs/storage-blob-immutable-storage)
 
 For more information about Azure logging and auditing features, see:
 
 - [Azure security logging and auditing](/azure/security/fundamentals/log-audit)
 - [Storage analytics logging](/azure/storage/common/storage-analytics-logging)
-- [Azure resource logs](/azure/azure-monitor/essentials/resource-logs)
+- [Send Azure resource logs to Log Analytics workspaces, Event Hubs, or Storage](/azure/azure-monitor/essentials/resource-logs)
 
 For more information about Microsoft Azure compliance, see:
 
