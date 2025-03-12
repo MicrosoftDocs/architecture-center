@@ -30,7 +30,7 @@ Rocket® Data Replicate and Sync (RDRS), formerly tcVISION, is a data replicatio
 
 Rocket® Data Replicate and Sync (RDRS) is a data replication solution from Rocket Software. It provides an IBM mainframe integration solution for mainframe data replication, data synchronization, data migration, and change data capture (CDC) to multiple Azure data platform services.
 
-This reference architecture specifically highlights an overview of replicating Db2 zOS data to Microsoft Fabric Native SQL Database in near real-time. 
+This reference architecture describes an overview of replicating data from Db2 z/OS to Microsoft Fabric Native SQL Database in near real-time. 
 
 :::image type="content" source="./media/mainframe-realtime-batch-data-replication-azure-rdrs-db2-sql-db-one-way.svg" alt-text="Full and Change Data Replication from Db2 z/OS to Microsoft Fabric Native SQL Database using RDRS." border="false" lightbox="./media/mainframe-realtime-batch-data-replication-azure-rdrs-db2-sql-db-one-way.svg":::
 
