@@ -176,8 +176,6 @@ items:
           href: data-guide/scenarios/data-transfer.md
     - name: Choose an analytics solution
       items:
-      - name: Advanced analytics
-        href: data-guide/scenarios/advanced-analytics.md
       - name: Analytical data stores
         href: data-guide/technology-choices/analytical-data-stores.md
       - name: Microsoft Fabric deployment patterns

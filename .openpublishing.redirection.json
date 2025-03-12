@@ -7173,6 +7173,11 @@
       "source_path": "docs/operator-guides/aks/choose-bare-metal-kubernetes.yml",
       "redirect_url": "/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/scenarios/advanced-analytics.md",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
     }
   ]
 }
