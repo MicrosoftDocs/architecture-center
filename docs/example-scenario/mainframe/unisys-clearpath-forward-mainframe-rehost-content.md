@@ -56,13 +56,13 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Unisys CPF in Azure can make use of Azure Site Recovery (ASR) ( https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview) to ensure system availability and consistency. ASR provides Azure based backup and recovery mechanisms in case of a VM or region failure.   Standby resources are active to pickup the workload should a failure occur.
+Unisys CPF in Azure can make use of Azure Site Recovery (ASR) (/azure/site-recovery/site-recovery-overview) to ensure system availability and consistency. ASR provides Azure based backup and recovery mechanisms in case of a VM or region failure.  Standby resources are active to pick up the workload should a failure occur.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Unisys CPF is inherently a very secure enterprise server system on its own.  Azure offers further security by encrypting all VMs and data.
+Unisys CPF is inherently a very secure enterprise server system on its own. Azure offers further security by encrypting all VMs and data.
 
 
 ### Cost Optimization
