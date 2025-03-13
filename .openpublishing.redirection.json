@@ -2591,6 +2591,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/mainframe/mainframe-proof-of-concept.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml",
+      "redirect_url": "/industry/mobility/architecture/generate-scenarios-simulation",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/ai/speech-ai-ingestion.yml",
       "redirect_url": "/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline",
       "redirect_document_id": true

@@ -224,6 +224,8 @@ items:
         items:
         - name: Pipeline orchestration
           href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
+        - name: ETL guide
+          href: data-guide/relational-data/etl.yml
         - name: Data transfer options
           href: data-guide/scenarios/data-transfer.md
     - name: Choose an analytics solution
@@ -466,8 +468,6 @@ items:
         href: solutions/dynamics-365-scenarios.md
       - name: All Dynamics 365 architectures
         href: /azure/architecture/browse/?terms=dynamics%20365
-      - name: Enhanced customer dimension
-        href: solution-ideas/articles/customer-insights-synapse.yml
     - name: Azure and Microsoft on-premises servers
       href: guide/on-premises-microsoft-technologies.md
   - name: Third-party scenarios
@@ -1062,8 +1062,6 @@ items:
               href: operator-guides/aks/aks-upgrade-practices.md
             - name: Troubleshoot networking
               href: operator-guides/aks/troubleshoot-network-aks.md
-            - name: Troubleshoot virtual nodes
-              href: operator-guides/aks/troubleshoot-virtual-nodes-aks.md
             - name: Monitor AKS with Azure Monitor
               href: /azure/aks/monitor-aks?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
               maintainContext: true
@@ -1110,8 +1108,8 @@ items:
       items:
       - name: Automate API deployments with APIOps
         href: example-scenario/devops/automated-api-deployments-apiops.yml
-      - name: CI/CD pipeline using Azure DevOps
-        href: example-scenario/apps/devops-dotnet-baseline.yml
+      - name: Scalable cloud applications and site reliability engineering (SRE)
+        href: example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml
     - name: "Solution idea: DevSecOps for infrastructure as code"
       href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
   - name: Hybrid + multicloud
@@ -1258,7 +1256,7 @@ items:
     items:
     - name: Guides
       items:
-      - name: Enable machine learning inference
+      - name: Enable ML inference on IoT Edge
         href: guide/iot/machine-learning-inference-iot-edge.yml
       - name: Scale your IoT Hub solutions
         href: guide/iot/scale-iot-solution-azure.md
@@ -1272,11 +1270,11 @@ items:
         href: industries/automotive/automotive-telemetry-analytics.yml
     - name: Solution ideas
       items:
-      - name: Azure load testing
+      - name: Azure Load Testing for IoT Hub
         href: guide/testing/load-testing/load-testing-with-custom-plugins.md
-      - name: IoT analytics with Azure Data Explorer
+      - name: IoT Hub analytics with Azure Data Explorer
         href: solution-ideas/articles/iot-azure-data-explorer.yml
-      - name: IoT private file upload to Azure Storage
+      - name: IoT Hub private file upload to Azure Storage
         href: example-scenario/iot/iot-private-file-upload.yml
       - name: Project 15 IoT sustainability
         href: solution-ideas/articles/project-15-iot-sustainability.yml
@@ -1298,10 +1296,6 @@ items:
           href: hybrid/arc-hybrid-kubernetes.yml
         - name: Hybrid availability and monitoring
           href: hybrid/hybrid-perf-monitoring.yml
-    - name: Solution ideas
-      items:
-      - name: Video capture and analytics for retail
-        href: solution-ideas/articles/video-analytics.yml
   - name: Migration
     items:
     - name: Get started
@@ -1374,7 +1368,9 @@ items:
       - name: Secure research for regulated data
         href: ai-ml/architecture/secure-compute-for-research.yml
       - name: Computer forensics
-        href: example-scenario/forensics/index.yml        
+        href: example-scenario/forensics/index.yml
+      - name: Certificate lifecycle management on Azure
+        href: example-scenario/certificate-lifecycle/index.yml
     - name: Solution ideas
       items:
       - name: Multilayered protection for Azure VMs

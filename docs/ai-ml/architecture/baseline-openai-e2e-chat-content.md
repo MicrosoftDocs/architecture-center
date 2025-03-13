@@ -343,7 +343,7 @@ To help ensure alignment with security, consider using Azure Policy and network 
 
 #### Azure AI Foundry role assignments for Key Vault
 
-The Azure AI Foundry managed identity requires both control plane (`Contributor`) and data plane (`Key Vault Administrator`) role assignments. These assignments give this identity read and write access to all secrets, keys, and certificates stored in the Azure key vault. If your workload uses services other than Azure AI Foundry that require access to secrets, keys, or certificates in Key Vault, your workload or security team might prefer that the Azure AI Foundry hub managed identity doesn't have access to those artifacts. In this scenario, consider deploying a Key Vault instance specifically for the Azure AI Foundry hub and other Key Vault instances as appropriate for other parts of your workload.
+The Azure AI Foundry managed identity requires both control plane (`Contributor`) and data plane (`Key Vault Administrator`) role assignments. These assignments give this identity read and write access to all secrets, keys, and certificates stored in the Azure Key Vault. If your workload uses services other than Azure AI Foundry that require access to secrets, keys, or certificates in Key Vault, your workload or security team might prefer that the Azure AI Foundry hub managed identity doesn't have access to those artifacts. In this scenario, consider deploying a Key Vault instance specifically for the Azure AI Foundry hub and other Key Vault instances as appropriate for other parts of your workload.
 
 ### Cost Optimization
 
