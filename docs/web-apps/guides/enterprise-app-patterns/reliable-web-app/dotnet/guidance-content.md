@@ -130,7 +130,7 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
 
 [!INCLUDE [Retry pattern intro](../includes/retry.md)]
 
-- *Use built-in retry mechanisms.* Use the [built-in retry mechanism](/azure/architecture/best-practices/retry-service-specific) that most Azure services provide to expedite your implementation. For example, the reference implementation uses [connection resiliency in Entity Framework Core](/ef/core/miscellaneous/connection-resiliency) to apply the Retry pattern in requests to [SQL Database](/azure/architecture/best-practices/retry-service-specific#sql-database-using-entity-framework-core):
+- *Use built-in retry mechanisms.* Use the built-in retry mechanism that most Azure services provide to expedite your implementation. For example, the reference implementation uses [connection resiliency in Entity Framework Core](/ef/core/miscellaneous/connection-resiliency) to apply the Retry pattern in requests to SQL Database:
 
     ```csharp
     services.AddDbContextPool<ConcertDataContext>(options => options.UseSqlServer(sqlDatabaseConnectionString,
