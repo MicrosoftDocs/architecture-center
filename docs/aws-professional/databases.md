@@ -19,6 +19,8 @@ products:
   - azure-managed-applications
 ms.custom:
   - article
+  - migration
+  - aws-to-azure
 ---
 
 # Relational database technologies on Azure and AWS
