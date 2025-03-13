@@ -45,7 +45,7 @@ public async Task<string> GetDataFromServer()
 Client applications should follow some best practices to avoid causing a retry storm.
 
 - Cap the number of retry attempts, and don't keep retrying for a long period of time. While it might seem easy to write a `while(true)` loop, you almost certainly don't want to actually retry for a long period of time, since the situation that led to the request being initiated has probably changed. In most applications, retrying for a few seconds or minutes is sufficient.
-- Pause between retry attempts. If a service is unavailable, retrying immediately is unlikely to succeed. Gradually increase the amount of time you wait between attempts, for example by using an [exponential backoff strategy](../../best-practices/retry-service-specific.md#examples-2).
+- Pause between retry attempts. If a service is unavailable, retrying immediately is unlikely to succeed. Gradually increase the amount of time you wait between attempts, for example by using an exponential backoff strategy.
 - Gracefully handle errors. If the service isn't responding, consider whether it makes sense to abort the attempt and return an error back to the user or caller of your component. Consider these failure scenarios when designing your application.
 - Consider using the [Circuit Breaker pattern](../../patterns/circuit-breaker.yml), which is designed specifically to help avoid retry storms.
 - If the server provides a `retry-after` response header, make sure you don't attempt to retry until the specified time period has elapsed.
@@ -105,4 +105,3 @@ Executing this query during a retry storm shows a large number of connection att
 - [Retry pattern](../../patterns/retry.yml)
 - [Circuit Breaker pattern](../../patterns/circuit-breaker.yml)
 - [Transient fault handling best practices](../../best-practices/transient-faults.md)
-- [Service-specific retry guidance](../../best-practices/retry-service-specific.md)
