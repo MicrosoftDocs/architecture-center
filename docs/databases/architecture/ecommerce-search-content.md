@@ -136,12 +136,12 @@ To find out more about other Azure components, see these resources:
 [architecture]: ./_images/architecture-ecommerce-search.png
 [docs-sql-fts]: /sql/relational-databases/search/query-with-full-text-search
 [docs-search]: /azure/search/search-what-is-azure-search
-[docs-search-service-page]: https://azure.microsoft.com/products/search
+[docs-search-service-page]: https://azure.microsoft.com/products/ai-services/ai-search
 [docs-sql-database]: /azure/sql-database/sql-database-technical-overview
 [docs-sql-database-service-page]: https://azure.microsoft.com/products/azure-sql/database
 [docs-webapps]: /azure/app-service/app-service-web-overview
 [docs-botservice]: /azure/bot-service/
-[docs-botservice-service-page]: https://azure.microsoft.com/products/bot-services
+[docs-botservice-service-page]: https://azure.microsoft.com/products/ai-services/ai-bot-service
 [docs-ai-services]: /azure/ai-services/what-are-ai-services
 [docs-ai-services-service-page]: https://azure.microsoft.com/products/ai-services
 [apache-lucene]: https://lucene.apache.org/

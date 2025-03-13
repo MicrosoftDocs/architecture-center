@@ -1,4 +1,4 @@
-This article outlines a scalable and secure solution for building an automated document processing pipeline. The solution uses AI Document Intelligence for the structured extraction of data. Natural language processing (NLP) models and custom models enrich the data.
+This article outlines a scalable and secure solution for building an automated document processing pipeline. The solution uses Azure AI Document Intelligence for the structured extraction of data. Natural language processing (NLP) models and custom models enrich the data.
 
 ## Architecture
 
@@ -23,9 +23,9 @@ The following sections describe the various stages of the data extraction proces
        - [General document][Document intelligence general document model]. You can also use Layout analysis model with optional query string parameter `features=keyValuePairs` enabled.)
 
    1. [Pretrained scenario-specific](/azure/ai-services/document-intelligence/concept/choose-model-feature#pretrained-scenario-specific-models) models include (not limited to):
-      - [Invoice][Form Recognizer invoice model]
-      - [Receipt][Form Recognizer receipt model]
-      - [ID document][Form Recognizer ID document model]
+      - [Invoice][Document Intelligence invoice model]
+      - [Receipt][Document Intelligence receipt model]
+      - [ID document][Document Intelligence ID document model]
       - [Contract model](/azure/ai-services/document-intelligence/prebuilt/contract) 
       - [US tax document models](/azure/ai-services/document-intelligence/prebuilt/tax-document)
       - [US mortgage document model](/azure/ai-services/document-intelligence/prebuilt/mortgage-documents)
@@ -105,7 +105,7 @@ The pipeline that's used for data enrichment depends on the use case.
 
 - [Azure Functions][Azure Functions service page] is a serverless compute platform that you can use to build applications. With Functions, you can use triggers and bindings to react to changes in Azure services like Blob Storage and Azure Cosmos DB. Functions can run scheduled tasks, process data in real time, and process messaging queues.
 
-- [Azure AI Document Intelligence][Azure Form Recognizer service page] is part of Azure AI services. Azure AI Document Intelligence offers a collection of pre-built endpoints for extracting data from variety of documents and forms for building intelligent document processing solutions across organizations without training and building specific models from scratch for each document type/solution. The service also offers to build your own custom models with minimal effort and use the model through the corresponding model ID at scale. Multiple custom models can be assigned to a single model ID by creating a [composed model](/azure/ai-services/document-intelligence/how-to-guides/compose-custom-models). The [input requirements](/azure/ai-services/document-intelligence/model-overview?view=doc-intel-4.0.0#input-requirements) varies from model to model. The output format is JSON.
+- [Azure AI Document Intelligence][Document Intelligence service page] is part of Azure AI services. Azure AI Document Intelligence offers a collection of pre-built endpoints for extracting data from variety of documents and forms for building intelligent document processing solutions across organizations without training and building specific models from scratch for each document type/solution. The service also offers to build your own custom models with minimal effort and use the model through the corresponding model ID at scale. Multiple custom models can be assigned to a single model ID by creating a [composed model](/azure/ai-services/document-intelligence/how-to-guides/compose-custom-models). The [input requirements](/azure/ai-services/document-intelligence/model-overview?view=doc-intel-4.0.0#input-requirements) varies from model to model. The output format is JSON.
 
 - [Azure Storage][Azure Storage service page] is a cloud storage solution that includes object, blob, file, disk, queue, and table storage.
 
@@ -175,7 +175,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 - The solution's resiliency depends on the failure modes of individual services like App Service, Functions, Azure Cosmos DB, Storage, and Application Gateway. For more information, see [Resiliency checklist for specific Azure services][Resiliency checklist for specific Azure services].
 
-- You can make Azure AI Document Intelligence resilient. Possibilities include designing it to fail over to another region and splitting the workload into two or more regions. For more information, see [Back up and recover your Azure AI Document Intelligence models][Back up and recover your Form Recognizer models].
+- You can make Azure AI Document Intelligence resilient. Possibilities include designing it to fail over to another region and splitting the workload into two or more regions. For more information, see [Back up and recover your Azure AI Document Intelligence models][Back up and recover your Document Intelligence models].
 
 - Machine Learning services depend on many Azure services. To provide resiliency, you need to configure each service to be resilient. For more information, see [Failover for business continuity and disaster recovery][Failover for business continuity and disaster recovery].
 
@@ -243,7 +243,7 @@ Many factors can affect the price of each component:
 
 These resources provide information on component pricing options:
 
-- [AI Document Intelligence pricing][Azure Form Recognizer pricing]
+- [Document Intelligence pricing][Document Intelligence pricing]
 - [App Service pricing][App Service pricing]
 - [Azure Functions pricing][Azure Functions pricing]
 - [Application Gateway pricing][Application Gateway pricing]
@@ -287,8 +287,8 @@ Principal author:
 
 ## Next steps
 
-- [What is AI Document Intelligence?][What is Azure Form Recognizer?]
-- [Use Azure AI Document Intelligence SDKs or REST API][Use Form Recognizer SDKs or REST API]
+- [What is Document Intelligence?][What is Document Intelligence?]
+- [Use Azure AI Document Intelligence SDKs or REST API][Use Document Intelligence SDKs or REST API]
 - [What is AI Language?][What is Azure AI Language?]
 - [What is Azure Machine Learning?][What is Azure Machine Learning?]
 - [Introduction to Azure Functions][Introduction to Azure Functions]
@@ -316,8 +316,8 @@ Principal author:
 [Azure Data Lake Storage]: /azure/storage/blobs/data-lake-storage-introduction
 [Azure Database for MySQL]: /azure/mysql/flexible-server/overview
 [Azure Database for PostgreSQL]: /azure/well-architected/service-guides/postgresql
-[Azure Form Recognizer pricing]: https://azure.microsoft.com/pricing/details/ai-document-intelligence
-[Azure Form Recognizer service page]:/azure/ai-services/document-intelligence/overview
+[Document Intelligence pricing]: https://azure.microsoft.com/pricing/details/ai-document-intelligence
+[Document Intelligence service page]:/azure/ai-services/document-intelligence/overview
 [Azure Functions hosting options]: /azure/azure-functions/functions-scale
 [Azure Functions pricing]: https://azure.microsoft.com/pricing/details/functions
 [Azure Functions service page]: /azure/azure-functions/functions-overview
@@ -329,7 +329,7 @@ Principal author:
 [Azure Storage documentation]: /azure/storage
 [Azure Storage service page]: /azure/storage/common/storage-introduction
 [Azure Web Application Firewall service page]: /azure/web-application-firewall/ag/ag-overview
-[Back up and recover your Form Recognizer models]: /azure/ai-services/document-intelligence/how-to-guides/disaster-recovery
+[Back up and recover your Document Intelligence models]: /azure/ai-services/document-intelligence/how-to-guides/disaster-recovery
 [Create an Autoscale Setting for Azure resources based on performance data or a schedule]: /azure/azure-monitor/autoscale/tutorial-autoscale-performance-schedule
 [Create an Azure support request]: /azure/azure-portal/supportability/how-to-create-azure-support-request
 [Deploy and score a machine learning model by using an online endpoint (preview)]: /azure/machine-learning/how-to-deploy-managed-online-endpoints
@@ -337,12 +337,12 @@ Principal author:
 [Extract text from objects using Power Automate and AI Builder]: ../../example-scenario/ai/extract-object-text.yml
 [Failover for business continuity and disaster recovery]: /azure/machine-learning/how-to-high-availability-machine-learning
 [Document Intelligence general document model]: /azure/ai-services/document-intelligence/prebuilt/general-document?view=doc-intel-4.0.0&view%3C=doc-intel-3.1.0&preserve-view=true
-[Form Recognizer ID document model]: /azure/ai-services/document-intelligence/prebuilt/id-document
-[Form Recognizer invoice model]: /azure/ai-services/document-intelligence/prebuilt/invoice
+[Document Intelligence ID document model]: /azure/ai-services/document-intelligence/prebuilt/id-document
+[Document Intelligence invoice model]: /azure/ai-services/document-intelligence/prebuilt/invoice
 [Document intelligence layout model]: /azure/ai-services/document-intelligence/prebuilt/layout
-[Form Recognizer receipt model]: /azure/ai-services/document-intelligence/prebuilt/receipt
+[Document Intelligence receipt model]: /azure/ai-services/document-intelligence/prebuilt/receipt
 [US tax document models]: /azure/ai-services/document-intelligence/concept-tax-document
-[Get started: Form Recognizer Studio]: /azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0
+[Get started: Document Intelligence Studio]: /azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0
 [Get started with AzCopy]: /azure/storage/common/storage-use-azcopy-v10
 [How to: Use Sentiment analysis and Opinion Mining - Data limits]: /azure/ai-services/language-service/sentiment-opinion-mining/how-to/call-api#data-limits
 [How to configure Azure Functions with a virtual network]: /azure/azure-functions/configure-networking-how-to
@@ -365,19 +365,18 @@ Principal author:
 [SLA for App Service]: https://azure.microsoft.com/support/legal/sla/app-service/v1_4
 [SLA for Application Gateway]: https://azure.microsoft.com/support/legal/sla/application-gateway/v1_2
 [SLA for Azure AI services]: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1
-[SLA for Azure AI services]: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1
 [SLA for Azure Functions]: https://azure.microsoft.com/support/legal/sla/functions/v1_2
 [SLA for Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1
 [Tutorial: Automate tasks to process emails by using Azure Logic Apps, Azure Functions, and Azure Storage]: /azure/logic-apps/tutorial-process-email-attachments-workflow
 [Tutorial: How to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint]: /azure/data-factory/tutorial-managed-virtual-network-on-premise-sql-server
 [Use batch endpoints (preview) for batch scoring]: /azure/machine-learning/how-to-use-batch-endpoint
-[Use Form Recognizer SDKs or REST API]: /azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api
+[Use Document Intelligence SDKs or REST API]: /azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api
 [Use TLS to secure a web service through Azure Machine Learning]: /azure/machine-learning/how-to-secure-web-service
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/automate-document-processing-form-recognizer-architecture.vsdx
 [Welcome to Azure Cosmos DB]: /azure/cosmos-db/introduction
 [What is Azure Application Gateway?]: /azure/application-gateway/overview
 [What is Azure AI Language?]: /azure/ai-services/language-service/overview
-[What is Azure Form Recognizer?]: /azure/ai-services/document-intelligence/overview
+[What is Document Intelligence?]: /azure/ai-services/document-intelligence/overview
 [What is Azure Machine Learning?]: /azure/machine-learning/overview-what-is-azure-machine-learning
 [What is Azure Web Application Firewall on Azure Application Gateway?]: /azure/web-application-firewall/ag/ag-overview
 [What is Custom Named Entity Recognition (NER) (preview)?]: /azure/ai-services/language-service/custom-named-entity-recognition/overview
@@ -385,4 +384,4 @@ Principal author:
 [What is Kubernetes?]: https://azure.microsoft.com/topic/what-is-kubernetes/#overview
 [What is Named Entity Recognition (NER) in Azure AI Language?]: /azure/ai-services/language-service/named-entity-recognition/overview
 [What is Personal Information detection in Azure AI Language?]: /azure/ai-services/language-service/personally-identifiable-information/overview
-[What is Text Analytics for health in Azure AI Language?]: /azure/ai-services/language-service/text-analytics-for-health/overview?tabs=ner
+[What is Text Analytics for health in Azure AI Language?]: /azure/ai-services/language-service/text-analytics-for-health/overview

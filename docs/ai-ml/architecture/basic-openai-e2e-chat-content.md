@@ -48,7 +48,7 @@ Many of the components of this architecture are the same as the resources in the
 
 - [Azure AI Foundry](/azure/ai-foundry/what-is-ai-foundry) is a platform that you can use to build, test, and deploy AI solutions. This architecture uses AI Foundry to build, test, and deploy the prompt flow orchestration logic for the chat application.
 
-  - [AI Foundry hub](/azure/ai-foundry/concepts/ai-resources) is the top-level resource for AI Foundry. It's the central place where you can govern security, connectivity, and compute resources for use in your AI Foundry projects. You define connections to resources like Azure OpenAI in the AI Foundry hub. The AI Foundry projects inherit these connections.
+  - [AI Foundry hubs](/azure/ai-foundry/concepts/ai-resources) are top-level resources for AI Foundry. A hub is the central place where you can govern security, connectivity, and compute resources for use in your AI Foundry projects. You define connections to resources like Azure OpenAI in an AI Foundry hub. The AI Foundry projects inherit these connections.
 
   - [AI Foundry projects](/azure/ai-foundry/how-to/create-projects) are the environments that you use to collaborate while you develop, deploy, and evaluate AI models and solutions.
 

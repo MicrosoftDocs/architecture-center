@@ -23,6 +23,6 @@ products:
   - azure-machine-learning
 name: Automate document processing by using AI Document Intelligence
 summary: Build an automated document processing pipeline. Use AI Document Intelligence to extract data and natural language processing models to enrich the data.
-thumbnailUrl: /azure/architecture/browse/thumbs/automate-document-processing-form-recognizer.png
+thumbnailUrl: /azure/architecture/browse/thumbs/automate-document-processing-document-intelligence.png
 content: |
-  [!INCLUDE[](automate-document-processing-azure-form-recognizer-content.md)]
+  [!INCLUDE[](automate-document-processing-azure-ai-document-intelligence-content.md)]
