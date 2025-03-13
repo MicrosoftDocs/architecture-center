@@ -41,7 +41,7 @@ The `Copy-VmDigitalEvidence` runbook implements the following macro steps:
 1. Remove all the copies of the snapshots, except for the copy in immutable blob storage.
 
 > [!NOTE]
-> The encrypted disks of the production VMs can also use key encryption keys. The `Copy-VmDigitalEvidence` runbook provided in the [deploy scenario](#deploy-this-scenario) doesn't cover this scenario.
+> The encrypted disks of the production VMs can also use key encryption keys (KEKs). The `Copy-VmDigitalEvidence` runbook provided in the [deploy scenario](#deploy-this-scenario) doesn't cover this scenario.
 
 ### Components
 
@@ -120,17 +120,17 @@ A [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-collect-
 
 Digital forensics is a science that addresses the recovery and investigation of digital data to support criminal investigations or civil proceedings. Computer forensics is a branch of digital forensics that captures and analyzes data from computers, VMs, and digital storage media.
 
-Companies must guarantee that the digital evidence they provide in response to legal requests demonstrates a valid CoC throughout the stages of evidence acquisition, preservation, and access.
+Companies must guarantee that the digital evidence they provide in response to legal requests demonstrates a valid chain of custody throughout the stages of evidence acquisition, preservation, and access.
 
 ### Potential use cases
 
-- A company's SOC team can implement this technical solution to support a valid CoC for digital evidence.
+- A company's SOC team can implement this technical solution to support a valid chain of custody for digital evidence.
 
 - Investigators can attach disk copies that are obtained by using this technique on a computer that's dedicated to forensic analysis. They can attach the disk copies without powering on or accessing the original source VM.
 
-### CoC regulatory compliance
+### Chain of custody regulatory compliance
 
-If it's necessary to submit the proposed solution to a regulatory compliance validation process, consider the materials in the [considerations](#considerations) section during the CoC solution validation process.
+If it's necessary to submit the proposed solution to a regulatory compliance validation process, consider the materials in the [considerations](#considerations) section during the chain of custody solution validation process.
 
 > [!NOTE]
 > You should include your legal department in the validation process.
@@ -139,11 +139,11 @@ If it's necessary to submit the proposed solution to a regulatory compliance val
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
-The principles that validate this solution as a CoC are described in this section. To help ensure a valid CoC, digital evidence storage must demonstrate adequate access control, data protection and integrity, monitoring and alerting, and logging and auditing.
+The principles that validate this solution as a chain of custody are described in this section. To help ensure a valid chain of custody, digital evidence storage must demonstrate adequate access control, data protection and integrity, monitoring and alerting, and logging and auditing.
 
 ### Compliance with security standards and regulations
 
-When you validate a CoC solution, one of the requirements to evaluate is the compliance with security standards and regulations.
+When you validate a chain of custody solution, one of the requirements to evaluate is the compliance with security standards and regulations.
 
 All the components included in the [architecture](#architecture) are Azure standard services built on a foundation that supports trust, security, and [compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance).
 
@@ -167,9 +167,7 @@ When the roles of the SOC team are assigned, only two individuals in the team, k
 
 ### Least access
 
-Only the [virtual network](/azure/virtual-network/virtual-networks-overview) in the SOC subscription has access to the SOC Storage account and key vault that archives the evidence.
-
-Temporary access to the SOC storage is provided to investigators that require access to evidence. Authorized SOC team members can grant this access.
+Only the [virtual network](/azure/virtual-network/virtual-networks-overview) in the SOC subscription has access to the SOC Storage account and key vault that archives the evidence. Authorized SOC team members can grant investigators temporary access to evidence in the SOC storage.
 
 ### Evidence acquisition
 
@@ -179,7 +177,7 @@ Azure audit logs can document the evidence acquisition by recording the action o
 
 Use [Automation](/azure/automation/overview) to move evidence to its final archive destination, without human intervention. This approach helps guarantee that evidence artifacts remain unaltered.
 
-When you apply a legal hold policy to the destination storage, the evidence is immediately frozen as soon as it's written. A legal hold demonstrates that the CoC was fully maintained within Azure. It also indicates that there was no opportunity to tamper with the evidence from the time the disk images were on a live VM to when they were stored as evidence in the storage account.
+When you apply a legal hold policy to the destination storage, the evidence is immediately frozen as soon as it's written. A legal hold demonstrates that the chain of custody is fully maintained within Azure. It also indicates that there's no opportunity to tamper with the evidence from the time the disk images are on a live VM to when they are stored as evidence in the storage account.
 
 Lastly, you can use the provided solution as an integrity mechanism to compute the hash values of the disk images. The supported hash algorithms are MD5, SHA256, SKEIN, and KECCAK (or SHA3).
 
@@ -209,25 +207,25 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 Azure provides services to all customers for monitoring and alerting about anomalies related to their subscriptions and resources. These services include:
 
-- [Microsoft Sentinel](https://aka.ms/azure-sentinel).
-- [Microsoft Defender for Cloud](https://aka.ms/asc).
-- [Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction?tabs=azure-portal).
+- [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel).
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud).
+- [Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction).
 
 > [!NOTE]
 > The configuration of these services isn't described in this article.
 
 ## Deploy this scenario
 
-Follow the [CoC lab deployment](/samples/azure/forensics/forensics/) instructions to build and deploy this scenario in a laboratory environment.
+Follow the [chain of custody lab deployment](/samples/azure/forensics/forensics/) instructions to build and deploy this scenario in a laboratory environment.
 
-The laboratory environment represents a simplified version of the architecture described in the article. You deploy two resource groups within the same subscription. The first resource group simulates the production environment, housing digital evidence, while the second resource group holds the SOC environment.
+The laboratory environment represents a simplified version of the architecture described in this article. You deploy two resource groups within the same subscription. The first resource group simulates the production environment, housing digital evidence, while the second resource group holds the SOC environment.
 
-Use the following button to deploy only the SOC resource group in a production environment.
+Select **Deploy to Azure** to deploy only the SOC resource group in a production environment.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fforensics%2Fmain%2F.armtemplate%2Fcoc-soc.json)
+[![Deploy to Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fforensics%2Fmain%2F.armtemplate%2Fcoc-soc.json)
 
 > [!NOTE]
-> If you deploy the solution in a production environment, make sure that the system-assigned managed identity of the automation account has the following permissions:
+> If you deploy the solution in a production environment, make sure that the system-assigned managed identity of the Automation account has the following permissions:
 >
 >- A Contributor in the production resource group of the VM to be processed. This role creates the snapshots.
 >- A Key Vault Secrets User in the production key vault that holds the BEKs. This role reads the BEKs.
