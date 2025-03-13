@@ -15,7 +15,7 @@ In the cloud, transient faults should be expected and an application should be d
 The diagram above illustrates invoking an operation in a hosted service using a retry mechanism. If the request is unsuccessful after a predefined number of attempts, the application should treat the fault as an exception and handle it accordingly.
 
 >[!NOTE]
->Due to the commonplace nature of transient faults, built-in retry mechanisms are now available in many client libraries and cloud services, with some degree of configurability for the number of maximum retries, the delay between retries, and other parameters. Built-in retry support for many Azure services can be found [here](../best-practices/retry-service-specific.md) and the [Microsof Entity Framework](/ef) provides facilities to retry [failed database operations](/ef/core/miscellaneous/connection-resiliency).
+>Due to the commonplace nature of transient faults, built-in retry mechanisms are now available in many client libraries and cloud services, with some degree of configurability for the number of maximum retries, the delay between retries, and other parameters. The [Microsoft Entity Framework](/ef) provides facilities to retry [failed database operations](/ef/core/miscellaneous/connection-resiliency).
 
 ### Retry strategies
 
@@ -103,6 +103,6 @@ Refer to the [Implement a retry policy with .NET](/azure/storage/blobs/storage-r
 
 - [Reliable web app pattern](../web-apps/guides/enterprise-app-patterns/overview.md#reliable-web-app-pattern) shows you how to apply the retry pattern to web applications converging on the cloud.
 
-- For most Azure services, the client SDKs include built-in retry logic. For more information, see [Retry guidance for Azure services](../best-practices/retry-service-specific.md).
+- For most Azure services, the client SDKs include built-in retry logic.
 
 - [Circuit Breaker pattern](./circuit-breaker.yml). If a failure is expected to be more long lasting, it might be more appropriate to implement the Circuit Breaker pattern. Combining the Retry and Circuit Breaker patterns provides a comprehensive approach to handling faults.
