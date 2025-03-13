@@ -2,7 +2,7 @@ This article outlines a scalable and secure solution for building an automated d
 
 ## Architecture
 
-:::image type="content" source="_images/automate-document-processing-form-recognizer-architecture.svg" alt-text="Architecture diagram that shows how data flows through the extraction, enrichment, and analytics stages of document processing." border="false" lightbox="_images/automate-document-processing-form-recognizer-architecture.svg":::
+:::image type="content" source="_images/automate-document-processing-document-intelligence-architecture.svg" alt-text="Architecture diagram that shows how data flows through the extraction, enrichment, and analytics stages of document processing." border="false" lightbox="_images/automate-document-processing-document-intelligence-architecture.svg":::
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
@@ -372,7 +372,7 @@ Principal author:
 [Use batch endpoints (preview) for batch scoring]: /azure/machine-learning/how-to-use-batch-endpoint
 [Use Document Intelligence SDKs or REST API]: /azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api
 [Use TLS to secure a web service through Azure Machine Learning]: /azure/machine-learning/how-to-secure-web-service
-[Visio version of architecture diagram]: https://arch-center.azureedge.net/automate-document-processing-form-recognizer-architecture.vsdx
+[Visio version of architecture diagram]: https://arch-center.azureedge.net/automate-document-processing-document-intelligence-architecture.vsdx
 [Welcome to Azure Cosmos DB]: /azure/cosmos-db/introduction
 [What is Azure Application Gateway?]: /azure/application-gateway/overview
 [What is Azure AI Language?]: /azure/ai-services/language-service/overview
