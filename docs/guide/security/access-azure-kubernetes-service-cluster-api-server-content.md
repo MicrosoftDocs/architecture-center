@@ -47,7 +47,7 @@ There are several ways to connect to an AKS private cluster. Planning access is 
 - **[Azure Virtual Desktop](/azure/virtual-desktop/overview):** Access Azure Virtual Desktop to use Windows or Linux desktops as jump boxes to more securely manage your private cluster from almost anywhere.
 
 > [!NOTE]
-> All traffic to the API server is transmitted over Transmission Control Protocol to port 443 using HTTPS. Network security groups (NSGs) or other network firewalls must allow traffic from the origin to the API server's FQDN on port 443 for HTTPS. Traffic allowances should be restricted specifically to the FQDN for the cluster's API server.
+> All traffic to the API server is transmitted over Transmission Control Protocol to port 443 via HTTPS. Network security groups (NSGs) or other network firewalls must allow traffic from the origin to the API server's FQDN on port 443 for HTTPS. Traffic allowances should be restricted specifically to the FQDN for the cluster's API server.
 
 ## Azure Bastion
 
