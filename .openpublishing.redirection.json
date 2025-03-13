@@ -7040,6 +7040,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/performance/index.md",
+      "redirect_url": "/azure/well-architected/performance-efficiency/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/performance/distributed-transaction.yml",
+      "redirect_url": "/azure/well-architected/performance-efficiency/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/performance/backend-services.yml",
+      "redirect_url": "/azure/well-architected/performance-efficiency/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/performance/event-streaming.yml",
+      "redirect_url": "/azure/well-architected/performance-efficiency/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/aks/aks-dual-stack.yml",
       "redirect_url": "/azure/aks/configure-kubenet-dual-stack",
       "redirect_document_id": false
