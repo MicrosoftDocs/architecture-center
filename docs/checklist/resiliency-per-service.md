@@ -118,7 +118,7 @@ If you are using Azure Cache for Redis as a temporary data cache and not as a pe
 
 **Handle exceptions**. Messaging APIs generate exceptions when a user error, configuration error, or other error occurs. The client code (senders and receivers) should handle these exceptions in their code. This is especially important in batch processing, where exception handling can be used to avoid losing an entire batch of messages. For more information, see [Service Bus messaging exceptions](/azure/service-bus-messaging/service-bus-messaging-exceptions).
 
-**Retry policy**. Service Bus allows you to pick the best retry policy for your applications. The default policy is to allow 9 maximum retry attempts, and wait for 30 seconds but this can be further adjusted. For more information, see [Retry policy – Service Bus](../best-practices/retry-service-specific.md#service-bus).
+**Retry policy**. Service Bus allows you to pick the best retry policy for your applications. The default policy is to allow 9 maximum retry attempts, and wait for 30 seconds but this can be further adjusted.
 
 **Use a dead-letter queue**. If a message cannot be processed or delivered to any receiver after multiple retries, it is moved to a dead letter queue. Implement a process to read messages from the dead letter queue, inspect them, and remediate the problem. Depending on the scenario, you might retry the message as-is, make changes and retry, or discard the message. For more information, see [Overview of Service Bus dead-letter queues](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
