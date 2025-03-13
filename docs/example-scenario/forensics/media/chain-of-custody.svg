@@ -1204,15 +1204,15 @@
 		</g>
 		<g id="shape41-58" v:mID="41" v:groupContext="shape" transform="translate(1008,-780.757)">
 			<title>Sheet.41</title>
-			<desc>Microsoft Entra ID Domain Services</desc>
+			<desc>Microsoft Entra Domain Services</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(11000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="50.0625" cy="987.188" width="100.13" height="41.625"/>
 			<rect x="0" y="966.375" width="100.125" height="41.625" class="st14"/>
-			<text x="4" y="983.89" class="st16" v:langID="1033"><v:paragraph/><v:tabList/>Microsoft Entra ID<v:newlineChar/><tspan
-						x="4" dy="1.2em" class="st11" v:langID="1040">Domain Services</tspan></text>		</g>
+			<text x="4" y="983.89" class="st16" v:langID="1033"><v:paragraph/><v:tabList/>Microsoft Entra <tspan x="4" dy="1.2em"
+						class="st11">Domain Services</tspan></text>		</g>
 		<g id="shape42-62" v:mID="42" v:groupContext="shape" transform="translate(1003.5,-757.8)">
 			<title>Sheet.42</title>
 			<desc>Application</desc>
@@ -3814,14 +3814,14 @@
 						x="5.37" dy="1.2em" class="st11">the File Share for hash calculation</tspan></text>		</g>
 		<g id="shape951-768" v:mID="951" v:groupContext="shape" transform="translate(1136.25,-189)">
 			<title>Sheet.951</title>
-			<desc>Digital Evidences stored in the immutable blob container</desc>
+			<desc>Digital evidences stored in the immutable blob container</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(136000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="66.375" cy="997.313" width="132.76" height="21.375"/>
 			<rect x="0" y="986.625" width="132.75" height="21.375" class="st14"/>
-			<text x="6.44" y="994.61" class="st64" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Digital Evidences stored in the <tspan
+			<text x="6.37" y="994.61" class="st64" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Digital evidences stored in the <tspan
 						x="13.33" dy="1.2em" class="st89">immutable </tspan>blob container</text>		</g>
 		<g id="group566-772" transform="translate(810,-356.254)" v:mID="566" v:groupContext="group">
 			<v:userDefs>
@@ -4609,7 +4609,7 @@
 						class="st55"/>
 			</g>
 		</g>
-		<g id="shape973-978" v:mID="973" v:groupContext="shape" transform="translate(491.4,-608.625)">
+		<g id="shape973-978" v:mID="973" v:groupContext="shape" transform="translate(499.5,-608.625)">
 			<title>Sheet.973</title>
 			<desc>Hub virtual network 1</desc>
 			<v:userDefs>
@@ -8275,7 +8275,7 @@
 			<v:textRect cx="16.9606" cy="993.843" width="33.93" height="28.3143"/>
 			<rect x="0" y="979.686" width="33.9211" height="28.3143" class="st7"/>
 			<text x="9.9" y="996.84" class="st142" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>OR</text>		</g>
-		<g id="group1371-2041" transform="translate(375.154,-383.173)" v:mID="1371" v:groupContext="group">
+		<g id="group1371-2041" transform="translate(364.5,-379.346)" v:mID="1371" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(247000):26"/>
 			</v:userDefs>
@@ -8317,16 +8317,16 @@
 				<path d="M7 995.35 L0 1005.15 L7 1008 L7 995.35 Z" class="st146"/>
 			</g>
 		</g>
-		<g id="shape1404-2064" v:mID="1404" v:groupContext="shape" transform="translate(342,-358.875)">
+		<g id="shape1404-2064" v:mID="1404" v:groupContext="shape" transform="translate(333,-355.5)">
 			<title>Sheet.1404</title>
-			<desc>Microsoft Entra ID Domain Services</desc>
+			<desc>Microsoft Entra Domain Services</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(249000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="45" cy="997.313" width="90" height="21.375"/>
 			<rect x="0" y="986.625" width="90" height="21.375" class="st14"/>
-			<text x="5.1" y="994.31" class="st44" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft Entra ID <tspan
-						x="8.64" dy="1.2em" class="st11" v:langID="1040">Domain Services</tspan></text>		</g>
+			<text x="11.31" y="994.31" class="st44" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft Entra <tspan
+						x="8.64" dy="1.2em" class="st11">Domain Services</tspan></text>		</g>
 	</g>
 </svg>
