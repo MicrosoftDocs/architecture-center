@@ -275,8 +275,6 @@ items:
           href: guide/responsible-innovation/harms-modeling/index.md
         - name: Assess types of harm
           href: guide/responsible-innovation/harms-modeling/type-of-harm.md
-      - name: Community jury
-        href: guide/responsible-innovation/community-jury/index.md
     - name: Responsible AI
       items:
       - name: Guidelines for human-AI interaction
