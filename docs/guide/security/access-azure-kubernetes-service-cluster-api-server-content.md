@@ -13,7 +13,7 @@ To manage an AKS cluster, you interact with its API server. It's essential to li
 > [!NOTE]
 > You can enhance AKS cluster security by allowing only [authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges) to access the API server.
 
-[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application design best practices, provides enhanced mitigation features against distributed denial-of-service (DDoS) attacks. Enable [DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on every perimeter virtual network.
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application design best practices, provides enhanced mitigation features against distributed denial-of-service (DDoS) attacks. Enable DDoS Protection on every perimeter virtual network.
 
 ## Access an AKS cluster over the internet
 
@@ -169,7 +169,7 @@ ExpressRoute provides connectivity to your AKS private cluster from an on-premis
 
 With an AKS private cluster, you can connect from a VM that has access to the API server. Use the Azure CLI `aks command invoke` command to run commands like `kubectl` or `helm` remotely via the Azure API. This approach creates a transient pod in the cluster, which lasts only during the command. The `aks command invoke` command serves as an alternative connection method if you lack a VPN, ExpressRoute, or peered virtual network. Ensure that your cluster and node pool have sufficient resources to create the transient pod.
 
-For more information, see [Use command invoke to access a private AKS cluster](/azure/aks/command-invoke#limitations).
+For more information, see [Use command invoke to access a private AKS cluster](/azure/aks/command-invoke).
 
 ## Connect Cloud Shell to a subnet
 
