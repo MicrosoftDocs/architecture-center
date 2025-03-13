@@ -15,7 +15,7 @@ In the cloud, transient faults should be expected and an application should be d
 The diagram above illustrates invoking an operation in a hosted service using a retry mechanism. If the request is unsuccessful after a predefined number of attempts, the application should treat the fault as an exception and handle it accordingly.
 
 >[!NOTE]
->Due to the commonplace nature of transient faults, built-in retry mechanisms are now available in many client libraries and cloud services, with some degree of configurability for the number of maximum retries, the delay between retries, and other parameters. The [Microsof Entity Framework](/ef) provides facilities to retry [failed database operations](/ef/core/miscellaneous/connection-resiliency).
+>Due to the commonplace nature of transient faults, built-in retry mechanisms are now available in many client libraries and cloud services, with some degree of configurability for the number of maximum retries, the delay between retries, and other parameters. The [Microsoft Entity Framework](/ef) provides facilities to retry [failed database operations](/ef/core/miscellaneous/connection-resiliency).
 
 ### Retry strategies
 

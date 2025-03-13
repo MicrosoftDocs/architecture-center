@@ -78,7 +78,7 @@ However, when you work with shared infrastructure, there are several caveats to 
 
 ### Sharding pattern
 
-The [Sharding pattern](../../../patterns/sharding.yml) involves deploying multiple separate databases, called *shards*, that each contain one or more tenants' data. Unlike deployment stamps, shards don't imply that the entire infrastructure is duplicated. You might shard databases without also duplicating or sharding other infrastructure in your solution.
+The [Sharding pattern](../../../patterns/sharding.yml) involves deploying multiple separate databases, called *shards*, that each contains one or more tenants' data. Unlike deployment stamps, shards don't imply that the entire infrastructure is duplicated. You might shard databases without also duplicating or sharding other infrastructure in your solution.
 
 ![Diagram showing a sharded database. One database contains the data for tenants A and B, and the other contains the data for tenant C.](media/storage-data/sharding.png)
 
