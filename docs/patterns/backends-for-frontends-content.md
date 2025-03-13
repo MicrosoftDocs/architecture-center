@@ -28,38 +28,38 @@ For more information, see [Pattern: Backends For Frontends](https://samnewman.io
 ## Issues and considerations
 
 
-- Consider identifying your organization's approach to determining the optimal number of backends to deliver.
-- Evaluate the increased operational overhead (maintain and deploy).
-- Consider reviewing your Service Level Objectives (SLOs) to assess the impact of added latency from extra network hops and new service availability.
-- If different interfaces (such as mobile clients) make the same requests, consider whether it's necessary to implement a backend for each interface, or if a single backend suffices.
-- Code duplication across services is highly likely when implementing this pattern. Calculate the cost of deploying and maintaining additional services.
-- Frontend-focused backend services should only contain client-specific logic and behavior. Cross-cutting features should be managed elsewhere in your application (that is, [Gatekeeping](/azure/architecture/patterns/gatekeeper), [Rate Limiting](/azure/architecture/patterns/rate-limiting-pattern), [Routing](/azure/architecture/patterns/gateway-routing), and others).
-=======
-- Consider what the optimal number of services is for you, as this will have associated costs. Maintaining and deploying more services means increased operational overhead. Each individual service has its own life cycle, maintenance requirements, and security needs.
+- Evaluate what the optimal number of services is for you, as this will have associated costs. Maintaining and deploying more services means increased operational overhead. Each individual service has its own life cycle, deployment and maintenance requirements, and security needs.
 
-- 
+- Review the Service Level Objectives (SLOs) when adding a new service. Increased latency may occur because clients aren't contacting your services directly, and the new service introduces an extra network hop.
 
-- If different interfaces (such as mobile clients) will make the same requests, consider whether it is necessary to implement a backend for each interface, or if a single backend will suffice.
-- Code duplication across services is highly likely when implementing this pattern.
-- Frontend-focused backend services should only contain client-specific logic and behavior. General business logic and other global features should be managed elsewhere in your application.
+- When different interfaces make the same requests, evaluate whether the requests can be consolidated into a single BFF service. Sharing a single BFF service between multiple interfaces can lead to different requirements for each client, which can complicate the BFF service's growth and support. 
 
-- Think about how this pattern might be reflected in the responsibilities of a development team.
-- Consider how long it takes to implement this pattern. Will the effort of building the new backends incur technical debt, while you continue to support the existing generic backend?
-- If your organization uses GraphQL with frontend-specific resolvers, carefully assess whether a BFF adds value to your applications.
-- Modern [API Gateway](/azure/architecture/microservices/design/gateway) solutions combined with microservices may be sufficient for some cases where BFFs were previously recommended.
+    Code duplication is a probable outcome of this pattern. Evaluate the tradeoff between code duplication and a better-tailored experience for each client. 
+
+- The BFF service should only handle client-specific logic related to a specific user experience. Cross-cutting features, such as monitoring and authorization, should be abstracted to keep BFF service light. Typical features that might surface in the BFF service are handled separately with [Gatekeeping](/azure/architecture/patterns/gatekeeper), [Rate Limiting](/azure/architecture/patterns/rate-limiting-pattern), [Routing](/azure/architecture/patterns/gateway-routing), and others.
+
+- Consider the impact on the development team when learning and implementing this pattern. Building new backends requires time and effort, potentially incurring technical debt while maintaining the existing backend service.  
+
+- Evaluate if you need this pattern at all. For example if your organization uses GraphQL with frontend-specific resolvers, BFF might not add value to your applications.
+
+    Another example is application that combines [API Gateway](/azure/architecture/microservices/design/gateway) with microservices. This approach may be sufficient for some cases where BFFs were previously recommended.
 
 ## When to use this pattern
 
 Use this pattern when:
 
 - A shared or general purpose backend service must be maintained with significant development overhead.
+
 - You want to optimize the backend for the requirements of specific client interfaces.
+
 - Customizations are made to a general-purpose backend to accommodate multiple interfaces.
+
 - A programming language is better suited for the backend of a specific user interface, but not all user interfaces.
 
 This pattern may not be suitable:
 
 - When interfaces make the same or similar requests to the backend.
+
 - When only one interface is used to interact with the backend.
 
 ## Workload design
@@ -78,10 +78,13 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 This example shows the Backend for Frontends pattern where you have two distinct client applications: a mobile app and a desktop application. Both clients interact with an Azure API Management (data plane gateway), which acts as an abstraction layer, handling common cross-cutting concerns such as:
 
-**Authorization** – Ensuring only verified identities with the proper access tokens can call protected resources using the Azure API Management (APIM) with Microsoft Entra ID.
-**Monitoring** – Capturing and sending request and response details for observability purposes to Azure Monitor.
-**Request Caching** – Optimizing repeated requests by serving responses from cache using APIM built-in features.
-**Routing & Aggregation** – Directing incoming requests to the appropriate Backend for Frontend (BFF) services.
+- **Authorization** – Ensuring only verified identities with the proper access tokens can call protected resources using the Azure API Management (APIM) with Microsoft Entra ID.
+
+- **Monitoring** – Capturing and sending request and response details for observability purposes to Azure Monitor.
+
+- **Request Caching** – Optimizing repeated requests by serving responses from cache using APIM built-in features.
+
+- **Routing & Aggregation** – Directing incoming requests to the appropriate Backend for Frontend (BFF) services.
 
 Each client has a dedicated BFF service running as an Azure Function that serve as an intermediary between the gateway and the underlying microservices. These client-specif BFF ensures a tailored experience for pagination among other functionalities. While the mobile is more bandwidth-conscious app and caching improves performance, the desktop aggregates multiple pages in a single request, optimizing for a richer user experience.
 
