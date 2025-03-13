@@ -25,7 +25,10 @@ For more information, see [Pattern: Backends For Frontends](https://samnewman.io
 
 ## Issues and considerations
 
-- Consider how many backends to deploy.
+- Consider what the optimal number of services is for you, as this will have associated costs. Maintaining and deploying more services means increased operational overhead. Each individual service has its own life cycle, maintenance requirements, and security needs.
+
+- 
+
 - If different interfaces (such as mobile clients) will make the same requests, consider whether it is necessary to implement a backend for each interface, or if a single backend will suffice.
 - Code duplication across services is highly likely when implementing this pattern.
 - Frontend-focused backend services should only contain client-specific logic and behavior. General business logic and other global features should be managed elsewhere in your application.
