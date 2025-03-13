@@ -59,4 +59,4 @@ Principal author:
 - [Assess AWS instances](/azure/migrate/tutorial-assess-aws)
 - [Migrate AWS VMs](/azure/migrate/tutorial-migrate-aws-virtual-machines)
 - [Migrate AWS to managed disks](/azure/virtual-machines/windows/on-prem-to-azure)
-- [Migrate an AWS Windows VM](/azure/virtual-machines/windows/aws-to-azure)
+- [Migrate an AWS Windows virtual machine](/azure/virtual-machines/windows/aws-to-azure)
