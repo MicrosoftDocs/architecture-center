@@ -115,73 +115,20 @@ items:
         href: guide/technology-choices/compute-decision-tree.yml
       - name: Microservices compute options
         href: /azure/architecture/microservices/design/compute-options
-      - name: Web apps and single page apps
-        href: /dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps
-        maintainContext: true
-      - name: Multiparty computing
-        href: guide/technology-choices/multiparty-computing-service.yml
     - name: Choose a container option
       items:
       - name: Container options
-        href: guide/choose-azure-container-service.md
-        maintainContext: true
-      - name: Containers for confidential computing
-        href: /azure/confidential-computing/choose-confidential-containers-offerings
-        maintainContext: true
+        href: guide/choose-azure-container-service.md      
       - name: Kubernetes at the edge
         href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
-      - name: Bare-metal Kubernetes at the edge
-        href: operator-guides/aks/choose-bare-metal-kubernetes.yml
     - name: Choose a hybrid service
       items:
       - name: Azure hybrid options
         href: guide/technology-choices/hybrid-considerations.yml
-      - name: Compare Azure Stack Hub and Azure
-        href: /azure-stack/user/azure-stack-considerations
-        maintainContext: true
-    - name: Choose a security option
-      items:
-      - name: Deployment models
-        href: /azure/confidential-computing/confidential-computing-deployment-models
-        maintainContext: true
-      - name: Containers for confidential computing
-        href: /azure/confidential-computing/choose-confidential-containers-offerings
-        maintainContext: true
-    - name: Choose an identity service
-      items:
-      - name: Active Directory services
-        href: /azure/active-directory-domain-services/compare-identity-solutions
-        maintainContext: true
-      - name: Hybrid identity authentication methods
-        href: /azure/active-directory/hybrid/choose-ad-authn
-        maintainContext: true
     - name: Choose a storage service
       items:
       - name: Storage options
         href: guide/technology-choices/storage-options.md
-      - name: Managed disk types
-        href: /azure/virtual-machines/disks-types
-        maintainContext: true
-      - name: Data transfer
-        items:
-        - name: Data transfer solutions
-          href: /azure/storage/common/storage-choose-data-transfer-solution
-          maintainContext: true
-        - name: Compare data transfer options
-          href: /azure/storsimple/storsimple-8000-choose-storage-solution
-          maintainContext: true
-        - name: Large datasets, low bandwidth
-          href: /azure/storage/common/storage-solution-large-dataset-low-network
-          maintainContext: true
-        - name: Large datasets, moderate bandwidth
-          href: /azure/storage/common/storage-solution-large-dataset-moderate-high-network
-          maintainContext: true
-        - name: Small datasets, low bandwidth
-          href: /azure/storage/common/storage-solution-small-dataset-low-moderate-network
-          maintainContext: true
-        - name: Periodic data transfer
-          href: /azure/storage/common/storage-solution-periodic-data-transfer
-          maintainContext: true
     - name: Choose a data store
       items:
       - name: Understand data stores in Azure
@@ -230,17 +177,10 @@ items:
           href: data-guide/scenarios/data-transfer.md
     - name: Choose an analytics solution
       items:
-      - name: Advanced analytics
-        href: data-guide/scenarios/advanced-analytics.md
       - name: Analytical data stores
         href: data-guide/technology-choices/analytical-data-stores.md
-      - name: Microsoft Fabric deployment patterns
-        href: analytics/architecture/fabric-deployment-patterns.yml
       - name: Stream processing
         href: data-guide/technology-choices/stream-processing.md
-      - name: Streaming analytics
-        href: /azure/stream-analytics/streaming-technologies
-        maintainContext: true
     - name: Choose an AI service
       items:
       - name: AI services
@@ -255,9 +195,6 @@ items:
         href: data-guide/technology-choices/natural-language-processing.md
       - name: Machine learning
         href: ai-ml/guide/data-science-and-machine-learning.md
-      - name: Compare MLflow and Azure ML
-        href: /azure/machine-learning/concept-mlflow
-        maintainContext: true
     - name: Choose a networking service
       items:
       - name: Load balancing options
@@ -268,17 +205,6 @@ items:
       items:
       - name: Asynchronous messaging
         href: guide/technology-choices/messaging.yml
-    - name: Choose an IoT option
-      items:
-      - name: IoT solutions in Azure
-        href: /azure/iot/iot-services-and-technologies
-        maintainContext: true
-      - name: Compare IoT Hub and Event Hubs
-        href: /azure/iot-hub/iot-hub-compare-event-hubs
-        maintainContext: true
-    - name: Choose a command-line tool
-      href: /cli/azure/choose-the-right-azure-command-line-tool
-      maintainContext: true
     - name: Development tools
       items:
       - name: Compare Java application hosting options
@@ -309,8 +235,6 @@ items:
       href: best-practices/message-encode.md
     - name: Monitoring and diagnostics
       href: best-practices/monitoring.yml
-    - name: Retry guidance for specific services
-      href: best-practices/retry-service-specific.md
     - name: Transient fault handling
       href: best-practices/transient-faults.md
   - name: Performance tuning and antipatterns
@@ -365,31 +289,8 @@ items:
         href: guide/responsible-innovation/community-jury/index.md
     - name: Responsible AI
       items:
-      - name: Overview
-        href: /azure/cloud-adoption-framework/strategy/responsible-ai
-        maintainContext: true
-      - name: Six key principles
-        href: /azure/cloud-adoption-framework/innovate/best-practices/trusted-ai
-        maintainContext: true
       - name: Guidelines for human-AI interaction
         href: /ai/guidelines-human-ai-interaction/?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-      - name: Responsible AI with Cognitive Services
-        href: /azure/cognitive-services/responsible-use-of-ai-overview
-        maintainContext: true
-      - name: Machine learning
-        items:
-        - name: Responsible AI and machine learning
-          href: /azure/machine-learning/concept-responsible-ml
-          maintainContext: true
-        - name: Model interpretability
-          href: /azure/machine-learning/how-to-machine-learning-interpretability
-          maintainContext: true
-        - name: ML fairness
-          href: /azure/machine-learning/concept-fairness-ml
-          maintainContext: true
-        - name: Differential privacy
-          href: /azure/machine-learning/concept-differential-privacy
-          maintainContext: true
     - name: Measure Azure app sustainability
       href: example-scenario/apps/measure-azure-app-sustainability-sci-score.yml
   - name: Architecture for SaaS and multitenancy
@@ -508,30 +409,6 @@ items:
         items:
         - name: Microsoft Entra identity management for AWS
           href: reference-architectures/aws/aws-azure-ad-security.yml
-        - name: Onboard an AWS account
-          href: /azure/active-directory/cloud-infrastructure-entitlement-management/onboard-aws
-          maintainContext: true
-        - name: Amazon Managed Grafana
-          href: /azure/active-directory/saas-apps/amazon-managed-grafana-tutorial
-          maintainContext: true
-        - name: AWS single-account access
-          href: /azure/active-directory/saas-apps/amazon-web-service-tutorial
-          maintainContext: true
-        - name: AWS Single Sign-on
-          href: /azure/active-directory/saas-apps/aws-single-sign-on-tutorial
-          maintainContext: true
-        - name: Configure AWS Single Sign-On
-          href: /azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial
-          maintainContext: true
-        - name: AWS multiple accounts
-          href: /azure/active-directory/saas-apps/aws-multi-accounts-tutorial
-          maintainContext: true
-        - name: AWS ClientVPN
-          href: /azure/active-directory/saas-apps/aws-clientvpn-tutorial
-          maintainContext: true
-        - name: Attach and detach policies
-          href: /azure/active-directory/cloud-infrastructure-entitlement-management/how-to-attach-detach-permissions
-          maintainContext: true
       - name: AKS for AWS
         items:
         - name: AKS for Amazon EKS professionals
@@ -552,25 +429,6 @@ items:
           href: aws-professional/eks-to-aks/governance.md
       - name: Migration from AWS
         items:
-        - name: Azure Migrate
-          items:
-          - name: Discover AWS instances
-            href: /azure/migrate/tutorial-discover-aws
-            maintainContext: true
-          - name: Assess AWS instances
-            href: /azure/migrate/tutorial-assess-aws
-            maintainContext: true
-          - name: Migrate AWS VMs
-            href: /azure/migrate/tutorial-migrate-aws-virtual-machines
-            maintainContext: true
-        - name: Compute
-          items:
-          - name: Migrate AWS to managed disks
-            href: /azure/virtual-machines/windows/on-prem-to-azure
-            maintainContext: true
-          - name: Migrate an AWS Windows VM
-            href: /azure/virtual-machines/windows/aws-to-azure
-            maintainContext: true
         - name: Containers
           items:
           - name: Migrate Amazon EKS to Azure Kubernetes Service (AKS)
@@ -579,83 +437,12 @@ items:
         items:
         - name: Microsoft security for AWS
           href: guide/aws/aws-azure-security-solutions.yml
-        - name: Defender recommendations for AWS
-          href: /azure/sentinel/connect-aws
-          maintainContext: true
-        - name: Defender for Cloud security policies for AWS
-          items:
-          - name: Protect AWS with Microsoft Defender
-            href: /defender-cloud-apps/protect-aws
-            maintainContext: true
-          - name: Defender recommendations for AWS
-            href: /azure/defender-for-cloud/recommendations-reference-aws
-            maintainContext: true
-          - name: Connect AWS to Microsoft Defender
-            href: /defender-cloud-apps/connect-aws
-            maintainContext: true
-          - name: 'Video: AWS connector in Defender'
-            href: /azure/defender-for-cloud/episode-one
-            maintainContext: true
-      - name: Azure Databricks for AWS
-        items:
-        - name: Repo access with AWS CodeCommit
-          href: /azure/databricks/repos/set-up-git-provider-access
-          maintainContext: true
-      - name: Azure Service Fabric in AWS
-        href: /azure/service-fabric/service-fabric-tutorial-standalone-create-infrastructure
-        maintainContext: true
-      - name: Azure VPN Gateway for AWS
-        href: /azure/vpn-gateway/vpn-gateway-howto-aws-bgp
-        maintainContext: true
   - name: Azure for Google Cloud professionals
     items:
     - name: Overview
       href: gcp-professional/index.md
     - name: Services comparison
       href: gcp-professional/services.md
-    - name: Guidance
-      items:
-      - name: Hybrid solutions for Google Cloud
-        items:
-        - name: GC Ubuntu with Terraform
-          href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/gcp-terraform-ubuntu
-          maintainContext: true
-        - name: GC Windows with Terraform
-          href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/gcp-terraform-windows
-          maintainContext: true
-      - name: Identity management for Google Cloud
-        items:
-        - name: Onboard a Google Cloud project
-          href: /azure/active-directory/cloud-infrastructure-entitlement-management/onboard-gcp
-          maintainContext: true
-        - name: Add and remove roles and tasks
-          href: /azure/active-directory/cloud-infrastructure-entitlement-management/how-to-add-remove-role-task
-          maintainContext: true
-      - name: Migration from Google Cloud
-        items:
-        - name: Discover Google Cloud instances
-          href: /azure/migrate/tutorial-discover-gcp
-          maintainContext: true
-        - name: Assess Google Cloud VM instances
-          href: /azure/migrate/tutorial-assess-gcp
-          maintainContext: true
-        - name: Migrate Google Cloud VMs to Azure
-          href: /azure/migrate/tutorial-migrate-gcp-virtual-machines
-          maintainContext: true
-      - name: Security for Google Cloud
-        items:
-        - name: Protect Google Cloud with Defender
-          href: /defender-cloud-apps/protect-gcp
-          maintainContext: true
-        - name: Connect Google Cloud projects
-          href: /azure/defender-for-cloud/quickstart-onboard-gcp
-          maintainContext: true
-        - name: Connect Google Cloud to Defender
-          href: /defender-cloud-apps/connect-google-gcp
-          maintainContext: true
-        - name: 'Video: Protect containers'
-          href: /azure/defender-for-cloud/episode-ten
-          maintainContext: true
 - name: Design Patterns
   items:
   - name: Overview
@@ -984,8 +771,6 @@ items:
         items:
         - name: Choose a Kubernetes at the edge option
           href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
-        - name: Choose a bare-metal Kubernetes option
-          href: operator-guides/aks/choose-bare-metal-kubernetes.yml
       - name: Architectures
         items:
         - name: Application

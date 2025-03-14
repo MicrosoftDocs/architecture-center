@@ -84,6 +84,8 @@ items:
         items:
         - name: Big data architectures
           href: guide/big-data-architectures.yml
+        - name: Microsoft Fabric deployment patterns
+          href: ../analytics/architecture/fabric-deployment-patterns.yml
       - name: Governance
         items:
         - name: Data obfuscation with Delphix
