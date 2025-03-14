@@ -3,7 +3,7 @@ This reference architecture describes how Azure Arc extends Kubernetes cluster m
 ## Architecture
 
 :::image type="complex" border="false" source="./images/arc-hybrid-kubernetes.svg" alt-text="Diagram that shows an Azure Arc for Kubernetes topology." lightbox="./images/arc-hybrid-kubernetes.svg":::
-   This architecture diagram shows various Azure services and their functionalities. Two icons that represent Azure Arc-enabled Kubernetes clusters are in a section that's labeled on-premises. Four icons that represent Azure Monitor, Azure Policy, and Azure Kubernetes Service (AKS) are in a section that's labeled Azure. Arrows indicate a connection between the Azure section and the two Azure Arc-enabled Kubernetes clusters in the on-premises section. Arrows also indicate a connection between Azure Policy, the clusters in both the on-premises and Azure sections, and Azure Monitor.
+   This architecture diagram shows various Azure services and their functionalities. Two icons that represent Azure Arc-enabled Kubernetes clusters are in a section that's labeled on-premises. Four icons that represent Azure Monitor, Azure Policy, and Azure Kubernetes Service (AKS) are in a section that's labeled Azure. The AKS icon appears twice. Arrows indicate a connection between the Azure section and the two Azure Arc-enabled Kubernetes clusters in the on-premises section. Arrows also indicate a connection between Azure Policy, the clusters in both the on-premises and Azure sections, and Azure Monitor.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/arc-hybrid-kubernetes.vsdx) of this architecture.*
