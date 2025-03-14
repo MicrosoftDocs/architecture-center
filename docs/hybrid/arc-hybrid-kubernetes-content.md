@@ -3,12 +3,14 @@ This reference architecture describes how Azure Arc extends Kubernetes cluster m
 ## Architecture
 
 :::image type="complex" border="false" source="./images/arc-hybrid-kubernetes.svg" alt-text="Diagram that shows an Azure Arc for Kubernetes topology." lightbox="./images/arc-hybrid-kubernetes.svg":::
-   This architecture diagram describes various Azure services and their functionalities. Azure Arc-enabled Kubernetes enables the attachment and configuration of Kubernetes clusters located both inside and outside of Azure. It assigns each cluster an Azure Resource Manager ID and a managed identity. Azure Kubernetes Service (AKS) hosts Kubernetes clusters in Azure to reduce the complexity and operational overhead of cluster management. On-premises Kubernetes clusters, which Cloud Native Computing Foundation (CNCF) certifies, can also be attached when hosted in on-premises or non-Microsoft cloud environments. Azure Policy is used to deploy and manage policies for Arc-enabled Kubernetes clusters. Azure Monitor provides observation and monitoring for these clusters.
+   This architecture diagram describes various Azure services and their functionalities. Azure Arc-enabled Kubernetes enables the attachment and configuration of Kubernetes clusters located both inside and outside of Azure. It assigns each cluster an Azure Resource Manager ID and a managed identity. Azure Kubernetes Service (AKS) hosts Kubernetes clusters in Azure to reduce the complexity and operational overhead of cluster management. On-premises Kubernetes clusters, which Cloud Native Computing Foundation (CNCF) certifies, can also be attached when hosted in on-premises or non-Microsoft cloud environments. Azure Policy is used to deploy and manage policies for Azure Arc-enabled Kubernetes clusters. Azure Monitor provides observation and monitoring for these clusters.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/arc-hybrid-kubernetes.vsdx) of this architecture.*
 
 ### Workflow
+
+The following workflow corresponds to the previous diagram:
 
 - **[Azure Arc-enabled Kubernetes][Azure Arc-enabled Kubernetes]:** Attach and configure Kubernetes clusters inside or outside of Azure by using Azure Arc-enabled Kubernetes. When a Kubernetes cluster is attached to Azure Arc, it's assigned an Azure Resource Manager ID and a managed identity.
 
@@ -16,9 +18,9 @@ This reference architecture describes how Azure Arc extends Kubernetes cluster m
 
 - **[On-premises Kubernetes cluster][kubernetes]:** Attach Cloud Native Computing Foundation (CNCF)-certified Kubernetes clusters that are hosted in on-premises or non-Microsoft cloud environments.
 
-- **[Azure Policy][Azure Policy]:** Deploy and manage policies for Arc-enabled Kubernetes clusters.
+- **[Azure Policy][Azure Policy]:** Deploy and manage policies for Azure Arc-enabled Kubernetes clusters.
 
-- **[Azure Monitor][Azure Monitor]:** Observe and monitor Arc-enabled Kubernetes clusters.
+- **[Azure Monitor][Azure Monitor]:** Observe and monitor Azure Arc-enabled Kubernetes clusters.
 
 ### Components
 
@@ -56,7 +58,7 @@ You can apply the following recommendations to most scenarios. Follow these reco
 
 ### Cluster registration
 
-You can register any active CNCF Kubernetes cluster. You need a `kubeconfig` file to access the cluster and a cluster-admin role on the cluster to deploy Arc-enabled Kubernetes agents. Use the Azure CLI to perform cluster registration tasks. The user or service principal that you use for the `az login` and `az connectedk8s connect` commands requires Read and Write permissions on the `Microsoft.Kubernetes/connectedClusters` resource type. The Kubernetes Cluster - Azure Arc Onboarding role has these permissions and can be used for role assignments on either the user principal or the service principal. Helm 3 is required to onboard the cluster that uses the `connectedk8s` extension. The Azure CLI version 2.3 or later is required to install the Azure Arc-enabled Kubernetes CLI extensions.
+You can register any active CNCF Kubernetes cluster. You need a `kubeconfig` file to access the cluster and a cluster-admin role on the cluster to deploy Azure Arc-enabled Kubernetes agents. Use the Azure CLI to perform cluster registration tasks. The user or service principal that you use for the `az login` and `az connectedk8s connect` commands requires Read and Write permissions on the `Microsoft.Kubernetes/connectedClusters` resource type. The Kubernetes Cluster - Azure Arc Onboarding role has these permissions and can be used for role assignments on either the user principal or the service principal. Helm 3 is required to onboard the cluster that uses the `connectedk8s` extension. The Azure CLI version 2.3 or later is required to install the Azure Arc-enabled Kubernetes CLI extensions.
 
 #### Azure Arc agents for Kubernetes
 
@@ -66,7 +68,7 @@ Azure Arc-enabled Kubernetes consists of a few agents (or *operators*) that run 
 
 - The `deployment.apps/controller-manager` is an operator of operators that orchestrates interactions between Azure Arc components.
 
-- The `deployment.apps/metrics-agent` collects metrics from other Arc agents to ensure that these agents perform optimally.
+- The `deployment.apps/metrics-agent` collects metrics from other Azure Arc agents to ensure that these agents perform optimally.
 
 - The `deployment.apps/cluster-metadata-operator` gathers cluster metadata, including the cluster version, node count, and Azure Arc agent version.
 
@@ -124,7 +126,7 @@ For more information, see [Deploy applications by using GitOps with Flux v2][Dep
 
 ### Run Machine Learning
 
-In Machine Learning, you can choose an AKS (or Arc-enabled Kubernetes) cluster as a compute target for your machine learning processes. This capability enables you to train or deploy machine learning models in your own, self-hosted (or multicloud) infrastructure. This approach allows you to combine your on-premises investments on GPUs with the ease of management that Machine Learning provides in the cloud.
+In Machine Learning, you can choose an AKS (or Azure Arc-enabled Kubernetes) cluster as a compute target for your machine learning processes. This capability enables you to train or deploy machine learning models in your own, self-hosted (or multicloud) infrastructure. This approach allows you to combine your on-premises investments on GPUs with the ease of management that Machine Learning provides in the cloud.
 
 ### Monitor Kubernetes workloads with managed Prometheus and Grafana
 
@@ -206,7 +208,6 @@ Related hybrid guidance:
 
 - [Hybrid architecture design](hybrid-start-here.md)
 - [Azure hybrid options](../guide/technology-choices/hybrid-considerations.yml)
-- [Hybrid app design considerations](../guide/technology-choices/hybrid-considerations.yml)
 
 Related architectures:
 
