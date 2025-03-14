@@ -32,13 +32,13 @@ This reference architecture describes how Azure Arc extends Kubernetes cluster m
 
 ## Scenario details
 
-You can use Azure Arc to register Kubernetes clusters that are hosted outside of Microsoft Azure. You can then use Azure tools to manage these clusters and clusters that are hosted in AKS.
+You can use Azure Arc to register Kubernetes clusters that are hosted outside of Microsoft Azure. You can then use Azure tools to manage these clusters and AKS-hosted clusters.
 
 ### Potential use cases
 
 Typical uses for this architecture include:
 
-- Managing on-premises Kubernetes clusters and clusters hosted in AKS for inventory, grouping, and tagging.
+- Managing inventory, grouping, and tagging for on-premises Kubernetes clusters and AKS-hosted clusters.
 
 - Using Azure Monitor to monitor Kubernetes clusters across hybrid environments.
 
@@ -56,7 +56,7 @@ You can apply the following recommendations to most scenarios. Follow these reco
 
 ### Cluster registration
 
-You can register any active CNCF Kubernetes cluster. You need a `kubeconfig` file to access the cluster and a cluster-admin role on the cluster to deploy Arc-enabled Kubernetes agents. Use the Azure command-line interface (CLI) to perform cluster registration tasks. The user or service principal that you use for the `az login` and `az connectedk8s connect` commands requires Read and Write permissions on the `Microsoft.Kubernetes/connectedClusters` resource type. The Kubernetes Cluster - Azure Arc Onboarding role has these permissions and can be used for role assignments on either the user principal or the service principal. Helm 3 is required to onboard the cluster that uses the `connectedk8s` extension. Azure CLI version 2.3 or later is required to install the Azure Arc-enabled Kubernetes CLI extensions.
+You can register any active CNCF Kubernetes cluster. You need a `kubeconfig` file to access the cluster and a cluster-admin role on the cluster to deploy Arc-enabled Kubernetes agents. Use the Azure CLI to perform cluster registration tasks. The user or service principal that you use for the `az login` and `az connectedk8s connect` commands requires Read and Write permissions on the `Microsoft.Kubernetes/connectedClusters` resource type. The Kubernetes Cluster - Azure Arc Onboarding role has these permissions and can be used for role assignments on either the user principal or the service principal. Helm 3 is required to onboard the cluster that uses the `connectedk8s` extension. The Azure CLI version 2.3 or later is required to install the Azure Arc-enabled Kubernetes CLI extensions.
 
 #### Azure Arc agents for Kubernetes
 
@@ -68,7 +68,7 @@ Azure Arc-enabled Kubernetes consists of a few agents (or *operators*) that run 
 
 - The `deployment.apps/metrics-agent` collects metrics from other Arc agents to ensure that these agents perform optimally.
 
-- The `deployment.apps/cluster-metadata-operator` gathers cluster metadata, cluster version, node count, and Azure Arc agent version.
+- The `deployment.apps/cluster-metadata-operator` gathers cluster metadata, including the cluster version, node count, and Azure Arc agent version.
 
 - The `deployment.apps/resource-sync-agent` synchronizes the previously mentioned cluster metadata to Azure.
 
@@ -80,7 +80,7 @@ Azure Arc-enabled Kubernetes consists of a few agents (or *operators*) that run 
 
 - The `deployment.apps/kube-aad-proxy` handles authentication for requests sent to the cluster via the AKS cluster connect feature.
 
-- The `deployment.apps/clusterconnect-agent` is a reverse proxy agent that enables the cluster connect feature to provide access to the apiserver of the cluster. It's an optional component that's deployed only if the cluster connect feature is enabled on the cluster.
+- The `deployment.apps/clusterconnect-agent` is a reverse proxy agent that enables the cluster connect feature to provide access to the API server of the cluster. It's an optional component that's deployed only if the cluster connect feature is enabled on the cluster.
 
 - The `deployment.apps/guard` is an authentication and authorization webhook server that's used for Microsoft Entra role-based access control (RBAC). It's an optional component that's deployed only if Azure RBAC is enabled on the cluster.
 
@@ -92,9 +92,9 @@ For more information, see [Connect an existing Kubernetes cluster to Azure Arc][
 
 ### Monitor clusters by using Azure Monitor container insights
 
-Monitoring your containers is crucial. Azure Monitor container insights provides robust monitoring capabilities for AKS and AKS engine clusters. You can also configure Azure Monitor container insights to monitor Azure Arc-enabled Kubernetes clusters that are hosted outside of Azure. This configuration provides comprehensive monitoring of your Kubernetes clusters across Azure, on-premises, and non-Microsoft cloud environments.
+Monitoring your containers is crucial. Azure Monitor container insights provides robust monitoring capabilities for AKS and AKS engine clusters. You can also configure Azure Monitor container insights to monitor Azure Arc-enabled Kubernetes clusters that are hosted outside of Azure. This configuration provides comprehensive monitoring of your Kubernetes clusters across Azure, on-premises, and in non-Microsoft cloud environments.
 
-Azure Monitor Container Insights provides performance visibility by collecting memory and processor metrics from controllers, nodes, and containers. These metrics are available in Kubernetes through the Metrics API. Container logs are also collected. After you enable monitoring from Kubernetes clusters, a containerized version of the Log Analytics agent automatically collects metrics and logs. Metrics are written to the metrics store, and log data is written to the logs store that's associated with your Log Analytics workspace. For more information, see [Azure Monitor features for Kubernetes monitoring][Azure Monitor features for Kubernetes monitoring].
+Azure Monitor container insights provides performance visibility by collecting memory and processor metrics from controllers, nodes, and containers. These metrics are available in Kubernetes through the Metrics API. Container logs are also collected. After you enable monitoring from Kubernetes clusters, a containerized version of the Log Analytics agent automatically collects metrics and logs. Metrics are written to the metrics store, and log data is written to the logs store that's associated with your Log Analytics workspace. For more information, see [Azure Monitor features for Kubernetes monitoring][Azure Monitor features for Kubernetes monitoring].
 
 You can enable Azure Monitor container insights for one or more deployments of Kubernetes by using a PowerShell script or a Bash script.
 
@@ -102,13 +102,13 @@ For more information, see [Enable monitoring for Kubernetes clusters][Enable mon
 
 ### Use Azure Policy to enable GitOps-based application deployment
 
-Use Azure Policy to make sure that each GitOps–enabled `Microsoft.Kubernetes/connectedclusters` resource or `Microsoft.ContainerService/managedClusters` resource has specific `Microsoft.KubernetesConfiguration/fluxConfigurations` applied on it. For example, you can apply a baseline configuration to one or more clusters, or deploy specific applications to multiple clusters. To use Azure Policy, choose a definition from the [Azure Policy built-in definitions for Azure Arc-enabled Kubernetes][Azure Policy built-in definitions for Azure Arc-enabled Kubernetes] and then create a policy assignment. When you create the policy assignment, set the scope to an Azure resource group or subscription. Also set the parameters for the `fluxConfiguration` that's created. When the assignment is created, the Policy engine identifies all `connectedCluster` or `managedCluster` resources that are in scope and then apply the `fluxConfiguration` to each resource.
+Use Azure Policy to make sure that each GitOps–enabled `Microsoft.Kubernetes/connectedclusters` resource or `Microsoft.ContainerService/managedClusters` resource has specific `Microsoft.KubernetesConfiguration/fluxConfigurations` applied on it. For example, you can apply a baseline configuration to one or more clusters, or deploy specific applications to multiple clusters. To use Azure Policy, choose a definition from the [Azure Policy built-in definitions for Azure Arc-enabled Kubernetes][Azure Policy built-in definitions for Azure Arc-enabled Kubernetes] and then create a policy assignment. When you create the policy assignment, set the scope to an Azure resource group or subscription. Also set the parameters for the `fluxConfiguration` that's created. When the assignment is created, the Azure Policy engine identifies all `connectedCluster` or `managedCluster` resources that are in scope and then applies the `fluxConfiguration` to each resource.
 
 If you use multiple source repositories for each cluster, such as one repository for the central IT or cluster operator and other repositories for application teams, activate this feature by using multiple policy assignments and configure each policy assignment to use a different source repository.
 
 For more information, see [Deploy applications consistently at scale by using Flux v2 configurations and Azure Policy][Deploy applications at scale].
 
-### Deploy applications using GitOps
+### Deploy applications by using GitOps
 
 GitOps is the practice of defining the desired state of Kubernetes configurations, such as deployments and namespaces, in a source repository. This repository can be a Git or Helm repository, Buckets, or Azure Blob Storage. This process is followed by a polling and pull-based deployment of these configurations to the cluster by using an operator.
 
@@ -128,7 +128,7 @@ In Machine Learning, you can choose an AKS (or Arc-enabled Kubernetes) cluster a
 
 ### Monitor Kubernetes workloads with managed Prometheus and Grafana
 
-Azure provides a managed service for both Prometheus and Grafana deployments, so that you can take advantage of these popular Kubernetes monitoring tools. This managed service allows you to use these tools without the need to manage and update the deployments yourself. We also provide a [metrics explorer with PromQL](/azure/azure-monitor/essentials/metrics-explorer) that you can use to analyze Prometheus' metrics.
+Azure Monitor provides a managed service for both Prometheus and Grafana deployments, so that you can take advantage of these popular Kubernetes monitoring tools. This managed service allows you to use these tools without the need to manage and update the deployments yourself. To analyze Prometheus' metrics, use the [metrics explorer with PromQL](/azure/azure-monitor/essentials/metrics-explorer). 
 
 ### Topology, network, and routing
 
@@ -151,11 +151,11 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- In most scenarios, the location that you choose when you create the installation script should be the Azure region that's geographically closest to your on-premises resources. The rest of the data is stored within the Azure geography that contains the region you specify. This detail might affect your choice of region if you have data residency requirements. If an outage affects the Azure region that your machine is connected to, the outage doesn't affect the connected machine, but management operations that use Azure might not complete. For resilience when there's a regional outage, if you have multiple locations that provide a geographically redundant service, it's best to connect the machines in each location to a different Azure region. For more information, see [Supported regions][Supported regions] for Azure Arc-enabled Kubernetes.
+- In most scenarios, the location that you choose when you create the installation script should be the Azure region that's geographically closest to your on-premises resources. The rest of the data is stored within the Azure geography that contains the region you specify. This detail might affect your choice of region if you have data residency requirements. If an outage affects the Azure region that your machine is connected to, the outage doesn't affect the connected machine, but management operations that use Azure might not complete. If you have multiple locations that provide a geographically redundant service, connect the machines in each location to a different Azure region. This practice improves resiliency if a regional outage occurs. For more information, see [Supported regions for Azure Arc-enabled Kubernetes][Supported regions].
 
-- You should ensure that the services that are referenced in the **Architecture** section are supported in the region where Azure Arc is deployed.
+- You should ensure that the [services](#components) in your solution are supported in the region where Azure Arc is deployed.
 
 ### Security
 
@@ -171,7 +171,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-General cost considerations are described in the [Principles of cost optimization][Principles of cost optimization] section in the Azure Well-Architected Framework.
+For general cost considerations, see [Cost Optimization design principles][Principles of cost optimization].
 
 ### Operational Excellence
 
@@ -228,7 +228,7 @@ Related architectures:
 [Deploy applications by using GitOps with Flux v2]: /azure/azure-arc/kubernetes/tutorial-use-gitops-flux2
 [Enable monitoring for Kubernetes clusters]: /azure/azure-monitor/containers/kubernetes-monitoring-enable
 [Kubernetes]: https://kubernetes.io
-[Principles of cost optimization]: /azure/well-architected/cost-optimization
+[Principles of cost optimization]: /azure/well-architected/cost-optimization/principles
 [Resource group limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#azure-resource-group-limits
 [Subscription limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#azure-subscription-limits
 [Supported regions]: /azure/azure-arc/servers/overview#supported-regions
