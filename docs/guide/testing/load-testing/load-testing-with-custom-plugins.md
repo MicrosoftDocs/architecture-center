@@ -16,7 +16,7 @@ products:
 
 [!INCLUDE [header_file](../../../../includes/sol-idea-header.md)]
 
-This solution provides guidance for how to use Azure Load Testing, a service that lets you run Apache JMeter scripts and custom plugins to simulate user and device behaviors. This solution also explains how to design key performance dndicators (KPIs) and develop a dashboard for monitoring and analyzing the results of the load test in a sample application with Azure Functions and Azure Event Hubs. This example uses Event Hubs, but you can apply the same approach to Azure IoT Hub by changing the Event Hubs client to the IoT Hub client. This article assumes that you have some familiarity with JMeter, its plugins and custom plugins, and Functions and Event Hubs.
+This solution provides guidance for how to use Azure Load Testing, a service that lets you run Apache JMeter scripts and custom plugins to simulate user and device behaviors. This solution also explains how to design key performance indicators (KPIs) and develop a dashboard for monitoring and analyzing the results of the load test in a sample application with Azure Functions and Azure Event Hubs. This example uses Event Hubs, but you can apply the same approach to Azure IoT Hub by changing the Event Hubs client to the IoT Hub client. This article assumes that you have some familiarity with JMeter, its plugins and custom plugins, and Functions and Event Hubs.
 
 IoT Hub contains more core components than Event Hubs, including partitions. Therefore the load testing approach described in this article also applies to IoT Hub with minimal changes.
 
@@ -35,8 +35,11 @@ To perform load testing, you need a test plan, which is a set of instructions th
 The following dataflow corresponds to the previous diagram:
 
 1. A simulated device sends data to an event hub through a Load Testing agent. Any behavior of the device can be simulated by using JMeter custom plugins. The Load Testing agent sends data to the event hub after it runs the custom plugin for any type of simulated device.
+
 1. The event hub triggers an Azure function app that processes the data and sends it to other downstream services, such as Azure SQL Database and Azure Digital Twins.
+
 1. Azure Monitor monitors the function app and Event Hubs.
+
 1. Load Testing collects the data from Azure Monitor and displays it in a dashboard.
 
 ### Components
@@ -87,13 +90,13 @@ To implement a custom sampler for Event Hubs in JMeter, follow the instructions 
 
 You can implement a test plan by using a thread group that controls the number of threads, like virtual users and devices, to run a specific scenario. Each thread group can have different settings for the number of threads, ramp-up period, loop count, and duration. Thread groups can run sequentially or in parallel, depending on the test plan configuration and the application requirements. You can add the sampler to a thread group, set its parameters, and configure it as needed. Custom samplers can be powerful tools in JMeter that allow you to simulate complex scenarios and requests that the built-in samplers don't support.
 
-### Create an Apache JMeter script with custom plugin
+### Create an Apache JMeter script with a custom plugin
 
 In this section, you create a sample JMeter test script to load test an application with Event Hubs.
 
 To create a sample JMeter test script:
 
-1. Create a *LoadTest.jmx* file in a text editor and paste the following code snippet in the file. This script simulates a load test of 36 virtual machines that simultaneously send events to an event hub, and takes 10 minutes to complete:
+1. Create a *LoadTest.jmx* file in a text editor and paste the following code snippet into the file. This script simulates a load test of 36 virtual machines that simultaneously send events to an event hub. It takes 10 minutes to complete.
 
    ```xml
    <?xml version="1.0" encoding="UTF-8"?>
@@ -139,11 +142,11 @@ To create a sample JMeter test script:
 
    The implementation of `com.microsoft.eventhubplugin.EventHubPluginGui` and `com.microsoft.eventhubplugin.EventHubPlugin` are available at [Azure Samples](https://github.com/Azure-Samples/load-testing-jmeter-plugins).
 
-1. In the file, set the Event Hub connection values using the assigned Managed Identity of the test runners. That identity needs to have write access to the Event Hub instance.
+1. In the file, set the Event Hubs connection values by using the assigned managed identity of the test runners. That identity needs to have write access to the Event Hubs instance.
 
 1. In the file, set the value of the `eventHubName` node to the event hub name, such as `telemetry-data-changed-eh`.
 
-1. Set the value of the `liquidTemplateFileName` node to the file containing the message that is sent to the event hub. For example, create a file named `StreamingDataTemplate.liquid` as:
+1. Set the value of the `liquidTemplateFileName` node to the file that contains the message that's sent to the event hub. For example, create a file named `StreamingDataTemplate.liquid` as:
 
    ```json
    {
@@ -155,16 +158,16 @@ To create a sample JMeter test script:
    }
    ```
 
-   In this example, the payload for the event hub message is a JSON object with three properties including `MachineId`, `Temperature`, and `Humidity` where `MachineId` is a randomly generated ID with the length of 27, and `Temperature` and `Humidity` are random integers less than 100. This file is a liquid template syntax. Liquid template is a popular templating language that is used in various web development frameworks. Liquid templates enable developers to create dynamic content that can be easily updated and modified. They allow you to insert variables, conditions, loops, and other dynamic elements into your event hub messages. The syntax is straightforward, and there are plenty of online resources available to help you get started. Overall, Liquid templates offer a powerful and flexible way to create dynamic, customizable messages.
+   In this example, the payload for the event hub message is a JSON object that has three properties, `MachineId`, `Temperature`, and `Humidity`. `MachineId` is a randomly generated ID that's 27 characters long, and `Temperature` and `Humidity` are random integers that are less than 100. This file is a liquid template syntax. Liquid template is a popular templating language that is used in various web development frameworks. Liquid templates enable developers to create dynamic content that can be easily updated and modified. They allow you to insert variables, conditions, loops, and other dynamic elements into your event hub messages. The syntax is straightforward, and there are plenty of online resources available to help you get started. Liquid templates provide a powerful and flexible way to create dynamic, customizable messages.
 
 1. Save and close the file.
 
     > [!IMPORTANT]
-    > Don't include any personal data in the sampler name in the JMeter script. The sampler names appear in the Load Testing test results dashboard. A sample of a liquid template along with the JMeter script file is available to download at [Azure Samples](https://github.com/Azure-Samples/load-testing-jmeter-plugins/tree/main/samples/eventhubplugin)
+    > Don't include any personal data in the sampler name in the JMeter script. The sampler names appear in the Load Testing test results dashboard. A sample of a liquid template along with the JMeter script file is available to download at [Azure Samples](https://github.com/Azure-Samples/load-testing-jmeter-plugins/tree/main/samples/eventhubplugin).
 
-#### Updating the custom plugin from Event Hub to IoT Hub
+#### Update the custom plugin from Event Hubs to IoT Hub
 
-The custom plugin uses Event Hub as main target resource. This configuration is the SDK client setup for Event Hub:
+The custom plugin uses Event Hubs as the primary target resource. The following configuration is the SDK client setup for Event Hubs:
 
 ```java
 EventHubProducerClient producer = null;
@@ -178,7 +181,7 @@ batch.tryAdd(new EventData(msg));
 producer.send(batch);
 ```
 
-You can reuse the same solution, add the IoT dependencies, and change SDK client to use IoT, as shown in the following example.
+The following example shows how you can reuse the same solution, add the IoT dependencies, and change the SDK client to use IoT Hub:
 
 ```java
 IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
@@ -191,107 +194,109 @@ client.send(getDeviceName(), message);
 client.close();
 ```
 
-### Run the load test using new plugin
+### Run the load test by using the new plugin
 
-When Load Testing starts your load test, it first deploys the JMeter script along with all other files onto test engine instances, and then starts the load test as instructed at [Customize a load test with Apache JMeter plugins and Load Testing](/azure/load-testing/how-to-use-jmeter-plugins?tabs=portal). Before running the test, go to the parameter tab to define and set required any parameters.
+When Load Testing starts your load test, it first deploys the JMeter script along with all the other files onto test engine instances. Before running the test, go to the parameter tab to define and set required any parameters. For more information, see [Customize a load test with Apache JMeter plugins and Load Testing](/azure/load-testing/how-to-use-jmeter-plugins).
 
-### Performance testing setup for environment
+### Set up performance testing for the environment
 
-In any performance testing, it's important to have a similar environment to the production environment. In this example, the following environment is used for performance testing in order to better understand the system capacity and the performance of the system.
+For performance testing, it's important that your test environment is similar to the production environment. This example uses the following environment for performance testing to better understand the system's capacity and performance.
 
-Per the sample architecture, the following services could be used for performance testing:
+According to the sample architecture, you can use the following services for performance testing:
 
 | Service | Configuration |
 | ----------- | ----------- |
-| Event Hub | Premium with one Processing Unit (PU). |
-| Azure Function | Linux with Premium Plan (EP1) - 210 ACU, 3.5 GB Memory and 1 vCPU equivalent Standard_D1_v2 |
+| Event Hubs | Premium with one processing unit. |
+| Azure Functions | Linux with Premium Plan (EP1) - 210 ACU, 3.5 GB Memory, and 1 vCPU equivalent Standard_D1_v2 |
 | Region | East US |
 
-Choosing the right service tier for any Azure services, including Event Hubs and Azure Functions, is a complex process and depends on many factors. For more information, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/) and [Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
+Choosing the right service tier for any Azure service, including Event Hubs and Azure Functions, is a complex process and depends on many factors. For more information, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/) and [Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
-### Designing KPIs for performance testing
+### Design KPIs for performance testing
 
-Before you can design Key Performance Indicators (KPIs) for performance testing, you need two things: the business requirements and the system architecture. The business requirements tell you what KPIs you want to measure, such as response time, throughput, or error rate. The system architecture tells you how to test the performance of each component, such as web servers, databases, or APIs. It also helps you choose the best performance testing strategy, such as load testing, stress testing, or endurance testing.
+Before you can design key performance indicators (KPIs) for performance testing, you need the business requirements and the system architecture. The business requirements tell you which KPIs, such as response time, throughput, or error rate, that you want to measure. The system architecture tells you how to test the performance of each component, such as web servers, databases, or APIs. It also helps you choose the best performance testing strategy, such as load testing, stress testing, or endurance testing.
 
 In this example, the business requirements are:
 
-- The system should be able to handle 1,000 requests per second.
-- The system reliability should be higher than 0.99.
-- The system should be able to handle 1,000 concurrent devices reporting their personal data information.
-- Specifying the maximum capacity of the system in terms of the number of devices that can be supported. For example, can the system with 3x of the current capacity support 1,000 concurrent devices?
+- The system can handle 1,000 requests per second.
+- The system reliability is higher than 0.99.
+- The system can handle 1,000 concurrent devices reporting their personal data information.
+- You can specify the maximum capacity of the system in terms of the number of devices that it can support. For example, the system can support 1,000 concurrent devices with three times the current capacity.
 
-As per these requirements, the KPIs for performance testing could be:
+To measure whether the system meets these requirements, you can use the following KPIs for performance testing:
 
 | KPI | Description |
 | ----------- | ----------- |
-| RPS |  Request Per Second for an event hub  |
+| RPS |  Requests per second for an event hub  |
 | LOAD |  Number of loads or requests sent to the event hub during performance testing |
 | IR | Number of function executions or ingestion rate |
-| RT | Average time for Azure Function Execution Time |
-| AMU | Average Memory Usage for Azure Functions |
-| SR | Success Rate of all function executions |
-| ARS | Average Downstream Service Response Time (for example, SQL server or a microservice) |
-| DF | Dependency Failure count including internal Azure function errors |
-| MRPS | Maximum RPS with no Backlog in the event hub (System Capacity) |
+| RT | Average time for Azure Functions run time |
+| AMU | Average memory usage for Azure Functions |
+| SR | Success rate of all function app executions |
+| ARS | Average downstream service response time for services like SQL server or a microservice |
+| DF | Dependency failure count, including internal function app errors |
+| MRPS | Maximum RPS with no backlog in the event hub (system capacity) |
 
 ### How to measure KPIs
 
-To measure KPIs, you need to have a performance testing strategy. The strategy defines the performance testing approach for each component. In this example, the following performance testing strategy is used:
+To measure KPIs, you need to have a performance testing strategy. The strategy defines the performance testing approach for each component. This example uses the following performance testing strategy.
 
-- **Event Hubs**: The performance testing approach for the event hub is to send many messages to the event hub and then measure the RPS and LOAD. The RPS is the number of messages that are sent to the event hub per second. The LOAD is the total number of messages that are sent to the event hub during the performance testing. Load Testing service can measure RPS and LOAD.
+- **Event Hubs:** The performance testing approach for the event hub is to send many messages to the event hub and then measure the RPS and LOAD. The RPS is the number of messages that are sent to the event hub per second. The LOAD is the total number of messages that are sent to the event hub during the performance testing. Load Testing can measure RPS and LOAD.
 
-- **Azure Functions**: The performance testing approach for Functions is to measure the following metrics:
+- **Azure Functions:** The performance testing approach for Functions is to measure the following metrics.
 
   - The IR is the number of function executions or ingestion rate.
+
   - The RT is the average time for Functions run time.
+
   - The AMU is the average memory usage for Functions.
-  - The SR is the success rate of all function executions.
+
+  - The SR is the success rate of all function app executions.
+
   - The ARS is the average downstream service response time.
-  - The DF is the dependency failure count including internal Azure function errors.
+
+  - The DF is the dependency failure count including internal function app errors.
   
-  Azure Monitor service can measure AMU, ARS, and DF, but not IR, RT, or SR.
+Azure Monitor can measure AMU, ARS, and DF, but not IR, RT, or SR. To measure KPIs by using Azure Monitor, we need to enable Application Insights for Azure Functions. For more information, see [Enable Application Insights integration](/azure/azure-functions/functions-monitoring#application-insights-integration).
 
-In order to measure KPIs using Azure Monitor service, we need to enable Application Insights for Azure Functions. For more information, see [Enable Application Insights integration](/azure/azure-functions/functions-monitoring#application-insights-integration).
-
-After enabling Azure Monitor service, you can use the following queries to measure KPIs:
+After you enable Azure Monitor, you can use the following queries to measure KPIs:
 
 - IR: `FunctionAppLogs | where Category startswith "name-space-of-your-function" and Message startswith "Executed" | summarize count() by FunctionName, Level, bin(TimeGenerated, 1h) | order by FunctionName desc`
+
 - RT: `FunctionAppLogs| where Category startswith "name-space-of-your-function" and Message startswith "Executed "| parse Message with "Executed " Name " ("  Result ", Id=" Id ", Duration=" Duration:long "ms)"| project  TimeGenerated, Message, FunctionName, Result, FunctionInvocationId, Duration`
+
 - SR: `FunctionAppLogs| where Category startswith "name-space-of-your-function" and Message startswith "Executed" | summarize Success=countif(Level == "Information" ), Total=count() by FunctionName| extend Result=Success*100.0/Total| project FunctionName, Result| order by FunctionName desc`
 
-### Sample of Azure Monitor dashboard
+### Azure Monitor dashboard sample
 
-Here's a sample of Azure Monitor dashboard that shows the KPIs for Azure Functions based on the queries:
+The following image shows a sample of the Azure Monitor dashboard. It shows the KPIs for Azure Functions based on the previous queries.
 
-:::image type="content" source="images/load-testing-azure-monitor-dashboard.png" alt-text="Screenshot samples of the Azure Monitor dashboard." border="false" lightbox="images/load-testing-azure-monitor-dashboard.png#lightbox":::
+:::image type="content" source="images/load-testing-azure-monitor-dashboard.png" alt-text="Screenshot that shows samples of the Azure Monitor dashboard." border="false" lightbox="images/load-testing-azure-monitor-dashboard.png#lightbox":::
 
 ### Conclusion
 
-In this article, you learned how to design KPIs and develop a dashboard for Azure Load Test. You also learned how to use custom plugins in JMeter to perform load testing on Azure Functions integrated with Event Hubs. You can use the same approach to perform load testing on other Azure services. You can also set up a CI/CD pipeline for your load testing scripts using Azure DevOps.
+In this article, you learned how to design KPIs and develop a dashboard for Load Testing. You also learned how to use custom plugins in JMeter to perform load testing on Azure Functions integrated with Event Hubs. You can use the same approach to perform load testing on other Azure services. You can also set up a CI/CD pipeline for your load testing scripts by using Azure DevOps.
 
 For more information, see [Load Testing](/azure/load-testing/).
 
 ## Contributors
 
-*Microsoft maintains this article. The following contributors originally wrote it:*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal authors:
 
 - [Mahdi Setayesh](https://www.linkedin.com/in/mahdi-setayesh-a03aa644/) | Principal Software Engineer
 - [Oscar Fimbres](https://www.linkedin.com/in/ofimbres) | Senior Software Engineer
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 - [Load Testing](/azure/load-testing/)
 - [Sample code for a custom JMeter plugin](https://github.com/Azure-Samples/load-testing-jmeter-plugins)
-- [How to develop a new custom plugin?](https://jmeter.apache.org/usermanual/jmeter_tutorial.html)
-- [Customize a load test with Apache JMeter plugins and Load Testing](/azure/load-testing/how-to-use-jmeter-plugins?tabs=portal)
+- [How to develop a new custom plugin](https://jmeter.apache.org/usermanual/jmeter_tutorial.html)
+- [Customize a load test with Apache JMeter plugins and Load Testing](/azure/load-testing/how-to-use-jmeter-plugins)
 - [What is Application Insights](/azure/azure-monitor/app/app-insights-overview)
-
-## Related resources
-
 - [Load testing your Azure App Service applications](/azure/load-testing/concept-load-test-app-service)
 - [Quickstart: Create and run a load test with Load Testing](/azure/load-testing/quickstart-create-and-run-load-test)
 - [Load test a website by using a JMeter script in Load Testing](/azure/load-testing/how-to-create-and-run-load-test-with-jmeter-script)
