@@ -198,7 +198,7 @@ Principal author:
 - [AKS documentation][AKS]
 - [Azure Policy documentation][Azure Policy]
 - [Azure Monitor documentation][Azure Monitor]
-- [Connect an Azure Arc-enabled Kubernetes cluster][Connect an Azure Arc-enabled Kubernetes cluster]
+- [Connect an existing Kubernetes cluster to Azure Arc][Connect an existing Kubernetes cluster to Azure Arc]
 
 ## Related resources
 
