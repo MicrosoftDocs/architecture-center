@@ -88,17 +88,17 @@ Azure Arc-enabled Kubernetes consists of a few agents (or *operators*) that run 
 
 - The `deployment.apps/logcollector` collects platform telemetry to help ensure the operational health of the platform.
 
-For more information, see [Connect an Azure Arc-enabled Kubernetes cluster][Connect an Azure Arc-enabled Kubernetes cluster].
+For more information, see [Connect an existing Kubernetes cluster to Azure Arc][Connect an existing Kubernetes cluster to Azure Arc].
 
 ### Monitor clusters by using Azure Monitor container insights
 
 Monitoring your containers is crucial. Azure Monitor container insights provides robust monitoring capabilities for AKS and AKS engine clusters. You can also configure Azure Monitor container insights to monitor Azure Arc-enabled Kubernetes clusters that are hosted outside of Azure. This configuration provides comprehensive monitoring of your Kubernetes clusters across Azure, on-premises, and non-Microsoft cloud environments.
 
-Azure Monitor Container Insights provides performance visibility by collecting memory and processor metrics from controllers, nodes, and containers. These metrics are available in Kubernetes through the Metrics API. Container logs are also collected. After you enable monitoring from Kubernetes clusters, a containerized version of the Log Analytics agent automatically collects metrics and logs. Metrics are written to the metrics store, and log data is written to the logs store that's associated with your Log Analytics workspace. For more information, see [Azure Monitor container insights overview][Azure Monitor container insights overview].
+Azure Monitor Container Insights provides performance visibility by collecting memory and processor metrics from controllers, nodes, and containers. These metrics are available in Kubernetes through the Metrics API. Container logs are also collected. After you enable monitoring from Kubernetes clusters, a containerized version of the Log Analytics agent automatically collects metrics and logs. Metrics are written to the metrics store, and log data is written to the logs store that's associated with your Log Analytics workspace. For more information, see [Azure Monitor features for Kubernetes monitoring][Azure Monitor features for Kubernetes monitoring].
 
 You can enable Azure Monitor container insights for one or more deployments of Kubernetes by using a PowerShell script or a Bash script.
 
-For more information, see [Enable monitoring of Azure Arc-enabled Kubernetes cluster][Enable monitoring of Azure Arc-enabled Kubernetes cluster].
+For more information, see [Enable monitoring for Kubernetes clusters][Enable monitoring for Kubernetes clusters].
 
 ### Use Azure Policy to enable GitOps-based application deployment
 
@@ -165,7 +165,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - Microsoft recommends that you use a service principal that has limited privileges to onboard Kubernetes clusters to Azure Arc. This practice is useful in continuous integration and continuous delivery pipelines such as Azure Pipelines and GitHub Actions. For more information, see [Create an Azure Arc-enabled onboarding service principal][Create an Azure Arc-enabled onboarding service principal].
 
-- To simplify service principal management, you can use managed identities in AKS. However, clusters must be created by using the managed identity. The existing clusters, which include Azure and on-premises clusters, can't be migrated to managed identities. For more information, see [Use managed identities in AKS][Use managed identities in AKS].
+- To simplify service principal management, you can use managed identities in AKS. However, clusters must be created by using the managed identity. The existing clusters, which include Azure and on-premises clusters, can't be migrated to managed identities. For more information, see [Use a managed identity in AKS][Use a managed identity in AKS].
 
 ### Cost Optimization
 
@@ -219,18 +219,18 @@ Related architectures:
 [Azure Arc-enabled Kubernetes]: /azure/azure-arc/kubernetes
 [Azure Arc network requirements]: /azure/azure-arc/network-requirements-consolidated
 [Azure Monitor]: /azure/azure-monitor
-[Azure Monitor container insights overview]: /azure/azure-monitor/insights/container-insights-overview
+[Azure Monitor features for Kubernetes monitoring]: /azure/azure-monitor/insights/container-insights-overview
 [Azure Policy]: /azure/governance/policy
 [Azure Policy built-in definitions for Azure Arc-enabled Kubernetes]: /azure/azure-arc/kubernetes/policy-reference
-[Connect an Azure Arc-enabled Kubernetes cluster]: /azure/azure-arc/kubernetes/quickstart-connect-cluster
-[Create an Azure Arc-enabled onboarding service principal]: /azure/azure-arc/servers/onboard-service-principal
+[Connect an existing Kubernetes cluster to Azure Arc]: /azure/azure-arc/kubernetes/quickstart-connect-cluster
+[Create an Azure Arc-enabled onboarding service principal]: /azure/azure-arc/servers/onboard-service-principal#create-a-service-principal-for-onboarding-at-scale
 [Deploy applications at scale]: /azure/azure-arc/kubernetes/use-azure-policy-flux-2
 [Deploy applications by using GitOps with Flux v2]: /azure/azure-arc/kubernetes/tutorial-use-gitops-flux2
-[Enable monitoring of Azure Arc-enabled Kubernetes cluster]: /azure/azure-monitor/containers/kubernetes-monitoring-enable
+[Enable monitoring for Kubernetes clusters]: /azure/azure-monitor/containers/kubernetes-monitoring-enable
 [Kubernetes]: https://kubernetes.io
 [Principles of cost optimization]: /azure/well-architected/cost-optimization
 [Resource group limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#azure-resource-group-limits
 [Subscription limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#azure-subscription-limits
 [Supported regions]: /azure/azure-arc/servers/overview#supported-regions
 [Use Azure RBAC for Kubernetes Authorization]: /azure/aks/manage-azure-rbac
-[Use managed identities in AKS]: /azure/aks/use-managed-identity
+[Use a managed identity in AKS]: /azure/aks/use-managed-identity
