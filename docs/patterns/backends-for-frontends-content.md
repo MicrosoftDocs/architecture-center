@@ -2,26 +2,25 @@ Decouple backend services from the frontend implementations to tailor experience
 
 ## Context and problem
 
-Consider an application that was initially designed with a desktop web UI and a corresponding backend service. As business requirements changed over time, a mobile inteface was added. Both interfaces interact with the same backend service but the capabilities of a mobile device differ significantly from a desktop browser, in terms of screen size, performance, and display limitations.
+Consider an application that was initially designed with a desktop web UI and a corresponding backend service. As business requirements changed over time, a mobile interface was added. Both interfaces interact with the same backend service but the capabilities of a mobile device differ significantly from a desktop browser, in terms of screen size, performance, and display limitations.
 
-![Context-and-problem diagram of the Backends for Frontends pattern](./_images/backend-for-frontend.png)
+![Context-and-problem diagram of the Backends for Frontends pattern](./_images/backend-for-frontend-problem.png)
 
-The backend service often faces competing demands from different frontends, leading to frequent changes and potential bottlenecks in the development process. Conflicting updates and the need to maintain compatibility result in excessive work on a single deployable resource. Having a separate team manage the backend service can create a disconnect between frontend and backend teams, causing delays in gaining consensus and balancing requirements. For example, changes requested by one frontend team must be validated with other frontend teams before integration.
+The backend service often faces competing demands from different frontends, leading to frequent changes and potential bottlenecks in the development process. Conflicting updates and the need to maintain compatibility result in excessive work on a single deployable resource. 
 
-
-> Note: Many BFFs relied on REST APIs, but GraphQL implementations are a common alternative.
+Having a separate team manage the backend service can create a disconnect between frontend and backend teams, causing delays in gaining consensus and balancing requirements. For example, changes requested by one frontend team must be validated with other frontend teams before integration.
 
 ## Solution
 
-Introduce a new layer that handles only the UI-specific requirements. This layer, called the backend-for-frontend (BFF) service, sits between the frontend UI and the backend service. If the application supports multiple interfaces, create a BFF service for each interface. For example, if you have a web interface and a mobile app, you would create separate BFF services for each. 
+Introduce a new layer that handles only the interface-specific requirements. This layer called the backend-for-frontend (BFF) service, sits between the frontend client and the backend service. If the application supports multiple interfaces, create a BFF service for each interface. For example, if you have a web interface and a mobile app, you would create separate BFF services for each. 
 
-> This pattern tailors the frontend to a specific interface, without affecting other frontend experiences. It also fine-tunes the performance to best match the needs of the frontend environment. Not only is each BFF service smaller and less complex, but it is also faster than a generic backend.
+> This pattern tailors the frontend to a specific interface, without affecting other frontend experiences. It also fine-tunes the performance to best match the needs of the frontend environment. Not only is each BFF service smaller and less complex, but it's also faster than a generic backend.
 >
 > Frontend teams have autonomy over their own BFF service, allowing flexibility in language selection, release cadence, workload prioritization, and feature integration without relying on a centralized backend development team. 
 
 While many BFFs relied on REST APIs, GraphQL implementations are becoming a common alternative, which removes the need for the BFF layer because the querying mechanism doesn't require a separate endpoint.
 
-![Diagram of the Backends for Frontends pattern](./_images/backend-for-frontend-example.png)
+![Diagram of the Backends for Frontends pattern](./_images/backend-for-frontend-solution.png)
 
 For more information, see [Pattern: Backends For Frontends](https://samnewman.io/patterns/architectural/bff/).
 
@@ -76,7 +75,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-This example shows the Backend for Frontends pattern where you have two distinct client applications: a mobile app and a desktop application. Both clients interact with an Azure API Management (data plane gateway), which acts as an abstraction layer, handling common cross-cutting concerns such as:
+This example shows a use case for the pattern where you have two distinct client applications: a mobile app and a desktop application. Both clients interact with an Azure API Management (data plane gateway), which acts as an abstraction layer, handling common cross-cutting concerns such as:
 
 - **Authorization** – Ensuring only verified identities with the proper access tokens can call protected resources using the Azure API Management (APIM) with Microsoft Entra ID.
 
@@ -86,9 +85,9 @@ This example shows the Backend for Frontends pattern where you have two distinct
 
 - **Routing & Aggregation** – Directing incoming requests to the appropriate Backend for Frontend (BFF) services.
 
-Each client has a dedicated BFF service running as an Azure Function that serve as an intermediary between the gateway and the underlying microservices. These client-specif BFF ensures a tailored experience for pagination among other functionalities. While the mobile is more bandwidth-conscious app and caching improves performance, the desktop aggregates multiple pages in a single request, optimizing for a richer user experience.
+Each client has a dedicated BFF service running as an Azure Function that serve as an intermediary between the gateway and the underlying microservices. These client-specific BFF ensures a tailored experience for pagination among other functionalities. While the mobile is more bandwidth-conscious app and caching improves performance, the desktop aggregates multiple pages in a single request, optimizing for a richer user experience.
 
-![Azure BFF architecture with Azure API Management handling cross-cutting concerns; mobile and desktop fetch data using client-specific BFF Azure Functions](./_images/bff-example.png)
+![Azure BFF architecture with Azure API Management handling cross-cutting concerns; mobile and desktop fetch data using client-specific BFF Azure Functions](./_images/backend-for-frontend-example.png)
 
 #### Flow A: Mobile Client – First Page Request
 
@@ -116,8 +115,11 @@ Each client has a dedicated BFF service running as an Azure Function that serve 
 ### Design
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) serves as the cloud-based Identity Provider, issuing tailored audience claims for both mobile and desktop clients, which are subsequently leveraged for authorization.
-- [Azure API Management](/azure/well-architected/service-guides/api-management/operational-excellence) acts as proxy between the clients and their BBFs adding a perimeter. It is configured with policies to [validate the JSON Web Tokens(JWTs)](/azure/api-management/validate-jwt-policy), rejecting requests that arrive without a token or the claims aren't valid for the targeted BFF. Additionally it streams all the activity logs to Azure Monitor.
+
+- [Azure API Management](/azure/well-architected/service-guides/api-management/operational-excellence) acts as proxy between the clients and their BBFs adding a perimeter. It's configured with policies to [validate the JSON Web Tokens(JWTs)](/azure/api-management/validate-jwt-policy), rejecting requests that arrive without a token or the claims aren't valid for the targeted BFF. Additionally it streams all the activity logs to Azure Monitor.
+
 - [Azure Monitor](/azure/well-architected/service-guides/azure-log-analytics) functions as the centralized monitoring solution, aggregating all activity logs to ensure comprehensive, end-to-end observability.
+
 - [Azure Functions](/azure/well-architected/service-guides/azure-functions) is a serverless solution that seamlessly exposes BFF logic across multiple endpoints, enabling streamlined development, reducing infrastructure overhead, and lowering operational costs.
 
 ## Next steps
