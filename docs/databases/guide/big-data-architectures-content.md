@@ -31,13 +31,13 @@ Most big data architectures include some or all of the following components:
 
 - **Data storage**. Data for batch processing operations is typically stored in a distributed file store that can hold high volumes of large files in various formats. This kind of store is often called a *data lake*. Options for implementing this storage include Azure Data Lake Store, blob containers in Azure Storage, or One Lake in Microsoft Fabric.
 
-- **Batch processing**. Because the data sets are so large, often a big data solution must process data files using long-running batch jobs to filter, aggregate, and otherwise prepare the data for analysis. Usually these jobs involve reading source files, processing them, and writing the output to new files. Options include:
+- **Batch processing**. Because the data sets are so large, a big data solution often must process data files using long-running batch jobs to filter, aggregate, and otherwise prepare the data for analysis. Usually these jobs involve reading source files, processing them, and writing the output to new files. Options include:
 
   - Run U-SQL jobs in Azure Data Lake Analytics
   - Use Hive, Pig, or custom Map/Reduce jobs in an HDInsight Hadoop cluster
   - Use Java, Scala, or Python programs in an HDInsight Spark cluster
-  - Use Python, Scala or SQL language in notebooks of Azure Databricks 
-  - Use Python, Scala or SQL language in notebooks of Microsoft Fabric
+  - Use Python, Scala, or SQL language in notebooks of Azure Databricks 
+  - Use Python, Scala, or SQL language in notebooks of Microsoft Fabric
 
 
 - **Real-time message ingestion**. If the solution includes real-time sources, the architecture must include a way to capture and store real-time messages for stream processing. This might be a simple data store, where incoming messages are dropped into a folder for processing. However, many solutions need a message ingestion store to act as a buffer for messages, and to support scale-out processing, reliable delivery, and other message queuing semantics. This portion of a streaming architecture is often referred to as stream buffering. Options include Azure Event Hubs, Azure IoT Hub, and Kafka.
@@ -45,8 +45,8 @@ Most big data architectures include some or all of the following components:
 - **Stream processing**. After capturing real-time messages, the solution must process them by filtering, aggregating, and otherwise preparing the data for analysis. The processed stream data is then written to an output sink.
 
   - Azure Stream Analytics provides a managed stream processing service based on perpetually running SQL queries that operate on unbounded streams.
-  - You can also use open source Apache streaming technologies like Spark Streaming in an HDInsight cluster or in Azure Databricks
-  - Azure Functions is a serverless compute service that can run event-driven code which is ideal for lightweight stream processing tasks
+  - You can also use open source Apache streaming technologies like Spark Streaming in an HDInsight cluster or Azure Databricks
+  - Azure Functions is a serverless compute service that can run event-driven code, which is ideal for lightweight stream processing tasks
   - Microsoft Fabric supports real-time data processing with event streams and Spark processing.
 
 - **Machine learning**. Reading the prepared data for analysis (from batch or stream processing), you use machine learning algorithms to build models that predict outcomes or classify data. These models can be trained on large datasets, and the resulting models are used to analyze new data and make predictions. This can be done using [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning), which provides tools for building, training, and deploying models. Alternatively, you can use pre-built APIs for common machine learning tasks such as vision, speech, language, and decision-making offered by Azure AI Services.
@@ -60,7 +60,7 @@ Most big data architectures include some or all of the following components:
 
 - **Analysis and reporting**. The goal of most big data solutions is to provide insights into the data through analysis and reporting. To empower users to analyze the data, the architecture may include a data modeling layer, such as a multidimensional OLAP cube or tabular data model in Azure Analysis Services. It might also support self-service BI, using the modeling and visualization technologies in Microsoft Power BI or Microsoft Excel. Analysis and reporting can also take the form of interactive data exploration by data scientists or data analysts. For these scenarios, many Azure services support analytical notebooks, such as Jupyter, enabling these users to use their existing skills with Python or Microsoft R. For large-scale data exploration, you can use Microsoft R Server, either standalone or with Spark. Additionally, Microsoft Fabric offers the capability to edit data models directly within the service, adding flexibility and efficiency to the task of data modeling and analysis.
 
-- **Orchestration**. Most big data solutions consist of repeated data processing operations, encapsulated in workflows, that transform source data, move data between multiple sources and sinks, load the processed data into an analytical data store, or push the results straight to a report or dashboard. To automate these workflows, you can use an orchestration technology such Azure Data Factory, Microsoft Fabric, or Apache Oozie and Sqoop.
+- **Orchestration**. Most big data solutions consist of repeated data processing operations, encapsulated in workflows, that transform source data, move data between multiple sources and sinks, load the processed data into an analytical data store, or push the results straight to a report or dashboard. To automate these workflows, you can use an orchestration technology such as Azure Data Factory, Microsoft Fabric, or Apache Oozie and Sqoop.
 
 ## Lambda architecture
 
@@ -94,7 +94,7 @@ The **kappa architecture** was proposed by Jay Kreps as an alternative to the la
 
 ![Kappa architecture diagram](_images/kappa.png)
 
-There are some similarities to the lambda architecture's batch layer, in that the event data is immutable and all of it is collected, instead of a subset. The data is ingested as a stream of events into a distributed and fault tolerant unified log. These events are ordered, and the current state of an event is changed only by a new event being appended. Similar to a lambda architecture's speed layer, all event processing is performed on the input stream and persisted as a real-time view.
+There are some similarities to the lambda architecture's batch layer: the event data is immutable and all of it is collected, instead of a subset. The data is ingested as a stream of events into a distributed, fault-tolerant unified log. These events are ordered, and the current state of an event is changed only by a new event being appended. Similar to a lambda architecture's speed layer, all event processing is performed on the input stream and persisted as a real-time view.
 
 If you need to recompute the entire data set (equivalent to what the batch layer does in lambda), you simply replay the stream, typically using parallelism to complete the computation in a timely fashion.
 
@@ -124,7 +124,7 @@ Event-driven architectures are central to IoT solutions. The following diagram s
 
 The **cloud gateway** ingests device events at the cloud boundary, using a reliable, low latency messaging system.
 
-Devices might send events directly to the cloud gateway, or through a **field gateway**. A field gateway is a specialized device or software, usually collocated with the devices, that receives events and forwards them to the cloud gateway. The field gateway might also preprocess the raw device events, performing functions such as filtering, aggregation, or protocol transformation.
+Devices might send events directly to the cloud gateway, or through a **field gateway**. A field gateway is a specialized device or software, usually collocated with the devices, that receives events and forwards them to the cloud gateway. The field gateway might also preprocess the raw device events, performing filtering, aggregation, or protocol transformation functions.
 
 After ingestion, events go through one or more **stream processors** that can route the data (for example, to storage) or perform analytics and other processing.
 
