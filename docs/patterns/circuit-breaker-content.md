@@ -26,7 +26,7 @@ The proxy can be implemented as a state machine with the following states that m
 
 - **Half-Open**: A limited number of requests from the application are allowed to pass through and invoke the operation. If these requests are successful, it's assumed that the fault that was previously causing the failure has been fixed and the circuit breaker switches to the **Closed** state (the failure counter is reset). If any request fails, the circuit breaker assumes that the fault is still present so it reverts to the **Open** state and restarts the time-out timer to give the system a further period of time to recover from the failure.
 
-    > The **Half-Open** state is useful to prevent a recovering service from suddenly being flooded with requests. As a service recovers, it might be able to support a limited volume of requests until the recovery is complete, but while recovery is in progress a flood of work can cause the service to time out or fail again.
+    > The **Half-Open** state is useful to prevent a recovering service from suddenly being flooded with requests. As a service recovers, it might be able to support a limited volume of requests until the recovery is complete, but while recovery is in progress, a flood of work can cause the service to time out or fail again.
 
 ![Circuit Breaker states](./_images/circuit-breaker-diagram.png)
 
@@ -87,7 +87,7 @@ Use this pattern:
 
 This pattern isn't recommended:
 
-- For handling access to local private resources in an application, such as in-memory data structure. In this environment, using a circuit breaker would add overhead to your system.
+- For handling access to local private resources in an application, such as an in-memory data structure. In this environment, using a circuit breaker would add overhead to your system.
 - As a substitute for handling exceptions in the business logic of your applications.
 - When well-known retry algorithms are sufficient and your dependencies are designed to deal with retry mechanisms. Implementing a circuit breaker in your application in this case, could add unnecessary complexity to your system.
 - When waiting for a circuit breaker to reset might introduce unacceptable delays.
