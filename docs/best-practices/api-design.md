@@ -528,7 +528,7 @@ Multitenancy has a significant impact on API design as it dictates how resources
 
 ### Use Subdomain or Domain-Based Isolation (DNS-Level Tenancy)
 
-This approach offers the highest level of isolation by directing each tenant to a dedicated environment, ensuring governance, infrastructure, and workloads remain fully segregated. Since isolation is handled at the environment level, the need for tenant-specific logic within the application is significantly reduced. However, this comes with higher operational overhead. Alternatively, multiple domains can route traffic to a shared environment, simplifying management and lowering infrastructure costs. However, this sacrifices the true isolation benefits of DNS-based routing, effectively shifting the responsibility to HTTP headers for tenant differentiation and routing.
+This approach offers the highest level of isolation by directing each tenant to a dedicated environment, ensuring governance, infrastructure, and workloads remain fully segregated. Since isolation is handled at the environment level, the need for tenant-specific logic within the application is significantly reduced. However, this comes with higher operational overhead. Alternatively, multiple domains can route traffic to a shared environment, simplifying management and lowering infrastructure costs. However, this sacrifices the true isolation benefits of DNS-based routing, effectively shifting the responsibility to HTTP headers for tenant differentiation and routing. Whether using isolated or shared environments, [preserving the hostname between the reverse proxy and backend services](/azure/architecture/best-practices/host-name-preservation) is always recommended.
 
 ```http
 GET https://adventureworks.api.contoso.com/orders/3 HTTP/1.1
