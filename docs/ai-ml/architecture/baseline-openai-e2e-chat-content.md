@@ -144,7 +144,7 @@ If you use infrastructure as code (IaC) to deploy your resources, including your
 
 #### Multiple-region design
 
-This architecture doesn't serve as a regional stamp in a multiple-region architecture. It provides high availability within a single region because it uses availability zones completely, but it lacks some key components to make this design ready for a multi-region solution. This architecture doesn't include the following components and considerations:
+This architecture doesn't serve as a regional stamp in a multiple-region architecture. It provides high availability within a single region because it uses availability zones completely, but it lacks some key components to make this design ready for a multiple-region solution. This architecture doesn't include the following components and considerations:
 
 - Global ingress and routing
 - A DNS management strategy
@@ -363,7 +363,7 @@ Azure OpenAI is a consumption-based service, so matching demand with supply is t
 
   - Be approved. Avoid exposing the service in a way that supports free-for-all access. Limit access through network and identity controls, such as keys or role-based access control.
 
-  - Be self-controlled. Require clients to use the token-limiting constraints that API calls provide, such as max_tokens and max_completions.
+  - Be self controlled. Require clients to use the token-limiting constraints that API calls provide, such as max_tokens and max_completions.
 
   - Use batching, when practical. Review clients to ensure that they appropriately batch prompts.
 
@@ -437,7 +437,7 @@ Consider the following guidance when you implement automated evaluations:
 
 - Some of these tests require preconfigured data inputs of questions, context, and ground truth.
 
-- Include enough questions and answer pairs to help ensure that the results of the tests are reliable. We recommend that you include at least 100-150 pairs. These questions and answers are also known as your *golden dataset*. A larger number of pairs might be required, depending on the size and domain of your dataset.
+- Include enough question-and-answer pairs to help ensure that the results of the tests are reliable. We recommend that you include at least 100-150 pairs. These questions and answers are also known as your *golden dataset*. A larger number of pairs might be required, depending on the size and domain of your dataset.
 
 - Avoid using language models to generate any of the data in your golden dataset.
 
