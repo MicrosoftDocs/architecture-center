@@ -18,7 +18,7 @@ Introduce a new layer that handles only the interface-specific requirements. Thi
 >
 > Frontend teams have autonomy over their own BFF service, allowing flexibility in language selection, release cadence, workload prioritization, and feature integration without relying on a centralized backend development team. 
 
-While many BFFs relied on REST APIs, GraphQL implementations are becoming a common alternative, which removes the need for the BFF layer because the querying mechanism doesn't require a separate endpoint.
+While many BFFs relied on REST APIs, GraphQL implementations are becoming an alternative, which removes the need for the BFF layer because the querying mechanism doesn't require a separate endpoint.
 
 ![Diagram of the Backends for Frontends pattern](./_images/backend-for-frontend-solution.png)
 
