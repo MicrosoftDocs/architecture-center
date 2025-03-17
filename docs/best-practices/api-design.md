@@ -559,7 +559,7 @@ Authorization: Bearer <JWT-token>
 
 ### Pass tenant-specific information through the URI path
 
-This consist on apending tenant identifiers within the resource hierarchy. This method relies on the API gateway or reverse proxy to determine which tenant's data to serve based on the path segment. While effective, path-based isolation compromises the RESTful nature of the API and reduces flexibility. It also demands more complex routing logic, increasing compute costs due to the overhead of pattern matching or string parsing. In contrast, header-based isolation conveys tenant information through HTTP headers, typically as key-value pairs, simplifying routing by utilizing easily parsed headers. This method is less resource-intensive and more efficient than path-based approaches. Both strategies facilitate the efficient use of shared infrastructure, reducing operational costs and improving performance in large-scale, multi-tenant web APIs.
+This approach appends tenant identifiers within the resource hierarchy, relying on the API gateway or reverse proxy to determine the appropriate tenant based on the path segment. While effective, path-based isolation compromises the API’s RESTful design and introduces more complex routing logic, often requiring pattern matching or regular expressions to parse the URI path.  In contrast, header-based isolation conveys tenant information through HTTP headers as key-value pairs. Both approaches enable efficient infrastructure sharing, lowering operational costs and enhancing performance in large-scale, multi-tenant web APIs.
 
 ```http
 GET https://api.contoso.com/tenants/adventureworks/orders/3
