@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure SQL Database that are useful when you design a multitenant system, and links to guidance and examples for how to use Azure SQL in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 12/19/2023
+ms.date: 03/18/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -42,7 +42,7 @@ More information:
 
 ### Elastic database tools
 
-The [Sharding pattern](../../../patterns/sharding.yml) enables you to scale your workload across multiple databases. Azure SQL Database provides tools to support sharding. These tools include the management of *shard maps* (a database that tracks the tenants assigned to each shard). THey also include initiating and tracking queries and management operations on multiple shards by using *elastic jobs*.
+The [Sharding pattern](../../../patterns/sharding.yml) enables you to scale your workload across multiple databases. Azure SQL Database provides tools to support sharding. These tools include the management of *shard maps* (a database that tracks the tenants assigned to each shard). They also include initiating and tracking queries and management operations on multiple shards by using *elastic jobs*.
 
 More information:
 
