@@ -1,4 +1,4 @@
-The Circuit Breaker pattern helps handle faults that might take a variable amount of time to recover from, when connecting to a remote service or resource. This pattern can improve the stability and resiliency of an application.
+The Circuit Breaker pattern helps handle faults that might take varying amounts of time to recover from when an application connects to a remote service or resource. The Circuit Breaker pattern temporarily blocks access to a faulty service after detecting failures. This action prevents repeated unsuccessful attempts so that the system can recover effectively. This pattern can improve the stability and resiliency of an application.
 
 ## Context and problem
 
@@ -43,7 +43,7 @@ The success counter for the **Half-Open** state records the number of successful
 >System recovery is based on external operations, such as restoring or restarting a failed component or repairing a network connection.
 
 :::image type="complex" source="./_images/circuit-breaker-diagram.png" alt-text="Diagram that shows the circuit breaker states." lightbox="./_images/circuit-breaker-diagram.png" border="false":::
-
+The diagram shows three sections that are labeled closed, half-open, and open. The closed state includes the action to reset failure counter. If the operation succeeds, it returns a result, otherwise the increment failure counter returns a failure. The hald-open state includes the action to reset the success counter. If the operation succeeds, the increment success counter returns a result, otherwise it returns a failure. The open state includes the actions to start the time-out timer and then return a failure. An arrow from the closed to open state indicates that the failure threshold is reached. An arrow from the open to half-open state indicates that the time-out timer expired. An arrow from the half-open to closed state indicates that the success count threshold is reached. An arrow from the half-open to open state indicates that the operation failed.
 :::image-end:::
 
 The Circuit Breaker pattern provides stability while the system recovers from a failure and minimizes the impact on performance. It can help maintain the response time of the system. This pattern quickly rejects a request for an operation that's likely to fail, rather than waiting for the operation to time out or never return. If the circuit breaker raises an event each time it changes state, this information can help monitor the health of the protected system component or alert an administrator when a circuit breaker switches to the **Open** state.
