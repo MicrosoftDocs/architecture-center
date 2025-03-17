@@ -77,16 +77,16 @@ Consider the following factors when you implement this pattern:
 
 **Accelerated circuit breaking:** Sometimes a failure response can contain enough information for the circuit breaker to trip immediately and stay tripped for a minimum amount of time. For example, the error response from a shared resource that's overloaded could indicate that an immediate retry isn't recommended and that the application should instead try again in a few minutes.
 
-**Multiregion deployments:** A circuit breaker can be designed for single or multi-region deployments. The latter can be implemented using global load balancers or custom region-aware circuit breaking strategies that ensure controlled failover, latency optimization, and regulatory compliance.
+**Multiregion deployments:** You can design a circuit breaker for single region or multiregion deployments. To design for multiregion deployments, use global load balancers or custom region-aware circuit breaking strategies that ensure controlled failover, latency optimization, and regulatory compliance.
 
-**Service mesh circuit breakers:** Circuit breakers can be implemented at the application layer or as a cross-cutting, abstracted feature. For example, service meshes often support circuit breaking as a [sidecar](./sidecar.yml) or as a standalone capability without modifying application code.
+**Service mesh circuit breakers:** You can implement circuit breakers at the application layer or as a cross-cutting, abstracted feature. For example, service meshes often support circuit breaking as a [sidecar](./sidecar.yml) or as a standalone capability without modifying application code.
 
 > [!NOTE]
-> A service can return HTTP 429 (Too Many Requests) if it's throttling the client, or HTTP 503 (Service Unavailable) if the service isn't currently available. The response can include additional information, such as the anticipated duration of the delay.
+> A service can return HTTP 429 (Too Many Requests) if it's throttling the client or HTTP 503 (Service Unavailable) if the service isn't available. The response can include other information, such as the anticipated duration of the delay.
 
-**Replaying failed requests:** In the **Open** state, rather than simply failing quickly, a circuit breaker could also record the details of each request to a journal and arrange for these requests to be replayed when the remote resource or service becomes available.
+**Replaying failed requests:** In the **Open** state, rather than simply failing quickly, a circuit breaker can also record the details of each request to a journal and arrange for these requests to be replayed when the remote resource or service becomes available.
 
-**Inappropriate time-outs on external services:** A circuit breaker might not be able to fully protect applications from operations that fail in external services that are configured with a lengthy time-out period. If the time-out is too long, a thread running a circuit breaker might be blocked for an extended period before the circuit breaker indicates that the operation has failed. In this time, many other application instances might also try to invoke the service through the circuit breaker and tie up a significant number of threads before they all fail.
+**Inappropriate time-outs on external services:** A circuit breaker might not fully protect applications from failures in external services that have long time-out periods. If the time-out is too long, a thread that runs a circuit breaker might be blocked for an extended period before the circuit breaker indicates that the operation failed. During this time, many other application instances might also try to invoke the service through the circuit breaker and tie up numerous threads before they all fail.
 
 **Adaptability to compute diversification:** Circuit breakers should account for different compute environments, from serverless to containerized workloads, where factors like cold starts and scalability impact failure handling. Adaptive approaches can dynamically adjust strategies based on the compute type, ensuring resilience across heterogeneous architectures.
 
@@ -94,78 +94,78 @@ Consider the following factors when you implement this pattern:
 
 Use this pattern when:
 
-- To prevent cascading failures by stopping excessive invokes by a remote service or access requests to a shared resource if these operations are highly likely to fail.
+- You want to prevent cascading failures by stopping excessive remote service calls or access requests to a shared resource if these operations are likely to fail.
 
-- To enhance multi-region resilience by routing traffic intelligently based on real-time failure signals.
-- To protect against slow dependencies, helping you to keep up with your service level objectives (SLOs), and to avoid performance degradation due to high-latency services.
-- To handle intermittent connectivity issues and reduce request failures in distributed environments.
+- You want to route traffic intelligently based on real-time failure signals to enhance multiregion resilience.
+- You want to protect against slow dependencies so that you can maintain your service-level objectives (SLOs) and avoid performance degradation from high-latency services.
+- You want to handle intermittent connectivity problems and reduce request failures in distributed environments.
 
 This pattern might not be suitable when:
 
-- For handling access to local private resources in an application, such as in-memory data structure. In this environment, using a circuit breaker would add overhead to your system.
+- You need to manage access to local private resources in an application, such as in-memory data structure. In this environment, a circuit breaker adds overhead to your system.
 
-- As a substitute for handling exceptions in the business logic of your applications.
-- When well-known retry algorithms are sufficient and your dependencies are designed to deal with retry mechanisms. Implementing a circuit breaker in your application in this case, could add unnecessary complexity to your system.
-- When waiting for a circuit breaker to reset might introduce unacceptable delays.
-- If you have a message-driven or event-driven architecture, as they often route failed messages to a Dead Letter Queue (DLQ) for manual or deferred processing. The built-in failure isolation and retry mechanisms typically implemented in these designs are often sufficient.
-- If failure recovery is managed at the infrastructure or platform level, such as with health checks in global load balancers or service meshes, circuit breakers might not be necessary.
+- You need to use it as a substitute for handling exceptions in the business logic of your applications.
+- Well-known retry algorithms are sufficient and your dependencies are designed to deal with retry mechanisms. In this scenario, a circuit breaker in your application might add unnecessary complexity to your system.
+- Waiting for a circuit breaker to reset might introduce unacceptable delays.
+- You have a message-driven or event-driven architecture because they often route failed messages to a dead letter queue for manual or deferred processing. Built-in failure isolation and retry mechanisms are often sufficient.
+- Failure recovery is managed at the infrastructure or platform level, such as with health checks in global load balancers or service meshes.
 
 ## Workload design
 
-An architect should evaluate how the Circuit Breaker pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+Evaluate how to use the Circuit Breaker pattern in a workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). The following table provides guidance about how this pattern supports the goals of each pillar.
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
-| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | This pattern prevents overloading a faulting dependency. You can also use this pattern to trigger graceful degradation in the workload. Circuit breakers are often coupled with automatic recovery to provide both self-preservation and self-healing.<br/><br/> - [RE:03 Failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis)<br/> - [RE:07 Transient faults](/azure/well-architected/reliability/handle-transient-faults)<br/> - [RE:07 Self-preservation](/azure/well-architected/reliability/self-preservation) |
-| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | This pattern avoids the retry-on-error approach which can lead to excessive resource utilization during dependency recovery and can also overload performance on a dependency that's attempting recovery.<br/><br/> - [PE:07 Code and infrastructure](/azure/well-architected/performance-efficiency/optimize-code-infrastructure)<br/> - [PE:11 Live-issues responses](/azure/well-architected/performance-efficiency/respond-live-performance-issues) |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and ensure that it **recovers** to a fully functioning state after a failure occurs. | This pattern helps prevent a faulting dependency from overloading. Use this pattern to trigger graceful degradation in the workload. Couple circuit breakers with automatic recovery to provide self-preservation and self-healing.<br/><br/> - [RE:03 Failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis)<br/> - [Transient faults](/azure/well-architected/reliability/handle-transient-faults)<br/> - [RE:07 Self-preservation](/azure/well-architected/reliability/self-preservation) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, and code. | This pattern avoids the retry-on-error approach, which can lead to excessive resource usage during dependency recovery and can overload performance on a dependency that's attempting recovery.<br/><br/> - [PE:07 Code and infrastructure](/azure/well-architected/performance-efficiency/optimize-code-infrastructure)<br/> - [PE:11 Live-issues responses](/azure/well-architected/performance-efficiency/respond-live-performance-issues) |
 
-As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+If this pattern introduces trade-offs within a pillar, consider them against the goals of the other pillars.
 
 ## Example
 
-This example shows the Circuit Breaker pattern implemented to prevent quota overrun using the [Azure Cosmos DB lifetime free tier](/azure/cosmos-db/free-tier). This tier is primarily used for non-critical data, the throughput is governed by a capacity plan that provisions a designated quota of resource units per second. During seasonal events, demand might exceed the provided capacity, resulting in `429` (Too Many Requests) responses.
+This example implements the Circuit Breaker pattern to prevent quota overrun by using the [Azure Cosmos DB lifetime free tier](/azure/cosmos-db/free-tier). This tier is primarily for non-critical data and operates under a capacity plan that allocates a specific quota of resource units per second. During seasonal events, demand might exceed the provided capacity, which can result in `429` responses.
 
-When demand spikes occur, [Azure Monitor alerts with dynamic thresholds](/azure/azure-monitor/alerts/alerts-dynamic-thresholds) detects and proactively notifies the operations and management teams indicating that scaling-up the database capacity could be required. Simultaneously, a circuit breaker—tuned using historical error patterns—trips to prevent cascading failures. In this state, the application gracefully degrades by returning default or cached responses, informing users of the temporary unavailability of certain data while preserving overall system stability.
+When demand spikes occur, [Azure Monitor alerts with dynamic thresholds](/azure/azure-monitor/alerts/alerts-dynamic-thresholds) detect and proactively notify the operations and management teams that the database requires more capacity. Simultaneously, a circuit breaker that's tuned by using historical error patterns trips to prevent cascading failures. In this state, the application gracefully degrades by returning default or cached responses. The application informs users of the temporary unavailability of certain data while preserving overall system stability.
 
-This strategy enhances resilience aligned with business justification. Controlling capacity surges enables the workload team to manage cost increases deliberately and service quality is maintained without unexpectedly inflating operating expenses. Once demand subsides or increased capacity is confirmed, and the circuit breaker resets and the application returns to full functionality in alignment with both technical and budgetary objectives.
+This strategy enhances resilience that aligns with business justification. It controls capacity surges so that workload teams can manage cost increases deliberately and maintain service quality without unexpectedly increasing operating expenses. After demand subsides or increased capacity is confirmed, the circuit breaker resets, and the application returns to full functionality that aligns with both technical and budgetary objectives.
 
-:::image type="complex" source="./_images/circuit-breaker-example.png" alt-text="Diagram that shows CosmosDB and a circuit breaker implementation in Azure App Service." border="false":::
-   The diagram is organized into three primary sections. The first section contains two identical web browser icons, where the first icon displays a fully functional user interface, while the second icon shows a degraded user experience with an on-screen warning to indicate the issue to users. The second section is enclosed within a dashed-line rectangle, which is divided into two groups. The top group includes the workload resources, consisting of Azure Application Services and Azure Cosmos DB. Arrows from both web browser icons point to the Azure Application Services instance, representing incoming requests from the client. Additionally, arrows from the Azure Application Services instance point to the Azure Cosmos DB, indicating the data interactions between the application services and the database. An additional arrow loops from the Azure Application Services instance back to itself, symbolizing the circuit breaker timeout mechanism. This loop signifies that when a 429 Too Many Requests response is detected, the system falls back to serving cached responses, degrading the user experience until the situation resolves. The bottom group of this section focuses on observability and alerting, featuring Azure Monitor collecting data from the Azure resources at the top group, and connected to an alert rule icon. The third section illustrates the scalability workflow triggered upon the alert being raised. An arrow connects the alert icon to the approvers, indicating that the notification is sent to them for review. Another arrow leads from the approvers to a development console, signifying the approval process for scaling the database. Finally, a subsequent arrow extends from the development console to the Azure Cosmos DB, depicting the action of scaling the database in response to the overload condition.
+:::image type="complex" source="./_images/circuit-breaker-example.png" alt-text="Diagram that shows CosmosDB and a circuit breaker implementation in Azure App Service." border="false" lightbox="./_images/circuit-breaker-example.png":::
+   The diagram has three primary sections. The first section contains two identical web browser icons, where the first icon displays a fully functional user interface, while the second icon shows a degraded user experience that has an on-screen warning to indicate the problem to users. The second section is enclosed within a dashed-line rectangle, which is divided into two groups. The top group includes the workload resources, Azure App Service and Azure Cosmos DB. Arrows from both web browser icons point to the App Service instance, representing incoming requests from the client. Additionally, arrows from the App Service instance point to the Azure Cosmos DB, which indicate data interactions between the application services and the database. Another arrow loops from the App Service instance back to itself, symbolizing the circuit breaker time-out mechanism. This loop signifies that when a 429 Too Many Requests response is detected, the system falls back to serving cached responses, degrading the user experience until the situation resolves. The bottom group of this section focuses on observability and alerting. Azure Monitor collects data from the Azure resources in the top group. Azure Monitor also connects to an alert rule icon. The third section shows the scalability workflow that's triggered when the alert is raised. An arrow connects the alert icon to the approvers, which indicates that the notification is sent to them for review. Another arrow leads from the approvers to a development console, which signifies the approval process for scaling the database. Finally, a subsequent arrow extends from the development console to Azure Cosmos DB, which depicts the action of scaling the database in response to the overload condition.
 :::image-end:::
 
 ### Flow A - Closed state
 
-1. The system operates normally, and all requests reach the database without returning any `429` (Too Many Requests) HTTP responses.
+1. The system operates normally, and all requests reach the database without returning any `429` HTTP responses.
 
 1. The circuit breaker remains closed, and no default or cached responses are necessary.
 
 ### Flow B - Open state
 
-1. Upon receiving the first `429` response, the circuit breaker trips to an open state.
+1. When the circuit breaker receives the first `429` response, it trips to an open state.
 
-1. Subsequent requests are immediately short-circuited, returning default or cached responses while informing users of temporary degradation, and the application is protected from further overload.
+1. Subsequent requests are immediately short-circuited, which returns default or cached responses while informing users of temporary degradation. The application is protected from further overload.
 1. Logs and telemetry data are captured and sent to Azure Monitor to be evaluated against dynamic thresholds. An alert is triggered if the conditions of the alert rule are met.
 1. An action group proactively notifies the operations team of the overload condition.
-1. Upon workload team approval, the operations team could increase the provisioned throughput to alleviate overload, or they might delay scaling if the load subsides naturally.
+1. After workload team approval, the operations team can increase the provisioned throughput to alleviate overload or delay scaling if the load subsides naturally.
 
 ### Flow C - Half-open state
 
-1. After a predefined timeout, the circuit breaker enters a half-open state, permitting a limited number of trial requests.
+1. After a predefined time-out, the circuit breaker enters a half-open state that permits a limited number of trial requests.
 
-1. If these trial requests succeed without returning `429` responses, the breaker resets to a closed state, restoring normal operations back to Flow A. If failures persist, it reverts to the open state which is Flow B.
+1. If these trial requests succeed without returning `429` responses, the breaker resets to a closed state, and normal operations restore back to Flow A. If failures persist, the breaker reverts to the open state, or Flow B.
 
 ### Design
 
-- [Azure App Services](/azure/well-architected/service-guides/app-service-web-apps) hosts the web application acting as the primary entry point for client requests. The application code implements the logic that enforces circuit breaker policies, and delivers default or cached responses when the circuit is open. This architecture prevents overload on downstream systems and ensures that the user experience is maintained during peak demand or failures.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts the web application that serves as the primary entry point for client requests. The application code implements the logic that enforces circuit breaker policies and delivers default or cached responses when the circuit is open. This architecture helps prevent overload on downstream systems and maintain the user experience during peak demand or failures.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is one of the application's data stores. It serves non-critical data using the free tier. The free tier is best used for running small production workloads. The circuit breaker mechanism helps limit traffic to the database during periods of high demand.
-- [Azure Monitor](/azure/well-architected/service-guides/azure-log-analytics) functions as the centralized monitoring solution, aggregating all activity logs to ensure comprehensive, end-to-end observability. Logs and telemetry data from Azure App Services and key metrics from Azure Cosmos DB (like the number of `429` responses) are sent to Azure Monitor for aggregation and analysis.
-- [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview) weigh alert rules against [dynamic thresholds](/azure/azure-monitor/alerts/alerts-dynamic-thresholds) to identify potential outages based on historical data.  Pre-defined alerts notify the operations team when thresholds are breached. There might be times that the workload team approves the increase in provisioned throughput, but the operations team anticipates that the system will recover on its own as the load isn't too high. In these cases, the circuit breaker timeout elapses naturally. During this time, if the `429` responses cease, the threshold calculation detects the prolonged outages and excludes them from the learning algorithm. As a result, the next time an overload occurs, the threshold waits for a higher error rate in Azure Cosmos DB, and the notification is delayed. This change allows the circuit breaker to handle the issue without an immediate alert, and efficiencies in costs and operational burden are realized.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is one of the application's data stores. It serves non-critical data via the free tier, which is ideal for small production workloads. The circuit breaker mechanism helps limit traffic to the database during high-demand periods.
+- [Azure Monitor](/azure/well-architected/service-guides/azure-log-analytics) functions as the centralized monitoring solution. It aggregates all activity logs to help ensure comprehensive, end-to-end observability. Azure Monitor receives logs and telemetry data from Azure App Service and key metrics from Azure Cosmos DB (like the number of `429` responses) for aggregation and analysis.
+- [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview) weigh alert rules against [dynamic thresholds](/azure/azure-monitor/alerts/alerts-dynamic-thresholds) to identify potential outages based on historical data.  Predefined alerts notify the operations team when thresholds are breached. Sometimes, the workload team might approve an increase in provisioned throughput, but the operations team anticipates that the system can recover on its own because the load isn't too high. In these cases, the circuit breaker time-out elapses naturally. During this time, if the `429` responses cease, the threshold calculation detects the prolonged outages and excludes them from the learning algorithm. As a result, the next time an overload occurs, the threshold waits for a higher error rate in Azure Cosmos DB, which delays the notification. This adjustment allows the circuit breaker to handle the problem without an immediate alert, which improves cost and operational efficiency.
 
 ## Related resources
 
-- [Reliable web app pattern](../web-apps/guides/enterprise-app-patterns/overview.md#reliable-web-app-pattern) shows you how to apply the circuit-breaker pattern to web applications converging on the cloud.
+- The [Reliable Web App pattern](../web-apps/guides/enterprise-app-patterns/overview.md#reliable-web-app-pattern) applies the Circuit Breaker pattern to web applications that converge on the cloud.
 
-- [Retry pattern](./retry.yml). Describes how an application can handle anticipated temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that has previously failed.
+- The [Retry pattern](./retry.yml) describes how an application can handle anticipated temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that previously failed.
 
-- [Health Endpoint Monitoring pattern](./health-endpoint-monitoring.yml). A circuit breaker might be able to test the health of a service by sending a request to an endpoint exposed by the service. The service should return information indicating its status.
+- The [Health Endpoint Monitoring pattern](./health-endpoint-monitoring.yml) describes how a circuit breaker can test the health of a service by sending a request to an endpoint that's exposed by the service. The service should return information that indicates its status.
