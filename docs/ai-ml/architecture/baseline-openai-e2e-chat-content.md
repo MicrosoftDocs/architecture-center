@@ -157,7 +157,7 @@ If your workload requires a multiple-region strategy, you need to invest in comp
 
 - Grounding data
 - Model hosting
-- Orchestration layer, which is prompt flow in this architecture
+- Orchestration layer, which is the prompt flow in this architecture
 - Client-facing UI
 
 You also need to maintain business continuity in observability, portal experiences, and responsible AI, such as content safety.
@@ -232,7 +232,7 @@ The hub requires `Contributor` access to the hub resource group so that it can c
 
 We recommend that you minimize the use of Azure resources needed for the hub's operation by other components in your workloads. For example, if you need to store secrets as part of your workload, you should create a separate Key Vault instance from the one that's associated with the hub. Only the hub should use the hub key vault to store hub and project secrets.
 
-Ensure that for each distinct project, the role assignments for its dependencies don't provide access to resources the portal user and managed online endpoint managed identity don't require. For example, the `Cognitive Services OpenAI User` role assignment to Azure OpenAI grants access to all deployments for that resource. There's no way to restrict flow authors or managed online endpoint managed identities that have that role assignment to specific model deployments in Azure OpenAI. For these scenarios, we recommend that you deploy services like Azure OpenAI and AI Search for each project and don't deploy resources to those services that flow authors or managed online endpoint managed identities shouldn't have access to. For example, only deploy models to the Azure OpenAI instance that the project requires access to. Only deploy indexes to the AI Search instance that the project should have access to.
+Ensure that for each distinct project, the role assignments for its dependencies don't provide access to resources the portal user and the managed online endpoint managed identity don't require. For example, the `Cognitive Services OpenAI User` role assignment to Azure OpenAI grants access to all deployments for that resource. There's no way to restrict flow authors or managed online endpoint managed identities that have that role assignment to specific model deployments in Azure OpenAI. For these scenarios, we recommend that you deploy services like Azure OpenAI and AI Search for each project and don't deploy resources to those services that flow authors or managed online endpoint managed identities shouldn't have access to. For example, only deploy models to the Azure OpenAI instance that the project requires access to. Only deploy indexes to the AI Search instance that the project should have access to.
 
 #### Networking
 
@@ -349,11 +349,11 @@ The Azure AI Foundry managed identity requires both control plane (`Contributor`
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-To see a pricing example for this scenario, use the [Azure pricing calculator](https://azure.com/e/a5a243c3b0794b2787e611c65957217f). You need to customize the example to match your usage because this example only includes the components that this architecture uses. The most expensive components in the scenario are DDoS Protection and the firewall that's deployed as part of the managed online endpoint. Other notable costs include the chat UI and prompt flow compute and AI Search. Optimize those resources to reduce costs.
+To see a pricing example for this scenario, use the [Azure pricing calculator](https://azure.com/e/a5a243c3b0794b2787e611c65957217f). You need to customize the example to match your usage because this example only includes the components that this architecture uses. The most expensive components in the scenario are DDoS Protection and the firewall that's deployed as part of the managed online endpoint. Other notable costs include the chat UI, prompt flow compute, and AI Search. Optimize those resources to reduce costs.
 
 #### Compute
 
-Prompt flow supports multiple options to host the executable flows. The options include managed online endpoints in Machine Learning, AKS, and App Service. Each of these options has their own billing model. The compute that you choose affects the overall cost of the solution.
+Prompt flow supports multiple options to host the executable flows. The options include managed online endpoints in Machine Learning, AKS, and App Service. Each of these options has its own billing model. The compute that you choose affects the overall cost of the solution.
 
 #### Azure OpenAI
 
@@ -375,7 +375,7 @@ Azure OpenAI is a consumption-based service, so matching demand with supply is t
 
 - **Understand billing breakpoints.** Fine-tuning is charged per hour. For maximum efficiency, use as much of that hour to improve the fine-tuning results before you reach the next billing hour. Similarly, the cost for 100 images from image generation is the same as the cost for one image. Maximize the price break points to your advantage.
 
-- **Understand billing models.** Azure OpenAI is also available in a commitment-based billing model through the [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) offering. After you have predictable usage patterns, consider switching to this prepurchase billing model if it's more cost effective at your usage volume.
+- **Understand billing models.** Azure OpenAI is also available in a commitment-based billing model through the [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) offering. After you have predictable usage patterns, consider switching to this pre-purchase billing model if it's more cost-effective at your usage volume.
 
 - **Set provisioning limits.** Allocate all provisioning quota only to models expected to be part of the workload, on a per-model basis. Throughput to already deployed models isn't limited to this provisioned quota while dynamic quota is enabled. Quota doesn't directly map to costs, and those costs might vary.
 
@@ -391,7 +391,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 #### Built-in prompt flow runtimes
 
-Like in the basic architecture, this architecture uses automatic runtime to minimize operational burden. The automatic runtime is a serverless compute option within Machine Learning that simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. This choice is low maintenance, temporary, and application-driven. This architecture uses compute instance runtime or externalized compute, which requires the workload team to manage the lifecycle of the compute. You should use compute instance runtime when your workload requirements exceed the configuration capabilities of the automatic runtime option.
+Like in the basic architecture, this architecture uses automatic runtime to minimize operational burden. The automatic runtime is a serverless compute option within Machine Learning that simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. This choice is low maintenance, temporary, and application-driven. This architecture uses compute instance runtime or externalized compute, which requires the workload team to manage the lifecycle of the compute. You should use a compute instance runtime when your workload requirements exceed the configuration capabilities of the automatic runtime option.
 
 #### Monitoring
 
@@ -437,7 +437,7 @@ Consider the following guidance when you implement automated evaluations:
 
 - Some of these tests require preconfigured data inputs of questions, context, and ground truth.
 
-- Include enough question and answer pairs to help ensure that the results of the tests are reliable. We recommend that you include at least 100-150 pairs. These question and answer pairs are also known as your *golden dataset*. A larger number of pairs might be required, depending on the size and domain of your dataset.
+- Include enough question-and-answer pairs to help ensure that the results of the tests are reliable. We recommend that you include at least 100-150 pairs. These questions and answers are also known as your *golden dataset*. A larger number of pairs might be required, depending on the size and domain of your dataset.
 
 - Avoid using language models to generate any of the data in your golden dataset.
 
