@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Circuit Breaker Pattern
-  description: Learn how to handle faults that might take a variable amount of time to fix when connecting to a remote service or resource.
+  description: Learn how to handle faults that might take varying amounts of time to fix when applications connect to a remote service or resource.
   ms.author: robbag
   author: RobBagby
   ms.date: 02/05/2025
@@ -12,8 +12,11 @@ azureCategories:
   - web
 products:
   - azure
+  - azure-cosmos-db
+  - azure-app-service
+  - azure-monitor
 name: Circuit Breaker pattern
-summary: Learn how to handle faults that might take a variable amount of time to fix when connecting to a remote service or resource.
+summary: Learn how to handle faults that might take varying amounts of time to fix when applications connect to a remote service or resource.
 thumbnailUrl: /azure/architecture/browse/thumbs/circuit-breaker-diagram.png
 content: |
   [!include[](circuit-breaker-content.md)]
