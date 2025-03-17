@@ -565,6 +565,23 @@ This approach appends tenant identifiers within the resource hierarchy, relying 
 GET https://api.contoso.com/tenants/adventureworks/orders/3
 ```
 
+## Enabling Distributed Tracing and Trace Context in APIs
+
+As distributed systems have become the standard, the complexity of modern architectures has increased. Consequently, using headers to propagate trace context in API requests (such as `Correlation-ID`, `X-Request-ID`, or `X-Trace-ID`) has become a best practice for achieving end-to-end visibility. This approach enables seamless tracking of requests as they flow from the client to backend services, facilitating rapid identification of failures, monitoring of latency, and mapping of API dependencies across services.  APIs that support the inclusion of trace and context information enhance their observability level and debugging capabilities. By enabling distributed tracing, these APIs allow for a more granular understanding of system behavior, making it easier to track, diagnose, and resolve issues across complex, multi-service environments.
+
+```http
+GET https://api.contoso.com/orders/3 HTTP/1.1
+Correlation-ID: 0f8fad5b-d9cb-469f-a165-70867728950e
+```
+
+```http
+HTTP/1.1 200 OK
+...
+Correlation-ID: 0f8fad5b-d9cb-469f-a165-70867728950e
+
+{...}
+```
+
 ## Open API Initiative
 
 The [Open API Initiative](https://www.openapis.org) was created by an industry consortium to standardize REST API descriptions across vendors. At that time, the Swagger 2.0 specification was renamed the OpenAPI Specification (OAS) and brought under the Open API Initiative.
