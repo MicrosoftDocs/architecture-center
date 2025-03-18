@@ -19,4 +19,4 @@ name: Circuit Breaker pattern
 summary: Learn how to handle faults that might take varying amounts of time to fix when applications connect to a remote service or resource.
 thumbnailUrl: /azure/architecture/browse/thumbs/circuit-breaker-diagram.png
 content: |
-  [!include[](circuit-breaker-content.md)]
+  [!INCLUDE[](circuit-breaker-content.md)]
