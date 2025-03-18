@@ -39,7 +39,6 @@ This article describes scenarios that feature Microsoft on-premises technologies
 - [Host Integration Server](/host-integration-server/what-is-his). Technologies and tools that enable enterprise organizations to integrate existing IBM host systems, programs, messages, and data with new Microsoft server applications. 
 
 For information about solutions in which Azure services integrate with the other Microsoft cloud platforms, see these articles:
-- [Azure and Power Platform scenarios](../solutions/power-platform-scenarios.md)
 - [Azure and Microsoft 365 scenarios](../solutions/microsoft-365-scenarios.md)
 
 ## Active Directory
@@ -113,7 +112,6 @@ For information about solutions in which Azure services integrate with the other
 
 - [Microsoft partner and third-party scenarios on Azure](partner-scenarios.md)
 - [Architecture for startups](../guide/startups/startup-architecture.md)
-- [Azure and Power Platform scenarios](../solutions/power-platform-scenarios.md)
 - [Azure and Microsoft 365 scenarios](../solutions/microsoft-365-scenarios.md)
 - [Azure and Dynamics 365 scenarios](../solutions/dynamics-365-scenarios.md)
 - [Azure for AWS professionals](../aws-professional/index.md)
