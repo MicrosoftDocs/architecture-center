@@ -58,7 +58,7 @@ Depending upon your end goal, a transition can be the end state or a first step 
 
 - Move existing Unisys CPF Dorado workloads to Azure rapidly, with low risk.
 - Use [Azure Arc](https://azure.microsoft.com/services/azure-arc/) to create a DR plan for an existing on-premises workload.
-- Add Unisys Azure data services to existing client capabilities.
+- Add Azure data services to existing client capabilities.
 - Use Azure-based CPF to serve as a DR, test, or development environment without the need for more hardware or facility resources.
 
 ## Considerations
@@ -69,13 +69,13 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Unisys CPF in Azure uses Site Recovery to ensure system availability and consistency.
+Unisys CPF in Azure uses Azure Site Recovery to ensure system availability and consistency.  ASR enables Azure region-to-region failover for DR if a primary region outage occurs. DR capabilities mirror the Azure VMs to a secondary Azure region. These capabilities ensure a quick failover in the rare case of an Azure datacenter failure.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Unisys CPF is a secure system on its own. Azure adds a layer of encryption for data at rest and in motion.
+Unisys CPF is a secure system on its own. Azure adds a layer of encryption for data at rest.
 
 ### Cost Optimization
 
