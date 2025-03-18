@@ -347,8 +347,6 @@ items:
         href: /azure/architecture/browse/?products=power-platform
       - name: Citizen AI with Power Platform
         href: example-scenario/ai/citizen-ai-power-platform.yml
-      - name: Eventual consistency with Power Apps
-        href: guide/power-platform/eventual-consistency.yml
       - name: Extract text using Power Automate
         href: example-scenario/ai/extract-object-text.yml
     - name: Azure and Microsoft 365 scenarios
