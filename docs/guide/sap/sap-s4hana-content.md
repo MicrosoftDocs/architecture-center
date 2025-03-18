@@ -259,7 +259,7 @@ The two-node clusters for Central Services and the database are stretched across
 
 **Active/active deployment example**
 
-In an [active/active](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones#activeactive-deployment) deployment, two sets of application servers are built across two zones. In each zone, two application servers in each set are inactive, or shut down. As a result, there are active application servers in both zones in normal operations.
+In an [active/active](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones#activeactive-deployment) deployment, two sets of application servers are built across two zones. In each zone, two application servers in each set are active. As a result, there are active application servers in both zones in normal operations.
 
 The ASCS and database services run in zone 1. The application servers in zone 2 might have longer network latency when they connect to the ASCS and database services due to the physical distance between zones.
 
