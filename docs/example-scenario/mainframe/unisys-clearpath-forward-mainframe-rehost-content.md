@@ -1,6 +1,6 @@
 <!-- cSpell:ignore Unisys ClearPath postmigration HDDs Tmax tmaxsoft openframe replatforming replatformed -->
 
-The Unisys mainframe systems trace their heritage to the first commercially available mainframes. The Unisys ClearPath Forward (CPF) Dorado (2200) and Libra (Master Control Program) systems are full-featured mainframe operating environments. They can scale vertically to handle mission-critical workloads. These systems can be emulated, converted, or modernized into Azure. Azure offers similar or even improved performance characteristics and service-level agreement (SLA) metrics.
+The Unisys mainframe systems trace their heritage to the first commercially available mainframes. The Unisys ClearPath Forward (CPF) Dorado (legacy Sperry 1100/2200) and Libra (legacy Burroughs A Series/Master Control Program) systems are full-featured mainframe operating environments. They can scale vertically to handle mission-critical workloads. These systems can be emulated, converted, or modernized into Azure. Azure offers similar or even improved performance characteristics and service-level agreement (SLA) metrics.
 
 This article shows how to use virtualization technologies from Microsoft partner Unisys with a legacy Unisys CPF Libra mainframe. This approach allows an accelerated move into Azure. It eliminates the need to rewrite the application code or redesign the database architecture. Legacy code is maintained in its original form—eliminating the need to recompile application code. The application screens, user interactions, and data structures behind the scenes are unchanged, which eliminates the need to retrain your users.
 
@@ -56,14 +56,15 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Unisys CPF in Azure can make use of Azure Site Recovery (ASR) (/azure/site-recovery/site-recovery-overview) to ensure system availability and consistency. ASR provides Azure based backup and recovery mechanisms in case of a VM or region failure.  Standby resources are active to pick up the workload should a failure occur.
+Unisys CPF in Azure uses Site Recovery to ensure system availability and consistency.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Unisys CPF is inherently a very secure enterprise server system on its own. Azure offers further security by encrypting all VMs and data.
+Unisys CPF is inherently a very secure system on its own.
 
+Unisys Stealth technology effectively hides endpoints. Azure offers other security controls.
 
 ### Cost Optimization
 
