@@ -10,7 +10,9 @@ categories:
   - identity
 products:
   - entra-id
-
+ms.custom:
+  - migration
+  - aws-to-azure
 ---
 # Azure Identity Management for AWS Architects
 
