@@ -43,7 +43,7 @@ The following services provide targeted language processing capabilities for Azu
 
 ### Azure OpenAI
 
-[Azure OpenAI](/azure/ai-services/openai/overview) Azure OpenAI Service provides REST API access to OpenAI's powerful language models including o3-mini, o1, o1-mini, GPT-4o, GPT-4o mini, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and Embeddings model series. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation.
+[Azure OpenAI](/azure/ai-services/openai/overview) Azure OpenAI Service provides REST API access to OpenAI's powerful language models including o3-mini, o1, o1-mini, GPT-4o, GPT-4o mini, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and Embeddings model series. These models can be easily adapted to your specific task including, but not limited to, content generation, summarization, image understanding, semantic search, and natural language to code translation.
 
 #### Capabilities
 
@@ -51,18 +51,17 @@ The following table provides a list of capabilities available in Azure OpenAI se
 
 | Capability | Description |
 |----------|-------------|
-|[Text Generation & Completion] | Generates human-like text based on prompts, auto-complete sentences or paragraphs, summarizes long documents into concise summaries and answer questions based on given context. |
-|[Chat] | Build chatbots and virtual assistants, maintains context in multi-turn conversations and personalize responses based on user interaction. |
-|[Text Classification & Sentiment Analysis] | Classify text into categories (e.g., spam detection, topic classification) and analyze sentiment (positive, negative, neutral).
-Detect emotions and intent in text. |
-|[Named Entity Recognition (NER)] | Identify entities like names, dates, locations, and organizations and extract structured information from unstructured text. |
-|[Translation & Multilingual Support] | Translate text between multiple languages and understands and generate responses in different languages.  |
-|[Code Generation & Understanding] | Generate code in various languages (Python, JavaScript, etc.), debug and refactor code and explain and document code snippets.  |
-
+| Text Generation & Completion | Generates human-like text based on prompts, auto-complete sentences or paragraphs, summarizes long documents into concise summaries and answer questions based on given context. |
+| Chat | Build chatbots and virtual assistants, maintains context in multi-turn conversations and personalize responses based on user interaction. |
+| Text Classification & Sentiment Analysis | Classify text into categories (e.g., spam detection, topic classification) and analyze sentiment (positive, negative, neutral). Detect emotions and intent in text. |
+| Named Entity Recognition (NER) | Identify entities like names, dates, locations, and organizations and extract structured information from unstructured text. |
+| Translation & Multilingual Support | Translate text between multiple languages and understands and generate responses in different languages. |
+| Code Generation & Understanding | Generate code in various languages (Python, JavaScript, etc.), debug and refactor code and explain and document code snippets. |
 
 ### Azure AI Language
 
 [Azure AI Language](/azure/ai-services/language-service/overview) is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries.
+
 #### Capabilities
 
 The following table provides a list of capabilities available in Azure AI Language service.
