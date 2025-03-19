@@ -1,21 +1,22 @@
 <!-- cSpell:ignore Unisys ClearPath postmigration HDDs Tmax tmaxsoft openframe replatforming replatformed -->
 
-The Unisys mainframe systems trace their heritage to the first commercially available mainframes. The Unisys ClearPath Forward (CPF) Dorado (1100/2200) and Libra (Master Control Program) systems are full-featured mainframe operating environments. They can scale vertically to handle mission-critical workloads. These systems can be emulated, converted, or modernized into Azure. Azure offers similar or even improved performance characteristics and service-level agreement (SLA) metrics.
+The Unisys mainframe systems trace their heritage to the first commercially available mainframes. The Unisys ClearPath Forward (CPF) Dorado (2200) and Libra (Master Control Program) systems are full-featured mainframe operating environments. They can scale vertically to handle mission-critical workloads. These systems can be emulated, converted, or modernized into Azure. Azure offers similar or even improved performance characteristics and service-level agreement (SLA) metrics.
 
 This article shows how to use virtualization technologies from Microsoft partner Unisys with a legacy Unisys CPF Libra mainframe. This approach allows an accelerated move into Azure. It eliminates the need to rewrite the application code or redesign the database architecture. Legacy code is maintained in its original form — eliminating the need to recompile application code. The application screens, user interactions, and data structures behind the scenes are unchanged, which eliminates the need to retrain your users.
 
-Unisys replatforming lifts the entire Libra system from today's proprietary hardware to Azure as a virtual machine (VM). The Master Control Program (MCP) OS and all processors, libraries, and data appear just as they did on the proprietary environment. The OS requires a license from Unisys. The architecture includes support VMs, which handle functions such as virtual tapes operations, automation and workload management (OpCon), web services, and other support functions.
+Unisys replatforming lifts the entire Libra system from today's proprietary hardware to Azure as a virtual machine (VM). The Master Control Program (MCP) OS and all processors, libraries, and data appear just as they did on the proprietary environment. The software series MCP OS requires a license from Unisys. The architecture includes support VMs, which handle functions such as virtual tapes operations, automation and workload management (OpCon), web services, and other support functions.
 
-The benefit of this approach is a rapid move to Azure compared to other methodologies. Because hardware maintenance and facility costs are dropped, there's a quick return on investment (ROI). Because the MCP environment is unchanged, there's no cost associated with retraining users and programmers.
+The benefit of this approach is a rapid move to Azure compared to other methodologies. Because hardware maintenance and facility costs are dropped, there's a quick return on investment (ROI). Because the MCP environment is unchanged, there's no cost associated with retraining users or programmers.
 
-Depending upon the client's end goal, the transitioned Azure MCP could be the end state or a first step toward modernizing applications within the MCP environment or within Azure. This approach to landing in Azure permits a measured, planned path to updating applications. It retains the investment made in existing application code. After conversion, other Unisys Cloud Forte and Azure data analytic services can be employed as well.
+Depending upon the client's end goal, the transitioned Azure MCP could be the end state or a first step toward modernizing applications within the MCP environment or within Azure. This approach to landing in Azure permits a measured, planned path to updating applications. It retains the investment made in existing application code. After conversion, other Azure data analytic services can be employed as well.
 
 
 ## Potential use cases
 
 - Move existing Unisys ClearPath Forward Libra workloads to Azure rapidly, with low risk.
-- Use [Azure Arc](https://azure.microsoft.com/services/azure-arc/) so Azure can become the disaster recovery (DR) plan for an existing on-premises workload.
+- Use of [Azure Arc](https://azure.microsoft.com/services/azure-arc/) can enable Azure to become the disaster recovery (DR) plan for an existing on-premises workload.
 - Add Azure data services to existing client capabilities.
+- Establish supplmental Test/Dev environments for coding, application testing, and training purposes.
 
 ## Architecture
 
@@ -42,7 +43,7 @@ The legend matches both diagrams to highlight the similarities between the origi
 
 ### Components
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure offers. An Azure virtual machine gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
+- [Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure offers. An Azure virtual machine gives you the flexibility of virtualization without having to buy and maintain the physical hardware.
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, such as Azure Virtual Machines, to securely communicate with each other, the internet, and on-premises networks. Virtual Network is similar to a traditional network that you'd operate in your own datacenter, but with the added benefits of Azure's infrastructure, such as scale, availability, and isolation.
 - [Azure Virtual Network interface cards](/azure/virtual-network/virtual-networks-overview) enable an Azure VM to communicate with internet, Azure, and on-premises resources. As shown in this architecture, you can add more network interface cards to the same Azure VM, which allows the Solaris child-VMs to have their own dedicated network interface device and IP address.
 - [Azure SSD managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes managed by Azure and used with Azure Virtual Machines. The available types of disks are ultra disks, premium solid-state drives (SSDs), standard SSDs, and standard hard disk drives (HDDs). For this architecture, we recommend either premium SSDs or ultra disk SSDs.
@@ -51,19 +52,19 @@ The legend matches both diagrams to highlight the similarities between the origi
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/en-us/training/paths/azure-well-architected-framework/).
 
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Unisys CPF in Azure uses Site Recovery to ensure system availability and consistency. Site Recovery establishes a baseline to be used for backup systems or for disaster recovery (DR) purposes.
+Unisys CPF in Azure uses Azure Site Recovery to ensure system availability and consistency. Site Recovery establishes a baseline to be used for backup systems or for disaster recovery (DR) purposes. Azure Site Recovery enables Azure region-to-region failover for DR if a primary region outage occurs. DR capabilities mirror the Azure VMs to a secondary Azure region. These capabilities ensure a quick failover in the rare case of an Azure datacenter failure.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Unisys CPF is inherently a very secure system on its own. The added value of Azure security with encryption in motion as well as with data at rest provides a secure enterprise solution.
+Unisys CPF is inherently a very secure system on its own. The added value of Azure security with encryption of data at rest provides a secure enterprise solution.
 
 ### Cost Optimization
 
@@ -75,19 +76,19 @@ You can also optimize your costs by following the process to right-size the capa
 
 To estimate the cost of Azure products and configurations, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). VMs will be used for the MCP along with any support VMs for print or tape. Storage would range from Premium SSD to Blob storage dependent upon performance needs and data retention policies.
 
-To learn more about Unisys CPF offerings and pricing, visit the [Unisys ClearPath Forward Products webpage](https://stealthsecurity.unisys.com/solutions/clearpath-forward/).
+To learn more about Unisys CPF offerings and pricing, visit the [Unisys ClearPath Forward Products webpage](https://www.unisys.com/solutions/clearpath-forward/).
 
 ### Operational Excellence
 
-Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](https://learn.microsoft.com/en-us/azure/well-architected/pillars).
 
 Unisys demonstrates operational excellence by presenting a known environment to the staff, while including new capabilities like Azure Site Recovery to provide disaster recovery failover.
 
-You can optimize your operational efficiency by deploying your solution with Azure Resource Manager templates, and by using Azure Monitor to measure and improve your performance. See the Azure Well-Architected Framework's [Operational Excellence principles](/azure/architecture/framework/devops/principles) and [Monitoring for DevOps](/azure/architecture/framework/devops/checklist).
+You can optimize your operational efficiency by deploying your solution with Azure Resource Manager templates, and by using Azure Monitor to measure and improve your performance. See the Azure Well-Architected Framework's [Operational Excellence principles](https://learn.microsoft.com/en-us/azure/architecture/guide/devops/devops-start-here) and [Monitoring for DevOps](https://learn.microsoft.com/en-us/devops/operate/what-is-monitoring).
 
 ### Performance Efficiency
 
-Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](https://learn.microsoft.com/en-us/azure/well-architected/reliability/checklist).
 
 Unisys matches operational performance in Azure with Bronze, Silver, Gold, Platinum, and Titanium offerings to match client workload to operational needs. The Unisys virtualization methodology is unique in the mainframe to cloud marketspace.
 
@@ -119,9 +120,8 @@ For more information, please contact **legacy2azure@microsoft.com**, or check ou
 
 - [Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure](../../mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)
 - [SMA OpCon in Azure](../../solution-ideas/articles/sma-opcon-azure.yml)
-- [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
+- [Mainframe file replication and sync on Azure](https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)
 - [Azure Database Migration Guides](https://datamigration.microsoft.com)
-- [Unisys mainframe migration to Azure using Avanade AMT](../../reference-architectures/migration/unisys-mainframe-migration.yml)
 - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
-- [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
-- [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)
+- [Modernize mainframe & midrange data](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
+
