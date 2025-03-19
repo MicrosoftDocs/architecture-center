@@ -1,3 +1,24 @@
+---
+title: Kubernetes node and node pool management
+description: Understand Kubernetes nodes and node pools, how to handle Azure Kubernetes Service (AKS) nodes and node pools, and node pool options for Amazon EKS and AKS.
+author: paolosalvatori
+ms.author: paolos
+ms.date: 01/28/2025
+ms.topic: conceptual
+ms.subservice: architecture-guide
+ms.custom:
+    - devx-track-azurecli
+    - arb-containers
+categories:
+  - containers
+  - compute
+products:
+  - azure-kubernetes-service
+  - azure-virtual-machines
+---
+
+# Kubernetes node and node pool management
+
 Kubernetes architecture is based on two layers: The [control plane](/azure/aks/concepts-clusters-workloads#control-plane) and one or more [nodes in node pools](/azure/aks/concepts-clusters-workloads#nodes-and-node-pools). This article describes and compares how Amazon Elastic Kubernetes Service (Amazon EKS) and Azure Kubernetes Service (AKS) manage agent or worker nodes.
 
 [!INCLUDE [eks-aks](includes/eks-aks-include.md)]
@@ -513,11 +534,11 @@ Other contributors:
 ## Next steps
 
 - [AKS for Amazon EKS professionals](index.md)
-- [Kubernetes identity and access management](workload-identity.yml)
-- [Kubernetes monitoring and logging](monitoring.yml)
-- [Secure network access to Kubernetes](private-clusters.yml)
+- [Kubernetes identity and access management](workload-identity.md)
+- [Kubernetes monitoring and logging](monitoring.md)
+- [Secure network access to Kubernetes](private-clusters.md)
 - [Storage options for a Kubernetes cluster](storage.md)
-- [Cost management for Kubernetes](cost-management.yml)
+- [Cost management for Kubernetes](cost-management.md)
 - [Cluster governance](governance.md)
 - [Azure Kubernetes Service (AKS) solution journey](../../reference-architectures/containers/aks-start-here.md)
 - [Azure Kubernetes Services (AKS) day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)

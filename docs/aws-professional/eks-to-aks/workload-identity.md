@@ -1,3 +1,23 @@
+---
+title:  Kubernetes Workload Identity and Access
+description: Understand how Kubernetes pods handle identity and access, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).
+author: paolosalvatori
+ms.author: paolos
+ms.date: 01/28/2025
+ms.topic: conceptual
+ms.subservice: architecture-guide
+ms.custom:
+  - arb-containers
+categories:
+  - containers
+  - identity
+products:
+  - entra-id
+  - azure-kubernetes-service
+---
+
+# Kubernetes workload identity and access
+
 This article describes how Amazon Elastic Kubernetes Service (EKS) and Azure Kubernetes Service (AKS) provide identity for Kubernetes workloads to access cloud platform services. For a detailed comparison of Amazon Web Services (AWS) Identity and Access Management (IAM) and Microsoft Entra ID, see the following resources:
 
 - [Microsoft Entra identity management and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security)
@@ -211,10 +231,10 @@ Other contributors:
 ## Related resources
 
 - [AKS for Amazon EKS professionals](index.md)
-- [Kubernetes monitoring and logging](monitoring.yml)
-- [Secure network access to Kubernetes](private-clusters.yml)
+- [Kubernetes monitoring and logging](monitoring.md)
+- [Secure network access to Kubernetes](private-clusters.md)
 - [Storage options for a Kubernetes cluster](storage.md)
-- [Cost management for Kubernetes](cost-management.yml)
-- [Kubernetes node and node pool management](node-pools.yml)
+- [Cost management for Kubernetes](cost-management.md)
+- [Kubernetes node and node pool management](node-pools.md)
 - [Cluster governance](governance.md)
 - [Microsoft Entra identity management and access management for AWS](../../reference-architectures/aws/aws-azure-ad-security.yml)

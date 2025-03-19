@@ -22,12 +22,12 @@ This series of articles helps professionals who are familiar with Amazon Elastic
 
 The articles compare AKS with Amazon EKS for the following Kubernetes design areas:
 
-- [Identity and access management](workload-identity.yml)
-- [Cluster logging and monitoring](monitoring.yml)
-- [Secure network topologies](private-clusters.yml)
+- [Identity and access management](workload-identity.md)
+- [Cluster logging and monitoring](monitoring.md)
+- [Secure network topologies](private-clusters.md)
 - [Storage options](storage.md)
-- [Cost optimization and management](cost-management.yml)
-- [Agent node and node pool management](node-pools.yml)
+- [Cost optimization and management](cost-management.md)
+- [Agent node and node pool management](node-pools.md)
 - [Cluster governance](governance.md)
 - [Workload Migration](migrate-eks-to-aks.md)
 
@@ -73,12 +73,12 @@ Other contributors:
 
 ## Next steps
 
-- [Kubernetes identity and access management](workload-identity.yml)
-- [Kubernetes monitoring and logging](monitoring.yml)
-- [Secure network access to Kubernetes](private-clusters.yml)
+- [Kubernetes identity and access management](workload-identity.md)
+- [Kubernetes monitoring and logging](monitoring.md)
+- [Secure network access to Kubernetes](private-clusters.md)
 - [Storage options for a Kubernetes cluster](storage.md)
-- [Cost management for Kubernetes](cost-management.yml)
-- [Kubernetes node and node pool management](node-pools.yml)
+- [Cost management for Kubernetes](cost-management.md)
+- [Kubernetes node and node pool management](node-pools.md)
 - [Cluster governance](governance.md)
 
 ## Related resources

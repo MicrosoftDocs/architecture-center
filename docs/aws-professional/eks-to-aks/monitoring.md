@@ -1,3 +1,24 @@
+---
+title: Kubernetes monitoring and logging
+description: Understand monitoring and logging for an Azure Kubernetes Service (AKS) cluster and workloads, and compare Amazon EKS and AKS monitoring and logging.
+  author:  ketan-chawda-msft
+ms.author: kechaw
+ms.date: 01/28/2025
+ms.topic: conceptual
+ms.subservice: architecture-guide
+ms.custom:
+    - arb-containers
+categories:
+  - containers
+  - management-and-governance
+products:
+  - azure-kubernetes-service
+  - azure-log-analytics
+  - azure-monitor
+  ---
+
+# Kubernetes monitoring and logging
+
 This article describes how Azure Kubernetes Service (AKS) monitoring compares to Amazon Elastic Kubernetes Service (Amazon EKS). The article guides you on different options to monitor and manage the logs of an AKS cluster and its workloads.
 
 [!INCLUDE [eks-aks](includes/eks-aks-include.md)]
@@ -113,11 +134,11 @@ Other contributors:
 ## Next steps
 
 - [AKS for Amazon EKS professionals](index.md)
-- [Kubernetes identity and access management](workload-identity.yml)
-- [Secure network access to Kubernetes](private-clusters.yml)
+- [Kubernetes identity and access management](workload-identity.md)
+- [Secure network access to Kubernetes](private-clusters.md)
 - [Storage options for a Kubernetes cluster](storage.md)
-- [Cost management for Kubernetes](cost-management.yml)
-- [Kubernetes node and node pool management](node-pools.yml)
+- [Cost management for Kubernetes](cost-management.md)
+- [Kubernetes node and node pool management](node-pools.md)
 - [Cluster governance](governance.md)
 
 ## Related resources

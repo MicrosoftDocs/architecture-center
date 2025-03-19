@@ -1,3 +1,27 @@
+---
+title: Cost management for Kubernetes
+description: Understand Kubernetes cluster and workload costs, see how to optimize and govern costs, and compare Azure Kubernetes Service (AKS) and Amazon EKS options.
+author: paolosalvatori
+ms.author: paolos
+ms.date: 01/28/2025
+ms.topic: conceptual
+ms.subservice: architecture-guide
+ms.custom:
+    - arb-containers
+categories:
+  - containers
+  - storage
+  - networking
+products:
+  - azure-cost-management
+  - azure-kubernetes-service
+  - azure-managed-disks
+  - azure-storage
+  - azure-virtual-machines
+---
+
+# Cost management for Kubernetes
+
 This guide explains how pricing and cost management work in Azure Kubernetes Service (AKS) compared to Amazon Elastic Kubernetes Service (Amazon EKS). The article describes how to optimize costs and implement cost governance solutions for your AKS cluster.
 
 [!INCLUDE [eks-aks](includes/eks-aks-include.md)]
@@ -73,7 +97,7 @@ AKS nodes use several Azure infrastructure resources, including virtual machine 
 
 AKS cluster pricing is based on the class, number, and size of the VMs in the node pools. VM cost depends on size, CPU type, number of vCPUs, memory, family, and storage type available, such as high-performance solid-state drive (SSD) or standard HDD. For more information, see [Virtual Machine Series](https://azure.microsoft.com/pricing/details/virtual-machines/series). Plan node size according to application requirements, number of nodes, and cluster scalability needs.
 
-For more information about agent nodes and node pools, see the [Node pools](node-pools.yml) article in this series, and [Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)](/azure/aks/use-multiple-node-pools).
+For more information about agent nodes and node pools, see the [Node pools](node-pools.md) article in this series, and [Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)](/azure/aks/use-multiple-node-pools).
 
 ### AKS cluster deployment
 
@@ -97,7 +121,7 @@ When investigating Azure VM pricing, be aware of the following points:
 
 - There are multiple VM families, optimized for different types of workloads.
 
-- Managed disks used as OS drives are charged separately, and you must add their cost to your estimates. Managed disk size depends on the class, such as Standard HDDs, Standard SSDs, Premium SSDs, or Ultra Disk Storage. Input-output operations per second (IOPS) and throughput in MB/sec depend on size and class. [Ephemeral OS disks](node-pools.yml#ephemeral-os-disks) are free and are included in the VM price.
+- Managed disks used as OS drives are charged separately, and you must add their cost to your estimates. Managed disk size depends on the class, such as Standard HDDs, Standard SSDs, Premium SSDs, or Ultra Disk Storage. Input-output operations per second (IOPS) and throughput in MB/sec depend on size and class. [Ephemeral OS disks](node-pools.md#ephemeral-os-disks) are free and are included in the VM price.
 
 - Data disks, including those created with persistent volume claims, are optional and are charged individually based on their class, such as Standard HDDs, Standard SSDs, Premium SSDs, and Ultra Disk Storage. You must explicitly add data disks to cost estimations. The number of allowed data disks, temporary storage SSDs, IOPS, and throughput in MB/sec depend on VM size and class.
 
@@ -269,11 +293,11 @@ Other contributors:
 ## Next steps
 
 - [AKS for Amazon EKS professionals](index.md)
-- [Kubernetes identity and access management](workload-identity.yml)
-- [Kubernetes monitoring and logging](monitoring.yml)
-- [Secure network access to Kubernetes](private-clusters.yml)
+- [Kubernetes identity and access management](workload-identity.md)
+- [Kubernetes monitoring and logging](monitoring.md)
+- [Secure network access to Kubernetes](private-clusters.md)
 - [Storage options for a Kubernetes cluster](storage.md)
-- [Kubernetes node and node pool management](node-pools.yml)
+- [Kubernetes node and node pool management](node-pools.md)
 - [Cluster governance](governance.md)
 
 ## Related resources

@@ -98,12 +98,12 @@ Other contributors:
 ## Next steps
 
 - [AKS for Amazon EKS professionals](index.md)
-- [Kubernetes identity and access management](workload-identity.yml)
-- [Kubernetes monitoring and logging](monitoring.yml)
-- [Secure network access to Kubernetes](private-clusters.yml)
+- [Kubernetes identity and access management](workload-identity.md)
+- [Kubernetes monitoring and logging](monitoring.md)
+- [Secure network access to Kubernetes](private-clusters.md)
 - [Storage options for a Kubernetes cluster](storage.md)
-- [Cost management for Kubernetes](cost-management.yml)
-- [Kubernetes node and node pool management](node-pools.yml)
+- [Cost management for Kubernetes](cost-management.md)
+- [Kubernetes node and node pool management](node-pools.md)
 
 ## Related resources
 

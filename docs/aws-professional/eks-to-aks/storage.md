@@ -4,7 +4,7 @@ description: Understand storage options for a Kubernetes cluster, and compare Am
 author: paolosalvatori
 ms.author: paolos
 ms.date: 01/28/2025
-ms.topic: architecture-guide
+ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers
@@ -88,7 +88,7 @@ You can use a ConfigMap to set configuration data separately from application co
 
 ## Persistent volumes
 
-Volumes that are defined and created as part of the pod lifecycle only exist until you delete the pod. Pods often expect their storage to remain if a pod is rescheduled on a different host during a maintenance event, especially in StatefulSets. A *persistent volume* is a storage resource that the Kubernetes API creates and manages. A persistent volume can exist beyond the lifetime of an individual pod. You can use the following Azure Storage services to provide the persistent volume:
+Volumes that are defined and created as part of the pod lifecycle only exist until you delete the pod. Pods often expect their storage to remain if a pod is rescheduled on a different host during a maintenance event, especially in StatefulSets. A *persistent volume* is a storage resource that the Kubernetes API creates and manages. A persistent volume can exist beyond the lifetime of an individual pod. You can use the following Azure Storage tools to provide the persistent volume:
 
 - [Azure disk storage](#azure-disk)
 - [Azure Files](#azure-files)
@@ -96,9 +96,11 @@ Volumes that are defined and created as part of the pod lifecycle only exist unt
 - [Azure Blob Storage](#azure-blob-storage)
 - [Azure Container Storage](#azure-container-storage)
 
-As noted in the [Volumes](/azure/aks/concepts-storage#volumes) section, whether you choose Azure disk storage or Azure Files depends on the need for concurrent access to the data or the performance tier.
+To decide between [Azure disk storage or Azure Files](/azure/aks/concepts-storage#volumes), consider whether your application needs concurrent data access or a specific performance tier.
 
-![Diagram of persistent volumes in an AKS cluster.](/azure/aks/media/concepts-storage/aks-storage-persistent-volume.png)
+:::image type="complex" source="/azure/aks/media/concepts-storage/aks-storage-persistent-volume.png" border="false" lightbox="/azure/aks/media/concepts-storage/aks-storage-persistent-volume.png" alt-text="Diagram of persistent volumes in an AKS cluster.":::
+A sequence diagram illustrates the interaction between five components: Kubelet, Kubernetes workload, Microsoft Entra ID, OpenID discovery document, and Azure resources. The interactions are numbered from 1 to 5. Arrows indicate the direction of communication. An arrow from Kubelet to Kubernetes workload is labeled 1. An arrow from Kubernetes workload to Microsoft Entra ID is labeled 2. An arrow from Microsoft Entra ID to OpenID discovery document s labeled 3. An arrow from Microsoft Entra ID back to Kubernetes workload is labeled 4. An arrow from Kubernetes workload to Azure resources is labeled 5.
+:::image-end:::
 
 A cluster administrator can *statically* create a persistent volume, or a volume can be created *dynamically* by the Kubernetes API server. If a pod is scheduled and requests storage that is currently unavailable, Kubernetes can create the underlying Azure Disk or File storage and attach it to the pod. Dynamic provisioning uses a *storage class* to identify what type of resource needs to be created.
 
@@ -422,7 +424,7 @@ Choose a tool to back up persistent data. The tool should match your storage typ
 
 ### Cost optimization
 
-To optimize Azure Storage costs, use Azure reservations. Make sure to [check which services support Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). Also see [Cost management for a Kubernetes cluster](cost-management.yml).
+To optimize Azure Storage costs, use Azure reservations. Make sure to [check which services support Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). Also see [Cost management for a Kubernetes cluster](cost-management.md).
 
 ## Contributors
 
@@ -444,11 +446,11 @@ Other contributors:
 ## Next steps
 
 - [AKS for Amazon EKS professionals](index.md)
-- [Kubernetes identity and access management](workload-identity.yml)
-- [Kubernetes monitoring and logging](monitoring.yml)
-- [Secure network access to Kubernetes](private-clusters.yml)
-- [Cost management for Kubernetes](cost-management.yml)
-- [Kubernetes node and node pool management](node-pools.yml)
+- [Kubernetes identity and access management](workload-identity.md)
+- [Kubernetes monitoring and logging](monitoring.md)
+- [Secure network access to Kubernetes](private-clusters.md)
+- [Cost management for Kubernetes](cost-management.md)
+- [Kubernetes node and node pool management](node-pools.md)
 - [Cluster governance](governance.md)
 
 ## Related resources

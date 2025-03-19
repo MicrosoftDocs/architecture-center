@@ -1,3 +1,26 @@
+---
+title: Secure network access to Kubernetes
+description: Understand networking options to securely access the Kubernetes API server, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).
+author: paolosalvatori
+ms.author: paolos
+ms.date: 01/28/2025
+ms.topic: conceptual
+ms.subservice: architecture-guide
+ms.custom:
+    - arb-containers
+categories:
+  - containers
+  - networking
+products:
+  - azure-bastion
+  - azure-dns
+  - azure-kubernetes-service
+  - azure-private-link
+  - azure-virtual-network
+---
+
+# Secure network access to Kubernetes
+
 This article compares networking modes for Azure Kubernetes Service (AKS) and Amazon Elastic Kubernetes Service (Amazon EKS). The article describes how to improve connection security to the managed API server of an AKS cluster, and the different options to restrict public network access.
 
 [!INCLUDE [eks-aks](includes/eks-aks-include.md)]
@@ -146,11 +169,11 @@ Other contributors:
 ## Next steps
 
 - [AKS for Amazon EKS professionals](index.md)
-- [Kubernetes identity and access management](workload-identity.yml)
-- [Kubernetes monitoring and logging](monitoring.yml)
+- [Kubernetes identity and access management](workload-identity.md)
+- [Kubernetes monitoring and logging](monitoring.md)
 - [Storage options for a Kubernetes cluster](storage.md)
-- [Cost management for Kubernetes](cost-management.yml)
-- [Kubernetes node and node pool management](node-pools.yml)
+- [Cost management for Kubernetes](cost-management.md)
+- [Kubernetes node and node pool management](node-pools.md)
 - [Cluster governance](governance.md)
 
 ## Related resources
