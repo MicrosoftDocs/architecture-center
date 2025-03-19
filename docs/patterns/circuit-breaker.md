@@ -6,7 +6,7 @@ author: RobBagby
 ms.date: 02/05/2025
 ms.topic: design-pattern
 ms.subservice: design-pattern
-azureCategories:
+categories:
   - networking
   - web
 products:
