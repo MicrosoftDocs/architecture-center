@@ -1,11 +1,10 @@
 ---
-title: Storage options for a Kubernetes cluster
+title: Storage Options for a Kubernetes Cluster
 description: Understand storage options for a Kubernetes cluster, and compare Amazon EKS and Azure Kubernetes Service (AKS) storage options.
 author: paolosalvatori
 ms.author: paolos
 ms.date: 01/28/2025
-ms.topic: conceptual
-ms.service: azure-architecture-center
+ms.topic: architecture-guide
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers
@@ -22,35 +21,35 @@ products:
 
 # Storage options for a Kubernetes cluster
 
-This article compares the storage capabilities of Amazon Elastic Kubernetes Service (Amazon EKS) and Azure Kubernetes Service (AKS) and describes the options to store workload data on AKS.
+This article compares the storage capabilities of Amazon Elastic Kubernetes Service (EKS) and Azure Kubernetes Service (AKS) and describes the options to store workload data on AKS.
 
 [!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
 ## Amazon EKS storage options
 
-When running applications that require data storage, Amazon EKS offers different types of volumes for both temporary and long-lasting storage.
+Amazon EKS provides different types of storage volumes for applications that require data storage. You can use these volumes for temporary and long-lasting storage.
 
-### Ephemeral Volumes
+### Ephemeral volumes
 
-For applications that require temporary local volumes but don't need to persist data after restarts, ephemeral volumes can be used. Kubernetes supports different types of ephemeral volumes, such as [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [configMap](https://kubernetes.io/docs/concepts/storage/volumes/#configmap), [downwardAPI](https://kubernetes.io/docs/concepts/storage/volumes/#downwardapi), [secret](https://kubernetes.io/docs/concepts/storage/volumes/#secret), and [hostpath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath). To ensure cost efficiency and performance, it's important to choose the most appropriate host volume. In Amazon EKS, you can use [gp3](https://aws.amazon.com/ebs/volume-types/#gp3) as the host root volume, which offers lower prices compared to gp2 volumes.
+For applications that require temporary local volumes but don't need to persist data after restarts, use ephemeral volumes. Kubernetes supports different types of ephemeral volumes, such as [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [configMap](https://kubernetes.io/docs/concepts/storage/volumes/#configmap), [downwardAPI](https://kubernetes.io/docs/concepts/storage/volumes/#downwardapi), [secret](https://kubernetes.io/docs/concepts/storage/volumes/#secret), and [hostpath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath). To ensure cost efficiency and performance, choose the most appropriate host volume. In Amazon EKS, you can use [gp3](https://aws.amazon.com/ebs/volume-types/#gp3) as the host root volume, which costs less than gp2 volumes.
 
-Another option for ephemeral volumes is [Amazon EC2 instance stores](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html), which provide temporary block-level storage for EC2 instances. These volumes are physically attached to the hosts and only exist during the lifetime of the instance. Using local store volumes in Kubernetes requires partitioning, configuring, and formatting the disks using Amazon EC2 user-data.
+You can also use [Amazon EC2 instance stores](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html), which provide temporary block-level storage for EC2 instances. These volumes are physically attached to the hosts and only exist during the lifetime of the instance. To use local store volumes in Kubernetes, you must partition, configure, and format the disks by using Amazon EC2 user data.
 
-### Persistent Volumes
+### Persistent volumes
 
-While Kubernetes is typically associated with running stateless applications, there are cases where persistent data storage is required. [Kubernetes Persistent Volumes (PVs)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) can be used to store data independently from pods, allowing data to persist beyond the lifetime of a given pod. Amazon EKS supports different types of storage options for PVs, including [Amazon EBS](https://aws.amazon.com/ebs/), [Amazon EFS](https://aws.amazon.com/efs/), [Amazon FSx for Lustre](https://aws.amazon.com/fsx/lustre/), and [Amazon FSx for NetApp ONTAP](https://aws.amazon.com/fsx/netapp-ontap/).
+You typically use Kubernetes to run stateless applications, but sometimes you need persistent data storage. You can use [Kubernetes persistent volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) to store data independently from pods so that the data can persist beyond the lifetime of a given pod. Amazon EKS supports different types of storage options for persistent volumes, including [Amazon EBS](https://aws.amazon.com/ebs/), [Amazon Elastic File System (EFS)](https://aws.amazon.com/efs/), [Amazon FSx for Lustre](https://aws.amazon.com/fsx/lustre/), and [Amazon FSx for NetApp ONTAP](https://aws.amazon.com/fsx/netapp-ontap/).
 
-[Amazon EBS](https://aws.amazon.com/ebs/) volumes are suitable for block-level storage and are well-suited for databases and throughput-intensive applications. Amazon EKS users can use the latest generation of block storage [gp3](https://aws.amazon.com/ebs/volume-types/#gp3) for a balance between price and performance. For higher-performance applications, [io2 block express](https://aws.amazon.com/ebs/volume-types/#io2) volumes can be used.
+Use [Amazon EBS](https://aws.amazon.com/ebs/) volumes for block-level storage and for databases and throughput-intensive applications. Amazon EKS users can use the latest generation of block storage [gp3](https://aws.amazon.com/ebs/volume-types/#gp3) for a balance between price and performance. For higher-performance applications, you can use [io2 block express](https://aws.amazon.com/ebs/volume-types/#io2) volumes.
 
-[Amazon EFS](https://aws.amazon.com/efs/) is a serverless, elastic file system that can be shared across multiple containers and nodes. It automatically grows and shrinks as files are added or removed, eliminating the need for capacity planning. The [Amazon Elastic File System Container Storage Interface (CSI) Driver](https://github.com/kubernetes-sigs/aws-efs-csi-driver) is used to integrate Amazon EFS with Kubernetes.
+[Amazon EFS](https://aws.amazon.com/efs/) is a serverless, elastic file system that you can share across multiple containers and nodes. It automatically grows and shrinks as files are added or removed, which eliminates the need for capacity planning. The [Amazon EFS Container Storage Interface (CSI) driver](https://github.com/kubernetes-sigs/aws-efs-csi-driver) integrates Amazon EFS with Kubernetes.
 
-[Amazon FSx for Lustre](https://aws.amazon.com/fsx/lustre/) provides high-performance parallel file storage, ideal for scenarios requiring high throughput and low-latency operations. It can be linked to an Amazon S3 data repository to store large datasets. Amazon FSx for NetApp ONTAP is a fully managed shared storage solution built on NetApp's ONTAP file system.
+[Amazon FSx for Lustre](https://aws.amazon.com/fsx/lustre/) provides high-performance parallel file storage. Use this type of storage for scenarios that require high-throughput and low-latency operations. You can link this file storage to an Amazon S3 data repository to store large datasets. Amazon FSx for NetApp ONTAP is a fully managed, shared storage solution that's built on NetApp's ONTAP file system.
 
-Amazon EKS users can utilize tools like [AWS Compute Optimizer](https://aws.amazon.com/compute-optimizer/) and [Velero](https://velero.io/) to optimize storage configurations and manage backups and snapshots.
+To optimize storage configurations and manage backups and snapshots, Amazon EKS users can use tools like [AWS Compute Optimizer](https://aws.amazon.com/compute-optimizer/) and [Velero](https://velero.io/).
 
 ## AKS storage options
 
-Applications running in Azure Kubernetes Service (AKS) might need to store and retrieve data. While some application workloads can use local, fast storage on unneeded, emptied nodes, others require storage that persists on more regular data volumes within the Azure platform. Multiple pods might need to:
+Applications that run in AKS might need to store and retrieve data. Some application workloads can use local, fast storage on unneeded, emptied nodes. But other application workloads require storage that persists on more regular data volumes within the Azure platform. Multiple pods might need to:
 
 - Share the same data volumes.
 - Reattach data volumes if the pod is rescheduled on a different node.
@@ -59,47 +58,47 @@ This article introduces the storage options and core concepts that provide stora
 
 ### Volume types
 
-Kubernetes volumes represent more than just a traditional disk for storing and retrieving information. Kubernetes volumes can also be used as a way to inject data into a pod for use by its containers.
+Kubernetes volumes represent more than just a traditional disk to store and retrieve information. You can also use Kubernetes volumes to inject data into a pod for its containers to use.
 
 Common volume types in Kubernetes include [EmptyDirs](#emptydirs), [Secret](#secrets), and [ConfigMaps](#configmaps).
 
 #### EmptyDirs
 
-For a Pod that defines an `emptyDir` volume, the volume is created when the Pod is assigned to a node. As the name suggests, the `emptyDir` volume is initially empty. All containers in the Pod can read and write the same files in the `emptyDir` volume, although this volume can be mounted at the same or different paths in each container. When a Pod is removed from a node for any reason, the data in the `emptyDir` is deleted permanently.
+For a pod that defines an `emptyDir` volume, the volume is created when the Pod is assigned to a node. As the name suggests, the `emptyDir` volume is initially empty. All containers in the pod can read and write the same files in the `emptyDir` volume, although this volume can be mounted at the same or different paths in each container. When a pod is removed from a node for any reason, the data in the `emptyDir` is deleted permanently.
 
 #### Secrets
 
-A [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) is an object that holds a small amount of sensitive data, such as a password, token, or key. This information would otherwise be included in a Pod specification or container image. By using a Secret, you avoid embedding confidential data directly in your application code. Since Secrets can be created independently of the Pods that use them, there is a reduced risk of exposing the Secret (and its data) during the processes of creating, viewing, and editing Pods. Kubernetes, along with the applications running in your cluster, can also take extra precautions with Secrets, such as preventing sensitive data from being written to nonvolatile storage. While Secrets are similar to ConfigMaps, they are specifically designed to store confidential data.
+A [secret](https://kubernetes.io/docs/concepts/configuration/secret/) is an object that holds a small amount of sensitive data, such as a password, token, or key. If you don't use a secret, this information is included in a pod specification or container image. A secret prevents the need to embed confidential data directly in your application code. You can create secrets independently of the pods that use them. This practice reduces the risk of exposing the secret and its data when you create, view, and edit pods. Kubernetes and the applications that run in your cluster can take extra precautions with secrets, such as preventing sensitive data from being written to nonvolatile storage. Secrets are similar to ConfigMaps, but they're specifically designed to store confidential data.
 
-You can use Secrets for the following purposes:
+You can use secrets for the following purposes:
 
 - [Set environment variables for a container](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#define-container-environment-variables-using-secret-data).
-- [Provide credentials such as SSH keys or passwords to Pods](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#provide-prod-test-creds).
+- [Provide credentials such as SSH keys or passwords to pods](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#provide-prod-test-creds).
 - [Allow the kubelet to pull container images from private registries](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/).
 
-The Kubernetes control plane also uses Secrets, such as [bootstrap token Secrets](https://kubernetes.io/docs/concepts/configuration/secret/#bootstrap-token-secrets), which are a mechanism to help automate node registration.
+The Kubernetes control plane also uses secrets, such as [bootstrap token secrets](https://kubernetes.io/docs/concepts/configuration/secret/#bootstrap-token-secrets), to help automate node registration.
 
 #### ConfigMaps
 
-A [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) is a Kubernetes object used to store non-confidential data in key-value pairs. [Pods](https://kubernetes.io/docs/concepts/workloads/pods/) can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a [volume](https://kubernetes.io/docs/concepts/storage/volumes/). A ConfigMap allows you to decouple environment-specific configuration from your [container images](https://kubernetes.io/docs/reference/glossary/?all=true#term-image), so that your applications are easily portable.
+A [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) is a Kubernetes object that you use to store nonconfidential data in key-value pairs. [Pods](https://kubernetes.io/docs/concepts/workloads/pods/) can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a [volume](https://kubernetes.io/docs/concepts/storage/volumes/). You can use a ConfigMap to decouple environment-specific configuration from your [container images](https://kubernetes.io/docs/reference/glossary/?all=true#term-image), which makes your applications easily portable.
 
-ConfigMap does not provide secrecy or encryption. If the data you want to store are confidential, use a [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) rather than a ConfigMap, or use additional (third party) tools to keep your data private.
+ConfigMap doesn't provide secrecy or encryption. If you want to store confidential data, use a [secret](https://kubernetes.io/docs/concepts/configuration/secret/) rather than a ConfigMap, or use other non-Microsoft tools to keep your data private.
 
-You can use a ConfigMap for setting configuration data separately from application code. For example, imagine that you are developing an application that you can run on your own computer (for development) and in the cloud (to handle real traffic). You write the code to look in an environment variable named `DATABASE_HOST`. Locally, you set that variable to `localhost`. In the cloud, you set it to refer to a Kubernetes [Service](https://kubernetes.io/docs/concepts/services-networking/service/) that exposes the database component to your cluster. This lets you fetch a container image running in the cloud and debug the exact same code locally if needed.
+You can use a ConfigMap to set configuration data separately from application code. For example, you might develop an application to run on your computer for development and to run in the cloud to handle real traffic. You can write the code to look in an environment variable named `DATABASE_HOST`. Locally, set that variable to `localhost`. In the cloud, set it to refer to a Kubernetes [service](https://kubernetes.io/docs/concepts/services-networking/service/) that exposes the database component to your cluster. This approach lets you fetch a container image that runs in the cloud and debug the same code locally if needed.
 
 ## Persistent volumes
 
-Volumes defined and created as part of the pod lifecycle only exist until you delete the pod. Pods often expect their storage to remain if a pod is rescheduled on a different host during a maintenance event, especially in StatefulSets. A *persistent volume* (PV) is a storage resource created and managed by the Kubernetes API that can exist beyond the lifetime of an individual pod. You can use the following Azure Storage services to provide the persistent volume:
+Volumes that are defined and created as part of the pod lifecycle only exist until you delete the pod. Pods often expect their storage to remain if a pod is rescheduled on a different host during a maintenance event, especially in StatefulSets. A *persistent volume* is a storage resource that the Kubernetes API creates and manages. A persistent volume can exist beyond the lifetime of an individual pod. You can use the following Azure Storage services to provide the persistent volume:
 
-- [Azure Disk](#azure-disk)
+- [Azure disk storage](#azure-disk)
 - [Azure Files](#azure-files)
 - [Azure NetApp Files](#azure-netapp-files)
 - [Azure Blob Storage](#azure-blob-storage)
 - [Azure Container Storage](#azure-container-storage)
 
-As noted in the [Volumes](/azure/aks/concepts-storage#volumes) section, the choice of Azure Disks or Azure Files is often determined by the need for concurrent access to the data or the performance tier.
+As noted in the [Volumes](/azure/aks/concepts-storage#volumes) section, whether you choose Azure disk storage or Azure Files depends on the need for concurrent access to the data or the performance tier.
 
-![Diagram of persistent volumes in an Azure Kubernetes Services (AKS) cluster.](/azure/aks/media/concepts-storage/aks-storage-persistent-volume.png)
+![Diagram of persistent volumes in an AKS cluster.](/azure/aks/media/concepts-storage/aks-storage-persistent-volume.png)
 
 A cluster administrator can *statically* create a persistent volume, or a volume can be created *dynamically* by the Kubernetes API server. If a pod is scheduled and requests storage that is currently unavailable, Kubernetes can create the underlying Azure Disk or File storage and attach it to the pod. Dynamic provisioning uses a *storage class* to identify what type of resource needs to be created.
 
