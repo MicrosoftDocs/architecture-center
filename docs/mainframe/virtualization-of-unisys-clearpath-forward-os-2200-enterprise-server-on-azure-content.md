@@ -87,15 +87,15 @@ You can also optimize your costs by following the process to right-size the capa
 
 To estimate the cost of Azure products and configurations, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-To learn more about Unisys CPF offerings and pricing, visit [Unisys CPF products](https://stealthsecurity.unisys.com/solutions/clearpath-forward/).
+To learn more about Unisys CPF offerings and pricing, visit [Unisys CPF products](https://www.unisys.com/solutions/clearpath-forward/).
 
 ### Operational Excellence
 
-Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](https://learn.microsoft.com/en-us/azure/well-architected/reliability/checklist).
 
-Unisys demonstrates operational excellence by presenting a known environment to the staff, while including new services like Site Recovery to provide DR failover.
+Unisys demonstrates operational excellence by presenting a known environment to the staff, while including new services like Azure Site Recovery to provide DR failover.
 
-You can optimize your operational efficiency by deploying your solution with Azure Resource Manager templates and by using Azure Monitor to measure and improve your performance. See the Well-Architected Framework's [Operational excellence principles](/azure/architecture/framework/devops/principles) and [Monitoring for DevOps](/azure/architecture/framework/devops/checklist).
+You can optimize your operational efficiency by deploying your solution with Azure Resource Manager templates and by using Azure Monitor to measure and improve your performance. See the Well-Architected Framework's [Operational excellence principles](https://learn.microsoft.com/en-us/azure/architecture/guide/devops/devops-start-here).
 
 ### Performance Efficiency
 
