@@ -91,11 +91,11 @@ To learn more about Unisys CPF offerings and pricing, visit [Unisys CPF products
 
 ### Operational Excellence
 
-Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](https://learn.microsoft.com/en-us/azure/well-architected/reliability/checklist).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 Unisys demonstrates operational excellence by presenting a known environment to the staff, while including new services like Azure Site Recovery to provide DR failover.
 
-You can optimize your operational efficiency by deploying your solution with Azure Resource Manager templates and by using Azure Monitor to measure and improve your performance. See the Well-Architected Framework's [Operational excellence principles](https://learn.microsoft.com/en-us/azure/architecture/guide/devops/devops-start-here).
+You can optimize your operational efficiency by deploying your solution with Azure Resource Manager templates and by using Azure Monitor to measure and improve your performance. For more information, see [DevOps architecture design](/azure/architecture/guide/devops/devops-start-here).
 
 ### Performance Efficiency
 
