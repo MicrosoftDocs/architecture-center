@@ -1,10 +1,10 @@
-Decouple backend services from the frontend implementations to tailor experiences for different client interfaces. This pattern is based on [Pattern: Backends For Frontends](https://samnewman.io/patterns/architectural/bff/) described by Sam Newman.
+Decouple backend services from the frontend implementations to tailor experiences for different client interfaces. This pattern is useful when you want to avoid customizing a backend that serves multiple interfaces. This pattern is based on [Pattern: Backends For Frontends](https://samnewman.io/patterns/architectural/bff/) described by Sam Newman.
 
 ## Context and problem
 
 Consider an application that was initially designed with a desktop web UI and a corresponding backend service. As business requirements changed over time, a mobile interface was added. Both interfaces interact with the same backend service but the capabilities of a mobile device differ significantly from a desktop browser, in terms of screen size, performance, and display limitations.
 
-![Context-and-problem diagram of the Backends for Frontends pattern](./_images/backend-for-frontend-problem.png)
+![Architectural diagram showing the context and problem of the Backends for Frontends pattern.](./_images/backend-for-frontend-problem.png)
 
 The backend service often faces competing demands from different frontends, leading to frequent changes and potential bottlenecks in the development process. Conflicting updates and the need to maintain compatibility result in excessive work on a single deployable resource.
 
@@ -14,13 +14,13 @@ Having a separate team manage the backend service can create a disconnect betwee
 
 Introduce a new layer that handles only the interface-specific requirements. This layer called the backend-for-frontend (BFF) service, sits between the frontend client and the backend service. If the application supports multiple interfaces, create a BFF service for each interface. For example, if you have a web interface and a mobile app, you would create separate BFF services for each.
 
-> This pattern tailors the frontend to a specific interface, without affecting other frontend experiences. It also fine-tunes the performance to best match the needs of the frontend environment. Not only is each BFF service smaller and less complex, but it's also faster than a generic backend.
+> This pattern tailors the frontend to a specific interface, without affecting other frontend experiences. It also fine-tunes the performance to best match the needs of the frontend environment. Because each BFF service smaller and less complex, the application might experience optimization benefits to a certain degree.
 >
 > Frontend teams have autonomy over their own BFF service, allowing flexibility in language selection, release cadence, workload prioritization, and feature integration without relying on a centralized backend development team.
 
 While many BFFs relied on REST APIs, GraphQL implementations are becoming an alternative, which removes the need for the BFF layer because the querying mechanism doesn't require a separate endpoint.
 
-![Diagram of the Backends for Frontends pattern](./_images/backend-for-frontend-solution.png)
+![Architectural diagram showing the backends for frontends pattern.](./_images/backend-for-frontend-solution.png)
 
 For more information, see [Pattern: Backends For Frontends](https://samnewman.io/patterns/architectural/bff/).
 
