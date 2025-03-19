@@ -14,7 +14,7 @@ Having a separate team manage the backend service can create a disconnect betwee
 
 Introduce a new layer that handles only the interface-specific requirements. This layer called the backend-for-frontend (BFF) service, sits between the frontend client and the backend service. If the application supports multiple interfaces, create a BFF service for each interface. For example, if you have a web interface and a mobile app, you would create separate BFF services for each.
 
-> This pattern tailors the frontend to a specific interface, without affecting other frontend experiences. It also fine-tunes the performance to best match the needs of the frontend environment. Because each BFF service smaller and less complex, the application might experience optimization benefits to a certain degree.
+> This pattern tailors client experience for a specific interface, without affecting other interfaces. It also fine-tunes the performance to best match the needs of the frontend environment. Because each BFF service smaller and less complex, the application might experience optimization benefits to a certain degree.
 >
 > Frontend teams have autonomy over their own BFF service, allowing flexibility in language selection, release cadence, workload prioritization, and feature integration without relying on a centralized backend development team.
 
