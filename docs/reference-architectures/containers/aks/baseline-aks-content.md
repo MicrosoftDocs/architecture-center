@@ -289,7 +289,7 @@ In this reference implementation, [Microsoft Entra Workload ID on AKS](/azure/ak
 
 ## Select a networking model
 
-[!INCLUDE [kubenet retirement](/reusable-content/blob/main/ce-skilling/azure/includes/aks/includes/preview/retirement/kubenet-retirement-callout.md)]
+[!INCLUDE [kubenet retirement](/reusable-content/ce-skilling/azure/includes/aks/includes/preview/retirement/kubenet-retirement-callout.md)]
 
 AKS supports multiple networking models including kubenet, CNI, and [Azure CNI Overlay](/azure/aks/azure-cni-overlay). The CNI models are the more advanced models, and are highly performant. When communicating between pods, the performance of CNI is similar to the performance of VMs in a virtual network. CNI also offers enhanced security control because it enables the use of Azure network policy. We recommend a CNI-based networking model.
 
