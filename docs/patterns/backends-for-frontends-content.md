@@ -6,19 +6,19 @@ Consider an application that was initially designed with a desktop web UI and a 
 
 ![Context-and-problem diagram of the Backends for Frontends pattern](./_images/backend-for-frontend-problem.png)
 
-The backend service often faces competing demands from different frontends, leading to frequent changes and potential bottlenecks in the development process. Conflicting updates and the need to maintain compatibility result in excessive work on a single deployable resource. 
+The backend service often faces competing demands from different frontends, leading to frequent changes and potential bottlenecks in the development process. Conflicting updates and the need to maintain compatibility result in excessive work on a single deployable resource.
 
 Having a separate team manage the backend service can create a disconnect between frontend and backend teams, causing delays in gaining consensus and balancing requirements. For example, changes requested by one frontend team must be validated with other frontend teams before integration.
 
 ## Solution
 
-Introduce a new layer that handles only the interface-specific requirements. This layer called the backend-for-frontend (BFF) service, sits between the frontend client and the backend service. If the application supports multiple interfaces, create a BFF service for each interface. For example, if you have a web interface and a mobile app, you would create separate BFF services for each. 
+Introduce a new layer that handles only the interface-specific requirements. This layer called the backend-for-frontend (BFF) service, sits between the frontend client and the backend service. If the application supports multiple interfaces, create a BFF service for each interface. For example, if you have a web interface and a mobile app, you would create separate BFF services for each.
 
 > This pattern tailors the frontend to a specific interface, without affecting other frontend experiences. It also fine-tunes the performance to best match the needs of the frontend environment. Not only is each BFF service smaller and less complex, but it's also faster than a generic backend.
 >
-> Frontend teams have autonomy over their own BFF service, allowing flexibility in language selection, release cadence, workload prioritization, and feature integration without relying on a centralized backend development team. 
+> Frontend teams have autonomy over their own BFF service, allowing flexibility in language selection, release cadence, workload prioritization, and feature integration without relying on a centralized backend development team.
 
-While many BFFs relied on REST APIs, GraphQL implementations are becoming a common alternative, which removes the need for the BFF layer because the querying mechanism doesn't require a separate endpoint.
+While many BFFs relied on REST APIs, GraphQL implementations are becoming an alternative, which removes the need for the BFF layer because the querying mechanism doesn't require a separate endpoint.
 
 ![Diagram of the Backends for Frontends pattern](./_images/backend-for-frontend-solution.png)
 
@@ -31,13 +31,13 @@ For more information, see [Pattern: Backends For Frontends](https://samnewman.io
 
 - Review the Service Level Objectives (SLOs) when adding a new service. Increased latency may occur because clients aren't contacting your services directly, and the new service introduces an extra network hop.
 
-- When different interfaces make the same requests, evaluate whether the requests can be consolidated into a single BFF service. Sharing a single BFF service between multiple interfaces can lead to different requirements for each client, which can complicate the BFF service's growth and support. 
+- When different interfaces make the same requests, evaluate whether the requests can be consolidated into a single BFF service. Sharing a single BFF service between multiple interfaces can lead to different requirements for each client, which can complicate the BFF service's growth and support.
 
-    Code duplication is a probable outcome of this pattern. Evaluate the tradeoff between code duplication and a better-tailored experience for each client. 
+    Code duplication is a probable outcome of this pattern. Evaluate the tradeoff between code duplication and a better-tailored experience for each client.
 
 - The BFF service should only handle client-specific logic related to a specific user experience. Cross-cutting features, such as monitoring and authorization, should be abstracted to keep BFF service light. Typical features that might surface in the BFF service are handled separately with [Gatekeeping](/azure/architecture/patterns/gatekeeper), [Rate Limiting](/azure/architecture/patterns/rate-limiting-pattern), [Routing](/azure/architecture/patterns/gateway-routing), and others.
 
-- Consider the impact on the development team when learning and implementing this pattern. Building new backends requires time and effort, potentially incurring technical debt while maintaining the existing backend service.  
+- Consider the impact on the development team when learning and implementing this pattern. Building new backends requires time and effort, potentially incurring technical debt while maintaining the existing backend service.
 
 - Evaluate if you need this pattern at all. For example if your organization uses GraphQL with frontend-specific resolvers, BFF might not add value to your applications.
 
@@ -88,6 +88,10 @@ This example shows a use case for the pattern where you have two distinct client
 Each client has a dedicated BFF service running as an Azure Function that serve as an intermediary between the gateway and the underlying microservices. These client-specific BFF ensures a tailored experience for pagination among other functionalities. While the mobile is more bandwidth-conscious app and caching improves performance, the desktop aggregates multiple pages in a single request, optimizing for a richer user experience.
 
 ![Azure BFF architecture with Azure API Management handling cross-cutting concerns; mobile and desktop fetch data using client-specific BFF Azure Functions](./_images/backend-for-frontend-example.png)
+
+:::image type="complex" source="./_images/backend-for-frontend-example.png" alt-text="Azure BFF architecture with Azure API Management handling cross-cutting concerns; mobile and desktop fetch data using client-specific BFF Azure Functions":::
+   The diagram is structured into four distinct sections, illustrating the flow of requests, authentication, monitoring, and client-specific processing. On the far left, two client devices initiate requests: a mobile application optimized for a bandwidth-efficient user experience and a web browser offering a fully functional interface. Arrows extend from both devices toward the central entry point, which is the Azure API Management gateway, indicating that all requests must pass through this layer. Within the second section, enclosed in a dashed-line rectangle, the architecture is divided into two horizontal groups. The left group represents the Azure API Management, responsible for handling incoming requests and determining how they should be processed. Two arrows extend outward from this data plane gateway: one pointing upward to Microsoft Entra ID, which manages the authorization, and another pointing downward to Azure Monitor, which is responsible for logging and observability. Additionally, an arrow loops back from the gateway to the mobile client, representing a cached response when an identical request is repeated, reducing unnecessary processing. The right group within the dashed rectangle focuses on tailoring backend responses based on the type of client making the request. It features two separate backend-for-frontend clients, both hosted using Azure Functions for serverless computing—one dedicated to the mobile client and the other to the desktop client. Two arrows extend from the gateway to these backend-for-frontend clients, illustrating that each incoming request is forwarded to the appropriate service depending on the client type. Beyond this layer, dashed arrows extend further to the right, connecting the backend-for-frontend clients to various microservices, which handle the actual business logic. To visualize this diagram, imagine a left-to-right flow where client requests move from mobile and web clients to the gateway. This gateway processes each request while delegating authentication upward to the identity provider and logging downward to the monitoring service. From there, it routes requests to the appropriate backend-for-frontend client based on whether the request originates from a mobile or desktop client. Finally, each backend-for-frontend client forwards the request to specialized microservices, which execute the required business logic and return the necessary response. If a cached response is available, the gateway intercepts the request and sends the stored response directly to the mobile client, preventing redundant processing.
+:::image-end:::
 
 #### Flow A: Mobile Client – First Page Request
 
