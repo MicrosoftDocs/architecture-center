@@ -87,11 +87,11 @@ This example shows a use case for the pattern where you have two distinct client
 
 Each client has a dedicated BFF service running as an Azure Function that serve as an intermediary between the gateway and the underlying microservices. These client-specific BFF ensures a tailored experience for pagination among other functionalities. While the mobile is more bandwidth-conscious app and caching improves performance, the desktop aggregates multiple pages in a single request, optimizing for a richer user experience.
 
-:::image type="complex" source="./_images/backend-for-frontend-example.png" alt-text="Azure BFF architecture with Azure API Management handling cross-cutting concerns; mobile and desktop fetch data using client-specific BFF Azure Functions":::
+:::image type="complex" source="./_images/backend-for-frontend-example.png" alt-text="Diagram that shows Azure BFF architecture with Azure API Management handling cross-cutting concerns; mobile and desktop fetch data using client-specific BFF Azure Functions.":::
    The diagram is structured into four distinct sections, illustrating the flow of requests, authentication, monitoring, and client-specific processing. On the far left, two client devices initiate requests: a mobile application optimized for a bandwidth-efficient user experience and a web browser offering a fully functional interface. Arrows extend from both devices toward the central entry point, which is the Azure API Management gateway, indicating that all requests must pass through this layer. Within the second section, enclosed in a dashed-line rectangle, the architecture is divided into two horizontal groups. The left group represents the Azure API Management, responsible for handling incoming requests and determining how they should be processed. Two arrows extend outward from this data plane gateway: one pointing upward to Microsoft Entra ID, which manages the authorization, and another pointing downward to Azure Monitor, which is responsible for logging and observability. Additionally, an arrow loops back from the gateway to the mobile client, representing a cached response when an identical request is repeated, reducing unnecessary processing. The right group within the dashed rectangle focuses on tailoring backend responses based on the type of client making the request. It features two separate backend-for-frontend clients, both hosted using Azure Functions for serverless computing—one dedicated to the mobile client and the other to the desktop client. Two arrows extend from the gateway to these backend-for-frontend clients, illustrating that each incoming request is forwarded to the appropriate service depending on the client type. Beyond this layer, dashed arrows extend further to the right, connecting the backend-for-frontend clients to various microservices, which handle the actual business logic. To visualize this diagram, imagine a left-to-right flow where client requests move from mobile and web clients to the gateway. This gateway processes each request while delegating authentication upward to the identity provider and logging downward to the monitoring service. From there, it routes requests to the appropriate backend-for-frontend client based on whether the request originates from a mobile or desktop client. Finally, each backend-for-frontend client forwards the request to specialized microservices, which execute the required business logic and return the necessary response. If a cached response is available, the gateway intercepts the request and sends the stored response directly to the mobile client, preventing redundant processing.
 :::image-end:::
 
-#### Flow A: Mobile Client – First Page Request
+#### Flow A: Mobile client – first page request
 
 1. The mobile client sends a `GET` request for the page `1` including the OAuth 2.0 token in the authorization header.
 1. The request reaches the Azure APIM Gateway, which intercepts it and:
@@ -101,13 +101,13 @@ Each client has a dedicated BFF service running as an Azure Function that serve 
 1. The Azure Function Mobile BFF then interacts with the necessary microservices to fetch a single page and process the requested data to provide with a lightweight experience.
 1. The response is returned to the client.
 
-#### Flow B: Mobile Client – First Page Cached Request
+#### Flow B: Mobile client – first page cached request
 1. The mobile client sends the same `GET` request for the page `1` again including the OAuth 2.0 token in the authorization header.
 1. The Azure APIM Gateway recognizes that this request was made before and:
    1. The policies are enforced, and after that it identifies a cached response matching the request parameters.
    1. Returns the cached response immediately, eliminating the need to forward the request to the Azure Function Mobile BFF.
 
-#### Flow C: Desktop Client – First Request
+#### Flow C: Desktop client – first request
 1. The desktop client sends a `GET` request for the first time including the OAuth 2.0 token in the authorization header.
 1. The request reaches the Azure APIM Gateway, where similar cross-cutting concerns are handled:
    1. Authorization – token validation is always required.
@@ -118,7 +118,7 @@ Each client has a dedicated BFF service running as an Azure Function that serve 
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) serves as the cloud-based Identity Provider, issuing tailored audience claims for both mobile and desktop clients, which are subsequently leveraged for authorization.
 
-- [Azure API Management](/azure/well-architected/service-guides/api-management/operational-excellence) acts as proxy between the clients and their BBFs adding a perimeter. It's configured with policies to [validate the JSON Web Tokens(JWTs)](/azure/api-management/validate-jwt-policy), rejecting requests that arrive without a token or the claims aren't valid for the targeted BFF. Additionally it streams all the activity logs to Azure Monitor.
+- [Azure API Management](/azure/well-architected/service-guides/api-management/operational-excellence) acts as proxy between the clients and their BBFs adding a perimeter. It's configured with policies to [validate the JSON Web Tokens (JWTs)](/azure/api-management/validate-jwt-policy), rejecting requests that arrive without a token or the claims aren't valid for the targeted BFF. Additionally it streams all the activity logs to Azure Monitor.
 
 - [Azure Monitor](/azure/well-architected/service-guides/azure-log-analytics) functions as the centralized monitoring solution, aggregating all activity logs to ensure comprehensive, end-to-end observability.
 
