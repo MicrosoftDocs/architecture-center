@@ -582,9 +582,9 @@ Correlation-ID: 0f8fad5b-d9cb-469f-a165-70867728950e
 {...}
 ```
 
-## Open API Initiative
+## OpenAPI Initiative
 
-The [Open API Initiative](https://www.openapis.org) was created by an industry consortium to standardize REST API descriptions across vendors. At that time, the Swagger 2.0 specification was renamed the OpenAPI Specification (OAS) and brought under the Open API Initiative.
+The [OpenAPI Initiative](https://www.openapis.org) was created by an industry consortium to standardize REST API descriptions across vendors. At that time, the Swagger 2.0 specification was renamed the OpenAPI Specification (OAS) and brought under the OpenAPI Initiative.
 
 You might want to adopt OpenAPI for your web APIs. Some points to consider:
 
