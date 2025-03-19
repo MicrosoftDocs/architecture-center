@@ -1,3 +1,23 @@
+---
+title: Circuit Breaker Pattern
+description: Learn how to handle faults that might take varying amounts of time to fix when applications connect to a remote service or resource.
+ms.author: robbag
+author: RobBagby
+ms.date: 02/05/2025
+ms.topic: design-pattern
+ms.subservice: design-pattern
+azureCategories:
+  - networking
+  - web
+products:
+  - azure
+  - azure-cosmos-db
+  - azure-app-service
+  - azure-monitor
+---
+
+# Circuit Breaker pattern
+
 The Circuit Breaker pattern helps handle faults that might take varying amounts of time to recover from when an application connects to a remote service or resource. A circuit breaker temporarily blocks access to a faulty service after it detects failures. This action prevents repeated unsuccessful attempts so that the system can recover effectively. This pattern can improve the stability and resiliency of an application.
 
 ## Context and problem
