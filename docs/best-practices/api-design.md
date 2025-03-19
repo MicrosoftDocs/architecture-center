@@ -522,9 +522,13 @@ This approach is arguably the purest of the versioning mechanisms and lends itse
 >
 > The Header versioning and Media Type versioning mechanisms typically require additional logic to examine the values in the custom header or the Accept header. In a large-scale environment, many clients using different versions of a web API can result in a significant amount of duplicated data in a server-side cache. This issue can become acute if a client application communicates with a web server through a proxy that implements caching, and that only forwards a request to the web server if it does not currently hold a copy of the requested data in its cache.
 
-## Multinant web API
+## Multitenant web APIs
 
-Multitenancy has a significant impact on API design as it dictates how resources are accessed and discovered across multiple tenants (such as organizations, users, or applications) within a single web API. Designing an API with multitenancy in mind from the outset helps avoid the need for later refactors to implement isolation, scalability, or per-tenant customizations. A well-architected API should clearly define how tenants are identified in requests—whether through subdomains, paths, headers, or tokens-to provide with a consistent yet flexible experience for all users.  This impacts endpoint structure, request handling, and authentication. The approach also influences how API gateways, load balancers, and backend services route requests. Below are some common strategies for achieving this:
+A *multitenant* solution is one that's shared by multiple tenants, such as distinct organizations with their own groups of users.
+
+Multitenancy has a significant impact on API design as it dictates how resources are accessed and discovered across multiple tenants within a single web API. Designing an API with multitenancy in mind from the outset helps avoid the need for later refactoring to implement isolation, scalability, or per-tenant customizations. A well-architected API should clearly define how tenants are identified in requests—whether through subdomains, paths, headers, or tokens-to provide with a consistent yet flexible experience for all users.
+
+Multitenancy impacts endpoint structure, request handling, authentication, and authorization. The approach also influences how API gateways, load balancers, and backend services route and process requests. Below are some common strategies for achieving multitenancy in a web API:
 
 ### Use Subdomain or Domain-Based Isolation (DNS-Level Tenancy)
 
@@ -554,12 +558,12 @@ or
 
 ```http
 GET https://api.contoso.com/orders/3 HTTP/1.1
-Authorization: Bearer <JWT-token>
+Authorization: Bearer <JWT-token including a tenant-id: adventureworks claim>
 ```
 
 ### Pass tenant-specific information through the URI path
 
-This approach appends tenant identifiers within the resource hierarchy, relying on the API gateway or reverse proxy to determine the appropriate tenant based on the path segment. While effective, path-based isolation compromises the API’s RESTful design and introduces more complex routing logic, often requiring pattern matching or regular expressions to parse the URI path.  In contrast, header-based isolation conveys tenant information through HTTP headers as key-value pairs. Both approaches enable efficient infrastructure sharing, lowering operational costs and enhancing performance in large-scale, multi-tenant web APIs.
+This approach appends tenant identifiers within the resource hierarchy, relying on the API gateway or reverse proxy to determine the appropriate tenant based on the path segment. While effective, path-based isolation compromises the API’s RESTful design and introduces more complex routing logic, often requiring pattern matching or regular expressions to parse and canonicalize the URI path.  In contrast, header-based isolation conveys tenant information through HTTP headers as key-value pairs. Both approaches enable efficient infrastructure sharing, lowering operational costs and enhancing performance in large-scale, multi-tenant web APIs.
 
 ```http
 GET https://api.contoso.com/tenants/adventureworks/orders/3
@@ -567,7 +571,7 @@ GET https://api.contoso.com/tenants/adventureworks/orders/3
 
 ## Enabling Distributed Tracing and Trace Context in APIs
 
-As distributed systems have become the standard, [the complexity of modern architectures has increased](/azure/architecture/best-practices/monitoring). Consequently, using headers to propagate trace context in API requests (such as `Correlation-ID`, `X-Request-ID`, or `X-Trace-ID`) has become a best practice for achieving end-to-end visibility. This approach enables seamless tracking of requests as they flow from the client to backend services, facilitating rapid identification of failures, monitoring of latency, and mapping of API dependencies across services.  APIs that support the inclusion of trace and context information enhance their observability level and debugging capabilities. By enabling distributed tracing, these APIs allow for a more granular understanding of system behavior, making it easier to track, diagnose, and resolve issues across complex, multi-service environments.
+As distributed systems and microservice architectures have become the standard, [the complexity of modern architectures has increased](/azure/architecture/best-practices/monitoring). Consequently, using headers to propagate trace context in API requests (such as `Correlation-ID`, `X-Request-ID`, or `X-Trace-ID`) has become a best practice for achieving end-to-end visibility. This approach enables seamless tracking of requests as they flow from the client to backend services, facilitating rapid identification of failures, monitoring of latency, and mapping of API dependencies across services.  APIs that support the inclusion of trace and context information enhance their observability level and debugging capabilities. By enabling distributed tracing, these APIs allow for a more granular understanding of system behavior, making it easier to track, diagnose, and resolve issues across complex, multi-service environments.
 
 ```http
 GET https://api.contoso.com/orders/3 HTTP/1.1
