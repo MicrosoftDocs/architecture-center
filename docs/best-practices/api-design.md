@@ -108,10 +108,6 @@ https://api.contoso.com/orders // Good
 https://api.contoso.com/create-order // Avoid
 ```
 
-### Resource representation
-
-Resource representation in REST APIs is how a resource is encoded and transported over the HTTP protocol. The representation of a resource is typically in a specific format, such as XML or JSON. Clients that want to retrieve a specific resource must use the URI in the request to the API. The API, in response, returns a resource representation of the data indicated by the URI. It's important to remember that the resource representation should be independent of the internal implementation of the data that is represented. 
-
 Entities are often grouped together into collections (orders, customers). A collection is a separate resource from the item within the collection, and should have its own URI. For example, the following URI might represent the collection of orders:
 
 ```
