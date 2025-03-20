@@ -115,7 +115,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 ### Performance Efficiency
 
-Performance efficiency covers the operations processes that deploy an application and keep it in production. For more information, see [Overview of the Performance Efficiency pillar](/azure/well-architected/performance-efficiency).
+Performance Efficiency covers the operations processes that deploy an application and keep it in production. For more information, see [Overview of the Performance Efficiency pillar](/azure/well-architected/performance-efficiency).
 
 - z/OS Connect handles multiple API requests concurrently by using the parallel processing capabilities of IBM Z. This parallel execution enhances performance by using system resources and reducing response times for API calls.
 - Performance efficiency is a core strength of IBM z/OS Connect. It handles high transaction volumes and manages concurrent connections. The solution's scalability expands both horizontally and vertically, allowing it to adapt to the evolving demands of workloads.
