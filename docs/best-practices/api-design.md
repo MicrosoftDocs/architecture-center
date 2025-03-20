@@ -34,6 +34,16 @@ For example, a REST service that's written in ASP.NET can be accessed by client 
 
 This guide provides best practices for designing web APIs that are based on the principles of REST over HTTP. It also covers common design patterns and considerations for building web APIs that are easy to understand, flexible, and maintainable.
 
+## What is a RESTful API?
+
+In 2008, Leonard Richardson proposed the following [maturity model](https://martinfowler.com/articles/richardsonMaturityModel.html) for web APIs:
+
+- Level 0: Define one URI, and all operations are POST requests to this URI.
+- Level 1: Create separate URIs for individual resources.
+- Level 2: Use HTTP methods to define operations on resources.
+- Level 3: Use hypermedia (HATEOAS, described below).
+
+Level 3 corresponds to a truly RESTful API according to Fielding's definition. In practice, many published web APIs fall somewhere around level 2.
 
 ## REST design principles
 
@@ -45,27 +55,28 @@ When designing a web API for a service, it's important that you consider the fol
 
 - **Scalability**, which means that the web service should be able to handle a large number of requests. To achieve scalability, the web service should be stateless, and it should be able to handle requests in parallel.
 
-  ```http
-  https://api.contoso.com/orders/1
-  ```
 
-- *Uniform Resource Identifier (URI)*. REST APIs are designed around *resources*, which are any kind of object, data, or service that can be accessed by the client. Each resource should be represented by a URI that uniquely identifies that resource. For example, the URI for a particular customer order might be:
+## REST API design concepts
+
+To implement a RESTful web API, you need to understand the following concepts:
+
+- **Uniform Resource Identifier (URI)**. REST APIs are designed around *resources*, which are any kind of object, data, or service that can be accessed by the client. Each resource should be represented by a URI that uniquely identifies that resource. For example, the URI for a particular customer order might be:
     
       ```http
           https://api.contoso.com/orders/1
       ```
 
-- *Resource representation* is how a resource - identified by URI - is encoded and transported over the HTTP protocol in a specific format, such as XML or JSON.  Clients that want to retrieve a specific resource, must use the URI in the request to the API. The API, in response, will return a resource representation of the data indicated by the URI.  For example, a client can make a GET request to the URI identifier `https://api.contoso.com/orders/1` in order to receive the following JSON body:
+- **Resource representation** is how a resource - identified by URI - is encoded and transported over the HTTP protocol in a specific format, such as XML or JSON.  Clients that want to retrieve a specific resource, must use the URI in the request to the API. The API, in response, will return a resource representation of the data indicated by the URI.  For example, a client can make a GET request to the URI identifier `https://api.contoso.com/orders/1` in order to receive the following JSON body:
 
       ```json
       {"orderId":1,"orderValue":99.90,"productId":1,"quantity":1}
       ```
 
-- *Uniform interface* is used by REST APIS to achieve loose coupling of between client and service implementations. For REST APIs built on HTTP, the uniform interface includes using standard HTTP verbs to perform operations on resources such as `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`.
+- **Uniform interface** is used by REST APIS to achieve loose coupling of between client and service implementations. For REST APIs built on HTTP, the uniform interface includes using standard HTTP verbs to perform operations on resources such as `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`.
 
-- *Stateless request model*. REST APIs use a stateless request model, so that each HTTP request is an atomic and independent operation.  Transient state must be managed either by the client or within the service itself.  A stateless request model supports high scalability, as there's no need to retain any affinity between clients and specific servers. However, the stateless model can also limit scalability, due to challenges with web service backend storage scalability. For more information about strategies to scale out a data store, see [Horizontal, vertical, and functional data partitioning](./data-partitioning.yml).
+- **Stateless request model**. REST APIs use a stateless request model, so that each HTTP request is an atomic and independent operation.  Transient state must be managed either by the client or within the service itself.  A stateless request model supports high scalability, as there's no need to retain any affinity between clients and specific servers. However, the stateless model can also limit scalability, due to challenges with web service backend storage scalability. For more information about strategies to scale out a data store, see [Horizontal, vertical, and functional data partitioning](./data-partitioning.yml).
 
-- REST APIs are driven by hypermedia links that are contained in the representation. For example, the following shows a JSON representation of an order. It contains links to get or update the customer associated with the order.
+- **Hypermedia links**. REST APIs are driven by hypermedia links that are contained in the representation. For example, the following shows a JSON representation of an order. It contains links to get or update the customer associated with the order.
 
   ```json
   {
@@ -80,16 +91,9 @@ When designing a web API for a service, it's important that you consider the fol
   }
   ```
 
-In 2008, Leonard Richardson proposed the following [maturity model](https://martinfowler.com/articles/richardsonMaturityModel.html) for web APIs:
 
-- Level 0: Define one URI, and all operations are POST requests to this URI.
-- Level 1: Create separate URIs for individual resources.
-- Level 2: Use HTTP methods to define operations on resources.
-- Level 3: Use hypermedia (HATEOAS, described below).
 
-Level 3 corresponds to a truly RESTful API according to Fielding's definition. In practice, many published web APIs fall somewhere around level 2.
-
-## Organize the API design around resources
+## Organize the web API around resources
 
 To organize your API design around resources, define resource URIs that map to the business entities.  When possible, resource URIs should be based on nouns (the resource) and not verbs (the operations on the resource).
 
@@ -106,17 +110,21 @@ https://api.contoso.com/create-order // Avoid
 
 ### Resource representation
 
-Resource representation in REST APIs is how a resource is encoded and transported over the HTTP protocol. The representation of a resource is typically in a specific format, such as XML or JSON. Clients that want to retrieve a specific resource must use the URI in the request to the API. The API, in response, will return a resource representation of the data indicated by the URI. It's important to remember that the resource representation should be independent of the internal implementation of the data that is represented. 
+Resource representation in REST APIs is how a resource is encoded and transported over the HTTP protocol. The representation of a resource is typically in a specific format, such as XML or JSON. Clients that want to retrieve a specific resource must use the URI in the request to the API. The API, in response, returns a resource representation of the data indicated by the URI. It's important to remember that the resource representation should be independent of the internal implementation of the data that is represented. 
 
-**Single resource representation** 
+Entities are often grouped together into collections (orders, customers). A collection is a separate resource from the item within the collection, and should have its own URI. For example, the following URI might represent the collection of orders:
 
-In the case of a single order resource in an e-commerce service, the order resource might be implemented internally as several tables in a relational database, but it's resource representation to the client is as a single entity. Avoid creating APIs that simply mirror the internal structure of a database. The purpose of REST is to model business entities and the operations that an application can perform on those entities. A client should not be exposed to the internal implementation.
-
-**Collection resource representation.** Resources are often grouped together into collections (orders, customers). A collection is a separate resource from the item within the collection, and should have its own URI. Sending an HTTP GET request to the collection URI retrieves a list of items in the collection. To retrieve details of each item, a client application can make an HTTP GET request on the collection of orders, and iterate through each item, get the item URI, and make another HTTP GET request to the item's URI. For example, the following URI might represent the collection of orders:
-
-```http
-https://api.contoso.com/orders
 ```
+https://api.contoso.com/orders
+
+```
+
+Once the client retrieves the collection, it can then make a GET request to the URI of each item. For example, to receive information on a specific order, the client would perform an HTTP GET on the URI `https://api.contoso.com/orders/1` to receive the following JSON body as a resource representation of the internal order data:
+
+```json
+{"orderId":1,"orderValue":99.90,"productId":1,"quantity":1}
+```
+
 
 ### Resource naming and relationships
 
@@ -135,7 +143,7 @@ When designing a RESTful web API, it's important to use the correct naming and r
 
 - **Avoid a large number of small resources**. All web requests impose a load on the web server. The more requests, the bigger the load. Therefore, try to avoid "chatty" web APIs that expose a large number of small resources. Such an API might require a client application to send multiple requests to find all of the data that it requires. Instead, you might want to denormalize the data and combine related information into bigger resources that can be retrieved with a single request. However, you still need to balance this approach against the overhead of fetching data that the client doesn't need. Retrieving large objects can increase the latency of a request and incur additional bandwidth costs. For more information about these performance antipatterns, see [Chatty I/O](../antipatterns/chatty-io/index.md) and [Extraneous Fetching](../antipatterns/extraneous-fetching/index.md).
 
-- **Avoid introducing dependencies between the web API and the underlying data sources.** For example, if your data is stored in a relational database, the web API doesn't need to expose each table as a collection of resources. In fact, that's increasing the attack surface and might lead to data leakage. Instead, think of the web API as an abstraction of the database. If necessary, introduce a mapping layer between the database and the web API. That way, client applications are isolated from changes to the underlying database scheme.
+- **Avoid creating APIs that mirror the internal structure of a database.** The purpose of REST is to model business entities and the operations that an application can perform on those entities. A client should not be exposed to the internal implementation. For example, if your data is stored in a relational database, the web API doesn't need to expose each table as a collection of resources. In fact, that's increasing the attack surface and might lead to data leakage. Instead, think of the web API as an abstraction of the database. If necessary, introduce a mapping layer between the database and the web API. That way, client applications are isolated from changes to the underlying database scheme. 
 
 >[!TIP]
 >It might not be possible to map every operation implemented by a web API to a specific resource. You can handle such *non-resource* scenarios through HTTP requests that invoke a function and return the results as an HTTP response message. For example, a web API that implements simple calculator operations such as add and subtract could provide URIs that expose these operations as pseudo resources and use the query string to specify the parameters required. For example, a GET request to the URI */add?operand1=99&operand2=1* would return a response message with the body containing the value 100. However, only use these forms of URIs sparingly.
