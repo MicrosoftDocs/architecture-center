@@ -104,6 +104,8 @@ items:
           href: guide/azure-openai-gateway-multi-backend.yml
         - name: Provide custom authentication to Azure OpenAI through a gateway
           href: guide/azure-openai-gateway-custom-authentication.yml
+        - name: Implement advanced monitoring for Azure OpenAI through a gateway
+          href: guide/azure-openai-gateway-monitoring.yml
     - name: OpenAI
       items:
       - name: Design architectures
@@ -146,4 +148,5 @@ items:
             href: guide/azure-openai-gateway-multi-backend.yml
           - name: Custom authentication for a gateway in front of Azure OpenAI
             href: guide/azure-openai-gateway-custom-authentication.yml
-
+          - name: Implement advanced monitoring for Azure OpenAI through a gateway
+            href: guide/azure-openai-gateway-monitoring.yml
