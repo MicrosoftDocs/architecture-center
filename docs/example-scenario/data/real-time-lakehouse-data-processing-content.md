@@ -37,7 +37,7 @@ This article describes an end-to-end solution for near real-time data processing
 
 1. For some low-latency interfaces, data must be denormalized for single-digit server latencies. This usage scenario is mainly for API responses. This scenario queries documents in a NoSQL datastore such as Azure Cosmos DB for single-digit millisecond responses.
 
-1. The Azure Cosmos DB partitioning strategy might not lend itself to all query patterns. If that's the case, you can augment the solution by indexing the data that the APIs need to access with Azure Cognitive Search. Azure Cosmos DB and Cognitive Search can fulfill most scenarios that require low latency query responses.
+1. The Azure Cosmos DB partitioning strategy might not lend itself to all query patterns. If that's the case, you can augment the solution by indexing the data that the APIs need to access with Azure AI Search. Azure Cosmos DB and AI Search can fulfill most scenarios that require low latency query responses.
 
 ### Components
 
@@ -59,7 +59,7 @@ This solution uses the following Azure components:
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a managed, multi-modal NoSQL database that supports open APIs such as MongoDB and Cassandra. This solution uses Azure Cosmos DB for applications that require single-digit millisecond response times and high availability. Azure Cosmos DB offers multi-region writes across all Azure regions. You can use [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) to derive insights and run analytics over data in real time.
 
-- [Azure Cognitive Search](/azure/search/search-what-is-azure-search) is a cloud search service that can index the data your applications and APIs need. Cognitive Search has optional AI enrichment features that help with text extraction and infer text from non-text files. Cognitive Search integrates with services like Azure Data Lake Storage and Azure Cosmos DB to easily access and index data. You can query the indexed data by using a REST API or the .NET SDK. To get data from two separate indexes, you can combine them into a single index or use [complex data types](/azure/search/search-howto-complex-data-types).
+- [Azure AI Search](/azure/search/search-what-is-azure-search) is a cloud search service that can index the data your applications and APIs need. AI Search has optional AI enrichment features that help with text extraction and infer text from non-text files. AI Search integrates with services like Azure Data Lake Storage and Azure Cosmos DB to easily access and index data. You can query the indexed data by using a REST API or the .NET SDK. To get data from two separate indexes, you can combine them into a single index or use [complex data types](/azure/search/search-howto-complex-data-types).
 
 ## Scenario details
 

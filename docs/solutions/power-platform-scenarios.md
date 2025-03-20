@@ -69,7 +69,7 @@ The following articles provide detailed analysis of solutions that feature integ
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Extract text from objects using Power Automate and AI Builder](../example-scenario/ai/extract-object-text.yml)|Use AI Builder and Azure Form Recognizer in a Power Automate workflow to extract text from images. The text can be used for indexing and retrieval.| AI|
+|[Extract text from objects using Power Automate and AI Builder](../example-scenario/ai/extract-object-text.yml)|Use AI Builder and Azure AI Document Intelligence in a Power Automate workflow to extract text from images. The text can be used for indexing and retrieval.| AI|
 |[Web and mobile front ends](../solution-ideas/articles/front-end.yml)|Accelerate development by using a visual designer. Use Azure Functions for low-latency processing and Power Apps and Power Automate for out-of-the-box connectors. |Integration|
 
 [Browse all our Power Automate solutions](/azure/architecture/browse/?expanded=power-platform&products=power-automate).
