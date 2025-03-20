@@ -91,7 +91,12 @@ Level 3 corresponds to a truly RESTful API according to Fielding's definition. I
 
 ## Organize the API design around resources
 
-Focus on the business entities that the web API exposes. For example, in an e-commerce system, the primary entities might be customers and orders. Creating an order can be achieved by sending an HTTP POST request that contains the order information. The HTTP response indicates whether the order was placed successfully or not. When possible, resource URIs should be based on nouns (the resource) and not verbs (the operations on the resource).
+To organize your API design around resources, define resource URIs that map to the business entities.  When possible, resource URIs should be based on nouns (the resource) and not verbs (the operations on the resource).
+
+For example, in an e-commerce system, the primary business entities might be *customers* and *orders*. To create an order, a client sends the order information in an HTTP POST request to the resource URI.  The HTTP response to the request indicates whether the order creation is successful.
+
+
+The URI for creating the order resource could be something like:
 
 ```http
 https://api.contoso.com/orders // Good
@@ -99,30 +104,41 @@ https://api.contoso.com/orders // Good
 https://api.contoso.com/create-order // Avoid
 ```
 
-A resource doesn't have to be based on a single physical data item. For example, an order resource might be implemented internally as several tables in a relational database, but presented to the client as a single entity. Avoid creating APIs that simply mirror the internal structure of a database. The purpose of REST is to model entities and the operations that an application can perform on those entities. A client should not be exposed to the internal implementation.
+### Resource representation
 
-Entities are often grouped together into collections (orders, customers). A collection is a separate resource from the item within the collection, and should have its own URI. For example, the following URI might represent the collection of orders:
+Resource representation in REST APIs is how a resource is encoded and transported over the HTTP protocol. The representation of a resource is typically in a specific format, such as XML or JSON. Clients that want to retrieve a specific resource must use the URI in the request to the API. The API, in response, will return a resource representation of the data indicated by the URI. It's important to remember that the resource representation should be independent of the internal implementation of the data that is represented. 
+
+**Single resource representation** 
+
+In the case of a single order resource in an e-commerce service, the order resource might be implemented internally as several tables in a relational database, but it's resource representation to the client is as a single entity. Avoid creating APIs that simply mirror the internal structure of a database. The purpose of REST is to model business entities and the operations that an application can perform on those entities. A client should not be exposed to the internal implementation.
+
+**Collection resource representation.** Resources are often grouped together into collections (orders, customers). A collection is a separate resource from the item within the collection, and should have its own URI. Sending an HTTP GET request to the collection URI retrieves a list of items in the collection. To retrieve details of each item, a client application can make an HTTP GET request on the collection of orders, and iterate through each item, get the item URI, and make another HTTP GET request to the item's URI. For example, the following URI might represent the collection of orders:
 
 ```http
 https://api.contoso.com/orders
 ```
 
-Sending an HTTP GET request to the collection URI retrieves a list of items in the collection. Each item in the collection also has its own unique URI. An HTTP GET request to the item's URI returns the details of that item.
+### Resource naming and relationships
 
-Adopt a consistent naming convention in URIs. In general, it helps to use plural nouns for URIs that reference collections. It's a good practice to organize URIs for collections and items into a hierarchy. For example, `/customers` is the path to the customers collection, and `/customers/5` is the path to the customer with ID equal to 5. This approach helps to keep the web API intuitive. Also, many web API frameworks can route requests based on parameterized URI paths, so you could define a route for the path `/customers/{id}`.
+When designing a RESTful web API, it's important to use the correct naming and relationship conventions for resources:
 
-Also consider the relationships between different types of resources and how you might expose these associations. For example, the `/customers/5/orders` might represent all of the orders for customer 5. You could also go in the other direction, and represent the association from an order back to a customer with a URI such as `/orders/99/customer`. However, extending this model too far can become cumbersome to implement. A better solution is to provide navigable links to associated resources in the body of the HTTP response message. This mechanism is described in more detail in the section [Use HATEOAS to enable navigation to related resources](#use-hateoas-to-enable-navigation-to-related-resources).
+- **Use nouns for resource names.** Use nouns to represent resources. For example, use `/orders` instead of `/create-order`. The verbal action on a URI is already implied by the HTTP GET, POST, PUT, PATCH, and DELETE methods.
 
-In more complex systems, it can be tempting to provide URIs that enable a client to navigate through several levels of relationships, such as `/customers/1/orders/99/products`. However, this level of complexity can be difficult to maintain and is inflexible if the relationships between resources change in the future. Instead, try to keep URIs relatively simple. Once an application has a reference to a resource, it should be possible to use this reference to find items related to that resource. The preceding query can be replaced with the URI `/customers/1/orders` to find all the orders for customer 1, and then `/orders/99/products` to find the products in this order.
+- **Use plural nouns to name collection URIs.** In general, it helps to use plural nouns for URIs that reference collections. It's a good practice to organize URIs for collections and items into a hierarchy. For example, `/customers` is the path to the customers collection, and `/customers/5` is the path to the customer with ID equal to 5. This approach helps to keep the web API intuitive. Also, many web API frameworks can route requests based on parameterized URI paths, so you could define a route for the path `/customers/{id}`.
 
-> [!TIP]
-> Avoid requiring resource URIs more complex than *collection/item/collection*.
+- **Consider the relationships between different types of resources and how you might expose these associations.** For example, the `/customers/5/orders` might represent all of the orders for customer 5. You could also go in the other direction, and represent the association from an order back to a customer with a URI such as `/orders/99/customer`. However, extending this model too far can become cumbersome to implement. A better solution is to provide navigable links to associated resources in the body of the HTTP response message. This mechanism is described in more detail in the section [Use HATEOAS to enable navigation to related resources](#use-hateoas-to-enable-navigation-to-related-resources).
 
-Another factor is that all web requests impose a load on the web server. The more requests, the bigger the load. Therefore, try to avoid "chatty" web APIs that expose a large number of small resources. Such an API might require a client application to send multiple requests to find all of the data that it requires. Instead, you might want to denormalize the data and combine related information into bigger resources that can be retrieved with a single request. However, you need to balance this approach against the overhead of fetching data that the client doesn't need. Retrieving large objects can increase the latency of a request and incur additional bandwidth costs. For more information about these performance antipatterns, see [Chatty I/O](../antipatterns/chatty-io/index.md) and [Extraneous Fetching](../antipatterns/extraneous-fetching/index.md).
+- **Keep relationships simple and flexible**. In more complex systems, it can be tempting to provide URIs that allow the client to navigate through several levels of relationships, such as `/customers/1/orders/99/products`. However, this level of complexity can be difficult to maintain and is inflexible if the relationships between resources change in the future. Instead, try to keep URIs relatively simple. Once an application has a reference to a resource, it should be possible to use this reference to find items related to that resource. The preceding query can be replaced with the URI `/customers/1/orders` to find all the orders for customer 1, and then `/orders/99/products` to find the products in this order.
 
-Avoid introducing dependencies between the web API and the underlying data sources. For example, if your data is stored in a relational database, the web API doesn't need to expose each table as a collection of resources. In fact, that's increasing the attack surface and might lead to data leakage. Instead, think of the web API as an abstraction of the database. If necessary, introduce a mapping layer between the database and the web API. That way, client applications are isolated from changes to the underlying database scheme.
+    > [!TIP]
+    > Avoid requiring resource URIs more complex than *collection/item/collection*.
 
-Finally, it might not be possible to map every operation implemented by a web API to a specific resource. You can handle such *non-resource* scenarios through HTTP requests that invoke a function and return the results as an HTTP response message. For example, a web API that implements simple calculator operations such as add and subtract could provide URIs that expose these operations as pseudo resources and use the query string to specify the parameters required. For example, a GET request to the URI */add?operand1=99&operand2=1* would return a response message with the body containing the value 100. However, only use these forms of URIs sparingly.
+- **Avoid a large number of small resources**. All web requests impose a load on the web server. The more requests, the bigger the load. Therefore, try to avoid "chatty" web APIs that expose a large number of small resources. Such an API might require a client application to send multiple requests to find all of the data that it requires. Instead, you might want to denormalize the data and combine related information into bigger resources that can be retrieved with a single request. However, you still need to balance this approach against the overhead of fetching data that the client doesn't need. Retrieving large objects can increase the latency of a request and incur additional bandwidth costs. For more information about these performance antipatterns, see [Chatty I/O](../antipatterns/chatty-io/index.md) and [Extraneous Fetching](../antipatterns/extraneous-fetching/index.md).
+
+- **Avoid introducing dependencies between the web API and the underlying data sources.** For example, if your data is stored in a relational database, the web API doesn't need to expose each table as a collection of resources. In fact, that's increasing the attack surface and might lead to data leakage. Instead, think of the web API as an abstraction of the database. If necessary, introduce a mapping layer between the database and the web API. That way, client applications are isolated from changes to the underlying database scheme.
+
+>[!TIP]
+>It might not be possible to map every operation implemented by a web API to a specific resource. You can handle such *non-resource* scenarios through HTTP requests that invoke a function and return the results as an HTTP response message. For example, a web API that implements simple calculator operations such as add and subtract could provide URIs that expose these operations as pseudo resources and use the query string to specify the parameters required. For example, a GET request to the URI */add?operand1=99&operand2=1* would return a response message with the body containing the value 100. However, only use these forms of URIs sparingly.
 
 ## Define API operations in terms of HTTP methods
 
