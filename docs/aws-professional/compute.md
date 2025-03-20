@@ -55,3 +55,8 @@ Principal author:
 - [Run a Linux virtual machine on Azure](../reference-architectures/n-tier/linux-vm.yml)
 - [Basic web application](../web-apps/app-service/architectures/basic-web-app.yml)
 - [Baseline App Service web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
+- [Discover AWS instances](/azure/migrate/tutorial-discover-aws)
+- [Assess AWS instances](/azure/migrate/tutorial-assess-aws)
+- [Migrate AWS VMs](/azure/migrate/tutorial-migrate-aws-virtual-machines)
+- [Migrate AWS to managed disks](/azure/virtual-machines/windows/on-prem-to-azure)
+- [Migrate an AWS Windows virtual machine](/azure/virtual-machines/windows/aws-to-azure)

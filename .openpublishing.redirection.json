@@ -2591,6 +2591,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/mainframe/mainframe-proof-of-concept.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml",
+      "redirect_url": "/industry/mobility/architecture/generate-scenarios-simulation",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/ai/speech-ai-ingestion.yml",
       "redirect_url": "/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline",
       "redirect_document_id": true
@@ -6846,7 +6856,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/elastic-workplace-search.yml",
-      "redirect_url": "/azure/search/search-what-is-azure-search",
+      "redirect_url": "/azure/partner-solutions/elastic/overview",
       "redirect_document_id": false
     },
     {
@@ -7110,8 +7120,78 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/example-scenario/healthcare/analyze-recordings-text-analytics-azure-openai.yml ",
+      "source_path": "docs/example-scenario/healthcare/analyze-recordings-text-analytics-azure-openai.yml",
       "redirect_url": "/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml",
+      "redirect_url": "/azure/storage/common/storage-redundancy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/medical-data-storage.yml",
+      "redirect_url": "/industry/healthcare/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/multi-region-web-app-azure-table-failover.yml",
+      "redirect_url": "/azure/storage/common/storage-redundancy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/idea/intelligent-apps-using-azure-database-for-mysql.yml",
+      "redirect_url": "/azure/architecture/solutions/power-platform-scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/idea/intelligent-apps-using-azure-database-for-postgresql.yml",
+      "redirect_url": "/azure/architecture/solutions/power-platform-scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/idea/serverless-apps-using-cosmos-db.yml",
+      "redirect_url": "/azure/cosmos-db/nosql/serverless-computing-database",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/architecture/n-tier-cassandra.yml",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/mainframe-replication-precisely-connect.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/sma-opcon-azure.yml",
+      "redirect_url": "https://help.smatechnologies.com/opcon/connectors/azure-vm/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/guide/hybrid-on-premises-and-cloud.md",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/hybrid/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/technology-choices/multiparty-computing-service.yml",
+      "redirect_url": "/training/paths/ethereum-blockchain-development/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/operator-guides/aks/choose-bare-metal-kubernetes.yml",
+      "redirect_url": "/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/scenarios/advanced-analytics.md",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/best-practices/retry-service-specific.md",
+      "redirect_url": "/azure/reliability/overview",
       "redirect_document_id": false
     }
   ]

@@ -15,6 +15,7 @@ metadata:
     - fcp
     - reference-architecture
     - e2e-hybrid
+    - arb-hybrid
 name: Design a hybrid Domain Name System solution with Azure
 azureCategories:
   - hybrid
