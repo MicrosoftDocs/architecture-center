@@ -342,6 +342,7 @@ Your architecture may differ from this simple hub-spoke architecture. The follow
 
 Explore the following related architectures:
 
+- [Azure firewall architecture guide](../guide/network-virtual-appliances-architecture.yml)
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
 - [Troubleshoot a hybrid VPN connection](../../reference-architectures/hybrid-networking/troubleshoot-vpn.yml)
 - [Spoke-to-spoke networking](../../networking/spoke-to-spoke-networking.yml)
