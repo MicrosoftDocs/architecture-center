@@ -347,18 +347,6 @@ items:
         href: /azure/architecture/browse/?products=power-platform
       - name: Citizen AI with Power Platform
         href: example-scenario/ai/citizen-ai-power-platform.yml
-    - name: Azure and Microsoft 365 scenarios
-      items:
-      - name: Overview
-        href: solutions/microsoft-365-scenarios.md
-      - name: All Microsoft 365 architectures
-        href: /azure/architecture/browse/?products=m365
-    - name: Azure and Dynamics 365 scenarios
-      items:
-      - name: Overview
-        href: solutions/dynamics-365-scenarios.md
-      - name: All Dynamics 365 architectures
-        href: /azure/architecture/browse/?terms=dynamics%20365
     - name: Azure and Microsoft on-premises servers
       href: guide/on-premises-microsoft-technologies.md
   - name: Third-party scenarios

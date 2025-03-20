@@ -38,9 +38,6 @@ This article describes scenarios that feature Microsoft on-premises technologies
 - [Active Directory Domain Services in Windows Server 2016](/windows-server/identity/whats-new-active-directory-domain-services). The service that stores information about user accounts and enables other authorized users on the same network to access it. Security is integrated with Active Directory through sign-in authentication and access control to objects in the directory.
 - [Host Integration Server](/host-integration-server/what-is-his). Technologies and tools that enable enterprise organizations to integrate existing IBM host systems, programs, messages, and data with new Microsoft server applications. 
 
-For information about solutions in which Azure services integrate with the other Microsoft cloud platforms, see these articles:
-- [Azure and Microsoft 365 scenarios](../solutions/microsoft-365-scenarios.md)
-
 ## Active Directory
 
 |Architecture|Summary|Technology focus|
@@ -112,7 +109,5 @@ For information about solutions in which Azure services integrate with the other
 
 - [Microsoft partner and third-party scenarios on Azure](partner-scenarios.md)
 - [Architecture for startups](../guide/startups/startup-architecture.md)
-- [Azure and Microsoft 365 scenarios](../solutions/microsoft-365-scenarios.md)
-- [Azure and Dynamics 365 scenarios](../solutions/dynamics-365-scenarios.md)
 - [Azure for AWS professionals](../aws-professional/index.md)
 - [Azure for Google Cloud professionals](../gcp-professional/index.md)

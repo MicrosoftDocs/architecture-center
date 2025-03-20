@@ -6014,6 +6014,16 @@
       "redirect_url": "/power-platform/",
       "redirect_document_id": false
     },
+    {
+      "source_path": "docs/solutions/microsoft-365-scenarios.md",
+      "redirect_url": "/microsoft-365/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solutions/dynamics-365-scenarios.md",
+      "redirect_url": "/dynamics365/",
+      "redirect_document_id": false
+    },
     
     {
       "source_path": "docs/hybrid/deployments/solution-deployment-guide-geo-distributed.yml",

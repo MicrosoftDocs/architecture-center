@@ -208,7 +208,5 @@ This article provides a summary of architectures and solutions that use Azure to
 - [Apache open-source scenarios on Azure](/azure/architecture/guide/apache-scenarios)
 - [Scenarios featuring Microsoft on-premises technologies](../guide/on-premises-microsoft-technologies.md)
 - [Architecture for startups](../guide/startups/startup-architecture.md)
-- [Azure and Microsoft 365 scenarios](../solutions/microsoft-365-scenarios.md)
-- [Azure and Dynamics 365 scenarios](../solutions/dynamics-365-scenarios.md)
 - [Azure for AWS professionals](../aws-professional/index.md)
 - [Azure for Google Cloud professionals](../gcp-professional/index.md)
