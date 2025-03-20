@@ -171,7 +171,7 @@ You can use Azure to deliver scaled services to reach your customers and partner
 
 Managed disks are available in all Azure regions that have Azure Premium SSD and Standard SSD offerings. Azure Ultra Disk Storage is offered in several availability zones. Verify the regional availability when you plan mission-critical, top-tier workloads that require Ultra Disk Storage.
 
-Hot and cool Blob Storage, Data Lake Storage Gen2, and Azure Files storage are available in all Azure regions. Archival blob storage, premium file shares, and premium block Blob Storage are limited to certain regions. Refer to the regions page to check the current status.
+Hot and cool Blob Storage, Data Lake Storage Gen2, and Azure Files are available in all Azure regions. Archival blob storage, premium file shares, and premium block Blob Storage are limited to certain regions.
 
 To learn more about Azure global infrastructure, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/). Consult [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) for storage options available in each Azure region.
 
