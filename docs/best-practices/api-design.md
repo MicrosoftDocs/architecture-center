@@ -45,7 +45,9 @@ When designing a web API for a service, it's important that you consider the fol
 
 - **Scalability**, which means that the web service should be able to handle a large number of requests. To achieve scalability, the web service should be stateless, and it should be able to handle requests in parallel.
 
-To achieve these principles, REST APIs should follow these constraints:
+  ```http
+  https://api.contoso.com/orders/1
+  ```
 
 - *Uniform Resource Identifier (URI)*. REST APIs are designed around *resources*, which are any kind of object, data, or service that can be accessed by the client. Each resource should be represented by a URI that uniquely identifies that resource. For example, the URI for a particular customer order might be:
     
@@ -92,9 +94,9 @@ Level 3 corresponds to a truly RESTful API according to Fielding's definition. I
 Focus on the business entities that the web API exposes. For example, in an e-commerce system, the primary entities might be customers and orders. Creating an order can be achieved by sending an HTTP POST request that contains the order information. The HTTP response indicates whether the order was placed successfully or not. When possible, resource URIs should be based on nouns (the resource) and not verbs (the operations on the resource).
 
 ```http
-https://adventure-works.com/orders // Good
+https://api.contoso.com/orders // Good
 
-https://adventure-works.com/create-order // Avoid
+https://api.contoso.com/create-order // Avoid
 ```
 
 A resource doesn't have to be based on a single physical data item. For example, an order resource might be implemented internally as several tables in a relational database, but presented to the client as a single entity. Avoid creating APIs that simply mirror the internal structure of a database. The purpose of REST is to model entities and the operations that an application can perform on those entities. A client should not be exposed to the internal implementation.
@@ -102,7 +104,7 @@ A resource doesn't have to be based on a single physical data item. For example,
 Entities are often grouped together into collections (orders, customers). A collection is a separate resource from the item within the collection, and should have its own URI. For example, the following URI might represent the collection of orders:
 
 ```http
-https://adventure-works.com/orders
+https://api.contoso.com/orders
 ```
 
 Sending an HTTP GET request to the collection URI retrieves a list of items in the collection. Each item in the collection also has its own unique URI. An HTTP GET request to the item's URI returns the details of that item.
@@ -118,7 +120,7 @@ In more complex systems, it can be tempting to provide URIs that enable a client
 
 Another factor is that all web requests impose a load on the web server. The more requests, the bigger the load. Therefore, try to avoid "chatty" web APIs that expose a large number of small resources. Such an API might require a client application to send multiple requests to find all of the data that it requires. Instead, you might want to denormalize the data and combine related information into bigger resources that can be retrieved with a single request. However, you need to balance this approach against the overhead of fetching data that the client doesn't need. Retrieving large objects can increase the latency of a request and incur additional bandwidth costs. For more information about these performance antipatterns, see [Chatty I/O](../antipatterns/chatty-io/index.md) and [Extraneous Fetching](../antipatterns/extraneous-fetching/index.md).
 
-Avoid introducing dependencies between the web API and the underlying data sources. For example, if your data is stored in a relational database, the web API doesn't need to expose each table as a collection of resources. In fact, that's probably a poor design. Instead, think of the web API as an abstraction of the database. If necessary, introduce a mapping layer between the database and the web API. That way, client applications are isolated from changes to the underlying database scheme.
+Avoid introducing dependencies between the web API and the underlying data sources. For example, if your data is stored in a relational database, the web API doesn't need to expose each table as a collection of resources. In fact, that's increasing the attack surface and might lead to data leakage. Instead, think of the web API as an abstraction of the database. If necessary, introduce a mapping layer between the database and the web API. That way, client applications are isolated from changes to the underlying database scheme.
 
 Finally, it might not be possible to map every operation implemented by a web API to a specific resource. You can handle such *non-resource* scenarios through HTTP requests that invoke a function and return the results as an HTTP response message. For example, a web API that implements simple calculator operations such as add and subtract could provide URIs that expose these operations as pseudo resources and use the query string to specify the parameters required. For example, a GET request to the URI */add?operand1=99&operand2=1* would return a response message with the body containing the value 100. However, only use these forms of URIs sparingly.
 
@@ -163,7 +165,7 @@ In the HTTP protocol, formats are specified through the use of *media types*, al
 The Content-Type header in a request or response specifies the format of the representation. Here is an example of a POST request that includes JSON data:
 
 ```http
-POST https://adventure-works.com/orders HTTP/1.1
+POST https://api.contoso.com/orders HTTP/1.1
 Content-Type: application/json; charset=utf-8
 Content-Length: 57
 
@@ -175,7 +177,7 @@ If the server doesn't support the media type, it should return HTTP status code 
 A client request can include an Accept header that contains a list of media types the client will accept from the server in the response message. For example:
 
 ```http
-GET https://adventure-works.com/orders/2 HTTP/1.1
+GET https://api.contoso.com/orders/2 HTTP/1.1
 Accept: application/json
 ```
 
@@ -309,7 +311,7 @@ A resource may contain large binary fields, such as files or images. To overcome
 Also, consider implementing HTTP HEAD requests for these resources. A HEAD request is similar to a GET request, except that it only returns the HTTP headers that describe the resource, with an empty message body. A client application can issue a HEAD request to determine whether to fetch a resource by using partial GET requests. For example:
 
 ```http
-HEAD https://adventure-works.com/products/10?fields=productImage HTTP/1.1
+HEAD https://api.contoso.com/products/10?fields=productImage HTTP/1.1
 ```
 
 Here is an example response message:
@@ -325,7 +327,7 @@ Content-Length: 4580
 The Content-Length header gives the total size of the resource, and the Accept-Ranges header indicates that the corresponding GET operation supports partial results. The client application can use this information to retrieve the image in smaller chunks. The first request fetches the first 2500 bytes by using the Range header:
 
 ```http
-GET https://adventure-works.com/products/10?fields=productImage HTTP/1.1
+GET https://api.contoso.com/products/10?fields=productImage HTTP/1.1
 Range: bytes=0-2499
 ```
 
@@ -362,44 +364,44 @@ For example, to handle the relationship between an order and a customer, the rep
   "links":[
     {
       "rel":"customer",
-      "href":"https://adventure-works.com/customers/3",
+      "href":"https://api.contoso.com/customers/3",
       "action":"GET",
       "types":["text/xml","application/json"]
     },
     {
       "rel":"customer",
-      "href":"https://adventure-works.com/customers/3",
+      "href":"https://api.contoso.com/customers/3",
       "action":"PUT",
       "types":["application/x-www-form-urlencoded"]
     },
     {
       "rel":"customer",
-      "href":"https://adventure-works.com/customers/3",
+      "href":"https://api.contoso.com/customers/3",
       "action":"DELETE",
       "types":[]
     },
     {
       "rel":"self",
-      "href":"https://adventure-works.com/orders/3",
+      "href":"https://api.contoso.com/orders/3",
       "action":"GET",
       "types":["text/xml","application/json"]
     },
     {
       "rel":"self",
-      "href":"https://adventure-works.com/orders/3",
+      "href":"https://api.contoso.com/orders/3",
       "action":"PUT",
       "types":["application/x-www-form-urlencoded"]
     },
     {
       "rel":"self",
-      "href":"https://adventure-works.com/orders/3",
+      "href":"https://api.contoso.com/orders/3",
       "action":"DELETE",
       "types":[]
     }]
 }
 ```
 
-In this example, the `links` array has a set of links. Each link represents an operation on a related entity. The data for each link includes the relationship ("customer"), the URI (`https://adventure-works.com/customers/3`), the HTTP method, and the supported MIME types. This is all the information that a client application needs to be able to invoke the operation.
+In this example, the `links` array has a set of links. Each link represents an operation on a related entity. The data for each link includes the relationship ("customer"), the URI (`https://api.contoso.com/customers/3`), the HTTP method, and the supported MIME types. This is all the information that a client application needs to be able to invoke the operation.
 
 The `links` array also includes self-referencing information about the resource itself that has been retrieved. These have the relationship *self*.
 
@@ -415,13 +417,13 @@ Versioning enables a web API to indicate the features and resources that it expo
 
 This is the simplest approach, and may be acceptable for some internal APIs. Significant changes could be represented as new resources or new links. Adding content to existing resources might not present a breaking change as client applications that are not expecting to see this content will ignore it.
 
-For example, a request to the URI `https://adventure-works.com/customers/3` should return the details of a single customer containing `id`, `name`, and `address` fields expected by the client application:
+For example, a request to the URI `https://api.contoso.com/customers/3` should return the details of a single customer containing `id`, `name`, and `address` fields expected by the client application:
 
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
-{"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
+{"id":3,"name":"Fabrikam, Inc.","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
 > [!NOTE]
@@ -433,7 +435,7 @@ If the `DateCreated` field is added to the schema of the customer resource, then
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
-{"id":3,"name":"Contoso LLC","dateCreated":"2014-09-04T12:11:38.0376089Z","address":"1 Microsoft Way Redmond WA 98053"}
+{"id":3,"name":"Fabrikam, Inc.","dateCreated":"2025-03-22T12:11:38.0376089Z","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
 Existing client applications might continue functioning correctly if they are capable of ignoring unrecognized fields, while new client applications can be designed to handle this new field. However, if more radical changes to the schema of resources occur (such as removing or renaming fields) or the relationships between resources change then these may constitute breaking changes that prevent existing client applications from functioning correctly. In these situations, you should consider one of the following approaches.
@@ -442,20 +444,20 @@ Existing client applications might continue functioning correctly if they are ca
 
 Each time you modify the web API or change the schema of resources, you add a version number to the URI for each resource. The previously existing URIs should continue to operate as before, returning resources that conform to their original schema.
 
-Extending the previous example, if the `address` field is restructured into subfields containing each constituent part of the address (such as `streetAddress`, `city`, `state`, and `zipCode`), this version of the resource could be exposed through a URI containing a version number, such as `https://adventure-works.com/v2/customers/3`:
+Extending the previous example, if the `address` field is restructured into subfields containing each constituent part of the address (such as `streetAddress`, `city`, `state`, and `zipCode`), this version of the resource could be exposed through a URI containing a version number, such as `https://api.contoso.com/v2/customers/3`:
 
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
-{"id":3,"name":"Contoso LLC","dateCreated":"2014-09-04T12:11:38.0376089Z","address":{"streetAddress":"1 Microsoft Way","city":"Redmond","state":"WA","zipCode":98053}}
+{"id":3,"name":"Fabrikam, Inc.","dateCreated":"2025-03-22T12:11:38.0376089Z","address":{"streetAddress":"1 Microsoft Way","city":"Redmond","state":"WA","zipCode":98053}}
 ```
 
 This versioning mechanism is very simple but depends on the server routing the request to the appropriate endpoint. However, it can become unwieldy as the web API matures through several iterations and the server has to support a number of different versions. Also, from a purist's point of view, in all cases the client applications are fetching the same data (customer 3), so the URI should not really be different depending on the version. This scheme also complicates implementation of HATEOAS as all links will need to include the version number in their URIs.
 
 ### Query string versioning
 
-Rather than providing multiple URIs, you can specify the version of the resource by using a parameter within the query string appended to the HTTP request, such as `https://adventure-works.com/customers/3?version=2`. The version parameter should default to a meaningful value such as 1 if it is omitted by older client applications.
+Rather than providing multiple URIs, you can specify the version of the resource by using a parameter within the query string appended to the HTTP request, such as `https://api.contoso.com/customers/3?version=2`. The version parameter should default to a meaningful value such as 1 if it is omitted by older client applications.
 
 This approach has the semantic advantage that the same resource is always retrieved from the same URI, but it depends on the code that handles the request to parse the query string and send back the appropriate HTTP response. This approach also suffers from the same complications for implementing HATEOAS as the URI versioning mechanism.
 
@@ -469,7 +471,7 @@ Rather than appending the version number as a query string parameter, you could 
 Version 1:
 
 ```http
-GET https://adventure-works.com/customers/3 HTTP/1.1
+GET https://api.contoso.com/customers/3 HTTP/1.1
 Custom-Header: api-version=1
 ```
 
@@ -477,13 +479,13 @@ Custom-Header: api-version=1
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
-{"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
+{"id":3,"name":"Fabrikam, Inc.","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
 Version 2:
 
 ```http
-GET https://adventure-works.com/customers/3 HTTP/1.1
+GET https://api.contoso.com/customers/3 HTTP/1.1
 Custom-Header: api-version=2
 ```
 
@@ -491,7 +493,7 @@ Custom-Header: api-version=2
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
-{"id":3,"name":"Contoso LLC","dateCreated":"2014-09-04T12:11:38.0376089Z","address":{"streetAddress":"1 Microsoft Way","city":"Redmond","state":"WA","zipCode":98053}}
+{"id":3,"name":"Fabrikam, Inc.","dateCreated":"2025-03-22T12:11:38.0376089Z","address":{"streetAddress":"1 Microsoft Way","city":"Redmond","state":"WA","zipCode":98053}}
 ```
 
 As with the previous two approaches, implementing HATEOAS requires including the appropriate custom header in any links.
@@ -500,20 +502,20 @@ As with the previous two approaches, implementing HATEOAS requires including the
 
 When a client application sends an HTTP GET request to a web server it should stipulate the format of the content that it can handle by using an Accept header, as described earlier in this guidance. Frequently the purpose of the *Accept* header is to allow the client application to specify whether the body of the response should be XML, JSON, or some other common format that the client can parse. However, it is possible to define custom media types that include information enabling the client application to indicate which version of a resource it is expecting.
 
-The following example shows a request that specifies an *Accept* header with the value *application/vnd.adventure-works.v1+json*. The *vnd.adventure-works.v1* element indicates to the web server that it should return version 1 of the resource, while the *json* element specifies that the format of the response body should be JSON:
+The following example shows a request that specifies an *Accept* header with the value *application/vnd.contoso.v1+json*. The *vnd.contoso.v1* element indicates to the web server that it should return version 1 of the resource, while the *json* element specifies that the format of the response body should be JSON:
 
 ```http
-GET https://adventure-works.com/customers/3 HTTP/1.1
-Accept: application/vnd.adventure-works.v1+json
+GET https://api.contoso.com/customers/3 HTTP/1.1
+Accept: application/vnd.contoso.v1+json
 ```
 
 The code handling the request is responsible for processing the *Accept* header and honoring it as far as possible (the client application may specify multiple formats in the *Accept* header, in which case the web server can choose the most appropriate format for the response body). The web server confirms the format of the data in the response body by using the Content-Type header:
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.adventure-works.v1+json; charset=utf-8
+Content-Type: application/vnd.contoso.v1+json; charset=utf-8
 
-{"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
+{"id":3,"name":"Fabrikam, Inc.","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
 If the Accept header does not specify any known media types, the web server could generate an HTTP 406 (Not Acceptable) response message or return a message with a default media type.
@@ -525,9 +527,73 @@ This approach is arguably the purest of the versioning mechanisms and lends itse
 >
 > The Header versioning and Media Type versioning mechanisms typically require additional logic to examine the values in the custom header or the Accept header. In a large-scale environment, many clients using different versions of a web API can result in a significant amount of duplicated data in a server-side cache. This issue can become acute if a client application communicates with a web server through a proxy that implements caching, and that only forwards a request to the web server if it does not currently hold a copy of the requested data in its cache.
 
-## Open API Initiative
+## Multitenant web APIs
 
-The [Open API Initiative](https://www.openapis.org) was created by an industry consortium to standardize REST API descriptions across vendors. As part of this initiative, the Swagger 2.0 specification was renamed the OpenAPI Specification (OAS) and brought under the Open API Initiative.
+A *multitenant* solution is one that's shared by multiple tenants, such as distinct organizations with their own groups of users.
+
+Multitenancy has a significant impact on API design as it dictates how resources are accessed and discovered across multiple tenants within a single web API. Designing an API with multitenancy in mind from the outset helps avoid the need for later refactoring to implement isolation, scalability, or per-tenant customizations. A well-architected API should clearly define how tenants are identified in requests—whether through subdomains, paths, headers, or tokens-to provide with a consistent yet flexible experience for all users. For more information, please take a look at [Map requests to tenants in a multitenant solution](/azure/architecture/guide/multitenant/considerations/map-requests)
+
+Multitenancy impacts endpoint structure, request handling, authentication, and authorization. The approach also influences how API gateways, load balancers, and backend services route and process requests. Below are some common strategies for achieving multitenancy in a web API:
+
+### Use Subdomain or Domain-Based Isolation (DNS-Level Tenancy)
+
+This approach routes requests using [tenant-specific domains](/azure/architecture/guide/multitenant/considerations/domain-names). Wildcard domains leverage subdomains for flexibility and simplicity, while custom domains, allowing tenants to use their own domains, provide greater control and can be tailored to specific needs. Both methods rely on proper DNS configuration (including `A` and `CNAME` records) to direct traffic to the appropriate infrastructure. Wildcard domains simplify configuration, while custom domains offer a more branded experience. [Preserving the hostname](/azure/architecture/best-practices/host-name-preservation) between the reverse proxy and backend services helps avoid issues like URL redirection and prevents exposing internal URLs. This ensures correct routing of tenant-specific traffic and protects internal infrastructure. DNS resolution also plays a key role in achieving data residency and ensuring regulatory compliance.
+
+```http
+GET https://adventureworks.api.contoso.com/orders/3 HTTP/1.1
+```
+
+### Pass tenant-specific HTTP headers
+
+Tenant information can be passed through custom HTTP headers (e.g. `X-Tenant-ID` or `X-Organization-ID`), host-based headers (e.g. `Host`, `X-Forwarded-Host`), or extracted from JSON Web Token (JWT) claims. The choice depends on the routing capabilities of your API gateway or reverse proxy, with header-based solutions requiring a Layer 7 (L7) gateway to inspect each request. This adds processing overhead, increasing compute costs as traffic scales.  However, header-based isolation offers key benefits. It enables centralized authentication, simplifying security management across multi-tenant APIs. By leveraging SDKs or API clients, tenant context is dynamically managed at runtime, reducing client-side configuration complexity. Additionally, keeping tenant context in headers results in a cleaner, more RESTful API design, avoiding tenant-specific data in the URI. An important consideration with header-based routing is that it complicates caching, particularly when cache layers rely solely on URI-based keys and do not account for headers. Since most caching mechanisms optimize for URI lookups, relying on headers can lead to fragmented cache entries, reducing cache hits and increasing backend load. More critically, if a caching layer does not differentiate responses by headers, it may serve cached data intended for one tenant to another, creating a risk of data leakage.
+
+```http
+GET https://api.contoso.com/orders/3 HTTP/1.1
+X-Tenant-ID: adventureworks
+```
+
+or
+
+```http
+GET https://api.contoso.com/orders/3 HTTP/1.1
+Host: adventureworks
+```
+
+or
+
+```http
+GET https://api.contoso.com/orders/3 HTTP/1.1
+Authorization: Bearer <JWT-token including a tenant-id: adventureworks claim>
+```
+
+### Pass tenant-specific information through the URI path
+
+This approach appends tenant identifiers within the resource hierarchy, relying on the API gateway or reverse proxy to determine the appropriate tenant based on the path segment. While effective, path-based isolation compromises the API’s RESTful design and introduces more complex routing logic, often requiring pattern matching or regular expressions to parse and canonicalize the URI path.  In contrast, header-based isolation conveys tenant information through HTTP headers as key-value pairs. Both approaches enable efficient infrastructure sharing, lowering operational costs and enhancing performance in large-scale, multi-tenant web APIs.
+
+```http
+GET https://api.contoso.com/tenants/adventureworks/orders/3
+```
+
+## Enabling Distributed Tracing and Trace Context in APIs
+
+As distributed systems and microservice architectures have become the standard, [the complexity of modern architectures has increased](/azure/architecture/best-practices/monitoring). Consequently, using headers to propagate trace context in API requests (such as `Correlation-ID`, `X-Request-ID`, or `X-Trace-ID`) has become a best practice for achieving end-to-end visibility. This approach enables seamless tracking of requests as they flow from the client to backend services, facilitating rapid identification of failures, monitoring of latency, and mapping of API dependencies across services.  APIs that support the inclusion of trace and context information enhance their observability level and debugging capabilities. By enabling distributed tracing, these APIs allow for a more granular understanding of system behavior, making it easier to track, diagnose, and resolve issues across complex, multi-service environments.
+
+```http
+GET https://api.contoso.com/orders/3 HTTP/1.1
+Correlation-ID: 0f8fad5b-d9cb-469f-a165-70867728950e
+```
+
+```http
+HTTP/1.1 200 OK
+...
+Correlation-ID: 0f8fad5b-d9cb-469f-a165-70867728950e
+
+{...}
+```
+
+## OpenAPI Initiative
+
+The [OpenAPI Initiative](https://www.openapis.org) was created by an industry consortium to standardize REST API descriptions across vendors. At that time, the Swagger 2.0 specification was renamed the OpenAPI Specification (OAS) and brought under the OpenAPI Initiative.
 
 You might want to adopt OpenAPI for your web APIs. Some points to consider:
 
@@ -535,7 +601,7 @@ You might want to adopt OpenAPI for your web APIs. Some points to consider:
 
 - OpenAPI promotes a contract-first approach, rather than an implementation-first approach. Contract-first means you design the API contract (the interface) first and then write code that implements the contract.
 
-- Tools like Swagger can generate client libraries or documentation from API contracts. For example, see [ASP.NET Web API help pages using Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger).
+- Tools like Swagger (OpenAPI) can generate client libraries or documentation from API contracts. For example, see [ASP.NET Core web API documentation with Swagger / OpenAPI](/aspnet/core/tutorials/web-api-help-pages-using-swagger).
 
 ## Next steps
 
@@ -544,3 +610,5 @@ You might want to adopt OpenAPI for your web APIs. Some points to consider:
 - [Web API checklist](https://mathieu.fenniak.net/the-api-checklist). A useful list of items to consider when designing and implementing a web API.
 
 - [Open API Initiative](https://www.openapis.org). Documentation and implementation details on Open API.
+
+- [SaaS and multitenant solution architecture](/azure/architecture/guide/saas-multitenant-solution-architecture/). Architect multitenant solutions on Azure.
