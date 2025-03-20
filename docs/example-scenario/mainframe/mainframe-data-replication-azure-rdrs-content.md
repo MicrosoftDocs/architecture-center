@@ -39,11 +39,11 @@ This reference architecture describes an overview of replicating data from Db2 z
 ### Initial Data Load
 
 1.	Db2 installed on IBM Mainframe in Customer Data Center which is a source of data for replication to Azure Cloud.
-1. For full copy Db2 data is fetched by RDRS Capture agent using SELECT Queries on source Db2 database. If the size of data is large Image copy backup of data can be sent from Mainframe to Capture LUW VM in binary format.
+1. For full copy Db2 data is fetched by RDRS Capture agent using SELECT Queries on source Db2 database. If the size of data is large Image copy backup of data can be sent from Mainframe to Capture LUW(Linux, Unix and Windows) VM in binary format.
 1. The Open Platform Manager acts as a replication server. This server contains utilities for automatic data mapping to generate metadata for sources and targets. It contains the rule set for extracting the data from the source. And the server transforms and processes the data for the target systems and writes the data into the targets. You can install this component in Linux, Unix, and Windows Operating System.
-1. RDRS Capture Apply Agent receives data from Db2 (output of SELECT or Image copy). RDRS Apply Agent after performing configured transformation writes data to target Fabric SQL database.
+1. RDRS Capture & Apply Agent receives data from Db2 (output of SELECT or Image copy). RDRS Apply Agent after performing configured transformation writes data to target Fabric SQL database.
 1. The RDRS Dashboard provides administration, review, operation, control, and monitoring of the data exchange processes. The RDRS command line utilities help automate data exchange processes and manage the unattended operations of the data synchronization process.
-1. RDRS Apply agent using Microsoft ODBC Driver v18 with Entra ID Authentication for Azure SQL writes data efficiently to the target Fabric Native SQL Database.
+1. RDRS Apply agent using Microsoft ODBC Driver with Entra ID Authentication for Azure SQL writes data efficiently to the target Fabric Native SQL Database.
 1. Microsoft Fabric SQL Native database is a developer-friendly transactional database, based on Azure SQL Database, that allows you to easily create your operational database in Fabric. A SQL database in Fabric uses the same SQL Database Engine as Azure SQL Database.
 1. After data lands in Azure data platform, it's consumed by Azure services or others that are permitted to see it. Examples include Fabric Analytics, Power BI or even a custom application.
 
@@ -52,13 +52,13 @@ This reference architecture describes an overview of replicating data from Db2 z
 
 a. Db2 installed on IBM Mainframe in Customer Data Center which is a source of data for replication to Azure Cloud. RDRS provides the capability to get log based changed data from Db2.
    
-b. RDRS defines Db2 User Defined Table Process to read Db2 Logs. UDT runs in IBM Work Load Manager Environment and is operationalized by Db2 DBMS. UDT read log data and keeps in memory for transmission.
+b. RDRS defines Db2 User Defined Table(UDT) Process to read Db2 Logs. UDT runs in IBM Work Load Manager Environment and is operationalized by Db2 DBMS. UDT reads log data and keeps in memory for transmission.
 
-c.	The Open Platform Manager acts as a replication server. This server contains utilities for automatic data mapping to generate metadata for sources and targets. It contains the rule set for extracting the data from the source. And the server transforms and processes the data for the target systems and writes the data into the targets. You can install this component in Linux, Unix, and Windows Operating System. RDRS Capture Apply Agent receives data from UDT process. Apply Agent after performing configured transformation writes data to target Fabric SQL database. 
+c.	The Open Platform Manager acts as a replication server. This server contains utilities for automatic data mapping to generate metadata for sources and targets. It contains the rule set for extracting the data from the source. And the server transforms and processes the data for the target systems and writes the data into the targets. You can install this component in Linux, Unix, and Windows Operating System. RDRS Capture & Apply Agent receives data from UDT process. Apply Agent after performing configured transformation writes data to target Fabric SQL database. 
 
-d.	The RDRS Dashboard provides administration, review, operation, control, and monitoring of the data exchange processes. The RDRS command line utilities help automate data exchange processes and manage the unattended operations of the data synchronization process.
+d.	The RDRS Dashboard interface allows you to administer, operate, control, and monitor data exchange processes. The RDRS command line utilities help automate data exchange processes and manage the unattended operations of the data synchronization process.
 
-e.	RDRS Apply agent using Microsoft ODBC Driver v18 with Entra ID Authentication for Azure SQL runs DML queries on target Fabric Native SQL Database. 
+e.	RDRS Apply agent using Microsoft ODBC Driver with Entra ID Authentication for Azure SQL runs DML queries on target Fabric Native SQL Database. 
 
 f.	Microsoft Fabric SQL Native database is a developer-friendly transactional database, based on Azure SQL Database that allows you to easily create your operational database in Fabric. A SQL database in Fabric uses the same SQL Database Engine as Azure SQL Database. After data lands in Azure data platform, it's consumed by Azure services or others that are permitted to see it. Examples include Fabric Analytics, Power BI or even a custom application.
 
