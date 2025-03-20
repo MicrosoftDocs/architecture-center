@@ -6014,6 +6014,7 @@
       "redirect_url": "/power-platform/",
       "redirect_document_id": false
     },
+    
     {
       "source_path": "docs/hybrid/deployments/solution-deployment-guide-geo-distributed.yml",
       "redirect_url": "/azure/architecture/hybrid/hybrid-start-here",
