@@ -15,8 +15,8 @@ IBM Z and Cloud Modernization Stack and z/OS Connect are easily deployed on Azur
 
 Take the following steps to create and deploy APIs for mainframe applications by using a contract-first approach:
 
-1. Import an OpenAPI v3 (OAS3) declarative JSON API schema file into the z/OS Connect Designer. For more information, see [What is the z/OS Connect Designer?](https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2023.2?topic=concepts-what-is-zos-connect-designer)
-1. Use z/OS Connect Designer to [Map your API and z/OS Assets](https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2023.2?topic=designer-mapping-your-rest-api-operations-zos-assets).
+1. Import an OpenAPI v3 (OAS3) declarative JSON API schema file into the z/OS Connect Designer. For more information, see [What is the z/OS Connect Designer?](https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2023.4?topic=concepts-what-is-zos-connect-designer)
+1. Use z/OS Connect Designer to [Map your API and z/OS Assets](https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2023.4?topic=designer-mapping-your-rest-api-operations-zos-assets).
 1. Test the functionality of the APIs by interacting with core z/OS applications and push the mappings into source control management (SCM).
 1. Build a web archive (WAR) file and run the production in [the z/OS Connect Server image](https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2023.2?topic=server-zos-connect-image).
 1. Import the OAS3 specification into [API Management](https://azure.microsoft.com/en-us/products/api-management/) and establish a connection with the z/OS Connect Server.
