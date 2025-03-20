@@ -92,7 +92,7 @@ To optimize costs:
 
 - Plan for [regional deployments and operational scale-up scheduling](/azure/search/search-sku-manage-costs) in AI Search.
 
-- Use [commitment tier pricing](/azure/ai-services/commitment-tier) for AI Document Intelligence to manage [predictable costs](/azure/ai-studio/how-to/costs-plan-manage).
+- Use [commitment tier pricing](/azure/ai-services/commitment-tier) for AI Document Intelligence to manage [predictable costs](/azure/ai-foundry/how-to/costs-plan-manage).
 
 - Use reserved capacity and lifecycle policies to [rightsize storage accounts](/azure/well-architected/service-guides/storage-accounts/cost-optimization).
 
@@ -130,7 +130,7 @@ Introductory articles:
 - [What is Azure Blob Storage?](/azure/storage/blobs/storage-blobs-overview)
 - [What is Azure Service Bus?](/azure/service-bus-messaging/service-bus-messaging-overview)
 - [What are durable functions?](/azure/azure-functions/durable/durable-functions-overview)
-- [What is Azure AI Foundry?](/azure/ai-studio/what-is-ai-studio)
+- [What is Azure AI Foundry?](/azure/ai-foundry/what-is-ai-foundry)
 - [What is Azure OpenAI Service?](/azure/ai-services/openai/overview)
 - [What is Azure AI Document Intelligence?](/azure/ai-services/document-intelligence/overview)
 - [What is Azure AI Search?](/azure/search/search-what-is-azure-search)
@@ -145,11 +145,11 @@ Product documentation:
 - [Azure OpenAI Service documentation](/azure/ai-services/openai)
 - [Azure AI Document Intelligence documentation](/azure/ai-services/document-intelligence)
 - [Azure AI Search documentation](/azure/search)
-- [Azure AI Foundry documentation](/azure/ai-studio)
+- [Azure AI Foundry documentation](/azure/ai-foundry)
 - [Semantic Kernel documentation](/semantic-kernel/overview)
 
 ## Related resources
 
 - [Custom document processing models on Azure](../../example-scenario/document-processing/build-deploy-custom-models.yml)
-- [Automate document processing by using AI Document Intelligence](../../example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)
+- [Automate document processing by using AI Document Intelligence](../../ai-ml/architecture/automate-document-processing-azure-ai-document-intelligence.yml)
 - [Image classification on Azure](../../ai-ml/idea/intelligent-apps-image-processing.yml)

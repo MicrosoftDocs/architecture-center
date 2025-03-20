@@ -100,9 +100,9 @@ Application_End logging will catch the app domain shutdown (soft process crash) 
 3. Redirect the user to an error page.
 4. User retries.
 
-## Azure Search
+## Azure AI Search
 
-### Writing data to Azure Search fails.
+### Writing data to Azure AI Search fails.
 
 **Detection**. Catch `Microsoft.Rest.Azure.CloudException` errors.
 
@@ -114,7 +114,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 **Diagnostics**. Use [Search Traffic Analytics][search-analytics].
 
-### Reading data from Azure Search fails.
+### Reading data from Azure AI Search fails.
 
 **Detection**. Catch `Microsoft.Rest.Azure.CloudException` errors.
 

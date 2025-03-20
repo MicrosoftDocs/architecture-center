@@ -263,4 +263,4 @@ Principal authors:
 - [Choose an AI services technology](./ai-services.md)
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow)
-- [AI enrichment with image and natural language processing in Azure AI Search](../../solution-ideas/articles/cognitive-search-with-skillsets.yml)
+- [AI enrichment with image and natural language processing in Azure AI Search](../../solution-ideas/articles/ai-search-skillsets.yml)
