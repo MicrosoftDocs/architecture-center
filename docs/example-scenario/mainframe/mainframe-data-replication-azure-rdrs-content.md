@@ -42,6 +42,7 @@ This reference architecture describes an overview of replicating data from Db2 z
 1. The Open Platform Manager acts as a replication server. This server contains utilities for automatic data mapping to generate metadata for sources and targets. It contains the rule set for extracting the data from the source. And the server transforms and processes the data for the target systems and writes the data into the targets. You can install this component in Linux, Unix, and Windows Operating System.
 1. RDRS Capture & Apply Agent receives data from Db2 (output of SELECT or Image copy). RDRS Apply Agent after performing configured transformation writes data to target Fabric SQL database.
 1. RDRS Apply agent using Microsoft ODBC Driver with Entra ID Authentication for Azure SQL writes data efficiently to the target Fabric Native SQL Database.
+1. Data ingested to Microsoft Fabric Native SQL Database.  
 1. After data lands in Fabric Native SQL Database, it's consumed by Azure services or others that are permitted to see it. Examples include Fabric Analytics, Power BI or even a custom application.
 
 
