@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn best practices for designing web APIs that support platform independence and service evolution.
 ms.author: robbag
 author: RobBagby
-ms.date: 02/27/2025
+ms.date: 03/20/2025
 ms.topic: best-practice
 ms.service: azure-architecture-center
 ms.subservice: best-practice
@@ -26,39 +26,42 @@ categories: featured
 
 # RESTful web API design
 
-Most modern web applications expose APIs that clients can use to interact with the application. A well-designed web API should aim to support:
+In 2000, Roy Fielding proposed that Representational State Transfer (REST) - previously an architectural style for building distributed systems based on hypermedia - be used as an architectural approach to designing web services that are independent of any particular protocol. 
 
-- **Platform independence**. Any client should be able to call the API, regardless of how the API is implemented internally. This requires using standard protocols, and having a mechanism whereby the client and the web service can agree on the format of the data to exchange.
+However, today most REST API implementations use standard HTTP methods to perform operations on resources, and they use standard HTTP status codes to communicate the results of these operations. The primary advantage of using REST over HTTP, instead of over other protocols, is that HTTP is an open standard, and is supported by a wide range of tools and libraries.
 
-- **Service evolution**. The web API should be able to evolve and add functionality independently from client applications. As the API evolves, existing client applications should continue to function without modification. All functionality should be discoverable so that client applications can fully use it.
+For example, a REST service that's written in ASP.NET can be accessed by client applications that are written in JavaScript or Python. Also, users can easily access the REST API of the service directly by using tools that support the HTTP protocol. 
 
-This guidance describes issues that you should consider when designing a web API.
+This guide provides best practices for designing web APIs that are based on the principles of REST over HTTP. It also covers common design patterns and considerations for building web APIs that are easy to understand, flexible, and maintainable.
 
-## What is REST?
 
-In 2000, Roy Fielding proposed Representational State Transfer (REST) as an architectural approach to designing web services. REST is an architectural style for building distributed systems based on hypermedia. REST is independent of any underlying protocol and is not necessarily tied to HTTP. However, most common REST API implementations use HTTP as the application protocol, and this guide focuses on designing REST APIs for HTTP.
+## REST design principles
 
-A primary advantage of REST over HTTP is that it uses open standards, and does not bind the implementation of the API or the client applications to any specific implementation. For example, a REST web service could be written in ASP.NET, and client applications can use any language or toolset that can generate HTTP requests and parse HTTP responses.
+When designing a web API for a service, it's important that you consider the following principles:
 
-Here are some of the main design principles of RESTful APIs using HTTP:
+- **Platform independence**, which means that clients should be able to call the API, regardless of it's the internal implementation. To achieve platform independence, the API should use standard protocols, offer clear documentation, and offer a way for client and service to agree on the exchange format. 
 
-- REST APIs are designed around *resources*, which are any kind of object, data, or service that can be accessed by the client.
+- **Loose coupling**, which means that the client and the web service should be able to evolve independently. The client should not have to know the internal implementation of the web service, and the web service should not have to know the internal implementation of the client. This allows the client and the web service to evolve independently.
 
-- A resource has an *identifier*, which is a URI that uniquely identifies that resource. For example, the URI for a particular customer order might be:
+- **Scalability**, which means that the web service should be able to handle a large number of requests. To achieve scalability, the web service should be stateless, and it should be able to handle requests in parallel.
 
-  ```http
-  https://adventure-works.com/orders/1
-  ```
+To achieve these principles, REST APIs should follow these constraints:
 
-- Clients interact with a service by exchanging *representations* of resources. Many web APIs use JSON as the exchange format. For example, a GET request to the URI listed above might return this response body:
+- *Uniform Resource Identifier (URI)*. REST APIs are designed around *resources*, which are any kind of object, data, or service that can be accessed by the client. Each resource should be represented by a URI that uniquely identifies that resource. For example, the URI for a particular customer order might be:
+    
+      ```http
+          https://api.contoso.com/orders/1
+      ```
 
-  ```json
-  {"orderId":1,"orderValue":99.90,"productId":1,"quantity":1}
-  ```
+- *Resource representation* is how a resource - identified by URI - is encoded and transported over the HTTP protocol in a specific format, such as XML or JSON.  Clients that want to retrieve a specific resource, must use the URI in the request to the API. The API, in response, will return a resource representation of the data indicated by the URI.  For example, a client can make a GET request to the URI identifier `https://api.contoso.com/orders/1` in order to receive the following JSON body:
 
-- REST APIs use a uniform interface, which helps to decouple the client and service implementations. For REST APIs built on HTTP, the uniform interface includes using standard HTTP verbs to perform operations on resources. The most common operations are GET, POST, PUT, PATCH, and DELETE.
+      ```json
+      {"orderId":1,"orderValue":99.90,"productId":1,"quantity":1}
+      ```
 
-- REST APIs use a stateless request model. HTTP requests should be independent and might occur in any order, so keeping transient state information between requests is not feasible. The only place where information is stored is in the resources themselves, and each request should be an atomic operation. This constraint enables web services to be highly scalable, because there is no need to retain any affinity between clients and specific servers. Any server can handle any request from any client. That said, other factors can limit scalability. For example, many web services write to a backend data store, which might be hard to scale out. For more information about strategies to scale out a data store, see [Horizontal, vertical, and functional data partitioning](./data-partitioning.yml).
+- *Uniform interface* is used by REST APIS to achieve loose coupling of between client and service implementations. For REST APIs built on HTTP, the uniform interface includes using standard HTTP verbs to perform operations on resources such as `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`.
+
+- *Stateless request model*. REST APIs use a stateless request model, so that each HTTP request is an atomic and independent operation.  Transient state must be managed either by the client or within the service itself.  A stateless request model supports high scalability, as there's no need to retain any affinity between clients and specific servers. However, the stateless model can also limit scalability, due to challenges with web service backend storage scalability. For more information about strategies to scale out a data store, see [Horizontal, vertical, and functional data partitioning](./data-partitioning.yml).
 
 - REST APIs are driven by hypermedia links that are contained in the representation. For example, the following shows a JSON representation of an order. It contains links to get or update the customer associated with the order.
 
@@ -69,8 +72,8 @@ Here are some of the main design principles of RESTful APIs using HTTP:
     "quantity":4,
     "orderValue":16.60,
     "links": [
-      {"rel":"product","href":"https://adventure-works.com/customers/3", "action":"GET" },
-      {"rel":"product","href":"https://adventure-works.com/customers/3", "action":"PUT" }
+      {"rel":"product","href":"https://api.contoso.com/customers/3", "action":"GET" },
+      {"rel":"product","href":"https://api.contoso.com/customers/3", "action":"PUT" }
     ]
   }
   ```
