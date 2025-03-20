@@ -14,7 +14,7 @@ Hub-spoke network topologies typically include the many of following architectur
 
 - **Hub virtual network** - The hub virtual network hosts shared Azure services. Workloads hosted in the spoke virtual networks can use these services. The hub virtual network is the central point of connectivity for cross-premises networks. The hub contains your primary point of egress and provides a mechanism to connect one spoke to another in situations where cross virtual network traffic is needed.
 
-   A hub is a regional resource. Organizations that have their workloads in multiple regions, will should have multiple hubs, one per region.
+   A hub is a regional resource. Organizations that have their workloads in multiple regions, should have multiple hubs, one per region.
 
    The hub enables the following concepts:
 
