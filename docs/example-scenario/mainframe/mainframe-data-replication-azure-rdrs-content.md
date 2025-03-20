@@ -17,7 +17,6 @@ Rocket® Data Replicate and Sync (RDRS), formerly tcVISION, is a data replicatio
    > For Db2 z/OS, RDRS also offers an agentless CDC solution by way of a Db2 user-defined type (UDT) that doesn't need STCs.
 
 1. The open platform manager (OPM) acts as a replication server. This server contains utilities for automatic data mapping to generate metadata for sources and targets. It also contains the ruleset to extract data from the source. The server transforms and processes the data for the target systems and writes the data into the targets. You can install this component on Linux, Unix, and Windows operating systems.
-1. The RDRS dashboard provides administration, review, operation, control, and monitoring of the data exchange processes. The RDRS command-line utilities automate data exchange processes and manage unattended operations of the data synchronization process.
 1. The RDRS apply agent uses DBMS-specific APIs. These APIs efficiently implement real-time data changes in combination with CDC technology at the source to the target Azure data services, meaning the database and files.
 1. RDRS supports direct streaming of the changed data into Azure Event Hubs or Kafka. Then Azure Logic Apps, a function, or a custom solution in the virtual machine (VM) processes these events.
 1. The Azure data platform targets that are supported by RDRS include Azure SQL Database, Azure Database for PostgreSQL, Azure Database for MySQL, Azure Cosmos DB, Azure Data Lake Storage, and others.
@@ -42,10 +41,8 @@ This reference architecture describes an overview of replicating data from Db2 z
 1. For full copy Db2 data is fetched by RDRS Capture agent using SELECT Queries on source Db2 database. If the size of data is large Image copy backup of data can be sent from Mainframe to Capture LUW(Linux, Unix and Windows) VM in binary format.
 1. The Open Platform Manager acts as a replication server. This server contains utilities for automatic data mapping to generate metadata for sources and targets. It contains the rule set for extracting the data from the source. And the server transforms and processes the data for the target systems and writes the data into the targets. You can install this component in Linux, Unix, and Windows Operating System.
 1. RDRS Capture & Apply Agent receives data from Db2 (output of SELECT or Image copy). RDRS Apply Agent after performing configured transformation writes data to target Fabric SQL database.
-1. The RDRS Dashboard provides administration, review, operation, control, and monitoring of the data exchange processes. The RDRS command line utilities help automate data exchange processes and manage the unattended operations of the data synchronization process.
 1. RDRS Apply agent using Microsoft ODBC Driver with Entra ID Authentication for Azure SQL writes data efficiently to the target Fabric Native SQL Database.
-1. Microsoft Fabric SQL Native database is a developer-friendly transactional database, based on Azure SQL Database, that allows you to easily create your operational database in Fabric. A SQL database in Fabric uses the same SQL Database Engine as Azure SQL Database.
-1. After data lands in Azure data platform, it's consumed by Azure services or others that are permitted to see it. Examples include Fabric Analytics, Power BI or even a custom application.
+1. After data lands in Fabric Native SQL Database, it's consumed by Azure services or others that are permitted to see it. Examples include Fabric Analytics, Power BI or even a custom application.
 
 
 ### Change Data Capture
@@ -60,7 +57,7 @@ d.	The RDRS Dashboard interface allows you to administer, operate, control, and 
 
 e.	RDRS Apply agent using Microsoft ODBC Driver with Entra ID Authentication for Azure SQL runs DML queries on target Fabric Native SQL Database. 
 
-f.	Microsoft Fabric SQL Native database is a developer-friendly transactional database, based on Azure SQL Database that allows you to easily create your operational database in Fabric. A SQL database in Fabric uses the same SQL Database Engine as Azure SQL Database. After data lands in Azure data platform, it's consumed by Azure services or others that are permitted to see it. Examples include Fabric Analytics, Power BI or even a custom application.
+f.	After data lands in Fabric Native SQL Database, it's consumed by Azure services or others that are permitted to see it. Examples include Fabric Analytics, Power BI or even a custom application.
 
 g.	RDRS also provides capabilities to write captured data as JSON to Azure Event Hub / Kafka. 
 
