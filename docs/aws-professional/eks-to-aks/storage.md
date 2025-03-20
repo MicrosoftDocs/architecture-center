@@ -125,7 +125,7 @@ For clusters that use [CSI drivers](/azure/aks/csi-storage-drivers), the followi
 | `managed-csi-premium`    | Uses Azure Premium SSD with LRS to create a managed disk. The reclaim policy ensures that the underlying Azure disk is deleted when the persistent volume that used it is deleted. This storage class allows for persistent volumes to be expanded. <br><br> This storage class uses Premium SSD with ZRS to create managed disks. This storage class is for Kubernetes version 1.29 or later and is used in AKS clusters that are deployed across multiple availability zones. |
 | `azurefile-csi`          | Uses Standard SSD storage to create an Azure file share. The reclaim policy ensures that the underlying Azure file share is deleted when the persistent volume that used it is deleted. |
 | `azurefile-csi-premium`  | Uses Premium SSD storage to create an Azure file share. The reclaim policy ensures that the underlying Azure file share is deleted when the persistent volume that used it is deleted. |
-| `azureblob-nfs-premium`  | Uses Premium SSD storage to create an Azure Blob Storage container and connect via the NFS v3 protocol. The reclaim policy ensures that the underlying Blob Storage container is deleted when the persistent volume that used it is deleted. |
+| `azureblob-nfs-premium`  | Uses Premium SSD storage to create an Azure Blob Storage container and connect via the Network File System (NFS) v3 protocol. The reclaim policy ensures that the underlying Blob Storage container is deleted when the persistent volume that used it is deleted. |
 | `azureblob-fuse-premium` | Uses Premium SSD storage to create an Blob Storage container and connect via BlobFuse. The reclaim policy ensures that the underlying Blob Storage container is deleted when the persistent volume that used it is deleted. |
 
 Unless you specify a storage class for a persistent volume, the default storage class is used. Ensure that volumes use the storage that you need when you request persistent volumes.
@@ -168,9 +168,9 @@ The pod definition includes the volume mount after the volume connects to the po
 The left side has two sections: single node or pod access and multiple concurrent nodes or pods access. The single node or pod access uses Azure managed disks (Standard or Premium storage). An arrow points from single node or pod access to a persistent volume in the AKS cluster that's on the right side. The multiple concurrent nodes or pods access uses Azure Files (Standard storage). An arrow points from multiple concurrent node or pod access to the same persistent volume in the AKS cluster on the right side. Inside the AKS cluster, a persistent volume connects to a persistent volume claim, which links to a storage class. The persistent volume claim points to nodes and pods.
 :::image-end:::
 
-After an available storage resource is assigned to the pod that requests storage, the persistent volume is *bound* to a persistent volume claim. Persistent volumes are mapped to claims in a 1:1 mapping.
+After an available storage resource is assigned to the pod that requests storage, the persistent volume is *bound* to a persistent volume claim. Each persistent volume is associated with one persistent volume claim to ensure dedicated storage.
 
-The following example YAML manifest shows a persistent volume claim that uses the *managed-premium* storage class and requests an Azure Disk that is *5Gi* in size:
+The following example YAML manifest shows a persistent volume claim that uses the *managed-premium* storage class and requests an Azure disk that's *5Gi* in size:
 
 ```yaml
 apiVersion: v1
@@ -189,9 +189,9 @@ spec:
 When you create a pod definition, you also specify:
 
 - The persistent volume claim to request the desired storage.
-- The *volume mount* for your applications to read and write data.
+- The volume mount for your applications to read and write data.
 
-The following example YAML manifest shows how the previous persistent volume claim can be used to mount a volume at */mnt/azure*:
+The following example YAML manifest shows how the previous persistent volume claim can mount a volume at */mnt/azure*:
 
 ```yaml
 kind: Pod
@@ -211,7 +211,7 @@ spec:
         claimName: azure-managed-disk
 ```
 
-For mounting a volume in a Windows container, specify the drive letter and path. For example:
+To mount a volume in a Windows container, specify the drive letter and path:
 
 ```yaml
 ...      
@@ -225,88 +225,97 @@ For mounting a volume in a Windows container, specify the drive letter and path.
 
 ## Ephemeral OS disk
 
-By default, Azure automatically replicates the operating system disk for a virtual machine to Azure Storage to avoid data loss when the VM is relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks. These drawbacks include, but aren't limited to, slower node provisioning and higher read/write latency.
+By default, Azure automatically replicates the operating system disk for a virtual machine (VM) to Azure Storage to avoid data loss when the VM is relocated to another host. However, containers aren't designed to have local state persisted, so this behavior provides limited value and drawbacks. These drawbacks include slower node provisioning and higher read and write latency.
 
-By contrast, ephemeral OS disks are stored only on the host machine, just like a temporary disk. With this configuration, you get lower read/write latency, together with faster node scaling and cluster upgrades.
+In contrast, ephemeral OS disks are stored only on the host machine, like a temporary disk. This configuration provides lower read and write latency and faster node scaling and cluster upgrades.
 
-When you don't explicitly request [Azure managed disks](/azure/virtual-machines/managed-disks-overview) for the OS, AKS defaults to ephemeral OS if possible for a given node pool configuration.
+If you don't request [Azure managed disks](/azure/virtual-machines/managed-disks-overview) for the OS, AKS defaults to ephemeral OS disks if possible for a given node pool configuration.
 
-Size requirements and recommendations for ephemeral OS disks are available in the [Azure VM documentation](/azure/virtual-machines/ephemeral-os-disks). The following are some general sizing considerations:
+For size requirements and recommendations, see [Ephemeral OS disks for Azure VMs](/azure/virtual-machines/ephemeral-os-disks). Consider the following sizing considerations:
 
-- If you chose to use the AKS default VM size [Standard_DS2_v2](/azure/virtual-machines/dv2-dsv2-series#dsv2-series) SKU with the default OS disk size of 100 GiB, the default VM size supports ephemeral OS, but only has 86 GiB of cache size. This configuration would default to managed disks if you don't explicitly specify it. If you do request an ephemeral OS, you receive a validation error.
-- If you request the same [Standard_DS2_v2](/azure/virtual-machines/dv2-dsv2-series#dsv2-series) SKU with a 60-GiB OS disk, this configuration would default to ephemeral OS. The requested size of 60 GiB is smaller than the maximum cache size of 86 GiB.
-- If you select the [Standard_D8s_v3](/azure/virtual-machines/dv3-dsv3-series#dsv3-series) SKU with 100-GB OS disk, this VM size supports ephemeral OS and has 200 GiB of cache space. If you don't specify the OS disk type, the node pool would receive ephemeral OS by default.
+- If you use the AKS default VM size [Standard_DS2_v2](/azure/virtual-machines/dv2-dsv2-series#dsv2-series) SKU with the default OS disk size of 100 GiB, the default VM size supports ephemeral OS but only has 86 GiB of cache size. This configuration defaults to managed disks if you don't specify it. If you request an ephemeral OS disk, you receive a validation error.
 
-The latest generation of VM series doesn't have a dedicated cache, but only temporary storage. For example, if you selected the [Standard_E2bds_v5](/azure/virtual-machines/ebdsv5-ebsv5-series#ebdsv5-series) VM size with the default OS disk size of 100 GiB, it supports ephemeral OS disks, but only has 75 GB of temporary storage. This configuration would default to managed OS disks if you don't explicitly specify it. If you do request an ephemeral OS disk, you receive a validation error.
+- If you request the same Standard_DS2_v2 SKU with a 60-GiB OS disk, this configuration defaults to ephemeral OS disks. The requested size of 60 GiB is smaller than the maximum cache size of 86 GiB.
+- If you select the [Standard_D8s_v3](/azure/virtual-machines/dv3-dsv3-series#dsv3-series) SKU with a 100-GB OS disk, this VM size supports ephemeral OS disks and has 200 GiB of cache space. If you don't specify the OS disk type, the node pool receives ephemeral OS disks by default.
 
-- If you request the same [Standard_E2bds_v5](/azure/virtual-machines/ebdsv5-ebsv5-series#ebdsv5-series) VM size with a 60-GiB OS disk, this configuration defaults to ephemeral OS disks. The requested size of 60 GiB is smaller than the maximum temporary storage of 75 GiB.
-- If you select [Standard_E4bds_v5](/azure/virtual-machines/ebdsv5-ebsv5-series#ebdsv5-series) SKU with 100-GiB OS disk, this VM size supports ephemeral OS and has 150 GiB of temporary storage. If you don't specify the OS disk type, by default Azure provisions an ephemeral OS disk to the node pool.
+The latest generation of VM series doesn't have a dedicated cache and only has temporary storage. 
+
+- If you select the [Standard_E2bds_v5](/azure/virtual-machines/ebdsv5-ebsv5-series#ebdsv5-series) VM size with the default OS disk size of 100 GiB, it supports ephemeral OS disks but only has 75 GB of temporary storage. This configuration defaults to managed OS disks if you don't specify it. If you request an ephemeral OS disk, you receive a validation error.
+
+- If you request the same Standard_E2bds_v5 VM size with a 60-GiB OS disk, this configuration defaults to ephemeral OS disks. The requested size of 60 GiB is smaller than the maximum temporary storage of 75 GiB.
+
+- If you select the Standard_E4bds_v5 SKU with a 100-GiB OS disk, this VM size supports ephemeral OS disks and has 150 GiB of temporary storage. If you don't specify the OS disk type, Azure provisions an ephemeral OS disk to the node pool.
 
 ### Customer-managed keys
 
-You can manage encryption for your ephemeral OS disk with your own keys on an AKS cluster. For more information, see [Use Customer Managed key with Azure disk on AKS](/azure/aks/azure-disk-customer-managed-keys).
+You can manage encryption for your ephemeral OS disk with your own keys on an AKS cluster. For more information, see [Bring your own keys with Azure managed disks in AKS](/azure/aks/azure-disk-customer-managed-keys).
 
 ## Volumes
 
-Kubernetes typically treats individual pods as ephemeral, disposable resources. Applications have different approaches available to them for using and persisting data. A *volume* represents a way to store, retrieve, and persist data across pods and through the application lifecycle.
+Kubernetes typically treats individual pods as ephemeral, disposable resources. Applications have different approaches for using and persisting data. A *volume* represents a way to store, retrieve, and persist data across pods and through the application lifecycle.
 
-Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly or have Kubernetes automatically create them. Data volumes can use: [Azure Disk](/azure/virtual-machines/disks-types), [Azure Files](/azure/storage/files/storage-files-planning), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels), or [Azure Blobs](/azure/storage/common/storage-account-overview).
+Traditional volumes are created as Kubernetes resources that are backed by Azure Storage. You can manually create data volumes to be assigned to pods directly or have Kubernetes automatically create them. Data volumes can use: [Azure disk storage](/azure/virtual-machines/disks-types), [Azure Files](/azure/storage/files/storage-files-planning), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels), or [Azure Blob Storage](/azure/storage/common/storage-account-overview).
 
 > [!NOTE]
-> Depending on the VM SKU you're using, the Azure Disk CSI driver might have a per-node volume limit. For some high-performance VMs (for example, 16 cores), the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU offered. For a list of VM SKUs offered and their corresponding detailed capacity limits, see [General purpose virtual machine sizes](/azure/virtual-machines/sizes-general).
+> Depending on your VM SKU, the Azure disk CSI driver might have a volume limit for each node. For some high-performance VMs, such as 16 cores, the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU. For a list of VM SKUs and their corresponding capacity limits, see [General purpose VM sizes](/azure/virtual-machines/sizes-general).
 
-To help determine the best fit for your workload between Azure Files and Azure NetApp Files, review the information provided in the article [Azure Files and Azure NetApp Files comparison](/azure/storage/files/storage-files-netapp-comparison).
+To decide between Azure Files and Azure NetApp Files, see [Azure Files and Azure NetApp Files comparison](/azure/storage/files/storage-files-netapp-comparison).
 
-### Azure Disk
+### Azure disk storage
 
-By default, an AKS cluster comes with pre-created `managed-csi` and `managed-csi-premium` storage classes that use [Disk Storage](https://azure.microsoft.com/services/storage/disks). Similar to Amazon EBS, these classes create a managed disk or block device that's attached to the node for pod access.
+By default, an AKS cluster comes with precreated `managed-csi` and `managed-csi-premium` storage classes that use [Azure disk storage](https://azure.microsoft.com/services/storage/disks). Similar to Amazon EBS, these classes create a managed disk or block device that's attached to the node for pod access.
 
-The Disk classes allow both [static](/azure/aks/azure-disk-volume) and [dynamic](/azure/aks/azure-disks-dynamic-pv) volume provisioning. Reclaim policy ensures that the disk is deleted with the persistent volume. You can expand the disk by editing the persistent volume claim.
+The disk classes allow both [static](/azure/aks/azure-disk-volume) and [dynamic](/azure/aks/azure-disks-dynamic-pv) volume provisioning. The reclaim policy ensures that the disk is deleted with the persistent volume. To expand the disk, edit the persistent volume claim.
 
-These storage classes use Azure managed disks with [LRS](/azure/storage/common/storage-redundancy#locally-redundant-storage). LRS means that the data has three synchronous copies within a single physical location in an Azure primary region. LRS is the least expensive replication option, but doesn't offer protection against a datacenter failure. You can define custom storage classes that use ZRS managed disks. ZRS synchronously replicates your Azure managed disk across three Azure availability zones in the region you select. Each availability zone is a separate physical location with independent power, cooling, and networking. ZRS disks provide at least 99.9999999999% (12 9's) of durability over a given year. A ZRS managed disk can be attached by a virtual machine in a different [availability zone](/azure/availability-zones/az-overview). ZRS disks are currently not available an all the Azure regions. For more information on ZRS disks, see [ZRS option for Azure Disks for high availability](https://youtu.be/RSHmhmdHXcY). In addition, to mitigate the risk of data loss, you can take regular backups or snapshots of Disk Storage data by using [Azure Kubernetes Service Backup](/azure/backup/azure-kubernetes-service-backup-overview) or third party solutions like [Velero](https://github.com/vmware-tanzu/velero) or [Azure Backup](/azure/backup/backup-managed-disks) that can use built-in snapshot technologies.
+These storage classes use Azure managed disks with [LRS](/azure/storage/common/storage-redundancy#locally-redundant-storage). Data in LRS has three synchronous copies within a single physical location in an Azure primary region. LRS is the least expensive replication option but doesn't provide protection against a datacenter failure. You can define custom storage classes that use ZRS managed disks.
 
-You can use [Azure Disk](/azure/aks/azure-disk-csi) to create a Kubernetes *DataDisk* resource. Disks types include:
+ZRS synchronously replicates your Azure managed disk across three Azure availability zones in your region. Each availability zone is a separate physical location that has independent power, cooling, and networking. ZRS disks provide at least 99.9999999999% of durability over a given year. A ZRS managed disk can be attached by a VM in a different [availability zone](/azure/availability-zones/az-overview). ZRS disks aren't available in all Azure regions. For more information, see [ZRS options for Azure disks to improve availability](https://youtu.be/RSHmhmdHXcY).
 
-- [Premium SSDs](/azure/aks/azure-disk-csi) (recommended for most workloads)
+To mitigate the risk of data loss, use [AKS Backup](/azure/backup/azure-kubernetes-service-backup-overview) to take regular backups or snapshots of disk storage data. Or you can use partner solutions, like [Velero](https://github.com/vmware-tanzu/velero) or [Azure Backup](/azure/backup/backup-managed-disks), that have built-in snapshot technology.
+
+You can use [Azure disk storage](/azure/aks/azure-disk-csi) to create a Kubernetes *DataDisk* resource. You can use the following disks types:
+
+- [Premium SSD](/azure/aks/azure-disk-csi) (recommended for most workloads)
 - [Premium SSD v2](/azure/aks/use-premium-v2-disks)
-- [Ultra disks](/azure/aks/use-ultra-disks)
-- [Standard SSDs](/azure/aks/azure-disk-csi)
-- Standard HDDs
+- [Azure Ultra Disk Storage](/azure/aks/use-ultra-disks)
+- [Standard SSD](/azure/aks/azure-disk-csi)
+- Azure Standard HDD
 
 > [!TIP]
-> For most production and development workloads, use Premium SSDs.
+> For most production and development workloads, use Premium SSD.
 
-Because an Azure Disk is mounted as *ReadWriteOnce*, it's only available to a single node. For storage volumes accessible by pods on multiple nodes simultaneously, use Azure Files.
+An Azure disk is mounted as *ReadWriteOnce*, so it's only available to a single node. For storage volumes that pods on multiple nodes can access simultaneously, use Azure Files.
 
-#### Azure Premium SSD v2 disks
+#### Premium SSD v2 disks
 
-[Azure Premium SSD v2 disks](/azure/virtual-machines/disks-types#premium-ssd-v2) offer IO-intense enterprise workloads, a consistent submillisecond disk latency, and high IOPS and throughput. The performance (capacity, throughput, and IOPS) of Premium SSD v2 disks can be independently configured at any time, making it easier for more scenarios to be cost efficient while meeting performance needs. For more information on how to configure a new or existing AKS cluster to use Azure Premium SSD v2 disks, see [Use Azure Premium SSD v2 disks on Azure Kubernetes Service](/azure/aks/use-premium-v2-disks).
+[Premium SSD v2 disks](/azure/virtual-machines/disks-types#premium-ssd-v2) are designed for IO-intense enterprise workloads. They provide consistent submillisecond disk latency, high IOPS, and high throughput. You can independently configure the performance (capacity, IOPS, and throughput) of Premium SSD v2 disks at any time. So you easily improve cost efficiency while meeting performance needs. For more information about how to configure a new or existing AKS cluster to use Azure Premium SSD v2 disks, see [Use Premium SSD v2 disks on AKS](/azure/aks/use-premium-v2-disks).
 
 #### Ultra Disk Storage
 
-Ultra Disk Storage is an Azure managed disk tier that offers high throughput, high IOPS, and consistent low latency disk storage for Azure VMs. Ultra Disk Storage is intended for workloads that are data and transaction heavy. Like other Disk Storage SKUs, and Amazon EBS, Ultra Disk Storage mounts one pod at a time and doesn't provide concurrent access.
+Ultra Disk Storage is an Azure managed disk tier that provides high throughput, high IOPS, and consistent low-latency disk storage for Azure VMs. Use Ultra Disk Storage for data-intensive and transaction-heavy workloads. Like other disk storage SKUs and Amazon EBS, Ultra Disk Storage mounts one pod at a time and doesn't provide concurrent access.
 
-Use the flag `--enable-ultra-ssd` to [enable Ultra Disk Storage on your AKS cluster](/azure/aks/use-ultra-disks).
+To [enable Ultra Disk Storage on your AKS cluster](/azure/aks/use-ultra-disks), use the flag `--enable-ultra-ssd`.
 
-If you choose Ultra Disk Storage, be aware of its [limitations](/azure/virtual-machines/disks-enable-ultra-ssd#ga-scope-and-limitations), and make sure to select a compatible VM size. Ultra Disk Storage is available with LRS replication.
+Be aware of Ultra Disk Storage [limitations](/azure/virtual-machines/disks-enable-ultra-ssd#ga-scope-and-limitations), and select a compatible VM size. Ultra Disk Storage has LRS replication.
 
 #### Bring your own keys (BYOK)
 
-Azure encrypts all data in a managed disk at rest. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys to use for encryption at rest for both the OS and data disks for your AKS clusters. For more information, see [Bring your own keys (BYOK) with Azure managed disks in Azure Kubernetes Service (AKS)](/azure/aks/azure-disk-customer-managed-keys).
+Azure encrypts all data in a managed disk at rest, including the OS and data disks of an AKS cluster. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys to provide encryption at rest for both the OS and data disks in AKS clusters. For more information, see [BYOK with Azure managed disks in AKS](/azure/aks/azure-disk-customer-managed-keys) and [Server-side encryption of Azure Disk Storage](/azure/virtual-machines/disk-encryption).
 
 ### Azure Files
 
-Disk Storage can't provide concurrent access to a volume, but you can use [Azure Files](https://azure.microsoft.com/services/storage/files) to mount a Server Message Block (SMB) version 3.1.1 share or Network File System (NFS) version 4.1 share backed by Azure Storage. This process provides a network-attached storage that's similar to Amazon EFS. As with Disk Storage, there are two options:
+Disk storage can't provide concurrent access to a volume, but you can use [Azure Files](https://azure.microsoft.com/services/storage/files) to mount a Server Message Block (SMB) version 3.1.1 share or NFS version 4.1 share that's backed by Azure Storage. This process provides network-attached storage that's similar to Amazon EFS. Azure Files has two storage options:
 
-- Azure Files Standard storage is backed by regular hard disk drives (HDDs).
-- Azure Files Premium storage backs the file share with high-performance SSD drives. The minimum file share size for Premium is 100 GB.
+- Azure Files Standard storage backs the file share with regular hard disk drives (HDDs).
 
-Azure Files has the following storage account replication options to protect your data in case of failure:
+- Azure Files Premium storage backs the file share with high-performance solid-state drives (SSDs). The minimum file share size for Premium is 100 GB.
+
+Azure Files has the following storage account replication options to protect your data if failure occurs:
 
 - **Standard_LRS**: Standard [LRS](/azure/storage/common/storage-redundancy#locally-redundant-storage)
 - **Standard_GRS**: Standard [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage)
 - **Standard_ZRS**: Standard [ZRS](/azure/storage/common/storage-redundancy#zone-redundant-storage)
-- **Standard_RAGRS**: Standard [read-access GRS](/azure/storage/common/storage-redundancy#read-access-to-data-in-the-secondary-region)
+- **Standard_RAGRS**: Standard [read-access GRS (RA-GRS)](/azure/storage/common/storage-redundancy#read-access-to-data-in-the-secondary-region)
 - **Standard_RAGZRS**: Standard [read-access geo-zone-redundant storage (RA-GZRS)](/azure/storage/common/storage-redundancy#geo-zone-redundant-storage)
 - **Premium_LRS**: Premium [LRS](/azure/storage/common/storage-redundancy#locally-redundant-storage)
 - **Premium_ZRS**: Premium [ZRS](/azure/storage/common/storage-redundancy#zone-redundant-storage)
@@ -315,59 +324,54 @@ To optimize costs for Azure Files, purchase [Azure Files capacity reservations](
 
 ### Azure NetApp Files
 
-[Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) is an enterprise-class, high-performance, metered file storage service running on Azure and supports volumes using [NFS](/azure/aks/azure-netapp-files-nfs) (NFSv3 or NFSv4.1), [SMB](/azure/aks/azure-netapp-files-smb), and [dual-protocol](/azure/aks/azure-netapp-files-dual-protocol) (NFSv3 and SMB, or NFSv4.1 and SMB). Kubernetes users have two options for using Azure NetApp Files volumes for Kubernetes workloads:
+[Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) is an enterprise-class, high-performance, metered file storage service that runs on Azure and supports volumes by using [NFS](/azure/aks/azure-netapp-files-nfs) (NFSv3 or NFSv4.1), [SMB](/azure/aks/azure-netapp-files-smb), and [dual protocol](/azure/aks/azure-netapp-files-dual-protocol) (NFSv3 and SMB or NFSv4.1 and SMB). Kubernetes users have two options for using Azure NetApp Files volumes for Kubernetes workloads:
 
-- Create Azure NetApp Files volumes **statically**. In this scenario, the creation of volumes is external to AKS. Volumes are created using the Azure CLI or from the Azure portal, and are then exposed to Kubernetes by the creation of a `PersistentVolume`. Statically created Azure NetApp Files volumes have many limitations (for example, inability to be expanded, needing to be over-provisioned, and so on). Statically created volumes aren't recommended for most use cases.
-- Create Azure NetApp Files volumes **dynamically**, orchestrating through Kubernetes. This method is the **preferred** way to create multiple volumes directly through Kubernetes, and is achieved using [Astra Trident](https://docs.netapp.com/us-en/trident/index.html). Astra Trident is a CSI-compliant dynamic storage orchestrator that helps provision volumes natively through Kubernetes.
+- **Create Azure NetApp Files volumes statically.** Create volumes outside of AKS via the Azure CLI or the Azure portal. After creation, these volumes are exposed to Kubernetes by creating a `PersistentVolume`. Statically created Azure NetApp Files volumes have many limitations. For example, they can't be expanded and they need to be overprovisioned. We don't recommend statically created volumes for most use cases.
 
-For more information, see [Configure Azure NetApp Files for Azure Kubernetes Service](/azure/aks/azure-netapp-files).
+- **Create Azure NetApp Files volumes dynamically** through Kubernetes. This is the **preferred** method to create multiple volumes directly through Kubernetes by using [Astra Trident](https://docs.netapp.com/us-en/trident/index.html). Astra Trident is a CSI-compliant dynamic storage orchestrator that helps provision volumes natively through Kubernetes.
 
-### Azure Blob storage
+For more information, see [Configure Azure NetApp Files for AKS](/azure/aks/azure-netapp-files).
 
-The [Azure Blob storage CSI driver](/azure/aks/azure-blob-csi) is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Blob storage. The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes.
+### Azure Blob Storage
 
-By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes. Using CSI drivers in AKS avoids having to touch the core Kubernetes code and wait for its release cycles.
+The [Azure Blob Storage CSI driver](/azure/aks/azure-blob-csi) is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver that AKS uses to manage the lifecycle of Blob Storage. The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes.
 
-When you mount Azure Blob storage as a file system into a container or pod, it enables you to use blob storage with a number of applications that work massive amounts of unstructured data. For example:
+Adopt and use the CSI so that AKS can write, deploy, and iterate plug-ins. The plug-ins expose new storage systems or improve existing storage systems in Kubernetes. CSI drivers in AKS eliminate the need to modify the core Kubernetes code and wait for its release cycles.
 
-- Log file data
-- Images, documents, and streaming video or audio
-- Disaster recovery data
+When you mount Blob Storage as a file system into a container or pod, you can use it with applications that handle large amounts of unstructured data, such as:
 
-The data on the object storage can be accessed by applications using [BlobFuse](https://github.com/Azure/azure-storage-fuse/blob/master/README.md) or [Network File System (NFS) 3.0 protocol](https://en.wikipedia.org/wiki/Network_File_System). Before the introduction of the Azure Blob storage CSI driver, the only option was to manually install an unsupported driver to access Blob storage from your application running on AKS. When the Azure Blob storage CSI driver is enabled on AKS, there are two built-in storage classes: *[azureblob-fuse-premium](/azure/aks/azure-blob-csi)* and *[azureblob-nfs-premium](/azure/aks/azure-blob-csi)*.
+- Log file data.
+- Images, documents, and streaming video or audio.
+- Disaster recovery data.
 
-To create an AKS cluster with CSI drivers support, see [CSI drivers on AKS](/azure/aks/csi-storage-drivers). To learn more about the differences in access between each of the Azure storage types using the NFS protocol, see [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS](/azure/storage/common/nfs-comparison).
+Applications can access the data on the object storage via [BlobFuse](https://github.com/Azure/azure-storage-fuse/blob/master/README.md) or the [NFS 3.0 protocol](https://wikipedia.org/wiki/Network_File_System). Before the introduction of the Blob Storage CSI driver, the only option was to manually install an unsupported driver to access Blob Storage from your application that runs on AKS. A Blob Storage CSI driver that's enabled on AKS has two built-in storage classes: [azureblob-fuse-premium](/azure/aks/azure-blob-csi) and [azureblob-nfs-premium](/azure/aks/azure-blob-csi).
+
+To create an AKS cluster that has CSI drivers support, see [CSI drivers on AKS](/azure/aks/csi-storage-drivers). For more information, see [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS](/azure/storage/common/nfs-comparison).
 
 ### Azure HPC Cache
 
-[Azure HPC Cache](/azure/hpc-cache/hpc-cache-overview) speeds access to your data for HPC tasks, with all the scalability of cloud solutions. If you choose this storage solution, make sure to deploy your AKS cluster in a [region that supports Azure HPC cache](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache&regions=all).
+[Azure HPC Cache](/azure/hpc-cache/hpc-cache-overview) accelerates access to your data for HPC tasks and provides the scalability of cloud solutions. If you choose this storage solution, make sure to deploy your AKS cluster in a [region that supports HPC Cache](https://azure.microsoft.com/global-infrastructure/services/).
 
 ### NFS server
 
-The best option for shared NFS access is to use Azure Files or Azure NetApp Files. You can also [create an NFS Server on an Azure VM](/azure/aks/azure-nfs-volume) that exports volumes.
+For shared NFS access, you should use Azure Files or Azure NetApp Files. You can also [create an NFS server on an Azure VM](/azure/aks/azure-nfs-volume) that exports volumes.
 
-Be aware that this option only supports static provisioning. You must provision the NFS shares manually on the server, and can't do so from AKS automatically.
+This option only supports static provisioning. You must provision the NFS shares manually on the server. You can't provision NFS shares automatically on AKS.
 
-This solution is based on infrastructure as a service (IaaS) rather than platform as a service (PaaS). You're responsible for managing the NFS server, including OS updates, high availability, backups, disaster recovery, and scalability.
-
-### Bring your own keys (BYOK) with Azure disks
-
-Azure Storage encrypts all data in a storage account at rest, including the OS and data disks of an AKS cluster. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys to use for encryption at rest of the OS and data disks of your AKS clusters. For more information, see:
-
-- [BYOK with Azure disks in AKS](/azure/aks/azure-disk-customer-managed-keys).
-- [Server-side encryption of Azure Disk Storage](/azure/virtual-machines/disk-encryption).
+This solution is based on infrastructure as a service (IaaS) rather than platform as a service (PaaS). You manage the NFS server, including OS updates, high availability, backups, disaster recovery, and scalability.
 
 ### Azure Container Storage
 
-[Azure Container Storage](/azure/storage/container-storage/container-storage-introduction) is a cloud-based volume management, deployment, and orchestration service built natively for containers. It integrates with Kubernetes, allowing you to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters.
+[Azure Container Storage](/azure/storage/container-storage/container-storage-introduction) is a cloud-based volume management, deployment, and orchestration service that's built natively for containers. It integrates with Kubernetes so that you can dynamically and automatically provision persistent volumes to store data for stateful applications that run on Kubernetes clusters.
 
-Azure Container Storage utilizes existing Azure Storage offerings for actual data storage and offers a volume orchestration and management solution purposely built for containers. Supported backing storage options include:
+Azure Container Storage uses existing Azure Storage offerings for actual data storage and provides a volume orchestration and management solution that's purposely built for containers. Azure Container Storage supports the following backing storage:
 
-- [Azure Disks](/azure/virtual-machines/managed-disks-overview): Granular control of storage SKUs and configurations. They are suitable for tier 1 and general purpose databases.
-- Ephemeral Disks: Utilizes local storage resources on AKS nodes (NVMe or temp SSD). Best suited for applications with no data durability requirement or with built-in data replication support. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment.
-- [Azure Elastic SAN](/azure/storage/elastic-san/elastic-san-introduction): Provision on-demand, fully managed resource. Suitable for general purpose databases, streaming and messaging services, CD/CI environments, and other tier 1/tier 2 workloads. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time.
+- [Azure disks](/azure/virtual-machines/managed-disks-overview): Provide granular control of storage SKUs and configurations. Azure disks suit tier-1 and general-purpose databases.
 
-Until now, providing cloud storage for containers required using individual CSI drivers to use storage services intended for infrastructure as a service (IaaS)-centric workloads and make them work for containers. This creates operational overhead and increases the risk of issues with application availability, scalability, performance, usability, and cost.
+- Ephemeral disks: Use local storage resources on AKS nodes (NVMe or temp SSD). Ephemeral disks suit applications that don't have data durability requirements or that have built-in data replication support. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment.
+- [Azure Elastic SAN](/azure/storage/elastic-san/elastic-san-introduction): Provision on-demand, fully managed resources. Elastic SAN suits general-purpose databases, streaming and messaging services, continuous integration and continuous delivery environments, and other tier-1 or tier-2 workloads. Multiple clusters can access a single storage area network (SAN) concurrently. However persistent volumes can only be attached by one consumer at a time.
+
+Until now, providing cloud storage for containers required using individual CSI drivers to use storage services intended for IaaS-centric workloads and make them work for containers. This creates operational overhead and increases the risk of issues with application availability, scalability, performance, usability, and cost.
 
 Azure Container Storage is derived from OpenEBS, an open-source solution that provides container storage capabilities for Kubernetes. By offering a managed volume orchestration solution via microservice-based storage controllers in a Kubernetes environment, Azure Container Storage enables true container-native storage.
 

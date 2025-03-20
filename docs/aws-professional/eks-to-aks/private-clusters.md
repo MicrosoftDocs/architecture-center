@@ -108,7 +108,7 @@ In a private AKS cluster, the API server endpoint has no public IP address. Ther
 2. Use a virtual machine in a separate virtual network and set up [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) with the AKS cluster virtual network.
 3. Configure an [Azure ExpressRoute or VPN](/azure/expressroute/expressroute-about-virtual-network-gateways) to connect to the cluster virtual network.
 4. Create an [Azure Private Endpoint](/azure/private-link/private-endpoint-overview) connection inside another virtual network.
-5. Use a [Cloud Shell](https://learn.microsoft.com/en-us/azure/cloud-shell/vnet/overview) instance deployed into a subnet that's connected to the API server for the cluster.
+5. Use a [Cloud Shell](/azure/cloud-shell/vnet/overview) instance deployed into a subnet that's connected to the API server for the cluster.
 
 Using the Azure CLI, you can make use of the [az aks command invoke](/cli/azure/aks/command?view=azure-cli-latest#az-aks-command-invoke) command to access private clusters without the need for configuring a VPN or Express Route. This command allows you to remotely invoke commands, such as `kubectl` and `helm`, on your private cluster through the Azure API, without having to directly connect to the cluster. To use `command invoke`, you need to have the necessary permissions set up for the `Microsoft.ContainerService/managedClusters/runcommand/action` and `Microsoft.ContainerService/managedclusters/commandResults/read` actions.
 

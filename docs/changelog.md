@@ -128,7 +128,7 @@ The following new and updated articles have recently been published in the Azure
 - [Many models machine learning with Azure Machine Learning](./ai-ml/idea/many-models-machine-learning-azure-machine-learning.yml)  ([#808672d53d](https://github.com/MicrosoftDocs/architecture-center/commit/808672d53d))
 - [Overview of Microsoft Machine Learning Products and Technologies](./ai-ml/guide/data-science-and-machine-learning.md)  ([#db173c5205](https://github.com/MicrosoftDocs/architecture-center/commit/db173c5205))
 - [Governance options for a Kubernetes cluster](./aws-professional/eks-to-aks/governance.md)  ([#aa2ad3d278](https://github.com/MicrosoftDocs/architecture-center/commit/aa2ad3d278))
-- [Kubernetes monitoring and logging](./aws-professional/eks-to-aks/monitoring.yml)  ([#aa2ad3d278](https://github.com/MicrosoftDocs/architecture-center/commit/aa2ad3d278))
+- [Kubernetes monitoring and logging](./aws-professional/eks-to-aks/monitoring.md)  ([#aa2ad3d278](https://github.com/MicrosoftDocs/architecture-center/commit/aa2ad3d278))
 - [Kubernetes node and node pool management](./aws-professional/eks-to-aks/node-pools.md)  ([#aa2ad3d278](https://github.com/MicrosoftDocs/architecture-center/commit/aa2ad3d278))
 - [Secure network access to Kubernetes](./aws-professional/eks-to-aks/private-clusters.md)  ([#aa2ad3d278](https://github.com/MicrosoftDocs/architecture-center/commit/aa2ad3d278))
 - [Storage options for a Kubernetes cluster](./aws-professional/eks-to-aks/storage.md)  ([#aa2ad3d278](https://github.com/MicrosoftDocs/architecture-center/commit/aa2ad3d278))

@@ -1,5 +1,5 @@
 ---
-title:  Kubernetes Workload Identity and Access
+title: Kubernetes Workload Identity and Access
 description: Understand how Kubernetes pods handle identity and access, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).
 author: paolosalvatori
 ms.author: paolos
