@@ -466,7 +466,7 @@ items:
   - name: Choreography
     href: patterns/choreography.yml
   - name: Circuit Breaker
-    href: patterns/circuit-breaker.yml
+    href: patterns/circuit-breaker.md
   - name: Claim Check
     href: patterns/claim-check.yml
   - name: Compensating Transaction
