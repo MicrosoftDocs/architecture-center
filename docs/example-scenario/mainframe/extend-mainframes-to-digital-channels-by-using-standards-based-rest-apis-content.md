@@ -61,9 +61,9 @@ In place of ExpressRoute gateway, you can use the Azure VPN Gateway. The virtual
 
 [z/OS Connect Designer](https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2023.2?topic=concepts-what-is-zos-connect-designer) features an intuitive web user interface that provides a low-code approach, built specifically to create APIs for IBM Z. This graphical interface shortens development time and the learning curve for new developers who use z/OS Connect.
 
-[Azure API Management](https://azure.microsoft.com/en-us/services/api-management) is a fully managed service that helps organizations to publish, secure, and manage APIs for their applications. It provides a comprehensive set of tools and features to create, monitor, and control the lifecycle of APIs.
+[Azure API Management](https://azure.microsoft.com/products/api-management/) is a fully managed service that helps organizations to publish, secure, and manage APIs for their applications. It provides a comprehensive set of tools and features to create, monitor, and control the lifecycle of APIs.
 
-[Microsoft Power Platform](https://powerplatform.microsoft.com/en-us) Power Apps is a low-code or no-code option to create a web-based user interface that connects to the previously mentioned developed services. This architecture illustrates both a low-code Power Apps client and a custom web app client.
+[Microsoft Power Platform](https://www.microsoft.com/power-platform) Power Apps is a low-code or no-code option to create a web-based user interface that connects to the previously mentioned developed services. This architecture illustrates both a low-code Power Apps client and a custom web app client.
 
 ## Potential use cases
 
@@ -81,7 +81,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the Reliability pillar](/azure/well-architected/reliability).
 
 - [Red Hat OpenShift Container Platform](https://www.redhat.com/en/technologies/cloud-computing/openshift) provides automated deployment capabilities that help ensure your applications are deployed consistently and reliably.
 
@@ -89,15 +89,15 @@ Reliability ensures your application can meet the commitments you make to your c
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the Security pillar](/azure/well-architected/security).
 
 - Microsoft Entra ID provides a variety of security features and capabilities to help you protect identities, applications, and data. It also provides authentication and authorization of users and applications. The integration of Microsoft Entra ID with OAuth enables more secure authentication and authorization for applications.
 
 - IBM zSystems provides robust security capabilities for DevSecOps to mitigate business risks, safeguard application data, and help you ensure long-term security for your systems.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization reduces unnecessary expenses and improves operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization reduces unnecessary expenses and improves operational efficiencies. For more information, see [Overview of the Cost Optimization pillar](/azure/well-architected/cost-optimization).
 
 - IBM Z and Cloud Modernization Stack and Azure DevOps reduce the need for custom z/OS tooling by allowing organizations to implement the same CI/CD toolchain and practices as the rest of their enterprise.
 
@@ -105,17 +105,17 @@ Cost optimization reduces unnecessary expenses and improves operational efficien
 
 Use the [Pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to estimate the cost of implementing your solution.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the Operational Excellence pillar](/azure/well-architected/operational-excellence).
 
 - [IBM z/OS Connect](https://www.ibm.com/docs/en/was-liberty/zos?topic=overview-zos-connect) facilitates access to backend application functions, converting them into microservices with accessible APIs. IBM z/OS Connect enables other applications to interact at scale with these services while also providing API management and monitoring capabilities.
 
 - [Red Hat OpenShift Container Platform](https://www.redhat.com/en/technologies/cloud-computing/openshift) streamlines deployment processes, bolsters scalability, fortifies security measures, offers robust monitoring capabilities, facilitates continuous integration and delivery, and integrates with existing operational tools and processes.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency covers the operations processes that deploy an application and keep it in production. For more information, see [Overview of the performance efficiency pillar](/azure/well-architected/scalability/overview).
+Performance efficiency covers the operations processes that deploy an application and keep it in production. For more information, see [Overview of the Performance Efficiency pillar](/azure/well-architected/performance-efficiency).
 
 - z/OS Connect handles multiple API requests concurrently by using the parallel processing capabilities of IBM Z. This parallel execution enhances performance by using system resources and reducing response times for API calls.
 - Performance efficiency is a core strength of IBM z/OS Connect. It handles high transaction volumes and manages concurrent connections. The solution's scalability expands both horizontally and vertically, allowing it to adapt to the evolving demands of workloads.
@@ -129,7 +129,7 @@ Principal authors:
 - [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior Technical Program Manager
 - [Ivan Dovgan](https://www.linkedin.com/in/ivandov) | Chief Architect
 
-Other Contributors:
+Other contributors:
 
 - [Jim Dugan](https://www.linkedin.com/in/jdugan1) | Principal Technical Program Manager
 - Madhu Ananthapadmanabh | Z Hybrid Cloud Integration solution architect
@@ -140,8 +140,8 @@ Other Contributors:
 
 For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 
-- [Azure DevOps Services](https://azure.microsoft.com/en-us/products/devops)
+- [Azure DevOps Services](https://azure.microsoft.com/products/devops)
 - [IBM Z and Cloud Modernization Stack](https://www.ibm.com/products/z-and-cloud-modernization-stack)
 - [Technical White Paper on Azure DevOps for z Systems](https://www.ibm.com/support/pages/system/files/inline-files/Azure-DBB%20Integration%20v2g.pdf)
-- [Microsoft Power Platform](https://powerplatform.microsoft.com/en-us/)
+- [Microsoft Power Platform](https://www.microsoft.com/power-platform)
 - [IBM z/OS Connect overview](https://www.ibm.com/docs/en/was-liberty/zos?topic=overview-zos-connect)
