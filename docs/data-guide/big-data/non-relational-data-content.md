@@ -122,7 +122,7 @@ External index data stores are often used to support full text and web-based sea
 
 Relevant Azure service:
 
-- [Azure Search](https://azure.microsoft.com/services/search/)
+- [Azure AI Search](https://azure.microsoft.com/products/ai-services/ai-search)
 
 ## Typical requirements
 

@@ -93,7 +93,7 @@ spec:
 
 ## Related resources
 
-- [Circuit Breaker pattern](./circuit-breaker.yml)
+- [Circuit Breaker pattern](./circuit-breaker.md)
 - [Retry pattern](./retry.yml)
 - [Throttling pattern](./throttling.yml)
 
