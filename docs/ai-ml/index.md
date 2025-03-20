@@ -100,7 +100,7 @@ For more information, see the following resources:
 
 - [Adopt, extend, and build Copilot experiences across the Microsoft Cloud](/microsoft-cloud/dev/copilot/overview)
 - [Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
-- [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio)
+- [Azure AI Foundry](/azure/ai-foundry/what-is-ai-foundry)
 
 ### Retrieval Augmented Generation
 
@@ -175,7 +175,7 @@ For more information, see [MLflow and Machine Learning](/azure/machine-learning/
 
 - [Prompt flow](https://microsoft.github.io/promptflow/index.html) is a suite of development tools that you can use to streamline the end-to-end development cycle of generative AI applications, from ideation, prototyping, testing, and evaluation to production deployment and monitoring. It supports prompt engineering through expressing actions in a modular orchestration and flow engine.
 
-- [Azure AI Foundry](https://azure.microsoft.com/products/ai-studio/) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. The [Azure AI Foundry portal](https://ai.azure.com/) provides access to Azure AI services, foundation models, a playground, and resources to help you build, train, fine-tune, and deploy AI models. You can also evaluate model responses and orchestrate prompt application components with prompt flow for better performance.
+- [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. The [Azure AI Foundry portal](https://ai.azure.com/) provides access to Azure AI services, foundation models, a playground, and resources to help you build, train, fine-tune, and deploy AI models. You can also evaluate model responses and orchestrate prompt application components with prompt flow for better performance.
 
 - [Copilot Studio](/microsoft-copilot-studio/) extends Copilot in Microsoft 365. You can use Copilot Studio to build custom copilots for internal and external scenarios. Use a comprehensive authoring canvas to design, test, and publish copilots. You can easily create generative AI-enabled conversations, provide greater control of responses for existing copilots, and accelerate productivity by using automated workflows.
 
@@ -472,7 +472,7 @@ Prebuilt AI models are useful and increasingly flexible, but the best way to opt
 
 #### AI Foundry
 
-[AI Foundry](/azure/ai-studio/what-is-ai-studio) helps you efficiently build and deploy custom generative AI applications with the power of broad Azure AI offerings.
+[AI Foundry](/azure/ai-foundry/what-is-ai-foundry) helps you efficiently build and deploy custom generative AI applications with the power of broad Azure AI offerings.
 
 - Build together as one team. Your AI Foundry hub provides enterprise-grade security and a collaborative environment that includes shared resources and connections to pretrained models, data, and compute.
 
@@ -492,7 +492,7 @@ For more information, see [AI Foundry portal versus Machine Learning studio](/ai
 
 #### Prompt flow in AI Foundry portal
 
-[Prompt flow in the AI Foundry portal](/azure/ai-studio/how-to/prompt-flow) is a development tool that you can use to streamline the entire development cycle of AI applications that are powered by LLMs. Prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
+[Prompt flow in the AI Foundry portal](/azure/ai-foundry/how-to/prompt-flow) is a development tool that you can use to streamline the entire development cycle of AI applications that are powered by LLMs. Prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
 
 - Prompt flow is a feature that you can use to generate, customize, or run a flow.
 

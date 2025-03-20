@@ -2350,7 +2350,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/anomaly-detection-in-real-time-data-streams.md",
-      "redirect_url": "/azure/cognitive-services/anomaly-detector/"
+      "redirect_url": "/azure/ai-services/anomaly-detector/"
     },
     {
       "source_path": "docs/solution-ideas/articles/sap-s4-hana-vm-on-linux.md",
@@ -3878,6 +3878,11 @@
     {
       "source_path": "docs/example-scenario/ai/form-recognizer-healthcare.yml",
       "redirect_url": "/azure/architecture/ai-ml/automate-document-processing-azure-form-recognizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/automate-document-processing-azure-form-recognizer.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/automate-document-processing-azure-ai-document-intelligence",
       "redirect_document_id": false
     },
     {

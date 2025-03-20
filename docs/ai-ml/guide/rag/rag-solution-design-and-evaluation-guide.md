@@ -129,7 +129,7 @@ Principal authors:
 ## Next steps
 
 - [Retrieval Augmented Generation (RAG) in Azure AI Search](/azure/search/retrieval-augmented-generation-overview)
-- [Retrieval augmented generation and indexes](/azure/ai-studio/concepts/retrieval-augmented-generation)
+- [Retrieval augmented generation and indexes](/azure/ai-foundry/concepts/retrieval-augmented-generation)
 
 ## Related resources
 

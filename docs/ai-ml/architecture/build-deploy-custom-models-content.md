@@ -34,7 +34,7 @@ The following dataflow corresponds to the previous diagram:
 
    - Azure AI Document Intelligence has built-in model deployment. Inferencing with the custom models is done by using [SDKs](/python/api/overview/azure/ai-documentintelligence-readme) or [document models REST API](/rest/api/aiservices/document-models/get-analyze-result). The [modelId](/azure/ai-services/document-intelligence/how-to-guides/build-a-custom-model), or *model name*, specified during model creation is included in the request URL for document analysis. Document Intelligence doesn't require any further deployment steps.
 
-   - Language Studio provides an option to deploy custom language models. Get the REST endpoint [prediction URL](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api) by selecting the model for deployment. You can inference models by using either the REST endpoint or the Azure SDK client libraries.
+   - Language Studio provides an option to deploy custom language models. Get the REST endpoint [prediction URL](/azure/ai-services/language-service/custom-named-entity-recognition/how-to/call-api) by selecting the model for deployment. You can inference models by using either the REST endpoint or the Azure SDK client libraries.
 
    - Machine Learning deploys custom models to online or batch [Machine Learning managed endpoints](/azure/machine-learning/concept-endpoints). You can also use the Machine Learning SDK to [deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service) as a web service. Fine-tuned foundation models can be deployed from the model catalog via managed compute or a [serverless API](/azure/machine-learning/how-to-deploy-models-serverless). Models deployed through managed compute can be inferenced by using managed endpoints, which include online endpoints for real-time inferencing and batch endpoints for batch inferencing.
 
@@ -52,7 +52,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a set of capabilities built on Blob Storage for big data analytics. Data Lake Storage maintains the cost effectiveness of Blob Storage and provides features like file-level security and file system semantics with a hierarchical namespace.
 
-- [Document Intelligence](/azure/ai-services/document-intelligence/overview) is a component of [Azure AI services](/azure/ai-services/what-are-ai-services). Document Intelligence has built-in document analysis capabilities for extracting printed and handwritten text, tables, and key-value pairs. Document Intelligence has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Document Intelligence also has a [custom template](/azure/applied-ai-services/form-recognizer/concept-custom-template) form model and a [custom neural](/azure/applied-ai-services/form-recognizer/concept-custom-neural) document model that you can use to train and deploy custom models.
+- [Document Intelligence](/azure/ai-services/document-intelligence/overview) is a component of [Azure AI services](/azure/ai-services/what-are-ai-services). Document Intelligence has built-in document analysis capabilities for extracting printed and handwritten text, tables, and key-value pairs. Document Intelligence has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Document Intelligence also has a [custom template](/azure/ai-services/document-intelligence/train/custom-template) form model and a [custom neural](/azure/ai-services/document-intelligence/train/custom-neural) document model that you can use to train and deploy custom models.
 
 - [Document Intelligence Studio](/azure/ai-services/document-intelligence/studio-overview) provides an interface to explore Document Intelligence features and models. It also enables you to build, tag, train, and deploy custom models.
 
@@ -72,13 +72,13 @@ The following dataflow corresponds to the previous diagram:
 
 You can add more workflows to this scenario based on specific use cases.
 
-- If the document is an image or PDF, you can extract the data by using Azure [optical character recognition](/azure/cognitive-services/computer-vision/overview-ocr), the [Document Intelligence Read API](/azure/ai-services/document-intelligence/prebuilt/read), or open-source libraries.
+- If the document is an image or PDF, you can extract the data by using Azure [optical character recognition](/azure/ai-services/computer-vision/overview-ocr), the [Document Intelligence Read API](/azure/ai-services/document-intelligence/prebuilt/read), or open-source libraries.
 
-- You can use the prebuilt model in Language for [document and conversation summarization](/azure/cognitive-services/language-service/text-summarization/overview).
+- You can use the prebuilt model in Language for [document and conversation summarization](/azure/ai-services/language-service/summarization/overview).
 
 - Use preprocessing code to perform text processing steps. These steps include cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data according to document processing requirements. You can expose the code as REST APIs for automation. Manually complete or automate these steps by integrating with the [Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
 
-- You can explore Azure OpenAI models and a collection of foundation models in the [model catalog](/azure/machine-learning/concept-model-catalog). You can also use [Azure AI Foundry portal](/azure/ai-studio/what-is-ai-studio) to [fine-tune](/azure/ai-studio/concepts/fine-tuning-overview) and deploy foundation models, and build generative AI applications. Because there's overlap between Machine Learning and Azure AI Foundry, you must [evaluate their capabilities](/ai/ai-studio-experiences-overview) and choose the best platform for your scenario.
+- You can explore Azure OpenAI models and a collection of foundation models in the [model catalog](/azure/machine-learning/concept-model-catalog). You can also use [Azure AI Foundry portal](/azure/ai-foundry/what-is-ai-foundry) to [fine-tune](/azure/ai-foundry/concepts/fine-tuning-overview) and deploy foundation models, and build generative AI applications. Because there's overlap between Machine Learning and Azure AI Foundry, you must [evaluate their capabilities](/ai/ai-studio-experiences-overview) and choose the best platform for your scenario.
 
 - You can use [Azure AI Content Understanding](/azure/ai-services/content-understanding/overview) to create a [custom analyzer](/azure/ai-services/content-understanding/quickstart/use-rest-api?tabs=document) by defining a field schema for extracting structured data from the document.
 
@@ -102,7 +102,7 @@ The following use cases can take advantage of custom models for document process
 
 - Extract custom key values from documents for various industry verticals like insurance and healthcare.
 
-- Tag and extract specific domain-dependent entities beyond the [prebuilt NER models](/azure/cognitive-services/luis/luis-concept-prebuilt-model) for domains like security or finance.
+- Tag and extract specific domain-dependent entities beyond the [prebuilt NER models](/azure/ai-services/luis/luis-concept-prebuilt-model) for domains like security or finance.
 
 - Create custom tables from documents.
 
@@ -195,7 +195,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 - For deployments as managed endpoints, support autoscaling by integrating with the [Azure Monitor autoscale feature](/azure/azure-monitor/autoscale/autoscale-overview). For more information, see [Endpoints for inference in production](/azure/machine-learning/concept-endpoints).
 
-- The API service limits on [custom NER](/azure/cognitive-services/language-service/custom-named-entity-recognition/service-limits#api-limits) and [custom text classification](/azure/cognitive-services/language-service/custom-classification/service-limits#api-limits) for inferencing are 20 GET or POST requests per minute.
+- The API service limits on [custom NER](/azure/ai-services/language-service/custom-named-entity-recognition/service-limits#api-limits) and [custom text classification](/azure/ai-services/language-service/custom-text-classification/service-limits#api-limits) for inferencing are 20 GET or POST requests per minute.
 
 ## Contributors
 
@@ -212,11 +212,11 @@ Principal author:
 - [Get started with custom projects in Document Intelligence Studio](/azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio)
 - [Use Document Intelligence models](/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api)
 - [What is Azure AI Language?](/azure/ai-services/language-service/overview)
-- [What is optical character recognition?](/azure/cognitive-services/computer-vision/overview-ocr)
+- [What is optical character recognition?](/azure/ai-services/computer-vision/overview-ocr)
 - [How to configure Functions with a virtual network](/azure/azure-functions/configure-networking-how-to)
 
 ## Related resources
 
 - [Extract text from objects by using Power Automate and AI Builder](../../example-scenario/ai/extract-object-text.yml)
 - [Suggest content tags with NLP by using deep learning](../../data-guide/technology-choices/natural-language-processing.md)
-- [Automate document processing by using Document Intelligence](../../example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)
+- [Automate document processing by using Document Intelligence](../../ai-ml/architecture/automate-document-processing-azure-ai-document-intelligence.yml)
