@@ -99,46 +99,47 @@ Volumes that are defined and created as part of the pod lifecycle only exist unt
 To decide between [Azure disk storage or Azure Files](/azure/aks/concepts-storage#volumes), consider whether your application needs concurrent data access or a specific performance tier.
 
 :::image type="complex" source="/azure/aks/media/concepts-storage/aks-storage-persistent-volume.png" border="false" lightbox="/azure/aks/media/concepts-storage/aks-storage-persistent-volume.png" alt-text="Diagram of persistent volumes in an AKS cluster.":::
-A sequence diagram illustrates the interaction between five components: Kubelet, Kubernetes workload, Microsoft Entra ID, OpenID discovery document, and Azure resources. The interactions are numbered from 1 to 5. Arrows indicate the direction of communication. An arrow from Kubelet to Kubernetes workload is labeled 1. An arrow from Kubernetes workload to Microsoft Entra ID is labeled 2. An arrow from Microsoft Entra ID to OpenID discovery document s labeled 3. An arrow from Microsoft Entra ID back to Kubernetes workload is labeled 4. An arrow from Kubernetes workload to Azure resources is labeled 5.
+The diagram shows two scenarios: single node or pod access and multiple concurrent node or pod access. The single node or pod access scenario uses Azure managed disks (Standard or Premium storage). The multiple concurrent node or pod access scenario uses Azure Files (Standard storage). Both scenarios point to a persistent volume within the AKS cluster.
 :::image-end:::
 
-A cluster administrator can *statically* create a persistent volume, or a volume can be created *dynamically* by the Kubernetes API server. If a pod is scheduled and requests storage that is currently unavailable, Kubernetes can create the underlying Azure Disk or File storage and attach it to the pod. Dynamic provisioning uses a *storage class* to identify what type of resource needs to be created.
+A cluster administrator can *statically* create a persistent volume, or the Kubernetes API server can *dynamically* create a volume. If a pod is scheduled and requests storage that's currently unavailable, Kubernetes can create the underlying Azure disk or file storage and attach it to the pod. Dynamic provisioning uses a *storage class* to identify what type of resource needs to be created.
 
 > [!IMPORTANT]
-> Persistent volumes can't be shared by Windows and Linux pods due to differences in file system support between the two operating systems.
+> Windows and Linux pods can't share persistent volumes because the operating systems support different file systems.
 
-If you want a fully managed solution for block-level access to data, consider using [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction) instead of CSI drivers. Azure Container Storage integrates with Kubernetes, allowing dynamic and automatic provisioning of persistent volumes. Azure Container Storage supports Azure Disks, Ephemeral Disks, and Azure Elastic SAN (preview) as backing storage, offering flexibility and scalability for stateful applications running on Kubernetes clusters.
+If you want a fully managed solution for block-level access to data, consider using [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction) instead of CSI drivers. Azure Container Storage integrates with Kubernetes to provide dynamic and automatic provisioning of persistent volumes. Azure Container Storage supports Azure disks, ephemeral disks, and Azure Elastic SAN (preview) as backing storage. These options provide flexibility and scalability for stateful applications that run on Kubernetes clusters.
 
 ## Storage classes
 
 To specify different tiers of storage, such as premium or standard, you can create a *storage class*.
 
-A storage class also defines a *reclaim policy*. When you delete the persistent volume, the reclaim policy controls the behavior of the underlying Azure Storage resource. The underlying resource can either be deleted or kept for use with a future pod.
+A storage class also defines a *reclaim policy*. When you delete a persistent volume, the reclaim policy controls the behavior of the underlying Azure Storage resource. The underlying resource can either be deleted or kept for use with a future pod.
 
-For clusters using [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction), you'll see an additional storage class called `acstor-<storage-pool-name>`. An internal storage class is also created.
+Clusters that use [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction) have an extra storage class called `acstor-<storage-pool-name>`. An internal storage class is also created.
 
-For clusters using [Container Storage Interface (CSI) drivers](/azure/aks/csi-storage-drivers), the following extra storage classes are created:
+For clusters that use [CSI drivers](/azure/aks/csi-storage-drivers), the following extra storage classes are created:
 
 | Storage class            | Description                                                  |
 | :----------------------- | :----------------------------------------------------------- |
-| `managed-csi`            | Uses Azure Standard SSD locally redundant storage (LRS) to create a managed disk. The reclaim policy ensures that the underlying Azure Disk is deleted when the persistent volume that used it is deleted. The storage class also configures the persistent volumes to be expandable. You can edit the persistent volume claim to specify the new size. Effective starting with Kubernetes version 1.29, in Azure Kubernetes Service (AKS) clusters deployed across multiple availability zones, this storage class utilizes Azure Standard SSD zone-redundant storage (ZRS) to create managed disks. |
-| `managed-csi-premium`    | Uses Azure Premium locally redundant storage (LRS) to create a managed disk. The reclaim policy again ensures that the underlying Azure Disk is deleted when the persistent volume that used it is deleted. Similarly, this storage class allows for persistent volumes to be expanded. Effective starting with Kubernetes version 1.29, in Azure Kubernetes Service (AKS) clusters deployed across multiple availability zones, this storage class utilizes Azure Premium zone-redundant storage (ZRS) to create managed disks. |
-| `azurefile-csi`          | Uses Azure Standard storage to create an Azure file share. The reclaim policy ensures that the underlying Azure file share is deleted when the persistent volume that used it is deleted. |
-| `azurefile-csi-premium`  | Uses Azure Premium storage to create an Azure file share. The reclaim policy ensures that the underlying Azure file share is deleted when the persistent volume that used it is deleted. |
-| `azureblob-nfs-premium`  | Uses Azure Premium storage to create an Azure Blob storage container and connect using the NFS v3 protocol. The reclaim policy ensures that the underlying Azure Blob storage container is deleted when the persistent volume that used it is deleted. |
-| `azureblob-fuse-premium` | Uses Azure Premium storage to create an Azure Blob storage container and connect using BlobFuse. The reclaim policy ensures that the underlying Azure Blob storage container is deleted when the persistent volume that used it is deleted. |
+| `managed-csi`            | Uses Azure Standard SSD with locally redundant storage (LRS) to create a managed disk. The reclaim policy ensures that the underlying Azure disk is deleted when the persistent volume that used it is deleted. The storage class also configures the persistent volumes to be expandable. You can edit the persistent volume claim to specify the new size. <br><br> This storage class uses Standard SSD with zone-redundant storage (ZRS) to create managed disks. This storage class is for Kubernetes version 1.29 or later and is used in AKS clusters that are deployed across multiple availability zones. |
+| `managed-csi-premium`    | Uses Azure Premium SSD with LRS to create a managed disk. The reclaim policy ensures that the underlying Azure disk is deleted when the persistent volume that used it is deleted. This storage class allows for persistent volumes to be expanded. <br><br> This storage class uses Premium SSD with ZRS to create managed disks. This storage class is for Kubernetes version 1.29 or later and is used in AKS clusters that are deployed across multiple availability zones. |
+| `azurefile-csi`          | Uses Standard SSD storage to create an Azure file share. The reclaim policy ensures that the underlying Azure file share is deleted when the persistent volume that used it is deleted. |
+| `azurefile-csi-premium`  | Uses Premium SSD storage to create an Azure file share. The reclaim policy ensures that the underlying Azure file share is deleted when the persistent volume that used it is deleted. |
+| `azureblob-nfs-premium`  | Uses Premium SSD storage to create an Azure Blob Storage container and connect via the NFS v3 protocol. The reclaim policy ensures that the underlying Blob Storage container is deleted when the persistent volume that used it is deleted. |
+| `azureblob-fuse-premium` | Uses Premium SSD storage to create an Blob Storage container and connect via BlobFuse. The reclaim policy ensures that the underlying Blob Storage container is deleted when the persistent volume that used it is deleted. |
 
-Unless you specify a storage class for a persistent volume, the default storage class is used. Ensure volumes use the appropriate storage you need when requesting persistent volumes.
+Unless you specify a storage class for a persistent volume, the default storage class is used. Ensure that volumes use the storage that you need when you request persistent volumes.
 
-**Important**: Starting with Kubernetes version 1.21, AKS uses CSI drivers by default, and CSI migration is enabled. While existing in-tree persistent volumes continue to function, starting with version 1.26, AKS will no longer support volumes created using in-tree driver and storage provisioned for files and disk.
+> [!IMPORTANT]
+> For Kubernetes version 1.21 and later, AKS uses CSI drivers by default, and CSI migration is enabled. Existing in-tree persistent volumes continue to function, but for version 1.26 and later, AKS no longer supports volumes that are created by using the in-tree driver and storage that's provisioned for files and disks.
 
-The `default` class will be the same as `managed-csi`.
+The `default` class is the same as the `managed-csi` class.
 
-Effective starting with Kubernetes version 1.29, when you deploy Azure Kubernetes Service (AKS) clusters across multiple availability zones, AKS now utilizes zone-redundant storage (ZRS) to create managed disks within built-in storage classes. ZRS ensures synchronous replication of your Azure managed disks across multiple Azure availability zones in your chosen region. This redundancy strategy enhances the resilience of your applications and safeguards your data against datacenter failures.
+For Kubernetes version 1.29 and later, when you deploy AKS clusters across multiple availability zones, AKS uses ZRS to create managed disks within built-in storage classes. ZRS ensures synchronous replication of your Azure managed disks across multiple Azure availability zones in your chosen region. This redundancy strategy enhances the resilience of your applications and helps safeguard your data against datacenter failures.
 
-However, it's important to note that zone-redundant storage (ZRS) comes at a higher cost compared to locally redundant storage (LRS). If cost optimization is a priority, you can create a new storage class with the `skuname` parameter set to LRS. You can then use the new storage class in your Persistent Volume Claim (PVC).
+However, ZRS costs more than LRS. If cost optimization is a priority, you can create a new storage class that has the `skuname` parameter set to LRS. You can then use the new storage class in your persistent volume claim.
 
-You can create a storage class for other needs using `kubectl`. The following example uses premium managed disks and specifies that the underlying Azure Disk should be *retained* when you delete the pod:
+You can create a storage class for other needs by using `kubectl`. The following example uses premium managed disks and specifies that the underlying Azure disk should be *retained* when you delete the pod:
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -153,19 +154,21 @@ volumeBindingMode: WaitForFirstConsumer
 allowVolumeExpansion: true
 ```
 
-Be aware that AKS reconciles the default storage classes and will overwrite any changes you make to those storage classes.
+AKS reconciles the default storage classes and overwrites any changes that you make to those storage classes.
 
-For more information about storage classes, see [StorageClass in Kubernetes](https://kubernetes.io/docs/concepts/storage/storage-classes/).
+For more information, see [StorageClass in Kubernetes](https://kubernetes.io/docs/concepts/storage/storage-classes/).
 
 ## Persistent volume claims
 
-A persistent volume claim (PVC) requests storage of a particular storage class, access mode, and size. The Kubernetes API server can dynamically provision the underlying Azure Storage resource if no existing resource can fulfill the claim based on the defined storage class.
+A persistent volume claim requests storage of a particular storage class, access mode, and size. The Kubernetes API server can dynamically provision the underlying Azure Storage resource if no existing resource can fulfill the claim based on the defined storage class.
 
-The pod definition includes the volume mount once the volume has been connected to the pod.
+The pod definition includes the volume mount after the volume connects to the pod.
 
-![Diagram of persistent volume claims in an Azure Kubernetes Services (AKS) cluster.](/azure/aks/media/concepts-storage/aks-storage-persistent-volume-claim.png)
+:::image type="complex" source="/azure/aks/media/concepts-storage/aks-storage-persistent-volume-claim.png" border="false" lightbox="/azure/aks/media/concepts-storage/aks-storage-persistent-volume-claim.png" alt-text="Diagram of persistent volume claims in an AKS cluster.":::
+The left side has two sections: single node or pod access and multiple concurrent nodes or pods access. The single node or pod access uses Azure managed disks (Standard or Premium storage). An arrow points from single node or pod access to a persistent volume in the AKS cluster that's on the right side. The multiple concurrent nodes or pods access uses Azure Files (Standard storage). An arrow points from multiple concurrent node or pod access to the same persistent volume in the AKS cluster on the right side. Inside the AKS cluster, a persistent volume connects to a persistent volume claim, which links to a storage class. The persistent volume claim points to nodes and pods.
+:::image-end:::
 
-Once an available storage resource has been assigned to the pod requesting storage, the persistent volume is *bound* to a persistent volume claim. Persistent volumes are mapped to claims in a 1:1 mapping.
+After an available storage resource is assigned to the pod that requests storage, the persistent volume is *bound* to a persistent volume claim. Persistent volumes are mapped to claims in a 1:1 mapping.
 
 The following example YAML manifest shows a persistent volume claim that uses the *managed-premium* storage class and requests an Azure Disk that is *5Gi* in size:
 
@@ -260,7 +263,7 @@ By default, an AKS cluster comes with pre-created `managed-csi` and `managed-csi
 
 The Disk classes allow both [static](/azure/aks/azure-disk-volume) and [dynamic](/azure/aks/azure-disks-dynamic-pv) volume provisioning. Reclaim policy ensures that the disk is deleted with the persistent volume. You can expand the disk by editing the persistent volume claim.
 
-These storage classes use Azure managed disks with [locally redundant storage (LRS)](/azure/storage/common/storage-redundancy#locally-redundant-storage). LRS means that the data has three synchronous copies within a single physical location in an Azure primary region. LRS is the least expensive replication option, but doesn't offer protection against a datacenter failure. You can define custom storage classes that use Zone-redundant storage (ZRS) managed disks.  Zone-redundant storage (ZRS) synchronously replicates your Azure managed disk across three Azure availability zones in the region you select. Each availability zone is a separate physical location with independent power, cooling, and networking. ZRS disks provide at least 99.9999999999% (12 9's) of durability over a given year. A ZRS managed disk can be attached by a virtual machine in a different [availability zone](/azure/availability-zones/az-overview). ZRS disks are currently not available an all the Azure regions. For more information on ZRS disks, see [Zone Redundant Storage (ZRS) option for Azure Disks for high availability](https://youtu.be/RSHmhmdHXcY). In addition, to mitigate the risk of data loss, you can take regular backups or snapshots of Disk Storage data by using [Azure Kubernetes Service Backup](/azure/backup/azure-kubernetes-service-backup-overview) or third party solutions like [Velero](https://github.com/vmware-tanzu/velero) or [Azure Backup](/azure/backup/backup-managed-disks) that can use built-in snapshot technologies.
+These storage classes use Azure managed disks with [LRS](/azure/storage/common/storage-redundancy#locally-redundant-storage). LRS means that the data has three synchronous copies within a single physical location in an Azure primary region. LRS is the least expensive replication option, but doesn't offer protection against a datacenter failure. You can define custom storage classes that use ZRS managed disks. ZRS synchronously replicates your Azure managed disk across three Azure availability zones in the region you select. Each availability zone is a separate physical location with independent power, cooling, and networking. ZRS disks provide at least 99.9999999999% (12 9's) of durability over a given year. A ZRS managed disk can be attached by a virtual machine in a different [availability zone](/azure/availability-zones/az-overview). ZRS disks are currently not available an all the Azure regions. For more information on ZRS disks, see [ZRS option for Azure Disks for high availability](https://youtu.be/RSHmhmdHXcY). In addition, to mitigate the risk of data loss, you can take regular backups or snapshots of Disk Storage data by using [Azure Kubernetes Service Backup](/azure/backup/azure-kubernetes-service-backup-overview) or third party solutions like [Velero](https://github.com/vmware-tanzu/velero) or [Azure Backup](/azure/backup/backup-managed-disks) that can use built-in snapshot technologies.
 
 You can use [Azure Disk](/azure/aks/azure-disk-csi) to create a Kubernetes *DataDisk* resource. Disks types include:
 
@@ -285,7 +288,7 @@ Ultra Disk Storage is an Azure managed disk tier that offers high throughput, hi
 
 Use the flag `--enable-ultra-ssd` to [enable Ultra Disk Storage on your AKS cluster](/azure/aks/use-ultra-disks).
 
-If you choose Ultra Disk Storage, be aware of its [limitations](/azure/virtual-machines/disks-enable-ultra-ssd#ga-scope-and-limitations), and make sure to select a compatible VM size. Ultra Disk Storage is available with locally redundant storage (LRS) replication.
+If you choose Ultra Disk Storage, be aware of its [limitations](/azure/virtual-machines/disks-enable-ultra-ssd#ga-scope-and-limitations), and make sure to select a compatible VM size. Ultra Disk Storage is available with LRS replication.
 
 #### Bring your own keys (BYOK)
 
@@ -300,13 +303,13 @@ Disk Storage can't provide concurrent access to a volume, but you can use [Azure
 
 Azure Files has the following storage account replication options to protect your data in case of failure:
 
-- **Standard_LRS**: Standard [locally redundant storage (LRS)](/azure/storage/common/storage-redundancy#locally-redundant-storage)
+- **Standard_LRS**: Standard [LRS](/azure/storage/common/storage-redundancy#locally-redundant-storage)
 - **Standard_GRS**: Standard [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage)
-- **Standard_ZRS**: Standard [zone-redundant storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage)
-- **Standard_RAGRS**: Standard [read-access geo-redundant storage (RA-GRS)](/azure/storage/common/storage-redundancy#read-access-to-data-in-the-secondary-region)
+- **Standard_ZRS**: Standard [ZRS](/azure/storage/common/storage-redundancy#zone-redundant-storage)
+- **Standard_RAGRS**: Standard [read-access GRS](/azure/storage/common/storage-redundancy#read-access-to-data-in-the-secondary-region)
 - **Standard_RAGZRS**: Standard [read-access geo-zone-redundant storage (RA-GZRS)](/azure/storage/common/storage-redundancy#geo-zone-redundant-storage)
-- **Premium_LRS**: Premium [locally redundant storage (LRS)](/azure/storage/common/storage-redundancy#locally-redundant-storage)
-- **Premium_ZRS**: Premium [zone-redundant storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage)
+- **Premium_LRS**: Premium [LRS](/azure/storage/common/storage-redundancy#locally-redundant-storage)
+- **Premium_ZRS**: Premium [ZRS](/azure/storage/common/storage-redundancy#zone-redundant-storage)
 
 To optimize costs for Azure Files, purchase [Azure Files capacity reservations](/azure/storage/files/files-reserve-capacity).
 
@@ -321,7 +324,7 @@ For more information, see [Configure Azure NetApp Files for Azure Kubernetes Ser
 
 ### Azure Blob storage
 
-The [Azure Blob storage Container Storage Interface (CSI) driver](/azure/aks/azure-blob-csi) is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Blob storage. The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes.
+The [Azure Blob storage CSI driver](/azure/aks/azure-blob-csi) is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Blob storage. The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes.
 
 By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes. Using CSI drivers in AKS avoids having to touch the core Kubernetes code and wait for its release cycles.
 
@@ -364,7 +367,7 @@ Azure Container Storage utilizes existing Azure Storage offerings for actual dat
 - Ephemeral Disks: Utilizes local storage resources on AKS nodes (NVMe or temp SSD). Best suited for applications with no data durability requirement or with built-in data replication support. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment.
 - [Azure Elastic SAN](/azure/storage/elastic-san/elastic-san-introduction): Provision on-demand, fully managed resource. Suitable for general purpose databases, streaming and messaging services, CD/CI environments, and other tier 1/tier 2 workloads. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time.
 
-Until now, providing cloud storage for containers required using individual container storage interface (CSI) drivers to use storage services intended for infrastructure as a service (IaaS)-centric workloads and make them work for containers. This creates operational overhead and increases the risk of issues with application availability, scalability, performance, usability, and cost.
+Until now, providing cloud storage for containers required using individual CSI drivers to use storage services intended for infrastructure as a service (IaaS)-centric workloads and make them work for containers. This creates operational overhead and increases the risk of issues with application availability, scalability, performance, usability, and cost.
 
 Azure Container Storage is derived from OpenEBS, an open-source solution that provides container storage capabilities for Kubernetes. By offering a managed volume orchestration solution via microservice-based storage controllers in a Kubernetes environment, Azure Container Storage enables true container-native storage.
 
@@ -402,7 +405,7 @@ Consider the following factors when you choose a storage solution for Amazon EKS
 
 ### Storage class access modes
 
-In Kubernetes version 1.21 and newer, AKS and Amazon EKS storage classes use [Container Storage Interface (CSI) drivers](/azure/aks/csi-storage-drivers) only and by default.
+In Kubernetes version 1.21 and newer, AKS and Amazon EKS storage classes use [CSI drivers](/azure/aks/csi-storage-drivers) only and by default.
 
 Different services support storage classes that have different access modes.
 
