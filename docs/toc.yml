@@ -353,8 +353,6 @@ items:
         href: solutions/microsoft-365-scenarios.md
       - name: All Microsoft 365 architectures
         href: /azure/architecture/browse/?products=m365
-      - name: Secure a Teams channel bot with a firewall
-        href: example-scenario/teams/securing-bot-teams-channel.yml
     - name: Azure and Dynamics 365 scenarios
       items:
       - name: Overview
