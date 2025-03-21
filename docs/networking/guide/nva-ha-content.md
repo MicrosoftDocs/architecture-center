@@ -60,7 +60,7 @@ The following diagram describes the sequence of hops that packets from the Inter
 
 The mechanism to send traffic from spokes to the public Internet through the NVAs is a User-Defined Route for `0.0.0.0/0` with next-hop the internal Load Balancer's IP address.
 
-For traffic between Azure and the public Internet, each direction of the traffic flow will cross a different Azure Load Balancer, even if the firewall NVA has a single NIC for the public and internal networks, since the ingress packet goes through the public ALB and the egress packet through the internal ALB. As a consequence of both directions of the flow going through different load balancers, if traffic symmetry is required (as is usually the case in most firewalls) Source Network Address Translation (SNAT) needs to be performed by the NVA instances to attract the return traffic and avoid traffic asymmetry.
+For traffic between Azure and the public Internet, each direction of the traffic flow will cross a different Azure Load Balancer. This occurs even if the firewall NVA has a single NIC for both the public and internal networks, as the ingress packet goes through the public ALB and the egress packet goes through the internal ALB. Because both directions of the flow going through different load balancers, if traffic symmetry is required, as is usually the case in most firewalls, Source Network Address Translation (SNAT) needs to be performed by the NVA instances to attract the return traffic and avoid traffic asymmetry.
 
 The same design with load balancers can be used as well to inspect traffic between Azure and on-premises networks (East/West), where only an internal load balancer is involved:
 
