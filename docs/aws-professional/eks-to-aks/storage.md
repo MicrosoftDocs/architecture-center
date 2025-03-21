@@ -21,7 +21,7 @@ products:
 
 # Storage options for a Kubernetes cluster
 
-This article compares the storage capabilities of Amazon Elastic Kubernetes Service (EKS) and Azure Kubernetes Service (AKS) and describes the options to store workload data on AKS.
+This article compares the storage capabilities of Amazon Elastic Kubernetes Service (EKS) and Azure Kubernetes Service (AKS). It also describes storage options for workload data on AKS.
 
 [!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
@@ -31,7 +31,7 @@ Amazon EKS provides different types of storage volumes for applications that req
 
 ### Ephemeral volumes
 
-For applications that require temporary local volumes but don't need to persist data after restarts, use ephemeral volumes. Kubernetes supports different types of ephemeral volumes, such as [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [configMap](https://kubernetes.io/docs/concepts/storage/volumes/#configmap), [downwardAPI](https://kubernetes.io/docs/concepts/storage/volumes/#downwardapi), [secret](https://kubernetes.io/docs/concepts/storage/volumes/#secret), and [hostpath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath). To ensure cost efficiency and performance, choose the most appropriate host volume. In Amazon EKS, you can use [gp3](https://aws.amazon.com/ebs/volume-types/#gp3) as the host root volume, which costs less than gp2 volumes.
+For applications that require temporary local volumes but don't need to persist data after restarts, use ephemeral volumes. Kubernetes supports different types of ephemeral volumes, such as [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [ConfigMap](https://kubernetes.io/docs/concepts/storage/volumes/#configmap), [downwardAPI](https://kubernetes.io/docs/concepts/storage/volumes/#downwardapi), [secret](https://kubernetes.io/docs/concepts/storage/volumes/#secret), and [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath). To ensure cost efficiency and performance, choose the most appropriate host volume. In Amazon EKS, you can use [gp3](https://aws.amazon.com/ebs/volume-types/) as the host root volume, which costs less than gp2 volumes.
 
 You can also use [Amazon EC2 instance stores](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html), which provide temporary block-level storage for EC2 instances. These volumes are physically attached to the hosts and only exist during the lifetime of the instance. To use local store volumes in Kubernetes, you must partition, configure, and format the disks by using Amazon EC2 user data.
 
@@ -39,17 +39,17 @@ You can also use [Amazon EC2 instance stores](https://docs.aws.amazon.com/AWSEC2
 
 You typically use Kubernetes to run stateless applications, but sometimes you need persistent data storage. You can use [Kubernetes persistent volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) to store data independently from pods so that the data can persist beyond the lifetime of a given pod. Amazon EKS supports different types of storage options for persistent volumes, including [Amazon EBS](https://aws.amazon.com/ebs/), [Amazon Elastic File System (EFS)](https://aws.amazon.com/efs/), [Amazon FSx for Lustre](https://aws.amazon.com/fsx/lustre/), and [Amazon FSx for NetApp ONTAP](https://aws.amazon.com/fsx/netapp-ontap/).
 
-Use [Amazon EBS](https://aws.amazon.com/ebs/) volumes for block-level storage and for databases and throughput-intensive applications. Amazon EKS users can use the latest generation of block storage [gp3](https://aws.amazon.com/ebs/volume-types/#gp3) for a balance between price and performance. For higher-performance applications, you can use [io2 block express](https://aws.amazon.com/ebs/volume-types/#io2) volumes.
+Use [Amazon EBS](https://aws.amazon.com/ebs/) volumes for block-level storage and for databases and throughput-intensive applications. Amazon EKS users can use the latest generation of block storage [gp3](https://aws.amazon.com/ebs/volume-types/#gp3) for a balance between price and performance. For higher-performance applications, you can use [io2 block express volumes](https://docs.aws.amazon.com/ebs/latest/userguide/provisioned-iops.html#io2-block-express).
 
 [Amazon EFS](https://aws.amazon.com/efs/) is a serverless, elastic file system that you can share across multiple containers and nodes. It automatically grows and shrinks as files are added or removed, which eliminates the need for capacity planning. The [Amazon EFS Container Storage Interface (CSI) driver](https://github.com/kubernetes-sigs/aws-efs-csi-driver) integrates Amazon EFS with Kubernetes.
 
 [Amazon FSx for Lustre](https://aws.amazon.com/fsx/lustre/) provides high-performance parallel file storage. Use this type of storage for scenarios that require high-throughput and low-latency operations. You can link this file storage to an Amazon S3 data repository to store large datasets. Amazon FSx for NetApp ONTAP is a fully managed, shared storage solution that's built on NetApp's ONTAP file system.
 
-To optimize storage configurations and manage backups and snapshots, Amazon EKS users can use tools like [AWS Compute Optimizer](https://aws.amazon.com/compute-optimizer/) and [Velero](https://velero.io/).
+To optimize storage configurations and manage backups and snapshots, use tools like [AWS Compute Optimizer](https://aws.amazon.com/compute-optimizer/) and [Velero](https://velero.io/).
 
 ## AKS storage options
 
-Applications that run in AKS might need to store and retrieve data. Some application workloads can use local, fast storage on unneeded, emptied nodes. But other application workloads require storage that persists on more regular data volumes within the Azure platform. Multiple pods might need to:
+Applications that run in AKS might need to store and retrieve data. Some application workloads can use local, fast storage on unneeded, empty nodes. But other application workloads require storage that persists on more regular data volumes within the Azure platform. Multiple pods might need to:
 
 - Share the same data volumes.
 - Reattach data volumes if the pod is rescheduled on a different node.
@@ -60,11 +60,11 @@ This article introduces the storage options and core concepts that provide stora
 
 Kubernetes volumes represent more than just a traditional disk to store and retrieve information. You can also use Kubernetes volumes to inject data into a pod for its containers to use.
 
-Common volume types in Kubernetes include [EmptyDirs](#emptydirs), [Secret](#secrets), and [ConfigMaps](#configmaps).
+Common volume types in Kubernetes include [emptyDirs](#emptydirs), [secrets](#secrets), and [ConfigMaps](#configmaps).
 
 #### EmptyDirs
 
-For a pod that defines an `emptyDir` volume, the volume is created when the Pod is assigned to a node. As the name suggests, the `emptyDir` volume is initially empty. All containers in the pod can read and write the same files in the `emptyDir` volume, although this volume can be mounted at the same or different paths in each container. When a pod is removed from a node for any reason, the data in the `emptyDir` is deleted permanently.
+For a pod that defines an emptyDir volume, the volume is created when the Pod is assigned to a node. As the name suggests, the emptyDir volume is initially empty. All containers in the pod can read and write the same files in the emptyDir volume, although this volume can be mounted at the same or different paths in each container. When a pod is removed from a node for any reason, the data in the emptyDir is deleted permanently.
 
 #### Secrets
 
@@ -80,9 +80,9 @@ The Kubernetes control plane also uses secrets, such as [bootstrap token secrets
 
 #### ConfigMaps
 
-A [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) is a Kubernetes object that you use to store nonconfidential data in key-value pairs. [Pods](https://kubernetes.io/docs/concepts/workloads/pods/) can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a [volume](https://kubernetes.io/docs/concepts/storage/volumes/). You can use a ConfigMap to decouple environment-specific configuration from your [container images](https://kubernetes.io/docs/reference/glossary/?all=true#term-image), which makes your applications easily portable.
+A [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) is a Kubernetes object that you use to store nonconfidential data in key-value pairs. [Pods](https://kubernetes.io/docs/concepts/workloads/pods/) can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a [volume](https://kubernetes.io/docs/concepts/storage/volumes/). You can use a ConfigMap to decouple environment-specific configurations from your [container images](https://kubernetes.io/docs/reference/glossary/?all=true#term-image), which makes your applications easily portable.
 
-ConfigMap doesn't provide secrecy or encryption. If you want to store confidential data, use a [secret](https://kubernetes.io/docs/concepts/configuration/secret/) rather than a ConfigMap, or use other non-Microsoft tools to keep your data private.
+ConfigMaps don't provide secrecy or encryption. If you want to store confidential data, use a [secret](https://kubernetes.io/docs/concepts/configuration/secret/) rather than a ConfigMap, or use other partner tools to keep your data private.
 
 You can use a ConfigMap to set configuration data separately from application code. For example, you might develop an application to run on your computer for development and to run in the cloud to handle real traffic. You can write the code to look in an environment variable named `DATABASE_HOST`. Locally, set that variable to `localhost`. In the cloud, set it to refer to a Kubernetes [service](https://kubernetes.io/docs/concepts/services-networking/service/) that exposes the database component to your cluster. This approach lets you fetch a container image that runs in the cloud and debug the same code locally if needed.
 
@@ -111,7 +111,7 @@ If you want a fully managed solution for block-level access to data, consider us
 
 ## Storage classes
 
-To specify different tiers of storage, such as premium or standard, you can create a *storage class*.
+To specify different tiers of storage, such as premium or standard, you can create a storage class.
 
 A storage class also defines a *reclaim policy*. When you delete a persistent volume, the reclaim policy controls the behavior of the underlying Azure Storage resource. The underlying resource can either be deleted or kept for use with a future pod.
 
@@ -121,8 +121,8 @@ For clusters that use [CSI drivers](/azure/aks/csi-storage-drivers), the followi
 
 | Storage class            | Description                                                  |
 | :----------------------- | :----------------------------------------------------------- |
-| `managed-csi`            | Uses Azure Standard SSD with locally redundant storage (LRS) to create a managed disk. The reclaim policy ensures that the underlying Azure disk is deleted when the persistent volume that used it is deleted. The storage class also configures the persistent volumes to be expandable. You can edit the persistent volume claim to specify the new size. <br><br> This storage class uses Standard SSD with zone-redundant storage (ZRS) to create managed disks. This storage class is for Kubernetes version 1.29 or later and is used in AKS clusters that are deployed across multiple availability zones. |
-| `managed-csi-premium`    | Uses Azure Premium SSD with LRS to create a managed disk. The reclaim policy ensures that the underlying Azure disk is deleted when the persistent volume that used it is deleted. This storage class allows for persistent volumes to be expanded. <br><br> This storage class uses Premium SSD with ZRS to create managed disks. This storage class is for Kubernetes version 1.29 or later and is used in AKS clusters that are deployed across multiple availability zones. |
+| `managed-csi`            | Uses Azure Standard SSD with locally redundant storage (LRS) to create a managed disk. The reclaim policy ensures that the underlying Azure disk is deleted when the persistent volume that used it is deleted. The storage class also configures the persistent volumes to be expandable. You can edit the persistent volume claim to specify the new size. <br><br> For Kubernetes version 1.29 and later, this storage class uses Standard SSD with zone-redundant storage (ZRS) to create managed disks for AKS clusters that are deployed across multiple availability zones. |
+| `managed-csi-premium`    | Uses Azure Premium SSD with LRS to create a managed disk. The reclaim policy ensures that the underlying Azure disk is deleted when the persistent volume that used it is deleted. This storage class allows for persistent volumes to be expanded. <br><br> For Kubernetes version 1.29 and later, this storage class uses Premium SSD with ZRS to create managed disks for AKS clusters that are deployed across multiple availability zones. |
 | `azurefile-csi`          | Uses Standard SSD storage to create an Azure file share. The reclaim policy ensures that the underlying Azure file share is deleted when the persistent volume that used it is deleted. |
 | `azurefile-csi-premium`  | Uses Premium SSD storage to create an Azure file share. The reclaim policy ensures that the underlying Azure file share is deleted when the persistent volume that used it is deleted. |
 | `azureblob-nfs-premium`  | Uses Premium SSD storage to create a Blob Storage container and connect via the Network File System (NFS) v3 protocol. The reclaim policy ensures that the underlying Blob Storage container is deleted when the persistent volume that used it is deleted. |
@@ -170,7 +170,7 @@ The left side has two sections: single node or pod access and multiple concurren
 
 After an available storage resource is assigned to the pod that requests storage, the persistent volume is *bound* to a persistent volume claim. Each persistent volume is associated with one persistent volume claim to ensure dedicated storage.
 
-The following example YAML manifest shows a persistent volume claim that uses the *managed-premium* storage class and requests an Azure disk that's *5Gi* in size:
+The following example YAML manifest shows a persistent volume claim that uses the `managed-premium` storage class and requests an Azure disk that's `5Gi` in size:
 
 ```yaml
 apiVersion: v1
@@ -191,7 +191,7 @@ When you create a pod definition, you also specify:
 - The persistent volume claim to request the desired storage.
 - The volume mount for your applications to read and write data.
 
-The following example YAML manifest shows how the previous persistent volume claim can mount a volume at */mnt/azure*:
+The following example YAML manifest shows how the previous persistent volume claim can mount a volume at `/mnt/azure`:
 
 ```yaml
 kind: Pod
@@ -233,14 +233,14 @@ If you don't request [Azure managed disks](/azure/virtual-machines/managed-disks
 
 For size requirements and recommendations, see [Ephemeral OS disks for Azure VMs](/azure/virtual-machines/ephemeral-os-disks). Consider the following sizing considerations:
 
-- If you use the AKS default VM size [Standard_DS2_v2](/azure/virtual-machines/dv2-dsv2-series#dsv2-series) SKU with the default OS disk size of 100 GiB, the default VM size supports ephemeral OS but only has 86 GiB of cache size. This configuration defaults to managed disks if you don't specify it. If you request an ephemeral OS disk, you receive a validation error.
+- If you use the AKS default VM size [Standard_DS2_v2](/azure/virtual-machines/sizes/general-purpose/dsv2-series) SKU with the default OS disk size of 100 GiB, the default VM size supports ephemeral OS disks but only has a cache size of 86 GiB. This configuration defaults to managed disks if you don't specify it. If you request an ephemeral OS disk, you receive a validation error.
 
 - If you request the same Standard_DS2_v2 SKU with a 60-GiB OS disk, this configuration defaults to ephemeral OS disks. The requested size of 60 GiB is smaller than the maximum cache size of 86 GiB.
-- If you select the [Standard_D8s_v3](/azure/virtual-machines/dv3-dsv3-series#dsv3-series) SKU with a 100-GB OS disk, this VM size supports ephemeral OS disks and has 200 GiB of cache space. If you don't specify the OS disk type, the node pool receives ephemeral OS disks by default.
+- If you select the [Standard_D8s_v3](/azure/virtual-machines/sizes/general-purpose/dsv3-series) SKU with a 100-GB OS disk, this VM size supports ephemeral OS disks and has a cache size of 200 GiB. If you don't specify the OS disk type, the node pool receives ephemeral OS disks by default.
 
 The latest generation of VM series doesn't have a dedicated cache and only has temporary storage. 
 
-- If you select the [Standard_E2bds_v5](/azure/virtual-machines/ebdsv5-ebsv5-series#ebdsv5-series) VM size with the default OS disk size of 100 GiB, it supports ephemeral OS disks but only has 75 GB of temporary storage. This configuration defaults to managed OS disks if you don't specify it. If you request an ephemeral OS disk, you receive a validation error.
+- If you select the [Standard_E2bds_v5](/azure/virtual-machines/ebdsv5-ebsv5-series#ebdsv5-series) VM size with the default OS disk size of 100 GiB, the VM supports ephemeral OS disks but only has 75 GB of temporary storage. This configuration defaults to managed OS disks if you don't specify it. If you request an ephemeral OS disk, you receive a validation error.
 
 - If you request the same Standard_E2bds_v5 VM size with a 60-GiB OS disk, this configuration defaults to ephemeral OS disks. The requested size of 60 GiB is smaller than the maximum temporary storage of 75 GiB.
 
@@ -254,7 +254,7 @@ You can manage encryption for your ephemeral OS disk with your own keys on an AK
 
 Kubernetes typically treats individual pods as ephemeral, disposable resources. Applications have different approaches for using and persisting data. A *volume* represents a way to store, retrieve, and persist data across pods and through the application lifecycle.
 
-Traditional volumes are created as Kubernetes resources that are backed by Azure Storage. You can manually create data volumes to be assigned to pods directly or have Kubernetes automatically create them. Data volumes can use: [Azure disk storage](/azure/virtual-machines/disks-types), [Azure Files](/azure/storage/files/storage-files-planning), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels), or [Blob Storage](/azure/storage/common/storage-account-overview).
+Traditional volumes are created as Kubernetes resources that are backed by Azure Storage. You can manually create data volumes to be assigned to pods directly or have Kubernetes automatically create them. Data volumes can use [Azure disk storage](/azure/virtual-machines/disks-types), [Azure Files](/azure/storage/files/storage-files-planning), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels), or [Blob Storage](/azure/storage/common/storage-account-overview).
 
 > [!NOTE]
 > Depending on your VM SKU, the Azure disk CSI driver might have a volume limit for each node. For some high-performance VMs, such as 16 cores, the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU. For a list of VM SKUs and their corresponding capacity limits, see [General purpose VM sizes](/azure/virtual-machines/sizes-general).
@@ -265,7 +265,7 @@ To decide between Azure Files and Azure NetApp Files, see [Azure Files and Azure
 
 By default, an AKS cluster comes with precreated `managed-csi` and `managed-csi-premium` storage classes that use [Azure disk storage](https://azure.microsoft.com/services/storage/disks). Similar to Amazon EBS, these classes create a managed disk or block device that's attached to the node for pod access.
 
-The disk classes allow both [static](/azure/aks/azure-disk-volume) and [dynamic](/azure/aks/azure-disks-dynamic-pv) volume provisioning. The reclaim policy ensures that the disk is deleted with the persistent volume. To expand the disk, edit the persistent volume claim.
+The disk classes allow both [static](/azure/aks/azure-csi-disk-storage-provision#statically-provision-a-volume) and [dynamic](/azure/aks/azure-csi-disk-storage-provision#dynamically-provision-a-volume) volume provisioning. The reclaim policy ensures that the disk is deleted with the persistent volume. To expand the disk, edit the persistent volume claim.
 
 These storage classes use Azure managed disks with [LRS](/azure/storage/common/storage-redundancy#locally-redundant-storage). Data in LRS has three synchronous copies within a single physical location in an Azure primary region. LRS is the least expensive replication option but doesn't provide protection against a datacenter failure. You can define custom storage classes that use ZRS managed disks.
 
@@ -300,7 +300,7 @@ Be aware of Ultra Disk Storage [limitations](/azure/virtual-machines/disks-enabl
 
 #### Bring your own keys (BYOK)
 
-Azure encrypts all data in a managed disk at rest, including the OS and data disks of an AKS cluster. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys to provide encryption at rest for both the OS and data disks in AKS clusters. For more information, see [BYOK with Azure managed disks in AKS](/azure/aks/azure-disk-customer-managed-keys) and [Server-side encryption of Azure Disk Storage](/azure/virtual-machines/disk-encryption).
+Azure encrypts all data in a managed disk at rest, including the OS and data disks of an AKS cluster. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys to provide encryption at rest for both the OS and data disks in AKS clusters. For more information, see [BYOK with Azure managed disks in AKS](/azure/aks/azure-disk-customer-managed-keys) and [Server-side encryption of Azure disk storage](/azure/virtual-machines/disk-encryption).
 
 ### Azure Files
 
@@ -350,7 +350,7 @@ To create an AKS cluster that has CSI drivers support, see [CSI drivers on AKS](
 
 ### Azure HPC Cache
 
-[Azure HPC Cache](/azure/hpc-cache/hpc-cache-overview) accelerates access to your data for HPC tasks and provides the scalability of cloud solutions. If you choose this storage solution, make sure to deploy your AKS cluster in a [region that supports HPC Cache](https://azure.microsoft.com/global-infrastructure/services/).
+[HPC Cache](/azure/hpc-cache/hpc-cache-overview) accelerates access to your data for high-perforance computing tasks and provides the scalability of cloud solutions. If you choose this storage solution, make sure to deploy your AKS cluster in a [region that supports HPC Cache](https://azure.microsoft.com/global-infrastructure/services/).
 
 ### NFS server
 
@@ -366,12 +366,12 @@ This solution is based on infrastructure as a service (IaaS) rather than platfor
 
 Azure Container Storage uses existing Azure Storage offerings for actual data storage and provides a volume orchestration and management solution that's purposely built for containers. Azure Container Storage supports the following backing storage:
 
-- [Azure disks](/azure/virtual-machines/managed-disks-overview): Provide granular control of storage SKUs and configurations. Azure disks suit tier-1 and general purpose databases.
+- **[Azure disks](/azure/virtual-machines/managed-disks-overview):** Provide granular control of storage SKUs and configurations. Azure disks suit tier-1 and general purpose databases.
 
-- Ephemeral disks: Use local storage resources on AKS nodes (NVMe or temp SSD). Ephemeral disks suit applications that don't have data durability requirements or that have built-in data replication support. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment.
-- [Elastic SAN](/azure/storage/elastic-san/elastic-san-introduction): Provision on-demand, fully managed resources. Elastic SAN suits general purpose databases, streaming and messaging services, continuous integration and continuous delivery environments, and other tier-1 or tier-2 workloads. Multiple clusters can access a single storage area network (SAN) concurrently. However persistent volumes can only be attached by one consumer at a time.
+- **Ephemeral disks:** Use local storage resources on AKS nodes (NVMe or temp SSD). Ephemeral disks suit applications that don't have data durability requirements or that have built-in data replication support. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment.
+- **[Elastic SAN](/azure/storage/elastic-san/elastic-san-introduction):** Provision on-demand, fully managed resources. Elastic SAN suits general purpose databases, streaming and messaging services, continuous integration and continuous delivery environments, and other tier-1 or tier-2 workloads. Multiple clusters can access a single storage area network (SAN) concurrently. However persistent volumes can only be attached by one consumer at a time.
 
-Previously, to provide cloud storage for containers, you needed use individual CSI drivers to adapt storage services intended for IaaS-centric workloads. This method creates operational overhead and increases the risk of problems related to application availability, scalability, performance, usability, and cost.
+Previously, to provide cloud storage for containers, you needed individual CSI drivers to adapt storage services intended for IaaS-centric workloads. This method created operational overhead and increased the risk of problems related to application availability, scalability, performance, usability, and cost.
 
 Azure Container Storage is derived from OpenEBS, an open-source solution that provides container storage capabilities for Kubernetes. Azure Container Storage provides a managed volume orchestration solution via microservice-based storage controllers in a Kubernetes environment. This feature enables true container-native storage.
 
@@ -381,13 +381,13 @@ Azure Container Storage suits the following scenarios:
 
 - **Simplify volume management with Kubernetes:** Azure Container Storage provides volume orchestration via the Kubernetes control plane. This feature simplifies the deployment and management of volumes within Kubernetes, without the need to switch between different control planes.
 
-- **Reduce the total cost of ownership:** To improve cost efficiency, increase the scale of persistent volumes that are supported for each pod or node. To reduce the storage resources needed for provisioning, dynamically share storage resources. Scale up support for the storage pool itself isn't supported.
+- **Reduce the total cost of ownership:** To improve cost efficiency, increase the scale of persistent volumes that are supported for each pod or node. To reduce the storage resources needed for provisioning, dynamically share storage resources. Scale up support for the storage pool itself isn't included.
 
 Azure Container Storage provides the following key benefits:
 
 - **Scale out stateful pods rapidly:** Azure Container Storage mounts persistent volumes via network block storage protocols, such as NVMe-oF or iSCSI. This capability ensures fast attachment and detachment of persistent volumes. You can start small and deploy resources as needed to ensure that your applications aren't starved or disrupted during initialization or in production. When a pod respawns across the cluster, the associated persistent volume must be rapidly moved to the new pod to maintain application resiliency. By using remote network protocols, Azure Container Storage tightly couples with the pod lifecycle to support highly resilient, high-scale stateful applications on AKS.
 
-- **Improve performance for stateful workloads:** Azure Container Storage enables superior read performance and provides near-disk write performance by using NVMe-oF over RDMA. This capability allows you to cost-effectively meet performance requirements for various container workloads, including tier-1 I/O-intensive, general purpose, throughput-sensitive, and dev/test workloads. Accelerate the attach and detach time of persistent volumes and minimize pod failover time.
+- **Improve performance for stateful workloads:** Azure Container Storage enables superior read performance and provides near-disk write performance by using NVMe-oF over RDMA. This capability allows you to cost-effectively meet performance requirements for various container workloads, including tier-1 IO-intensive, general-purpose, throughput-sensitive, and dev/test workloads. Accelerate the attach and detach time of persistent volumes and minimize pod failover time.
 
 - **Orchestrate Kubernetes-native volumes:** Create storage pools and persistent volumes, capture snapshots, and manage the entire lifecycle of volumes by using `kubectl` commands without switching between toolsets for different control plane operations.
 
