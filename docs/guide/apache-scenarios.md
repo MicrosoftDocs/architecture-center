@@ -162,7 +162,6 @@ This article provides a summary of architectures and solutions that use Azure to
 ## Related resources
 
 - [Microsoft partner and non-open-source third-party scenarios on Azure](../guide/partner-scenarios.md)
-- [Scenarios featuring Microsoft on-premises technologies](../guide/on-premises-microsoft-technologies.md)
 - [Architecture for startups](../guide/startups/startup-architecture.md)
 - [Azure for AWS professionals](../aws-professional/index.md)
 - [Azure for Google Cloud professionals](../gcp-professional/index.md)
