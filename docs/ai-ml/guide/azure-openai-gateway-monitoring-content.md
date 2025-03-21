@@ -20,7 +20,7 @@ Many organizations need to track the usage of Azure OpenAI models by client and 
 You can use the native Azure OpenAI monitoring functionality to track telemetry of the service, but there are challenges.
 
 - For chargeback models, you must be able to associate the Azure OpenAI token usage metrics with an application or organization. Azure OpenAI telemetry contains a calling IP with the last octet masked which might be challenging to associate to an organization or application.
-- 
+- Azure OpenAI instances in different regions will likely log to Azure Monitor instances in the local region. This requires you to aggregate logs from different Azure Monitor instances to track usage across all Azure OpenAI instances.
 
 ### Introduce a gateway to track model usage
 
