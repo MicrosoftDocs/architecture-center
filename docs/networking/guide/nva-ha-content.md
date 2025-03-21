@@ -94,7 +94,7 @@ This insertion method supports both active/active (all NVAs advertise the same r
 
 Convergence time is pretty fast in this setup, and will be influenced by the keepalive and holdtime timers of the BGP adjacency. While the Azure Route Server has default keepalive and holdtime timers (60 seconds and 180 seconds respectively), the NVAs can negotiate lower timers during the BGP adjacency establishment. Setting these timers too low could lead to BGP instabilities.
 
-This design is the most common option for NVAs that need to interact with Azure routing, for example SDWAN or IPsec NVAs that typically have good BGP support and need to learn the prefixes configured in Azure VNets, or advertise certain routes over ExpressRoute private peerings. Besides, this type of appliances is usually stateless, so that traffic symmetry is not a problem and consequently SNAT is not required.
+This design is the most common option for NVAs that need to interact with Azure routing, for example SDWAN or IPsec NVAs that typically have good BGP support and need to learn the prefixes configured in Azure VNets, or advertise certain routes over ExpressRoute private peerings. This type of appliances is usually stateless, so that traffic symmetry is not a problem and consequently SNAT is not required.
 
 ## Gateway Load Balancer
 
