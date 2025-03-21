@@ -371,12 +371,6 @@ items:
         href: /azure/architecture/browse/?terms=dynamics%20365
     - name: Azure and Microsoft on-premises servers
       href: guide/on-premises-microsoft-technologies.md
-  - name: Third-party scenarios
-    items:
-    - name: Apache technologies
-      href: guide/apache-scenarios.md
-    - name: Partner technologies
-      href: guide/partner-scenarios.md
   - name: Azure for AWS professionals
     items:
     - name: Overview
