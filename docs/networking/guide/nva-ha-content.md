@@ -8,7 +8,17 @@ There are a number of design patterns where NVAs are used to inspect traffic bet
 - To filter traffic between on-premises systems and Azure virtual machines, if they are considered to belong to different security levels. (For example, if Azure hosts the DMZ, and on-premises the internal applications.)
 - To terminate VPN or SDWAN tunnels from external locations such as on-premises networks or other public clouds.
 
-There are many examples of NVAs, such as network firewalls, Layer-4 reverse-proxies, IPsec VPN endpoints, SDWAN appliances, web-based reverse-proxies with web application firewall functionality, Internet proxies to restrict which Internet pages can be accessed from Azure, Layer-7 load balancers, and many others. All of them can be inserted in an Azure design with the patterns described in this article. Even Azure first-party Network Virtual Appliances such as [Azure Firewall][azfw] and [Azure Application Gateway][appgw] use the designs explained later in this article. Understanding these options is critical both from a design perspective as well as when troubleshooting network issues.
+There are many examples of NVAs, including the following, among others:
+
+- Network firewalls
+- Layer-4 reverse-proxies
+- IPsec VPN endpoints
+- SDWAN appliances
+- Web-based reverse-proxies with web application firewall functionality
+- Internet proxies to restrict which Internet pages can be accessed from Azure
+- Layer-7 load balancers
+
+All of these NVAs can be inserted in an Azure design with the patterns described in this article. Even Azure first-party Network Virtual Appliances such as [Azure Firewall][azfw] and [Azure Application Gateway][appgw] use the designs explained later in this article. Understanding these options is critical both from a design perspective as well as when troubleshooting network issues.
 
 The first question to be answered is why High Availability for Network Virtual Appliances is required. The reason is because these devices control the communication between network segments. If they are not available, network traffic can't flow, and applications will stop working. Scheduled and unscheduled outages can and will occasionally bring down NVA instances (as any other virtual machine in Azure or any other cloud). The instances are brought down even if those NVAs are configured with Premium Managed Disks to provide a single-instance SLA in Azure. Hence, highly available applications will require at least a second NVA that can ensure connectivity.
 
