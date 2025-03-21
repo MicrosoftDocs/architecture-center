@@ -40,7 +40,7 @@ The following architectures describe the resources and configuration necessary f
 
 | Solution | Benefits | Considerations |
 | --- | --- | --- |
-| [Azure Load Balancer](#load-balancer-design) | Supports active/active, active/standby and scale-out NVAs. Very good convergence time | The NVA needs to provide a port for the health probes, especially for active/standby deployments. For stateful appliances such as firewalls that require traffic symmetry, flows to/from Internet require SNAT |
+| [Azure Load Balancer](#load-balancer-design) | Supports active/active, active/standby and scale-out NVAs with very good convergence time | The NVA needs to provide a port for the health probes, especially for active/standby deployments. For stateful appliances such as firewalls that require traffic symmetry, flows to/from Internet require SNAT |
 | [Azure Route Server](#azure-route-server) | The NVA needs to support BGP. Supports active/active, active/standby and scale-out NVAs. | Traffic symmetry also requires SNAT |
 | [Gateway Load Balancer](#gateway-load-balancer) | Traffic symmetry guaranteed without SNAT. NVAs can be shared across tenants. Very good convergence time. Supports active/active, active/standby and scale-out NVAs. | Supports flows to/from the Internet, no East-West flows |
 | [Changing PIP/UDR](#changing-pip-udr) | No special feature required by the NVA. Guarantees symmetric traffic | Only for active/passive designs. High convergence time of 1-2 minutes |
