@@ -78,7 +78,7 @@ This setup supports both active/active and active/standby configurations. For ac
 
 ### Using L7 load balancers
 
-A particular case of this design for security appliances is replacing the Azure public Load Balancer with a Layer-7 load balancer such as the [Azure Application Gateway][appgw] (which can be considered as an NVA on its own). This case, the NVAs will only require an internal Load Balancer for traffic coming from the workload systems. This mechanism is sometimes used by dual-NIC devices to avoid the routing problem with the Azure Load Balancer's health checks described in the previous section. One restriction of this design is that it only supports the Layer-7 protocols supported by the Layer-7 load balancer, typically HTTP(S).
+A particular case of this design for security appliances is replacing the Azure public Load Balancer with a Layer-7 load balancer such as the [Azure Application Gateway][appgw] (which can be considered as an NVA on its own). For this case, the NVAs will only require an internal Load Balancer for traffic coming from the workload systems. This mechanism is sometimes used by dual-NIC devices to avoid the routing problem with the Azure Load Balancer's health checks described in the previous section. One restriction of this design is that it only supports the Layer-7 protocols supported by the Layer-7 load balancer, typically HTTP(S).
 
 The NVA should be taking inbound traffic for protocols not supported by your Layer-7 load balancer, plus potentially all egress traffic. For further details about this configuration when using Azure Firewall as NVA and Azure Application Gateway as Layer-7 web reverse-proxy, see [Firewall and Application Gateway for virtual networks][azfw_appgw].
 
