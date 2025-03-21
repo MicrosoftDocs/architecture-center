@@ -1,4 +1,4 @@
-This article explains the most common options to deploy a set of Network Virtual Appliances (NVAs) for high availability in Azure. An NVA is typically used to control the flow of traffic between network segments classified with different security levels, for example between a De-Militarized Zone (DMZ) Virtual Network and the public Internet, or to connect external locations to Azure, such as VPN and SDWAN (Software-Defined WAN) appliances.
+This article explains the most common options to deploy a set of Network Virtual Appliances (NVAs) for high availability in Azure. An NVA is typically used to control the flow of traffic between network segments classified with different security levels, for example between a De-Militarized Zone (DMZ) Virtual Network and the public Internet, or to connect external locations to Azure, such as VPN or SDWAN (Software-Defined WAN) appliances.
 
 There are a number of design patterns where NVAs are used to inspect traffic between different security zones, for example:
 
