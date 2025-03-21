@@ -51,12 +51,12 @@ The following table provides a list of capabilities available in Azure OpenAI se
 
 | Capability | Description |
 |----------|-------------|
-| [Text Generation & Completion](azure/ai-services/openai/concepts/prompt-engineering) | Generates human-like text based on prompts, auto-complete sentences or paragraphs, summarizes long documents into concise summaries and answer questions based on given context. |
+| [Text Generation & Completion](/azure/ai-services/openai/concepts/prompt-engineering) | Generates human-like text based on prompts, auto-complete sentences or paragraphs, summarizes long documents into concise summaries and answer questions based on given context. |
 | [Chat](/azure/ai-services/openai/chatgpt-quickstart) | Build chatbots and virtual assistants, maintains context in multi-turn conversations and personalize responses based on user interaction. |
-| [Assistants](azure/ai-services/openai/concepts/assistants) | Create copilot like experience, maintaining a consistent personality across user interactions and Running multiple tools at once like code execution and knowledge search. |
-| [Embeddings](azure/ai-services/openai/concepts/understand-embeddings) | Convert text into numerical vectors where similar meanings appear close together in vector space, enabling powerful similarity search in services like Azure AI Search, Cosmos DB, SQL Database, and PostgreSQL. |
-| [Content Filtering](azure/ai-services/openai/concepts/content-filter) | Screens both user inputs and AI outputs for harmful content across categories like hate, sexual content, violence, and self-harm, supporting multiple languages. Monitors usage patterns to ensure compliance. |
-| [LLM Customization](azure/ai-services/openai/concepts/customizing-llms) | Provides model adaptation techniques: prompt engineering for quick adjustments, RAG for incorporating external information, and fine-tuning for teaching the model specialized tasks - all of which can be combined to optimize performance for specific use cases. |
+| [Assistants](/azure/ai-services/openai/concepts/assistants) | Create copilot like experience, maintaining a consistent personality across user interactions and Running multiple tools at once like code execution and knowledge search. |
+| [Embeddings](/azure/ai-services/openai/concepts/understand-embeddings) | Convert text into numerical vectors where similar meanings appear close together in vector space, enabling powerful similarity search in services like Azure AI Search, Cosmos DB, SQL Database, and PostgreSQL. |
+| [Content Filtering](/azure/ai-services/openai/concepts/content-filter) | Screens both user inputs and AI outputs for harmful content across categories like hate, sexual content, violence, and self-harm, supporting multiple languages. Monitors usage patterns to ensure compliance. |
+| [LLM Customization](/azure/ai-services/openai/concepts/customizing-llms) | Provides model adaptation techniques: prompt engineering for quick adjustments, RAG for incorporating external information, and fine-tuning for teaching the model specialized tasks - all of which can be combined to optimize performance for specific use cases. |
 
 ### Azure AI Language
 
