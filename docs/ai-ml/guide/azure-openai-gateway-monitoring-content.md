@@ -17,8 +17,10 @@ Many organizations need to track the usage of Azure OpenAI models by client and 
 - Budgeting and forecasting for future usage
 - Tie modal cost and usage to model performance
 
-TODO: Describe what native Azure OpenAI monitoring does not support with regard to implementing a chargeback model
-You can use the native Azure OpenAI monitoring functionality to track telemetry of the service, but the default logging function doesn't track or record tokens and model usage of the service.
+You can use the native Azure OpenAI monitoring functionality to track telemetry of the service, but there are challenges.
+
+- For chargeback models, you must be able to associate the Azure OpenAI token usage metrics with an application or organization. Azure OpenAI telemetry contains a calling IP with the last octet masked which might be challenging to associate to an organization or application.
+- 
 
 ### Introduce a gateway to track model usage
 
@@ -26,7 +28,7 @@ You can use the native Azure OpenAI monitoring functionality to track telemetry 
    A diagram that shows two clients labeled A and B directly interfacing with a gateway. The gateway has two arrows that points to private endpoints. The first private endpoint has two solid arrows that point to a gpt-35-turbo deployment and a gpt-4o deployment in an Azure OpenAI deployment. The second privat endpoint has a solid arrow pointing to a gpt-4 deployment and a dashed line pointing to a gpt-4o deployment in a second Azure OpenAI instance. Both Azure OpenAI instances are shown passing Azure OpenAI metrics and logs to Azure Monitor. The gateway has an arrow pointing to Azure Monitor that shows it passing usage metrics including Client IP, Model, and Token data.
 :::image-end:::
 
-Introducing a gateway into this topology allows you to log token usage by client, by model. This data can then be used to implement a chargeback solution, for budgeting and forecasting, and to perform cost/benefit analyses of models.
+Introducing a gateway into this topology allows you to capture the full IP address, the Entra ID of the caller, or a custom identifier for an organization or an application in one place. This data can then be used to implement a chargeback solution, for budgeting and forecasting, and to perform cost/benefit analyses of models.
 
 The following are examples of usage queries that are possible when using Azure API Management (APIM) as a gateway.
 
