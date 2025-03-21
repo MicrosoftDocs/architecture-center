@@ -90,7 +90,7 @@ You can use a ConfigMap to set configuration data separately from application co
 
 Volumes that are defined and created as part of the pod lifecycle only exist until you delete the pod. Pods often expect their storage to remain if a pod is rescheduled on a different host during a maintenance event, especially in StatefulSets. A *persistent volume* is a storage resource that the Kubernetes API creates and manages. A persistent volume can exist beyond the lifetime of an individual pod. You can use the following Azure Storage tools to provide the persistent volume:
 
-- [Azure disk storage](#azure-disk)
+- [Azure disk storage](#azure-disk-storage)
 - [Azure Files](#azure-files)
 - [Azure NetApp Files](#azure-netapp-files)
 - [Azure Blob Storage](#azure-blob-storage)
@@ -366,41 +366,42 @@ This solution is based on infrastructure as a service (IaaS) rather than platfor
 
 Azure Container Storage uses existing Azure Storage offerings for actual data storage and provides a volume orchestration and management solution that's purposely built for containers. Azure Container Storage supports the following backing storage:
 
-- [Azure disks](/azure/virtual-machines/managed-disks-overview): Provide granular control of storage SKUs and configurations. Azure disks suit tier-1 and general-purpose databases.
+- [Azure disks](/azure/virtual-machines/managed-disks-overview): Provide granular control of storage SKUs and configurations. Azure disks suit tier-1 and general purpose databases.
 
 - Ephemeral disks: Use local storage resources on AKS nodes (NVMe or temp SSD). Ephemeral disks suit applications that don't have data durability requirements or that have built-in data replication support. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment.
-- [Azure Elastic SAN](/azure/storage/elastic-san/elastic-san-introduction): Provision on-demand, fully managed resources. Elastic SAN suits general-purpose databases, streaming and messaging services, continuous integration and continuous delivery environments, and other tier-1 or tier-2 workloads. Multiple clusters can access a single storage area network (SAN) concurrently. However persistent volumes can only be attached by one consumer at a time.
+- [Azure Elastic SAN](/azure/storage/elastic-san/elastic-san-introduction): Provision on-demand, fully managed resources. Elastic SAN suits general purpose databases, streaming and messaging services, continuous integration and continuous delivery environments, and other tier-1 or tier-2 workloads. Multiple clusters can access a single storage area network (SAN) concurrently. However persistent volumes can only be attached by one consumer at a time.
 
-Until now, providing cloud storage for containers required using individual CSI drivers to use storage services intended for IaaS-centric workloads and make them work for containers. This creates operational overhead and increases the risk of issues with application availability, scalability, performance, usability, and cost.
+Previously, to provide cloud storage for containers, you needed use individual CSI drivers to adapt storage services intended for IaaS-centric workloads. This method creates operational overhead and increases the risk of problems related to application availability, scalability, performance, usability, and cost.
 
-Azure Container Storage is derived from OpenEBS, an open-source solution that provides container storage capabilities for Kubernetes. By offering a managed volume orchestration solution via microservice-based storage controllers in a Kubernetes environment, Azure Container Storage enables true container-native storage.
+Azure Container Storage is derived from OpenEBS, an open-source solution that provides container storage capabilities for Kubernetes. Azure Container Storage provides a managed volume orchestration solution via microservice-based storage controllers in a Kubernetes environment. This feature enables true container-native storage.
 
-Azure Container Storage is suitable in the following scenarios:
+Azure Container Storage suits the following scenarios:
 
-- **Accelerate VM-to-container initiatives:** Azure Container Storage surfaces the full spectrum of Azure block storage offerings that were previously only available for VMs and makes them available for containers. This includes ephemeral disk that provides extremely low latency for workloads like Cassandra, as well as Azure Elastic SAN that provides native iSCSI and shared provisioned targets.
+- **Accelerate VM-to-container initiatives:** Azure Container Storage surfaces the full spectrum of Azure block storage offerings that were previously only available for VMs and makes them available for containers. This storage includes ephemeral disk storage, which provides extremely low latency for workloads like Cassandra. It also includes Azure Elastic SAN, which provides native iSCSI and shared provisioned targets.
 
-- **Simplify volume management with Kubernetes:** By providing volume orchestration via the Kubernetes control plane, Azure Container Storage makes it easy to deploy and manage volumes within Kubernetes - without the need to move back and forth between different control planes.
+- **Simplify volume management with Kubernetes:** Azure Container Storage provides volume orchestration via the Kubernetes control plane. This feature simplifies the deployment and management of volumes within Kubernetes, without the need to switch between different control planes.
 
-- **Reduce total cost of ownership (TCO):** Improve cost efficiency by increasing the scale of persistent volumes supported per pod or node. Reduce the storage resources needed for provisioning by dynamically sharing storage resources. Note that scale up support for the storage pool itself isn't supported.
+- **Reduce the total cost of ownership:** To improve cost efficiency, increase the scale of persistent volumes that are supported for each pod or node. To reduce the storage resources needed for provisioning, dynamically share storage resources. Scale up support for the storage pool itself isn't supported.
 
 Azure Container Storage provides the following key benefits:
 
-- **Rapid scale out of stateful pods:** Azure Container Storage mounts persistent volumes over network block storage protocols (NVMe-oF or iSCSI), offering fast attach and detach of persistent volumes. You can start small and deploy resources as needed while making sure your applications aren't starved or disrupted, either during initialization or in production. Application resiliency is improved with pod respawns across the cluster, requiring rapid movement of persistent volumes. Using remote network protocols, Azure Container Storage tightly couples with the pod lifecycle to support highly resilient, high-scale stateful applications on AKS.
+- **Scale out stateful pods rapidly:** Azure Container Storage mounts persistent volumes via network block storage protocols, such as NVMe-oF or iSCSI. This capability ensures fast attachment and detachment of persistent volumes. You can start small and deploy resources as needed to ensure that your applications aren't starved or disrupted during initialization or in production. When a pod respawns across the cluster, the associated persistent volume must be rapidly moved to the new pod to maintain application resiliency. By using remote network protocols, Azure Container Storage tightly couples with the pod lifecycle to support highly resilient, high-scale stateful applications on AKS.
 
-- **Improved performance for stateful workloads:** Azure Container Storage enables superior read performance and provides near-disk write performance by using NVMe-oF over RDMA. This allows customers to cost-effectively meet performance requirements for various container workloads including tier 1 I/O intensive, general purpose, throughput sensitive, and dev/test. Accelerate the attach/detach time of persistent volumes and minimize pod failover time.
+- **Improve performance for stateful workloads:** Azure Container Storage enables superior read performance and provides near-disk write performance by using NVMe-oF over RDMA. This capability allows you to cost-effectively meet performance requirements for various container workloads, including tier-1 I/O-intensive, general purpose, throughput-sensitive, and dev/test workloads. Accelerate the attach and detach time of persistent volumes and minimize pod failover time.
 
-- **Kubernetes-native volume orchestration:** Create storage pools and persistent volumes, capture snapshots, and manage the entire lifecycle of volumes using `kubectl` commands without switching between toolsets for different control plane operations.
+- **Orchestrate Kubernetes-native volumes:** Create storage pools and persistent volumes, capture snapshots, and manage the entire lifecycle of volumes by using `kubectl` commands without switching between toolsets for different control plane operations.
 
-### Third-party solutions
+### Partner solutions
 
-Like Amazon EKS, AKS is a Kubernetes implementation, and you can integrate third-party Kubernetes storage solutions. Here are some examples of third-party storage solutions for Kubernetes:
+Like Amazon EKS, AKS is a Kubernetes implementation, and you can integrate partner Kubernetes storage solutions. Here are some examples of partner storage solutions for Kubernetes:
 
-- [Rook](https://rook.io/) turns distributed storage systems into self-managing storage services by automating Storage administrator tasks. Rook delivers its services via a Kubernetes operator for each storage provider.
+- [Rook](https://rook.io/) turns distributed storage systems into self-managing storage services by automating Azure Storage administrator tasks. Rook delivers its services via a Kubernetes operator for each storage provider.
+
 - [GlusterFS](https://www.gluster.org/) is a free and open-source scalable network filesystem that uses common off-the-shelf hardware to create large, distributed storage solutions for data-heavy and bandwidth-intensive tasks.
-- [Ceph](https://www.ceph.com/en/) provides a reliable and scalable unified storage service with object, block, and file interfaces from a single cluster built from commodity hardware components.
-- [MinIO](https://min.io/) multicloud object storage lets enterprises build AWS S3-compatible data infrastructure on any cloud, providing a consistent, portable interface to your data and applications.
-- [Portworx](https://portworx.com/) is an end-to-end storage and data management solution for Kubernetes projects and container-based initiatives. Portworx offers container-granular storage, disaster recovery, data security, and multicloud migrations.
-- [Quobyte](https://www.quobyte.com/) provides high-performance file and object storage you can deploy on any server or cloud to scale performance, manage large amounts of data, and simplify administration.
+- [Ceph](https://www.ceph.com/en/) provides a reliable and scalable unified storage service that has object, block, and file interfaces from a single cluster that's built from commodity hardware components.
+- [MinIO](https://min.io/) multicloud object storage lets enterprises build AWS S3-compatible data infrastructure on any cloud. It provides a consistent, portable interface to your data and applications.
+- [Portworx](https://portworx.com/) is an end-to-end storage and data management solution for Kubernetes projects and container-based initiatives. Portworx provides container-granular storage, disaster recovery, data security, and multicloud migrations.
+- [Quobyte](https://www.quobyte.com/) provides high-performance file and object storage that you can deploy on any server or cloud to scale performance, manage large amounts of data, and simplify administration.
 - [Ondat](https://docs.ondat.io/) delivers a consistent storage layer across any platform. You can run a database or any persistent workload in a Kubernetes environment without having to manage the storage layer.
 
 ## Kubernetes storage considerations
@@ -409,21 +410,21 @@ Consider the following factors when you choose a storage solution for Amazon EKS
 
 ### Storage class access modes
 
-In Kubernetes version 1.21 and newer, AKS and Amazon EKS storage classes use [CSI drivers](/azure/aks/csi-storage-drivers) only and by default.
+In Kubernetes version 1.21 and later, by default AKS and Amazon EKS storage classes use [CSI drivers](/azure/aks/csi-storage-drivers) only.
 
 Different services support storage classes that have different access modes.
 
 | Service      | ReadWriteOnce | ReadOnlyMany | ReadWriteMany |
 |--------------------|---------------|--------------|---------------|
-| Azure Disks        |      X        |              |               |
+| Azure disk storage        |      X        |              |               |
 | Azure Files         |      X        |      X       |       X       |
 | Azure NetApp Files |      X        |       X      |       X       |
 | NFS server         |      X        |       X      |       X       |
-| Azure HPC Cache    |      X        |       X      |       X       |
+| HPC Cache    |      X        |       X      |       X       |
 
-### Dynamic vs static provisioning
+### Dynamic vs. static provisioning
 
-[Dynamically provision volumes](/azure/aks/operator-best-practices-storage#dynamically-provision-volumes) to reduce the management overhead of statically creating persistent volumes. Set a correct reclaim policy to avoid having unused disks when you delete pods.
+[Dynamically provision volumes](/azure/aks/operator-best-practices-storage#dynamically-provision-volumes) to reduce the management overhead of statically creating persistent volumes. Set an appropriate reclaim policy to eliminate unused disks when you delete pods.
 
 ### Backup
 
@@ -431,11 +432,11 @@ Choose a tool to back up persistent data. The tool should match your storage typ
 
 ### Cost optimization
 
-To optimize Azure Storage costs, use Azure reservations. Make sure to [check which services support Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). Also see [Cost management for a Kubernetes cluster](cost-management.md).
+To optimize Azure Storage costs, use Azure reservations if the [service supports them](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). For more information, see [Cost management for a Kubernetes cluster](cost-management.md).
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal authors:
 
@@ -448,9 +449,16 @@ Other contributors:
 - [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
 - [Theano Petersen](https://www.linkedin.com/in/theanop) | Technical Writer
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
+
+- [Training: Azure Storage services](/training/modules/describe-azure-storage-services/)
+- [Training: Store data in Azure](/training/paths/store-data-in-azure/)
+- [Training: Introduction to Kubernetes](/training/modules/intro-to-kubernetes/)
+- [Training: Introduction to Azure NetApp Files](/training/modules/introduction-to-azure-netapp-files/)
+
+## Related resources
 
 - [AKS for Amazon EKS professionals](index.md)
 - [Kubernetes identity and access management](workload-identity.md)
@@ -459,10 +467,3 @@ Other contributors:
 - [Cost management for Kubernetes](cost-management.md)
 - [Kubernetes node and node pool management](node-pools.md)
 - [Cluster governance](governance.md)
-
-## Related resources
-
-- [Azure Storage services](/learn/modules/azure-storage-fundamentals/)
-- [Store data in Azure](/learn/paths/store-data-in-azure/)
-- [Configure AKS storage](/learn/modules/configure-azure-kubernetes-service/5-kubernetes-storage)
-- [Introduction to Azure NetApp Files](/learn/modules/introduction-to-azure-netapp-files/)

@@ -15,7 +15,7 @@ products:
   - azure-kubernetes-service
   - azure-log-analytics
   - azure-monitor
-  ---
+---
 
 # Kubernetes monitoring and logging
 
