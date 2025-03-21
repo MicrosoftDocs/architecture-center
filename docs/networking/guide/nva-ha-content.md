@@ -84,7 +84,7 @@ The NVA should be taking inbound traffic for protocols not supported by your Lay
 
 ## Azure Route Server
 
-[Azure Route Server][ars] is a service which allows an NVA to interact with Azure SDN via Border Gateway Protocol (BGP). Not only the NVAs learn which IP prefixes exist in the Azure VNets, but they're able to inject routes in the effective route tables of the virtual machines in Azure. 
+[Azure Route Server][ars] is a service which allows an NVA to interact with Azure SDN via Border Gateway Protocol (BGP). Not only do the NVAs learn which IP prefixes exist in the Azure VNets, but they're able to inject routes in the effective route tables of the virtual machines in Azure. 
 
 ![ARS Internet][ars_internet]
 
