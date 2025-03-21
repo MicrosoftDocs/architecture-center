@@ -98,7 +98,7 @@ Volumes that are defined and created as part of the pod lifecycle only exist unt
 
 To decide between [Azure disk storage or Azure Files](/azure/aks/concepts-storage#volumes), consider whether your application needs concurrent data access or a specific performance tier.
 
-:::image type="complex" source="/azure/aks/media/concepts-storage/aks-storage-persistent-volume.png" border="false" lightbox="/azure/aks/media/concepts-storage/aks-storage-persistent-volume.png" alt-text="Diagram of persistent volumes in an AKS cluster.":::
+:::image type="complex" source="./media/aks-storage-persistent-volume.png" border="false" lightbox="./media/aks-storage-persistent-volume.png" alt-text="Diagram of persistent volumes in an AKS cluster.":::
 The diagram shows two scenarios: single node or pod access and multiple concurrent node or pod access. The single node or pod access scenario uses Azure managed disks (Standard or Premium storage). The multiple concurrent node or pod access scenario uses Azure Files (Standard storage). Both scenarios point to a persistent volume within the AKS cluster.
 :::image-end:::
 
@@ -125,7 +125,7 @@ For clusters that use [CSI drivers](/azure/aks/csi-storage-drivers), the followi
 | `managed-csi-premium`    | Uses Azure Premium SSD with LRS to create a managed disk. The reclaim policy ensures that the underlying Azure disk is deleted when the persistent volume that used it is deleted. This storage class allows for persistent volumes to be expanded. <br><br> This storage class uses Premium SSD with ZRS to create managed disks. This storage class is for Kubernetes version 1.29 or later and is used in AKS clusters that are deployed across multiple availability zones. |
 | `azurefile-csi`          | Uses Standard SSD storage to create an Azure file share. The reclaim policy ensures that the underlying Azure file share is deleted when the persistent volume that used it is deleted. |
 | `azurefile-csi-premium`  | Uses Premium SSD storage to create an Azure file share. The reclaim policy ensures that the underlying Azure file share is deleted when the persistent volume that used it is deleted. |
-| `azureblob-nfs-premium`  | Uses Premium SSD storage to create an Azure Blob Storage container and connect via the Network File System (NFS) v3 protocol. The reclaim policy ensures that the underlying Blob Storage container is deleted when the persistent volume that used it is deleted. |
+| `azureblob-nfs-premium`  | Uses Premium SSD storage to create a Blob Storage container and connect via the Network File System (NFS) v3 protocol. The reclaim policy ensures that the underlying Blob Storage container is deleted when the persistent volume that used it is deleted. |
 | `azureblob-fuse-premium` | Uses Premium SSD storage to create an Blob Storage container and connect via BlobFuse. The reclaim policy ensures that the underlying Blob Storage container is deleted when the persistent volume that used it is deleted. |
 
 Unless you specify a storage class for a persistent volume, the default storage class is used. Ensure that volumes use the storage that you need when you request persistent volumes.
@@ -164,7 +164,7 @@ A persistent volume claim requests storage of a particular storage class, access
 
 The pod definition includes the volume mount after the volume connects to the pod.
 
-:::image type="complex" source="/azure/aks/media/concepts-storage/aks-storage-persistent-volume-claim.png" border="false" lightbox="/azure/aks/media/concepts-storage/aks-storage-persistent-volume-claim.png" alt-text="Diagram of persistent volume claims in an AKS cluster.":::
+:::image type="complex" source="./media/aks-storage-persistent-volume-claim.png" border="false" lightbox="./media/concepts-storage/aks-storage-persistent-volume-claim.png" alt-text="Diagram of persistent volume claims in an AKS cluster.":::
 The left side has two sections: single node or pod access and multiple concurrent nodes or pods access. The single node or pod access uses Azure managed disks (Standard or Premium storage). An arrow points from single node or pod access to a persistent volume in the AKS cluster that's on the right side. The multiple concurrent nodes or pods access uses Azure Files (Standard storage). An arrow points from multiple concurrent node or pod access to the same persistent volume in the AKS cluster on the right side. Inside the AKS cluster, a persistent volume connects to a persistent volume claim, which links to a storage class. The persistent volume claim points to nodes and pods.
 :::image-end:::
 
@@ -254,7 +254,7 @@ You can manage encryption for your ephemeral OS disk with your own keys on an AK
 
 Kubernetes typically treats individual pods as ephemeral, disposable resources. Applications have different approaches for using and persisting data. A *volume* represents a way to store, retrieve, and persist data across pods and through the application lifecycle.
 
-Traditional volumes are created as Kubernetes resources that are backed by Azure Storage. You can manually create data volumes to be assigned to pods directly or have Kubernetes automatically create them. Data volumes can use: [Azure disk storage](/azure/virtual-machines/disks-types), [Azure Files](/azure/storage/files/storage-files-planning), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels), or [Azure Blob Storage](/azure/storage/common/storage-account-overview).
+Traditional volumes are created as Kubernetes resources that are backed by Azure Storage. You can manually create data volumes to be assigned to pods directly or have Kubernetes automatically create them. Data volumes can use: [Azure disk storage](/azure/virtual-machines/disks-types), [Azure Files](/azure/storage/files/storage-files-planning), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels), or [Blob Storage](/azure/storage/common/storage-account-overview).
 
 > [!NOTE]
 > Depending on your VM SKU, the Azure disk CSI driver might have a volume limit for each node. For some high-performance VMs, such as 16 cores, the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU. For a list of VM SKUs and their corresponding capacity limits, see [General purpose VM sizes](/azure/virtual-machines/sizes-general).
@@ -332,9 +332,9 @@ To optimize costs for Azure Files, purchase [Azure Files capacity reservations](
 
 For more information, see [Configure Azure NetApp Files for AKS](/azure/aks/azure-netapp-files).
 
-### Azure Blob Storage
+### Blob Storage
 
-The [Azure Blob Storage CSI driver](/azure/aks/azure-blob-csi) is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver that AKS uses to manage the lifecycle of Blob Storage. The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes.
+The [Blob Storage CSI driver](/azure/aks/azure-blob-csi) is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver that AKS uses to manage the lifecycle of Blob Storage. The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes.
 
 Adopt and use the CSI so that AKS can write, deploy, and iterate plug-ins. The plug-ins expose new storage systems or improve existing storage systems in Kubernetes. CSI drivers in AKS eliminate the need to modify the core Kubernetes code and wait for its release cycles.
 
@@ -369,7 +369,7 @@ Azure Container Storage uses existing Azure Storage offerings for actual data st
 - [Azure disks](/azure/virtual-machines/managed-disks-overview): Provide granular control of storage SKUs and configurations. Azure disks suit tier-1 and general purpose databases.
 
 - Ephemeral disks: Use local storage resources on AKS nodes (NVMe or temp SSD). Ephemeral disks suit applications that don't have data durability requirements or that have built-in data replication support. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment.
-- [Azure Elastic SAN](/azure/storage/elastic-san/elastic-san-introduction): Provision on-demand, fully managed resources. Elastic SAN suits general purpose databases, streaming and messaging services, continuous integration and continuous delivery environments, and other tier-1 or tier-2 workloads. Multiple clusters can access a single storage area network (SAN) concurrently. However persistent volumes can only be attached by one consumer at a time.
+- [Elastic SAN](/azure/storage/elastic-san/elastic-san-introduction): Provision on-demand, fully managed resources. Elastic SAN suits general purpose databases, streaming and messaging services, continuous integration and continuous delivery environments, and other tier-1 or tier-2 workloads. Multiple clusters can access a single storage area network (SAN) concurrently. However persistent volumes can only be attached by one consumer at a time.
 
 Previously, to provide cloud storage for containers, you needed use individual CSI drivers to adapt storage services intended for IaaS-centric workloads. This method creates operational overhead and increases the risk of problems related to application availability, scalability, performance, usability, and cost.
 
@@ -377,7 +377,7 @@ Azure Container Storage is derived from OpenEBS, an open-source solution that pr
 
 Azure Container Storage suits the following scenarios:
 
-- **Accelerate VM-to-container initiatives:** Azure Container Storage surfaces the full spectrum of Azure block storage offerings that were previously only available for VMs and makes them available for containers. This storage includes ephemeral disk storage, which provides extremely low latency for workloads like Cassandra. It also includes Azure Elastic SAN, which provides native iSCSI and shared provisioned targets.
+- **Accelerate VM-to-container initiatives:** Azure Container Storage surfaces the full spectrum of Azure block storage offerings that were previously only available for VMs and makes them available for containers. This storage includes ephemeral disk storage, which provides extremely low latency for workloads like Cassandra. It also includes Elastic SAN, which provides native iSCSI and shared provisioned targets.
 
 - **Simplify volume management with Kubernetes:** Azure Container Storage provides volume orchestration via the Kubernetes control plane. This feature simplifies the deployment and management of volumes within Kubernetes, without the need to switch between different control planes.
 
