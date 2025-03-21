@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn best practices for designing web APIs that support platform independence and service evolution.
 ms.author: robbag
 author: RobBagby
-ms.date: 03/20/2025
+ms.date: 03/21/2025
 ms.topic: best-practice
 ms.service: azure-architecture-center
 ms.subservice: best-practice
@@ -26,39 +26,21 @@ categories: featured
 
 # RESTful web API design
 
-In 2000, Roy Fielding proposed that Representational State Transfer (REST) - previously an architectural style for building distributed systems based on hypermedia - be used as an architectural approach to designing web services that are independent of any particular protocol. 
+A RESTful web API implementations is a web API that employs REST (Representational State Transfer) architectural principles to achieve a stateless, loosely coupled interface between client and service.  A web API that is RESTful specifically supports the standard HTTP protocol to perform operations on resources and return representations of resources with hypermedia links and HTTP operation status codes. 
 
-However, today most REST API implementations use standard HTTP methods to perform operations on resources, and they use standard HTTP status codes to communicate the results of these operations. The primary advantage of using REST over HTTP, instead of over other protocols, is that HTTP is an open standard, and is supported by a wide range of tools and libraries.
+In general, a RESTful web API should align with the following principles:
 
-For example, a REST service that's written in ASP.NET can be accessed by client applications that are written in JavaScript or Python. Also, users can easily access the REST API of the service directly by using tools that support the HTTP protocol. 
+- **Platform independence**, which means that clients should be able to call the web API regardless of it's the internal implementation. To achieve platform independence, the web API should use HTTP as a standard protocol, offer clear documentation, and support a familiar data exchange format such as JSON and XML. 
 
-This guide provides best practices for designing web APIs that are based on the principles of REST over HTTP. It also covers common design patterns and considerations for building web APIs that are easy to understand, flexible, and maintainable.
+- **Loose coupling**, which means that the client and the web service should be able to evolve independently. The client should not have to know the internal implementation of the web service, and the web service should not have to know the internal implementation of the client. To achieve loose coupling in a RESTful web API, the web service should expose a set of resources that the client can interact with, and the client should be able to navigate between resources using hypermedia links.
 
-## What is a RESTful API?
-
-In 2008, Leonard Richardson proposed the following [maturity model](https://martinfowler.com/articles/richardsonMaturityModel.html) for web APIs:
-
-- Level 0: Define one URI, and all operations are POST requests to this URI.
-- Level 1: Create separate URIs for individual resources.
-- Level 2: Use HTTP methods to define operations on resources.
-- Level 3: Use hypermedia (HATEOAS, described below).
-
-Level 3 corresponds to a truly RESTful API according to Fielding's definition. In practice, many published web APIs fall somewhere around level 2.
-
-## REST design principles
-
-When designing a web API for a service, it's important that you consider the following principles:
-
-- **Platform independence**, which means that clients should be able to call the API, regardless of it's the internal implementation. To achieve platform independence, the API should use standard protocols, offer clear documentation, and offer a way for client and service to agree on the exchange format. 
-
-- **Loose coupling**, which means that the client and the web service should be able to evolve independently. The client should not have to know the internal implementation of the web service, and the web service should not have to know the internal implementation of the client. This allows the client and the web service to evolve independently.
-
-- **Scalability**, which means that the web service should be able to handle a large number of requests. To achieve scalability, the web service should be stateless, and it should be able to handle requests in parallel.
+This guide provides best practices for designing RESTful web APIs. It also covers common design patterns and considerations for building web APIs that are easy to understand, flexible, and maintainable.
 
 
-## REST API design concepts
 
-To implement a RESTful web API, you need to understand the following concepts:
+## RESTful web API design concepts
+
+To implement a RESTful web API, you need to first understand the following concepts:
 
 - **Uniform Resource Identifier (URI)**. REST APIs are designed around *resources*, which are any kind of object, data, or service that can be accessed by the client. Each resource should be represented by a URI that uniquely identifies that resource. For example, the URI for a particular customer order might be:
     
@@ -72,11 +54,11 @@ To implement a RESTful web API, you need to understand the following concepts:
       {"orderId":1,"orderValue":99.90,"productId":1,"quantity":1}
       ```
 
-- **Uniform interface** is used by REST APIS to achieve loose coupling of between client and service implementations. For REST APIs built on HTTP, the uniform interface includes using standard HTTP verbs to perform operations on resources such as `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`.
+- **Uniform interface** is used by RESTful APIS to achieve loose coupling of between client and service implementations. For REST APIs built on HTTP, the uniform interface includes using standard HTTP verbs to perform operations on resources such as `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`.
 
-- **Stateless request model**. REST APIs use a stateless request model, so that each HTTP request is an atomic and independent operation.  Transient state must be managed either by the client or within the service itself.  A stateless request model supports high scalability, as there's no need to retain any affinity between clients and specific servers. However, the stateless model can also limit scalability, due to challenges with web service backend storage scalability. For more information about strategies to scale out a data store, see [Horizontal, vertical, and functional data partitioning](./data-partitioning.yml).
+- **Stateless request model**. RESTful APIs use a stateless request model, so that each HTTP request is an atomic and independent operation.  Transient state must be managed either by the client or within the service itself.  A stateless request model supports high scalability, as there's no need to retain any affinity between clients and specific servers. However, the stateless model can also limit scalability, due to challenges with web service backend storage scalability. For more information about strategies to scale out a data store, see [Horizontal, vertical, and functional data partitioning](./data-partitioning.yml).
 
-- **Hypermedia links**. REST APIs are driven by hypermedia links that are contained in the representation. For example, the following shows a JSON representation of an order. It contains links to get or update the customer associated with the order.
+- **Hypermedia links**. REST APIs are driven by hypermedia links that are contained in each resource representation. For example, the following shows a JSON representation of an order. It contains links to get or update the customer that's associated with the order.
 
   ```json
   {
@@ -93,9 +75,9 @@ To implement a RESTful web API, you need to understand the following concepts:
 
 
 
-## Organize the web API around resources
+## Define RESTful web API resource URIs
 
-To organize your API design around resources, define resource URIs that map to the business entities.  When possible, resource URIs should be based on nouns (the resource) and not verbs (the operations on the resource).
+A RESTful web API is organized around resources. To organize your API design around resources, define resource URIs that map to the business entities.  When possible, resource URIs should be based on nouns (the resource) and not verbs (the operations on the resource).
 
 For example, in an e-commerce system, the primary business entities might be *customers* and *orders*. To create an order, a client sends the order information in an HTTP POST request to the resource URI.  The HTTP response to the request indicates whether the order creation is successful.
 
@@ -105,7 +87,13 @@ The URI for creating the order resource could be something like:
 ```http
 https://api.contoso.com/orders // Good
 
+```
+
+Avoid using verbs in URIs to represent operations. For example, the following URI is not recommended:
+
+```http
 https://api.contoso.com/create-order // Avoid
+
 ```
 
 Entities are often grouped together into collections (orders, customers). A collection is a separate resource from the item within the collection, and should have its own URI. For example, the following URI might represent the collection of orders:
@@ -121,10 +109,9 @@ Once the client retrieves the collection, it can then make a GET request to the 
 {"orderId":1,"orderValue":99.90,"productId":1,"quantity":1}
 ```
 
+### Resource URI naming conventions
 
-### Resource naming and relationships
-
-When designing a RESTful web API, it's important to use the correct naming and relationship conventions for resources:
+When designing a RESTful web API, it's important that you use the correct naming and relationship conventions for resources:
 
 - **Use nouns for resource names.** Use nouns to represent resources. For example, use `/orders` instead of `/create-order`. The verbal action on a URI is already implied by the HTTP GET, POST, PUT, PATCH, and DELETE methods.
 
@@ -144,17 +131,19 @@ When designing a RESTful web API, it's important to use the correct naming and r
 >[!TIP]
 >It might not be possible to map every operation implemented by a web API to a specific resource. You can handle such *non-resource* scenarios through HTTP requests that invoke a function and return the results as an HTTP response message. For example, a web API that implements simple calculator operations such as add and subtract could provide URIs that expose these operations as pseudo resources and use the query string to specify the parameters required. For example, a GET request to the URI */add?operand1=99&operand2=1* would return a response message with the body containing the value 100. However, only use these forms of URIs sparingly.
 
-## Define API operations in terms of HTTP methods
+## Define RESTful web API methods
 
-The HTTP protocol defines a number of methods that assign semantic meaning to a request. The common HTTP methods used by most RESTful web APIs are:
+RESTful web API methods mirror the request methods and media types as defined by the HTTP protocol. This section contains a description of the most common request methods, as well as the media types used in RESTful web APIs.
 
-- **GET** retrieves a representation of the resource at the specified URI. The body of the response message contains the details of the requested resource.
-- **POST** creates a new resource at the specified URI. The body of the request message provides the details of the new resource. Note that POST can also be used to trigger operations that don't actually create resources.
-- **PUT** either creates or replaces the resource at the specified URI. The body of the request message specifies the resource to be created or updated.
-- **PATCH** performs a partial update of a resource. The request body specifies the set of changes to apply to the resource.
-- **DELETE** removes the resource at the specified URI.
+### HTTP request methods
 
-The effect of a specific request should depend on whether the resource is a collection or an individual item. The following table summarizes the common conventions adopted by most RESTful implementations using the e-commerce example. Not all of these requests might be implemented&mdash;it depends on the specific scenario.
+The HTTP protocol defines a number of request methods that indicate the desired action to be performed on a resource. The most common methods used in RESTful web APIs are: [GET](#get-requests), [POST](#post-requests), [PUT](#put-request), [PATCH](#patch-requests), and [DELETE](#delete-requests). Each method corresponds to a specific operation. When designing a RESTful web API, you should use these methods in a way that is consistent with the protocol definition, the resource being accessed, and the action being performed.
+
+It's important to remember that the effect of a specific request method should depend on whether the resource is a collection or an individual item. The following table includes some conventions that are commonly adopted by most RESTful implementations. 
+
+
+>[!IMPORTANT]
+>In the table, we are using an example e-commerce `customer` entity. It is never a requirement that a web API implement all of request methods, as it depends on the specific scenario.
 
 | **Resource** | **POST** | **GET** | **PUT** | **DELETE** |
 | --- | --- | --- | --- | --- |
@@ -162,68 +151,63 @@ The effect of a specific request should depend on whether the resource is a coll
 | /customers/1 |Error |Retrieve the details for customer 1 |Update the details of customer 1 if it exists |Remove customer 1 |
 | /customers/1/orders |Create a new order for customer 1 |Retrieve all orders for customer 1 |Bulk update of orders for customer 1 |Remove all orders for customer 1 |
 
-The differences between POST, PUT, and PATCH can be confusing.
 
-- A POST request creates a resource. The server assigns a URI for the new resource, and returns that URI to the client. In the REST model, you frequently apply POST requests to collections. The new resource is added to the collection. A POST request can also be used to submit data for processing to an existing resource, without any new resource being created.
+#### GET requests
 
-- A PUT request creates a resource *or* updates an existing resource. The client specifies the URI for the resource. The request body contains a complete representation of the resource. If a resource with this URI already exists, it is replaced. Otherwise a new resource is created, if the server supports doing so. PUT requests are most frequently applied to resources that are individual items, such as a specific customer, rather than collections. A server might support updates but not creation via PUT. Whether to support creation via PUT depends on whether the client can meaningfully assign a URI to a resource before it exists. If not, then use POST to create resources and PUT or PATCH to update.
+A GET request retrieves a representation of the resource at the specified URI. The body of the response message contains the details of the requested resource.
 
-- A PATCH request performs a *partial update* to an existing resource. The client specifies the URI for the resource. The request body specifies a set of *changes* to apply to the resource. This can be more efficient than using PUT, because the client only sends the changes, not the entire representation of the resource. Technically PATCH can also create a new resource (by specifying a set of updates to a "null" resource), if the server supports this.
+A GET request should return one of the following HTTP status codes:
 
-PUT requests must be idempotent. If a client submits the same PUT request multiple times, the results should always be the same (the same resource will be modified with the same values). POST and PATCH requests are not guaranteed to be idempotent.
+| HTTP status code | Reason |
+|------------------|-------------|
+| 200 (OK) | The method has successfully returned the resource. |
+| 204 (No Content) | The response body doesn't contain any content, such as when a search request returns no matches in the HTTP response.  |
+| 404 (Not Found) | The requested resource cannot be found. |
 
-## Conform to HTTP semantics
 
-This section describes some typical considerations for designing an API that conforms to the HTTP specification. However, it doesn't cover every possible detail or scenario. When in doubt, consult the HTTP specifications.
 
-### Media types
+#### POST requests
 
-As mentioned earlier, clients and servers exchange representations of resources. For example, in a POST request, the request body contains a representation of the resource to create. In a GET request, the response body contains a representation of the fetched resource.
+A POST request should create a resource. The server assigns a URI for the new resource, and returns that URI to the client. In a RESTful model, POST requests are generally used to add a new resource to the collection identified by the URI. A POST request can also be used to submit data for processing to an existing resource, without any new resource being created.
 
-In the HTTP protocol, formats are specified through the use of *media types*, also called MIME types. For non-binary data, most web APIs support JSON (media type = `application/json`) and possibly XML (media type = `application/xml`).
+A POST request should return one of the following HTTP status codes:
 
-The Content-Type header in a request or response specifies the format of the representation. Here is an example of a POST request that includes JSON data:
+| HTTP status code | Reason |
+|------------------|-------------|
+| 200 (OK) | The method has done some processing but does not create a new resource. The result of the operation may be included in the response body.|
+| 201 (Created) | The resource was created successfully. The URI of the new resource is included in the Location header of the response. The response body contains a representation of the resource. |
+| 204 (No Content) |The response body contains no content. |
+| 400 (Bad Request) | The client has placed invalid data in the request. The response body can contain additional information about the error or a link to a URI that provides more details. |
 
-```http
-POST https://api.contoso.com/orders HTTP/1.1
-Content-Type: application/json; charset=utf-8
-Content-Length: 57
 
-{"Id":1,"Name":"Gizmo","Category":"Widgets","Price":1.99}
-```
+#### PUT request
 
-If the server doesn't support the media type, it should return HTTP status code 415 (Unsupported Media Type).
+A PUT request should update an existing resource if it exists, or create a new resource if it doesn't exist. The process of making a PUT request is as follows:
 
-A client request can include an Accept header that contains a list of media types the client will accept from the server in the response message. For example:
+1. The client specifies the URI for the resource and includes request body that contains a complete representation of the resource.
+1. The client makes the request. 
+1. If a resource with this URI already exists, it is replaced. Otherwise a new resource is created, if the server supports doing so. 
 
-```http
-GET https://api.contoso.com/orders/2 HTTP/1.1
-Accept: application/json
-```
+PUT methods are usually applied to resources that are individual items, such as a specific customer, rather than collections. A server might support updates but not creation via PUT. Whether to support creation via PUT depends on whether the client can meaningfully assign a URI to a resource before it exists. If not, then use POST to create resources and use PUT or PATCH to update.
 
-If the server cannot match any of the media types listed, it should return HTTP status code 406 (Not Acceptable).
+>[!IMPORTANT]
+>PUT requests must be idempotent. If a client submits the same PUT request multiple times, the results should always be the same (the same resource will be modified with the same values). POST and PATCH requests are not guaranteed to be idempotent.
 
-### GET methods
+A PUT request should return one of the following HTTP status codes:
 
-A successful GET method typically returns HTTP status code 200 (OK). If the resource cannot be found, the method should return 404 (Not Found).
+| HTTP status code | Reason |
+|------------------|-------------|
+| 200 (OK) | The resource was updated successfully. |
+| 201 (Created) | The resource was created successfully. |
+| 204 (No Content) | The resource was updated successfully, but the response body doesn't contain any content. |
+| 409 (Conflict) | The request could not be completed due to a conflict with the current state of the resource. |
 
-If the request was fulfilled but there is no response body included in the HTTP response, then it should return HTTP status code 204 (No Content); for example, a search operation yielding no matches might be implemented with this behavior.
+>[!TIP]
+>Consider implementing bulk HTTP PUT operations that can batch updates to multiple resources in a collection. The PUT request should specify the URI of the collection, and the request body should specify the details of the resources to be modified. This approach can help to reduce chattiness and improve performance.
 
-### POST methods
+#### PATCH requests
 
-If a POST method creates a new resource, it returns HTTP status code 201 (Created). The URI of the new resource is included in the Location header of the response. The response body contains a representation of the resource.
-
-If the method does some processing but does not create a new resource, the method can return HTTP status code 200 and include the result of the operation in the response body. Alternatively, if there is no result to return, the method can return HTTP status code 204 (No Content) with no response body.
-
-If the client puts invalid data into the request, the server should return HTTP status code 400 (Bad Request). The response body can contain additional information about the error or a link to a URI that provides more details.
-
-### PUT methods
-
-If a PUT method creates a new resource, it returns HTTP status code 201 (Created), as with a POST method. If the method updates an existing resource, it returns either 200 (OK) or 204 (No Content). In some cases, it might not be possible to update an existing resource. In that case, consider returning HTTP status code 409 (Conflict).
-
-Consider implementing bulk HTTP PUT operations that can batch updates to multiple resources in a collection. The PUT request should specify the URI of the collection, and the request body should specify the details of the resources to be modified. This approach can help to reduce chattiness and improve performance.
-
-### PATCH methods
+A PATCH request performs a *partial update* to an existing resource. The client specifies the URI for the resource. The request body specifies a set of *changes* to apply to the resource. This can be more efficient than using PUT, because the client only sends the changes, not the entire representation of the resource. Technically, PATCH can also create a new resource (by specifying a set of updates to a "null" resource), if the server supports this.
 
 With a PATCH request, the client sends a set of updates to an existing resource, in the form of a *patch document*. The server processes the patch document to perform the update. The patch document doesn't describe the whole resource, only a set of changes to apply. The specification for the PATCH method ([RFC 5789](https://tools.ietf.org/html/rfc5789)) doesn't define a particular format for patch documents. The format must be inferred from the media type in the request.
 
@@ -254,23 +238,62 @@ Here is a possible JSON merge patch for this resource:
 
 This tells the server to update `price`, delete `color`, and add `size`, while `name` and `category` are not modified. For the exact details of JSON merge patch, see [RFC 7396](https://tools.ietf.org/html/rfc7396). The media type for JSON merge patch is `application/merge-patch+json`.
 
-Merge patch is not suitable if the original resource can contain explicit null values, due to the special meaning of `null` in the patch document. Also, the patch document doesn't specify the order that the server should apply the updates. That may or may not matter, depending on the data and the domain. JSON patch, defined in [RFC 6902](https://tools.ietf.org/html/rfc6902), is more flexible. It specifies the changes as a sequence of operations to apply. Operations include add, remove, replace, copy, and test (to validate values). The media type for JSON patch is `application/json-patch+json`.
+Merge patch is not suitable if the original resource can contain explicit null values, due to the special meaning of `null` in the patch document. Also, the patch document doesn't specify the order that the server should apply the updates, which might not matter, depending on the data and the domain. JSON patch, defined in [RFC 6902](https://tools.ietf.org/html/rfc6902), is more flexible, as it specifies the changes as a sequence of operations to apply. Operations include add, remove, replace, copy, and test (to validate values). The media type for JSON patch is `application/json-patch+json`.
 
-Here are some typical error conditions that might be encountered when processing a PATCH request, along with the appropriate HTTP status code.
 
-| Error condition | HTTP status code |
-|-----------|------------|
-| The patch document format isn't supported. | 415 (Unsupported Media Type) |
-| Malformed patch document. | 400 (Bad Request) |
-| The patch document is valid, but the changes can't be applied to the resource in its current state. | 409 (Conflict)
+A PATCH request should return one of the following HTTP status codes:
 
-### DELETE methods
+| HTTP status code | Reason |
+|------------------|-------------|
+| 200 (OK) | The resource was updated successfully. |
+| 400 (Bad Request) |  Malformed patch document.  |
+| 409 (Conflict) | The patch document is valid, but the changes can't be applied to the resource in its current state. |
+| 415 (Unsupported Media Type) | The patch document format isn't supported. |
 
-If the delete operation is successful, the web server should respond with HTTP status code 204 (No Content), indicating that the process has been successfully handled, but that the response body contains no further information. If the resource doesn't exist, the web server can return HTTP 404 (Not Found).
+#### DELETE requests
 
-### Asynchronous operations
+A DELETE request removes the resource at the specified URI.
 
-Sometimes a POST, PUT, PATCH, or DELETE operation might require processing that takes a while to complete. If you wait for completion before sending a response to the client, it might cause unacceptable latency. If so, consider making the operation asynchronous. Return HTTP status code 202 (Accepted) to indicate the request was accepted for processing but is not completed.
+A DELETE request should return one of the following HTTP status codes:
+
+| HTTP status code | Reason |
+|------------------|-------------|
+| 204 (NO CONTENT) | The resource was deleted successfully. The process has been successfully handled, but  the response body contains no further information. |
+| 404 (NOT FOUND) | The resource doesn't exist.  |
+
+
+
+### Resource MIME types
+
+As stated in [RESTful web API design concepts](#restful-web-api-design-concepts), resource representation is how a resource - identified by URI - is encoded and transported over the HTTP protocol in a specific format, such as XML or JSON.  Clients that want to retrieve a specific resource, must use the URI in the request to the API. The API, in response, returns a resource representation of the data indicated by the URI.  
+
+In the HTTP protocol, resource representation formats are specified through the use of *media types*, also called MIME types. For non-binary data, most web APIs support JSON (media type = `application/json`) and possibly XML (media type = `application/xml`).
+
+The Content-Type header in a request or response specifies the resource representation format. Here is an example of a POST request that includes JSON data:
+
+```http
+POST https://api.contoso.com/orders HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Content-Length: 57
+
+{"Id":1,"Name":"Gizmo","Category":"Widgets","Price":1.99}
+```
+
+If the server doesn't support the media type, it should return HTTP status code 415 (Unsupported Media Type).
+
+A client request can include an Accept header that contains a list of media types the client will accept from the server in the response message. For example:
+
+```http
+GET https://api.contoso.com/orders/2 HTTP/1.1
+Accept: application/json
+```
+
+If the server cannot match any of the media types listed, it should return HTTP status code 406 (Not Acceptable).
+|
+
+## Implement asynchronous methods
+
+Sometimes a POST, PUT, PATCH, or DELETE method might require processing that takes a while to complete. If you wait for completion before sending a response to the client, it might cause unacceptable latency. If so, consider making the method asynchronous. An asynchronous method should return HTTP status code 202 (Accepted) to indicate the request was accepted for processing but is not completed.
 
 You should expose an endpoint that returns the status of an asynchronous request, so the client can monitor the status by polling the status endpoint. Include the URI of the status endpoint in the Location header of the 202 response. For example:
 
@@ -300,33 +323,47 @@ Location: /api/orders/12345
 
 For more information on how to implement this approach, see [Providing asynchronous support for long-running requests](/azure/architecture/best-practices/api-implementation#provide-asynchronous-support-for-long-running-requests) and the [Asynchronous Request-Reply pattern](../patterns/async-request-reply.yml).
 
-### Empty sets in message bodies
 
-Any time the body of a successful response is empty, the status code should be 204 (No Content). For empty sets, such as a response to a filtered request with no items, the status code should still be 204 (No Content), not 200 (OK).
 
-## Filter and paginate data
+## Implement Data pagination and filtering
 
-Exposing a collection of resources through a single URI can lead to applications fetching large amounts of data when only a subset of the information is required. For example, suppose a client application needs to find all orders with a cost over a specific value. It might retrieve all orders from the */orders* URI and then filter these orders on the client side. Clearly this process is highly inefficient. It wastes network bandwidth and processing power on the server hosting the web API.
+To optimize data retrieval and reduce payload size, implement **data pagination** and **query-based filtering** in your API design. These techniques allow clients to request only the subset of data they need, improving performance and reducing bandwidth usage.
 
-Instead, the API can allow passing a filter in the query string of the URI, such as */orders?minCost=n*. The web API is then responsible for parsing and handling the `minCost` parameter in the query string and returning the filtered results on the server side.
+- **Pagination** divides large datasets into smaller, manageable chunks. Use query parameters to specify the number of items to return (`limit`) and the starting point (`offset`). Make sure to also provide meaningful defaults for `limit` and `offset` (e.g., `limit=10`, `offset=0`). Also, to help clients navigate the dataset and prevent possible Denial of Service attacks, include metadata in the response, such as the total number of items and pagination details.:
+    
+    ```http
+    GET /orders?limit=25&offset=50
+    ```
+    
+    - **`limit`**: Specifies the maximum number of items to return.
+    - **`offset`**: Specifies the starting index for the data.
+    
+- **Filtering** allows clients to refine the dataset by applying conditions. The API can allow the client to pass filter in the query string of the URI:
 
-GET requests over collection resources can potentially return a large number of items. You should design a web API to limit the amount of data returned by any single request. Consider supporting query strings that specify the maximum number of items to retrieve and a starting offset into the collection. For example:
+    ```http
+    GET /orders?minCost=100&status=shipped
+    ```
 
-```http
-/orders?limit=25&offset=50
-```
+    - **`minCost`**: Filters orders with a minimum cost of 100.
+    - **`status`**: Filters orders with a specific status.
 
-Also consider imposing an upper limit on the number of items returned, to help prevent Denial of Service attacks. To assist client applications, GET requests that return paginated data should also include some form of metadata that indicate the total number of resources available in the collection.
 
-You can use a similar strategy to sort data as it is fetched, by providing a sort parameter that takes a field name as the value, such as */orders?sort=ProductID*. However, this approach can have a negative effect on caching, because query string parameters form part of the resource identifier used by many cache implementations as the key to cached data.
+Also consider the following best practices:
 
-You can extend this approach to limit the fields returned for each item, if each item contains a large amount of data. For example, you could use a query string parameter that accepts a comma-delimited list of fields, such as */orders?fields=ProductID,Quantity*.
+- **Sorting**: Allow clients to sort data using a `sort` parameter (e.g., `sort=price`). 
 
-Give all optional parameters in query strings meaningful defaults. For example, set the `limit` parameter to 10 and the `offset` parameter to 0 if you implement pagination, set the sort parameter to the key of the resource if you implement ordering, and set the `fields` parameter to all fields in the resource if you support projections.
+    >[!IMPORTANT]
+    >The sorting approach can have a negative effect on caching, because query string parameters form part of the resource identifier used by many cache implementations as the key to cached data.
 
-## Support partial responses for large binary resources
+- **Field Selection**: Enable clients to specify the fields they need using a `fields` parameter (e.g., `fields=id,name`). For example, you could use a query string parameter that accepts a comma-delimited list of fields, such as */orders?fields=ProductID,Quantity*.
 
-A resource may contain large binary fields, such as files or images. To overcome problems caused by unreliable and intermittent connections and to improve response times, consider enabling such resources to be retrieved in chunks. To do this, the web API should support the Accept-Ranges header for GET requests for large resources. This header indicates that the GET operation supports partial requests. The client application can submit GET requests that return a subset of a resource, specified as a range of bytes.
+
+
+## Support partial responses
+
+Some resources contain large binary fields, such as files or images. To overcome problems caused by unreliable and intermittent connections and to improve response times, consider supporting the partial retrieval of large binary resources. 
+
+To support partial responses, the web API should support the Accept-Ranges header for GET requests for large resources. This header indicates that the GET operation supports partial requests. The client application can submit GET requests that return a subset of a resource, specified as a range of bytes.
 
 Also, consider implementing HTTP HEAD requests for these resources. A HEAD request is similar to a GET request, except that it only returns the HTTP headers that describe the resource, with an empty message body. A client application can issue a HEAD request to determine whether to fetch a resource by using partial GET requests. For example:
 
@@ -366,9 +403,9 @@ Content-Range: bytes 0-2499/4580
 
 A subsequent request from the client application can retrieve the remainder of the resource.
 
-## Use HATEOAS to enable navigation to related resources
+## Implement HATEOAS (Hypertext as the Engine of Application State)
 
-One of the primary motivations behind REST is that it should be possible to navigate the entire set of resources without requiring prior knowledge of the URI scheme. Each HTTP GET request should return the information necessary to find the resources related directly to the requested object through hyperlinks included in the response, and it should also be provided with information that describes the operations available on each of these resources. This principle is known as HATEOAS, or Hypertext as the Engine of Application State. The system is effectively a finite state machine, and the response to each request contains the information necessary to move from one state to another; no other information should be necessary.
+One of the primary motivations behind REST is that it should be possible to navigate the entire set of resources without requiring prior knowledge of the URI scheme. Each HTTP GET request should return the information necessary to find the resources related directly to the requested object through hyperlinks included in the response, and it should also be provided with information that describes the operations available on each of these resources. This principle is known as HATEOAS, or Hypertext as the Engine of Application State. The system is effectively a finite state machine, and the response to each request contains the information necessary to move from one state to anothe. No other information should be necessary.
 
 > [!NOTE]
 > Currently there are no general-purpose standards that define how to model the HATEOAS principle. The examples shown in this section illustrate one possible, proprietary solution.
@@ -425,17 +462,17 @@ In this example, the `links` array has a set of links. Each link represents an o
 
 The `links` array also includes self-referencing information about the resource itself that has been retrieved. These have the relationship *self*.
 
-The set of links that are returned may change, depending on the state of the resource. This is what is meant by hypertext being the "engine of application state."
+The set of links that are returned can change depending on the state of the resource. This is what is meant by hypertext being the *engine of application state*.
 
-## Versioning a RESTful web API
+## Implement versioning
 
-It is highly unlikely that a web API will remain static. As business requirements change new collections of resources may be added, the relationships between resources might change, and the structure of the data in resources might be amended. While updating a web API to handle new or differing requirements is a relatively straightforward process, you must consider the effects that such changes will have on client applications consuming the web API. The issue is that although the developer designing and implementing a web API has full control over that API, the developer does not have the same degree of control over client applications, which may be built by third-party organizations operating remotely. The primary imperative is to enable existing client applications to continue functioning unchanged while allowing new client applications to take advantage of new features and resources.
+It is highly unlikely that a web API will remain static. As business requirements change, new collections of resources can be added. As new resources are added, the relationships between resources might change, and the structure of the data in resources might be amended. While updating a web API to handle new or differing requirements is a relatively straightforward process, you must consider the effects that such changes have on client applications consuming the web API. The issue is that although the developer designing and implementing a web API has full control over that API, the developer does not have the same degree of control over client applications, which can be built by third-party organizations operating remotely. It's important to still support existing unchanged client applications, while allowing new client applications to take advantage of new features and resources.
 
-Versioning enables a web API to indicate the features and resources that it exposes, and a client application can submit requests that are directed to a specific version of a feature or resource. The following sections describe several different approaches, each of which has its own benefits and trade-offs.
+A web API that implements versioning can indicate the features and resources that it exposes, and a client application can submit requests that are directed to a specific version of a feature or resource. The following sections describe several different approaches, each of which has its own benefits and trade-offs.
 
 ### No versioning
 
-This is the simplest approach, and may be acceptable for some internal APIs. Significant changes could be represented as new resources or new links. Adding content to existing resources might not present a breaking change as client applications that are not expecting to see this content will ignore it.
+This is the simplest approach, and can be acceptable for some internal APIs. Significant changes could be represented as new resources or new links. Adding content to existing resources might not present a breaking change as client applications that aren't expecting to see this content simply ignore it.
 
 For example, a request to the URI `https://api.contoso.com/customers/3` should return the details of a single customer containing `id`, `name`, and `address` fields expected by the client application:
 
@@ -458,7 +495,12 @@ Content-Type: application/json; charset=utf-8
 {"id":3,"name":"Fabrikam, Inc.","dateCreated":"2025-03-22T12:11:38.0376089Z","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
-Existing client applications might continue functioning correctly if they are capable of ignoring unrecognized fields, while new client applications can be designed to handle this new field. However, if more radical changes to the schema of resources occur (such as removing or renaming fields) or the relationships between resources change then these may constitute breaking changes that prevent existing client applications from functioning correctly. In these situations, you should consider one of the following approaches.
+Existing client applications might continue functioning correctly if they are capable of ignoring unrecognized fields, while new client applications can be designed to handle this new field. However, if more radical changes to the schema of resources occur (such as removing or renaming fields) or the relationships between resources change then these can constitute breaking changes that prevent existing client applications from functioning correctly. In these situations, you should consider one of the following approaches:
+
+- [URI versioning](#uri-versioning)
+- [Query string versioning](#query-string-versioning)
+- [Header versioning](#header-versioning)
+- [Media type versioning](#media-type-versioning)
 
 ### URI versioning
 
@@ -473,7 +515,7 @@ Content-Type: application/json; charset=utf-8
 {"id":3,"name":"Fabrikam, Inc.","dateCreated":"2025-03-22T12:11:38.0376089Z","address":{"streetAddress":"1 Microsoft Way","city":"Redmond","state":"WA","zipCode":98053}}
 ```
 
-This versioning mechanism is very simple but depends on the server routing the request to the appropriate endpoint. However, it can become unwieldy as the web API matures through several iterations and the server has to support a number of different versions. Also, from a purist's point of view, in all cases the client applications are fetching the same data (customer 3), so the URI should not really be different depending on the version. This scheme also complicates implementation of HATEOAS as all links will need to include the version number in their URIs.
+This versioning mechanism is very simple but depends on the server routing the request to the appropriate endpoint. However, it can become unwieldy as the web API matures through several iterations and the server has to support a number of different versions. Also, from a purist's point of view, in all cases, the client applications are fetching the same data (customer 3), so the URI should not really be different depending on the version. This scheme also complicates implementation of HATEOAS as all links need to include the version number in their URIs.
 
 ### Query string versioning
 
@@ -482,11 +524,13 @@ Rather than providing multiple URIs, you can specify the version of the resource
 This approach has the semantic advantage that the same resource is always retrieved from the same URI, but it depends on the code that handles the request to parse the query string and send back the appropriate HTTP response. This approach also suffers from the same complications for implementing HATEOAS as the URI versioning mechanism.
 
 > [!NOTE]
-> Some older web browsers and web proxies will not cache responses for requests that include a query string in the URI. This can degrade performance for web applications that use a web API and that run from within such a web browser.
+> Some older web browsers and web proxies do not cache responses for requests that include a query string in the URI. This can degrade performance for web applications that use a web API and run from within such a web browser.
 
 ### Header versioning
 
-Rather than appending the version number as a query string parameter, you could implement a custom header that indicates the version of the resource. This approach requires that the client application adds the appropriate header to any requests, although the code handling the client request could use a default value (version 1) if the version header is omitted. The following examples use a custom header named *Custom-Header*. The value of this header indicates the version of web API.
+Rather than appending the version number as a query string parameter, you could implement a custom header that indicates the version of the resource. This approach requires that the client application adds the appropriate header to any requests. However, the code handling the client request could use a default value (version 1) if the version header is omitted. 
+
+The following examples use a custom header named *Custom-Header*. The value of this header indicates the version of web API.
 
 Version 1:
 
@@ -516,11 +560,11 @@ Content-Type: application/json; charset=utf-8
 {"id":3,"name":"Fabrikam, Inc.","dateCreated":"2025-03-22T12:11:38.0376089Z","address":{"streetAddress":"1 Microsoft Way","city":"Redmond","state":"WA","zipCode":98053}}
 ```
 
-As with the previous two approaches, implementing HATEOAS requires including the appropriate custom header in any links.
+As with [URI versioning](#uri-versioning) and [query string versioning](#query-string-versioning), implementing HATEOAS requires including the appropriate custom header in any links.
 
 ### Media type versioning
 
-When a client application sends an HTTP GET request to a web server it should stipulate the format of the content that it can handle by using an Accept header, as described earlier in this guidance. Frequently the purpose of the *Accept* header is to allow the client application to specify whether the body of the response should be XML, JSON, or some other common format that the client can parse. However, it is possible to define custom media types that include information enabling the client application to indicate which version of a resource it is expecting.
+When a client application sends an HTTP GET request to a web server it should use and Accept header to specify the format of the content that it can handle. Usually, the purpose of the *Accept* header is to allow the client application to specify whether the body of the response should be XML, JSON, or some other common format that the client can parse. However, it's possible to define custom media types that include information that let's the client application indicate which version of a resource it's expecting.
 
 The following example shows a request that specifies an *Accept* header with the value *application/vnd.contoso.v1+json*. The *vnd.contoso.v1* element indicates to the web server that it should return version 1 of the resource, while the *json* element specifies that the format of the response body should be JSON:
 
@@ -529,7 +573,7 @@ GET https://api.contoso.com/customers/3 HTTP/1.1
 Accept: application/vnd.contoso.v1+json
 ```
 
-The code handling the request is responsible for processing the *Accept* header and honoring it as far as possible (the client application may specify multiple formats in the *Accept* header, in which case the web server can choose the most appropriate format for the response body). The web server confirms the format of the data in the response body by using the Content-Type header:
+The code handling the request is responsible for processing the *Accept* header and honoring it as far as possible. The client application can specify multiple formats in the *Accept* header, in which case the web server can choose the most appropriate format for the response body. The web server confirms the format of the data in the response body by using the Content-Type header:
 
 ```http
 HTTP/1.1 200 OK
@@ -543,21 +587,23 @@ If the Accept header does not specify any known media types, the web server coul
 This approach is arguably the purest of the versioning mechanisms and lends itself naturally to HATEOAS, which can include the MIME type of related data in resource links.
 
 > [!NOTE]
-> When you select a versioning strategy, you should also consider the implications on performance, especially caching on the web server. The URI versioning and Query String versioning schemes are cache-friendly inasmuch as the same URI/query string combination refers to the same data each time.
+> When you select a versioning strategy, you should also consider the implications on performance, especially caching on the web server. The URI versioning and query string versioning schemes are cache-friendly inasmuch as the same URI/query string combination refers to the same data each time.
 >
 > The Header versioning and Media Type versioning mechanisms typically require additional logic to examine the values in the custom header or the Accept header. In a large-scale environment, many clients using different versions of a web API can result in a significant amount of duplicated data in a server-side cache. This issue can become acute if a client application communicates with a web server through a proxy that implements caching, and that only forwards a request to the web server if it does not currently hold a copy of the requested data in its cache.
 
 ## Multitenant web APIs
 
-A *multitenant* solution is one that's shared by multiple tenants, such as distinct organizations with their own groups of users.
+A *multitenant* web API solution is one that's shared by multiple tenants, such as distinct organizations with their own groups of users.
 
-Multitenancy has a significant impact on API design as it dictates how resources are accessed and discovered across multiple tenants within a single web API. Designing an API with multitenancy in mind from the outset helps avoid the need for later refactoring to implement isolation, scalability, or per-tenant customizations. A well-architected API should clearly define how tenants are identified in requests—whether through subdomains, paths, headers, or tokens-to provide with a consistent yet flexible experience for all users. For more information, please take a look at [Map requests to tenants in a multitenant solution](/azure/architecture/guide/multitenant/considerations/map-requests)
+Multitenancy has a significant impact on web API design, as it dictates how resources are accessed and discovered across multiple tenants within a single web API. Designing an API with multitenancy in mind from the outset helps avoid the need for later refactoring to implement isolation, scalability, or per-tenant customizations.
+
+A well-architected API should clearly define how tenants are identified in requests—whether through subdomains, paths, headers, or tokens-to provide with a consistent yet flexible experience for all users. For more information, please take a look at [Map requests to tenants in a multitenant solution](/azure/architecture/guide/multitenant/considerations/map-requests)
 
 Multitenancy impacts endpoint structure, request handling, authentication, and authorization. The approach also influences how API gateways, load balancers, and backend services route and process requests. Below are some common strategies for achieving multitenancy in a web API:
 
 ### Use Subdomain or Domain-Based Isolation (DNS-Level Tenancy)
 
-This approach routes requests using [tenant-specific domains](/azure/architecture/guide/multitenant/considerations/domain-names). Wildcard domains leverage subdomains for flexibility and simplicity, while custom domains, allowing tenants to use their own domains, provide greater control and can be tailored to specific needs. Both methods rely on proper DNS configuration (including `A` and `CNAME` records) to direct traffic to the appropriate infrastructure. Wildcard domains simplify configuration, while custom domains offer a more branded experience. [Preserving the hostname](/azure/architecture/best-practices/host-name-preservation) between the reverse proxy and backend services helps avoid issues like URL redirection and prevents exposing internal URLs. This ensures correct routing of tenant-specific traffic and protects internal infrastructure. DNS resolution also plays a key role in achieving data residency and ensuring regulatory compliance.
+This approach routes requests using [tenant-specific domains](/azure/architecture/guide/multitenant/considerations/domain-names). Wildcard domains use subdomains for flexibility and simplicity, while custom domains, allowing tenants to use their own domains, provide greater control and can be tailored to specific needs. Both methods rely on proper DNS configuration (including `A` and `CNAME` records) to direct traffic to the appropriate infrastructure. Wildcard domains simplify configuration, while custom domains offer a more branded experience. [Preserving the hostname](/azure/architecture/best-practices/host-name-preservation) between the reverse proxy and backend services helps avoid issues like URL redirection and prevents exposing internal URLs. This ensures correct routing of tenant-specific traffic and protects internal infrastructure. DNS resolution also plays a key role in achieving data residency and ensuring regulatory compliance.
 
 ```http
 GET https://adventureworks.api.contoso.com/orders/3 HTTP/1.1
@@ -565,7 +611,9 @@ GET https://adventureworks.api.contoso.com/orders/3 HTTP/1.1
 
 ### Pass tenant-specific HTTP headers
 
-Tenant information can be passed through custom HTTP headers (e.g. `X-Tenant-ID` or `X-Organization-ID`), host-based headers (e.g. `Host`, `X-Forwarded-Host`), or extracted from JSON Web Token (JWT) claims. The choice depends on the routing capabilities of your API gateway or reverse proxy, with header-based solutions requiring a Layer 7 (L7) gateway to inspect each request. This adds processing overhead, increasing compute costs as traffic scales.  However, header-based isolation offers key benefits. It enables centralized authentication, simplifying security management across multi-tenant APIs. By leveraging SDKs or API clients, tenant context is dynamically managed at runtime, reducing client-side configuration complexity. Additionally, keeping tenant context in headers results in a cleaner, more RESTful API design, avoiding tenant-specific data in the URI. An important consideration with header-based routing is that it complicates caching, particularly when cache layers rely solely on URI-based keys and do not account for headers. Since most caching mechanisms optimize for URI lookups, relying on headers can lead to fragmented cache entries, reducing cache hits and increasing backend load. More critically, if a caching layer does not differentiate responses by headers, it may serve cached data intended for one tenant to another, creating a risk of data leakage.
+Tenant information can be passed through custom HTTP headers (e.g. `X-Tenant-ID` or `X-Organization-ID`), host-based headers (e.g. `Host`, `X-Forwarded-Host`), or extracted from JSON Web Token (JWT) claims. The choice depends on the routing capabilities of your API gateway or reverse proxy, with header-based solutions requiring a Layer 7 (L7) gateway to inspect each request. This adds processing overhead, increasing compute costs as traffic scales.  However, header-based isolation offers key benefits, as it enables centralized authentication, which simplifies security management across multi-tenant APIs. By using SDKs or API clients, tenant context is dynamically managed at runtime, reducing client-side configuration complexity. Additionally, keeping tenant context in headers results in a cleaner, more RESTful API design, avoiding tenant-specific data in the URI. 
+
+An important consideration with header-based routing is that it complicates caching, particularly when cache layers rely solely on URI-based keys and do not account for headers. Since most caching mechanisms optimize for URI lookups, relying on headers can lead to fragmented cache entries, reducing cache hits and increasing backend load. More critically, if a caching layer does not differentiate responses by headers, it can serve cached data intended for one tenant to another, creating a risk of data leakage.
 
 ```http
 GET https://api.contoso.com/orders/3 HTTP/1.1
@@ -588,7 +636,7 @@ Authorization: Bearer <JWT-token including a tenant-id: adventureworks claim>
 
 ### Pass tenant-specific information through the URI path
 
-This approach appends tenant identifiers within the resource hierarchy, relying on the API gateway or reverse proxy to determine the appropriate tenant based on the path segment. While effective, path-based isolation compromises the API’s RESTful design and introduces more complex routing logic, often requiring pattern matching or regular expressions to parse and canonicalize the URI path.  In contrast, header-based isolation conveys tenant information through HTTP headers as key-value pairs. Both approaches enable efficient infrastructure sharing, lowering operational costs and enhancing performance in large-scale, multi-tenant web APIs.
+This approach appends tenant identifiers within the resource hierarchy, relying on the API gateway or reverse proxy to determine the appropriate tenant based on the path segment. While effective, path-based isolation compromises the web API’s RESTful design and introduces more complex routing logic, often requiring pattern matching or regular expressions to parse and canonicalize the URI path.  In contrast, header-based isolation conveys tenant information through HTTP headers as key-value pairs. Both approaches enable efficient infrastructure sharing, lowering operational costs and enhancing performance in large-scale, multi-tenant web APIs.
 
 ```http
 GET https://api.contoso.com/tenants/adventureworks/orders/3
@@ -615,7 +663,7 @@ Correlation-ID: 0f8fad5b-d9cb-469f-a165-70867728950e
 
 The [OpenAPI Initiative](https://www.openapis.org) was created by an industry consortium to standardize REST API descriptions across vendors. At that time, the Swagger 2.0 specification was renamed the OpenAPI Specification (OAS) and brought under the OpenAPI Initiative.
 
-You might want to adopt OpenAPI for your web APIs. Some points to consider:
+You might want to adopt OpenAPI for your RESTful web APIs. Some points to consider:
 
 - The OpenAPI Specification comes with a set of opinionated guidelines on how a REST API should be designed. That has advantages for interoperability, but requires more care when designing your API to conform to the specification.
 
