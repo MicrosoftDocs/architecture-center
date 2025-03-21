@@ -44,15 +44,15 @@ To implement a RESTful web API, you need to first understand the following conce
 
 - **Uniform Resource Identifier (URI)**. REST APIs are designed around *resources*, which are any kind of object, data, or service that can be accessed by the client. Each resource should be represented by a URI that uniquely identifies that resource. For example, the URI for a particular customer order might be:
     
-      ```http
-          https://api.contoso.com/orders/1
-      ```
+    ```http
+        https://api.contoso.com/orders/1
+    ```
 
 - **Resource representation** is how a resource - identified by URI - is encoded and transported over the HTTP protocol in a specific format, such as XML or JSON.  Clients that want to retrieve a specific resource, must use the URI in the request to the API. The API, in response, will return a resource representation of the data indicated by the URI.  For example, a client can make a GET request to the URI identifier `https://api.contoso.com/orders/1` in order to receive the following JSON body:
 
-      ```json
-      {"orderId":1,"orderValue":99.90,"productId":1,"quantity":1}
-      ```
+    ```json
+    {"orderId":1,"orderValue":99.90,"productId":1,"quantity":1}
+    ```
 
 - **Uniform interface** is used by RESTful APIS to achieve loose coupling of between client and service implementations. For REST APIs built on HTTP, the uniform interface includes using standard HTTP verbs to perform operations on resources such as `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`.
 
@@ -117,7 +117,7 @@ When designing a RESTful web API, it's important that you use the correct naming
 
 - **Use plural nouns to name collection URIs.** In general, it helps to use plural nouns for URIs that reference collections. It's a good practice to organize URIs for collections and items into a hierarchy. For example, `/customers` is the path to the customers collection, and `/customers/5` is the path to the customer with ID equal to 5. This approach helps to keep the web API intuitive. Also, many web API frameworks can route requests based on parameterized URI paths, so you could define a route for the path `/customers/{id}`.
 
-- **Consider the relationships between different types of resources and how you might expose these associations.** For example, the `/customers/5/orders` might represent all of the orders for customer 5. You could also go in the other direction, and represent the association from an order back to a customer with a URI such as `/orders/99/customer`. However, extending this model too far can become cumbersome to implement. A better solution is to provide navigable links to associated resources in the body of the HTTP response message. This mechanism is described in more detail in the section [Use HATEOAS to enable navigation to related resources](#use-hateoas-to-enable-navigation-to-related-resources).
+- **Consider the relationships between different types of resources and how you might expose these associations.** For example, the `/customers/5/orders` might represent all of the orders for customer 5. You could also go in the other direction, and represent the association from an order back to a customer with a URI such as `/orders/99/customer`. However, extending this model too far can become cumbersome to implement. A better solution is to provide navigable links to associated resources in the body of the HTTP response message. This mechanism is described in more detail in the section [Use HATEOAS to enable navigation to related resources](#implement-hateoas-hypertext-as-the-engine-of-application-state).
 
 - **Keep relationships simple and flexible**. In more complex systems, it can be tempting to provide URIs that allow the client to navigate through several levels of relationships, such as `/customers/1/orders/99/products`. However, this level of complexity can be difficult to maintain and is inflexible if the relationships between resources change in the future. Instead, try to keep URIs relatively simple. Once an application has a reference to a resource, it should be possible to use this reference to find items related to that resource. The preceding query can be replaced with the URI `/customers/1/orders` to find all the orders for customer 1, and then `/orders/99/products` to find the products in this order.
 
