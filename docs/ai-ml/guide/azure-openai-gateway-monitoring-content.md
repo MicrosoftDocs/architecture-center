@@ -69,3 +69,8 @@ Output:
 
 :::image type="content" source="_images/prompt-usage.png" alt-text="A screenshot that shows the output of prompt usage monitoring." lightbox="_images/prompt-usage.png":::
 
+## Auditing model inputs and outputs
+
+There are a variety of monitoring use cases organizations have that require logging model inputs and outputs. These use cases include the following:
+
+- Input threat detection 
