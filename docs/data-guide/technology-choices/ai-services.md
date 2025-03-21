@@ -36,7 +36,7 @@ Azure offers a number of AI services that can be grouped into categories based o
 | Technology selection guide | Service descriptions |
 | --- | --- |
 | [Azure AI Agents](/azure/ai-foundry/) | Azure AI Agent Service; Azure AI Model Inference; Azure AI Projects; Azure AI Evaluation |
-| [Retrieval Auguemented Generation](../../ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.md) | Azure AI Search; Azure AI Document Intelligence; Azure OpenAI |
+| [Retrieval Augmented Generation](../../ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.md) | Azure AI Search; Azure AI Document Intelligence; Azure OpenAI |
 | [Targeted language processing](../ai-services/targeted-language-processing.md) | Azure AI Language &bullet; Azure AI Translator &bullet; Azure AI Document Intelligence; Azure OpenAI |
 | [Speech recognition and generation](../ai-services/speech-recognition-generation.md) | Azure AI Speech &bullet; Immersive Reader; Azure Open AI |
 | [Image and video processing guide](../ai-services/image-video-processing.md) | Azure AI Vision &bullet; Azure AI Custom Vision &bullet; Azure AI Video Indexer &bullet; Azure AI Face &bullet; Azure OpenAI|
