@@ -6029,7 +6029,11 @@
       "redirect_url": "/windows-server/get-started/get-started-with-windows-server",
       "redirect_document_id": false
     },
-    
+    {
+      "source_path": "docs/example-scenario/ai/citizen-ai-power-platform.yml",
+      "redirect_url": "/windows-server/get-started/get-started-with-windows-server",
+      "redirect_document_id": false
+    },
     {
       "source_path": "docs/hybrid/deployments/solution-deployment-guide-geo-distributed.yml",
       "redirect_url": "/azure/architecture/hybrid/hybrid-start-here",

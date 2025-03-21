@@ -337,16 +337,6 @@ items:
             href: guide/networking/global-web-applications/mission-critical-content-delivery.md
           - name: Global HTTP ingress
             href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md
-  - name: Solutions across Microsoft platforms
-    items:
-    - name: Microsoft cloud developer docs
-      href: /microsoft-cloud
-    - name: Azure and Power Platform scenarios
-      items:
-      - name: All Power Platform architectures
-        href: /azure/architecture/browse/?products=power-platform
-      - name: Citizen AI with Power Platform
-        href: example-scenario/ai/citizen-ai-power-platform.yml
   - name: Third-party scenarios
     items:
     - name: Apache technologies
