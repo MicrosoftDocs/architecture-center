@@ -93,7 +93,7 @@ Volumes that are defined and created as part of the pod lifecycle only exist unt
 - [Azure disk storage](#azure-disk-storage)
 - [Azure Files](#azure-files)
 - [Azure NetApp Files](#azure-netapp-files)
-- [Azure Blob Storage](#azure-blob-storage)
+- [Azure Blob Storage](#blob-storage)
 - [Azure Container Storage](#azure-container-storage)
 
 To decide between [Azure disk storage or Azure Files](/azure/aks/concepts-storage#volumes), consider whether your application needs concurrent data access or a specific performance tier.
@@ -164,7 +164,7 @@ A persistent volume claim requests storage of a particular storage class, access
 
 The pod definition includes the volume mount after the volume connects to the pod.
 
-:::image type="complex" source="./media/aks-storage-persistent-volume-claim.png" border="false" lightbox="./media/concepts-storage/aks-storage-persistent-volume-claim.png" alt-text="Diagram of persistent volume claims in an AKS cluster.":::
+:::image type="complex" source="./media/aks-storage-persistent-volume-claim.png" border="false" lightbox="./media/aks-storage-persistent-volume-claim.png" alt-text="Diagram of persistent volume claims in an AKS cluster.":::
 The left side has two sections: single node or pod access and multiple concurrent nodes or pods access. The single node or pod access uses Azure managed disks (Standard or Premium storage). An arrow points from single node or pod access to a persistent volume in the AKS cluster that's on the right side. The multiple concurrent nodes or pods access uses Azure Files (Standard storage). An arrow points from multiple concurrent node or pod access to the same persistent volume in the AKS cluster on the right side. Inside the AKS cluster, a persistent volume connects to a persistent volume claim, which links to a storage class. The persistent volume claim points to nodes and pods.
 :::image-end:::
 
