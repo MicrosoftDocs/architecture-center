@@ -123,15 +123,15 @@ You can use [Azure Bastion](/azure/bastion/bastion-overview) in the same virtual
 
 ### API Server VNet Integration
 
-An AKS cluster that's configured with [API Server VNet Integration](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/create-an-azure-kubernetes-service-aks-cluster-with-api-server-vnet-integration-/3644002) projects the API server endpoint directly into a delegated subnet. The subnet is in the virtual network where AKS is deployed. API Server VNet Integration enables network communication between the API server and the cluster nodes, without a private link or tunnel. The API server is available behind an internal load balancer VIP in the delegated subnet, which the nodes are configured to use. By using API Server VNet Integration, you can ensure network traffic between your API server and your node pools remains on the private network only.
+An AKS cluster that's configured with [API Server VNet Integration](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/create-an-azure-kubernetes-service-aks-cluster-with-api-server-vnet-integration-/3644002) projects the API server endpoint directly into a delegated subnet. The subnet is in the virtual network where AKS is deployed. API Server VNet Integration enables network communication between the API server and the cluster nodes, without a private link or tunnel. The API server is available behind an internal load balancer VIP that's in the delegated subnet. The nodes are configured to use the internal load balancer VIP. Use API Server VNet Integration to ensure that network traffic between your API server and your node pools remains on the private network only.
 
 The control plane or API server is in an AKS-managed Azure subscription. Your cluster or node pool is in your Azure subscription. The server and the VMs that make up the cluster nodes can communicate with each other through the API server VIP and pod IPs that are projected into the delegated subnet.
 
-API Server VNet Integration is supported for public or private clusters. You can add or remove public access after cluster provisioning. Unlike non-virtual network integrated clusters, the agent nodes always communicate directly with the private IP address of the API server internal load balancer IP without using DNS. All node to API server traffic is kept on private networking, and no tunnel is required for API server to node connectivity. Out-of-cluster clients needing to communicate with the API server can do so normally if public network access is enabled. If public network access is disabled, you should follow the same private DNS setup methodology as standard [private clusters](/azure/aks/private-clusters). For more information, see [Create an AKS cluster with API Server VNet Integration](/azure/aks/api-server-vnet-integration).
+You can use API Server VNet Integration with public clusters and private clusters. You can add or remove public access after cluster provisioning. Unlike non-virtual network integrated clusters, the agent nodes always communicate directly with the private IP address of the API server internal load balancer IP without using DNS. All traffic that goes from the node to the API server traffic is on private networking. And API server to node connectivity doesn't require a tunnel. Out-of-cluster clients can communicate with the API server normally if public network access is enabled. If public network access is disabled, follow the same private DNS setup methodology as standard [private clusters](/azure/aks/private-clusters). For more information, see [Create an AKS cluster with API Server VNet Integration](/azure/aks/api-server-vnet-integration).
 
 ### Authorized IP ranges
 
-The second option to improve cluster security and minimize attacks to the API server is to use [authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges). Authorized IPs restrict access to the control plane of a public AKS cluster to a known list of IP addresses and CIDRs. When you use this option, the API server is still publicly exposed, but access is limited. For more information, see [Secure access to the API server using authorized IP address ranges in AKS](/azure/aks/api-server-authorized-ip-ranges).
+The second option to improve cluster security and minimize attacks to the API server is to use [authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges). Authorized IP ranges restrict access to the control plane of a public AKS cluster to a known list of IP addresses and CIDRs. When you use this option, the API server is still publicly exposed, but access is limited. For more information, see [Secure access to the API server by using authorized IP address ranges in AKS](/azure/aks/api-server-authorized-ip-ranges).
 
 The following `az aks update` Azure CLI command authorizes IP ranges:
 
@@ -146,13 +146,13 @@ The following `az aks update` Azure CLI command authorizes IP ranges:
 
 Consider the following key points for AKS connectivity:
 
-- An AKS private cluster offers enhanced security and isolation compared to authorized IPs. However, it is not possible to convert an existing public AKS cluster into a private cluster. Instead, authorized IPs can be enabled for any existing AKS cluster.
+- An AKS private cluster provides enhanced security and isolation compared to authorized IPs. However, you can't convert an existing public AKS cluster to a private cluster. Instead, you can enable authorized IPs for any existing AKS cluster.
 
-- Authorized IP ranges cannot be applied to a private API server endpoint. They only apply to the public API server.
-- Private clusters do not support Azure DevOps-hosted agents. It is recommended to use self-hosted agents instead.
-- For Azure Container Registry to function with a private AKS cluster, a private link must be set up for the container registry in the cluster virtual network. Alternatively, peering can be established between the Container Registry virtual network and the private cluster's virtual network.
-- The limitations of Azure Private Link service apply to private clusters.
-- If the private endpoint in the customer subnet of a private cluster is deleted or modified, the cluster will cease to function.
+- You can't apply authorized IP ranges to a private API server endpoint. They only apply to the public API server.
+- Private clusters don't support Azure DevOps-hosted agents. You should use self-hosted agents instead.
+- For Azure Container Registry to function with a private AKS cluster, you must set up a private link for the container registry in the cluster virtual network. Alternatively, you can establish peering between the Container Registry virtual network and the private cluster's virtual network.
+- The limitations of Azure Private Link apply to private clusters.
+- If the private endpoint in the customer subnet of a private cluster is deleted or modified, the cluster stops functioning.
 
 ## Contributors
 
@@ -177,11 +177,11 @@ Other contributors:
 The following references provide links to documentation and automation samples to deploy AKS clusters with a secured API:
 
 - [Create a private AKS cluster with a public DNS zone](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/private-aks-cluster-with-public-dns-zone)
-- [Create a private AKS cluster using Terraform and Azure DevOps](https://github.com/azure-samples/private-aks-cluster-terraform-devops)
-- [Create a public or private AKS cluster with Azure NAT Gateway and Azure Application Gateway](https://github.com/Azure-Samples/aks-nat-agic)
+- [Create a private AKS cluster by using Terraform and Azure DevOps](https://github.com/azure-samples/private-aks-cluster-terraform-devops)
+- [Create a public or private AKS cluster by using Azure NAT Gateway and Azure Application Gateway](https://github.com/Azure-Samples/aks-nat-agic)
 - [Use private endpoints with a private AKS cluster](https://github.com/azure-samples/private-aks-cluster)
-- [Introduction to Azure Private Link](/learn/modules/introduction-azure-private-link/)
-- [Introduction to Secure Network Infrastructure with Azure network security](/learn/paths/secure-networking-infrastructure)
+- [Introduction to Private Link](/learn/modules/introduction-azure-private-link/)
+- [Training: Introduction to secure network infrastructure with Azure network security](/learn/paths/secure-networking-infrastructure)
 
 
 ## Related resources
