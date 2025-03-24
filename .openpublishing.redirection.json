@@ -7233,6 +7233,11 @@
       "source_path": "docs/best-practices/retry-service-specific.md",
       "redirect_url": "/azure/reliability/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/networking/guide/network-virtual-appliances-architecture.yml",
+      "redirect_url": "/azure/architecture/networking/guide/nva-ha",
+      "redirect_document_id": false
     }
   ]
 }
