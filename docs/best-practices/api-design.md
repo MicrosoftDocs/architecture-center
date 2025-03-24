@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn best practices for designing web APIs that support platform independence and service evolution.
 ms.author: robbag
 author: RobBagby
-ms.date: 03/21/2025
+ms.date: 03/24/2025
 ms.topic: best-practice
 ms.service: azure-architecture-center
 ms.subservice: best-practice
@@ -659,6 +659,18 @@ Correlation-ID: 0f8fad5b-d9cb-469f-a165-70867728950e
 
 {...}
 ```
+
+## Web API maturity model
+
+In 2008, Leonard Richardson proposed what is now known as The Richardson Maturity Model (RMM) for web APIs. The RMM defines four levels of maturity for web APIs, from Level 0 (the least mature) to Level 3 (the most mature). The model is based on the principles of REST as an architectural approach to designing web services. In the RMM, as the level of maturity increases, the API becomes more RESTful and more closely follows the principles of REST. 
+
+The levels are as follows:
+ 
+**Level 0**: Define one URI, and all operations are POST requests to this URI. SOAP web services are typically at this level.
+**Level 1**: Create separate URIs for individual resources. This level is not yet RESTful, but is beginning to align with RESTful design.
+**Level 2**: Use HTTP methods to define operations on resources.  In practice, many published web APIs fall somewhere around this level.
+**Level 3**: Use hypermedia ([HATEOAS](#implement-hateoas-hypertext-as-the-engine-of-application-state)). This level is truly a RESTful API, according to Fielding's definition. 
+
 
 ## OpenAPI Initiative
 
