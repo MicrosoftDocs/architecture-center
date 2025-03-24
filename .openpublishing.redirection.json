@@ -6015,6 +6015,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solutions/power-platform-scenarios.md",
+      "redirect_url": "/power-platform/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/power-platform/eventual-consistency.yml",
+      "redirect_url": "/power-platform/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solutions/microsoft-365-scenarios.md",
+      "redirect_url": "/microsoft-365/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solutions/dynamics-365-scenarios.md",
+      "redirect_url": "/dynamics365/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/on-premises-microsoft-technologies.md",
+      "redirect_url": "/windows-server/get-started/get-started-with-windows-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/citizen-ai-power-platform.yml",
+      "redirect_url": "/power-platform/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/hybrid/deployments/solution-deployment-guide-geo-distributed.yml",
       "redirect_url": "/azure/architecture/hybrid/hybrid-start-here",
       "redirect_document_id": false
