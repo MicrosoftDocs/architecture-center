@@ -6998,7 +6998,8 @@
       "source_path": "docs/guide/azure-resource-manager/advanced-templates/update-resource.md",
       "redirect_url": "/azure/azure-resource-manager/templates/overview",
       "redirect_document_id": false
-    },{
+    },
+    {
       "source_path": "docs/guide/responsible-innovation/community-jury/index.md",
       "redirect_url": "/azure/architecture/guide/responsible-innovation/",
       "redirect_document_id": false
