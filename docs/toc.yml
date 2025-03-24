@@ -862,7 +862,7 @@ items:
       - name: Scalable cloud applications and site reliability engineering (SRE)
         href: example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml
       - name: Manage Microsoft 365 with DevOps
-        href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml        
+        href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
     - name: "Solution idea: DevSecOps for infrastructure as code"
       href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
   - name: Hybrid + multicloud
