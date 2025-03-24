@@ -58,7 +58,7 @@ To implement a RESTful web API, you need to first understand the following conce
 
 - **Stateless request model**. RESTful APIs use a stateless request model, which means that HTTP requests are independent and might occur in any order. For this reason, keeping transient state information between requests is not feasible. The only place where information is stored is in the resources themselves, and each request should be an atomic operation.  A stateless request model supports high scalability, as there's no need to retain any affinity between clients and specific servers. However, the stateless model can also limit scalability, due to challenges with web service backend storage scalability. For more information about strategies to scale out a data store, see [Horizontal, vertical, and functional data partitioning](./data-partitioning.yml).
 
-- **Hypermedia links**. REST APIs are driven by hypermedia links that are contained in each resource representation. For example, the following shows a JSON representation of an order. It contains links to get or update the customer that's associated with the order.
+- **Hypermedia links**. REST APIs can be driven by hypermedia links that are contained in each resource representation. For example, the following shows a JSON representation of an order. It contains links to get or update the customer that's associated with the order.
 
   ```json
   {
