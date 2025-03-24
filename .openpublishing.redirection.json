@@ -7015,6 +7015,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/responsible-innovation/community-jury/index.md",
+      "redirect_url": "/azure/architecture/guide/responsible-innovation/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/azure-resource-manager/advanced-templates/objects-as-parameters.md",
       "redirect_url": "/azure/azure-resource-manager/templates/overview",
       "redirect_document_id": false
@@ -7052,6 +7057,26 @@
     {
       "source_path": "docs/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml",
       "redirect_url": "/azure/architecture/operator-guides/aks/aks-backup-and-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/performance/index.md",
+      "redirect_url": "/azure/well-architected/performance-efficiency/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/performance/distributed-transaction.yml",
+      "redirect_url": "/azure/well-architected/performance-efficiency/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/performance/backend-services.yml",
+      "redirect_url": "/azure/well-architected/performance-efficiency/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/performance/event-streaming.yml",
+      "redirect_url": "/azure/well-architected/performance-efficiency/",
       "redirect_document_id": false
     },
     {

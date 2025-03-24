@@ -237,40 +237,30 @@ items:
       href: best-practices/monitoring.yml
     - name: Transient fault handling
       href: best-practices/transient-faults.md
-  - name: Performance tuning and antipatterns
+  - name: Performance antipatterns
     items:
-    - name: Introduction
-      href: performance/index.md
-    - name: Scenario 1 - Distributed transactions
-      href: performance/distributed-transaction.yml
-    - name: Scenario 2 - Multiple backend services
-      href: performance/backend-services.yml
-    - name: Scenario 3 - Event streaming
-      href: performance/event-streaming.yml
-    - name: Performance antipatterns
-      items:
-      - name: Overview
-        href: antipatterns/index.md
-      - name: Busy Database
-        href: antipatterns/busy-database/index.md
-      - name: Busy Front End
-        href: antipatterns/busy-front-end/index.md
-      - name: Chatty I/O
-        href: antipatterns/chatty-io/index.md
-      - name: Extraneous Fetching
-        href: antipatterns/extraneous-fetching/index.md
-      - name: Improper Instantiation
-        href: antipatterns/improper-instantiation/index.md
-      - name: Monolithic Persistence
-        href: antipatterns/monolithic-persistence/index.md
-      - name: No Caching
-        href: antipatterns/no-caching/index.md
-      - name: Noisy Neighbor
-        href: antipatterns/noisy-neighbor/noisy-neighbor.yml
-      - name: Retry Storm
-        href: antipatterns/retry-storm/index.md
-      - name: Synchronous I/O
-        href: antipatterns/synchronous-io/index.md
+    - name: Overview
+      href: antipatterns/index.md
+    - name: Busy Database
+      href: antipatterns/busy-database/index.md
+    - name: Busy Front End
+      href: antipatterns/busy-front-end/index.md
+    - name: Chatty I/O
+      href: antipatterns/chatty-io/index.md
+    - name: Extraneous Fetching
+      href: antipatterns/extraneous-fetching/index.md
+    - name: Improper Instantiation
+      href: antipatterns/improper-instantiation/index.md
+    - name: Monolithic Persistence
+      href: antipatterns/monolithic-persistence/index.md
+    - name: No Caching
+      href: antipatterns/no-caching/index.md
+    - name: Noisy Neighbor
+      href: antipatterns/noisy-neighbor/noisy-neighbor.yml
+    - name: Retry Storm
+      href: antipatterns/retry-storm/index.md
+    - name: Synchronous I/O
+      href: antipatterns/synchronous-io/index.md
   - name: Responsible engineering
     items:
     - name: Responsible innovation
@@ -285,8 +275,6 @@ items:
           href: guide/responsible-innovation/harms-modeling/index.md
         - name: Assess types of harm
           href: guide/responsible-innovation/harms-modeling/type-of-harm.md
-      - name: Community jury
-        href: guide/responsible-innovation/community-jury/index.md
     - name: Responsible AI
       items:
       - name: Guidelines for human-AI interaction

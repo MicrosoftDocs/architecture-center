@@ -496,7 +496,7 @@ Both the autoscaling and manual approach require you to monitor and set alerts o
 
 We recommend the autoscaling approach because some of those manual mechanisms are built into the autoscaler.
 
-As a general method, start by performance testing with a minimum number of pods and nodes. Use those values to establish the baseline expectation. Then, use a combination of performance metrics and manual scaling to locate bottlenecks and understand the application's response to scaling. Finally, use this data to set the parameters for autoscaling. For more information about a performance tuning scenario using AKS, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.yml).
+As a general method, start by performance testing with a minimum number of pods and nodes. Use those values to establish the baseline expectation. Then, use a combination of performance metrics and manual scaling to locate bottlenecks and understand the application's response to scaling. Finally, use this data to set the parameters for autoscaling.
 
 ### Horizontal Pod Autoscaler
 
