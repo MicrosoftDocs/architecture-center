@@ -247,6 +247,6 @@ Like with text, you should gather a diverse set of questions that involve using 
 
 ## Related resources
 
-- [Automate document processing by using AI Document Intelligence](/azure/architecture/ai-ml/architecture/automate-document-processing-azure-form-recognizer)
+- [Automate document processing by using AI Document Intelligence](/azure/architecture/ai-ml/architecture/automate-document-processing-azure-ai-document-intelligence)
 
 - [Get started with the chat by using your own data sample for Python](/azure/developer/python/get-started-app-chat-template)

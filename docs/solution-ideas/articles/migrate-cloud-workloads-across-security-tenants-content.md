@@ -37,7 +37,7 @@ To address business transformations like acquisitions or divesture, teams need t
 * [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems.
 * [Azure Machine Learning](https://azure.microsoft.com/products/machine-learning) is a cloud service for accelerating and managing the machine learning project lifecycle. Machine learning professionals, data scientists, and engineers can use it in their day-to-day workflows.
 * [Azure Databricks](https://azure.microsoft.com/products/databricks) provides a unified set of tools for building, deploying, sharing, and maintaining enterprise-grade data solutions at scale.
-* [Azure Cognitive Services](https://azure.microsoft.com/products/cognitive-services) is a set of cloud-based AI services that can help developers build cognitive intelligence into applications, even if they don't have AI or data science skills or knowledge.
+* [Azure AI services](/azure/ai-services/what-are-ai-services) is a set of cloud-based AI services that can help developers build cognitive intelligence into applications, even if they don't have AI or data science skills or knowledge.
 * [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a fully managed NoSQL and relational database for modern app development.
 * [Azure Event Hubs](https://azure.microsoft.com/products/event-hubs) is a big data streaming platform and event ingestion service.
 * [Azure Key Vault](https://azure.microsoft.com/products/key-vault) is a cloud service that you can use to provide access to secrets and store them with enhanced security.
