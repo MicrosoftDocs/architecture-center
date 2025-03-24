@@ -168,7 +168,9 @@ A GET request should return one of the following HTTP status codes:
 
 #### POST requests
 
-A POST request should create a resource. The server assigns a URI for the new resource, and returns that URI to the client. In a RESTful model, POST requests are generally used to add a new resource to the collection identified by the URI. A POST request can also be used to submit data for processing to an existing resource, without any new resource being created.
+A POST request should create a resource. The server assigns a URI for the new resource, and returns that URI to the client. In a RESTful model, POST requests are generally used to add a new resource to the collection identified by the URI.
+
+A POST request can also be used to submit data for processing to an existing resource, without any new resource being created.
 
 A POST request should return one of the following HTTP status codes:
 
