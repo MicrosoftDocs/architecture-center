@@ -67,7 +67,6 @@ The following new and updated articles have recently been published in the Azure
 - [Mission-critical global HTTP ingress](./guide/networking/global-web-applications/mission-critical-global-http-ingress.md)  ([#f165797b73](https://github.com/MicrosoftDocs/architecture-center/commit/f165797b73))
 - [Global routing redundancy for mission-critical web applications](./guide/networking/global-web-applications/overview.md)  ([#f165797b73](https://github.com/MicrosoftDocs/architecture-center/commit/f165797b73))
 - [Use Azure Synapse Analytics to Design an Enterprise BI Solution](./example-scenario/analytics/enterprise-bi-synapse.yml)  ([#727161c815](https://github.com/MicrosoftDocs/architecture-center/commit/727161c815))
-- [Circuit Breaker pattern](./patterns/circuit-breaker.yml)  ([#070f172cd8](https://github.com/MicrosoftDocs/architecture-center/commit/070f172cd8))
 - [Azure Application Architecture Fundamentals](./guide/index.md)  ([#8031f5b70b](https://github.com/MicrosoftDocs/architecture-center/commit/8031f5b70b))
 - [Baseline OpenAI End-to-End Chat Reference Architecture](./ai-ml/architecture/baseline-openai-e2e-chat.yml)  ([#8eca3847bd](https://github.com/MicrosoftDocs/architecture-center/commit/8eca3847bd))
 - [Saga Design Pattern](./patterns/saga.yml)  ([#b160529600](https://github.com/MicrosoftDocs/architecture-center/commit/b160529600))
