@@ -5000,6 +5000,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/apache-scenarios.md",
+      "redirect_url": "/azure/architecture/browse/?terms=apache",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/partner-scenarios.md",
+      "redirect_url": "https://azuremarketplace.microsoft.com",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/data/fraud-detection.yml",
       "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
       "redirect_document_id": false

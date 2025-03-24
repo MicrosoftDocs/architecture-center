@@ -241,7 +241,7 @@ Selective use of direct peering or other non-hub routed communication between sp
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Enable diagnostic settings for all services, such as Azure Bastion, Azure Firewall, and your cross-premesis gateway. Determine which settings are meaningful to your operations. Turn off settings that aren't meaningful to avoid undue costs. Resources such as Azure Firewall can be verbose with logging and you can incur high monitoring costs.
+Enable diagnostic settings for all services, such as Azure Bastion, Azure Firewall, and your cross-premises gateway. Determine which settings are meaningful to your operations. Turn off settings that aren't meaningful to avoid undue costs. Resources such as Azure Firewall can be verbose with logging and you can incur high monitoring costs.
 
 Use [Connection monitor](/azure/network-watcher/connection-monitor-overview) for end-to-end monitoring to detect anomalies and to identify and troubleshoot network issues.
 

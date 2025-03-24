@@ -337,12 +337,6 @@ items:
             href: guide/networking/global-web-applications/mission-critical-content-delivery.md
           - name: Global HTTP ingress
             href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md
-  - name: Third-party scenarios
-    items:
-    - name: Apache technologies
-      href: guide/apache-scenarios.md
-    - name: Partner technologies
-      href: guide/partner-scenarios.md
   - name: Azure for AWS professionals
     items:
     - name: Overview
