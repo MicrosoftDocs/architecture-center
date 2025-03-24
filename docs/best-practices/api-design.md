@@ -662,7 +662,7 @@ Correlation-ID: 0f8fad5b-d9cb-469f-a165-70867728950e
 
 ## Web API maturity model
 
-In 2008, Leonard Richardson proposed what is now known as The Richardson Maturity Model (RMM) for web APIs. The RMM defines four levels of maturity for web APIs, from Level 0 (the least mature) to Level 3 (the most mature). The model is based on the principles of REST as an architectural approach to designing web services. In the RMM, as the level of maturity increases, the API becomes more RESTful and more closely follows the principles of REST. 
+In 2008, Leonard Richardson proposed what is now known as The Richardson Maturity Model (RMM) for web APIs. The RMM defines four levels of maturity for web APIs and is based on the principles of REST as an architectural approach to designing web services. In the RMM, as the level of maturity increases, the API becomes more RESTful and more closely follows the principles of REST. 
 
 The levels are as follows:
  
