@@ -111,7 +111,6 @@ For information about solutions in which Azure services integrate with the other
 
 ## Related resources
 
-- [Microsoft partner and third-party scenarios on Azure](partner-scenarios.md)
 - [Architecture for startups](../guide/startups/startup-architecture.md)
 - [Azure and Power Platform scenarios](../solutions/power-platform-scenarios.md)
 - [Azure and Microsoft 365 scenarios](../solutions/microsoft-365-scenarios.md)
