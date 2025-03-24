@@ -44,15 +44,15 @@ To implement a RESTful web API, you need to first understand the following conce
 
 - **Uniform Resource Identifier (URI)**. REST APIs are designed around *resources*, which are any kind of object, data, or service that can be accessed by the client. Each resource should be represented by a URI that uniquely identifies that resource. For example, the URI for a particular customer order might be:
     
-    ```http
-        https://api.contoso.com/orders/1
-    ```
+  ```http
+  https://api.contoso.com/orders/1
+  ```
 
-- **Resource representation** is how a resource - identified by URI - is encoded and transported over the HTTP protocol in a specific format, such as XML or JSON.  Clients that want to retrieve a specific resource, must use the URI in the request to the API. The API, in response, will return a resource representation of the data indicated by the URI.  For example, a client can make a GET request to the URI identifier `https://api.contoso.com/orders/1` in order to receive the following JSON body:
+- **Resource representation** is how a resource - identified by its URI - is encoded and transported over the HTTP protocol in a specific format, such as XML or JSON.  Clients that want to retrieve a specific resource, must use the resource's URI in the request to the API. The API, in response, will return a resource representation of the data indicated by the URI.  For example, a client can make a GET request to the URI identifier `https://api.contoso.com/orders/1` in order to receive the following JSON body:
 
-    ```json
-    {"orderId":1,"orderValue":99.90,"productId":1,"quantity":1}
-    ```
+  ```json
+  {"orderId":1,"orderValue":99.9,"productId":1,"quantity":1}
+  ```
 
 - **Uniform interface** is used by RESTful APIS to achieve loose coupling of between client and service implementations. For REST APIs built on HTTP, the uniform interface includes using standard HTTP verbs to perform operations on resources such as `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`.
 
@@ -106,7 +106,7 @@ https://api.contoso.com/orders
 Once the client retrieves the collection, it can then make a GET request to the URI of each item. For example, to receive information on a specific order, the client would perform an HTTP GET on the URI `https://api.contoso.com/orders/1` to receive the following JSON body as a resource representation of the internal order data:
 
 ```json
-{"orderId":1,"orderValue":99.90,"productId":1,"quantity":1}
+{"orderId":1,"orderValue":99.9,"productId":1,"quantity":1}
 ```
 
 ### Resource URI naming conventions
@@ -128,8 +128,8 @@ When designing a RESTful web API, it's important that you use the correct naming
 
 - **Avoid creating APIs that mirror the internal structure of a database.** The purpose of REST is to model business entities and the operations that an application can perform on those entities. A client should not be exposed to the internal implementation. For example, if your data is stored in a relational database, the web API doesn't need to expose each table as a collection of resources. In fact, that's increasing the attack surface and might lead to data leakage. Instead, think of the web API as an abstraction of the database. If necessary, introduce a mapping layer between the database and the web API. That way, client applications are isolated from changes to the underlying database scheme. 
 
->[!TIP]
->It might not be possible to map every operation implemented by a web API to a specific resource. You can handle such *non-resource* scenarios through HTTP requests that invoke a function and return the results as an HTTP response message. For example, a web API that implements simple calculator operations such as add and subtract could provide URIs that expose these operations as pseudo resources and use the query string to specify the parameters required. For example, a GET request to the URI */add?operand1=99&operand2=1* would return a response message with the body containing the value 100. However, only use these forms of URIs sparingly.
+> [!TIP]
+> It might not be possible to map every operation implemented by a web API to a specific resource. You can handle such *non-resource* scenarios through HTTP requests that invoke a function and return the results as an HTTP response message. For example, a web API that implements simple calculator operations such as add and subtract could provide URIs that expose these operations as pseudo resources and use the query string to specify the parameters required. For example, a GET request to the URI */add?operand1=99&operand2=1* would return a response message with the body containing the value 100. However, only use these forms of URIs sparingly.
 
 ## Define RESTful web API methods
 
@@ -142,8 +142,8 @@ The HTTP protocol defines a number of request methods that indicate the desired 
 It's important to remember that the effect of a specific request method should depend on whether the resource is a collection or an individual item. The following table includes some conventions that are commonly adopted by most RESTful implementations. 
 
 
->[!IMPORTANT]
->In the table, we are using an example e-commerce `customer` entity. It is never a requirement that a web API implement all of request methods, as it depends on the specific scenario.
+> [!IMPORTANT]
+> In the table, we are using an example e-commerce `customer` entity. It is never a requirement that a web API implement all of request methods, as it depends on the specific scenario.
 
 | **Resource** | **POST** | **GET** | **PUT** | **DELETE** |
 | --- | --- | --- | --- | --- |
@@ -184,28 +184,28 @@ A POST request should return one of the following HTTP status codes:
 
 #### PUT request
 
-A PUT request should update an existing resource if it exists, or create a new resource if it doesn't exist. The process of making a PUT request is as follows:
+A PUT request should update an existing resource if it exists or, in some cases, create a new resource if it doesn't exist. The process of making a PUT request is as follows:
 
 1. The client specifies the URI for the resource and includes request body that contains a complete representation of the resource.
 1. The client makes the request. 
-1. If a resource with this URI already exists, it is replaced. Otherwise a new resource is created, if the server supports doing so. 
+1. If a resource with this URI already exists, it is replaced. Otherwise a new resource is created, if the route supports doing so.
 
-PUT methods are usually applied to resources that are individual items, such as a specific customer, rather than collections. A server might support updates but not creation via PUT. Whether to support creation via PUT depends on whether the client can meaningfully assign a URI to a resource before it exists. If not, then use POST to create resources and use PUT or PATCH to update.
+PUT methods are usually applied to resources that are individual items, such as a specific customer, rather than collections. A server might support updates but not creation via PUT. Whether to support creation via PUT depends on whether the client can meaningfully and reliably assign a URI to a resource before it exists. If not, then use POST to create resources and have the server assign the URI, then use PUT or PATCH to update.
 
->[!IMPORTANT]
->PUT requests must be idempotent. If a client submits the same PUT request multiple times, the results should always be the same (the same resource will be modified with the same values). POST and PATCH requests are not guaranteed to be idempotent.
+> [!IMPORTANT]
+> PUT requests must be idempotent. If a client submits the same PUT request multiple times, the results should always be the same (the same resource will be modified with the same values). POST and PATCH requests are not guaranteed to be idempotent.
 
 A PUT request should return one of the following HTTP status codes:
 
 | HTTP status code | Reason |
 |------------------|-------------|
 | 200 (OK) | The resource was updated successfully. |
-| 201 (Created) | The resource was created successfully. |
+| 201 (Created) | The resource was created successfully. The response body might contain a representation of the resource. |
 | 204 (No Content) | The resource was updated successfully, but the response body doesn't contain any content. |
 | 409 (Conflict) | The request could not be completed due to a conflict with the current state of the resource. |
 
->[!TIP]
->Consider implementing bulk HTTP PUT operations that can batch updates to multiple resources in a collection. The PUT request should specify the URI of the collection, and the request body should specify the details of the resources to be modified. This approach can help to reduce chattiness and improve performance.
+> [!TIP]
+> Consider implementing bulk HTTP PUT operations that can batch updates to multiple resources in a collection. The PUT request should specify the URI of the collection, and the request body should specify the details of the resources to be modified. This approach can help to reduce chattiness and improve performance.
 
 #### PATCH requests
 
@@ -260,7 +260,7 @@ A DELETE request should return one of the following HTTP status codes:
 
 | HTTP status code | Reason |
 |------------------|-------------|
-| 204 (NO CONTENT) | The resource was deleted successfully. The process has been successfully handled, but  the response body contains no further information. |
+| 204 (NO CONTENT) | The resource was deleted successfully. The process has been successfully handled and the response body contains no further information. |
 | 404 (NOT FOUND) | The resource doesn't exist.  |
 
 
@@ -274,7 +274,7 @@ In the HTTP protocol, resource representation formats are specified through the 
 The Content-Type header in a request or response specifies the resource representation format. Here is an example of a POST request that includes JSON data:
 
 ```http
-POST https://api.contoso.com/orders HTTP/1.1
+POST https://api.contoso.com/orders
 Content-Type: application/json; charset=utf-8
 Content-Length: 57
 
@@ -286,12 +286,11 @@ If the server doesn't support the media type, it should return HTTP status code 
 A client request can include an Accept header that contains a list of media types the client will accept from the server in the response message. For example:
 
 ```http
-GET https://api.contoso.com/orders/2 HTTP/1.1
-Accept: application/json
+GET https://api.contoso.com/orders/2
+Accept: application/json, application/xml
 ```
 
 If the server cannot match any of the media types listed, it should return HTTP status code 406 (Not Acceptable).
-|
 
 ## Implement asynchronous methods
 
@@ -327,11 +326,11 @@ For more information on how to implement this approach, see [Providing asynchron
 
 
 
-## Implement Data pagination and filtering
+## Implement data pagination and filtering
 
 To optimize data retrieval and reduce payload size, implement **data pagination** and **query-based filtering** in your API design. These techniques allow clients to request only the subset of data they need, improving performance and reducing bandwidth usage.
 
-- **Pagination** divides large datasets into smaller, manageable chunks. Use query parameters to specify the number of items to return (`limit`) and the starting point (`offset`). Make sure to also provide meaningful defaults for `limit` and `offset` (e.g., `limit=10`, `offset=0`). Also, to help clients navigate the dataset and prevent possible Denial of Service attacks, include metadata in the response, such as the total number of items and pagination details.:
+- **Pagination** divides large datasets into smaller, manageable chunks. Use query parameters to specify the number of items to return (`limit`) and the starting point (`offset`). Make sure to also provide meaningful defaults for `limit` and `offset` (e.g., `limit=10`, `offset=0`). Also, to help clients navigate the dataset and prevent possible Denial of Service attacks, include metadata in the response, such as the total number of items and pagination details.
     
     ```http
     GET /orders?limit=25&offset=50
@@ -354,12 +353,12 @@ Also consider the following best practices:
 
 - **Sorting**: Allow clients to sort data using a `sort` parameter (e.g., `sort=price`). 
 
-    >[!IMPORTANT]
-    >The sorting approach can have a negative effect on caching, because query string parameters form part of the resource identifier used by many cache implementations as the key to cached data.
+    > [!IMPORTANT]
+    > The sorting approach can have a negative effect on caching, because query string parameters form part of the resource identifier used by many cache implementations as the key to cached data.
 
-- **Field Selection**: Enable clients to specify the fields they need using a `fields` parameter (e.g., `fields=id,name`). For example, you could use a query string parameter that accepts a comma-delimited list of fields, such as */orders?fields=ProductID,Quantity*.
+- **Field selection for client-defined projections**: Enable clients to specify only the fields they need using a `fields` parameter (e.g., `fields=id,name`). For example, you could use a query string parameter that accepts a comma-delimited list of fields, such as */orders?fields=ProductID,Quantity*.
 
-
+Ensure your API validates the requested fields to ensure they are specifically allowed to be accessed by the client and wouldn't expose fields normally not available through the API.
 
 ## Support partial responses
 
@@ -370,7 +369,7 @@ To support partial responses, the web API should support the Accept-Ranges heade
 Also, consider implementing HTTP HEAD requests for these resources. A HEAD request is similar to a GET request, except that it only returns the HTTP headers that describe the resource, with an empty message body. A client application can issue a HEAD request to determine whether to fetch a resource by using partial GET requests. For example:
 
 ```http
-HEAD https://api.contoso.com/products/10?fields=productImage HTTP/1.1
+HEAD https://api.contoso.com/products/10?fields=productImage
 ```
 
 Here is an example response message:
@@ -386,7 +385,7 @@ Content-Length: 4580
 The Content-Length header gives the total size of the resource, and the Accept-Ranges header indicates that the corresponding GET operation supports partial results. The client application can use this information to retrieve the image in smaller chunks. The first request fetches the first 2500 bytes by using the Range header:
 
 ```http
-GET https://api.contoso.com/products/10?fields=productImage HTTP/1.1
+GET https://api.contoso.com/products/10?fields=productImage
 Range: bytes=0-2499
 ```
 
@@ -407,7 +406,7 @@ A subsequent request from the client application can retrieve the remainder of t
 
 ## Implement HATEOAS (Hypertext as the Engine of Application State)
 
-One of the primary motivations behind REST is that it should be possible to navigate the entire set of resources without requiring prior knowledge of the URI scheme. Each HTTP GET request should return the information necessary to find the resources related directly to the requested object through hyperlinks included in the response, and it should also be provided with information that describes the operations available on each of these resources. This principle is known as HATEOAS, or Hypertext as the Engine of Application State. The system is effectively a finite state machine, and the response to each request contains the information necessary to move from one state to anothe. No other information should be necessary.
+One of the primary motivations behind REST is that it should be possible to navigate the entire set of resources without requiring prior knowledge of the URI scheme. Each HTTP GET request should return the information necessary to find the resources related directly to the requested object through hyperlinks included in the response, and it should also be provided with information that describes the operations available on each of these resources. This principle is known as HATEOAS, or Hypertext as the Engine of Application State. The system is effectively a finite state machine, and the response to each request contains the information necessary to move from one state to another. No other information should be necessary.
 
 > [!NOTE]
 > Currently there are no general-purpose standards that define how to model the HATEOAS principle. The examples shown in this section illustrate one possible, proprietary solution.
@@ -537,7 +536,7 @@ The following examples use a custom header named *Custom-Header*. The value of t
 Version 1:
 
 ```http
-GET https://api.contoso.com/customers/3 HTTP/1.1
+GET https://api.contoso.com/customers/3
 Custom-Header: api-version=1
 ```
 
@@ -551,7 +550,7 @@ Content-Type: application/json; charset=utf-8
 Version 2:
 
 ```http
-GET https://api.contoso.com/customers/3 HTTP/1.1
+GET https://api.contoso.com/customers/3
 Custom-Header: api-version=2
 ```
 
@@ -566,7 +565,7 @@ As with [URI versioning](#uri-versioning) and [query string versioning](#query-s
 
 ### Media type versioning
 
-When a client application sends an HTTP GET request to a web server it should use and Accept header to specify the format of the content that it can handle. Usually, the purpose of the *Accept* header is to allow the client application to specify whether the body of the response should be XML, JSON, or some other common format that the client can parse. However, it's possible to define custom media types that include information that let's the client application indicate which version of a resource it's expecting.
+When a client application sends an HTTP GET request to a web server it should use and Accept header to specify the format of the content that it can handle. Usually, the purpose of the *Accept* header is to allow the client application to specify whether the body of the response should be XML, JSON, or some other common format that the client can parse. However, it's possible to define custom media types that include information that lets the client application indicate which version of a resource it's expecting.
 
 The following example shows a request that specifies an *Accept* header with the value *application/vnd.contoso.v1+json*. The *vnd.contoso.v1* element indicates to the web server that it should return version 1 of the resource, while the *json* element specifies that the format of the response body should be JSON:
 
@@ -601,14 +600,14 @@ Multitenancy has a significant impact on web API design, as it dictates how reso
 
 A well-architected API should clearly define how tenants are identified in requests—whether through subdomains, paths, headers, or tokens-to provide with a consistent yet flexible experience for all users. For more information, please take a look at [Map requests to tenants in a multitenant solution](/azure/architecture/guide/multitenant/considerations/map-requests)
 
-Multitenancy impacts endpoint structure, request handling, authentication, and authorization. The approach also influences how API gateways, load balancers, and backend services route and process requests. Below are some common strategies for achieving multitenancy in a web API:
+Multitenancy impacts endpoint structure, request handling, authentication, and authorization. The approach also influences how API gateways, load balancers, and backend services route and process requests. Below are some common strategies for achieving multitenancy in a web API.
 
-### Use Subdomain or Domain-Based Isolation (DNS-Level Tenancy)
+### Use subdomain or domain-based isolation (DNS-level tenancy)
 
 This approach routes requests using [tenant-specific domains](/azure/architecture/guide/multitenant/considerations/domain-names). Wildcard domains use subdomains for flexibility and simplicity, while custom domains, allowing tenants to use their own domains, provide greater control and can be tailored to specific needs. Both methods rely on proper DNS configuration (including `A` and `CNAME` records) to direct traffic to the appropriate infrastructure. Wildcard domains simplify configuration, while custom domains offer a more branded experience. [Preserving the hostname](/azure/architecture/best-practices/host-name-preservation) between the reverse proxy and backend services helps avoid issues like URL redirection and prevents exposing internal URLs. This ensures correct routing of tenant-specific traffic and protects internal infrastructure. DNS resolution also plays a key role in achieving data residency and ensuring regulatory compliance.
 
 ```http
-GET https://adventureworks.api.contoso.com/orders/3 HTTP/1.1
+GET https://adventureworks.api.contoso.com/orders/3
 ```
 
 ### Pass tenant-specific HTTP headers
@@ -618,21 +617,21 @@ Tenant information can be passed through custom HTTP headers (e.g. `X-Tenant-ID`
 An important consideration with header-based routing is that it complicates caching, particularly when cache layers rely solely on URI-based keys and do not account for headers. Since most caching mechanisms optimize for URI lookups, relying on headers can lead to fragmented cache entries, reducing cache hits and increasing backend load. More critically, if a caching layer does not differentiate responses by headers, it can serve cached data intended for one tenant to another, creating a risk of data leakage.
 
 ```http
-GET https://api.contoso.com/orders/3 HTTP/1.1
+GET https://api.contoso.com/orders/3
 X-Tenant-ID: adventureworks
 ```
 
 or
 
 ```http
-GET https://api.contoso.com/orders/3 HTTP/1.1
+GET https://api.contoso.com/orders/3
 Host: adventureworks
 ```
 
 or
 
 ```http
-GET https://api.contoso.com/orders/3 HTTP/1.1
+GET https://api.contoso.com/orders/3
 Authorization: Bearer <JWT-token including a tenant-id: adventureworks claim>
 ```
 
@@ -644,12 +643,12 @@ This approach appends tenant identifiers within the resource hierarchy, relying 
 GET https://api.contoso.com/tenants/adventureworks/orders/3
 ```
 
-## Enabling Distributed Tracing and Trace Context in APIs
+## Enabling distributed tracing and trace context in APIs
 
 As distributed systems and microservice architectures have become the standard, [the complexity of modern architectures has increased](/azure/architecture/best-practices/monitoring). Consequently, using headers to propagate trace context in API requests (such as `Correlation-ID`, `X-Request-ID`, or `X-Trace-ID`) has become a best practice for achieving end-to-end visibility. This approach enables seamless tracking of requests as they flow from the client to backend services, facilitating rapid identification of failures, monitoring of latency, and mapping of API dependencies across services.  APIs that support the inclusion of trace and context information enhance their observability level and debugging capabilities. By enabling distributed tracing, these APIs allow for a more granular understanding of system behavior, making it easier to track, diagnose, and resolve issues across complex, multi-service environments.
 
 ```http
-GET https://api.contoso.com/orders/3 HTTP/1.1
+GET https://api.contoso.com/orders/3
 Correlation-ID: 0f8fad5b-d9cb-469f-a165-70867728950e
 ```
 
