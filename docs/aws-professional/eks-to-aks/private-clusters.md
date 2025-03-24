@@ -1,6 +1,6 @@
 ---
-title: Secure Network Access to Kubernetes
-description: Understand networking options to securely access the Kubernetes API server, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).
+title: Enhance Network Access Security to Kubernetes
+description: Understand networking options to help securely access the Kubernetes API server, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).
 author: paolosalvatori
 ms.author: paolos
 ms.date: 01/28/2025
@@ -19,7 +19,7 @@ products:
   - azure-virtual-network
 ---
 
-# Secure network access to Kubernetes
+# Enhance network access security to Kubernetes
 
 This article compares networking modes for Azure Kubernetes Service (AKS) and Amazon Elastic Kubernetes Service (EKS). It describes how to improve connection security to the managed API server of an AKS cluster. It also includes options to restrict public network access.
 
@@ -27,7 +27,7 @@ This article compares networking modes for Azure Kubernetes Service (AKS) and Am
 
 ## Amazon EKS networking modes
 
-You can use [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) to launch Amazon Web Services (AWS) resources into a virtual network that has public and private [subnets](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html), which are ranges of IP addresses within the virtual private cloud (VPC). A public subnet hosts resources that connect to the internet, and a private subnet hosts resources that don't connect to the public internet. Amazon EKS can provision managed node groups in both public and private subnets.
+You can use [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) to launch Amazon Web Services (AWS) resources into a virtual network that has public and private [subnets](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html). The subnets are ranges of IP addresses within the virtual private cloud (VPC). A public subnet hosts resources that connect to the internet, and a private subnet hosts resources that don't connect to the public internet. Amazon EKS can provision managed node groups in both public and private subnets.
 
 Endpoint access control lets you configure whether the API server endpoint is reachable from the public internet or through the VPC. Amazon EKS provides several ways to [control access to the cluster endpoint](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html). You can enable the default public endpoint, a private endpoint, or both endpoints simultaneously. When you enable the public endpoint, you can add Classless Inter-Domain Routing (CIDR) restrictions to limit the client IP addresses that can connect to the public endpoint.
 
@@ -35,22 +35,22 @@ The cluster's endpoint setting determines how Amazon EKS nodes connect to the ma
 
 ### Public endpoint only
 
-The default mode for new Amazon EKS clusters exposes the control plane via a public endpoint. When only the public endpoint for the cluster is enabled, Kubernetes API requests that originate from within the VPC, such as communication from the worker node to the control plane, leave the VPC but don't leave Amazon's network. Nodes connect to the control plane via a public IP address and a route to an internet gateway. Or they can use a route to a network address translation (NAT) gateway, where they can use the NAT gateway's public IP address.
+The default mode for new Amazon EKS clusters exposes the control plane via a public endpoint. When only the public endpoint for the cluster is enabled, Kubernetes API requests that originate from within the VPC leave the VPC but don't leave Amazon's network. These requests include communication from the worker node to the control plane. Nodes connect to the control plane via a public IP address and a route to an internet gateway. Or they can use a route to a network address translation (NAT) gateway, where they can use the NAT gateway's public IP address.
 
 ### Public and private endpoints
 
-When both the public and private endpoints are enabled, Kubernetes API requests from within the VPC communicate to the control plane via the Amazon EKS-managed elastic network interfaces (ENIs) in the VPC. The cluster API server is reachable from the internet.
+When you enable both the public and private endpoints, Kubernetes API requests from within the VPC communicate to the control plane via the Amazon EKS-managed elastic network interfaces (ENIs) in the VPC. The cluster API server is reachable from the internet.
 
 ### Private endpoint only
 
-When only the private endpoint is enabled, all traffic to the cluster API server, such as `kubectl` or `helm` commands, must come from within the cluster's VPC or a [connected network](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/introduction.html). Public access to the API server from the internet is disabled. To implement this access mode, use [AWS Virtual Private Network (VPN)](https://docs.aws.amazon.com/vpn/index.html) or [AWS DirectConnect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html) to the VPC. To restrict access to the endpoint without AWS VPN or DirectConnect, you can add CIDR restrictions to the public endpoint to limit connections without setting up more networking.
+When you enable only the private endpoint, all traffic to the cluster API server, such as `kubectl` or `helm` commands, must come from within the cluster's VPC or a [connected network](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/introduction.html). Public access to the API server from the internet is disabled. To implement this access mode, use [AWS Virtual Private Network (VPN)](https://docs.aws.amazon.com/vpn/index.html) or [AWS DirectConnect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html) to the VPC. To restrict access to the endpoint without AWS VPN or DirectConnect, you can add CIDR restrictions to the public endpoint to limit connections without setting up more networking.
 
-If you disabled public access for your cluster's Kubernetes API server endpoint, you can access the Kubernetes API server endpoint in one of the following ways:
+If you disable public access for your cluster's Kubernetes API server endpoint, you can access the Kubernetes API server endpoint in one of the following ways:
 
-- **Connected network:** Connect your network to the VPC by using an [AWS transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html) and then use a computer in the connected network. Or you can use other [connectivity options](https://docs.aws.amazon.com/aws-technical-content/latest/aws-vpc-connectivity-options/introduction.html). Ensure that your Amazon EKS control plane security group contains rules to allow ingress traffic on port 443 from your connected network.
+- **Connected network:** Connect your network to the VPC by using an [AWS transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html), and then use a computer in the connected network. Or you can use other [connectivity options](https://docs.aws.amazon.com/aws-technical-content/latest/aws-vpc-connectivity-options/introduction.html). Ensure that your Amazon EKS control plane security group contains rules to allow ingress traffic on port 443 from your connected network.
 
-- **Amazon EC2 bastion host:** You can launch an Amazon EC2 instance in a public subnet in your cluster's VPC. Sign in to that instance via SSH to run `kubectl` commands. For more information, see [Linux bastion hosts on AWS](https://aws.amazon.com/quickstart/architecture/linux-bastion/). Ensure that your Amazon EKS control plane security group contains rules to allow ingress traffic on port 443 from your bastion host. For more information, see [View Amazon EKS security group requirements for clusters](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html). <br><br> When you configure `kubectl` for your bastion host, use AWS credentials that map to your cluster's RBAC configuration. Or you can add the [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#iam-term-principal) that your bastion will use to the RBAC configuration before you remove endpoint public access. For more information, see [Grant IAM users and roles access to Kubernetes APIs](https://docs.aws.amazon.com/eks/latest/userguide/grant-k8s-access.html) and [Unauthorized or access denied (kubectl)](https://docs.aws.amazon.com/eks/latest/userguide/troubleshooting.html#unauthorized).
-- **AWS Cloud9 IDE:**  AWS Cloud9 is a cloud-based integrated development environment (IDE) that you can use to write, run, and debug your code with a browser only. You can create an AWS Cloud9 IDE in your cluster's VPC and use the IDE to communicate with your cluster. For more information, see [Create an environment in AWS Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/create-environment.html). Ensure that your Amazon EKS control plane security group contains rules to allow ingress traffic on port 443 from your IDE security group. For more information, see [View Amazon EKS security group requirements for clusters](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html). <br><br> When you configure `kubectl` for your AWS Cloud9 IDE, use AWS credentials that map to your cluster's RBAC configuration. Or you can add the IAM principal that your IDE will use to the RBAC configuration before you remove endpoint public access. For more information, see [Grant IAM users and roles access to Kubernetes APIs](https://docs.aws.amazon.com/eks/latest/userguide/grant-k8s-access.html) and [Unauthorized or access denied (kubectl)](https://docs.aws.amazon.com/eks/latest/userguide/troubleshooting.html#unauthorized).
+- **Amazon EC2 bastion host:** You can launch an Amazon EC2 instance in a public subnet in your cluster's VPC. Sign in to that instance via Secure Shell (SSH) to run `kubectl` commands. Ensure that your Amazon EKS control plane security group contains rules to allow ingress traffic on port 443 from your bastion host. For more information, see [View Amazon EKS security group requirements for clusters](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html). <br><br> When you configure `kubectl` for your bastion host, use AWS credentials that map to your cluster's role-based access control (RBAC) configuration. Or you can add the [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#iam-term-principal) that your bastion uses to the RBAC configuration before you remove endpoint public access. For more information, see [Grant IAM users and roles access to Kubernetes APIs](https://docs.aws.amazon.com/eks/latest/userguide/grant-k8s-access.html) and [Unauthorized or access denied (kubectl)](https://docs.aws.amazon.com/eks/latest/userguide/troubleshooting.html#unauthorized).
+- **AWS Cloud9 IDE:**  AWS Cloud9 is a cloud-based integrated development environment (IDE) that you can use to write, run, and debug your code with a browser only. You can create an AWS Cloud9 IDE in your cluster's VPC and use the IDE to communicate with your cluster. For more information, see [Create an environment in AWS Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/create-environment.html). Ensure that your Amazon EKS control plane security group contains rules to allow ingress traffic on port 443 from your IDE security group. For more information, see [View Amazon EKS security group requirements for clusters](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html). <br><br> When you configure `kubectl` for your AWS Cloud9 IDE, use AWS credentials that map to your cluster's RBAC configuration. Or you can add the IAM principal that your IDE uses to the RBAC configuration before you remove endpoint public access. For more information, see [Grant IAM users and roles access to Kubernetes APIs](https://docs.aws.amazon.com/eks/latest/userguide/grant-k8s-access.html) and [Unauthorized or access denied (kubectl)](https://docs.aws.amazon.com/eks/latest/userguide/troubleshooting.html#unauthorized).
 
 For more information about connectivity options, see [Access a private-only API server](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html#private-access).
 
@@ -64,8 +64,6 @@ A [private AKS cluster](/azure/aks/private-clusters) ensures that network traffi
 
 In a private AKS cluster, the API server has an internal IP address that's only reachable via an Azure [private endpoint](/azure/private-link/private-endpoint-overview) that's located in the same virtual network. Virtual machines (VMs) in the same virtual network can privately communicate with the control plane via this private endpoint. The control plane or API server is hosted in the Azure-managed subscription. The AKS cluster and its node pools are in the customer's subscription.
 
-When you provision a private AKS cluster, by default AKS creates a private fully qualified domain name (FQDN) that has a private Domain Name System (DNS) zone. AKS also creates another public FQDN that has a corresponding `A` record in Azure public DNS. The agent nodes continue to use the `A` record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server.
-
 The following diagram shows a private AKS cluster configuration.
 
 :::image type="complex" source="./media/private-cluster.svg" border="false" lightbox="./media/private-cluster.svg" alt-text="Diagram that shows a private AKS cluster configuration.":::
@@ -74,7 +72,7 @@ The main section of the diagram is labeled Microsoft global network. All compone
 
 *Download a [Visio file](https://arch-center.azureedge.net/eks-to-aks-networking-private-cluster.vsdx) of this architecture.*
 
-To provision a private AKS cluster, the AKS resource provider creates a private FQDN for the node resource group in a private DNS zone. Optionally, AKS can also create a public FQDN that has a corresponding address (`A`) record in the Azure public DNS zone. The agent nodes use the `A` record in the private DNS zone to resolve the private endpoint IP address for communication to the API server.
+To provision a private AKS cluster, the AKS resource provider creates a private fully qualified domain name (FQDN) for the node resource group in a private Domain Name System (DNS) zone. Optionally, AKS can also create a public FQDN that has a corresponding address `A` record in the Azure public DNS zone. The agent nodes use the `A` record in the private DNS zone to resolve the private endpoint IP address for communication to the API server.
 
 The AKS resource provider can create the private DNS zone in the node resource group, or you can create the private DNS zone and pass its resource ID to the provisioning system. You can create a private cluster when you use [Terraform with Azure](/azure/developer/terraform/overview), [Bicep](/azure/azure-resource-manager/bicep/overview), [Azure Resource Manager templates](/azure/azure-resource-manager/templates/overview), the [Azure CLI](/cli/azure), the [Azure PowerShell module](/powershell/azure), or the [Azure REST API](/rest/api/azure/) to create the cluster.
 
@@ -93,6 +91,7 @@ The AKS resource provider exposes the following parameters to customize private 
 - The `enablePrivateClusterPublicFQDN` Boolean specifies whether to create another public FQDN for the private cluster.
 - The `privateDnsZone` string specifies a private DNS zone in the node resource group. If you don't specify a value, the resource provider creates the zone. You can specify the following values:
   - `System` is the default value.
+
   - `None` defaults to public DNS, so AKS doesn't create a private DNS zone.
   - `<Your own private DNS zone resource ID>` uses a private DNS zone that you create in the format `privatelink.<region>.azmk8s.io` or `<subzone>.privatelink.<region>.azmk8s.io`.
 
@@ -119,21 +118,21 @@ Employ the Azure CLI so that you can use the [az aks command invoke](/cli/azure/
 
 In the Azure portal, you can use the `Run command` feature to run commands on your private cluster. This feature employs the `command invoke` functionality to run commands on your cluster. The pod that the `Run command` feature creates provides `kubectl` and `helm` tools to manage your cluster. The `Run command` also provides a Bash environment within the pod that include tools like `jq`, `xargs`, `grep`, and `awk`.
 
-You can use [Azure Bastion](/azure/bastion/bastion-overview) in the same virtual network or a peered virtual network to connect to a jump box management VM. Azure Bastion is a fully managed platform as a service (PaaS) that you can use to connect to a VM via your browser and the Azure portal. Azure Bastion provides highly secure and seamless Remote Desktop Protocol (RDP) or Secure Shell (SSH) VM connectivity over Transport Layer Security (TLS) directly from the Azure portal. When VMs connect via Azure Bastion, they don't need a public IP address, agent, or special client software.
+You can use [Azure Bastion](/azure/bastion/bastion-overview) in the same virtual network or a peered virtual network to connect to a jump box management VM. Azure Bastion is a fully managed platform as a service (PaaS) that you can use to connect to a VM via your browser and the Azure portal. Azure Bastion provides highly secure and seamless Remote Desktop Protocol (RDP) or SSH VM connectivity over Transport Layer Security (TLS) directly from the Azure portal. When VMs connect via Azure Bastion, they don't need a public IP address, agent, or special client software.
 
 ### API Server VNet Integration
 
 An AKS cluster that's configured with [API Server VNet Integration](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/create-an-azure-kubernetes-service-aks-cluster-with-api-server-vnet-integration-/3644002) projects the API server endpoint directly into a delegated subnet. The subnet is in the virtual network where AKS is deployed. API Server VNet Integration enables network communication between the API server and the cluster nodes, without a private link or tunnel. The API server is available behind an internal load balancer VIP that's in the delegated subnet. The nodes are configured to use the internal load balancer VIP. Use API Server VNet Integration to ensure that network traffic between your API server and your node pools remains on the private network only.
 
-The control plane or API server is in an AKS-managed Azure subscription. Your cluster or node pool is in your Azure subscription. The server and the VMs that make up the cluster nodes can communicate with each other through the API server VIP and pod IPs that are projected into the delegated subnet.
+The control plane or API server is in an AKS-managed Azure subscription. Your cluster or node pool is in your Azure subscription. The server and the VMs that make up the cluster nodes can communicate with each other through the API server VIP and pod IP addresses that are projected into the delegated subnet.
 
-You can use API Server VNet Integration with public clusters and private clusters. You can add or remove public access after cluster provisioning. Unlike non-virtual network integrated clusters, the agent nodes always communicate directly with the private IP address of the API server internal load balancer IP without using DNS. All traffic that goes from the node to the API server traffic is on private networking. And API server to node connectivity doesn't require a tunnel. Out-of-cluster clients can communicate with the API server normally if public network access is enabled. If public network access is disabled, follow the same private DNS setup methodology as standard [private clusters](/azure/aks/private-clusters). For more information, see [Create an AKS cluster with API Server VNet Integration](/azure/aks/api-server-vnet-integration).
+You can use API Server VNet Integration with public clusters and private clusters. You can add or remove public access after cluster provisioning. Unlike clusters that don't have virtual network integration, the agent nodes always communicate directly with the private IP address of the API server internal load balancer IP without using DNS. Traffic that goes from the node to the API server traffic is on private networking. And API server-to-node connectivity doesn't require a tunnel. Out-of-cluster clients can communicate with the API server normally if public network access is enabled. If public network access is disabled, follow the same private DNS setup methodology as standard [private clusters](/azure/aks/private-clusters). For more information, see [Create an AKS cluster with API Server VNet Integration](/azure/aks/api-server-vnet-integration).
 
 ### Authorized IP ranges
 
-The second option to improve cluster security and minimize attacks to the API server is to use [authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges). Authorized IP ranges restrict access to the control plane of a public AKS cluster to a known list of IP addresses and CIDRs. When you use this option, the API server is still publicly exposed, but access is limited. For more information, see [Secure access to the API server by using authorized IP address ranges in AKS](/azure/aks/api-server-authorized-ip-ranges).
+You can also use [authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges) to improve cluster security and minimize attacks to the API server. Authorized IP ranges restrict access to the control plane of a public AKS cluster to a known list of IP addresses and CIDRs. When you use this option, the API server is still publicly exposed, but access is limited.
 
-The following `az aks update` Azure CLI command authorizes IP ranges:
+The following `az aks update` Azure CLI command authorizes IP address ranges:
 
  ```azurecli-interactive
   az aks update \
@@ -146,7 +145,7 @@ The following `az aks update` Azure CLI command authorizes IP ranges:
 
 Consider the following key points for AKS connectivity:
 
-- An AKS private cluster provides enhanced security and isolation compared to authorized IPs. However, you can't convert an existing public AKS cluster to a private cluster. Instead, you can enable authorized IPs for any existing AKS cluster.
+- An AKS private cluster provides enhanced security and isolation compared to authorized IP ranges. However, you can't convert an existing public AKS cluster to a private cluster. Instead, you can enable authorized IP ranges for any existing AKS cluster.
 
 - You can't apply authorized IP ranges to a private API server endpoint. They only apply to the public API server.
 - Private clusters don't support Azure DevOps-hosted agents. You should use self-hosted agents instead.
@@ -174,13 +173,11 @@ Other contributors:
 
 ## Next steps
 
-The following references provide links to documentation and automation samples to deploy AKS clusters with a secured API:
-
 - [Create a private AKS cluster with a public DNS zone](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/private-aks-cluster-with-public-dns-zone)
 - [Create a private AKS cluster by using Terraform and Azure DevOps](https://github.com/azure-samples/private-aks-cluster-terraform-devops)
 - [Create a public or private AKS cluster by using Azure NAT Gateway and Azure Application Gateway](https://github.com/Azure-Samples/aks-nat-agic)
 - [Use private endpoints with a private AKS cluster](https://github.com/azure-samples/private-aks-cluster)
-- [Introduction to Private Link](/learn/modules/introduction-azure-private-link/)
+- [Training: Introduction to Private Link](/learn/modules/introduction-azure-private-link/)
 - [Training: Introduction to secure network infrastructure with Azure network security](/learn/paths/secure-networking-infrastructure)
 
 
