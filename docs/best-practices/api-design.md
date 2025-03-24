@@ -28,7 +28,7 @@ categories: featured
 
 A RESTful web API implementations is a web API that employs REST (Representational State Transfer) architectural principles to achieve a stateless, loosely coupled interface between client and service.  A web API that is RESTful specifically supports the standard HTTP protocol to perform operations on resources and return representations of resources with hypermedia links and HTTP operation status codes. 
 
-In general, a RESTful web API should align with the following principles:
+A RESTful web API should align with the following principles:
 
 - **Platform independence**, which means that clients should be able to call the web API regardless of it's the internal implementation. To achieve platform independence, the web API should use HTTP as a standard protocol, offer clear documentation, and support a familiar data exchange format such as JSON and XML. 
 
