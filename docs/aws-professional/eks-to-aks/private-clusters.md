@@ -180,7 +180,6 @@ Other contributors:
 - [Training: Introduction to Private Link](/learn/modules/introduction-azure-private-link/)
 - [Training: Introduction to secure network infrastructure with Azure network security](/learn/paths/secure-networking-infrastructure)
 
-
 ## Related resources
 
 - [AKS for Amazon EKS professionals](index.md)
