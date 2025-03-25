@@ -19,7 +19,7 @@ products:
 
 # Manage Kubernetes nodes and node pools
 
-Kubernetes architecture is based on two layers: the [control plane](/azure/aks/concepts-clusters-workloads#control-plane) and one or more [nodes in node pools](/azure/aks/concepts-clusters-workloads#nodes-and-node-pools). This article describes and compares how Amazon Elastic Kubernetes Service (EKS) and Azure Kubernetes Service (AKS) manage agent or worker nodes.
+Kubernetes architecture is based on two layers: the [control plane](/azure/aks/concepts-clusters-workloads#control-plane) and at least one [node in a node pool](/azure/aks/concepts-clusters-workloads#nodes). This article describes and compares how Amazon Elastic Kubernetes Service (EKS) and Azure Kubernetes Service (AKS) manage agent nodes and worker nodes.
 
 [!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
@@ -35,7 +35,7 @@ Amazon EKS [managed node groups](https://docs.aws.amazon.com/eks/latest/userguid
 
 Every managed node is provisioned as part of an [Amazon EC2 auto scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html) that Amazon EKS operates and controls. The [Kubernetes cluster autoscaler](https://docs.aws.amazon.com/eks/latest/userguide/autoscaling.html#cluster-autoscaler) automatically adjusts the number of worker nodes in a cluster when pods fail or are rescheduled onto other nodes. You can configure each node group to run across multiple [availability zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones) within a region.
 
-For more information, see [Create a managed node groups](https://docs.aws.amazon.com/eks/latest/userguide/create-managed-node-group.html) and [Update a managed node groups](https://docs.aws.amazon.com/eks/latest/userguide/update-managed-node-group.html).
+For more information, see [Create a managed node group](https://docs.aws.amazon.com/eks/latest/userguide/create-managed-node-group.html) and [Update a managed node group](https://docs.aws.amazon.com/eks/latest/userguide/update-managed-node-group.html).
 
 You can also run Kubernetes pods on [AWS Fargate](https://aws.amazon.com/fargate). Fargate provides on-demand, right-sized compute capacity for containers. For more information, see [AWS Fargate](https://docs.aws.amazon.com/eks/latest/userguide/fargate.html).
 
@@ -45,33 +45,33 @@ You can also run Kubernetes pods on [AWS Fargate](https://aws.amazon.com/fargate
 
 - Monitor pods that the Kubernetes scheduler can't schedule because of resource constraints.
 
-- Evaluate the scheduling requirements, such as resource requests, node selectors, affinities,, and tolerations, of the unschedulable pods.
-- Provision new nodes that meet the requirements of those pods.
-- Remove nodes when they're no longer needed.
+- Evaluate scheduling requirements, such as resource requests, node selectors, affinities, and tolerations, of the unschedulable pods.
+- Configure new nodes that meet the requirements of the unschedulable pods.
+- Remove nodes when you no longer need them.
 
-With Karpenter, you define NodePools with constraints on node provisioning like taints, labels, requirements (instance types and zones), and limits on total provisioned resources. When you deploy workloads, you specify various scheduling constraints in the pod specifications, like resource requests or limits, node selectors, node or pod affinities, tolerations, and topology spread constraints. Karpenter then provisions right-sized nodes based on these specifications.
+With Karpenter, you define node pools with constraints on node provisioning, like taints, labels, requirements (instance types and zones), and limits on total provisioned resources. When you deploy workloads, specify various scheduling constraints in the pod specifications. For example, you can specify resource requests or limits, node selectors, node or pod affinities, tolerations, and topology spread constraints. Karpenter then configures right-sized nodes based on these specifications.
 
-Before the launch of Karpenter, Amazon EKS users relied primarily on [Amazon EC2 auto scaling groups](https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html) and the [Kubernetes Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler) to dynamically adjust the compute capacity of their clusters. You don't need to create dozens of node groups to achieve the flexibility and diversity that Karpenter provides. Unlike the Kubernetes Cluster Autoscaler, Karpenter is less dependent on Kubernetes versions and doesn't require transitions between AWS and Kubernetes APIs.
+Before the launch of Karpenter, Amazon EKS users relied primarily on [Amazon EC2 auto scaling groups](https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html) and the [Kubernetes cluster autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler) to dynamically adjust the compute capacity of their clusters. You don't need to create dozens of node groups to achieve the flexibility and diversity that Karpenter provides. Unlike the Kubernetes cluster autoscaler, Karpenter is less dependent on Kubernetes versions and doesn't require transitions between AWS and Kubernetes APIs.
 
-Karpenter consolidates instance orchestration responsibilities within a single system, which is simpler, more stable, and more cluster-aware. Karpenter helps overcome challenges of the Cluster Autoscaler by providing simplified ways to:
+Karpenter consolidates instance orchestration responsibilities within a single system, which is simpler, more stable, and more cluster-aware. Karpenter helps overcome challenges of the cluster autoscaler by providing simplified ways to:
 
-- Provision nodes based on workload requirements.
+- Configure nodes based on workload requirements.
 
-- Create diverse node configurations by instance type by using flexible NodePool options. Instead of managing several specific custom node groups, use Karpenter to manage diverse workload capacity with a single, flexible NodePool.
+- Create diverse node configurations by instance type by using flexible node pool options. Instead of managing several specific custom node groups, use Karpenter to manage diverse workload capacity with a single, flexible node pool.
 - Achieve improved pod scheduling at scale by quickly launching nodes and scheduling pods.
 
-Karpenter integrates scaling management more closely with Kubernetes-native APIs compared to [auto scaling groups](https://aws.amazon.com/blogs/containers/amazon-eks-cluster-multi-zone-auto-scaling-groups/) and [managed node groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html). Auto scaling groups and managed node groups are AWS-native abstractions that trigger scaling based on AWS level metrics, such as EC2 CPU load. Although [Cluster Autoscaler](https://docs.aws.amazon.com/eks/latest/userguide/autoscaling.html#cluster-autoscaler) bridges Kubernetes abstractions to AWS abstractions, it sacrifies some flexibility, such as scheduling for a specific availability zone.
+Compared to [auto scaling groups](https://aws.amazon.com/blogs/containers/amazon-eks-cluster-multi-zone-auto-scaling-groups/) and [managed node groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html), Karpenter integrates scaling management more closely with Kubernetes-native APIs. Auto scaling groups and managed node groups are AWS-native abstractions that trigger scaling based on AWS level metrics, such as EC2 CPU load. Although the [cluster autoscaler](https://docs.aws.amazon.com/eks/latest/userguide/autoscaling.html#cluster-autoscaler) bridges Kubernetes abstractions to AWS abstractions, it sacrifices some flexibility, such as scheduling for a specific availability zone.
 
 Karpenter removes a layer of AWS abstraction, which brings greater flexibility directly into Kubernetes. Use Karpenter for clusters that run workloads that encounter periods of high, spiky demand or have diverse compute requirements. Use managed node groups and auto scaling groups for clusters that run more static and consistent workloads. Depending on your requirements, you can use a combination of dynamically and statically managed nodes.
 
 ### Kata Containers
 
-[Kata Containers](https://katacontainers.io/) is an open-source project that provides a highly secure container runtime. It combines the lightweight nature of containers with the security benefits of virtual machines (VMs). Kata Containers enhances workload isolation and security by launching each container with a different guest operating system, unlike traditional containers that share the same Linux Kernel among workloads. Kata Containers runs containers in an OCI-compliant VM, which provides strict isolation between containers on the same host machine. [Kata Containers](https://katacontainers.io/) provides the following features:
+[Kata Containers](https://katacontainers.io/) is an open-source project that provides a highly secure container runtime. It combines the lightweight nature of containers with the security benefits of virtual machines (VMs). Kata Containers enhances workload isolation and security by launching each container with a different guest operating system, unlike traditional containers that share the same Linux Kernel among workloads. Kata Containers runs containers in an Open Container Initiative (OCI)-compliant VM, which provides strict isolation between containers on the same host machine. [Kata Containers](https://katacontainers.io/) provides the following features:
 
 - **Enhanced workload isolation:** Each container runs in its own lightweight VM to ensure isolation at the hardware level.
 
 - **Improved security:** The use of VM technology provides an extra layer of security, which reduces the risk of container breakouts.
-- **Compatibility with industry standards:** Kata Containers integrates with industry-standard tools, such as the OCI container format and Kubernetes CRI interface.
+- **Compatibility with industry standards:** Kata Containers integrates with industry-standard tools, such as the OCI container format and Kubernetes Container Runtime Interface.
 - **Support for multiple architectures and hypervisors:** Kata Containers supports AMD64 and ARM architectures, and you can use it with hypervisors like Cloud Hypervisor and Firecracker.
 - **Easy deployment and management:** Kata Containers simplifies workload orchestration because it uses the Kubernetes orchestration system.
 
@@ -97,7 +97,7 @@ The [nodes](/azure/aks/concepts-clusters-workloads#nodes-and-node-pools), also c
 
 To run applications and supporting services, an AKS cluster needs at least one node, which is an Azure VM that runs the Kubernetes node components and container runtime. Every AKS cluster must contain at least one [system node pool](/azure/aks/use-system-pools) that has at least one node.
 
-AKS combines nodes of the same configuration into *node pools* of VMs that run AKS workloads. Use system node pools to host critical system pods, such as CoreDNS. Use user node pools to host workload pods. If you want only one node pool in your AKS cluster, for example in a development environment, you can schedule application pods on the system node pool.
+AKS combines nodes of the same configuration into node pools of VMs that run AKS workloads. Use system node pools to host critical system pods, such as CoreDNS. Use user node pools to host workload pods. If you want only one node pool in your AKS cluster, for example in a development environment, you can schedule application pods on the system node pool.
 
 :::image type="complex" source="./media/node-resource-interactions.svg" border="false" lightbox="./media/node-resource-interactions.svg" alt-text="Diagram that shows a single Kubernetes node.":::
 The Azure virtual machine contains four components: kubelet, container runtime, kube-proxy, and a container. The Azure virtual network connects to the Azure virtual network interface, which connects to the kube-proxy component. Kubelet connects to container runtime, and container runtime connects to the container. Azure disk storage and Azure Files point to the container.
@@ -105,22 +105,24 @@ The Azure virtual machine contains four components: kubelet, container runtime, 
 
 You can also create multiple user node pools to segregate different workloads on different nodes. This approach helps prevent the [noisy neighbor problem](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) and supports applications that have different compute or storage demands.
 
-Every agent node within a system or user node pool is essentially a VM. [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) provisions the VMs, and the AKS cluster manages them. For more information, see [Nodes and node pools](/azure/aks/concepts-clusters-workloads#nodes-and-node-pools).
+Every agent node within a system or user node pool is essentially a VM. [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) configures the VMs, and the AKS cluster manages them. For more information, see [Node pools](/azure/aks/concepts-clusters-workloads#node-pools).
 
 You can define the initial number and [size](/azure/virtual-machines/sizes) for worker nodes when you create an AKS cluster or when you add new nodes and node pools to an existing AKS cluster. If you don't specify a VM size, the default size is Standard_D2s_v3 for Windows node pools and Standard_DS2_v2 for Linux node pools.
 
 > [!IMPORTANT]
-> To provide better latency for intranode calls and communications with platform services, choose a VM series that supports [Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli).
+> To provide better latency for internal node calls and communications with platform services, choose a VM series that supports [Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli).
 
 ### Create a node pool
-
-To add a node pool to a new or existing AKS cluster, use the Azure portal, [Azure CLI](/cli/azure), or [AKS REST API](/rest/api/aks). You can also use infrastructure as code (IaC) tools, such as [Bicep](/azure/azure-resource-manager/bicep/overview), [Azure Resource Manager templates](/azure/azure-resource-manager/templates/overview), or [Terraform](https://www.terraform.io). For more information, see [Create and manage multiple node pools for a cluster in AKS](/azure/aks/use-multiple-node-pools).
 
 When you create a new node pool, the associated virtual machine scale set is created in the [node resource group](/azure/aks/faq#why-are-two-resource-groups-created-with-aks). This [Azure resource group](/azure/azure-resource-manager/management/overview) contains all the infrastructure resources for the AKS cluster. These resources include the Kubernetes nodes, virtual networking resources, managed identities, and storage.
 
 By default, the node resource group has a name like `MC_<resourcegroupname>_<clustername>_<location>`. AKS automatically deletes the node resource group when it deletes a cluster. You should use this resource group only for resources that share the cluster's lifecycle.
 
+For more information, see [Create node pools for a cluster in AKS](/azure/aks/create-node-pools).
+
 ### Add a node pool
+
+To add a node pool to a new or existing AKS cluster, use the Azure portal, [Azure CLI](/cli/azure), or [AKS REST API](/rest/api/aks). You can also use infrastructure as code (IaC) tools, such as [Bicep](/azure/azure-resource-manager/bicep/overview), [Azure Resource Manager templates](/azure/azure-resource-manager/templates/overview), or [Terraform](https://www.terraform.io). 
 
 The following code example uses the Azure CLI [az aks nodepool add](/cli/azure/aks/nodepool#az_aks_nodepool_add) command to add a node pool named `mynodepool` that has three nodes. It adds the node pool to an existing AKS cluster called `myAKSCluster` in the `myResourceGroup` resource group.
 
@@ -135,9 +137,9 @@ az aks nodepool add \
 
 ### Spot node pools
 
-A spot node pool is a node pool that's backed by a [spot virtual machine scale set](/azure/virtual-machine-scale-sets/use-spot). Use spot VMs for nodes with your AKS cluster to take advantage of unused Azure capacity at a significant cost savings. The amount of available unused capacity varies based on factors, such as node size, region, and time of day.
+A spot node pool is a node pool that a [spot virtual machine scale set](/azure/virtual-machine-scale-sets/use-spot) supports. Use spot VMs for nodes in your AKS cluster to take advantage of unused Azure capacity at a reduced cost. The amount of available unused capacity varies based on factors, such as node size, region, and time of day.
 
-When you deploy a spot node pool, Azure allocates the spot nodes if there's capacity available. But the spot nodes don't have a service-level agreement (SLA). A spot scale set that backs the spot node pool is deployed in a single fault domain and doesn't provide high-availability guarantees. When Azure needs the capacity, the Azure infrastructure evicts spot nodes. You get up to a 30-second notice before eviction. A spot node pool can't be the cluster's default node pool. A spot node pool can be used only for a secondary pool.
+When you deploy a spot node pool, Azure allocates the spot nodes if capacity is available. But the spot nodes don't have a service-level agreement (SLA). A spot scale set that supports the spot node pool is deployed in a single fault domain and doesn't provide high-availability guarantees. When Azure needs the capacity, the Azure infrastructure evicts spot nodes. You receive a notice up to 30 seconds before eviction. You can't use a spot node pool as the cluster's default node pool. Use a spot node pool only as a secondary pool.
 
 Use spot nodes for workloads that can handle interruptions, early terminations, or evictions. For example, schedule on a spot node pool for batch processing jobs, development and testing environments, and large compute workloads. For more information, see [Spot instance limitations](/azure/virtual-machines/spot-vms#limitations).
 
@@ -162,7 +164,7 @@ For more information, see [Add a spot node pool to an AKS cluster](/azure/aks/sp
 
 ### Ephemeral OS disks
 
-By default, Azure automatically replicates the VM operating system (OS) disk to Azure Storage. This approach prevents data loss if the VM needs to be relocated to another host. But containers aren't designed to retain local state, so storing the OS disk in Azure Storage provides limited benefits for AKS. This approach can lead to slower node provisioning and increased read and write latency.
+By default, Azure automatically replicates the VM OS disk to Azure Storage. This approach prevents data loss if the VM needs to be relocated to another host. But containers aren't designed to retain local state, so storing the OS disk in Azure Storage provides limited benefits for AKS. This approach can lead to slower node provisioning and increased read and write latency.
 
 By contrast, ephemeral OS disks are stored only on the host machine, like a temporary disk. They also provide lower read and write latency and faster node scaling and cluster upgrades. Like a temporary disk, the VM price includes an ephemeral OS disk, so you don't incur extra storage costs.
 
@@ -191,48 +193,49 @@ The following `az aks nodepool add` command shows how to add a new node pool to 
 
 For more information, see [Ephemeral OS](/azure/aks/concepts-storage#ephemeral-os-disk).
 
-### Virtual Machines Node Pools in AKS
+### Azure Virtual Machines node pools in AKS
 
-Every [managed node group in EKS](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html) is backed by an [Amazon EC2 auto scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html) that Amazon EKS manages. This integration allows EKS to automatically provision and scale EC2 instances within the node group.
+Every [managed node group in EKS](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html) is backed by an [Amazon EC2 auto scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html) that Amazon EKS manages. This integration allows EKS to automatically configure and scale EC2 instances within the node group.
 
 You can configure auto scaling groups to support multiple EC2 instance types, but you can't specify how many nodes to create or scale for each instance type. Instead, EKS manages the scaling of the node group based on your desired configuration and policies. This approach simplifies and automates the management process for the node group so that you can choose EC2 instance types that suit your workload requirements. You can also launch [self-managed Amazon Linux nodes](https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html) by using the `eksctl` command-line tool or the AWS Management Console.
 
-For [Azure Virtual Machines node pools](/azure/aks/virtual-machines-node-pools), AKS provisions and bootstraps each agent node. For Azure Virtual Machine Scale Sets node pools, AKS manages the model of the Virtual Machine Scale Sets and uses it to achieve consistency across all agent nodes in the node pool. You can use Virtual Machines node pools to orchestrate your cluster with virtual machines that best fit your individual workloads. You can also specify how many nodes to create or scale for each VM size.
+For [Azure Virtual Machines node pools](/azure/aks/virtual-machines-node-pools), AKS configures and bootstraps each agent node. For Azure Virtual Machine Scale Sets node pools, AKS manages the model of Virtual Machine Scale Sets and uses it to achieve consistency across all agent nodes in the node pool. You can use Virtual Machines node pools to orchestrate your cluster with VMs that best fit your individual workloads. You can also specify how many nodes to create or scale for each VM size.
 
 A node pool consists of a set of VMs that have different sizes. Each VM supports a different type of workload. These VM sizes, referred to as *SKUs*, are categorized into different families that are optimized for specific purposes. For more information, see [VM SKUs overview](/azure/virtual-machines/sizes/overview).
 
-To enable scaling of multiple VM sizes, the Virtual Machines node pool type uses a `ScaleProfile` that configures how the node pool scales, specifically the desired list of VM size and count. A `ManualScaleProfile` is a scale profile that specifies the desired VM size and count. Only one VM size is allowed in a `ManualScaleProfile`. You need to create a separate `ManualScaleProfile` for each VM size in your node pool.
+To enable scaling of multiple VM sizes, the Virtual Machines node pool type uses a `ScaleProfile`. This profile configures how the node pool scales by specifying the desired VM size and count. A `ManualScaleProfile` is a scale profile that specifies the desired VM size and count. Only one VM size is allowed in a `ManualScaleProfile`. You need to create a separate `ManualScaleProfile` for each VM size in your node pool.
 
 When you create a new Virtual Machines node pool, you need at least one `ManualScaleProfile` in the `ScaleProfile`. You can create multiple manual scale profiles for a single Virtual Machines node pool.
 
 Advantages of Virtual Machines node pools include:
 
 - **Flexibility:** You can update node specifications to suit your workloads and needs.
+
 - **Fine-tuned control:** Single node-level controls help specify and combine nodes of different specifications to improve consistency.
 - **Efficiency:** You can reduce the node footprint for your cluster to simplify your operational requirements.
 
-Virtual Machines node pools provide a better experience for dynamic workloads and high-availability requirements. You can use them to set up multiple VMs of the same family in one node pool, with your workload automatically scheduled on the available resources that you configure.
+Virtual Machines node pools provide a better experience for dynamic workloads and high-availability requirements. You can use them to set up multiple VMs of the same family in one node pool, and your workload is automatically scheduled on the available resources that you configure.
 
-The following table compares Virtual Machines node pools with standard [Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes) node pools.
+The following table compares Virtual Machines node pools with standard [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes) node pools.
 
 | Node pool type                            | Capabilities                                                 |
 | :---------------------------------------- | :----------------------------------------------------------- |
-| Virtual Machines node pool                | You can add, remove, or update nodes in a node pool. VM types can be any VM of the same family type, such as D-series or A-Series. |
-| Virtual Machine Scale Set node pool | You can add or remove nodes of the same size and type in a node pool. If you add a new VM size to the cluster, you need to create a new node pool. |
+| Virtual Machines node pool                | You can add, remove, or update nodes in a node pool. VM types can be any VM of the same family type, such as D-series or A-series. |
+| Virtual Machine Scale Sets node pool | You can add or remove nodes of the same size and type in a node pool. If you add a new VM size to the cluster, you need to create a new node pool. |
 
 Virtual Machines node pools have the following limitations:
 
-- [Cluster autoscaler](/azure/aks/cluster-autoscaler-overview) isn't supported.
+- The [cluster autoscaler](/azure/aks/cluster-autoscaler-overview) isn't supported.
 - [InfiniBand](/azure/virtual-machines/extensions/enable-infiniband) isn't available.
 - Windows node pools aren't supported.
-- This feature isn't available in the Azure portal. Use the [Azure CLI](/cli/azure/get-started-with-azure-cli) or REST APIs to perform CRUD operations or manage the pool.
+- This feature isn't available in the Azure portal. Use the [Azure CLI](/cli/azure/get-started-with-azure-cli) or REST APIs to perform Create, Read, Update, and Delete (CRUD) operations or manage the pool.
 - [Node pool snapshot](/azure/aks/node-pool-snapshot) isn't supported.
-- All VM sizes in a node pool must be from the same VM family. For example, you can't combine an N-Series VM type with a D-Series VM type in the same node pool.
+- All VM sizes in a node pool must be from the same VM family. For example, you can't combine an N-series VM type with a D-series VM type in the same node pool.
 - Virtual Machines node pools allow up to five different VM sizes per node pool.
 
 ### Virtual nodes
 
-You can use virtual nodes to quickly scale out application workloads in an AKS cluster. Virtual nodes provide quick pod provisioning, and you only pay per second for run time. You don't need to wait for the cluster autoscaler to deploy new worker nodes to run more pod replicas. Only Linux pods and nodes support virtual nodes. The virtual nodes add-on for AKS is based on the open-source [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) project.
+You can use virtual nodes to quickly scale out application workloads in an AKS cluster. Virtual nodes provide quick pod provisioning, and you only pay per second for runtime. You don't need to wait for the cluster autoscaler to deploy new worker nodes to run more pod replicas. Only Linux pods and nodes support virtual nodes. The virtual nodes add-on for AKS is based on the open-source [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) project.
 
 Virtual node functionality depends on [Azure Container Instances](/azure/container-instances). For more information, see [Create and configure an AKS cluster to use virtual nodes](/azure/aks/virtual-nodes).
 
@@ -258,18 +261,18 @@ For more information, see [Specify a taint, label, or tag for a node pool](/azur
 
 Amazon EKS adds automated Kubernetes labels to all nodes in a managed node group like `eks.amazonaws.com/capacityType`, which specifies the capacity type. AKS also automatically adds system labels to agent nodes.
 
-The following prefixes are reserved for AKS use and can't be used for any node:
+The following prefixes are reserved for AKS use and can't be used for nodes:
 
 - `kubernetes.azure.com/`
 - `kubernetes.io/`
 
 For other reserved prefixes, see [Kubernetes well-known labels, annotations, and taints](https://kubernetes.io/docs/reference/labels-annotations-taints).
 
-The following table lists labels that are reserved for AKS use and can't be used for any node. In the table, the **Virtual node usage** column specifies whether the label is supported on virtual nodes.
+The following table lists labels that are reserved for AKS use and can't be used for nodes. In the table, the **Virtual node usage** column specifies whether virtual nodes support the label.
 
 In the **Virtual node usage** column:
 
-- **N/A** means that the property doesn't apply to virtual nodes because it would require modifying the host.
+- **N/A** means that the property doesn't apply to virtual nodes because it requires modifying the host.
 - **Same** means that the expected values are the same for a virtual node pool and a standard node pool.
 - **Virtual** replaces VM SKU values, because virtual node pods don't expose underlying VMs.
 - **Virtual node version** refers to the current version of the [virtual Kubelet-ACI connector release](https://github.com/virtual-kubelet/azure-aci/releases).
@@ -323,7 +326,7 @@ The preceding command uses the default subnet in the AKS cluster virtual network
 
 ### Node pool considerations
 
-The following considerations and limitations apply when you create and manage node pools and multiple node pools:
+The following considerations and limitations apply when you create and manage single or multiple node pools:
 
 - [Quotas, VM size restrictions, and region availability](/azure/aks/quotas-skus-regions) apply to AKS node pools.
 
@@ -331,7 +334,7 @@ The following considerations and limitations apply when you create and manage no
 - You can't change the VM size of a node pool after you create it.
 - For multiple node pools, the AKS cluster must use Standard SKU load balancers. Basic SKU load balancers don't support multiple node pools.
 - All cluster node pools must be in the same virtual network, and all subnets that are assigned to a node pool must be in the same virtual network.
-- If you create multiple node pools when you create a cluster, the Kubernetes versions for all node pools must match the control plane version. To update versions after you provision the cluster, use per-node-pool operations.
+- If you create multiple node pools when you create a cluster, the Kubernetes versions for all node pools must match the control plane version. To update versions after you configure the cluster, use per-node-pool operations.
 
 ## Scale node pools
 
@@ -384,21 +387,21 @@ To disable the cluster autoscaler, use the `az aks nodepool update` command with
   --disable-cluster-autoscaler
 ```
 
-To reenable the cluster autoscaler on an existing cluster, use the `az aks nodepool update` command, and specify the `--enable-cluster-autoscaler`, `--min-count`, and `--max-count` parameters.
+To re-enable the cluster autoscaler on an existing cluster, use the `az aks nodepool update` command, and specify the `--enable-cluster-autoscaler`, `--min-count`, and `--max-count` parameters.
 
 For more information about how to use the cluster autoscaler for individual node pools, see [Automatically scale a cluster to meet application demands on AKS](/azure/aks/cluster-autoscaler).
 
 ### Pod Sandboxing
 
-To easily setup and run [Kata Containers](https://katacontainers.io/) on AKS as a fully managed solution, use [Pod Sandboxing](/azure/aks/use-pod-sandboxing). Pod Sandboxing is an AKS feature that creates an isolation boundary between the container application and the shared kernel and compute resources of the container host, like CPU, memory, and networking.
+To easily set up and run [Kata Containers](https://katacontainers.io/) on AKS as a fully managed solution, use [Pod Sandboxing](/azure/aks/use-pod-sandboxing). Pod Sandboxing is an AKS feature that creates an isolation boundary between the container application and the shared kernel and compute resources of the container host, like CPU, memory, and networking.
 
 Pod Sandboxing complements other security measures or data protection controls to help tenant workloads secure sensitive information and meet regulatory, industry, or governance compliance requirements. These requirements include Payment Card Industry Data Security Standard (PCI DSS), International Organization for Standardization (ISO) 27001, and Health Insurance Portability and Accountability Act (HIPAA).
 
-Deploy applications on separate clusters or node pools to help isolate the tenant workloads of different teams or customers. You might use multiple clusters and node pools if your oganization or software as a service (SaaS) solution requires them. But some scenarios benefit from a single cluster with shared VM node pools. For example, you might use a single cluster to run untrusted and trusted pods on the same node or colocate DaemonSets and privileged containers on the same node for faster local communication and functional grouping.
+Deploy applications on separate clusters or node pools to help isolate the tenant workloads of different teams or customers. You might use multiple clusters and node pools if your organization or software as a service (SaaS) solution requires them. But some scenarios benefit from a single cluster that has shared VM node pools. For example, you might use a single cluster to run untrusted and trusted pods on the same node or colocate DaemonSets and privileged containers on the same node for faster local communication and functional grouping.
 
-[Pod Sandboxing](/azure/aks/use-pod-sandboxing) can help you isolate tenant applications on the same cluster nodes without needing to run these workloads in separate clusters or node pools. Other methods might require that you recompile your code or create other compatibility problems. Pod Sandboxing in AKS can run any unmodified container inside an enhanced security VM boundary.
+[Pod Sandboxing](/azure/aks/use-pod-sandboxing) can help you isolate tenant applications on the same cluster nodes without needing to run these workloads in separate clusters or node pools. Other methods might require that you recompile your code or they might create other compatibility problems. Pod Sandboxing in AKS can run any unmodified container inside an enhanced security VM boundary.
 
-Pod Sandboxing is based on [Kata containers](https://katacontainers.io/) that run on the [Azure Linux container host for AKS stack](/azure/aks/use-azure-linux) to provide hardware-enforced isolation. Kata Containers on AKS is built on a security-hardened Azure hypervisor. It achieves isolation for each pod via a nested, lightweight Kata VM that uses resources from a parent VM node. In this model, each Kata pod gets its own kernel in a nested Kata guest VM. Use this model to place many Kata containers in a single guest VM while continuing to run containers in the parent VM. This model provides a strong isolation boundary in a shared AKS cluster.
+Pod Sandboxing is based on [Kata Containers](https://katacontainers.io/) that runs on the [Azure Linux container host for AKS stack](/azure/aks/use-azure-linux) to provide hardware-enforced isolation. Kata Containers on AKS is built on a security-hardened Azure hypervisor. It achieves isolation for each pod via a nested, lightweight Kata VM that uses resources from a parent VM node. In this model, each Kata pod gets its own kernel in a nested Kata guest VM. Use this model to place several Kata containers in a single guest VM while continuing to run containers in the parent VM. This model provides a strong isolation boundary in a shared AKS cluster.
 
 For more information, see the following resources:
 
@@ -407,7 +410,7 @@ For more information, see the following resources:
 
 ### Azure Dedicated Host
 
-[Azure Dedicated Host](/azure/virtual-machines/dedicated-hosts) is a service that provides physical servers that are dedicated to a single Azure subscription and provide hardware isolation at the physical-server level. You can provision these dedicated hosts within a region, availability zone, and fault domain. You can place VMs directly into the provisioned hosts.
+[Azure Dedicated Host](/azure/virtual-machines/dedicated-hosts) is a service that provides physical servers that are dedicated to a single Azure subscription to help ensure hardware isolation at the physical server level. You can provision these dedicated hosts within a region, availability zone, and fault domain. You can place VMs directly into the provisioned hosts.
 
 Use Dedicated Host with AKS to provide the following benefits:
 
@@ -419,38 +422,40 @@ Dedicated Host can help SaaS providers ensure that tenant applications meet regu
 
 ### Karpenter
 
-[Karpenter](https://karpenter.sh/) is an open-source node-lifecycle management project built for Kubernetes. Add Karpenter to a Kubernetes cluster to improve the efficiency and cost of running workloads on that cluster. Karpenter watches for pods that the Kubernetes scheduler marks as unschedulable. It also dynamically provisions and manages nodes that can meet the pod requirements.
+[Karpenter](https://karpenter.sh/) is an open-source, node-lifecycle management project built for Kubernetes. Add Karpenter to a Kubernetes cluster to improve the efficiency and cost of running workloads on that cluster. Karpenter watches for pods that the Kubernetes scheduler marks as unschedulable. It also dynamically provisions and manages nodes that can meet the pod requirements.
 
-Karpenter provides fine-grained control over node provisioning and workload placement in a managed cluster. This control optimizes resource allocation, helps ensure isolation between each tenant's applications, and reduces operational costs, which improves multitenancy. When you build a multitenant solution on AKS, Karpenter provides useful capabilities to help manage diverse application requirements to support different tenants. For example, you might need some tenants' applications to run on GPU-optimized node pools and others to run on memory-optimized node pools. If your application requires low latency for storage, you can use Karpenter to indicate that a pod requires a node that runs in a specific availability zone. Then you can colocate your storage and application tier.
+Karpenter provides fine-grained control over node provisioning and workload placement in a managed cluster. This control optimizes resource allocation, helps ensure isolation between each tenant's applications, and reduces operational costs, which improves multitenancy. When you build a multitenant solution on AKS, Karpenter provides useful capabilities to help manage diverse application requirements to support different tenants.
 
-AKS enables node autoprovisioning on AKS clusters via Karpenter. Most users should use the node autoprovisioning mode to enable Karpenter as a managed add-on. For more information, see [Node autoprovisioning](/azure/aks/node-autoprovision). If you need more advanced customization, you can self-host Karpenter. For more information, see the [AKS Karpenter provider](https://github.com/Azure/karpenter-provider-azure).
+For example, you might need some tenants' applications to run on GPU-optimized node pools and others to run on memory-optimized node pools. If your application requires low latency for storage, you can use Karpenter to indicate that a pod requires a node that runs in a specific availability zone. Then you can colocate your storage and application tier.
+
+AKS enables node autoprovisioning on AKS clusters via Karpenter. Most users should use the node autoprovisioning mode to enable Karpenter as a managed add-on. For more information, see [Node autoprovisioning](/azure/aks/node-autoprovision). If you need more advanced customization, you can self-host Karpenter. For more information, see [AKS Karpenter provider](https://github.com/Azure/karpenter-provider-azure).
 
 ### Confidential VMs
 
 Confidential computing is a security measure that helps protect data while in use through software-assisted or hardware-assisted isolation and encryption. This technology adds an extra layer of security to traditional approaches, which helps safeguard data at rest and data in transit.
 
-The AWS platform supports confidential computing through [Nitro Enclaves](https://aws.amazon.com/ec2/nitro/nitro-enclaves/), which are [available on EC2 instances and Amazon EKS](https://aws.amazon.com/about-aws/whats-new/2022/11/aws-nitro-enclaves-supports-amazoneks-kubernetes/). Amazon EC2 instances also support [AMD SEV-SNP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html). The [Runtime Attestation GitHub repository](https://github.com/aws-samples/howto-runtime-attestation-on-aws) provides artifacts to build and deploy an [Amazon Machine Image (AMI)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) for EKS with [AMD SEV-SNP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html) support.
+The AWS platform supports confidential computing through [Nitro Enclaves](https://aws.amazon.com/ec2/nitro/nitro-enclaves/), which are [available on EC2 instances and Amazon EKS](https://aws.amazon.com/about-aws/whats-new/2022/11/aws-nitro-enclaves-supports-amazoneks-kubernetes/). Amazon EC2 instances also support [AMD Secure Encrypted Virtualization Secure Nested Paging (SEV-SNP)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html). The [Runtime Attestation GitHub repository](https://github.com/aws-samples/howto-runtime-attestation-on-aws) provides artifacts to build and deploy an [Amazon Machine Image](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) for EKS with [AMD SEV-SNP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html) support.
 
-On the other hand, Azure provides customers with confidential VMs to meet strict isolation, privacy, and security requirements within an AKS cluster. These confidential VMs use a hardware-based [trusted execution environment](https://en.wikipedia.org/wiki/Trusted_execution_environment). Specifically, Azure confidential VMs use AMD Secure Encrypted Virtualization Secure Nested Paging (SEV-SNP) technology. This technology denies hypervisor and other host-management code access to VM memory and state. Use this approach to add an extra layer of defense and protection against operator access. For more information, see [Use confidential VMs in an AKS cluster](/azure/aks/use-cvm) and [Overview of confidential VMs in Azure](/azure/confidential-computing/confidential-vm-overview).
+On the other hand, Azure provides customers with confidential VMs to help meet strict isolation, privacy, and security requirements within an AKS cluster. These confidential VMs use a hardware-based [trusted execution environment](https://en.wikipedia.org/wiki/Trusted_execution_environment). Specifically, Azure confidential VMs use AMD SEV-SNP technology. This technology denies hypervisor and other host-management code access to VM memory and state. Use this approach to add an extra layer of defense and protection against operator access. For more information, see [Use confidential VMs in an AKS cluster](/azure/aks/use-cvm) and [Overview of confidential VMs in Azure](/azure/confidential-computing/confidential-vm-overview).
 
 ### Federal Information Process Standards
 
-[Federal Information Process Standards (FIPS) 140-3](https://csrc.nist.gov/publications/detail/fips/140/3/final) is a US government standard that defines minimum security requirements for cryptographic modules in information technology products and systems. Enable [FIPS compliance for AKS node pools](/azure/aks/enable-fips-nodes) to enhance the isolation, privacy, and security of your tenant workloads. [FIPS](/azure/compliance/offerings/offering-fips-140-2) compliance helps ensure the use of validated cryptographic modules for encryption, hashing, and other security-related operations. Use FIPS-enabled AKS node pools to employ robust cryptographic algorithms and mechanisms, which helps meet regulatory and industry compliance requirements. For more information about how to strengthen the security posture of your multitenant AKS environments, see [Enable FIPS for AKS node pools](/azure/aks/enable-fips-nodes).
+[Federal Information Process Standards (FIPS) 140-3](https://csrc.nist.gov/publications/detail/fips/140/3/final) is a US government standard that defines minimum security requirements for cryptographic modules in information technology products and systems. Enable [FIPS compliance for AKS node pools](/azure/aks/enable-fips-nodes) to enhance the isolation, privacy, and security of your tenant workloads. [FIPS](/azure/compliance/offerings/offering-fips-140-2) compliance helps ensure the use of validated cryptographic modules for encryption, hashing, and other security-related operations. Use FIPS-enabled AKS node pools to employ robust cryptographic algorithms and mechanisms, which help meet regulatory and industry compliance requirements. For more information about how to strengthen the security posture of your multitenant AKS environments, see [Enable FIPS for AKS node pools](/azure/aks/enable-fips-nodes).
 
 ### Host-based encryption
 
 In EKS, your architecture might use the following features to enhance data security:
 
-- [Amazon EBS Encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html): You can encrypt data at rest on Amazon Elastic Block Store (EBS) volumes that are attached to your EKS worker nodes.
+- [Amazon Elastic Block Store (EBS) encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html): You can encrypt data at rest on Amazon EBS volumes that are attached to your EKS worker nodes.
 
 - [AWS Key Management Service (KMS)](https://aws.amazon.com/kms/): You can use AWS KMS to manage encryption keys and enforce the encryption of your data at rest. If you enable [secrets encryption](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/), you can encrypt Kubernetes secrets by using your own AWS KMS key. For more information, see [Encrypt Kubernetes secrets with AWS KMS on existing clusters](https://docs.aws.amazon.com/eks/latest/userguide/enable-kms.html).
 - [Amazon S3 server-side encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html): If your EKS applications interact with Amazon S3, you can enable server-side encryption for your S3 buckets to help protect data at rest.
 
-[Host-based encryption](/azure/aks/enable-host-encryption) on AKS further strengthens tenant workload isolation, privacy, and security. When you enable host-based encryption, AKS encrypts data at rest on the underlying host machines. This approach helps protect sensitive tenant information from unauthorized access. When you enable end-to-end encryption, temporary disks and ephemeral OS disks are encrypted at rest with platform-managed keys.
+[Host-based encryption](/azure/aks/enable-host-encryption) on AKS further strengthens tenant workload isolation, privacy, and security. When you enable host-based encryption, AKS encrypts data at rest on the underlying host machines. This approach helps protect sensitive tenant information from unauthorized access. When you enable end-to-end encryption, temporary disks and ephemeral OS disks are encrypted at rest via platform-managed keys.
 
-In AKS, OS and data disks use server-side encryption with platform-managed keys by default. The caches for these disks are encrypted at rest with platform-managed keys. You can use your own [key encryption key](/azure/security/fundamentals/encryption-atrest) to encrypt the [data protection key](/azure/security/fundamentals/encryption-atrest). This method is called *envelope encryption*, or *wrapping*. The [BYOK](/azure/aks/azure-disk-customer-managed-keys) that you specify also encrypts the cache for the OS and data disks.
+In AKS, OS disks and data disks use server-side encryption via platform-managed keys by default. The caches for these disks are encrypted at rest via platform-managed keys. You can use your own [key encryption key](/azure/security/fundamentals/encryption-atrest) to encrypt the [data protection key](/azure/security/fundamentals/encryption-atrest). This method is called *envelope encryption*, or *wrapping*. The [BYOK](/azure/aks/azure-disk-customer-managed-keys) that you specify also encrypts the cache for the OS disks and data disks.
 
-Host-based encryption adds a layer of security for multitenant environments. Each tenant's data in the OS and data disk caches is encrypted at rest with either customer-managed or platform-managed keys, depending on the selected disk encryption type. For more information, see the following resources:
+Host-based encryption adds a layer of security for multitenant environments. Each tenant's data in the OS disk and data disk caches is encrypted at rest via either customer-managed or platform-managed keys, depending on the selected disk encryption type. For more information, see the following resources:
 
 - [Host-based encryption on AKS](/azure/aks/enable-host-encryption)
 - [BYOK with Azure disks in AKS](/azure/aks/azure-disk-customer-managed-keys)
@@ -460,11 +465,11 @@ Host-based encryption adds a layer of security for multitenant environments. Eac
 
 Azure periodically updates its VM-hosting platform to improve reliability, performance, and security. These updates range from patching software components in the hosting environment to upgrading networking components or decommissioning hardware. For more information, see [Maintenance for VMs in Azure](/azure/virtual-machines/maintenance-and-updates).
 
-VM-hosting infrastructure updates don't usually affect hosted VMs, such as agent nodes of existing AKS clusters. For updates that affect hosted VMs, Azure minimizes the cases that require reboots by pausing the VM while updating the host, or live-migrating the VM to an already updated host.
+VM-hosting infrastructure updates don't usually affect hosted VMs, such as agent nodes of existing AKS clusters. For updates that affect hosted VMs, Azure minimizes the cases that require reboots by pausing the VM while updating the host or live migrating the VM to an already updated host.
 
 If an update requires a reboot, Azure provides notification and a time window when you can start the update. The self-maintenance window for host machines is typically 35 days, unless the update is urgent.
 
-You can use planned maintenance to update VMs. Manage planned maintenance notifications with the [Azure CLI](/azure/virtual-machines/maintenance-notifications-cli), [Azure PowerShell](/azure/virtual-machines/maintenance-notifications-powershell), or the [Azure portal](/azure/virtual-machines/maintenance-notifications-portal). Planned maintenance detects whether you use cluster auto-upgrade and schedules upgrades during your maintenance window automatically. For more information, see [Use planned maintenance to schedule maintenance windows for your AKS cluster](/azure/aks/planned-maintenance) and details about the [az aks maintenanceconfiguration command](/cli/azure/aks/maintenanceconfiguration).
+You can use planned maintenance to update VMs. Manage planned maintenance notifications with the [Azure CLI](/azure/virtual-machines/maintenance-notifications-cli), [Azure PowerShell](/azure/virtual-machines/maintenance-notifications-powershell), or the [Azure portal](/azure/virtual-machines/maintenance-notifications-portal). Planned maintenance detects whether you use the cluster auto-upgrade feature and schedules upgrades during your maintenance window automatically. For more information, see [Use planned maintenance to schedule maintenance windows for your AKS cluster](/azure/aks/planned-maintenance) and [az aks maintenanceconfiguration command](/cli/azure/aks/maintenanceconfiguration).
 
 ### Kubernetes upgrades
 
@@ -474,7 +479,7 @@ By default, AKS configures upgrades to surge with one extra node. A default valu
 
 For example, a `max-surge` value of 100% provides the fastest possible upgrade process by doubling the node count. But this value also drains all nodes in the node pool simultaneously. You might want to use this high value for testing, but for production node pools use a `max-surge` setting of 33%.
 
-AKS accepts both integer and percentage values for `max-surge`. An integer such as `5` indicates five extra nodes to surge. You can set the percent value for `max-surge` from `1%` to `100%`, rounded up to the nearest node count. A value of `50%` indicates a surge value of half the current node count in the pool.
+AKS accepts both integer and percentage values for the `max-surge` value. An integer such as `5` indicates five extra nodes to surge. You can set the percent value for `max-surge` from `1%` to `100%`, rounded up to the nearest node count. A value of `50%` indicates a surge value of half the current node count in the pool.
 
 During an upgrade, you can set the `max-surge` value to a minimum of `1` and a maximum value that's equal to the number of nodes in the node pool. You can set larger values, but the maximum number of nodes for `max-surge` can't exceed the number of nodes in the pool.
 
@@ -497,7 +502,7 @@ To see the status of node pools, use [az aks nodepool list](/cli/azure/aks/nodep
   az aks nodepool list -g <myResourceGroup> --cluster-name <myAKSCluster>
 ```
 
-The following command uses [az aks nodepool upgrade](/cli/azure/aks/nodepool#az_aks_nodepool_upgrade) to upgrade a single node pool.
+To upgrade a single node pool, use [az aks nodepool upgrade](/cli/azure/aks/nodepool#az_aks_nodepool_upgrade).
 
 ```azurecli-interactive
   az aks nodepool upgrade \
@@ -518,7 +523,7 @@ Consider the following best practices when you upgrade the Kubernetes version in
 
 - You should upgrade all node pools in an AKS cluster to the same Kubernetes version. The default behavior of `az aks upgrade` upgrades all node pools and the control plane.
 
-- Manually perform upgrades, or set an auto-upgrade channel on your cluster. If you use planned maintenance to patch VMs, auto-upgrades also start during your specified maintenance window. For more information, see [Upgrade an AKS cluster](/azure/aks/upgrade-cluster).
+- Manually perform upgrades, or set an automatic upgrade channel on your cluster. If you use planned maintenance to patch VMs, automatic upgrades also start during your specified maintenance window. For more information, see [Upgrade an AKS cluster](/azure/aks/upgrade-cluster).
 
 - The `az aks upgrade` command with the `--control-plane-only` flag upgrades the cluster control plane and doesn't change the associated node pools in the cluster. To upgrade individual node pools, specify the target node pool and Kubernetes version in the `az aks nodepool upgrade` command.
 - An AKS cluster upgrade triggers a cordon and drain of your nodes. If you have low compute quota available, the upgrade can fail. For more information, see [Increase regional vCPU quotas](/azure/azure-portal/supportability/regional-quota-requests).
