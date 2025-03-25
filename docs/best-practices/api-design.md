@@ -30,9 +30,9 @@ A RESTful web API implementations is a web API that employs REST (Representation
 
 A RESTful web API should align with the following principles:
 
-- **Platform independence**, which means that clients should be able to call the web API regardless of it's the internal implementation. To achieve platform independence, the web API should use HTTP as a standard protocol, offer clear documentation, and support a familiar data exchange format such as JSON and XML. 
+- **Platform independence**, which means that clients should be able to call the web API regardless of the internal implementation. To achieve platform independence, the web API uses HTTP as a standard protocol, offers clear documentation, and supports a familiar data exchange format such as JSON or XML.
 
-- **Loose coupling**, which means that the client and the web service should be able to evolve independently. The client should not have to know the internal implementation of the web service, and the web service should not have to know the internal implementation of the client. To achieve loose coupling in a RESTful web API, the web service should expose a set of resources that the client can interact with, and the client should be able to navigate between resources using hypermedia links.
+- **Loose coupling**, which means that the client and the web service should be able to evolve independently. The client should not have to know the internal implementation of the web service, and the web service should not have to know the internal implementation of the client. To achieve loose coupling in a RESTful web API, use only standard protocols, and having a mechanism whereby the client and the web service can agree on the format of the data to exchange.
 
 This guide provides best practices for designing RESTful web APIs. It also covers common design patterns and considerations for building web APIs that are easy to understand, flexible, and maintainable.
 
@@ -590,7 +590,7 @@ This approach is arguably the purest of the versioning mechanisms and lends itse
 > [!NOTE]
 > When you select a versioning strategy, you should also consider the implications on performance, especially caching on the web server. The URI versioning and query string versioning schemes are cache-friendly inasmuch as the same URI/query string combination refers to the same data each time.
 >
-> The Header versioning and Media Type versioning mechanisms typically require additional logic to examine the values in the custom header or the Accept header. In a large-scale environment, many clients using different versions of a web API can result in a significant amount of duplicated data in a server-side cache. This issue can become acute if a client application communicates with a web server through a proxy that implements caching, and that only forwards a request to the web server if it does not currently hold a copy of the requested data in its cache.
+> The header versioning and Media Type versioning mechanisms typically require additional logic to examine the values in the custom header or the Accept header. In a large-scale environment, many clients using different versions of a web API can result in a significant amount of duplicated data in a server-side cache. This issue can become acute if a client application communicates with a web server through a proxy that implements caching, and that only forwards a request to the web server if it does not currently hold a copy of the requested data in its cache.
 
 ## Multitenant web APIs
 
