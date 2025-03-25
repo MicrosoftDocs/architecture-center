@@ -27,7 +27,7 @@ This article compares networking modes for Azure Kubernetes Service (AKS) and Am
 
 ## Amazon EKS networking modes
 
-You can use [Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) to launch Amazon Web Services (AWS) resources into a virtual network that has public and private [subnets](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html). The subnets are ranges of IP addresses within the VPC. A public subnet hosts resources that connect to the internet, and a private subnet hosts resources that don't connect to the public internet. Amazon EKS can provision managed node groups in both public and private subnets.
+You can use [Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) to launch Amazon Web Services (AWS) resources into a virtual network that has public and private [subnets](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html). The subnets are ranges of IP addresses within the VPC. A public subnet hosts resources that connect to the internet. A private subnet hosts resources that don't connect to the public internet. Amazon EKS can provision managed node groups in both public and private subnets.
 
 Endpoint access control lets you configure whether the API server endpoint is reachable from the public internet or through the VPC. Amazon EKS provides several ways to [control access to the cluster endpoint](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html). You can enable the default public endpoint, a private endpoint, or both endpoints simultaneously. When you enable the public endpoint, you can add Classless Inter-Domain Routing (CIDR) restrictions to limit the client IP addresses that can connect to the public endpoint.
 
@@ -56,11 +56,11 @@ For more information about connectivity options, see [Access a private-only API 
 
 ## AKS network access to the API server
 
-To secure network access to the Kubernetes API in AKS, you can use a private AKS cluster or authorized IP ranges.
+To secure network access to the Kubernetes API in AKS, you can use a private AKS cluster or authorized IP address ranges.
 
 ### Private AKS cluster
 
-A [private AKS cluster](/azure/aks/private-clusters) ensures that network traffic between the API server and the agent nodes remains within the virtual network. In a private AKS cluster, the control plane or API server has [internal IP addresses](https://tools.ietf.org/html/rfc1918). A private cluster ensures that network traffic between your API server and your node pools remains only on the private network.
+A [private AKS cluster](/azure/aks/private-clusters) helps ensure that network traffic between the API server and the agent nodes remains within the virtual network. In a private AKS cluster, the control plane or API server has [internal IP addresses](https://tools.ietf.org/html/rfc1918). A private cluster helps ensure that network traffic between your API server and your node pools remains only on the private network.
 
 In a private AKS cluster, the API server has an internal IP address that's only reachable via an Azure [private endpoint](/azure/private-link/private-endpoint-overview) that's located in the same virtual network. Virtual machines (VMs) in the same virtual network can privately communicate with the control plane via this private endpoint. The control plane or API server is hosted in the Azure-managed subscription. The AKS cluster and its node pools are in the customer's subscription.
 
@@ -84,7 +84,7 @@ For a private AKS cluster, disable the public FQDN of the API server. To communi
 
 The AKS resource provider exposes the following parameters to customize private AKS cluster deployments:
 
-- The `authorizedIpRanges` string specifies allowed IP ranges in CIDR format.
+- The `authorizedIpRanges` string specifies allowed IP address ranges in CIDR format.
 
 - The `disableRunCommand` Boolean specifies whether to disable the `run` command for the cluster.
 - The `enablePrivateCluster` Boolean specifies whether to create the cluster as private.
@@ -114,7 +114,7 @@ In a private AKS cluster, the API server endpoint has no public IP address. You 
 - Create an [Azure private endpoint](/azure/private-link/private-endpoint-overview) connection inside another virtual network.
 - Use an [Azure Cloud Shell](/azure/cloud-shell/vnet/overview) instance that's deployed in a subnet that's connected to the API server for the cluster.
 
-Employ the Azure CLI so that you can use the [az aks command invoke](/cli/azure/aks/command#az-aks-command-invoke) command to access private clusters without configuring a VPN or ExpressRoute gateway. Use this command to remotely invoke other commands, such as `kubectl` and `helm`, on your private cluster through the Azure API, without directly connecting to the cluster. To use `command invoke`, set up the necessary permissions for the `Microsoft.ContainerService/managedClusters/runcommand/action` and `Microsoft.ContainerService/managedclusters/commandResults/read` actions.
+Use the Azure CLI to run the [az aks command invoke](/cli/azure/aks/command#az-aks-command-invoke) command to access private clusters without configuring a VPN or ExpressRoute gateway. Use this command to remotely invoke other commands, such as `kubectl` and `helm`, on your private cluster through the Azure API, without directly connecting to the cluster. To use `command invoke`, set up the necessary permissions for the `Microsoft.ContainerService/managedClusters/runcommand/action` and `Microsoft.ContainerService/managedclusters/commandResults/read` actions.
 
 In the Azure portal, you can use the `Run command` feature to run commands on your private cluster. This feature employs the `command invoke` functionality to run commands on your cluster. The pod that the `Run command` feature creates provides `kubectl` and `helm` tools to manage your cluster. The `Run command` also provides a Bash environment within the pod that includes tools like `jq`, `xargs`, `grep`, and `awk`.
 
@@ -128,9 +128,9 @@ The control plane or API server is in an AKS-managed Azure subscription. Your cl
 
 You can use API Server VNet Integration with public clusters and private clusters. You can add or remove public access after cluster provisioning. Unlike clusters that don't have virtual network integration, the agent nodes always communicate directly with the private IP address of the API server internal load balancer IP without using DNS. Traffic that goes from the node to the API server traffic is on private networking. And API server-to-node connectivity doesn't require a tunnel. Out-of-cluster clients can communicate with the API server normally if public network access is enabled. If public network access is disabled, follow the same private DNS setup methodology as standard [private clusters](/azure/aks/private-clusters). For more information, see [Create an AKS cluster with API Server VNet Integration](/azure/aks/api-server-vnet-integration).
 
-### Authorized IP ranges
+### Authorized IP address ranges
 
-You can also use [authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges) to improve cluster security and minimize attacks to the API server. Authorized IP ranges restrict access to the control plane of a public AKS cluster to a known list of IP addresses and CIDRs. When you use this option, the API server is still publicly exposed, but access is limited.
+You can also use [authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges) to improve cluster security and minimize attacks to the API server. Authorized IP address ranges restrict access to the control plane of a public AKS cluster to a known list of IP addresses and CIDRs. When you use this option, the API server is still publicly exposed, but access is limited.
 
 The following `az aks update` Azure CLI command authorizes IP address ranges:
 
@@ -145,9 +145,9 @@ The following `az aks update` Azure CLI command authorizes IP address ranges:
 
 Consider the following key points for AKS connectivity:
 
-- An AKS private cluster provides enhanced security and isolation compared to authorized IP ranges. However, you can't convert an existing public AKS cluster to a private cluster. Instead, you can enable authorized IP ranges for any existing AKS cluster.
+- An AKS private cluster provides enhanced security and isolation compared to authorized IP address ranges. However, you can't convert an existing public AKS cluster to a private cluster. Instead, you can enable authorized IP address ranges for any existing AKS cluster.
 
-- You can't apply authorized IP ranges to a private API server endpoint. They only apply to the public API server.
+- You can't apply authorized IP address ranges to a private API server endpoint. They only apply to the public API server.
 - Private clusters don't support Azure DevOps-hosted agents. You should use self-hosted agents instead.
 - For Azure Container Registry to function with a private AKS cluster, you must set up a private link for the container registry in the cluster virtual network. Alternatively, you can establish peering between the Container Registry virtual network and the private cluster's virtual network.
 - The limitations of Azure Private Link apply to private clusters.
