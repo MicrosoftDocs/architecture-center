@@ -168,9 +168,12 @@ A GET request should return one of the following HTTP status codes:
 
 #### POST requests
 
-A POST request should create a resource. The server assigns a URI for the new resource, and returns that URI to the client. In a RESTful model, POST requests are generally used to add a new resource to the collection identified by the URI.
+A POST request should create a resource. The server assigns a URI for the new resource, and returns that URI to the client.  
 
-A POST request can also be used to submit data for processing to an existing resource, without any new resource being created.
+>[!IMPORTANT]
+>For POST requests, a client should not attempt to create its own URI. The client should submit the request to the URI of the collection, and the server should assign a URI to the new resource. If a client attempts this and issues a POST request to a specific URI, the server will return HTTP status code 400 (BAD REQUEST) to indicate that the method is not supported.
+
+In a RESTful model, POST requests are generally used to add a new resource to the collection identified by the URI. However, a POST request can also be used to submit data for processing to an existing resource, without any new resource being created.
 
 A POST request should return one of the following HTTP status codes:
 
@@ -180,7 +183,7 @@ A POST request should return one of the following HTTP status codes:
 | 201 (Created) | The resource was created successfully. The URI of the new resource is included in the Location header of the response. The response body contains a representation of the resource. |
 | 204 (No Content) |The response body contains no content. |
 | 400 (Bad Request) | The client has placed invalid data in the request. The response body can contain additional information about the error or a link to a URI that provides more details. |
-
+| 405 (Method Not Allows) | The client has attempted to make a POST request to a URI that doesn't support such requests. |
 
 #### PUT request
 
@@ -330,14 +333,19 @@ For more information on how to implement this approach, see [Providing asynchron
 
 To optimize data retrieval and reduce payload size, implement **data pagination** and **query-based filtering** in your API design. These techniques allow clients to request only the subset of data they need, improving performance and reducing bandwidth usage.
 
-- **Pagination** divides large datasets into smaller, manageable chunks. Use query parameters to specify the number of items to return (`limit`) and the starting point (`offset`). Make sure to also provide meaningful defaults for `limit` and `offset` (e.g., `limit=10`, `offset=0`). Also, to help clients navigate the dataset and prevent possible Denial of Service attacks, include metadata in the response, such as the total number of items and pagination details.
-    
-    ```http
-    GET /orders?limit=25&offset=50
-    ```
-    
-    - **`limit`**: Specifies the maximum number of items to return.
-    - **`offset`**: Specifies the starting index for the data.
+- **Pagination** divides large datasets into smaller, manageable chunks. Use query parameters to specify the number of items to return (`limit`) and the starting point (`offset`). Make sure to also provide meaningful defaults for `limit` and `offset` (e.g., `limit=25`, `offset=0`). For example:
+
+
+```http
+GET /orders?limit=25&offset=50
+```
+
+- **`limit`**: Specifies the maximum number of items to return.
+- **`offset`**: Specifies the starting index for the data.
+
+>[!TIP]
+>To help prevent **Denial of Service** attacks, consider imposing an upper limit on the number of items returned. For example, if your service sets `max-limit=25` and a client requests `limit=1000`, your service could either return 25 items or or an HTTP BAD-REQUEST error, if the API is documented as such.
+
     
 - **Filtering** allows clients to refine the dataset by applying conditions. The API can allow the client to pass filter in the query string of the URI:
 
