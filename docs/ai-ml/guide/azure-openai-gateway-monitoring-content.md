@@ -71,6 +71,30 @@ Output:
 
 ## Auditing model inputs and outputs
 
-There are a variety of monitoring use cases organizations have that require logging model inputs and outputs. These use cases include the following:
+Central to many auditing requirements for a generative AI workloads is monitoring the input and output of the models. You may further need to know whether a response was from a model, or whether the response was sourced from a cache. There are many use cases for monitoring both inputs and outputs of models.
 
-- Input threat detection 
+**Inputs** - The following are some of the use cases for monitoring the inputs to models:
+
+- Threat detection - analyze inputs to identify and mitigate potential security risks.
+- Profanity detection - analyze inputs for offensive language to ensure the system is safe and unbiased.
+- Model performance - Combining with model outputs to evaluate performance on metrics like groundedness and relevance. This information can be used to address performance issues with the model or prompts.
+
+**Outputs** - The following are some of the use cases for monitoring the outputs to models:
+
+- Data exfiltration detection - analyze outputs to guard against unauthorized transfer of sensitive information.
+- Stateful compliance - monitor outputs over multiple interactions within the same conversation to detect stealthy leaks of sensitive information.
+- Compliance - ensure outputs adhere to corporate guidelines and regulatory requirements. Some examples include ensuring models do not provide legal advise or make financial promises.
+- Model performance - Combining with model inputs to evaluate performance on metrics like groundedness and relevance. This information can be used to address performance issues with the model or prompts.
+
+### Challenges to auditing model inputs and outputs directly from the model
+
+- Model logging constraints - Some services such as Azure OpenAI do not log model inputs and outputs.
+- Cache - More complex architectures may serve responses from cache. In those cases, the model is not called and will not log either the input or output.
+- Stateful conversations - The state of a multi-interaction conversation may be stored outside the model. The model does not know which interactions should be correlated as a conversation.
+
+### Introduce a gateway for auditing model inputs and outputs
+
+:::image type="complex" source="_images/tracking-multiple-models-inputs-and-outputs.svg" alt-text="Architecture diagram of a scenario with multiple clients connecting to more than one model deployment across multiple instances of Azure OpenAI through a gateway with the gateway logging inputs and outputs." lightbox="_images/tracking-multiple-models-inputs-and-outputs.svg":::
+   A diagram that shows two clients labeled A and B directly interfacing with a gateway. The gateway has two arrows that points to private endpoints. The first private endpoint has two solid arrows that point to a gpt-35-turbo deployment and a gpt-4o deployment in an Azure OpenAI deployment. The second privat endpoint has a solid arrow pointing to a gpt-4 deployment and a dashed line pointing to a gpt-4o deployment in a second Azure OpenAI instance. Both Azure OpenAI instances are shown passing Azure OpenAI metrics and logs to Azure Monitor. The gateway has an arrow pointing to Azure Monitor that shows it passing inputs and outputs.
+:::image-end:::
+
