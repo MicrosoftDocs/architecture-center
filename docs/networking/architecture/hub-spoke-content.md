@@ -14,7 +14,7 @@ Hub-spoke network topologies typically include the many of following architectur
 
 - **Hub virtual network** - The hub virtual network hosts shared Azure services. Workloads hosted in the spoke virtual networks can use these services. The hub virtual network is the central point of connectivity for cross-premises networks. The hub contains your primary point of egress and provides a mechanism to connect one spoke to another in situations where cross virtual network traffic is needed.
 
-   A hub is a regional resource. Organizations that have their workloads in multiple regions, will should have multiple hubs, one per region.
+   A hub is a regional resource. Organizations that have their workloads in multiple regions, should have multiple hubs, one per region.
 
    The hub enables the following concepts:
 
@@ -56,7 +56,7 @@ Hub-spoke network topologies typically include the many of following architectur
 
   In this architecture, this would be one option to connect some or all of the spokes to the remote network. Spokes would typically not deploy their own VPN Gateway, and instead use the centralized solution offered by the hub. You need to establish routing configuration to manage this connectivity.
 
-- [Azure ExpressRoute gateway](/azure/expressroute/expressroute-about-virtual-network-gateways) exchanges IP routes and routes network traffic between your on-premises network and your Azure virtual network.  In this architecture, ExpressRoute would alternative option to a VPN Gateway to connect some or all of the spokes to a remote network. Spokes would not deploy their own ExpressRoute, and instead those spokes would use the centralized solution offered by the hub. Like with a VPN Gateway, you need to establish routing configuration to manage this connectivity.
+- [Azure ExpressRoute gateway](/azure/expressroute/expressroute-about-virtual-network-gateways) exchanges IP routes and routes network traffic between your on-premises network and your Azure virtual network.  In this architecture, ExpressRoute would be the alternative option to a VPN Gateway to connect some or all of the spokes to a remote network. Spokes would not deploy their own ExpressRoute, and instead those spokes would use the centralized solution offered by the hub. Like with a VPN Gateway, you need to establish routing configuration to manage this connectivity.
 
 - [Azure Monitor](/azure/azure-monitor/overview) can collect, analyze, and act on telemetry data from cross-premises environments, including Azure and on-premises. Azure Monitor helps you maximize the performance and availability of your applications and proactively identify problems in seconds. In this architecture, Azure Monitor is the log and metric sink for the hub resources and for network metrics. Azure Monitor might be used as a logging sink for resources in spoke networks as well, but that's a decision for the various connected workloads and is not mandated by this architecture.
 
@@ -241,7 +241,7 @@ Selective use of direct peering or other non-hub routed communication between sp
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Enable diagnostic settings for all services, such as Azure Bastion, Azure Firewall, and your cross-premesis gateway. Determine which settings are meaningful to your operations. Turn off settings that aren't meaningful to avoid undue costs. Resources such as Azure Firewall can be verbose with logging and you can incur high monitoring costs.
+Enable diagnostic settings for all services, such as Azure Bastion, Azure Firewall, and your cross-premises gateway. Determine which settings are meaningful to your operations. Turn off settings that aren't meaningful to avoid undue costs. Resources such as Azure Firewall can be verbose with logging and you can incur high monitoring costs.
 
 Use [Connection monitor](/azure/network-watcher/connection-monitor-overview) for end-to-end monitoring to detect anomalies and to identify and troubleshoot network issues.
 
@@ -342,7 +342,6 @@ Your architecture may differ from this simple hub-spoke architecture. The follow
 
 Explore the following related architectures:
 
-- [Azure firewall architecture guide](../guide/network-virtual-appliances-architecture.yml)
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
 - [Troubleshoot a hybrid VPN connection](../../reference-architectures/hybrid-networking/troubleshoot-vpn.yml)
 - [Spoke-to-spoke networking](../../networking/spoke-to-spoke-networking.yml)
