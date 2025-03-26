@@ -674,10 +674,10 @@ In 2008, Leonard Richardson proposed what is now known as The Richardson Maturit
 
 The levels are as follows:
  
-**Level 0**: Define one URI, and all operations are POST requests to this URI. SOAP web services are typically at this level.
-**Level 1**: Create separate URIs for individual resources. This level is not yet RESTful, but is beginning to align with RESTful design.
-**Level 2**: Use HTTP methods to define operations on resources.  In practice, many published web APIs fall somewhere around this level.
-**Level 3**: Use hypermedia ([HATEOAS](#implement-hateoas-hypertext-as-the-engine-of-application-state)). This level is truly a RESTful API, according to Fielding's definition. 
+- **Level 0**: Define one URI, and all operations are POST requests to this URI. SOAP web services are typically at this level.
+- **Level 1**: Create separate URIs for individual resources. This level is not yet RESTful, but is beginning to align with RESTful design.
+- **Level 2**: Use HTTP methods to define operations on resources.  In practice, many published web APIs fall somewhere around this level.
+- **Level 3**: Use hypermedia ([HATEOAS](#implement-hateoas-hypertext-as-the-engine-of-application-state)). This level is truly a RESTful API, according to Fielding's definition. 
 
 
 ## OpenAPI Initiative
