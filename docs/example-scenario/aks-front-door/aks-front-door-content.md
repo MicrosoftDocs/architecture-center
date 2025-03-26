@@ -16,6 +16,9 @@ The following diagram shows the steps for the message flow during deployment and
 
 :::image type="content" source="./media/flow.svg" alt-text="Diagram that shows the steps for the message flow during deployment and runtime." lightbox="./media/flow.svg" border="false":::
 
+:::image type="complex" border="false" source="./media/flow.svg" alt-text="Diagram that shows the steps for the message flow during deployment and runtime." lightbox="./media/flow.svg":::
+   The diagram has five primary sections. The top section isn't enclosed. The bottom four sections are enclosed in dotted rectangles. Those four rectangles are enclosed by a dotted rectangle that's labeled AksVnet 10.0.0.0/8. The top section has a logo that represents administrators and platform engineers. An arrow points from this logo to the logo that represents Azure Key Vault to indicate that a certificate for the custom domain store.test.com is generated and saved in an Azure Key Vault. In step two, an arrow points from the administrator and platform engineer logo to the AksVnet 10.0.0.0/8 section to indicate that a platform engineer specifies the necessary information in the main.bicepparams Bicep parameters file and deploys the Bicep modules to create the Azure resources. In step three, an arrow labeled SecretProviderClass and Secrets Store CSI Driver points to the logo that represents the TLS secret. In step four, this section shows an arrow from the digital certificate to Azure Front Door store.test.com to indicate that it's reached its destination.
+:::image-end:::
 *Download a [Visio file](https://arch-center.azureedge.net/aks-flow.vsdx) of this architecture.*
 
 #### Deployment workflow
@@ -48,7 +51,7 @@ The following workflow corresponds to the previous diagram:
 
    - A Kubernetes [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) object to expose the web application via the NGINX ingress controller.
 
-   - A [SecretProviderClass](https://learn.microsoft.com/en-us/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified Key Vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret that contains the TLS certificate that the ingress object references.
+   - A [SecretProviderClass](https://learn.microsoft.com/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified Key Vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret that contains the TLS certificate that the ingress object references.
 
 1. An Azure Front Door [secret resource](/azure/templates/microsoft.cdn/profiles/secrets) is used to manage and store the TLS certificate that's in the key vault. This certificate is used by the [custom domain](/azure/templates/microsoft.cdn/profiles/customdomains) that's associated with the Azure Front Door endpoint. The Azure Front Door profile uses a user-assigned managed identity with the *Key Vault Administrator* role assignment to retrieve the TLS certificate from Key Vault.
 
@@ -163,7 +166,7 @@ The architecture consists of the following components:
 
   - A Kubernetes [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) object to expose the web application via the NGINX ingress controller.
 
-  - A [SecretProviderClass](https://learn.microsoft.com/en-us/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified Key Vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret containing the TLS certificate referenced by the ingress object.
+  - A [SecretProviderClass](/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified Key Vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret containing the TLS certificate referenced by the ingress object.
 
   - (Optional) [NGINX ingress controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/) via Helm if you opted to use an unmanaged NGINX ingress controller.
 
