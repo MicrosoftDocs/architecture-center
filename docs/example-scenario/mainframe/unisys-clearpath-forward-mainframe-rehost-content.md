@@ -14,7 +14,7 @@ Depending upon the client's end goal, the transitioned Azure MCP could be the en
 ## Potential use cases
 
 - Move existing Unisys ClearPath Forward Libra workloads to Azure rapidly, with low risk.
-- Use of [Azure Arc](https://azure.microsoft.com/services/azure-arc/) can enable Azure to become the disaster recovery (DR) plan for an existing on-premises workload.
+- Use of [Azure Arc](https://azure.microsoft.com/products/azure-arc/) can enable Azure to become the disaster recovery (DR) plan for an existing on-premises workload.
 - Add Azure data services to existing client capabilities.
 - Establish supplmental Test/Dev environments for coding, application testing, and training purposes.
 
@@ -34,12 +34,12 @@ Depending upon the client's end goal, the transitioned Azure MCP could be the en
 
 The legend matches both diagrams to highlight the similarities between the original and migrated state of the system.
 
-1. Legacy Burroughs terminal emulation for demand and online users is replaced by a web browser to access system resources in Azure. User access provided over TLS port 443 for accessing web-based applications. Web-based applications presentation layer can be kept virtually unchanged to minimize customer retraining. On the other hand, the web-application presentation layer can be updated with modern UX frameworks if desired. Further, for admin access to the VMs, [Azure Bastion hosts](https://azure.microsoft.com/services/azure-bastion/) can be used to maximize security by minimizing open ports.
+1. Legacy Burroughs terminal emulation for demand and online users is replaced by a web browser to access system resources in Azure. User access provided over TLS port 443 for accessing web-based applications. Web-based applications presentation layer can be kept virtually unchanged to minimize customer retraining. On the other hand, the web-application presentation layer can be updated with modern UX frameworks if desired. Further, for admin access to the VMs, [Azure Bastion hosts](https://azure.microsoft.com/products/azure-bastion/) can be used to maximize security by minimizing open ports.
 1. Printers and other legacy system output devices are supported as long as they're IP attached to the Azure network. Print functions on MCP are retained so that no application changes are needed.
 1. `Operations` is moved out of the MCP to an external VM. More automation can be achieved by use of an OpCon VM in the ecosystem to monitor and control the entire environment.
-1. If physical tapes are in use, they're converted to virtual tape. Tape formatting and read/write functionality are retained. The tapes are written to Azure or offline storage. Tape functionality is maintained, eliminating the need to rewrite source code. Benefits include [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) accounts for backup of virtual tape files and faster access times, as IO operations are conducted directly against disk media.
+1. If physical tapes are in use, they're converted to virtual tape. Tape formatting and read/write functionality are retained. The tapes are written to Azure or offline storage. Tape functionality is maintained, eliminating the need to rewrite source code. Benefits include [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/) accounts for backup of virtual tape files and faster access times, as IO operations are conducted directly against disk media.
 1. The MCP storage construct can be mapped onto Azure storage, maintaining the MCP drive mapping nomenclature. No application or operations changes are needed.
-1. [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) provides disaster recovery capabilities by mirroring the Azure VMs to a secondary Azure region for quick failover in the rare case of an Azure datacenter failure.
+1. [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery/) provides disaster recovery capabilities by mirroring the Azure VMs to a secondary Azure region for quick failover in the rare case of an Azure datacenter failure.
 
 ### Components
 
@@ -72,7 +72,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 Unisys CPF in Azure eliminates hardware maintenance and facility costs upfront. Further savings derive from not having to retrain staff how to operate or use the system. The virtualized computer runs just as it did on the datacenter floor.
 
-You can also optimize your costs by following the process to right-size the capacity of your VMs, from the beginning, along with simplified resizing, as needed. For more information, see the Azure Well-Architected Framework's [Principles of Cost Optimization](/azure/architecture/framework/cost/overview).
+You can also optimize your costs by following the process to right-size the capacity of your VMs, from the beginning, along with simplified resizing, as needed. For more information, see the Well-Architected Framework's [Cost Optimization design principles](/azure/well-architected/cost-optimization/principles).
 
 To estimate the cost of Azure products and configurations, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). VMs will be used for the MCP along with any support VMs for print or tape. Storage would range from Premium SSD to Blob storage dependent upon performance needs and data retention policies.
 
@@ -80,15 +80,15 @@ To learn more about Unisys CPF offerings and pricing, visit the [Unisys ClearPat
 
 ### Operational Excellence
 
-Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/pillars).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Operational Excellence design principles](/azure/well-architected/operational-excellence/principles).
 
 Unisys demonstrates operational excellence by presenting a known environment to the staff, while including new capabilities like Azure Site Recovery to provide disaster recovery failover.
 
-You can optimize your operational efficiency by deploying your solution with Azure Resource Manager templates, and by using Azure Monitor to measure and improve your performance. See the Azure Well-Architected Framework's [Operational Excellence principles](/azure/architecture/guide/devops/devops-start-here) and [Monitoring for DevOps](/devops/operate/what-is-monitoring).
+You can optimize your operational efficiency by deploying your solution with Azure Resource Manager templates, and by using Azure Monitor to measure and improve your performance. See  [DevOps architecture design](/azure/architecture/guide/devops/devops-start-here) and [Monitoring for DevOps](/devops/operate/what-is-monitoring).
 
 ### Performance Efficiency
 
-Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/reliability/checklist).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance Efficiency design principles](/azure/well-architected/performance-efficiency/principles).
 
 Unisys matches operational performance in Azure with Bronze, Silver, Gold, Platinum, and Titanium offerings to match client workload to operational needs. The Unisys virtualization methodology is unique in the mainframe to cloud marketspace.
 
@@ -106,12 +106,12 @@ Principal author:
 
 For more information, please contact **legacy2azure@microsoft.com**, or check out the following resources:
 
-- [Azure Mainframe and midrange migration](https://azure.microsoft.com/migration/mainframe)
+- [Azure Mainframe and midrange migration](https://azure.microsoft.com/solutions/migration/mainframe/)
 - [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 - [Unisys Cloud Migration Services](https://www.unisys.com/solutions/cloud-management/)
 - [Unisys Documentation Libraries](https://public.support.unisys.com/common/epa/documentationlibraries.aspx)
 - [Azure Virtual Network documentation](/azure/virtual-network)
-- [Manage Azure Virtual Network interface cards](/azure/virtual-network/virtual-network-network-interface)
+- [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface)
 - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
 - [What is Azure Files?](/azure/storage/files/storage-files-introduction)
 - [Azure ExpressRoute documentation](/azure/expressroute/expressroute-introduction)
