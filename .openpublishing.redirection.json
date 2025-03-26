@@ -7235,11 +7235,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/solution-ideas/articles/sma-opcon-azure.yml",
-      "redirect_url": "https://help.smatechnologies.com/opcon/connectors/azure-vm/",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "docs/databases/guide/hybrid-on-premises-and-cloud.md",
       "redirect_url": "/azure/cloud-adoption-framework/scenarios/hybrid/",
       "redirect_document_id": false
