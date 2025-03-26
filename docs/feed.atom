@@ -2,12 +2,60 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2025-03-10T19:49:41.482Z</updated>
+    <updated>2025-03-17T15:14:14.096Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Access an Azure Kubernetes Service (AKS) API Server]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/security/access-azure-kubernetes-service-cluster-api-server</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/security/access-azure-kubernetes-service-cluster-api-server"/>
+        <updated>2025-03-13T23:12:19.000Z</updated>
+        <summary type="html"><![CDATA[Learn more about how to connect to an Azure Kubernetes Service (AKS) cluster's API server. Possibilities include Azure Bastion, ExpressRoute, and Cloud Shell.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Google Cloud to Azure services comparison]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/gcp-professional/services</id>
+        <link href="https://learn.microsoft.com/azure/architecture/gcp-professional/services"/>
+        <updated>2025-03-13T17:55:05.000Z</updated>
+        <summary type="html"><![CDATA[Compare Google Cloud and Microsoft Azure services. Not every Google Cloud service or Azure service is listed, and not every matched service has exact feature parity.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Microsoft Entra security for AWS]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security"/>
+        <updated>2025-03-13T17:55:05.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Microsoft Entra ID can help secure and protect Amazon Web Services (AWS) identity management and account access. Discover Microsoft security solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Failure mode analysis]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/resiliency/failure-mode-analysis</id>
+        <link href="https://learn.microsoft.com/azure/architecture/resiliency/failure-mode-analysis"/>
+        <updated>2025-03-13T17:55:05.000Z</updated>
+        <summary type="html"><![CDATA[Get information about doing a failure mode analysis (FMA) for cloud solutions that are based on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use the Many-Models Approach to Scale Machine Learning Models]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/many-models-machine-learning-azure-machine-learning</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/many-models-machine-learning-azure-machine-learning"/>
+        <updated>2025-03-12T22:10:27.000Z</updated>
+        <summary type="html"><![CDATA[Many machine learning problems are too complex for a single machine learning model to solve. Learn about many models machine learning at scale with Azure Machine Learning.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Microservices Architecture on Azure Kubernetes Service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices"/>
+        <updated>2025-03-11T19:25:42.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the infrastructure and DevOps considerations to deploy and run a microservices architecture on Azure Kubernetes Service (AKS).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Citizen AI with Power Platform and Azure Synapse Analytics]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/citizen-ai-power-platform</id>
@@ -22,6 +70,14 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/networking/global-web-applications/mission-critical-app-service"/>
         <updated>2025-03-07T20:03:32.000Z</updated>
         <summary type="html"><![CDATA[Learn how to deploy mission-critical web applications by using the Web Apps feature of Azure App Service and the reliable web app pattern.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Certificate lifecycle management on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/certificate-lifecycle/index</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/certificate-lifecycle/index"/>
+        <updated>2025-03-10T21:32:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to create an infrastructure and workflow to automate the renewal process for certificates issued by a non-integrated CA.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -97,11 +153,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Circuit Breaker pattern]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker</id>
-        <link href="https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker"/>
-        <updated>2025-02-28T23:35:42.000Z</updated>
-        <summary type="html"><![CDATA[Handle faults that might take a variable amount of time to fix when connecting to a remote service or resource.]]></summary>
+        <title type="html"><![CDATA[Computer Forensics Chain of Custody in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/forensics/index</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/forensics/index"/>
+        <updated>2025-03-13T22:52:21.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to create an infrastructure and workflow to help ensure a valid digital evidence chain of custody (CoC) for computer forensics in Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -209,6 +265,14 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Circuit Breaker pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker"/>
+        <updated>2025-02-28T23:35:42.000Z</updated>
+        <summary type="html"><![CDATA[Handle faults that might take a variable amount of time to fix when connecting to a remote service or resource.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Azure Application Architecture Fundamentals]]></title>
         <id>https://learn.microsoft.com/azure/architecture//guide</id>
         <link href="https://learn.microsoft.com/azure/architecture//guide"/>
@@ -289,27 +353,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Azure service retry guidance]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/best-practices/retry-service-specific</id>
-        <link href="https://learn.microsoft.com/azure/architecture/best-practices/retry-service-specific"/>
-        <updated>2025-02-13T19:11:56.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the retry mechanism features for many Azure services. Retry mechanisms differ because services have different characteristics and requirements.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Circuit Breaker pattern]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker</id>
-        <link href="https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker"/>
-        <updated>2025-02-12T16:25:06.000Z</updated>
-        <summary type="html"><![CDATA[Handle faults that might take a variable amount of time to fix when connecting to a remote service or resource.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Computer forensics chain of custody in Azure]]></title>
+        <title type="html"><![CDATA[Computer Forensics Chain of Custody in Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/forensics/index</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/forensics/index"/>
         <updated>2025-02-11T16:59:26.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to create an infrastructure and workflow to ensure a valid digital evidence chain of custody (CoC) for computer forensics in Azure.]]></summary>
+        <summary type="html"><![CDATA[Learn how to create an infrastructure and workflow to help ensure a valid digital evidence chain of custody (CoC) for computer forensics in Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -337,11 +385,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Access an Azure Kubernetes Service (AKS) API server]]></title>
+        <title type="html"><![CDATA[Access an Azure Kubernetes Service (AKS) API Server]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/security/access-azure-kubernetes-service-cluster-api-server</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/security/access-azure-kubernetes-service-cluster-api-server"/>
         <updated>2025-02-06T16:35:00.000Z</updated>
-        <summary type="html"><![CDATA[Learn various ways to connect to an Azure Kubernetes Service (AKS) cluster's API server. Possibilities include Azure Bastion, ExpressRoute, and Cloud Shell.]]></summary>
+        <summary type="html"><![CDATA[Learn more about how to connect to an Azure Kubernetes Service (AKS) cluster's API server. Possibilities include Azure Bastion, ExpressRoute, and Cloud Shell.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -665,7 +713,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Many models machine learning with Azure Machine Learning]]></title>
+        <title type="html"><![CDATA[Use the Many-Models Approach to Scale Machine Learning Models]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/many-models-machine-learning-azure-machine-learning</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/many-models-machine-learning-azure-machine-learning"/>
         <updated>2025-01-28T23:21:29.000Z</updated>
@@ -1145,11 +1193,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Microservices architecture on AKS]]></title>
+        <title type="html"><![CDATA[Microservices Architecture on Azure Kubernetes Service]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices"/>
         <updated>2025-01-17T16:23:58.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the infrastructure and DevOps considerations of deploying and running a microservices architecture on Azure Kubernetes Service (AKS).]]></summary>
+        <summary type="html"><![CDATA[Learn about the infrastructure and DevOps considerations to deploy and run a microservices architecture on Azure Kubernetes Service (AKS).]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1465,11 +1513,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Computer forensics chain of custody in Azure]]></title>
+        <title type="html"><![CDATA[Computer Forensics Chain of Custody in Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/forensics/index</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/forensics/index"/>
         <updated>2025-01-14T18:25:02.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to create an infrastructure and workflow to ensure a valid digital evidence chain of custody (CoC) for computer forensics in Azure.]]></summary>
+        <summary type="html"><![CDATA[Learn how to create an infrastructure and workflow to help ensure a valid digital evidence chain of custody (CoC) for computer forensics in Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

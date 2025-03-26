@@ -22,6 +22,10 @@ items:
           href: idea/orchestrate-machine-learning-azure-databricks.yml
         - name: Many models with Machine Learning
           href: idea/many-models-machine-learning-azure-machine-learning.yml
+      - name: Document processing
+        items:
+        - name: Extract text using Power Automate
+          href: ../example-scenario/ai/extract-object-text.yml
     - name: Design architectures
       items:
       - name: Chat bots
@@ -37,7 +41,7 @@ items:
         - name: Automate document classification
           href: architecture/automate-document-classification-durable-functions.yml
         - name: Automate document processing
-          href: architecture/automate-document-processing-azure-form-recognizer.yml
+          href: architecture/automate-document-processing-azure-ai-document-intelligence.yml
         - name: Automate PDF form processing
           href: architecture/automate-pdf-forms-processing.yml
         - name: Build custom document processing models

@@ -258,7 +258,7 @@ Searching can be exact or fuzzy. A fuzzy search finds documents that match a set
 
 ### Azure service
 
-- [Azure Search][search] | [(Security Baseline)](/azure/search/security-baseline)
+- [Azure AI Search][search] | [(Security Baseline)](/azure/search/security-baseline)
 
 ### Workload
 

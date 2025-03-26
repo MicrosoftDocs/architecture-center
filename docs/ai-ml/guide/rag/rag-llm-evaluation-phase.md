@@ -43,8 +43,8 @@ There are several metrics that you should use to evaluate the language model's r
 
 Use the following methods to calculate the groundedness of responses:
 
-- [Azure AI Content Safety-based groundedness](/azure/ai-studio/concepts/evaluation-metrics-built-in#aacs-based-groundedness) is a custom model that uses natural language inference to determine whether claims, or in this case chunks, are based on context in the source document.
-- [Large language model-based groundedness](/azure/ai-studio/concepts/evaluation-metrics-built-in#prompt-only-based-groundedness) uses a language model to determine the level of groundedness of the response.
+- [Azure AI Content Safety-based groundedness](/azure/ai-foundry/concepts/evaluation-metrics-built-in#ai-assisted-groundedness) is a custom model that uses natural language inference to determine whether claims, or in this case chunks, are based on context in the source document.
+- [Large language model-based groundedness](/azure/ai-foundry/concepts/evaluation-metrics-built-in#ai-assisted-groundedness) uses a language model to determine the level of groundedness of the response.
 - [Ragas faithfulness library](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/faithfulness/).
 - [MLflow faithfulness calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge).
 
@@ -60,7 +60,7 @@ A low groundedness calculation indicates that the language model doesn't see the
 
 Use the following methods to calculate the completeness of responses:
 
-- [AI-assisted retrieval score prompting](/azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-retrieval-score).
+- [AI-assisted retrieval score prompting](/azure/ai-foundry/concepts/evaluation-metrics-built-in#ai-assisted-retrieval).
 - A language model can help you measure the quality of the language model response. You need the question, context, and generated answer to take this measurement. The following steps outline the high-level process:
   1. Use the language model to rephrase, summarize, or simplify the question. This step identifies the intent.
   2. Ask the model to check whether the intent or the answer to the intent is found in or can be derived from the retrieved documents. The answer can be "yes" or "no" for each document. Answers that start with "yes" indicate that the retrieved documents are relevant to the intent or answer to the intent.
@@ -96,7 +96,7 @@ The following table provides guidance for how to evaluate completeness and utili
 
 Use the following methods to calculate the relevance of responses:
 
-- [AI-assisted: Relevance in Azure AI Foundry](/azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-relevance)
+- [AI-assisted: Relevance in Azure AI Foundry](/azure/ai-foundry/concepts/evaluation-metrics-built-in#ai-assisted-relevance)
 - [Ragas answer relevancy library](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/answer_relevance/)
 - [MLflow relevance calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 
@@ -223,4 +223,4 @@ The framework loads, chunks, and enriches text and images from MHTML files. It t
 
 ## Related resource
 
-- [Develop an evaluation flow](/azure/ai-studio/how-to/flow-develop-evaluation)
+- [Develop an evaluation flow](/azure/ai-foundry/how-to/flow-develop-evaluation)

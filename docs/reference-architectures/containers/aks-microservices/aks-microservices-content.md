@@ -346,7 +346,6 @@ Other contributors:
 ## Related resources
 
 - To work through a more advanced microservices example, see [Advanced AKS microservices architecture](./aks-microservices-advanced.yml).
-- To learn how we measured the performance of this application, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.yml).
 - [CI/CD for microservices architectures](../../../microservices/ci-cd.yml)
 - [CI/CD for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.yml)
 
