@@ -95,7 +95,7 @@ An AKS deployment consists of cluster-level components, managed AKS components, 
 
   The container insights **Containers** view shows the health and performance of containers. Or you can select an individual container, and monitor its events and logs in real-time. For more information, see [Monitor your Kubernetes cluster performance by using container insights](/azure/azure-monitor/containers/container-insights-analyze).
 
-- **Applications:** You can use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor applications that run on AKS and other environments. Application Insights is an application performance management tool that provides support for many programming languages. Depending on your needs, you can instrument your application code to capture requests, traces, logs, exceptions, custom metrics, and end-to-end transactions. Then you can send this data to Application Insights. If you have a Java application, you can provide monitoring without instrumenting your code. For more information, see [Zero instrumentation application monitoring for Kubernetes](/azure/azure-monitor/app/kubernetes-codeless).
+- **Applications:** You can use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor applications that run on AKS and other environments. Application Insights is an application performance management tool that provides support for many programming languages. Depending on your needs, you can instrument your application code to capture requests, traces, logs, exceptions, custom metrics, and end-to-end transactions. Then you can send this data to Application Insights. If you have a Java application, you can provide monitoring without instrumenting your code. For more information, see [Autoinstrumentation for AKS](/azure/azure-monitor/app/kubernetes-codeless).
 
 - **External components**: You can use Azure Monitor features to monitor Azure platform as a service (PaaS) solutions that your workload applications use, such as databases and other Azure resources.
 
@@ -138,18 +138,13 @@ Other contributors:
 ## Next steps
 
 - [Use Azure Monitor Private Link Scope](/samples/azure-samples/azure-monitor-private-link-scope/azure-monitor-private-link-scope)
-- [Monitor AKS by using Azure Monitor](/azure/aks/monitor-aks)
-- [Monitoring AKS data reference](/azure/aks/monitor-aks-reference)
-- [Container Insights overview](/azure/azure-monitor/containers/container-insights-overview)
-- [Enable Container Insights](/azure/azure-monitor/containers/container-insights-onboard)
-- [AKS resource logs](/azure/aks/monitor-aks-reference#resource-logs)
-- [Configure scraping of Prometheus metrics by using Container Insights](/azure/azure-monitor/containers/container-insights-prometheus-integration)
-- [How to query logs from Container Insights](/azure/azure-monitor/containers/container-insights-log-query)
+- [Enable monitoring for Kubernetes clusters](/azure/azure-monitor/containers/kubernetes-monitoring-enable)
+- [Query logs from container insights](/azure/azure-monitor/containers/container-insights-log-query)
 - [Azure Monitor data source for Grafana](https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource/)
 - [Training: Monitor and back up Azure resources](/learn/paths/az-104-monitor-backup-resources/)
-- [Training: Instrument solutions to support monitoring and logging](/learn/paths/az-204-instrument-solutions-support-monitoring-logging/)
+- [Training: Troubleshoot solutions by using Application Insights](/learn/paths/az-204-instrument-solutions-support-monitoring-logging/)
 - [Training: Design a solution to log and monitor Azure resources](/learn/modules/design-solution-to-log-monitor-azure-resources/)
-- [Training: Monitor the usage, performance, and availability of resources by using Azure Monitor](/learn/paths/monitor-usage-performance-availability-resources-azure-monitor)
+- [Training: Azure Monitor fundamentals](/learn/paths/monitor-usage-performance-availability-resources-azure-monitor)
 
 ## Related resources
 
