@@ -20,11 +20,11 @@ categories:
 
 # Cloud Design Patterns
 
-Architects design workloads by combining platform services, functionality, and code to fulfill functional and nonfunctional requirements in workloads. Designing workloads requires understanding of those workload requirements and then choosing topologies and approaches the solve for the challenges presented by the constraints of the workload. Cloud design patterns that address many common challenges.
+Architects design workloads by combining platform services, functionality, and code to meet both functional and non-functional requirements. Designing workloads requires an understanding of these requirements and selecting topologies and approaches that address the challenges posed by the workload's constraints. Cloud design patterns offer solutions to many common challenges.
 
-Systems design is heavily steeped in design patterns. Infrastructure, code, and distributed systems are all designed around a combination of design patterns. These design patterns are useful for building reliable, secure, cost optimized, operationally sound, and performant applications in the cloud.
+System design heavily relies on established design patterns. Infrastructure, code, and distributed systems are developed using a combination of these patterns. These patterns are instrumental in building reliable, secure, cost-optimized, operationally efficient, and high-performing applications in the cloud.
 
-These design patterns aren't specific to any technology and are relevant to any distributed system, whether hosted on Azure, other cloud platforms, and some can even extend to on-premises or hybrid workloads.
+These design patterns are technology-agnostic and applicable to any distributed system, whether hosted on Azure, other cloud platforms, or even on-premises or hybrid environments.
 
 ## Cloud design patterns help the design process
 
