@@ -1,7 +1,7 @@
 ---
 title: Choose an analytical data store
 description: Evaluate analytical data store options for big data in Azure, including key selection criteria and a capability matrix.
-author: Rajasekhar Reddy Duddugunta
+author: rajasekharreddy-duddugunta
 ms.author: rduddugunta
 ms.date: 03/26/2025
 ms.topic: conceptual
@@ -25,13 +25,13 @@ The serving layer deals with processed data from both the hot path and cold path
 
 There is no single best data management choice for all data storage tasks. Different data management solutions are optimized for different tasks. Most real-world cloud apps and big data processes have a variety of data storage requirements and often use a combination of data storage solutions.
 
-Modern analytical solutions, such as [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview), provide a comprehensive platform that integrates various data services and tools to meet diverse analytical needs. Microsoft Fabric includes OneLake, a single, unified, logical data lake for your entire organization, designed to store, manage, and secure all organizational data in one location. This flexibility allows organizations to address a wide range of data storage and processing requirements within a unified framework.
+Modern analytical solutions, such as [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview), provide a comprehensive platform that integrates various data services and tools to meet diverse analytical needs. Microsoft Fabric includes OneLake, a single, unified, logical data lake for your entire organization, designed to store, manage, and secure all organizational data in one location. This flexibility allows organizations to address a wide range of data storage and processing requirements within a unified framework.
 
 ## What are your options when choosing an analytical data store?
 
 There are several options for data serving storage in Azure, depending on your needs:
 
-- [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview)
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview)
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)
 - [Azure Synapse Spark pools](/azure/synapse-analytics/spark/apache-spark-overview)
 - [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
@@ -50,7 +50,7 @@ These options provide various database models that are optimized for different t
 - [Column store](../big-data/non-relational-data.yml#columnar-data-stores) databases are key/value data stores that store each column separately on disk. A *wide column store* database is a type of column store database that stores *column families*, not just single columns. For example, a census database might have a column family for a person's name (first, middle, last), a family for the person's address, and a family for the person's profile information (date of birth, gender). The database can store each column family in a separate partition, while keeping all the data for one person related to the same key. An application can read a single column family without reading through all of the data for an entity.
 - [Graph](../big-data/non-relational-data.yml#graph-data-stores) databases store information as a collection of objects and relationships. A graph database can efficiently perform queries that traverse the network of objects and the relationships between them. For example, the objects might be employees in a human resources database, and you might want to facilitate queries such as "find all employees who directly or indirectly work for Scott."
 - Telemetry and time-series databases are an append-only collection of objects. Telemetry databases efficiently index data in a variety of column stores and in-memory structures, making them the optimal choice for storing and analyzing vast quantities of telemetry and time series data.
-- [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) supports various database models, including key/value, document, column store, graph, and telemetry databases, providing flexibility and scalability for different analytical tasks
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) supports various database models, including key/value, document, column store, graph, and telemetry databases, providing flexibility and scalability for different analytical tasks
 
 ## Key selection criteria
 
