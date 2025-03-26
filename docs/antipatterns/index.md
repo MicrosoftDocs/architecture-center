@@ -58,7 +58,7 @@ Here's the list of the antipatterns that we've identified:
 
 ## Next steps
 
-For more about performance tuning, see [Performance tuning a distributed application](../performance/index.md)
+For more about performance tuning, see [Performance efficiency in the Well Architected Framework](/azure/well-architected/performance-efficiency/)
 
 <!-- links -->
 
