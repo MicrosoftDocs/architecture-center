@@ -183,7 +183,7 @@ A POST request should return one of the following HTTP status codes:
 | 201 (Created) | The resource was created successfully. The URI of the new resource is included in the Location header of the response. The response body contains a representation of the resource. |
 | 204 (No Content) |The response body contains no content. |
 | 400 (Bad Request) | The client has placed invalid data in the request. The response body can contain additional information about the error or a link to a URI that provides more details. |
-| 405 (Method Not Allows) | The client has attempted to make a POST request to a URI that doesn't support such requests. |
+| 405 (Method Not Allowed) | The client has attempted to make a POST request to a URI that doesn't support such requests. |
 
 #### PUT request
 
@@ -578,7 +578,7 @@ When a client application sends an HTTP GET request to a web server it should us
 The following example shows a request that specifies an *Accept* header with the value *application/vnd.contoso.v1+json*. The *vnd.contoso.v1* element indicates to the web server that it should return version 1 of the resource, while the *json* element specifies that the format of the response body should be JSON:
 
 ```http
-GET https://api.contoso.com/customers/3 HTTP/1.1
+GET https://api.contoso.com/customers/3
 Accept: application/vnd.contoso.v1+json
 ```
 
