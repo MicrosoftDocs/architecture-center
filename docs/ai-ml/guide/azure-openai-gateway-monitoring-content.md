@@ -104,10 +104,21 @@ The gateway is uniquely able to log both what the client asked for and what it u
 
 Monitoring inputs and outputs at the gateway allows you to apply auditing rules uniformly across all models.
 
-## Near real-time processing and large payloads
+## Near real-time processing
 
 Azure Monitor was not designed for near real-time processing. The [average latency to ingest log data in Azure Monitor is between 20 seconds and 3 minutes](/azure/azure-monitor/logs/data-ingestion-time#average-latency). If your solution requires near real-time processing, you can consider an architecture where you publish logs directly to a message bus and use a stream processing technology, such as Azure Stream Analytics, to perform windowed operations.
 
 :::image type="complex" source="_images/tracking-multiple-models-inputs-and-outputs-bus.svg" alt-text="Architecture diagram of a scenario with multiple clients connecting to more than one model deployment across multiple instances of Azure OpenAI through a gateway with the gateway logging inputs and outputs to a message bus." lightbox="_images/tracking-multiple-models-inputs-and-outputs-bus.svg":::
    A diagram that shows two clients labeled A and B directly interfacing with a gateway. The gateway has two arrows that points to private endpoints. The first private endpoint has two solid arrows that point to a gpt-35-turbo deployment and a gpt-4o deployment in an Azure OpenAI deployment. The second privat endpoint has a solid arrow pointing to a gpt-4 deployment and a dashed line pointing to a gpt-4o deployment in a second Azure OpenAI instance. Both Azure OpenAI instances are shown passing Azure OpenAI metrics and logs to Azure Monitor. The gateway has an arrow pointing to Azure Monitor that shows it passing inputs and outputs. The gateway has another arrow pointing to a message bus. The message bus has arrows pointing to blob storage and to a stream processor.
 :::image-end:::
+
+## Recommendations and considerations when introducing a gateway for monitoring
+
+- **Latency** - Introducing a gateway into your architecture adds additional latency to your responses. You need to ensure that the observability benefits you see outweight the performance implications.
+- **Security and privacy** - You must ensure that the monitoring data gathered through the use of the gateway continues to adhere to customer privacy expectations. Observability data must adhere to the established security and privacy expectations of the workload, without violating any customer privacy standards. You must continue to treat any sensitive data captured through monitoring as sensitive data.
+- **Reliability** - You must determine whether the monitoring function is critical to the functionality of the workload. If it is, The application as a whole should be down when the monitoring system is unavailable. If it is not critical, the application should continue to work in an unmonitored state if the monitoring system is down. Also, understand the risks of adding a new single point of failure either through service faults or human-caused configuration issues in the gateway.
+- **Implementation** - Your implementation can take advantage of out-of-the-box gateways like Azure API Management, including all the required configuration. Another common implementation is through implementing an orchestration layer through code.
+
+## Reasons to avoid introducing a gateway for monitoring
+
+If a single application is accessing a single model, the added complexity of adding a gateway likely outweighs the monitoring benefits. The client can handle the responsibility of logging inputs and outputs and you can take advantage of native logging capabilities of the model or service you are using. The gateway becomes beneficial when you have multiple clients and/or multiple models that you need to monitor.
