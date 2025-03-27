@@ -1,9 +1,9 @@
-This article describes how to securely expose and protect a workload that runs in Azure Kubernetes Service (AKS) by using Azure Front Door, Azure Web Application Firewall, and an Azure Private Link service. This architecture uses the NGINX ingress controller to expose a web application. The NGINX ingress controller is configured to use a private IP address as a front-end IP configuration of the AKS internal load balancer. The deployment provides end-to-end Transport Layer Security (TLS) encryption.
+This article describes how to expose and protect a workload that runs in Azure Kubernetes Service (AKS) by using Azure Front Door, Azure Web Application Firewall, and an Azure Private Link service in a more secure manner. This architecture uses the NGINX ingress controller to expose a web application. The NGINX ingress controller is configured to use a private IP address as a front-end IP configuration of the AKS internal load balancer. The deployment provides end-to-end Transport Layer Security (TLS) encryption.
 
 ## Architecture
 
 :::image type="complex" border="false" source="./media/aks-front-door.svg" alt-text="Diagram that shows an architecture that securely exposes and protects a workload that runs in AKS." lightbox="./media/aks-front-door.svg":::
-   Diagram that shows an architecture that securely exposes and protects a workload that runs in AKS. 
+   The image is a complex architectural diagram of a Microsoft Azure-based network infrastructure. It's divided into multiple sections that have various components connected by arrows that indicate data flow or connections. One section contains an icon that represents administrators, platform engineers, and developers that connects to an icon that represents a public IP address. This icon then connects to Azure Bastion host. An icon that represents application users connects via HTTPS to Azure Front Door, to Private Link service, to the internal load balancer icon, to the Ingress-basic icon, and finally to httpbin-tls. This section also has icons that represent Azure DNS zone and Web Application Firewall policy. Another section contains a map key of the icons for monitoring, Secure Socket Shell traffic, HTTP/S traffic, outbound traffic, private connections, and virtual network link. A section labeled Private DNS zones contains icons for Private DNS zones that are linked to specific domain names and has a dotted line that connects from a box labeled Virtual network 10.0.0.0/8. Icons that represent Kubernetes monitoring, Azure Managed Grafana, and Monitor workspace point to a large dashed box labeled Virtual network 10.0.0.0/8. This box contains six smaller dashed boxes. The first box, labeled Azure Bastion Host 10.243.2.0/24, contains an icon that represents the Azure Bastion service. The second box, labeled ApiServerSubnet10.243.0.0/27, contains an icon that represents the API server. The third box, labeled UserSubnet10.241.0.0/16, contains an icon that represents the user agent pool. The user agent pool icon points to an icon that represents Azure NAT Gateway. The fourth box, labeled Private Link service, contains icons that represent the jump box virtual machine and private endpoints. The private endpoints icon points to icons that represent the storage account, Key Vault, and Azure Container Registry. The fifth box, labeled SystemSubnet10.240.0.0/16, contains icons that represent the internal load balancer and the system agent pool. The internal load balancer points to an icon that represents Azure NAT Gateway. A dotted arrow points to an icon that represents a public IP address which then points to an icon that represents the internet. The sixth box, labeled PodSubnet10.242.0.0/16, contains icons that represent ingress-basic, httpbin-tls, and kube-system. A dotted line connects this box to the UserSubnet box and to the Azure NAT Gateway icon.
 :::image-end:::
 
 *The Grafana logo is a trademark of its respective company. No endorsement is implied by the use of this mark.*
@@ -14,10 +14,8 @@ This article describes how to securely expose and protect a workload that runs i
 
 The following diagram shows the steps for the message flow during deployment and runtime.
 
-:::image type="content" source="./media/flow.svg" alt-text="Diagram that shows the steps for the message flow during deployment and runtime." lightbox="./media/flow.svg" border="false":::
-
 :::image type="complex" border="false" source="./media/flow.svg" alt-text="Diagram that shows the steps for the message flow during deployment and runtime." lightbox="./media/flow.svg":::
-   The diagram has five primary sections. The top section isn't enclosed. The bottom four sections are enclosed in dotted rectangles. Those four rectangles are enclosed by a dotted rectangle that's labeled AksVnet 10.0.0.0/8. The top section has a logo that represents administrators and platform engineers. An arrow points from this logo to the logo that represents Azure Key Vault to indicate that a certificate for the custom domain store.test.com is generated and saved in an Azure Key Vault. In step two, an arrow points from the administrator and platform engineer logo to the AksVnet 10.0.0.0/8 section to indicate that a platform engineer specifies the necessary information in the main.bicepparams Bicep parameters file and deploys the Bicep modules to create the Azure resources. In step three, an arrow labeled SecretProviderClass and Secrets Store CSI Driver points to the logo that represents the TLS secret. In step four, this section shows an arrow from the digital certificate to Azure Front Door store.test.com to indicate that it's reached its destination.
+   The diagram has five primary sections. The top section isn't enclosed. The bottom four sections are enclosed in dotted rectangles. Those four rectangles are enclosed in a dotted rectangle that's labeled AksVnet 10.0.0.0/8. The top section has a logo that represents administrators and platform engineers. An arrow points from this logo to the logo that represents Azure Key Vault to indicate that a certificate for the custom domain store.test.com is generated and saved in an Azure Key Vault. In step two, an arrow points from the administrator and platform engineer logo to the AksVnet 10.0.0.0/8 section to indicate that a platform engineer specifies the necessary information in the main.bicepparams Bicep parameters file and deploys the Bicep modules to create the Azure resources. In step three, an arrow labeled SecretProviderClass and Secrets Store CSI Driver points to the logo that represents the TLS secret. In step four, this section shows an arrow from the digital certificate to Azure Front Door store.test.com to indicate that it's reached its destination.
 :::image-end:::
 *Download a [Visio file](https://arch-center.azureedge.net/aks-flow.vsdx) of this architecture.*
 
@@ -39,7 +37,7 @@ The following workflow corresponds to the previous diagram:
 
    - The name and resource group of the existing Key Vault that holds the TLS certificate for the workload hostname and the Azure Front Door custom domain.
 
-   - The name of the certificate in the Key Vault.
+   - The name of the certificate in the key vault.
 
    - The name and resource group of the DNS zone that's used to resolve the Azure Front Door custom domain.
 
@@ -60,7 +58,7 @@ The following workflow corresponds to the previous diagram:
 
 #### Runtime workflow
 
-The following steps describe the message flow for a request that an external client application initiates during runtime. This workflow corresponds to the orange numbers in the preceding diagram.
+The following steps describe the message flow for a request that an external client application initiates during runtime. This workflow corresponds to the orange numbers in the previous diagram.
 
 1. The client application uses its custom domain to send a request to the web application. The DNS zone that's associated with the custom domain uses a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) to redirect the DNS query for the custom domain to the original hostname of the Azure Front Door endpoint.
 
@@ -80,23 +78,19 @@ The following steps describe the message flow for a request that an external cli
 
 ### Components
 
-The architecture consists of the following components:
-
 - A public or private [AKS cluster](https://azure.microsoft.com/services/kubernetes-service) is composed of the following node pools:
 
   - A *system node pool* in a dedicated subnet. The default node pool hosts only critical system pods and services. The system nodes have a node taint, so application pods can't be scheduled on this node pool.
 
   - A *user node pool* that hosts user workloads and artifacts in a dedicated subnet.
 
-- The deployment requires [role-based access control (RBAC) role assignments](/azure/role-based-access-control/role-assignments), including:
+- The deployment requires [role-based access control (RBAC) role assignments](/azure/role-based-access-control/role-assignments), which include:
 
-  - A *Grafana Admin* role assignment on Azure Managed Grafana for the Microsoft Entra user whose `objectID` is defined in the `userId` parameter. The *Grafana Admin* role provides full control of the instance, including managing role assignments, viewing, editing, and configuring data sources. For more information, see [How to share access to Azure Managed Grafana](/azure/managed-grafana/how-to-share-grafana-workspace).
+  - A *Grafana Admin* role assignment on Azure Managed Grafana for the Microsoft Entra user whose `objectID` is defined in the `userId` parameter. The *Grafana Admin* role grants full control over the instance. This control includes managing role assignments and viewing, editing, and configuring data sources. For more information, see [How to share access to Azure Managed Grafana](/azure/managed-grafana/how-to-share-grafana-workspace).
 
   - A *Key Vault Administrator* role assignment on the existing Key Vault resource that contains the TLS certificate for the user-defined managed identity that the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver) uses. This assignment provides access to the CSI driver so that it can read the certificate from the source Key Vault.
 
-- [Azure Front Door Premium](/azure/frontdoor/front-door-overview) is a Layer-7 global load balancer and modern cloud content delivery network. It provides fast, reliable, and secure access between your users' and your applications' static and dynamic web content across the globe. You can use Azure Front Door to deliver your content by using Microsoft's global edge network. The network has hundreds of [global and local points of presence](/azure/frontdoor/edge-locations-by-region) distributed around the world. So you can use points of presence that are close to your enterprise and consumer customers.
-
-  In this solution, Azure Front Door is used to expose an AKS-hosted sample web application via a [Private Link service](/azure/private-link/private-link-service-overview) and the [NGINX ingress controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/). Azure Front Door is configured to expose a custom domain for the Azure Front Door endpoint. The custom domain is configured to use the Azure Front Door secret that contains a TLS certificate that's read from [Key Vault](/azure/key-vault/general/overview).
+- [Azure Front Door Premium](/azure/frontdoor/front-door-overview) is a Layer-7 global load balancer and modern cloud content delivery network. It provides fast, reliable, and enhanced security access between your users' and your applications' static and dynamic web content across the globe. You can use Azure Front Door to deliver your content by using Microsoft's global edge network. The network has hundreds of [global and local points of presence](/azure/frontdoor/edge-locations-by-region) distributed around the world. So you can use points of presence that are close to your enterprise and consumer customers. In this solution, Azure Front Door is used to expose an AKS-hosted sample web application via a [Private Link service](/azure/private-link/private-link-service-overview) and the [NGINX ingress controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/). Azure Front Door is configured to expose a custom domain for the Azure Front Door endpoint. The custom domain is configured to use the Azure Front Door secret that contains a TLS certificate that's read from [Key Vault](/azure/key-vault/general/overview).
 
 - [Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) protects the AKS-hosted applications that are exposed via [Azure Front Door](/azure/frontdoor/front-door-overview) from common web-based attacks, such as the [Open Web Application Security Project (OWASP)](https://owasp.org) vulnerabilities, SQL injections, and cross-site scripting. This cloud-native, pay-as-you-use technology doesn't require licensing. Azure Web Application Firewall provides protection for your web applications and defends your web services against common exploits and vulnerabilities.
 
@@ -126,7 +120,7 @@ The architecture consists of the following components:
 
 - [Azure Virtual Machines](/azure/virtual-machines/overview) is used to create an optional jump box VM in the VM subnet.
 
-- An [Azure Bastion host](/azure/bastion/bastion-overview) is deployed in the AKS cluster virtual network to provide Secure Socket Shell (SSH) connectivity to the AKS agent nodes and VMs.
+- An [Azure Bastion host](/azure/bastion/bastion-overview) is deployed in the AKS cluster virtual network to provide Secure Socket Shell connectivity to the AKS agent nodes and VMs.
 
 - An [Azure Storage account](/azure/storage/common/storage-account-overview) is used to store the boot diagnostics logs of both the service provider and service consumer VMs. Boot diagnostics is a debugging feature that you can use to view console output and screenshots to diagnose the VM status.
 
@@ -152,7 +146,7 @@ The architecture consists of the following components:
 
 - An [Azure Managed Grafana](/azure/managed-grafana/overview) instance is used to visualize the [Prometheus metrics](/azure/azure-monitor/containers/prometheus-metrics-enable) that the Bicep module-deployed [AKS](/azure/aks/intro-kubernetes) cluster generates. You can connect your [Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-overview) to [Azure Managed Grafana](/azure/managed-grafana/overview), and use a set of built-in and custom Grafana dashboards to visualize Prometheus metrics. Grafana Enterprise supports Azure Managed Grafana, which provides extensible data visualizations. You can quickly and easily deploy Grafana dashboards that have built-in high availability. You can also use Azure security measures to control access to the dashboards.
 
-- An [Azure Monitor Logs](/azure/azure-monitor/logs/log-analytics-workspace-overview) workspace is used to collect the diagnostic logs and metrics from Azure resources, including:
+- An [Azure Monitor Logs](/azure/azure-monitor/logs/log-analytics-workspace-overview) workspace is used to collect the diagnostic logs and metrics from Azure resources, which include:
 
   - AKS clusters
   - Key Vault
@@ -188,9 +182,7 @@ The [NGINX ingress controller](https://docs.nginx.com/nginx-ingress-controller/i
 
 The [AKS](/azure/aks/intro-kubernetes) cluster is configured to use the following features:
 
-- [API server virtual network integration](/azure/aks/api-server-vnet-integration) provides network communication between the API server and the cluster nodes. This feature doesn't require a private link or tunnel. The API server is available behind an internal load balancer VIP in the delegated subnet. The cluster nodes are configured to use the delegated subnet.
-
-  You can use API server virtual network integration to ensure that the network traffic between your API server and your node pools remains on the private network only. AKS clusters that have API server virtual network integration provide many advantages. For example, you can enable or disable public network access or private cluster mode without redeploying the cluster. For more information, see [Create an AKS cluster with API server virtual network integration](/azure/aks/api-server-vnet-integration).
+- [API server virtual network integration](/azure/aks/api-server-vnet-integration) provides network communication between the API server and the cluster nodes. This feature doesn't require a private link or tunnel. The API server is available behind an internal load balancer VIP in the delegated subnet. The cluster nodes are configured to use the delegated subnet. You can use API server virtual network integration to help ensure that the network traffic between your API server and your node pools remains on the private network only. AKS clusters that have API server virtual network integration provide many advantages. For example, you can enable or disable public network access or private cluster mode without redeploying the cluster. For more information, see [Create an AKS cluster with API server virtual network integration](/azure/aks/api-server-vnet-integration).
 
 - [Azure NAT Gateway](/azure/virtual-network/nat-gateway/nat-overview) manages outbound connections that AKS-hosted workloads initiate. For more information, see [Create a managed or user-assigned NAT gateway for your AKS cluster](/azure/aks/nat-gateway).
 
@@ -208,7 +200,7 @@ Some of the following considerations aren't specifically related to the use of [
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-These recommendations are essential for single-tenant AKS solutions and aren't specific to multitenant AKS solutions, where the reliability targets are higher due to the number of users and workloads that rely on the system. Consider the following recommendations to optimize the availability of your AKS cluster and workloads.
+These recommendations are essential for single-tenant AKS solutions and aren't specific to multitenant AKS solutions, where the reliability targets are higher because of the number of users and workloads that rely on the system. Consider the following recommendations to optimize the availability of your AKS cluster and workloads.
 
 #### Intra-region resiliency
 
@@ -232,21 +224,19 @@ These recommendations are essential for single-tenant AKS solutions and aren't s
 
 - Store your container images in [Container Registry](/azure/container-registry/container-registry-intro). Geo-replicate the registry to each region where you deploy your AKS solution.
 
-- Don't store service state in a container if possible. Instead, store service state in an Azure platform as a service (PaaS) storage solution that supports multiregion replication. This approach improves resiliency and simplifies disaster recovery because you can preserve each service's critical data across regions.
+- If possible, don't store service state in a container. Instead, store service state in an Azure platform as a service (PaaS) storage solution that supports multiregion replication. This approach improves resiliency and simplifies disaster recovery because you can preserve each service's critical data across regions.
 
-- Prepare and test processes to migrate your storage from the primary region to the backup region if you use Storage.
+- If you use Storage, prepare and test processes to migrate your storage from the primary region to the backup region.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-- Use a WAF to protect AKS-hosted web applications and services that expose a public HTTPS endpoint. You need to provide protection from common threats like SQL injection, cross-site scripting, and other web exploits. Follow OWASP rules and your own custom rules.
+- Use a WAF to protect AKS-hosted web applications and services that expose a public HTTPS endpoint. You need to provide protection from common threats like SQL injection, cross-site scripting, and other web exploits. Follow OWASP rules and your own custom rules. [Azure Web Application Firewall](/azure/web-application-firewall/overview) provides improved centralized protection of your web applications from common exploits and vulnerabilities. You can deploy an Azure WAF by using [Azure Application Gateway](/azure/web-application-firewall/ag/ag-overview), [Azure Front Door](/azure/web-application-firewall/afds/afds-overview), or [Azure Content Delivery Network](/azure/web-application-firewall/cdn/cdn-overview).
 
-  [Azure Web Application Firewall](/azure/web-application-firewall/overview) provides improved centralized protection of your web applications from common exploits and vulnerabilities. You can deploy an Azure WAF with [Azure Application Gateway](/azure/web-application-firewall/ag/ag-overview), [Azure Front Door](/azure/web-application-firewall/afds/afds-overview), or [Azure Content Delivery Network](/azure/web-application-firewall/cdn/cdn-overview).
+- Use [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) and application design best practices to defend against workload distributed denial-of-service (DDoS) attacks. Azure protects its infrastructure and services against DDoS attacks. This protection helps ensure the availability of regions, availability zones, and services. You should also protect your workload's public endpoints from DDoS attacks at Layer 4 and Layer 7. You can enable [Azure DDOS Protection](/azure/ddos-protection/manage-ddos-protection) on perimeter virtual networks.
 
-- Use [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) and application design best practices to defend against workload distributed denial-of-service (DDoS) attacks. Azure protects its infrastructure and services against DDoS attacks. This protection ensures the availability of regions, availability zones, and services. You should also protect your workload's public endpoints from DDoS attacks at Layer 4 and Layer 7. You can enable [Azure DDOS Protection](/azure/ddos-protection/manage-ddos-protection) on perimeter virtual networks.
-
-- Use the [Azure Web Application Firewall rate-limit rule for Azure Front Door](/azure/web-application-firewall/afds/waf-front-door-rate-limit) to manage and control the number of requests that you allow from a specific source IP address to your application within a defined rate-limit duration. Use this feature to enforce rate-limiting policies and ensure that you protect your application from excessive traffic or potential abuse. Configure the rate-limit rule to maintain optimal application performance and security and provide fine-grained control of request limits.
+- Use the [Azure Web Application Firewall rate-limit rule for Azure Front Door](/azure/web-application-firewall/afds/waf-front-door-rate-limit) to manage and control the number of requests that you allow from a specific source IP address to your application within a defined rate-limit duration. Use this feature to help enforce rate-limiting policies and help ensure that you protect your application from excessive traffic or potential abuse. Configure the rate-limit rule to maintain optimal application performance and security and provide fine-grained control of request limits.
 
 - Configure the WAF policy that's associated with Azure Front Door to prevention mode. In prevention mode, the WAF policy analyzes incoming requests and compares them to the configured rules. If a request matches one or more rules that are set to deny traffic when satisfied, the WAF policy blocks the malicious traffic from reaching your web applications. This measure helps ensure that you protect your applications against potential vulnerabilities and unauthorized access attempts. For more information, see [Azure Web Application Firewall on Azure Front Door](/azure/web-application-firewall/afds/afds-overview).
 
@@ -254,7 +244,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - Use a [WAF policy](/azure/application-gateway/waf-overview) to help protect public-facing AKS-hosted workloads from attacks when you use [Application Gateway](/azure/application-gateway/overview) in front of the AKS cluster.
 
-- Use [Kubernetes network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to control which components can communicate with one another, which segregates and helps secure intraservice communications. By default, all pods in a Kubernetes cluster can send and receive traffic without limitations. To improve security, you can use Azure network policies or Calico network policies to define rules that control the traffic flow between various microservices. Use Azure network policies to enforce network-level access control. Use Calico network policies to implement fine-grained network segmentation and security policies in your AKS cluster. For more information, see [Secure traffic between pods by using network policies in AKS](/azure/aks/use-network-policies).
+- Use [Kubernetes network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to control which components can communicate with each another. This control segregates and helps secure intraservice communications. By default, all pods in a Kubernetes cluster can send and receive traffic without limitations. To improve security, you can use Azure network policies or Calico network policies to define rules that control the traffic flow between various microservices. Use Azure network policies to help enforce network-level access control. Use Calico network policies to implement fine-grained network segmentation and security policies in your AKS cluster. For more information, see [Secure traffic between pods by using network policies in AKS](/azure/aks/use-network-policies).
 
 - Don't expose remote connectivity to your AKS nodes. Create an Azure Bastion host, or jump box, in a management virtual network. Use the Azure Bastion host to route traffic to your AKS cluster.
 
@@ -264,20 +254,21 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- Use the [cluster autoscaler](/azure/aks/cluster-autoscaler), [Kubernetes event-driven Autoscaling (KEDA)](https://keda.sh/), and the [horizontal pod autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) to scale the number of pods and nodes based on traffic conditions.
+- Use the [cluster autoscaler](/azure/aks/cluster-autoscaler), [Kubernetes event-driven Autoscaling](https://keda.sh/), and the [horizontal pod autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) to scale the number of pods and nodes based on traffic conditions.
 
 - Set proper resource [requests and limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) for pods to optimize resource allocation and improve application density. For more information, see [Best practices for resource management in AKS](/azure/aks/developer-best-practices-resource-management).
 
 - Use [ResourceQuota](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/resource-quota-v1/) objects to set quotas for memory and CPU usage in namespaces. This configuration helps prevent noisy neighbor problems and improve application density. For more information, see [Set limit range in a namespace](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/limit-range-v1/).
 
 - Implement the [vertical pod autoscaler](/azure/aks/vertical-pod-autoscaler) to analyze and set CPU and memory resources that pods require. This approach optimizes resource allocation.
+
 - Choose the appropriate [VM size](/azure/virtual-machines/sizes) for node pools based on workload requirements.
 
 - Create multiple [node pools](/azure/aks/use-multiple-node-pools) with different VM sizes for specific workloads. Use node labels, node selectors, and affinity rules to optimize resource allocation.
 
 - [Stop node pools](/azure/aks/start-stop-nodepools) or [scale down AKS clusters](/azure/aks/start-stop-cluster) when you don't use them.
 
-- Take advantage of cost management tools, such as [Azure Advisor](/azure/advisor/advisor-overview), [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview), to monitor and optimize costs.
+- Take advantage of cost management tools, such as [Azure Advisor](/azure/advisor/advisor-overview), [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) to monitor and optimize costs.
 
 - Consider using [spot node pools](/azure/aks/spot-node-pool) to benefit from unused capacity in Azure and reduce cost.
 
@@ -293,11 +284,11 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 #### DevOps
 
-- Use a [Helm](https://helm.sh) chart in a continuous integration and continuous delivery (CI/CD) pipeline to deploy your workloads to AKS.
+- Use a [Helm](https://helm.sh) chart in a continuous integration and continuous delivery pipeline to deploy your workloads to AKS.
 
 - Use A/B testing and canary deployments in your application lifecycle management to properly test an application before you make it available to users.
 
-- Use [Azure Container Registry](/azure/container-registry/container-registry-intro) or a non-Microsoft registry, such as [Harbor](https://goharbor.io/) or [Docker Hub](https://hub.docker.com/), to store private container images that are deployed to the cluster.
+- Use [Container Registry](/azure/container-registry/container-registry-intro) or a non-Microsoft registry, such as [Harbor](https://goharbor.io/) or [Docker Hub](https://hub.docker.com/), to store private container images that are deployed to the cluster.
 
 - Test ingress and egress on your workloads in a separate preproduction environment that mirrors the network topology and firewall rules of your production environment.
 
@@ -349,31 +340,31 @@ Principal author:
 
 ## Next steps
 
-- [What is Azure Front Door?](/azure/frontdoor/front-door-overview)
-- [Traffic acceleration](/azure/frontdoor/front-door-traffic-acceleration)
-- [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture)
-- [Origins and origin groups in Azure Front Door](/azure/frontdoor/origin)
-- [Secure your origin with Private Link in Azure Front Door Premium](/azure/frontdoor/private-link)
-- [What is a rule set in Azure Front Door?](/azure/frontdoor/front-door-rules-engine)
-- [Understand Azure Front Door billing](/azure/frontdoor/billing)
+- [AKS cluster best practices](/azure/aks/best-practices)
 - [Azure Web Application Firewall on Azure Front Door](/azure/web-application-firewall/afds/afds-overview)
-- [Best practices for Azure Front Door](/azure/frontdoor/best-practices)
-- [Create a private AKS cluster](https://github.com/azure-samples/private-aks-cluster)
-- [Best practices for basic scheduler features in AKS](/azure/aks/operator-best-practices-scheduler)
 - [Best practices for advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler)
 - [Best practices for authentication and authorization](/azure/aks/operator-best-practices-identity)
+- [Best practices for basic scheduler features in AKS](/azure/aks/operator-best-practices-scheduler)
+- [Best practices for business continuity and disaster recovery in AKS](/azure/aks/operator-best-practices-multi-region)
 - [Best practices for cluster security and upgrades in AKS](/azure/aks/operator-best-practices-cluster-security)
 - [Best practices for container image management and security in AKS](/azure/aks/operator-best-practices-container-image-management)
 - [Best practices for network connectivity and security in AKS](/azure/aks/operator-best-practices-network)
 - [Best practices for storage and backups in AKS](/azure/aks/operator-best-practices-storage)
-- [Best practices for business continuity and disaster recovery in AKS](/azure/aks/operator-best-practices-multi-region)
-- [AKS cluster best practices](/azure/aks/best-practices)
+- [Best practices for Azure Front Door](/azure/frontdoor/best-practices)
+- [Create a private AKS cluster](https://github.com/azure-samples/private-aks-cluster)
+- [Origins and origin groups in Azure Front Door](/azure/frontdoor/origin)
+- [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture)
+- [Secure your origin with Private Link in Azure Front Door Premium](/azure/frontdoor/private-link)
+- [Traffic acceleration](/azure/frontdoor/front-door-traffic-acceleration)
+- [Understand Azure Front Door billing](/azure/frontdoor/billing)
+- [What is a rule set in Azure Front Door?](/azure/frontdoor/front-door-rules-engine)
+- [What is Azure Front Door?](/azure/frontdoor/front-door-overview)
 
 ## Related resources
 
-- [AKS solution journey](../../reference-architectures/containers/aks-start-here.md)
-- [AKS day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
-- [Best practices for multitenancy and cluster isolation](../../guide/multitenant/service/aks.yml)
-- [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
-- [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced AKS microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
+- [AKS day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
+- [AKS solution journey](../../reference-architectures/containers/aks-start-here.md)
+- [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
+- [Best practices for multitenancy and cluster isolation](../../guide/multitenant/service/aks.yml)
+- [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
