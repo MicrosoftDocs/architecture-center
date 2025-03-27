@@ -3,7 +3,7 @@ title: Security and identity with Azure and AWS
 description: Get guidance for integrating security and identity services across Azure and AWS. Explore strong authentication and explicit trust validation, PIM, and more.
 author: jerrymsft
 ms.author: gerhoads
-ms.date: 01/29/2025
+ms.date: 03/27/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 categories:
@@ -86,7 +86,6 @@ Both platforms provide identity services to secure application access and API au
 | [AWS IAM Roles for Applications](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html) | [Microsoft Entra Workload ID](/entra/workload-id/workload-identities-overview) | Managed identities for applications to securely access platform resources |
 | [AWS IAM authorization](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_controlling.html) | [Microsoft Entra OAuth 2.0](/entra/identity-platform/v2-oauth2-auth-code-flow) | Identity-based authorization for APIs using OAuth 2.0 and JWT tokens |
 
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -114,7 +113,4 @@ Other contributor:
 
 - [Compare AWS and Azure resource management](resources.md)
 - [Compare AWS and Azure accounts](accounts.md)
-
-
-
 
