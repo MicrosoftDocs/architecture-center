@@ -24,7 +24,7 @@ ms.custom:
 
 All applications that communicate with remote services and resources must be sensitive to transient faults. This is especially true for applications that run in the cloud, where, because of the nature of the environment and connectivity over the internet, this type of fault is likely to be encountered more often. Transient faults include the momentary loss of network connectivity to components and services, the temporary unavailability of a service, and timeouts that occur when a service is busy. These faults are often self-correcting, so, if the action is repeated after a suitable delay, it's likely to succeed.
 
-This article provides general guidance for transient fault handling. For information about handling transient faults when you're using Azure services, see [Retry guidance for Azure services](./retry-service-specific.md).
+This article provides general guidance for transient fault handling.
 
 ## Why do transient faults occur in the cloud?
 
@@ -100,7 +100,7 @@ The following guidelines can help you design suitable transient fault handling m
 
 - In most cases, avoid implementations that include duplicated layers of retry code. Avoid designs that include cascading retry mechanisms or that implement retry at every stage of an operation that involves a hierarchy of requests, unless you have specific requirements that require doing so. In these exceptional circumstances, use policies that prevent excessive numbers of retries and delay periods, and make sure you understand the consequences. For example, say one component makes a request to another, which then accesses the target service. If you implement retry with a count of three on both calls, there are nine retry attempts in total against the service. Many services and resources implement a built-in retry mechanism. You should investigate how you can disable or modify these mechanisms if you need to implement retries at a higher level.
 
-- Never implement an endless retry mechanism. Doing so is likely to prevent the resource or service from recovering from overload situations and to cause throttling and refused connections to continue for a longer time. Use a finite number of retries, or implement a pattern like [Circuit Breaker](../patterns/circuit-breaker.yml) to allow the service to recover.
+- Never implement an endless retry mechanism. Doing so is likely to prevent the resource or service from recovering from overload situations and to cause throttling and refused connections to continue for a longer time. Use a finite number of retries, or implement a pattern like [Circuit Breaker](../patterns/circuit-breaker.md) to allow the service to recover.
 
 - Never perform an immediate retry more than once.
 
@@ -150,7 +150,7 @@ The following guidelines can help you design suitable transient fault handling m
 
   - Although a retry strategy defines the maximum number of times that an operation should be retried, it doesn't prevent the application from repeating the operation again with the same number of retries. For example, if an order processing service fails with a fatal error that puts it out of action permanently, the retry strategy might detect a connection timeout and consider it to be a transient fault. The code retries the operation a specified number of times and then gives up. However, when another customer places an order, the operation is attempted again, even though it will fail every time.
 
-  - To prevent continual retries for operations that continually fail, you should consider implementing the [Circuit Breaker pattern](../patterns/circuit-breaker.yml). When you use this pattern, if the number of failures within a specified time window exceeds a threshold, requests return to the caller immediately as errors, and there's no attempt to access the failed resource or service.
+  - To prevent continual retries for operations that continually fail, you should consider implementing the [Circuit Breaker pattern](../patterns/circuit-breaker.md). When you use this pattern, if the number of failures within a specified time window exceeds a threshold, requests return to the caller immediately as errors, and there's no attempt to access the failed resource or service.
 
   - The application can periodically test the service, on an intermittent basis and with long intervals between requests, to detect when it becomes available. An appropriate interval depends on factors like the criticality of the operation and the nature of the service. It might be anything between a few minutes and several hours. When the test succeeds, the application can resume normal operations and pass requests to the newly recovered service.
 
@@ -170,8 +170,7 @@ The following guidelines can help you design suitable transient fault handling m
 
 ## Related resources
 
-- [Retry guidance for Azure services](./retry-service-specific.md)
-- [Circuit Breaker pattern](../patterns/circuit-breaker.yml)
+- [Circuit Breaker pattern](../patterns/circuit-breaker.md)
 - [Compensating Transaction pattern](../patterns/compensating-transaction.yml)
 - [Idempotency patterns][idempotency-patterns]
 

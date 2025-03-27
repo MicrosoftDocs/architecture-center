@@ -91,7 +91,7 @@ Continuous integration and continuous delivery (CI/CD) is a method to frequently
 
 ### Open-source search engine
 
-Searches are integral parts of any application. If speed, performance, and high availability are critical, searches on terabytes and petabytes of data can be challenging. When you host Java applications on Azure, plan to host your related Solr and Elasticsearch instances. Alternatively, consider migrating to [Azure Cognitive Search](/azure/search).
+Searches are integral parts of any application. If speed, performance, and high availability are critical, searches on terabytes and petabytes of data can be challenging. When you host Java applications on Azure, plan to host your related Solr and Elasticsearch instances. Alternatively, consider migrating to [Azure AI Search](/azure/search).
 
 ### Big data tools
 

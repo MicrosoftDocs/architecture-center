@@ -12,7 +12,7 @@ The hosting of the custom chat UI follows the [baseline app services web applica
 > [!IMPORTANT]
 > This article doesn't describe the components or architecture decisions from the [baseline App Service web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml). Read that article for architectural guidance about how to host the chat UI.
 
-The Azure AI Foundry hub is configured by using [managed virtual network isolation](/azure/ai-studio/how-to/configure-managed-network) that requires approval for all outbound connections. In this configuration, a managed virtual network is created and managed private endpoints are established to enable connectivity to private resources, such as the workplace Azure Storage, Azure Container Registry, and Azure OpenAI. These private connections are used during flow authoring and testing by flows that are deployed to Azure Machine Learning compute.
+The Azure AI Foundry hub is configured by using [managed virtual network isolation](/azure/ai-foundry/how-to/configure-managed-network) that requires approval for all outbound connections. In this configuration, a managed virtual network is created and managed private endpoints are established to enable connectivity to private resources, such as the workplace Azure Storage, Azure Container Registry, and Azure OpenAI. These private connections are used during flow authoring and testing by flows that are deployed to Azure Machine Learning compute.
 
 A hub is the top-level Azure AI Foundry resource that provides a central way to help govern security, connectivity, and other concerns across multiple projects. This architecture requires only one project for its workload. If you have more experiences that require different prompt flows that use different logic and potentially different back-end resources such as data stores, you might consider implementing those experiences in a different project.
 
@@ -33,7 +33,7 @@ Many of the components of this architecture are the same as the resources in the
 
 - [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is used in both architectures. Azure OpenAI is a fully managed service that provides REST API access to Azure OpenAI language models, including the GPT-4, GPT-3.5-Turbo, and embeddings set of models. The baseline architecture uses enterprise features like [virtual networks and private links](/azure/ai-services/cognitive-services-virtual-networks) that the basic architecture doesn't implement.
 
-- [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) is a platform that you can use to build, test, and deploy AI solutions. This architecture uses Azure AI Foundry portal to build, test, and deploy the prompt flow orchestration logic for the chat application. In this architecture, Azure AI Foundry provides the [managed virtual network](/azure/ai-studio/how-to/configure-managed-network) for network security. For more information, see the [networking](#networking) section in this article.
+- [Azure AI Foundry](/azure/ai-foundry/what-is-ai-foundry) is a platform that you can use to build, test, and deploy AI solutions. This architecture uses Azure AI Foundry portal to build, test, and deploy the prompt flow orchestration logic for the chat application. In this architecture, Azure AI Foundry provides the [managed virtual network](/azure/ai-foundry/how-to/configure-managed-network) for network security. For more information, see the [networking](#networking) section in this article.
 
 - [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer 7 (HTTP/S) load balancer and web traffic router. It uses URL path-based routing to distribute incoming traffic across availability zones and offloads encryption to improve application performance.
 
@@ -53,7 +53,7 @@ This architecture includes multiple components that can be served by other Azure
 
 #### Machine Learning workspaces and portal experiences
 
-This architecture uses [Azure AI Foundry portal](/azure/ai-studio/what-is-ai-studio) to build, test, and deploy prompt flows. Alternatively, you can use [Machine Learning workspaces](/azure/well-architected/service-guides/azure-machine-learning). Both services have features that overlap. The portal is a good choice for designing a prompt flow solution, but Machine Learning currently has better support for some features. For more information, see [Detailed feature comparison](/ai/ai-studio-experiences-overview). We recommend that you don't mix and match the portal and Machine Learning studio. If your work can be done completely in Azure AI Foundry portal, use the portal. If you need features from Machine Learning studio, use the studio instead.
+This architecture uses [Azure AI Foundry portal](/azure/ai-foundry/what-is-ai-foundry) to build, test, and deploy prompt flows. Alternatively, you can use [Machine Learning workspaces](/azure/well-architected/service-guides/azure-machine-learning). Both services have features that overlap. The portal is a good choice for designing a prompt flow solution, but Machine Learning currently has better support for some features. For more information, see [Detailed feature comparison](/ai/ai-studio-experiences-overview). We recommend that you don't mix and match the portal and Machine Learning studio. If your work can be done completely in Azure AI Foundry portal, use the portal. If you need features from Machine Learning studio, use the studio instead.
 
 #### Application tier components
 
@@ -157,7 +157,7 @@ If your workload requires a multiple-region strategy, you need to invest in comp
 
 - Grounding data
 - Model hosting
-- Orchestration layer, which is prompt flow in this architecture
+- Orchestration layer, which is the prompt flow in this architecture
 - Client-facing UI
 
 You also need to maintain business continuity in observability, portal experiences, and responsible AI, such as content safety.
@@ -232,7 +232,7 @@ The hub requires `Contributor` access to the hub resource group so that it can c
 
 We recommend that you minimize the use of Azure resources needed for the hub's operation by other components in your workloads. For example, if you need to store secrets as part of your workload, you should create a separate Key Vault instance from the one that's associated with the hub. Only the hub should use the hub key vault to store hub and project secrets.
 
-Ensure that for each distinct project, the role assignments for its dependencies don't provide access to resources the portal user and managed online endpoint managed identity don't require. For example, the `Cognitive Services OpenAI User` role assignment to Azure OpenAI grants access to all deployments for that resource. There's no way to restrict flow authors or managed online endpoint managed identities that have that role assignment to specific model deployments in Azure OpenAI. For these scenarios, we recommend that you deploy services like Azure OpenAI and AI Search for each project and don't deploy resources to those services that flow authors or managed online endpoint managed identities shouldn't have access to. For example, only deploy models to the Azure OpenAI instance that the project requires access to. Only deploy indexes to the AI Search instance that the project should have access to.
+Ensure that for each distinct project, the role assignments for its dependencies don't provide access to resources the portal user and the managed online endpoint managed identity don't require. For example, the `Cognitive Services OpenAI User` role assignment to Azure OpenAI grants access to all deployments for that resource. There's no way to restrict flow authors or managed online endpoint managed identities that have that role assignment to specific model deployments in Azure OpenAI. For these scenarios, we recommend that you deploy services like Azure OpenAI and AI Search for each project and don't deploy resources to those services that flow authors or managed online endpoint managed identities shouldn't have access to. For example, only deploy models to the Azure OpenAI instance that the project requires access to. Only deploy indexes to the AI Search instance that the project should have access to.
 
 #### Networking
 
@@ -270,7 +270,7 @@ The diagram shows a prompt flow author that connects through Azure Bastion to a 
 
 ##### Flow from the Azure AI Foundry managed virtual network to Azure PaaS services
 
-We recommend that you configure the Azure AI Foundry hub for [managed virtual network isolation](/azure/ai-studio/how-to/configure-managed-network), which requires the approval of all outbound connections. This architecture follows that recommendation. There are two types of approved outbound rules. *Required outbound rules* are for resources that the solution requires, such as Container Registry and Storage. *User-defined outbound rules* are for custom resources that your workflow uses, such as Azure OpenAI or AI Search. You must configure user-defined outbound rules. The required outbound rules are configured when the managed virtual network is created. The managed virtual network is deployed on demand when you first use it and is persistent from then on.
+We recommend that you configure the Azure AI Foundry hub for [managed virtual network isolation](/azure/ai-foundry/how-to/configure-managed-network), which requires the approval of all outbound connections. This architecture follows that recommendation. There are two types of approved outbound rules. *Required outbound rules* are for resources that the solution requires, such as Container Registry and Storage. *User-defined outbound rules* are for custom resources that your workflow uses, such as Azure OpenAI or AI Search. You must configure user-defined outbound rules. The required outbound rules are configured when the managed virtual network is created. The managed virtual network is deployed on demand when you first use it and is persistent from then on.
 
 The outbound rules can be private endpoints, service tags, or FQDNs for external public endpoints. In this architecture, connectivity to Azure services is established through Private Link. This architecture doesn't include some common operations that might require you to configure an FQDN outbound rule, download a pip package, clone a GitHub repo, or download base container images from external repositories.
 
@@ -343,17 +343,17 @@ To help ensure alignment with security, consider using Azure Policy and network 
 
 #### Azure AI Foundry role assignments for Key Vault
 
-The Azure AI Foundry managed identity requires both control plane (`Contributor`) and data plane (`Key Vault Administrator`) role assignments. These assignments give this identity read and write access to all secrets, keys, and certificates stored in the Azure key vault. If your workload uses services other than Azure AI Foundry that require access to secrets, keys, or certificates in Key Vault, your workload or security team might prefer that the Azure AI Foundry hub managed identity doesn't have access to those artifacts. In this scenario, consider deploying a Key Vault instance specifically for the Azure AI Foundry hub and other Key Vault instances as appropriate for other parts of your workload.
+The Azure AI Foundry managed identity requires both control plane (`Contributor`) and data plane (`Key Vault Administrator`) role assignments. These assignments give this identity read and write access to all secrets, keys, and certificates stored in the Azure Key Vault. If your workload uses services other than Azure AI Foundry that require access to secrets, keys, or certificates in Key Vault, your workload or security team might prefer that the Azure AI Foundry hub managed identity doesn't have access to those artifacts. In this scenario, consider deploying a Key Vault instance specifically for the Azure AI Foundry hub and other Key Vault instances as appropriate for other parts of your workload.
 
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-To see a pricing example for this scenario, use the [Azure pricing calculator](https://azure.com/e/a5a243c3b0794b2787e611c65957217f). You need to customize the example to match your usage because this example only includes the components that this architecture uses. The most expensive components in the scenario are DDoS Protection and the firewall that's deployed as part of the managed online endpoint. Other notable costs include the chat UI and prompt flow compute and AI Search. Optimize those resources to reduce costs.
+To see a pricing example for this scenario, use the [Azure pricing calculator](https://azure.com/e/a5a243c3b0794b2787e611c65957217f). You need to customize the example to match your usage because this example only includes the components that this architecture uses. The most expensive components in the scenario are DDoS Protection and the firewall that's deployed as part of the managed online endpoint. Other notable costs include the chat UI, prompt flow compute, and AI Search. Optimize those resources to reduce costs.
 
 #### Compute
 
-Prompt flow supports multiple options to host the executable flows. The options include managed online endpoints in Machine Learning, AKS, and App Service. Each of these options has their own billing model. The compute that you choose affects the overall cost of the solution.
+Prompt flow supports multiple options to host the executable flows. The options include managed online endpoints in Machine Learning, AKS, and App Service. Each of these options has its own billing model. The compute that you choose affects the overall cost of the solution.
 
 #### Azure OpenAI
 
@@ -375,7 +375,7 @@ Azure OpenAI is a consumption-based service, so matching demand with supply is t
 
 - **Understand billing breakpoints.** Fine-tuning is charged per hour. For maximum efficiency, use as much of that hour to improve the fine-tuning results before you reach the next billing hour. Similarly, the cost for 100 images from image generation is the same as the cost for one image. Maximize the price break points to your advantage.
 
-- **Understand billing models.** Azure OpenAI is also available in a commitment-based billing model through the [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) offering. After you have predictable usage patterns, consider switching to this prepurchase billing model if it's more cost effective at your usage volume.
+- **Understand billing models.** Azure OpenAI is also available in a commitment-based billing model through the [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) offering. After you have predictable usage patterns, consider switching to this pre-purchase billing model if it's more cost-effective at your usage volume.
 
 - **Set provisioning limits.** Allocate all provisioning quota only to models expected to be part of the workload, on a per-model basis. Throughput to already deployed models isn't limited to this provisioned quota while dynamic quota is enabled. Quota doesn't directly map to costs, and those costs might vary.
 
@@ -391,7 +391,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 #### Built-in prompt flow runtimes
 
-Like in the basic architecture, this architecture uses automatic runtime to minimize operational burden. The automatic runtime is a serverless compute option within Machine Learning that simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. This choice is low maintenance, temporary, and application-driven. This architecture uses compute instance runtime or externalized compute, which requires the workload team to manage the lifecycle of the compute. You should use compute instance runtime when your workload requirements exceed the configuration capabilities of the automatic runtime option.
+Like in the basic architecture, this architecture uses automatic runtime to minimize operational burden. The automatic runtime is a serverless compute option within Machine Learning that simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. This choice is low maintenance, temporary, and application-driven. This architecture uses compute instance runtime or externalized compute, which requires the workload team to manage the lifecycle of the compute. You should use a compute instance runtime when your workload requirements exceed the configuration capabilities of the automatic runtime option.
 
 #### Monitoring
 
@@ -403,7 +403,7 @@ Evaluate building custom alerts, such as those found in the Azure Monitor baseli
 - [Machine Learning and Azure OpenAI alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/CognitiveServices/accounts/)
 - [Web Apps alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/Web/serverFarms/)
 
-Be sure to monitor the usage of tokens against your Azure OpenAI model deployments. In this architecture, prompt flow tracks [token usage](/azure/ai-studio/how-to/monitor-quality-safety) through its integration with Application Insights.
+Be sure to monitor the usage of tokens against your Azure OpenAI model deployments. In this architecture, prompt flow tracks [token usage](/azure/ai-foundry/how-to/monitor-quality-safety) through its integration with Application Insights.
 
 #### Language model operations
 
@@ -437,7 +437,7 @@ Consider the following guidance when you implement automated evaluations:
 
 - Some of these tests require preconfigured data inputs of questions, context, and ground truth.
 
-- Include enough question and answer pairs to help ensure that the results of the tests are reliable. We recommend that you include at least 100-150 pairs. These question and answer pairs are also known as your *golden dataset*. A larger number of pairs might be required, depending on the size and domain of your dataset.
+- Include enough question-and-answer pairs to help ensure that the results of the tests are reliable. We recommend that you include at least 100-150 pairs. These questions and answers are also known as your *golden dataset*. A larger number of pairs might be required, depending on the size and domain of your dataset.
 
 - Avoid using language models to generate any of the data in your golden dataset.
 
@@ -536,7 +536,7 @@ Some Azure resources are more tightly coupled with the design of specific prompt
 
 ###### On-demand managed virtual network
 
-The managed virtual network is automatically provisioned when you first create a compute instance. If you use IaC to deploy your hub, and you don't have Azure AI Foundry compute resources in Bicep, the managed virtual network isn't deployed and you receive an error when you connect to Azure AI Foundry portal. You need to [manually provision the managed virtual network](/azure/ai-studio/how-to/configure-managed-network#manually-provision-a-managed-vnet) after your IaC deployment.
+The managed virtual network is automatically provisioned when you first create a compute instance. If you use IaC to deploy your hub, and you don't have Azure AI Foundry compute resources in Bicep, the managed virtual network isn't deployed and you receive an error when you connect to Azure AI Foundry portal. You need to [manually provision the managed virtual network](/azure/ai-foundry/how-to/configure-managed-network#manually-provision-a-managed-vnet) after your IaC deployment.
 
 #### Resource organization
 
@@ -592,7 +592,7 @@ To deploy and run this reference implementation, follow the steps in the [OpenAI
 - A Well-Architected Framework perspective on [AI workloads on Azure](/azure/well-architected/ai/get-started)
 - [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service)
 - [Azure OpenAI language models](/azure/ai-services/openai/concepts/models)
-- [Prompt flow in Azure AI Foundry portal](/azure/ai-studio/how-to/prompt-flow)
+- [Prompt flow in Azure AI Foundry portal](/azure/ai-foundry/how-to/prompt-flow)
 - [Workspace managed virtual network isolation](/azure/machine-learning/how-to-managed-network)
 - [Configure a private endpoint for a Machine Learning workspace](/azure/machine-learning/how-to-configure-private-link)
 - [Content filtering](/azure/ai-services/openai/concepts/content-filter)
