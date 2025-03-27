@@ -89,7 +89,7 @@ This example features the following Azure components. Several of these component
 
   - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) provides enterprise-grade Azure file shares powered by NetApp. NetApp Files makes it easy for enterprises to migrate and run complex, file-based applications with no code changes.
 
-  - [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is scalable and secure object storage for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads.
+  - [Azure Blob Storage](/azure/well-architected/service-guides/azure-netapp-files) is scalable and secure object storage for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads.
 
 - [Azure databases](https://azure.microsoft.com/product-categories/databases) offer a choice of fully managed relational and NoSQL databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security.
 
@@ -129,7 +129,7 @@ The following considerations, based on the [Azure Well-Architected Framework](/a
 
 ### Availability
 
-Azure Site Recovery mirrors the Azure VMs to a secondary Azure region for quick failover and DR if the primary Azure datacenter fails.
+Azure Site Recovery (https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview) mirrors the Azure VMs to a secondary Azure region for quick failover and DR if the primary Azure datacenter fails.
 
 ### Operations
 
@@ -137,7 +137,7 @@ Refactoring not only supports faster cloud adoption, but also promotes adoption 
 
 ### Resiliency
 
-Performance efficiency is built into this solution by the load balancers. If one presentation or transaction server fails, other servers behind the load balancers can run the workloads.
+Performance efficiency is built into this solution by the load balancers (https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview). If one presentation or transaction server fails, other servers behind the load balancers can run the workloads.
 
 ### Security
 
@@ -166,6 +166,7 @@ Use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator) to 
 Principal author:
 
  - [Jonathon Frost](https://www.linkedin.com/in/jjfrost/) | Principal Software Engineer
+ - [Philip Brooks](https://www.linkedin.com/in/philipbbrooks/) | Senior TPM
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -182,7 +183,6 @@ Principal author:
 ## Related resources
 
 - [Rehost mainframe applications to Azure with Raincode compilers](../../reference-architectures/app-modernization/raincode-reference-architecture.yml)
-- [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml)
 - [Unisys mainframe migration](../../reference-architectures/migration/unisys-mainframe-migration.yml)
 - [IBM z/OS mainframe migration with Avanade AMT](avanade-amt-zos-migration.yml)
 - [High-volume batch transaction processing](process-batch-transactions.yml)
