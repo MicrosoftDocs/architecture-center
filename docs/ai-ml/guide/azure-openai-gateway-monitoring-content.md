@@ -1,6 +1,6 @@
 Monitoring workloads that involve Azure OpenAI Service can be as simple as enabling diagnostics for the Azure OpenAI Service and using pre-configured dashboards. However, this strategy does not meet some common, more complex, organizational monitoring requirements for generative AI workloads. One such requirement for organizations that have multiple client applications and/or are consuming multiple Azure OpenAI models is to be able to track usage by client, by model for use in implementing chargeback solutions or for quota management. Another common monitoring requirement for generative AI workloads involves logging model inputs and model outputs for a variety of auditing use cases and monitoring model performance.
 
-> ![INFORMATION]
+> [!NOTE]
 > For more information on basic monitoring of Azure OpenAI, see [Monitor Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/monitor-openai)
 
 The following diagram illustrates monitoring Azure OpenAI instances without a gateway. You don't need the use of a gateway with this topology. The choice of a gateway depends on whether the monitoring scenarios outlined below are part of your requirements. This article describes the challenges each monitoring scenario addresses, and the benefits and costs of including a gateway for each scenario.
@@ -71,7 +71,7 @@ Output:
 
 ## Auditing model inputs and outputs
 
-Central to many auditing requirements for a generative AI workloads is monitoring the input and output of the models. You may further need to know whether a response was from a model, or whether the response was sourced from a cache. There are many use cases for monitoring both inputs and outputs of models.
+Central to many auditing requirements for generative AI workloads is monitoring the input and output of the models. You may further need to know whether a response was from a model, or whether the response was sourced from a cache. There are many use cases for monitoring both inputs and outputs of models. In most cases, auditing rules should be applied uniformly across all models for both inputs and outputs.
 
 **Inputs** - The following are some of the use cases for monitoring the inputs to models:
 
@@ -101,3 +101,13 @@ Central to many auditing requirements for a generative AI workloads is monitorin
 Introducing a gateway into this topology allows you to capture both the raw input and output. Because the gateway is an abstraction between the client and the models, it can log the input it receives from the clients and log the output or response before it sends it back to the client. Because the gateway receives the request from the clients, it is able to log that raw, unprocessed request. Likewise, because the gateway is the resource that returns the final response to the client, it is able to log that, as well.
 
 The gateway is uniquely able to log both what the client asked for and what it ultimately received, regardless of whether the response was the raw response from a model, the response was an aggregated response from multiple models, or the response was served from cache. Further, if the clients pass a conversation identifier, the gateway can log that identifier with the input and output. This will allow you to correlate multiple interactions of a conversation.
+
+Monitoring inputs and outputs at the gateway allows you to apply auditing rules uniformly across all models.
+
+## Near real-time processing and large payloads
+
+Azure Monitor was not designed for near real-time processing. The [average latency to ingest log data in Azure Monitor is between 20 seconds and 3 minutes](/azure/azure-monitor/logs/data-ingestion-time#average-latency). If your solution requires near real-time processing, you can consider an architecture where you publish logs directly to a message bus and use a stream processing technology, such as Azure Stream Analytics, to perform windowed operations.
+
+:::image type="complex" source="_images/tracking-multiple-models-inputs-and-outputs-bus.svg" alt-text="Architecture diagram of a scenario with multiple clients connecting to more than one model deployment across multiple instances of Azure OpenAI through a gateway with the gateway logging inputs and outputs to a message bus." lightbox="_images/tracking-multiple-models-inputs-and-outputs-bus.svg":::
+   A diagram that shows two clients labeled A and B directly interfacing with a gateway. The gateway has two arrows that points to private endpoints. The first private endpoint has two solid arrows that point to a gpt-35-turbo deployment and a gpt-4o deployment in an Azure OpenAI deployment. The second privat endpoint has a solid arrow pointing to a gpt-4 deployment and a dashed line pointing to a gpt-4o deployment in a second Azure OpenAI instance. Both Azure OpenAI instances are shown passing Azure OpenAI metrics and logs to Azure Monitor. The gateway has an arrow pointing to Azure Monitor that shows it passing inputs and outputs. The gateway has another arrow pointing to a message bus. The message bus has arrows pointing to blob storage and to a stream processor.
+:::image-end:::
