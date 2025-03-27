@@ -84,7 +84,7 @@ PaaS and IaaS data services include Azure SQL Database, Azure Data Lake, Azure D
 
 For IaaS, or compute, resources that provide hosting for customized logic, create backups and restore the resources in the target environment.
 
-IaaS compute resources include VMs ---.
+IaaS compute resources include VMs, Linux, Microsoft Windows, Docker, and SQL Databases.
 
 ### Potential use cases
 
