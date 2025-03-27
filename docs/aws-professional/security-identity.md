@@ -30,7 +30,7 @@ The core identity services form the foundation of identity and access management
 | [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) | [Microsoft Entra ID](/entra/identity/hybrid/connect/whatis-pta) | Centralized identity management service providing single sign-on (SSO), multi-factor authentication (MFA), and integration with various applications.|
 | [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) | [Azure Management Groups](/azure/governance/management-groups/overview) | Hierarchical organization structure for managing multiple accounts/subscriptions with inherited policies |
 | [AWS Single Sign-On](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) | [Microsoft Entra ID Single Sign-On](/entra/identity/enterprise-apps/what-is-single-sign-on) | Centralized access management enabling users to access multiple applications with single credentials |
-| [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html) | [Microsoft Entra Directory Domain Services](https://learn.microsoft.com/en-us/entra/identity/domain-services/overview) | Managed directory services providing domain join, group policy, LDAP, and Kerberos/NTLM authentication |
+| [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html) | [Microsoft Entra Directory Domain Services](/entra/identity/domain-services/overview) | Managed directory services providing domain join, group policy, LDAP, and Kerberos/NTLM authentication |
 
 ## Authentication and access control
 
