@@ -1,7 +1,7 @@
 ---
 title: Governance Options for a Kubernetes Cluster
 description: Understand governance options for a Kubernetes cluster, and compare Amazon EKS and Azure Kubernetes Service (AKS) governance options.
-author:  paolosalvatori
+author: paolosalvatori
 ms.author: paolos
 ms.date: 01/28/2025
 ms.topic: conceptual
@@ -54,7 +54,7 @@ OPA uses a high-level declarative language called [Rego](https://www.openpolicya
 
 CNCF also sponsors the [Kyverno](https://kyverno.io) open-source project, which helps enforce policies in Kubernetes clusters. Kyverno is a Kubernetes-native policy engine that can use policies to validate, mutate, and generate Kubernetes resource configurations.
 
-Use Kyverno to define and manage policies as Kubernetes resources without using a new language. You can use familiar tools, such as [kubectl](https://kubernetes.io/docs/tasks/tools), [git](https://git-scm.com), and [kustomize](https://kustomize.io), to manage policies.
+Use Kyverno to define and manage policies as Kubernetes resources without using a new language. You can manage policies by using familiar tools, such as [kubectl](https://kubernetes.io/docs/tasks/tools), [git](https://git-scm.com), and [kustomize](https://kustomize.io).
 
 Kyverno has the following features:
 - Uses `kustomize`-style overlays for validation
@@ -67,7 +67,7 @@ Unlike Gatekeeper or Azure Policy for AKS, Kyverno can use policies to generate 
 
 - For more information, see [Kyverno installation guide](https://kyverno.io/docs/installation).
 - For a list of ready-to-use or customizable policies, see [Kyverno policies library](https://kyverno.io/policies).
-- For troubleshooting reference, such as *APIServer failing webhook calls*, see [Kyverno troubleshooting](https://kyverno.io/docs/troubleshooting/#api-server-is-blocked).
+- For troubleshooting guidance, such as *APIServer failing webhook calls*, see [Kyverno troubleshooting](https://kyverno.io/docs/troubleshooting/#api-server-is-blocked).
 
 Optionally, you can deploy Kyverno's implementation of the [Kubernetes Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards) as [Kyverno policies](https://artifacthub.io/packages/helm/kyverno/kyverno-policies). Pod Security Standards controls provide a starting point for general Kubernetes cluster operational security.
 
