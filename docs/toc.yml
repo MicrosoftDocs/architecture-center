@@ -267,8 +267,6 @@ items:
       items:
       - name: Overview
         href: guide/responsible-innovation/index.md
-      - name: Judgment call
-        href: guide/responsible-innovation/judgmentcall.md
       - name: Harms modeling
         items:
         - name: Understand harm

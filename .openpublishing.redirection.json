@@ -6820,6 +6820,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/responsible-innovation/judgmentcall.md",
+      "redirect_url": "/azure/architecture/guide/responsible-innovation/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/data/sentinel-threat-intelligence.yml",
       "redirect_url": "/azure/sentinel/",
       "redirect_document_id": false
