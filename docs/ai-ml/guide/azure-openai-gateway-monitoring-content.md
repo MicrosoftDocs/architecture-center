@@ -1,4 +1,8 @@
-Monitoring workloads that involve Azure OpenAI Service can be as simple as enabling diagnostics for the Azure OpenAI Service and using preconfigured dashboards. However, this strategy doesn't meet some common, more complex, organizational monitoring requirements for generative AI workloads. Organizations with multiple client applications or Azure OpenAI models often need to track usage by client and model to manage quotas and implement chargeback solutions. Another common monitoring requirement for generative AI workloads involves logging model inputs and model outputs for various auditing use cases and monitoring model performance.
+Monitoring workloads that involve Azure OpenAI Service can be as simple as enabling diagnostics for the Azure OpenAI Service and using preconfigured dashboards. However, this strategy doesn't meet some common, more complex, organizational monitoring requirements for generative AI workloads, such as the following:
+
+- Track usage by client and model to manage quotas and implement chargeback solutions
+- Log model inputs and model outputs for various auditing use cases and monitoring model performance
+- Perform near real-time monitoring
 
 > [!NOTE]
 > For more information on basic monitoring of Azure OpenAI, see [Monitor Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/monitor-openai)
@@ -104,7 +108,7 @@ The gateway is uniquely able to log both what the client asked for and what it u
 
 Monitoring inputs and outputs at the gateway allows you to apply auditing rules uniformly across all models.
 
-## Near real-time processing
+## Near real-time monitoring
 
 Azure Monitor wasn't designed for near real-time processing. The [average latency to ingest log data in Azure Monitor is between 20 seconds and 3 minutes](/azure/azure-monitor/logs/data-ingestion-time#average-latency). If your solution requires near real-time processing, you can consider an architecture where you publish logs directly to a message bus and use a stream processing technology, such as Azure Stream Analytics, to perform windowed operations.
 

@@ -56,10 +56,6 @@ items:
         items:
         - name: Batch scoring with Spark on Databricks
           href: architecture/batch-scoring-databricks.yml
-      - name: Monitoring
-        items:
-        - name: Monitor OpenAI models
-          href: openai/architecture/log-monitor-azure-openai.yml
       - name: Regulatory
         items:
         - name: Secure research for regulated data
@@ -118,8 +114,6 @@ items:
           href: architecture/azure-openai-baseline-landing-zone.yml
         - name: Extract and analyze call center data
           href: openai/architecture/call-center-openai-analytics.yml
-        - name: Monitor OpenAI models
-          href: openai/architecture/log-monitor-azure-openai.yml
       - name: Apply guidance
         items:
         - name: Developing and evaluating RAG solutions
