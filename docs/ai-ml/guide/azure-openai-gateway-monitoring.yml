@@ -2,8 +2,8 @@
 metadata:
   title: Monitor Azure OpenAI Service through a gateway
   description: Learn how to implement advanced monitoring scenarios for Azure OpenAI, like chargeback and auditing, through accessing the Azure OpenAI Service through a gateway.
-  author: RobBagby
-  ms.author: robbag
+  author: jakeatmsft
+  ms.author: jacwang
   ms.date: 3/28/2025
   ms.topic: conceptual
   ms.collection: ce-skilling-ai-copilot

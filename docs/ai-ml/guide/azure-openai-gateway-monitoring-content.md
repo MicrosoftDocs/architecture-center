@@ -126,3 +126,13 @@ Azure Monitor wasn't designed for near real-time processing. The [average latenc
 ## Reasons to avoid introducing a gateway for monitoring
 
 If a single application is accessing a single model, the added complexity of adding a gateway likely outweighs the monitoring benefits. The client can handle the responsibility of logging inputs and outputs and you can take advantage of native logging capabilities of the model or service you're using. The gateway becomes beneficial when you have multiple clients and/or multiple models that you need to monitor.
+
+## Next steps
+
+Having a gateway implementation for your workload provides benefits beyond the tactical multiple back end routing benefit described in this article. Learn about the other [key challenges](./azure-openai-gateway-guide.yml#key-challenges) a gateway can solve.
+
+## Related resources
+
+- [Azure OpenAI Service](/azure/well-architected/service-guides/azure-openai)
+- [Design a well-architected AI workload](/azure/well-architected/ai/get-started)
+- [API gateway in Azure API Management](/azure/api-management/api-management-gateways-overview)
