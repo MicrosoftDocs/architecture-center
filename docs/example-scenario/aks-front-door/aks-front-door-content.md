@@ -3,7 +3,7 @@ This article describes how to securely expose and protect a workload that runs i
 ## Architecture
 
 :::image type="complex" border="false" source="./media/aks-front-door.svg" alt-text="Diagram that shows an architecture that securely exposes and protects a workload that runs in AKS." lightbox="./media/aks-front-door.svg":::
-   Diagram that shows an architecture that securely exposes and protects a workload that runs in AKS.
+   Diagram that shows an architecture that securely exposes and protects a workload that runs in AKS. 
 :::image-end:::
 
 *The Grafana logo is a trademark of its respective company. No endorsement is implied by the use of this mark.*
