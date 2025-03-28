@@ -5,7 +5,7 @@ Monitoring workloads that involve Azure OpenAI Service can be as simple as enabl
 - [Perform near real-time monitoring](#near-real-time-monitoring)
 
 > [!NOTE]
-> For more information on basic monitoring of Azure OpenAI, see [Monitor Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/monitor-openai)
+> For more information on monitoring Azure OpenAI directly, see [Monitor Azure OpenAI](/azure/ai-services/openai/how-to/monitor-openai).
 
 The following diagram illustrates monitoring Azure OpenAI instances without a gateway. You don't need the use of a gateway with this topology. The choice of a gateway depends on whether the outlined monitoring scenarios are part of your requirements. This article describes the challenges each monitoring scenario addresses, and the benefits and costs of including a gateway for each scenario.
 
@@ -15,7 +15,7 @@ The following diagram illustrates monitoring Azure OpenAI instances without a ga
 
 ## Tracking model usage
 
-Many organizations need to track the usage of Azure OpenAI models by client and by model across all Azure OpenAI instances. They use this information for the following purposes:
+Many workloads or organizations need to track the usage of Azure OpenAI models by client and by model across all Azure OpenAI instances. They use this information for the following purposes:
 
 - Implementing a chargeback system where they allocate usage costs to the appropriate organization or application owner
 - Budgeting and forecasting for future usage
@@ -23,7 +23,7 @@ Many organizations need to track the usage of Azure OpenAI models by client and 
 
 You can use the native Azure OpenAI monitoring functionality to track telemetry of the service, but there are challenges.
 
-- For chargeback models, you must be able to associate the Azure OpenAI token usage metrics with an application or organization. Azure OpenAI telemetry contains a calling IP with the last octet masked which might be challenging to associate to an organization or application.
+- For chargeback models, you must be able to associate the Azure OpenAI token usage metrics with an application or business unit. Azure OpenAI telemetry contains a calling IP with the last octet masked which might be challenging to associate to an application or business unit.
 - Azure OpenAI instances in different regions likely log to Azure Monitor instances in the local region. This requires you to aggregate logs from different Azure Monitor instances to track usage across all Azure OpenAI instances.
 
 ### Introduce a gateway to track model usage
@@ -32,13 +32,13 @@ You can use the native Azure OpenAI monitoring functionality to track telemetry 
    A diagram that shows two clients labeled A and B directly interfacing with a gateway. The gateway has two arrows that points to private endpoints. The first private endpoint has two solid arrows that point to a gpt-35-turbo deployment and a gpt-4o deployment in an Azure OpenAI deployment. The second private endpoint has a solid arrow pointing to a gpt-4 deployment and a dashed line pointing to a gpt-4o deployment in a second Azure OpenAI instance. Both Azure OpenAI instances are shown passing Azure OpenAI metrics and logs to Azure Monitor. The gateway has an arrow pointing to Azure Monitor that shows it passing usage metrics including Client IP, Model, and Token data.
 :::image-end:::
 
-Introducing a gateway into this topology allows you to capture the full IP address, the Entra ID of the caller, or a custom identifier for an organization or an application in one place. This data can then be used to implement a chargeback solution, for budgeting and forecasting, and to perform cost/benefit analyses of models.
+Introducing a gateway into this topology allows you to capture the full client IP address, the Entra ID (or alternative identity) of the client, or a custom identifier for a business unit, tenant, or an application in one place. This data can then be used to implement a chargeback solution, for budgeting and forecasting, and to perform cost/benefit analyses of models.
 
 The following are examples of usage queries that are possible when using Azure API Management (APIM) as a gateway.
 
-### Example query for usage monitoring
+#### Example query for usage monitoring
 
-```
+```kusto
 ApiManagementGatewayLogs
 | where tolower(OperationId) in ('completions_create','chatcompletions_create')
 | extend modelkey = substring(parse_json(BackendResponseBody)['model'], 0, indexof(parse_json(BackendResponseBody)['model'], '-', 0, -1, 2))
@@ -59,9 +59,9 @@ Output:
 
 :::image type="content" source="_images/monitor-usage.png" alt-text="A screenshot that shows the output of usage monitoring." lightbox="_images/monitor-usage.png":::
 
-### Example query for prompt usage monitoring
+#### Example query for prompt usage monitoring
 
-```
+```kusto
 ApiManagementGatewayLogs
 | where tolower(OperationId) in ('completions_create','chatcompletions_create')
 | extend model = tostring(parse_json(BackendResponseBody)['model'])
@@ -80,14 +80,14 @@ Central to many auditing requirements for generative AI workloads is monitoring 
 **Inputs** - The following are some of the use cases for monitoring the inputs to models:
 
 - Threat detection - analyze inputs to identify and mitigate potential security risks.
-- Profanity detection - analyze inputs for offensive language to ensure the system is safe and unbiased.
+- Usage guidelines violation detection - analyze inputs for offensive language or other usage standards to ensure the system is professional, safe, and unbiased.
 - Model performance - Combining with model outputs to evaluate performance on metrics like groundedness and relevance. This information can be used to address performance issues with the model or prompts.
 
 **Outputs** - The following are some of the use cases for monitoring the outputs to models:
 
-- Data exfiltration detection - analyze outputs to guard against unauthorized transfer of sensitive information.
-- Stateful compliance - monitor outputs over multiple interactions within the same conversation to detect stealthy leaks of sensitive information.
-- Compliance - ensure outputs adhere to corporate guidelines and regulatory requirements. Some examples include ensuring models don't provide legal advise or make financial promises.
+- Data exfiltration detection - Analyze outputs to guard against unauthorized transfer of sensitive information.
+- Stateful compliance - Monitor outputs over multiple interactions within the same conversation to detect stealthy leaks of sensitive information.
+- Compliance - Ensure outputs adhere to corporate guidelines and regulatory requirements. Some examples include ensuring models don't provide legal advice or make financial promises.
 - Model performance - Combining with model inputs to evaluate performance on metrics like groundedness and relevance. This information can be used to address performance issues with the model or prompts.
 
 ### Challenges to auditing model inputs and outputs directly from the model
@@ -95,6 +95,7 @@ Central to many auditing requirements for generative AI workloads is monitoring 
 - Model logging constraints - Some services such as Azure OpenAI don't log model inputs and outputs.
 - Cache - More complex architectures may serve responses from cache. In those cases, the model isn't called and doesn't log either the input or output.
 - Stateful conversations - The state of a multi-interaction conversation may be stored outside the model. The model doesn't know which interactions should be correlated as a conversation.
+- Multi model architecture - The orchestration layer may dynamically invoke multiple models to generate a final response.
 
 ### Introduce a gateway for auditing model inputs and outputs
 
@@ -102,7 +103,7 @@ Central to many auditing requirements for generative AI workloads is monitoring 
    A diagram that shows two clients labeled A and B directly interfacing with a gateway. The gateway has two arrows that points to private endpoints. The first private endpoint has two solid arrows that point to a gpt-35-turbo deployment and a gpt-4o deployment in an Azure OpenAI deployment. The second private endpoint has a solid arrow pointing to a gpt-4 deployment and a dashed line pointing to a gpt-4o deployment in a second Azure OpenAI instance. Both Azure OpenAI instances are shown passing Azure OpenAI metrics and logs to Azure Monitor. The gateway has an arrow pointing to Azure Monitor that shows it passing inputs and outputs.
 :::image-end:::
 
-Introducing a gateway into this topology allows you to capture both the raw input and output. Because the gateway is an abstraction between the client and the models, it can log the input it receives from the clients and log the output or response before it sends it back to the client. Because the gateway receives the request from the clients, it's able to log that raw, unprocessed request. Likewise, because the gateway is the resource that returns the final response to the client, it's able to log that, as well.
+Introducing a gateway into this topology allows you to capture both the original input directly from the client and final output returning to the client. Because the gateway is an abstraction between the client and the models and directly receives the request from the clients, the gateway is in a position to log that raw, unprocessed request. Likewise, because the gateway is the resource that returns the final response to the client, it's able to log that response as well.
 
 The gateway is uniquely able to log both what the client asked for and what it ultimately received, regardless of whether the response was the raw response from a model, the response was an aggregated response from multiple models, or the response was served from cache. Further, if the clients pass a conversation identifier, the gateway can log that identifier with the input and output. This implementation allows you to correlate multiple interactions of a conversation.
 
@@ -110,7 +111,7 @@ Monitoring inputs and outputs at the gateway allows you to apply auditing rules 
 
 ## Near real-time monitoring
 
-Azure Monitor wasn't designed for near real-time processing. The [average latency to ingest log data in Azure Monitor is between 20 seconds and 3 minutes](/azure/azure-monitor/logs/data-ingestion-time#average-latency). If your solution requires near real-time processing, you can consider an architecture where you publish logs directly to a message bus and use a stream processing technology, such as Azure Stream Analytics, to perform windowed operations.
+Azure Monitor wasn't designed for near real-time processing. The [average latency to ingest log data in Azure Monitor ](/azure/azure-monitor/logs/data-ingestion-time#average-latency) precludes this. If your solution requires near real-time processing of traffic, you can consider a design where you publish logs directly to a message bus and use a stream processing technology, such as Azure Stream Analytics, to perform windowed operations.
 
 :::image type="complex" source="_images/tracking-multiple-models-inputs-and-outputs-bus.svg" alt-text="Architecture diagram of a scenario with multiple clients connecting to more than one model deployment across multiple instances of Azure OpenAI through a gateway with the gateway logging inputs and outputs to a message bus." lightbox="_images/tracking-multiple-models-inputs-and-outputs-bus.svg":::
    A diagram that shows two clients labeled A and B directly interfacing with a gateway. The gateway has two arrows that points to private endpoints. The first private endpoint has two solid arrows that point to a gpt-35-turbo deployment and a gpt-4o deployment in an Azure OpenAI deployment. The second private endpoint has a solid arrow pointing to a gpt-4 deployment and a dashed line pointing to a gpt-4o deployment in a second Azure OpenAI instance. Both Azure OpenAI instances are shown passing Azure OpenAI metrics and logs to Azure Monitor. The gateway has an arrow pointing to Azure Monitor that shows it passing inputs and outputs. The gateway has another arrow pointing to a message bus. The message bus has arrows pointing to blob storage and to a stream processor.
