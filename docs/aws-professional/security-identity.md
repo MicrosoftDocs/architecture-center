@@ -23,7 +23,7 @@ This guide is intended for organizations using AWS that are migrating to Azure o
 
 ## Core identity services
 
-The core identity services form the foundation of identity and access management in both platforms. AWS professionals will find similar capabilities in Azure, though some architectural differences exist in implementation. These services offer core authentication, authorization, and accounting (AAA) capabilities as well the ability organize cloud resources into logical structures.
+Core identity services in both platforms form the foundation of identity and access management. These services include core authentication, authorization, and accounting (AAA) capabilities, and the ability organize cloud resources into logical structures. AWS professionals will find similar capabilities in Azure, but with some architectural differences in implementation.
 
 | AWS service | Azure service | Description |
 |------------|---------------|-------------|
@@ -49,7 +49,7 @@ Managing identities and access is crucial for maintaining security and complianc
 
 In AWS, managing identity lifecycle, access reviews, and privileged access requires a combination of several services. AWS Identity and Access Management (IAM) handles secure access to resources, while IAM Access Analyzer helps identify shared resources. AWS Organizations allows for centralized management of multiple accounts, and IAM Identity Center provides centralized access management. Additionally, AWS CloudTrail and AWS Config enable governance, compliance, and auditing of AWS resources. Together, these services can be tailored to meet specific organizational needs, ensuring compliance and security.
 
-In Azure, **[Microsoft Entra identity governance](/entra/id-governance/identity-governance-overview)** offers a integrated solution for managing identity lifecycle, access reviews, and privileged access. It simplifies these processes with automated workflows, access certifications, and policy enforcement, providing a unified approach to identity governance.
+In Azure, **[Microsoft Entra identity governance](/entra/id-governance/identity-governance-overview)** offers an integrated solution for managing identity lifecycle, access reviews, and privileged access. It simplifies these processes with automated workflows, access certifications, and policy enforcement, providing a unified approach to identity governance.
 
 ## Privileged access management
 
