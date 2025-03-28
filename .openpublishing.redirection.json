@@ -6830,6 +6830,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/ai-ml/openai/architecture/log-monitor-azure-openai.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/azure-openai-gateway-monitoring",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/solution-ideas/articles/homomorphic-encryption-seal.yml",
       "redirect_url": "https://www.microsoft.com/research/project/microsoft-seal/",
       "redirect_document_id": false

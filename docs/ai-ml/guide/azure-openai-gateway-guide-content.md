@@ -193,11 +193,9 @@ Learn about a specific scenario where deploying a gateway between an intelligent
 
 - [Load balancing or failover between multiple backend instances](./azure-openai-gateway-multi-backend.yml)
 - [Custom authentication and authorization for client applications](./azure-openai-gateway-custom-authentication.yml)
-
-Learn ways to [Implement logging and monitoring for Azure OpenAI models](../openai/architecture/log-monitor-azure-openai.yml).
+- [Implement logging and monitoring for Azure OpenAI models](./azure-openai-gateway-monitoring.yml)
 
 ## Related resources
-
 
 - [Azure OpenAI Service](/azure/well-architected/service-guides/azure-openai)
 - [API gateway in Azure API Management](/azure/api-management/api-management-gateways-overview)
