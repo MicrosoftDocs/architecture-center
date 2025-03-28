@@ -29,7 +29,7 @@ Rocket® Data Replicate and Sync (RDRS), formerly tcVISION, is a data replicatio
 
 Rocket® Data Replicate and Sync (RDRS) is a data replication solution from Rocket Software. It provides an IBM mainframe integration solution for mainframe data replication, data synchronization, data migration, and change data capture (CDC) to multiple Azure data platform services.
 
-This reference architecture describes an overview of replicating data from Db2 z/OS to Microsoft Fabric Native SQL Database in near real-time. 
+This architecture describes an overview of replicating data from Db2 z/OS to Microsoft Fabric Native SQL Database in near real-time. 
 
 :::image type="content" source="./media/mainframe-realtime-batch-data-replication-azure-rdrs-db2-sql-db-one-way.svg" alt-text="Full and Change Data Replication from Db2 z/OS to Microsoft Fabric Native SQL Database using RDRS." border="false" lightbox="./media/mainframe-realtime-batch-data-replication-azure-rdrs-db2-sql-db-one-way.svg":::
 
@@ -89,7 +89,7 @@ This architecture refers to below networking services that can be used individua
 The architecture discusses the data migration to scalable, secure cloud storage and managed databases for flexible, intelligent data management in Azure.
 
 - [Storage](/azure/storage/common/storage-introduction): Storage offers unmanaged storage solutions like Azure Blob Storage, Azure Table Storage, Azure Queue Storage, and Azure Files. Azure Files is especially useful for re-engineered mainframe solutions and provides an effective add-on with managed SQL storage.
-- [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview): Azure SQL is a fully managed platform as a service (PaaS) for SQL Server from Azure. Relational data can be migrated and used efficiently with other Azure components, such as Azure SQL Managed Instance, Azure SQL VMs, Azure Database for PostgreSQL, and Azure Database for MySQL.
+- [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview): Azure SQL is a fully managed platform as a service (PaaS) for SQL Server on Azure. Relational data can be migrated and used efficiently with other Azure components, such as Azure SQL Managed Instance, Azure SQL VMs, Azure Database for PostgreSQL, and Azure Database for MySQL.
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db): Azure Cosmos DB is a no-SQL offering that you can use to migrate non-tabular data off of the mainframe.
 - [SQL Database in Fabric](/fabric/database/sql/overview)– SQL database in Fabric is a) The home in Fabric for OLTP workloads b) Easy to configure and manage c) Set up for analytics by automatically replicating the data into OneLake near real time d) Integrated with development frameworks and analytics e) Queried in all the same ways as Azure SQL Database, plus a web-based editor in the Fabric portal.
 
