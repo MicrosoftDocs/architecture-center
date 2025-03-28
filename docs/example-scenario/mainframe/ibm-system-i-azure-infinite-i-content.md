@@ -48,7 +48,7 @@ The benefits of the Infinite i environment include:
 - Conversion of tape archives for backup and regulatory compliance.
 - Application screens work as before. You have the option of updating the screens to web-based user interfaces.
 - The Infinite internal database that holds your data emulates DB2/400. You have the option of migrating to a standard SQL database instead, with minor code changes or none at all.
-- Your savings on licensing and maintenance significantly reduces your total cost of ownership.
+- Your savings on licensing and maintenance significantly reduce your total cost of ownership.
 - On Azure you have faster and lower-cost options for disaster recovery than you have on System i.
 
 ### Potential use cases
