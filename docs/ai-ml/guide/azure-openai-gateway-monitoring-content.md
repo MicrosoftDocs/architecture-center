@@ -1,8 +1,8 @@
 Monitoring workloads that involve Azure OpenAI Service can be as simple as enabling diagnostics for the Azure OpenAI Service and using preconfigured dashboards. However, this strategy doesn't meet some common, more complex, organizational monitoring requirements for generative AI workloads, such as the following:
 
-- Track usage by client and model to manage quotas and implement chargeback solutions
-- Log model inputs and model outputs for various auditing use cases and monitoring model performance
-- Perform near real-time monitoring
+- [Track usage by client and model to manage quotas and implement chargeback solutions](#tracking-model-usage)
+- [Log model inputs and model outputs for various auditing use cases and monitoring model performance](#auditing-model-inputs-and-outputs)
+- [Perform near real-time monitoring](#near-real-time-monitoring)
 
 > [!NOTE]
 > For more information on basic monitoring of Azure OpenAI, see [Monitor Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/monitor-openai)
