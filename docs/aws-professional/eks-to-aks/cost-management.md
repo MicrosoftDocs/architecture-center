@@ -183,13 +183,13 @@ Several Azure networking services can provide access to your applications that r
 
 ## Scale-out costs
 
-Use one of the following options to scale an AKS cluster, which adds extra capacity to node pools:
+You can use the following options to scale an AKS cluster, which adds extra capacity to node pools:
 
 - As needed, you can manually update the number of VMs that are part of a node pool, or add more node pools.
 
 - The AKS [cluster autoscaler](/azure/aks/cluster-autoscaler#about-the-cluster-autoscaler) watches for pods that can't be scheduled on nodes because of resource constraints, and automatically increases the number of nodes.
 
-- AKS supports running containers on [Azure Container Instances](https://azure.microsoft.com/products/container-instances) by using the [virtual kubelet](https://github.com/virtual-kubelet/virtual-kubelet) implementation. An AKS virtual node provisions Container Instances pods that start in seconds, letting AKS run with just enough capacity for an average workload. As the AKS cluster runs out of capacity, you can scale out more Container Instances pods without managing any additional servers. You can combine this approach with the cluster autoscaler and manual scaling.
+- AKS supports running containers on [Azure Container Instances](https://azure.microsoft.com/products/container-instances) by using the [virtual kubelet](https://github.com/virtual-kubelet/virtual-kubelet) implementation. An AKS virtual node provisions Container Instances pods that start in seconds, which allows AKS to run with just enough capacity for an average workload. As the AKS cluster reaches its capacity limit, you can scale out more Container Instances pods without managing extra servers. You can combine this approach with the cluster autoscaler and manual scaling approaches.
 
 If you use on-demand scaling or the cluster autoscaler, account for the added VMs. Container Instances charges are based on the following factors:
 
@@ -202,39 +202,39 @@ If you use on-demand scaling or the cluster autoscaler, account for the added VM
 
 ## Upgrade costs
 
-Part of the AKS cluster lifecycle involves periodic upgrades to the latest Kubernetes version. It's important to apply the latest security releases and get the latest features. You can upgrade AKS clusters and single node pools manually or automatically. For more information, see [Upgrade an AKS cluster](/azure/aks/upgrade-cluster).
+Part of the AKS cluster lifecycle involves periodic upgrades to the latest Kubernetes version. Apply the latest security releases and get the latest features. You can upgrade AKS clusters and single node pools manually or automatically. For more information, see [Upgrade an AKS cluster](/azure/aks/upgrade-cluster).
 
-By default, AKS configures upgrades to surge with one extra node. A default value of `1` for the `max-surge` setting minimizes workload disruption by creating an extra node to replace older-versioned nodes before cordoning or draining existing applications. You can customize the `max-surge` value per node pool to allow for a tradeoff between upgrade speed and upgrade disruption. Increasing the `max-surge` value completes the upgrade process faster, but a large value for `max-surge` might cause disruptions during the upgrade process and incur added costs for extra VMs.
+By default, AKS configures upgrades to surge with one extra node. A default value of `1` for the `max-surge` setting minimizes workload disruption. This configuration creates an extra node to replace older-versioned nodes before cordoning or draining existing applications. You can customize the `max-surge` value for each node pool to allow for a trade-off between upgrade speed and upgrade disruption. A higher `max-surge` value increases the speed of the upgrade process, but a large value for `max-surge` might cause disruptions during the upgrade process. It can also add costs for extra VMs.
 
 ## Other costs
 
 Depending on usage and requirements, AKS clusters can incur the following added costs:
 
-- [Azure Container Registry](https://azure.microsoft.com/products/container-registry) costs depending on [Basic, Standard, or Premium SKU](/azure/container-registry/container-registry-skus), image builds, and storage used. Deploy Container Registry on the same region as the cluster to avoid added data transfer charges. Use replication if needed, and reduce image sizes as much as possible to reduce storage costs and deployment times.
+- [Azure Container Registry](https://azure.microsoft.com/products/container-registry) costs depending on the [SKU](/azure/container-registry/container-registry-skus), image builds, and storage that you use. You can deploy Container Registry on the same region as the cluster to avoid added data transfer charges. Use replication if needed, and reduce image sizes as much as possible to reduce storage costs and deployment times.
 
-- Outbound [data transfers](https://azure.microsoft.com/pricing/details/bandwidth) from Azure, as well as inter-region traffic.
+- Outbound [data transfers](https://azure.microsoft.com/pricing/details/bandwidth) from Azure and from inter-region traffic.
 
-- Other storage or platform as a service (PaaS) services such as databases.
+- Other storage or platform as a service (PaaS) solutions, such as databases.
 
-- Global networking services such as [Azure Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) or [Azure Front Door](https://azure.microsoft.com/pricing/details/frontdoor) that route traffic to the public endpoints of AKS workloads.
+- Global networking services, such as [Azure Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) or [Azure Front Door](https://azure.microsoft.com/pricing/details/frontdoor), that route traffic to the public endpoints of AKS workloads.
 
-- Firewall and protection services like [Azure Firewall](/azure/firewall/overview) that inspect and allow or block traffic to and from AKS clusters.
+- Firewall and protection services, like [Azure Firewall](/azure/firewall/overview), that inspect and allow or block traffic to and from AKS clusters.
 
-- Monitoring and logging services such as [Azure Monitor Container Insights](/azure/azure-monitor/containers/container-insights-cost), [Azure Monitor Application Insights](https://azure.microsoft.com/pricing/details/monitor/), and [Microsoft Defender for Cloud](https://azure.microsoft.com/pricing/details/defender-for-cloud/). For more information, see [Understand monitoring costs for Container Insights](/azure/azure-monitor/containers/container-insights-cost#estimating-costs-to-monitor-your-aks-cluster).
+- Monitoring and logging tools, such as [Azure Monitor container insights](/azure/azure-monitor/containers/container-insights-cost), [Application Insights](https://azure.microsoft.com/pricing/details/monitor/), and [Microsoft Defender for Cloud](https://azure.microsoft.com/pricing/details/defender-for-cloud/). For more information, see [Understand monitoring costs for container insights](/azure/azure-monitor/containers/container-insights-cost#estimating-costs-to-monitor-your-aks-cluster).
 
-- Costs associated with DevOps tools like [Azure DevOps Services](https://azure.microsoft.com/pricing/details/devops/azure-devops-services) or [GitHub](https://github.com/pricing).
+- Costs that are associated with DevOps tools, like [Azure DevOps Services](https://azure.microsoft.com/pricing/details/devops/azure-devops-services) or [GitHub](https://github.com/pricing).
 
 ## Cost optimization
 
-The following recommendations help you optimize your AKS cluster costs:
+The following recommendations help optimize your AKS cluster costs:
 
-- Review the [Cost optimization](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service#cost-optimization) section of the Azure Well-Architected Framework for AKS.
+- Review the [Cost Optimization](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service#cost-optimization) section of the Azure Well-Architected Framework for AKS.
 
-- For multitenant solutions, physical isolation is more costly and adds management overhead. Logical isolation requires more Kubernetes experience and increases the surface area for changes and security threats, but shares the costs.
+- For multitenant solutions, physical isolation adds cost and management overhead. Logical isolation requires more Kubernetes experience and increases the surface area for changes and security threats but shares the costs.
 
-- [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) can help you save money by committing to one-year or three-year plans for several products, such as the VMs in your AKS cluster. You get discounts by reserving capacity. Use Azure reservations for [Storage](/azure/storage/files/files-reserve-capacity) and [Compute](https://azure.microsoft.com/pricing/reserved-vm-instances) to reduce the cost of agent nodes.
+- [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) can help you save money. You can commit to one-year or three-year plans for several products, such as the VMs in your AKS cluster. You get discounts by reserving capacity. Use Azure reservations for [storage](/azure/storage/files/files-reserve-capacity) and [compute](https://azure.microsoft.com/pricing/reserved-vm-instances) to reduce the cost of agent nodes.
 
-  Reservations can reduce your resource costs by up to 72% from pay-as-you-go prices, and don't affect the runtime state of your resources. After you purchase a reservation, the discount automatically applies to matching resources. You can purchase reservations from the Azure portal, or by using Azure REST APIs, PowerShell, or the Azure CLI. If you use operational tools that rely on [Log Analytics workspaces](https://azure.microsoft.com/updates/azure-monitor-log-analytics-new-capacity-based-pricing-option-is-now-available), consider using Reservations for this storage also.
+  Reservations can reduce your resource costs by up to 72% compared to pay-as-you-go prices. And they don't affect the runtime state of your resources. After you purchase a reservation, the discount automatically applies to matching resources. You can purchase reservations from the Azure portal or by using Azure REST APIs, Azure PowerShell, or the Azure CLI. If you use operational tools that rely on [Log Analytics workspaces](https://azure.microsoft.com/updates/azure-monitor-log-analytics-new-capacity-based-pricing-option-is-now-available), consider using reservations for this storage.
 
 - Add one or more spot node pools to your AKS cluster. A spot node pool is a node pool backed by [Azure Spot Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/use-spot). Using spot VMs for your AKS cluster nodes takes advantage of unused Azure capacity at significant cost savings. The amount of available unused capacity varies based on several factors, including node size, region, and time of day. Azure allocates the spot nodes if there's capacity available, but there's no SLA for spot nodes. A spot scale set that backs the spot node pool is deployed in a single fault domain, and offers no high-availability guarantees. When Azure needs the capacity back, the Azure infrastructure evicts the spot nodes.
 
