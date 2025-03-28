@@ -21,6 +21,6 @@ products:
   - azure-monitor
 name: Implement advanced monitoring of the Azure OpenAI Service through a gateway
 summary: Learn how to implement advanced monitoring scenarios for Azure OpenAI, like chargeback and auditing, through accessing the Azure OpenAI Service through a gateway.
-thumbnailUrl: /azure/architecture/browse/thumbs/tracking-multiple-models-inputs-and-outputs-bus.png
+thumbnailUrl: /azure/architecture/browse/thumbs/tracking-multiple-models-inputs-outputs-bus.png
 content: |
   [!INCLUDE[](azure-openai-gateway-monitoring-content.md)]
