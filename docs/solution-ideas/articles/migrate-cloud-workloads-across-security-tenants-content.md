@@ -66,25 +66,25 @@ The following dataflow corresponds to the previous diagram:
 
 ## Scenario details
 
-Modern cloud workloads use cloud-native security standards and policy-driven governance to establish standardization across environments and maximize total cost of ownership (TCO) by reducing nonstandard operations management. To address business transformations like acquisitions or divesture, the organizational team, including developers, architects, operations, and technical decision makers, needs to plan for the separation or joining of their cloud workloads from an existing tenant to a new Microsoft Entra tenant. This planning can help ensure that all data and application services that rely on infrastructure as a service (IaaS) or platform as a service (PaaS) cloud components are migrated, secured, and isolated to their respective business boundaries.
+To address business transformations like acquisitions or divesture, the transitioning workload team, including developers, architects, operations, and technical decision makers, needs to plan for the separation and joining of their cloud workloads from an existing Microsoft Entra tenant to a new Microsoft Entra tenant. This planning can help ensure that all data and application services are reliably migrated, secured, and isolated to their respective business boundaries.
 
-You can use the built-in subscription-move feature to transfer the entire subscription to a new Microsoft Entra tenant. Because most divestiture organization workloads are intertwined with retaining organization workloads before the split, achieving complete isolation requires more detailed workload migrations.
+If your workload exists in a single subscription, in many cases you can use the built-in subscription-move feature to transfer the entire subscription to a new Microsoft Entra tenant. However, because most divestiture organization workloads are intertwined with retaining organization workloads before the split, achieving migration readiness requires a different approach.
 
-In this scenario, a healthcare company that has multiple global business units wants to divest a business. To divest, they need to define and implement a cross-tenant workload migration strategy.
+In this scenario, a healthcare company that has multiple global business units wants to divest a business. To divest, they need to define and implement a cross-directory workload migration strategy.
 
-To begin, the company should classify workload resources into three categories. One group includes compute resources managed by using PaaS. A second group includes data services that require both PaaS and IaaS support. The final group includes compute resources managed by using IaaS. For each resource type, use the following approach to provide a quick, enhanced-security migration that can result in reduced TCO.
+To begin, the company classifies workload resources into three categories. One group includes compute resources managed by using PaaS. A second group includes data services that require both PaaS and IaaS support. The final group includes compute resources managed by using IaaS. For each resource type, they use the following approaches.
 
-For PaaS, or compute, resources that run based on logic and configuration, recreate these resources in the target tenant. Use DevOps processes.
+- For PaaS, or compute, resources that run based on logic and configuration, recreate these resources in the target tenant. Use DevOps processes.
 
-Paas compute resources include Key Vault, Machine Learning, Azure Data Factory, and Azure Databricks.
+  Paas compute resources include Key Vault, Machine Learning, Azure Data Factory, and Azure Databricks.
 
-For PaaS and IaaS, or data service, resources that store data, relocate Azure subscriptions from one Microsoft Entra tenant to another. Move these resources to the new tenant via a sidecar subscription. You need to carefully evaluate the resources before you move them. For example, an Azure SQL database with Microsoft Entra authentication integration enabled can't be moved in its existing state. Use backup and restore instead. This process removes all role-based access control (RBAC) assignments. After the resource is moved to the new tenant, you need to restore those RBAC assignments.
+- For PaaS and IaaS, or data service, resources that store data, relocate Azure subscriptions from one Microsoft Entra tenant to another. Move these resources to the new tenant via a sidecar subscription. You need to carefully evaluate the resources before you move them. For example, an Azure SQL database with Microsoft Entra authentication integration enabled can't be moved in its existing state. Use backup and restore instead. This process removes all role-based access control (RBAC) assignments. After the resource is moved to the new tenant, you need to restore those RBAC assignments.
 
-PaaS and IaaS data services include Azure SQL Database, Azure Data Lake, Azure Data Lake Storage, and Azure Cosmos DB.
+  PaaS and IaaS data include services like Azure SQL Database, Azure Data Lake Storage, and Azure Cosmos DB.
 
-For IaaS, or compute, resources that provide hosting for customized logic, create backups and restore the resources in the target environment.
+- For IaaS, or compute, resources that provide hosting for customized logic, create backups and restore the resources in the target environment.
 
-IaaS compute resources include VMs, Linux, Microsoft Windows, Docker, and SQL Databases.
+  IaaS compute include resources like Virtual Machines hosting applications or databases.
 
 ### Potential use cases
 
