@@ -22,10 +22,6 @@ keywords:
   - engagement-fy23
 ---
 
-# Responsible innovation: a best practices toolkit
-
-*Responsible innovation* is a toolkit that helps developers become good stewards for the future of science and its effect on society. This toolkit provides a set of practices in development for anticipating and addressing the potential negative impacts of technology on people. We're sharing this as an early-stage practice for feedback and learning.
-
 ## Harms Modeling
 
 [Harms Modeling](./harms-modeling/index.md) is a framework for product teams, grounded in four core pillars of responsible innovation that examines how technology can negatively impact people's lives:
@@ -37,9 +33,11 @@ keywords:
 
 Similar to *Security Threat Modeling*, Harms Modeling enables product teams to anticipate potential real-world impacts of technology, which is a cornerstone of responsible development.
 
-## Community Jury
+## Responsible AI
 
-[Community Jury](./community-jury/index.md) is a technique that brings together diverse stakeholders impacted by technology. It's an adaptation of the [citizen jury](https://jefferson-center.org/about-us/how-we-work/). The stakeholders can learn from experts about a project, deliberate together, and give feedback on use cases and product design. In addition, this responsible innovation technique allows project teams to collaborate with researchers to identify stakeholder values and understand the perceptions and concerns of impacted stakeholders.
+off-ramp link
+transparency papers link
+also add /azure/well-architected/ai/responsible-ai
 
 ## Sustainability
 
