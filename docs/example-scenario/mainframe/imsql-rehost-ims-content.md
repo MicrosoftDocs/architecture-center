@@ -138,6 +138,5 @@ See the companion architecture:
 More related resources:
 
 - [General mainframe refactor to Azure](general-mainframe-refactor.yml)
-- [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
 - [Re-engineer mainframe batch applications on Azure](reengineer-mainframe-batch-apps-azure.yml)
 - [Rehost a general mainframe on Azure](mainframe-rehost-architecture-azure.yml)

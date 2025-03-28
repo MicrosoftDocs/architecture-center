@@ -180,6 +180,5 @@ Explore related resources:
 - [Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure](../../mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)
 - [High-volume batch transaction processing](../../example-scenario/mainframe/process-batch-transactions.yml)
 - [Mainframe file replication and synchronization on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
-- [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
 - [Replicate and synchronization mainframe data in Azure](./sync-mainframe-data-with-azure.yml)
 - [Modernize mainframe and midrange data](../../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)
