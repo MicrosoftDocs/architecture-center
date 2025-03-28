@@ -15,9 +15,8 @@ This article describes how to expose and protect a workload that runs in Azure K
 The following diagram shows the steps for the message flow during deployment and runtime.
 
 :::image type="complex" border="false" source="./media/flow.svg" alt-text="Diagram that shows the steps for the message flow during deployment and runtime." lightbox="./media/flow.svg":::
-   The diagram has five primary sections. The top section isn't enclosed. The bottom four sections are enclosed in dotted rectangles. Those four rectangles are enclosed in a dotted rectangle that's labeled AksVnet 10.0.0.0/8. The top section has a logo that represents administrators and platform engineers. An arrow points from this logo to the logo that represents Azure Key Vault to indicate that a certificate for the custom domain store.test.com is generated and saved in an Azure Key Vault. In step two, an arrow points from the administrator and platform engineer logo to the AksVnet 10.0.0.0/8 section to indicate that a platform engineer specifies the necessary information in the main.bicepparams Bicep parameters file and deploys the Bicep modules to create the Azure resources. In step three, an arrow labeled SecretProviderClass and Secrets Store CSI Driver points to the logo that represents the TLS secret. In step four, this section shows an arrow from the digital certificate to Azure Front Door store.test.com to indicate that it's reached its destination.
+   The diagram has five primary sections. The top section isn't enclosed. The bottom four sections are enclosed in dotted rectangles. Those four rectangles are enclosed in a dotted rectangle that's labeled AksVnet 10.0.0.0/8. The top section has a logo that represents administrators and platform engineers. An arrow points from this logo to the logo that represents Azure Key Vault to indicate that a certificate for the custom domain store.test.com is generated and saved in an Azure key vault. In step two, an arrow points from the administrator and platform engineer logo to the AksVnet 10.0.0.0/8 section to indicate that a platform engineer specifies the necessary information in the main.bicepparams Bicep parameters file and deploys the Bicep modules to create the Azure resources. In step three, an arrow labeled SecretProviderClass and Secrets Store CSI Driver points to the logo that represents the TLS secret. In step four, this section shows an arrow from the digital certificate to Azure Front Door store.test.com to indicate that it reached its destination.
 :::image-end:::
-*Download a [Visio file](https://arch-center.azureedge.net/aks-flow.vsdx) of this architecture.*
 
 #### Deployment workflow
 
@@ -29,13 +28,13 @@ You can use one of the following methods to deploy the [NGINX ingress controller
 
 The following workflow corresponds to the previous diagram:
 
-1. A security engineer generates a certificate for the custom domain that the workload uses and saves it in an Azure Key Vault. You can obtain a valid certificate from a well-known [certification authority](https://en.wikipedia.org/wiki/Certificate_authority).
+1. A security engineer generates a certificate for the custom domain that the workload uses and saves it in an Azure key vault. You can obtain a valid certificate from a well-known [certification authority](https://en.wikipedia.org/wiki/Certificate_authority).
 
 1. A platform engineer specifies the necessary information in the `main.bicepparams` Bicep parameters file and deploys the Bicep modules to create the Azure resources. The necessary information includes:
 
    - A prefix for the Azure resources.
 
-   - The name and resource group of the existing Key Vault that holds the TLS certificate for the workload hostname and the Azure Front Door custom domain.
+   - The name and resource group of the existing key vault that holds the TLS certificate for the workload hostname and the Azure Front Door custom domain.
 
    - The name of the certificate in the key vault.
 
@@ -43,13 +42,13 @@ The following workflow corresponds to the previous diagram:
 
 1. The [deployment script](/azure/azure-resource-manager/bicep/deployment-script-bicep) creates the following objects in the AKS cluster:
 
-   - [NGINX ingress controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/) via Helm if you use an unmanaged NGINX ingress controller.
+   - The [NGINX ingress controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/) via Helm if you use an unmanaged NGINX ingress controller.
 
    - A Kubernetes [deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) and [service](https://kubernetes.io/docs/concepts/services-networking/service/) for the sample [httpbin](https://httpbin.org/) web application.
 
    - A Kubernetes [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) object to expose the web application via the NGINX ingress controller.
 
-   - A [SecretProviderClass](https://learn.microsoft.com/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified Key Vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret that contains the TLS certificate that the ingress object references.
+   - A [SecretProviderClass](https://learn.microsoft.com/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified key vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret that contains the TLS certificate that the ingress object references.
 
 1. An Azure Front Door [secret resource](/azure/templates/microsoft.cdn/profiles/secrets) is used to manage and store the TLS certificate that's in the key vault. This certificate is used by the [custom domain](/azure/templates/microsoft.cdn/profiles/customdomains) that's associated with the Azure Front Door endpoint. The Azure Front Door profile uses a user-assigned managed identity with the *Key Vault Administrator* role assignment to retrieve the TLS certificate from Key Vault.
 
@@ -88,9 +87,11 @@ The following steps describe the message flow for a request that an external cli
 
   - A *Grafana Admin* role assignment on Azure Managed Grafana for the Microsoft Entra user whose `objectID` is defined in the `userId` parameter. The *Grafana Admin* role grants full control over the instance. This control includes managing role assignments and viewing, editing, and configuring data sources. For more information, see [How to share access to Azure Managed Grafana](/azure/managed-grafana/how-to-share-grafana-workspace).
 
-  - A *Key Vault Administrator* role assignment on the existing Key Vault resource that contains the TLS certificate for the user-defined managed identity that the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver) uses. This assignment provides access to the CSI driver so that it can read the certificate from the source Key Vault.
+  - A *Key Vault Administrator* role assignment on the existing Key Vault resource that contains the TLS certificate for the user-defined managed identity that the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver) uses. This assignment provides access to the CSI driver so that it can read the certificate from the source key vault.
 
-- [Azure Front Door Premium](/azure/frontdoor/front-door-overview) is a Layer-7 global load balancer and modern cloud content delivery network. It provides fast, reliable, and enhanced security access between your users' and your applications' static and dynamic web content across the globe. You can use Azure Front Door to deliver your content by using Microsoft's global edge network. The network has hundreds of [global and local points of presence](/azure/frontdoor/edge-locations-by-region) distributed around the world. So you can use points of presence that are close to your enterprise and consumer customers. In this solution, Azure Front Door is used to expose an AKS-hosted sample web application via a [Private Link service](/azure/private-link/private-link-service-overview) and the [NGINX ingress controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/). Azure Front Door is configured to expose a custom domain for the Azure Front Door endpoint. The custom domain is configured to use the Azure Front Door secret that contains a TLS certificate that's read from [Key Vault](/azure/key-vault/general/overview).
+- [Azure Front Door Premium](/azure/frontdoor/front-door-overview) is a Layer-7 global load balancer and modern cloud content delivery network. It provides fast, reliable, and enhanced security access between your users' and your applications' static and dynamic web content across the globe. You can use Azure Front Door to deliver your content by using the Microsoft global edge network. The network has hundreds of [global and local points of presence](/azure/frontdoor/edge-locations-by-region) distributed around the world. So you can use points of presence that are close to your enterprise and consumer customers. 
+
+   In this solution, Azure Front Door is used to expose an AKS-hosted sample web application via a [Private Link service](/azure/private-link/private-link-service-overview) and the [NGINX ingress controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/). Azure Front Door is configured to expose a custom domain for the Azure Front Door endpoint. The custom domain is configured to use the Azure Front Door secret that contains a TLS certificate that's read from [Key Vault](/azure/key-vault/general/overview).
 
 - [Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) protects the AKS-hosted applications that are exposed via [Azure Front Door](/azure/frontdoor/front-door-overview) from common web-based attacks, such as the [Open Web Application Security Project (OWASP)](https://owasp.org) vulnerabilities, SQL injections, and cross-site scripting. This cloud-native, pay-as-you-use technology doesn't require licensing. Azure Web Application Firewall provides protection for your web applications and defends your web services against common exploits and vulnerabilities.
 
@@ -144,7 +145,7 @@ The following steps describe the message flow for a request that an external cli
 
   You can use managed service for Prometheus to collect and analyze metrics at scale by using a Prometheus-compatible monitoring solution that's based on [Prometheus](https://prometheus.io/). You can use the [Prometheus query language (PromQL)](https://prometheus.io/docs/prometheus/latest/querying/basics/) to analyze and alert on the performance of monitored infrastructure and workloads without having to operate the underlying infrastructure.
 
-- An [Azure Managed Grafana](/azure/managed-grafana/overview) instance is used to visualize the [Prometheus metrics](/azure/azure-monitor/containers/prometheus-metrics-enable) that the Bicep module-deployed [AKS](/azure/aks/intro-kubernetes) cluster generates. You can connect your [Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-overview) to [Azure Managed Grafana](/azure/managed-grafana/overview), and use a set of built-in and custom Grafana dashboards to visualize Prometheus metrics. Grafana Enterprise supports Azure Managed Grafana, which provides extensible data visualizations. You can quickly and easily deploy Grafana dashboards that have built-in high availability. You can also use Azure security measures to control access to the dashboards.
+- An [Azure Managed Grafana](/azure/managed-grafana/overview) instance is used to visualize the [Prometheus metrics](/azure/azure-monitor/containers/prometheus-metrics-enable) that the Bicep module-deployed [AKS](/azure/aks/intro-kubernetes) cluster generates. You can connect your [Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-overview) to [Azure Managed Grafana](/azure/managed-grafana/overview) and use a set of built-in and custom Grafana dashboards to visualize Prometheus metrics. Grafana Enterprise supports Azure Managed Grafana, which provides extensible data visualizations. You can quickly and easily deploy Grafana dashboards that have built-in high availability. You can also use Azure security measures to control access to the dashboards.
 
 - An [Azure Monitor Logs](/azure/azure-monitor/logs/log-analytics-workspace-overview) workspace is used to collect the diagnostic logs and metrics from Azure resources, which include:
 
@@ -160,7 +161,7 @@ The following steps describe the message flow for a request that an external cli
 
   - A Kubernetes [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) object to expose the web application via the NGINX ingress controller.
 
-  - A [SecretProviderClass](/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified Key Vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret containing the TLS certificate referenced by the ingress object.
+  - A [SecretProviderClass](/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified key vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret that contains the TLS certificate referenced by the ingress object.
 
   - (Optional) [NGINX ingress controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/) via Helm if you opted to use an unmanaged NGINX ingress controller.
 
@@ -244,7 +245,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - Use a [WAF policy](/azure/application-gateway/waf-overview) to help protect public-facing AKS-hosted workloads from attacks when you use [Application Gateway](/azure/application-gateway/overview) in front of the AKS cluster.
 
-- Use [Kubernetes network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to control which components can communicate with each another. This control segregates and helps secure intraservice communications. By default, all pods in a Kubernetes cluster can send and receive traffic without limitations. To improve security, you can use Azure network policies or Calico network policies to define rules that control the traffic flow between various microservices. Use Azure network policies to help enforce network-level access control. Use Calico network policies to implement fine-grained network segmentation and security policies in your AKS cluster. For more information, see [Secure traffic between pods by using network policies in AKS](/azure/aks/use-network-policies).
+- Use [Kubernetes network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to control which components can communicate with each other. This control segregates and helps secure intraservice communications. By default, all pods in a Kubernetes cluster can send and receive traffic without limitations. To improve security, you can use Azure network policies or Calico network policies to define rules that control the traffic flow between various microservices. Use Azure network policies to help enforce network-level access control. Use Calico network policies to implement fine-grained network segmentation and security policies in your AKS cluster. For more information, see [Secure traffic between pods by using network policies in AKS](/azure/aks/use-network-policies).
 
 - Don't expose remote connectivity to your AKS nodes. Create an Azure Bastion host, or jump box, in a management virtual network. Use the Azure Bastion host to route traffic to your AKS cluster.
 
