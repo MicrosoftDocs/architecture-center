@@ -60,10 +60,6 @@ items:
         items:
         - name: Batch scoring with Spark on Databricks
           href: architecture/batch-scoring-databricks.yml
-      - name: Monitoring
-        items:
-        - name: Monitor OpenAI models
-          href: openai/architecture/log-monitor-azure-openai.yml
       - name: Regulatory
         items:
         - name: Secure research for regulated data
@@ -108,6 +104,8 @@ items:
           href: guide/azure-openai-gateway-multi-backend.yml
         - name: Provide custom authentication to Azure OpenAI through a gateway
           href: guide/azure-openai-gateway-custom-authentication.yml
+        - name: Implement advanced monitoring for Azure OpenAI through a gateway
+          href: guide/azure-openai-gateway-monitoring.yml
     - name: OpenAI
       items:
       - name: Design architectures
@@ -120,8 +118,6 @@ items:
           href: architecture/azure-openai-baseline-landing-zone.yml
         - name: Extract and analyze call center data
           href: openai/architecture/call-center-openai-analytics.yml
-        - name: Monitor OpenAI models
-          href: openai/architecture/log-monitor-azure-openai.yml
       - name: Apply guidance
         items:
         - name: Developing and evaluating RAG solutions
@@ -150,4 +146,5 @@ items:
             href: guide/azure-openai-gateway-multi-backend.yml
           - name: Custom authentication for a gateway in front of Azure OpenAI
             href: guide/azure-openai-gateway-custom-authentication.yml
-
+          - name: Implement advanced monitoring for Azure OpenAI through a gateway
+            href: guide/azure-openai-gateway-monitoring.yml
