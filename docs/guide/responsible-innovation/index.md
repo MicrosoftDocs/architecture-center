@@ -35,9 +35,11 @@ Similar to *Security Threat Modeling*, Harms Modeling enables product teams to a
 
 ## Responsible AI
 
-off-ramp link
-transparency papers link
-also add /azure/well-architected/ai/responsible-ai
+[Azure Responsible AI](/ai/principles-and-approach) practices are designed to ensure that AI technologies are developed and deployed ethically, transparently, and with consideration for potential impacts on individuals and society.
+
+[Transparency documents](https://www.microsoft.com/ai/principles-and-approach#transparency-report) describe the capabilities and limitations of Microsoft technologies. Transparency documents support Responsible AI because they help you ensure that your solutions are ethically sound and [aligned with Responsible AI practices](/azure/well-architected/ai/responsible-ai).
+
+[Azure AI services](/azure/ai-services/responsible-use-of-ai-overview) provides information and guidelines on how to responsibly use artificial intelligence in applications.
 
 ## Sustainability
 

@@ -23,18 +23,11 @@ Harms Modeling is a practice designed to help you anticipate the potential for h
 
 ## Why harms modeling?
 
-This guidance is for architects who design algorithm-driven systems. For example, it applies to custom-coded decision-making frameworks or outsourced decion-making processes, such as processes that involve AI or machine learning models.
+This guidance is for architects who design algorithm-driven systems, such as custom-coded decision-making frameworks. It also applies to outsourced decision-making processes, such as processes that involve AI or machine learning models.
 
 As technology builders, your work is global. To design algorithm-driven systems to be trustworthy, you need to create solutions that reflect ethical principles that are deeply rooted in important and timeless values. During the design and development process, it's essential to evaluate not only ideal outcomes but also possible negative outcomes, also known as *harms*. These harms can occur in any decision-making architecture that doesn't involve humans.
 
-### Technology and human rights
-
-It's as important as ever to be aware of how digital technology could impact human rights. In addition to continuing to protect privacy and security, we must address the risks of AI and other emerging technologies, such as facial recognition. History teaches us that human rights violations not only result from the nefarious use of technology, but also from a lack of awareness amongst those who have good intentions. As a part of our company's dedication to the protection of human rights, Microsoft forged a partnership with important stakeholders outside of our industry, including the United Nations (UN).
-
-An important set of UN principles that our company firmly supports, which was ratified by over 250 nations, is the Universal Declaration of Human Rights (UDHR). The UDHR is a milestone document. Drafted by a diverse global group of legal and cultural experts, the Declaration was proclaimed by the United Nations General Assembly in 1948 as a common standard of achievements for all peoples and all nations. It sets out, for the first time, fundamental human rights to be universally protected. It has been translated into over 500 languages. Additionally, Microsoft is one of 4,700 corporate signatories to the UN Global Compact, an international business initiative designed to promote responsible corporate citizenship.
-
-[![Table that shows the stakeholder process.](../images/stakeholder-process-table.png)](../images/stakeholder-process-table.png#lightbox)
-*Download a [Microsoft Word file](https://arch-center.azureedge.net/stakeholder-process-table.docx) of this table*
+For guidance that's specific to Responsible AI, see [Responsible AI principles and approach](/ai/principles-and-approach).
 
 ## Human understanding
 
@@ -54,48 +47,11 @@ In addition to appreciating the importance of human rights, building trustworthy
 - How should they benefit?
 - How could tech harm them?
 
-Asking these questions is a practice in [Value Sensitive Design](https://vsdesign.org/) and is the beginning to better understanding what is important to stakeholders, and how it plays into their relationship with the product.
+Ask these questions to get a better understanding of what's important to stakeholders and how those aspects play into their relationship with the product.
 
-### Types of stakeholders
+## Types of harm
 
-#### Project sponsors
-
-Backers, decision makers, and owners make up this category. Their values are articulated in the project strategy and goals.
-
-#### Tech builders
-
-Designers, developers, project managers, and people working directly on designing systems make up this group. They bring their own ethical standards and profession-specific values to the system.
-
-#### Direct & indirect stakeholders
-
-These stakeholders are significantly impacted by the system. Those who are impacted include end users, software staff, clients, bystanders, interfacing institutions, and even past or future generations. Non-human factors such as places, for example, historic buildings or sacred spaces, may also be included.
-
-#### Marginalized populations
-
-This category is made up of the population frequently considered a minority, vulnerable, or stigmatized. This category includes children, older adults, members of the LGBTQ+ community, ethnic minorities, and other populations who often experience unique and disproportionate consequences.
-
-## Assessing harm
-
-Once you have defined the technology purpose, use cases, and stakeholders, conduct a Harms Modeling exercise to evaluate potential ways the use of a technology you're building could result in negative outcomes for people and society.
-
-[![Diagram that shows a harms modeling overview.](../images/harms-model-example.png)](../images/harms-model-example.png#lightbox)
-*Download a [Microsoft Word file](https://arch-center.azureedge.net/harms-modeling.docx) of this diagram.*
-
-The diagram above is an example of a harms evaluation. This model is a qualitative approach that's used to understand the potential magnitude of harm.
-
-You can complete this ideation activity individually, but ideally it's conducted as collaboration between developers, data scientists, designers, user researcher, business decision-makers, and other disciplines that are involved in building the technology.
-
-Suggestions for harm description statements:
-- Intended use: If [feature] was used for [use case], then [stakeholder] could experience [harm description].
-- Unintended use: If [user] tried to use [feature] for [use case], then [stakeholder] could experience [harm description].
-- System error: If [feature] failed to function properly when used for [use case], then [stakeholder] could experience [harm description].
-- Misuse: [Malicious actor] could potentially use [feature], to cause [harm description] to [stakeholder].
-
-Use the categories, questions, and examples described in the [Types of harm](./type-of-harm.md) to generate specific ideas for how harm could occur. The article lists categories of harms, which are based on common negative impact areas. Adapt and adopt additional categories that are relevant to you.
-
-# Types of harm
-
-This article creates awareness of the different types of harm, so that appropriate mitigation steps can be implemented.
+The following table describes different types of harm that you might encounter. The list includes a diverse range of harms that can affect people in different scenarios, but it isn't exhaustive. Your scenario might involve other types of harms that aren't listed.
 
 ## Risk of injury
 
@@ -214,6 +170,16 @@ At scale, the way technology impacts people shape social and economic structures
 > |**Loss of representation**|Broad categories of generalization obscure, diminish, or erase real identities.|How could this technology constrain identity options? Could it be used to label or categorize people automatically?|Automatic photo caption assigns incorrect gender identity and age to the subject.|
 > |**Skill degradation and complacency**|Overreliance on automation lead to atrophy of manual skills.|In what ways might this technology reduce the accessibility and ability to use manual controls?|Overreliance on automation could lead to an inability to gauge the airplane's true orientation because the pilots have been trained to rely on instruments only.|
 
+## Define harms that are specific to your workloads
+
+Use the categories, questions, and examples to generate specific ideas for how harm could occur. Adapt and adopt additional categories that are relevant to you.
+
+- Intended use: If [feature] was used for [use case], then [stakeholder] could experience [harm description].
+
+- Unintended use: If [user] tried to use [feature] for [use case], then [stakeholder] could experience [harm description].
+- System error: If [feature] failed to function properly when used for [use case], then [stakeholder] could experience [harm description].
+- Misuse: [Malicious actor] could potentially use [feature], to cause [harm description] to [stakeholder].
+
 ## Evaluate harms
 
 Once you've generated a broad list of potential harms, you should complete your Harms Model by evaluating the potential magnitude for each harm category. This will allow you to prioritize your areas of focus. See the following example harms model for reference:
@@ -227,18 +193,18 @@ Once you've generated a broad list of potential harms, you should complete your 
 
 ## Transparency documents
 
-When building solutions on azure, read through any transparency notes that are offered by your service to factor in how those solutions align with your harms modeling.
+Some services provide [transparency documents](https://www.microsoft.com/ai/principles-and-approach#transparency-report). Transparency documents provide insights into how the service operates, its capabilities, limitations, and ethical considerations. You can review these documents to understand the inner workings of a service and help ensure responsible use.
  
-and the "Transparency documents" https://www.microsoft.com/en-us/ai/principles-and-approach#transparency-report which allows architects to understand HOW our AI technology works so they can include that information in their workload's own harm modeling.
+When you build solutions on Azure, read through any transparency documents that your service offers. Factor in how those solutions align with your workload's harms modeling. Consider whether the service's functionalities and limitations introduce or mitigate risks in your specific use case.
 
 ## Next steps
 
-[Microsoft Inclusive Design](https://inclusive.microsoft.design/)
+- [Microsoft Inclusive Design](https://inclusive.microsoft.design/)
 
 See relevant articles about Responsible AI:
 
-[Responsible AI in Azure workloads](/azure/well-architected/ai/responsible-ai)
-[What is Responsible AI?](/azure/machine-learning/concept-responsible-ai)
+- [Responsible AI in Azure workloads](/azure/well-architected/ai/responsible-ai)
+- [What is Responsible AI?](/azure/machine-learning/concept-responsible-ai)
 
 
 
