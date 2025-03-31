@@ -19,6 +19,9 @@ Take the following steps to create and deploy APIs for mainframe applications by
 1. Build a web archive (WAR) file and run the production in [the z/OS Connect Server image](https://www.ibm.com/docs/en/zos-connect/zos-connect/3.0?topic=concepts-what-is-zos-connect-server-image).
 1. Import the OAS3 specification into [API Management](https://azure.microsoft.com/en-us/products/api-management/) and establish a connection with the z/OS Connect Server.
 1. Enable and enforce API authentication and authorization mechanisms by using Microsoft Entra ID for enhanced security. For more information, see [Authentication and authorization to APIs in Azure API Management](/azure/api-management/authentication-authorization-overview).
+1. Microsoft Entra ID is validated from PowerApps.
+1. Utilize Azure monitoring for the application and all of the components which make up this solution.  This could also include Azure Alerting for notification.
+Utilize ASR / Azure high availbity for all application components on the left side of the diagram.
 
 Access mainframe applications through Azure by:
 
