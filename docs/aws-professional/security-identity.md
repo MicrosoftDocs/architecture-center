@@ -27,7 +27,7 @@ Core identity services in both platforms form the foundation of identity and acc
 
 | AWS service | Azure service | Description |
 |------------|---------------|-------------|
-| [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) | [Microsoft Entra ID](/entra/identity/hybrid/connect/whatis-pta) | Centralized identity management service providing single sign-on (SSO), multi-factor authentication (MFA), and integration with various applications.|
+| [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) | [Microsoft Entra MFA](/identity/authentication/concept-mfa-howitworks) | Centralized identity management service providing single sign-on (SSO), multi-factor authentication (MFA), and integration with various applications.|
 | [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) | [Azure Management Groups](/azure/governance/management-groups/overview) | Hierarchical organization structure for managing multiple accounts/subscriptions with inherited policies |
 | [AWS Single Sign-On](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) | [Microsoft Entra ID Single Sign-On](/entra/identity/enterprise-apps/what-is-single-sign-on) | Centralized access management enabling users to access multiple applications with single credentials |
 | [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html) | [Microsoft Entra Directory Domain Services](/entra/identity/domain-services/overview) | Managed directory services providing domain join, group policy, LDAP, and Kerberos/NTLM authentication |
@@ -41,7 +41,7 @@ Authentication and access control services in both platforms provide essential s
 | [AWS Multi-Factor Authentication](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) | [Microsoft Entra Verified ID](/entra/verified-id/introduction-to-verifiable-credentials-architecture) | Additional security layer requiring multiple forms of verification for user sign-ins |
 | [AWS IAM Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html) | [Microsoft Entra Access Reviews](/entra/id-governance/access-reviews-overview) | Tools and services for reviewing and managing access permissions to resources |
 | [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) | [Microsoft Entra External ID](/entra/external-id/external-identities-overview) | External user access management platform for secure cross-organization collaboration e.g. SAML and OIDC |
-| [AWS Resource Access Manager](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) | [Microsoft Entra Role Management](/entra/identity/role-based-access-control/custom-overview) | Fine-grained access control system for resource management through role assignments |
+| [AWS Resource Access Manager](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) | [Microsoft Entra Role Management](/entra/identity/role-based-access-control/custom-overview) [Azure RBAC] (/azure/role-based-access-control/overview) | services with the ability to share cloud resources within an organization. AWS is typically used to share cloud resources between accounts, when using Azure RBAC is often sufficient to achieve similar resource sharing.  |
 
 ## Identity governance
 
@@ -61,7 +61,7 @@ AWS IAM temporary elevated access is an open source security solution that allow
 | AWS service | Azure service | Description |
 |------------|---------------|-------------|
 | [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) | [Microsoft Entra privileged access audit](/entra/id-governance/privileged-identity-management/pim-how-to-use-audit-log) | Comprehensive audit logging for privileged access activities |
-| [AWS IAM + custom automation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) | [Microsoft Entra Just In Time Access](/entra/id-governance/privileged-identity-management/pim-configure) | Time-bound privileged role activation process |
+| [AWS IAM + 3rd party products or custom automation](https://docs.aws.amazon.com/singlesignon/latest/userguide/temporary-elevated-access.html) | [Microsoft Entra Just In Time Access](/entra/id-governance/privileged-identity-management/pim-configure) | Time-bound privileged role activation process |
 
 ## Hybrid identity
 
@@ -77,13 +77,15 @@ Both platforms provide solutions for managing hybrid identity scenarios, integra
 ## Application access and API identity management
 
 Both platforms provide identity services to secure application access and API authentication. These services manage user authentication, application permissions, and API access controls through identity-based mechanisms.
+Both platforms also provide capabilities to manage identities for both internal and external users. Internal users typically are managing cloud resources directly, these identities are often tied to a centralized identity source (such as Microsoft Entra). AWS IAM OIDC or STS are often used to grant API access to applications which need to manage cloud resources, while Microsoft recommends Entra app registristrations to give authenticated API access, but also options to provide tokens.  External identities are often application users who often don't have direct or any access to underlying cloud resources.
+
 
 | AWS Service | Azure Service | Description |
 |------------|---------------|-------------|
 | [AWS Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html) | [Microsoft Entra External ID](/entra/external-id/external-identities-overview) | Identity management service for customer-facing applications and user authentication |
 | [AWS IAM OIDC provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) | [Microsoft Entra App registrations](/entra/identity-platform/v2-protocols-oidc) | Application identity registration and OAuth/OIDC configuration for securing applications |
 | [AWS Security Token Service](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html) | [Microsoft Entra Token Service](/entra/identity-platform/security-tokens) | Issues security tokens for application and service authentication |
-| [AWS IAM Roles for Applications](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html) | [Microsoft Entra Workload ID](/entra/workload-id/workload-identities-overview) | Managed identities for applications to securely access platform resources |
+| [AWS IAM Roles for Applications](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html) | [Managed Identities](http://entra/identity/managed-identities-azure-resources/overview) [Microsoft Entra Workload ID](/entra/workload-id/workload-identities-overview) | Managed identities for applications to securely access platform resources |
 | [AWS IAM authorization](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_controlling.html) | [Microsoft Entra OAuth 2.0](/entra/identity-platform/v2-oauth2-auth-code-flow) | Identity-based authorization for APIs using OAuth 2.0 and JWT tokens |
 
 ## Contributors
