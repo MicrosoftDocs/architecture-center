@@ -41,7 +41,7 @@ Authentication and access control services in both platforms provide essential s
 | [AWS Multi-Factor Authentication](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) | [Microsoft Entra Verified ID](/entra/verified-id/introduction-to-verifiable-credentials-architecture) | Additional security layer requiring multiple forms of verification for user sign-ins |
 | [AWS IAM Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html) | [Microsoft Entra Access Reviews](/entra/id-governance/access-reviews-overview) | Tools and services for reviewing and managing access permissions to resources |
 | [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) | [Microsoft Entra External ID](/entra/external-id/external-identities-overview) | External user access management platform for secure cross-organization collaboration e.g. SAML and OIDC |
-| [AWS Resource Access Manager](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) | [Microsoft Entra Role Management](/entra/identity/role-based-access-control/custom-overview) [Azure RBAC] (/azure/role-based-access-control/overview) | services with the ability to share cloud resources within an organization. AWS is typically used to share cloud resources between accounts, when using Azure RBAC is often sufficient to achieve similar resource sharing.  |
+| [AWS Resource Access Manager](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) | [Microsoft Entra Role Management](/entra/identity/role-based-access-control/custom-overview) and [Azure RBAC] (/azure/role-based-access-control/overview) | Services with the ability to share cloud resources within an organization. AWS is typically used to share cloud resources between accounts, when using Azure RBAC is often sufficient to achieve similar resource sharing.  |
 
 ## Identity governance
 
@@ -77,7 +77,8 @@ Both platforms provide solutions for managing hybrid identity scenarios, integra
 ## Application access and API identity management
 
 Both platforms provide identity services to secure application access and API authentication. These services manage user authentication, application permissions, and API access controls through identity-based mechanisms.
-Both platforms also provide capabilities to manage identities for both internal and external users. Internal users typically are managing cloud resources directly, these identities are often tied to a centralized identity source (such as Microsoft Entra). AWS IAM OIDC or STS are often used to grant API access to applications which need to manage cloud resources, while Microsoft recommends Entra app registristrations to give authenticated API access, but also options to provide tokens.  External identities are often application users who often don't have direct or any access to underlying cloud resources.
+
+Both platforms also provide capabilities to manage identities for both internal and external users. Internal users typically are managing cloud resources directly, these identities are often tied to a centralized identity source (such as Microsoft Entra). AWS IAM OIDC or STS are often used to grant API access to applications which need to manage cloud resources, while Microsoft recommends Entra app registrations to give authenticated API access, but also options to provide tokens.  External identities are often application users who often don't have direct or any access to underlying cloud resources.
 
 
 | AWS Service | Azure Service | Description |
@@ -85,7 +86,7 @@ Both platforms also provide capabilities to manage identities for both internal 
 | [AWS Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html) | [Microsoft Entra External ID](/entra/external-id/external-identities-overview) | Identity management service for customer-facing applications and user authentication |
 | [AWS IAM OIDC provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) | [Microsoft Entra App registrations](/entra/identity-platform/v2-protocols-oidc) | Application identity registration and OAuth/OIDC configuration for securing applications |
 | [AWS Security Token Service](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html) | [Microsoft Entra Token Service](/entra/identity-platform/security-tokens) | Issues security tokens for application and service authentication |
-| [AWS IAM Roles for Applications](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html) | [Managed Identities](http://entra/identity/managed-identities-azure-resources/overview) [Microsoft Entra Workload ID](/entra/workload-id/workload-identities-overview) | Managed identities for applications to securely access platform resources |
+| [AWS IAM Roles for Applications](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html) | [Managed Identities](/entra/identity/managed-identities-azure-resources/overview) and [Microsoft Entra Workload ID](/entra/workload-id/workload-identities-overview) | Managed identities for applications to securely access platform resources |
 | [AWS IAM authorization](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_controlling.html) | [Microsoft Entra OAuth 2.0](/entra/identity-platform/v2-oauth2-auth-code-flow) | Identity-based authorization for APIs using OAuth 2.0 and JWT tokens |
 
 ## Contributors
