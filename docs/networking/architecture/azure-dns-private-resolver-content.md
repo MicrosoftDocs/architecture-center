@@ -52,7 +52,7 @@ The solution that uses DNS Private Resolver contains the following components:
 
 - An on-premises network. This network of customer datacenters is connected to Azure via ExpressRoute or a site-to-site Azure VPN Gateway connection. Network components include two local DNS servers. One uses the IP address 192.168.0.1. The other uses 192.168.0.2. Both servers work as resolvers or forwarders for all computers inside the on-premises network.
 
- An administrator creates all local DNS records and Azure endpoint forwarders on these servers. Conditional forwarders are configured on these servers for the Azure Blob Storage and Azure API Management services. Those forwarders send requests to the DNS Private Resolver inbound connection. The inbound endpoint uses the IP address 10.0.0.8 and is hosted  within the hub virtual network.
+  An administrator creates all local DNS records and Azure endpoint forwarders on these servers. Conditional forwarders are configured on these servers for the Azure Blob Storage and Azure API Management services. Those forwarders send requests to the DNS Private Resolver inbound connection. The inbound endpoint uses the IP address 10.0.0.8 and is hosted  within the hub virtual network.
 
   The following table lists the records on the local servers.
 
@@ -69,13 +69,13 @@ The solution that uses DNS Private Resolver contains the following components:
   - Azure Firewall provides a managed firewall as a service. The firewall instance resides in its own subnet.
   - The following table lists the parameters that are configured for DNS Private Resolver. For App1 and App2 DNS names, the DNS forwarding rule set is configured.
   
-  | Parameter | IP address |
-  | ----- | ----- |
-  | Virtual network | 10.0.0.0/24 |
-  | Inbound endpoint subnet | 10.0.0.0/28 |
-  | Inbound endpoint IP address | 10.0.0.8 |
-  | Outbound endpoint subnet | 10.0.0.16/28 |
-  | Outbound endpoint IP address | 10.0.0.19 |
+    | Parameter | IP address |
+    | ----- | ----- |
+    | Virtual network | 10.0.0.0/24 |
+    | Inbound endpoint subnet | 10.0.0.0/28 |
+    | Inbound endpoint IP address | 10.0.0.8 |
+    | Outbound endpoint subnet | 10.0.0.16/28 |
+    | Outbound endpoint IP address | 10.0.0.19 |
 
   - The hub virtual network is linked to the private DNS zones for Blob Storage and the API service.
 
