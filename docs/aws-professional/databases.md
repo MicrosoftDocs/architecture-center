@@ -1,6 +1,6 @@
 ---
 title: Compare AWS and Azure database technology
-description: Compare database technology differences between Azure and AWS. Review the RDS and Azure relational database services. See equivalents for analytics and big data.
+description: Compare database technology differences between Azure and AWS. Review the Amazon RDS and Azure relational database services. See equivalents for analytics and big data.
 author: splitfinity-zz-zz
 ms.author: yubaijna
 categories: azure
@@ -19,13 +19,15 @@ products:
   - azure-managed-applications
 ms.custom:
   - article
+  - migration
+  - aws-to-azure
 ---
 
 # Relational database technologies on Azure and AWS
 
-## RDS and Azure relational database services
+## Amazon RDS and Azure relational database services
 
-Azure provides several different relational database services that are the equivalent of AWS' Relational Database Service (RDS). These include:
+Azure provides several different relational database services that are the equivalent of AWS' Relational Database Service (Amazon RDS). These include:
 
 - [SQL Database](/azure/sql-database/sql-database-technical-overview)
 - [Azure Database for MySQL](/azure/mysql/overview)
@@ -34,7 +36,7 @@ Azure provides several different relational database services that are the equiv
 
 Other database engines such as [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server), [Oracle](https://azure.microsoft.com/campaigns/oracle), and [MySQL](/azure/mysql) can be deployed using Azure VM Instances.
 
-Costs for AWS RDS are determined by the amount of hardware resources that your instance uses, like CPU, RAM, storage, and network bandwidth. In the Azure database services, cost depends on your database size, concurrent connections, and throughput levels.
+Costs for Amazon RDS are determined by the amount of hardware resources that your instance uses, like CPU, RAM, storage, and network bandwidth. In the Azure database services, cost depends on your database size, concurrent connections, and throughput levels.
 
 ### See also
 

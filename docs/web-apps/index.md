@@ -110,7 +110,6 @@ Get the latest [updates on Azure web app products and features](https://azure.mi
 
 Here are some additional implementations to consider:
 
-- [Eventual consistency between multiple Power Apps instances](/azure/architecture/guide/power-platform/eventual-consistency)
 - [App Service networking features](/azure/app-service/networking-features)
 - [Migrate a web app using Azure APIM](../example-scenario/apps/apim-api-scenario.yml)
 - [Serverless web application](../web-apps/serverless/architectures/web-app.yml)

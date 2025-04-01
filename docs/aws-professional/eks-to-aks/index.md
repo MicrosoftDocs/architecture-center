@@ -9,6 +9,8 @@ ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers
+  - migration
+  - aws-to-azure
 categories:
   - containers
   - compute

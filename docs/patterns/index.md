@@ -20,11 +20,11 @@ categories:
 
 # Cloud Design Patterns
 
-Architects design workloads by combining platform services, functionality, and code to fulfill functional and nonfunctional requirements in workloads. Designing workloads requires understanding of those workload requirements and then choosing topologies and approaches the solve for the challenges presented by the constraints of the workload. Cloud design patterns that address many common challenges.
+Architects design workloads by combining platform services, functionality, and code to meet both functional and nonfunctional requirements. Designing workloads requires an understanding of these requirements and selecting topologies and approaches that address the challenges posed by the workload's constraints. Cloud design patterns offer solutions to many common challenges.
 
-Systems design is heavily steeped in design patterns. Infrastructure, code, and distributed systems are all designed around a combination of design patterns. These design patterns are useful for building reliable, secure, cost optimized, operationally sound, and performant applications in the cloud.
+System design heavily relies on established design patterns. Infrastructure, code, and distributed systems are developed by using a combination of these patterns. These patterns are instrumental in building reliable, secure, cost-optimized, operationally efficient, and high-performing applications in the cloud.
 
-These design patterns aren't specific to any technology and are relevant to any distributed system, whether hosted on Azure, other cloud platforms, and some can even extend to on-premises or hybrid workloads.
+These design patterns are technology-agnostic and applicable to any distributed system, whether hosted on Azure, other cloud platforms, or even on-premises or hybrid environments.
 
 ## Cloud design patterns help the design process
 
@@ -56,7 +56,7 @@ Each pattern in this catalog describes the problem that the pattern addresses, c
 | [Bulkhead](./bulkhead.yml) | Isolate elements of an application into pools so that if one fails, the others continue to function. | <ul><li>Reliability <li> Security <li> Performance&nbsp;Efficiency </ul> |
 | [Cache-Aside](./cache-aside.yml) | Load data on demand into a cache from a data store. | <ul><li>Reliability <li> Performance&nbsp;Efficiency </ul> |
 | [Choreography](./choreography.yml)| Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator. | <ul><li>Operational&nbsp;Excellence <li> Performance&nbsp;Efficiency </ul> |
-| [Circuit Breaker](./circuit-breaker.yml) | Handle faults that might take a variable amount of time to fix when connecting to a remote service or resource. | <ul><li>Reliability <li> Performance&nbsp;Efficiency </ul> |
+| [Circuit Breaker](./circuit-breaker.md) | Handle faults that might take a variable amount of time to fix when connecting to a remote service or resource. | <ul><li>Reliability <li> Performance&nbsp;Efficiency </ul> |
 | [Claim Check](./claim-check.yml) | Split a large message into a claim check and a payload to avoid overwhelming a message bus. | <ul><li>Reliability <li> Security <li> Cost&nbsp;Optimization <li> Performance&nbsp;Efficiency </ul> |
 | [Compensating Transaction](./compensating-transaction.yml) | Undo the work performed by a series of steps, which together define an eventually consistent operation. | <ul><li>Reliability </ul> |
 | [Competing Consumers](./competing-consumers.yml) | Enable multiple concurrent consumers to process messages received on the same messaging channel. | <ul><li>Reliability <li> Cost&nbsp;Optimization <li> Performance&nbsp;Efficiency </ul> |

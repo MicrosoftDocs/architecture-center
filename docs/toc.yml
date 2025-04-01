@@ -237,56 +237,42 @@ items:
       href: best-practices/monitoring.yml
     - name: Transient fault handling
       href: best-practices/transient-faults.md
-  - name: Performance tuning and antipatterns
+  - name: Performance antipatterns
     items:
-    - name: Introduction
-      href: performance/index.md
-    - name: Scenario 1 - Distributed transactions
-      href: performance/distributed-transaction.yml
-    - name: Scenario 2 - Multiple backend services
-      href: performance/backend-services.yml
-    - name: Scenario 3 - Event streaming
-      href: performance/event-streaming.yml
-    - name: Performance antipatterns
-      items:
-      - name: Overview
-        href: antipatterns/index.md
-      - name: Busy Database
-        href: antipatterns/busy-database/index.md
-      - name: Busy Front End
-        href: antipatterns/busy-front-end/index.md
-      - name: Chatty I/O
-        href: antipatterns/chatty-io/index.md
-      - name: Extraneous Fetching
-        href: antipatterns/extraneous-fetching/index.md
-      - name: Improper Instantiation
-        href: antipatterns/improper-instantiation/index.md
-      - name: Monolithic Persistence
-        href: antipatterns/monolithic-persistence/index.md
-      - name: No Caching
-        href: antipatterns/no-caching/index.md
-      - name: Noisy Neighbor
-        href: antipatterns/noisy-neighbor/noisy-neighbor.yml
-      - name: Retry Storm
-        href: antipatterns/retry-storm/index.md
-      - name: Synchronous I/O
-        href: antipatterns/synchronous-io/index.md
+    - name: Overview
+      href: antipatterns/index.md
+    - name: Busy Database
+      href: antipatterns/busy-database/index.md
+    - name: Busy Front End
+      href: antipatterns/busy-front-end/index.md
+    - name: Chatty I/O
+      href: antipatterns/chatty-io/index.md
+    - name: Extraneous Fetching
+      href: antipatterns/extraneous-fetching/index.md
+    - name: Improper Instantiation
+      href: antipatterns/improper-instantiation/index.md
+    - name: Monolithic Persistence
+      href: antipatterns/monolithic-persistence/index.md
+    - name: No Caching
+      href: antipatterns/no-caching/index.md
+    - name: Noisy Neighbor
+      href: antipatterns/noisy-neighbor/noisy-neighbor.yml
+    - name: Retry Storm
+      href: antipatterns/retry-storm/index.md
+    - name: Synchronous I/O
+      href: antipatterns/synchronous-io/index.md
   - name: Responsible engineering
     items:
     - name: Responsible innovation
       items:
       - name: Overview
         href: guide/responsible-innovation/index.md
-      - name: Judgment call
-        href: guide/responsible-innovation/judgmentcall.md
       - name: Harms modeling
         items:
         - name: Understand harm
           href: guide/responsible-innovation/harms-modeling/index.md
         - name: Assess types of harm
           href: guide/responsible-innovation/harms-modeling/type-of-harm.md
-      - name: Community jury
-        href: guide/responsible-innovation/community-jury/index.md
     - name: Responsible AI
       items:
       - name: Guidelines for human-AI interaction
@@ -337,46 +323,6 @@ items:
             href: guide/networking/global-web-applications/mission-critical-content-delivery.md
           - name: Global HTTP ingress
             href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md
-  - name: Solutions across Microsoft platforms
-    items:
-    - name: Microsoft cloud developer docs
-      href: /microsoft-cloud
-    - name: Azure and Power Platform scenarios
-      items:
-      - name: Overview
-        href: solutions/power-platform-scenarios.md
-      - name: All Power Platform architectures
-        href: /azure/architecture/browse/?products=power-platform
-      - name: Citizen AI with Power Platform
-        href: example-scenario/ai/citizen-ai-power-platform.yml
-      - name: Eventual consistency with Power Apps
-        href: guide/power-platform/eventual-consistency.yml
-      - name: Extract text using Power Automate
-        href: example-scenario/ai/extract-object-text.yml
-    - name: Azure and Microsoft 365 scenarios
-      items:
-      - name: Overview
-        href: solutions/microsoft-365-scenarios.md
-      - name: All Microsoft 365 architectures
-        href: /azure/architecture/browse/?products=m365
-      - name: Manage Microsoft 365 with DevOps
-        href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
-      - name: Secure a Teams channel bot with a firewall
-        href: example-scenario/teams/securing-bot-teams-channel.yml
-    - name: Azure and Dynamics 365 scenarios
-      items:
-      - name: Overview
-        href: solutions/dynamics-365-scenarios.md
-      - name: All Dynamics 365 architectures
-        href: /azure/architecture/browse/?terms=dynamics%20365
-    - name: Azure and Microsoft on-premises servers
-      href: guide/on-premises-microsoft-technologies.md
-  - name: Third-party scenarios
-    items:
-    - name: Apache technologies
-      href: guide/apache-scenarios.md
-    - name: Partner technologies
-      href: guide/partner-scenarios.md
   - name: Azure for AWS professionals
     items:
     - name: Overview
@@ -466,7 +412,7 @@ items:
   - name: Choreography
     href: patterns/choreography.yml
   - name: Circuit Breaker
-    href: patterns/circuit-breaker.yml
+    href: patterns/circuit-breaker.md
   - name: Claim Check
     href: patterns/claim-check.yml
   - name: Compensating Transaction
@@ -895,6 +841,8 @@ items:
         href: example-scenario/devops/automated-api-deployments-apiops.yml
       - name: Scalable cloud applications and site reliability engineering (SRE)
         href: example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml
+      - name: Manage Microsoft 365 with DevOps
+        href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
     - name: "Solution idea: DevSecOps for infrastructure as code"
       href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
   - name: Hybrid + multicloud
