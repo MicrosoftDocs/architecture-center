@@ -27,10 +27,10 @@ Numeric callouts 1, 2, and 3 are used in both diagrams to highlight the similari
 
 ### Components
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure offers. In this architecture,an Azure VM gives you the flexibility of virtualization without the need to buy and maintain physical hardware. The VM hosts the Unisys ClearPath Forward OS 2200 enterprise server and performs the same function as the on-premises physical or virtual hardware that currently hosts the server.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure offers. In this architecture, an Azure VM gives you the flexibility of virtualization without the need to buy and maintain physical hardware. The VM hosts the Unisys ClearPath Forward OS 2200 enterprise server and performs the same function as the on-premises physical or virtual hardware that currently hosts the server.
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure. In this architecture, Virtual Network enables many types of Azure resources, such as VMs, to securely communicate with each other, the internet, and on-premises networks. Virtual Network is similar to a traditional network that operates in your own datacenter but with the benefit of the Azure infrastructure, such as scale, availability, and isolation. [Network interface cards (NICs)](/azure/virtual-network/virtual-network-network-interface) enable a VM to communicate with the internet, Azure, and on-premises resources, replicating the network infrastructure of the on-premises environment. For example, you can add more NICs to the same VM, which allows the Solaris child VMs to have their own dedicated network interface device and IP address. 
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. In this architecture, ExpressRoute provides a private connection between the on-premises networks and Azure or Microsoft 365. It allows secure and reliable connectivity for the migrated Unisys ClearPath Forward OS 2200 enterprise server.
-- [Azure Site Recovery](/azure/site-recovery/) enables Azure region-to-region failover for disaster recovery (DR) if a primary region outage occurs. In this architecture, Site Recovery DR capabilities mirror the Azure VMs to a secondary Azure region. These capabilities ensure a quick failover in the rare case of an Azure datacenter failure. 
+- [Azure Site Recovery](/azure/site-recovery/) enables Azure region-to-region failover for disaster recovery (DR) if a primary region outage occurs. In this architecture, Site Recovery DR capabilities mirror the Azure VMs to a secondary Azure region. These capabilities facilitate a quick failover in the rare case of an Azure datacenter failure. 
 
 ### Alternatives
 
@@ -69,7 +69,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Unisys CPF in Azure uses Azure Site Recovery to ensure system availability and consistency.  Azure Site Recovery enables Azure region-to-region failover for DR if a primary region outage occurs. DR capabilities mirror the Azure VMs to a secondary Azure region. These capabilities ensure a quick failover in the rare case of an Azure datacenter failure.
+Unisys CPF in Azure uses Azure Site Recovery to promote system availability and consistency.  Site Recovery enables Azure region-to-region failover for DR if a primary region outage occurs. DR capabilities mirror the Azure VMs to a secondary Azure region. These capabilities facilitate a quick failover in the rare case of an Azure datacenter failure.
 
 ### Security
 
