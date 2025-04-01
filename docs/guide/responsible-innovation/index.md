@@ -1,7 +1,7 @@
 ---
-title: Responsible Innovation toolkit
+title: Responsible Engineering Overview
 titleSuffix: Azure Application Architecture Guide
-description: Responsible Innovation is a commitment to put people first in the development of technology by understanding the stakeholders and impact of your technology
+description: Learn how to incorporate responsible engineering principles and practices so that you can deploy your technology ethically and sustainably.
 author: Zimmergren
 ms.author: tozimmergren
 ms.reviewer: tozimmergren
@@ -21,6 +21,10 @@ keywords:
   - threat modeling
   - engagement-fy23
 ---
+
+# Responsible engineering overview
+
+Responsible engineering refers to the principles and practices that help ensure that technology is developed and deployed ethically and sustainably. Responsible engineering in Azure encompasses a broad range of initiatives aimed at creating technology that benefits society while minimizing negative impacts. To foster trust and drive positive change in your technology, integrate ethical principles and sustainability into your design and development processes.
 
 ## Harms Modeling
 
