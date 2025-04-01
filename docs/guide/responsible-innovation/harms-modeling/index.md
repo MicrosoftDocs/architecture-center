@@ -172,7 +172,7 @@ At scale, the way technology impacts people shape social and economic structures
 
 ## Define harms that are specific to your workloads
 
-Use the categories, questions, and examples to generate specific ideas for how harm could occur. Adapt and adopt additional categories that are relevant to you.
+Use the previous categories, questions, and examples to generate specific ideas for how harm could occur. Adapt and adopt additional categories that are relevant to your scenario.
 
 - Intended use: If [feature] was used for [use case], then [stakeholder] could experience [harm description].
 
@@ -193,7 +193,7 @@ Once you've generated a broad list of potential harms, you should complete your 
 
 ## Transparency documents
 
-Some services provide [transparency documents](https://www.microsoft.com/ai/principles-and-approach#transparency-report). Transparency documents provide insights into how the service operates, its capabilities, limitations, and ethical considerations. You can review these documents to understand the inner workings of a service and help ensure responsible use.
+Some services provide [transparency documents](https://www.microsoft.com/ai/principles-and-approach#transparency-report). Transparency documents provide insights into how the service operates, its capabilities, limitations, and ethical considerations. You can review these documents to understand the inner workings of the service and help ensure responsible use.
  
 When you build solutions on Azure, read through any transparency documents that your service offers. Factor in how those solutions align with your workload's harms modeling. Consider whether the service's functionalities and limitations introduce or mitigate risks in your specific use case.
 
