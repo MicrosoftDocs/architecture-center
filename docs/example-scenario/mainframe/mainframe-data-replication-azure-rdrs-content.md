@@ -163,15 +163,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 - Use Azure Monitor Logs and Application Insights to monitor the health of an Azure resource. You can set alerts for proactive management.
 
-### Scalability
-
-- Set up RDRS scaling for CDC processing by running multiple parallel replication streams. First analyze the files included in logical transactions. These files must be processed together in sequence. The RDRS CDC process helps ensure the integrity of each logical transaction. For instance, sets of tables that don't participate in common transactions might be divided into parallel tasks by creating multiple processing scripts.
-
-- RDRS can run parallel concurrent bulk-load processing simultaneously on a single Azure VM or on multiple Azure VMs, which provides horizontal scalability. Perform fast bulk load operations for large tables by splitting the process into multiple tasks, either by using arbitrary intervals or row filtering. Row filtering can use a key, partition key, date, and other filters.
-
-- The SQL Database serverless compute tier provides an automatic scaling option based on the workload. Other Azure databases can be scaled up and scaled down by using automation to meet the workload demands. For more information, see [Autoscaling best practices in Azure](/azure/architecture/best-practices/auto-scaling).
-
-## Security
+### Security
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
@@ -190,6 +182,18 @@ Security provides assurances against deliberate attacks and the misuse of your v
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
+
+### Performance Efficiency
+
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+#### Scalability
+
+- Set up RDRS scaling for CDC processing by running multiple parallel replication streams. First analyze the files included in logical transactions. These files must be processed together in sequence. The RDRS CDC process helps ensure the integrity of each logical transaction. For instance, sets of tables that don't participate in common transactions might be divided into parallel tasks by creating multiple processing scripts.
+
+- RDRS can run parallel concurrent bulk-load processing simultaneously on a single Azure VM or on multiple Azure VMs, which provides horizontal scalability. Perform fast bulk load operations for large tables by splitting the process into multiple tasks, either by using arbitrary intervals or row filtering. Row filtering can use a key, partition key, date, and other filters.
+
+- The SQL Database serverless compute tier provides an automatic scaling option based on the workload. Other Azure databases can be scaled up and scaled down by using automation to meet the workload demands. For more information, see [Autoscaling best practices in Azure](/azure/architecture/best-practices/auto-scaling).
 
 ## Contributors
 
