@@ -2,6 +2,7 @@
 title: Domain analysis for microservices
 description: This article shows a domain-driven approach to designing microservices so that each service follows the general rule of doing just one thing.
 author: RobBagby
+ms.author: pnp
 ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: azure-architecture-center
