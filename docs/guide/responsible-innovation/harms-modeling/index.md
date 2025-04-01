@@ -27,7 +27,7 @@ This guidance is for architects who design algorithm-driven systems, such as cus
 
 As technology builders, your work is global. To design algorithm-driven systems to be trustworthy, you need to create solutions that reflect ethical principles that are deeply rooted in important and timeless values. During the design and development process, it's essential to evaluate not only ideal outcomes but also possible negative outcomes, also known as *harms*. These harms can occur in any decision-making architecture that doesn't involve humans.
 
-For guidance that's specific to Responsible AI, see [Responsible AI principles and approach](/ai/principles-and-approach).
+For guidance that's specific to Responsible AI, see [Responsible AI principles and approach](https://www.microsoft.com/ai/principles-and-approach).
 
 ## Human understanding
 
