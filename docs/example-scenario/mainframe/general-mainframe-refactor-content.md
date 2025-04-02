@@ -57,7 +57,7 @@ The following architecture illustrates a general refactoring approach that can u
    - Azure Blob Storage is a common landing zone for external data sources.
    - Azure Data Factory supports data ingestion and synchronization of multiple Azure and external data sources.
 
-1. Azure Site Recovery provides DR for VM and container cluster components.
+1. Azure Site Recovery provides disaster recovery (DR) for VM and container cluster components.
 
 1. Services like [Microsoft Entra ID](/security/business/identity-access/microsoft-entra-id), [Azure Networking](https://azure.microsoft.com/products/category/networking), Azure Stream Analytics, Azure Databricks, and [Power BI](https://azure.microsoft.com/power-platform/products/power-bi/) can easily integrate with the modernized system.
 
@@ -69,7 +69,7 @@ This example features the following Azure components. Several of these component
 
 - [Azure Bastion](/azure/bastion/bastion-overview) provides seamless Remote Desktop Protocol (RDP) or secure shell (SSH) connectivity to virtual network VMs from the Azure portal over TLS. Azure Bastion maximizes administrative access security by minimizing open ports.
 
-- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) distributes incoming traffic to the compute resource clusters. You can define rules and other criteria to distribute the traffic.
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) distributes incoming traffic to the compute resource clusters. Use this component to define rules and other criteria to distribute the traffic.
 
 - [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service to deploy and manage containerized applications. AKS offers serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance.
 
@@ -87,7 +87,7 @@ This example features the following Azure components. Several of these component
 
   - [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure Files file shares concurrently.
 
-  - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) provides enterprise-grade Azure file shares powered by NetApp. NetApp Files makes it easy for enterprises to migrate and run complex, file-based applications with no code changes.
+  - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) provides enterprise-grade Azure file shares powered by NetApp. Use it to migrate and run complex, file-based applications with no code changes.
 
   - [Azure Blob Storage](/azure/well-architected/service-guides/azure-netapp-files) is scalable and secure object storage for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads.
 
@@ -95,7 +95,7 @@ This example features the following Azure components. Several of these component
 
   - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine. SQL Database always runs on the latest stable version of SQL Server and a patched OS with 99.99 percent availability. Built-in PaaS database management capabilities include upgrading, patching, backups, and monitoring. You can focus on domain-specific, business-critical database administration and optimization.
 
-  - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed database based on the open-source Postgres relational database engine. The [Hyperscale (Citus) deployment option](https://github.com/SpektraSystems/Introduction-to-Hyperscale-Citus-on-Azure-Database-for-PostgreSQL/blob/master/Exercise1.md) scales queries across multiple machines using sharding, for applications that require greater scale and performance.
+  - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed database based on the open-source Postgres relational database engine. The [Hyperscale (Citus) deployment option](https://github.com/SpektraSystems/Introduction-to-Hyperscale-Citus-on-Azure-Database-for-PostgreSQL/blob/master/Exercise1.md) scales queries across multiple machines by using sharding, for applications that require greater scale and performance.
 
   - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed, fast NoSQL database with open APIs for any scale.
 
@@ -129,7 +129,7 @@ The following considerations, based on the [Azure Well-Architected Framework](/a
 
 ### Availability
 
-Azure Site Recovery (/azure/site-recovery/site-recovery-overview) mirrors the Azure VMs to a secondary Azure region for quick failover and DR if the primary Azure datacenter fails.
+[Azure Site Recovery](/azure/site-recovery/site-recovery-overview) mirrors the Azure VMs to a secondary Azure region for quick failover and DR if the primary Azure datacenter fails.
 
 ### Operations
 
@@ -172,7 +172,7 @@ Principal author:
 
 ## Next steps
 
-- For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
+- For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 - [What is Azure ExpressRoute](/azure/expressroute/expressroute-introduction)
 - [What is Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
 - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
