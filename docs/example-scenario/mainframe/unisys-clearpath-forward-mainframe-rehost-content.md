@@ -11,13 +11,6 @@ The benefit of this approach is a rapid move to Azure compared to other methodol
 Depending upon the client's end goal, the transitioned Azure MCP could be the end state or a first step toward modernizing applications within the MCP environment or within Azure. This approach to landing in Azure permits a measured, planned path to updating applications. It retains the investment made in existing application code. After conversion, other Azure data analytic services can be employed as well.
 
 
-## Potential use cases
-
-- Move existing Unisys ClearPath Forward Libra workloads to Azure rapidly, with low risk.
-- Use of [Azure Arc](https://azure.microsoft.com/products/azure-arc/) can enable Azure to become the disaster recovery (DR) plan for an existing on-premises workload.
-- Add Azure data services to existing client capabilities.
-- Establish supplmental Test/Dev environments for coding, application testing, and training purposes.
-
 ## Architecture
 
 **Example source (premigration) architecture.** The architecture below illustrates a typical, on-premises Unisys ClearPath Forward Libra (MCP) mainframe.
@@ -49,6 +42,33 @@ The legend matches both diagrams to highlight the similarities between the origi
 - [Azure SSD managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes managed by Azure and used with Azure Virtual Machines. The available types of disks are ultra disks, premium solid-state drives (SSDs), standard SSDs, and standard hard disk drives (HDDs). For this architecture, we recommend either premium SSDs or ultra disk SSDs.
 - [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in the cloud that are accessible by using the industry-standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365.
+
+## Scenario details
+
+This scenario provides context for migrating Unisys ClearPath Forward Libra workloads to Azure by using virtualization technologies from Microsoft partner Unisys. The primary goal is to achieve a rapid and low-risk transition to Azure while maintaining the existing application code and user interactions. This approach eliminates the need to rewrite application code or redesign the database architecture, ensuring a seamless transition for users and programmers.
+
+The customer's goals include:
+
+- Rapid migration of Unisys ClearPath Forward Libra workloads to Azure.
+- Minimizing risks associated with the migration process.
+- Maintaining existing application code and user interactions.
+- Reducing hardware maintenance and facility costs.
+- Achieving a quick return on investment (ROI).
+
+The benefits of implementing this solution include:
+
+- Rapid migration to Azure compared to other methodologies.
+- Elimination of hardware maintenance and facility costs.
+- No cost associated with retraining users and programmers.
+- Retention of investment in existing application code.
+- Potential for further modernization of applications within the MCP environment or within Azure.
+
+### Potential use cases
+
+- Move existing Unisys ClearPath Forward Libra workloads to Azure rapidly, with low risk.
+- Use of [Azure Arc](https://azure.microsoft.com/products/azure-arc/) can enable Azure to become a disaster recovery (DR) environment for an existing on-premises workload.
+- Add Azure data services to existing client capabilities.
+- Establish supplemental development and test environments for coding, application testing, and training purposes.
 
 ## Considerations
 
