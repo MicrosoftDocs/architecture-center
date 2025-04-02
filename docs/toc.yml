@@ -389,7 +389,7 @@ items:
       href: gcp-professional/index.md
     - name: Services comparison
       href: gcp-professional/services.md
-- name: Design Patterns
+- name: Design patterns
   items:
   - name: Overview
     href: patterns/index.md
@@ -399,7 +399,7 @@ items:
       href: pattern-implementations/network-secure-ingress.md
   - name: Ambassador
     href: patterns/ambassador.yml
-  - name: Anti-corruption Layer
+  - name: Anti-Corruption Layer
     href: patterns/anti-corruption-layer.yml
   - name: Asynchronous Request-Reply
     href: patterns/async-request-reply.yml
