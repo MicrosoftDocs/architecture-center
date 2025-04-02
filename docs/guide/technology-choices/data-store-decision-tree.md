@@ -27,6 +27,8 @@ Use the following flowchart to select a candidate Azure managed data store.
 
 ![Data store decision tree](./images/data-store-decision-tree.png)
 
+Azure Database for MariaDB will be retired on 19 September 2025, please migrate to Azure Database for MySQL Flexible Server instead.
+
 The output from this flowchart is a **starting point** for consideration. Next, perform a more detailed evaluation of the data store to see if it meets your needs. Refer to [Criteria for choosing a data store](./data-store-considerations.md) to aid in this evaluation.
 
 ## Choose specialized storage
