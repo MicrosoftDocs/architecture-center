@@ -43,9 +43,8 @@ The following dataflow corresponds to the previous diagram:
 
 ### Change data replication from Db2 z/OS to Microsoft Fabric Native SQL Database by using RDRS
 
-RDRS is a data replication solution from Rocket Software. It provides an IBM mainframe integration solution for mainframe data replication, data synchronization, data migration, and CDC to multiple Azure data platform services.
 
-This architecture provides an overview of how data is replicated from Db2 z/OS to Microsoft Fabric Native SQL Database in near real-time.
+The following architecture provides an overview of how data is replicated from Db2 z/OS to Microsoft Fabric Native SQL Database in near real time.
 
 :::image type="complex" border="false" source="./media/change-data-capture-mainframe-data-with-azure.svg" alt-text="Diagram that shows both the full data replication and change data replication processes from Db2 z/OS to Microsoft Fabric SQL Native Database by using RDRS." lightbox="./media/change-data-capture-mainframe-data-with-azure.svg":::
    There are two main boxes in the image. The first main box is labeled Customer datacenter. Inside this box are three smaller boxes. The first box is labeled Database management system and contains an icon that represents relational databases. A double-sided arrow labeled ImageCopy or Direct Select points from this icon to a box inside the Microsoft Azure box. A dotted arrow also points from this icon to a box labeled IBM z/OS Work Load Manager. Inside the box labeled IBM z/OS Work Load Manager is another box that reads Db2 UDT process to read Db2 logs. The second main box is labeled Microsoft Azure Components. Inside this box, there are four smaller boxes. There are also arrows that indicate relationships between the boxes and several icons. One box has text that reads the RDRS open platform manager and an icon that represents a LUW VM. Inside this box is a box labeled Capture and apply agent. One solid arrow labeled Data insert and one dotted arrow labeled DML points to a box labeled Microsoft Fabric. A third dotted arrow labeled JSON points from this box to an icon that represents Event Hubs, then to an icon with text that reads Logic Apps, Azure Functions, or a VM-based solution, and finally to the Microsoft Fabric box. A smaller box labeled RDRS dashboard contains an icon that represents the LUW VM and text that reads Metadata, transformation rules, process definitions. A dotted arrow points from this box to the RDRS open platform manager box. The box labeled Microsoft Fabric contains an icon that represents Fabric Native SQL Database. Three solid arrows originate from one point on this box and point to icons that represent Power BI, Client apps, and Azure services.
@@ -73,13 +72,13 @@ This architecture provides an overview of how data is replicated from Db2 z/OS t
 
 A. Db2 installed on an IBM Mainframe in the customer datacenter serves as the source of data for replication to Azure Cloud. RDRS provides the capability to retrieve log-based change data from Db2.
 
-B. RDRS defines the Db2 UDT process to read Db2 logs. The UDT runs in the IBM Work Load Manager environment and is managed by the Db2 DBMS. The UDT reads log data and stores this data in memory for transmission.
+B. RDRS defines the Db2 UDT process to read Db2 logs. The UDT runs in the IBM Workload Manager environment and is managed by the Db2 DBMS. The UDT reads log data and stores this data in memory for transmission.
 
 C. The OPM serves as a replication server, equipped with utilities for automatic data mapping to generate metadata for sources and targets. It includes rule sets for extracting data from the source, transforms and processes the data for target systems, and writes it to the targets. You can install this component on LUW operating systems. The RDRS capture and apply agent receives data from the UDT process. After the apply agent configures transformations, it writes the data to the target Fabric SQL database.
 
 D. The RDRS dashboard interface enables the administration, operation, control, and monitoring of data exchange processes. The RDRS command-line utilities help automate data exchange processes and manage the unattended operations of the data synchronization process.
 
-E. The RDRS apply agent uses the Microsoft ODBC Driver with Microsoft Entra ID authentication for Azure SQL to perform DML queries on the target Fabric Native SQL database.
+E. The RDRS apply agent uses the Microsoft ODBC Driver with Microsoft Entra ID authentication for Azure SQL to perform data manipulation language queries on the target Fabric Native SQL database.
 
 F. After data lands in the Fabric Native SQL database, Azure services or other authorized entities consume it, including Fabric Analytics, Power BI, or custom applications.
 
@@ -113,7 +112,7 @@ This architecture refers to the following networking services that you can use i
 
 #### Storage and database components
 
-The architecture discusses the data migration to scalable, more secure cloud storage and managed databases for flexible, intelligent data management in Azure.
+This architecture discusses the data migration to scalable, more secure cloud storage and managed databases for flexible, intelligent data management in Azure.
 
 - [Storage](/azure/storage/common/storage-introduction) provides unmanaged storage solutions like Azure Blob Storage, Azure Table Storage, Azure Queue Storage, and Azure Files. Azure Files is especially useful for re-engineered mainframe solutions and provides an effective add-on with managed SQL storage.
 
@@ -121,7 +120,7 @@ The architecture discusses the data migration to scalable, more secure cloud sto
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a no-SQL offering that you can use to migrate nontabular data off of the mainframe.
 
-- [The SQL database in Fabric](/fabric/database/sql/overview) is the primary platform that supports online transaction processing workloads and provides simplicity that makes setup and management easy. It has a system that automatically replicates data into OneLake in near real-time, which makes it ideal for analytics tasks. It's integrated with development frameworks and analytics tools. This integration helps ensure compatibility and flexibility for various applications. SQL database in Fabric lets you run queries the same way as SQL Database and includes a web-based editor that's accessible through the Fabric portal.
+- [The SQL database in Fabric](/fabric/database/sql/overview) is the primary platform that supports online transaction processing workloads and provides simplicity that makes setup and management easy. It has a system that automatically replicates data into OneLake in near real time, which makes it ideal for analytics tasks. It's integrated with development frameworks and analytics tools. This integration helps ensure compatibility and flexibility for various applications. The SQL database in Fabric lets you run queries the same way as SQL Database and includes a web-based editor that's accessible through the Fabric portal.
 
 #### Monitoring components
 
@@ -220,4 +219,4 @@ Other contributors:
 ## Related resources
 
 - [Modernize mainframe and midrange data](modernize-mainframe-data-to-azure.yml)
-- [Replicate and synchronize mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
+- [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
