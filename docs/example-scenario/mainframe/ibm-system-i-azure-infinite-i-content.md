@@ -48,7 +48,7 @@ The benefits of the Infinite i environment include:
 - Conversion of tape archives for backup and regulatory compliance.
 - Application screens work as before. You have the option of updating the screens to web-based user interfaces.
 - The Infinite internal database that holds your data emulates DB2/400. You have the option of migrating to a standard SQL database instead, with minor code changes or none at all.
-- Your savings on licensing and maintenance significantly reduces your total cost of ownership.
+- Your savings on licensing and maintenance significantly reduce your total cost of ownership.
 - On Azure you have faster and lower-cost options for disaster recovery than you have on System i.
 
 ### Potential use cases
@@ -147,7 +147,6 @@ Principal author:
   - [IBM z/OS mainframe migration with Avanade AMT](./avanade-amt-zos-migration.yml)
   - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
   - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml)
-  - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
   - [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
   - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)
 - IBM System i (AS/400) information:

@@ -54,10 +54,10 @@ items:
           href: ../example-scenario/analytics/pipelines-disaster-recovery.yml
       - name: Mainframe
         items:
-        - name: Mainframe access to Azure databases
-          href: ../solution-ideas/articles/mainframe-access-azure-databases.yml
         - name: Replicate and sync mainframe data
           href: ../reference-architectures/migration/sync-mainframe-data-with-azure.yml
+        - name: Mainframe data replication with Connect
+          href: ../example-scenario/mainframe/mainframe-replication-precisely-connect.yml
         - name: Mainframe data replication with Qlik
           href: ../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml
         - name: Mainframe data replication with RDRS
