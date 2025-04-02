@@ -1,10 +1,12 @@
-Online transaction processing (OLTP) systems interact directly with users and are the face of the business. With a dynamically adaptable infrastructure, businesses can realize and launch their products quickly to delight their users.
+Online transaction processing (OLTP) systems are the face of your business because they interact directly with customers. By migrating to a dynamically adaptable infrastructure, your business can create and launch products quickly so that customers can use your products sooner.
 
 ## Architecture
 
-The following diagram shows the architecture of the workload to be migrated, an OLTP system running on a z/OS mainframe:
+The following diagram shows an architecture of an OLTP system that runs on a z/OS mainframe before migration to Azure:
 
-:::image type="content" source="media/ibm-zos-online-transaction-processing-on-zos.svg" alt-text="OLTP architecture on z/OS" lightbox="media/ibm-zos-online-transaction-processing-on-zos.svg" border="false":::
+:::image type="complex" source="media/ibm-zos-online-transaction-processing-on-zos.svg" alt-text="Diagram of an OLTP architecture on z/OS." lightbox="media/ibm-zos-online-transaction-processing-on-zos.svg" border="false":::
+   The diagram shows the architecture of an OLTP application that runs on a z/OS mainframe. An on-premises user accesses the system via a web interface and connects through various communication protocols such as HTTPS, SNA LU 6.2, and Telnet 3270. The system is divided into several layers that are depicted as numbered boxes. Arrows connect the boxes to show how different components interact within the mainframe environment. Box number one includes the communication protocols. Double-sided arrows connect box one with the on-premises user and the TN3270 terminal. Box number two includes transaction managers, including CICS and IMS. Double-sided arrows connect boxes one and two. The application layer includes boxes numbered four and five for front-end and business logic components. Double-sided arrows connect boxes three and four. One arrow points from the application layer to box six, which contains other services. Box number five is the data layer, which contains databases, like DB2 and IMS DB, and VSAM files. A double-sided arrow connects the data layer and the application layer. One arrow points from the data layer to box six. Box number six includes other services, such as security, management, monitoring, and reporting services.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ibm-zos-online-transaction-processing-on-zos.vsdx) of this architecture.*
 
@@ -12,23 +14,31 @@ The following diagram shows the architecture of the workload to be migrated, an 
 
 The following workflow corresponds to the preceding diagram:
 
-1. Users connect to the mainframe over TCP/IP using standard mainframe protocols like TN3270 and HTTPS.
+1. Users connect to the mainframe over TCP/IP by using standard mainframe protocols like TN3270 and HTTPS.
 1. The transaction managers interact with the users and invoke the application to satisfy user requests.
-1. In the front end of the application layer, users interact with the CICS/IMS screens or with web pages.
-1. The transaction managers use the business logic written in COBOL or PL/1 to implement the transactions.
-1. Application code uses storage capabilities of the data layer, typically DB2, IMS DB, or VSAM.
+1. In the front end of the application layer, users interact with the CICS/IMS screens or with webpages.
+1. The transaction managers use the business logic written in COBOL or PL/I to implement the transactions.
+1. Application code uses the storage capabilities of the data layer, such as DB2, IMS DB, or VSAM.
 1. Along with transaction processing, other services provide authentication, security, management, monitoring, and reporting. These services interact with all other services in the system.
 
-Here, we see how to migrate this architecture to Azure.
+The following diagram shows how to migrate this architecture to Azure.
 
-:::image type="content" source="media/ibm-zos-online-transaction-processing-on-azure.svg" alt-text="Diagram that shows an architecture for migrating a z/OS OLTP workload." lightbox="media/ibm-zos-online-transaction-processing-on-azure.svg" border="false":::
+:::image type="complex" source="media/ibm-zos-online-transaction-processing-on-azure.svg" alt-text="Diagram that shows an architecture to migrate a z/OS OLTP workload to Azure." lightbox="media/ibm-zos-online-transaction-processing-on-azure.svg" border="false":::
+   The diagram shows how to migrate a z/OS OLTP workload to Azure. The architecture is divided into several layers that represent different components and their interactions. Each layer uses numbers and arrows to highlight the flow of data. Layer one represents an on-premises user. A double-sided arrow connects the user and Azure ExpressRoute. Layer two represents input requests. This layer contains two boxes that are connected by a dotted double-sided arrow labeled Azure web application firewall. The left box contains icons for Azure Front Door and Azure Traffic Manager. A double-sided arrow connects the left box with an icon that represents the internet. Another double-sided arrow connects the internet icon with Microsoft Entra ID. The right box contains icons for Azure Application Gateway and Azure Load Balancer. A double-sided arrow connects this box with a box labelled front end. The box labelled front end is inside of the application layer. It contains icons for Azure API Management, Azure App Service, Azure Kubernetes Service (AKS), and Azure Spring Apps. Three dotted double-sided arrows connect the front-end box with a box labelled business logic. This box contains icons for Azure Functions, Azure WebJobs, AKS and Azure Spring Apps. Icons for Azure Service Bus and Azure Queue Storage (asynchronous) are above and below the three arrows. 
+
+Cache layer: Features Azure Cache for Redis to improve performance by caching frequently accessed data.
+Data layer: Includes services like SQL Database, Cosmos DB, Azure Files, and Blob Storage for data management.
+Monitoring: Utilizes tools like Log Analytics and Application Insights to monitor application performance.
+
+This image shows a comprehensive architecture diagram of a cloud-based application using Microsoft Azure services. It is interesting because it provides a clear visual representation of how different components interact within an Azure environment to manage input requests, handle business logic, store data efficiently, cache frequently accessed information for better performance, and monitor overall system health.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ibm-zos-online-transaction-processing-on-azure.vsdx) of this architecture.*
 
 1. Mainframe users are familiar with 3270 terminals and on-premises connectivity. In the migrated system, they interact with Azure applications via public internet or via a private connection implemented with Azure ExpressRoute. Microsoft Entra ID provides authentication.
 1. Input requests go to a global load balancer service, like Azure Front Door or Azure Traffic Manager. The load balancer can serve a geographically spread user base. It routes the requests according to rules defined for the supported workloads. These load balancers can coordinate with Azure Application Gateway or Azure Load Balancer for load balancing of the application layer. The Azure Content Delivery Network service caches static content in edge servers for quick response, secured using the Web Application Firewall (WAF) service.
 1. The front end of the application layer uses Azure services like Azure App Service to implement application screens and to interact with users. The screens are migrated versions of the mainframe screens.
-1. COBOL and PL/1 code in the back end of the application layer implements the business logic. The code can use services like Azure Functions, WebJobs, and Azure Spring Apps microservices. Applications can run in an Azure Kubernetes Service (AKS) container.
+1. COBOL and PL/I code in the back end of the application layer implements the business logic. The code can use services like Azure Functions, WebJobs, and Azure Spring Apps microservices. Applications can run in an Azure Kubernetes Service (AKS) container.
 1. An in-memory data store accelerates high-throughput OLTP applications. One such store is In-Memory OLTP, a feature of Azure SQL Database and Azure SQL Managed Instance. Another is Azure Cache for Redis.
 1. The data layer can include, for example:
 
