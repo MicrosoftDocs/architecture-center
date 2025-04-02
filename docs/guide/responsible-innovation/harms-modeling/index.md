@@ -5,7 +5,7 @@ description: This article describes how to figure out harms and negative impact 
 author: RobBagby
 ms.author: robbag
 categories: azure
-ms.date: 05/18/2020
+ms.date: 04/03/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -51,7 +51,7 @@ Ask these questions to get a better understanding of what's important to stakeho
 
 ## Types of harm
 
-The following table describes different types of harm that you might encounter. The list includes a diverse range of harms that can affect people in different scenarios, but it isn't exhaustive. Your scenario might involve other types of harms that aren't listed.
+The following table describes different types of harm that you might encounter. The list includes a diverse range of harms that can affect people in different scenarios, but it isn't exhaustive. Your workload might have the potential to lead to other types of harms that aren't listed.
 
 ## Risk of injury
 
@@ -172,7 +172,7 @@ At scale, the way technology impacts people shape social and economic structures
 
 ## Define harms that are specific to your workloads
 
-Use the previous categories, questions, and examples to generate specific ideas for how harm could occur. Adapt and adopt additional categories that are relevant to your scenario.
+Use the previous categories, questions, and examples to generate specific ideas for how harm could occur within your workload. Adapt and adopt additional categories that are relevant to your scenario.
 
 - Intended use: If [feature] was used for [use case], then [stakeholder] could experience [harm description].
 

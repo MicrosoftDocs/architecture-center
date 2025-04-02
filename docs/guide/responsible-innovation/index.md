@@ -5,7 +5,7 @@ description: Learn how to incorporate responsible engineering principles and pra
 author: Zimmergren
 ms.author: tozimmergren
 ms.reviewer: tozimmergren
-ms.date: 01/19/2023
+ms.date: 04/03/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 products: azure

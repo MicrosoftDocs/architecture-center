@@ -265,9 +265,9 @@ items:
     items:
     - name: Overview
       href: guide/responsible-innovation/index.md
-    - name: Understand harm
+    - name: Understand potential harms
       href: guide/responsible-innovation/harms-modeling/index.md
-    - name: Implement AI responsibly by using Azure AI services
+    - name: Implement AI responsibly when you use Azure AI services
       href: /azure/ai-services/responsible-use-of-ai-overview
     - name: Measure Azure app sustainability
       href: example-scenario/apps/measure-azure-app-sustainability-sci-score.yml
