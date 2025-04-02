@@ -4,7 +4,7 @@ This article describes how to use virtualization technologies from Unisys, a Mic
 
 **Example source (premigration) architecture**: The following architecture illustrates a typical, on-premises Unisys CPF Dorado (2200) enterprise server.
 
-:::image type="content" source="./images/unisys-clearpath-forward-os-2200-mainframe-rehost-diagram-premigration.svg" alt-text="Diagram of the premigration architecture." lightbox="./images/unisys-clearpath-forward-os-2200-mainframe-rehost-diagram-premigration.svg" border="false":::
+:::image type="content" source="./images/unisys-clearpath-forward-os-2200-mainframe-rehost-diagram-premigration.svg" alt-text="Diagram of the premigration architecture." lightbox="./images/unisys-clearpath-forward-os-2200-mainframe-rehost-premigration.svg" border="false":::
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/unisys-clearpath-forward-OS-2200-mainframe-rehost-diagram-premigration.vsdx) of this architecture.*
 
