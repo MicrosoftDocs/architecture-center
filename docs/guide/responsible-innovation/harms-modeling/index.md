@@ -182,14 +182,14 @@ Use the previous categories, questions, and examples to generate specific ideas 
 
 ## Evaluate harms
 
-Once you've generated a broad list of potential harms, you should complete your Harms Model by evaluating the potential magnitude for each harm category. This will allow you to prioritize your areas of focus. See the following example harms model for reference:
+Once you've generated a broad list of potential harms, you should complete your harms model by evaluating the potential magnitude for each harm category. This will allow you to prioritize your areas of focus. See the following example harms model for reference:
 
-|Contributing factor   |Definition       |
-|----------------------|-----------------|
-|Severity        |How acutely could the technology impact an individual or group's well-being?        |
-|Scale           |How broadly could the impact on well-being be experienced across populations or groups?    |
-|Probability     |How likely is the technology to impact individual or group's well-being? |
-|Frequency       |How often would an individual or group experience an impact on their well-being from the technology? |
+| Contributing factor | Definition |
+| :------------------ | :--------- |
+| Severity            | How acutely could the technology impact an individual or group's well-being? |
+| Scale               | How broadly could the impact on well-being be experienced across populations or groups? |
+| Probability         | How likely is the technology to impact individual or group's well-being? |
+| Frequency           | How often would an individual or group experience an impact on their well-being from the technology? |
 
 ## Transparency documents
 
@@ -205,7 +205,3 @@ See relevant articles about Responsible AI:
 
 - [Responsible AI in Azure workloads](/azure/well-architected/ai/responsible-ai)
 - [What is Responsible AI?](/azure/machine-learning/concept-responsible-ai)
-
-
-
-
