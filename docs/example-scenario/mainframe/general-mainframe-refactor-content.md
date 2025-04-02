@@ -43,8 +43,8 @@ The following architecture illustrates a general refactoring approach that can u
 
    - PaaS data services like Azure SQL Database, Azure Cosmos DB, and Azure Database for PostgreSQL - Hyperscale.
    - Databases on VMs, such as Oracle or Db2.
-   - Big data repositories like [Azure Databricks](https://azure.microsoft.com/services/databricks) and Azure Data Lake.
-   - Streaming data services like Apache Kafka and [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics).
+   - Big data repositories like [Azure Databricks](https://azure.microsoft.com/products/databricks) and Azure Data Lake.
+   - Streaming data services like Apache Kafka and [Azure Stream Analytics](https://azure.microsoft.com/products/stream-analytics).
 
 1. Data storage can be either local-redundant or geo-redundant, depending on usage. Data storage can use a combination of:
 
@@ -59,7 +59,7 @@ The following architecture illustrates a general refactoring approach that can u
 
 1. Azure Site Recovery provides DR for VM and container cluster components.
 
-1. Services like [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory), [Azure Networking](https://azure.microsoft.com/product-categories/networking), Azure Stream Analytics, Azure Databricks, and [Power BI](https://powerbi.microsoft.com) can easily integrate with the modernized system.
+1. Services like [Microsoft Entra ID](/security/business/identity-access/microsoft-entra-id), [Azure Networking](https://azure.microsoft.com/products/category/networking), Azure Stream Analytics, Azure Databricks, and [Power BI](https://azure.microsoft.com/power-platform/products/power-bi/) can easily integrate with the modernized system.
 
 ### Components
 
@@ -69,7 +69,7 @@ This example features the following Azure components. Several of these component
 
 - [Azure Bastion](/azure/bastion/bastion-overview) provides seamless Remote Desktop Protocol (RDP) or secure shell (SSH) connectivity to virtual network VMs from the Azure portal over TLS. Azure Bastion maximizes administrative access security by minimizing open ports.
 
-- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) distributes incoming traffic to the compute resource clusters. You can define rules and other criteria to distribute the traffic.
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) distributes incoming traffic to the compute resource clusters. You can define rules and other criteria to distribute the traffic.
 
 - [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service to deploy and manage containerized applications. AKS offers serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance.
 
@@ -129,7 +129,7 @@ The following considerations, based on the [Azure Well-Architected Framework](/a
 
 ### Availability
 
-Azure Site Recovery (https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview) mirrors the Azure VMs to a secondary Azure region for quick failover and DR if the primary Azure datacenter fails.
+Azure Site Recovery (/azure/site-recovery/site-recovery-overview) mirrors the Azure VMs to a secondary Azure region for quick failover and DR if the primary Azure datacenter fails.
 
 ### Operations
 
@@ -137,7 +137,7 @@ Refactoring not only supports faster cloud adoption, but also promotes adoption 
 
 ### Resiliency
 
-Performance efficiency is built into this solution by the load balancers (https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview). If one presentation or transaction server fails, other servers behind the load balancers can run the workloads.
+Performance efficiency is built into this solution by the [load balancers](/azure/load-balancer/load-balancer-overview). If one presentation or transaction server fails, other servers behind the load balancers can run the workloads.
 
 ### Security
 
@@ -151,7 +151,7 @@ Azure Bastion maximizes administrative access security by minimizing open ports.
 
 Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling to meet business needs without overspending.
 
-- Azure provides cost optimization by running on VMs. You can turn off the VMs when not in use, and script a schedule for known usage patterns. See the [Azure Well-Architected Framework](/azure/well-architected/) for more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
+- Azure provides cost optimization by running on VMs. You can turn off the VMs when not in use, and script a schedule for known usage patterns. See the [Azure Well-Architected Framework](/azure/well-architected/) for more information about cost optimization for [VM instances](/azure/well-architected/cost-optimization/optimize-component-costs).
 
 - The VMs in this architecture use either premium SSDs or ultra disk SSDs. For more information about disk options and pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
