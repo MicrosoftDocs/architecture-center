@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure API Management landing zone accelerator
+  title: Azure API Management landing zone architecture
   titleSuffix: Azure Architecture Center
-  description: An opinionated accelerator to deploy a secure enterprise-ready API management solution and CI/CD pipeline.
+  description: An opinionated architecture to deploy a secure enterprise-ready API management solution and CI/CD pipeline.
   author: petemessina 
   ms.author: petermessina
   ms.reviewer: aamurugan
@@ -21,8 +21,8 @@ products:
   - azure-application-gateway
   - azure-functions
   - dotnet
-name: Azure API Management landing zone accelerator
-summary: An opinionated accelerator to deploy a secure enterprise-ready API management solution and CI/CD pipeline.
+name: Azure API Management landing zone architecture
+summary: An opinionated architecture to deploy a secure enterprise-ready API management solution and CI/CD pipeline.
 thumbnailUrl: /azure/architecture/browse/thumbs/app-gateway-internal-api-management-function.png
 content: |
   [!include[](app-gateway-internal-api-management-function-content.md)]

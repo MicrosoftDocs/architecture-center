@@ -124,7 +124,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-- Review the upgradeability design principle in the [Azure Arc-enabled SQL Managed Instance landing zone accelerator](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-upgradeability-disciplines) for best practices on how to keep your instances up to date.
+- Review the upgradeability design principle in the [Azure Arc-enabled SQL Managed Instance landing zone guide](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-upgradeability-disciplines) for best practices on how to keep your instances up to date.
 - Review [Azure Arc Jumpstart Unified Operations Use Cases](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data/day2) to learn about more operational excellence scenarios for Azure Arc-enabled SQL Managed Instance.
 
 ### Performance Efficiency
@@ -163,28 +163,14 @@ Other contributor:
 - [Azure Arc-enabled SQL Managed Instance overview][Azure Arc-enabled SQL Managed Instance docs]
 - [Azure Arc learning path](/training/paths/manage-hybrid-infrastructure-with-azure-arc)
 - [Azure Arc Jumpstart scenarios][Arc Jumpstart data services scenarios]
-- [Introduction to Azure Arc landing zone accelerator for hybrid and multicloud][CAF Arc Accelerator] 
+- [Introduction to Azure Arc in Azure landing zones][CAF Arc Accelerator]
 
 ## Related resources
 
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](arc-hybrid-kubernetes.yml)
 
-[Arc Jumpstart]: https://aka.ms/AzureArcJumpstart
 [Azure Arc docs]: /azure/azure-arc
 [Azure Arc-enabled SQL Managed Instance docs]: /azure/azure-arc/data/managed-instance-overview
-[Azure Log Analytics]: /azure/azure-monitor/logs/log-analytics-overview
-[Azure Monitor]: https://azure.microsoft.com/services/monitor
-[Azure Arc]: /azure/azure-arc
 [Arc Jumpstart data services scenarios]: https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data
-[Azure Resource Group]: /azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group
 [CAF Arc Accelerator]: /azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone
-[Microsoft Defender for Cloud]: https://azure.microsoft.com/services/defender-for-cloud
-[Microsoft Sentinel]: https://azure.microsoft.com/services/microsoft-sentinel
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[rg-limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits
-[subscription-limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#subscription-limits
-[waf-principles-reliability]: /azure/architecture/framework/resiliency/principles
-[waf-principles-security]: /azure/architecture/framework/security/security-principles
-[waf-principles-cost-opt]: /azure/architecture/framework/cost/principles
-[waf-principles-operational-excellence]: /azure/architecture/framework/devops/principles
-[waf-principles-performance-efficiency]: /azure/architecture/framework/scalability/principles
