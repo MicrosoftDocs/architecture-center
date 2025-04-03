@@ -297,7 +297,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 ## Deploy this scenario
 
-For an implemented example of a blue-green deployment described in this guide, see [AKS Landing Zone Accelerator](https://github.com/Azure/AKS-Landing-Zone-Accelerator/tree/main/Scenarios/BlueGreen-Deployment-for-AKS).
+For an implemented example of a blue-green deployment described in this guide, see [AKS in an application landing zone](https://github.com/Azure/AKS-Landing-Zone-Accelerator/tree/main/Scenarios/BlueGreen-Deployment-for-AKS).
 
 This reference implementation is based on Application Gateway and [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview). Each cluster has its own application gateway and the traffic switch is done via DNS, in particular via `CNAME` configuration.
 
@@ -345,7 +345,7 @@ Other contributors:
 - [Blue-green deployment (Martin Fowler)](https://martinfowler.com/bliki/BlueGreenDeployment.html)
 - [AKS documentation](/azure/aks)
 - [Monitor documentation](/azure/azure-monitor)
-- [AKS landing zone accelerator for blue-green deployments](https://github.com/Azure/AKS-Landing-Zone-Accelerator/tree/main/Scenarios/BlueGreen-Deployment-for-AKS)
+- [AKS in an application landing zone with blue-green deployments](https://github.com/Azure/AKS-Landing-Zone-Accelerator/tree/main/Scenarios/BlueGreen-Deployment-for-AKS)
 - [Architecture pattern for mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-architecture-pattern)
 - [Azure services for securing network connectivity](/azure/architecture/framework/security/design-network-connectivity)
 - [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/)
