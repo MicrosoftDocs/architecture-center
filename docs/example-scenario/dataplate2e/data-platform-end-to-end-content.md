@@ -319,7 +319,7 @@ Principal author:
 
 - Explore the [Data Engineer Learning Paths at Microsoft learn](/training/roles/data-engineer) for further training content and labs on the services involved in this reference architecture.
 
-- Review the documentation and deploy the reference architecture using the [deployment accelerator available from GitHub](https://github.com/Azure/azure-synapse-analytics-end2end).
+- Review the documentation and deploy the reference architecture using the [deployment guidance available on GitHub](https://github.com/Azure/azure-synapse-analytics-end2end).
 
 ## Related resource
 

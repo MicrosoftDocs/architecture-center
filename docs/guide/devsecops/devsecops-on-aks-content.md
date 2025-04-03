@@ -80,7 +80,7 @@ The plan phase usually has the least amount of automation, but it has important 
 
 #### Best Practice – Design a more secure application platform
 
-Building a more secure AKS-hosted platform is an important step to help ensure security is built into the system at every layer, starting with the platform itself. The platform can include components both internal to the cluster (such as runtime security and policy agents) and components that are external to AKS (such as network firewalls and container registries). For more information, see [AKS Landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator), which includes critical design areas such as security, identity, and network topology.
+Building a more secure AKS-hosted platform is an important step to help ensure security is built into the system at every layer, starting with the platform itself. The platform can include components both internal to the cluster (such as runtime security and policy agents) and components that are external to AKS (such as network firewalls and container registries). For more information, see [AKS in an application landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator), which includes critical design areas such as security, identity, and network topology.
 
 #### Best Practice – Build threat modeling into your process
 
