@@ -25,19 +25,17 @@ As technology builders, your work has a global impact. To design trustworthy alg
 
 For guidance that's specific to responsible AI, see [Responsible AI principles and approach](https://www.microsoft.com/ai/principles-and-approach).
 
-## Human understanding
+## Stakeholder considerations
 
 To build trustworthy systems, recognize and value human rights as a fundamental aspect and consider the perspectives of many people. To design and build better products, you should ask who the stakeholders are, what they value, how they could benefit from your technology, and how they could be hurt by your technology.
 
-### Who does the technology affect?
-
-#### Who are the customers?
+Who are the customers for your technology?
 
 - What do they value?
 - How should they benefit from your technology?
 - How could your technology harm them?
 
-#### Who are the noncustomer stakeholders?
+Who are the noncustomer stakeholders?
 
 - What do they value?
 - How should they benefit from your technology?
