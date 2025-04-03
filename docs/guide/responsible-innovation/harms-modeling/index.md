@@ -19,8 +19,6 @@ ms.custom:
 
 Harms Modeling is a practice that helps you anticipate the potential for harm, identify gaps in product that could put people at risk, and ultimately create approaches that proactively address harm.
 
-## Benefits of Harms Modeling
-
 This guidance is for architects who design algorithm-driven systems, such as custom-coded decision-making frameworks. It also applies to outsourced decision-making processes, such as processes that involve AI or machine learning models.
 
 As technology builders, your work has a global impact. To design trustworthy algorithm-driven systems, you need to create solutions that reflect ethical principles that are rooted in important and timeless values. During the design and development process, you must evaluate not only ideal outcomes but also possible negative outcomes, also known as *harms*. These harms can occur in any decision-making architecture that doesn't involve human oversight.
@@ -51,9 +49,9 @@ Ask these questions to get a better understanding of what's important to stakeho
 
 The following tables describe various types of harm that you might encounter. They include a diverse range of harms that can affect people in different scenarios, but it isn't exhaustive. Your workload might have the potential to lead to other types of harms that aren't listed.
 
-## Risk of injury
+### Risk of injury
 
-### Physical injury
+#### Physical injury
 
 Consider how technology might hurt people or create dangerous environments.
 
@@ -63,7 +61,7 @@ Consider how technology might hurt people or create dangerous environments.
 |**Inadequate fail-safes**|Real-world testing doesn't cover a diverse set of users and scenarios.|If this technology fails or is misused, how does it affect people? <br><br> At what point could a human intervene? <br><br> Are there alternative uses that you haven't tested? <br><br> How does a system failure affect users?|An automatic door doesn't detect a wheelchair during an emergency evacuation, so a person is trapped if there isn't an accessible override button.|
 |**Exposure to unhealthy agents**|Manufacturing, as well as disposal of technology, jeopardizes the health and well-being of workers and nearby inhabitants.|What negative outcomes could arise from the manufacturing of your components or devices?|Inadequate safety measures expose workers to toxins during digital component manufacturing.|
 
-### Emotional or psychological injury
+#### Emotional or psychological injury
 
 Misused technology can lead to severe emotional and psychological distress.
 
@@ -76,9 +74,9 @@ Misused technology can lead to severe emotional and psychological distress.
 |**Identity theft**|Identity theft might lead to loss of control over personal credentials, reputation, and representation.|How might an individual be impersonated with this technology? <br><br> How might this technology mistakenly recognize the wrong individual as an authentic user?|Synthetic voice font mimics the sound of a person's voice and is used to access a bank account.|
 |**Misattribution**|Technology credits a person with an action or content that they're not responsible for.|How might this technology attribute an action to an individual or group? <br><br> What impact could an incorrect attribution of an action have on someone? |Facial recognition misidentifies an individual during a police investigation.|
 
-## Denial of consequential services
+### Denial of consequential services
 
-### Opportunity loss
+#### Opportunity loss
 
 Automated decisions can limit access to resources, services, and opportunities that are essential to well-being.
 
@@ -91,7 +89,7 @@ Automated decisions can limit access to resources, services, and opportunities t
 |**Digital divide or technological discrimination**|Disproportionate access to the benefits of technology leaves some people less informed or equipped to participate in society.|What prerequisite skills, equipment, or connectivity are necessary to get the most out of this technology? <br><br> What could be the consequences of certain individuals gaining early access to this technology, in terms of equipment, connectivity, or other product functionalities?|Content throttling prevents rural students from accessing classroom instruction video feeds.|
 |**Loss of choice/network and filter bubble**|Presenting people with only information that conforms to and reinforces their beliefs.|How might this technology affect the choices and information that are available to people? <br><br> What past behaviors or preferences might this technology rely on to predict future behaviors or preferences?|A news feed only presents information that confirms existing beliefs.|
 
-### Economic loss
+#### Economic loss
 
 Automated decisions that are related to financial instruments, economic opportunity, and resources can amplify existing societal inequities and obstruct well-being.
 
@@ -102,9 +100,9 @@ Automated decisions that are related to financial instruments, economic opportun
 |**Economic exploitation**|People are compelled or misled to work on something that affects their dignity or well-being.| How does human labor influence the production of training data for this technology? How is this workforce acquired? <br><br> How does human labor support this technology? <br><br> Where is this workforce expected to come from?|Financially destitute people are paid for their biometric data to train AI systems.|
 |**Devaluation of individual expertise**|Technology supplants the use of paid human expertise or labor.|How might this technology affect the need to employ an existing workforce?|AI agents replace doctors or radiographers for the evaluation of medical imaging.|
 
-## Infringement on human rights
+### Infringement on human rights
 
-### Dignity loss
+#### Dignity loss
 
 Technology can influence how people perceive the world and how they recognize, engage, and value one another. Technology can interfere with the exchange of honor and respect between people.
 
@@ -113,7 +111,7 @@ Technology can influence how people perceive the world and how they recognize, e
 |**Dehumanization**|Removing, reducing, or obscuring the visibility of a person's humanity.|How might this technology be used to simplify or abstract the representation of a person? <br><br> How might this technology reduce the distinction between humans and the digital world?|Entity recognition and virtual overlays in drone surveillance reduce the perceived accountability of human actions.|
 |**Public shaming**| Exposing people's private, sensitive, or socially inappropriate material.|How might data aggregation reveal an individual's movements or actions?|A fitness app reveals a user's GPS location on social media, which indicates attendance at an Alcoholics Anonymous meeting.|
 
-### Liberty loss
+#### Liberty loss
 
 Automated legal, judicial, and social systems can reinforce biases and lead to detrimental consequences.
 
@@ -123,7 +121,7 @@ Automated legal, judicial, and social systems can reinforce biases and lead to d
 |**Social control**|Conformity is reinforced or encouraged by publicly designating human behaviors as positive or negative.|What types of personal or behavioral data feed this technology? How is it obtained? <br><br> What outputs are derived from this data? <br><br> Can this technology be used to encourage or discourage certain behaviors?|Authoritarian government uses social media and e-commerce data to determine a "trustworthy" score based on where people shop and who they spend time with.|
 |**Loss of effective remedy**|An inability to explain the rationale or lack of opportunity to contest a decision.|How might people understand the reasoning for this technology's decisions? <br><br> How might an individual that relies on this technology explain its decisions? <br><br> How could people contest or question a decision that this technology makes?|An automated prison sentence or pre-trial release decision isn't explained to the accused person.|
 
-### Privacy loss
+#### Privacy loss
 
 The information that technology generates can be used to determine facts or make assumptions about someone without their knowledge.
 
@@ -135,7 +133,7 @@ The information that technology generates can be used to determine facts or make
 |**Never forgiven**|Digital files or records are never deleted.|What and where is data stored from this product, and who can access it? <br><br> How long is user data stored after technology interaction? <br><br> How is user data updated or deleted?|A teenager's social media history remains searchable long after they outgrow the platform.|
 |**Loss of freedom of movement or assembly**| An inability to navigate the physical or virtual world with desired anonymity.|How might this technology monitor people across physical and virtual space?|A real name is required to sign up for a video game, which enables real-world stalking.|
 
-### Environmental impact
+#### Environmental impact
 
 Every decision in a system or product life cycle can affect the environment, from the amount of required cloud computing to retail packaging. Environmental changes can affect entire communities.
 
@@ -145,9 +143,9 @@ Every decision in a system or product life cycle can affect the environment, fro
 |**Electronic waste**|Reduced quality of collective well-being because of the inability to repair, recycle, or otherwise responsibly dispose of electronics.|How might this technology reduce electronic waste by recycling materials or allowing users to self-repair? <br><br> How might this technology contribute to electronic waste when new versions are released or when current or past versions stop working?|Toxic materials inside discarded electronic devices leach into the water supply, which makes local populations ill.|
 |**Carbon emissions**|Running inefficient cloud solutions leads to unnecessary carbon emissions and electricity waste, which harms the climate.|Do you have insights into how optimized your cloud workloads and solutions are? <br><br> What impact does your solution have on the climate, and does it differ based on the region where you deploy your workloads?|Inefficient or improperly designed solutions for cloud efficiency lead to a heavier toll on the climate, which causes unnecessary carbon emissions and electricity waste.|
 
-## Erosion of social & democratic structures
+### Erosion of social & democratic structures
 
-### Manipulation
+#### Manipulation
 
 Technology's ability to create highly personalized and manipulative experiences can undermine an informed citizenry and trust in societal structures.
 
@@ -156,7 +154,7 @@ Technology's ability to create highly personalized and manipulative experiences 
 |**Misinformation**|Disguising fake information as legitimate or credible information.|How might this technology be used to generate misinformation? <br><br> How could it be used to spread credible misinformation?|Synthetic speech of a political leader is generated, which sways an election.|
 |**Behavioral exploitation**|Exploiting personal preferences or patterns of behavior to induce a desired reaction.|How might this technology be used to observe behavior patterns? <br><br> How could this technology be used to encourage dysfunctional or maladaptive behaviors?|Monitoring shopping habits in the connected retail environment leads to personalized incentives for impulse shoppers and hoarders.|
 
-### Social detriment
+#### Social detriment
 
 At scale, the way that technology affects people shapes social and economic structures within communities. It can further ingrain elements that include or benefit some people while excluding others.
 
