@@ -24,16 +24,16 @@ keywords:
 
 Responsible engineering refers to the principles and practices that help ensure that technology is developed and deployed ethically and sustainably. Responsible engineering in Azure encompasses a broad range of initiatives to create technology that benefits society while minimizing negative impacts. To foster trust and drive positive change in your technology, integrate ethical principles and sustainability into your design and development processes.
 
-## Harms Modeling
+## Harms modeling
 
-[Harms Modeling](./harms-modeling/index.md) is a framework for product teams that examines how technology can negatively affect people's lives in the following areas:
+[Harms modeling](./harms-modeling/index.md) is an informal framework for product teams that examines how technology can negatively affect people's lives in the following areas:
 
 - Injuries
 - Denial of consequential services
 - Infringement on human rights
 - Erosion of democratic and societal structures
 
-Similar to *Security Threat Modeling*, Harms Modeling enables product teams to anticipate potential real-world impacts of technology, which is a cornerstone of responsible development.
+Similar to *security threat modeling*, harms modeling enables product teams to anticipate potential real-world impacts of technology, which is a cornerstone of responsible development.
 
 ## Responsible AI
 

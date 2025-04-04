@@ -17,13 +17,14 @@ ms.custom:
 
 # Foundations of assessing harm
 
-Harms Modeling is a practice that helps you anticipate the potential for harm, identify gaps in product that could put people at risk, and ultimately create approaches that proactively address harm.
+Harms modeling is a practice that helps you anticipate the potential for harm, identify gaps in product that could put people at risk, and ultimately create approaches that proactively address harm.
 
 This guidance is for architects who design algorithm-driven systems, such as custom-coded decision-making frameworks. It also applies to outsourced decision-making processes, such as processes that involve AI or machine learning models.
 
-As technology builders, your work has a global impact. To design trustworthy algorithm-driven systems, you need to create solutions that reflect ethical principles that are rooted in important and timeless values. During the design and development process, you must evaluate not only ideal outcomes but also possible negative outcomes, also known as *harms*. These harms can occur in any decision-making architecture that doesn't involve human oversight.
+As technology builders, your work has a global impact. To design trustworthy algorithm-driven systems, you need to create solutions that reflect ethical principles that are rooted in important and timeless human values. During the design and development process, you must evaluate not only ideal outcomes for your users but also possible negative outcomes, known as *harms*. These harms can occur in any decision-making architecture that doesn't involve human oversight.
 
-For guidance that's specific to responsible AI, see [Responsible AI principles and approach](https://www.microsoft.com/ai/principles-and-approach).
+> [!TIP]
+> For guidance that's specific to responsible AI, see [Responsible AI principles and approach](https://www.microsoft.com/ai/principles-and-approach).
 
 ## Stakeholder considerations
 
@@ -45,7 +46,7 @@ Ask these questions to get a better understanding of what's important to stakeho
 
 ## Types of harm
 
-The following tables describe various types of harm that you might encounter. They include a diverse range of harms that can affect people in different scenarios, but it isn't exhaustive. Your workload might have the potential to lead to other types of harms that aren't listed.
+The following tables describe various types of harm that technology users might encounter. They include a diverse range of harms that can affect people in different scenarios, but it isn't exhaustive. Your workload might have the potential to lead to other types of harms that aren't listed.
 
 ### Risk of injury
 
@@ -83,7 +84,7 @@ Automated decisions can limit access to resources, services, and opportunities t
 |**Employment discrimination**|Some people are denied access to apply for or secure a job based on characteristics that aren't related to merit.|How could this technology affect recommendations or decisions related to employment?|Hiring AI recommends fewer candidates that have female-sounding names for interviews.|
 |**Housing discrimination**|Denying people access to housing or the ability to apply for housing.|How could this technology affect recommendations or decisions related to housing?| A public housing queuing algorithm causes people that have international-sounding names to wait longer for vouchers.|
 |**Insurance and benefit discrimination**|Denying people insurance, social assistance, or access to a medical trial because of biased standards.|Could this technology be used to determine access, cost, or allocation of insurance or social benefits?|An insurance company charges higher rates for drivers that work night shifts because algorithmic predictions suggest an increased drunk driving risk.|
-|**Educational discrimination**|Access to education is denied because of an unchangeable characteristic.|How might this technology be used to determine access, cost, accommodations, or other outcomes related to education?|An emotion classifier incorrectly reports that students of color are less engaged than their white counterparts, leading to lower grades.|
+|**Educational discrimination**|Access to education is denied because of an unchangeable characteristic.|How might this technology be used to determine access, cost, accommodations, or other outcomes related to education?|An emotion classifier incorrectly reports that students of one racial group are less engaged than another racial group, leading to lower grades.|
 |**Digital divide or technological discrimination**|Disproportionate access to the benefits of technology leaves some people less informed or equipped to participate in society.|What prerequisite skills, equipment, or connectivity are necessary to get the most out of this technology? <br><br> What could be the consequences of certain individuals gaining early access to this technology, in terms of equipment, connectivity, or other product functionalities?|Content throttling prevents rural students from accessing classroom instruction video feeds.|
 |**Loss of choice/network and filter bubble**|Presenting people with only information that conforms to and reinforces their beliefs.|How might this technology affect the choices and information that are available to people? <br><br> What past behaviors or preferences might this technology rely on to predict future behaviors or preferences?|A news feed only presents information that confirms existing beliefs.|
 
@@ -94,7 +95,7 @@ Automated decisions that are related to financial instruments, economic opportun
 |Harm|Description|Considerations|Example|
 |-------------|----------|---------|---------|
 |**Credit discrimination**| Denying people access to financial instruments based on characteristics that are unrelated to economic merit.|How might this technology rely on existing credit structures to make decisions? <br><br> How might this technology affect the ability of an individual or group to obtain or maintain a credit score?|Higher introductory rate offers are sent only to homes in lower socioeconomic postal codes.|
-|**Differential pricing of goods and services**|Goods or services are offered at different prices for reasons unrelated to the cost of production or delivery.|How could this technology be used to determine the pricing of goods or services? <br><br> What criteria are used to determine the cost to individuals for using this technology?| Products are offered at a higher price based on the designation for men or women.|
+|**Differential pricing of goods and services**|Goods or services are offered at different prices for reasons unrelated to the cost of production or delivery.|How could this technology be used to determine the pricing of goods or services? <br><br> What criteria are used to determine the cost to individuals for using this technology?| Products are offered at a higher price based on a gender determination.|
 |**Economic exploitation**|People are compelled or misled to work on something that affects their dignity or well-being.| How does human labor influence the production of training data for this technology? How is this workforce acquired? <br><br> How does human labor support this technology? <br><br> Where is this workforce expected to come from?|Financially destitute people are paid for their biometric data to train AI systems.|
 |**Devaluation of individual expertise**|Technology supplants the use of paid human expertise or labor.|How might this technology affect the need to employ an existing workforce?|AI agents replace doctors or radiographers for the evaluation of medical imaging.|
 
@@ -125,10 +126,10 @@ The information that technology generates can be used to determine facts or make
 
 |Harm|Description|Considerations|Example|
 |-------------|----------|---------|---------|
-|**Interference with private life**|Revealing information that a person choses not to share.|How could this technology use information to infer portions of a person's private life? <br><br> How could decisions based on these inferences expose information that a person prefers to keep private?|Task-tracking AI monitors personal patterns from which it infers an extramarital affair.|
+|**Interference with private life**|Revealing information that a person choses not to share.|How could this technology use information to infer portions of a person's private life? <br><br> How could decisions based on these inferences expose information that a person prefers to keep private?|A task-tracking feature monitors personal patterns from which it infers an extramarital affair.|
 |**Forced association**|Requiring participation in the use of technology or surveillance to take part in society.|How might people need this technology to participate in society or organization membership?|A job offer letter requires biometric enrollment in a company's meeting room transcription AI.|
 |**Inability to freely and fully develop personality**| Restriction of one's ability to truthfully express themselves or explore external avenues for self-development.|How does this technology ascribe positive versus negative connotations toward particular personality traits? <br><br> How does this technology reveal information to entities such as the government or employer and inhibit free expression?| An intelligent meeting system records all discussions between colleagues, including personal coaching and mentorship sessions.|
-|**Never forgiven**|Digital files or records are never deleted.|What and where is data stored from this product, and who can access it? <br><br> How long is user data stored after technology interaction? <br><br> How is user data updated or deleted?|A teenager's social media history remains searchable long after they outgrow the platform.|
+|**Never forgotten**|Digital files or records are never deleted.|What and where is data stored from this product, and who can access it? <br><br> How long is user data stored after technology interaction? <br><br> How is user data updated or deleted?|A teenager's social media history remains searchable long after they outgrow the platform.|
 |**Loss of freedom of movement or assembly**| An inability to navigate the physical or virtual world with desired anonymity.|How might this technology monitor people across physical and virtual space?|A real name is required to sign up for a video game, which enables real-world stalking.|
 
 #### Environmental impact
@@ -137,8 +138,8 @@ Every decision in a system or product life cycle can affect the environment, fro
 
 |Harm|Description|Considerations|Example|
 |-------------|----------|---------|---------|
-|**Exploitation or depletion of resources**|Obtaining the raw materials for technology, including how it's powered, leads to negative consequences to the environment and its inhabitants.|What materials are needed to build or run this technology? <br><br> What energy requirements are needed to build or run this technology?|A local community is displaced because of harvesting rare earth minerals and metals for electronic manufacturing.|
-|**Electronic waste**|Reduced quality of collective well-being because of the inability to repair, recycle, or otherwise responsibly dispose of electronics.|How might this technology reduce electronic waste by recycling materials or allowing users to self-repair? <br><br> How might this technology contribute to electronic waste when new versions are released or when current or past versions stop working?|Toxic materials inside discarded electronic devices leach into the water supply, which makes local populations ill.|
+|**Exploitation or depletion of resources**|Obtaining the raw materials for technology, including how it's powered, leads to negative consequences to the environment and its inhabitants.|What materials are needed to build or run this technology? <br><br> What energy requirements are needed to build or run this technology?|A local community is displaced because a calculation determines that harvesting rare earth minerals in this location can lead to a large return on investment.|
+|**Electronic waste**|Reduced quality of collective well-being because of the inability to repair, recycle, or otherwise responsibly dispose of electronics.|How might this technology reduce electronic waste by recycling materials or allowing users to self-repair? <br><br> How might this technology contribute to electronic waste when new versions are released or when current or past versions stop working?|Toxic materials inside disposable electronic devices leach into the water supply, which makes local populations ill.|
 |**Carbon emissions**|Running inefficient cloud solutions leads to unnecessary carbon emissions and electricity waste, which harms the climate.|Do you have insights into how optimized your cloud workloads and solutions are? <br><br> What impact does your solution have on the climate, and does it differ based on the region where you deploy your workloads?|Inefficient or improperly designed solutions for cloud efficiency lead to a heavier toll on the climate, which causes unnecessary carbon emissions and electricity waste.|
 
 ### Erosion of social & democratic structures
@@ -168,13 +169,19 @@ At scale, the way that technology affects people shapes social and economic stru
 
 Use the previous categories, questions, and examples to generate specific ideas for how harm could occur within your workload. Adapt and adopt other categories that are relevant to your scenario.
 
-You can complete this Harms Modeling activity individually, but ideally, you should collaborate with stakeholders. When you design and implement the technology, involve developers, data scientists, designers, user researchers, business decision-makers, and other disciplines.
+You can complete this harms modeling activity individually, but ideally, you should collaborate with stakeholders. When you design and implement the technology, involve developers, data scientists, designers, user researchers, business decision-makers, and other disciplines.
 
 - **Intended use:** If [feature] is used for [use case], then [stakeholder] could experience [harm description].
 
 - **Unintended use:** If [user] tried to use [feature] for [use case], then [stakeholder] could experience [harm description].
 - **System error:** If [feature] failed to function properly when used for [use case], then [stakeholder] could experience [harm description].
 - **Misuse:** [Malicious actor] could potentially use [feature] to cause [harm description] to [stakeholder].
+
+### Use transparency documents
+
+Some services provide [transparency documents](https://www.microsoft.com/ai/principles-and-approach#transparency-report). Transparency documents provide insights into how the service operates, its capabilities, limitations, and ethical considerations. You can review these documents to understand the inner workings of the service and help ensure responsible use.
+ 
+When you build solutions on Azure, read through any transparency documents that your service offers. Factor in how those solutions align with your workload's harms modeling. Consider whether the service's functionalities and limitations introduce or mitigate risks in your specific use case.
 
 ## Evaluate harms
 
@@ -187,12 +194,6 @@ After you generate a broad list of potential harms, evaluate the potential magni
 | Probability         | How likely is the technology to affect an individual or group's well-being? |
 | Frequency           | How often could the technology affect an individual or group's well-being? |
 
-## Transparency documents
-
-Some services provide [transparency documents](https://www.microsoft.com/ai/principles-and-approach#transparency-report). Transparency documents provide insights into how the service operates, its capabilities, limitations, and ethical considerations. You can review these documents to understand the inner workings of the service and help ensure responsible use.
- 
-When you build solutions on Azure, read through any transparency documents that your service offers. Factor in how those solutions align with your workload's harms modeling. Consider whether the service's functionalities and limitations introduce or mitigate risks in your specific use case.
-
 ## Next steps
 
 - [Microsoft Inclusive Design](https://inclusive.microsoft.design/)
@@ -201,5 +202,3 @@ See relevant articles about Responsible AI:
 
 - [Responsible AI in Azure workloads](/azure/well-architected/ai/responsible-ai)
 - [What is Responsible AI?](/azure/machine-learning/concept-responsible-ai)
-
-
