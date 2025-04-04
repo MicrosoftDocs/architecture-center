@@ -142,7 +142,7 @@ Every decision in a system or product life cycle can affect the environment, fro
 |**Electronic waste**|Reduced quality of collective well-being because of the inability to repair, recycle, or otherwise responsibly dispose of electronics.|How might this technology reduce electronic waste by recycling materials or allowing users to self-repair? <br><br> How might this technology contribute to electronic waste when new versions are released or when current or past versions stop working?|Toxic materials inside disposable electronic devices leach into the water supply, which makes local populations ill.|
 |**Carbon emissions**|Running inefficient cloud solutions leads to unnecessary carbon emissions and electricity waste, which harms the climate.|Do you have insights into how optimized your cloud workloads and solutions are? <br><br> What impact does your solution have on the climate, and does it differ based on the region where you deploy your workloads?|Inefficient or improperly designed solutions for cloud efficiency lead to a heavier toll on the climate, which causes unnecessary carbon emissions and electricity waste.|
 
-### Erosion of social & democratic structures
+### Erosion of social and democratic structures
 
 #### Manipulation
 
