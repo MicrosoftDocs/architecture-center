@@ -8,6 +8,10 @@ ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
+ms.collection: 
+ - migration
+ - aws-to-azure
+ - gcp-to-azure
 azureCategories:
   - analytics
   - database
@@ -19,8 +23,6 @@ products:
   - azure-managed-applications
 ms.custom:
   - article
-  - migration
-  - aws-to-azure
 ---
 
 # Relational database technologies on Azure and AWS

@@ -12,9 +12,10 @@ categories:
 products:
   - azure-kubernetes-service
   - azure-machine-learning
-ms.custom:
-  - migration
-  - gcp-to-azure
+ms.collection: 
+ - migration
+ - aws-to-azure
+ - gcp-to-azure
 ---
 
 # Google Cloud to Azure services comparison

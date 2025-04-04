@@ -11,9 +11,10 @@ categories:
   - storage
 products:
   - azure-storage
-ms.custom:
-  - migration
-  - aws-to-azure
+ms.collection: 
+ - migration
+ - aws-to-azure
+ - gcp-to-azure
 ---
 
 # Compare storage on Azure and AWS

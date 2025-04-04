@@ -15,9 +15,10 @@ products:
   - azure
   - azure-queue-storage
   - azure-service-bus
-ms.custom:
-  - migration
-  - aws-to-azure
+ms.collection: 
+ - migration
+ - aws-to-azure
+ - gcp-to-azure
 ---
 
 # Messaging services on Azure and AWS

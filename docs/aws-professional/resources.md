@@ -8,6 +8,10 @@ ms.date: 01/03/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
+ms.collection: 
+ - migration
+ - aws-to-azure
+ - gcp-to-azure
 azureCategories:
   - analytics
   - compute

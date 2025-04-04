@@ -8,6 +8,10 @@ metadata:
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.subservice: architecture-guide
+  ms.collection:
+   - migration
+   - aws-to-azure
+   - gcp-to-azure
   ms.custom:
     - arb-containers
 azureCategories:

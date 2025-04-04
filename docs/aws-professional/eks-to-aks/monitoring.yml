@@ -10,6 +10,10 @@ metadata:
   ms.subservice: architecture-guide
   ms.custom:
     - arb-containers
+  ms.collection: 
+   - migration
+   - aws-to-azure
+   - gcp-to-azure
 azureCategories:
   - containers
   - management-and-governance
