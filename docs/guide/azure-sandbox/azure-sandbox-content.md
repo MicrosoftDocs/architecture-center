@@ -12,10 +12,10 @@ Depending on your Azure offer type and region, a fully provisioned Azure Sandbox
 
 You can deploy each of the following sandbox configurations or only the ones that you need:
 
-- Shared services virtual network, [Azure Bastion](https://azure.microsoft.com/products/azure-bastion), [Azure Firewall](https://azure.microsoft.com/products/azure-firewall), and Active Directory domain controller
-- Application virtual network, Windows Server jump box, Linux jump box, and [Azure Files](https://azure.microsoft.com/products/storage/files) share
+- Shared services virtual network, [Azure Bastion](/azure/bastion/bastion-overview), [Azure Firewall](/azure/well-architected/service-guides/azure-firewall), and Active Directory domain controller
+- Application virtual network, Windows Server jump box, Linux jump box, and [Azure Files](/azure/well-architected/service-guides/azure-files) share
 - [SQL Server on Azure Virtual Machines (VMs)](https://azure.microsoft.com/products/virtual-machines/sql-server)
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework)
 - [Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/overview)
 - [Azure Virtual WAN](https://azure.microsoft.com/products/virtual-wan) and point-to-site VPN
 
@@ -131,7 +131,7 @@ Also, consider the [Secure Futures Initiative](https://www.microsoft.com/microso
 - Avoid the use of public IP addresses. Use Azure Bastion for secure remote access to VMs.
 - Use private endpoints to communicate with Azure services.
 - Disable public network access to Azure services like Storage and SQL Database.
-- Disable [default outbound access](https://learn.microsoft.com/azure/virtual-network/ip-services/default-outbound-access) and use [Azure Firewall threat intelligence-based filtering](https://learn.microsoft.com/azure/firewall/threat-intel).
+- Disable [default outbound access](/azure/virtual-network/ip-services/default-outbound-access) and use [Azure Firewall threat intelligence-based filtering](/azure/firewall/threat-intel).
 
 ### Secure operations
 
