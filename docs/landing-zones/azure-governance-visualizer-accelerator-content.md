@@ -8,7 +8,7 @@ Organizations can use the Azure Governance Visualizer to capture pertinent gover
 
 The Azure Governance Visualizer should be automated through GitHub workflows. The visualizer outputs the summary as HTML, MD, and CSV files. Ideally, the generated HTML report is made easily accessible to authorized users in the organization. This article shows you how to automate running the Azure Governance Visualizer and host the reporting output securely and cost effectively on the Web Apps feature of Azure App Service.
 
-An example implementation is available on GitHub at [Azure Governance Visualizer accelerator](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator).
+An example implementation is available on GitHub at [Azure Governance Visualizer implementation](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator).
 
 ## Architecture
 
@@ -103,7 +103,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 ## Deploy this scenario
 
-To deploy this scenario, see the [Azure Governance Visualizer accelerator GitHub repository](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator).
+To deploy this scenario, see the [Azure Governance Visualizer deployment GitHub repository](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator).
 
 ## Contributors
 
@@ -117,7 +117,7 @@ Principal authors:
 
 ## Next steps
 
-- [Azure Governance Visualizer accelerator GitHub repository](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator)
+- [Azure Governance Visualizer deployment GitHub repository](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator)
 - [Azure Governance Visualizer Open Source project](https://github.com/Azure/Azure-Governance-Visualizer)
 
 ## Related resources
