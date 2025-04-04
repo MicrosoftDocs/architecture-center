@@ -15,10 +15,15 @@ The following diagram shows an architecture of an OLTP system that runs on a z/O
 The following workflow corresponds to the preceding diagram:
 
 1. Users connect to the mainframe over TCP/IP by using standard mainframe protocols like TN3270 and HTTPS.
+
 1. The transaction managers interact with the users and invoke the application to satisfy user requests.
+
 1. In the front end of the application layer, users interact with the CICS/IMS screens or with webpages.
+
 1. The transaction managers use the business logic written in COBOL or PL/I to implement the transactions.
+
 1. Application code uses the storage capabilities of the data layer, such as DB2, IMS DB, or VSAM.
+
 1. Along with transaction processing, other services provide authentication, security, management, monitoring, and reporting. These services interact with all other services in the system.
 
 The following diagram shows how to migrate this architecture to Azure.
@@ -129,6 +134,7 @@ Because of evolving business needs and data, applications must scale and produce
 This architecture is ideal for OLTP workloads that have these characteristics:
 
 - They serve an international user base.
+
 - Their usage varies greatly over time, so they benefit from flexible scaling and usage-based pricing.
 
 ## Considerations
