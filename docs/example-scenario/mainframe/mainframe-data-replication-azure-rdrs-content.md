@@ -4,7 +4,9 @@ Rocket® Data Replicate and Sync (RDRS), formerly tcVISION, is a data replicatio
 
 ## Architecture
 
-:::image type="content" source="./media/mainframe-realtime-batch-data-replication-azure-rdrs.svg" alt-text="Architecture diagram of the dataflow that shows how to migrate a mainframe to the Azure data platform." border="false" lightbox="./media/mainframe-realtime-batch-data-replication-azure-rdrs.svg":::
+:::image type="complex" border="false" source="./media/mainframe-realtime-batch-data-replication-azure-rdrs.svg" alt-text="Architecture diagram of the dataflow that shows how to migrate a mainframe to the Azure data platform.." lightbox="./media/mainframe-realtime-batch-data-replication-azure-rdrs.svg":::
+   A diagram that shows the Real-time Data Replication Solution process for replicating data from an enterprise mainframe datacenter to Microsoft Azure. The diagram is divided into two main sections: the Enterprise mainframe datacenter on the left and Microsoft Azure on the right. On the left, the Enterprise Mainframe Datacenter section includes various databases such as IBM Db2, IMS DB, Adabas, CA Datacom, and CA IDMS. There are solid arrows that point from these databases to the capture agent and apply agent, which are part of the started tasks STCs created on the mainframe. On the right, the Microsoft Azure section includes the open platform manager. There are solid arrows that point from the open platform manager to various Azure data services. Data is consumed by platforms like Power BI, Azure Synapse Analytics, or custom applications. There are solid arrows that point from the Azure data platform targets to these platforms, which indicates the flow of data. Also, there is direct streaming support with solid arrows that show data being streamed into Azure Event Hubs or Kafka for further processing by Azure Logic Apps or custom solutions in VMs. RDRS can also reverse synchronize changes from an Azure database platform back to the mainframe tier. Dotted arrows indicate this reverse flow. Mainframe database backup/unload files are copied to an Azure VM for bulk-load processing of initial target database loads by using translated mainframe source data types.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-realtime-batch-data-replication-azure-rdrs.vsdx) of this architecture.*
 
@@ -41,18 +43,17 @@ The following dataflow corresponds to the previous diagram:
 
 1. The RDRS bulk load performs an initial target database load by using mainframe source data. The source data can be read either directly from the mainframe data store or from a mainframe backup or unload file. The bulk load process automatically translates mainframe data types, such as extended binary coded decimal interchange code-packed fields. For optimal performance, use backup or unload data instead of reading the mainframe database directly. Avoid direct reads because moving unload or backup data to the requisite RDRS Azure VM and using native database loaders minimizes network input/output and reduces load times.
 
-### Change data replication from Db2 z/OS to Microsoft Fabric Native SQL Database by using RDRS
+### Change data replication from Db2 z/OS to a Microsoft Fabric native SQL database by using RDRS
 
+The following architecture provides an overview of how data is replicated from Db2 z/OS to a Fabric native SQL database in near real time.
 
-The following architecture provides an overview of how data is replicated from Db2 z/OS to Microsoft Fabric Native SQL Database in near real time.
-
-:::image type="complex" border="false" source="./media/change-data-capture-mainframe-data-with-azure.svg" alt-text="Diagram that shows both the full data replication and change data replication processes from Db2 z/OS to Microsoft Fabric SQL Native Database by using RDRS." lightbox="./media/change-data-capture-mainframe-data-with-azure.svg":::
-   There are two main boxes in the image. The first main box is labeled Customer datacenter. Inside this box are three smaller boxes. The first box is labeled Database management system and contains an icon that represents relational databases. A double-sided arrow labeled ImageCopy or Direct Select points from this icon to a box inside the Microsoft Azure box. A dotted arrow also points from this icon to a box labeled IBM z/OS Work Load Manager. Inside the box labeled IBM z/OS Work Load Manager is another box that reads Db2 UDT process to read Db2 logs. The second main box is labeled Microsoft Azure Components. Inside this box, there are four smaller boxes. There are also arrows that indicate relationships between the boxes and several icons. One box has text that reads the RDRS open platform manager and an icon that represents a LUW VM. Inside this box is a box labeled Capture and apply agent. One solid arrow labeled Data insert and one dotted arrow labeled DML points to a box labeled Microsoft Fabric. A third dotted arrow labeled JSON points from this box to an icon that represents Event Hubs, then to an icon with text that reads Logic Apps, Azure Functions, or a VM-based solution, and finally to the Microsoft Fabric box. A smaller box labeled RDRS dashboard contains an icon that represents the LUW VM and text that reads Metadata, transformation rules, process definitions. A dotted arrow points from this box to the RDRS open platform manager box. The box labeled Microsoft Fabric contains an icon that represents Fabric Native SQL Database. Three solid arrows originate from one point on this box and point to icons that represent Power BI, Client apps, and Azure services.
+:::image type="complex" border="false" source="./media/change-data-capture-mainframe-data-with-azure.svg" alt-text="Diagram that shows both the full data replication and change data replication processes from Db2 z/OS to a Fabric native SQL database by using RDRS." lightbox="./media/change-data-capture-mainframe-data-with-azure.svg":::
+   There are two main boxes in the image. The first main box is labeled Customer datacenter. Inside this box are three smaller boxes. The first box is labeled Database management system and contains an icon that represents relational databases. A double-sided arrow labeled ImageCopy or Direct Select points from this icon to a box inside the Microsoft Azure box. A dotted arrow also points from this icon to a box labeled IBM z/OS Work Load Manager. Inside the box labeled IBM z/OS Work Load Manager is another box that reads Db2 UDT process to read Db2 logs. The second main box is labeled Microsoft Azure Components. Inside this box, there are four smaller boxes. There are also arrows that indicate relationships between the boxes and several icons. One box has text that reads the RDRS open platform manager and an icon that represents a LUW VM. Inside this box is a box labeled Capture and apply agent. One solid arrow labeled Data insert and one dotted arrow labeled DML points to a box labeled Microsoft Fabric. A third dotted arrow labeled JSON points from this box to an icon that represents Event Hubs, then to an icon with text that reads Logic Apps, Azure Functions, or a VM-based solution, and finally to the Microsoft Fabric box. A smaller box labeled RDRS dashboard contains an icon that represents the LUW VM and text that reads Metadata, transformation rules, process definitions. A dotted arrow points from this box to the RDRS open platform manager box. The box labeled Microsoft Fabric contains an icon that represents a Microsoft Fabric native SQL database. Three solid arrows originate from one point on this box and point to icons that represent Power BI, Client apps, and Azure services.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/change-data-capture-mainframe-data-with-azure.vsdx) of this architecture.*
 
-### Initial data load
+#### Initial data load
 
 1. Db2 installed on an IBM Mainframe in the customer's datacenter serves as the source of data for replication to Azure Cloud.
 
@@ -60,15 +61,15 @@ The following architecture provides an overview of how data is replicated from D
 
 1. The OPM serves as a replication server. This server contains utilities for automatic data mapping to generate metadata for sources and targets. It contains the rule set for extracting the data from the source. The server transforms and processes the data for the target systems and writes the data into the targets. You can install this component in LUW operating systems.
 
-1. The RDRS capture and apply agent receives data from Db2, either as the output of SELECT queries or an image copy. After the RDRS apply agent performs the configured transformations, it writes the data to the target Fabric SQL database.
+1. The RDRS capture and apply agent receives data from Db2, either as the output of SELECT queries or an image copy. After the RDRS apply agent performs the configured transformations, it writes the data to the target Fabric native SQL database.
 
-1. The RDRS apply agent uses the Microsoft ODBC Driver with Microsoft Entra ID authentication for Azure SQL to efficiently write data to the target Fabric Native SQL database.
+1. The RDRS apply agent uses the Microsoft ODBC Driver with Microsoft Entra ID authentication for Azure SQL to efficiently write data to the target Fabric native SQL database.
 
-1. Data is ingested into the Microsoft Fabric Native SQL database.
+1. Data is ingested into the Fabric native SQL database.
 
-1. After data lands in the Fabric Native SQL database, Azure services or other authorized entities consume it, such as Fabric Analytics, Power BI, or custom applications.
+1. After data lands in the Fabric native SQL database, Azure services or other authorized entities consume it, such as Fabric Analytics, Power BI, or custom applications.
 
-### CDC
+#### CDC
 
 A. Db2 installed on an IBM Mainframe in the customer datacenter serves as the source of data for replication to Azure Cloud. RDRS provides the capability to retrieve log-based change data from Db2.
 
@@ -78,9 +79,9 @@ C. The OPM serves as a replication server, equipped with utilities for automatic
 
 D. The RDRS dashboard interface enables the administration, operation, control, and monitoring of data exchange processes. The RDRS command-line utilities help automate data exchange processes and manage the unattended operations of the data synchronization process.
 
-E. The RDRS apply agent uses the Microsoft ODBC Driver with Microsoft Entra ID authentication for Azure SQL to perform data manipulation language queries on the target Fabric Native SQL database.
+E. The RDRS apply agent uses the Microsoft ODBC Driver with Microsoft Entra ID authentication for Azure SQL to perform data manipulation language queries on the target Fabric native SQL database.
 
-F. After data lands in the Fabric Native SQL database, Azure services or other authorized entities consume it, including Fabric Analytics, Power BI, or custom applications.
+F. After data lands in the Fabric native SQL database, Azure services or other authorized entities consume it, including Fabric Analytics, Power BI, or custom applications.
 
 G. RDRS also provides capabilities to write captured data as JSON to Event Hubs or Kafka.
 
@@ -96,7 +97,7 @@ This solution uses the following components.
 
 This architecture refers to the following networking services that you can use individually or in combination for enhanced security.
 
-- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) lets you extend your on-premises networks into the Microsoft Cloud over a private connection that a connectivity provider handles. You can use ExpressRoute to establish connections to cloud services, like Microsoft Azure and Microsoft 365.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a service that allows you to extend your on-premises networks into the Microsoft Cloud over a private connection that a connectivity provider handles. You can use ExpressRoute to establish highly secure and reliable connections to cloud services such as Microsoft Azure and Microsoft 365.
 
 - [An Azure VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a specific type of virtual network gateway that sends encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
 
@@ -106,7 +107,7 @@ This architecture refers to the following networking services that you can use i
 
 - [Logic Apps](/azure/logic-apps/logic-apps-overview) creates and runs automated recurring tasks and processes on a schedule. You can call services inside and outside of Azure, like HTTP or HTTPS endpoints, post messages to Azure services like Azure Storage and Azure Service Bus, or upload files to a file share.
 
-- [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) lets you run small pieces of code, called functions, without needing to manage or set up the underlying application infrastructure. When you use Azure Functions, the cloud infrastructure provides the up-to-date servers that you need to keep your application running at scale.
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is a cloud service that enables you to run small pieces of code, known as functions, without the need to manage or configure the underlying application infrastructure. You can use Azure Functions to automate tasks, process data, integrate systems, and build scalable applications. The cloud infrastructure provides the up-to-date servers that you need to keep your application running at scale.
 
 - [Azure VMs](/azure/well-architected/service-guides/virtual-machines) are on-demand, scalable computing resources. An Azure VM provides the flexibility of virtualization and eliminates the maintenance demands of physical hardware. Azure VMs operate on Windows and Linux systems.
 

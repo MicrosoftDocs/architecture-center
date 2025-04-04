@@ -342,14 +342,14 @@
 						x="7.44" dy="1.2em" class="st7">to read Db2 logs</tspan><v:newlineChar/></text>		</g>
 		<g id="shape1017-49" v:mID="1017" v:groupContext="shape" transform="translate(398.568,-400.3)">
 			<title>Sheet.1017</title>
-			<desc>IBM z/OS Work Load Manager</desc>
+			<desc>IBM z/OS Workload Manager</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(12000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="71.8313" cy="683.05" width="143.67" height="20"/>
 			<rect x="0" y="673.05" width="143.663" height="20" class="st3"/>
-			<text x="12.81" y="679.45" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>IBM z/OS Work Load <tspan
+			<text x="15.83" y="679.45" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>IBM z/OS Workload <tspan
 						x="46.65" dy="1.2em" class="st7">Manager</tspan></text>		</g>
 		<g id="shape1018-53" v:mID="1018" v:groupContext="shape" transform="translate(614.65,-422.8)">
 			<title>numbered label.1061</title>
@@ -463,18 +463,18 @@
 				<path d="M4.27 693.05 L4.27 691.83 L0 691.83 L0 655.88 L1.22 654.66 L4.27 654.66 L4.27 654.05 L6.7 651.61 L31.69
 							 651.61 L31.69 690.61 L29.25 693.05 L4.27 693.05" class="st32"/>
 			</g>
-			<g id="shape1035-110" v:mID="1035" v:groupContext="shape" v:layerMember="6" transform="translate(-41.4695,20.8035)">
+			<g id="shape1035-110" v:mID="1035" v:groupContext="shape" v:layerMember="6" transform="translate(-44.197,20.8035)">
 				<title>Sheet.1035</title>
-				<desc>zOS - Mainframe</desc>
+				<desc>z/OS - Mainframe</desc>
 				<v:userDefs>
 					<v:ud v:nameU="FillPattern" v:val="VT0(1):26"/>
 					<v:ud v:nameU="FillForegnd" v:val="VT0(1):26"/>
 					<v:ud v:nameU="FillBkgnd" v:val="VT0(0):26"/>
 				</v:userDefs>
 				<v:textBlock v:margins="rect(2,2,2,2)"/>
-				<v:textRect cx="56.0945" cy="682.648" width="112.19" height="20.8035"/>
-				<rect x="0" y="672.247" width="112.189" height="20.8035" class="st33"/>
-				<text x="3.92" y="686.85" class="st17" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>zOS - Mainframe</text>			</g>
+				<v:textRect cx="58.822" cy="682.648" width="117.65" height="20.8035"/>
+				<rect x="0" y="672.247" width="117.644" height="20.8035" class="st33"/>
+				<text x="3.92" y="686.85" class="st17" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>z/OS - Mainframe</text>			</g>
 		</g>
 		<g id="shape1036-113" v:mID="1036" v:groupContext="shape" v:layerMember="7" transform="translate(730.75,-221.425)">
 			<title>Process.24</title>
@@ -738,14 +738,14 @@
 		</g>
 		<g id="shape1068-197" v:mID="1068" v:groupContext="shape" transform="translate(127.75,-601.675)">
 			<title>Sheet.1068</title>
-			<desc>Full and change data replication from Db2 z/OS to Microsoft F...</desc>
+			<desc>Full and change data replication from Db2 z/OS to a Microsoft...</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(29000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="674.437" cy="656.487" width="1348.88" height="73.125"/>
 			<rect x="0" y="619.925" width="1348.87" height="73.125" class="st3"/>
-			<text x="15.32" y="664.59" class="st42" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Full and change data replication from Db2 z/OS to Microsoft Fabric SQL Native Database by using RDRS</text>		</g>
+			<text x="8.43" y="664.59" class="st42" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Full and change data replication from Db2 z/OS to a Microsoft Fabric native SQL database by using RDRS</text>		</g>
 		<g id="group1069-200" transform="translate(947.533,-249.353)" v:mID="1069" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(30000):26"/>
@@ -965,15 +965,15 @@
 			<text x="16.43" y="686.35" class="st51" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Consumer</text>		</g>
 		<g id="shape1095-251" v:mID="1095" v:groupContext="shape" transform="translate(1166.14,-296.8)">
 			<title>Sheet.1095</title>
-			<desc>Fabric Native SQL Database</desc>
+			<desc>A Microsoft Fabric native SQL database</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(35000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="71.8313" cy="679.966" width="143.67" height="26.1672"/>
 			<rect x="0" y="666.883" width="143.663" height="26.1672" class="st3"/>
-			<text x="21.99" y="676.37" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Fabric Native SQL <tspan
-						x="45.78" dy="1.2em" class="st7">Database</tspan></text>		</g>
+			<text x="19.93" y="676.37" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>A Microsoft Fabric <tspan
+						x="14.8" dy="1.2em" class="st7">native SQL database</tspan></text>		</g>
 		<g id="shape1096-255" v:mID="1096" v:groupContext="shape" transform="translate(1167.59,-222.55)">
 			<title>Sheet.1096</title>
 			<v:userDefs>
