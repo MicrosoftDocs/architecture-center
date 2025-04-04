@@ -131,7 +131,7 @@ Also, consider the [Secure Futures Initiative](https://www.microsoft.com/microso
 - Avoid the use of public IP addresses. Use Azure Bastion for secure remote access to VMs.
 - Use private endpoints to communicate with Azure services.
 - Disable public network access to Azure services like Storage and SQL Database.
-- Disable [default outbound access](https://learn.microsoft.com/azure/virtual-network/ip-services/default-outbound-access) and use [Azure Firewall threat intelligence-based filtering](https://learn.microsoft.com/en-us/azure/firewall/threat-intel).
+- Disable [default outbound access](https://learn.microsoft.com/azure/virtual-network/ip-services/default-outbound-access) and use [Azure Firewall threat intelligence-based filtering](https://learn.microsoft.com/azure/firewall/threat-intel).
 
 ### Secure operations
 
