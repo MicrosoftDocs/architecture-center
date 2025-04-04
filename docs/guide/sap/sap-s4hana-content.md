@@ -5,7 +5,7 @@ This guide presents a set of proven practices for running S/4HANA and Suite on H
 ## Architecture
 
 :::image type="complex" border="false" source="media/s-4hana.svg" alt-text="Architecture diagram that shows SAP S/4HANA for Linux virtual machines in an Azure availability set." lightbox="media/s-4hana.svg":::
-   The image contains two large rectangles labeled Region 1 (primary region) and Region 2 (secondary region). Inside Region 1 are two sections. The first section is labeled Hub virtual network. This section has a rectangle labeled Gateway subnet and a rectangle labeled Shared services subnet. The Shared services subnet rectangle contains an icon that represents Bastions. The second section in Region 1 is labeled Spoke virtual network. It has two sections. The first section is labeled Application layer subnet. This section has four rectangles labeled SAP Web Dispatcher pool, SAP Central Services cluster, SAP App Servers Pool, and NFS/Azure File shares ZRS. The second section is labeled Database layer subnet. It has text that reads HANA replication and an icon that represents Load Balancer. A dotted arrow points from here to a rectangle in Region 2 labeled Database replica. At the top of the image is a rectangle labeled On-premises network that connects to the Azure environment via a solid arrow labeled ExpressRoute that points to a rectangle labeled Gateway. Inside the Hub virtual network rectangle in Region 1 are two smaller rectangles labeled Gateway subnet and Shared services subnet. The Gateway subnet rectangle contains an icon that represents a zone-redundant gateway. Inside the Spoke virtual network rectangle are two smaller rectangles labeled Application layer subnet and Database layer subnet. The Application layer subnet section contains four rectangles labeled SAP Web Dispatcher pool, SAP Central Services cluster, SAP App Servers Pool, and NFS/Azure File shares ZRS, each with corresponding icons. The Database layer subnet section contains two rectangles labeled HANA replication and Load Balancer. Dotted arrows point from HANA replication to the rectangle labeled Database replica in Region 2. A curved line indicates that the first three rectangles in the Application layer subnet section are grouped together. A dotted line points from that line to a box in Region 2 that has an icon that represents a virtual machine. Another dotted line points from Application layer subnet, to NFS/Azure Files shares ZRS, then to a folder icon that has three connected nodes inside a cloud shape.
+   The image contains two large rectangles labeled Region 1 (primary region) and Region 2 (secondary region). Inside Region 1 are two sections. The first section is labeled Hub virtual network. This section has a rectangle labeled Gateway subnet and a rectangle labeled Shared services subnet. The Shared services subnet rectangle contains an icon that represents Bastions. The second section in Region 1 is labeled Spoke virtual network. It has two sections. The first section is labeled Application layer subnet. This section has four rectangles labeled SAP Web Dispatcher pool, SAP Central Services cluster, SAP App Servers Pool, and NFS/Azure File shares ZRS. The second section is labeled Database layer subnet. It has text that reads HANA replication and an icon that represents Load Balancer. A dotted arrow points from here to a rectangle in Region 2 labeled Database replica. The top of the image has a rectangle labeled On-premises network that connects to the Azure environment via a solid arrow labeled ExpressRoute that points to a rectangle labeled Gateway. Inside the Hub virtual network rectangle in Region 1 are two smaller rectangles labeled Gateway subnet and Shared services subnet. The Gateway subnet rectangle contains an icon that represents a zone-redundant gateway. Inside the Spoke virtual network rectangle are two smaller rectangles labeled Application layer subnet and Database layer subnet. The Application layer subnet section contains four rectangles labeled SAP Web Dispatcher pool, SAP Central Services cluster, SAP App Servers Pool, and NFS/Azure File shares ZRS, each with corresponding icons. The Database layer subnet section contains two rectangles labeled HANA replication and Load Balancer. Dotted arrows point from HANA replication to the rectangle labeled Database replica in Region 2. A curved line indicates that the first three rectangles in the Application layer subnet section are grouped together. A dotted line points from that line to a box in Region 2 that has an icon that represents a virtual machine. Another dotted line points from Application layer subnet, to NFS/Azure Files shares ZRS, then to a folder icon that has three connected nodes inside a cloud shape.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/s-4hana.vsdx) of this architecture.*
@@ -85,17 +85,17 @@ The Web Dispatcher component is used for load balancing SAP traffic among the SA
 
 ### Fiori front-end server (FES)
 
-This architecture meets multiple requirements and assumes that you use the embedded Fiori FES model. All the technology components are installed directly on the S/4 system, so each S/4 system has its own Fiori launchpad. The S/4 system manages the HA configuration for this deployment model. This approach removes the need for additional clustering or VMs. For this reason, the architecture diagram doesn’t include the FES component.
+This architecture meets multiple requirements and assumes that you use the embedded Fiori FES model. All the technology components are installed directly on the S/4 system, so each S/4 system has its own Fiori launchpad. The S/4 system manages the HA configuration for this deployment model. This approach removes the need for extra clustering or VMs. For this reason, the architecture diagram doesn’t include the FES component.
 
 For more information about deployment options, see [SAP Fiori deployment options and system landscape recommendations](https://www.sap.com/documents/2018/02/f0148939-f27c-0010-82c7-eda71af511fa.html). For simplicity and performance, the software releases between the Fiori technology components and the S/4 applications are tightly coupled. This setup makes a hub deployment fit only a few, specific use cases.
 
 If you use the FES hub deployment, the FES is an add-on component to the classic SAP NetWeaver ABAP stack. Set up HA the same way that you protect a three-tier ABAP application stack that has clustered or multiple-host capability. Use a standby server database layer, a clustered ASCS layer with HA NFS for shared storage, and at least two application servers. Traffic is load balanced via a pair of Web Dispatcher instances that can be either clustered or parallel. For internet-facing Fiori apps, we recommend an [FES hub deployment](https://blogs.sap.com/2017/12/15/considerations-and-recommendations-for-internet-facing-fiori-apps) in the perimeter network. Use [Azure Web Application Firewall on Application Gateway](/azure/application-gateway) as a critical component to deflect threats. Use [Microsoft Entra ID with Security Assertion Markup Language](/azure/active-directory/saas-apps/sap-netweaver-tutorial) for user authentication and single sign-on for [SAP Fiori](/azure/active-directory/saas-apps/sap-fiori-tutorial).
 
-:::image type="complex" border="false" source="media/fiori.png" alt-text="Architecture diagram that shows the data flow between the internet and two virtual networks, one with SAP Fiori and one with SAP S/4HANA." lightbox="media/fiori.png":::
-   The image shows
+:::image type="complex" border="false" source="media/fiori.svg" alt-text="Architecture diagram that shows the data flow between the internet and two virtual networks, one with SAP Fiori and one with SAP S/4HANA." lightbox="media/fiori.svg":::
+   The image shows two main sections enclosed in dotted rectangles that indicate that they're both virtual networks. There's an icon that represents the Internet. This icon connects via a two-sided arrow to an icon that represents web navigation in the first section. This section has three rectangles. The first rectangle has icons that represent Azure Web Application Firewall and Azure Web Application Gateway. The second rectangle has icons that represent SAP Web Dispatchers. The third section has an icon that represents SAP Fiori. It also has text that reads Hub Fiori or central Fiori. Arrows point from the first box to the second box and then from the second box to the third box. A dotted arrow labeled Virtual network peering connects the two main sections. The second main section has an icon that represents SAP S/4HANA and contains text that reads Dedicated back end or embedded Fiori.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/s-4hana.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/fiori.vsdx) of this architecture.*
 
 For more information, see [Inbound and outbound internet connections for SAP on Azure](/azure/architecture/guide/sap/sap-internet-inbound-outbound).
 
@@ -105,7 +105,7 @@ To manage logon groups for ABAP application servers, it's typical to use the SAP
 
 ### SAP Central Services cluster
 
-The SAP Central Services contains a single instance of the message server and the enqueue replication service. Unlike the work processes of application servers, these are single points of failure in the SAP application stack. You can deploy Central Services to a single VM when the Azure single-instance VM availability service-level agreement (SLA) meets your requirement. If your SLA requires higher availability, you need to deploy these services on an HA cluster. For more information, see [Central Services in the application servers tier](#central-services-in-the-application-servers-tier).
+The SAP Central Services contains a single instance of the message server and the enqueue replication service. Unlike the work processes of application servers, these components are single points of failure in the SAP application stack. You can deploy Central Services to a single VM when the Azure single-instance VM availability service-level agreement (SLA) meets your requirement. If your SLA requires higher availability, you need to deploy these services on an HA cluster. For more information, see [Central Services in the application servers tier](#central-services-in-the-application-servers-tier).
 
 ### Networking
 
@@ -136,7 +136,7 @@ Global Reach doesn't currently support changes to network access control lists o
 
 For existing ExpressRoute circuits, contact Azure support to activate FastPath.
 
-FastPath doesn't support virtual network peering. If a virtual network connected to ExpressRoute is peered with other virtual networks, traffic from your on-premises network to the other spoke virtual networks is routed through the virtual network gateway. To address this, connect all virtual networks directly to the ExpressRoute circuit.
+FastPath doesn't support virtual network peering. If a virtual network connected to ExpressRoute is peered with other virtual networks, traffic from your on-premises network to the other spoke virtual networks is routed through the virtual network gateway. To address this problem, connect all virtual networks directly to the ExpressRoute circuit.
 
 ### Load balancers
 
@@ -158,7 +158,7 @@ Azure NetApp Files has built-in file sharing functionalities for NFS and SMB.
 
 For NFS share scenarios, [Azure NetApp Files](/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp) provides HA for NFS shares that can be used for `/hana/shared`, `/hana/data`, and `/hana/log` volumes. For the availability guarantee, see [SLA for Azure NetApp Files](https://azure.microsoft.com/support/legal/sla/netapp/v1_1). If you use Azure NetApp Files-based NFS shares for the `/hana/data` and `/hana/log` volumes, you need to use the NFS v4.1 protocol. For the `/hana/shared` volume, the NFS v3 protocol is supported.
 
-For the backup data store, we recommend that you use Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers are cost-effective ways to store long-lived data that's infrequently accessed. You can also consider using [Azure NetApp Files standard tier](/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels) as a backup target or [Azure NetApp Files backup option](/azure/azure-netapp-files/backup-introduction).For a managed disk, the recommended backup data tier is the Azure cool or archive access tier.
+For the backup data store, we recommend that you use Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers are cost-effective ways to store long-lived data that's infrequently accessed. You can also consider using [Azure NetApp Files standard tier](/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels) as a backup target or [Azure NetApp Files backup option](/azure/azure-netapp-files/backup-introduction). For a managed disk, the recommended backup data tier is the Azure cool or archive access tier.
 
 [Ultra Disk Storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) and Azure NetApp Files [ultra performance tier](/azure/azure-netapp-files/azure-netapp-files-service-levels) greatly reduce disk latency and benefit performance-critical applications and the SAP database servers.
 
@@ -219,9 +219,9 @@ NFS over Azure Files now supports the highly available file shares for both [SLE
 
 Azure NetApp Files supports HA of [ASCS on SLES](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files). For more information about ASCS on RHEL HA, see [SIOS Protection Suite for Linux](https://us.sios.com/blog/how-to-install-a-sios-protection-suite-for-linux-license-key/).
 
-The improved Azure Fence Agent is available for both [SUSE](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) and [Red Hat](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) and provides significantly faster service failover than the previous version of the agent.
+The improved Azure Fence Agent is available for both [SUSE](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) and [Red Hat](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) and provides much faster service failover than the previous version of the agent.
 
-Another fencing option is to use [Azure shared disks](/azure/virtual-machines/disks-shared) for the fencing device. On SLES 15 SP 1 or SLES for SAP 15 SP1 onward, you can set up a Pacemaker cluster by using [Azure shared disks](/azure/virtual-machines/disks-shared#linux).  This option is simple and doesn't require an open network port like the Azure fence agent.
+Another fencing option is to use [Azure shared disks](/azure/virtual-machines/disks-shared) for the fencing device. On SLES 15 SP 1 or SLES for SAP 15 SP1 onward, you can set up a Pacemaker cluster by using [Azure shared disks](/azure/virtual-machines/disks-shared#linux). This option is simple and doesn't require an open network port like the Azure fence agent.
 
 A recently supported and simpler Pacemaker configuration on SLES 15 onward is [High-availability SAP NetWeaver with simple mount and NFS on SLES for SAP Applications VMs](/azure/sap/workloads/high-availability-guide-suse-nfs-simple-mount). In this configuration, the SAP file shares were taken out of the cluster management, which makes it simpler to operate. It should now be your default HA configuration for all new deployments.
 
@@ -280,11 +280,11 @@ Every tier in the SAP application stack uses a different approach to provide DR 
 > [!NOTE]
 > If there's a regional disaster that causes a mass failover event for many Azure customers in one region, the [resource capacity](/azure/site-recovery/azure-to-azure-common-questions#capacity) of the target region isn't guaranteed. Like all Azure services, Site Recovery continues to add features and capabilities. For the latest information about Azure-to-Azure replication, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix).
 >
-> To help ensure available resource capacity for a DR region, use [On-demand capacity reservation](/azure/virtual-machines/capacity-reservation-overview). Azure provides the ability to combine your Reserve-Instance discount to your Capacity Reservation to reduce costs.  
+> To help ensure available resource capacity for a DR region, use [On-demand capacity reservation](/azure/virtual-machines/capacity-reservation-overview). Azure allows you to combine your Reserve-Instance discount to your Capacity Reservation to reduce costs.  
 
 ## Cost considerations
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator)) to estimate costs.
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
 
@@ -362,7 +362,7 @@ For infrastructure security, data is encrypted in transit and at rest. The *Secu
 To [encrypt Linux VM disks](/azure/virtual-machines/disk-encryption-overview), you have several options. For SAP HANA data-at-rest encryption, we recommend that you use the SAP HANA native encryption technology. For support of Azure Disk Encryption on specific Linux distributions, versions, and images, see [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview).
 
 > [!NOTE]
-> Don't use the HANA data-at-rest encryption and Azure Disk Encryption on the same storage volume. For HANA, use HANA data encryption over Azure Disk Storage Server-Side Encryption [Overview of managed disk encryption option](/azure/virtual-machines/disk-encryption-overview). Note that using customer-managed keys might affect I/O throughput.
+> Don't use the HANA data-at-rest encryption and Azure Disk Encryption on the same storage volume. For HANA, use HANA data encryption over Azure Disk Storage Server-Side Encryption [Overview of managed disk encryption option](/azure/virtual-machines/disk-encryption-overview). Using customer-managed keys might affect I/O throughput.
 
 ## Communities
 
