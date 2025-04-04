@@ -21,7 +21,7 @@ The architecture uses the following components. Some shared services are optiona
 
 **Azure Virtual Network.** The [Virtual Network](/azure/virtual-network/virtual-networks-overview) service connects Azure resources to each other with enhanced security. In this architecture, a virtual network connects to an on-premises environment through a gateway that's deployed in the hub of a [hub-spoke topology](/azure/architecture/networking/architecture/hub-spoke). The spoke is the virtual network that's used for the SAP applications and the database tiers.
 
-**Virtual network peering.** This architecture uses multiple virtual networks that are [peered together](/azure/virtual-network/virtual-network-peering-overview). This topology provides network segmentation and isolation for services that are deployed on Azure. Peering connects networks transparently through the Microsoft backbone network and doesn't incur a performance penalty if it's implemented within a single region. Separate subnets are used for each tier, including the SAP NetWeaver application tier, the database tier, and shared services such as the jump box and Windows Server Active Directory.
+**Virtual network peering.** This architecture uses [multiple virtual networks that are peered together](/azure/virtual-network/virtual-network-peering-overview). This topology provides network segmentation and isolation for services that are deployed on Azure. Peering connects networks transparently through the Microsoft backbone network and doesn't incur a performance penalty if it's implemented within a single region. Separate subnets are used for each tier, including the SAP NetWeaver application tier, the database tier, and shared services such as the jump box and Windows Server Active Directory.
 
 **VMs.** This architecture organizes VMs that run Linux into groups for the application tier and the database tier in the following ways:
 
@@ -53,7 +53,7 @@ Standard Load Balancer also supports multiple–system identifier (multi-SID) SA
 
 **Application gateway.** Azure Application Gateway is a web traffic load balancer that you can use to manage the traffic to your web applications. Traditional load balancers operate at the transport layer, known as Open Systems Interconnection (OSI) layer 4, by using Transmission Control Protocol and User Datagram Protocol. They route traffic based on the source IP address and port to a destination IP address and port. Application Gateway can make routing decisions based on extra attributes of an HTTP request, such as the uniform resource identifier path or host headers. This type of routing is known as application layer, or OSI layer 7, load balancing. S/4HANA provides web application services through Fiori. You can load balance this Fiori front end, which consists of web apps, by using Application Gateway. If you use public IP addresses, ensure that they use the Standard IP address SKU. Avoid the Basic IP address SKU because it's planned for deprecation on September 30, 2025.
 
-**Gateway.** A gateway connects distinct networks and extends your on-premises network to an Azure virtual network. [Azure ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover) is the recommended Azure service for creating private connections that don't go over the public internet, but you can also use a
+**Gateway.** A gateway connects distinct networks and extends your on-premises network to an Azure virtual network. [Azure ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover) is the recommended Azure service for creating private connections that don't go over the public internet. You can also use a
 [site-to-site](/azure/expressroute/expressroute-howto-coexist-resource-manager) connection. To help reduce latency, [ExpressRoute Global Reach](/azure/expressroute/expressroute-global-reach) and [ExpressRoute FastPath](/azure/expressroute/about-fastpath) are connectivity options that are discussed later in this article.
 
 **Zone-redundant gateway.** You can deploy ExpressRoute or virtual private network (VPN) gateways across zones to guard against zone failures. This architecture uses [zone-redundant](/azure/vpn-gateway/about-zone-redundant-vnet-gateways) virtual network gateways for resiliency instead of a zonal deployment that's based on the same availability zone.
@@ -75,19 +75,19 @@ This architecture describes a small, production-level deployment. Deployments va
 
 ### VMs
 
-In application server pools and clusters, adjust the number of VMs based on your requirements. For more information about running SAP NetWeaver on VMs, see [Azure Virtual Machines planning and implementation guide](/azure/virtual-machines/workloads/sap/planning-guide). The guide also applies to SAP S/4HANA deployments.
+In application server pools and clusters, adjust the number of VMs based on your requirements. For more information about how to run SAP NetWeaver on VMs, see [Azure Virtual Machines planning and implementation guide](/azure/virtual-machines/workloads/sap/planning-guide). The guide also applies to SAP S/4HANA deployments.
 
-For more information about SAP support for Azure VM types and for throughput metrics, see [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533). To access SAP notes, you need an SAP Service Marketplace account. For a list of certified Azure VMs for the HANA database, see [SAP Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure).
+For more information about SAP support for Azure VM types and for throughput metrics, see [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533). To access SAP notes, you need an SAP Service Marketplace account. For a list of certified Azure VMs for the HANA database, see [SAP Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure).
 
 ### SAP Web Dispatcher
 
-The Web Dispatcher component is used for load balancing SAP traffic among the SAP application servers. To achieve [HA of SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/48/9a9a6b48c673e8e10000000a42189b/frameset.htm), Azure Load Balancer implements either a failover cluster or the parallel Web Dispatcher setup. For internet-facing communications, a stand-alone solution in the perimeter network is the recommended architecture to satisfy security concerns. [Embedded Web Dispatcher on ASCS](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/2e708e2d42134b4baabdfeae953b24c5.html) is an advanced configuration. If you use this configuration, consider proper sizing because of the extra workload on ASCS.
+The Web Dispatcher component is used for load balancing SAP traffic among the SAP application servers. To achieve [HA of SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/48/9a9a6b48c673e8e10000000a42189b/frameset.htm), Azure Load Balancer implements either a failover cluster or the parallel Web Dispatcher setup. For internet-facing communications, a stand-alone solution in the perimeter network is the recommended architecture to address security requirements. [Embedded Web Dispatcher on ASCS](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/2e708e2d42134b4baabdfeae953b24c5.html) is an advanced configuration. If you use this configuration, consider proper sizing because of the extra workload on ASCS.
 
 ### Fiori front-end server (FES)
 
 This architecture meets multiple requirements and assumes that you use the embedded Fiori FES model. All the technology components are installed directly on the S/4 system, so each S/4 system has its own Fiori launchpad. The S/4 system manages the HA configuration for this deployment model. This approach removes the need for extra clustering or VMs. For this reason, the architecture diagram doesn’t include the FES component.
 
-For more information about deployment options, see [SAP Fiori deployment options and system landscape recommendations](https://www.sap.com/documents/2018/02/f0148939-f27c-0010-82c7-eda71af511fa.html). For simplicity and performance, the software releases between the Fiori technology components and the S/4 applications are tightly coupled. This setup makes a hub deployment fit only a few, specific use cases.
+For more information about deployment options, see [SAP Fiori deployment options and system landscape recommendations](https://www.sap.com/documents/2018/02/f0148939-f27c-0010-82c7-eda71af511fa.html). For simplicity and performance, the software releases between the Fiori technology components and the S/4 applications are tightly coupled. This setup makes a hub deployment suitable for only a few, specific use cases.
 
 If you use the FES hub deployment, the FES is an add-on component to the classic SAP NetWeaver ABAP stack. Set up HA the same way that you protect a three-tier ABAP application stack that has clustered or multiple-host capability. Use a standby server database layer, a clustered ASCS layer with HA NFS for shared storage, and at least two application servers. Traffic is load balanced via a pair of Web Dispatcher instances that can be either clustered or parallel. For internet-facing Fiori apps, we recommend an [FES hub deployment](https://blogs.sap.com/2017/12/15/considerations-and-recommendations-for-internet-facing-fiori-apps) in the perimeter network. Use [Azure Web Application Firewall on Application Gateway](/azure/application-gateway) as a critical component to deflect threats. Use [Microsoft Entra ID with Security Assertion Markup Language](/azure/active-directory/saas-apps/sap-netweaver-tutorial) for user authentication and single sign-on for [SAP Fiori](/azure/active-directory/saas-apps/sap-fiori-tutorial).
 
@@ -113,9 +113,9 @@ This architecture uses a hub-spoke topology where the hub virtual network serves
 
 ### Network interface cards (NICs)
 
-Traditional on-premises SAP deployments implement multiple network interface cards (NICs) per machine to segregate administrative traffic from business traffic. On Azure, the virtual network is a software-defined network that sends all traffic through the same network fabric. Therefore, using multiple NICs is unnecessary for performance considerations. If your organization needs to segregate traffic, you can deploy multiple NICs per VM, connect each NIC to a different subnet. Then use NSGs to help enforce different access control policies.
+Traditional on-premises SAP deployments implement multiple network interface cards (NICs) per machine to segregate administrative traffic from business traffic. On Azure, the virtual network is a software-defined network that routes all traffic through a single network fabric. As a result, multiple NICs for performance considerations aren't necessary. If your organization needs to segregate traffic, you can deploy multiple NICs for each VM, connect each NIC to a different subnet, then use NSGs to help enforce different access control policies.
 
-Azure NICs support multiple IP addresses. This support aligns with the practice that SAP recommends of using virtual host names for installations, as outlined in [SAP note
+Azure NICs support multiple IP addresses. This support aligns with the practice that SAP recommends of using virtual host names for installations in [SAP note
 962955](https://launchpad.support.sap.com/#/notes/962955). To access SAP notes, you need an SAP Service Marketplace account.
 
 ### Subnets and NSGs
@@ -158,9 +158,9 @@ Azure NetApp Files has built-in file sharing functionalities for NFS and SMB.
 
 For NFS share scenarios, [Azure NetApp Files](/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp) provides HA for NFS shares that can be used for `/hana/shared`, `/hana/data`, and `/hana/log` volumes. For the availability guarantee, see [SLA for Azure NetApp Files](https://azure.microsoft.com/support/legal/sla/netapp/v1_1). If you use Azure NetApp Files-based NFS shares for the `/hana/data` and `/hana/log` volumes, you need to use the NFS v4.1 protocol. For the `/hana/shared` volume, the NFS v3 protocol is supported.
 
-For the backup data store, we recommend that you use Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers are cost-effective ways to store long-lived data that's infrequently accessed. You can also consider using [Azure NetApp Files standard tier](/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels) as a backup target or [Azure NetApp Files backup option](/azure/azure-netapp-files/backup-introduction). For a managed disk, the recommended backup data tier is the Azure cool or archive access tier.
+For the backup data store, we recommend that you use Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers are cost-effective ways to store long-lived data that's infrequently accessed. Also, consider using [Azure NetApp Files standard tier](/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels) as a backup target or [Azure NetApp Files backup option](/azure/azure-netapp-files/backup-introduction). For a managed disk, the recommended backup data tier is the Azure cool or archive access tier.
 
-[Ultra Disk Storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) and Azure NetApp Files [ultra performance tier](/azure/azure-netapp-files/azure-netapp-files-service-levels) greatly reduce disk latency and benefit performance-critical applications and the SAP database servers.
+[Ultra Disk Storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) and Azure NetApp Files [Ultra Performance Tier](/azure/azure-netapp-files/azure-netapp-files-service-levels) significantly reduce disk latency and enhance the performance of critical applications and SAP database servers.
 
 [Azure Premium SSD v2](https://azure.microsoft.com/updates/general-availability-azure-premium-ssd-v2-disk-storage/) is designed for performance-critical workloads like SAP. For more information about this storage solution's benefits and limitations, see [Deploy a Premium SSD v2](/azure/virtual-machines/disks-deploy-premium-v2).
 
@@ -172,7 +172,7 @@ To optimize inter-server communications, use [Accelerated Networking](/azure/vir
 
 For more information about SAP HANA performance requirements, see [SAP note 1943937 - Hardware Configuration Check Tool](https://launchpad.support.sap.com/#/notes/1943937). To access SAP notes, you need an SAP Service Marketplace account.
 
-To achieve high input/output operations per second (IOPS) and disk bandwidth throughput, the common practices in storage volume [performance optimization](/azure/virtual-machines/linux/premium-storage-performance) apply to your Storage layout. For example, if you combine multiple disks to create a striped disk volume, you can improve input/output (I/O) performance. If you enable the read cache on storage content that changes infrequently, you can enhance the speed of data retrieval. For more information, see [SAP HANA Azure virtual machine storage configurations](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
+To achieve high input/output operations per second (IOPS) and disk bandwidth throughput, follow the common practices for storage volume [performance optimization](/azure/virtual-machines/linux/premium-storage-performance). For example, combining multiple disks to create a striped disk volume can improve your input/output (I/O) performance. Enabling the read cache on storage content that changes infrequently can also speed up your data retrieval. For more details, check out [SAP HANA Azure virtual machine storage configurations](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
 
 Azure Premium SSD v2 is designed for performance-critical workloads like SAP. For more information about its benefits, limitations, and optimal use scenarios, see [Azure managed disk types](/azure/virtual-machines/disks-types#premium-ssd-v2).
 
@@ -189,7 +189,7 @@ Azure NetApp Files has unique performance features that make real-time tuning po
 
 ## Scalability considerations
 
-At the SAP application layer, Azure provides a wide range of VM sizes for scaling up and scaling out. For an inclusive list, see *SAP Applications on Azure: Supported Products and Azure VM types* in [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533). To access SAP notes, you need an SAP Service Marketplace account. More VM types are continually certified, so you can scale up or scale down in the same cloud deployment.
+At the SAP application layer, Azure provides a wide range of VM sizes for scaling up and scaling out. For an inclusive list, see **SAP Applications on Azure: Supported Products and Azure VM types** in [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533). To access SAP notes, you need an SAP Service Marketplace account. More VM types are continually certified, so you can scale up or scale down in the same cloud deployment.
 
 On the database layer, this architecture runs SAP HANA S/4 applications on Azure VMs that can scale up to 24 terabytes (TB) in one instance. If your workload exceeds the maximum VM size, you can use a multiple-node configuration for as much as 96 TBs (4x24) for online transaction processing applications. For more information, see [Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24&search=scale%20out&id=s:2653).
 
@@ -357,19 +357,19 @@ SAP has its own users management engine to control role-based access and authori
 
 To improve network security, consider using a [perimeter network](../../reference-architectures/dmz/secure-vnet-dmz.yml) that uses an NVA to create a firewall in front of the subnet for Web Dispatcher and the Fiori front-end server pools. To minimize data transfer costs, deploy active front-end servers that host Fiori applications within the same virtual network as the S/4 systems. Alternatively, you can configure them in the perimeter network, which takes advantage of virtual network peering to establish connectivity with the S/4 systems
 
-For infrastructure security, data is encrypted in transit and at rest. The *Security considerations* section of [Plan and implement an SAP deployment on Azure](/azure/virtual-machines/workloads/sap/planning-guide) contains information on network security that applies to S/4HANA. That guide also specifies the network ports to open on the firewalls to allow application communication.
+For infrastructure security, data is encrypted in transit and at rest. The **Security considerations** section of [Plan and implement an SAP deployment on Azure](/azure/virtual-machines/workloads/sap/planning-guide) contains information on network security that applies to S/4HANA. That guide also specifies the network ports to open on the firewalls to allow application communication.
 
 To [encrypt Linux VM disks](/azure/virtual-machines/disk-encryption-overview), you have several options. For SAP HANA data-at-rest encryption, we recommend that you use the SAP HANA native encryption technology. For support of Azure Disk Encryption on specific Linux distributions, versions, and images, see [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview).
 
 > [!NOTE]
-> Don't use the HANA data-at-rest encryption and Azure Disk Encryption on the same storage volume. For HANA, use HANA data encryption over Azure Disk Storage Server-Side Encryption [Overview of managed disk encryption option](/azure/virtual-machines/disk-encryption-overview). Using customer-managed keys might affect I/O throughput.
+> Don't use HANA data-at-rest encryption and Azure Disk Encryption on the same storage volume. For HANA, use HANA data encryption over [Azure Disk Storage Server-Side Encryption](/azure/virtual-machines/disk-encryption-overview). Using customer-managed keys might affect I/O throughput.
 
 ## Communities
 
-Communities can answer questions and help you set up a successful deployment. Consider these resources:
+Communities can answer questions and help you set up a successful deployment. Consider the following resources:
 
-- [Run SAP Applications on the Microsoft Platform blog](/archive/blogs/saponsqlserver/sap-on-azure-general-update-for-customers-partners-april-2017)
-- [Azure Community Support](https://azure.microsoft.com/support/forums)
+- [Run SAP applications on the Microsoft Platform blog](/archive/blogs/saponsqlserver/sap-on-azure-general-update-for-customers-partners-april-2017)
+- [Azure community support](https://azure.microsoft.com/support/forums)
 - [SAP Community](https://www.sap.com/community.html)
 - [Stack Overflow SAP](http://stackoverflow.com/tags/sap/info)
 
