@@ -335,7 +335,7 @@ Azure Center for SAP solutions is an end-to-end solution that enables you to cre
 You can back up SAP HANA data in many ways. After you migrate to Azure, continue to use any existing backup solutions that you have. Azure provides two native approaches to backup. You can back up [SAP HANA on VMs or use Azure Backup at the file level](/azure/virtual-machines/workloads/sap/sap-hana-backup-guide). Azure Backup is [BackInt certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:e062231e-9fb7-4ea8-b7d2-e6fe448c592d) by SAP. For more information, see [Azure Backup FAQ](/azure/backup/backup-azure-backup-faq) and [Support matrix for backup of SAP HANA databases on Azure VMs](/azure/backup/sap-hana-backup-support-matrix).
 
 > [!NOTE]
-> Azure storage snapshots are supported only for HANA single-container or scale-up deployments.
+> Currently, only HANA single-container or scale-up deployments support Azure storage snapshots.
 
 ### Identity management
 
