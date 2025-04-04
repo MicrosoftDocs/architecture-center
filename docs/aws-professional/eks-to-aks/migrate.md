@@ -30,7 +30,7 @@ The deployment process of a real-world production workload varies depending on t
 - **Deployment artifacts:** Your deployment artifacts help define the deployment structure. YAML files, manifest files, Helm charts, and Kustomize configurations provide various approaches to specify and customize deployment settings. Each approach has unique strengths that benefit specific use cases.
 - **Workload authentication and authorization:** Depending on the setup, authentication and authorization methods differ. You can use Amazon Web Services (AWS) Identity and Access Management (IAM) roles, workload identity mechanisms, or connection strings for access control.
 
-- **Monitoring:** When you implement monitoring solutions, you can various tools and methodologies to help ensure the performance and health of deployed workloads. For more information about how AKS and EKS monitoring compares, see [Kubernetes monitoring and logging](/azure/architecture/aws-professional/eks-to-aks/monitoring).
+- **Monitoring:** When you implement monitoring solutions, you can use various tools and methodologies to help ensure the performance and health of deployed workloads. For more information about how AKS and EKS monitoring compare, see [Kubernetes monitoring and logging](/azure/architecture/aws-professional/eks-to-aks/monitoring).
 
 Before your migration, review and consider the following general guidance and best-practice resources:
 
@@ -64,7 +64,7 @@ Analyze your existing EKS environment to understand the current architecture, re
    | AWS service | Dependency |
    | ----------- | ---------- |
    | AWS Secrets Manager | [Azure Key Vault](/azure/key-vault/general/overview) |
-   | AWS GuardDuty agent | [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) |
+   | Amazon GuardDuty agent | [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) |
    | EKS Pod Identity agent | [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) |
    | Amazon Elastic File System (EFS) or Elastic Block Store (EBS) Container Storage Interface (CSI) drivers | [AKS CSI drivers](/azure/aks/csi-storage-drivers) |
 
@@ -97,7 +97,7 @@ A migration from Amazon EKS to AKS involves the following steps:
 - **Container image migration:** Use tools like kubectl, Docker, or container registries to export and import images.
    1. [Export images from EKS](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html).
    1. [Set up an Azure container registry](/azure/container-registry/container-registry-get-started-portal), and attach it to AKS if needed.
-   1. [Push images](/azure/container-registry/container-registry-get-started-portal) to the container registry.
+   1. [Push images](/azure/container-registry/container-registry-get-started-portal#push-image-to-registry) to the container registry.
 
   You can also import container images into a container registry directly from a non-Azure public or private repository. For more information, see [Import container images](/azure/container-registry/container-registry-import-images).
 
