@@ -101,7 +101,7 @@ Unisys CPF in Azure eliminates hardware maintenance and facility costs upfront. 
 
 You can also optimize your costs by following the process to right-size the capacity of your VMs, from the beginning, along with simplified resizing, as needed. For more information, see the Well-Architected Framework's [Cost Optimization design principles](/azure/well-architected/cost-optimization/principles).
 
-To estimate the cost of Azure products and configurations, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). VMs will be used for the MCP along with any support VMs for print or tape. Storage would range from Premium SSD to Blob storage dependent upon performance needs and data retention policies.
+To estimate the cost of Azure products and configurations, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). VMs will be used for the MCP along with any support VMs for print or tape. Storage account types can range from premium SSD storage to standard blob storage depending upon performance needs and data retention policies.
 
 To learn more about Unisys CPF offerings and pricing, visit the [Unisys ClearPath Forward Products webpage](https://www.unisys.com/solutions/clearpath-forward/).
 
