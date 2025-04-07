@@ -40,7 +40,7 @@ The [enterprise-scale landing zone for Azure Virtual Desktop](https://learn.micr
 
 #### Design principles
 
-Like other landing zones, the enterprise-scale Azure Virtual Desktop landing zone was designed using a core set of [Cloud Adoption Framework design principles](/azure/cloud-adoption-framework/ready/landing-zone/design-principles) and guided by common [design areas](/azure/cloud-adoption-framework/ready/landing-zone/design-areas).
+Like other landing zones, the enterprise-scale Azure Virtual Desktop landing zone was designed using a core set of [Cloud Adoption Framework design principles](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-principles) and guided by common [design areas](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-areas).
 
 Design areas for the Azure Virtual Desktop landing zone are indicated with letters "A" through "J" in the diagram, to illustrate the hierarchy of resource organization:
 
