@@ -27,7 +27,7 @@ Core identity services in both platforms form the foundation of identity and acc
 
 | AWS service | Azure service | Description |
 |------------|---------------|-------------|
-| [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) | [Microsoft Entra ID](/entra/identity/hybrid/connect/whatis-pta) | Centralized identity management service providing single sign-on (SSO), multi-factor authentication (MFA), and integration with various applications.|
+| [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) | [Microsoft Entra ID](/entra/fundamentals/whatis) | Centralized identity management service providing single sign-on (SSO), multi-factor authentication (MFA), and integration with various applications.|
 | [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) | [Azure Management Groups](/azure/governance/management-groups/overview) | Hierarchical organization structure for managing multiple accounts/subscriptions with inherited policies |
 | [AWS Single Sign-On](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) | [Microsoft Entra ID Single Sign-On](/entra/identity/enterprise-apps/what-is-single-sign-on) | Centralized access management enabling users to access multiple applications with single credentials |
 | [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html) | [Microsoft Entra Directory Domain Services](/entra/identity/domain-services/overview) | Managed directory services providing domain join, group policy, LDAP, and Kerberos/NTLM authentication |
@@ -142,8 +142,8 @@ Both platforms provide identity services to secure application access and API au
 |-------------|------------------|-------------|
 | [Cognito Identity Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html) | No direct equivalent | AWS-specific approach for federating identities to AWS resources. |
 | No direct equivalent | [Azure Web Apps Easy Auth](/azure/app-service/overview-authentication-authorization) | Platform-level authentication for web applications without code changes. |
-| [Cognito User Pool Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html) | [Microsoft pdentity platform B2C custom policies](/entra/identity-platform/v2-custom-policy-overview) | Extensibility mechanisms for authentication flows. |
-| [AWS WAF with Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) | [Microsoft Entra conditional access](/conditional-access/overview) | Security policies for access control. |
+| [Cognito User Pool Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html) | [Microsoft pdentity platform B2C custom policies](/azure/active-directory-b2c/custom-policy-overview) | Extensibility mechanisms for authentication flows. |
+| [AWS WAF with Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) | No direct equivalent | Security policies for access control. |
 
 ## Contributors
 
