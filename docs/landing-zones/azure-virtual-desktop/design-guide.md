@@ -25,7 +25,8 @@ products:
 
 # Azure Virtual Desktop landing zone design guide
 
-This article provides a design-oriented overview of the [enterprise-scale landing zone for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone), for architects and technical decision makers. The goal is to help you quickly gain an understanding of the accelerator and how it's designed, allowing you to shorten the time required to complete a successful deployment.
+This article provides a design-oriented overview of the [enterprise-scale landing zone for Azure Virtual Desktop](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone), for architects and technical decision makers. The goal is to help you quickly gain an understanding of the accelerator and how it's designed, allowing you to shorten the time required to complete a successful deployment.
+
 
 ## Landing zone concepts
 
@@ -33,7 +34,7 @@ This article provides a design-oriented overview of the [enterprise-scale landin
 
 ## Reference architecture
 
-The [enterprise-scale landing zone for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone) is part of the "Desktop virtualization" scenario article series in the Azure Cloud Adoption Framework. The series provides compatibility requirements, design principles, and deployment guidance for the landing zone. They also serve as the reference architecture for an enterprise-scale implementation, ensuring the environment is capable of hosting desktops and any supporting workloads.
+The [enterprise-scale landing zone for Azure Virtual Desktop](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone) is part of the "Desktop virtualization" scenario article series in the Azure Cloud Adoption Framework. The series provides compatibility requirements, design principles, and deployment guidance for the landing zone. They also serve as the reference architecture for an enterprise-scale implementation, ensuring the environment is capable of hosting desktops and any supporting workloads.
 
 :::image type="content" source="./media/azure-virtual-desktop-reference-architecture.png" alt-text="Diagram of reference architecture required for Azure Virtual Desktop landing zone implementations." border="false" lightbox="./media/azure-virtual-desktop-reference-architecture.png" :::
 
