@@ -65,41 +65,41 @@ The following architecture illustrates a general refactoring approach that can u
 
 This example features the following Azure components. Several of these components and workflows are interchangeable or optional depending on your scenario.
 
-- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into Azure over a private, dedicated fiber connection from a connectivity provider. ExpressRoute establishes connections to Microsoft cloud services like Azure and Microsoft 365.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into Azure over a private, dedicated fiber connection from a connectivity provider. In this architecture, ExpressRoute establishes connections to Microsoft cloud services like Azure and Microsoft 365.
 
-- [Azure Bastion](/azure/bastion/bastion-overview) provides seamless Remote Desktop Protocol (RDP) or secure shell (SSH) connectivity to virtual network VMs from the Azure portal over TLS. Azure Bastion maximizes administrative access security by minimizing open ports.
+- [Azure Bastion](/azure/bastion/bastion-overview) provides seamless Remote Desktop Protocol (RDP) or secure shell (SSH) connectivity to virtual network VMs from the Azure portal over TLS. In this architecture, Azure Bastion maximizes administrative access security by minimizing open ports.
 
-- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) distributes incoming traffic to the compute resource clusters. Use this component to define rules and other criteria to distribute the traffic.
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) distributes incoming traffic to the compute resource clusters. Use this component to define rules and other criteria to distribute the traffic. Load Balancer allows for scale-out compute resources to process the input work, ensuring efficient load distribution.
 
-- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service to deploy and manage containerized applications. AKS offers serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance.
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service to deploy and manage containerized applications. In this architecture, AKS offers serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. 
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) offers many sizes and types of on-demand, scalable computing resources. With Azure VMs, you get the flexibility of virtualization without having to buy and maintain physical hardware.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) offers many sizes and types of on-demand, scalable computing resources. This component provides the flexibility of virtualization without the need to buy and maintain physical hardware.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block of Azure private networks. Azure VMs within virtual networks can communicate securely with each other, the internet, and on-premises networks. A virtual network is like a traditional on-premises network, but with Azure infrastructure benefits like scalability, high availability, and isolation.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block of Azure private networks. A virtual network is like a traditional on-premises network, but with Azure infrastructure benefits like scalability, high availability, and isolation. This component allows Azure VMs within virtual networks to communicate securely with each other, the internet, and on-premises networks. 
 
-- [Azure Private Link](/azure/private-link/private-link-overview) provides private connectivity from a virtual network to Azure services. Private Link simplifies network architecture and secures the connection between Azure endpoints by eliminating public internet exposure.
+- [Azure Private Link](/azure/private-link/private-link-overview) provides private connectivity from a virtual network to Azure services. In this architecture, Private Link simplifies network architecture and secures the connection between Azure endpoints by eliminating public internet exposure. 
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) adds a quick caching layer to application architecture to handle large volumes at high speed. Azure Cache for Redis scales performance simply and cost-effectively, with the benefits of a fully managed service.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) adds a quick caching layer to application architecture to handle large volumes at high speed. This architecture component scales performance simply and cost-effectively, with the benefits of a fully managed service. 
 
-- [Azure Storage](/azure/storage/common/storage-introduction) offers scalable, secure cloud storage for all your data, applications, and workloads.
+- [Azure Storage](/azure/storage/common/storage-introduction) offers scalable, secure cloud storage for all your data, applications, and workloads. In this architecture, Azure Storage provides the necessary storage infrastructure for various data types and applications.
 
   - [Azure Disk Storage](/azure/virtual-machines/managed-disks-overview) is high-performance, durable block storage for business-critical applications. Azure managed disks are block-level storage volumes that are managed by Azure on Azure VMs. The available types of disks are ultra disks, premium SSDs, standard SSDs, and standard hard disk drives (HDDs). This architecture uses either premium SSDs or ultra disk SSDs.
 
-  - [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure Files file shares concurrently.
+  - [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. In this architecture, Azure Files provides managed file shares for cloud and on-premises deployments. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure Files file shares concurrently. 
 
-  - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) provides enterprise-grade Azure file shares powered by NetApp. Use it to migrate and run complex, file-based applications with no code changes.
+  - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) provides enterprise-grade Azure file shares powered by NetApp. Use it to migrate and run complex, file-based applications with no code changes. 
 
-  - [Azure Blob Storage](/azure/well-architected/service-guides/azure-netapp-files) is scalable and secure object storage for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads.
+  - [Azure Blob Storage](/azure/well-architected/service-guides/azure-netapp-files) is scalable and secure object storage for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads. In this architecture, Blob Storage serves as a common landing zone for external data sources.
 
 - [Azure databases](https://azure.microsoft.com/product-categories/databases) offer a choice of fully managed relational and NoSQL databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security.
 
-  - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine. SQL Database always runs on the latest stable version of SQL Server and a patched OS with 99.99 percent availability. Built-in PaaS database management capabilities include upgrading, patching, backups, and monitoring. You can focus on domain-specific, business-critical database administration and optimization.
+  - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine. In this architecture, it provides scalable and highly available data storage to share across multiple compute resources in a cluster. SQL Database always runs on the latest stable version of SQL Server and a patched operating system with 99.99 percent availability. Built-in PaaS database management capabilities include upgrading, patching, backups, and monitoring. You can focus on domain-specific, business-critical database administration and optimization. 
 
-  - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed database based on the open-source Postgres relational database engine. The [Hyperscale (Citus) deployment option](https://github.com/SpektraSystems/Introduction-to-Hyperscale-Citus-on-Azure-Database-for-PostgreSQL/blob/master/Exercise1.md) scales queries across multiple machines by using sharding, for applications that require greater scale and performance.
+  - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed database based on the open-source Postgres relational database engine. In this architecture, it offers the [Hyperscale (Citus) deployment option](https://github.com/SpektraSystems/Introduction-to-Hyperscale-Citus-on-Azure-Database-for-PostgreSQL/blob/master/Exercise1.md), which scales queries across multiple machines by using sharding. This capability is helpful for applications that require greater scale and performance. 
 
-  - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed, fast NoSQL database with open APIs for any scale.
+  - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed, fast NoSQL database with open APIs for any scale. In this architecture, Cosmos DB provides scalable and highly available data storage for various applications.
 
-- [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) mirrors Azure VMs to a secondary Azure region for quick failover and DR if an Azure datacenter fails.
+- [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) mirrors Azure VMs to a secondary Azure region for quick failover and DR if an Azure datacenter fails. In this architecture, it facilitates DR for the VM and container cluster components.
 
 ## Scenario details
 
