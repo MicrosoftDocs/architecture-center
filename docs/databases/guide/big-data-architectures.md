@@ -1,3 +1,5 @@
+# Big data architectures
+
 A big data architecture is designed to handle the ingestion, processing, and analysis of data that is too large or complex for traditional database systems. The threshold at which organizations enter into the big data realm differs, depending on the capabilities of the users and their tools. For some, it can mean hundreds of gigabytes of data, while for others it means hundreds of terabytes. As tools for working with big datasets advance, so does the meaning of big data. More and more, this term relates to the value you can extract from your data sets through advanced analytics, rather than strictly the size of the data, although in these cases they tend to be quite large.
 
 Over the years, the data landscape has changed. What you can do, or are expected to do, with data has changed. The cost of storage has fallen dramatically, while the means by which data is collected keeps growing. Some data arrives at a rapid pace, constantly demanding to be collected and observed. Other data arrives more slowly, but in very large chunks, often in the form of decades of historical data. You might be facing an advanced analytics problem, or one that requires machine learning. These are challenges that big data architectures seek to solve.
@@ -19,7 +21,10 @@ Consider big data architectures when you need to:
 
 The following diagram shows the logical components that fit into a big data architecture. Individual solutions may not contain every item in this diagram.
 
-![Overall data pipeline diagram](_images/big-data-pipeline.png)
+
+:::image type="complex" source="_images/big-data-pipeline.png" border="false" lightbox="_images/big-data-pipeline.png" alt-text="Diagram that shows the overall data pipeline.":::
+
+:::image-end:::
 
 Most big data architectures include some or all of the following components:
 
@@ -76,7 +81,9 @@ The **lambda architecture**, first proposed by Nathan Marz, addresses this probl
 
 The batch layer feeds into a **serving layer** that indexes the batch view for efficient querying. The speed layer updates the serving layer with incremental updates based on the most recent data.
 
-![Lambda architecture diagram](_images/lambda.png)
+:::image type="complex" source="_images/lambda.png" border="false" lightbox="_images/lambda.png" alt-text="Diagram that shows the Lambda architecture.":::
+
+:::image-end:::
 
 Data that flows into the hot path is constrained by latency requirements imposed by the speed layer, so that it can be processed as quickly as possible. Often, this requires a tradeoff of some level of accuracy in favor of data that is ready as quickly as possible. For example, consider an IoT scenario where a large number of temperature sensors are sending telemetry data. The speed layer may be used to process a sliding time window of the incoming data.
 
@@ -92,7 +99,9 @@ A drawback to the lambda architecture is its complexity. Processing logic appear
 
 The **kappa architecture** was proposed by Jay Kreps as an alternative to the lambda architecture. It has the same basic goals as the lambda architecture, but with an important distinction: All data flows through a single path, using a stream processing system.
 
-![Kappa architecture diagram](_images/kappa.png)
+:::image type="complex" source="_images/kappa.png" border="false" lightbox="_images/kappa.png" alt-text="Diagram that shows the Kappa architecture.":::
+
+:::image-end:::
 
 There are some similarities to the lambda architecture's batch layer: the event data is immutable and all of it is collected, instead of a subset. The data is ingested as a stream of events into a distributed, fault-tolerant unified log. These events are ordered, and the current state of an event is changed only by a new event being appended. Similar to a lambda architecture's speed layer, all event processing is performed on the input stream and persisted as a real-time view.
 
@@ -106,7 +115,9 @@ A data warehouse is a centralized repository that stores structured and semi-str
 
 The **Lakehouse architecture** combines the best elements of data lakes and data warehouses. The pattern aims to provide a unified platform that supports both structured and unstructured data, enabling efficient data management and analytics. These systems typically utilize low-cost cloud storage in open formats, such as Parquet or ORC, to store raw and processed data.
 
-![A data flow component diagram showing source to consumption.](../../_images/lakehouse-dataflow.png)
+:::image type="complex" source="../../_images/lakehouse-dataflow.png" border="false" lightbox="../../_images/lakehouse-dataflow.png" alt-text="Diagram that shows source to consumption.":::
+
+:::image-end:::
 
 Some common use cases for using a lakehouse architecture are:
 
@@ -120,7 +131,9 @@ From a practical viewpoint, Internet of Things (IoT) represents any device that 
 
 Event-driven architectures are central to IoT solutions. The following diagram shows a possible logical architecture for IoT. The diagram emphasizes the event-streaming components of the architecture.
 
-![IoT architecture](../../guide/architecture-styles/images/iot.png)
+:::image type="complex" source="../../guide/architecture-styles/images/iot.png" border="false" lightbox="../../guide/architecture-styles/images/iot.png" alt-text="Diagram that shows the IoT architecture.":::
+
+:::image-end:::
 
 The **cloud gateway** ingests device events at the cloud boundary, using a reliable, low latency messaging system.
 
@@ -147,8 +160,6 @@ The boxes that are shaded gray show components of an IoT system that are not dir
 - Some IoT solutions allow **command and control messages** to be sent to devices.
 
 ## Next steps
-
-See the following relevant Azure services:
 
 - [Azure IoT Hub](/azure/iot-hub/)
 - [Azure Event Hubs](/azure/event-hubs/)
