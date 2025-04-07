@@ -20,7 +20,7 @@ The following workflow corresponds to the preceding diagram:
 
 1. In the front end of the application layer, users interact with the Customer Information Control System (CICS) or Information Management System (IMS) screens or with webpages.
 
-1. The transaction managers use the business logic written in Common Business-Oriented Language (COBOL) or Programming Language One (PL/I) to implement the transactions.
+1. The transaction managers use the business logic written in common business-oriented language (COBOL) or Programming Language One (PL/I) to implement the transactions.
 
 1. Application code uses the storage capabilities of the data layer, such as DB2, IMS DB, or VSAM.
 

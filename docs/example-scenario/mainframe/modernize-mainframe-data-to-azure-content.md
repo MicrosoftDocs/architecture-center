@@ -40,7 +40,7 @@ The following dataflow corresponds to the previous diagram:
 
    - [Managed Data Provider for Host Files](/host-integration-server/core/managed-data-provider-for-host-files-programmer-s-guide2) converts objects by:
 
-       - Parsing COBOL and RPG record layouts, or *copybooks*.
+       - Parsing common business-oriented language (COBOL) and Report Program Generator record layouts, or *copybooks*.
        - Mapping the copybooks to C# objects that .NET applications use.
 
    - The [Db2toAzurePostgreSQL](https://techcommunity.microsoft.com/blog/modernizationbestpracticesblog/converting-database-objects-from-db2-to-azure-database-for-postgresql/4162828) tool migrates database objects from Db2 to Azure Database for PostgreSQL.
@@ -53,7 +53,7 @@ The following dataflow corresponds to the previous diagram:
    - Nonindexed [GDG](https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zconcepts/zconcepts_175.htm) files.
    - Flat files.
    
-    COBOL, PL/I, and assembly language copybooks define the data structure of these files.
+    COBOL, Programming Language One, and assembly language copybooks define the data structure of these files.
 
    a. File Transfer Protocol (FTP) transfers mainframe and midrange file system datasets with single layouts and unpacked fields in binary format and corresponding copybook to Azure.
    
@@ -84,7 +84,7 @@ The following dataflow corresponds to the previous diagram:
       - [Adabas](https://www.softwareag.com/en_corporate/platform/adabas-natural.html)
       - [Datacom](https://www.broadcom.com/products/mainframe/databases-database-mgmt/datacom)
       
-       Partner products integrate data from these databases.
+      Partner products integrate data from these databases.
 
 1. Azure services like Azure Data Factory and [AzCopy](/azure/storage/common/storage-ref-azcopy) load data into Azure databases and Azure data storage. You can also use partner solutions and custom loading solutions to load data.
 
@@ -97,6 +97,8 @@ The following dataflow corresponds to the previous diagram:
 1. Client applications also use the modernized data tier.
 
 ### Components
+
+This architecture uses the following components.
 
 #### Data storage
 
@@ -186,7 +188,9 @@ This solution uses Azure data platform components in a data-first approach. Spec
 Organizations that use mainframe and midrange systems can benefit from this solution, especially when they want to:
 
 - Modernize mission-critical workloads.
+
 - Acquire business intelligence to improve operations and gain a competitive advantage.
+
 - Remove the high costs and rigidity that are associated with mainframe and midrange data stores.
 
 ## Considerations

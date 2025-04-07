@@ -15,7 +15,7 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
 
 ### Workflow
 
-1. **Host agent:** The host agent on the on-premises system captures change log information from Db2, Information Management System (IMS), and virtual storage access method (VSAM) data stores and passes it to the Qlik replication server.
+1. **Host agent:** The host agent on the on-premises system captures change log information from Db2, Information Management System (IMS), and Virtual Storage Access Method (VSAM) data stores and passes it to the Qlik replication server.
 
 1. **Replication server:** The Qlik replication server software passes the change log information to Kafka and Azure Event Hubs. In this example, Qlik is on-premises, but you can deploy it on a virtual machine in Azure.
 
@@ -64,7 +64,7 @@ When you design application architecture, it's crucial to prioritize networking 
 
 Azure provides managed services that support more secure, scalable, and efficient application deployment. This architecture uses application tier services that can help you optimize your application architecture.
 
-- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service that can store Db2, IMS, and VSAM change data messages. It can receive and process millions of messages per second. Data sent to an event hub can be transformed and stored by using a real-time analytics provider or a custom adapter.
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service that can store Db2, IMS, and VSAM change data messages. It can receive and process millions of messages per second. Data sent to an event hub can be transformed and stored by using a real-time analytics provider or a custom adapter.
 
 - [Apache Kafka](https://kafka.apache.org) is an open-source distributed event streaming platform that's used for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications. It can be easily integrated with Qlik data integration to store Db2 change data.
 
@@ -78,7 +78,7 @@ This architecture addresses scalable and more secure cloud storage as well as ma
 
 - [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a set of massively scalable and more secure cloud services for data, apps, and workloads. It includes [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues). Azure Files is an effective tool for migrating mainframe workloads.
 
-- [Azure SQL](/azure/azure-sql/) is a family of SQL cloud databases that provides flexible options for application migration, modernization, and development. The family includes:
+- [Azure SQL](/azure/azure-sql/) is a family of SQL cloud databases that provides flexible options for application migration, modernization, and development. This family includes:
 
   - [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
   - [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability)
