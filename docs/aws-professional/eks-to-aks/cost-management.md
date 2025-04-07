@@ -144,7 +144,7 @@ If you run workloads that use CSI persistent volumes on your AKS cluster, consid
 
 - [Azure disk storage](/azure/aks/azure-disk-csi) creates Kubernetes data disk resources. Disks can use Azure premium storage that's backed by Premium SSDs or Azure standard storage that's backed by Standard HDDs or Standard SSDs. Most production and development workloads use premium storage. Azure disks are mounted as `ReadWriteOnce`, which makes them available to only one AKS node. For storage volumes that multiple pods can access simultaneously, use Azure Files. For more information, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
-- [Azure Files](/azure/aks/azure-files-csi) mounts Server Message Block (SMB) 3.0 and 3.1 file shares to your AKS pods. The file shares are backed by an Azure Storage account. You can share data across multiple nodes and pods. Azure Files can use standard storage that's backed by Standard HDDs or premium storage that's backed by Premium SSDs. Azure Files uses an Storage account and accrues charges based on the following factors:
+- [Azure Files](/azure/aks/azure-files-csi) mounts Server Message Block (SMB) 3.0 and 3.1 file shares to your AKS pods. The file shares are backed by an Azure Storage account. You can share data across multiple nodes and pods. Azure Files can use standard storage that's backed by Standard HDDs or premium storage that's backed by Premium SSDs. Azure Files uses a Storage account and accrues charges based on the following factors:
 
   - The service, such as Azure Blob Storage, Azure Files, Azure Queue Storage, Azure Table Storage, or unmanaged disks
 
@@ -258,7 +258,7 @@ The following recommendations help optimize your AKS cluster costs:
 
 - Use Container Instances for bursting.
 
-- Your AKS workloads might not need to continuously run. For example, some workloads in development cluster node pools don't continously run. To optimize costs, you can completely turn off an AKS cluster or stop one or more node pools in your AKS cluster. For more information, see [Stop and start an AKS cluster](/azure/aks/start-stop-cluster) and [Start and stop a node pool on AKS](/azure/aks/start-stop-nodepools).
+- Your AKS workloads might not need to continuously run. For example, some workloads in development cluster node pools don't continuously run. To optimize costs, you can completely turn off an AKS cluster or stop one or more node pools in your AKS cluster. For more information, see [Stop and start an AKS cluster](/azure/aks/start-stop-cluster) and [Start and stop a node pool on AKS](/azure/aks/start-stop-nodepools).
 
 - Azure Policy integrates with AKS through built-in policies to apply centralized, consistent, at-scale enforcements and safeguards. Enable the Azure Policy add-on for your cluster to apply default CPU requests and limits and [memory resource limits](https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace). This feature helps ensure that the cluster containers have defined CPU and memory resource limits.
 
