@@ -14,7 +14,6 @@ products:
 ms.collection: 
  - migration
  - aws-to-azure
- - gcp-to-azure
 ---
 
 # Compare storage on Azure and AWS

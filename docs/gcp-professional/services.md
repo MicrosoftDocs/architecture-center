@@ -14,7 +14,6 @@ products:
   - azure-machine-learning
 ms.collection: 
  - migration
- - aws-to-azure
  - gcp-to-azure
 ---
 

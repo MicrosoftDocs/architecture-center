@@ -16,7 +16,6 @@ products:
 ms.collection: 
  - migration
  - aws-to-azure
- - gcp-to-azure
 ---
 
 # Compare AWS and Azure networking options

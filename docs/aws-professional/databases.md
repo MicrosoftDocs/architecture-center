@@ -21,8 +21,6 @@ products:
   - azure-sql-database
   - azare-storage-accounts
   - azure-managed-applications
-ms.custom:
-  - article
 ---
 
 # Relational database technologies on Azure and AWS

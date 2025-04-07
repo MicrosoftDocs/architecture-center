@@ -10,7 +10,6 @@ ms.subservice: architecture-guide
 ms.collection: 
  - migration
  - aws-to-azure
- - gcp-to-azure
 categories: azure
 azureCategories:
   - analytics

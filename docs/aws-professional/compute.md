@@ -8,10 +8,9 @@ ms.date: 06/24/2022
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
-ms.collection: 
+ms.collection:
  - migration
  - aws-to-azure
- - gcp-to-azure
 azureCategories:
   - compute
   - networking

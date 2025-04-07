@@ -18,7 +18,6 @@ products:
 ms.collection: 
  - migration
  - aws-to-azure
- - gcp-to-azure
 ---
 
 # Messaging services on Azure and AWS

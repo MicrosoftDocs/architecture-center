@@ -11,7 +11,6 @@ ms.subservice: cloud-fundamentals
 ms.collection: 
  - migration
  - aws-to-azure
- - gcp-to-azure
 azureCategories:
   - analytics
   - management and governance
