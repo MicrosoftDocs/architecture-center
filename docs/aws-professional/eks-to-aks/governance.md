@@ -7,6 +7,9 @@ ms.date: 01/28/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
+ms.collection: 
+ - migration
+ - aws-to-azure
 ms.custom:
   - arb-containers
 categories:
