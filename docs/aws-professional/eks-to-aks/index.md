@@ -41,7 +41,7 @@ For more information about other Azure services that can host containerized work
 - [Choose an Azure compute service](../../guide/technology-choices/compute-decision-tree.yml)
 - [Choose an Azure container service](../../guide/choose-azure-container-service.md)
 - [Compare Container Apps with other Azure container options](/azure/container-apps/compare-options)
-- [General architectural considerations for choosing an Azure container service](../../guide/container-service-general-considerations.md)
+- [General architectural considerations to choose an Azure container service](../../guide/container-service-general-considerations.md)
 
 The following articles compare Azure and AWS core platform components and capabilities:
 
