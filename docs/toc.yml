@@ -263,20 +263,12 @@ items:
       href: antipatterns/synchronous-io/index.md
   - name: Responsible engineering
     items:
-    - name: Responsible innovation
-      items:
-      - name: Overview
-        href: guide/responsible-innovation/index.md
-      - name: Harms modeling
-        items:
-        - name: Understand harm
-          href: guide/responsible-innovation/harms-modeling/index.md
-        - name: Assess types of harm
-          href: guide/responsible-innovation/harms-modeling/type-of-harm.md
-    - name: Responsible AI
-      items:
-      - name: Guidelines for human-AI interaction
-        href: /ai/guidelines-human-ai-interaction/?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
+    - name: Overview
+      href: guide/responsible-innovation/index.md
+    - name: Understand potential harms
+      href: guide/responsible-innovation/harms-modeling/index.md
+    - name: Implement AI responsibly when you use Azure AI services
+      href: /azure/ai-services/responsible-use-of-ai-overview
     - name: Measure Azure app sustainability
       href: example-scenario/apps/measure-azure-app-sustainability-sci-score.yml
   - name: Architecture for SaaS and multitenancy
@@ -360,25 +352,25 @@ items:
         - name: AKS for Amazon EKS professionals
           href: aws-professional/eks-to-aks/index.md
         - name: Identity and access management
-          href: aws-professional/eks-to-aks/workload-identity.yml
+          href: aws-professional/eks-to-aks/workload-identity.md
         - name: Cluster monitoring and logging
-          href: aws-professional/eks-to-aks/monitoring.yml
+          href: aws-professional/eks-to-aks/monitoring.md
         - name: Network topologies and security
-          href: aws-professional/eks-to-aks/private-clusters.yml
+          href: aws-professional/eks-to-aks/private-clusters.md
         - name: Storage options
           href: aws-professional/eks-to-aks/storage.md
         - name: Cost management and optimization
-          href: aws-professional/eks-to-aks/cost-management.yml
+          href: aws-professional/eks-to-aks/cost-management.md
         - name: Agent node management
-          href: aws-professional/eks-to-aks/node-pools.yml
+          href: aws-professional/eks-to-aks/node-pools.md
         - name: Cluster governance
           href: aws-professional/eks-to-aks/governance.md
       - name: Migration from AWS
         items:
         - name: Containers
           items:
-          - name: Migrate Amazon EKS to Azure Kubernetes Service (AKS)
-            href: aws-professional/eks-to-aks/migrate-eks-to-aks.md
+          - name: Migrate Amazon EKS to AKS
+            href: aws-professional/eks-to-aks/migrate.md
       - name: Security for AWS
         items:
         - name: Microsoft security for AWS

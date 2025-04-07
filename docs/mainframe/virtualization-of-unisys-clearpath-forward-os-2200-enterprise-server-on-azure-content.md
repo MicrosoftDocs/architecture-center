@@ -120,7 +120,7 @@ You can optimize your operational efficiency by deploying your solution with Azu
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Unisys matches the operational performance in Azure with Developer Studio. Choose the gold or platinum tier based on your specific workload and operational requirements. Use Developer Studio to increase the speed of tasks, including new code development, queries, and report generation.
+Unisys matches operational performance in Azure with Bronze, Silver, Gold, Platinum, and Titanium offerings to match client workload to operational needs.  Unisys virtualization on Azure enhances performance efficiency through Azure Monitor and [the Performance Diagnostics (PerfInsights) tool](/troubleshoot/azure/virtual-machines/windows/how-to-use-perfinsights). These tools enable real-time optimization and proactive issue resolution for improved workload management.
 
 ## Contributors
 
