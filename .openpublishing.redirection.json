@@ -286,6 +286,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/mainframe-access-azure-databases.yml",
+      "redirect_url": "/host-integration-server/core/configuring-db2-for-z-os",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/framework/scalability/data-management.md",
       "redirect_url": "/azure/architecture/framework/Scalability/overview",
       "redirect_document_id": false
@@ -4346,6 +4351,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/responsible-innovation/harms-modeling/type-of-harm.md",
+      "redirect_url": "/azure/architecture/guide/responsible-innovation/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/hybrid/aks-hybrid-stack-hci.yml",
       "redirect_url": "/azure/architecture/example-scenario/hybrid/aks-hybrid-azure-local",
       "redirect_document_id": true
@@ -7242,11 +7252,6 @@
     {
       "source_path": "docs/databases/architecture/n-tier-cassandra.yml",
       "redirect_url": "/azure/managed-instance-apache-cassandra/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/example-scenario/mainframe/mainframe-replication-precisely-connect.yml",
-      "redirect_url": "/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure",
       "redirect_document_id": false
     },
     {

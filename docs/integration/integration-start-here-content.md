@@ -54,7 +54,6 @@ To explore patterns to incorporate into your design, consult resources in the fo
 #### Mainframe migration
 
 - [Integrate IBM mainframe and midrange message queues with Azure][Integrate IBM mainframe and midrange message queues with Azure]: Use a data-first technique that provides a way for IBM mainframe and midrange message queues to work with Azure services.
-- [Mainframe access to Azure databases][Mainframe access to Azure databases]: Give IBM mainframe and midrange applications access to remote Azure databases.
 
 ### Service selectors
 
@@ -155,7 +154,6 @@ The following resources provide practical recommendations and information for sp
 [Integrate IBM mainframe and midrange message queues with Azure]: ../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
 [Integration design for Dynamics 365 solutions]: /training/modules/integration
 [Integration Services]: https://azure.microsoft.com/product-categories/integration
-[Mainframe access to Azure databases]: ../solution-ideas/articles/mainframe-access-azure-databases.yml
 [Messaging services on Azure and AWS]: ../aws-professional/messaging.md
 [Migrate a web app using Azure APIM]: ../example-scenario/apps/apim-api-scenario.yml
 [Monitor Azure Functions and Event Hubs]: ../serverless/event-hubs-functions/observability.yml

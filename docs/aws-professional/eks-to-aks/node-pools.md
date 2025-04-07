@@ -9,6 +9,9 @@ ms.subservice: architecture-guide
 ms.custom:
   - devx-track-azurecli
   - arb-containers
+ms.collection:
+  - migration
+  - aws-to-azure
 categories:
   - containers
   - compute

@@ -2,7 +2,7 @@
 metadata:
   title: Administer SQL Server with Azure Arc
   description: Learn how to use Azure Arc for management, maintenance, and monitoring of SQL Server instances in on-premises and multicloud environments.
-  author: martinekuan
+  author: RobBagby
   ms.author: pnp
   ms.date: 07/26/2022
   ms.topic: reference-architecture

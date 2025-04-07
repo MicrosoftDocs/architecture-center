@@ -8,6 +8,9 @@ ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers
+ms.collection:
+  - migration
+  - aws-to-azure
 categories:
   - containers
   - management-and-governance

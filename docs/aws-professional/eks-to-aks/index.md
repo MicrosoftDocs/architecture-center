@@ -6,10 +6,11 @@ ms.author: paolos
 ms.date: 01/28/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
+ms.collection: 
+ - migration
+ - aws-to-azure
 ms.custom:
   - arb-containers
-  - migration
-  - aws-to-azure
 categories:
   - containers
   - compute

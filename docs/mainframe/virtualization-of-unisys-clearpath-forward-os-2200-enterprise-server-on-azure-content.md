@@ -2,9 +2,9 @@ This article describes how to use virtualization technologies from Unisys, a Mic
 
 ## Architecture
 
-**Example source (premigration) architecture**: The following architecture illustrates a typical, on-premises Unisys CPF Dorado (Sperry 1100/2200) enterprise server.
+**Example source (premigration) architecture**: The following architecture illustrates a typical, on-premises Unisys CPF Dorado (2200) enterprise server.
 
-:::image type="content" source="./images/unisys-clearpath-forward-os-2200-mainframe-rehost-diagram-premigration.svg" alt-text="Diagram of the premigration architecture." lightbox="./images/unisys-clearpath-forward-os-2200-mainframe-rehost-diagram-premigration.svg" border="false":::
+:::image type="content" source="./images/unisys-clearpath-forward-os-2200-mainframe-rehost-premigration.svg" alt-text="Diagram of the premigration architecture." lightbox="./images/unisys-clearpath-forward-os-2200-mainframe-rehost-premigration.svg" border="false":::
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/unisys-clearpath-forward-OS-2200-mainframe-rehost-diagram-premigration.vsdx) of this architecture.*
 
@@ -27,10 +27,10 @@ Numeric callouts 1, 2, and 3 are used in both diagrams to highlight the similari
 
 ### Components
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure offers. A Virtual Machine gives you the flexibility of virtualization without you having to buy and maintain physical hardware.
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, such as Virtual Machines, to securely communicate with each other, the internet, and on-premises networks. Virtual Network is similar to a traditional network that operates in your own datacenter but with the added benefits of Azure's infrastructure, such as scale, availability, and isolation. [Network interface cards (NICs)](/azure/virtual-network/virtual-network-network-interface) enable a VM to communicate with the internet, Azure, and on-premises resources. For example, you can add more NICs to the same VM, which allows the Solaris child VMs to have their own dedicated network interface device and IP address.
-- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Azure and Microsoft 365.
-- [Azure Site Recovery](/azure/site-recovery/) enables Azure region-to-region failover for DR if a primary region outage occurs.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure offers. In this architecture, an Azure VM gives you the flexibility of virtualization without the need to buy and maintain physical hardware. The VM hosts the Unisys ClearPath Forward OS 2200 enterprise server and performs the same function as the on-premises physical or virtual hardware that currently hosts the server.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure. In this architecture, Virtual Network enables many types of Azure resources, such as VMs, to securely communicate with each other, the internet, and on-premises networks. Virtual Network is similar to a traditional network that operates in your own datacenter but with the benefit of the Azure infrastructure, such as scale, availability, and isolation. [Network interface cards (NICs)](/azure/virtual-network/virtual-network-network-interface) enable a VM to communicate with the internet, Azure, and on-premises resources, replicating the network infrastructure of the on-premises environment. For example, you can add more NICs to the same VM, which allows the Solaris child VMs to have their own dedicated network interface device and IP address. 
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. In this architecture, ExpressRoute provides a private connection between the on-premises networks and Azure or Microsoft 365. It allows secure and reliable connectivity for the migrated Unisys ClearPath Forward OS 2200 enterprise server.
+- [Azure Site Recovery](/azure/site-recovery/) enables Azure region-to-region failover for disaster recovery (DR) if a primary region outage occurs. In this architecture, Site Recovery DR capabilities mirror the Azure VMs to a secondary Azure region. These capabilities facilitate a quick failover in the rare case of an Azure datacenter failure. 
 
 ### Alternatives
 
@@ -43,7 +43,7 @@ Other ways to transfer data and processes to Azure include:
 
 ## Scenario details
 
-The Unisys enterprise servers trace their heritage to the first commercially available enterprise servers. The Unisys CPF Dorado (Sperry 1100/2200) and Libra (Burroughs A Series/Master Control Program) systems are full-featured enterprise server operating environments. They can scale vertically to handle mission-critical workloads. You can emulate, convert, or modernize these systems into Azure. Azure offers similar or even improved performance characteristics and service-level agreement (SLA) metrics.
+The Unisys enterprise servers trace their heritage to the first commercially available enterprise servers. The Unisys CPF Dorado (2200) system is a full-featured enterprise server operating environment. It can scale vertically to handle mission-critical workloads. You can emulate, convert, or modernize the system into Azure. Azure offers similar or even improved performance characteristics and service-level agreement (SLA) metrics.
 
 A Unisys transition moves the entire Dorado system from today's hardware to Azure via a VM. The 2200 Exec OS and all processors, libraries, and data appear as they did on the physical environment. The OS requires a license from Unisys. The architecture includes support VMs, which handle functions such as virtual tapes operations, automation and workload management (OpCon), web services, and other support functions. The architecture also uses Azure storage features, including:
 
@@ -52,13 +52,13 @@ A Unisys transition moves the entire Dorado system from today's hardware to Azur
 
 The benefit of this approach is a rapid move to Azure compared to other methodologies. Because hardware maintenance and facility costs are decreased, there's a quick return on investment (ROI). Because the Dorado environment is unchanged, there's no cost associated with retraining users and programmers.
 
-Depending upon your end goal, a transition can be the end state or a first step toward modernizing applications within the Dorado environment or within Azure. This approach provides a measured, planned path for updating applications. It retains the investment in the existing application code. After conversion, you can use other Unisys CloudForte and Azure data analytic services.
+Depending upon your end goal, a transition can be the end state or a first step toward modernizing applications within the Dorado environment or within Azure. This approach provides a measured, planned path for updating applications. It retains the investment in the existing application code. After conversion, you can use other Unisys and Azure data analytic services.
 
 ### Potential use cases
 
 - Move existing Unisys CPF Dorado workloads to Azure rapidly, with low risk.
 - Use [Azure Arc](https://azure.microsoft.com/services/azure-arc/) to create a DR plan for an existing on-premises workload.
-- Add Unisys CloudForte or Azure data services to existing client capabilities.
+- Add Azure data services to existing client capabilities.
 - Use Azure-based CPF to serve as a DR, test, or development environment without the need for more hardware or facility resources.
 
 ## Considerations
@@ -69,15 +69,13 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Unisys CPF in Azure uses Site Recovery to ensure system availability and consistency.
+Unisys CPF in Azure uses Azure Site Recovery to promote system availability and consistency.  Site Recovery enables Azure region-to-region failover for DR if a primary region outage occurs. DR capabilities mirror the Azure VMs to a secondary Azure region. These capabilities facilitate a quick failover in the rare case of an Azure datacenter failure.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Unisys CPF is a secure system on its own. Azure adds a layer of encryption for data at rest and in motion.
-
-Unisys Stealth technology hides endpoints. Azure offers other security controls.
+Unisys CPF is a secure system on its own. Azure adds a layer of encryption for data at rest.
 
 ### Cost Optimization
 
@@ -89,21 +87,21 @@ You can also optimize your costs by following the process to right-size the capa
 
 To estimate the cost of Azure products and configurations, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-To learn more about Unisys CPF offerings and pricing, visit [Unisys CPF products](https://stealthsecurity.unisys.com/solutions/clearpath-forward/).
+To learn more about Unisys CPF offerings and pricing, visit [Unisys CPF products](https://www.unisys.com/solutions/clearpath-forward/).
 
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Unisys demonstrates operational excellence by presenting a known environment to the staff, while including new services like Site Recovery to provide DR failover.
+Unisys demonstrates operational excellence by presenting a known environment to the staff, while including new services like Azure Site Recovery to provide DR failover.
 
-You can optimize your operational efficiency by deploying your solution with Azure Resource Manager templates and by using Azure Monitor to measure and improve your performance. See the Well-Architected Framework's [Operational excellence principles](/azure/architecture/framework/devops/principles) and [Monitoring for DevOps](/azure/architecture/framework/devops/checklist).
+You can optimize your operational efficiency by deploying your solution with Azure Resource Manager templates and by using Azure Monitor to measure and improve your performance. For more information, see [DevOps architecture design](/azure/architecture/guide/devops/devops-start-here).
 
 ### Performance Efficiency
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Unisys matches the operational performance in Azure with Developer Studio. You can use the gold or platinum tier depending on your workload and operational needs. Use Developer Studio to increase the speed of tasks including new code development, queries, report generation, and other tasks.
+Unisys matches operational performance in Azure with Bronze, Silver, Gold, Platinum, and Titanium offerings to match client workload to operational needs.  Unisys virtualization on Azure enhances performance efficiency through Azure Monitor and [the Performance Diagnostics (PerfInsights) tool](/troubleshoot/azure/virtual-machines/windows/how-to-use-perfinsights). These tools enable real-time optimization and proactive issue resolution for improved workload management.
 
 ## Contributors
 
@@ -120,17 +118,16 @@ Principal authors:
 
 For more information, contact [**legacy2azure@microsoft.com**](mailto:legacy2azure@microsoft.com), or see the following resources:
 
+- [SMA OpCon in Azure](/azure/architecture/solution-ideas/articles/sma-opcon-azure)
+- [Unisys cloud management](https://www.unisys.com/solutions/cloud-management)
+- [Unisys CPF MCP mainframe rehost to Azure using Unisys virtualization](/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost)
 - [Azure ExpressRoute documentation](/azure/expressroute/expressroute-introduction)
 - [Azure mainframe and midrange migration](https://azure.microsoft.com/migration/mainframe)
 - [Azure Virtual Network documentation](/azure/virtual-network)
 - [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface)
 - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
 - [Mainframe rehosting on Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
-- [Unisys CloudForte for Azure in Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/unisys-azuremp-stealth.cloudforte_for_azure?tab=Overview)
-- [Unisys cloud management](https://www.unisys.com/solutions/cloud-management)
-- [Unisys CPF MCP mainframe rehost to Azure using Unisys virtualization](/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost)
 - [Unisys cybersecurity](https://www.unisys.com/solutions/cybersecurity-solutions)
-- [What is Azure Files?](/azure/storage/files/storage-files-introduction)
 
 ## Related resources
 
