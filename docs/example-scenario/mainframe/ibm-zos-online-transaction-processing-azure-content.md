@@ -14,17 +14,17 @@ The following diagram shows an architecture of an OLTP system that runs on a z/O
 
 The following workflow corresponds to the preceding diagram:
 
-1. Users connect to the mainframe over TCP/IP by using standard mainframe protocols like TN3270 and HTTPS.
+1. Users connect to the mainframe over Transmission Control Protocol (TCP) or Internet Protocol (IP) by using standard mainframe protocols like TN3270 and HTTPS.
 
 1. The transaction managers interact with the users and invoke the application to satisfy user requests.
 
-1. In the front end of the application layer, users interact with the CICS/IMS screens or with webpages.
+1. In the front end of the application layer, users interact with the Customer Information Control System (CICS) or Information Management System (IMS) screens or with webpages.
 
-1. The transaction managers use the business logic written in COBOL or PL/I to implement the transactions.
+1. The transaction managers use the business logic written in Common Business-Oriented Language (COBOL) or Programming Language One (PL/I) to implement the transactions.
 
 1. Application code uses the storage capabilities of the data layer, such as DB2, IMS DB, or VSAM.
 
-1. Along with transaction processing, other services provide authentication, security, management, monitoring, and reporting. These services interact with all other services in the system.
+1. In addition to transaction processing, other services provide authentication, security, management, monitoring, and reporting. These services interact with all other services in the system.
 
 The following diagram shows how to migrate this architecture to Azure.
 
@@ -34,17 +34,17 @@ The following diagram shows how to migrate this architecture to Azure.
 
 *Download a [Visio file](https://arch-center.azureedge.net/ibm-zos-online-transaction-processing-on-azure.vsdx) of this architecture.*
 
-1. Mainframe users are familiar with 3270 terminals and on-premises connectivity. In the migrated system, they interact with Azure applications via the public internet or via a private connection implemented via Azure ExpressRoute. Microsoft Entra ID provides authentication.
+1. Mainframe users are familiar with 3270 terminals and on-premises connectivity. In the migrated system, they interact with Azure applications via the public internet or via a private connection that's implemented via Azure ExpressRoute. Microsoft Entra ID provides authentication.
 1. Input requests go to a global load balancer service, like Azure Front Door or Azure Traffic Manager. The load balancer can serve a geographically spread user base. It routes the requests according to rules defined for the supported workloads. These load balancers can coordinate with Azure Application Gateway or Azure Load Balancer to load balance the application layer. The Azure Content Delivery Network service caches static content in edge servers for quick response. A web application firewall (WAF) helps secure the service.
 1. The front end of the application layer uses Azure services like Azure App Service to implement application screens and to interact with users. The screens are migrated versions of the mainframe screens.
 1. COBOL and PL/I code in the back end of the application layer implement the business logic. The code can use services and features like Azure Functions, WebJobs, and Azure Spring Apps microservices. Applications can run in an Azure Kubernetes Service (AKS) container.
-1. An in-memory data store accelerates high-throughput OLTP applications. One such store is In-Memory OLTP, a feature of Azure SQL Database and Azure SQL Managed Instance. Another store is Azure Cache for Redis.
+1. An in-memory data store accelerates high-throughput OLTP applications. Examples include In-Memory OLTP, which is a feature of Azure SQL Database and Azure SQL Managed Instance, and Azure Cache for Redis.
 1. The data layer can include:
 
    - Files, tables, and blobs implemented by using Azure Storage.
    - Relational databases from the Azure SQL family.
    - Azure implementations of the PostgreSQL and MySQL open-source databases.
-   - Azure Cosmos DB, a NoSQL database.
+   - Azure Cosmos DB, which is a NoSQL database.
 
    These stores hold data migrated from the mainframe for the application layer to use.
 
@@ -68,11 +68,11 @@ When you design application architecture, it's crucial to prioritize networking 
 
 - [An Azure WAF](/azure/web-application-firewall/overview) helps protect web apps from malicious attacks and common web vulnerabilities, such as SQL injection and cross-site scripting.
 
-- [Content Delivery Network](/azure/cdn/cdn-overview) caches static content in edge servers for quick response and uses network optimizations to improve response for dynamic content. Content Delivery Network is especially useful when the user base is global.
+- [Content Delivery Network](/azure/cdn/cdn-overview) caches static content in edge servers to enable rapid responses and uses network optimizations to improve response for dynamic content. Content Delivery Network is especially useful when the user base is global.
 
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is an application delivery controller service. It operates at layer 7, the application layer, and has various load-balancing capabilities.
 
-- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a layer 4 (TCP or UDP) load balancer. In this architecture, it provides load balancing options for Azure Spring Apps and AKS.
+- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a layer 4 (TCP or User Datagram Protocol) load balancer. In this architecture, it provides load balancing options for Azure Spring Apps and AKS.
 
 #### Application
 
@@ -86,7 +86,7 @@ Azure provides managed services that support more secure, scalable, and efficien
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS simplifies deployment of a managed AKS cluster in Azure by offloading the operational overhead to Azure.
 
-- [Azure Spring Apps](/azure/spring-apps/basic-standard/overview) is a fully managed Spring service, jointly built and operated by Microsoft and VMware. Use it to easily deploy, manage, and run Spring microservices and write Spring applications by using Java or .NET.
+- [Azure Spring Apps](/azure/spring-apps/basic-standard/overview) is a fully managed Spring service, jointly built and operated by Microsoft and VMware. You can use Azure Spring Apps to easily deploy, manage, and run Spring microservices and write Spring applications by using Java or .NET.
 
 - [Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a reliable cloud messaging service for simple hybrid integration. Service Bus and Storage queues can connect the front end with the business logic in the migrated system.
 
@@ -99,13 +99,13 @@ This architecture addresses scalable and more secure cloud storage as well as ma
 
 - [Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a set of massively scalable and more secure cloud services for data, apps, and workloads. It includes [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues). Azure Files is an effective tool for migrating mainframe workloads.
 
-- [Azure SQL](/azure/azure-sql/) is a family of SQL cloud databases that provides flexible options for application migration, modernization, and development. The family includes:
+- [Azure SQL](/azure/azure-sql/) is a family of SQL cloud databases that provides flexible options for application migration, modernization, and development. This family includes:
   - [SQL Server on Azure Virtual Machines (VMs)](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
   - [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability)
   - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework)
   - [Azure SQL Edge](/azure/azure-sql-edge/overview)
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service that provides open-source APIs for MongoDB and Cassandra. One application for Azure Cosmos DB is to migrate mainframe, nontabular data to Azure.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service that provides open-source APIs for MongoDB and Cassandra. You can use Azure Cosmos DB to migrate mainframe, nontabular data to Azure.
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed, intelligent, and scalable PostgreSQL that has native connectivity with Azure services.
 
@@ -118,12 +118,12 @@ This architecture addresses scalable and more secure cloud storage as well as ma
 The following monitoring tools provide comprehensive data analysis and valuable insights into application performance.
 
 - [Azure Monitor](/azure/azure-monitor/overview) collects, analyzes, and acts on personal data from your Azure and on-premises environments.
+   
+   Azure Monitor alerts are a feature of Monitor. For more information, see [Create, view, and manage metric alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-metric).
 
 - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a tool in the Azure portal that you use to query Azure Monitor Logs by using a powerful query language. You can interact with the results of your queries or use them with other Azure Monitor features, such as log query alerts or workbooks. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
 
 - [Application Insights](/azure/well-architected/service-guides/application-insights) is a feature of Azure Monitor that provides code-level monitoring of application usage, availability, and performance. It monitors the application, detects anomalies such as mediocre performance and failures, and sends personal data to the Azure portal. You can also use Application Insights for logging, distributed tracing, and custom application metrics.
-
-- Azure Monitor alerts are a feature of Monitor. For more information, see [Create, view, and manage metric alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-metric).
 
 ## Scenario details
 
@@ -131,7 +131,7 @@ Because of evolving business needs and data, applications must scale and produce
 
 ### Potential use cases
 
-This architecture is ideal for OLTP workloads that have these characteristics:
+This architecture is ideal for OLTP workloads that have the following characteristics:
 
 - They serve an international user base.
 
@@ -199,7 +199,7 @@ Principal authors:
 
 ## Related resources
 
-See the following related architectures and related technical information:
+See the following related architectures and related technical information.
 
 ### Related architectures
 
