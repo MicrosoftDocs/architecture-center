@@ -78,8 +78,6 @@ Both platforms provide solutions for managing hybrid identity scenarios, integra
 
 Both platforms provide identity services to secure application access and API authentication. These services manage user authentication, application permissions, and API access controls through identity-based mechanisms. The [Microsoft identity platform](/entra/identity-platform/) serves as Azure's unified framework for authentication and authorization across applications, APIs, and services, implementing standards like OAuth 2.0 and OpenID Connect (OIDC). AWS offers similar capabilities through [Amazon Cognito](https://aws.amazon.com/cognito/) as part of its identity suite.
 
-### Core platform comparisons
-
 | AWS Service | Microsoft Service | Description |
 |-------------|------------------|-------------|
 |[Amazon Cognito](https://aws.amazon.com/cognito/) + [AWS Amplify Auth](https://aws.amazon.com/amplify/authentication/) + [AWS STS](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html) |[Microsoft identity platform](/entra/identity-platform/v2-overview) | Comprehensive identity platform providing authentication, authorization, and user management for applications and APIs. Both implement OAuth 2.0 and OpenID Connect (OIDC) standards but with different architectural approaches. |
