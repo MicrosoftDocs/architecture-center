@@ -4346,6 +4346,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/responsible-innovation/harms-modeling/type-of-harm.md",
+      "redirect_url": "/azure/architecture/guide/responsible-innovation/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/hybrid/aks-hybrid-stack-hci.yml",
       "redirect_url": "/azure/architecture/example-scenario/hybrid/aks-hybrid-azure-local",
       "redirect_document_id": true
