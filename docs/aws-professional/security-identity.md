@@ -78,7 +78,7 @@ Both platforms provide solutions for managing hybrid identity scenarios, integra
 
 Both platforms provide identity services to secure application access and API authentication. These services manage user authentication, application permissions, and API access controls through identity-based mechanisms. The [Microsoft identity platform](/entra/identity-platform/) serves as Azure's unified framework for authentication and authorization across applications, APIs, and services, implementing standards like OAuth 2.0 and OpenID Connect (OIDC). AWS offers similar capabilities through [Amazon Cognito](https://aws.amazon.com/cognito/) as part of its identity suite.
 
-| AWS Service | Microsoft Service | Description |
+| AWS Service | Microsoft service | Description |
 |-------------|------------------|-------------|
 |[Amazon Cognito](https://aws.amazon.com/cognito/) + [AWS Amplify Auth](https://aws.amazon.com/amplify/authentication/) + [AWS STS](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html) |[Microsoft identity platform](/entra/identity-platform/v2-overview) | Comprehensive identity platform providing authentication, authorization, and user management for applications and APIs. Both implement OAuth 2.0 and OpenID Connect (OIDC) standards but with different architectural approaches. |
 
@@ -89,14 +89,14 @@ Both platforms provide identity services to secure application access and API au
 
 ### Developer SDK and libraries
 
-| AWS Service | Microsoft Service | Description |
+| AWS Service | Microsoft service | Description |
 |-------------|------------------|-------------|
 | [AWS Amplify Authentication libraries](https://aws.amazon.com/amplify/authentication/) | [Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview) | Client libraries for implementing authentication flows. MSAL provides a unified SDK across multiple platforms and languages, while AWS offers separate implementations through Amplify. |
 | [AWS SDK for JavaScript/Java/Python/etc.](https://aws.amazon.com/developer/tools/) | [MSAL JavaScript/Java/.NET/Python/etc.](/entra/identity-platform/msal-overview#msal-languages-and-frameworks) | Language-specific SDKs to implement authentication. Microsoft's approach offers a high level of consistency across programming languages. |
 
 ### OAuth 2.0 flow implementation
 
-| AWS Service | Microsoft Service | Description |
+| AWS Service | Microsoft service | Description |
 |-------------|------------------|-------------|
 | [Amazon Cognito OAuth 2.0 grants](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-integrate-apps.html) | [Microsoft identity platform authentication flows](/entra/identity-platform/authentication-flows-app-scenarios) | Both support standard OAuth 2.0 flows including Authorization Code, Implicit, Client Credentials, and Device Code. |
 | [Cognito User Pools authorization code flow](https://docs.aws.amazon.com/cognito/latest/developerguide/authentication.html) | [Microsoft identity platform authorization code flow](/entra/identity-platform/v2-oauth2-auth-code-flow) | Implementation of the secure redirect-based OAuth flow for web applications. |
@@ -105,7 +105,7 @@ Both platforms provide identity services to secure application access and API au
 
 ### Identity provider integration
 
-| AWS Service | Microsoft Service | Description |
+| AWS Service | Microsoft service | Description |
 |-------------|------------------|-------------|
 | [Cognito Identity Provider Federation](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-integrate-apps.html) | [Microsoft identity platform external identity providers](/entra/identity-platform/v2-overview) | Support for social and enterprise identity providers through OIDC and SAML protocols. |
 | [Cognito User Pools social sign-in](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-integrate-apps.html) | [Microsoft identity platform social identity providers](/entra/external-id/customers/concept-authentication-methods-customers#social-identity-providers-facebook-google-and-apple) | Integration with providers like Google, Facebook, and Apple for consumer authentication. |
@@ -113,7 +113,7 @@ Both platforms provide identity services to secure application access and API au
 
 ### Token services
 
-| AWS Service | Microsoft Service | Description |
+| AWS Service | Microsoft service | Description |
 |-------------|------------------|-------------|
 | [AWS Security Token Service (STS)](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html) | [Microsoft Entra token service](/entra/identity-platform/security-tokens) | Issues security tokens for application and service authentication. |
 | [Cognito Token customization](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-tokens.html) | [Microsoft identity platform token configuration](/entra/identity-platform/access-tokens) | Customization of JWT tokens with claims and scopes. |
@@ -121,7 +121,7 @@ Both platforms provide identity services to secure application access and API au
 
 ### Application registration and security
 
-| AWS Service | Microsoft Service | Description |
+| AWS Service | Microsoft service | Description |
 |-------------|------------------|-------------|
 | [Cognito App Client Configuration](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html) | [Microsoft Entra App Registrations](/entra/identity-platform/quickstart-register-app) | Registration and configuration of applications using the identity platform. |
 | [AWS IAM Roles for Applications](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html) | [Microsoft Entra Workload ID](/entra/workload-id/) | Managed identities for application code resource access. |
@@ -129,7 +129,7 @@ Both platforms provide identity services to secure application access and API au
 
 ### Developer Experience
 
-| AWS Service | Microsoft Service | Description |
+| AWS Service | Microsoft service | Description |
 |-------------|------------------|-------------|
 | [AWS Amplify CLI](https://docs.amplify.aws/cli/) | [Microsoft identity platform PowerShell/CLI](https://github.com/AzureAD/MSIdentityTools) | Command-line tools for identity configuration. |
 | [AWS Cognito Console](https://console.aws.amazon.com/cognito/home) | [Microsoft Entra Admin Center](https://entra.microsoft.com/) | Management interfaces for identity services. |
@@ -138,7 +138,7 @@ Both platforms provide identity services to secure application access and API au
 
 ### Platform-specific features
 
-| AWS Service | Microsoft Service | Description |
+| AWS Service | Microsoft service | Description |
 |-------------|------------------|-------------|
 | [Cognito Identity Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html) | No direct equivalent | AWS-specific approach for federating identities to AWS resources. |
 | No direct equivalent | [Azure Web Apps Easy Auth](/azure/app-service/overview-authentication-authorization) | Platform-level authentication for web applications without code changes. |
