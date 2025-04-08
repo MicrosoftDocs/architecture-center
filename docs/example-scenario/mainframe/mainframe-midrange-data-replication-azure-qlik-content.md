@@ -29,7 +29,7 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
 
 1. **Azure data services:** Azure provides the following efficient data storage services.
 
-   - **Relational databases services:**
+   - **Relational database services:**
 
      - SQL Server on Azure Virtual Machines
      - Azure SQL Database
@@ -40,7 +40,7 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
 
      There are many factors to consider when you choose a data storage service. Consider the type of workload, cross-database queries, two-phase commit requirements, the ability to access the file system, amount of data, required throughput, and latency.
 
-   - **Azure nonrelational database services:** Azure Cosmos DB, a NoSQL database, provides quick response, automatic scalability, and guaranteed speed at any scale.
+   - **Azure Cosmos DB:** Azure Cosmos DB is a NoSQL database that provides quick response, automatic scalability, and guaranteed speed at any scale.
 
    - **Azure Synapse Analytics:** Azure Synapse Analytics is an analytics service that combines data integration, enterprise data warehousing, and big data analytics. Use it to query data by using either serverless or dedicated resources at scale.
 
@@ -64,7 +64,7 @@ When you design application architecture, it's crucial to prioritize networking 
 
 Azure provides managed services that support more secure, scalable, and efficient application deployment. This architecture uses application tier services that can help you optimize your application architecture.
 
-- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service that can store Db2, IMS, and VSAM change data messages. It can receive and process millions of messages per second. Data sent to an event hub can be transformed and stored by using a real-time analytics provider or a custom adapter.
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service that can store Db2, IMS, and VSAM change data messages. It can receive and process millions of messages per second. You can transform and store event hub data by using a real-time analytics provider or a custom adapter.
 
 - [Apache Kafka](https://kafka.apache.org) is an open-source distributed event streaming platform that's used for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications. It can be easily integrated with Qlik data integration to store Db2 change data.
 
@@ -91,11 +91,9 @@ This architecture addresses scalable and more secure cloud storage as well as ma
 
 - [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed, scalable MySQL database.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service that has open-source APIs for MongoDB and Cassandra. You can use it to migrate mainframe nontabular data to Azure.
-
 #### Monitoring
 
-The monitoring tools provide comprehensive data analysis and valuable insights into application performance.
+Monitoring tools provide comprehensive data analysis and valuable insights into application performance.
 
 - [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It includes:
 
@@ -107,11 +105,11 @@ The monitoring tools provide comprehensive data analysis and valuable insights i
 
 ### Alternatives
 
-- The preceding diagram shows Qlik installed on-premises. This approach is a recommended best practice to keep Qlik close to the on-premises data sources. An alternative is to install Qlik in the cloud on an Azure virtual machine.
+- The [preceding diagram](#architecture) shows Qlik installed on-premises. This approach is a recommended best practice to keep Qlik close to the on-premises data sources. An alternative is to install Qlik in the cloud on an Azure virtual machine.
 
-- Qlik Data Integration can deliver directly to Azure Databricks without going through Kafka or an event hub.
+- Qlik Data Integration can deliver data directly to Azure Databricks without going through Kafka or an event hub.
 
-- Qlik Data Integration can't replicate directly to Azure Cosmos DB, but you can integrate Azure Cosmos DB with an event hub by using event-sourcing architecture.
+- Qlik Data Integration can't replicate data directly to Azure Cosmos DB, but you can integrate Azure Cosmos DB with an event hub by using event-sourcing architecture.
 
 ## Scenario details
 
@@ -145,7 +143,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-- ExpressRoute provides a private and efficient connection to Azure from on-premises, but you can use [site-to-site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal) instead.
+- ExpressRoute provides a private and efficient connection to Azure from on-premises, but you can use a [site-to-site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal) instead.
 
 - Azure resources can be authenticated by using Microsoft Entra ID, and permissions are managed through role-based access control.
 
@@ -175,7 +173,7 @@ You can combine Application Insights and Log Analytics features to monitor the h
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Azure Databricks, Data Lake Storage, and other Azure databases have autoscaling capabilities. For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
+Azure Databricks, Data Lake Storage, and other Azure database services have autoscaling capabilities. For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
 
 ## Contributors
 
@@ -193,14 +191,10 @@ Principal authors:
 - [Qlik Data Integration platform](https://www.qlik.com/us/data-integration/data-integration-platform)
 - [Unleash new Azure analytics initiatives (PDF data sheet)](https://pages.qlik.com/rs/049-DKK-796/images/MSFT081021_TG_Azure-Mainframe-Data_Datasheet-US_V2.pdf)
 - [What is ExpressRoute?](/azure/expressroute/expressroute-introduction)
-- [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
-- [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [Event Hubs: A real-time data streaming platform with native Apache Kafka support](/azure/event-hubs/event-hubs-about)
-- [Introduction to Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
 - [Introduction to Storage](/azure/storage/common/storage-introduction)
-- [What is Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
+- [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
 - [Azure Cosmos DB](/azure/cosmos-db/introduction)
-- [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Introduction to Application Insights with OpenTelemetry](/azure/azure-monitor/app/app-insights-overview)
 - [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs)
 - [Log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
