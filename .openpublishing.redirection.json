@@ -2325,6 +2325,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/aws-professional/eks-to-aks/migrate-eks-to-aks.md",
+      "redirect_url": "/azure/architecture/aws-professional/eks-to-aks/migrate",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/modern-data-warehouse.md",
       "redirect_url": "/azure/architecture/solution-ideas/articles/enterprise-data-warehouse",
       "redirect_document_id": false
@@ -4343,6 +4348,11 @@
     {
       "source_path": "docs/data-guide/big-data/batch-processing.yml",
       "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/responsible-innovation/harms-modeling/type-of-harm.md",
+      "redirect_url": "/azure/architecture/guide/responsible-innovation/",
       "redirect_document_id": false
     },
     {

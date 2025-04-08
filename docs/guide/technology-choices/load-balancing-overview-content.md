@@ -87,7 +87,7 @@ When your workload involves several services that require load balancing, it's i
 
 - **Infrastructure as a service (IaaS)**: A computing option where you provision the virtual machines that you need, along with associated network and storage components. IaaS applications require internal load balancing within a virtual network by using Load Balancer.
 
-- **Application-layer processing**: Refers to special routing within a virtual network. For example, path-based routing within the virtual network across VMs or virtual machine scale sets. For more information, see [When should we deploy an Application Gateway behind Azure Front Door?](/azure/frontdoor/front-door-faq#when-should-we-deploy-an-application-gateway-behind-front-door).
+- **Application-layer processing**: Refers to special routing within a virtual network. For example, path-based routing within the virtual network across VMs or virtual machine scale sets. For more information, see [When should we deploy an Application Gateway behind Azure Front Door?](/azure/frontdoor/front-door-faq#when-should-i-deploy-an-application-gateway-behind-front-door-).
 
 - **Performance acceleration**: Refers to features that accelerate web access. Performance acceleration can be achieved by using content delivery networks (CDNs) or optimized point of presence ingress for accelerated client onboarding into the destination network. Azure Front Door supports both [CDNs](/azure/frontdoor/front-door-caching?pivots=front-door-standard-premium) and [Anycast traffic acceleration](/azure/frontdoor/front-door-traffic-acceleration?pivots=front-door-standard-premium). The benefits of both features can be gained with or without Application Gateway in the architecture.
 
@@ -95,7 +95,8 @@ When your workload involves several services that require load balancing, it's i
 
 Each load balancing service also has capability support or implementation details that need also be considered. Here are some examples that might be relevant for your load balancing scenario.
 
-- Web Sockets support
+- WebSockets support
+- Server-sent events (SSE) support
 - HTTP/2 support (both receiving and continuing to backend nodes)
 - Sticky session support
 - Backend node health monitoring mechanism
