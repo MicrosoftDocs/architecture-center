@@ -218,7 +218,7 @@ Principal authors:
 
 ## Next steps
 
-- [SAP S/4HANA in Linux on Azure](./sap-s4hana.yml)
+- [SAP S/4HANA in Linux on Azure](./sap-s4hana.md)
 - [Run SAP NetWeaver in Windows on Azure](./sap-netweaver.yml)
 - [Run SAP HANA in a scale-up architecture on Azure](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)
 - [Cloud Adoption Framework - SAP scenario](/azure/cloud-adoption-framework/scenarios/sap/)

@@ -19,6 +19,8 @@ categories:
 
 <!-- cSpell:ignore lbrader HANA Fiori -->
 
+# SAP S/4HANA in Linux on Azure
+
 This guide presents a set of proven practices for running S/4HANA and Suite on HANA in a high availability (HA) environment that supports disaster recovery (DR) on Azure. The Fiori information applies only to S/4HANA applications.
 
 ## Architecture
