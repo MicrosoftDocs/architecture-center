@@ -65,7 +65,7 @@ The following new and updated articles have recently been published in the Azure
 - [Choose an Azure AI targeted language processing technology](./data-guide/ai-services/targeted-language-processing.md)  ([#f06888ac2d](https://github.com/MicrosoftDocs/architecture-center/commit/f06888ac2d))
 - [Choose an Azure AI services technology](./data-guide/technology-choices/ai-services.md)  ([#f06888ac2d](https://github.com/MicrosoftDocs/architecture-center/commit/f06888ac2d))
 - [Azure Load Testing with Custom Plugins for Event Hubs and IoT Hub to Simulate Device Behaviors](./guide/testing/load-testing/load-testing-with-custom-plugins.md)  ([#3a29cb946a](https://github.com/MicrosoftDocs/architecture-center/commit/3a29cb946a))
-- [SAP S/4HANA in Linux on Azure](./guide/sap/sap-s4hana.yml)  ([#8fc4e24a05](https://github.com/MicrosoftDocs/architecture-center/commit/8fc4e24a05))
+- [SAP S/4HANA in Linux on Azure](./guide/sap/sap-s4hana.md)  ([#8fc4e24a05](https://github.com/MicrosoftDocs/architecture-center/commit/8fc4e24a05))
 - [AKS Day-2 Guide: Patch and Upgrade Guidance](./operator-guides/aks/aks-upgrade-practices.md)  ([#30e9a98045](https://github.com/MicrosoftDocs/architecture-center/commit/30e9a98045))
 - [Computer Forensics Chain of Custody in Azure](./example-scenario/forensics/index.yml)  ([#6e2cbe16b8](https://github.com/MicrosoftDocs/architecture-center/commit/6e2cbe16b8))
 - [SAP workload automation using SUSE on Azure](./solution-ideas/articles/sap-workload-automation-suse.yml)  ([#4e286e8b49](https://github.com/MicrosoftDocs/architecture-center/commit/4e286e8b49))
