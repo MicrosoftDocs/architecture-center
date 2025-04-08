@@ -101,7 +101,7 @@ For more information about SAP support for Azure VM types and for throughput met
 
 ### SAP Web Dispatcher
 
-The Web Dispatcher component is used for load balancing SAP traffic among the SAP application servers. To achieve [HA of SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw74/7.4.16/en-us/48/9a9a6b48c673e8e10000000a42189b/content.htm?no_cache=true), Azure Load Balancer implements either a failover cluster or the parallel Web Dispatcher setup. For internet-facing communications, a stand-alone solution in the perimeter network is the recommended architecture to address security requirements. [Embedded Web Dispatcher on ASCS](https://help.sap.com/docs/SLTOOLSET/23fb4d5eb15b421fa17e60f444b4b0da/2e708e2d42134b4baabdfeae953b24c5.html?version=CURRENT_VERSION) is an advanced configuration. If you use this configuration, consider proper sizing because of the extra workload on ASCS.
+The Web Dispatcher component is used for load balancing SAP traffic among the SAP application servers. To achieve [HA of SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw74/7.4.16/48/9a9a6b48c673e8e10000000a42189b/content.htm?no_cache=true), Azure Load Balancer implements either a failover cluster or the parallel Web Dispatcher setup. For internet-facing communications, a stand-alone solution in the perimeter network is the recommended architecture to address security requirements. [Embedded Web Dispatcher on ASCS](https://help.sap.com/docs/SLTOOLSET/23fb4d5eb15b421fa17e60f444b4b0da/2e708e2d42134b4baabdfeae953b24c5.html?version=CURRENT_VERSION) is an advanced configuration. If you use this configuration, consider proper sizing because of the extra workload on ASCS.
 
 ### Fiori front-end server (FES)
 
@@ -147,7 +147,7 @@ Azure NICs support multiple IP addresses. This support aligns with the practice 
 
 This architecture divides the virtual network address space into subnets. You can associate each subnet with an NSG that defines the access policies for the subnet. Place application servers on a separate subnet. This approach makes it easier to secure application servers by managing the subnet security policies instead of the individual servers.
 
-When you associate an NSG with a subnet, the NSG applies to all the servers within the subnet and provides fine-grained control over the servers. Set up NSGs by using the [Azure portal](/azure/virtual-network/tutorial-filter-network-traffic?tabs=portal&preserve-view=true), [Azure PowerShell](/azure/virtual-network/tutorial-filter-network-traffic?tabs=powershell&preserve-view=true), or the [Azure CLI](/azure/virtual-network/tutorial-filter-network-traffic?tabs=cli&preserve-view=true).
+When you associate an NSG with a subnet, the NSG applies to all the servers within the subnet and provides fine-grained control over the servers. Set up NSGs by using the [Azure portal](/azure/virtual-network/tutorial-filter-network-traffic?tabs=portal#tabpanel_1_portal), [Azure PowerShell](/azure/virtual-network/tutorial-filter-network-traffic?tabs=powershell#tabpanel_1_powershell), or the [Azure CLI](/azure/virtual-network/tutorial-filter-network-traffic?tabs=cli#tabpanel_1_cli).
 
 ### ExpressRoute Global Reach
 
@@ -234,7 +234,7 @@ As customer deployments on Azure have grown over the years, Microsoft has enhanc
 
 ### Web Dispatcher in the application servers tier
 
-You can achieve HA by using redundant Web Dispatcher instances. For more information, see [SAP Web Dispatcher](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/202110.001/en-US/488fe37933114e6fe10000000a421937.html?q=SAP%20Web%20Dispatcher). The availability level depends on the size of the application that's behind Web Dispatcher. In small deployments that have few scalability concerns, you can colocate Web Dispatcher with the ASCS VMs. This approach helps you save on independent operating system maintenance and gain HA at the same time.
+You can achieve HA by using redundant Web Dispatcher instances. For more information, see [SAP Web Dispatcher](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/202110.001/488fe37933114e6fe10000000a421937.html?q=SAP%20Web%20Dispatcher). The availability level depends on the size of the application that's behind Web Dispatcher. In small deployments that have few scalability concerns, you can colocate Web Dispatcher with the ASCS VMs. This approach helps you save on independent operating system maintenance and gain HA at the same time.
 
 ### Central Services in the application servers tier
 
@@ -357,7 +357,7 @@ Azure Center for SAP solutions is an end-to-end solution that enables you to cre
 
 ### Backup
 
-You can back up SAP HANA data in many ways. After you migrate to Azure, continue to use any existing backup solutions that you have. Azure provides two native approaches to backup. You can back up [SAP HANA on VMs or use Azure Backup at the file level](/azure/virtual-machines/workloads/sap/sap-hana-backup-guide). Azure Backup is [Backint certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:e062231e-9fb7-4ea8-b7d2-e6fe448c592d) by SAP. For more information, see [Azure Backup FAQ](/azure/backup/backup-azure-backup-faq) and [Support matrix for backup of SAP HANA databases on Azure VMs](/azure/backup/sap-hana-backup-support-matrix).
+You can back up SAP HANA data in many ways. After you migrate to Azure, continue to use any existing backup solutions that you have. Azure provides two native approaches to backup. You can back up [SAP HANA on VMs or use Azure Backup at the file level](/azure/virtual-machines/workloads/sap/sap-hana-backup-guide). Azure Backup is [Backint certified](/azure/backup/azure-backup-architecture-for-sap-hana-backup) by SAP. For more information, see [Azure Backup FAQ](/azure/backup/backup-azure-backup-faq) and [Support matrix for backup of SAP HANA databases on Azure VMs](/azure/backup/sap-hana-backup-support-matrix).
 
 > [!NOTE]
 > Only HANA single-container or scale-up deployments support Azure storage snapshots.
