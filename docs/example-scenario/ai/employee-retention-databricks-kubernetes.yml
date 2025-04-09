@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Employee retention with Databricks and Kubernetes
+  description: Learn how to build, deploy, and monitor a machine learning model for employee attrition that can be integrated with external applications using Databricks and Kubernetes.
+  author: FreddyAyala
+  ms.author: freddyayala
+  ms.date: 05/28/2024
+  ms.collection: ce-skilling-ai-copilot
+  ms.topic: example-scenario
+  ms.service: azure-architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - arb-data
+    - arb-aiml
+azureCategories:
+  - ai-machine-learning
+products:
+  - azure-databricks
+  - azure-kubernetes-service
+  - azure-container-registry
+  - azure-storage
+  - azure-monitor
+name: Employee retention with Databricks and Kubernetes
+summary: Learn how to build, deploy, and monitor a machine learning model for employee attrition that can be integrated with external applications using Databricks and Kubernetes.
+thumbnailUrl: /azure/architecture/browse/thumbs/employee-retention-databricks-kubernetes.png
+content: |
+  [!INCLUDE[](employee-retention-databricks-kubernetes-content.md)]
