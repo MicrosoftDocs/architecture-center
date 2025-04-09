@@ -27,11 +27,11 @@ Generative AI workloads differ from traditional machine learning workloads in a 
 
 - **Focus on generative models.** Traditional machine learning workloads focus on training new models that are trained to perform specific tasks. Generative AI workloads consume generative models that can address a wider variety of use cases, and in some cases are multi-modal.
 
-- **Focus on extending the models.** The key asset in traditional machine learning is the trained and deployed model. Access to the model is provided to client code in one or more workloads, but the workload typically isn't part of the MLOps process. With generative AI solutions, a key facet of the solution is the prompt that's provided to the generative model. The prompt must be composed of instructions and often contains context data from one or more data stores. The system that orchestrates the logic, calls to the various back ends or agents, generates the prompt, and calls to the generative model is part of the generative AI system that you govern with GenAIOps.
+- **Focus on extending the models.** The key asset in traditional machine learning is the trained and deployed model. Access to the model is provided to client code in one or more workloads, but the workload typically isn't part of the MLOps process. With generative AI solutions, a key facet of the solution is the prompt provided to the generative model. The prompt must be composed of instructions and often contains context data from one or more data stores. The system that orchestrates the logic, calls to the various back ends or agents, generates the prompt, and calls to the generative model is part of the generative AI system that you govern with GenAIOps.
 
 Although some generative AI solutions use traditional machine learning practices like model training and fine-tuning, these solutions introduce new patterns that you should standardize. There are three broad categories of technical patterns for generative AI solutions:
 
-- Pre-training and fine-tuning
+- Pretraining and fine-tuning
 - Prompt engineering
 - Retrieval-augmented generation (RAG)
 
@@ -43,7 +43,7 @@ Training a new SLM and fine-tuning a generative foundation model are logically t
 
 ### Prompt engineering
 
-Prompt engineering includes all the processes involved in designing an effective prompt that's sent as input to a generative model. There's generally an orchestrator that controls a workflow that generates the prompt. The orchestrator can call into any number of data stores directly or indirectly through agents to gather information, like grounding data, and apply the required logic to generate the most effective prompt. The orchestrator is then deployed as an API endpoint that's accessed by client code in an intelligent application.
+Prompt engineering includes all the processes involved in designing an effective prompt sent as input to a generative model. There's generally an orchestrator that controls a workflow that generates the prompt. The orchestrator can call into any number of data stores directly or indirectly through agents to gather information, like grounding data, and apply the required logic to generate the most effective prompt. The orchestrator is then deployed as an API endpoint that's accessed by client code in an intelligent application.
 
 The following diagram shows an architecture for prompt engineering.
 
@@ -102,7 +102,7 @@ As with training and fine-tuning, you can use Azure Machine Learning pipelines o
 
 ##### Search index maintenance
 
-You also must extend your operations to maintain the freshness and validity of the search indexes in your data stores. These indexes might need to be periodically rebuilt if you cannot incrementally add, remove, or update data in place. Index updates must follow the business requirements on data freshness, obtain non-functional requirements such as performance or availability impact of reindexing, and compliance requirements such as *right to be forgotten* requests. You will need to extend your existing MLOps process to account for this data management activity.
+You also must extend your operations to maintain the freshness and validity of the search indexes in your data stores. These indexes might need to be periodically rebuilt if you can't incrementally add, remove, or update data in place. Index updates must follow the business requirements on data freshness, obtain nonfunctional requirements such as performance or availability impact of reindexing, and compliance requirements such as *right to be forgotten* requests. You need to extend your existing MLOps process to account for this data management activity.
 
 ### Experimentation
 
@@ -116,7 +116,7 @@ When you fine-tune an existing language model or train a small language model, y
 
 Experimentation with prompt engineering and RAG workloads requires you to extend your MLOps investments. For these technical patterns, the workload doesn't end with the model. The workload requires an orchestrator, which is a system that can run logic, call data stores or agents for required information like grounding data, generate prompts, call language models, and more. The data stores and the indexes in the stores are also part of the workload. You need to extend your operations to govern these aspects of the workload.
 
-You can experiment on multiple dimensions for prompt engineering solutions, including different instructions, personas, examples, constraints, and advanced techniques like prompt chaining. When you [experiment with RAG solutions](rag/rag-solution-design-and-evaluation-guide.md), you can experiment with additional areas:
+You can experiment on multiple dimensions for prompt engineering solutions, including different instructions, personas, examples, constraints, and advanced techniques like prompt chaining. When you [experiment with RAG solutions](rag/rag-solution-design-and-evaluation-guide.md), you can experiment with other areas as well:
 
 - Chunking strategy
 - What and how to enrich chunks
@@ -166,7 +166,7 @@ You should use your existing MLOps investments, with some possible adjustments, 
 
 #### RAG and prompt engineering
 
-For RAG and prompt engineering, there are additional concerns, including orchestration logic, changes to data stores like indexes and schemas, and changes to data pipeline logic. Orchestration logic is typically encapsulated in frameworks like prompt flow, Semantic Kernel, or LangChain. You can deploy the orchestrator to different compute resources, including resources that you might currently deploy custom models to. See [Azure OpenAI end-to-end chat architecture](../architecture/baseline-openai-e2e-chat.yml) for examples of deploying prompt flow to either online endpoints managed by Azure Machine Learning or to Azure App Service. To deploy to App Service, the Azure OpenAI chat architecture packages the flow and its dependencies as a container, a practice that increases portability and consistency across different environments.
+For RAG and prompt engineering, there are other concerns, including orchestration logic, changes to data stores like indexes and schemas, and changes to data pipeline logic. Orchestration logic is typically encapsulated in frameworks like prompt flow, Semantic Kernel, or LangChain. You can deploy the orchestrator to different compute resources, including resources that you might currently deploy custom models to. See [Azure OpenAI end-to-end chat architecture](../architecture/baseline-openai-e2e-chat.yml) for examples of deploying prompt flow to either online endpoints managed by Azure Machine Learning or to Azure App Service. To deploy to App Service, the Azure OpenAI chat architecture packages the flow and its dependencies as a container, a practice that increases portability and consistency across different environments.
 
 Deployments of changes to database resources, like changes to data models or indexes, are new tasks that need to be handled in GenAIOps. A common practice when working with large language models is to [use a gateway in front of the LLM](azure-openai-gateway-guide.yml).
 
@@ -192,7 +192,7 @@ Operational monitoring is the process of observing the ongoing operations of the
 
 For model training and fine-tuning, you generally observe the data operations for processing feature data, model training, and fine-tuning. The monitoring of these inner-loop processes should take advantage of your existing MLOps and DataOps investments.
 
-For prompt engineering in generative AI solutions, you have additional monitoring concerns. You must monitor the data pipelines that process the grounding data or other data that's used to generate prompts. This processing might include data store operations like building or rebuilding indexes.
+For prompt engineering in generative AI solutions, you have extra monitoring concerns. You must monitor the data pipelines that process the grounding data or other data that's used to generate prompts. This processing might include data store operations like building or rebuilding indexes.
 
 In a multi-agent system, you need to monitor the availability, performance characteristics, and response quality & consistency of the agents that your orchestrator interfaces with.
 
@@ -214,7 +214,7 @@ Generative solutions that use models exposed as a service, like Azure OpenAI, ha
 
 ## Tooling
 
-Many MLOps practitioners have standardized on a toolkit for organizing various activities for automation, tracking, deployment, experimentation, and so on to abstract away the common concerns and implementation details of those processes. A common unified platform is [MLflow](/azure/machine-learning/concept-mlflow). Before you look for new tools to support GenAIOps patterns, you should review your existing MLOps tooling to evaluate its support for generative AI. For example, MLflow supports a [wide range features for language models](https://mlflow.org/docs/latest/llms/index.html).
+Many MLOps practitioners have standardized on a toolkit for organizing various activities for automation, tracking, deployment, experimentation, and so on, to abstract away the common concerns and implementation details of those processes. A common unified platform is [MLflow](/azure/machine-learning/concept-mlflow). Before you look for new tools to support GenAIOps patterns, you should review your existing MLOps tooling to evaluate its support for generative AI. For example, MLflow supports a [wide range features for language models](https://mlflow.org/docs/latest/llms/index.html).
 
 You can also explore the benefits and tradeoffs introducing new tools into your flow. For example, the [Azure AI Evaluation SDK](/python/api/overview/azure/ai-evaluation-readme) for Python could be considered as it has native support in the Azure AI Foundry portal.
 
@@ -222,7 +222,7 @@ You can also explore the benefits and tradeoffs introducing new tools into your 
 
 You might have used the [MLOps maturity model](mlops-maturity-model.yml) to evaluate the maturity of your current machine learning operations and environment. As you extend your MLOps investments for generative AI workloads, you should use the GenAIOps [maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity) to evaluate those operations. You might be tempted to combine the two maturity models, but we recommend that you measure each independently. MLOps and GenAIOps will evolve independently from each other. For example, you might be at level four in the MLOps maturity model but at level one for generative AI.
 
-Use the [GenAIOps maturity model assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/). This assessment will help you understand how your investments in GenAIOps are progressing.
+Use the [GenAIOps maturity model assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/). This assessment helps you understand how your investments in GenAIOps are progressing.
 
 ## Summary
 
@@ -237,7 +237,7 @@ As you start extending your MLOps investments to include generative AI, it's imp
 - [Paulo Lacerda](https://www.linkedin.com/in/paulolacerda/) | Cloud Solution Architect  
 - [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/) | Principal Software Engineer  
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
