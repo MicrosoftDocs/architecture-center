@@ -55,11 +55,11 @@ The following dataflow corresponds to the previous diagram:
    
     COBOL, Programming Language One, and assembly language copybooks define the data structure of these files.
 
-   a. File Transfer Protocol (FTP) transfers mainframe and midrange file system datasets with single layouts and unpacked fields in binary format and corresponding copybook to Azure.
+   a. File Transfer Protocol (FTP) transfers mainframe and midrange file system datasets and their corresponding copybooks to Azure. These datasets have single layouts and unpacked fields in binary format.
    
-   b. Data conversion is accomplished by developing custom programs by using the Host File component of the host integration servers or by using the built-in connector for IBM host files in Azure Logic Apps.
+   b. Data conversion is accomplished by developing custom programs by using the host file component of Host Integration Server or by using the built-in connector for IBM host files in Azure Logic Apps.
 
-      The Spark Notebook converter is developed by using open-source Spark frameworks. It's compatible with Spark environments such as Microsoft Fabric, Azure Synapse Analytics, and Databricks.
+      The Spark Notebook converter is developed by using open-source Spark frameworks. It's compatible with Spark environments such as Microsoft Fabric, Azure Synapse Analytics, and Azure Databricks.
 
    c. Relational database data is migrated.
 
@@ -79,18 +79,18 @@ The following dataflow corresponds to the previous diagram:
       
       IBM mainframe and midrange systems store data in nonrelational databases like:
 
-      - [IDMS](https://www.broadcom.com/products/mainframe/databases-database-mgmt/idms), a [network model](https://web.archive.org/web/20060904190944/http:/coronet.iicm.edu/wbtmaster/allcoursescontent/netlib/ndm1.htm) database management system (DBMS)
-      - [IMS](https://www.ibm.com/it-infrastructure/z/ims), a [hierarchical model](https://www.ibm.com/support/knowledgecenter/SSEPH2_14.1.0/com.ibm.ims14.doc.apg/ims_comparehierandreldbs.htm) DBMS
-      - [Adabas](https://www.softwareag.com/en_corporate/platform/adabas-natural.html)
-      - [Datacom](https://www.broadcom.com/products/mainframe/databases-database-mgmt/datacom)
+      - [IDMS](https://www.broadcom.com/products/mainframe/databases-database-mgmt/idms), a [network model](https://web.archive.org/web/20060904190944/http:/coronet.iicm.edu/wbtmaster/allcoursescontent/netlib/ndm1.htm) database management system (DBMS).
+      - [IMS](https://www.ibm.com/it-infrastructure/z/ims), a [hierarchical model](https://www.ibm.com/support/knowledgecenter/SSEPH2_14.1.0/com.ibm.ims14.doc.apg/ims_comparehierandreldbs.htm) DBMS.
+      - [Adabas](https://www.softwareag.com/en_corporate/platform/adabas-natural.html).
+      - [Datacom](https://www.broadcom.com/products/mainframe/databases-database-mgmt/datacom).
       
       Partner products integrate data from these databases.
 
-1. Azure services like Azure Data Factory and [AzCopy](/azure/storage/common/storage-ref-azcopy) load data into Azure databases and Azure data storage. You can also use partner solutions and custom loading solutions to load data.
+1. Azure tools like Azure Data Factory and [AzCopy](/azure/storage/common/storage-ref-azcopy) load data into Azure databases and Azure data storage. You can also use partner solutions and custom loading solutions to load data.
 
-1. Azure provides various database services, including fully managed relational databases like Azure SQL Database and NoSQL options like Azure Cosmos DB. These services are designed for scalability, flexibility, and global distribution.
+1. Azure provides various database services, including fully managed relational database services like Azure SQL Database and NoSQL options like Azure Cosmos DB. These services are designed for scalability, flexibility, and global distribution.
 
-1. Azure also provides a range of storage solutions, including Azure Blob Storage for unstructured data and Azure Files for fully managed file shares.
+   Azure also provides a range of storage solutions, including Azure Blob Storage for unstructured data and Azure Files for fully managed file shares.
 
 1. Azure services use the modernized data tier for computing, analytics, storage, and networking.
 
@@ -102,7 +102,7 @@ This architecture uses the following components.
 
 #### Data storage
 
-This architecture describes data migration to scalable, more secure cloud storage and managed databases for flexible, intelligent data management in Azure.
+This architecture describes how to migrate data to scalable, more secure cloud storage and managed databases for flexible, intelligent data management in Azure.
 
 - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is part of the [Azure SQL family](/azure/azure-sql/). It's designed for the cloud and provides all the benefits of a fully managed and evergreen platform as a service (PaaS). SQL Database also provides AI-powered automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options](/azure/azure-sql/database/service-tier-hyperscale) automatically scale resources on demand.
 
@@ -112,11 +112,11 @@ This architecture describes data migration to scalable, more secure cloud storag
 
 - [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed relational database service based on the community edition of the open-source [MySQL](https://www.mysql.com/products/community) database engine.
 
-- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is an intelligent, scalable cloud database service that provides all the benefits of a fully managed and evergreen PaaS. SQL Managed Instance has near-100% compatibility with the latest SQL Server Enterprise edition database engine. It also provides a native virtual network implementation that addresses common security concerns.
+- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is an intelligent, scalable cloud database service that provides all the benefits of a fully managed and evergreen PaaS. SQL Managed Instance has almost complete compatibility with the latest SQL Server Enterprise edition database engine. It also provides a native virtual network implementation that addresses common security concerns.
 
 - [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a storage repository that holds large amounts of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources. It can be structured, semi-structured, or unstructured.
 
-- [SQL database in Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a developer-friendly transactional database that's based on SQL Database. Use it to easily create your operational database in Fabric. A SQL database in Fabric uses the same SQL Database Engine as SQL Database.
+- [SQL database in Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a developer-friendly transactional database that's based on SQL Database. Use it to easily create your operational database in Fabric. A SQL database in Fabric uses the same SQL database engine as SQL Database.
 
 - [Microsoft Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview) is a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location.
 
@@ -124,7 +124,7 @@ This architecture describes data migration to scalable, more secure cloud storag
 
 - Azure Data Factory integrates data across different network environments by using an [integration runtime (IR)](/azure/data-factory/concepts-integration-runtime), which is a compute infrastructure. Azure Data Factory copies data between cloud data stores and data stores in on-premises networks by using [self-hosted IRs](/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime).
 
-- The [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) is a locally installed Windows client application that acts as a bridge between your local on-premises data sources and services in the Microsoft cloud.
+- The [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) is a locally installed Windows client application that acts as a bridge between your local on-premises data sources and services in the Microsoft Cloud.
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides on-demand, scalable computing resources. An Azure virtual machine (VM) provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. Azure VMs provide a choice of operating systems, including Windows and Linux.
 
@@ -132,7 +132,7 @@ This architecture describes data migration to scalable, more secure cloud storag
 
 This architecture outlines various Azure-native migration tools that you use depending on the mainframe source data and the target database.
 
-- [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service. In this solution, Azure Data Factory migrates data from Db2 sources to Azure databases targets by using native connectors.
+- [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service. In this solution, Azure Data Factory migrates data from Db2 sources to Azure database targets by using native connectors.
 
 - [AzCopy](/azure/storage/common/storage-use-azcopy-v10) is a command-line utility that moves blobs or files into and out of storage accounts.
 
@@ -143,9 +143,9 @@ This architecture outlines various Azure-native migration tools that you use dep
    - Cleansing and mining data.
    - Managing SQL Server objects and data.
 
-- [Host Integration Server](/host-integration-server/what-is-his) technologies and tools can integrate existing IBM host systems, programs, messages, and data with Azure applications. The Host File client component provides flexibility for data that was converted from EBCDIC to ASCII. For example, you can generate JSON/XML from the data that was converted.
+- [Host Integration Server](/host-integration-server/what-is-his) technologies and tools can integrate existing IBM host systems, programs, messages, and data with Azure applications. The host file client component provides flexibility for data that was converted from EBCDIC to ASCII. For example, you can generate data in JSON or XML format from the data that was converted.
 
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) combines data integration, enterprise data warehousing, and big data analytics. This architecture uses the Azure Synapse conversion solution. It's based on Apache Spark and is a good candidate for large mainframe-dataset workload conversion. It supports a wide range of mainframe data structures and targets and requires minimal coding effort.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) combines data integration, enterprise data warehousing, and big data analytics. This architecture uses the Azure Synapse Analytics conversion solution. It's based on Apache Spark and is a good candidate for large mainframe-dataset workload conversion. It supports a wide range of mainframe data structures and targets and requires minimal coding effort.
 
 - [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It supports these capabilities by using the following integrated services:
 
@@ -163,7 +163,7 @@ This architecture outlines various Azure-native migration tools that you use dep
 - [Data Provider for Host Files](/host-integration-server/core/data-for-host-files) is a component of [Host Integration Server](/host-integration-server/what-is-his) that uses offline, SNA, or TCP/IP connections.
 
    - With offline connections, Data Provider reads and writes records in a local binary file.
-   - With SNA and TCP/IP connections, Data Provider reads and writes records stored in remote z/OS (IBM Z Series Mainframe) datasets or remote i5/OS (IBM AS/400 and iSeries systems) physical files. Only i5/OS systems use TCP/IP.
+   - With SNA and TCP/IP connections, Data Provider reads and writes records stored in remote z/OS (IBM Z series mainframe) datasets or remote i5/OS (IBM AS/400 and iSeries systems) physical files. Only i5/OS systems use TCP/IP.
 
 - [Azure services](https://azurecharts.com/overview) provide environments, tools, and processes for developing and scaling new applications in the public cloud.
 
@@ -213,7 +213,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - SQL Server Migration Assistant is a free, supported tool that simplifies database migration from Db2 to SQL Server, SQL Database, and SQL Managed Instance. SQL Server Migration Assistant automates all aspects of migration, including migration assessment analysis, schema and SQL statement conversion, and data migration.
 
-- The Azure Synapse Spark-based solution is built from open-source libraries. It eliminates the financial burden of licensing conversion tools.
+- The Azure Synapse Analytics Spark-based solution is built from open-source libraries. It eliminates the financial burden of licensing conversion tools.
 
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
@@ -225,7 +225,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 - You can [scale out the self-hosted IR](/azure/data-factory/concepts-integration-runtime#self-hosted-ir-compute-resource-and-scaling) by associating the logical instance with multiple on-premises machines in active-active mode.
 
-- Use SQL Database to dynamically scale your databases. In a serverless tier, it can automatically scale the compute resources. Elastic Pool, which allows databases to share resources in a pool, can only be scaled manually.
+- Use SQL Database to dynamically scale your databases. The Serverless tier can automatically scale the compute resources. Elastic pools allow databases to share resources in a pool and can only be scaled manually.
 
 When you use the Data Provider for Host Files client to convert data, [turn on connection pooling](/host-integration-server/core/data-for-host-files#configuringForPerformance) to reduce the connection startup time. When you use Azure Data Factory to extract data, [tune the performance of the copy activity](/azure/data-factory/copy-activity-performance#performance-tuning-steps).
 
@@ -256,4 +256,4 @@ See the following articles:
 
 ## Related resources
 
-- [Analytics end to end with Azure Synapse](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
+- [Analytics end to end with Azure Synapse Analytics](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
