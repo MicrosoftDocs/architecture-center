@@ -168,7 +168,7 @@
 			<stop offset="1" stop-color="#808080" stop-opacity="1"/>
 		</radialGradient>
 	</defs>
-	<g v:mID="27" v:index="1" v:groupContext="backgroundPage">
+	<g v:mID="31" v:index="1" v:groupContext="backgroundPage">
 		<v:userDefs>
 			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
 			<v:ud v:nameU="msvVisioCreated" v:prompt="" v:val="VT0(0):26"/>
@@ -360,7 +360,7 @@
 			<text x="4" y="909.86" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>Integration middleware</text>		</g>
 		<g id="shape20-66" v:mID="20" v:groupContext="shape" transform="translate(738.564,-571.245)">
 			<title>Sheet.20</title>
-			<desc>Loosely-coupled middleware (Web Services, IBM MQ, MSMQ, OLTP)</desc>
+			<desc>Loosely-coupled middleware (Web services, IBM MQ, MSMQ, OLTP)</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(15000):26"/>
 			</v:userDefs>
@@ -368,7 +368,7 @@
 			<v:textRect cx="94.5" cy="907.779" width="189" height="51.5664"/>
 			<path d="M0 933.56 L189 933.56 L189 882 L0 882 L0 933.56 Z" class="st13"/>
 			<text x="4" y="897.88" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>Loosely-coupled middleware<v:newlineChar/><tspan
-						x="4" dy="1.2em" class="st11">(Web Services, IBM MQ, MSMQ, </tspan><tspan x="4" dy="1.2em" class="st11">OLTP)</tspan></text>		</g>
+						x="4" dy="1.2em" class="st11">(Web services, IBM MQ, MSMQ, </tspan><tspan x="4" dy="1.2em" class="st11">OLTP)</tspan></text>		</g>
 		<g id="shape21-71" v:mID="21" v:groupContext="shape" transform="translate(738.564,-512.562)">
 			<title>Sheet.21</title>
 			<desc>Environment integrators (Java, .NET, Tuxedo, Packages such as...</desc>
@@ -383,7 +383,7 @@
 						class="st11">SAP)</tspan></text>		</g>
 		<g id="shape22-76" v:mID="22" v:groupContext="shape" transform="translate(738.564,-455.278)">
 			<title>Sheet.22</title>
-			<desc>Other middleware (Direct Data Access: ODBC, JDBC, JCA Connect...</desc>
+			<desc>Other middleware (Direct data access: ODBC, JDBC, JCA connect...</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(17000):26"/>
 			</v:userDefs>
@@ -391,8 +391,8 @@
 			<v:textRect cx="94.5" cy="907.779" width="189" height="51.5664"/>
 			<path d="M0 933.56 L189 933.56 L189 882 L0 882 L0 933.56 Z" class="st13"/>
 			<text x="4" y="897.88" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>Other <tspan class="st12" v:langID="2052">middleware<v:newlineChar/></tspan><tspan
-						x="4" dy="1.2em" class="st11">(Direct Data Access: ODBC, JDBC, JCA </tspan><tspan x="4" dy="1.2em"
-						class="st11">Connectors, XML provider)</tspan></text>		</g>
+						x="4" dy="1.2em" class="st11">(Direct data access: ODBC, JDBC, JCA </tspan><tspan x="4" dy="1.2em"
+						class="st11">connectors, XML provider)</tspan></text>		</g>
 		<g id="shape23-82" v:mID="23" v:groupContext="shape" transform="translate(731.038,-655.881)">
 			<title>Sheet.23</title>
 			<v:userDefs>
@@ -412,7 +412,7 @@
 			<text x="4" y="909.86" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>Communications</text>		</g>
 		<g id="shape25-87" v:mID="25" v:groupContext="shape" transform="translate(739.408,-665.065)">
 			<title>Sheet.25</title>
-			<desc>Communications standards (IP v4, IP v6, SSL/TLS, TP0, Telnet,...</desc>
+			<desc>Communications standards (IPv4, IPv6, SSL/TLS, TP0, Telnet, F...</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(20000):26"/>
 			</v:userDefs>
@@ -420,8 +420,8 @@
 			<v:textRect cx="94.5" cy="907.779" width="189" height="51.5664"/>
 			<path d="M0 933.56 L189 933.56 L189 882 L0 882 L0 933.56 Z" class="st13"/>
 			<text x="4" y="897.88" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>Communications standards<v:newlineChar/><tspan
-						x="4" dy="1.2em" class="st11">(IP v4, IP v6, SSL/TLS, TP0, Telnet, </tspan><tspan x="4" dy="1.2em"
-						class="st11">FTP, Sockets)</tspan></text>		</g>
+						x="4" dy="1.2em" class="st11">(IPv4, IPv6, SSL/TLS, TP0, Telnet, FTP, </tspan><tspan x="4" dy="1.2em"
+						class="st11">sockets)</tspan></text>		</g>
 		<g id="shape26-92" v:mID="26" v:groupContext="shape" transform="translate(769.68,-769.729)">
 			<title>Sheet.26</title>
 			<desc>Unisys ClearPath Forward OS 2200</desc>
@@ -446,7 +446,7 @@
 						class="st12" v:langID="1033">perating system </tspan> </text>		</g>
 		<g id="shape28-100" v:mID="28" v:groupContext="shape" transform="translate(965.803,-455.631)">
 			<title>Sheet.28</title>
-			<desc>Application (COBOL, C, Fortran,PLUS, MASM)</desc>
+			<desc>Application (COBOL, C, Fortran, PLUS, MASM)</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(23000):26"/>
 			</v:userDefs>
@@ -454,7 +454,7 @@
 			<v:textRect cx="108" cy="906.562" width="216" height="54"/>
 			<path d="M0 933.56 L216 933.56 L216 879.56 L0 879.56 L0 933.56 Z" class="st13"/>
 			<text x="80.45" y="903.26" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Application <v:newlineChar/><tspan
-						x="28.32" dy="1.2em" class="st12">(COBOL, C, Fortran,PLUS, MASM)</tspan></text>		</g>
+						x="26.81" dy="1.2em" class="st12">(COBOL, C, Fortran, PLUS, MASM)</tspan></text>		</g>
 		<g id="shape29-104" v:mID="29" v:groupContext="shape" transform="translate(725.053,-403.657)">
 			<title>Sheet.29</title>
 			<desc>Operations and monitoring</desc>
