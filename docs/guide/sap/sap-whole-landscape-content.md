@@ -75,7 +75,7 @@ The application subnet contains virtual machines running SAP application servers
 
 ##### Database subnet
 
-The database subnet holds virtual machines running databases. In the diagram, a pair of virtual machines with synchronous replication represent all the database virtual machines of one SAP environment.
+The database subnet holds virtual machines running databases. In the diagram, a pair of virtual machines with synchronous replication represents all the database virtual machines of one SAP environment.
 
 ##### Perimeter subnets
 
@@ -218,7 +218,7 @@ Principal authors:
 
 ## Next steps
 
-- [SAP S/4HANA in Linux on Azure](./sap-s4hana.yml)
+- [SAP S/4HANA in Linux on Azure](./sap-s4hana.md)
 - [Run SAP NetWeaver in Windows on Azure](./sap-netweaver.yml)
 - [Run SAP HANA in a scale-up architecture on Azure](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)
 - [Cloud Adoption Framework - SAP scenario](/azure/cloud-adoption-framework/scenarios/sap/)
