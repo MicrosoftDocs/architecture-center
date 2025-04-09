@@ -101,7 +101,7 @@ Use the following methods to calculate the relevance of responses:
 - [MLflow relevance calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 
 > [!NOTE]
-> You can use Azure [Azure AI Foundry portal](https://ai.azure.com/) to perform the calculations or use the guidance in this article to calculate relevance yourself.
+> You can use Azure [Azure AI Foundry portal](https://ai.azure.com?cid=learnDocs) to perform the calculations or use the guidance in this article to calculate relevance yourself.
 
 #### Evaluate relevance
 
