@@ -7283,6 +7283,11 @@
       "source_path": "docs/networking/guide/network-virtual-appliances-architecture.yml",
       "redirect_url": "/azure/architecture/networking/guide/nva-ha",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/employee-retention-databricks-kubernetes.yml",
+      "redirect_url": "/azure/databricks/machine-learning/train-model/",
+      "redirect_document_id": false
     }
   ]
 }
