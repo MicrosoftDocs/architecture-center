@@ -34,8 +34,6 @@ Numbered callouts one, two, and three are used in both diagrams to highlight the
 
 1. The Dorado storage construct is mapped onto Azure storage. This mapping maintains the Dorado disk drive nomenclature. No application or operations changes are needed.
 
-1. [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) provides disaster recovery (DR) capabilities by mirroring the Azure VMs to a secondary Azure region. These capabilities help ensure a quick failover if an Azure datacenter failure occurs.
-
 ### Components
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure provides. In this architecture, an Azure VM gives you the flexibility of virtualization without the need to buy and maintain physical hardware. The VM hosts the Unisys CPF OS 2200 enterprise server and performs the same function as the on-premises physical or virtual hardware that hosts the server.
@@ -120,7 +118,7 @@ You can optimize your operational efficiency by deploying your solution with Azu
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Unisys provides operational performance in Azure through its bronze, silver, gold, platinum, and titanium tiers that are tailored to match client workload to operational needs. Unisys virtualization on Azure enhances performance efficiency through Azure Monitor and [the Performance Diagnostics tool](/troubleshoot/azure/virtual-machines/windows/how-to-use-perfinsights). These tools enable real-time optimization and proactive issue resolution for improved workload management.
+Unisys provides operational performance in Azure through its bronze, silver, gold, platinum, and titanium tiers that are tailored to match client workload to operational needs. Unisys virtualization on Azure enhances performance efficiency through Azure Monitor and [the Performance Diagnostics CLI tool](/troubleshoot/azure/virtual-machines/windows/how-to-use-perfinsights). These tools enable real-time optimization and proactive issue resolution for improved workload management.
 
 ## Contributors
 
