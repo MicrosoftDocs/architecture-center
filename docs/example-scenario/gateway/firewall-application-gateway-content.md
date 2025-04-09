@@ -453,7 +453,6 @@ Explore related architectures:
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
 - [Securely managed web applications](../apps/fully-managed-secure-apps.yml)
-- [Secure your Microsoft Teams channel bot and web app behind a firewall](../teams/securing-bot-teams-channel.yml)
 - [Multitenant software as a service on Azure](../multi-saas/multitenant-saas.yml)
 - [Enterprise deployment by using App Service Environment](../../web-apps/app-service-environment/architectures/ase-standard-deployment.yml)
 - [High availability enterprise deployment by using App Service Environment](../../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)

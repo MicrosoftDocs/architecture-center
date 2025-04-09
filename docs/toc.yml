@@ -1076,8 +1076,6 @@ items:
         href: example-scenario/gateway/application-gateway-before-azure-firewall.yml
     - name: Architectures
       items:
-      - name: Secure a Microsoft Teams channel bot
-        href: example-scenario/teams/securing-bot-teams-channel.yml
       - name: Secure research for regulated data
         href: ai-ml/architecture/secure-compute-for-research.yml
       - name: Computer forensics

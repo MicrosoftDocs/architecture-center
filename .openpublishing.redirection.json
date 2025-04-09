@@ -7313,6 +7313,11 @@
       "source_path": "docs/guide/security/conditional-access-framework.md",
       "redirect_url": "/entra/identity/conditional-access/plan-conditional-access",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/teams/securing-bot-teams-channel.yml",
+      "redirect_url": "/azure/bot-service/dl-network-isolation-concept",
+      "redirect_document_id": false
     }
   ]
 }
