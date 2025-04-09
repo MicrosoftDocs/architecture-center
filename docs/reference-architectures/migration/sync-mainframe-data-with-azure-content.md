@@ -104,9 +104,13 @@ Data availability and integrity are essential in mainframe and midrange moderniz
 Specifically, this solution covers:
 
 - Extraction: Connect to and extract data from a source database.
+
 - Transformation:
+
   - Staging: Temporarily store data in its original format and prepare it for transformation.
+
   - Preparation: Transform and manipulate data by using mapping rules that meet target database requirements.
+  
 - Loading: Insert data into a target database.
 
 ### Potential use cases
