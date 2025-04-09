@@ -523,8 +523,6 @@ items:
         href: example-scenario/analytics/synapse-analytics-landing-zone.yml
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.yml
-      - name: Employee retention with Databricks and AKS
-        href: example-scenario/ai/employee-retention-databricks-kubernetes.yml
       - name: Use Azure Synapse Analytics to design an enterprise BI solution
         href: example-scenario/analytics/enterprise-bi-synapse.yml
       - name: Near real-time lakehouse processing
