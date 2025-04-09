@@ -7288,6 +7288,11 @@
       "source_path": "docs/example-scenario/ai/employee-retention-databricks-kubernetes.yml",
       "redirect_url": "/azure/databricks/machine-learning/train-model/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/guide/network-security-mlops.yml",
+      "redirect_url": "/azure/machine-learning/how-to-secure-workspace-vnet",
+      "redirect_document_id": false
     }
   ]
 }
