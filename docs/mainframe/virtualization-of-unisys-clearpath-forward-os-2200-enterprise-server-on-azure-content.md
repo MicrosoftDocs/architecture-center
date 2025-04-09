@@ -42,7 +42,7 @@ Numbered callouts one, two, and three are used in both diagrams to highlight the
 
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a service that you can use to extend your on-premises networks into the Microsoft cloud via a private connection from a connectivity provider. In this architecture, ExpressRoute provides a private connection between the on-premises networks and Azure or Microsoft 365. It allows highly secure and reliable connectivity for the migrated Unisys CPF OS 2200 enterprise server.
 
-- [Site Recovery](/azure/site-recovery/) is a DR solution that helps ensure business continuity by enabling Azure region-to-region failover during primary region outages. In this architecture, Site Recovery DR capabilities mirror the Azure VMs to a secondary Azure region. These capabilities facilitate a quick failover if an Azure datacenter failure occurs.
+- [Azure Site Recovery](/azure/site-recovery/) is a DR solution that helps ensure business continuity by enabling Azure region-to-region failover during primary region outages. In this architecture, Site Recovery DR capabilities mirror the Azure VMs to a secondary Azure region. These capabilities facilitate a quick failover if an Azure datacenter failure occurs.
 
 ### Alternatives
 
