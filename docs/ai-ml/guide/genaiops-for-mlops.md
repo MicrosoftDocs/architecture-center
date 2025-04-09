@@ -19,15 +19,15 @@ categories:
 
 This article provides guidance to workload teams that have existing machine learning operations (MLOps) investments and want to extend those investments to include generative AI technology and patterns in their workload. To operationalize generative AI workload features, you need to extend your MLOps investments with Generative AI Ops (GenAIOps, sometimes known as LLMOps). This article outlines technical patterns that are common to both traditional machine learning and generative AI workloads, and specific patterns for generative AI. The article helps you understand where you can apply existing investments in operationalization and where you need to extend those investments.
 
-The planning and implementation of a MLOps and GenAIOps are part of a core design area in AI workloads on Azure. To get a background on why these workloads need specialized operations, see [MLOps and GenAIOps for AI workloads on Azure](/azure/well-architected/ai/mlops-genaiops) in the Azure Well-Architected Framework.
+The planning and implementation of MLOps and GenAIOps are part of a core design area in AI workloads on Azure. To get a background on why these workloads need specialized operations, see [MLOps and GenAIOps for AI workloads on Azure](/azure/well-architected/ai/mlops-genaiops) in the Azure Well-Architected Framework.
 
 ## Generative AI technical patterns
 
 Generative AI workloads differ from traditional machine learning workloads in a few ways:
 
-- **Focus on generative models.** Traditional machine learning workloads focus on training new models that are trained to perform specific tasks. Generative AI workloads consume generative models that can address a wider variety of use cases, and in some cases are multi-modal.
+- **Focus on generative models.** Traditional machine learning workloads focus on training new models to perform specific tasks. Generative AI workloads consume and sometimes finetune generative models that can address a wider variety of use cases, and in some cases are multi-modal.
 
-- **Focus on extending the models.** The key asset in traditional machine learning is the trained and deployed model. Access to the model is provided to client code in one or more workloads, but the workload typically isn't part of the MLOps process. With generative AI solutions, a key facet of the solution is the prompt provided to the generative model. The prompt must be composed of instructions and often contains context data from one or more data stores. The system that orchestrates the logic, calls to the various back ends or agents, generates the prompt, and calls to the generative model is part of the generative AI system that you govern with GenAIOps.
+- **Focus on extending the models.** The key asset in traditional machine learning is the trained and deployed model. Access to the model is provided to client code in one or more workloads, but the workload typically isn't part of the MLOps process. With generative AI solutions, a key facet of the solution is the prompt provided to the generative model. The prompt must be composed of instructions and often contains context data from one or more data stores. The system that orchestrates the logic, calls to the various back ends or agents, generates the prompt, and calls to the generative model, is part of the generative AI system that you govern with GenAIOps.
 
 Although some generative AI solutions use traditional machine learning practices like model training and fine-tuning, these solutions introduce new patterns that you should standardize. There are three broad categories of technical patterns for generative AI solutions:
 
@@ -43,7 +43,7 @@ Training a new SLM and fine-tuning a generative foundation model are logically t
 
 ### Prompt engineering
 
-Prompt engineering includes all the processes involved in designing an effective prompt sent as input to a generative model. There's generally an orchestrator that controls a workflow that generates the prompt. The orchestrator can call into any number of data stores directly or indirectly through agents to gather information, like grounding data, and apply the required logic to generate the most effective prompt. The orchestrator is then deployed as an API endpoint that's accessed by client code in an intelligent application.
+Prompt engineering includes all the processes involved in designing an effective prompt that's sent as input to a generative model. There's generally an orchestrator that controls a workflow that generates the prompt. The orchestrator can call into any number of data stores directly or indirectly through agents to gather information, like grounding data, and apply the required logic to generate the most effective prompt. The orchestrator is then deployed as an API endpoint that's accessed by client code in an intelligent application.
 
 The following diagram shows an architecture for prompt engineering.
 
@@ -72,7 +72,7 @@ The following diagram illustrates a RAG architecture involving data from documen
 
 ## Extending MLOps for generative AI technical patterns
 
-Your MLOps process addresses both inner loop processes and outer loop process. Generative AI technical patterns also have many of the same activities. In some cases, you apply your existing MLOps investments and in others, you need to extend them:
+Your MLOps process addresses both inner loop and outer loop processes. Generative AI technical patterns also have many of the same activities. In some cases, you apply your existing MLOps investments and in others, you need to extend them:
 
 - **Inner loop**
   - [DataOps](#dataops)
@@ -102,7 +102,7 @@ As with training and fine-tuning, you can use Azure Machine Learning pipelines o
 
 ##### Search index maintenance
 
-You also must extend your operations to maintain the freshness and validity of the search indexes in your data stores. These indexes might need to be periodically rebuilt if you can't incrementally add, remove, or update data in place. Index updates must follow the business requirements on data freshness, obtain nonfunctional requirements such as performance or availability impact of reindexing, and compliance requirements such as *right to be forgotten* requests. You need to extend your existing MLOps process to account for this data management activity.
+You also must extend your operations to maintain the freshness and validity of the search indexes in your data stores. These indexes might need to be periodically rebuilt if you can't incrementally add, remove, or update data in place. Index updates must meet the business requirements for data freshness, the nonfunctional requirements, such as performance and availability, and the compliance requirements, such as *right to be forgotten* requests. You need to extend your existing MLOps process to account for this data management activity.
 
 ### Experimentation
 
