@@ -25,24 +25,40 @@ products:
 
 # Azure Virtual Desktop landing zone design guide
 
+# Introduction
+
+## Purpose of the Guide
+
 This article provides a design-oriented overview of the [enterprise-scale landing zone for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone), for architects and technical decision makers. The goal is to help you quickly gain an understanding of the accelerator and how it's designed, allowing you to shorten the time required to complete a successful deployment.
 
 
-## Landing zone concepts
+# Landing zone concepts
 
-An Azure landing zone is a set of guidelines, policies, and configurations that provide a foundation for cloud workloads such as **Azure Virtual Desktop (AVD)**. It defines the governance, security, networking, identity, and operations required for hosting services at scale.
+## What is an Azure Landing Zone?
 
-**Key components include:**
-- **Platform Landing Zones**: Subscriptions that provide shared services (identity, connectivity, management) to applications in application landing zones.
-- **Application Landing Zones**: Subscriptions for hosting specific applications, pre-provisioned through code and governed via management groups and policies.
+An Azure landing zone is an environment that follows key design principles across eight design areas. These design principles accommodate all application portfolios and enable application migration, modernization, and innovation at scale. An Azure landing zone uses subscriptions to isolate and scale application resources and platform resources. [Learn More](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)
+
+An Azure landing zone provides the necessary foundation for cloud workloads such as **Azure Virtual Desktop (AVD)**. It defines essential components like governance, security, networking, identity, and operations, all required for hosting and managing services at scale.
 
 
-[Landing zone concepts](../includes/concepts.md)]
+## Types of Landing Zones 
 
+Azure landing zones can be categorized into two main types:
+
+ 1. **Platform Landing Zones**  
+   These provide shared foundational services like networking, identity management, and resource governance. Platform landing zones are the core infrastructure upon which application workloads are built.
+
+2. **Application Landing Zones**  
+   These are specifically designed to host particular applications, workloads or services. They provide the necessary environment for running applications, pre-configured through code and governed via policies and management groups.
+
+:::image type="content" source="./media/alz-application-platform.svg" alt-text="A conceptual architecture diagram of an Azure landing zone with Application & Platform Landing Zones overlaid." lightbox="./media/alz-application-platform.svg":::
+*Figure 1: Azure landing zone conceptual architecture with Application & Platform Landing Zones overlaid. Download a [Visio file](https://github.com/microsoft/CloudAdoptionFramework/raw/main/ready/enterprise-scale-architecture.vsdx) of this architecture.*
 
 ## Reference architecture
 
-The [enterprise-scale landing zone for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone) is part of the "Desktop virtualization" scenario article series in the Azure Cloud Adoption Framework. The series provides compatibility requirements, design principles, and deployment guidance for the landing zone. They also serve as the reference architecture for an enterprise-scale implementation, ensuring the environment is capable of hosting desktops and any supporting workloads.
+The Azure Virtual Desktop reference architecture demonstrates how to deploy a proven architecture for Azure Virtual Desktop in your environment. This architecture is a suggested starting point for Azure Virtual Desktop. These reference solutions aid in accelerating deployment of Azure Virtual Desktop.
+
+The [enterprise-scale landing zone for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone) is part of the [Virtual Desktop scenario article series](https://github.com/MicrosoftDocs/cloud-adoption-framework/blob/main/docs/scenarios/azure-virtual-desktop/index.md) in the Azure Cloud Adoption Framework. The series provides compatibility requirements, design principles, and deployment guidance for the landing zone. They also serve as the reference architecture for an enterprise-scale implementation, ensuring the environment is capable of hosting desktops and any supporting workloads.
 
 When designing Azure Virtual Desktop (AVD) in an **Enterprise-Scale Landing Zone (ESLZ)**, it's essential to follow a structured architecture that ensures scalability, security, and operational excellence. The **Enterprise-Scale AVD Reference Architecture** provides a robust foundation for deploying AVD at scale while maintaining centralized governance, security, and performance.
 
@@ -61,8 +77,6 @@ When designing Azure Virtual Desktop (AVD) in an **Enterprise-Scale Landing Zone
 
 Like other landing zones, the enterprise-scale Azure Virtual Desktop landing zone is built upon the core [design principles](/azure/cloud-adoption-framework/ready/landing-zone/design-principles) from the Cloud Adoption Framework (CAF) and is aligned with common [design areas](/azure/cloud-adoption-framework/ready/landing-zone/design-areas).
 
-When designing an Azure Virtual Desktop (AVD) environment, it's essential to consider the design principles recommended by both the Cloud Adoption Framework (CAF) and the Well-Architected Framework (WAF). While CAF focuses on organizational readiness and scalable governance through landing zones, WAF provides guidance on building reliable, secure, cost-optimized, and operationally excellent solutions. These frameworks complement each other and ensure a holistic approach to cloud adoption and technical design.
-
 
 ### Cloud Adoption Framework (CAF) and Azure Landing Zone Design Principles
 
@@ -80,19 +94,6 @@ Key principles include:
 
 ---
 
-### Well-Architected Framework (WAF) Design Principles
-
-The **Well-Architected Framework (WAF)** focuses on the **technical design** of cloud environments, providing guidelines to ensure that your AVD solution is **reliable**, **secure**, **cost-efficient**, and **performant**. Key principles include:
-
-1. **Reliability**: Ensuring high availability and disaster recovery capabilities.
-2. **Security**: Protecting the environment with identity management, encryption, and access control.
-3. **Cost Optimization**: Managing resources efficiently to keep costs under control.
-4. **Performance Efficiency**: Optimizing compute, storage, and other resources for performance.
-5. **Operational Excellence**: Implementing automation, monitoring, and continuous improvement practices.
-
->**These principles help ensure that the technical aspects of your AVD environment are optimized for the best possible user experience and operational performance.**
-
----
 
 ## Design Areas
 
@@ -123,7 +124,7 @@ Design areas for the Azure Virtual Desktop landing zone are indicated with lette
 >
 >  It is recommended to review the **Azure Virtual Desktop Design Areas** to ensure alignment with best practices for AVD.
 > 
-> **Difference between " Azure Virtual Desktop Azure (AVD) landing zone Design Areas" and "Azure Virtual Desktop Design Areas"**:
+> 
 >
 > - **Azure Virtual Desktop Azure landing zone Design Areas**: This refers to the foundational elements required to set up the **Azure Virtual Desktop (AVD)** deployment in an enterprise-scale environment. It focuses on preparing resources like network configurations, identity management, security, and governance. This landing zone helps create a scalable and secure environment for AVD workloads.
 >
@@ -144,13 +145,17 @@ Design areas for the Azure Virtual Desktop landing zone are indicated with lette
 
 Azure Virtual Desktop Landing Zone Accelerator (LZA) represents the strategic design path and target technical state for Azure Virtual Desktop deployment. This solution provides an architectural approach and reference implementation to prepare landing zone subscriptions for a scalable Azure Virtual Desktop deployment. 
 
-The **Azure Virtual Desktop Landing Zone Accelerator (LZA)** provides an enterprise-scale implementation of Azure Virtual Desktop (AVD), streamlining the deployment process while ensuring scalability, security, and governance. This accelerator is based on the reference architecture and design principles laid out in the Cloud Adoption Framework (CAF) and the Well-Architected Framework (WAF).
+By leveraging the **LZA**, organizations can achieve an enterprise-scale Azure Virtual Desktop deployment that aligns with best practices in scalability, security, and governance. The accelerator is built upon the reference architecture and design principles outlined in the **Cloud Adoption Framework (CAF)** and the **Well-Architected Framework (WAF)**, ensuring a comprehensive and robust solution for implementing AVD.
 
-### Azure Virtual Desktop Landing Zone Accelerator (LZA)
+
+
+## Azure Virtual Desktop Landing Zone Accelerator (LZA)
 
 The **LZA** is designed to prepare **Azure Virtual Desktop** (AVD) workloads for deployment by creating an optimized landing zone in Azure. The accelerator ensures that all relevant infrastructure components, governance policies, and best practices are implemented to support scalable and secure AVD environments.
 
 By using the **LZA**, you can rapidly set up an enterprise-scale reference environment with the necessary resources to deploy **Azure Virtual Desktop** and integrate it with other Azure services.
+
+> 📖 Reference: [Azure Virtual Desktop (AVD) Landing Zone Accelerator](https://github.com/Azure/avdaccelerator/tree/main)
 
 ### Architecture
 
