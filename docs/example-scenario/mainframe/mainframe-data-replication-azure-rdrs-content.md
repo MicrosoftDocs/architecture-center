@@ -214,7 +214,6 @@ Other contributors:
 - [Azure database migration guides](https://datamigration.microsoft.com/)
 - [Migration guide: SQL Server to Azure SQL Database](/training/modules/design-your-migration-to-azure/)
 - [Training: Architect a data platform in Azure](/training/paths/architect-data-platform/)
-- Contact the [Azure Data Engineering Team](mailto:datasqlninja@microsoft.com)
 - [Training: Design a SQL Server migration strategy](/training/modules/introduction-data-platform-modernization/)
 
 ## Related resources
