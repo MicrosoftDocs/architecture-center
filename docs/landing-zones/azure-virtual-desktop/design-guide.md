@@ -110,6 +110,9 @@ Design areas for the Azure Virtual Desktop landing zone are indicated with lette
 | I |  [Platform automation and DevOps](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-platform-automation-and-devops) | Align the best tools and templates to deploy your landing zones and supporting resources. |
 
 
+:::image type="content" source="../enterprise-scale/media/azure-landing-zone-architecture-diagram-hub-spoke.svg" alt-text="A conceptual architecture diagram of an Azure landing zone." lightbox="../enterprise-scale/media/azure-landing-zone-architecture-diagram-hub-spoke.svg":::
+*Figure 1: Azure landing zone conceptual architecture. Download a [Visio file](https://github.com/microsoft/CloudAdoptionFramework/raw/main/ready/enterprise-scale-architecture.vsdx) of this architecture.*
+
 ## Reference implementation
 
 Azure Virtual Desktop Landing Zone Accelerator (LZA) represents the strategic design path and target technical state for Azure Virtual Desktop deployment. This solution provides an architectural approach and reference implementation to prepare landing zone subscriptions for a scalable Azure Virtual Desktop deployment. 
