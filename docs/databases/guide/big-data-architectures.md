@@ -1,29 +1,50 @@
+---
+metadata:
+title: Big Data Architectures
+description: Learn about big data architectures that handle the ingestion, processing, and analysis of data too large or complex for traditional database systems.
+author: vibhareddyv
+ms.author: vibhav
+ms.date: 03/07/2025
+ms.topic: conceptual
+ms.subservice: architecture-guide
+ms.custom:
+  - arb-iot
+  - arb-data
+categories:
+  - ai-machine-learning
+products:
+  - azure-data-lake-analytics
+  - azure-databricks
+  - azure-iot-hub
+  - azure-machine-learning
+  - azure-synapse-analytics
+---
+
 # Big data architectures
 
-A big data architecture is designed to handle the ingestion, processing, and analysis of data that is too large or complex for traditional database systems. The threshold at which organizations enter into the big data realm differs, depending on the capabilities of the users and their tools. For some, it can mean hundreds of gigabytes of data, while for others it means hundreds of terabytes. As tools for working with big datasets advance, so does the meaning of big data. More and more, this term relates to the value you can extract from your data sets through advanced analytics, rather than strictly the size of the data, although in these cases they tend to be quite large.
+A big data architecture manages the ingestion, processing, and analysis of data that's too large or complex for traditional database systems. The threshold at which organizations enter into the big data realm differs, depending on the capabilities of the users and their tools. Some organizations manage hundreds of gigabytes of data, and others manage hundreds of terabytes. As tools for working with big datasets advance, so does the meaning of big data. Increasingly, this term relates to the value that you can extract from your datasets through advanced analytics, rather than strictly the size of the data. Although these types of scenarios tend to have large amounts of data.
 
-Over the years, the data landscape has changed. What you can do, or are expected to do, with data has changed. The cost of storage has fallen dramatically, while the means by which data is collected keeps growing. Some data arrives at a rapid pace, constantly demanding to be collected and observed. Other data arrives more slowly, but in very large chunks, often in the form of decades of historical data. You might be facing an advanced analytics problem, or one that requires machine learning. These are challenges that big data architectures seek to solve.
+Over the years, the data landscape has changed. What you can do, or are expected to do, with data has changed. The cost of storage has fallen dramatically, while the means by which data is collected keeps growing. Some data arrives at a rapid pace, constantly demanding to be collected and observed. Other data arrives more slowly, but in very large chunks, often in the form of decades of historical data. You might be facing an advanced analytics problem, or one that requires machine learning. Big data architectures strive to solve these challenges.
 
 Big data solutions typically involve one or more of the following types of workload:
 
-- Batch processing of big data sources at rest.
-- Real-time processing of big data in motion.
-- Interactive exploration of big data.
-- Predictive analytics and machine learning.
+- Batch processing of big data sources at rest
+- Real-time processing of big data in motion
+- Interactive exploration of big data
+- Predictive analytics and machine learning
 
-Consider big data architectures when you need to:
+Consider big data architectures when you need to do the following tasks:
 
-- Store and process data in volumes too large for a traditional database.
-- Transform unstructured data for analysis and reporting.
-- Capture, process, and analyze unbounded streams of data in real time, or with low latency.
+- Store and process data in volumes that are too large for a traditional database
+- Transform unstructured data for analysis and reporting
+- Capture, process, and analyze unbounded streams of data in real-time or with low latency
 
 ## Components of a big data architecture
 
 The following diagram shows the logical components that fit into a big data architecture. Individual solutions may not contain every item in this diagram.
 
-
 :::image type="complex" source="_images/big-data-pipeline.png" border="false" lightbox="_images/big-data-pipeline.png" alt-text="Diagram that shows the overall data pipeline.":::
-
+The process starts at data sources and goes to data storage and real-time message ingestion, which are connected to each other. The data in data storage goes to batch processing and then goes either to the analytical data store and then analytics and reporting or directly to analytics and reporting. The data in real-time message ingestion goes to stream processing and then goes either to the analytical data store and then analytics and reporting or directly to analytics and reporting. Machine learning points to batch processing and stream processing. 
 :::image-end:::
 
 Most big data architectures include some or all of the following components:
