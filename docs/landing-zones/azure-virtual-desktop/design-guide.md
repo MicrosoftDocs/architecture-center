@@ -30,7 +30,7 @@ This article provides a design-oriented overview of the [enterprise-scale landin
 
 ## Landing zone concepts
 
-An Azure landing zone is a set of guidelines, policies, and configurations that provide a foundation for cloud workloads. It defines the governance, security, networking, identity, and operations required for hosting services at scale.
+An Azure landing zone is a set of guidelines, policies, and configurations that provide a foundation for cloud workloads such as **Azure Virtual Desktop (AVD)**. It defines the governance, security, networking, identity, and operations required for hosting services at scale.
 
 **Key components include:**
 - **Platform Landing Zones**: Subscriptions that provide shared services (identity, connectivity, management) to applications in application landing zones.
