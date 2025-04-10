@@ -112,7 +112,7 @@ The Kafka Streams API makes it possible to process data in near real-time, and i
 
 Confluent provides a cloud-native service for Apache Kafka. Microsoft and Confluent have a strategic alliance. For more information, see:
 
-- [Confluent and Microsoft Announce Strategic Alliance](https://www.confluent.io/ja-jp/press-release/confluent-strategic-alliance-with-microsoft)
+- [Confluent and Microsoft Announce Strategic Alliance](https://www.confluent.io/en-gb/blog/confluent-microsoft-announce-strategic-alliance/)
 - [Introducing seamless integration between Microsoft Azure and Confluent Cloud](https://azure.microsoft.com/blog/introducing-seamless-integration-between-microsoft-azure-and-confluent-cloud)
 
 ## Contributors
