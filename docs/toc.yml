@@ -523,8 +523,6 @@ items:
         href: example-scenario/analytics/synapse-analytics-landing-zone.yml
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.yml
-      - name: Employee retention with Databricks and AKS
-        href: example-scenario/ai/employee-retention-databricks-kubernetes.yml
       - name: Use Azure Synapse Analytics to design an enterprise BI solution
         href: example-scenario/analytics/enterprise-bi-synapse.yml
       - name: Near real-time lakehouse processing
@@ -920,17 +918,7 @@ items:
       - name: Cross-tenant communication
         href: patterns/cross-tenant-communication-using-multitenanted-applications.md
       - name: Cross-tenant secure access to apps
-        href: networking/guide/cross-tenant-secure-access-private-endpoints.yml        
-      - name: Conditional Access
-        items:
-        - name: Conditional Access for Zero trust
-          href: guide/security/conditional-access-zero-trust.md
-        - name: Conditional Access design principles
-          href: guide/security/conditional-access-design.yml
-        - name: Conditional Access architecture
-          href: guide/security/conditional-access-architecture.yml
-        - name: Conditional Access framework
-          href: guide/security/conditional-access-framework.md
+        href: networking/guide/cross-tenant-secure-access-private-endpoints.yml
     - name: Architectures
       items:
       - name: AD DS resource forests in Azure
@@ -1088,8 +1076,6 @@ items:
         href: example-scenario/gateway/application-gateway-before-azure-firewall.yml
     - name: Architectures
       items:
-      - name: Secure a Microsoft Teams channel bot
-        href: example-scenario/teams/securing-bot-teams-channel.yml
       - name: Secure research for regulated data
         href: ai-ml/architecture/secure-compute-for-research.yml
       - name: Computer forensics

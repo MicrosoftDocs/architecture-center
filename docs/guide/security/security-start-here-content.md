@@ -70,7 +70,6 @@ Get the latest updates on [Azure security services and features](https://azure.m
 - [Improved-security access to multitenant web apps from an on-premises network](../../web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml)
 - [Restrict interservice communications](../../example-scenario/service-to-service/restrict-communications.yml)
 - [Securely managed web applications](../../example-scenario/apps/fully-managed-secure-apps.yml)
-- [Secure your Microsoft Teams channel bot and web app behind a firewall](../../example-scenario/teams/securing-bot-teams-channel.yml)
 - [Web app private connectivity to Azure SQL database](../../example-scenario/private-web-app/private-web-app.yml)
 
 [Browse all our security architectures](/azure/architecture/browse/?azure_categories=security).

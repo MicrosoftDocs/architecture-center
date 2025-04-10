@@ -7283,6 +7283,41 @@
       "source_path": "docs/networking/guide/network-virtual-appliances-architecture.yml",
       "redirect_url": "/azure/architecture/networking/guide/nva-ha",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/employee-retention-databricks-kubernetes.yml",
+      "redirect_url": "/azure/databricks/machine-learning/train-model/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/guide/network-security-mlops.yml",
+      "redirect_url": "/azure/machine-learning/how-to-secure-workspace-vnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/security/conditional-access-zero-trust.md",
+      "redirect_url": "/entra/identity/conditional-access/plan-conditional-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/security/conditional-access-design.yml",
+      "redirect_url": "/entra/identity/conditional-access/plan-conditional-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/security/conditional-access-architecture.yml",
+      "redirect_url": "/entra/identity/conditional-access/plan-conditional-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/security/conditional-access-framework.md",
+      "redirect_url": "/entra/identity/conditional-access/plan-conditional-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/teams/securing-bot-teams-channel.yml",
+      "redirect_url": "/azure/bot-service/dl-network-isolation-concept",
+      "redirect_document_id": false
     }
   ]
 }
