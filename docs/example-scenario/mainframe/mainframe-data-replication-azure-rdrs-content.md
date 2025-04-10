@@ -55,7 +55,7 @@ The following architecture provides an overview of how data is replicated from D
 
 #### Initial data load
 
-1. Db2 installed on an IBM Mainframe in the customer's datacenter serves as the source of data for replication to Azure cloud.
+1. Db2 installed on an IBM Mainframe in the customer's datacenter serves as the source of data for replication to the Azure cloud.
 
 1. To create a full copy, the RDRS capture agent fetches Db2 data by performing SELECT queries on the source Db2 database. If the data size is large, an image copy backup of the data can be sent from the mainframe to the Capture LUW VM in binary format.
 
@@ -71,7 +71,7 @@ The following architecture provides an overview of how data is replicated from D
 
 #### CDC
 
-A. Db2 installed on an IBM Mainframe in the customer datacenter serves as the source of data for replication to Azure cloud. RDRS provides the capability to retrieve log-based change data from Db2.
+A. Db2 installed on an IBM Mainframe in the customer datacenter serves as the source of data for replication to the Azure cloud. RDRS provides the capability to retrieve log-based change data from Db2.
 
 B. RDRS defines the Db2 UDT process to read Db2 logs. The UDT runs in the IBM Workload Manager environment and is managed by the Db2 DBMS. The UDT reads log data and stores this data in memory for transmission.
 
