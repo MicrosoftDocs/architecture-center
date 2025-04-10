@@ -65,5 +65,4 @@ The tables that follow identify the detailed characteristics for that level of p
 - [MLOps: Model management, deployment, and monitoring with Azure Machine Learning](/azure/machine-learning/concept-model-management-and-deployment)
 - [Machine Learning registries for MLOps](/azure/machine-learning/concept-machine-learning-registries-mlops)
 - [Orchestrate MLOps by using Azure Databricks](../../reference-architectures/ai/orchestrate-mlops-azure-databricks.yml)
-- [Secure MLOps solutions with Azure network security](../../ai-ml/guide/network-security-mlops.yml)
 - [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)
