@@ -34,8 +34,8 @@ Mainframe and midrange systems update on-premises application databases at regul
 
 1. On-premises databases like Db2 zOS, Db2 for i, and Db2 LUW store the application data.
 1. A self-hosted integration runtime (IR) provides the environment that Azure Data Factory uses to run and dispatch activities.
-1. Azure Data Lake Storage Gen2 and Azure Blob Storage provide a place for data staging. This step is sometimes required to transform and merge data from multiple sources.
-1. For data preparation, Azure Data Factory uses Azure Databricks, custom activities, and pipeline data flows to transform data quickly and effectively.
+1. Azure Data Lake Storage Gen2 and Azure Blob Storage stage the data. This step is sometimes required to transform and merge data from multiple sources.
+1. For data preparation, Azure Data Factory uses Azure Databricks, custom activities, and pipeline dataflows to transform data quickly and effectively.
 1. Azure Data Factory loads data into the following relational and nonrelational Azure databases:
 
    - Azure SQL
@@ -45,19 +45,13 @@ Mainframe and midrange systems update on-premises application databases at regul
    - Azure Database for MySQL 
 
 1. SQL Server Integration Services (SSIS) extracts, transforms, and loads data.
-1. The on-premises data gateway is a locally installed Windows client application that acts as a bridge between your local on-premises data sources and services in Azure.
+1. The on-premises data gateway is a locally installed Windows client application that acts as a bridge between your local on-premises data sources and Azure services.
 1. A data pipeline in Microsoft Fabric is a logical grouping of activities that perform data ingestion from Db2 to Azure storage and databases.
-1. When the solution requires near real-time replication, you can use non-Microsoft tools.
+1. If the solution requires near real-time replication, you can use non-Microsoft tools.
 
 ### Components
 
 This section describes other tools that you can use during data modernization, synchronization, and integration.
-
-#### Tools
-
-- [Microsoft Service for Distributed Relational Database Architecture (DRDA)](/host-integration-server/what-is-his#Data) is a component of [Host Integration Server](/host-integration-server/what-is-his). Microsoft Service for DRDA is an application server that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM Db2 for z/OS and Db2 for i5/OS. These clients use the application server to convert Db2 SQL statements and run them on SQL Server.
-
-- [SQL Server Migration Assistant for Db2](/sql/ssma/sql-server-migration-assistant) automates migration from Db2 to Microsoft database services. This tool runs on a virtual machine. It converts Db2 database objects into SQL Server database objects and creates those objects in SQL.
 
 #### Data integrators
 
@@ -65,15 +59,15 @@ This section describes other tools that you can use during data modernization, s
 
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse Analytics combines the best of the following technologies and services:
 
-   - SQL technologies, which you use in enterprise data warehousing.
+   - SQL technologies for enterprise data warehousing
 
-   - Spark technologies, which you use for big data.
+   - Spark technologies for big data
 
-   - Azure Data Explorer, which you use for log and time series analytics.
+   - Azure Data Explorer for log and time series analytics
 
-   - Azure Pipelines, which you use for data integration and ETL and ELT workflows.
+   - Azure Pipelines for data integration and ETL and ELT workflows
 
-   - Deep integration with other Azure services, such as Power BI, Azure Cosmos DB, and Azure Machine Learning.
+   - Deep integration with other Azure services, such as Power BI, Azure Cosmos DB, and Azure Machine Learning
 
 - [SSIS](/sql/integration-services/sql-server-integration-services) is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to manage, replicate, cleanse, and mine data.
 
@@ -85,7 +79,7 @@ This section describes other tools that you can use during data modernization, s
 
 - [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is part of the Azure SQL service portfolio. This intelligent and scalable cloud database service combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen PaaS. Use SQL Managed Instance to modernize existing apps at scale.
 
-- [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresql) provides a way to lift and shift SQL Server workloads to the cloud with 100% code compatibility. As part of the Azure SQL family, SQL Server on Azure Virtual Machines provides the combined performance, security, and analytics of SQL Server with the flexibility and hybrid connectivity of Azure. Use SQL Server on Azure Virtual Machines to migrate existing apps or build new apps. You can also access the latest SQL Server updates and releases, including SQL Server 2019.
+- [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresql) provides a way to lift and shift SQL Server workloads to the cloud with complete code compatibility. As part of the Azure SQL family, SQL Server on Azure Virtual Machines provides the combined performance, security, and analytics of SQL Server with the flexibility and hybrid connectivity of Azure. Use SQL Server on Azure Virtual Machines to migrate existing apps or build new apps. You can also access the latest SQL Server updates and releases, including SQL Server 2019.
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service that's based on the community edition of the open-source [PostgreSQL](https://www.postgresql.org/) database engine. Use this service to focus on application innovation instead of database management. You can also scale your workload quickly and easily.
 
@@ -96,6 +90,12 @@ This section describes other tools that you can use during data modernization, s
 - [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It supports these capabilities by using integrated services like Fabric Data Engineer, Fabric Data Factory, Fabric Data Science, Fabric Real-Time Intelligence, Fabric Data Warehouse, and Fabric Databases.
 
 - [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed relational database service that's based on the [community edition of the open-source MySQL database engine](https://www.mysql.com/products/community/).
+
+#### Other tools
+
+- [Microsoft Service for Distributed Relational Database Architecture (DRDA)](/host-integration-server/what-is-his#Data) is a component of [Host Integration Server](/host-integration-server/what-is-his). Microsoft Service for DRDA is an application server that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM Db2 for z/OS and Db2 for i5/OS. These clients use the application server to convert Db2 SQL statements and run them on SQL Server.
+
+- [SQL Server Migration Assistant for Db2](/sql/ssma/sql-server-migration-assistant) automates migration from Db2 to Microsoft database services. This tool runs on a virtual machine. It converts Db2 database objects into SQL Server database objects and creates those objects in SQL.
 
 ## Scenario details
 
@@ -110,7 +110,7 @@ Specifically, this solution covers:
   - Staging: Temporarily store data in its original format and prepare it for transformation.
 
   - Preparation: Transform and manipulate data by using mapping rules that meet target database requirements.
-  
+
 - Loading: Insert data into a target database.
 
 ### Potential use cases
@@ -127,7 +127,7 @@ Data replication and sync scenarios that can benefit from this solution include:
 
 You can apply the following recommendations to most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
 
-When you use Data Factory to extract data, take steps to [tune the performance of the copy activity](/azure/data-factory/copy-activity-performance#performance-tuning-steps).
+When you use Azure Data Factory to extract data, take steps to [tune the performance of the copy activity](/azure/data-factory/copy-activity-performance#performance-tuning-steps).
 
 ## Considerations
 
@@ -135,7 +135,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - Infrastructure management, including [availability](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview), is automated in Azure databases.
 
@@ -147,13 +147,13 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-- Use [network security groups](/azure/virtual-network/manage-network-security-group) to limit access to only what each service needs to function.
+- Use [network security groups](/azure/virtual-network/manage-network-security-group) to limit access to only the necessary functions for each service.
 
 - Use [private endpoints](/azure/private-link/private-endpoint-overview) for your PaaS services. Use service firewalls that are both reachable and unreachable through the internet to supplement security for your services.
 
-- Use managed identities for component-to-component data flows.
+- Use managed identities for component-to-component dataflows.
 
-- For information about the types of client connections that Microsoft Service for DRDA supports, see [Planning and architecting solutions by using Microsoft Service for DRDA](/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda). Client connections affect the nature of transactions, pooling, failover, authentication, and encryption on your network.
+- For information about the types of client connections that Microsoft Service for DRDA supports, see [Plan and architect solutions by using Microsoft Service for DRDA](/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda). Client connections affect the nature of transactions, pooling, failover, authentication, and encryption on your network.
 
 ### Cost Optimization
 
