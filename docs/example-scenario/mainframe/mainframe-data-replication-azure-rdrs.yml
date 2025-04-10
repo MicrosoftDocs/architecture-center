@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Migrate mainframe data to Azure
-  titleSuffix: Azure Architecture Center
+  title: Migrate Mainframe Data to Azure
   description: Learn how to use RDRS, a mainframe data replication solution, to migrate data to and from multiple Azure data platform services.
   author: sandippk
-  ms.author: sandipk
-  ms.date: 04/19/2024
-  ms.topic: conceptual
-  ms.service: azure-architecture-center
+  ms.author: naruldoss
+  ms.date: 04/09/2025
+  ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom: fcp
 azureCategories:
@@ -24,4 +22,4 @@ name: Replicate mainframe and midrange data to Azure by using RDRS
 summary: Learn how to use RDRS, a mainframe data replication solution, to migrate data to and from multiple Azure data platform services.
 thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-realtime-batch-data-replication-azure-rdrs.png
 content: |
-  [!include[](mainframe-data-replication-azure-rdrs-content.md)]
+  [!INCLUDE[](mainframe-data-replication-azure-rdrs-content.md)]

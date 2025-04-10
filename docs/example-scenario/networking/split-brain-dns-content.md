@@ -117,7 +117,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
    - **Use the Zero Trust approach**: In the split-brain DNS setup, apply the [Zero Trust](/azure/security/fundamentals/zero-trust) approach. Explicitly verify the identity of a customer, whether they originate from the internet or a corporate network. This approach ensures that only trusted entities do authorized actions.
    
-   - **Implementation**: Implement Microsoft Entra ID for robust identity management. Use [Microsoft Entra Conditional Access policies](/azure/architecture/guide/security/conditional-access-zero-trust) to enforce strict access controls based on customer context, device health, and location.
+   - **Implementation**: Implement Microsoft Entra ID for robust identity management. Use Microsoft Entra Conditional Access policies to enforce strict access controls based on customer context, device health, and location.
    - **Assess security efficacy**: Evaluate the effectiveness of the security measures for your dual-access workload by implementing:
       - **Defensive investments**: Regularly assess the effectiveness of Azure Front Door and Application Gateway. Ensure that they provide meaningful protection against threats.
       
