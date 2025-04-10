@@ -241,16 +241,6 @@ When you're ready for deployment, complete the following steps:
 # [Custom image build deployment](#tab/custom-image)
 The optional custom image build creates a new image from Azure Marketplace in an Azure compute gallery, optimized, patched and ready to be used. This deployment is optional and can be customized to extend functionality, like adding scripts to further customize your images. 
 
-The following images are currently offered:
-
-- Windows 10 21H2
-- Windows 10 22H2 (Gen 2)
-- Windows 11 21H2 (Gen 2)
-- Windows 11 22H2 (Gen 2)
-- Windows 10 21H2 with Microsoft 365
-- Windows 10 22H2 with Microsoft 365 (Gen 2)
-- Windows 11 21H2 with Microsoft 365 (Gen 2)
-- Windows 11 22H2 with Microsoft 365 (Gen 2)
 
 You can also opt to enable the Trusted Launch or Confidential VM security type feature on the Azure Compute Gallery image definition. A custom image is optimized using [Virtual Desktop Optimization Tool (VDOT)](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) and patched with the latest Windows updates.
 
