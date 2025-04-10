@@ -116,11 +116,12 @@ Design areas for the Azure Virtual Desktop landing zone are indicated with lette
 *Figure 1: Azure landing zone conceptual architecture. Download a [Visio file](https://github.com/microsoft/CloudAdoptionFramework/raw/main/ready/enterprise-scale-architecture.vsdx) of this architecture.*
 
 
-> [!IMPORTANT]
-> It is recommended to review the **Azure Virtual Desktop Design Areas** to ensure alignment with best practices for AVD. For detailed guidance, refer to the [Azure Virtual Desktop Design Areas](https://github.com/MicrosoftDocs/well-architected/blob/main/well-architected/azure-virtual-desktop/overview.md#what-are-the-key-design-areas)
+
 
 
 > [!TIP]
+>
+>  It is recommended to review the **Azure Virtual Desktop Design Areas** to ensure alignment with best practices for AVD.
 > 
 > **Difference between " Azure Virtual Desktop Azure (AVD) landing zone Design Areas" and "Azure Virtual Desktop Design Areas"**:
 >
@@ -132,6 +133,9 @@ Design areas for the Azure Virtual Desktop landing zone are indicated with lette
 > - **Azure Virtual Desktop Design Areas**: These refer to the architectural principles and best practices specifically related to the design and operation of AVD. It covers areas such as **Application Delivery**, **Infrastructure Design**, **Security**, and **Cost Optimization**. These areas follow Azure's best practices for ensuring an optimal and cost-effective AVD implementation.
 >
 > 📖 Reference [Azure Virtual Desktop - design areas](https://github.com/MicrosoftDocs/well-architected/blob/main/well-architected/azure-virtual-desktop/overview.md#what-are-the-key-design-areas)
+>
+
+
 
 
 
