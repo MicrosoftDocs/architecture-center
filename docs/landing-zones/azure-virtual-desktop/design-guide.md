@@ -66,7 +66,7 @@ When designing Azure Virtual Desktop in an **Enterprise-Scale Landing Zone (ESLZ
 - **Security**: Built-in security measures like RBAC and network security ensure your environment is protected from threats.
 - **Operational Efficiency**: Automation and monitoring tools reduce the operational burden and improve system performance.
 
-:::image type="content" source="./media/azure-virtual-desktop-reference-architecture.png" alt-text="" border="false" lightbox="./media/azure-virtual-desktop-reference-architecture.png" :::
+:::image type="content" source="https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-enterprise-scale-alz-architecture.png" alt-text="" border="false" lightbox="https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-enterprise-scale-alz-architecture.png" :::
 *Figure 2: Azure Virtual Desktop landing zone in an Azure Landing Zone reference architecture. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-enterprise-scale-alz-architecture.vsdx) of this architecture.*
 
 ## Design principles
@@ -150,12 +150,10 @@ The LZA architecture is based on multiple subscriptions, each dedicated to speci
    
 1.  **Platform Subscriptions**: These are foundational subscriptions that provide shared services across the entire environment. They include:
    - **Management**: Includes resources for governance, monitoring, and operations, such as **Azure Monitor** and **Azure Automation**.
-   - **Networking**: Contains network-related components like **VNets**, **NSGs**, and **Azure Firewall** to ensure secure communication between resources.
+   - **Connectivity**: Contains network-related components like **VNets**, **NSGs**, and **Azure Firewall** to ensure secure communication between resources.
    - **Identity**: Handles the identity and access management services
 
-*Download a [Visio diagram](https://github.com/Azure/avdaccelerator/raw/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.vsdx) of this architecture*
-
-:::image type="content" source="./media/avd-accelerator-baseline-architecture.png" alt-text="" border="false" lightbox="./media/avd-accelerator-baseline-architecture.png" :::
+:::image type="content" source="https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png" alt-text="" border="false" lightbox="https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png":::
 *Figure 3: Azure Virtual Desktop LZA Reference Architecture. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.vsdx) of this architecture.*
 
 ### Benefits of Using the Azure Virtual Desktop Landing Zone Accelerator (LZA)
@@ -173,8 +171,6 @@ The LZA architecture is based on multiple subscriptions, each dedicated to speci
 
 For detailed guidance, refer to the full [Enterprise-Scale Landing Zone for Azure Virtual Desktop documentation](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone).
 
-
-
 ### Accelerator overview
 
 The ![GitHub logo](../../_images/github.png) [Azure Virtual Desktop landing zone accelerator](https://github.com/Azure/avdaccelerator) supports multiple deployment scenarios depending on your requirements. Each deployment scenario supports both greenfield and brownfield deployments, and provides multiple IaC template options:
@@ -190,23 +186,24 @@ The accelerator uses resource naming automation based on the following recommend
 
 Before proceeding with the deployment scenarios, familiarize yourself with the Azure resource [naming, tagging, and organization](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/resource-naming.md) used by the accelerator: 
 
-:::image type="content" source="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.png" alt-text="Diagram showing organization and naming of Azure resources deployed by the Azure Virtual Desktop landing zone accelerator." border="false" lightbox="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.png" :::
+:::image type="content" source="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.png" alt-text="" border="false" lightbox="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.png" :::
+*Figure 4: Azure Virtual Desktop LZA resource organization and naming. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.vsdx) of the image.*
 
-*Download a [full-sized image of this diagram](https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.png)*
 
 #### Accelerator deployment
 
 To continue with deployment, choose the following deployment scenario tab that best matches your requirements:
 
-# [Baseline deployment](#tab/baseline)
+##### [Baseline deployment](#tab/baseline)
 The baseline deployment deploys the Azure Virtual Desktop resources and dependent services that allow you to establish an Azure Virtual Desktop baseline. 
 
 This deployment scenario includes the following items:
 
-- [Azure Virtual Desktop](/azure/virtual-desktop/overview) resources, including one workspace, two application groups, a scaling plan, a host pool, and session host virtual machines
+- [Azure Virtual Desktop](/azure/virtual-desktop/overview) resources, including Azure Virtual Desktop workspace, application groups, scaling plan, host pool, and session host virtual machines and optionally private endpoints
 - An [Azure Files share](/azure/storage/files/files-smb-protocol) integrated with your identity service
 - [Azure Key Vault](/azure/key-vault/general/overview) for secret, key, and certificate management
 - Optionally, a new [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) with baseline Network Security Groups (NSG), Application Security Groups (ASG), and route tables
+- Optionally, storage account and key vault private endpoints and private DNS zones
 
 When you're ready for deployment, complete the following steps:
 1. Review the [get started](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-baseline.md) document for details on prerequisites, planning information, and a discussion on what is deployed. 
@@ -216,7 +213,7 @@ When you're ready for deployment, complete the following steps:
    :::image type="content" source="./media/portal-session-hosts-os-selection.png" alt-text="Screen shot of OS selection field on sessions hosts page in the Azure portal." border="false" lightbox="./media/portal-session-hosts-os-selection.png" :::
 
 
-# [Custom image build deployment](#tab/custom-image)
+##### [Custom image build deployment](#tab/custom-image)
 The optional custom image build creates a new image from Azure Marketplace in an Azure compute gallery, optimized, patched and ready to be used. This deployment is optional and can be customized to extend functionality, like adding scripts to further customize your images. 
 
 
