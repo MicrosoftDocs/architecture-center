@@ -165,7 +165,7 @@ The number of connected devices grows every day, as does the amount of data coll
 
 Event-driven architectures are central to IoT solutions. The following diagram shows a logical architecture for IoT. The diagram emphasizes the event-streaming components of the architecture.
 
-:::image type="complex" source="../../guide/architecture-styles/images/iot.png" border="false" lightbox="../../guide/architecture-styles/images/iot.png" alt-text="Diagram that shows the IoT architecture.":::
+:::image type="complex" source="../../guide/architecture-styles/images/iot.svg" border="false" lightbox="../../guide/architecture-styles/images/iot.svg" alt-text="Diagram that shows the IoT architecture.":::
 The dataflow starts with devices on the left, connected to a field gateway, which then connects to a cloud gateway. The cloud gateway connects to various tasks via stream processing. The tasks include cold storage, hot path analytics, notifications, and machine learning. Batch analytics points to cold storage. Stream processing points to the application back end, which points to command and control, the provisioning API, and the device registry. The provisioning API points to the device registry. Command and control points to the original field gateway and to other devices, not the original devices in the dataflow.
 :::image-end:::
 

@@ -83,7 +83,7 @@ Consider this architecture style when you need to:
 
 Internet of Things (IoT) is a specialized subset of big data solutions. The following diagram shows a possible logical architecture for IoT. The diagram emphasizes the event-streaming components of the architecture.
 
-![Diagram of an IoT architecture](./images/iot.png)
+![Diagram of an IoT architecture](./images/iot.svg)
 
 The **cloud gateway** ingests device events at the cloud boundary, using a reliable, low latency messaging system.
 
