@@ -31,27 +31,25 @@ products:
 
 This article provides a design-oriented overview of the [enterprise-scale landing zone for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone), for architects and technical decision makers. The goal is to help you quickly gain an understanding of the accelerator and how it's designed, allowing you to shorten the time required to complete a successful deployment.
 
-
 # Landing zone concepts
 
 ## What is an Azure Landing Zone?
 
 An Azure landing zone is an environment that follows key design principles across eight design areas. These design principles accommodate all application portfolios and enable application migration, modernization, and innovation at scale. An Azure landing zone uses subscriptions to isolate and scale application resources and platform resources. [Learn More](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)
 
-An Azure landing zone provides the necessary foundation for cloud workloads such as **Azure Virtual Desktop (AVD)**. It defines essential components like governance, security, networking, identity, and operations, all required for hosting and managing services at scale.
-
+An Azure landing zone provides the necessary foundation for cloud workloads such as **Azure Virtual Desktop**. It defines essential components like governance, security, networking, identity, and operations, all required for hosting and managing services at scale.
 
 ## Types of Landing Zones 
 
 Azure landing zones can be categorized into two main types:
 
- 1. **Platform Landing Zones**  
+1. **Platform Landing Zones**  
    These provide shared foundational services like networking, identity management, and resource governance. Platform landing zones are the core infrastructure upon which application workloads are built.
 
-2. **Application Landing Zones**  
+1. **Application Landing Zones**  
    These are specifically designed to host particular applications, workloads or services. They provide the necessary environment for running applications, pre-configured through code and governed via policies and management groups.
 
-:::image type="content" source="./media/alz-application-platform.svg" alt-text="A conceptual architecture diagram of an Azure landing zone with Application & Platform Landing Zones overlaid." lightbox="./media/alz-application-platform.svg":::
+:::image type="content" source="../enterprise-scale/media/azure-landing-zone-architecture-diagram-hub-spoke.svg" alt-text="A conceptual architecture diagram of an Azure landing zone with Application & Platform Landing Zones overlaid." lightbox="../enterprise-scale/media/azure-landing-zone-architecture-diagram-hub-spoke.svg":::
 *Figure 1: Azure landing zone conceptual architecture with Application & Platform Landing Zones overlaid. Download a [Visio file](https://github.com/microsoft/CloudAdoptionFramework/raw/main/ready/enterprise-scale-architecture.vsdx) of this architecture.*
 
 ## Reference architecture
@@ -60,8 +58,7 @@ The Azure Virtual Desktop reference architecture demonstrates how to deploy a pr
 
 The [enterprise-scale landing zone for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone) is part of the [Virtual Desktop scenario article series](https://github.com/MicrosoftDocs/cloud-adoption-framework/blob/main/docs/scenarios/azure-virtual-desktop/index.md) in the Azure Cloud Adoption Framework. The series provides compatibility requirements, design principles, and deployment guidance for the landing zone. They also serve as the reference architecture for an enterprise-scale implementation, ensuring the environment is capable of hosting desktops and any supporting workloads.
 
-When designing Azure Virtual Desktop (AVD) in an **Enterprise-Scale Landing Zone (ESLZ)**, it's essential to follow a structured architecture that ensures scalability, security, and operational excellence. The **Enterprise-Scale AVD Reference Architecture** provides a robust foundation for deploying AVD at scale while maintaining centralized governance, security, and performance.
-
+When designing Azure Virtual Desktop in an **Enterprise-Scale Landing Zone (ESLZ)**, it's essential to follow a structured architecture that ensures scalability, security, and operational excellence. The **Enterprise-Scale Azure Virtual Desktop Reference Architecture** provides a robust foundation for deploying Azure Virtual Desktop at scale while maintaining centralized governance, security, and performance.
 
 ### Benefits
 
@@ -69,31 +66,29 @@ When designing Azure Virtual Desktop (AVD) in an **Enterprise-Scale Landing Zone
 - **Security**: Built-in security measures like RBAC and network security ensure your environment is protected from threats.
 - **Operational Efficiency**: Automation and monitoring tools reduce the operational burden and improve system performance.
 
-
-
-:::image type="content" source="./media/azure-virtual-desktop-reference-architecture.png" alt-text="Diagram of reference architecture required for Azure Virtual Desktop landing zone implementations." border="false" lightbox="./media/azure-virtual-desktop-reference-architecture.png" :::
+:::image type="content" source="./media/azure-virtual-desktop-reference-architecture.png" alt-text="" border="false" lightbox="./media/azure-virtual-desktop-reference-architecture.png" :::
+*Figure 2: Azure Virtual Desktop landing zone in an Azure Landing Zone reference architecture. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-enterprise-scale-alz-architecture.vsdx) of this architecture.*
 
 ## Design principles
 
-Like other landing zones, the enterprise-scale Azure Virtual Desktop landing zone is built upon the core [design principles](/azure/cloud-adoption-framework/ready/landing-zone/design-principles) from the Cloud Adoption Framework (CAF) and is aligned with common [design areas](/azure/cloud-adoption-framework/ready/landing-zone/design-areas).
-
+Like other landing zones, the enterprise-scale Azure Virtual Desktop landing zone is built upon the core [Azure Landing Zone design principles](/azure/cloud-adoption-framework/ready/landing-zone/design-principles) from the Cloud Adoption Framework (CAF) and is aligned with common [design areas](/azure/cloud-adoption-framework/ready/landing-zone/design-areas).
 
 ### Cloud Adoption Framework (CAF) and Azure Landing Zone Design Principles
 
-The **Cloud Adoption Framework (CAF)** is a comprehensive approach that guides organizations through the process of adopting Azure, including planning, governance, and operations. One key stage of the CAF is the **Ready phase**, which focuses on preparing your organization and its cloud environment for successful adoption. 
+The [Cloud Adoption Framework (CAF)](https://learn.microsoft.com/azure/cloud-adoption-framework/overview) is a comprehensive approach that guides organizations through the process of adopting Azure, including planning, governance, and operations. One key stage of the CAF is the **Ready phase**, which focuses on preparing your organization and its cloud environment for successful adoption. 
 
-As part of the **Ready phase**, **Azure Landing Zones** provide a set of best practices for **structuring and securing** your cloud infrastructure. These **Azure Landing Zone design principles** are intended to ensure that your environment is properly governed, scalable, and secure, laying the foundation for a successful cloud migration.
+As part of the ready phase, Azure Landing Zones provide a set of best practices for **structuring and securing** your cloud infrastructure. These Azure Landing Zone design principles are intended to ensure that your environment is properly governed, scalable, and secure, laying the foundation for a successful cloud migration.
 
 Key principles include:
 
 1. **Subscription Democratization**: Empowering teams to manage their own resources within a controlled framework.
-2. **Policy-Driven Governance**: Ensuring compliance through centralized governance using policies and controls.
-3. **Single Control and Management Plane**: Centralizing the management of resources to maintain oversight and control.
+1. **Policy-Driven Governance**: Ensuring compliance through centralized governance using policies and controls.
+1. **Application-centric service model**: Focus on application-centric migrations and development, rather than pure infrastructure lift-and-shift migrations such as moving virtual machines.
+1. **Single Control and Management Plane**: Centralizing the management of resources to maintain oversight and control.
 
->**These principles help ensure that the organization is ready for cloud adoption and establishes a solid foundation for the AVD environment.**
+>These principles help ensure that the organization is ready for cloud adoption and establishes a solid foundation for the Azure Virtul Desktop environment.
 
 ---
-
 
 ## Design Areas
 
@@ -112,75 +107,58 @@ Design areas for the Azure Virtual Desktop landing zone are indicated with lette
 | F, J | [Security governance and compliance](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-security-governance-and-compliance) | Implement controls and processes to protect your cloud environments. |
 | I |  [Platform automation and DevOps](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-platform-automation-and-devops) | Align the best tools and templates to deploy your landing zones and supporting resources. |
 
-
-:::image type="content" source="../enterprise-scale/media/azure-landing-zone-architecture-diagram-hub-spoke.svg" alt-text="A conceptual architecture diagram of an Azure landing zone." lightbox="../enterprise-scale/media/azure-landing-zone-architecture-diagram-hub-spoke.svg":::
-*Figure 1: Azure landing zone conceptual architecture. Download a [Visio file](https://github.com/microsoft/CloudAdoptionFramework/raw/main/ready/enterprise-scale-architecture.vsdx) of this architecture.*
-
-
-
-
-
 > [!TIP]
 >
->  It is recommended to review the **Azure Virtual Desktop Design Areas** to ensure alignment with best practices for AVD.
+>  It is recommended to review the **Azure Virtual Desktop Design Areas** to ensure alignment with best practices for Azure Virtual Desktop.
 > 
-> 
+> - **Azure Virtual Desktop Azure landing zone Design Areas**: refer to the foundational elements required to set up the **Azure Virtual Desktop** deployment in an enterprise-scale environment. It focuses on preparing resources like network configurations, identity management, security, and governance. This landing zone helps create a scalable and secure environment for Azure Virtual Desktop workloads.
 >
-> - **Azure Virtual Desktop Azure landing zone Design Areas**: This refers to the foundational elements required to set up the **Azure Virtual Desktop (AVD)** deployment in an enterprise-scale environment. It focuses on preparing resources like network configurations, identity management, security, and governance. This landing zone helps create a scalable and secure environment for AVD workloads.
+>📖 Reference [Azure Virtual Desktop Azure landing zone - Design guidelines](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone#design-guidelines)
 >
->📖 Reference [Azure Virtual Desktop Azure landing zone - Design guidelines](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone#design-guidelines)
->
->
-> - **Azure Virtual Desktop Design Areas**: These refer to the architectural principles and best practices specifically related to the design and operation of AVD. It covers areas such as **Application Delivery**, **Infrastructure Design**, **Security**, and **Cost Optimization**. These areas follow Azure's best practices for ensuring an optimal and cost-effective AVD implementation.
+> - **Azure Virtual Desktop Design Areas**: These refer to the architectural principles and best practices specifically related to the design and operation of Azure Virtual Desktop. It covers areas such as **Application Delivery**, **Infrastructure Design**, **Security**, and **Cost Optimization**. These areas follow Azure's best practices for ensuring an optimal and cost-effective Azure Virtual Desktop implementation.
 >
 > 📖 Reference [Azure Virtual Desktop - design areas](https://github.com/MicrosoftDocs/well-architected/blob/main/well-architected/azure-virtual-desktop/overview.md#what-are-the-key-design-areas)
 >
-
-
-
-
-
 
 ## Reference implementation
 
 Azure Virtual Desktop Landing Zone Accelerator (LZA) represents the strategic design path and target technical state for Azure Virtual Desktop deployment. This solution provides an architectural approach and reference implementation to prepare landing zone subscriptions for a scalable Azure Virtual Desktop deployment. 
 
-By leveraging the **LZA**, organizations can achieve an enterprise-scale Azure Virtual Desktop deployment that aligns with best practices in scalability, security, and governance. The accelerator is built upon the reference architecture and design principles outlined in the **Cloud Adoption Framework (CAF)** and the **Well-Architected Framework (WAF)**, ensuring a comprehensive and robust solution for implementing AVD.
-
-
+By using the Azure Virtual Desktop **LZA**, organizations can achieve an enterprise-scale Azure Virtual Desktop deployment that aligns with best practices in scalability, security, and governance. The accelerator is built upon the reference architecture and design principles outlined in the **Cloud Adoption Framework (CAF)** and the **Well-Architected Framework (WAF)**, ensuring a comprehensive and robust solution for implementing Azure Virtual Desktop.
 
 ## Azure Virtual Desktop Landing Zone Accelerator (LZA)
 
-The **LZA** is designed to prepare **Azure Virtual Desktop** (AVD) workloads for deployment by creating an optimized landing zone in Azure. The accelerator ensures that all relevant infrastructure components, governance policies, and best practices are implemented to support scalable and secure AVD environments.
+The Landing Zone Accelerator **(LZA)** is designed to prepare Azure Virtual Desktop workload deployments by creating an optimized landing zone in Azure. The accelerator ensures that all relevant infrastructure components, governance policies, and best practices are implemented to support scalable and secure Azure Virtual Desktop environments.
 
-By using the **LZA**, you can rapidly set up an enterprise-scale reference environment with the necessary resources to deploy **Azure Virtual Desktop** and integrate it with other Azure services.
+By using the **LZA**, you can rapidly set up an enterprise-scale reference environment with the necessary resources to deploy Azure Virtual Desktop and integrate it with other Azure services.
 
-> 📖 Reference: [Azure Virtual Desktop (AVD) Landing Zone Accelerator](https://github.com/Azure/avdaccelerator/tree/main)
+> 📖 Reference: [Azure Virtual Desktop LZA](https://github.com/Azure/avdaccelerator/tree/main)
 
 ### Architecture
 
 > [!IMPORTANT]
-> The accelerator deploys resources into the Azure Virtual Desktop landing zone subscriptions identified in the following architecture diagram: **AVD LZ Subscription**, and **AVD Shared Services LZ Subscription**. 
-> 
-> **We strongly recommend deployment of the appropriate [Cloud Adoption Framework platform landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation) first, to provide the enterprise-scale foundation services required by the resources deployed by the accelerator.** Refer to the [baseline deployment prerequisites](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-baseline.md#prerequisites) to review the full set of prerequisites and requirements for the accelerator.
+>
+> - The accelerator deploys resources into the Azure Virtual Desktop landing zone and Shared Services landing zone subscriptions. 
+> - We recommend deployment of the appropriate [Cloud Adoption Framework platform landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation) first, to provide the enterprise-scale foundation services required by the resources deployed by the accelerator. 
+> - Please check the Azure Virtual Desktop [LZA baseline prerequisites](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-baseline.md#prerequisites) before initiating a deployment of the [LZA baseline](https://github.com/Azure/avdaccelerator?tab=readme-ov-file#azure-virtual-desktop---lza-baseline).
 
-:::image type="content" source="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png" alt-text="Diagram of reference implementation created by Azure Virtual Desktop landing zone accelerator." border="false" lightbox="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png" :::
+The LZA architecture is based on multiple subscriptions, each dedicated to specific purposes:
 
-The LZA architecture is based on multiple primary subscriptions, each dedicated to a specific service:
+1. **Azure Virtual Desktop LZ Subscription**: These subscriptions (could be more than one depending on environment scale) host the Azure Virtual Desktop resources that are workload specific (not shared across workloads), some of the resources created on this subscriptions are VMs, Storage, Key Vaults, Private Endpoints, among others.
 
-
-1. **AVD LZ Subscription**: This is the main subscription for AVD workloads, where the virtual desktops, virtual machines, and related infrastructure are deployed.
+1. **Azure Virtual Desktop Shared Services LZ Subscription**: This subscription hosts all the services that are used by more than one Azure Virtual Desktop workload, some of the resources created on this subscriptions are Automation Accounts, Data Collection Rules, Log Analytics Workspace, Compute Galleries, among others.
    
-2.  **Platform Subscriptions**: These are foundational subscriptions that provide shared services across the entire environment. They include:
+1.  **Platform Subscriptions**: These are foundational subscriptions that provide shared services across the entire environment. They include:
    - **Management**: Includes resources for governance, monitoring, and operations, such as **Azure Monitor** and **Azure Automation**.
    - **Networking**: Contains network-related components like **VNets**, **NSGs**, and **Azure Firewall** to ensure secure communication between resources.
    - **Identity**: Handles the identity and access management services
 
 *Download a [Visio diagram](https://github.com/Azure/avdaccelerator/raw/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.vsdx) of this architecture*
 
+:::image type="content" source="./media/avd-accelerator-baseline-architecture.png" alt-text="" border="false" lightbox="./media/avd-accelerator-baseline-architecture.png" :::
+*Figure 3: Azure Virtual Desktop LZA Reference Architecture. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.vsdx) of this architecture.*
 
-
-### Benefits of Using the AVD Landing Zone Accelerator
+### Benefits of Using the Azure Virtual Desktop Landing Zone Accelerator (LZA)
 
 1. **Scalability**: The accelerator helps set up an architecture that can scale with your organization's needs.
 2. **Security**: Implements enterprise-grade security, compliance, and governance controls to protect your environment.
@@ -191,7 +169,7 @@ The LZA architecture is based on multiple primary subscriptions, each dedicated 
 
 1. **Review Prerequisites**: Make sure to check the baseline deployment prerequisites to ensure your environment is ready.
 2. **Deploy the Platform Landing Zone**: Start by deploying the platform landing zone to set up the foundational components.
-3. **Use the AVD LZA**: Once the platform landing zone is in place, deploy the Azure Virtual Desktop Landing Zone Accelerator to implement the reference architecture.
+3. **Use the Azure Virtual Desktop LZA**: Once the platform landing zone is in place, deploy the Azure Virtual Desktop Landing Zone Accelerator to implement the reference architecture.
 
 For detailed guidance, refer to the full [Enterprise-Scale Landing Zone for Azure Virtual Desktop documentation](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone).
 
