@@ -137,19 +137,28 @@ Azure OpenAI On Your Data enables the large language model to directly query kno
 
 When you make a request, you can specify the data sources that should be queried. In a multitenant solution, ensure that your data sources are multitenancy-aware and that you can specify tenant filters on your requests. Propagate the tenant ID through to the data source appropriately. For example, suppose you're querying Azure AI Search. If you have data for multiple tenants in a single index, specify a filter to limit the retrieved results to the current tenant's ID. Or, if you've created an index for each tenant, ensure that you specify the correct index for the current tenant.
 
-### Batch Deployment
+### Batch deployments
 
-Some models in Azure OpenAI Service can be deployed using a [Batch deployment](/azure/ai-services/openai/how-to/batch), which enables asynchronous processing of grouped requests using a separate [batch quota](/azure/ai-services/openai/quotas-limits#batch-quota). Requests sent to a batch deployment have a 24-hour target turnaround time and cost less than standard deployments. Unlike standard deployments, batch quotas limit the number of enqueued tokens rather than tokens per minute (TPM).
+Some models in Azure OpenAI Service can be deployed using a [batch deployment](/azure/ai-services/openai/how-to/batch), which enables asynchronous processing of grouped requests using a separate [batch quota](/azure/ai-services/openai/quotas-limits#batch-quota). Requests sent to a batch deployment have a 24-hour target turnaround time and cost less than standard deployments. Unlike standard deployments, batch quotas limit the number of enqueued tokens rather than tokens per minute (TPM).
 
-This deployment type is ideal for scenarios where immediate responses are not required, but processing large volumes of requests must not disrupt real-time responses. For example, a system analyzing user feedback sentiment could use a batch deployment to avoid throttling the standard deployment quota needed for real-time interactions, while also reducing processing costs.
+This deployment type is ideal for scenarios where both of these considerations apply:
+
+* Immediate responses aren't required.
+* Processing large volumes of requests can't disrupt real-time responses.
+
+For example, a system analyzing user feedback sentiment could use a batch deployment to avoid throttling the standard deployment quota needed for real-time interactions in other applications, while also reducing processing costs.
 
 In a multitenant solution, batch deployments can be shared among all tenants or created separately for each tenant:
 
-- **Separate Batch Deployments per Tenant:**  
-  Assigning enqueued token quotas to each tenant-specific batch deployment prevents any single tenant from monopolizing resources. This approach also enables tracking token usage per tenant, which is useful for cost allocation.
+- **Separate batch deployments per tenant:**  
 
-- **Shared Batch Deployment:**  
-  A shared batch deployment can process requests from multiple tenants in combined or separate batch jobs. If combining requests, ensure you can correctly map responses back to the appropriate tenant. Note that batch jobs are managed at the job level, so individual tenant requests within a batch cannot be canceled or deleted. To avoid these issues, it is recommended to separate batch jobs by tenant.
+    By assigning token quotas to each tenant-specific batch deployment, you prevent any single tenant from monopolizing resources. This approach also enables tracking token usage per tenant, which is useful for cost allocation.
+
+- **Shared batch deployment:**  
+
+    A shared batch deployment can process requests from multiple tenants in combined or separate batch jobs. If you combine requests from multiple tenants into a single batch job, ensure you can correctly map responses back to the appropriate tenant.
+    
+    Batch jobs are managed at the job level, so it's a good idea to separate batch jobs by tenant so that you can cancel or delete jobs for each tenant. Individual requests within a batch can't be canceled or deleted.
 
 By carefully managing batch deployments, you can balance cost efficiency and resource allocation while maintaining tenant isolation and operational flexibility.
 
