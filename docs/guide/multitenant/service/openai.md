@@ -82,7 +82,7 @@ Sharing a model deployment among tenants simplifies your operational burden beca
 
 You can create a model deployment for each tenant, or for tenants who have special requirements that can't be met by using a shared model deployment. Common reasons to use dedicated model deployments for a tenant include the following:
 
-- **Quota and cost management:** It facilitates tenant-specific TPM allocation by tracking the number of tokens each model uses, which enables you to precisely cost allocate and manage each tenant's usage. If you use [provisioned throughput units (PTUs)](/azure/ai-services/openai/concepts/provisioned-throughput), you can assign the PTUs to specific customers and use other billing models for other customers.
+- **Quota and cost management:** It facilitates tenant-specific TPM allocation by tracking the number of tokens each model uses, which enables you to precisely allocate costs and manage each tenant's usage. If you use [provisioned throughput units (PTUs)](/azure/ai-services/openai/concepts/provisioned-throughput), you can assign the PTUs to specific customers and use other billing models for other customers.
 
 - **Content filtering policies:** Sometimes, a specific tenant might require a unique content filtering policy, such as a tenant-specific blocklist of disallowed words. You specify the content filtering policy at the scope of a model deployment.
 
