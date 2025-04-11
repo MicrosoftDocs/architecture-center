@@ -48,7 +48,7 @@ The following new and updated articles have recently been published in the Azure
 - [Microservices Architecture on Azure Kubernetes Service](./reference-architectures/containers/aks-microservices/aks-microservices.yml)  ([#4e31de2e52](https://github.com/MicrosoftDocs/architecture-center/commit/4e31de2e52))
 - [Mission-Critical Baseline with App Service](./guide/networking/global-web-applications/mission-critical-app-service.yml)  ([#5bbe3dc064](https://github.com/MicrosoftDocs/architecture-center/commit/5bbe3dc064))
 - [Certificate lifecycle management on Azure](./example-scenario/certificate-lifecycle/index.yml)  ([#07ce8a0394](https://github.com/MicrosoftDocs/architecture-center/commit/07ce8a0394))
-- [Big data architectures](./databases/guide/big-data-architectures.yml)  ([#97fb8a7e48](https://github.com/MicrosoftDocs/architecture-center/commit/97fb8a7e48))
+- [Big data architectures](./databases/guide/big-data-architectures.md)  ([#97fb8a7e48](https://github.com/MicrosoftDocs/architecture-center/commit/97fb8a7e48))
 - [Azure Local baseline reference architecture](./hybrid/azure-local-baseline.yml)  ([#a1c67a1fb1](https://github.com/MicrosoftDocs/architecture-center/commit/a1c67a1fb1))
 - [Azure Local storage switchless architecture](./hybrid/azure-local-switchless.yml)  ([#a1c67a1fb1](https://github.com/MicrosoftDocs/architecture-center/commit/a1c67a1fb1))
 - [Troubleshoot a hybrid VPN connection](./reference-architectures/hybrid-networking/troubleshoot-vpn.yml)  ([#a1c67a1fb1](https://github.com/MicrosoftDocs/architecture-center/commit/a1c67a1fb1))
