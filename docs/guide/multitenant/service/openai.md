@@ -2,9 +2,9 @@
 title: Multitenancy and Azure OpenAI
 titleSuffix: Azure Architecture Center
 description: Learn how to deploy the Azure OpenAI models and work with the features associated with each model when you have a multitenant system.
-author: soferreira
-ms.author: soferreira
-ms.date: 10/11/2024
+author: PlagueHO
+ms.author: dascottr
+ms.date: 04/11/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -136,6 +136,22 @@ The Assistants API supports function invocation, which sends your application in
 Azure OpenAI On Your Data enables the large language model to directly query knowledge sources, like indexes and databases, as part of generating a response from the language model.
 
 When you make a request, you can specify the data sources that should be queried. In a multitenant solution, ensure that your data sources are multitenancy-aware and that you can specify tenant filters on your requests. Propagate the tenant ID through to the data source appropriately. For example, suppose you're querying Azure AI Search. If you have data for multiple tenants in a single index, specify a filter to limit the retrieved results to the current tenant's ID. Or, if you've created an index for each tenant, ensure that you specify the correct index for the current tenant.
+
+### Batch Deployment
+
+Some models in Azure OpenAI Service can be deployed using a [Batch deployment](azure/ai-services/openai/how-to/batch), which enables asynchronous processing of grouped requests using a separate [batch quota](azure/ai-services/openai/quotas-limits#batch-quota). Requests sent to a batch deployment have a 24-hour target turnaround time and cost less than standard deployments. Unlike standard deployments, batch quotas limit the number of enqueued tokens rather than tokens per minute (TPM).
+
+This deployment type is ideal for scenarios where immediate responses are not required, but processing large volumes of requests must not disrupt real-time responses. For example, a system analyzing user feedback sentiment could use a batch deployment to avoid throttling the standard deployment quota needed for real-time interactions, while also reducing processing costs.
+
+In a multitenant solution, batch deployments can be shared among all tenants or created separately for each tenant:
+
+- **Separate Batch Deployments per Tenant:**  
+  Assigning enqueued token quotas to each tenant-specific batch deployment prevents any single tenant from monopolizing resources. This approach also enables tracking token usage per tenant, which is useful for cost allocation.
+
+- **Shared Batch Deployment:**  
+  A shared batch deployment can process requests from multiple tenants in combined or separate batch jobs. If combining requests, ensure you can correctly map responses back to the appropriate tenant. Note that batch jobs are managed at the job level, so individual tenant requests within a batch cannot be canceled or deleted. To avoid these issues, it is recommended to separate batch jobs by tenant.
+
+By carefully managing batch deployments, you can balance cost efficiency and resource allocation while maintaining tenant isolation and operational flexibility.
 
 ## Contributors
 
