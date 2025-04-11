@@ -46,7 +46,7 @@ The following table summarizes the deployment approaches you can use when using 
 
 If you're a service provider, consider deploying an Azure OpenAI instance for each tenant in your Azure subscription. This approach provides data isolation for each tenant. It requires that you deploy and manage an increasing number of Azure OpenAI resources as you increase the number of tenants.
 
-Use this approach if you have separate application deployments for each tenant, or if you need to circumvent limitations, such us the quota or request per minute. For more information, see [Azure OpenAI quotas and limits](/azure/ai-services/openai/quotas-limits#quota-and-limits-reference).
+Use this approach if you have separate application deployments for each tenant, or if you need to circumvent limitations, such as the quota or request per minute. For more information, see [Azure OpenAI quotas and limits](/azure/ai-services/openai/quotas-limits#quota-and-limits-reference).
 
 The following diagram illustrates the model for Azure OpenAI for each tenant in the provider's subscription.
 
