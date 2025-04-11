@@ -139,7 +139,7 @@ When you make a request, you can specify the data sources that should be queried
 
 ### Batch Deployment
 
-Some models in Azure OpenAI Service can be deployed using a [Batch deployment](azure/ai-services/openai/how-to/batch), which enables asynchronous processing of grouped requests using a separate [batch quota](azure/ai-services/openai/quotas-limits#batch-quota). Requests sent to a batch deployment have a 24-hour target turnaround time and cost less than standard deployments. Unlike standard deployments, batch quotas limit the number of enqueued tokens rather than tokens per minute (TPM).
+Some models in Azure OpenAI Service can be deployed using a [Batch deployment](/azure/ai-services/openai/how-to/batch), which enables asynchronous processing of grouped requests using a separate [batch quota](/azure/ai-services/openai/quotas-limits#batch-quota). Requests sent to a batch deployment have a 24-hour target turnaround time and cost less than standard deployments. Unlike standard deployments, batch quotas limit the number of enqueued tokens rather than tokens per minute (TPM).
 
 This deployment type is ideal for scenarios where immediate responses are not required, but processing large volumes of requests must not disrupt real-time responses. For example, a system analyzing user feedback sentiment could use a batch deployment to avoid throttling the standard deployment quota needed for real-time interactions, while also reducing processing costs.
 
