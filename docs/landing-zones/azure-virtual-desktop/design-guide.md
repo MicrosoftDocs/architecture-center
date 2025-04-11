@@ -25,9 +25,9 @@ products:
 
 # Azure Virtual Desktop landing zone design guide
 
-# Introduction
+## Introduction
 
-## Purpose of the Guide
+### Purpose of the Guide
 
 This article provides a design-oriented overview of the [enterprise-scale landing zone for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone), for architects and technical decision makers. The goal is to help you quickly gain an understanding of the Azure Virtual Desktop Landing Zone Accelerator (LZA), allowing you to shorten the time required to complete a successful deployment.
 
@@ -35,7 +35,7 @@ This article provides a design-oriented overview of the [enterprise-scale landin
 
 ## What is an Azure Landing Zone?
 
-An Azure landing zone is an environment that follows key design principles across eight design areas. These design principles accommodate all application portfolios and enable application migration, modernization, and innovation at scale. An Azure landing zone uses subscriptions to isolate and scale application resources and platform resources. [Learn More](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)
+An Azure landing zone is an environment that follows key design principles across eight design areas. These design principles accommodate all application portfolios and enable application migration, modernization, and innovation at scale. An Azure landing zone uses subscriptions to isolate and scale application resources and platform resources. [Learn More](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/)
 
 An Azure landing zone provides the necessary foundation for cloud workloads such as **Azure Virtual Desktop**. It defines essential components like governance, security, networking, identity, and operations, all of these are required for hosting and managing services at scale.
 
@@ -49,7 +49,7 @@ Azure landing zones can be categorized into two main types:
 1. **Application Landing Zones**  
    These are designed to host particular applications, workloads or services. They provide the necessary environment for running applications, pre-configured through code and governed via policies and management groups.
 
-:::image type="content" source="../enterprise-scale/media/azure-landing-zone-architecture-diagram-hub-spoke.svg" alt-text="A conceptual architecture diagram of an Azure landing zone with Application & Platform Landing Zones overlaid." lightbox="../enterprise-scale/media/azure-landing-zone-architecture-diagram-hub-spoke.svg":::
+:::image type="content" source="./media/azure-landing-zone-architecture-diagram-hub-spoke.svg" alt-text="A conceptual architecture diagram of an Azure landing zone with Application & Platform Landing Zones overlaid." lightbox="./media/azure-landing-zone-architecture-diagram-hub-spoke.svg":::
 *Figure 1: Azure landing zone conceptual architecture with Application & Platform Landing Zones overlaid. Download a [Visio file](https://github.com/microsoft/CloudAdoptionFramework/raw/main/ready/enterprise-scale-architecture.vsdx) of this architecture.*
 
 ## Reference architecture
@@ -169,7 +169,7 @@ The LZA architecture is based on multiple subscriptions, each dedicated to speci
 2. **Deploy the Platform Landing Zone**: Start by deploying the platform landing zone to set up the foundational components.
 3. **Use the Azure Virtual Desktop LZA**: Once the platform landing zone is in place, deploy the Azure Virtual Desktop Landing Zone Accelerator to implement the reference architecture.
 
-For detailed guidance, refer to the full [Enterprise-Scale Landing Zone for Azure Virtual Desktop documentation](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone).
+For detailed guidance, refer to the full [Enterprise-Scale Landing Zone for Azure Virtual Desktop documentation](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone).
 
 ### Accelerator overview
 
