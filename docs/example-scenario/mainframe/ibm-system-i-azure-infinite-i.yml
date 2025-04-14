@@ -5,7 +5,7 @@ metadata:
   description: Use Infinite i to easily migrate your IBM System i (AS/400) workloads to Azure. You can lower costs, improve performance, improve availability, and modernize.
   author: rericgalvan
   ms.author: pbrooks
-  ms.date: 07/10/2024
+  ms.date: 04/14/2025
   ms.topic: example-scenario
   ms.service: azure-architecture-center
   ms.subservice: example-scenario
