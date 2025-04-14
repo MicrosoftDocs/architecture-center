@@ -175,7 +175,7 @@ For more information, see [MLflow and Machine Learning](/azure/machine-learning/
 
 - [Prompt flow](https://microsoft.github.io/promptflow/index.html) is a suite of development tools that you can use to streamline the end-to-end development cycle of generative AI applications, from ideation, prototyping, testing, and evaluation to production deployment and monitoring. It supports prompt engineering through expressing actions in a modular orchestration and flow engine.
 
-- [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. The [Azure AI Foundry portal](https://ai.azure.com/) provides access to Azure AI services, foundation models, a playground, and resources to help you build, train, fine-tune, and deploy AI models. You can also evaluate model responses and orchestrate prompt application components with prompt flow for better performance.
+- [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. The [Azure AI Foundry portal](https://ai.azure.com?cid=learnDocs) provides access to Azure AI services, foundation models, a playground, and resources to help you build, train, fine-tune, and deploy AI models. You can also evaluate model responses and orchestrate prompt application components with prompt flow for better performance.
 
 - [Copilot Studio](/microsoft-copilot-studio/) extends Copilot in Microsoft 365. You can use Copilot Studio to build custom copilots for internal and external scenarios. Use a comprehensive authoring canvas to design, test, and publish copilots. You can easily create generative AI-enabled conversations, provide greater control of responses for existing copilots, and accelerate productivity by using automated workflows.
 
@@ -468,7 +468,7 @@ Prebuilt AI models are useful and increasingly flexible, but the best way to opt
 - Use the responsible AI dashboard for bias detection and error analysis.
 - Orchestrate and manage prompt engineering and LLM flows.
 - Deploy models via REST API endpoints, real-time inference, and batch inference.
-- Use hub workspaces to share compute, quota, security, and connectivity to company resources, while centralizing governance for IT. Set up a hub once, then create secure workspaces directly from the studio for each project. Use hubs to manage your team's work in the studio and the [Azure AI Foundry portal](https://ai.azure.com/).
+- Use hub workspaces to share compute, quota, security, and connectivity to company resources, while centralizing governance for IT. Set up a hub once, then create secure workspaces directly from the studio for each project. Use hubs to manage your team's work in the studio and the [Azure AI Foundry portal](https://ai.azure.com?cid=learnDocs).
 
 #### AI Foundry
 

@@ -163,7 +163,7 @@ When you augment a query, you maintain the original query but add more context. 
 
 You can use a language model to augment a query. But you can't augment all queries. If you have context, you can pass it along to your language model to augment the query. If you don't have context, you have to determine whether your language model has information that you can use to augment the query. For example, if you use a large language model, like a GPT model, you can determine whether information about the query is readily available on the internet. If so, you can use the model to augment the query. Otherwise, you shouldn't augment the query.
 
-In the following prompt, a language model augments a query. This prompt includes examples for when the query has context and doesn't. For more information, see [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/).
+In the following prompt, a language model augments a query. This prompt includes examples for when the query has context and doesn't. For more information, see [RAG experiment accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/).
 
 ```text
 Input Processing:
@@ -228,7 +228,7 @@ Decomposition is the process of breaking down a complex query into multiple smal
 
 You should determine whether the query requires multiple searches before you run any searches. If you require multiple subqueries, you can run [manual multiple queries](#manual-multiple-queries) for all the queries. Use a language model to determine whether multiple subqueries are recommended.
 
-The following prompt categorizes a query as simple or complex. For more information, see [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py).
+The following prompt categorizes a query as simple or complex. For more information, see [RAG experiment accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py).
 
 ```text
 Consider the given question to analyze and determine whether it falls into one of these categories:
@@ -256,7 +256,7 @@ Example output:
 }
 ```
 
-You can also use a language model to decompose a complex query. The following prompt decomposes a complex query. For more information, see [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/).
+You can also use a language model to decompose a complex query. The following prompt decomposes a complex query. For more information, see [RAG experiment accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/).
 
 ```text
 Analyze the following query:
@@ -317,7 +317,7 @@ An input query might not be in the optimal form to retrieve grounding data. You 
 - Unnecessary words
 - Unclear semantics
 
-The following prompt uses a language model to rewrite a query. For more information, see [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/).
+The following prompt uses a language model to rewrite a query. For more information, see [RAG experiment accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/).
 
 ```text
 Rewrite the given query to optimize it for both keyword-based and semantic-similarity search methods. Follow these guidelines:
@@ -429,7 +429,7 @@ schema:
 
 #### Cross-encoder reranking
 
-The following example uses a [cross encoder provided by Hugging Face](https://huggingface.co/cross-encoder) to load the Roberta model. It iterates over each chunk and uses the model to calculate similarity, which provides a value. It sorts the results and returns the top *N* results. For more information, see [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/reranking/reranker.py).
+The following example uses a [cross encoder provided by Hugging Face](https://huggingface.co/cross-encoder) to load the Roberta model. It iterates over each chunk and uses the model to calculate similarity, which provides a value. It sorts the results and returns the top *N* results. For more information, see [RAG experiment accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/reranking/reranker.py).
 
 ```python
 from sentence_transformers import CrossEncoder

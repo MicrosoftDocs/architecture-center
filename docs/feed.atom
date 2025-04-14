@@ -2,12 +2,60 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2025-04-01T14:10:41.699Z</updated>
+    <updated>2025-04-07T15:32:36.962Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Replicate Mainframe Data by using Precisely Connect]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-replication-precisely-connect</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-replication-precisely-connect"/>
+        <updated>2025-04-02T15:28:25.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Precisely Connect to migrate legacy mainframe and midrange systems to the Azure platform.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate Cloud Workloads Across Security Tenants]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/migrate-cloud-workloads-across-security-tenants</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/migrate-cloud-workloads-across-security-tenants"/>
+        <updated>2025-04-01T22:10:04.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to define and implement a cross-tenant workload migration strategy to address business transformations like acquisitions or divestitures.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cloud Design Patterns]]></title>
+        <id>https://learn.microsoft.com/azure/architecture//patterns</id>
+        <link href="https://learn.microsoft.com/azure/architecture//patterns"/>
+        <updated>2025-04-03T20:08:53.000Z</updated>
+        <summary type="html"><![CDATA[Learn about design patterns for building reliable, scalable, and more secure applications in the cloud with examples based on Microsoft Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Design and Develop a RAG Solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide"/>
+        <updated>2025-04-03T18:15:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn about what to consider when you design a large language model RAG solution, including each step of the development process and how to evaluate those steps.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure</id>
+        <link href="https://learn.microsoft.com/azure/architecture/mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure"/>
+        <updated>2025-04-02T16:27:37.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use virtualization technologies from Microsoft partner Unisys with an existing Unisys ClearPath Forward (CPF) Dorado enterprise server.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Azure Front Door to Secure AKS Workloads]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/aks-front-door/aks-front-door</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/aks-front-door/aks-front-door"/>
+        <updated>2025-04-01T22:22:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to secure AKS workloads by using end-to-end TLS encryption, Azure Front Door Premium, an Azure Private Link service, and the NGINX ingress controller.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Monitor Azure OpenAI Service through a gateway]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/azure-openai-gateway-monitoring</id>
@@ -481,7 +529,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Use Azure Front Door to secure AKS workloads]]></title>
+        <title type="html"><![CDATA[Use Azure Front Door to Secure AKS Workloads]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/aks-front-door/aks-front-door</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/aks-front-door/aks-front-door"/>
         <updated>2025-02-18T16:55:57.000Z</updated>
@@ -1033,6 +1081,14 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Replicate Mainframe Data by using Precisely Connect]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-replication-precisely-connect</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-replication-precisely-connect"/>
+        <updated>2025-01-22T15:42:08.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Precisely Connect to migrate legacy mainframe and midrange systems to the Azure platform.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Micro Focus Enterprise Server on Azure VMs]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/micro-focus-server</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/micro-focus-server"/>
@@ -1206,14 +1262,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/private-link"/>
         <updated>2025-01-21T19:21:17.000Z</updated>
         <summary type="html"><![CDATA[This article describes the features of Azure Private Link that are useful when working with multitenanted systems, and it provides links to guidance and examples.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Mainframe and midrange Db2 applications accessing Azure SQL databases]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/mainframe-access-azure-databases</id>
-        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/mainframe-access-azure-databases"/>
-        <updated>2025-01-21T19:21:17.000Z</updated>
-        <summary type="html"><![CDATA[Give mainframe applications access to Azure data without changing code. Use Microsoft Service for DRDA to run Db2 SQL statements on a SQL Server database.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1689,11 +1737,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Azure API Management landing zone accelerator]]></title>
+        <title type="html"><![CDATA[Azure API Management landing zone architecture]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function"/>
         <updated>2025-01-14T15:51:28.000Z</updated>
-        <summary type="html"><![CDATA[An opinionated accelerator to deploy a secure enterprise-ready API management solution and CI/CD pipeline.]]></summary>
+        <summary type="html"><![CDATA[An opinionated architecture to deploy a secure enterprise-ready API management solution and CI/CD pipeline.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

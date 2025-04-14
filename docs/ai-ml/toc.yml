@@ -90,8 +90,6 @@ items:
         items:
         - name: Machine learning operations (MLOps) v2
           href: guide/machine-learning-operations-v2.md
-        - name: Network security for MLOps
-          href: guide/network-security-mlops.yml
         - name: Generative AI ops with MLOps
           href: guide/genaiops-for-mlops.md
         - name: MLOps maturity model
