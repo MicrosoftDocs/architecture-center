@@ -268,11 +268,11 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Principal author:
 
-- [Philip Brooks](https://www.linkedin.com/in/philipbbrooks) | Senior Program Manager
+- [Bertie van Hinsbergen](https://www.linkedin.com/in/gys-bertie-van-hinsbergen-7802204) | Principal Automation Consultant
 
 Other contributor:
 
-- [Bertie van Hinsbergen](https://www.linkedin.com/in/gys-bertie-van-hinsbergen-7802204) | Principal Automation Consultant
+- [Philip Brooks](https://www.linkedin.com/in/philipbbrooks) | Senior Program Manager
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
