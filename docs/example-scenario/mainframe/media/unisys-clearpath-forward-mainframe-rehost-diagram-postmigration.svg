@@ -251,7 +251,7 @@
 			<rect x="0" y="0" width="1482.73" height="991.376" class="st1"/>
 		</g>
 	</g>
-	<g v:mID="27" v:index="3" v:groupContext="foregroundPage">
+	<g v:mID="27" v:index="4" v:groupContext="foregroundPage">
 		<v:userDefs>
 			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
 			<v:ud v:nameU="visNavType" v:val="VT0(1):26"/>
@@ -1260,7 +1260,7 @@
 			<text x="4" y="985.75" class="st53" v:langID="1033"><v:paragraph/><v:tabList/>ExpressRoute</text>		</g>
 		<g id="shape120-293" v:mID="120" v:groupContext="shape" transform="translate(216.642,-599.294) rotate(0.3)">
 			<title>Sheet.120</title>
-			<desc>Web browsing (TLS over Port 443) Azure Bastion host (TLS over...</desc>
+			<desc>Web browsing (TLS over port 443) Azure Bastion host (TLS over...</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(21000):26"/>
 			</v:userDefs>
@@ -1268,8 +1268,8 @@
 			<v:textRect cx="45.5245" cy="982.589" width="91.05" height="17.5741"/>
 			<rect x="0" y="973.802" width="91.049" height="17.5741" class="st21"/>
 			<text x="4" y="963.69" class="st55" v:langID="1033"><v:paragraph/><v:tabList/>Web browsing<v:newlineChar/><tspan x="4"
-						dy="1.2em" class="st54">(TLS over Port 443)<v:newlineChar/><v:newlineChar/></tspan><tspan x="4" dy="2.4em"
-						class="st54">Azure Bastion host<v:newlineChar/></tspan><tspan x="4" dy="1.2em" class="st54">(TLS over Port 443)</tspan></text>		</g>
+						dy="1.2em" class="st54">(TLS over port 443)<v:newlineChar/><v:newlineChar/></tspan><tspan x="4" dy="2.4em"
+						class="st54">Azure Bastion host<v:newlineChar/></tspan><tspan x="4" dy="1.2em" class="st54">(TLS over port 443)</tspan></text>		</g>
 		<g id="group121-299" transform="translate(649.125,-793.125)" v:mID="121" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(24000):26"/>
@@ -1832,14 +1832,14 @@
 				<text x="4" y="964.49" class="st22" v:langID="1033"><v:paragraph/><v:tabList/>Integration middleware</text>			</g>
 			<g id="shape179-447" v:mID="179" v:groupContext="shape" transform="translate(17.7067,-364.217)">
 				<title>Sheet.179</title>
-				<desc>Loosely-coupled middleware (Web services, MOM: WebSphere MQ, ...</desc>
+				<desc>Loosely coupled middleware (Web services, MOM: WebSphere MQ, ...</desc>
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(66000):26"/>
 				</v:userDefs>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="87.492" cy="962.268" width="174.99" height="58.2162"/>
 				<path d="M0 991.38 L174.98 991.38 L174.98 933.16 L0 933.16 L0 991.38 Z" class="st77"/>
-				<text x="4" y="953.27" class="st70" v:langID="1033"><v:paragraph/><v:tabList/>Loosely-coupled middleware<v:newlineChar/><tspan
+				<text x="4" y="953.27" class="st70" v:langID="1033"><v:paragraph/><v:tabList/>Loosely coupled middleware<v:newlineChar/><tspan
 							x="4" dy="1.2em" class="st24">(Web services, MOM: WebSphere </tspan><tspan x="4" dy="1.2em"
 							class="st24">MQ, MSMQ)</tspan></text>			</g>
 			<g id="shape180-452" v:mID="180" v:groupContext="shape" transform="translate(17.7067,-297.966)">
@@ -1914,14 +1914,14 @@
 			</g>
 			<g id="shape187-477" v:mID="187" v:groupContext="shape" transform="translate(16.239,-129.415)">
 				<title>Sheet.187</title>
-				<desc>Monitoring and operations server</desc>
+				<desc>Monitoring &#38; operations server</desc>
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(99000):26"/>
 				</v:userDefs>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="87.492" cy="962.268" width="174.99" height="58.2162"/>
 				<path d="M0 991.38 L174.98 991.38 L174.98 933.16 L0 933.16 L0 991.38 Z" class="st77"/>
-				<text x="4" y="965.27" class="st80" v:langID="1033"><v:paragraph/><v:tabList/>Monitoring and operations server</text>			</g>
+				<text x="4" y="965.27" class="st80" v:langID="1033"><v:paragraph/><v:tabList/>Monitoring &#38; operations server</text>			</g>
 			<g id="shape188-480" v:mID="188" v:groupContext="shape" transform="translate(4.19849,-175.27)">
 				<title>Sheet.188</title>
 				<desc>Operations and monitoring</desc>

@@ -15,26 +15,26 @@ Depending on the client's goal, the transitioned MCP is the final state or a fir
 The following architecture diagram shows a typical, on-premises Unisys CPF Libra (MCP) mainframe before migration to Azure.
 
 :::image type="complex" border="false" source="./media/unisys-clearpath-forward-mainframe-rehost-diagram-premigration.svg" alt-text="Diagram that shows a typical on-premises mainframe architecture on Unisys CPF Libra." lightbox="./media/unisys-clearpath-forward-mainframe-rehost-diagram-premigration.svg":::
-   <Long description that ends with a period.>
+   The diagram shows a typical on-premises mainframe architecture on Unisys CPF Libra. Arrows point from two user icons to a box that contains various operations in the mainframe. One icon represents on-premises admin users, who access the system via a terminal emulator, and the other icon represents on-premises web interface users, who access the system via TLS port 443. Arrows also connect two icons that represent system output devices to the mainframe. The mainframe box contains smaller boxes for communications, integration middleware, operations and monitoring, the printer subsystem, application servers, and file and DBMS facilities.
 :::image-end:::
 
 The following architecture diagram shows how to apply Unisys virtualization technologies to the legacy Unisys CPF Libra mainframe.
 
-:::image type="complex" border="false" source="./media/unisys-clearpath-forward-mainframe-rehost-diagram-postmigration.svg" alt-text="Diagram that shows the previous mainframe architecture after virtualization in Azure." lightbox="./media/unisys-clearpath-forward-mainframe-rehost-diagram-postmigration.svg":::
-   <Long description that ends with a period.>
+:::image type="complex" border="false" source="./media/unisys-clearpath-forward-mainframe-rehost-diagram-postmigration.svg" alt-text="Diagram that shows a mainframe architecture after virtualization in Azure." lightbox="./media/unisys-clearpath-forward-mainframe-rehost-diagram-postmigration.svg":::
+   The diagram shows the architecture and components of a mainframe architecture after virtualization in Azure. A dotted line divides the diagram into two main sections, "On-premises" and "Azure." In the on-premises section, a user icon represents an on-premises user. The on-premises section also contains two icons that represent legacy system output devices. A solid line connects an icon that represents Azure ExpressRoute to the on-premises user, the legacy devices, and a peer virtual network that's in the Azure section. The Azure section also contains icons that represent various operations that have been migrated to external VMs. A line connects these icons to Azure Private Link for Azure Storage accounts. Another line connects the Storage accounts to a box that contains various systems on a Windows Server virtual machine. These systems include communications, integration middleware, operations and monitoring, application servers, file and DBMS facilities, and the MCP operating system. A box labeled "Azure Site Recovery" encompasses all of these components.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/unisys-clearpath-forward-OS-2200-mainframe-rehost-diagram-premigration 3-6-25.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/unisys-clearpath-forward-OS-2200-mainframe-rehost-diagram-premigration-3-6-25.vsdx) of this architecture.*
 
 ### Workflow
 
-The following workflow corresponds to the previous diagrams. The numbers correspond to both diagrams to highlight the similarities between the original and migrated states of the system.
+The following workflow corresponds to the previous diagrams. The first three steps correspond to both diagrams to highlight the similarities between the original and migrated states of the system.
 
 1. A web browser to access system resources in Azure replaces legacy Burroughs terminal emulation for on-demand and online users. Users access web-based applications via Transport Layer Security (TLS) port 443. The web-based applications presentation layer is unchanged to minimize the need to retrain users. If retraining users isn't a concern, you can update the web application presentation layer with modern UX frameworks. For admin access to the VMs, use [Azure Bastion hosts](https://azure.microsoft.com/products/azure-bastion/) to minimize open ports and improve security.
 
 1. Printers and other legacy system output devices are supported if they're attached to the Azure network via IP address. Print functions on MCP are retained so that no application changes are needed.
 
-1. `Operations` is moved out of the MCP to an external VM. More automation can be achieved by using an OpCon VM in the ecosystem to monitor and control the entire environment.
+1. Operations are moved out of the MCP to an external VM. More automation can be achieved by using an OpCon VM in the ecosystem to monitor and control the entire environment.
 
 1. If physical tapes are in use, they're converted to virtual tape. Tape formatting and read/write functionality are retained. The tapes are written to Azure or offline storage. Tape functionality is maintained, eliminating the need to rewrite source code. The benefits of using this method include [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/) accounts for backup of virtual tape files and faster access times because input/output operations are conducted directly against disk media.
 
@@ -60,7 +60,7 @@ The following workflow corresponds to the previous diagrams. The numbers corresp
 
 ## Scenario details
 
-This scenario provides context for migrating Unisys CPF Libra workloads to Azure by using virtualization technologies from Microsoft partner Unisys. The primary goal is to achieve a rapid and low-risk transition to Azure while maintaining the existing application code and user interactions. This approach eliminates the need to rewrite application code or redesign the database architecture and helps ensure a seamless transition for users and programmers.
+This scenario provides context for migrating Unisys CPF Libra workloads to Azure by using virtualization technologies from Unisys. The primary goal is to achieve a rapid and low-risk transition to Azure while maintaining the existing application code and user interactions. This approach eliminates the need to rewrite application code or redesign the database architecture and helps ensure a seamless transition for users and programmers.
 
 The customer's goals are to:
 
