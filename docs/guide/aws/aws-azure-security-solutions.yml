@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Microsoft Security for AWS
-  titleSuffix: Azure Architecture Center
   description: See how Microsoft security solutions can help secure and protect Amazon Web Services (AWS) account access and environments.
   author: murthyla
   ms.author: lmurthy

@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure Data Factory mission-critical architecture
-  titleSuffix: Azure Architecture Center
   description: Learn how to design a mission-critical workload for Azure Data Factory on Azure landing zones to build robust and efficient data pipelines.
   author: claytonsiemens77
   ms.author: csiemens

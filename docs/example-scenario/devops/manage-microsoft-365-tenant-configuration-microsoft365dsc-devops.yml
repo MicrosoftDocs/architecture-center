@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Manage Microsoft 365 Tenant Configuration with Azure DevOps
-  titleSuffix: Azure Architecture Center
   description: Learn how to manage Microsoft 365 tenant configuration by using Microsoft365DSC and Azure DevOps.
   author: desmay
   ms.author: desmay

@@ -1,6 +1,5 @@
 ---
 title: AKS Backup and Recovery
-titleSuffix: Azure Architecture Center
 description: Learn how to back up and recover your AKS clusters and their workloads.
 author: AdamSharif-MSFT
 ms.author: jotavar

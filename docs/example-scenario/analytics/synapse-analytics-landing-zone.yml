@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure Synapse Analytics for landing zones
-  titleSuffix: Azure Architecture Center
   description: Prepare Azure landing zone subscriptions for a scalable, enhanced-security deployment of Azure Synapse Analytics.
   author: vidya13
   ms.author: vinara

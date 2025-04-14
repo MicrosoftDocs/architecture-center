@@ -1,6 +1,5 @@
 ---
 title: Related resources for multitenancy
-titleSuffix: Azure Architecture Center
 description: This article provides a set of links and resources for architects and developers of multitenant solutions.
 author: johndowns
 ms.author: jodowns

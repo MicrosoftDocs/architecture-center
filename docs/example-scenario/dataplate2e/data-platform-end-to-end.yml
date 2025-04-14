@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Analytics end-to-end with Azure Synapse
-  titleSuffix: Azure Architecture Center
   description: Learn how to use Azure Data Services to build a modern analytics platform capable of handling the most common data challenges in an organization.
   author: mcsegold
   ms.author: afilippov

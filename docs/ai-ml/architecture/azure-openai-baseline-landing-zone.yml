@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure OpenAI chat baseline architecture in an Azure landing zone
-  titleSuffix: Azure Architecture Center
   description: Learn how to build on the Azure OpenAI chat baseline architecture to address changes and expectations when you deploy it in an Azure landing zone.
   author: robbagby
   ms.author: robbag

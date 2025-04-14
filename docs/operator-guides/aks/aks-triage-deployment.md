@@ -1,6 +1,5 @@
 ---
 title: AKS triage—Workload deployments
-titleSuffix: Azure Architecture Center
 description: Learn how to check whether workload deployments and DaemonSet features are running properly. This step is part of the triage practices for an AKS cluster.
 author: paolosalvatori
 ms.author: paolos

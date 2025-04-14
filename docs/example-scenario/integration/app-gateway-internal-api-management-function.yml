@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure API Management landing zone architecture
-  titleSuffix: Azure Architecture Center
   description: An opinionated architecture to deploy a secure enterprise-ready API management solution and CI/CD pipeline.
   author: petemessina 
   ms.author: petermessina

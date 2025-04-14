@@ -1,6 +1,5 @@
 ---
 title: Azure icons
-titleSuffix: Azure Architecture Center
 description: Icons for use in building architecture diagrams for Azure
 ms.author: robbag
 author: RobBagby

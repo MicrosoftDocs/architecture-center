@@ -1,6 +1,5 @@
 ---
 title: Architecture for startups
-titleSuffix: Azure Architecture Center
 description: Understand how to approach architecture when you're working in a startup.
 author: mootpointer
 ms.author: robbag

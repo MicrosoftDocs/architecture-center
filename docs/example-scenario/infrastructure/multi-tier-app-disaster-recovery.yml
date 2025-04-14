@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Multi-tier web application built for HA/DR
-  titleSuffix: Azure Architecture Center
   description: Learn how to create a resilient multitier web application built for high availability and disaster recovery on Azure.
   author: sujayt
   ms.author: sutalasi

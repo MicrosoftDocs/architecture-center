@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: AIX UNIX on-premises to Azure Linux migration
-  titleSuffix: Azure Architecture Center
   description: Migrate an on-premises IBM AIX system and web application to a highly available, secure RedHat Enterprise Linux solution in Azure.
   author: bhbandam
   ms.author: bhbandam

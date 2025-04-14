@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Modern Web App Pattern for .NET
-  titleSuffix: Azure Architecture Center
   description: Implement the Modern Web App pattern for .NET. Modernize web apps in the cloud with prescriptive architecture, code, and configuration guidance.
   author: nishanil
   ms.author: nanil

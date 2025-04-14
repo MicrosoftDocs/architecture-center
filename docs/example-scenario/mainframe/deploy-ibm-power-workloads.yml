@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Use Azure NetApp Files to deploy IBM Power in Skytap on Azure
-  titleSuffix: Azure Architecture Center
   description: Learn how to deploy IBM Power workloads in Skytap on Azure by using Azure NetApp Files for file storage and other Microsoft Azure components.
   author: gvanteylingen
   ms.author: b-gevant

@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Reliable Web App Pattern for .NET
-  titleSuffix: Azure Architecture Center
   description: Implement the Reliable Web App pattern for .NET. Migrate (replatform) web apps to the cloud with prescriptive architecture, code, and configuration guidance.
   author: nishanil
   ms.author: nanil

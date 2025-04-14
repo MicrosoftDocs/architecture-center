@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Build ETL pipelines with Azure Databricks and Delta Lake
-  titleSuffix: Azure Architecture Center
   description: Create ETL pipelines for batch and streaming data with Azure Databricks to simplify data lake ingestion at any scale.
   author: josearper
   ms.author: joaria

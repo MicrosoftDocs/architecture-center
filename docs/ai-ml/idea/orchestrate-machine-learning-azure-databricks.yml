@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Use Azure Databricks to Orchestrate MLOps
-  titleSuffix: Azure Architecture Center
   description: Learn about an approach for machine learning operations (MLOps) that uses Azure Databricks to run model training and batch scoring.
   author: prabdeb
   ms.author: prdeb

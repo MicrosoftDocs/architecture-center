@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Build real-time monitoring and observable systems for media 
-  titleSuffix: Azure Architecture Center
   description: Learn how to implement real-time monitoring and observability of systems and end-user device telemetry data. 
   author: ThePedestrian
   ms.author: unathaniel

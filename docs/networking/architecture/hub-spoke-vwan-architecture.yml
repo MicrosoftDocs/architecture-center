@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Hub-spoke network topology with Azure Virtual WAN
-  titleSuffix: Azure Architecture Center
   description: A hub-spoke reference architecture.
   author: yemrea
   ms.author: yemrea

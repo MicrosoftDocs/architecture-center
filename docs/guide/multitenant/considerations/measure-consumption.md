@@ -1,6 +1,5 @@
 ---
 title: Measure consumption
-titleSuffix: Azure Architecture Center
 description: This article describes the considerations for measuring the consumption of each tenant in a multitenant solution.
 author: PlagueHO
 ms.author: dascottr

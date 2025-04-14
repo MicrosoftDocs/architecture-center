@@ -1,6 +1,5 @@
 ---
 title: Azure Private Link service considerations for multitenancy
-titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Private Link that are useful when working with multitenanted systems, and it provides links to guidance and examples.
 author: johndowns
 ms.author: jodowns

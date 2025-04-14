@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Enhanced-security hybrid messaging — mobile access
-  titleSuffix: Azure Architecture Center
   description: Enhance your security in a mobile access scenario by using Microsoft Entra multifactor authentication.
   author: robbagby
   ms.author: robbag

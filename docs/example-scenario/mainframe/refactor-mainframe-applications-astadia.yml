@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Refactor mainframe applications with Astadia
-  titleSuffix: Azure Architecture Center
   description: See an architecture that uses Astadia to migrate COBOL applications from an on-premises environment to the cloud.
   author: RobBagby
   ms.author: pnp

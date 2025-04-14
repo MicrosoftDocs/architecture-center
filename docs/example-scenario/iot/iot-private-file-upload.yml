@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Use Azure IoT Hub to Privately Upload Files to an Azure Storage Account
-  titleSuffix: Azure Architecture Center
   description: Learn how to use the Azure IoT Hub file upload feature to privately upload files to an Azure Storage account that's exposed through a Firewall and custom domain.
   author: katriendg
   ms.author: katriend

@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Map threats to your IT environment
-  titleSuffix: Azure Architecture Center
   description: Diagram the IT environment of your organization and develop a threat map to plan and build your defensive layer of security. This article is the second in a part of a series.
   author: rudneir2
   ms.author: ruolivei

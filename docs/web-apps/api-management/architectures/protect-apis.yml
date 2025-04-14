@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Protect APIs with Azure Application Gateway and Azure API Management
-  titleSuffix: Azure Architecture Center
   description: Learn how to protect APIs with API Management and Application Gateway.
   author: ckittel
   ms.author: robbag

@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Automate document processing with AI Document Intelligence
-  titleSuffix: Azure Architecture Center
   description: Build an automated document processing pipeline. Use AI Document Intelligence to extract data and natural language processing models to enrich the data.
   author: jyravi
   ms.author: jyravi

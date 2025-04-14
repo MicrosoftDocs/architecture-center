@@ -1,6 +1,5 @@
 ---
 title: Azure App Configuration considerations for multitenancy
-titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure App Configuration that are useful when working with multitenanted systems, and it provides links to guidance and examples.
 author: johndowns
 ms.author: jodowns

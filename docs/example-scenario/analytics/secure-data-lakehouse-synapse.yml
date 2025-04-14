@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Secure a data lakehouse on Synapse
-  titleSuffix: Azure Architecture Center
   description: Learn how to secure a data lakehouse that's implemented by using Azure Synapse Analytics.
   author: icchan
   ms.author: iache

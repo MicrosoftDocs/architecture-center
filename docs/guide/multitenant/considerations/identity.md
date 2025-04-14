@@ -1,6 +1,5 @@
 ---
 title: Architectural considerations for identity in a multitenant solution
-titleSuffix: Azure Architecture Center
 description: This article describes the considerations for managing identities in a multitenant solution.
 author: plagueho
 ms.author: dascottr

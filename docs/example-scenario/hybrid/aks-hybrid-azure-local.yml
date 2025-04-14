@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Deploy and operate apps with AKS enabled by Arc on Azure Local or Windows Server
-  titleSuffix: Azure Architecture Center
   description: Build an app deployment pipeline for containerized apps on AKS enabled by Arc that are running on Azure Local or Windows Server.
   author: scooley
   ms.author: scooley

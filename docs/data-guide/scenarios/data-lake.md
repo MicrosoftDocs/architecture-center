@@ -1,6 +1,5 @@
 ---
 title: What is a data lake?
-titleSuffix: Azure Architecture Center
 description: Learn about the advantages of using data lake storage repositories, which can hold terabytes and petabytes of data in its native, raw format.
 author: PRASADA1207
 ms.author: prasada

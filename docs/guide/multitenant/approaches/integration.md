@@ -1,6 +1,5 @@
 ---
 title: Architectural approaches for tenant integration and data access
-titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for integrations in a multitenant solution.
 author: johndowns
 ms.author: jodowns

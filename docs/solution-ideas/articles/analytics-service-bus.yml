@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Real-time analytics on data with Azure Service Bus and Azure Data Explorer
-  titleSuffix: Azure Architecture Center
   description: Learn how to use Azure Service Bus and Azure Data Explorer to enhance an existing message broker architecture with near real-time analytics.
   author: shsagir
   ms.author: shsagir

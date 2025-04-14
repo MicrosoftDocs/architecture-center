@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Modern Web App Pattern for Java
-  titleSuffix: Azure Architecture Center
   description: Implement the Modern Web App pattern for Java. Get prescriptive architecture, code, and configuration guidance.
   author: nishanil
   ms.author: nanil

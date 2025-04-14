@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Modernize Mainframe Workloads by using BMC AMI Cloud
-  titleSuffix: Azure Architecture Center
   description: Learn how to use BMC AMI Cloud to send mainframe data directly to Azure Blob Storage as part of a mainframe modernization migration.
   author: raman-wk
   ms.author: sesankar

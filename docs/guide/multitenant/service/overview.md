@@ -1,6 +1,5 @@
 ---
 title: Service-specific guidance for a multitenant solution
-titleSuffix: Azure Architecture Center
 description: This article introduces the guidance we provide for using many distinct Azure services in a multitenant solution.
 author: johndowns
 ms.author: jodowns
