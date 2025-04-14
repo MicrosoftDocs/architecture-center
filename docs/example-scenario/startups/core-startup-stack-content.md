@@ -26,7 +26,13 @@ While the app is ambitious, it doesn't yet need a complex, microservice-driven a
 In this core startup stack architecture:
 
 - [Azure App Service](/azure/app-service/overview) provides a simple app server to deploy scalable applications without configuring servers, load balancers, or other infrastructure.  App Service supports container deployments as in the example here, and also supports container-less deployments for ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP, or Python.
-- [Azure Database for PostgreSQL](/azure/postgresql/overview) is an Azure database service for a leading open-source relational database management system (RDBMS). You can concentrate on developing your application rather than managing database servers.  Azure also has managed database services for [SQL](/azure/azure-sql/database/sql-database-paas-overview), [MySQL](/azure/mysql/overview), [MariaDB](/azure/mariadb/overview), [MongoDB](https://www.mongodb.com/mongodb-on-azure), [Neon Serverless Postgres](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/neon1722366567200.neon_serverless_postgres_azure_prod?tab=overview), [Apache Cassandra](/azure/cosmos-db/cassandra/introduction), [Gremlin](/azure/cosmos-db/gremlin/introduction) and [Redis](/azure/azure-cache-for-redis/cache-overview).
+
+- [Azure Database for PostgreSQL](/azure/postgresql/overview) is an Azure database service for a leading open-source relational database management system (RDBMS). You can concentrate on developing your application rather than managing database servers.
+
+  Azure also has managed database services for [SQL](/azure/azure-sql/database/sql-database-paas-overview), [MySQL](/azure/mysql/overview), [MariaDB](/azure/mariadb/overview), [MongoDB](https://www.mongodb.com/mongodb-on-azure), [Apache Cassandra](/azure/cosmos-db/cassandra/introduction), [Gremlin](/azure/cosmos-db/gremlin/introduction) and [Redis](/azure/azure-cache-for-redis/cache-overview).
+
+  In addition to managed offerings, the Azure Marketplace databases used in startup architecture as well, such as [Neon Serverless Postgres](https://azuremarketplace.microsoft.com/marketplace/apps/neon1722366567200.neon_serverless_postgres_azure_prod).
+
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) segments network traffic and keeps internal services protected from internet threats. Your app servers use [virtual network integration](/azure/app-service/web-sites-integrate-with-vnet) to communicate with the database without exposure to the internet.
 - [GitHub Actions](https://docs.github.com/actions) builds continuous integration and continuous deployment (CI/CD) into your source code management. GitHub Actions has extensive support for different languages, and strong integration with Azure services.
 - [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview) stores static assets and moves load away from the app servers.
