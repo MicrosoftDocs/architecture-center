@@ -296,11 +296,35 @@ One of the most important dependencies for Virtual Desktop is the availability o
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-virtual-desktop-bcdr-personal-host-pool.vsdx) of this architecture.*
 
+| Area | Description |
+|----------|----------|
+| A    | Entra Connect and Connectivity   |
+| B    | Hub and Shared Services   |
+| C    | Subscriptions   |
+| D    | Azure Virtual Desktop Control plane objects  |
+| E    | Azure Compute Gallery - Image Replocations   |
+| F    | Azure Site Recovery - VM replication   |
+| G    | Azure Virtual Desktop Control plane objects   |
+
 ### Pooled host pool
 
 :::image type="content" source="images/azure-virtual-desktop-bcdr-pooled-host-pool.png" alt-text="Diagram that shows a BCDR architecture for a pooled host pool." lightbox="images/azure-virtual-desktop-bcdr-pooled-host-pool.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-virtual-desktop-bcdr-pooled-host-pool.vsdx) of this architecture.*
+
+| Area | Description |
+|----------|----------|
+| A    | Entra Connect and Connectivity  |
+| B    | Hub and Shared Services  |
+| C    | Subscriptions  |
+| D    | Session host resiliency   |
+| E    | Profile resiliency CCDLocation   |
+| F    | Azure NetApp Files  |
+| G    | Azure Files   |
+| H    | Office Container   |
+| I    | AppAttach Container   |
+| J    | Recovery Vault   |
+| K    | Azure Compute Gallery   |
 
 ## Failover and failback
 
@@ -394,7 +418,7 @@ FSLogix permits this configuration and the usage of separate storage accounts. O
 
 Principal authors:
 
-- [Ben Martin Baur](https://www.linkedin.com/in/ben-martin-baur/) | Cloud Solution Architect
+- [Ben Martin Baur](https://www.linkedin.com/in/ben-martin-baur/) | Senior Windows Cloud Technical Specialist
 - [Igor Pagliai](https://www.linkedin.com/in/igorpag/) | FastTrack for Azure (FTA) Principal Engineer
 
 Other contributors:
