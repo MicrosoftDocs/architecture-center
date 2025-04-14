@@ -238,29 +238,39 @@ Defines the mapping of the internal Rest-API ports for the OpCon and Impex2 Rest
 - Codify any repeatable or on-demand process. 
 - Azure SQL or SQL MI to manage OpCon entries. 
 
-## Azure Well-Architected Framework 
+## Considerations
  
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see Azure Well-Architected Framework.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
-- Reliability ensures your application can meet the commitments you make to your customers. For more information, see Microsoft Azure Well-Architected Framework - Azure Architecture Center | Microsoft Learn.
+### Reliability
 
-  OpCon Cloud reduces infrastructure and maintenance costs, while providing clients with the security and reliability of an always-on solution and fast recovery from unplanned system interruptions or disasters. OpCon has its own build in resiliency capability or Azure Site Recovery can be utilized to maintain copies of the OpCon environment for use in DR situations. 
- 
-- Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see Microsoft Azure Well-Architected Framework - Azure Architecture Center | Microsoft Learn.
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-  The OpCon configuration builds in security by using Gateway subnets to route only authorized traffic. Via OpCon automation, tasks such as security patch updating can be automated to ensure all target systems within the OpCon environment are kept current with the latest vulnerability patches. For more information, see Security baselines for Azure overview. 
- 
-- Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see Cost optimization documentation - Microsoft Azure Well-Architected Framework | Microsoft Learn.
+OpCon Cloud reduces infrastructure and maintenance costs, while providing clients with the security and reliability of an always-on solution and fast recovery from unplanned system interruptions or disasters. OpCon has its own build in resiliency capability or Azure Site Recovery can be utilized to maintain copies of the OpCon environment for use in DR situations. 
 
-  OpCon workload automation reduces manual steps ensuring that workflows are consistent with each iteration providing improved efficiency. This feature reduces the amount of time and resources needed for reruns due to human error or manual data inputs. See What is Workload Automation? | SMA Technologies for more examples. 
- 
-- Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see Microsoft Azure Well-Architected Framework - Azure Architecture Center | Microsoft Learn.
+### Security
 
-  OpCon delivers enterprise power and scalability without the complexity or cost. OpCon enables companies to easily automate manual tasks and seamlessly orchestrate workloads across business-critical operations, saving time and reducing cost by eliminating human error and deploying IT resources on strategic initiatives. 
- 
-- Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see Microsoft Azure Well-Architected Framework - Azure Architecture Center | Microsoft Learn.
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-  OpCon can be used to monitor workloads and use the scalability of Azure to increase resources in times of high demand or deprecate resources off peak.   
+The OpCon configuration builds in security by using Gateway subnets to route only authorized traffic. Via OpCon automation, tasks such as security patch updating can be automated to ensure all target systems within the OpCon environment are kept current with the latest vulnerability patches. For more information, see Security baselines for Azure overview. 
+
+### Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+OpCon workload automation reduces manual steps ensuring that workflows are consistent with each iteration providing improved efficiency. This feature reduces the amount of time and resources needed for reruns due to human error or manual data inputs. See What is Workload Automation? | SMA Technologies for more examples. 
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+OpCon delivers enterprise power and scalability without the complexity or cost. OpCon enables companies to easily automate manual tasks and seamlessly orchestrate workloads across business-critical operations, saving time and reducing cost by eliminating human error and deploying IT resources on strategic initiatives. 
+
+### Performance Efficiency
+
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+OpCon can be used to monitor workloads and use the scalability of Azure to increase resources in times of high demand or deprecate resources off peak.   
 
 ## Contributors
 
