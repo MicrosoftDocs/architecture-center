@@ -37,7 +37,7 @@ Jakarta Enterprise Edition (Jakarta EE) applications can contain some, all, or n
 
 Jakarta EE applications can be packaged as WAR files or as archives that have the *.ear* extension, known as EAR files.
 
-Jakarta EE applications must be deployed onto application servers that are Jakarta EE compliant. Examples include [WebLogic](https://www.oracle.com/java/weblogic/editions), [WebSphere](https://www.ibm.com/products/websphere-application-server), [WildFly](https://www.wildfly.org), [GlassFish](https://glassfish.org), and [Payara](https://www.payara.org/home).
+Jakarta EE applications must be deployed onto application servers that are Jakarta EE compliant. Examples include [WebLogic](https://www.oracle.com/java/weblogic/editions), [WebSphere](https://www.ibm.com/products/websphere-application-server), [WildFly](https://www.wildfly.org), [GlassFish](https://glassfish.org), and [Payara](https://www.payara.org/).
 
 Applications that rely only on features provided by the Jakarta EE specification can be migrated from one compliant application server onto another. If your application is dependent on a specific application server, you might need to select an Azure service destination that permits you to host that application server.
 
