@@ -8,7 +8,7 @@ Figure 1 provides an architectural diagram explaining how an OpCon environment u
 The implementation uses a single virtual network and multiple subnets to support the various functions. Network security groups can be used to filter network traffic between Azure resources in the virtual network. 
 
 :::image type="content" source="../media/opcon-cloud-architecture.svg" alt-text="Architecture diagram that shows how to deploy OpCon in Azure or a hybrid environment. Besides OpCon, components include SQL Database and VPN Gateway." lightbox="../media/opcon-cloud-architecture.svg" border="false":::
-*Download a [Visio file](https://arch-center.azureedge.net/sma-opcon-azure-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/opcon-architectures.vsdx) of this architecture.*
 
 ### Workflow: OpCon Cloud
 
