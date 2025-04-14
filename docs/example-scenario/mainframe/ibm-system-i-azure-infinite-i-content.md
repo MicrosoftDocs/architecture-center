@@ -123,7 +123,7 @@ Here are pricing considerations for specific components:
 
 Principal author:
 
- - [Jonathon Frost](https://www.linkedin.com/in/jjfrost/) | Principal Software Engineer
+ - Philip Brooks | Senior Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -145,11 +145,10 @@ Principal author:
 - Migrating IBM system workloads:
   - [High-volume batch transaction processing](./process-batch-transactions.yml)
   - [IBM z/OS mainframe migration with Avanade AMT](./avanade-amt-zos-migration.yml)
-  - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
   - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml)
   - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
   - [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
-  - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)
+
 - IBM System i (AS/400) information:
   - [IBM Power Systems Servers: Powering the hybrid enterprise](https://www.ibm.com/it-infrastructure/power)
   - [IBM i: A platform for innovators, by innovators](https://www.ibm.com/it-infrastructure/power/os/ibm-i)
