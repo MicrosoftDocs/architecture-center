@@ -259,7 +259,7 @@ The Cloud Cache configuration and replication mechanisms guarantee profile data 
 
 #### Dataflow
 
-1. A Virtual Desktop user launches Virtual Desktop client, and then opens a published Desktop or Remote App application assigned to the primary region host pool.
+1. A Azure Virtual Desktop user launches Virtual Desktop client, and then opens a published Desktop or Remote App application assigned to the primary region host pool.
 1. FSLogix retrieves the user Profile and Office containers, and then mounts the underlying storage VHD/X from the storage account located in the primary region.
 1. At the same time, the Cloud Cache component initializes replication between the files in the primary region and the files in the secondary region. For this process, Cloud Cache in the primary region acquires an exclusive read-write lock on these files.
 1. The same Virtual Desktop user now wants to launch another published application assigned on the secondary region host pool.
@@ -270,7 +270,7 @@ The Cloud Cache configuration and replication mechanisms guarantee profile data 
 
 ### Identity
 
-One of the most important dependencies for Virtual Desktop is the availability of user identity. To access full remote virtual desktops and remote apps from your session hosts, your users need to be able to authenticate. [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) is Microsoft's centralized cloud identity service that enables this capability. Microsoft Entra ID is always used to authenticate users for Virtual Desktop. Session hosts can be joined to the same Microsoft Entra tenant, or to an Active Directory domain using [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) or Microsoft Entra Domain Services, providing you with a choice of flexible configuration options.
+One of the most important dependencies for Azure Virtual Desktop is the availability of user identity. To access full remote virtual desktops and remote apps from your session hosts, your users need to be able to authenticate. [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) is Microsoft's centralized cloud identity service that enables this capability. Microsoft Entra ID is always used to authenticate users for Virtual Desktop. Session hosts can be joined to the same Microsoft Entra tenant, or to an Active Directory domain using [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) or Microsoft Entra Domain Services, providing you with a choice of flexible configuration options.
 
 - **Microsoft Entra ID**
   - It's a global multi-region and resilient service with [high-availability](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1). No other action is required in this context as part of a Virtual Desktop BCDR plan.
@@ -296,15 +296,15 @@ One of the most important dependencies for Virtual Desktop is the availability o
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-virtual-desktop-bcdr-personal-host-pool.vsdx) of this architecture.*
 
-| Area | Description |
+| Design area | Description |
 |----------|----------|
-| A    | Entra Connect and Connectivity   |
-| B    | Hub and Shared Services   |
-| C    | Subscriptions   |
-| D    | Azure Virtual Desktop Control plane objects  |
-| E    | Azure Compute Gallery - Image Replocations   |
-| F    | Azure Site Recovery - VM replication   |
-| G    | Azure Virtual Desktop Control plane objects   |
+| A    | One of the most important dependencies for Azure Virtual Desktop is the availability of user identity. To access full remote virtual desktops and remote apps from your session hosts, your users need to be able to authenticate. Review the Identity option above.    |
+| B    | If Azure Virtual Desktop users need access to on-premises resources, it's critical that you consider high availability in the network infrastructure that's required to connect to the resources. Assess and evaluate the resiliency of your authentication infrastructure, and consider BCDR aspects for dependent applications and other resources. These considerations will help ensure availability in the secondary disaster recovery location.  |
+| C    | Depending on the size of your deployment and organization structure ensure all subscription have enough quota to run Azure Virtual Desktop workloads in different regions and that you have the right RBAC roles assigned.    |
+| D    | For the deployment of both host pools in the primary and secondary disaster recovery regions, you should spread your session host VM fleet across multiple availability zones. If availability zones aren't available in the local region, you can use an availability set to make your solution more resilient than with a default deployment.  |
+| E    | The golden image that you use for host pool deployment in the secondary disaster recovery region should be the same you use for the primary. You should store images in the Azure Compute Gallery and configure multiple image replicas in both the primary and the secondary locations.  |
+| F    | You can use [Azure Site Recovery](https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview) or a secondary host pool (hot standby) to maintain a backup environment.   |
+| G    | You can create a new host pool in the failover region and keep all the resources turned off. For this method, set up new application groups in the failover region and assign users to the groups. Then, you can use a recovery plan in Site Recovery to turn on host pools and create an orchestrated process.   |
 
 ### Pooled host pool
 
@@ -312,19 +312,19 @@ One of the most important dependencies for Virtual Desktop is the availability o
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-virtual-desktop-bcdr-pooled-host-pool.vsdx) of this architecture.*
 
-| Area | Description |
+| Design area | Description |
 |----------|----------|
-| A    | Entra Connect and Connectivity  |
-| B    | Hub and Shared Services  |
-| C    | Subscriptions  |
-| D    | Session host resiliency   |
-| E    | Profile resiliency CCDLocation   |
-| F    | Azure NetApp Files  |
-| G    | Azure Files   |
-| H    | Office Container   |
-| I    | AppAttach Container   |
-| J    | Recovery Vault   |
-| K    | Azure Compute Gallery   |
+| A    | One of the most important dependencies for Azure Virtual Desktop is the availability of user identity. To access full Azure Virtual Desktops and remote apps from your session hosts, your users need to be able to authenticate. Review the Identity option above.  |
+| B    | If Azure Virtual Desktop users need access to on-premises resources, it's critical that you consider high availability in the network infrastructure that's required to connect to the resources. Assess and evaluate the resiliency of your authentication infrastructure, and consider BCDR aspects for dependent applications and other resources. These considerations will help ensure availability in the secondary disaster recovery location.  |
+| C    | Depending on the size of your deployment and organization structure ensure all subscription have enough quota to run Azure Virtual Desktop workloads in different regions and that you have the right RBAC roles assigned.  |
+| D    | Through [availability zones](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview), VMs in the host pool are distributed across different datacenters. VMs are still in the same region, and they have higher resiliency and a higher formal 99.99 percent high-availability [SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines). Your capacity planning should include sufficient extra compute capacity to ensure that Azure Virtual Desktop continues to operate, even if a single availability zone is lost.   |
+| E    | Use FSLogix Cloud Cache to build profile resiliency for your users'. FSLogix Cloud Cache does impact the sign-on and sign out experience when using poor performing storage. It's common for environments using Cloud Cache to have slightly slower sign-on and sign out times, relative to using traditional VHDLocations, using the same storage. Review the [FSLogix Cloud Cache documentation for recommendations](https://learn.microsoft.com/en-us/fslogix/cloud-cache-resiliency-availability-cncpt) regarding local cache storage.  |
+| F    | Azure NetApp Files for enterprises offer the most value to customers. The Azure services simplify management for Azure Virtual Desktop and are the preferred storage solutions for this workload.  |
+| G   | Storage options for [FSLogix profile containers in Azure Virtual Desktop](https://learn.microsoft.com/en-us/azure/virtual-desktop/store-fslogix-profile) compares the different managed storage solutions that are available.   |
+| H   | Separate user profile and Office container disks. FSLogix offers the option to place disks in separate storage locations.   |
+| I    | For AppAttach disks and when needed, use Azure Storage built-in replication mechanisms for BCDR for environments that are less critical.Use zone-redundant storage (ZRS) or GRS for Azure Files.   |
+| J    | To prevent user data from data loss or logical corruption use the Azure Backup to protect critical workloads|
+| K    | The golden image that you use for host pool deployment in the secondary disaster recovery region should be the same you use for the primary. You should store images in the Azure Compute Gallery and configure multiple image replicas in both the primary and the secondary locations.   |
 
 ## Failover and failback
 
