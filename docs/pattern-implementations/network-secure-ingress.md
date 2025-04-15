@@ -5,7 +5,6 @@ author: robbagby
 ms.author: robbag
 ms.date: 10/18/2022
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
 - azure-front-door

@@ -4,7 +4,6 @@ description: New and updated articles in Azure Architecture Center
 author: RobBagby
 ms.date: 04/07/2025
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.author: robbag
 categories: 
 - management-and-governance

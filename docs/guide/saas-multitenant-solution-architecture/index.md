@@ -5,7 +5,6 @@ author: landonpierce
 ms.author: landonpierce 
 ms.date: 03/04/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure

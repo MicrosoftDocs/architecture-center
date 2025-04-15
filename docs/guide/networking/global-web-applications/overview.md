@@ -7,7 +7,6 @@ ms.author: jodowns
 ms.reviewer: dburkhardt
 ms.date: 02/19/2025
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-traffic-manager

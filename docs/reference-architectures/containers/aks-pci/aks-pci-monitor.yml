@@ -6,7 +6,6 @@ metadata:
   ms.author: pnp
   ms.date: 04/28/2021
   ms.topic: reference-architecture
-  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.custom: arb-containers
 name: Monitor operations of an AKS baseline cluster for a PCI-DSS 3.2.1 (Part 7 of 9)
