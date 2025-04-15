@@ -174,7 +174,6 @@ Related architectures:
 
 - [Azure enterprise cloud file share](azure-files-private.yml)
 - [Azure Files accessed on-premises and secured by AD DS](../example-scenario/hybrid/azure-files-on-premises-authentication.yml)
-- [Hybrid file share with disaster recovery for remote and local branch workers](../example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml)
 - [Use Azure file shares in a hybrid environment](azure-file-share.yml)
 
 [Architecture diagram]: ./images/hybrid-file-services.svg
