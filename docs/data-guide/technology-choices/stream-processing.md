@@ -117,7 +117,7 @@ leverage Confluent's extended ecosystem of connectors and stream processing tool
 | Managed Service | Yes | Managed Iaas | Yes | 
 | Auto Scale | Yes | Yes | Yes | 
 | Partner Offering | No | No | Yes |
-| Pricing model | [Based on Tier](https://azure.microsoft.com/pricing/details/event-hubs/) | [Per Cluster Hour]() | [Consumption models](https://azuremarketplace.microsoft.com/en/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=PlansAndPrice) |
+| Pricing model | [Based on Tier](https://azure.microsoft.com/pricing/details/event-hubs/) | [Per Cluster Hour]() | [Consumption models](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=PlansAndPrice) |
 
 ### Stream Processing
 
@@ -170,7 +170,7 @@ It supports  petabyte-scale storage and high-throughput workloads for storing la
 streaming data. It also is ideal for analytics over streaming data, ensuring fast read/write operations for data pipelines.
 
 
-- *[Fabric Eventhouse](/learn.microsoft.com/fabric/real-time-intelligence/eventhouse)* is a KQL database that is ideal for 
+- *[Fabric Eventhouse](/fabric/real-time-intelligence/eventhouse)* is a KQL database that is ideal for 
 real-time analytics and exploration on vent-based data, for example, telemetry and log data, time series and IoT data.
 It supports ingestion of millions of events per second with low latency, 
 enabling near-instantaneous access to streaming data. It is deeply integrated with the Microsoft Fabric ecosystem and enables immediate querying 
@@ -210,7 +210,7 @@ Principal author:
 
 ## Next steps
 
-- [Fabric Eventhouse](/learn.microsoft.com/fabric/real-time-intelligence/eventhouse)
+- [Fabric Eventhouse](/fabric/real-time-intelligence/eventhouse)
 - [Fabric](/azure/well-architected/service-guides/iot-hub/reliability)
 - [Explore Azure Functions](/training/modules/explore-azure-functions)
 - [Get started with Azure Stream Analytics](/training/modules/introduction-to-data-streaming)
