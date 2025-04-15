@@ -7318,6 +7318,11 @@
       "source_path": "docs/example-scenario/teams/securing-bot-teams-channel.yml",
       "redirect_url": "/azure/bot-service/dl-network-isolation-concept",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml",
+      "redirect_url": "/azure/architecture/hybrid/hybrid-file-services",
+      "redirect_document_id": false
     }
   ]
 }
