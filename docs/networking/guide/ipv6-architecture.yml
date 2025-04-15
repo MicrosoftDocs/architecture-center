@@ -6,8 +6,7 @@ metadata:
   ms.author: weral
   ms.date: 2/09/2024
   ms.topic: conceptual
-  ms.service: azure-architecture-center
-  ms.subservice: architecture-guide
+    ms.subservice: architecture-guide
   ms.custom: fcp
 name: IPv6 hub-spoke network topology
 azureCategories:

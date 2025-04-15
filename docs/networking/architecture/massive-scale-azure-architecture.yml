@@ -7,7 +7,6 @@ metadata:
   ms.author: jopoetzi
   ms.date: 11/07/2024
   ms.topic: conceptual
-  ms.service: azure-architecture-center
   ms.subservice: example-scenario
 azureCategories:
   - networking

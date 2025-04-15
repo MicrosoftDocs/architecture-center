@@ -6,7 +6,6 @@ author: prabhkaur1977
 ms.author: prkau
 ms.date: 06/07/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers

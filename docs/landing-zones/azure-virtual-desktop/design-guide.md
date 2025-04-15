@@ -11,7 +11,6 @@ categories:
 ms.author: pnp
 ms.date: 04/19/2023
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 azureCategories:
   - azure-virtual-desktop
