@@ -7,7 +7,7 @@ metadata:
   ms.author: robbag
   ms.date: 04/26/2023
   ms.topic: conceptual
-    ms.subservice: architecture-guide
+  ms.subservice: architecture-guide
 name: Single region scenario - Private Link and DNS in Azure Virtual WAN
 azureCategories:
   - networking

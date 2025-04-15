@@ -7,7 +7,7 @@ metadata:
   ms.author: rdesutter
   ms.date: 11/09/2024
   ms.topic: conceptual
-    ms.subservice: architecture-guide
+  ms.subservice: architecture-guide
 name: Cross-tenant secure access to Azure web apps and function apps with private endpoints
 azureCategories:
   - networking

@@ -6,7 +6,7 @@ metadata:
   ms.author: jomore
   ms.date: 06/07/2024
   ms.topic: conceptual
-    ms.subservice: architecture-guide
+  ms.subservice: architecture-guide
   ms.custom:
     - fcp
 name: Spoke-to-spoke networking
