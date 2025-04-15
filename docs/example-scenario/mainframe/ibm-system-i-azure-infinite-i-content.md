@@ -28,8 +28,6 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
 
-The architecture uses these components:
-
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) VMs are on-demand, scalable computing resources that eliminate the maintenance demands of physical hardware. In this architecture, they run the migrated workloads and provide flexibility and scalability. The operating system choices include Windows and Linux.
 
 - [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) automate and load-balance VM scaling. These actions simplify application management and increase availability to ensure high availability and performance for the applications.
@@ -190,7 +188,7 @@ Principal author:
 
 - For more information, contact <legacy2azure@microsoft.com>.
 
-- See the [Microsoft Azure Well-Architected Framework](/azure/well-architected) recommendations for [optimizing component costs](/azure/well-architected/cost-optimization/optimize-component-costs)
+- See the [Microsoft Azure Well-Architected Framework](/azure/well-architected) recommendations for [optimizing component costs](/azure/well-architected/cost-optimization/optimize-component-costs).
 
 - Infinite i from partner Infinite Corporation:
 
