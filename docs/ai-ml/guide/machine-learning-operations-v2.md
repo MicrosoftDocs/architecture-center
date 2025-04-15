@@ -3,7 +3,7 @@ title: Machine learning operations
 description: Learn about a single deployable set of repeatable and maintainable patterns for creating machine learning CI/CD and retraining pipelines.
 author: setuc
 ms.author: setuchokshi
-ms.date: 07/03/2024
+ms.date: 04/15/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.service: azure-architecture-center
@@ -45,7 +45,7 @@ For an implementation with sample deployment templates for MLOps v2, see [Azure 
 
 - Natural language processing: You can use this MLOps framework to implement:
 
-  - Named entity recognition:
+  - Named entity recognition
 
   - Text classification
 
@@ -197,7 +197,7 @@ The Machine Learning CV architecture is based on the classical machine learning 
 
 1. Data and model monitoring: events and actions
 
-   The data and model monitoring and event and action phases of MLOps for natural language processing are the key differences from classical machine learning. Automated retraining is typically not done in CV scenarios when model performance degradation on new images is detected. In this case, a human-in-the-loop process is necessary to review and annotate new text data for  the model that performs poorly. The next action often goes back to the model development loop to update the model with the new images.
+   The data and model monitoring and event and action phases of MLOps for natural language processing are the key differences from classical machine learning. Automated retraining is typically not done in CV scenarios when model performance degradation on new images is detected. In this case, a human-in-the-loop process is necessary to review and annotate new images for  the model that performs poorly. The next action often goes back to the model development loop to update the model with the new images.
 
 1. Infrastructure monitoring: events and actions
 
@@ -219,7 +219,7 @@ The Machine Learning natural language processing architecture is based on the cl
 
 1. Administration and setup
 
-   This component is the first step in the MLOps v2 deployment. It consists of all tasks related to the creation and management of resources and roles associated with the project. For natural language processing scenarios, administration and setup of the MLOps v2 environment is largely the same as for classical machine learning, but with an extra step: create image labeling and annotation projects by using the labeling feature of Machine Learning or another tool.
+   This component is the first step in the MLOps v2 deployment. It consists of all tasks related to the creation and management of resources and roles associated with the project. For natural language processing scenarios, administration and setup of the MLOps v2 environment is largely the same as for classical machine learning, but with an extra step: create text labeling and annotation projects by using the labeling feature of Machine Learning or another tool.
 
 1. Model development (inner loop phase)
 
