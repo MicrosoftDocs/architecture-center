@@ -1844,7 +1844,7 @@
 							class="st24">MQ, MSMQ)</tspan></text>			</g>
 			<g id="shape180-452" v:mID="180" v:groupContext="shape" transform="translate(17.7067,-297.966)">
 				<title>Sheet.180</title>
-				<desc>Environment integrators (Java, .NET, Tuxedo, Packages such as...</desc>
+				<desc>Environment integrators (Java, .NET, Tuxedo, packages such as...</desc>
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(67000):26"/>
 				</v:userDefs>
@@ -1852,11 +1852,11 @@
 				<v:textRect cx="87.492" cy="962.268" width="174.99" height="58.2162"/>
 				<path d="M0 991.38 L174.98 991.38 L174.98 933.16 L0 933.16 L0 991.38 Z" class="st77"/>
 				<text x="4" y="953.27" class="st70" v:langID="1033"><v:paragraph/><v:tabList/>Environment integrators<v:newlineChar/><tspan
-							x="4" dy="1.2em" class="st24">(Java, .NET, Tuxedo, Packages such as </tspan><tspan x="4" dy="1.2em"
+							x="4" dy="1.2em" class="st24">(Java, .NET, Tuxedo, packages such as </tspan><tspan x="4" dy="1.2em"
 							class="st24">SAP)</tspan></text>			</g>
 			<g id="shape181-457" v:mID="181" v:groupContext="shape" transform="translate(17.7067,-233.295)">
 				<title>Sheet.181</title>
-				<desc>Other middleware (Direct Data Access: ODBC, JDBC, JCA Connect...</desc>
+				<desc>Other middleware (Direct data access: ODBC, JDBC, JCA Connect...</desc>
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(68000):26"/>
 				</v:userDefs>
@@ -1864,7 +1864,7 @@
 				<v:textRect cx="87.492" cy="962.268" width="174.99" height="58.2162"/>
 				<path d="M0 991.38 L174.98 991.38 L174.98 933.16 L0 933.16 L0 991.38 Z" class="st77"/>
 				<text x="4" y="953.27" class="st70" v:langID="1033"><v:paragraph/><v:tabList/>Other middleware<v:newlineChar/><tspan
-							x="4" dy="1.2em" class="st24">(Direct Data Access: ODBC, JDBC, JCA </tspan><tspan x="4" dy="1.2em"
+							x="4" dy="1.2em" class="st24">(Direct data access: ODBC, JDBC, JCA </tspan><tspan x="4" dy="1.2em"
 							class="st24">Connectors, XML provider)</tspan></text>			</g>
 			<g id="shape182-462" v:mID="182" v:groupContext="shape" transform="translate(9.95742,-462.307)">
 				<title>Sheet.182</title>
@@ -1914,14 +1914,14 @@
 			</g>
 			<g id="shape187-477" v:mID="187" v:groupContext="shape" transform="translate(16.239,-129.415)">
 				<title>Sheet.187</title>
-				<desc>Monitoring &#38; operations server</desc>
+				<desc>Monitoring and operations server</desc>
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(99000):26"/>
 				</v:userDefs>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="87.492" cy="962.268" width="174.99" height="58.2162"/>
 				<path d="M0 991.38 L174.98 991.38 L174.98 933.16 L0 933.16 L0 991.38 Z" class="st77"/>
-				<text x="4" y="965.27" class="st80" v:langID="1033"><v:paragraph/><v:tabList/>Monitoring &#38; operations server</text>			</g>
+				<text x="4" y="965.27" class="st80" v:langID="1033"><v:paragraph/><v:tabList/>Monitoring and operations server</text>			</g>
 			<g id="shape188-480" v:mID="188" v:groupContext="shape" transform="translate(4.19849,-175.27)">
 				<title>Sheet.188</title>
 				<desc>Operations and monitoring</desc>
@@ -2639,14 +2639,14 @@
 		</g>
 		<g id="shape294-723" v:mID="294" v:groupContext="shape" transform="translate(707.625,-860.625)">
 			<title>Sheet.294</title>
-			<desc>Peer virtual network</desc>
+			<desc>Peered virtual network</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(65000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="53.6769" cy="977.876" width="107.36" height="27"/>
 			<rect x="0" y="964.376" width="107.354" height="27" class="st21"/>
-			<text x="4" y="980.88" class="st80" v:langID="1033"><v:paragraph/><v:tabList/>Peer virtual network</text>		</g>
+			<text x="4" y="980.88" class="st80" v:langID="1033"><v:paragraph/><v:tabList/>Peered virtual network</text>		</g>
 		<g id="shape295-726" v:mID="295" v:groupContext="shape" transform="translate(1680.79,129.029) rotate(90)">
 			<title>Sheet.295</title>
 			<v:userDefs>

@@ -431,7 +431,7 @@
 						x="4" dy="1.2em" class="st5">(Web Services, IBM MQ, MSMQ, </tspan><tspan x="4" dy="1.2em" class="st5">OLTP)</tspan></text>		</g>
 		<g id="shape1231-117" v:mID="1231" v:groupContext="shape" transform="translate(456.76,-396.68)">
 			<title>Sheet.1231</title>
-			<desc>Environment integrators (Java, .NET, Tuxedo, Packages like SAP)</desc>
+			<desc>Environment integrators (Java, .NET, Tuxedo, packages like SAP)</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(67000):26"/>
 			</v:userDefs>
@@ -439,7 +439,7 @@
 			<v:textRect cx="94.5" cy="666.092" width="189" height="51.5664"/>
 			<path d="M0 691.88 L189 691.88 L189 640.31 L0 640.31 L0 691.88 Z" class="st20"/>
 			<text x="4" y="656.19" class="st4" v:langID="1033"><v:paragraph/><v:tabList/>Environment integrators<v:newlineChar/><tspan
-						x="4" dy="1.2em" class="st5">(Java, .NET, Tuxedo, Packages like </tspan><tspan x="4" dy="1.2em" class="st5">SAP)</tspan></text>		</g>
+						x="4" dy="1.2em" class="st5">(Java, .NET, Tuxedo, packages like </tspan><tspan x="4" dy="1.2em" class="st5">SAP)</tspan></text>		</g>
 		<g id="shape1232-122" v:mID="1232" v:groupContext="shape" transform="translate(456.76,-339.397)">
 			<title>Sheet.1232</title>
 			<desc>Other middleware (Direct Data Access: ODBC, JDBC, JCA Connect...</desc>
@@ -532,7 +532,7 @@
 						class="st19" v:langID="1033">perating system </tspan> </text>		</g>
 		<g id="shape1391-162" v:mID="1391" v:groupContext="shape" transform="translate(684,-328.5)">
 			<title>Sheet.1391</title>
-			<desc>Application (COBOL, C, Fortran,PLUS, MASM)</desc>
+			<desc>Application (COBOL, C, Fortran, PLUS, MASM)</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(106000):26"/>
 			</v:userDefs>
@@ -540,7 +540,7 @@
 			<v:textRect cx="108" cy="664.875" width="216" height="54"/>
 			<path d="M0 691.88 L216 691.88 L216 637.88 L0 637.88 L0 691.88 Z" class="st20"/>
 			<text x="80.45" y="661.57" class="st21" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Application <v:newlineChar/><tspan
-						x="28.32" dy="1.2em" class="st19">(COBOL, C, Fortran,PLUS, MASM)</tspan></text>		</g>
+						x="26.81" dy="1.2em" class="st19">(COBOL, C, Fortran, PLUS, MASM)</tspan></text>		</g>
 		<g id="shape1404-166" v:mID="1404" v:groupContext="shape" transform="translate(137.962,-483.037)">
 			<title>Sheet.1404</title>
 			<desc>1</desc>
@@ -1074,14 +1074,14 @@
 		</g>
 		<g id="shape1431-179" v:mID="1431" v:groupContext="shape" transform="translate(454.5,-261.058)">
 			<title>Sheet.1431</title>
-			<desc>Monitoring &#38; operations server</desc>
+			<desc>Monitoring and operations server</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(126000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="94.5" cy="673.702" width="189" height="36.3468"/>
 			<path d="M0 691.88 L189 691.88 L189 655.53 L0 655.53 L0 691.88 Z" class="st20"/>
-			<text x="4" y="677" class="st21" v:langID="1033"><v:paragraph/><v:tabList/>Monitoring &#38; <tspan class="st19"
+			<text x="4" y="677" class="st21" v:langID="1033"><v:paragraph/><v:tabList/>Monitoring and <tspan class="st19"
 						v:langID="2052">o</tspan>perations <tspan class="st19" v:langID="2052">s</tspan>erver</text>		</g>
 		<g id="shape1434-184" v:mID="1434" v:groupContext="shape" transform="translate(444.532,-206.775)">
 			<title>Sheet.1434</title>
@@ -1451,7 +1451,7 @@
 			<v:textRect cx="13.5" cy="678.375" width="27" height="27"/>
 			<ellipse cx="13.5" cy="678.375" rx="13.5" ry="13.5" class="st27"/>
 			<text x="9.47" y="682.58" class="st28" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>2</text>		</g>
-		<g id="shape1488-326" v:mID="1488" v:groupContext="shape" transform="translate(615.375,-267.394)">
+		<g id="shape1488-326" v:mID="1488" v:groupContext="shape" transform="translate(625.678,-270)">
 			<title>Sheet.1488</title>
 			<desc>3</desc>
 			<v:userDefs>
