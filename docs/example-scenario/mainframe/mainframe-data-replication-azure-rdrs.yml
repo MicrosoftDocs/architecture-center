@@ -6,7 +6,7 @@ metadata:
   ms.author: naruldoss
   ms.date: 04/09/2025
   ms.topic: example-scenario
-ms.subservice: example-scenario
+  ms.subservice: example-scenario
   ms.custom: fcp
 azureCategories:
   - migration 

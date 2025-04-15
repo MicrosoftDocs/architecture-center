@@ -7,7 +7,7 @@ metadata:
   ms.date: 01/28/2025
   ms.topic: example-scenario
   ms.collection: ce-skilling-ai-copilot
-ms.subservice: example-scenario
+  ms.subservice: example-scenario
   ms.custom: arb-aiml
 azureCategories:
   - ai-machine-learning
