@@ -1,9 +1,9 @@
 ---
-title: Message encoding considerations
+title: Message Encoding Considerations
 description: Review how to choose an encoding format for asynchronous messaging. Explore encoding format considerations and choices for encoding formats.
 ms.author: robbag
 author: RobBagby
-ms.date: 03/16/2020
+ms.date: 01/31/2025
 ms.topic: best-practice
 ms.service: azure-architecture-center
 ms.subservice: best-practice
@@ -11,8 +11,6 @@ categories:
   - networking
 products:
   - azure-encoding
-ms.custom:
-  - guide
 ---
 
 <!-- cSpell:ignore BSON CBOR -->
@@ -21,7 +19,7 @@ ms.custom:
 
 Many cloud applications use asynchronous messages to exchange information between components of the system. An important aspect of messaging is the format used to encode the payload data. After you [choose a messaging technology](../guide/technology-choices/messaging.yml), the next step is to define how the messages will be encoded. There are many options available, but the right choice depends on your use case.
 
- This article describes some of the considerations.
+This article describes some of the considerations.
 
 ## Message exchange needs
 
@@ -31,7 +29,11 @@ A message exchange between a producer and a consumer needs:
 - An encoding format to represent the payload.
 - Serialization libraries to read and write the encoded payload.
 
-The producer of the message defines the message shape based on the business logic and the information it wants to send to the consumers. To structure the shape, divide the information into discrete or related subjects (fields). Decide the characteristics of the values for those fields. Consider: What is the most efficient data type? Will the payload always have certain fields? Will the payload have a single record or a repeated set of values?
+The producer of the message defines the message shape based on the business logic and the information it wants to send to the consumers. To structure the shape, divide the information into discrete or related subjects (fields). Decide the characteristics of the values for those fields. You need to consider the following questions.
+
+- What is the most efficient data type?
+- Does the payload always have certain fields?
+- Does the payload have a single record or a repeated set of values?
 
 Then, choose an encoding format depending on your need. Certain factors include the ability to create highly structured data if you need it, time taken to encode and transfer the message, and the ability to parse the payload. Depending on the encoding format, choose a serialization library that is well supported.
 
@@ -39,11 +41,11 @@ A consumer of the message must be aware of those decisions so that it knows how 
 
 To transfer messages, the producer serializes the message to an encoding format. At the receiving end, the consumer deserializes the payload to use the data. This way both entities share the model and as long as the shape doesn't change, messaging continues without issues. When the contract changes, the encoding format should be capable of handling the change without breaking the consumer.
 
-Some encoding formats such as JSON are self-describing, meaning they can be parsed without referencing a schema. However, such formats tend to yield larger messages. With other formats, the data may not be parsed as easily but the messages are compact. This article highlights some factors that can help you choose a format.
+Some encoding formats such as JSON are self-describing, meaning they can be parsed without referencing a schema. However, such formats tend to yield larger messages. With other formats, the data might not be parsed as easily but the messages are compact. This article highlights some factors that can help you choose a format.
 
 ## Encoding format considerations
 
-The encoding format defines how a set of structured data is represented as bytes. The type of message can influence the format choice. Messages related to business transactions most likely will contain highly structured data. Also, you may want to retrieve it later for auditing purposes. For a stream of events, you might want to read a sequence of records as quickly as possible and store it for statistical analysis.
+The encoding format defines how a set of structured data is represented as bytes. The type of message can influence the format choice. Messages related to business transactions most likely contain highly structured data. Also, you might want to retrieve it later for auditing purposes. For a stream of events, you might want to read a sequence of records as quickly as possible and store it for statistical analysis.
 
 Here are some points to consider when choosing an encoding format.
 
@@ -53,25 +55,27 @@ Message encoding can be broadly divided into text-based and binary formats.
 
 With text-based encoding, the message payload is in plain text and therefore can be inspected by a person without using any code libraries. Human readable formats are suitable for archival data. Also, because a human can read the payload, text-based formats are easier to debug and send to logs for troubleshooting errors.
 
-The downside is that the payload tends to be larger. A common text-based format is JSON.
+The downside is that the payload tends to be larger. The payload size can often be reduced through a minification process, as long as it can be reversed for human readability when needed. Common text-based formats are JSON and YAML.
 
 ### Encryption
 
-If there is sensitive data in the messages, consider whether those messages should be encrypted in their entirety as described in this guidance on [encrypting Azure Service Bus data at rest](/azure/service-bus-messaging/configure-customer-managed-key). Alternatively, if only certain fields need to be encrypted and you'd prefer to reduce cloud costs, consider using a library like [NServiceBus](https://docs.particular.net/samples/encryption/basic-encryption/) for that.
+If there's sensitive data in the messages, consider whether those messages should be encrypted in their entirety as described in this guidance on [encrypting Azure Service Bus data at rest](/azure/service-bus-messaging/configure-customer-managed-key). Alternatively, if only certain fields need to be encrypted and you'd prefer to reduce cloud costs, consider using a library like [NServiceBus](https://docs.particular.net/samples/encryption/basic-encryption/) for that.
 
 ### Encoding size
 
 Message size impacts network I/O performance across the wire. Binary formats are more compact than text-based formats. Binary formats require serialization/deserialization libraries. The payload can't be read unless it's decoded.
 
-Use a binary format if you want to reduce wire footprint and transfer messages faster. This category of format is recommended in scenarios where storage or network bandwidth is a concern. Options for binary formats include Apache Avro, Google Protocol Buffers (protobuf), MessagePack, and Concise Binary Object Representation (CBOR). The pros and cons of those formats are described in [This section](#choices-for-encoding-formats).
+Use a binary format if you want to reduce wire footprint and transfer messages faster. This category of format is recommended in scenarios where storage or network bandwidth is a concern. Options for binary formats include Apache Avro, Google Protocol Buffers (protobuf), MessagePack, and Concise Binary Object Representation (CBOR). The pros and cons of those formats are described later in [Choices for encoding formats](#choices-for-encoding-formats).
 
-The disadvantage is that the payload isn't human readable. Most binary formats use complex systems that can be costly to maintain. Also, they need specialized libraries to decode, which may not be supported if you want to retrieve archival data.
+The disadvantage is that the payload isn't human readable. Most binary formats use complex systems that can be costly to maintain. Also, they need specialized libraries to decode, which might not be supported if you want to retrieve archival data.
+
+For nonbinary formats, using a minification process to remove technically unnecessary spaces and characters, yet still maintaining alignment to the format's specification, can help with encoding size. Evaluate the capabilities of your encoder to make minification the default. For example, [`JsonSerializerOptions.WriteIndented`](/dotnet/api/system.text.json.jsonserializeroptions.writeindented) from .NET's `System.Text.Json.JsonSerializer` controls automatic minification when creating JSON text.
 
 ### Understanding the payload
 
 A message payload arrives as a sequence of bytes. To parse this sequence, the consumer must have access to metadata that describes the data fields in the payload. There are two main approaches for storing and distributing metadata:
 
-**Tagged metadata**. In some encodings, notably JSON, fields are tagged with the data type and identifier, within the body of the message. These formats are *self-describing* because they can be parsed into a dictionary of values without referring to a schema. One way for the consumer to understand the fields is to query for expected values. For example, the producer sends a payload in JSON. The consumer parses the JSON into a dictionary and checks the existence of fields to understand the payload. Another way is for the consumer to apply a data model shared by the producer. For example, if you are using a statically typed language, many JSON serialization libraries can parse a JSON string into a typed class.
+**Tagged metadata**. In some encodings, notably JSON, fields are tagged with the data type and identifier, within the body of the message. These formats are *self-describing* because they can be parsed into a dictionary of values without referring to a schema. One way for the consumer to understand the fields is to query for expected values. For example, the producer sends a payload in JSON. The consumer parses the JSON into a dictionary and checks the existence of fields to understand the payload. Another way is for the consumer to apply a data model shared by the producer. For example, if you're using a statically typed language, many JSON serialization libraries can parse a JSON string into a typed class.
 
 **Schema**. A schema formally defines the structure and data fields of a message. In this model, the producer and consumer have a contract through a well-defined schema. The schema can define the data types, required/optional fields, version information, and the structure of the payload. The producer sends the payload as per the writer schema. The consumer receives the payload by applying a reader schema. The message is serialized/deserialized by using the encoding-specific libraries. There are two ways to distribute schemas:
 
@@ -87,7 +91,7 @@ Before choosing an approach, decide what is more important: the transfer data si
 
 Storing the schema along with the payload yields a larger encoding size and is preferred for intermittent messages. Choose this approach if transferring smaller chunks of bytes is crucial or you expect a sequence of records. The cost of maintaining an external schema store can be high.
 
-However, if on-demand decoding of the payload is more important than size, including the schema with the payload or the tagged metadata approach guarantees decoding afterwards. There might be a significant increase in message size and may affect the cost of storage.
+However, if on-demand decoding of the payload is more important than size, including the schema with the payload or the tagged metadata approach guarantees decoding afterwards. There might be a significant increase in message size and affect the cost of storage.
 
 ### Schema versioning
 
@@ -95,13 +99,13 @@ As business requirements change, the shape is expected to change, and the schema
 
 - The consumer should be aware of the changes.
 
-    One way is for the consumer to check all fields to determine whether the schema has changed. Another way is for the producer to publish a schema version number with the message. When the schema evolves, the producer increments the version.
+  One way is for the consumer to check all fields to determine whether the schema has changed. Another way is for the producer to publish a schema version number with the message. When the schema evolves, the producer increments the version.
 
 - Changes must not affect or break the business logic of consumers.
 
-    Suppose a field is added to an existing schema. If consumers using the new version get a payload as per the old version, their logic might break if they are not able to overlook the lack of the new field. Considering the reverse case, suppose a field is removed in the new schema. Consumers using the old schema might not be able to read the data.
+  Suppose a field is added to an existing schema. If consumers using the new version get a payload as per the old version, their logic might break if they aren't able to overlook the lack of the new field. Considering the reverse case, suppose a field is removed in the new schema. Consumers using the old schema might not be able to read the data.
 
-    Encoding formats such as Avro offer the ability to define default values. In the preceding example, if the field is added with a default value, the missing field will be populated with the default value. Other formats such as protobuf provide similar functionality through required and optional fields.
+  Encoding formats such as Avro offer the ability to define default values. In the preceding example, if the field is added with a default value, the missing field is populated with the default value. Other formats such as protobuf provide similar functionality through required and optional fields.
 
 ### Payload structure
 
@@ -109,17 +113,15 @@ Consider the way data is arranged in the payload. Is it a sequence of records or
 
 - Array/dictionary/value: Defines entries that hold values in one or multi-dimensional arrays. Entries have unique key-value pairs. It can be extended to represent the complex structures. Some examples include, JSON, Apache Avro, and MessagePack.
 
-    This layout is suitable if messages are individual encoded with different schemas. If you have multiple records, the payload can get overly redundant causing the payload to bloat.
+  This layout is suitable if messages are individual encoded with different schemas. If you have multiple records, the payload can get overly redundant causing the payload to bloat.
 
 - Tabular data: Information is divided into rows and columns. Each column indicates a field, or the subject of the information and each row contains values for those fields. This layout is efficient for a repeating set of information, such as time series data.
 
-    CSV is one of the simplest text-based formats. It presents data as a sequence of records with a common header. For binary encoding, Apache Avro has a preamble is similar to a CSV header but generate compact encoding size.
+  CSV is one of the simplest text-based formats. It presents data as a sequence of records with a common header. For binary encoding, Apache Avro has a preamble is similar to a CSV header but generate compact encoding size.
 
 ### Library support
 
-Consider using well-known formats over a proprietary model.
-
-Well-known formats are supported through libraries that are universally supported by the community. With specialized formats, you need specific libraries. Your business logic might have to work around some of the API design choices provided by the libraries.
+You should use well-known formats over a proprietary model. Well-known formats are supported through libraries that are universally supported by the community. With specialized formats, you need specific libraries. Your business logic might have to work around some of the API design choices provided by the libraries.
 
 For schema-based format, choose an encoding library that makes compatibility checks between the reader and writer schema. Certain encoding libraries, such as Apache Avro, expect the consumer to specify both writer and the reader schema before deserializing the message. This check ensures that the consumer is aware of the schema versions.
 
@@ -129,11 +131,11 @@ Your choice of formats might depend on the particular workload or technology eco
 
 For example:
 
-- Azure Stream Analytics has native support for JSON, CSV, and Avro. When using Stream Analytics, it makes sense to choose one of these formats if possible. If not, you can provide a [custom deserializer](/azure/stream-analytics/custom-deserializer), but this adds some additional complexity to your solution.
+- Azure Stream Analytics has native support for JSON, CSV, and Avro. When your workload uses Stream Analytics, it makes sense to choose one of these formats.
 
-- JSON is a standard interchange format for HTTP REST APIs. If your application receives JSON payloads from clients and then places these onto a message queue for asynchronous processing, it might make sense to use JSON for the messaging, rather than reencode into a different format.
+- JSON is a standard interchange format for HTTP REST APIs. If your application receives JSON payloads from clients and then places these onto a message queue for asynchronous processing, it might make sense to use JSON for the messaging, rather than re-encode into a different format.
 
-These are just two examples of interoperability considerations. In general, standardized formats will be more interoperable than custom formats. In text-based options, JSON is one of the most interoperable.
+These are just two examples of interoperability considerations. In general, standardized formats are more interoperable than custom formats. In text-based options, JSON is one of the most interoperable.
 
 ## Choices for encoding formats
 
@@ -141,13 +143,13 @@ Here are some popular encoding formats. Factor in the considerations before you 
 
 ### JSON
 
-[JSON](https://json.org) is an open standard (IETF [RFC8259](https://tools.ietf.org/html/rfc8259)). It's a text-based format that follows the array/dictionary/value model.
+[JSON](https://www.json.org) is an open standard (IETF [RFC8259](https://tools.ietf.org/html/rfc8259)). It's a text-based format that follows the array/dictionary/value model.
 
 JSON can be used for tagging metadata and you can parse the payload without a schema. JSON supports the option to specify optional fields, which helps with forward and backward compatibility.
 
 The biggest advantage is that its universally available. It's most interoperable and the default encoding format for many messaging services.
 
-Being a text-based format, it isn't efficient over the wire and not an ideal choice in cases where storage is a concern. If you're returning cached items directly to a client via HTTP, storing JSON could save the cost of deserializing from another format and then serializing to JSON.
+Being a text-based format, it isn't efficient over the wire and not an ideal choice in cases where storage is a concern. Use minification techniques where possible. If you're returning cached items directly to a client via HTTP, storing JSON could save the cost of deserializing from another format and then serializing to JSON.
 
 Use JSON for single-record messages or for a sequence of messages in which each message has a different schema. Avoid using JSON for a sequence of records, such as for time-series data.
 
@@ -171,6 +173,12 @@ The message contains a compressed binary small payload, which results is faster 
 
 The preamble can hold the header or a schema identifier. Because of the smaller encoding size, Avro is recommended for streaming data. Also, because it has a header that applies to a set of records, it's a good choice for tabular data.
 
+### Apache Parquet
+
+[Apache Parquet](https://parquet.apache.org/) is a columnar storage file format typically associated with Apache Hadoop and related data processing frameworks.
+
+The format supports data compression and has some limited capabilities to support schema evolution. This format is an example of one that you'd likely only use due to other big data technology choices in your workload that will be responsible for creating or consuming this data.
+
 ### MessagePack
 
 [MessagePack](https://msgpack.org) is a binary serialization format that is designed to be compact for transmission over the wire. There are no message schemas or message type checking. This format isn't recommended for bulk storage.
@@ -181,4 +189,5 @@ The preamble can hold the header or a schema identifier. Because of the smaller 
 
 ## Next steps
 
-- Understand [messaging design patterns](../patterns/category/messaging.md) for cloud applications.
+- [Azure Service Bus messages, payloads, and serialization](/azure/service-bus-messaging/service-bus-messages-payloads)
+- [Response compression in ASP.NET Core](/aspnet/core/performance/response-compression)

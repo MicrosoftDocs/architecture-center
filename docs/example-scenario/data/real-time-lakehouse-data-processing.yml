@@ -22,4 +22,4 @@ name: Near real-time lakehouse data processing
 summary: Use Azure Event Hubs, Azure Synapse Analytics, and Azure Data Lake Storage to create an end-to-end, near real-time data lakehouse data processing solution.
 thumbnailUrl: /azure/architecture/browse/thumbs/real-time-lakehouse-data-processing.png
 content: |
-  [!include[](real-time-lakehouse-data-processing-content.md)]
+  [!INCLUDE[](real-time-lakehouse-data-processing-content.md)]

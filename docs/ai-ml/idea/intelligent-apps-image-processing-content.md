@@ -28,11 +28,11 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 ### Alternatives
 
-- [Azure OpenAI GPT-4 Turbo with Vision (preview)](/azure/ai-services/openai/concepts/use-your-image-data). GPT-4 Turbo with Vision is a multimodal model that can analyze images and answer questions about them.
-- [Custom Vision Service](/azure/ai-services/custom-vision-service/overview). The Computer Vision API returns a set of [taxonomy-based categories][cv-categories]. If you need to process information that isn't returned by the Computer Vision API, consider the Custom Vision Service, which lets you build custom image classifiers.
-- [Azure AI Search](/azure/search/search-what-is-azure-search) (formerly Azure Search). If your use case involves querying the metadata to find images that meet specific criteria, consider using Azure AI Search. [Azure AI search](/azure/search/search-what-is-azure-search) seamlessly integrates this workflow.
+- [Azure OpenAI GPT-4o and GPT-4o-mini](/azure/ai-services/openai/concepts/gpt-with-vision). GPT-4o and GPT-4o-mini are multimodal chat models from OpenAI that can answer general questions about what's present in the images you provide.
+- [Custom Vision Service](/azure/ai-services/custom-vision-service/overview). The Computer Vision API returns a set of [taxonomy-based categories][cv-categories]. If you need to process information that isn't returned by the Computer Vision API, consider the Custom Vision Service, which lets you build custom image classifiers. To learn about this service, follow the quick start [Build an image classification model with the Custom Vision](/azure/ai-services/custom-vision-service/getting-started-build-a-classifier).
+- [Azure AI Search](/azure/search/search-what-is-azure-search). If your use case involves querying the metadata to find images that meet specific criteria, consider using Azure AI Search. [Azure AI search](/azure/search/search-what-is-azure-search) seamlessly integrates this workflow.
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps). If you don't need to react in real-time on added files to a blob, you might consider using Logic Apps. A logic app which can check if a file was added might be start by the [recurrence trigger or sliding windows trigger](/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
-- If you have images embedded in documents, use [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/concept-layout#figures) to locate those images. With that information, you can extract and perform further computer vision tasks on the embedded images. Use Document Intelligence to gather data about those embedded images, such page number or caption text which can be stored along with the images' other metadata received through the Computer Vision API.
+- If you have images embedded in documents, use [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/concept-layout#figures) to locate those images. With that information, you can extract and perform further computer vision tasks on the embedded images. Use Document Intelligence to gather data about those embedded images, such page number or caption text which can be stored along with the images' other metadata received through the Computer Vision API. If your images are mainly photos or scans of documents, use the [Document Intelligence custom classification models](/azure/ai-services/document-intelligence/train/custom-classifier?view=doc-intel-4.0.0) to perform classification of an input file one page at a time to identify the documents within. This approach can also identify multiple documents or multiple instances of a single document within an input file.
 
 ## Scenario details
 
@@ -72,10 +72,11 @@ For a guided learning path, see:
 
 ## Related resources
 
-[Use AI enrichment with image and text processing](../../solution-ideas/articles/ai-search-skillsets.yml)
+- [Use AI enrichment with image and text processing](../../solution-ideas/articles/ai-search-skillsets.yml)
+- [Get started with multimodal vision chat apps using Azure OpenAI](/azure/developer/ai/get-started-app-chat-vision?tabs=github-codespaces)
 
 <!-- links -->
 [architecture]: _images/architecture-intelligent-apps-image-processing.png
 [serverless]: /training/paths/create-serverless-applications/
-[cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
+[cv-categories]: /azure/ai-services/computer-vision/category-taxonomy
 [visio-download]: https://arch-center.azureedge.net/architecture-image-classification-on-azure.vsdx

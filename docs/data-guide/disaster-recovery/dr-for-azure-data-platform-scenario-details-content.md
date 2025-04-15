@@ -204,7 +204,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - Notes
         - A key feature of Stream Analytics is its ability to recover from [Node failure](/azure/stream-analytics/stream-analytics-concepts-checkpoint-replay#job-recovery-from-node-failure-including-os-upgrade).
 
-- **Azure AI services (formerly Cognitive Services)**
+- **Azure AI services**
     - Contoso SKU selection: Pay As You Go
     - DR impact
         - Azure datacenter failure: N/A
@@ -270,7 +270,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - [Single-region accounts may lose availability](/azure/cosmos-db/high-availability#availability) following a regional outage. To ensure high availability of your Azure Cosmos DB instance, configure it with a single write region and at least a second (read) region and enable Service-Managed failover.
         - To avoid the loss of write availability, it advised that production workloads are configured with "enable service-managed failover", enabling automatic failover to [available regions](/azure/cosmos-db/high-availability#availability).
 
-- **Azure AI Search (formerly Cognitive Search)**
+- **Azure AI Search**
     - Contoso SKU selection: Standard S1
     - DR impact
         - Azure datacenter failure: Contoso would need to validate availability and redeploy if necessary.
@@ -287,7 +287,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Availability Zone failure: Contoso would need to validate availability and redeploy if necessary.
         - Azure regional failure: Contoso would need to redeploy the Data Share into the secondary region.
     - Notes
-        - Azure Data Share isn't currently supported by [Availability Zones](/azure/availability-zones/az-region).
+        - Azure Data Share isn't currently supported by [Availability Zones](/azure/reliability/availability-zones-overview).
         - Uplifting Data Share to a [HA deployment](/azure/data-share/disaster-recovery#achieving-business-continuity-for-azure-data-share) will address each of these outage risks.
 
 - **Purview**
@@ -305,7 +305,7 @@ The following sections present a breakdown of Contoso activity necessary across 
 > [!NOTE]
 > This section is intended as general guidance. The vendor's documentation on disaster recovery, redundancy and backup should be consulted for the correct approach for a new component or service under consideration.
 >
-> "Azure datacenter failure" covers the situation where the affected region does not have [Availability Zones](/azure/availability-zones/az-overview) offered.
+> "Azure datacenter failure" covers the situation where the affected region does not have [Availability Zones](/azure/reliability/availability-zones-overview) offered.
 >
 > If new/updated configuration or releases occurred at the point of the disaster event, these should be checked and redeployed (if necessary) as part of the work to bring the platform up to the current date.
 
@@ -316,5 +316,3 @@ Now that you've learned about the scenario details, you can learn about [recomme
 
 - [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.yml)
 - [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.yml)
-- [DR for Azure Data Platform - Deploy this scenario](dr-for-azure-data-platform-deploy-this-scenario.yml)
-- [DR for Azure Data Platform - Summary](dr-for-azure-data-platform-summary.yml)

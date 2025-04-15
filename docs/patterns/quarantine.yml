@@ -4,7 +4,7 @@ metadata:
   description: Learn about the quarantine pattern, which stops software from getting deployed to production until marked as trusted by an intermediary process.
   ms.author: robbag
   author: RobBagby
-  ms.date: 01/19/2024
+  ms.date: 01/15/2025
   ms.topic: design-pattern
   ms.service: azure-architecture-center
   ms.subservice: design-pattern
@@ -16,4 +16,4 @@ name: Quarantine pattern
 summary: Learn about the quarantine pattern, which stops software from getting deployed to production until marked as trusted by an intermediary process.
 thumbnailUrl: ../browse/thumbs/quarantine.png
 content: |
-  [!include[](quarantine-content.md)]
+  [!INCLUDE[](quarantine-content.md)]

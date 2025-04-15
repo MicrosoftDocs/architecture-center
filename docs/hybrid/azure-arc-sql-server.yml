@@ -2,7 +2,7 @@
 metadata:
   title: Administer SQL Server with Azure Arc
   description: Learn how to use Azure Arc for management, maintenance, and monitoring of SQL Server instances in on-premises and multicloud environments.
-  author: martinekuan
+  author: RobBagby
   ms.author: pnp
   ms.date: 07/26/2022
   ms.topic: reference-architecture
@@ -11,17 +11,18 @@ metadata:
   ms.category:
     - hybrid
     - databases
-name: Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc
+  ms.custom: arb-hybrid
+name: Optimize administration of SQL Server instances in on-premises and multicloud environments using Azure Arc
 azureCategories:
   - hybrid
   - databases
 summary: Optimize management, maintenance, and monitoring of SQL Server with Azure Arc enabled SQL Server and Azure Arc enabled data services in on-premises and multicloud environments.
 products:
-  - azure
   - azure-arc
+  - sql-server
   - azure-kubernetes-service
   - azure-resource-manager
   - azure-sql-managed-instance
 thumbnailUrl: /azure/architecture/browse/thumbs/administer-sql-server-azure-arc.png
 content: |
-   [!include[](azure-arc-sql-server-content.md)]
+   [!INCLUDE[](azure-arc-sql-server-content.md)]

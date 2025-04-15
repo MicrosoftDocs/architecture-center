@@ -67,51 +67,6 @@ As you're looking to implement your own HPC solution on Azure, ensure you're rev
 
 There are many infrastructure components that are necessary to build an HPC system. Compute, storage, and networking provide the underlying components, no matter how you choose to manage your HPC workloads.
 
-### Example HPC architectures
-
-There are many different ways to design and implement your HPC architecture on Azure.  HPC applications can scale to thousands of compute cores, extend on-premises clusters, or run as a 100% cloud-native solution.
-
-The following scenarios outline a few of the common ways HPC solutions are built.
-
-<ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
-    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
-        <article class="card has-outline-hover is-relative is-fullheight">
-            <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                <a class="is-undecorated is-full-height is-block"
-                 href="/azure/architecture/example-scenario/apps/hpc-saas">
-                 <img role="presentation" alt="Diagram shows example HPC architecture for computer-aided engineering services on Azure." src="../example-scenario/apps/media/architecture-hpc-saas.png">
-                </a>
-             </figure>
-             <div class="card-content has-text-overflow-ellipsis">
-                 <div class="has-padding-bottom-none">
-                     <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Computer-aided engineering services on Azure</h3>
-                 </div>
-                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
-                        <p>Provide a software-as-a-service (SaaS) platform for computer-aided engineering (CAE) on Azure.</p>
-                    </div>
-                </div>
-            </article>
-    </li>
-    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
-        <article class="card has-outline-hover is-relative is-fullheight">
-          <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-              <a class="is-undecorated is-full-height is-block"
-              href="/azure/architecture/example-scenario/infrastructure/video-rendering">
-                 <img role="presentation" alt="Diagram shows example HPC architecture for 3D video rendering on Azure." src="../example-scenario/infrastructure/media/architecture-video-rendering.svg">
-            </a>
-          </figure>
-          <div class="card-content has-text-overflow-ellipsis">
-             <div class="has-padding-bottom-none">
-                   <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">3D video rendering on Azure</h3>
-             </div>
-             <div class="is-size-7 has-margin-top-small has-line-height-reset">
-                   <p>Run native HPC workloads in Azure using the Azure Batch service</p>
-             </div>
-          </div>
-       </article>
-    </li>
-</ul>
-
 ### Compute
 
 Azure offers a range of sizes that are optimized for both CPU & GPU intensive workloads.
@@ -136,6 +91,7 @@ Large-scale Batch and HPC workloads have demands for data storage and access tha
 - [Storage Optimized Virtual Machines](/azure/virtual-machines/windows/sizes-storage)
 - [Blob, table, and queue storage](/azure/storage/common/storage-introduction)
 - [Azure SMB File storage](/azure/storage/files/storage-files-introduction)
+- [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview)
 
 For more information comparing Lustre, GlusterFS, and BeeGFS on Azure, review the [Parallel Files Systems on Azure](/archive/blogs/azurecat/azurecat-ebook-parallel-virtual-file-systems-on-microsoft-azure) e-book and the [Lustre on Azure](https://techcommunity.microsoft.com/t5/azurecat/lustre-on-azure/ba-p/1052536) blog.
 
@@ -431,4 +387,3 @@ These tutorials will provide you with details on running applications on Microso
 ## Related resources
 
 - [Big compute architecture style](../guide/architecture-styles/big-compute.yml)
-- [Hybrid HPC in Azure with HPC Pack](../solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml)

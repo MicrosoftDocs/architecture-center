@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Saga Design Pattern
+  description: Learn how to use the Saga design pattern to help ensure data consistency on distributed transactions in microservices architectures.
+  author: RobBagby
+  ms.author: pnp
+  ms.date: 02/25/2025
+  ms.topic: design-pattern
+  ms.subservice: design-pattern
+  ms.category:
+    - databases
+    - event-driven
+    - transactions
+    - microservices
+  ms.custom:
+    - fcp
+    - design-pattern
+name: Saga distributed transactions pattern
+azureCategories:
+  - databases
+summary: Learn how to use the Saga design pattern to help ensure data consistency on distributed transactions in microservices architectures.
+products:
+  - azure
+thumbnailUrl: /azure/architecture/browse/thumbs/saga-overview.png
+content: |
+   [!INCLUDE[](saga-content.md)]

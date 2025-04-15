@@ -1,4 +1,4 @@
-[Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1) is a cloud infrastructure as a service (Iaas) that you can use to run [IBM Power](https://www.ibm.com/power) workloads such as AIX, IBM i (AS/400), and Linux on Power together with x86 workloads natively on Azure. Skytap doesn't require refactoring, rearchitecting, or replatforming, so you can easily move traditional workloads to Azure.
+[Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1) is a cloud infrastructure as a service (IaaS) that you can use to run [IBM Power](https://www.ibm.com/power) workloads such as AIX, IBM i (AS/400), and Linux on Power together with x86 workloads natively on Azure. Skytap doesn't require refactoring, rearchitecting, or replatforming, so you can easily move traditional workloads to Azure.
 
 If you deploy Skytap on Azure, use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) for file storage. You can scale storage allocations up or down at any time without service interruptions. You can also dynamically adjust storage service-level performance requirements.
 
@@ -25,13 +25,13 @@ The architecture uses these components:
 
 - [Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1) is a service in Azure that natively runs IBM Power and x86 traditional workloads on hardware in Azure datacenters. If your organization runs IBM Power-based AIX, IBM i, or Linux operating systems (OS), you can use Skytap on Azure to migrate workloads to Azure with minimal upfront effort.
 
-- [Azure NetApp Files](https://azure.microsoft.com/products/netapp/) is an Azure-native, enterprise-class, high-performance file storage service. Azure NetApp Files provides volumes as a service that you can use to create NetApp accounts, capacity pools, and volumes. You can select service and performance levels and manage data protection and replication across zones and regions.
+- [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is an Azure-native, enterprise-class, high-performance file storage service. Azure NetApp Files provides volumes as a service that you can use to create NetApp accounts, capacity pools, and volumes. You can select service and performance levels and manage data protection and replication across zones and regions.
 
-- [ExpressRoute](https://azure.microsoft.com/products/expressroute/) extends your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
 
-- [Azure virtual machines (VMs)](https://azure.microsoft.com/products/virtual-machines) are an on-demand, scalable computing resource that Azure offers. Typically, you use a VM when you need more control over a computing environment than what other resources provide.
+- [Azure virtual machines (VMs)](/azure/well-architected/service-guides/virtual-machines) are an on-demand, scalable computing resource that Azure offers. Typically, you use a VM when you need more control over a computing environment than what other resources provide.
 
-- [Azure VPN Gateway](https://azure.microsoft.com/products/vpn-gateway/) connects your on-premises networks to Azure through site-to-site VPNs in a process similar to the one that you use to set up and connect to a remote branch office. This configuration provides secure connections that use the industry-standard protocols Internet Protocol Security (IPsec) and Internet Key Exchange (IKE).
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) connects your on-premises networks to Azure through site-to-site VPNs in a process similar to the one that you use to set up and connect to a remote branch office. This configuration provides secure connections that use the industry-standard protocols Internet Protocol Security (IPsec) and Internet Key Exchange (IKE).
 
 ### Alternatives
 
@@ -137,7 +137,7 @@ To scale compute performance, you can add capacity to LPARs that run in Skytap o
 
 Azure NetApp Files volumes are available in [Ultra, Premium, and Standard performance tiers](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels). When you choose the tier that best suits your performance requirements, consider that available performance bandwidth [scales with the size of a volume](https://docs.netapp.com/us-en/bluexp-azure-netapp-files/task-manage-volumes.html#:~:text=Change%20the%20volume%27s%20service%20level%201%20Open%20the,service%20level%20that%20you%20want.%204%20Click%20Change.). You can [change the service level of a volume](https://docs.netapp.com/us-en/occm37/task_manage_anf.html) at any time without disruption to storage operations. For more information about the Azure NetApp Files cost model, see [Pricing examples](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-cost-model#pricing-examples).
 
-To get started, see the [Azure NetApp Files performance calculator](https://cloud.netapp.com/azure-netapp-files/sizer).
+To get started, see the [Azure NetApp Files performance calculator](https://bluexp.netapp.com/azure-netapp-files/sizer).
 
 ## Contributors
 

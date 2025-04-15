@@ -148,7 +148,7 @@ Here are some scaling and availability considerations when choosing Azure servic
 
 - **Review the Azure subscription scale limits and quotas** to support the capacity and cost model set by the business requirements. Also check the limits of individual services in consideration. Because units are typically deployed together, factor in the subscription resource limits that are required for canary deployments. For more information, see [Azure service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
-- **Choose services that support availability zones** to build redundancy. This might limit your technology choices. See [Availability Zones](/azure/availability-zones/az-region) for details.
+- **Choose services that support availability zones** to build redundancy. This might limit your technology choices. See [Availability Zones](/azure/reliability/availability-zones-overview) for details.
 
 > For other considerations about the size of a unit, and combination of resources, see [Mission-critical guidance in Well-architected Framework: Scale-unit architecture](/azure/architecture/framework/mission-critical/mission-critical-application-design#scale-unit-architecture).
 

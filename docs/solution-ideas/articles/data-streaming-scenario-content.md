@@ -79,7 +79,6 @@ Microsoft training modules:
 - [Explore API Management](/training/modules/explore-api-management)
 - [Introduction to Azure HDInsight](/training/modules/intro-to-azure-hdinsight)
 
-## Related resources
+## Related resource
 
 - [Azure Kubernetes Service (AKS) architecture design](../../reference-architectures/containers/aks-start-here.md)
-- [Azure Kubernetes in event stream processing](serverless-event-processing-aks.yml)

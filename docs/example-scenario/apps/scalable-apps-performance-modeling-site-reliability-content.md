@@ -29,13 +29,13 @@ Client applications such as web apps, mobile apps, and even service applications
 
 ### Components
 
-- [Azure Front Door](https://azure.microsoft.com/services/frontdoor) provides a secured, unified point of entry for all requests to the solution. For more information, see [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture).
-- [Azure API Management](https://azure.microsoft.com/services/api-management) provides a governance layer on top of all published APIs. You can use Azure API Management policies to apply additional capabilities on the API layer, such as access restrictions, caching, and data transformation. API Management supports autoscaling in Standard and Premium tiers.
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is the Azure implementation of open-source Kubernetes clusters. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance. Since Kubernetes masters are managed by Azure, you only manage and maintain the agent nodes. In this architecture, all microservices are deployed in AKS.
-- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway) is an application delivery controller service. It operates at layer 7, the application layer, and has various load-balancing capabilities. The Application Gateway Ingress Controller (AGIC) is a Kubernetes application that makes it possible for Azure Kubernetes Service (AKS) customers to use the Azure native Application Gateway L7 load-balancer to expose cloud software to the Internet. Autoscaling and zone redundancy are supported in the v2 SKU.
-- [Azure Storage](https://azure.microsoft.com/product-categories/storage), [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) and [Azure SQL](https://azure.microsoft.com/products/azure-sql) can store both structured and non-structured content. Azure Cosmos DB containers and databases can be created with autoscale throughput.
-- [Microsoft Dynamics 365](https://dynamics.microsoft.com) is a software as a service (SaaS) offering from Microsoft which provides several business applications for customer service, sales, marketing, and finance. In this architecture, Dynamics 365 is primarily used for managing product catalogs and for customer service management. Scale units provide resiliency to Dynamics 365 applications.
-- [Microsoft 365](https://www.microsoft.com/microsoft-365) (formerly Office 365) is used as an enterprise content management system that's built on Microsoft 365 SharePoint in Microsoft 365. It's used to create, manage, and publish content such as media assets and documents.
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) provides a secured, unified point of entry for all requests to the solution. For more information, see [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture).
+- [Azure API Management](/azure/well-architected/service-guides/api-management/operational-excellence) provides a governance layer on top of all published APIs. You can use Azure API Management policies to apply additional capabilities on the API layer, such as access restrictions, caching, and data transformation. API Management supports autoscaling in Standard and Premium tiers.
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is the Azure implementation of open-source Kubernetes clusters. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance. Since Kubernetes masters are managed by Azure, you only manage and maintain the agent nodes. In this architecture, all microservices are deployed in AKS.
+- [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is an application delivery controller service. It operates at layer 7, the application layer, and has various load-balancing capabilities. The Application Gateway Ingress Controller (AGIC) is a Kubernetes application that makes it possible for Azure Kubernetes Service (AKS) customers to use the Azure native Application Gateway L7 load-balancer to expose cloud software to the Internet. Autoscaling and zone redundancy are supported in the v2 SKU.
+- [Azure Storage](/azure/storage/common/storage-introduction), [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction), [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) and [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) can store both structured and non-structured content. Azure Cosmos DB containers and databases can be created with autoscale throughput.
+- [Microsoft Dynamics 365](/dynamics365/get-started/intro-crossapp-index) is a software as a service (SaaS) offering from Microsoft which provides several business applications for Customer Service, Sales, Marketing, and finance. In this architecture, Dynamics 365 is primarily used for managing product catalogs and for Customer Service management. Scale units provide resiliency to Dynamics 365 applications.
+- [Microsoft 365](/office365/servicedescriptions/office-365-service-descriptions-technet-library) (formerly Office 365) is used as an enterprise content management system that's built on Microsoft 365 SharePoint in Microsoft 365. It's used to create, manage, and publish content such as media assets and documents.
 
 ### Alternatives
 
@@ -228,7 +228,7 @@ Cost optimization is a pillar of the [Microsoft Azure Well-Architected Framework
 
 Principal author:
 
-* [Subhajit Chatterjee](https://in.linkedin.com/in/subhajit-chatterjee-b9b53b44) | Principal Software Engineer
+- [Subhajit Chatterjee](https://www.linkedin.com/in/subhajit-chatterjee-b9b53b44) | Principal Software Engineer
 
 ## Next steps
 
@@ -237,7 +237,6 @@ Principal author:
 - [Microservices architecture style](/azure/architecture/guide/architecture-styles/microservices)
 - [Design to scale out](/azure/architecture/guide/design-principles/scale-out)
 - [Choose an Azure compute service for your application](/azure/architecture/guide/technology-choices/compute-decision-tree)
-- [Design and implementation patterns](/azure/architecture/patterns/category/design-implementation)
 - [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
 - [What is Azure Front Door?](/azure/frontdoor/front-door-overview)
 - [About API Management](/azure/api-management/api-management-key-concepts)

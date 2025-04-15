@@ -1,8 +1,8 @@
 ---
-title: Machine learning operations v2
+title: Machine learning operations
 description: Learn about a single deployable set of repeatable and maintainable patterns for creating machine learning CI/CD and retraining pipelines.
-author: sdonohoo
-ms.author: robbag
+author: setuc
+ms.author: setuchokshi
 ms.date: 07/03/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
@@ -66,6 +66,10 @@ For an implementation with sample deployment templates for MLOps v2, see [Azure 
   - Part-of-speech tagging
 
 AI simulations, deep reinforcement learning, and other forms of AI aren't described in this article.
+
+## MLOps as a key design area for AI workloads
+
+The planning and implementation of a MLOps and GenAIOps are a core design area in AI workloads on Azure. To get a background on why these machine learning workloads need specialized operations, see [MLOps and GenAIOps for AI workloads on Azure](/azure/well-architected/ai/mlops-genaiops) in the Azure Well-Architected Framework.
 
 ## Architecture
 
@@ -621,15 +625,13 @@ Monitor the ongoing service of an API for performance optimization, security, an
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
-- [Scott Donohoo](https://www.linkedin.com/in/scottdonohoo) | Senior Cloud Solution Architect
-- [Moritz Steller](https://www.linkedin.com/in/moritz-steller-426430116/) | Senior Cloud Solution Architect
+- [Setu Chokshi](https://www.linkedin.com/in/setuchokshi/) | Senior Technical Specialist
 
 Other contributors:
 
 - [Scott Mckinnon](https://www.linkedin.com/in/scott-mckinnon-96756a83/) | Cloud Solution Architect
-- [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore/) | Cloud Solution Architect
 - [Darren Turchiarelli](https://www.linkedin.com/in/darren-turchiarelli/) | Cloud Solution Architect
 - [Leo Kozhushnik](https://www.linkedin.com/in/leo-kozhushnik-ab16707/) | Cloud Solution Architect
 
@@ -654,6 +656,6 @@ Other contributors:
 ## Related resources
 
 - [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/ai-services.md)
-- [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
+- [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.md)
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [What is the Team Data Science Process?](../../data-science-process/overview.yml)

@@ -36,21 +36,21 @@ This workflow corresponds to the preceding architecture.
 
 ### Components
 
-- [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) eliminates network-based trust and provides system-assigned managed identities, which improves security.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) eliminates network-based trust and provides system-assigned managed identities, which improves security.
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) eliminates the need to administer an operating system and server, which increases operational efficiency and business agility.
 
-- [Application Gateway](https://azure.microsoft.com/products/application-gateway) is a fully managed and scalable service that provides web application firewall and reverse proxy functionality.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a fully managed and scalable service that provides web application firewall and reverse proxy functionality.
 
-- [Azure Files](https://azure.microsoft.com/products/storage/files) provides data reports that are published via a managed service.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) provides data reports that are published via a managed service.
 
-- [Azure Functions](https://azure.microsoft.com/products/functions) is an event-driven, serverless compute platform that is used to efficiently develop code in the specified programming language. 
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is an event-driven, serverless compute platform that is used to efficiently develop code in the specified programming language. 
 
-- An [Azure VM](https://azure.microsoft.com/products/virtual-machines) is used by the Oracle database and SAS analysis nodes.
+- An [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is used by the Oracle database and SAS analysis nodes.
 
 - [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery) builds and stores images for the Oracle database and SAS analysis nodes. There are two galleries: one in the primary region and one in the disaster recovery region.
 
-- [Communication Services](https://azure.microsoft.com/products/communication-services) sends emails with a CLI utility. This service replaces the `mailx` command on AIX.
+- [Communication Services](/azure/communication-services/overview) sends emails with a CLI utility. This service replaces the `mailx` command on AIX.
 
 ### Alternatives
 
@@ -170,5 +170,4 @@ For more information about migrating to Azure, [contact the Legacy Migrations En
 ## Related resources
 
 - [Multi-tier web application built for high availability and disaster recovery](../infrastructure/multi-tier-app-disaster-recovery.yml)
-- [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml)
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)

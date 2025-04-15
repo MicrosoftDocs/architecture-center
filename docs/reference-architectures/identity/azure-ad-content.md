@@ -1,6 +1,6 @@
 <!-- cSpell:ignore writeback MSOL -->
 
-Microsoft Entra ID is a cloud-based multi-tenant directory and identity service. This reference architecture shows best practices for integrating on-premises Active Directory domains with Microsoft Entra ID to provide cloud-based identity authentication.
+Microsoft Entra ID is a cloud-based directory and identity service. This reference architecture shows best practices for integrating on-premises Active Directory domains with Microsoft Entra ID to provide cloud-based identity authentication.
 
 ## Architecture
 
@@ -27,7 +27,7 @@ The architecture has the following components.
   > For security reasons, Microsoft Entra ID stores user's passwords as a hash. If a user requires a password reset, this must be performed on-premises and the new hash must be sent to Microsoft Entra ID. Microsoft Entra ID P1 or P2 editions include features that can allow for password changes to happen in the cloud and then be written back to on-premises AD DS.
   >
 
-- **VMs for N-tier application**. For more information about these resources, see [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+- **VMs for N-tier application**. For more information about these resources, see [N-tier architecture on virtual machines](/azure/architecture/guide/architecture-styles/n-tier#n-tier-architecture-on-virtual-machines).
 
 ## Scenario details
 
@@ -160,7 +160,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 The Microsoft Entra service is geo-distributed and runs in multiple datacenters spread around the world with automated failover. If a datacenter becomes unavailable, Microsoft Entra ID ensures that your directory data is available for instance access in at least two more regionally dispersed datacenters.
 
@@ -176,7 +176,7 @@ For additional considerations about achieving high availability of the Microsoft
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Use conditional access control to deny authentication requests from unexpected sources:
 
@@ -192,9 +192,9 @@ Use conditional access control to deny authentication requests from unexpected s
 
 For more information, see [Microsoft Entra Conditional Access][aad-conditional-access].
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 
@@ -206,11 +206,11 @@ Cost considerations include:
 
   - For pricing information about the editions of Microsoft Entra ID, see [Microsoft Entra pricing][Azure-AD-pricing].
 
-- **VMs for N-Tier application** - For cost information about these resources, see [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+- **VMs for N-Tier application** - For cost information about these resources, see [Architecture best practices for Virtual Machines and scale sets](/azure/well-architected/service-guides/virtual-machines).
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 #### Manageability
 
@@ -236,9 +236,9 @@ For more information and tips for managing Microsoft Entra Connect, see [Microso
 
 For DevOps considerations, see Operational excellence in [Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.yml#operational-excellence).
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 The Microsoft Entra service supports scalability based on replicas, with a single primary replica that handles write operations plus multiple read-only secondary replicas. Microsoft Entra ID transparently redirects attempted writes made against secondary replicas to the primary replica and provides eventual consistency. All changes made to the primary replica are propagated to the secondary replicas. This architecture scales well because most operations against Microsoft Entra ID are reads rather than writes. For more information, see [What is the Microsoft Entra architecture?][aad-scalability]
 
@@ -246,7 +246,7 @@ For the Microsoft Entra Connect Sync server, determine how many objects you're l
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 

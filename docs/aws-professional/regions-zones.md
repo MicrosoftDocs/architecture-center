@@ -7,6 +7,9 @@ ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
+ms.collection: 
+ - migration
+ - aws-to-azure
 products:
   - azure
 categories:
@@ -46,7 +49,7 @@ Availability sets should be organized by the instance's role in your application
 
 ## Availability zones
 
-An [Availability Zone](/azure/availability-zones/az-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures. Not all regions support availability zones.
+An [Availability Zone](/azure/reliability/availability-zones-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures. Not all regions support availability zones.
 
 ## Paired regions
 

@@ -117,9 +117,9 @@ Kubernetes [volumes, persistent volumes, and persistent volume claims](https://k
 
 In both HA and disaster recovery (DR), the choices of network topology and [load balancing solutions](../technology-choices/load-balancing-overview.yml) are important.
 
-However, DR requires [multiregion service deployment](/azure/availability-zones/az-overview#regions) at the entire service level, with load balancing solutions between Azure regions. The application is either spread across multiple regions, or an entire application instance is deployed in each region. The choice depends on application type, application architecture, and latency tolerance between components.
+However, DR requires multiregion service deployment at the entire service level, with load balancing solutions between Azure regions. The application is either spread across multiple regions, or an entire application instance is deployed in each region. The choice depends on application type, application architecture, and latency tolerance between components.
 
-Instead of using multiple regions, HA benefits from [multizone deployments](/azure/availability-zones/az-overview#availability-zones) within Azure regions. The following diagram illustrates the difference between availability zones and regions for HA and DR.
+Instead of using multiple regions, HA benefits from [multizone deployments](/azure/reliability/availability-zones-overview) within Azure regions. The following diagram illustrates the difference between availability zones and regions for HA and DR.
 
 [ ![Diagram that compares availability zones and Azure regions for HA and DR.](media/load-balancing.svg)](media/load-balancing.svg#lightbox)
 
@@ -153,7 +153,7 @@ Other contributors:
 ## Next steps
 
 - [High availability Kubernetes cluster pattern](/hybrid/app-solutions/pattern-highly-available-kubernetes)
-- [Regions and availability zones](/azure/availability-zones/az-overview)
+- [Regions and availability zones](/azure/reliability/availability-zones-overview)
 - [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)](/azure/aks/quotas-skus-regions)
 - [Orchestrating microservices and multi-container applications for high scalability and availability](/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/orchestrate-high-scalability-availability)
 - [Azure Kubernetes Service (AKS) cluster architecture and operations](/training/paths/aks-cluster-architecture)

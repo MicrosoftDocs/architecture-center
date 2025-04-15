@@ -52,7 +52,7 @@ Other relevant use cases include:
 
 ## Scenario details
 
-This scenario demonstrates a multitier application that uses ASP.NET and Microsoft SQL Server. In [Azure regions that support availability zones](/azure/availability-zones/az-overview#services-support-by-region), you can deploy your virtual machines (VMs) in a source region across availability zones and replicate the VMs to the target region used for disaster recovery. In Azure regions that don't support availability zones, you can deploy your VMs within an [availability set](/azure/virtual-machines/availability-set-overview) and replicate the VMs to the target region.
+This scenario demonstrates a multitier application that uses ASP.NET and Microsoft SQL Server. In [Azure regions that support availability zones](/azure/reliability/availability-zones-region-support), you can deploy your virtual machines (VMs) in a source region across availability zones and replicate the VMs to the target region used for disaster recovery. In Azure regions that don't support availability zones, you can deploy your VMs within an [availability set](/azure/virtual-machines/availability-set-overview) and replicate the VMs to the target region.
 
 To route traffic between regions, you need a global load balancer. There are two main Azure offerings:
 
@@ -114,27 +114,23 @@ Principal author:
 
 For additional high availability and disaster recovery reference architectures, see:
 
-- [Multi-region N-tier application][Multi-region-N-tier-application]
 - [Multi-region load balancing][Multi-region-load-balancing]
-- [Enterprise-scale disaster recovery][Enterprise-scale-disaster-recovery]
 
 <!-- links -->
 
 [architecture]: ./media/architecture-disaster-recovery-multi-tier-app.png
 [security]: /azure/security
 [scalability]: /azure/architecture/framework/scalability/performance-efficiency
-[docs-availability-zones]: /azure/availability-zones/az-overview
+[docs-availability-zones]: /azure/well-architected/service-guides/azure-load-balancer/reliability
 [docs-load-balancer]: /azure/load-balancer/load-balancer-overview
 [docs-nsg]: /azure/virtual-network/security-overview
 [docs-sql-always-on]: /sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server
 [docs-sql-server-linux]: /sql/linux/sql-server-linux-overview?view=sql-server-linux-2017
-[docs-traffic-manager]: /azure/traffic-manager
-[docs-azure-site-recovery]: /azure/site-recovery/azure-to-azure-quickstart
+[docs-traffic-manager]: /azure/well-architected/service-guides/traffic-manager/reliability
+[docs-azure-site-recovery]: /azure/site-recovery/site-recovery-overview
 [docs-availability-sets]: /azure/virtual-machines/windows/manage-availability
 [calculator]: https://azure.com/e/6835332265044d6d931d68c917979e6d
-[Multi-region-N-tier-application]: /azure/architecture/reference-architectures/n-tier/multi-region-sql-server
 [Multi-region-load-balancing]: /azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway
-[Enterprise-scale-disaster-recovery]: /azure/architecture/solution-ideas/articles/disaster-recovery-enterprise-scale-dr
 [Set-up-disaster-recovery-for-Azure-VMs]: /azure/site-recovery/azure-to-azure-tutorial-enable-replication
 [Deploy-Traffic-Manager-in-Azure]: /azure/traffic-manager/quickstart-create-traffic-manager-profile
 [visio-download]: https://arch-center.azureedge.net/architecture-disaster-recovery-multi-tier-app.vsdx

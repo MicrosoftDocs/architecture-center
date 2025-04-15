@@ -23,7 +23,7 @@ This architecture applies to businesses that want to provide file shares for cli
 
 ### Components
 
-- [Azure NetApp Files](https://azure.microsoft.com/services/netapp) provides enterprise-grade Azure file shares that are powered by NetApp. Azure NetApp Files makes it easy for enterprises to migrate and run complex file-based applications with no code changes. It also provides a way to replicate data asynchronously from an Azure NetApp Files volume in one region to an Azure NetApp Files volume in another region. This capability provides data protection during region-wide outages or disasters. For more information, see [Cross-region replication of Azure NetApp Files volumes](/azure/azure-netapp-files/cross-region-replication-introduction).
+- [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) provides enterprise-grade Azure file shares that are powered by NetApp. Azure NetApp Files makes it easy for enterprises to migrate and run complex file-based applications with no code changes. It also provides a way to replicate data asynchronously from an Azure NetApp Files volume in one region to an Azure NetApp Files volume in another region. This capability provides data protection during region-wide outages or disasters. For more information, see [Cross-region replication of Azure NetApp Files volumes](/azure/azure-netapp-files/cross-region-replication-introduction).
 - DFS Namespaces is a role service in Windows Server that can group shared folders that are located on different servers into one or more logically structured namespaces. For more information, see [DFS Namespaces overview](/windows-server/storage/dfs-namespaces/dfs-overview).
 
 ### Alternatives
@@ -85,7 +85,7 @@ See [Disaster Recovery for Enterprise File Shares](https://techcommunity.microso
 
 Principal authors:
 
- * [Max Melcher](https://de.linkedin.com/in/maxmelcher) | Cloud Solution Architect
+- [Max Melcher](https://de.linkedin.com/in/maxmelcher) | Cloud Solution Architect
 
 ## Next steps
 
@@ -96,4 +96,4 @@ Principal authors:
 
 ## Related resources
 
-- [Hybrid file share with disaster recovery for remote and local branch workers](/azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers)
+- [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services)

@@ -26,8 +26,14 @@ While the app is ambitious, it doesn't yet need a complex, microservice-driven a
 In this core startup stack architecture:
 
 - [Azure App Service](/azure/app-service/overview) provides a simple app server to deploy scalable applications without configuring servers, load balancers, or other infrastructure.  App Service supports container deployments as in the example here, and also supports container-less deployments for ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP, or Python.
-- [Azure Database for PostgreSQL](/azure/postgresql/overview) is an Azure database service for a leading open-source relational database management system (RDBMS). You can concentrate on developing your application rather than managing database servers.  Azure also has managed database services for [SQL](/azure/azure-sql/database/sql-database-paas-overview), [MySQL](/azure/mysql/overview), [MariaDB](/azure/mariadb/overview), [MongoDB](https://www.mongodb.com/mongodb-on-azure), [Apache Cassandra](/azure/cosmos-db/cassandra/introduction), [Gremlin](/azure/cosmos-db/gremlin/introduction) and [Redis](/azure/azure-cache-for-redis/cache-overview).
-- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) segments network traffic and keeps internal services protected from internet threats. Your app servers use [virtual network integration](/azure/app-service/web-sites-integrate-with-vnet) to communicate with the database without exposure to the internet.
+
+- [Azure Database for PostgreSQL](/azure/postgresql/overview) is an Azure database service for a leading open-source relational database management system (RDBMS). You can concentrate on developing your application rather than managing database servers.
+
+  Azure also has managed database services for [SQL](/azure/azure-sql/database/sql-database-paas-overview), [MySQL](/azure/mysql/overview), [MariaDB](/azure/mariadb/overview), [MongoDB](https://www.mongodb.com/mongodb-on-azure), [Apache Cassandra](/azure/cosmos-db/cassandra/introduction), [Gremlin](/azure/cosmos-db/gremlin/introduction), and [Redis](/azure/azure-cache-for-redis/cache-overview).
+
+  In addition to managed offerings, the Azure Marketplace includes databases used in startup architectures as well, such as [CockroachDB](https://azuremarketplace.microsoft.com/marketplace/apps/cockroachlabs1586448087626.cockroachdb-azure), [Neon Serverless Postgres](https://azuremarketplace.microsoft.com/marketplace/apps/neon1722366567200.neon_serverless_postgres_azure_prod), and [SQLite](https://azuremarketplace.microsoft.com/marketplace/apps/cloud-infrastructure-services.sqlite-ubuntu).
+
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) segments network traffic and keeps internal services protected from internet threats. Your app servers use [virtual network integration](/azure/app-service/web-sites-integrate-with-vnet) to communicate with the database without exposure to the internet.
 - [GitHub Actions](https://docs.github.com/actions) builds continuous integration and continuous deployment (CI/CD) into your source code management. GitHub Actions has extensive support for different languages, and strong integration with Azure services.
 - [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview) stores static assets and moves load away from the app servers.
 - [Azure Front Door with WAF](/azure/frontdoor/front-door-overview) accelerates and secures content delivery to users through a global content delivery network (CDN) and web application firewall.
@@ -57,7 +63,7 @@ Serving static content from your app server wastes resources. Once you configure
 
 ### Database
 
-Once your app is running, you need to store your data in a database. For most cases, a relational database is the best solution. A relational database has multiple access methods and the speed of a time-tested solution. Relational databases include [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database), [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql), and [Azure Database for MariaDB](https://azure.microsoft.com/services/mariadb). Some use cases need a document database or NoSQL database like [MongoDB](https://www.mongodb.com/mongodb-on-azure) or [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db).
+Once your app is running, you need to store your data in a database. For most cases, a relational database is the best solution. A relational database has multiple access methods and the speed of a time-tested solution. Relational databases include [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework), [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql), and [Azure Database for MariaDB](/azure/mariadb/overview). Some use cases need a document database or NoSQL database like [MongoDB](https://www.mongodb.com/mongodb-on-azure) or [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db).
 
 ### Log aggregation
 

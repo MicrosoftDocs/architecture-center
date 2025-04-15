@@ -1,7 +1,7 @@
 ---
 title: Hybrid architecture design
 description: Get an introductory overview of hybrid cloud technologies and how you can connect an on-premises environment to Azure in a way that works best for your organization.
-author: martinekuan
+author: RobBagby
 ms.service: azure-architecture-center
 ms.subservice: reference-architecture
 ms.topic: reference-architecture
@@ -14,13 +14,14 @@ ms.custom:
   - fcp
   - reference-architecture
   - e2e-hybrid
+  - arb-hybrid
 products:
   - azure
 ---
 
 # Hybrid architecture design
 
-Many organizations need a hybrid approach to analytics, automation, and services because their data is hosted both on-premises and in the cloud. Organizations often [extend on-premises data solutions to the cloud](../databases/guide/hybrid-on-premises-and-cloud.md). To connect environments, organizations start by [choosing a hybrid network architecture](../reference-architectures/hybrid-networking/index.yml).
+Many organizations need a hybrid approach to analytics, automation, and services because their data is hosted both on-premises and in the cloud. Organizations often extend on-premises data solutions to the cloud. To connect environments, organizations start by [choosing a hybrid network architecture](../reference-architectures/hybrid-networking/index.yml).
 
 ## Learn about hybrid solutions
 
@@ -40,11 +41,12 @@ Explore some options for [connecting an on-premises network to Azure](../referen
 
 When you adopt a hybrid model, you can choose from multiple solutions to confidently deliver hybrid workloads. See these documents for information on running Azure data services anywhere, modernizing applications anywhere, and managing your workloads anywhere:
 
+- [Azure hybrid options](../guide/technology-choices/hybrid-considerations.yml)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](arc-hybrid-kubernetes.yml)
 - [Use Azure file shares](azure-file-share.yml)
-- [Back up files](azure-stack-backup.yml)
+- [Back up files](/azure/backup/backup-mabs-files-applications-azure-stack)
 - [Monitor performance](hybrid-perf-monitoring.yml)
-- [Disaster recovery for Azure Stack Hub VMs](azure-stack-vm-disaster-recovery.yml)
+- [Enable virtual machine protection in Azure Site Recovery](/azure-stack/operator/protect-virtual-machines)
 
 ---
 
@@ -59,6 +61,5 @@ The typical hybrid solution journey ranges from learning how to get started with
 
 Here are some example implementations to consider:
 
-- [Cross-cloud scaling](../solution-ideas/articles/cross-cloud-scaling.yml)
-- [Hybrid connections](../solution-ideas/articles/hybrid-connectivity.yml)
-- [Unlock legacy data with Azure Stack](../solution-ideas/articles/unlock-legacy-data.yml)
+- [Cross-cloud scaling](/azure/adaptive-cloud/app-solutions/pattern-cross-cloud-scale)
+- [Hybrid connections](/azure/app-service/app-service-hybrid-connections)

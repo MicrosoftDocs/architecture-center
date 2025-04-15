@@ -140,7 +140,7 @@ Keep in mind that you need to secure the SAP Web Dispatcher in any situation, ev
 
 #### Azure Firewall and Application Gateway
 
-All web traffic provided by Application Gateway is HTTPS-based and encrypted with the provided TLS certificate. You can use Azure Firewall as an entry point to the corporate network, via its public IP, and then route SAP Fiori traffic from the firewall to Application Gateway through an internal IP address. For more information, see [Application Gateway after firewall](../../example-scenario/gateway/firewall-application-gateway.yml#application-gateway-after-firewall). Because the TCP/IP layer-7 encryption is already in place via TLS, there's limited benefit to using  a firewall in this scenario, and you can't perform packet inspection. Fiori communicates through the same external IP address for both inbound and outbound traffic, which typically isn't required for SAP Fiori deployments.
+All web traffic provided by Application Gateway is HTTPS-based and encrypted with the provided TLS certificate. You can use Azure Firewall as an entry point to the corporate network, via its public IP, and then route SAP Fiori traffic from the firewall to Application Gateway through an internal IP address. For more information, see [Azure Firewall in front of Application Gateway](../../example-scenario/gateway/firewall-application-gateway.yml#azure-firewall-in-front-of-application-gateway-design). Because the TCP/IP layer-7 encryption is already in place via TLS, there's limited benefit to using  a firewall in this scenario, and you can't perform packet inspection. Fiori communicates through the same external IP address for both inbound and outbound traffic, which typically isn't required for SAP Fiori deployments.
 
 There are some benefits of a tandem Application Gateway and layer-4 firewall deployment:
 
@@ -252,4 +252,4 @@ Consider using these communities to get answers to questions and for help with s
 
 - [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Run SAP NetWeaver in Windows on Azure](./sap-netweaver.yml)
-- [SAP S/4HANA in Linux on Azure](./sap-s4hana.yml) 
+- [SAP S/4HANA in Linux on Azure](./sap-s4hana.md)

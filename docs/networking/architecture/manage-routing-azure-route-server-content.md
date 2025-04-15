@@ -87,7 +87,7 @@ Consider these points when implementing this solution:
 
 - Route Server establishes connections and exchanges routes. It doesn't transfer data packets. As a result, the VMs that Route Server runs in its back end don't require significant CPU power or computational power.
 
-- When you deploy Route Server, create a subnet called `RouteServerSubnet` that uses an IPv4 subnet mask of `/27`. Place Route Server in that subnet.
+- When you deploy Route Server, create a subnet called `RouteServerSubnet` that uses an IPv4 subnet mask of `/26`. Place Route Server in that subnet.
 
 - In Azure gateways, the Basic pricing tier doesn't support coexisting ExpressRoute and VPN Gateway connections. For other limitations with coexisting configurations, see [Limits and limitations][Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell - Limits and limitations].
 
@@ -101,10 +101,9 @@ Route Server is a fully managed service that offers high availability. For this 
 
 ### Scalability
 
-Most components in this solution are managed services that automatically scale. But there are a few exceptions:
+Most components in this solution are managed services that automatically scale. But there are some exceptions:
 
-- Route Server can advertise at most 200 routes to ExpressRoute or a VPN gateway.
-- Route Server can support at most 2,000 VMs per virtual network, including peered virtual networks.
+- Route Server can support at most 4,000 VMs per virtual network, including peered virtual networks.
 
 ### Security
 
@@ -157,7 +156,6 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 
 ## Related resources
 
-- [Azure Firewall architecture overview][Azure Firewall architecture overview]
 - [Choose between virtual network peering and VPN gateways][Choose between virtual network peering and VPN gateways]
 - [Recommendations for using availability zones and regions][Recommendations for using availability zones and regions]
 - [Deploy highly available NVAs][Deploy highly available NVAs]
@@ -166,9 +164,8 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 [About Azure Route Server support for ExpressRoute and Azure VPN]: /azure/route-server/expressroute-vpn-support
 [About dual-homed network with Azure Route Server]: /azure/route-server/about-dual-homed-network
 [Azure ExpressRoute pricing]: https://azure.microsoft.com/pricing/details/expressroute
-[Azure Firewall architecture overview]: ../guide/network-virtual-appliances-architecture.yml
 [Azure road map]: https://azure.microsoft.com/updates/?category=networking
-[Azure Route Server]: https://azure.microsoft.com/services/route-server
+[Azure Route Server]: /azure/route-server/overview
 [Azure Route Server FAQ]: /azure/route-server/route-server-faq
 [Azure Route Server pricing]: https://azure.microsoft.com/pricing/details/route-server
 [Azure security baseline for Virtual Network]: /security/benchmark/azure/baselines/virtual-network-security-baseline
@@ -184,17 +181,17 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 [Overview of the cost optimization pillar]: /azure/architecture/framework/cost/overview
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Quickstart: Create and configure Route Server using the Azure portal]: /azure/route-server/quickstart-configure-route-server-portal
-[Regions and availability zones]: /azure/availability-zones/az-overview
+[Regions and availability zones]: /azure/reliability/availability-zones-overview
 [SLA for Azure Route Server]: https://azure.microsoft.com/support/legal/sla/route-server/v1_0
-[Virtual Network]: https://azure.microsoft.com/services/virtual-network
+[Virtual Network]: /azure/well-architected/service-guides/virtual-network
 [Virtual network peering]: /azure/virtual-network/virtual-network-peering-overview
 [Virtual Network service endpoints]: /azure/virtual-network/virtual-network-service-endpoints-overview
 [Virtual network traffic routing - Custom routes]: /azure/virtual-network/virtual-networks-udr-overview#custom-routes
 [Virtual network traffic routing - Optional default routes]: /azure/virtual-network/virtual-networks-udr-overview#optional-default-routes
 [Virtual network traffic routing - User-defined]: /azure/virtual-network/virtual-networks-udr-overview#user-defined
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1886347-manage-routing-azure-route-server-architecture.vsdx
-[VPN Gateway]: https://azure.microsoft.com/services/vpn-gateway
+[VPN Gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [VPN Gateway pricing]: https://azure.microsoft.com/pricing/details/vpn-gateway
-[What is Azure ExpressRoute?]: /azure/expressroute/expressroute-introduction
+[What is Azure ExpressRoute?]: /azure/well-architected/service-guides/azure-expressroute
 [What is Azure Route Server?]: /azure/route-server/overview
 [Zero-trust network for web applications with Azure Firewall and Application Gateway]: ../../example-scenario/gateway/application-gateway-before-azure-firewall.yml

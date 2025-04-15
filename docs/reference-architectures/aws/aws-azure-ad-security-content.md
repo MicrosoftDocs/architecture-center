@@ -56,9 +56,13 @@ Many organizations that use AWS already rely on Microsoft Entra ID for Microsoft
 
 Microsoft Entra ID easily integrates with other Microsoft security solutions, like Microsoft Defender for Cloud Apps and Microsoft Sentinel. For more information, see [Defender for Cloud Apps and Microsoft Sentinel for AWS](../../guide/aws/aws-azure-security-solutions.yml). Microsoft security solutions are extensible and have multiple levels of protection. Organizations can implement one or more of these solutions along with other types of protection for a full security architecture that protects current and future AWS deployments.
 
-## Recommendations
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 The following principles and guidelines are important for any cloud security solution:
 
@@ -366,3 +370,10 @@ If you have Defender for Cloud Apps, you can use Conditional Access to configure
 - For in-depth coverage and comparison of Azure and AWS features, see the [Azure for AWS professionals](../../aws-professional/index.md) content set.
 - [Security and identity on Azure and AWS](../../aws-professional/security-identity.md)
 - [Defender for Cloud Apps and Microsoft Sentinel for AWS](/azure/architecture/guide/aws/aws-azure-security-solutions)
+- [Onboard an AWS account](/azure/active-directory/cloud-infrastructure-entitlement-management/onboard-aws)
+- [AWS single-account access](/azure/active-directory/saas-apps/amazon-web-service-tutorial)
+- [AWS Single Sign-on](/azure/active-directory/saas-apps/aws-single-sign-on-tutorial)
+- [Configure AWS Single Sign-On](/azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial)
+- [AWS multiple accounts](/azure/active-directory/saas-apps/aws-multi-accounts-tutorial)
+- [AWS ClientVPN](/azure/active-directory/saas-apps/aws-clientvpn-tutorial)
+- [Attach and detach policies](/azure/active-directory/cloud-infrastructure-entitlement-management/how-to-attach-detach-permissions)

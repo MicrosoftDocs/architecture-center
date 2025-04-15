@@ -14,6 +14,7 @@ metadata:
   ms.custom:
     - web-apps
     - scalability
+    - arb-web
 name: WordPress on Azure
 azureCategories:
   - web

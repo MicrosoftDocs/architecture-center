@@ -57,7 +57,7 @@ Do the following steps to verify connectivity:
 
 1. Do the following application migration activities in parallel with the database migration to help ensure the least amount of downtime.
     - Migrate application services in accordance with your plans and discussions.
-    - Update the application services to point to the new database, including the connection string, Transparent Network Substrate (TNS) entries, and other required configurations. 
+    - Update the application services to point to the new database, including the connection string, Transparent Network Substrate (TNS) entries, and other required configurations.
     - Verify that the application services work as expected.
 
 The following diagram shows the updated configuration, including the ZDM migration node.
@@ -96,5 +96,3 @@ Review the following articles to ensure that your implementation follows recomme
 - [Business continuity and disaster recovery considerations for OD@A](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-disaster-recovery-oracle-database-azure)
 - [Introduction to ZDM](https://docs.oracle.com/en/database/oracle/zero-downtime-migration/21.4/zdmug/introduction-to-zero-downtime-migration.html#GUID-A4EC1775-307C-47A6-89FB-E4C3F1FBC4F5)
 - [ZDM physical online migration whitepaper](https://www.oracle.com/a/otn/docs/database/zdm-physical-migration-to-oracle-at-azure.pdf)
-
-

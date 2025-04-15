@@ -1,12 +1,12 @@
 ---
 title: Choose Azure AI image and video processing technology
 description: Learn about vision capabilities of Azure AI services. Learn which service to use for a specific use cases.
-author: robbagby
-ms.author: pnp
+author: ritesh-modi
+ms.author: rimod
 categories:
   - ai-machine-learning
   - analytics
-ms.date: 09/11/2024
+ms.date: 03/20/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -68,7 +68,7 @@ The following table provides a list of capabilities available in Azure AI Vision
 | Capability |Description|
 |---|---|
 | [Optical Character Recognition (OCR)](/azure/ai-services/computer-vision/overview-ocr)|The Optical Character Recognition (OCR) service extracts text from images. You can use the Read API to extract printed and handwritten text from photos and documents. It uses deep-learning-based models and works with text on various surfaces and backgrounds. These include business documents, invoices, receipts, posters, business cards, letters, and whiteboards. The OCR APIs support extracting printed text in [Several languages](/azure/ai-services/computer-vision/language-support).|
-|[Image Analysis](/azure/ai-services/computer-vision/overview-image-analysis)| The Image Analysis service extracts many visual features from images, such as objects, faces, and auto-generated text descriptions. With [Image Analysis 4.0](/azure/ai-services/computer-vision/how-to/model-customization) that's based on Florence foundational model, you can also create custom image identifier models. |
+|[Image Analysis](/azure/ai-services/computer-vision/overview-image-analysis)| The Image Analysis service extracts many visual features from images, such as objects, faces, and auto-generated text descriptions. With [Image Analysis 4.0](/azure/ai-services/computer-vision/how-to/model-customization) that's based on Florence foundation model, you can also create custom image identifier models. |
 |[Video Analysis](/azure/ai-services/computer-vision/intro-to-spatial-analysis-public-preview)| Video Analysis includes video-related features like Spatial Analysis and Video Retrieval. Spatial Analysis analyzes the presence and movement of people on a video feed and produces events that other systems can respond to. |
 
 ### Azure AI Custom Vision
@@ -139,7 +139,7 @@ The following table provides a list of some of the capabilities available in Azu
 | [Audio transcription](/azure/ai-services/computer-vision/overview-identity#identification)| Converts speech to text over 50 languages and allows extensions. |
 | [Language detection](/azure/ai-services/computer-vision/overview-identity#identification)|Identifies the dominant spoken language. |
 | [Noise reduction](/azure/ai-services/computer-vision/overview-identity#identification)|Clears up telephony audio or noisy recordings (based on Skype filters). |
-| [Translation](/azure/ai-services/computer-vision/overview-identity#identification)|FCreates translations of the audio transcript to many different languages.  |
+| [Translation](/azure/ai-services/computer-vision/overview-identity#identification)|Creates translations of the audio transcript to many different languages.  |
 
 To review more capabilities of the Azure AI Video Indexer service, see the [Azure AI Video Indexer documentation](/azure/azure-video-indexer/video-indexer-overview).
 

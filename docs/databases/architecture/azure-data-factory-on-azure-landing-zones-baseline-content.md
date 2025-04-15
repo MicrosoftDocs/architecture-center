@@ -139,7 +139,7 @@ Data Lake Storage underpins Delta Lake because of its ability to efficiently sto
 
 1. The solution adds two more components to the foundational Azure services, which enable collaboration, governance, reliability, and security:
 
-    - [Microsoft Purview Data Governance](/purview/governance-home) provides data discovery services, a data catalog, and governance insights across the platform.
+    - Microsoft Purview provides data discovery services, a [Unified Catalog](/purview/unified-catalog), and governance insights across the platform.
 
     - [Site Recovery](/azure/site-recovery/) supports the backup and recovery of the VMs, which provide the compute to the Data Factory SHIR, required to ingest data from on-premises.
 
@@ -169,7 +169,9 @@ The following foundation services require extension to support this solution:
 
 - To take advantage of machine learning-assisted data labeling, you must create a new storage account that is different than the default storage account you created for the Azure Machine Learning workspace. You can bind the new, nondefault storage account to the same virtual network as the workspace. If you prefer to keep the storage account separate, you can place it in a different subnet within that virtual network.
 
-## Design considerations
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 - The use of Azure Databricks Delta Lake means that you can't use the Archive tier Azure Storage accounts because that tier is effectivity offline storage. This design choice is a tradeoff between functionality and cost.
 
@@ -190,10 +192,6 @@ The following services are alternatives for the storage modeling layer:
 - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/): This service isn't a good match for the scenario described in this article because of the lack of migration requirement and higher operating expenses.
 
 - [Azure Database for PostgresSQL](/azure/postgresql/): This service isn't a good match for the scenario described in this article because of Contoso's existing skill set and preference to minimize the introduction of new technologies, which reduces cost and complexity.
-
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -238,9 +236,9 @@ This architecture addresses security via configuration of the infrastructure sel
 
   - This solution creates the groups, like finance, at the domain level to enable reuse. The data classification framework limits the sprawl of solution-specific groups.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 To address cost optimization, this architecture:
 
@@ -266,9 +264,9 @@ To address cost optimization, this architecture:
 
 - Implements cost and budget alerting through [Cost Management](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending) and [spending guardrails](/azure/well-architected/cost-optimization/set-spending-guardrails#use-governance-policies).
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 Operational excellence is enabled through automation, monitoring, and auditing across the SDLC. This solution includes:
 
@@ -305,9 +303,9 @@ The recommended alerting baseline includes:
 > [!IMPORTANT]
 > Create alert [action groups](/azure/azure-monitor/alerts/action-groups) as global resources to ensure continuity in the event of regional service problems.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 To addresses performance efficiency, this architecture has:
 

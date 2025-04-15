@@ -1,16 +1,16 @@
 ### YamlMime:Architecture
 metadata:
-  title: IoT analytics with Azure Data Explorer
+  title: IoT analytics with Azure Data Explorer and Azure IoT Hub
   titleSuffix: Azure Solution Ideas
-  description: Use Azure Data Explorer for near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide variety of IoT devices.
-  author: asergaz
-  ms.author: sergaz
-  ms.date: 03/04/2024
+  description: Use Azure Data Explorer with Azure IoT Hub for near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide variety of IoT devices.
+  author: shsagir
+  ms.author: shsagir
+  ms.date: 02/11/2025
   ms.topic: solution-idea
   ms.service: azure-architecture-center
   ms.subservice: solution-idea
   ms.custom: arb-iot
-name: IoT analytics with Azure Data Explorer
+name: IoT analytics with Azure Data Explorer and Azure IoT Hub
 azureCategories:
   - analytics
   - iot
@@ -19,6 +19,7 @@ products:
   - azure-cosmos-db
   - azure-data-explorer
   - azure-digital-twins
+  - azure-iot-hub
 thumbnailUrl: /azure/architecture/browse/thumbs/iot-azure-data-explorer-thumbnail-new.png
 content: |
    [!include[](iot-azure-data-explorer-content.md)]

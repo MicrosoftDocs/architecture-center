@@ -4,7 +4,7 @@ description: Compare options for real-time message stream processing in Azure, w
 author: pratimav0420
 ms.author: prvalava
 categories: azure
-ms.date: 11/06/2024
+ms.date: 04/15/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide

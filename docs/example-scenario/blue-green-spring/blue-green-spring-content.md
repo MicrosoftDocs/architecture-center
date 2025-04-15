@@ -28,9 +28,9 @@ This article describes a high-availability blue/green deployment solution for ap
 
 This solution uses the following components:
 
-- [Azure Spring Apps](https://azure.microsoft.com/services/spring-cloud) is a modern microservices platform for running Java Spring Boot and Steeltoe .NET Core apps. It eliminates boilerplate code for running microservices and helps you quickly develop robust apps in the cloud. You can also use Azure Spring Apps to deploy code on a per-application basis.
+- [Azure Spring Apps](/azure/spring-apps/basic-standard/overview) is a modern microservices platform for running Java Spring Boot and Steeltoe .NET Core apps. It eliminates boilerplate code for running microservices and helps you quickly develop robust apps in the cloud. You can also use Azure Spring Apps to deploy code on a per-application basis.
 
-- [GitHub](https://github.com) is a code-hosting platform that provides version control and collaboration. GitHub provides Git distributed version control, source code management, and other features.
+- [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git) is a code-hosting platform that provides version control and collaboration. GitHub provides Git distributed version control, source code management, and other features.
 
 - [GitHub Actions](https://docs.github.com/actions) helps you automate software development and deployment workflows from within a repository. You can use it to create a fully automated continuous integration and continuous delivery (CI/CD) setup. You can also use GitHub Actions to create environments for which you can configure rules, like requiring reviewers.
 
@@ -137,5 +137,4 @@ Principal author:
 ## Related resources
 
 - [Azure Spring Apps reference architecture](/azure/spring-cloud/reference-architecture)
-- [Expose Azure Spring Apps through a reverse proxy](../../reference-architectures/microservices/spring-cloud-reverse-proxy.yml)
 - [Deploy Azure Spring Apps to multiple regions](../../reference-architectures/microservices/spring-apps-multi-region.yml)

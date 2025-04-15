@@ -6,20 +6,18 @@ items:
       items:
       - name: Relational
         items:
-        - name: Intelligent apps using MySQL
-          href: idea/intelligent-apps-using-azure-database-for-mysql.yml
-        - name: Intelligent apps using PostgreSQL
-          href: idea/intelligent-apps-using-azure-database-for-postgresql.yml
         - name: Migrate an Oracle database to Azure
           href: idea/topic-migrate-oracle-azure.yml
         - name: Migrate an Oracle database to an Azure virtual machine
           href: idea/migrate-oracle-azure-iaas.yml
         - name: Migrate an Oracle database to OD@A Exadata Database Service
-          href: idea/migrate-oracle-odaa-exadata.yml        
+          href: idea/migrate-oracle-odaa-exadata.yml
+        - name: Oracle Database with Azure NetApp Files
+          href: ../example-scenario/file-storage/oracle-azure-netapp-files.yml
+        - name: SAP deployment using an Oracle database
+          href: ../example-scenario/apps/sap-production.yml          
       - name: NoSQL
         items:
-        - name: Serverless apps using Azure Cosmos DB
-          href: idea/serverless-apps-using-cosmos-db.yml
         - name: Minimal storage – change feed replication
           href: idea/minimal-storage-change-feed-replicate-data.yml
     - name: Design architectures
@@ -28,6 +26,8 @@ items:
         items:
         - name: DataOps for modern data warehouse
           href: architecture/dataops-mdw.yml
+        - name: Greenfield lakehouse on Microsoft Fabric
+          href: ../example-scenario/data/greenfield-lakehouse-fabric.yml
       - name: Azure Data Factory on Azure landing zones
         items:
         - name: Azure Data Factory on Azure landing zones index
@@ -38,24 +38,40 @@ items:
           href: architecture/azure-data-factory-enterprise-hardened.yml
         - name: Azure Data Factory mission critical architecture
           href: architecture/azure-data-factory-mission-critical.yml
-      - name: Master data management
-        items:
-        - name: Migrate master data services with CluedIn
-          href: architecture/migrate-master-data-services-with-cluedin.yml
-        - name: Master data management with Profisee
-          href: architecture/profisee-master-data-management-data-factory.yml
-        - name: Migrate master data services with Profisee
-          href: architecture/profisee-mds-migration-utility.yml
-      - name: Governance
-        items:
-        - name: Master data management with CluedIn
-          href: architecture/cluedin.yml
-        - name: Data governance with Profisee
-          href: architecture/profisee-master-data-management-purview.yml
       - name: NoSQL
         items:
-        - name: N-tier app with Cassandra
-          href: architecture/n-tier-cassandra.yml
+        - name: Analyze MongoDB Atlas data
+          href: architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml
+      - name: Relational
+        items:
+        - name: Intelligent search engine for e-commerce
+          href: architecture/ecommerce-search.yml
+      - name: Data movement
+        items:
+        - name: Automated enterprise BI
+          href: ../reference-architectures/data/enterprise-bi-adf.yml
+        - name: Disaster recovery for data analytics pipelines
+          href: ../example-scenario/analytics/pipelines-disaster-recovery.yml
+      - name: Mainframe
+        items:
+        - name: Replicate and sync mainframe data
+          href: ../reference-architectures/migration/sync-mainframe-data-with-azure.yml
+        - name: Mainframe data replication with Connect
+          href: ../example-scenario/mainframe/mainframe-replication-precisely-connect.yml
+        - name: Mainframe data replication with Qlik
+          href: ../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml
+        - name: Mainframe data replication with RDRS
+          href: ../example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml
+        - name: Migrate mainframe data tier to Azure with mLogica LIBER*IRIS
+          href: ../example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml
+        - name: Modernize mainframe midrange data
+          href: ../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml
+        - name: Re-engineer mainframe batch apps
+          href: ../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml
+        - name: Rehost IMS DC and IMS DB
+          href: ../example-scenario/mainframe/rehost-ims-raincode-imsql.yml
+        - name: SMA OpCon in Azure
+          href: ../solution-ideas/articles/sma-opcon-azure.yml    
     - name: Apply guidance
       items:
       - name: Databases
@@ -66,21 +82,17 @@ items:
             href: guide/transactional-outbox-cosmos.yml
           - name: Run Apache Cassandra
             href: guide/cassandra.md
-        - name: Hybrid
-          items:
-          - name: Extend on-premises data solutions to Azure
-            href: guide/hybrid-on-premises-and-cloud.md
       - name: Big data
         items:
         - name: Big data architectures
           href: guide/big-data-architectures.yml
-      - name: Data transform
-        items:
-        - name: VantageCloud integration with Azure Data Factory
-          href: guide/teradata-vantage-data-factory.yml
+        - name: Microsoft Fabric deployment patterns
+          href: ../analytics/architecture/fabric-deployment-patterns.yml
       - name: Governance
         items:
         - name: Data obfuscation with Delphix
           href: guide/data-obfuscation-with-delphix-in-azure-data-factory.yml
         - name: Data scrambling for SAP with Delphix
           href: guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml
+        - name: Collection structure for a federated Purview catalog
+          href: ../guide/data/collection-structure-federated-catalog.md

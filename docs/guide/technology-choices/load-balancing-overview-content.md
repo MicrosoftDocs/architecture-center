@@ -16,7 +16,7 @@ Azure load-balancing services can be categorized along two dimensions: global ve
 ### HTTP(S) vs. non-HTTP(S)
 
 - **HTTP(S)**: These load-balancing services are [Layer 7](https://www.iso.org/ics/35.100.70/x/) load balancers that only accept HTTP(S) traffic. They're intended for web applications or other HTTP(S) endpoints. They might have features such as SSL offload, web application firewall, path-based load balancing, and session affinity.
-- **Non-HTTP(S)**: These load-balancing services are [Layer 4](https://www.iso.org/ics/35.100.40/x/) load balancers that can handle non-HTTP(S) traffic, primarily TCP or UDP services.
+- **Non-HTTP(S)**: These load-balancing services are either [Layer 4](https://www.iso.org/ics/35.100.40/x/) TCP or UDP services, or DNS-based load balancing.
 
 The following table summarizes the Azure load-balancing services.
 
@@ -28,7 +28,7 @@ The following table summarizes the Azure load-balancing services.
 | Azure Load Balancer       | Regional or Global | Non-HTTP(S)      |
 
 > [!NOTE]
-> Azure Traffic Manager and Azure Load Balancer have the capabilities to distribute HTTP(S) traffic, but do not have any specific features to route based on protocol data unit information higher than Layer 4. They both support HTTP(S) traffic, but only at Layer 4 functionality levels.
+> Azure Traffic Manager and Azure Load Balancer have the capabilities to distribute any traffic, including HTTP(S). However, these services do not have Layer 7 capabilities. Unlike Azure Load Balancer, Azure Traffic Manager doesn't handle the traffic directly; Traffic Manager manipulates DNS to direct clients to the appropriate endpoints.
 
 ## Azure load-balancing services
 
@@ -55,7 +55,7 @@ Consider these factors such as these when you select a load balancing solution:
 - **Cost**: For more information, see [Azure pricing](https://azure.microsoft.com/pricing/). In addition to the cost of the service itself, consider the operations cost for managing a solution built on that service.
 - **Features and limits**: What capabilities are supported on each service and what are the [Service limits](/azure/azure-subscription-service-limits) of each service?
 
-> ![TIP]
+> [!TIP]
 > The Azure portal offers a questionnaire-based guide similar to the following flowchart. In the Azure portal, search for '**Load balancing - help me choose**'. By answering the questions, you can narrow down your load balancing options.
 
 The following flowchart helps you to choose a load-balancing solution for your application. The flowchart guides you through a set of key decision criteria to reach a recommendation.
@@ -87,7 +87,7 @@ When your workload involves several services that require load balancing, it's i
 
 - **Infrastructure as a service (IaaS)**: A computing option where you provision the virtual machines that you need, along with associated network and storage components. IaaS applications require internal load balancing within a virtual network by using Load Balancer.
 
-- **Application-layer processing**: Refers to special routing within a virtual network. For example, path-based routing within the virtual network across VMs or virtual machine scale sets. For more information, see [When should we deploy an Application Gateway behind Azure Front Door?](/azure/frontdoor/front-door-faq#when-should-we-deploy-an-application-gateway-behind-front-door).
+- **Application-layer processing**: Refers to special routing within a virtual network. For example, path-based routing within the virtual network across VMs or virtual machine scale sets. For more information, see [When should we deploy an Application Gateway behind Azure Front Door?](/azure/frontdoor/front-door-faq#when-should-i-deploy-an-application-gateway-behind-front-door-).
 
 - **Performance acceleration**: Refers to features that accelerate web access. Performance acceleration can be achieved by using content delivery networks (CDNs) or optimized point of presence ingress for accelerated client onboarding into the destination network. Azure Front Door supports both [CDNs](/azure/frontdoor/front-door-caching?pivots=front-door-standard-premium) and [Anycast traffic acceleration](/azure/frontdoor/front-door-traffic-acceleration?pivots=front-door-standard-premium). The benefits of both features can be gained with or without Application Gateway in the architecture.
 
@@ -95,7 +95,8 @@ When your workload involves several services that require load balancing, it's i
 
 Each load balancing service also has capability support or implementation details that need also be considered. Here are some examples that might be relevant for your load balancing scenario.
 
-- Web Sockets support
+- WebSockets support
+- Server-sent events (SSE) support
 - HTTP/2 support (both receiving and continuing to backend nodes)
 - Sticky session support
 - Backend node health monitoring mechanism
@@ -108,10 +109,8 @@ The following table lists various articles based on the load-balancing services 
 |Services |Article |Description |
 |---------|---------|---------|
 |Load Balancer    |  [Load balance virtual machines (VMs) across availability zones](/azure/load-balancer/quickstart-load-balancer-standard-public-portal)    |   Load balance VMs across availability zones to help protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.     |
-|Azure Front Door    |  [Sharing location in real time by using low-cost serverless Azure services](../../example-scenario/signalr/index.yml#azure-front-door)       |   Use Azure Front Door to provide higher availability for your applications than deploying to a single region. If a regional outage affects the primary region, you can use Azure Front Door to fail over to the secondary region.      |
 |Traffic Manager   | [Multitier web application built for high availability and disaster recovery](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)        |      Deploy resilient multitier applications built for high availability and disaster recovery. If the primary region becomes unavailable, Traffic Manager fails over to the secondary region.  |
 |Azure Front Door + Application Gateway     | [Multitenant SaaS on Azure](../../example-scenario/multi-saas/multitenant-saas.yml)       |   Use a multitenant solution that includes a combination of Azure Front Door and Application Gateway. Azure Front Door helps load balance traffic across regions. Application Gateway routes and load-balances traffic internally in the application to the various services that satisfy client business needs.  |
-|Traffic Manager + Load Balancer    | [Multiregion N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml)          |   A multiregion N-tier application that uses Traffic Manager to route incoming requests to a primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region.      |
 |Traffic Manager + Application Gateway    | [Multiregion load balancing with Traffic Manager and Application Gateway](../../high-availability/reference-architecture-traffic-manager-application-gateway.yml)          |   Learn how to serve web workloads and deploy resilient multitier applications in multiple Azure regions to achieve high availability and a robust disaster recovery infrastructure.      |
 
 ## Next steps

@@ -143,9 +143,9 @@ For more information, see [Deploying Project 15 from Microsoft Open Platform][De
 
 Principal authors:
 
- * [Sarah Maston](https://www.linkedin.com/in/smwmaston/) | Director, Global Partner Strategy
- * [Daisuke Nakahara](https://www.linkedin.com/in/daisuke-nakahara/) | Director, Sony Semiconductor Solutions
- * [Linda Nichols](https://www.linkedin.com/in/lynnaloo/) | App Innovation Global Black Belt
+- [Sarah Maston](https://www.linkedin.com/in/smwmaston/) | Director, Global Partner Strategy
+- [Daisuke Nakahara](https://www.linkedin.com/in/daisuke-nakahara/) | Director, Sony Semiconductor Solutions
+- [Linda Nichols](https://www.linkedin.com/in/lynnaloo/) | App Innovation Global Black Belt
 
 ## Next steps
 
@@ -157,9 +157,7 @@ Principal authors:
 
 ## Related resources
 
-- [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
-- [Getting started with Azure IoT solutions](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
-- [Environment monitoring and supply chain optimization with IoT](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization)
+- [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
 
 [API Apps]: https://azure.microsoft.com/services/app-service/api
 [App Service]: https://azure.microsoft.com/services/app-service

@@ -4,30 +4,14 @@ items:
   items:
     - name: Explore ideas about
       items:
-      - name: Document processing
-        items:
-        - name: Large-scale custom NLP
-          href: idea/large-scale-custom-natural-language-processing.yml
       - name: Image processing
         items:
         - name: Image classification
           href: idea/intelligent-apps-image-processing.yml
-        - name: Vision classifier model
-          href: idea/vision-classifier-model-with-custom-vision.yml
-      - name: Audio processing
-        items:
-        - name: Use Azure OpenAI to process podcast audio files
-          href: idea/process-audio-files.yml
       - name: Predictive analytics
         items:
-        - name: Personalized offers
-          href: idea/personalized-offers.yml
-      - name: AI at the edge
-        items:
-        - name: Video ingestion and object detection on the edge
-          href: idea/video-ingestion-object-detection-edge-cloud.yml
-        - name: Computer vision at the edge
-          href: ../reference-architectures/ai/end-to-end-smart-factory.yml
+        - name: Customer order forecasting
+          href: idea/next-order-forecasting.yml
       - name: Document enrichment
         items:
         - name: Use AI enrichment with Azure AI Search
@@ -36,16 +20,12 @@ items:
         items:
         - name: Use Azure Databricks to orchestrate MLOps
           href: idea/orchestrate-machine-learning-azure-databricks.yml
-        - name: Deploy AI and ML at the edge
-          href: idea/deploy-ai-ml-azure-stack-edge.yml
-        - name: Many models ML with Spark
-          href: idea/many-models-machine-learning-azure-spark.yml
         - name: Many models with Machine Learning
           href: idea/many-models-machine-learning-azure-machine-learning.yml
-      - name: Other ideas
+      - name: Document processing
         items:
-        - name: Data science and machine learning
-          href: ../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml
+        - name: Extract text using Power Automate
+          href: ../example-scenario/ai/extract-object-text.yml
     - name: Design architectures
       items:
       - name: Chat bots
@@ -61,7 +41,7 @@ items:
         - name: Automate document classification
           href: architecture/automate-document-classification-durable-functions.yml
         - name: Automate document processing
-          href: architecture/automate-document-processing-azure-form-recognizer.yml
+          href: architecture/automate-document-processing-azure-ai-document-intelligence.yml
         - name: Automate PDF form processing
           href: architecture/automate-pdf-forms-processing.yml
         - name: Build custom document processing models
@@ -80,10 +60,6 @@ items:
         items:
         - name: Batch scoring with Spark on Databricks
           href: architecture/batch-scoring-databricks.yml
-      - name: Monitoring
-        items:
-        - name: Monitor OpenAI models
-          href: openai/architecture/log-monitor-azure-openai.yml
       - name: Regulatory
         items:
         - name: Secure research for regulated data
@@ -95,25 +71,25 @@ items:
       - name: Developing and evaluating RAG solutions
         items:
         - name: Getting started
-          href: guide/rag/rag-solution-design-and-evaluation-guide.yml
+          href: guide/rag/rag-solution-design-and-evaluation-guide.md
         - name: Preparation phase
-          href: guide/rag/rag-preparation-phase.yml
+          href: guide/rag/rag-preparation-phase.md
         - name: Chunking phase
-          href: guide/rag/rag-chunking-phase.yml
+          href: guide/rag/rag-chunking-phase.md
         - name: Chunk enrichment phase
-          href: guide/rag/rag-enrichment-phase.yml
+          href: guide/rag/rag-enrichment-phase.md
         - name: Embedding phase
-          href: guide/rag/rag-generating-embeddings.yml
-        - name: Information retrieval phase
-          href: guide/rag/rag-information-retrieval.yml
+          href: guide/rag/rag-generate-embeddings.md
+        - name: Information-retrieval phase
+          href: guide/rag/rag-information-retrieval.md
         - name: LLM end-to-end evaluation phase
-          href: guide/rag/rag-llm-evaluation-phase.yml
+          href: guide/rag/rag-llm-evaluation-phase.md
+      - name: Design a secure multitenant RAG inferencing solution
+        href: guide/secure-multitenant-rag.md
       - name: MLOps
         items:
         - name: Machine learning operations (MLOps) v2
           href: guide/machine-learning-operations-v2.md
-        - name: Network security for MLOps
-          href: guide/network-security-mlops.yml
         - name: Generative AI ops with MLOps
           href: guide/genaiops-for-mlops.md
         - name: MLOps maturity model
@@ -126,40 +102,8 @@ items:
           href: guide/azure-openai-gateway-multi-backend.yml
         - name: Provide custom authentication to Azure OpenAI through a gateway
           href: guide/azure-openai-gateway-custom-authentication.yml
-      - name: Team Data Science Process
-        items:
-        - name: Overview
-          href: ../data-science-process/overview.yml
-        - name: Lifecycle
-          items:
-          - name: Overview
-            href: ../data-science-process/lifecycle.md
-          - name: 1. Business understanding
-            href: ../data-science-process/lifecycle-business-understanding.md
-          - name: 2. Data acquisition and understanding
-            href: ../data-science-process/lifecycle-data.md
-          - name: 3. Modeling
-            href: ../data-science-process/lifecycle-modeling.md
-          - name: 4. Deployment
-            href: ../data-science-process/lifecycle-deployment.md
-          - name: 5. Customer acceptance
-            href: ../data-science-process/lifecycle-acceptance.md
-        - name: Roles and tasks
-          items:
-          - name: Overview
-            href: ../data-science-process/roles-tasks.md
-          - name: Group manager
-            href: ../data-science-process/group-manager-tasks.md
-          - name: Team lead
-            href: ../data-science-process/team-lead-tasks.md
-          - name: Project lead
-            href: ../data-science-process/project-lead-tasks.md
-          - name: Individual contributor
-            href: ../data-science-process/project-ic-tasks.md
-        - name: Training
-          items:
-          - name: For data scientists
-            href: ../data-science-process/team-data-science-process-for-data-scientists.md
+        - name: Implement advanced monitoring for Azure OpenAI through a gateway
+          href: guide/azure-openai-gateway-monitoring.yml
     - name: OpenAI
       items:
       - name: Design architectures
@@ -172,26 +116,26 @@ items:
           href: architecture/azure-openai-baseline-landing-zone.yml
         - name: Extract and analyze call center data
           href: openai/architecture/call-center-openai-analytics.yml
-        - name: Monitor OpenAI models
-          href: openai/architecture/log-monitor-azure-openai.yml
       - name: Apply guidance
         items:
         - name: Developing and evaluating RAG solutions
           items:
           - name: Getting started
-            href: guide/rag/rag-solution-design-and-evaluation-guide.yml
+            href: guide/rag/rag-solution-design-and-evaluation-guide.md
           - name: Preparation phase
-            href: guide/rag/rag-preparation-phase.yml
+            href: guide/rag/rag-preparation-phase.md
           - name: Chunking phase
-            href: guide/rag/rag-chunking-phase.yml
+            href: guide/rag/rag-chunking-phase.md
           - name: Chunk enrichment phase
-            href: guide/rag/rag-enrichment-phase.yml
+            href: guide/rag/rag-enrichment-phase.md
           - name: Embedding phase
-            href: guide/rag/rag-generating-embeddings.yml
-          - name: Information retrieval phase
-            href: guide/rag/rag-information-retrieval.yml
+            href: guide/rag/rag-generate-embeddings.md
+          - name: Information-retrieval phase
+            href: guide/rag/rag-information-retrieval.md
           - name: LLM end-to-end evaluation phase
-            href: guide/rag/rag-llm-evaluation-phase.yml
+            href: guide/rag/rag-llm-evaluation-phase.md
+        - name: Design a secure multitenant RAG inferencing solution
+          href: guide/secure-multitenant-rag.md
         - name: Proxy Azure OpenAI usage
           items:
           - name: Use a gateway in front of Azure OpenAI
@@ -200,4 +144,5 @@ items:
             href: guide/azure-openai-gateway-multi-backend.yml
           - name: Custom authentication for a gateway in front of Azure OpenAI
             href: guide/azure-openai-gateway-custom-authentication.yml
-
+          - name: Implement advanced monitoring for Azure OpenAI through a gateway
+            href: guide/azure-openai-gateway-monitoring.yml

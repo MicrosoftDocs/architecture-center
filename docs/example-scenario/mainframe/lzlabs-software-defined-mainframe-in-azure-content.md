@@ -27,13 +27,13 @@ LzLabs Software Defined Mainframe (SDM) significantly reduces the risk and compl
 
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure offers. An Azure virtual machine (VM) gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
-- [Virtual networks (VNets)](https://azure.microsoft.com/services/virtual-network) are the fundamental building block for your private network in Azure Virtual Network. Virtual Network enables many types of Azure resources, including VMs, to securely communicate with each other, the internet, and on-premises networks. Virtual Network is similar to a traditional network that you'd operate in your own datacenter but with the added benefits of Azure's infrastructure, such as scaling, availability, and isolation.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure offers. An Azure virtual machine (VM) gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
+- [Virtual networks (VNets)](/azure/well-architected/service-guides/virtual-network) are the fundamental building block for your private network in Azure Virtual Network. Virtual Network enables many types of Azure resources, including VMs, to securely communicate with each other, the internet, and on-premises networks. Virtual Network is similar to a traditional network that you'd operate in your own datacenter but with the added benefits of Azure's infrastructure, such as scaling, availability, and isolation.
 - [Azure Virtual Network Interface](/azure/virtual-network/virtual-network-network-interface) is a network interface controller (NIC) that enables an Azure VM to communicate with the internet, other resources in Azure, and on-premises resources. As shown in this architecture, you can add more NICs to the same VM, allowing the Solaris child-VMs to have their own dedicated network interface device and IP address.
 - [Azure SSD managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. The available types of disks are Ultra Disk, Premium SSDs, Standard SSDs, and Standard Hard Disk Drives (HDDs). For this architecture, we recommend either Premium SSDs or Ultra Disk SSDs.
-- [Azure Storage](https://azure.microsoft.com/product-categories/storage) and [Azure Files](https://azure.microsoft.com/services/storage/files/) offer fully managed file shares in the cloud that are accessible via the industry- standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365.
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions without user involvement, including upgrading, patching, backups, and monitoring. Azure SQL Database is always running on the latest stable version of the SQL Server database engine and patched OS with 99.99-percent availability. PaaS capabilities that are built into Azure SQL Database enable you to focus on the domain-specific database administration and optimization activities that are critical for your business.
+- [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) and [Azure Files](/azure/well-architected/service-guides/azure-files) offer fully managed file shares in the cloud that are accessible via the industry- standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions without user involvement, including upgrading, patching, backups, and monitoring. Azure SQL Database is always running on the latest stable version of the SQL Server database engine and patched OS with 99.99-percent availability. PaaS capabilities that are built into Azure SQL Database enable you to focus on the domain-specific database administration and optimization activities that are critical for your business.
 
 ## Scenario details
 
@@ -49,33 +49,47 @@ SDM significantly reduces the risk and complexity of legacy workload rehosting b
 
 ## Considerations
 
-The following considerations, based on the [Azure Well-Architected Framework](/azure/well-architected/), apply to this solution.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Availability
+### Reliability
 
-Availability for the application tier is provided with Site Recovery as shown in the diagram. Since LzLabs SDM leverages PostgreSQL for the database tier, availability is provided with a write-ahead transaction log. This ensures that the secondary database is transactionally consistent with the production database.
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-### Operations
+Recovery for the application tier is provided with Site Recovery as shown in the diagram. 
 
-The Azure environment in the diagram is managed either with the Azure portal or [Azure Resource Manager templates and scripts](/azure/azure-resource-manager/templates/). This allows for the administration of assets (like resizing) and managing security and access. Management of the actual SDM environment is provided via the LzWorkbench administration tool. This allows for the creation and management of execution environments in the SDM.
-
-### Performance efficiency
-
-When migrating mainframe workloads to Azure, keep in mind that the MIPS per vCPU ratio ranges from 50 to 150 MIPS per vCPU.  This can vary depending on the type of workload. You will need to profile the mainframe workload for online and batch environments, and then size resources accordingly.
-
-### Scalability
-
-Currently, the solution for scaling SDM is to scale up the virtual machines by adding more vCPUs and memory.
+Since LzLabs SDM leverages PostgreSQL for the database tier, availability is provided with a write-ahead transaction log. This ensures that the secondary database is transactionally consistent with the production database.
 
 ### Security
 
-Access to Azure assets is managed via the Azure portal and/or Azure Resource Manager. Security for the SDM is managed using the Vault component of SDM. This migrates the security and permissions from RACF or Top Secret into an LDAP-based environment for management in Azure.
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-### Cost optimization
+Access to Azure assets is managed via the Azure portal and/or Azure Resource Manager. 
+
+Security for the SDM is managed using the Vault component of SDM. This migrates the security and permissions from RACF or Top Secret into an LDAP-based environment for management in Azure.
+
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 To estimate the cost of Azure products and configurations, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 To learn more about pricing for LzLabs Software Defined Mainframe products and their related services, visit the [LzLabs website](https://www.lzlabs.com/).
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+The Azure environment in the diagram is managed either with the Azure portal or [Azure Resource Manager templates and scripts](/azure/azure-resource-manager/templates/). This allows for the administration of assets (like resizing) and managing security and access. 
+
+Management of the actual SDM environment is provided via the LzWorkbench administration tool. This allows for the creation and management of execution environments in the SDM.
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+When migrating mainframe workloads to Azure, keep in mind that the MIPS per vCPU ratio ranges from 50 to 150 MIPS per vCPU.  This can vary depending on the type of workload. You will need to profile the mainframe workload for online and batch environments, and then size resources accordingly.
+
+Currently, the solution for scaling SDM is to scale up the virtual machines by adding more vCPUs and memory.
 
 ## Contributors
 

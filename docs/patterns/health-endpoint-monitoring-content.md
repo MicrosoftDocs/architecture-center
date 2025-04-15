@@ -136,7 +136,7 @@ The following guidance is useful for implementing this pattern:
 ## Related resources
 
 - [External Configuration Store pattern](./external-configuration-store.yml)
-- [Circuit Breaker pattern](./circuit-breaker.yml)
+- [Circuit Breaker pattern](./circuit-breaker.md)
 - [Gateway Routing pattern](./gateway-routing.yml)
 - [Gatekeeper pattern](./gatekeeper.yml)
 

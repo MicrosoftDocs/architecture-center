@@ -5,7 +5,7 @@ metadata:
   description: Deploy existing microservice applications with Azure Container Apps.
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 07/13/2022
+  ms.date: 11/21/2024
   ms.topic: example-scenario
   ms.service: azure-architecture-center
   ms.subservice: example-scenario
@@ -15,6 +15,7 @@ metadata:
     - microservices
     - example-scenario
     - arb-web
+    - arb-containers
 name: Deploy microservices with Azure Container Apps
 azureCategories:
   - developer-tools
@@ -26,4 +27,4 @@ products:
   - azure-service-bus
 thumbnailUrl: /azure/architecture/browse/thumbs/microservices-with-container-apps-runtime-diagram.png
 content: |
-   [!include[](microservices-with-container-apps-content.md)]
+   [!INCLUDE[](microservices-with-container-apps-content.md)]

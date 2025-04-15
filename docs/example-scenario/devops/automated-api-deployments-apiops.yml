@@ -10,7 +10,7 @@ metadata:
   ms.topic: example-scenario
   ms.service: azure-architecture-center
   ms.subservice: example-scenario
-  ms.custom: 
+  ms.custom:
     - arb-devops
     - arb-web
 azureCategories:
@@ -25,4 +25,4 @@ name: Automate API deployments with APIOps
 summary: Use APIOps with an API Management instance to build and deploy APIs. This solution provides self-service tools, auditing, policy enforcement, and early feedback.
 thumbnailUrl: /azure/architecture/browse/thumbs/automated-api-deployments-architecture-diagram-thumb.png
 content: |
-  [!include[](automated-api-deployments-apiops-content.md)]
+  [!INCLUDE[](automated-api-deployments-apiops-content.md)]

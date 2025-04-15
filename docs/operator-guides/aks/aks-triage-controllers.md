@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn how to verify that the admission controllers are working as expected. This step is part of the triage practices for AKS clusters.
 author: paolosalvatori
 ms.author: paolos
-ms.date: 11/22/2023
+ms.date: 01/20/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide

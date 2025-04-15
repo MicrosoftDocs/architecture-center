@@ -58,11 +58,11 @@ The following workflow sections describe two configurations: a public internet w
 - DNS: For a public internet workflow, you must configure a [public Azure DNS zone](/azure/dns/dns-overview) with the proper CNAME of the Azure Front Door endpoint FQDN. On the private (enterprise) side, configure the local DNS provider (Windows Server Active Directory DNS or a partner solution) to point each application FQDN to the private IP address of Application Gateway.
 
 - [Azure DNS Private Resolver](/azure/architecture/networking/architecture/azure-dns-private-resolver): You can use DNS Private Resolver for the resolution of on-premises customers. Enterprise customers can use this split-brain DNS solution to gain access to applications without traversing the public internet.
-- [Azure Front Door](https://azure.microsoft.com/products/frontdoor/): Azure Front Door is a global load balancer and WAF that provides fast and secure web application delivery to customers around the world. In this architecture, Azure Front Door routes external customers to the Application Gateway instance and provides caching and optimization options to enhance customer experience.
-- [Application Gateway](https://azure.microsoft.com/products/application-gateway/): Application Gateway is a regional load balancer and WAF that provides high availability, scalability, and security for web applications. In this architecture, Application Gateway routes external and internal customer requests to the back-end compute and protects the web application from common web attacks.
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door): Azure Front Door is a global load balancer and WAF that provides fast and secure web application delivery to customers around the world. In this architecture, Azure Front Door routes external customers to the Application Gateway instance and provides caching and optimization options to enhance customer experience.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway): Application Gateway is a regional load balancer and WAF that provides high availability, scalability, and security for web applications. In this architecture, Application Gateway routes external and internal customer requests to the back-end compute and protects the web application from common web attacks.
 
   Both Azure Front Door and Application Gateway provide WAF capabilities, but the private workflow in this solution doesn't use Azure Front Door. Therefore, both architectures use the WAF functionality of Application Gateway.
-- [ExpressRoute](https://azure.microsoft.com/products/expressroute/): You can use ExpressRoute to extend your on-premises networks to the Microsoft Cloud via a private connection, with the help of a connectivity provider. In this architecture, you can use ExpressRoute to facilitate private connectivity to Application Gateway for on-premises customers.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute): You can use ExpressRoute to extend your on-premises networks to the Microsoft Cloud via a private connection, with the help of a connectivity provider. In this architecture, you can use ExpressRoute to facilitate private connectivity to Application Gateway for on-premises customers.
   
 ### Alternatives
 
@@ -117,7 +117,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
    - **Use the Zero Trust approach**: In the split-brain DNS setup, apply the [Zero Trust](/azure/security/fundamentals/zero-trust) approach. Explicitly verify the identity of a customer, whether they originate from the internet or a corporate network. This approach ensures that only trusted entities do authorized actions.
    
-   - **Implementation**: Implement Microsoft Entra ID for robust identity management. Use [Microsoft Entra Conditional Access policies](/azure/architecture/guide/security/conditional-access-zero-trust) to enforce strict access controls based on customer context, device health, and location.
+   - **Implementation**: Implement Microsoft Entra ID for robust identity management. Use Microsoft Entra Conditional Access policies to enforce strict access controls based on customer context, device health, and location.
    - **Assess security efficacy**: Evaluate the effectiveness of the security measures for your dual-access workload by implementing:
       - **Defensive investments**: Regularly assess the effectiveness of Azure Front Door and Application Gateway. Ensure that they provide meaningful protection against threats.
       

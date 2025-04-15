@@ -287,92 +287,24 @@ In Azure Pipelines, pipelines are divided into *build pipelines* and *release pi
 
 Based on the CI flow described earlier in this article, a build pipeline might consist of the following tasks:
 
-1. Build the test runner container.
+1. Build the test runner container using the `Docker` task.
 
-    ```yaml
-    - task: Docker@1
-      inputs:
-        azureSubscriptionEndpoint: $(AzureSubscription)
-        azureContainerRegistry: $(AzureContainerRegistry)
-        arguments: '--pull --target testrunner'
-        dockerFile: $(System.DefaultWorkingDirectory)/$(dockerFileName)
-        imageName: '$(imageName)-test'
-    ```
+1. Run the tests, by invoking docker run against the test runner container. This uses the `Docker` task.
 
-1. Run the tests, by invoking docker run against the test runner container.
+1. Publish the test results using the `PublishTestResults` task. See [Build an image](/azure/devops/pipelines/ecosystems/containers/build-image).
 
-    ```yaml
-    - task: Docker@1
-      inputs:
-        azureSubscriptionEndpoint: $(AzureSubscription)
-        azureContainerRegistry: $(AzureContainerRegistry)
-        command: 'run'
-        containerName: testrunner
-        volumes: '$(System.DefaultWorkingDirectory)/TestResults:/app/tests/TestResults'
-        imageName: '$(imageName)-test'
-        runInBackground: false
-    ```
+1. Build the runtime container using local docker build and the `Docker` task or using Azure Container Registry builds and the `AzureCLI` task.
 
-1. Publish the test results. See [Build an image](/azure/devops/pipelines/ecosystems/containers/build-image).
+1. Push the container image to Azure Container Registry (or other container registry) using the `Docker` or `AzureCLI` tasks.
 
-    ```yaml
-    - task: PublishTestResults@2
-      inputs:
-        testResultsFormat: 'VSTest'
-        testResultsFiles: 'TestResults/*.trx'
-        searchFolder: '$(System.DefaultWorkingDirectory)'
-        publishRunAttachments: true
-    ```
+1. Package the Helm chart using the `HelmDeploy` task.
 
-1. Build the runtime container.
+1. Push the Helm package to Azure Container Registry (or other Helm repository), using the `HelmDeploy` task.
 
-    ```yaml
-    - task: Docker@1
-      inputs:
-        azureSubscriptionEndpoint: $(AzureSubscription)
-        azureContainerRegistry: $(AzureContainerRegistry)
-        dockerFile: $(System.DefaultWorkingDirectory)/$(dockerFileName)
-        includeLatestTag: false
-        imageName: '$(imageName)'
-    ```
-
-1. Push the container image to Azure Container Registry (or other container registry).
-
-    ```yaml
-    - task: Docker@1
-      inputs:
-        azureSubscriptionEndpoint: $(AzureSubscription)
-        azureContainerRegistry: $(AzureContainerRegistry)
-        command: 'Push an image'
-        imageName: '$(imageName)'
-        includeSourceTags: false
-    ```
-
-1. Package the Helm chart.
-
-    ```yaml
-    - task: HelmDeploy@0
-      inputs:
-        command: package
-        chartPath: $(chartPath)
-        chartVersion: $(Build.SourceBranchName)
-        arguments: '--app-version $(Build.SourceBranchName)'
-    ```
-
-1. Push the Helm package to Azure Container Registry (or other Helm repository).
-
-    ```yaml
-    task: AzureCLI@1
-      inputs:
-        azureSubscription: $(AzureSubscription)
-        scriptLocation: inlineScript
-        inlineScript: |
-        az acr helm push $(System.ArtifactsDirectory)/$(repositoryName)-$(Build.SourceBranchName).tgz --name $(AzureContainerRegistry);
-    ```
 
 The output from the CI pipeline is a production-ready container image and an updated Helm chart for the microservice. At this point, the release pipeline can take over. There will be a unique release pipeline for each microservice. The release pipeline will be configured to have a trigger source set to the CI pipeline that published the artifact. This pipeline allows you to have independent deployments of each microservice. The release pipeline performs the following steps:
 
-- Deploy the Helm chart to dev/QA/staging environments. The `Helm upgrade` command can be used with the `--install` flag to support the first install and subsequent upgrades.
+- Deploy the Helm chart to dev/QA/staging environments. The `helm upgrade` command can be used with the `--install` flag to support the first install and subsequent upgrades.
 - Wait for an approver to approve or reject the deployment.
 - Retag the container image for release
 - Push the release tag to the container registry.
@@ -383,16 +315,6 @@ For more information about creating a release pipeline, see [Release pipelines, 
 The following diagram shows the end-to-end CI/CD process described in this article:
 
 ![CD/CD pipeline](./images/aks-cicd-flow.png)
-
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
-
-Principal author:
-
-- [John Poole](https://www.linkedin.com/in/johnrpoole) | Senior Cloud Solutions Architect
-
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -405,6 +327,5 @@ Principal author:
 ## Related resources
 
 - [CI/CD for microservices](/azure/architecture/microservices/ci-cd)
-- [Monitor a microservices architecture in Azure Kubernetes Service (AKS)](/azure/architecture/microservices/logging-monitoring)
 - [Review a reference architecture which shows a microservices application deployed to Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
 - [GitOps for Azure Kubernetes Service](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)

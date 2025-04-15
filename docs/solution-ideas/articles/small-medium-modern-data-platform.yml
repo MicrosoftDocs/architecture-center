@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Modern Data Platform for Small and Medium Businesses Using Microsoft Fabric and Azure Databricks
+  titleSuffix: Azure Architecture Center
+  description: Learn how to combine the existing investment of small and medium businesses in Azure Databricks with Microsoft Fabric.
+  author: bonitarui
+  ms.author: njogendran
+  ms.date: 01/21/2025
+  ms.topic: solution-idea
+  ms.service: azure-architecture-center
+  ms.subservice: solution-idea
+  ms.custom:
+  - arb-data
+azureCategories:
+  - analytics
+  - databases
+  - storage
+products:
+  - azure-data-lake
+  - azure-databricks
+  - fabric
+  - dynamics-365
+  - azure-data-factory
+name: Modern data platform for small and medium businesses using Microsoft Fabric and Azure Databricks
+summary: Learn how to combine the existing investment of small and medium businesses in Azure Databricks with Microsoft Fabric.
+thumbnailUrl: /azure/architecture/browse/thumbs/small-medium-businesses-simplified-architecture.png
+content: |
+  [!INCLUDE[](small-medium-modern-data-platform-content.md)]

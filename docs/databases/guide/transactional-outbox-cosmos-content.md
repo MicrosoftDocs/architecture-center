@@ -2,7 +2,7 @@ Implementing reliable messaging in distributed systems can be challenging. This 
 
 ## Overview
 
-Microservice architectures are becoming increasingly popular and show promise in solving problems like scalability, maintainability, and agility, especially in large applications. But this architectural pattern also introduces challenges when it comes to data handling. In distributed applications, each service independently maintains the data it needs to operate in a dedicated service-owned datastore. To support such a scenario, you typically use a messaging solution like RabbitMQ, Kafka, or Azure Service Bus that distributes data (events) from one service via a messaging bus to other services of the application. Internal or external consumers can then subscribe to those messages and get notified of changes as soon as data is manipulated.
+Microservice architectures are gaining popularity and show promise in solving problems like scalability, maintainability, and agility, especially in large applications. But this architectural pattern also introduces challenges when it comes to data handling. In distributed applications, each service independently maintains the data it needs to operate in a dedicated service-owned datastore. To support such a scenario, you typically use a messaging solution like RabbitMQ, Kafka, or Azure Service Bus that distributes data (events) from one service via a messaging bus to other services of the application. Internal or external consumers can then subscribe to those messages and get notified of changes as soon as data is manipulated.
 
 A well-known example in that area is an ordering system: when a user wants to create an order, an `Ordering` service receives data from a client application via a REST endpoint. It maps the payload to an internal representation of an `Order` object to validate the data. After a successful commit to the database, it publishes an `OrderCreated` event to a message bus. Any other service interested in new orders (for example an `Inventory` or `Invoicing` service), would subscribe to `OrderCreated` messages, process them, and store them in its own database.
 
@@ -82,7 +82,7 @@ As soon as a `Contact` is created or updated, it emits events that contain infor
 
 ### Transactional batches
 
-To implement this pattern, you need to ensure the `Contact` business object and the corresponding events will be saved in the same database transaction. In Azure Cosmos DB, transactions work differently than they do in relational database systems. Azure Cosmos DB transactions, called *transactional batches*, operate on a single logical partition, so they guarantee Atomicity, Consistency, Isolation, and Durability (ACID) properties. You can't save two documents in a transactional batch operation in different containers or logical partitions. For the sample service, that means that both the business object and the event or events will be put in the same container and logical partition.
+To implement this pattern, you need to ensure the `Contact` business object and the corresponding events will be saved in the same database transaction. In Azure Cosmos DB, transactions work differently than they do in relational database systems. Azure Cosmos DB transactions, called *transactional batches*, operate on a single [logical partition](https://learn.microsoft.com/azure/cosmos-db/partitioning-overview), so they guarantee Atomicity, Consistency, Isolation, and Durability (ACID) properties. You can't save two documents in a transactional batch operation in different containers or logical partitions. For the sample service, that means that both the business object and the event or events will be put in the same container and logical partition.
 
 ### Context, repositories, and UnitOfWork
 
@@ -194,7 +194,7 @@ public void SetName(string firstName, string lastName)
 
     Name = new Name(firstName, lastName);
 
-    if (IsNew) return;
+    if (IsNew) return; // if an object is newly created, all modifications will be handled by ContactCreatedEvent
 
     AddEvent(new ContactNameUpdatedEvent(Id, Name));
     ModifiedAt = DateTimeOffset.UtcNow;
@@ -561,7 +561,7 @@ You can find the source code, deployment files, and instructions to test this sc
 
 Principal author:
 
- - [Christian Dennig](https://www.linkedin.com/in/christian-dennig/) | Senior Software Engineer
+ - [Christian Dennig](https://www.linkedin.com/in/christian-dennig/) | Principal Software Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

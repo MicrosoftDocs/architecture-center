@@ -28,7 +28,7 @@ The data flow for this scenario is:
 
 #### Alternatives for scenario 1
 
-- You can use Flux with other Git repositories such as Azure DevOps, GitLab, and BitBucket.
+- You can use Flux with other Git repositories such as Azure DevOps, GitLab, and Bitbucket.
 - Instead of Git repositories, [Flux Bucket API](https://fluxcd.io/flux/components/source/buckets) defines a source to produce an artifact for objects from storage solutions like Amazon S3 and Google Cloud Storage buckets. You can also use a solution that has an S3-compatible API. Two examples are Minio and Alibaba Cloud OSS, but there are others.
 - You can also configure Flux against an Azure Blob Storage container as a source to produce artifacts. For more information, see [GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-gitops-flux2).
 
@@ -221,8 +221,5 @@ Principal author:
 
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
 - [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
-- [Build and deploy apps on AKS using DevOps and GitOps](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 - [DevSecOps on Azure Kubernetes Service (AKS)](../../guide/devsecops/devsecops-on-aks.yml)
 - [DevSecOps for infrastructure as code (IaC)](../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)
-- [Enterprise infrastructure as code using Bicep and Azure Container Registry](../../guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml)
-- [Automate infrastructure reconfiguration by using Azure](../../web-apps/guides/networking/automation-application-gateway.yml)

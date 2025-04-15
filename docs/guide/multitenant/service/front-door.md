@@ -287,16 +287,16 @@ If you have a stamp that serves multiple tenants, you need to consider how you r
 
 Principal authors:
 
- * [Raj Nemani](https://linkedin.com/in/rajnemani) | Director, Partner Technology Strategist
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [Raj Nemani](https://www.linkedin.com/in/rajnemani/) | Director, Partner Technology Strategist
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer
 
 Other contributors:
 
-* [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
-* [Fernando Antivero](https://linkedin.com/in/fernandoantivero) | Fullstack Developer & Cloud Platform Engineer
-* [Duong Au](https://linkedin.com/in/duong-au-32427b46) | Senior Content Developer, C+E Skilling Content R&D
-* [Harikrishnan M B (HARI)](https://linkedin.com/in/harikrishnanmb) | Product Manager 2, Azure Networking 
-* [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+- [Fernando Antivero](https://www.linkedin.com/in/fernandoantivero/) | Fullstack Developer & Cloud Platform Engineer
+- [Duong Au](https://www.linkedin.com/in/duong-au-32427b46/) | Senior Content Developer, C+E Skilling Content R&D
+- [Harikrishnan M B (HARI)](https://www.linkedin.com/in/harikrishnanmb/) | Product Manager 2, Azure Networking
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

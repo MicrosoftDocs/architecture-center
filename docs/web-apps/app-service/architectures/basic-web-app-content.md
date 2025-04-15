@@ -24,12 +24,14 @@ This article provides a basic architecture intended for learning about running w
 
 ### Components
 
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory/) is a cloud-based identity and access management service. It provides a single identity control plane to manage permissions and roles for users accessing your web application. It integrates with App Service and simplifies authentication and authorization for web apps.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. It provides a single identity control plane to manage permissions and roles for users accessing your web application. It integrates with App Service and simplifies authentication and authorization for web apps.
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building, deploying, and scaling web applications.
-- [Azure Monitor](https://azure.microsoft.com/products/monitor/) is a monitoring service that collects, analyzes, and acts on telemetry data across your deployment.
+- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring service that collects, analyzes, and acts on telemetry data across your deployment.
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a managed relational database service for relational data.
 
-## Recommendations and considerations
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 The [components](#components) listed in this architecture link to Azure Well-Architected service guides. Service guides detail recommendations and considerations for specific services. This section extends that guidance by highlighting key Azure Well-Architected Framework recommendations and considerations that apply to this architecture. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
@@ -43,12 +45,14 @@ Because this architecture isn't designed for production deployments, the followi
 
 - The App Service Plan is configured for the `Standard` tier, which doesn't have [Azure availability zone](/azure/reliability/availability-zones-overview) support. The App Service becomes unavailable in the event of any issue with the instance, the rack, or the datacenter hosting the instance.
 - The Azure SQL Database is configured for the `Basic` tier, which doesn't support [zone-redundancy](/azure/azure-sql/database/high-availability-sla#general-purpose-service-tier-zone-redundant-availability). This means that data isn't replicated across Azure availability zones, risking loss of committed data in the event of an outage.
-- Deployments to this architecture might result in downtime with application deployments, as most deployment techniques require all running instances to be restarted. Users may experience 503 errors during this process. This is addressed in the baseline architecture through [deployment slots](/azure/app-service/deploy-best-practices#use-deployment-slots). Careful application design, schema management, and application configuration handling are necessary to support concurrent slot deployment. Use this POC to design and validate your slot-based production deployment approach.
-- Autoscaling is not enabled in this basic architecture. To prevent reliability issues due to lack of available compute resources, you'd need to overprovision to always run with enough compute to handle max concurrent capacity.
+- Deployments to this architecture might result in downtime with application deployments, as most deployment techniques require all running instances to be restarted. Users may experience 503 errors during this process. This deployment downtime is addressed in the baseline architecture through [deployment slots](/azure/app-service/deploy-best-practices#use-deployment-slots). Careful application design, schema management, and application configuration handling are necessary to support concurrent slot deployment. Use this POC to design and validate your slot-based production deployment approach.
+- Autoscaling isn't enabled in this basic architecture. To prevent reliability issues due to lack of available compute resources, you'd need to overprovision to always run with enough compute to handle max concurrent capacity.
 
 See how to overcome these reliability concerns in the [reliability section in the Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#reliability).
 
-If this workload will eventually require a multi-region active-active or active-passive architecture, see [Highly available multi-region web application](./multi-region.yml) for guidance on deploying your App Service-hosted workload across multiple regions.
+If this workload will eventually require a multi-region active-active or active-passive architecture, see the following resource:
+
+- [Multi-region App Service app approaches for disaster recovery](../../guides/multi-region-app-service/multi-region-app-service.yml) for guidance on deploying your App Service-hosted workload across multiple regions.
 
 ### Security
 
@@ -81,9 +85,28 @@ Because this architecture isn’t designed for production deployments, the follo
 
 For some other security considerations, see [Secure an app in Azure App Service](/azure/app-service-web/web-sites-security).
 
-### Operational excellence
+### Cost Optimization
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+This architecture optimizes for cost through the many trade-offs against the other pillars of the Well-Architected Framework specifically to align with the learning and proof-of-concept goals of this architecture. The cost savings compared to a more production-ready architecture, such as the [Baseline highly available zone-redundant web application](./baseline-zone-redundant.yml), mainly result from the following choices.
+
+- Single App Service instance, with no autoscaling enabled
+- Standard pricing tier for Azure App Service
+- No custom TLS certificate or static IP
+- No web application firewall (WAF)
+- No dedicated storage account for application deployment
+- Basic pricing tier for Azure SQL Database, with no backup retention policies
+- No Microsoft Defender for Cloud components
+- No network traffic egress control through a firewall
+- No private endpoints
+- Minimal logs and log retention period in Log Analytics
+
+To view the estimated cost of this architecture, see the [Pricing calculator estimate](https://azure.com/e/a5e725c0fda44d4286fd1836976f56f8) using this architecture's components. The cost of this architecture can usually be further reduced by using an [Azure Dev/Test subscription](https://azure.microsoft.com/pricing/offers/dev-test/), which would be an ideal subscription type for proof of concepts like this.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 The following sections provide guidance around configuration, monitoring, and deployment of your App Service application.
 
@@ -96,14 +119,24 @@ The following are configuration recommendations and considerations:
 - Start by using App Service configuration to store configuration values and connection strings in proof of concept deployments. App settings and connection strings are encrypted and decrypted just before being injected into your app when it starts.
 - When you move into production phase, store your secrets in Azure Key Vault. The use of Azure Key Vault improves the governance of secrets in two ways:
   - Externalizing your storage of secrets to Azure Key Vault allows you to centralize your storage of secrets. You have one place to manage secrets.
-  - Using Azure Key Vault, you are able to log every interaction with secrets, including every time a secret is accessed.
+  - Using Azure Key Vault, you're able to log every interaction with secrets, including every time a secret is accessed.
 - When you move into production, you can maintain your use of both Azure Key Vault and App Service configuration by [using Key Vault references](/azure/app-service/app-service-key-vault-references).
+
+#### Containers
+
+The basic architecture can be used to deploy supported code directly to Windows or Linux instances. Alternatively, App Service is also a container hosting platform to run your containerized web application. App Service offers various built-in containers. If you're using custom or multi-container apps to further fine-tune your runtime environment or to support a code language not natively supported, you'll need to introduce a container registry.
+
+#### Control plane
+
+During the POC phase, get comfortable with Azure App Service's control plane as exposed through the Kudu service. This service exposes common deployment APIs, such as ZIP deployments, exposes raw logs and environment variables.
+
+If using containers, be sure to understand Kudu's ability to Open an SSH session to a container to support advanced debugging capabilities.
 
 #### Diagnostics and monitoring
 
 During the proof of concept phase, it's important to get an understanding of what logs and metrics are available to be captured. The following are recommendations and considerations for monitoring in the proof of concept phase:
 
-- Enable [diagnostics logging](/azure/app-service-web/web-sites-enable-diagnostic-log) for all items log sources. Configuring the use of all diagnostic settings helps you understand what logs and metrics are provided for you out of the box and any gaps you'll need to close using a logging framework in your application code. When you move to production, you should eliminate log sources that are not adding value and are adding noise and cost to your workload's log sink.
+- Enable [diagnostics logging](/azure/app-service-web/web-sites-enable-diagnostic-log) for all items log sources. Configuring the use of all diagnostic settings helps you understand what logs and metrics are provided for you out of the box and any gaps you'll need to close using a logging framework in your application code. When you move to production, you should eliminate log sources that aren't adding value and are adding noise and cost to your workload's log sink.
 - Configure logging to use Azure Log Analytics. Azure Log Analytics provides you with a scalable platform to centralize logging that is easy to query.
 - Use [Application Insights](/azure/application-insights/app-insights-overview) or another Application Performance Management (APM) tool to emit telemetry and logs to monitor application performance.
 
@@ -117,19 +150,9 @@ The following lists guidance around deploying your App Service application.
 
 For more information, see the DevOps section in [Azure Well-Architected Framework](/azure/architecture/framework/devops/overview).
 
-#### Containers
+### Performance Efficiency
 
-The basic architecture can be used to deploy supported code directly to Windows or Linux instances. Alternatively, App Service is also a container hosting platform to run your containerized web application. App Service offers various built-in containers. If you are using custom or multi-container apps to further fine-tune your runtime environment or to support a code language not natively supported, you'll need to introduce a container registry.
-
-#### Control plane
-
-During the POC phase, get comfortable with Azure App Service's control plane as exposed through the Kudu service. This service exposes common deployment APIs, such as ZIP deployments, exposes raw logs and environment variables.
-
-If using containers, be sure to understand Kudu's ability to Open an SSH session to a container to support advanced debugging capabilities.
-
-### Performance efficiency
-
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 Because this architecture isn't designed for production deployments, the following outlines some of the critical performance efficiency features that were omitted in this architecture, along with other recommendations and considerations.
 
@@ -147,12 +170,12 @@ The guidance is backed by an [example implementation](https://github.com/Azure-S
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant)
+> [Baseline highly available zone-redundant web application](./baseline-zone-redundant.yml)
 
 ## Related resources
 
-- [Baseline zone-redundant web application](baseline-zone-redundant.yml)
-- [Highly available multi-region web application](multi-region.yml)
+- [Baseline zone-redundant web application](./baseline-zone-redundant.yml)
+- [Multi-region App Service app approaches for disaster recovery](../../guides/multi-region-app-service/multi-region-app-service.yml)
 
 Product documentation:
 

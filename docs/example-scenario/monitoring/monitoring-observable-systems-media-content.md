@@ -22,17 +22,17 @@ More specifically, these are the elements of the system in the diagram:
 
 ### Components
 
-- [Data Explorer](https://azure.microsoft.com/products/data-explorer) is a managed data analytics service for real-time analysis of large volumes of data. Data Explorer is a great tool for handling large datasets that require high speed and throughput of data retrieval. This architecture uses Data Explorer to store and query datasets for analysis.
-- [Blob Storage](https://azure.microsoft.com/services/storage/blobs) is used to hold raw telemetry. This telemetry can come from your applications and services or from third-party vendors. The data can be treated as transient if you don't need to perform more analysis later. The data from Blob Storage is ingested into Data Explorer clusters.
-- [Azure Event Grid](https://azure.microsoft.com/products/event-grid) is an event delivery system. It's used to listen to events that are published by Blob Storage. Azure Storage events allow applications to react to events like the creation and deletion of blobs. An Azure function subscribes to events that are published by Event Grid.
-- [Azure Event Hubs](https://azure.microsoft.com/products/event-hubs) is a real-time data ingestion service that you can use to ingest millions of events per second from any source. Event hubs represent the front door, often called an event *ingestor*, for an event pipeline. An event ingestor is a component or service that's located between event publishers and event consumers. It decouples the production of an event stream from the consumption of the events.
-- [Azure Functions](https://azure.microsoft.com/products/functions) is a serverless solution that's used to parse and transform data ingested via HTTP and blob endpoints and write to the Data Explorer cluster.
-- [Azure Managed Grafana](https://azure.microsoft.com/services/managed-grafana) connects easily to Data Explorer. In this architecture, it generates charts and dashboards that visualize telemetry data. Azure Managed Grafana provides deep integration with Microsoft Entra ID so that you can implement role-based access to dashboards and views.
-- [Metrics Advisor](https://azure.microsoft.com/products/metrics-advisor) is a part of Azure Applied AI Services. It uses AI to perform data monitoring and anomaly detection in time-series data. Metrics Advisor automates the process of applying models to data and provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics. You can use it even if you have no knowledge of machine learning.
+- [Data Explorer](/azure/data-explorer/data-explorer-overview) is a managed data analytics service for real-time analysis of large volumes of data. Data Explorer is a great tool for handling large datasets that require high speed and throughput of data retrieval. This architecture uses Data Explorer to store and query datasets for analysis.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is used to hold raw telemetry. This telemetry can come from your applications and services or from third-party vendors. The data can be treated as transient if you don't need to perform more analysis later. The data from Blob Storage is ingested into Data Explorer clusters.
+- [Azure Event Grid](/azure/well-architected/service-guides/event-grid/reliability) is an event delivery system. It's used to listen to events that are published by Blob Storage. Azure Storage events allow applications to react to events like the creation and deletion of blobs. An Azure function subscribes to events that are published by Event Grid.
+- [Azure Event Hubs](/azure/well-architected/service-guides/azure-databricks-security) is a real-time data ingestion service that you can use to ingest millions of events per second from any source. Event hubs represent the front door, often called an event *ingestor*, for an event pipeline. An event ingestor is a component or service that's located between event publishers and event consumers. It decouples the production of an event stream from the consumption of the events.
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless solution that's used to parse and transform data ingested via HTTP and blob endpoints and write to the Data Explorer cluster.
+- [Azure Managed Grafana](/azure/managed-grafana/overview) connects easily to Data Explorer. In this architecture, it generates charts and dashboards that visualize telemetry data. Azure Managed Grafana provides deep integration with Microsoft Entra ID so that you can implement role-based access to dashboards and views.
+- [Metrics Advisor](/azure/ai-services/metrics-advisor/overview) is a part of Azure AI services. It uses AI to perform data monitoring and anomaly detection in time-series data. Metrics Advisor automates the process of applying models to data and provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics. You can use it even if you have no knowledge of machine learning.
 
 ### Alternatives
 
-[Azure Data Factory](https://azure.microsoft.com/products/data-factory) and [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) provide tools and workspaces for building ETL workflows and the ability to track and retry jobs from a graphical interface. Note that Data Factory and Azure Synapse both have a minimum lag of about 5 minutes from the time of ingestion to persistence. This lag might be acceptable in your monitoring system. If it is, we recommend that you consider these alternatives.
+[Azure Data Factory](/azure/data-factory/introduction) and [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) provide tools and workspaces for building ETL workflows and the ability to track and retry jobs from a graphical interface. Note that Data Factory and Azure Synapse both have a minimum lag of about 5 minutes from the time of ingestion to persistence. This lag might be acceptable in your monitoring system. If it is, we recommend that you consider these alternatives.
 
 ## Scenario details
 
@@ -50,7 +50,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Business-critical applications need to keep running even during disruptive events like Azure region or CDN outages. There are two primary strategies and one hybrid strategy for building redundancy into your system:
 
@@ -64,17 +64,17 @@ The ingestion and transformation function app can run in active/active mode. You
 
 Azure Managed Grafana supports [availability zone redundancy](/azure/managed-grafana/how-to-enable-zone-redundancy). One strategy for creating cross-region redundancy is to set up Grafana in each region in which your Data Explorer cluster is deployed.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 The cost of this architecture depends on the number of ingress telemetry events, your storage of raw telemetry in Blob Storage and Data Explorer, an hourly cost for Azure Managed Grafana, and a static cost for the number of time-series charts in Metrics Advisor.
 
 You can use the [Azure pricing calculator](https://azure.com/e/ed90eb013b60448684b3ef40d123ff13) to estimate your hourly or monthly costs.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 Depending on the scale and frequency of incoming requests, the function app might be a bottleneck, for two main reasons:
 

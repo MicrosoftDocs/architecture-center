@@ -13,7 +13,7 @@ azureCategories:
 products:
   - azure
 name: Throttling pattern
-summary: <Write a summary. Can be same as description.>
+summary: Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service.
 thumbnailUrl: /azure/architecture/browse/thumbs/throttling-multi-tenant.png
 content: |
-  [!include[](throttling-content.md)]
+  [!INCLUDE[](throttling-content.md)]

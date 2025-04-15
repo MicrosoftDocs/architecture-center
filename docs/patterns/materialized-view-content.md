@@ -82,6 +82,6 @@ Creating this materialized view requires complex queries. However, by exposing t
 
 The following patterns might also be relevant when implementing this pattern:
 
-- [Command and Query Responsibility Segregation (CQRS) pattern](./cqrs.yml). Use to update the information in a materialized view by responding to events that occur when the underlying data values change.
+- [Command and Query Responsibility Segregation (CQRS) pattern](./cqrs.md). Use to update the information in a materialized view by responding to events that occur when the underlying data values change.
 - [Event Sourcing pattern](./event-sourcing.yml). Use in conjunction with the CQRS pattern to maintain the information in a materialized view. When the data values a materialized view is based on are changed, the system can raise events that describe these changes and save them in an event store.
 - [Index Table pattern](./index-table.yml). The data in a materialized view is typically organized by a primary key, but queries might need to retrieve information from this view by examining data in other fields. Use to create secondary indexes over data sets for data stores that don't support native secondary indexes.

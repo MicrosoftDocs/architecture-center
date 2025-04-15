@@ -12,6 +12,9 @@ categories:
   - identity
 products:
   - entra-id
+ms.collection: 
+ - migration
+ - aws-to-azure
 ---
 
 # Multicloud security and identity with Azure and Amazon Web Services (AWS)

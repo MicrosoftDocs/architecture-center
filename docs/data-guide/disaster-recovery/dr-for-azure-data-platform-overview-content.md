@@ -2,7 +2,7 @@
 
 This series provides an illustrative example of how an organization could design a disaster recovery (DR) strategy for an Azure enterprise data platform.
 
-- This series of articles complements the guidance provided by Microsoft's [Cloud Adoption Framework](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery), the Azure [Well-Architected Framework](/azure/well-architected/reliability/disaster-recovery) and [Business Continuity Management](/azure/availability-zones/business-continuity-management-program).
+- This series of articles complements the guidance provided by Microsoft's [Cloud Adoption Framework](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery), the Azure [Well-Architected Framework](/azure/well-architected/reliability/disaster-recovery) and [Business Continuity Management](/azure/reliability/business-continuity-management-program).
 
 Azure provides a broad range of resiliency options that can provide service continuity in the event of a disaster. But higher service levels can introduce complexity and a cost premium. The trade-off of cost versus resiliency versus complexity is the key decision-making factor for most customers regarding DR.
 
@@ -59,4 +59,3 @@ Now that you have learned about the scenario at a high level, you can move on to
 - [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.yml)
 - [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.yml)
 - [DR for Azure Data Platform - Recommendations](dr-for-azure-data-platform-recommendations.yml)
-- [DR for Azure Data Platform - Deploy this scenario](dr-for-azure-data-platform-deploy-this-scenario.yml)

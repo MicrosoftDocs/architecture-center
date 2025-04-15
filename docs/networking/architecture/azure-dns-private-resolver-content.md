@@ -164,20 +164,20 @@ The following diagram shows the traffic flow that results when VM 1 issues a DNS
 
 #### Components
 
-- [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway) is a virtual network gateway that you can use to send encrypted traffic:
+- [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual network gateway that you can use to send encrypted traffic:
 
   - Between an Azure virtual network and an on-premises location over the public internet.
   - Between Azure virtual networks over the Azure backbone network.
 
-- [ExpressRoute](https://azure.microsoft.com/services/expressroute) extends on-premises networks into the Microsoft cloud. ExpressRoute establishes private connections to cloud components like Azure services and Microsoft 365 by using a connectivity provider.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends on-premises networks into the Microsoft cloud. ExpressRoute establishes private connections to cloud components like Azure services and Microsoft 365 by using a connectivity provider.
 
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks.
 
-- [Azure Firewall](https://azure.microsoft.com/services/azure-firewall) enforces application and network connectivity policies. This network security service centrally manages the policies across multiple virtual networks and subscriptions.
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) enforces application and network connectivity policies. This network security service centrally manages the policies across multiple virtual networks and subscriptions.
 
 - [DNS Private Resolver](/azure/dns/dns-private-resolver-overview) is a service that bridges an on-premises DNS with Azure DNS. You can use this service to query Azure DNS private zones from an on-premises environment and vice versa without deploying VM-based DNS servers.
 
-- [Azure DNS](https://azure.microsoft.com/services/dns) is a hosting service for DNS domains. Azure DNS uses Azure infrastructure to provide name resolution.
+- [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains. Azure DNS uses Azure infrastructure to provide name resolution.
 
 - The [Azure private DNS service](/azure/dns/private-dns-overview) manages and resolves domain names in a virtual network and in connected virtual networks. When you use this service, you don't need to configure a custom DNS solution. When you use private DNS zones, you can use custom domain names instead of the names that Azure provides during deployment.
 
@@ -239,7 +239,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Azure DNS supports the extended ASCII encoding set for text (TXT) record sets. For more information, see [Azure DNS FAQ](/azure/dns/dns-faq#does-azure-dns-support-the-extended-ascii-encoding--8-bit--set-for-txt-record-sets-).
 
-Azure DNS doesn't currently support DNS security extensions (DNSSEC). But users are requesting this feature.
+Azure DNS has [DNS security extensions (DNSSEC) in preview](/azure/dns/dnssec).
 
 ### Cost optimization
 

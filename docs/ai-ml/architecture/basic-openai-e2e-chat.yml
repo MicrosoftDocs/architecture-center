@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Basic OpenAI end-to-end chat reference architecture
-  titleSuffix: Azure Reference Architectures
-  description: Establish foundational knowledge and experience for building and deploying enterprise chat applications with Azure OpenAI, Azure AI Studio, and Azure App Service.
+  title: Basic OpenAI End-to-End Chat Reference Architecture
+  titleSuffix: Azure Architecture Center
+  description: Establish foundational knowledge for how to build and deploy enterprise chat applications by using Azure OpenAI, Azure AI Foundry, and Azure App Service.
   author: robbagby
   ms.author: robbag
-  ms.date: 10/21/2024
+  ms.date: 12/05/2024
   ms.topic: reference-architecture
   ms.collection: ce-skilling-ai-copilot  
   ms.service: azure-architecture-center
@@ -22,7 +22,7 @@ products:
   - azure-key-vault
   - azure-monitor
 name: Basic OpenAI end-to-end chat reference architecture
-summary: Establish foundational knowledge and experience for building and deploying enterprise chat applications with OpenAI, Azure AI Studio, and Azure App Service.
+summary: Establish foundational knowledge and experience for how to build and deploy enterprise chat applications by using OpenAI, Azure AI Foundry, and Azure App Service.
 thumbnailUrl: /azure/architecture/browse/thumbs/openai-end-to-end-basic.png
 content: |
    [!INCLUDE[](basic-openai-e2e-chat-content.md)]

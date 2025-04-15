@@ -50,23 +50,23 @@ Here's an Azure architecture to replace the mainframe functionality with refacto
 
 ### Components
 
-- [ExpressRoute](https://azure.microsoft.com/services/expressroute) extends on-premises networks into Azure over a private, dedicated fiber connection from a connectivity provider. ExpressRoute establishes connections to Microsoft cloud services like Azure and Microsoft 365.
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) provides seamless Remote Desktop Protocol (RDP) or secure shell (SSH) connectivity to virtual network VMs from the Azure portal over TLS. Azure Bastion maximizes administrative access security by minimizing open ports.
-- [Load Balancer](https://azure.microsoft.com/services/load-balancer) distributes incoming traffic to the compute resource clusters. It uses configurable rules and other criteria to distribute the traffic.
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) offers many sizes and types of on-demand, scalable VMs. With Azure Virtual Machines, you get the flexibility of virtualization and you don't have to buy and maintain physical hardware.
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block of Azure private networks. VMs within virtual networks communicate securely with each other, with the internet, and with on-premises networks. A virtual network is like a traditional on-premises network, but with Azure infrastructure benefits like scalability, high availability, and isolation.
-- [Private Link](https://azure.microsoft.com/services/private-link) provides private connectivity from virtual networks to Azure services. Private Link simplifies network architecture and secures the connection between Azure endpoints by eliminating public internet exposure.
-- [Azure Storage](https://azure.microsoft.com/product-categories/storage) is scalable, secure cloud storage for all your data, applications, and workloads.
-  - [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks) is high-performance, durable block storage for business-critical applications. Azure managed disks are block-level storage volumes that are managed by Azure on VMs. The available types of disks are Ultra Disk Storage, Premium SSD, Standard SSD, and Azure Standard HDD. This architecture uses either Premium SSD or Ultra Disk Storage.
-  - [Azure Files](https://azure.microsoft.com/services/storage/files) provides fully managed file shares in the cloud that are accessed via the industry standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments share access by mounting file shares concurrently.
-  - [Azure NetApp Files](https://azure.microsoft.com/services/netapp) provides enterprise grade Azure file shares that are powered by NetApp. NetApp Files makes it easy for enterprises to migrate and run complex, file-based applications without changing code.
-  - [Blob Storage](https://azure.microsoft.com/services/storage/blobs) is scalable and secure object storage for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads.
-- Azure has fully managed relational, NoSQL, and in-memory databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security. For an overview of the database types, see [Types of Databases on Azure](https://azure.microsoft.com/product-categories/databases).
-  - [SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed database engine. SQL Database always runs on the latest stable version of SQL Server and a patched OS with high availability. Built-in database management capabilities include upgrading, patching, backups, and monitoring. With these tasks taken care of, you can focus on domain-specific, business-critical database administration and optimization.
-  - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is a fully managed database that's based on the open-source Postgres relational database engine. For applications that require greater scale and performance, the [Hyperscale (Citus) deployment option](/azure/postgresql/hyperscale) scales queries across multiple machines by sharding them.
-  - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed, fast NoSQL database with open APIs for any scale.
-- [Site Recovery](https://azure.microsoft.com/services/site-recovery) mirrors VMs to a secondary Azure region for quick failover and disaster recovery if an Azure datacenter fails.
-- [Data Factory](https://azure.microsoft.com/services/data-factory) is an extract, transfer, and load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends on-premises networks into Azure over a private, dedicated fiber connection from a connectivity provider. ExpressRoute establishes connections to Microsoft cloud services like Azure and Microsoft 365.
+- [Azure Bastion](/azure/bastion/bastion-overview) provides seamless Remote Desktop Protocol (RDP) or secure shell (SSH) connectivity to virtual network VMs from the Azure portal over TLS. Azure Bastion maximizes administrative access security by minimizing open ports.
+- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) distributes incoming traffic to the compute resource clusters. It uses configurable rules and other criteria to distribute the traffic.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) offers many sizes and types of on-demand, scalable VMs. With Azure Virtual Machines, you get the flexibility of virtualization and you don't have to buy and maintain physical hardware.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block of Azure private networks. VMs within virtual networks communicate securely with each other, with the internet, and with on-premises networks. A virtual network is like a traditional on-premises network, but with Azure infrastructure benefits like scalability, high availability, and isolation.
+- [Private Link](/azure/private-link/private-link-overview) provides private connectivity from virtual networks to Azure services. Private Link simplifies network architecture and secures the connection between Azure endpoints by eliminating public internet exposure.
+- [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is scalable, secure cloud storage for all your data, applications, and workloads.
+  - [Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage) is high-performance, durable block storage for business-critical applications. Azure managed disks are block-level storage volumes that are managed by Azure on VMs. The available types of disks are Ultra Disk Storage, Premium SSD, Standard SSD, and Azure Standard HDD. This architecture uses either Premium SSD or Ultra Disk Storage.
+  - [Azure Files](/azure/well-architected/service-guides/azure-files) provides fully managed file shares in the cloud that are accessed via the industry standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments share access by mounting file shares concurrently.
+  - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) provides enterprise grade Azure file shares that are powered by NetApp. NetApp Files makes it easy for enterprises to migrate and run complex, file-based applications without changing code.
+  - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is scalable and secure object storage for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads.
+- Azure has fully managed relational, NoSQL, and in-memory databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security. For an overview of the database types, see [Types of Databases on Azure](/sql/relational-databases/databases/databases).
+  - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed database engine. SQL Database always runs on the latest stable version of SQL Server and a patched OS with high availability. Built-in database management capabilities include upgrading, patching, backups, and monitoring. With these tasks taken care of, you can focus on domain-specific, business-critical database administration and optimization.
+  - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed database that's based on the open-source Postgres relational database engine. For applications that require greater scale and performance, the [Hyperscale (Citus) deployment option](/azure/postgresql/hyperscale) scales queries across multiple machines by sharding them.
+  - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed, fast NoSQL database with open APIs for any scale.
+- [Site Recovery](/azure/site-recovery/site-recovery-overview) mirrors VMs to a secondary Azure region for quick failover and disaster recovery if an Azure datacenter fails.
+- [Data Factory](/azure/data-factory/introduction) is an extract, transfer, and load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
 
 ## Scenario details
 
@@ -111,13 +111,11 @@ Automated refactoring is available for most COBOL dialects and platforms, includ
 
 ## Considerations
 
-The considerations in this section, based on the [Microsoft Well-Architected Framework](/azure/well-architected/), apply to this solution.
-
-### DevOps
-
-Refactoring not only supports faster cloud adoption, but also promotes adoption of DevOps and agile development principles. You have full flexibility in development and production deployment options.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - The architecture uses Site Recovery to mirror VMs to a secondary Azure region for quick failover and disaster recovery if an Azure datacenter fails.
 - The auto-failover groups feature of SQL Database provides data protection by managing database replication and failover to the secondary region. For more information, see [Auto-failover groups overview and best practices (Azure SQL Database)](/azure/azure-sql/database/auto-failover-group-sql-db).
@@ -125,23 +123,35 @@ Refactoring not only supports faster cloud adoption, but also promotes adoption 
 - We recommend that you create availability sets for your VMs to increase availability. For more information, see [Availability sets overview](/azure/virtual-machines/availability-set-overview).
 - We recommend that you use geo-replication to increase reliability. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
 
-### Scalability
-
-This solution supports deployment in containers, VMs, or Virtual Machine Scale Sets. Containers and Virtual Machine Scale Sets, unlike VMs, scale out and in rapidly. Shifting the unit of scaling to containers optimizes infrastructure utilization.
-
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - This solution uses an Azure network security group to manage traffic to and from Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
 - Private Link for Azure SQL Database provides a private, direct connection that's isolated to the Azure networking backbone and that runs between VMs and SQL Database.
 - Azure Bastion maximizes admin access security by minimizing open ports. It provides secure and seamless RDP/SSH connectivity to virtual network VMs directly from the Azure portal over TLS.
 
-### Cost optimization
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling in advance to meet business needs without overspending.
 - Azure minimizes costs by running on VMs. You can turn off the VMs that aren't being used, and provide a schedule for known usage patterns. For more information about cost optimization for VMs, see [Virtual Machines](/azure/architecture/framework/cost/optimize-vm).
 - The VMs in this architecture use either Premium SSD or Ultra Disk Storage. For more information about disk options and pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 - SQL Database optimizes costs with serverless compute and Hyperscale storage resources that automatically scale. For more information about SQL Database options and pricing, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single).
 - Use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation of this solution.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+Refactoring not only supports faster cloud adoption, but also promotes adoption of DevOps and agile development principles. You have full flexibility in development and production deployment options.
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+This solution supports deployment in containers, VMs, or Virtual Machine Scale Sets. Containers and Virtual Machine Scale Sets, unlike VMs, scale out and in rapidly. Shifting the unit of scaling to containers optimizes infrastructure utilization.
 
 ## Contributors
 

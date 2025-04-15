@@ -19,9 +19,9 @@ The architecture consists of the following components:
 
 ### Components
 
-- [Azure storage accounts](https://azure.microsoft.com/products/category/storage)
-- [Azure Files](https://azure.microsoft.com/products/storage/files)
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory)
+- [Azure Storage accounts](/azure/well-architected/service-guides/storage-accounts/reliability)
+- [Azure Files](/azure/well-architected/service-guides/azure-files)
+- [Microsoft Entra ID](/entra/fundamentals/whatis)
 
 ## Scenario details
 
@@ -112,7 +112,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - You should consider the type and performance of the storage account that you use to host Azure file shares. All storage resources that are deployed into a storage account share the limits that apply to that storage account. To find out more about determining the current limits for a storage account, see [Azure Files scalability and performance targets][Azure Files scalability and performance targets].
 - There are two main types of storage accounts for Azure Files deployments:
@@ -125,7 +125,7 @@ Reliability ensures that your application can meet the commitments you make to y
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Azure File Sync works with your standard Active Directory Domain Services (AD DS) identity without any special setup beyond setting up Azure File Sync. When you use Azure File Sync, file access typically goes through the Azure File Sync caching servers rather than through the Azure file share. Because the server endpoints are located on Windows Server machines, the only requirement for identity integration is to use domain-joined Windows file servers to register with the Storage Sync Service. Azure File Sync stores access control lists (ACLs) for the files in the Azure file share, and replicates them to all server endpoints.
 - Even though changes that are made directly to the Azure file share take longer to sync to the server endpoints in the sync group, you might want to ensure that you can enforce your AD DS permissions on your file share directly in the cloud also. To do this, you must domain join your storage account to your on-premises AD DS domain, just as your Windows file servers are domain joined. To learn more about domain joining your storage account to a customer-owned AD DS instance, see [Overview of Azure Files identity-based authentication options for SMB access][Overview of Azure Files identity-based authentication options for SMB access].
@@ -134,9 +134,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
   - Encryption in transit between the Azure File Sync agent and Azure. Azure File Sync agent communicates with your Storage Sync Service and Azure file share by using the Azure File Sync REST protocol and the FileREST protocol, both of which always use HTTPS over port 443. Azure File Sync doesn't send unencrypted requests over HTTP.
   - Encryption at rest for data that's stored in the Azure file share. All data that's stored in Azure Files is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works much like BitLocker on Windows: data is encrypted beneath the file system level. Because data is encrypted beneath the file system of the Azure file share as the data is encoded to disk, you don't need access to the underlying key on the client to read or write to the Azure file share.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Consult the [Principles of cost optimization][Principles of cost optimization] page in the Azure Well-Architected Framework for cost optimization recommendations.
 - The [Azure Storage Pricing][Azure Storage Overview pricing] page provides detailed pricing information based on account type, storage capacity, replication, and transactions.
@@ -145,7 +145,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 ### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 - The Azure File Sync agent is updated on a regular basis to add new functionality and to address issues. Microsoft recommends that you configure Microsoft Update to provide updates for the Azure File Sync agent as they become available. For more information, see [Azure File Sync agent update policy][Azure File Sync agent update policy].
 - Azure Storage offers soft delete for file shares so that you can recover your data when it's mistakenly deleted by an application or by another storage account user. To learn more about soft delete, see [Enable soft delete on Azure file shares][Enable soft delete on Azure file shares].
@@ -174,7 +174,6 @@ Related architectures:
 
 - [Azure enterprise cloud file share](azure-files-private.yml)
 - [Azure Files accessed on-premises and secured by AD DS](../example-scenario/hybrid/azure-files-on-premises-authentication.yml)
-- [Hybrid file share with disaster recovery for remote and local branch workers](../example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml)
 - [Use Azure file shares in a hybrid environment](azure-file-share.yml)
 
 [Architecture diagram]: ./images/hybrid-file-services.svg

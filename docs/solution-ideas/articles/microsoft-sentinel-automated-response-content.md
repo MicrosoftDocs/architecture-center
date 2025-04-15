@@ -1,27 +1,26 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Microsoft Sentinel is a scalable cloud-based solution for Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR). It offers intelligent security analytics for organizations of all sizes and provides the following capabilities:
+Microsoft Sentinel is a scalable cloud-based solution for security information and event management (SIEM) and security orchestration, automation, and response (SOAR). It offers intelligent security analytics for organizations of all sizes and provides the following capabilities and more:
 
 - Business attack detection
 - Proactive hunting
 - Automated incident response
-- among others
 
-Threat response in Microsoft Sentinel is managed through playbooks. When triggered by an alert or incident, a playbook executes a series of automated actions to counter the threat. These playbooks are created using Azure Logic Apps.
+Threat response in Microsoft Sentinel is managed via playbooks. When triggered by an alert or incident, a playbook runs a series of automated actions to counter the threat. You create these playbooks are by using Azure Logic Apps.
 
-Microsoft Sentinel provides hundreds of ready-to-use playbooks, including ones for the following scenarios:
+Microsoft Sentinel provides hundreds of ready-to-use playbooks, including playbooks for the following scenarios:
 
 - Blocking a Microsoft Entra user
-- Blocking a Microsoft Entra user based on approval or rejection via email
+- Blocking a Microsoft Entra user based on rejection via email
 - Posting a message in a Microsoft Teams channel about an incident or alert
 - Posting a message on Slack
 - Sending an email with incident or alert details
 - Sending an email with a formatted incident report
-- Verifying if a Microsoft Entra user is at risk
-- Sending an adaptive card via Microsoft Teams to confirm if a user is compromised
-- Isolating an endpoint through Microsoft Defender for Endpoint
+- Determining whether a Microsoft Entra user is at risk
+- Sending an adaptive card via Microsoft Teams to determine whether a user is compromised
+- Isolating an endpoint via Microsoft Defender for Endpoint
 
-This article includes an example of implementing a playbook that responds to a threat by blocking a Microsoft Entra user compromised by suspicious activity.
+This article includes an example of implementing a playbook that responds to a threat by blocking a Microsoft Entra user that's compromised by suspicious activity.
 
 ## Potential use case
 
@@ -45,16 +44,16 @@ This workflow shows the steps to deploy the playbook. Make sure that the [Prereq
 
 1. Microsoft Entra ID Protection generates the alerts that trigger the threat response playbook to run. To have Microsoft Sentinel collect the alerts, navigate to your Microsoft Sentinel instance and select **Data Connectors**. Search for **Microsoft Entra ID Protection** and enable the collecting of alerts. For more information about Identity Protection, see [What is Identity Protection?](/azure/active-directory/identity-protection/overview-identity-protection).
 1. [Install the ToR browser](/azure/active-directory/identity-protection/howto-identity-protection-simulate-risk#anonymous-ip-address) onto a computer or virtual machine (VM) that you can use without putting your IT security at risk.
-1. Use the Tor Browser to log in anonymously to My apps as the user that you selected for this solution. See [Anonymous IP address](/azure/active-directory/identity-protection/howto-identity-protection-simulate-risk#anonymous-ip-address) for instructions on using the Tor Browser to simulate anonymous IP addresses.
+1. Use the Tor Browser to sign in anonymously to My apps as the user that you selected for this solution. See [Anonymous IP address](/azure/active-directory/identity-protection/howto-identity-protection-simulate-risk#anonymous-ip-address) for instructions on using the Tor Browser to simulate anonymous IP addresses.
 1. Microsoft Entra authenticates the user.
-1. Microsoft Entra ID Protection detects that the user used a ToR browser to log in anonymously. This type of login is suspicious activity that puts the user at risk. Identity Protection sends an alert to Microsoft Sentinel.
+1. Microsoft Entra ID Protection detects that the user used a ToR browser to sign in anonymously. This type of sign-in is suspicious activity that puts the user at risk. Identity Protection sends an alert to Microsoft Sentinel.
 1. Configure Microsoft Sentinel to create an incident from the alert. See [Automatically create incidents from Microsoft security alerts](/azure/sentinel/create-incidents-from-alerts) for information on doing this. The Microsoft security analytics rule template to use is **Create incidents based on Microsoft Entra ID Protection alerts**.
 1. When Microsoft Sentinel triggers an incident, the playbook responds with actions that block the user.
 
 ### Components
 
 - [Microsoft Sentinel](https://azure.microsoft.com/services/microsoft-sentinel) is a cloud-native SIEM and SOAR solution. It uses advanced AI and security analytics to detect and respond to threats across the enterprise. There are many playbooks on Microsoft Sentinel that you can use to automate your responses and protect your system.
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a multi-tenant, cloud-based directory and identity management service that combines core directory services, application access management, and identity protection into a single solution. It can synchronize with on-premises directories. The identity service provides single sign-on, multifactor authentication, and conditional access to guard against cybersecurity attacks. The solution shown in this article uses Microsoft Entra identity Protect to detect suspicious activity by a user.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a cloud-based directory and identity management service that combines core directory services, application access management, and identity protection into a single solution. It can synchronize with on-premises directories. The identity service provides single sign-on, multifactor authentication, and conditional access to guard against cybersecurity attacks. The solution shown in this article uses Microsoft Entra identity Protect to detect suspicious activity by a user.
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps) is a serverless cloud service for creating and running automated workflows that integrate apps, data, services, and systems. Developers can use a visual designer to schedule and orchestrate common task workflows.  Logic Apps has [connectors](/connectors) for many popular cloud services, on-premises products, and other software as a service applications. In this solution, Logic Apps runs the threat response playbook.
 
 ## Considerations
@@ -74,11 +73,11 @@ You can deploy this scenario by following the steps in [Workflow](#workflow) aft
 
 #### Prepare the software and choose a test user
 
-To implement and test the playbook, you'll need Azure and Microsoft Sentinel along with the following:
+To implement and test the playbook, you need Azure and Microsoft Sentinel along with the following:
 
 - A Microsoft Entra ID Protection license (Premium P2, E3, or E5).
 - A Microsoft Entra user. You can use either an existing user or [create a new user](/azure/active-directory/manage-apps/add-application-portal-assign-users). If you do create a new user, you can delete it when you're done using it.
-- A computer or VM that can run a ToR browser. You'll use the browser to log in to the My Apps portal as your Microsoft Entra user.
+- A computer or VM that can run a ToR browser. You'll use the browser to sign in to the My Apps portal as your Microsoft Entra user.
 
 #### Deploy the playbook
 
@@ -104,7 +103,7 @@ To deploy a Microsoft Sentinel playbook, proceed as follows:
     - Leave the **Associate with integration service environment** checkbox unchecked.
     - Leave **Integration service environment** empty.
   - Select **Next: Connections >** to go to the **Connections** tab of **Create playbook**.
-  - Choose how you will authenticate within the playbook’s components. Authentication is required for:
+  - Choose how to authenticate within the playbook's components. Authentication is required for:
     - Microsoft Entra ID
     - Microsoft Sentinel
     - Office 365 Outlook
@@ -132,7 +131,7 @@ Other contributors:
 
 - [Overview of Azure Cloud Services?](/azure/cloud-services/cloud-services-choose-me)
 - [What is Microsoft Sentinel?](/azure/sentinel/overview)
-- [Security orchestration, automation and response (SOAR) in Microsoft Sentinel.](/azure/sentinel/automation)
+- [Security orchestration, automation, and response (SOAR) in Microsoft Sentinel.](/azure/sentinel/automation)
 - [Automate threat response with playbooks in Microsoft Sentinel](/azure/sentinel/automate-responses-with-playbooks)
 - [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [What is Identity Protection?](/azure/active-directory/identity-protection/overview-identity-protection)
@@ -141,8 +140,6 @@ Other contributors:
 - [Tutorial: Create automated approval-based workflows by using Azure Logic Apps](/azure/logic-apps/tutorial-process-mailing-list-subscriptions-workflow)
 - [Introduction to Microsoft Sentinel](/training/modules/intro-to-azure-sentinel)
 
-## Related resources
+## Related resource
 
-- [Threat indicators for cyber threat intelligence in Microsoft Sentinel](../../example-scenario/data/sentinel-threat-intelligence.yml)
-- [Monitor hybrid security using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
 - [Security architecture design](../../guide/security/security-start-here.yml)

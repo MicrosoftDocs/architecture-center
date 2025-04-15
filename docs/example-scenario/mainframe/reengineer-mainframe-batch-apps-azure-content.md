@@ -72,40 +72,40 @@ The second diagram shows how you can use Azure services to re-engineer a similar
 
 #### Network and identity
 
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute): ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection from a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services like Microsoft Azure and Office 365.
-- [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway): A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): Microsoft Entra ID is an identity and access management service that can sync with an on-premises directory.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute): ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection from a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services like Microsoft Azure and Office 365.
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways): A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.
+- [Microsoft Entra ID](/entra/fundamentals/whatis): Microsoft Entra ID is an identity and access management service that can sync with an on-premises directory.
 
 #### Application
 
-- [Logic Apps](https://azure.microsoft.com/services/logic-apps): Logic Apps helps you create and run automated recurring tasks and processes on a schedule. You can call services inside and outside Azure like HTTP or HTTPS endpoints. You can also post messages to Azure services like Azure Service Bus, or get files uploaded to a file share.
-- [Service Bus](https://azure.microsoft.com/services/service-bus): You can use the Service Bus for messaging between a user interface and back-end services. This system can decouple applications and services and increase reliability and use.
-- [Azure Databricks](https://azure.microsoft.com/services/databricks): Azure Databricks is a cloud-based data engineering tool that's used for processing and transforming large amounts of data. You can then explore that data through machine learning models.
-- [Azure Spring Apps](https://azure.microsoft.com/services/spring-cloud): Azure Spring Apps makes it easy to deploy, manage, and run Spring microservices to Azure. It supports both Java and .NET Core.
-- [AKS](https://azure.microsoft.com/services/kubernetes-service): AKS simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure.
-- [Batch](https://azure.microsoft.com/services/batch): Batch is designed to run general purpose batch computing in the cloud across many VMs that can scale based on the workload being executed. It's a perfect fit for ETL or AI use cases where multiple tasks are executed in parallel, independent from each other.
-- [Functions](https://azure.microsoft.com/services/functions): Use Functions to run small pieces of code without worrying about application infrastructure. With Functions, the cloud infrastructure provides all the up-to-date servers you need to keep your application running at scale.
+- [Logic Apps](/azure/logic-apps/logic-apps-overview): Logic Apps helps you create and run automated recurring tasks and processes on a schedule. You can call services inside and outside Azure like HTTP or HTTPS endpoints. You can also post messages to Azure services like Azure Service Bus, or get files uploaded to a file share.
+- [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview): You can use the Service Bus for messaging between a user interface and back-end services. This system can decouple applications and services and increase reliability and use.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security): Azure Databricks is a cloud-based data engineering tool that's used for processing and transforming large amounts of data. You can then explore that data through machine learning models.
+- [Azure Spring Apps](/azure/spring-apps/basic-standard/overview): Azure Spring Apps makes it easy to deploy, manage, and run Spring microservices to Azure. It supports both Java and .NET Core.
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service): AKS simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure.
+- [Batch](/azure/batch/batch-technical-overview): Batch is designed to run general purpose batch computing in the cloud across many VMs that can scale based on the workload being executed. It's a perfect fit for ETL or AI use cases where multiple tasks are executed in parallel, independent from each other.
+- [Functions](/azure/well-architected/service-guides/azure-functions-security): Use Functions to run small pieces of code without worrying about application infrastructure. With Functions, the cloud infrastructure provides all the up-to-date servers you need to keep your application running at scale.
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps): With [WebJobs](/azure/app-service/webjobs-create), a feature of App Service, you can code reusable background business logic as web jobs.
-- [Azure Cache for Redis](https://azure.microsoft.com/services/cache/): Applications that use a high volume of backend data can be developed to scale and deliver a highly optimized performance by integrating with an in-memory data store like Redis. Azure Cache for Redis offers both the Redis open-source (OSS Redis) and a commercial product from Redis Labs, Redis Enterprise, as a managed service.
+- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability): Applications that use a high volume of backend data can be developed to scale and deliver a highly optimized performance by integrating with an in-memory data store like Redis. Azure Cache for Redis offers both the Redis open-source (OSS Redis) and a commercial product from Redis Labs, Redis Enterprise, as a managed service.
 
 #### Storage
 
 Azure storage provides multiple tiers of hot, cool, and archive data. Effective usage of these storage tiers can give you a price-to-performance advantage.
 
-- [Blob Storage](https://azure.microsoft.com/services/storage/blobs): Scalable and secure object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning.
-- [Azure Files](https://azure.microsoft.com/services/storage/files): Simple, secure, and serverless enterprise-grade cloud file shares. Azure Files can particularly come in handy for re-engineered mainframe solutions. It provides an effective add-on for the managed SQL storage.
-- [Table Storage](https://azure.microsoft.com/services/storage/tables/#overview): A NoSQL key-value store for rapid development using large semi-structured datasets.
-- [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues): Simple, cost-effective, durable message queueing for large workloads.
-- [Azure SQL](https://azure.microsoft.com/products/azure-sql): Azure's fully managed family of services for SQL Server. You can migrate and use the relational data efficiently with other Azure services like Azure SQL Managed Instance, SQL Server on Azure Virtual Machines, and Azure Database for MariaDB.
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): A no-SQL offering that you can use to migrate non-tabular data from the mainframes.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage): Scalable and secure object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning.
+- [Azure Files](/azure/well-architected/service-guides/azure-files): Simple, secure, and serverless enterprise-grade cloud file shares. Azure Files can particularly come in handy for re-engineered mainframe solutions. It provides an effective add-on for the managed SQL storage.
+- [Table Storage](/azure/storage/tables/table-storage-overview): A NoSQL key-value store for rapid development using large semi-structured datasets.
+- [Azure Queue Storage](/azure/well-architected/service-guides/queue-storage/reliability): Simple, cost-effective, durable message queueing for large workloads.
+- [Azure SQL](/azure/azure-sql/): Azure's fully managed family of services for SQL Server. You can migrate and use the relational data efficiently with other Azure services like Azure SQL Managed Instance, SQL Server on Azure Virtual Machines, and Azure Database for MariaDB.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db): A no-SQL offering that you can use to migrate non-tabular data from the mainframes.
 
 #### Monitoring
 
-- [Azure Monitor](https://azure.microsoft.com/services/monitor): Azure Monitor delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It contains the Application Insights, Azure Monitor Logs, and Azure Log Analytics features.
+- [Azure Monitor](/azure/azure-monitor/overview): Azure Monitor delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It contains the Application Insights, Azure Monitor Logs, and Azure Log Analytics features.
 
 #### Management
 
-- [Azure DevOps](https://azure.microsoft.com/services/devops): Re-engineer mainframe applications on Azure during every phase of software development and team collaboration. DevOps provides the following services:
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops): Re-engineer mainframe applications on Azure during every phase of software development and team collaboration. DevOps provides the following services:
 
     - **Azure Boards**: Agile planning, work item tracking, visualization, and reporting tool.
     - **Azure Pipelines**: A language, platform, and cloud agnostic CI/CD platform with support for containers or Kubernetes.
@@ -127,12 +127,42 @@ This solution is ideal for the finance, insurance, healthcare, and retail indust
 
 ## Considerations
 
-### Availability
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+- You can use Azure Monitor and Application Insights, in addition to Log Analytics, to monitor the health of an Azure resource. Set alerts to proactively manage your resource health.
+- For more information on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+- This reference architecture uses ExpressRoute for a private and efficient connection to Azure from the on-premises environment. However, you can also create a [site to site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal).
+- You can authenticate Azure resources by using Microsoft Entra ID. You can manage permissions with role-based access control (RBAC).
+- Database services in Azure support various security options like Data Encryption at Rest.
+- For more information on designing secure solutions, see [Azure security documentation](/azure/security).
+
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for Azure resources.
+
+See [Azure mainframes batch application](https://azure.com/e/c7fa52f13c2f4806ac05316813ed97a0) for an example cost estimate of services.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 - The batch architecture in this article uses multi-node computing or PaaS services, which provide high availability.
 - Azure database services support zone redundancy, and you can design them to fail over to a secondary node if there's an outage or during a maintenance window.
 
-### Scalability
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - The following Azure services in this architecture have autoscaling capabilities:
 
@@ -144,24 +174,6 @@ This solution is ideal for the finance, insurance, healthcare, and retail indust
     - Logic Apps
 
 - For more information on autoscaling in Azure, see the [autoscaling guide](../../best-practices/auto-scaling.md).
-
-### Security
-
-- This reference architecture uses ExpressRoute for a private and efficient connection to Azure from the on-premises environment. However, you can also create a [site to site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal).
-- You can authenticate Azure resources by using Microsoft Entra ID. You can manage permissions with role-based access control (RBAC).
-- Database services in Azure support various security options like Data Encryption at Rest.
-- For more information on designing secure solutions, see [Azure security documentation](/azure/security).
-
-### Resiliency
-
-- You can use Azure Monitor and Application Insights, in addition to Log Analytics, to monitor the health of an Azure resource. Set alerts to proactively manage your resource health.
-- For more information on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
-
-### Cost optimization
-
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for Azure resources.
-
-See [Azure mainframes batch application](https://azure.com/e/c7fa52f13c2f4806ac05316813ed97a0) for an example cost estimate of services.
 
 ## Contributors
 
@@ -178,7 +190,6 @@ Principal author:
 - For more information, contact datasqlninja@microsoft.com.
 - See the [Azure database migration guides](https://datamigration.microsoft.com).
 
-## Related resources
+## Related resource
 
-- [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
 - [High-volume batch transaction processing](process-batch-transactions.yml)

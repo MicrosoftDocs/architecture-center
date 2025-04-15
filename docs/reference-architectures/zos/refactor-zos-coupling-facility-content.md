@@ -59,45 +59,45 @@ The following diagram shows Azure services that provide similar functionality an
 
 ### Components
 
-- [ExpressRoute](https://azure.microsoft.com/products/expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that a connectivity partner provides. With ExpressRoute, you can establish connections to cloud services like Azure and Microsoft 365.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that a connectivity partner provides. With ExpressRoute, you can establish connections to cloud services like Azure and Microsoft 365.
 
-- [Azure Bastion](https://azure.microsoft.com/products/azure-bastion) is a fully managed PaaS that you provision inside your virtual network. Azure Bastion provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity to the VMs in your virtual network directly from the Azure portal over TLS.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed PaaS that you provision inside your virtual network. Azure Bastion provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity to the VMs in your virtual network directly from the Azure portal over TLS.
 
-- [Load Balancer](https://azure.microsoft.com/products/load-balancer/) distributes inbound flows from the load balancer's front end to the back-end pool instances, according to configured load-balancing rules and health probes. The back-end pool instances can be Azure VMs or instances in a virtual machine scale set. Load Balancer is the single point of contact for clients.
+- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) distributes inbound flows from the load balancer's front end to the back-end pool instances, according to configured load-balancing rules and health probes. The back-end pool instances can be Azure VMs or instances in a virtual machine scale set. Load Balancer is the single point of contact for clients.
 
   Load Balancer operates at Layer 4 of the Open Systems Interconnection model. Both Level 7 application level and Level 4 network protocol level load balancers are available. The type that you should use depends on how the application input reaches the compute cluster's entry point.
 
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) provides on-demand, scalable computing resources that give you the flexibility of virtualization. Azure VMs give you a choice of operating systems, including Windows and Linux.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides on-demand, scalable computing resources that give you the flexibility of virtualization. Azure VMs give you a choice of operating systems, including Windows and Linux.
 
   Most Azure high-performance computing VM sizes feature a network interface for [RDMA connectivity](/azure/virtual-machines/sizes-hpc#rdma-capable-instances).
 
-- [Azure virtual networks](https://azure.microsoft.com/products/virtual-network) are the fundamental building blocks for Azure private networks. Use virtual networks so that Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is similar to a traditional on-premises network but with the benefits of Azure infrastructure scalability, availability, and isolation.
+- [Azure virtual networks](/azure/well-architected/service-guides/virtual-network) are the fundamental building blocks for Azure private networks. Use virtual networks so that Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is similar to a traditional on-premises network but with the benefits of Azure infrastructure scalability, availability, and isolation.
 
   Virtual network interfaces enable communication between Azure VMs and the internet, Azure resources, and on-premises resources. You can add several network interface cards to one Azure VM so that child VMs can have their own dedicated network interface devices and IP addresses. That configuration is similar to this architecture.
 
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) is a fully managed Kubernetes service that you can use to deploy and manage containerized applications in container-based compute clusters.
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service that you can use to deploy and manage containerized applications in container-based compute clusters.
 
-- [Azure Cache for Redis](https://azure.microsoft.com/products/cache) is a fully managed, in-memory cache that improves the performance and scalability of data-intensive architectures. This architecture uses Azure Cache for Redis to share data and state between compute resources.
+- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is a fully managed, in-memory cache that improves the performance and scalability of data-intensive architectures. This architecture uses Azure Cache for Redis to share data and state between compute resources.
 
-- [SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine that runs the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles upgrading, patching, backups, monitoring, and most other database management functions without user involvement. These PaaS capabilities let you focus on business-critical, domain-specific database administration and optimization.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine that runs the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles upgrading, patching, backups, monitoring, and most other database management functions without user involvement. These PaaS capabilities let you focus on business-critical, domain-specific database administration and optimization.
 
-- [Azure Private Link](https://azure.microsoft.com/products/private-link) for SQL Database provides a private, direct connection from Azure VMs to SQL Database that only uses the Azure networking backbone.
+- [Azure Private Link](/azure/private-link/private-link-overview) for SQL Database provides a private, direct connection from Azure VMs to SQL Database that only uses the Azure networking backbone.
 
-- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is an Azure PaaS service for NoSQL databases.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is an Azure PaaS service for NoSQL databases.
 
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/products/postgresql) is an Azure PaaS service for PostgreSQL databases.
+- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is an Azure PaaS service for PostgreSQL databases.
 
-- [Azure managed disks](https://azure.microsoft.com/products/storage/disks) are block-level storage volumes that Azure manages on Azure VMs. The available types of disks include Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD. This architecture works best with Premium SSDs or Ultra Disk Storage.
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. The available types of disks include Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD. This architecture works best with Premium SSDs or Ultra Disk Storage.
 
-- [Data Factory](https://azure.microsoft.com/products/data-factory) is a fully managed, serverless data integration solution that you can use to ingest, prepare, and transform data at scale.
+- [Data Factory](/azure/data-factory/introduction) is a fully managed, serverless data integration solution that you can use to ingest, prepare, and transform data at scale.
 
-- [Azure Files](https://azure.microsoft.com/products/storage/files) offers fully managed file shares in an Azure Storage account that are accessible from the cloud or on-premises. Windows, Linux, and macOS deployments can mount Azure file shares concurrently and access files via the industry-standard Server Message Block (SMB) protocol.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in an Azure Storage account that are accessible from the cloud or on-premises. Windows, Linux, and macOS deployments can mount Azure file shares concurrently and access files via the industry-standard Server Message Block (SMB) protocol.
 
-- [Stream Analytics](https://azure.microsoft.com/products/stream-analytics) is an Azure-based analytics service that you can use to stream data.
+- [Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) is an Azure-based analytics service that you can use to stream data.
 
-- [Azure Databricks](https://azure.microsoft.com/products/databricks) is an Apache Spark PaaS service for Big Data analytics.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark PaaS service for Big Data analytics.
 
--	[Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) is a Microsoft cloud-based identity and access management solution that connects people to their apps, devices, and data.
+-	[Microsoft Entra ID](/entra/fundamentals/whatis) is a Microsoft cloud-based identity and access management solution that connects people to their apps, devices, and data.
 
 ## Scenario details
 
@@ -111,17 +111,17 @@ Azure resources can provide similar scale-out performance with shared data and h
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Availability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+#### Availability
 
 This architecture uses [Site Recovery](https://azure.microsoft.com/services/site-recovery) to mirror Azure VMs to a secondary Azure region for quick failover and DR if an Azure datacenter fails.
 
-### Resiliency
+#### Resiliency
 
 The load balancers create resiliency in this solution. If one presentation or transaction server fails, other servers behind the load balancer can run the workloads.
-
-### Scalability
-
-You can scale out the server sets to provide more throughput. For more information, see [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 
 ### Security
 
@@ -135,13 +135,19 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 -	Microsoft Entra is a unified security platform that seamlessly integrates with most Azure services.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - In SQL Database, use the [Hyperscale or Business Critical](/azure/azure-sql/database/service-tiers-general-purpose-business-critical) SQL Database tiers for high input/output operations per second and a high-uptime SLA.
 
 - This architecture works best with Premium SSDs or Ultra Disk SSDs. For more information, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+You can scale out the server sets to provide more throughput. For more information, see [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 
 ## Next steps
 
@@ -157,6 +163,5 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 ## Related resources
 
-- [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
 - [IBM z/OS online transaction processing on Azure](../../example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml)
 - [Integrate IBM mainframe and midrange message queues with Azure](../../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml)

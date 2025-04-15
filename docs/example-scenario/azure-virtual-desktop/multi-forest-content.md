@@ -50,8 +50,6 @@ This architecture diagram represents a typical scenario that contains the follow
 
 > [!NOTE]
 > Active Directory Domain Services is a self-managed, on-premises component in many hybrid environments, and Microsoft Entra Domain Services provides managed domain services with a subset of fully compatible, traditional AD DS features such as domain join, group policy, LDAP, and Kerberos/NTLM authentication. For a detailed comparison of these components, see [Compare self-managed AD DS, Microsoft Entra ID, and managed Microsoft Entra Domain Services](/azure/active-directory-domain-services/compare-identity-solutions). </br>
->
-> The solution idea [Multiple Azure Virtual Desktop forests using Microsoft Entra Domain Services](./multi-forest-azure-managed.yml) discusses architecture that uses cloud-managed [Microsoft Entra Domain Services](/azure/active-directory-domain-services/overview).
 
 ### Potential use cases
 
@@ -120,4 +118,3 @@ For more information, see the following articles:
 ## Related resources
 
 - [Azure Virtual Desktop for the enterprise](./azure-virtual-desktop.yml)
-- [Solution idea: Multiple forests with Microsoft Entra Domain Services](./multi-forest-azure-managed.yml)

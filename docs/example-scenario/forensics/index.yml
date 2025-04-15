@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Computer forensics chain of custody in Azure
-  titleSuffix: Azure Example Scenarios
-  description: Learn how to create an infrastructure and workflow to ensure a valid digital evidence chain of custody (CoC) for computer forensics in Azure.
+  title: Computer Forensics Chain of Custody in Azure
+  description: Learn how to create an infrastructure and workflow to help ensure a valid digital evidence chain of custody (CoC) for computer forensics in Azure.
   author: simonesavi
   ms.author: sisavi
-  ms.date: 03/14/2024
-  ms.topic: conceptual
-  ms.service: azure-architecture-center
+  ms.date: 02/11/2025
+  ms.topic: example-scenario
   ms.subservice: example-scenario
 azureCategories:
   - security
@@ -17,7 +15,7 @@ products:
   - azure-key-vault
   - azure-storage-accounts
 name: Computer forensics chain of custody in Azure
-summary: Learn how to create an infrastructure and workflow to ensure a valid digital evidence Chain of Custody (CoC) for computer forensics in Azure.
+summary: Learn how to create an infrastructure and workflow to help ensure a valid digital evidence Chain of Custody (CoC) for computer forensics in Azure.
 thumbnailUrl: ../../browse/thumbs/chain-of-custody.png
 content: |
-   [!include[](index-content.md)]
+   [!INCLUDE[](index-content.md)]

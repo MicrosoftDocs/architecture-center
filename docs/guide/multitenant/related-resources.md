@@ -48,7 +48,9 @@ Consider the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/nois
 
 ## Microsoft Azure Well-Architected Framework
 
-While the entirety of the [Azure Well-Architected Framework](/azure/well-architected/) is important for all solutions, pay special attention to the [Reliability pillar](/azure/well-architected/reliability/). The nature of cloud hosting leads to applications that are often multitenant, use shared platform services, compete for resources and bandwidth, communicate over the internet, and run on commodity hardware. This increases the likelihood that both transient and more permanent faults will arise.
+If you're designing software as a service (SaaS), use the [Azure Well-Architected Framework workload for SaaS](/azure/well-architected/saas/) to get actionable architectural guidance specific to SaaS solutions.
+
+While the entirety of the [Azure Well-Architected Framework](/azure/well-architected/) is important for all solutions, including multitenant architectures, pay special attention to the [Reliability pillar](/azure/well-architected/reliability/). The nature of cloud hosting leads to applications that are often multitenant, use shared platform services, compete for resources and bandwidth, communicate over the internet, and run on commodity hardware. This increases the likelihood that both transient and more permanent faults will arise.
 
 ## Multitenant architectural guidance
 
@@ -118,7 +120,8 @@ While the entirety of the [Azure Well-Architected Framework](/azure/well-archite
 
 ### AI/ML
 
-* [Design patterns for multitenant SaaS applications and Azure Cognitive Search](/azure/search/search-modeling-multitenant-saas-applications): This document discusses tenant isolation strategies for multitenant applications that are built with Azure Cognitive Search.
+* [Guide to design a secure multitenant RAG inferencing solution](../../ai-ml/guide/secure-multitenant-rag.md): This document describes how to apply the Retrieval-Augmented Generation (RAG) pattern within multitenant solutions, where tenant-specific data needs to be used for inferencing.
+* [Design patterns for multitenant SaaS applications and Azure AI Search](/azure/search/search-modeling-multitenant-saas-applications): This document discusses tenant isolation strategies for multitenant applications that are built with AI Search.
 * [A Solution for ML Pipeline in Multi-tenancy Manner](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/a-solution-for-ml-pipeline-in-multi-tenancy-manner/ba-p/4124818): This blog post describes how Azure Machine Learning pipelines can be designed to support multiple tenants by using Azure Machine Learning workspaces.
 
 ## Community content

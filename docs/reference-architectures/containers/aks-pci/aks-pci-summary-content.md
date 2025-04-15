@@ -1,16 +1,36 @@
-The Azure Well-Architected Framework is a set of guiding tenets that can be used to assess a solution through the quality pillars of architecture excellence:
+The [Microsoft Azure Well-Architected Framework](/azure/well-architected) is a set of guiding tenets that can be used to assess a solution through the quality pillars of architecture excellence:
 
+- [Reliability](#reliability) 
+- [Security](#security) 
 - [Cost Optimization](#cost-optimization)
 - [Operational Excellence](#operational-excellence)
 - [Performance Efficiency](#performance-efficiency)
-- [Reliability](#reliability)
-- [Security](#security)
 
 > This article ends this series. Read the [introduction](aks-pci-intro.yml).
 
 This guidance provided in this series incorporates Well-Architected principles in all design choices. This article summarizes those choices. The [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) implementation demonstrates those principles, as applicable.
 
 PCI DSS 3.2.1 workloads demand the rigor of being a well-architected solution. Although aligning the infrastructure with PCI requirements is critical, compliance doesn't stop at the hosting infrastructure. Not addressing the quality pillars, specifically security, can jeopardize compliance. Well-architected solutions combine both the infrastructure and workload perspectives to arrive at the rigor necessary for achieving compliant outcomes.
+
+## Reliability
+
+The reliability of regulated environments needs to be predictable so that they can be explained consistently for auditing purposes. Follow the fundamental guidance provided in the [reliability principles](/azure/architecture/framework/resiliency/principles). Best practices for a regulated environment are summarized in these sections.
+
+### Recovery targets and disaster recovery
+
+Due to the sensitive nature of the data handled in regulated workloads, recovery targets and recovery point objectives (RPOs) are critical to define. What is acceptable loss of CHD? Recovery efforts within the CDE are still subject to the standard requirements. Expect failures and have a clear recovery plan for those failures that align with roles, responsibilities, and justified data access. Live-site issues are not justification for deviating from any regulations. This is especially important in a full disaster recovery situation. Have clear disaster recovery documentation that adheres to the requirements and minimizes unexpected CDE or CHD access. After recovery, always review the recovery process steps to ensure that no unexpected access occurred. Document business justifications for those instances.
+
+### Recovery
+
+Adding resilience and recovery strategies to your architecture can prevent the need for ad hoc access to the CDE. The system should be able to self-recover at the defined RPO without the need for direct human intervention. This way, you can eliminate unnecessary exposure of CHD, even to those individuals who are authorized to have emergency access. The recovery process must be auditable.
+
+### Addressing security-related risks
+
+Review security risks because they can be a source of workload downtime and data loss. The investments in security also have an impact on workload reliability.
+
+### Operational processes
+
+Reliability extends to all operational processes in and adjacent to the CDE. Well-defined, automated, and tested processes for concerns like image building and jump box management factor into a well-architected solution.
 
 ## Security
 
@@ -125,6 +145,30 @@ Store secrets, certificates, keys, and passwords outside the CDE. You can use na
 
 Make sure access to the key store has a combination of network and access controls. When you enable managed identities, the cluster has to authenticate itself against Key Vault to get access. Also, the connectivity to the key store must not be over the public internet. Use a private network, such as Private Link.
 
+## Cost Optimization
+
+Follow the fundamental guidance provided in the [Cost Optimization principles](/azure/architecture/framework/cost/overview).
+
+Because of the compliance requirements and strict security controls, a clear tradeoff is cost. We recommend that you establish initial estimates by using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
+
+Here's a high-level representation of the cost impact of the main resources that this architecture uses.
+
+![Diagram of cost management in the architecture.](.\images\cost-analysis.png)
+
+The main drivers are the virtual machine scale sets that make up the node pools and Azure Firewall. Another contributor is Log Analytics. There are also incremental costs associated with Microsoft Defender for Cloud, depending on your choice of plans.
+
+Have a clear understanding of what constitutes the price of a service. Azure tracks metered usage. Here's a drilldown of Azure Firewall for this architecture.
+
+![Diagram that illustrates cost management in an Azure Firewall example.](.\images\firewall-cost.png)
+
+The cost associated with some resources, such as Azure Firewall, can be spread across multiple business units or applications. Another way to optimize cost might be to host a multitenant cluster within an organization, maximizing density with workload diversity. However, we do *not* recommend this approach for regulated workloads. Always prioritize compliance and segmentation over cost benefits.
+
+To keep within the budget constraints, some ways to control cost are by adjusting the Azure Application Gateway infrastructure, setting the instance count for autoscaling, and reducing the log output as long as they still meet the audit trail required by PCI-DSS 3.2.1. Always evaluate those choices against the tradeoffs on other aspects of the design that allow you to meet your SLA. For example, are you still able to scale appropriately to meet spikes in traffic?
+
+As you create groups of Azure resources, apply tags so that they can be tracked for cost. Use cost management tools like [Azure Advisor](/azure/advisor/advisor-cost-recommendations) and [Microsoft Cost Management](/azure/cost-management-billing/costs/cost-mgt-best-practices) for tracking and analyzing cost.
+
+Consider enabling [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes specific constructs.
+
 ## Operational Excellence
 
 Follow the fundamental guidance provided in the [Operational Excellence principles](/azure/architecture/framework/devops/principles). Best practices for a regulated environment are summarized in these sections.
@@ -174,47 +218,3 @@ The shared-nothing architecture is designed to remove contention between colocat
 ### Lightweight workloads
 
 Complexity of workloads is hard to document and to audit. Strive for simplicity because of the performance benefits and ease of auditing regulatory requirements. Reconsider choices that have more breadth than is needed, because that increases the attack surface area and the potential for misuse or misconfiguration.
-
-## Reliability
-
-The reliability of regulated environments needs to be predictable so that they can be explained consistently for auditing purposes. Follow the fundamental guidance provided in the [reliability principles](/azure/architecture/framework/resiliency/principles). Best practices for a regulated environment are summarized in these sections.
-
-### Recovery targets and disaster recovery
-
-Due to the sensitive nature of the data handled in regulated workloads, recovery targets and recovery point objectives (RPOs) are critical to define. What is acceptable loss of CHD? Recovery efforts within the CDE are still subject to the standard requirements. Expect failures and have a clear recovery plan for those failures that align with roles, responsibilities, and justified data access. Live-site issues are not justification for deviating from any regulations. This is especially important in a full disaster recovery situation. Have clear disaster recovery documentation that adheres to the requirements and minimizes unexpected CDE or CHD access. After recovery, always review the recovery process steps to ensure that no unexpected access occurred. Document business justifications for those instances.
-
-### Recovery
-
-Adding resilience and recovery strategies to your architecture can prevent the need for ad hoc access to the CDE. The system should be able to self-recover at the defined RPO without the need for direct human intervention. This way, you can eliminate unnecessary exposure of CHD, even to those individuals who are authorized to have emergency access. The recovery process must be auditable.
-
-### Addressing security-related risks
-
-Review security risks because they can be a source of workload downtime and data loss. The investments in security also have an impact on workload reliability.
-
-### Operational processes
-
-Reliability extends to all operational processes in and adjacent to the CDE. Well-defined, automated, and tested processes for concerns like image building and jump box management factor into a well-architected solution.
-
-## Cost Optimization
-
-Follow the fundamental guidance provided in the [Cost Optimization principles](/azure/architecture/framework/cost/overview).
-
-Because of the compliance requirements and strict security controls, a clear tradeoff is cost. We recommend that you establish initial estimates by using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
-
-Here's a high-level representation of the cost impact of the main resources that this architecture uses.
-
-![Diagram of cost management in the architecture.](.\images\cost-analysis.png)
-
-The main drivers are the virtual machine scale sets that make up the node pools and Azure Firewall. Another contributor is Log Analytics. There are also incremental costs associated with Microsoft Defender for Cloud, depending on your choice of plans.
-
-Have a clear understanding of what constitutes the price of a service. Azure tracks metered usage. Here's a drilldown of Azure Firewall for this architecture.
-
-![Diagram that illustrates cost management in an Azure Firewall example.](.\images\firewall-cost.png)
-
-The cost associated with some resources, such as Azure Firewall, can be spread across multiple business units or applications. Another way to optimize cost might be to host a multitenant cluster within an organization, maximizing density with workload diversity. However, we do *not* recommend this approach for regulated workloads. Always prioritize compliance and segmentation over cost benefits.
-
-To keep within the budget constraints, some ways to control cost are by adjusting the Azure Application Gateway infrastructure, setting the instance count for autoscaling, and reducing the log output as long as they still meet the audit trail required by PCI-DSS 3.2.1. Always evaluate those choices against the tradeoffs on other aspects of the design that allow you to meet your SLA. For example, are you still able to scale appropriately to meet spikes in traffic?
-
-As you create groups of Azure resources, apply tags so that they can be tracked for cost. Use cost management tools like [Azure Advisor](/azure/advisor/advisor-cost-recommendations) and [Microsoft Cost Management](/azure/cost-management-billing/costs/cost-mgt-best-practices) for tracking and analyzing cost.
-
-Consider enabling [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes specific constructs.

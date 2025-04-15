@@ -8,7 +8,7 @@ Organizations can use the Azure Governance Visualizer to capture pertinent gover
 
 The Azure Governance Visualizer should be automated through GitHub workflows. The visualizer outputs the summary as HTML, MD, and CSV files. Ideally, the generated HTML report is made easily accessible to authorized users in the organization. This article shows you how to automate running the Azure Governance Visualizer and host the reporting output securely and cost effectively on the Web Apps feature of Azure App Service.
 
-An example implementation is available on GitHub at [Azure Governance Visualizer accelerator](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator).
+An example implementation is available on GitHub at [Azure Governance Visualizer implementation](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator).
 
 ## Architecture
 
@@ -36,10 +36,10 @@ This flow explains how a user can use the tool:
 
 The automation presented in this scenario consists of the following components:
 
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is an enterprise identity service that provides single sign-on, multifactor authentication, and conditional access.
-- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for creating and deploying cloud applications. It lets you define a set of compute resources for a web app to run, deploy web apps, and configure deployment slots.
-- [GitHub](https://docs.github.com/) is a popular SaaS offering from Microsoft that is frequently used by developers to build, ship, and maintain their software projects.
-- [GitHub Actions](/azure/developer/github/github-actions) provides continuous integration and continuous deployment capabilities in this architecture.
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is an enterprise identity service that provides single sign-on, multifactor authentication, and conditional access. In this architecture, its used to provide secure authentication and authorization to the Azure Governance Visualizer's web app to a specific Entra ID group.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for creating and deploying cloud applications. It lets you define a set of compute resources for a web app to run, deploy web apps, and configure deployment slots. In this architecture, its used to host the output of the Azure Governance Visualizer to provide secure and smooth access across the organization.
+- [GitHub](https://docs.github.com/) is a popular SaaS offering from Microsoft that is frequently used by developers to build, ship, and maintain their software projects. In this architecture, its used to host the infrastructure-as-code for the solution and the GitHub actions used to deploy and maintain it.
+- [GitHub Actions](/azure/developer/github/github-actions) is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. In this architecture, it provides continuous integration and continuous deployment capabilities to deploy and update the Azure Governance Visualizer.
 
 ## Alternatives
 
@@ -67,7 +67,7 @@ Restricting the reporting HTML to only those users authorized to view this data 
 
 - Enable access logging on the Azure web app to be able to audit access. Configure the Azure web app to send those logs to a Log Analytics workspace.
 
-- Ensure secure communication is enabled on the Azure web app. Only HTTPS and FTPs are allowed, and the minimum version of TLS is configured as 1.2.
+- Ensure secure communication is enabled on the Azure web app. Only HTTPS and FTPS are allowed, and the minimum version of TLS is configured as 1.2.
 
 - Consider using [Microsoft Defender for Cloud's Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction).
 
@@ -82,6 +82,8 @@ For more information about security controls, see [Azure security baseline for A
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - The B1 (Basic) tier is used for the deployed Azure web app in App Service. App Service hosts the HTML output of the Azure Governance Visualizer tool so it's lightweight.
+
+- Use the Azure pricing calculator to see a [pricing estimate for this solution](https://aka.ms/azgovvizacceleratorpricing).
 
 - The sample in GitHub only deploys one instance of App Service, but you can choose to deploy more if needed.
 
@@ -101,7 +103,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 ## Deploy this scenario
 
-To deploy this scenario, see the [Azure Governance Visualizer accelerator GitHub repository](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator).
+To deploy this scenario, see the [Azure Governance Visualizer deployment GitHub repository](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator).
 
 ## Contributors
 
@@ -115,7 +117,7 @@ Principal authors:
 
 ## Next steps
 
-- [Azure Governance Visualizer accelerator GitHub repository](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator)
+- [Azure Governance Visualizer deployment GitHub repository](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator)
 - [Azure Governance Visualizer Open Source project](https://github.com/Azure/Azure-Governance-Visualizer)
 
 ## Related resources

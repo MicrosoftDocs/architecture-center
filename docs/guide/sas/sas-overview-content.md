@@ -385,7 +385,7 @@ For help getting started, see the following resources:
 - [Ebsv5 series VMs](/azure/virtual-machines/ebdsv5-ebsv5-series)
 - [Lsv3 series VMs](/azure/virtual-machines/lsv3-series)
 - [Proximity placement groups](/azure/virtual-machines/co-location)
-- [Azure availability zones](/azure/availability-zones/az-overview)
+- [Azure availability zones](/azure/reliability/availability-zones-overview)
 - [Improve NFS Azure file share performance](/azure/storage/files/nfs-performance)
 
 For help with the automation process, see the following templates that SAS provides:
@@ -396,9 +396,7 @@ For help with the automation process, see the following templates that SAS provi
 
 ## Related resources
 
-- [Azure Kubernetes in event stream processing](/azure/architecture/solution-ideas/articles/serverless-event-processing-aks)
 - [GitOps for Azure Kubernetes Service](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)
-- [Monitor a microservices architecture in Azure Kubernetes Service (AKS)](/azure/architecture/microservices/logging-monitoring)
 - [Cost management for Kubernetes](/azure/architecture/aws-professional/eks-to-aks/cost-management)
 - [Oracle Database with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files)
 - [SQL Server on Azure Virtual Machines with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/sql-server-azure-netapp-files)

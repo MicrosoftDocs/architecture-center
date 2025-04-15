@@ -77,19 +77,19 @@ Choose a domain for the ILB App Service Environment that won't conflict with tho
 
 Another point to consider is DNS. In order to allow applications within the App Service Environment to communicate with each other, for instance a web application to talk to an API, you'll need to have DNS configured for your virtual network holding the environment. You can either [bring your own DNS][bring-your-own-dns] or you can use [Azure DNS private zones][private-zones].
 
-### Availability
+### Reliability
+
+- Consider using [Geo Distributed Scale with App Service Environments][design-geo-distributed-ase] for greater resiliency and scalability.
+- Review the [typical design patterns for resiliency](/azure/well-architected/reliability/design-patterns) and consider implementing these where appropriate.
+- You can find several [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
+- Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redudancy] storage for images and queues.
+- For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
+
+#### Availability
 
 - Consider applying the [typical design patterns for availability](/azure/well-architected/reliability/design-patterns) when building your cloud application.
 - Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - For other considerations concerning availability, see the [availability checklist](../../checklist/resiliency-per-service.md) in the Azure Architecture Center.
-
-### Scalability
-
-- Understand how [scale works][docs-azure-scale-ase] in App Service Environments.
-- Review best practices for [cloud apps autoscale][design-best-practice-cloud-apps-autoscale].
-- When building a cloud application, be aware of the [typical design patterns for scalability](/azure/well-architected/performance-efficiency/design-patterns).
-- Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
-- For other scalability articles, see the [performance efficiency checklist][scalability] available in the Azure Architecture Center.
 
 ### Security
 
@@ -99,19 +99,7 @@ Another point to consider is DNS. In order to allow applications within the App 
 - Review the blueprint architecture for [Azure PCI DSS compliance][pci-dss-blueprint].
 - [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
-### Resiliency
-
-- Consider using [Geo Distributed Scale with App Service Environments][design-geo-distributed-ase] for greater resiliency and scalability.
-- Review the [typical design patterns for resiliency](/azure/well-architected/reliability/design-patterns) and consider implementing these where appropriate.
-- You can find several [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
-- Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redudancy] storage for images and queues.
-- For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
-
-## Deploy this scenario
-
-To deploy this scenario, follow this [step-by-step tutorial][end-to-end-walkthrough] demonstrating how to manually deploy each component. Select App Service Environment v3 instead of v2, when following the tutorial. This tutorial also provides a .NET sample application that runs a simple Contoso expense reporting application.
-
-## Pricing
+### Cost Optimization
 
 Explore the cost of running this scenario. All of the services are pre-configured in the cost calculator. To see how pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
@@ -120,6 +108,14 @@ We've provided three sample cost profiles based on amount of traffic you expect 
 - [Small][small-pricing]: This pricing example represents the components necessary for a minimum production-level instance serving a few thousand users per month. The app is using a single instance of a standard web app that will be enough to enable autoscaling. Each of the other components is scaled to a Basic tier that will minimize cost but still ensure that there's service-level agreement (SLA) support and enough capacity to handle a production-level workload.
 - [Medium][medium-pricing]: This pricing example represents the components needed for a moderate size deployment. Here we estimate approximately 100,000 users over the course of a month. The expected traffic is handled in a single App Service instance with a moderate Standard tier. Additionally, moderate tiers of cognitive and search services are added to the calculator.
 - [Large][large-pricing]: This pricing example represents an application meant for high scale, at the order of millions of users per month, moving terabytes of data. At this level of usage, high performance, Premium tier web apps deployed in multiple regions fronted by Traffic Manager are required. Data consists of the following components: storage, databases, and CDN, all configured for terabytes of data.
+
+### Performance Efficiency
+
+- Understand how [scale works][docs-azure-scale-ase] in App Service Environments.
+- Review best practices for [cloud apps autoscale][design-best-practice-cloud-apps-autoscale].
+- When building a cloud application, be aware of the [typical design patterns for scalability](/azure/well-architected/performance-efficiency/design-patterns).
+- Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
+- For other scalability articles, see the [performance efficiency checklist][scalability] available in the Azure Architecture Center.
 
 ## Contributors
 
@@ -131,16 +127,13 @@ Principal author:
 
 ## Next steps
 
-- [Step-by-step deployment tutorial][end-to-end-walkthrough]
 - [Integrate your ILB App Service Environment with the Azure application gateway][integrate-ilb-ase-with-appgw]
-- [Integrate your Web Apps with the Azure application gateway][use-app-svc-web-apps-with-appgw]
 - [Geo distributed scale with App Service Environments][design-geo-distributed-ase]
 
 ## Related resources
 
 - [App Service web application reference architecture][app-service-reference-architecture]
 - [high-availability enterprise deployment using App Services Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
-- [Publish internal APIs to external users](/azure/architecture/example-scenario/apps/publish-internal-apis-externally)
 
 <!-- links -->
 
@@ -151,7 +144,7 @@ Principal author:
 [bring-your-own-dns]: /azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#specify-dns-servers
 [private-zones]: /azure/dns/private-dns-overview
 [create-ilb-ase]: /azure/app-service/environment/creation
-[azure-networking]: /azure/virtual-network/virtual-networks-overview
+[azure-networking]: /azure/well-architected/service-guides/virtual-network
 [sql-service-endpoint]: /azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
 
 [architecture]: ./media/fully-managed-secure-apps.svg
@@ -163,20 +156,17 @@ Principal author:
 [design-geo-distributed-ase]: /azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
 [design-best-practice-cloud-apps-autoscale]: ../../best-practices/auto-scaling.md
 
-[docs-sql-database]: /azure/sql-database/sql-database-technical-overview
-[docs-webapps]: /azure/app-service/app-service-web-overview
+[docs-sql-database]: /azure/well-architected/service-guides/azure-sql-database-well-architected-framework
+[docs-webapps]: /azure/well-architected/service-guides/app-service-web-apps
 [docs-apiapps]: /azure/app-service/app-service-web-tutorial-rest-api
-[docs-appgw]: /azure/application-gateway/overview
-[docs-waf]: /azure/application-gateway/waf-overview
-[docs-azure-devops]: /azure/devops/?view=vsts
-[docs-azure-vm]: /azure/virtual-machines/windows/overview
+[docs-appgw]: /azure/well-architected/service-guides/azure-application-gateway
+[docs-waf]: /azure/web-application-firewall/ag/ag-overview
+[docs-azure-devops]: /azure/devops/user-guide/what-is-azure-devops
+[docs-azure-vm]: /azure/well-architected/service-guides/virtual-machines
 [docs-azure-scale-ase]: /azure/app-service/environment/overview
 [docs-service-fabric]: /azure/service-fabric
 [docs-kubernetes-service]: /azure/aks
-[Azure Networking]: /azure/networking/networking-overview
 
-[end-to-end-walkthrough]: https://github.com/Azure/fta-internalbusinessapps/blob/master/appmodernization/app-service-environment/ase-walkthrough.md
-[use-app-svc-web-apps-with-appgw]: https://github.com/Azure/fta-internalbusinessapps/blob/webapp-appgateway/appmodernization/app-service/articles/app-gateway-web-apps.md
 [integrate-ilb-ase-with-appgw]: /azure/app-service/environment/integrate-with-application-gateway
 [pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
 [resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service

@@ -62,19 +62,19 @@ The following workflow corresponds to the preceding diagram:
 
 ### Components
 
-- [Power Platform](https://powerplatform.microsoft.com) increases agility across your organization by helping you build low-code apps that modernize processes and solve tough challenges.
+- [Power Platform](/power-platform) increases agility across your organization by helping you build low-code apps that modernize processes and solve tough challenges.
 
-- [Azure API Management](https://azure.microsoft.com/services/api-management) provides a hybrid, multicloud management platform for APIs across all environments. APIs enable digital experiences, simplify application integration, underpin new digital products, and make data and services reusable and universally accessible.
+- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) provides a hybrid, multicloud management platform for APIs across all environments. APIs enable digital experiences, simplify application integration, underpin new digital products, and make data and services reusable and universally accessible.
 
-- [Azure Monitor](https://azure.microsoft.com/services/monitor) helps maximize the availability and performance of your applications and services. It's a comprehensive solution for collecting, analyzing, and acting on customer data from your cloud and on-premises environments. This information helps you understand how your applications perform and proactively identify issues that affect them and the resources they depend on.
+- [Azure Monitor](/azure/azure-monitor/overview) helps maximize the availability and performance of your applications and services. It's a comprehensive solution for collecting, analyzing, and acting on customer data from your cloud and on-premises environments. This information helps you understand how your applications perform and proactively identify issues that affect them and the resources they depend on.
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is one of several Azure services that provide on-demand, scalable computing resources. With Azure VMs, you get the flexibility of virtualization without having to buy and maintain physical hardware.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is one of several Azure services that provide on-demand, scalable computing resources. With Azure VMs, you get the flexibility of virtualization without having to buy and maintain physical hardware.
 
-- [Microsoft Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for Azure private networks. Virtual Network lets many types of Azure resources, such as VMs, communicate with each other, the internet, and on-premises networks. Virtual Network is similar to a traditional network that you'd operate in your own datacenter but offers Azure infrastructure benefits like scalability, availability, and isolation.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for Azure private networks. Virtual Network lets many types of Azure resources, such as VMs, communicate with each other, the internet, and on-premises networks. Virtual Network is similar to a traditional network that you'd operate in your own datacenter but offers Azure infrastructure benefits like scalability, availability, and isolation.
 
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends an on-premises network into Microsoft cloud services over a private connection, facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends an on-premises network into Microsoft cloud services over a private connection, facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365.
 
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) simplifies deploying managed Kubernetes clusters in Azure by offloading the operational overhead to Azure. AKS helps you deploy and manage the containerized components in this architecture, including your custom-made web UI applications. Because Kubernetes masters are managed by Azure, you only manage and maintain the agent nodes.
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) simplifies deploying managed Kubernetes clusters in Azure by offloading the operational overhead to Azure. AKS helps you deploy and manage the containerized components in this architecture, including your custom-made web UI applications. Because Kubernetes masters are managed by Azure, you only manage and maintain the agent nodes.
 
 ### Alternatives
 
@@ -149,14 +149,14 @@ Use [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) t
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 - With the extend-target architecture, you have full flexibility with your deployment options in development and production. This transformation supports both the immediate adoption of the cloud and the adoption of both DevOps and Agile working principles.
-- Holistic Monitoring in Azure Monitor can be plugged in to get full observability across the integrated solution. As part of the Azure Monitor suite, Azure Application Insights is recommended due to its direct integration capabilities to monitor Power Apps, the VMs and Linux containers using Docker on Azure and for the services, VHI session pools, and security. The Verastream Management console provides an interface to configure the reporting of pertinent information to Azure Monitor.
+- Holistic Monitoring in Azure Monitor can be plugged in to get full observability across the integrated solution. As part of the Azure Monitor suite, Azure Application Insights is recommended due to its direct integration capabilities to monitor Power Apps, the VMs, and Linux containers using Docker on Azure, and for the services, VHI session pools, and security. The Verastream Management console provides an interface to configure the reporting of pertinent information to Azure Monitor.
 
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 - Performance efficiency is built into this solution because of the load balancers. When multiple runtime servers are deployed, the workload is dynamically balanced for optimal performance under high-transaction volumes. If a service outage occurs on any runtime server, the remaining servers automatically provide uninterrupted failover protection.
-- At the VHI level, the platform manages sessions using session pooling and emphasis on a low ratio of sessions to users. Verastream scales seamlessly across multiple runtime servers to deliver rapid response and 24/7 reliability.
+- At the VHI level, the platform manages sessions using session pooling and an emphasis on a low ratio of sessions to users. Verastream scales seamlessly across multiple runtime servers to deliver rapid response and 24/7 reliability.
 
 ## Contributors
 
@@ -188,5 +188,4 @@ For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@m
 ## Related resources
 
 - [General mainframe refactor to Azure](general-mainframe-refactor.yml)
-- [Azure mainframe and midrange architecture design](../../mainframe/mainframe-midrange-architecture.md)
 - [Make the switch from mainframes to Azure](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies)

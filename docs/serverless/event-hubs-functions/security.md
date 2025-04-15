@@ -82,7 +82,3 @@ Before continuing, consider reviewing these related articles:
 
 > [!div class="nextstepaction"]
 > [Observability](./observability.yml)
-
-## Related resource
-
-[Serverless event processing](../../reference-architectures/serverless/event-processing.yml) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.

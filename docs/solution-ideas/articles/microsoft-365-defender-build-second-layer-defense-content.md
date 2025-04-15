@@ -155,7 +155,6 @@ Other contributors:
 
 For more details about this reference architecture, see the other articles in this series:
 
-- Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
-- Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
-- Part 3: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
-- Part 5: [Integration between Azure and Microsoft Defender XDR security services](./microsoft-365-defender-security-integrate-azure.yml)
+- Part 1: [Map threats to your IT environment](./map-threats-it-environment.yml)
+- Part 2: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
+- Part 4: [Integration between Azure and Microsoft Defender XDR security services](./microsoft-365-defender-security-integrate-azure.yml)

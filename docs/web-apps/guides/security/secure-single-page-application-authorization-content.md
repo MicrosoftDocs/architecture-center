@@ -198,7 +198,6 @@ Other contributor:
 - [OAuth 2.0 authentication with Microsoft Entra ID](/azure/active-directory/fundamentals/auth-oauth2)
 - [What is Azure Static Web Apps?](/azure/static-web-apps/overview)
 
-## Related resources
+## Related resource
 
 - [Protect APIs with Application Gateway and API Management](../../../web-apps/api-management/architectures/protect-apis.yml)
-- [Protect backend APIs by using Azure API Management and Azure AD B2C](../../../solution-ideas/articles/protect-backend-apis-azure-management.yml)

@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Multi-Region App Service App Approaches for Disaster Recovery
+  description: Learn about common approaches to deploy Azure App Service apps across multiple regions for disaster recovery purposes.
+  author: johndowns
+  ms.author: jodowns
+  ms.date: 11/05/2024
+  ms.topic: conceptual
+  ms.service: azure-architecture-center
+  ms.subservice: architecture-guide
+  ms.custom: arb-web
+azureCategories:
+  - web
+products:
+  - azure-app-service
+  - azure-front-door
+name: Multi-region App Service app approaches for disaster recovery
+summary: Learn about common approaches to deploy Azure App Service apps across multiple regions for disaster recovery purposes.
+thumbnailUrl: /azure/architecture/browse/thumbs/no-token.png
+content: |
+  [!include[](multi-region-app-service-content.md)]

@@ -101,15 +101,14 @@ The typical AKS solution journey shown ranges from learning about AKS to growing
 
 ### Example solutions
 
-If you're seeking additional references that use AKS as their foundation, here are a few to consider.
+If you're seeking additional references that use AKS as their foundation, here are two to consider.
 
 * [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-* [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 * [Blue-green deployment of AKS clusters](../../guide/aks/blue-green-deployment-for-aks.yml)
 
 ### Azure Arc-enabled Kubernetes
 
-Azure Kubernetes Service (AKS) offers you a managed Kubernetes experience on Azure, however there are workloads or situations that might be best suited for placing your own Kubernetes clusters under [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) management. This includes your clusters such as RedHat OpenShift, RedHat RKE, and Canonical Charmed Kubernetes. Azure Arc management can also be used with [Kubernetes Cluster API Provider Azure](https://capz.sigs.k8s.io/) clusters to benefit from the Azure Resource Manager representation of the cluster and availability of cluster extensions like Azure Monitor container insights and Azure Policy. Azure Arc-enabled Kubernetes can also be used with [AKS on Azure Stack HCI clusters](/azure/aks/hybrid/connect-to-arc) and with Kubernetes clusters running on other cloud providers.
+Azure Kubernetes Service (AKS) offers you a managed Kubernetes experience on Azure, however there are workloads or situations that might be best suited for placing your own Kubernetes clusters under [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) management. This includes your clusters such as RedHat OpenShift, RedHat RKE, and Canonical Charmed Kubernetes. Azure Arc management can also be used with [Kubernetes Cluster API Provider Azure](https://capz.sigs.k8s.io/) clusters to benefit from the Azure Resource Manager representation of the cluster and availability of cluster extensions like Azure Monitor container insights and Azure Policy. Azure Arc-enabled Kubernetes can also be used with [AKS on Azure local instances](/azure/aks/hybrid/connect-to-arc) and with Kubernetes clusters running on other cloud providers.
 
 > [!div class="nextstepaction"]
 > [Azure Arc-enabled Kubernetes](/Azure/azure-arc/kubernetes/overview)

@@ -98,17 +98,17 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 If you are using Azure Cache for Redis as a temporary data cache and not as a persistent store, these recommendations may not apply.
 
-## Cognitive Search
+## Azure AI Search
 
 **Provision more than one replica.** Use at least two replicas for read high-availability, or three for read-write high-availability.
 
-**Use zone redundancy.** You can deploy Cognitive Search replicas across multiple availability zones. This approach helps your service to remain operational even when datacenter outages occur. For more information, see [Reliability in Azure Cognitive Search](/azure/search/search-reliability#availability-zone-support)
+**Use zone redundancy.** You can deploy AI Search replicas across multiple availability zones. This approach helps your service to remain operational even when datacenter outages occur. For more information, see [Reliability in AI Search](/azure/search/search-reliability#availability-zone-support)
 
 **Configure indexers for multi-region deployments.** If you have a multi-region deployment, consider your options for continuity in indexing.
 
-- If the data source is geo-replicated, you should generally point each indexer of each regional Azure Cognitive Search service to its local data source replica. However, that approach is not recommended for large datasets stored in Azure SQL Database. The reason is that Azure Cognitive Search cannot perform incremental indexing from secondary SQL Database replicas, only from primary replicas. Instead, point all indexers to the primary replica. After a failover, point the Azure Cognitive Search indexers at the new primary replica.
+- If the data source is geo-replicated, you should generally point each indexer of each regional AI Search service to its local data source replica. However, that approach is not recommended for large datasets stored in Azure SQL Database. The reason is that AI Search cannot perform incremental indexing from secondary SQL Database replicas, only from primary replicas. Instead, point all indexers to the primary replica. After a failover, point the AI Search indexers at the new primary replica.
 
-- If the data source is not geo-replicated, point multiple indexers at the same data source, so that Azure Cognitive Search services in multiple regions continuously and independently index from the data source. For more information, see [Azure Search performance and optimization considerations][search-optimization].
+- If the data source is not geo-replicated, point multiple indexers at the same data source, so that AI Search services in multiple regions continuously and independently index from the data source. For more information, see [AI Search reliability considerations][search-optimization].
 
 ## Service Bus
 
@@ -118,7 +118,7 @@ If you are using Azure Cache for Redis as a temporary data cache and not as a pe
 
 **Handle exceptions**. Messaging APIs generate exceptions when a user error, configuration error, or other error occurs. The client code (senders and receivers) should handle these exceptions in their code. This is especially important in batch processing, where exception handling can be used to avoid losing an entire batch of messages. For more information, see [Service Bus messaging exceptions](/azure/service-bus-messaging/service-bus-messaging-exceptions).
 
-**Retry policy**. Service Bus allows you to pick the best retry policy for your applications. The default policy is to allow 9 maximum retry attempts, and wait for 30 seconds but this can be further adjusted. For more information, see [Retry policy – Service Bus](../best-practices/retry-service-specific.md#service-bus).
+**Retry policy**. Service Bus allows you to pick the best retry policy for your applications. The default policy is to allow 9 maximum retry attempts, and wait for 30 seconds but this can be further adjusted.
 
 **Use a dead-letter queue**. If a message cannot be processed or delivered to any receiver after multiple retries, it is moved to a dead letter queue. Implement a process to read messages from the dead letter queue, inspect them, and remediate the problem. Depending on the scenario, you might retry the message as-is, make changes and retry, or discard the message. For more information, see [Overview of Service Bus dead-letter queues](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
@@ -160,7 +160,7 @@ If you are using Azure Cache for Redis as a temporary data cache and not as a pe
 
 ## Traffic Manager
 
-**Perform manual failback.** After a Traffic Manager failover, perform manual failback, rather than automatically failing back. Before failing back, verify that all application subsystems are healthy. Otherwise, you can create a situation where the application flips back and forth between datacenters. For more information, see [Run VMs in multiple regions for high availability](../reference-architectures/n-tier/multi-region-sql-server.yml).
+**Perform manual failback.** After a Traffic Manager failover, perform manual failback, rather than automatically failing back. Before failing back, verify that all application subsystems are healthy. Otherwise, you can create a situation where the application flips back and forth between datacenters.
 
 **Create a health probe endpoint.** Create a custom endpoint that reports on the overall health of the application. This enables Traffic Manager to fail over if any critical path fails, not just the front end. The endpoint should return an HTTP error code if any critical dependency is unhealthy or unreachable. Don't report errors for non-critical services, however. Otherwise, the health probe might trigger failover when it's not needed, creating false positives. For more information, see [Traffic Manager endpoint monitoring and failover](/azure/traffic-manager/traffic-manager-monitoring).
 
@@ -200,7 +200,7 @@ If you are using Azure Cache for Redis as a temporary data cache and not as a pe
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2
 [diagnostics-logs]: /azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [managed-disks]: /azure/storage/storage-managed-disks-overview
-[search-optimization]: /azure/search/search-performance-optimization
+[search-optimization]: /azure/search/search-reliability
 [site-recovery]: /azure/site-recovery
 [site-recovery-test]: /azure/site-recovery/site-recovery-test-failover-to-azure
 [sql-backup]: /azure/sql-database/sql-database-automated-backups

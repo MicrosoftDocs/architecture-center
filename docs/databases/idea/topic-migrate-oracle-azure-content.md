@@ -1,6 +1,6 @@
-This article describes considerations and recommendations that you can use to migrate on-premises Oracle database workloads to Azure. This article assumes that you have a basic understanding of Oracle Database technologies and Azure networking. This guidance covers the following scenarios:
+This article describes considerations and recommendations that you can use to migrate on-premises Oracle Database workloads to Azure. This article assumes that you have a basic understanding of Oracle Database technologies and Azure networking. This guidance covers the following scenarios:
 
-- Physical migration of Oracle databases to Azure virtual machines
+- Physical migration of Oracle databases to Azure Virtual Machines
 - Physical migration of Oracle databases to Oracle Database@Azure (OD@A) Exadata Database Service
 
 ## Architecture

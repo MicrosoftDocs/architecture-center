@@ -3,12 +3,13 @@ metadata:
   title: Databases architecture design
   titleSuffix: Azure Reference Architectures
   description: Learn about the different Azure database solutions described in Azure Architecture Center.
-  author: martinekuan
+  author: RobBagby
   ms.author: pnp
   ms.date: 07/25/2022
   ms.topic: reference-architecture
   ms.service: azure-architecture-center
   ms.subservice: reference-architecture
+  ms.custom: arb-data
 azureCategories:
   - databases
 products:

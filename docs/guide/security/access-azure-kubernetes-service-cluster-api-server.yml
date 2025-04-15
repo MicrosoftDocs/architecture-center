@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Access an Azure Kubernetes Service (AKS) API server
-  titleSuffix: Azure Architecture Center
-  description: "Learn various ways to connect to an Azure Kubernetes Service (AKS) cluster's API server. Possibilities include Azure Bastion, ExpressRoute, and Cloud Shell."
+  title: Access an Azure Kubernetes Service (AKS) API Server
+  description: Learn more about how to connect to an Azure Kubernetes Service (AKS) cluster's API server. Possibilities include Azure Bastion, ExpressRoute, and Cloud Shell.
   author: ArielRam99
   ms.author: arrami
-  ms.date: 01/11/2024
+  ms.date: 02/04/2025
   ms.topic: conceptual
-  ms.service: azure-architecture-center
   ms.subservice: architecture-guide
   ms.custom:
     - arb-containers
@@ -22,7 +20,7 @@ products:
   - azure-private-link
   - azure-vpn-gateway
 name: Access an Azure Kubernetes Service (AKS) API server
-summary: "Learn various ways to connect to an Azure Kubernetes Service (AKS) cluster's API server. Possibilities include Azure Bastion, ExpressRoute, and Cloud Shell."
+summary: Learn more about how to connect to an Azure Kubernetes Service (AKS) cluster's API server. Possibilities include Azure Bastion, ExpressRoute, and Cloud Shell.
 thumbnailUrl: /azure/architecture/browse/thumbs/access-azure-kubernetes-service-cluster-api-server-thumbnail.png
 content: |
-  [!include[](access-azure-kubernetes-service-cluster-api-server-content.md)]
+  [!INCLUDE[](access-azure-kubernetes-service-cluster-api-server-content.md)]

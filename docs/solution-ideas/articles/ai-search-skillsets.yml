@@ -25,6 +25,6 @@ products:
   - azure-blob-storage
   - azure-cognitive-search
   - azure-functions
-thumbnailUrl: /azure/architecture/browse/thumbs/cognitive-search-for-ai-enrichment.png
+thumbnailUrl: /azure/architecture/browse/thumbs/ai-search-skillsets.png
 content: |
   [!include[](ai-search-skillsets-content.md)]

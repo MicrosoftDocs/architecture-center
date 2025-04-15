@@ -31,4 +31,4 @@ products:
   - azure-table-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-data-warehousing.png
 content: |
-   [!include[](data-warehouse-content.md)]
+   [!INCLUDE[](data-warehouse-content.md)]

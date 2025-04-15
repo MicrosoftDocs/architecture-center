@@ -21,7 +21,7 @@ Jupyter is a trademark of its respective company. No endorsement is implied by t
 1. Azure Data Explorer ingests data for analytics, using its connectors for [Azure Event Hubs](/azure/data-explorer/ingest-data-event-hub), [Azure IoT Hub](/azure/data-explorer/ingest-data-iot-hub), or [Kafka](/azure/data-explorer/ingest-data-kafka) for low latency and high throughput.
 
    Alternatively, you can ingest blobs from your [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) or [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) account into Azure Data Explorer by using an [Event Grid data connection](/azure/data-explorer/ingest-data-event-grid).
-   
+
    You can also continuously export data to Azure Storage in compressed, partitioned [Apache Parquet](https://parquet.apache.org) format, and seamlessly query the data with Azure Data Explorer. For details, see [Continuous data export overview](/azure/data-explorer/kusto/management/data-export/continuous-data-export).
 
 1. To serve both the operational and analytical use cases, data can either route to Azure Data Explorer and Azure Cosmos DB in parallel, or from Azure Cosmos DB to Azure Data Explorer.
@@ -83,15 +83,13 @@ This solution uses Azure Data Explorer to get near real-time IoT telemetry analy
 
 Principal author:
 
- * [Ornat Spodek](https://www.linkedin.com/in/ornat-s-89123544) | Senior Content Manager
+- [Shlomo Sagir](https://www.linkedin.com/in/shlomo-sagir/) | Senior Content Developer
 
 ## Next steps
 
 - [What is Azure Data Explorer?](/azure/data-explorer/data-explorer-overview)
 - [Visualize data with Azure Data Explorer dashboards](/azure/data-explorer/azure-data-explorer-dashboards)
 
-## Related resources
+## Related resource
 
-- [Azure Cosmos DB in IoT workloads](iot-using-cosmos-db.yml)
 - [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.yml)
-

@@ -87,7 +87,7 @@ The following key technologies implement this workload. For each component in th
 
 - [Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless solution that simplifies processing vehicle telemetry events at scale with event-driven triggers and bindings by using the language of your choice.
 
-- [Azure Managed Grafana](https://azure.microsoft.com/products/managed-grafana/) is a data visualization platform that's based on the software from Grafana Labs. Microsoft manages and supports Azure Managed Grafana.
+- [Azure Managed Grafana](/azure/managed-grafana/overview) is a data visualization platform that's based on the software from Grafana Labs. Microsoft manages and supports Azure Managed Grafana.
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs that provide access to the vehicle telemetry data that's stored in Fabric. This approach simplifies consumption.
 
@@ -101,7 +101,7 @@ You can also use the following Azure services to implement this architecture:
 
 - [Azure Data Explorer](https://azure.microsoft.com/products/data-explorer/) is a fast, fully managed data analytics service for real-time analysis. It replaces the Fabric Real-Time Intelligence KQL database.
 
-- [Azure Batch](/azure/well-architected/service-guides/azure-batch/reliability) is an alternative that you can use to decode complex files. This scenario involves a large number of files that are over 300 megabytes each. The files require different decoding algorithms based on the file version or the file type. You can use either Fabric or use Blob Storage and Azure Data Explorer to implement the following approach.
+- [Azure Batch](/azure/batch/) is an alternative that you can use to decode complex files. This scenario involves a large number of files that are over 300 megabytes each. The files require different decoding algorithms based on the file version or the file type. You can use either Fabric or use Blob Storage and Azure Data Explorer to implement the following approach.
 
 :::image type="content" source="images/batch-workflow.svg" alt-text="Diagram that shows an alternative Batch method for decoding complex files." border="false" lightbox="images/batch-workflow.svg":::
 
@@ -189,9 +189,9 @@ It's important to understand the division of responsibility between the automoti
 
 All these features help automotive OEMs create a secure environment for their vehicle telemetry data. For more information, see [Security in Fabric](/fabric/security/security-overview).
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 This solution uses the following practices to help optimize costs:
 
@@ -205,9 +205,9 @@ This solution uses the following practices to help optimize costs:
 
 - Consider your real-time data analytics needs. Set up streaming ingestion for the live telemetry table to provide latency of less than one second between ingestion and query. This approach increases CPU cycles and cost.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - Consider using Batch to perform decoding if the number and size of recorded data files is more than 1,000 files or 300 MB per day.
 
@@ -253,10 +253,10 @@ Other contributors:
 - [Create Data Activator alerts from a real-time dashboard](/fabric/data-activator/data-activator-get-data-real-time-dashboard)
 - [Power BI report](/fabric/real-time-intelligence/create-powerbi-report)
 - [Visualize data from Azure Data Explorer in Grafana](/azure/data-explorer/grafana)
-- [Automotive messaging, data, and analytics reference architecture](./automotive-connected-fleets.yml)
+- [Automotive messaging, data, and analytics reference architecture](/industry/mobility/architecture/automotive-connected-fleets-content)
 
 ## Related resources
 
-- [Software-defined vehicle DevOps toolchain](./software-defined-vehicle-reference-architecture.yml)
-- [Autonomous vehicle operations design guide](../../guide/machine-learning/avops-design-guide.md)
+- [Software-defined vehicle DevOps toolchain](/industry/mobility/architecture/autonomous-vehicle-operations-dataops-content)
+- [Reference architecture for autonomous vehicle operations (AVOps)](/industry/mobility/architecture/ra-mobility-avops)
 - [Claim-Check pattern](../../patterns/claim-check.yml)

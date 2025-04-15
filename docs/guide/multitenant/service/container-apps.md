@@ -123,26 +123,26 @@ For more information, see [Managed identities in Azure Container Apps](/azure/co
 
 Principal authors:
 
- * [Daniel Larsen](https://linkedin.com/in/daniellarsennz) | Principal Customer Engineer, FastTrack for Azure
- * [Will Velida](https://linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
- 
+- [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz/) | Principal Customer Engineer, FastTrack for Azure
+- [Will Velida](https://www.linkedin.com/in/willvelida/) | Customer Engineer 2, FastTrack for Azure
+
 Other contributors:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
- * [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer, Microsoft
- * [Xuhong Liu](https://www.linkedin.com/in/xuhong-l-5937159b) | Senior Service Engineer, FastTrack for Azure
- * [Aarthi Murugan](https://www.linkedin.com/in/aarthimurugan) | Senior Program Manager, CS Tech Strategy App Innovation
- * [Kendall Roden](https://www.linkedin.com/in/kendallroden) | Senior Program Manager, Azure Container Apps
- * [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
- * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
- 
- *To see non-public LinkedIn profiles, sign in to LinkedIn.*
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer, Microsoft
+- [Xuhong Liu](https://www.linkedin.com/in/xuhong-l-5937159b/) | Senior Service Engineer, FastTrack for Azure
+- [Aarthi Murugan](https://www.linkedin.com/in/aarthimurugan/) | Senior Program Manager, CS Tech Strategy App Innovation
+- [Kendall Roden](https://www.linkedin.com/in/kendallroden/) | Senior Program Manager, Azure Container Apps
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 - [Container Apps product overview](https://azure.microsoft.com/products/container-apps)
 - [Container Apps documentation](/azure/container-apps)
- 
+
 ## Related resources
 
 - [Resources for architects and developers of multitenant solutions](../related-resources.md)

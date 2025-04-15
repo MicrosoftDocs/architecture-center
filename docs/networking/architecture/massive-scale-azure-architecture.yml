@@ -3,9 +3,9 @@ metadata:
   title: Massive-scale VWAN architecture design
   titleSuffix: Azure Architecture Center
   description: Learn about the architecture for a massive-scale Azure Virtual WAN deployment that has multiple hubs per region.
-  author: agansu
-  ms.author: gansua
-  ms.date: 05/08/2023
+  author: JohnPoetzinger
+  ms.author: jopoetzi
+  ms.date: 11/07/2024
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.subservice: example-scenario
@@ -20,4 +20,4 @@ name: Massive-scale VWAN architecture design
 summary: Learn about the architecture for a massive-scale Azure Virtual WAN deployment that has multiple hubs per region.
 thumbnailUrl: /azure/architecture/browse/thumbs/massive-scale-architecture-design.png
 content: |
-  [!include[](massive-scale-azure-architecture-content.md)]
+  [!INCLUDE[](massive-scale-azure-architecture-content.md)]

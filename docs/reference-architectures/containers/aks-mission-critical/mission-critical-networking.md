@@ -36,7 +36,7 @@ A global load balancer is required to route traffic to healthy stamps and provid
 
 - Weighted traffic distribution.
 
-Optionally, it should be able to perform caching at the edge. Also, provide some security assurance for ingress through the use of web application firewall (WAF).
+Optionally, it should be able to perform caching at the edge. Also, provide some security assurance for ingress by using the web application firewall (WAF).
 
 :::image type="content" border="false" source="./images/network-diagram-all-standard.png" alt-text="Diagram of network for reference architecture." lightbox="./images/network-diagram-all-standard.png":::
 
@@ -66,11 +66,11 @@ Azure Web Application Firewall, integrated with Azure Front Door, is used to pre
 
 The API in the architecture uses Azure Virtual Networks as the traffic isolation boundary. Components in one virtual network can't communicate directly with components in another virtual network.
 
-Requests to the application platform are distributed with a standard SKU external Azure Load Balancer. There is a check to ensure that traffic reaching the load balancer was routed via Azure Front Door. This check ensures that all traffic was inspected by the Azure WAF.
+The standard external Azure Load Balancer distributes requests to the application platform. It checks that traffic reaching the load balancer was routed via Azure Front Door, ensuring Azure WAF inspects all traffic.
 
 Build agents used for the operations and deployment of the architecture must be able to reach into the isolated network. The isolated network can be opened up to allow the agents to communicate. Alternatively, self-hosted agents can be deployed in the virtual network. 
 
-Monitoring of the network throughput, performance of the individual components, and health of the application is required.
+Network throughput monitoring, performance of the individual components, and health of the application is required.
 
 ## Application platform communication dependency
 
@@ -88,15 +88,15 @@ The architecture as defined uses Azure Key Vault to store secrets, such as conne
 
 This section discusses the pros and cons of alternative approaches to the network design. Alternative networking considerations and the use of Azure Private endpoints is the focus in the following sections.
 
-### Subnets and NSG
+### Subnets and Network Security Groups
 
 Subnets within the virtual networks can be used to segment traffic within the design. Subnet isolation separates resources for different functions.
 
-Network security groups can be used control the traffic that is allowed in and out of each subnet. Rules used within the NSGs can be used limit traffic based on IP, port, and protocol to block unwanted traffic into the subnet.
+Network security groups can be used to control the traffic that is allowed in and out of each subnet. Rules used within the network security groups can be used to limit traffic based on IP, port, and protocol to block unwanted traffic into the subnet.
 
 ### Private endpoints - Ingress
 
-The premium SKU of Front Door supports the use of Azure Private Endpoints. Private endpoints expose an Azure service to a private IP address in a virtual network. Connections are made securely and privately between services without the need to route the traffic to public endpoints.
+The premium version of Front Door supports the use of Azure Private Endpoints. Private endpoints expose an Azure service to a private IP address in a virtual network. Connections are made securely and privately between services without the need to route the traffic to public endpoints.
 
 Azure Front Door premium and Azure Private Endpoints enable fully private compute clusters in the individual stamps. Traffic is fully locked down for all Azure PaaS services.
 
@@ -112,9 +112,9 @@ Self-hosted build agents must be used for the stamp deployment. The management o
 
 Private endpoints are supported for all Azure PaaS services used in this design. With private endpoints configured for the application platform, all communication would travel through the virtual network of the stamp.
 
-The public endpoints of the individual Azure PaaS services can be configured to disallow public access. This would isolate the resources from public attacks that could cause downtime and throttling which affect reliability and availability.
+The public endpoints of the individual Azure PaaS services can be configured to disallow public access. This process isolates the resources from public attacks that could cause downtime and throttling which affect reliability and availability.
 
-Self-hosted build agents must be used for the stamp deployment the same as above. The management of these agents comes with a maintenance overhead.
+Self-hosted build agents must be used for the stamp deployment the same as previous. The management of these agents comes with a maintenance overhead.
 
 :::image type="content" border="false" source="./images/network-diagram-vnet-paas-dependencies.png" alt-text="Diagram of the application platform communication dependencies with private endpoints." lightbox="./images/network-diagram-vnet-paas-dependencies.png":::
 

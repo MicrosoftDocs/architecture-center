@@ -226,7 +226,6 @@ Principal author:
 [IDPS-rules]: /azure/firewall/premium-features#idps-signature-rules
 [IDPS-private-ranges]: /azure/firewall/premium-features#idps-private-ip-ranges
 [Implement a secure hybrid network]: ../../reference-architectures/dmz/secure-vnet-dmz.yml?tabs=portal
-[Secure and govern workloads with network level segmentation]: ../../networking/guide/network-level-segmentation.yml
 [Secure networks with Zero Trust]: /security/zero-trust/networks
 [TLS inspection]: /azure/firewall/premium-features#tls-inspection
 [Virtual network traffic routing]: /azure/virtual-network/virtual-networks-udr-overview

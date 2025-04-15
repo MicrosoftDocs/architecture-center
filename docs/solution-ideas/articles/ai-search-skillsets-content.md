@@ -110,8 +110,8 @@ Learn more about this solution:
 
 Read product documentation:
 
-- [AI enrichment in AI Search](/azure/search/cognitive-search-resources-documentation)
-- [What is Vision?](/azure/cognitive-services/computer-vision/home)
+- [AI enrichment in AI Search](/azure/search/cognitive-search-concept-intro)
+- [What is Vision?](/azure/ai-services/computer-vision/overview)
 - [What is Language?](/azure/ai-services/language-service/overview)
 - [What is OCR?](/azure/ai-services/computer-vision/overview-ocr)
 - [What is named entity recognition in Language?](/azure/ai-services/language-service/named-entity-recognition/overview)
@@ -124,4 +124,4 @@ Try the learning path:
 
 ## Related resources
 
-- [Intelligent product search engine for e-commerce](../../example-scenario/apps/ecommerce-search.yml)
+- [Intelligent product search engine for e-commerce](../../databases/architecture/ecommerce-search.yml)

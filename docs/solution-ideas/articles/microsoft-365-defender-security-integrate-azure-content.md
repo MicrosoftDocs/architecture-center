@@ -1,20 +1,18 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-You can strengthen your organization's IT security posture by leveraging the security features available in both Microsoft 365 and Azure. This fifth and final article in the series explains how to integrate these security capabilities using Microsoft Defender XDR and Azure monitoring services.
+You can strengthen your organization's IT security posture by using the security features available in Microsoft 365 and Azure. This fifth and final article in the series explains how to integrate these security capabilities by using Microsoft Defender XDR and Azure monitoring services.
 
 This article builds on the previous articles in the series:
 
-1. [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml) provides an overall view of how you can integrate the security services of Azure and Microsoft Defender XDR.
+1. [Map threats to your IT environment](./map-threats-it-environment.yml) describes methods to map examples of common threats, tactics, and techniques against an example of a hybrid IT environment that uses both on-premises and Microsoft cloud services.
 
-2. [Map threats to your IT environment](./map-threats-it-environment.yml) describes methods to map examples of common threats, tactics, and techniques against an example of a hybrid IT environment that uses both on-premises and Microsoft cloud services.
+2. [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml) maps an example of some Azure security services that create the first layer of defense to protect your Azure environment according to Azure Security Benchmark version 3.
 
-3. [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml) maps an example of some Azure security services that create the first layer of defense to protect your Azure environment according to Azure Security Benchmark version 3.
-
-4. [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml) describes an example of a series of attacks against your IT environment and how to add another layer of protection by using Microsoft Defender XDR.
+3. [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml) describes an example of a series of attacks against your IT environment and how to add another layer of protection by using Microsoft Defender XDR.
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of the complete reference architecture for this five-article series that shows an I T environment, threats, and security services." source="../media/microsoft-365-defender-security-integrate-azure-architecture.png" lightbox="../media/microsoft-365-defender-security-integrate-azure-architecture.png":::
+:::image type="content" alt-text="Diagram of the complete reference architecture for this five-article series that shows an IT environment, threats, and security services." source="../media/microsoft-365-defender-security-integrate-azure-architecture.png" lightbox="../media/microsoft-365-defender-security-integrate-azure-architecture.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
@@ -22,9 +20,9 @@ This article builds on the previous articles in the series:
 
 This diagram shows a complete architecture reference. It includes an example of an IT environment, a set of example threats that are described according to their tactics (in blue), and their techniques (in the text box) according to the MITRE ATT&CK matrix. The MITRE ATT&CK matrix is covered in [Map threats to your IT environment](./map-threats-it-environment.yml). 
 
-The diagram highlights several important services. Some, like Network Watcher and Application Insights, focus on capturing data from specific services, while others, such as Log Analytics (also known as Azure Monitor Logs) and Microsoft Sentinel, serve as core services because they can collect, store, and analyze data from a wide range of services, whether related to networks, compute, or applications.
+The diagram highlights several important services. Some, like Azure Network Watcher and Application Insights, focus on capturing data from specific services. Others, like Log Analytics (also known as Azure Monitor Logs) and Microsoft Sentinel, serve as core services because they can collect, store, and analyze data from a wide range of services, whether related to networks, compute, or applications.
 
-At the center of the diagram, you'll find two layers of security services, along with a layer dedicated to specific Azure monitoring services, all integrated through Azure Monitor (shown on the left side of the diagram). The key component of this integration is Microsoft Sentinel.
+At the center of the diagram are two layers of security services and a layer dedicated to specific Azure monitoring services, all integrated through Azure Monitor (shown on the left side of the diagram). The key component of this integration is Microsoft Sentinel.
 
 The diagram shows the following services in **Core Monitoring Services** and in the **Monitor** layer:
 
@@ -49,7 +47,7 @@ The diagram shows the following services in **Core Monitoring Services** and in 
 
 The preceding services in this list are core services that work throughout Azure, Office 365, and on-premises environments. The following services focus on specific resources:
 
-5.  **Network Watcher** provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. For more information, see [What is Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview)?
+5.  **Network Watcher** provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. For more information, see [What is Azure Network Watcher?](/azure/network-watcher/network-watcher-monitoring-overview).
 
 6.  **Traffic Analytics** is part of Network Watcher and works on top of logs from network security groups (NSGs). Traffic Analytics offers many dashboards that are capable of aggregating metrics from outbound and inbound connection in Azure Virtual Network. For more information, see [Traffic Analytics](/azure/network-watcher/traffic-analytics).
 
@@ -59,7 +57,7 @@ The preceding services in this list are core services that work throughout Azure
 
 9.  Because this architecture reference is based on [Microsoft Zero Trust](/security/zero-trust/), the services and components under **Infrastructure and Endpoint** don't have specific monitoring services. Azure Monitor logs and Defender for Cloud are the main services that collect, store, and analyze logs from VMs and others compute services.
 
-The central component of this architecture is Microsoft Sentinel, as it consolidates all the logs and alerts generated by Azure security services, Microsoft Defender XDR, and Azure Monitor. Once Microsoft Sentinel is implemented and receiving logs and alerts from the sources outlined in this article, the next step is to map queries to those logs in order to gather insights and detect indicators of compromise (IOCs). When Microsoft Sentinel captures this information, you can either investigate it manually or trigger automated responses that you configure to mitigate or resolve incidents. Automated actions might include blocking a user in Microsoft Entra ID or blocking an IP address through the firewall.
+The central component of this architecture is Microsoft Sentinel. It consolidates all the logs and alerts that are generated by Azure security services, Microsoft Defender XDR, and Azure Monitor. After Microsoft Sentinel is implemented and receiving logs and alerts from the sources outlined in this article, you need to map queries to those logs in order to gather insights and detect indicators of compromise (IOCs). When Microsoft Sentinel captures this information, you can either investigate it manually or trigger automated responses that you configure to mitigate or resolve incidents. Automated actions might include blocking a user in Microsoft Entra ID or blocking an IP address by using the firewall.
 
 For more information about Microsoft Sentinel, see [Microsoft Sentinel documentation](/azure/sentinel).
 
@@ -120,16 +118,15 @@ The example architecture in this article uses the following Azure components:
 ## Solution details
 
 Monitoring solutions on Azure might seem confusing at first, because Azure offers multiple monitoring services. However, each Azure monitoring service is important in the security and monitoring strategy that's described in this series. The articles in this series describe the various services and how to plan effective security for your IT environment.
-1. [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
-2. [Map threats to your IT environment](./map-threats-it-environment.yml)
-3. [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
-4. [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
+1. [Map threats to your IT environment](./map-threats-it-environment.yml)
+2. [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
+3. [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
 
 ### Potential use cases
 
 This reference architecture provides a comprehensive view of Microsoft Cloud security services and demonstrates how to integrate them to achieve an optimal security posture.
 
-While it's not necessary to implement every security service shown, this example and the threat map illustrated in the architecture diagram can guide you in creating your own threat map and planning your security strategy. Choose the Azure security services and Microsoft Defender XDR services that best suit your needs, ensuring your IT environment is properly secured.
+Although you don't need to implement every security service shown, this example and the threat map illustrated in the architecture diagram can help you create your own threat map and plan your security strategy. Choose the Azure security services and Microsoft Defender XDR services that best suit your needs.
 
 ## Cost optimization
 
@@ -163,12 +160,10 @@ Other contributors:
 
 For more details about this reference architecture, see the other articles in this series:
 
-- Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
-- Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
-- Part 3: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
-- Part 4: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
+- Part 1: [Map threats to your IT environment](./map-threats-it-environment.yml)
+- Part 2: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
+- Part 3: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
 
-For related architectures on Azure Architecture Center, see the following articles:
+For related architectures on Azure Architecture Center, see the following article:
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
-- [Monitor hybrid security using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)

@@ -5,7 +5,7 @@
     1. How much downtime they can tolerate, keeping in mind that usually, the faster the recovery, the higher the cost.
     1. The type of incidents they want to be protected from, mentioning the related likelihood of such event. For example, the probability of a server going down is higher than a natural disaster that impacts all the datacenters across a region.
     1. What impact does the system being unavailable has on their business?
-    1. The OPEX budget for the solution moving forward.
+    1. The operational expenses (OPEX) budget for the solution moving forward.
 1. Consider what degraded service options your end-users can accept. These may include:
     1. Still having access to visualization dashboards even without the most up-to-date data that is, if the ingestion pipelines don't work, end-users still have access to their data.
     1. Having read access but no write access.
@@ -13,7 +13,7 @@
     1. Active/Active.
     1. Active/Passive.
     1. Active/Redeploy on disaster.
-    1. Consider your own [composite SLO](/azure/well-architected/reliability/metrics) to factor in the tolerable downtimes.
+    1. Consider your own [composite service level objective (SLO)](/azure/well-architected/reliability/metrics) to factor in the tolerable downtimes.
 1. Ensure you understand all the components that might affect the availability of your systems, such as:
     1. Identity management.
     1. Networking topology.
@@ -23,11 +23,11 @@
     1. Source repository and deployment pipelines (GitHub, Azure DevOps).
 1. Early detection of outages is also a way to decrease RTO and RPO values significantly. Here are a few aspects that should be covered:
     1. Define what an outage is and how it maps to Microsoft's definition of an outage. The Microsoft definition is available on the [Azure service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/) page at the product or service level.
-    1. An efficient monitoring and alerting system with accountable teams to review those metrics and alerts in a timely manner will help meet the goal.
-1. Regarding subscription design, the additional infrastructure for disaster recovery can be stored in the original subscription. platform as a service (PaaS) services like ADLS Gen2 or Azure Data Factory typically have native features that allow fail over to secondary instances in other regions while staying contained in the original subscription. Some customers might want to consider having a dedicated resource group for resources used only in DR scenarios for cost purposes.
+    1. An efficient monitoring and alerting system with accountable teams to review those metrics and alerts in a timely manner helps meet the goal.
+1. Regarding subscription design, the additional infrastructure for disaster recovery can be stored in the original subscription. platform as a service (PaaS) services like Azure Data Lake Storage Gen2 or Azure Data Factory typically have native features that allow fail over to secondary instances in other regions while staying contained in the original subscription. Some customers might want to consider having a dedicated resource group for resources used only in DR scenarios for cost purposes.
     1. It should be noted that [subscription limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) may act as a constraint for this approach.
-    1. Other constraints may include the design complexity and management controls to ensure the DR resource groups aren't used for BAU workflows.
-1. Design the DR workflow based on a solution's criticality and dependencies. For example, don't try to rebuild an Azure Analysis Services instance before your data warehouse is up and running, as it will trigger an error. Leave development labs later in the process, recover core enterprise solutions first.
+    1. Other constraints may include the design complexity and management controls to ensure the DR resource groups aren't used for business-as-usual (BAU) workflows.
+1. Design the DR workflow based on a solution's criticality and dependencies. For example, don't try to rebuild an Azure Analysis Services instance before your data warehouse is up and running, as it triggers an error. Leave development labs later in the process, recover core enterprise solutions first.
 1. Try to identify recovery tasks that can be parallelized across solutions, reducing the total RTO.
 1. If Azure Data Factory is used within a solution, don't forget to include Self-Hosted integration runtimes in the scope. [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) is ideal for those machines.
 1. Manual operations should be automated as much as possible to avoid human errors, especially when under pressure. It's recommended to:
@@ -69,13 +69,13 @@ Ensuring that Business stakeholders are engaged across all DR activities will pr
 
 - **"Set and forget" DR plans**
 Azure is constantly evolving, as are individual customer's use of various components and services. A "fit for purpose" DR process must evolve with them.
-Either via the SDLC process or periodic reviews, customers should regularly revisit their DR plan. The goal is to ensure the validity of the service recovery plan and that any deltas across components, services or solutions have been accounted for.
+Either via the software development life cycle (SDLC) process or periodic reviews, customers should regularly revisit their DR plan. The goal is to ensure the validity of the service recovery plan and that any deltas across components, services or solutions have been accounted for.
 
 - **Paper-based assessments**
 While the end-to-end simulation of a DR event will be difficult across a modern data eco-system, efforts should be made to get as close as possible to a complete simulation across affected components. Regularly scheduled drills will build the "muscle memory" required by the organization to be able to execute the DR plan with confidence.
 
 - **Relying on Microsoft to do it all**
-Within the Microsoft Azure services, there's a clear [division of responsibility](/azure/availability-zones/business-continuity-management-program#shared-responsibility-model), anchored by the cloud service tier used:
+Within the Microsoft Azure services, there's a clear [division of responsibility](/azure/reliability/business-continuity-management-program#shared-responsibility-model), anchored by the cloud service tier used:
 ![Diagram showing the shared responsibility model.](../images/shared-responsibility-model.png) Even if a full [software as a service (SaaS) stack](https://azurecharts.com/overview/?f=saas) is used, the customer will still retain the responsibility to ensure the accounts, identities, and data is correct/up-to-date, along with the devices used to interact with the Azure services.
 
 ## Event scope and strategy
@@ -87,7 +87,7 @@ Different events will have a different scope of impact and, therefore, a differe
 
 ### Disaster strategy options
 
-There are four high-level options for a [disaster recovery strategy](/azure/architecture/resiliency/recovery-loss-azure-region#strategies):
+There are four high-level options for a disaster recovery strategy:
 
 - **Wait for Microsoft** - As the name suggests, the solution is offline until the complete recovery of services in the affected region by Microsoft. Once recovered, the solution is validated by the customer and then brought up-to-date for service recovery.
 - **Redeploy on Disaster** - The solution is redeployed manually into an available region from scratch, post-disaster event.
@@ -117,11 +117,12 @@ For this outage scenario, the relative impact on the four high-level DR Strategi
 > The above table should be read as a comparison between the options - a strategy that has a green indicator is better for that classification than another strategy with a yellow or red indicator.
 
 ## Next steps
-Now that you've learned about the recommendations related to the scenario, you can learn how to  [deploy this scenario](../disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml)
+
+- [Mission-critical workload](/azure/architecture/framework/mission-critical/mission-critical-overview)
+- [Well-Architected Framework recommendations for designing a disaster recovery strategy](/azure/well-architected/reliability/disaster-recovery)
 
 ## Related resources
 
 - [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.yml)
 - [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.yml)
 - [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.yml)
-- [DR for Azure Data Platform - Summary](dr-for-azure-data-platform-summary.yml)

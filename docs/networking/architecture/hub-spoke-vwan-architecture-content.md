@@ -49,11 +49,11 @@ The architecture consists of:
 
 ### Components
 
-* [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
-* [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan)
-* [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
-* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
-* [Azure Firewall](https://azure.microsoft.com/services/azure-firewall)
+* [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network)
+* [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about)
+* [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+* [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute)
+* [Azure Firewall](/azure/well-architected/service-guides/azure-firewall)
 
 ### Alternatives
 
@@ -207,8 +207,6 @@ Learn more:
 -   [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
 
 -   [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
-
--   [Secure and govern workloads with network level segmentation](../guide/network-level-segmentation.yml)
 
 ## Related resources
 

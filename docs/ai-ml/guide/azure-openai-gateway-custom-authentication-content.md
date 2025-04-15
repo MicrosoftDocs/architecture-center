@@ -115,7 +115,7 @@ A gateway provides several advantages in this scenario:
 
 - Implement mutual Transport Layer Security (mTLS) to ensure that both the client and server authenticate each other. This strategy provides an extra layer of security. To configure the gateway to enforce mTLS,  set the appropriate policies and constraints.
 
-- Use the [`validate-client-certificate` policy](/azure/api-management/api-management-howto-mutual-certificates-for-clients) in API Management to validate client certificates that an Azure key vault references. This policy validates the client certificate that the client application presents and checks the issuer, expiration date, thumbprint, and revocation lists.
+- Use the [`validate-client-certificate` policy](/azure/api-management/api-management-howto-mutual-certificates-for-clients) in API Management to validate client certificates that an Azure Key Vault references. This policy validates the client certificate that the client application presents and checks the issuer, expiration date, thumbprint, and revocation lists.
 
 ### Reasons to avoid a gateway for this scenario
 
@@ -214,6 +214,8 @@ When client applications connect directly to multiple Azure OpenAI instances, ea
 
 When you use a gateway to handle client applications that access multiple Azure OpenAI deployments, you get the same benefits as a gateway that handles [multiple client applications via keys to access a shared Azure OpenAI instance](#authenticate-multiple-client-applications-via-keys-to-access-a-shared-azure-openai-instance). You also streamline the authentication process because you use a single user-defined managed identity to authenticate requests from the gateway to multiple Azure OpenAI instances. Implement this approach to reduce overall operational overhead and minimize the risks of client misconfiguration when you work with multiple instances.
 
+An example of how a gateway is being used in Azure to offload identity to an intermediary is the Azure AI Services resource. In that implementation, you authenticate to the gateway, and the gateway handles authenticating to the differing Azure AI services such as Custom Vision or Speech. While that implementation is similar, it does not address this scenario.
+
 ### Recommendations for this scenario
 
 - Implement load balancing techniques to distribute the API requests across multiple instances of Azure OpenAI to handle high traffic and ensure high availability. For more information, see [Use a gateway in front of multiple Azure OpenAI deployments or instances](./azure-openai-gateway-multi-backend.yml).
@@ -224,7 +226,7 @@ When you use a gateway to handle client applications that access multiple Azure 
 
 When you integrate Azure OpenAI through a gateway, there are several cross-cutting recommendations to consider that apply in all scenarios.
 
-Use API Management instead of creating your own solution for efficient API orchestration, seamless integration with other Azure services, and cost savings by reducing development and maintenance efforts. API Management ensures secure API management by directly supporting authentication and authorization. It integrates with identity providers, such as Microsoft Entra ID, which enables OAuth 2.0 and provides policy-based authorization. Additionally, API Management uses managed identities for secure and low-maintenance access to Azure OpenAI.
+Use Azure API Management instead of creating your own solution for efficient API orchestration, seamless integration with other Azure services, and cost savings by reducing development and maintenance efforts. API Management ensures secure API management by directly supporting authentication and authorization. It integrates with identity providers, such as Microsoft Entra ID, which enables OAuth 2.0 and provides policy-based authorization. Additionally, API Management uses managed identities for secure and low-maintenance access to Azure OpenAI.
 
 ### Combine scenarios for a comprehensive gateway solution
 
@@ -256,9 +258,13 @@ When you implement a gateway with a managed identity, it reduces traceability be
 
 Centralized logging of all requests that pass through the gateway helps you maintain an audit trail. A centralized audit trail is especially important for troubleshooting, compliance, and detecting unauthorized access attempts.
 
+### Address caching safely
+
+If your API gateway is responsible for caching completions or other inferencing results, make sure the identity of the requestor is considered in the cache logic. Do not return cached results for identities that are not authorized to receive that data.
+
 ## Gateway implementations
 
-Azure doesn't provide a turnkey solution or reference architecture to build the gateway in this article, so you must build and operate the gateway. Azure provides examples of community-supported implementations that cover the use cases in this article. Reference these samples when you build your own gateway solution. For more information, see the video [Learn Live: Azure OpenAI application identity and security](https://www.youtube.com/live/pDjXsNWYmvo).
+Azure doesn't provide a complete turnkey solution or reference architecture to build the gateway in this article, so you must build and operate the gateway. Azure API management can be used to build a PaaS based solution through built-in and custom policies. Azure also provides examples of community-supported implementations that cover the use cases in this article. Reference these samples when you build your own gateway solution. For more information, see the video [Learn Live: Azure OpenAI application identity and security](https://www.youtube.com/live/pDjXsNWYmvo).
 
 ## Contributors
 
@@ -284,3 +290,4 @@ Principal authors:
 ## Related resources
 
 - [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.yml#key-challenges)
+- [Design a well-architected AI workload](/azure/well-architected/ai/get-started)

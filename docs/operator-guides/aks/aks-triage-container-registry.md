@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about verifying the connection to a container registry. This step is part of the triage practice for Azure Kubernetes Service (AKS) clusters.
 author: paolosalvatori
 ms.author: paolos
-ms.date: 11/22/2023
+ms.date: 01/20/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide

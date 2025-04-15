@@ -1,12 +1,12 @@
 ### YamlMime:Architecture
 metadata:
-  title: Building the first layer of defense with Azure security services
+  title: Building the First Layer of Defense with Azure Security Services
   titleSuffix: Azure Architecture Center
   description: Secure your IT environment by using Azure security services and Azure Security Benchmark. This article is part of a series.
   author: rudneir2
   ms.author: ruolivei
   ms.custom: fcp
-  ms.date: 09/19/2024
+  ms.date: 11/11/2024
   ms.topic: solution-idea
   ms.service: azure-architecture-center
   ms.subservice: solution-idea

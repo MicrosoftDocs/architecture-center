@@ -22,7 +22,7 @@ The MLOps maturity model encompasses five levels of technical capability:
 | 3 | [Automated Model Deployment](#level-3-automated-model-deployment) | <ul><li>Releases are low friction and automatic<li>Full traceability from deployment back to original data<li>Entire environment managed: train > test > production </ul>| <ul><li>Integrated A/B testing of model performance for deployment<li>Automated tests for all code<li>Centralized tracking of model training performance</ul> |
 | 4 | [Full MLOps Automated Operations](#level-4-full-mlops-automated-retraining) | <ul><li>Full system automated and easily monitored<li>Production systems are providing information on how to improve and, in some cases, automatically improve with new models<li>Approaching a zero-downtime system </ul>| <ul><li>Automated model training and testing<li>Verbose, centralized metrics from deployed model</ul> |
 
-The tables that follow identify the detailed characteristics for that level of process maturity. The model will continue to evolve. This version was last updated in January 2020.
+The tables that follow identify the detailed characteristics for that level of process maturity. The model will continue to evolve.
 
 ## Level 0: No MLOps
 
@@ -54,15 +54,15 @@ The tables that follow identify the detailed characteristics for that level of p
 | ------ | -------------- | ------------- | ----------------------- |
 | <ul><li>Data scientists: Working directly with data engineers to convert experimentation code into repeatable scripts/jobs. Working with software engineers to identify markers for data engineers<li>Data engineers: Working with data scientists and software engineers to manage inputs/outputs<li>Software engineers: Working with data engineers to automate model integration into application code. Implementing post-deployment metrics gathering</ul> | <ul><li>Data pipeline gathers data automatically<li>Retraining triggered automatically based on production metrics<li>Compute managed<li>Experiment results tracked<li>Both training code and resulting models are version controlled</ul> | <ul><li>Automatic Release<li>Scoring Script is version controlled with tests<li>Release managed by continuous integration and CI/CD pipeline</ul> | <ul><li>Unit and Integration tests for each model release<li>Less reliant on data scientist expertise to implement model<li>Application code has unit/integration tests</ul> |
 
-## Next steps
+## Next step
 
-- [Learning path: Introduction to machine learning operations (MLOps)](/training/paths/introduction-machine-learn-operations)
-- [Training module: Start the machine learning lifecycle with MLOps](/training/modules/start-ml-lifecycle-mlops)
-- [MLOps: Model management, deployment, and monitoring with Azure Machine Learning](/azure/machine-learning/concept-model-management-and-deployment)
-- [What are Azure Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines)
+> [!div class="nextstepaction"]
+> [MLOps and GenAIOps for AI workloads](/azure/well-architected/ai/mlops-genaiops)
 
 ## Related resources
 
+- [Learning path: Introduction to machine learning operations (MLOps)](/training/paths/introduction-machine-learn-operations)
+- [MLOps: Model management, deployment, and monitoring with Azure Machine Learning](/azure/machine-learning/concept-model-management-and-deployment)
+- [Machine Learning registries for MLOps](/azure/machine-learning/concept-machine-learning-registries-mlops)
 - [Orchestrate MLOps by using Azure Databricks](../../reference-architectures/ai/orchestrate-mlops-azure-databricks.yml)
-- [Secure MLOps solutions with Azure network security](../../ai-ml/guide/network-security-mlops.yml)
 - [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)

@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Modern data warehouses for small and medium-sized businesses
+  title: Modern data warehouses for small and midsize-sized businesses
   titleSuffix: Azure Architecture Center
   description: Learn how to use Microsoft Fabric, Azure SQL Database, Azure SQL Managed Instance, and Data Lake Storage to modernize SMB legacy and on-premises data.
   ms.author: gapolyak
@@ -19,8 +19,8 @@ products:
   - azure-data-lake
   - azure-sql-database
   - fabric
-name: Use modern data warehouses for small and medium-sized businesses
+name: Modern data warehouses for small and midsize-sized businesses
 summary: Learn how to use Microsoft Fabric, Azure SQL Database, Azure SQL Managed Instance, and Data Lake Storage to modernize SMB legacy and on-premises data.
 thumbnailUrl: /azure/architecture/browse/thumbs/small-medium-data-warehouse.png
 content: |
-  [!include[](small-medium-data-warehouse-content.md)]
+  [!INCLUDE[](small-medium-data-warehouse-content.md)]

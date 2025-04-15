@@ -58,14 +58,14 @@ J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct ha
 
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure provides. An Azure VM gives you the flexibility of virtualization, and you don't have to buy and maintain the physical hardware that runs it.
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) can help you start developing and deploying cloud-native apps, with built-in code-to-cloud pipelines and guardrails.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure provides. An Azure VM gives you the flexibility of virtualization, and you don't have to buy and maintain the physical hardware that runs it.
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) can help you start developing and deploying cloud-native apps, with built-in code-to-cloud pipelines and guardrails.
 - [Azure SSD managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that are managed by Azure and used with Azure VMs. The available types of disks are Ultra Disk, Premium SSD, Standard SSD, and Standard HDD. For this architecture, we recommend either Premium SSDs or Ultra Disk SSDs.
-- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for your private network on Azure. Virtual Network enables many types of Azure resources, like Azure VMs, to communicate with each other, the internet, and on-premises networks, all with enhanced security. Virtual Network is like a traditional network that you'd operate in your own datacenter, but it provides additional benefits like scale, availability, and isolation.
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine that handles most database management functions, like upgrading, patching, backups, and monitoring, without your involvement. SQL Database always runs on the latest stable version of the SQL Server database engine and a patched OS.
-- [Azure Cache for Redis](https://azure.microsoft.com/products/cache) is a distributed, managed cache that helps you build highly scalable and responsive applications by providing fast access to your data.
-- [Data Factory](https://azure.microsoft.com/products/data-factory) is a cloud-based data integration service that orchestrates and automates the movement and transformation of data.
-- [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery) contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating and automating replication of Azure VMs between regions, on-premises VMs, and physical servers to Azure, and by replicating on-premises machines to a secondary datacenter.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network on Azure. Virtual Network enables many types of Azure resources, like Azure VMs, to communicate with each other, the internet, and on-premises networks, all with enhanced security. Virtual Network is like a traditional network that you'd operate in your own datacenter, but it provides additional benefits like scale, availability, and isolation.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine that handles most database management functions, like upgrading, patching, backups, and monitoring, without your involvement. SQL Database always runs on the latest stable version of the SQL Server database engine and a patched OS.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a distributed, managed cache that helps you build highly scalable and responsive applications by providing fast access to your data.
+- [Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that orchestrates and automates the movement and transformation of data.
+- [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating and automating replication of Azure VMs between regions, on-premises VMs, and physical servers to Azure, and by replicating on-premises machines to a secondary datacenter.
 
 ## Scenario details
 
@@ -140,7 +140,5 @@ Other contributors:
 
 ## Related resources
 
-- [Azure mainframe and midrange architecture design](../../mainframe/mainframe-midrange-architecture.md)
 - [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration)
 - [Make the switch from mainframes to Azure](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies)
-- [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)

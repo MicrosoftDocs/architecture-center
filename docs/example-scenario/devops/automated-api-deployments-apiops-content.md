@@ -8,11 +8,11 @@ APIOps is a methodology that applies the concepts of GitOps and [DevOps](/devops
 
 ### Workflow
 
-1. API operators run [the extractor pipeline](https://azure.github.io/apiops/apiops/3-apimTools/apiops-2-1-tools-extractor.html) to synchronize the Git repository with the API Management instance and populate the Git repository with API Management objects in the required format.
+1. API operators run the [extractor pipeline](https://azure.github.io/apiops/apiops/3-apimTools/apiops-2-1-tools-extractor.html) to synchronize the Git repository with the API Management instance and populate the Git repository with API Management objects in the required format.
 
 2. If an API change is detected in the API Management instance, a pull request (PR) is created for operators to review. Operators merge the changes into the Git repository.
 
-3. API developers clone the Git repository, create a branch, and create API definitions by using the OpenAPI specification or tools of their choice.
+3. API developers clone the Git repository, create a branch, and create API definitions by using the OpenAPI Specification or tools of their choice.
 
 4. If a developer pushes changes to the repository, a PR is created for review.
 
@@ -28,13 +28,13 @@ APIOps is a methodology that applies the concepts of GitOps and [DevOps](/devops
 
 ### Components
 
-- [Azure API Management](https://azure.microsoft.com/services/api-management) creates consistent, modern API gateways for back-end services. Besides routing API calls to back ends, this platform also verifies credentials, enforces usage quotas, and logs metadata.
+- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) creates consistent, modern API gateways for back-end services. Besides routing API calls to back ends, this platform also verifies credentials, enforces usage quotas, and logs metadata.
 
-- [Azure DevOps](https://azure.microsoft.com/solutions/devops) is a service for managing your development lifecycle end-to-end, including planning and project management, code management, and continuing to build and release.
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a service for managing your development lifecycle end-to-end, including planning and project management, code management, and continuing to build and release.
 
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) enables continuous integration (CI) and continuous delivery (CD) to test and build your code and ship it to any target.
+- [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) enables continuous integration and continuous delivery (CI/CD) to test and build your code and ship it to any target.
 
-- [Azure Repos](https://azure.microsoft.com/products/devops/repos) is a set of version control tools, including standard Git, that you can use to manage your code.
+- [Azure Repos](/azure/devops/repos/get-started) is a set of version control tools, including standard Git, that you can use to manage your code.
 
 ### Alternatives
 
@@ -42,9 +42,9 @@ This solution uses [Azure Repos](/azure/devops/repos/) to provide Git functional
 
 ## Scenario details
 
-APIOps uses version control to manage APIs and create an audit trail of changes to APIs, policies, and operations. 
+APIOps uses version control to manage APIs and create an audit trail of changes to APIs, policies, and operations.
 
-API developers who use an APIOps methodology review and audit APIs earlier and more frequently, catching and resolving deviations from API standards faster to improve specifications and API quality. The more APIs that you build and deploy with an APIOps approach, the greater the consistency between APIs. 
+API developers who use an APIOps methodology review and audit APIs earlier and more frequently, catching and resolving deviations from API standards faster to improve specifications and API quality. The more APIs that you build and deploy with an APIOps approach, the greater the consistency between APIs.
 
 This APIOps architecture uses [Azure API Management](/azure/api-management) as the API management platform. [Azure DevOps](https://azure.microsoft.com/solutions/devops) organizes API management. [Azure Repos](/azure/devops/repos/) provides Git functionality, and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) creates the CI/CD pipeline.
 
@@ -90,7 +90,7 @@ APIOps can increase DevOps productivity for API development and deployments. One
 
 API operators often manage multiple environments for the same set of APIs. It's typical to have several stages of an API deployed to different API Management instances or in a shared API Management instance. The Git repository, which is the single source of truth, shows which versions of applications are currently deployed to a cluster.
 
-When someone makes a PR in the Git repository, the API operator knows they have new code to review. For example, when a developer takes the OpenAPI specification and builds the API implementation, they add this new code to the repository. The operators can review the PR and make sure that the API that's been submitted for review meets best practices and standards.
+When someone makes a PR in the Git repository, the API operator knows they have new code to review. For example, when a developer takes the OpenAPI Specification and builds the API implementation, they add this new code to the repository. The operators can review the PR and make sure that the API that's been submitted for review meets best practices and standards.
 
 ### Performance efficiency
 
@@ -106,9 +106,9 @@ APIOps has many benefits, but as API Management landscapes grow, so does the com
 
 Deploying this solution involves these steps:
 
-- Develop the API in the portal or make changes to the OpenAPI specification by using a tool of your choice.
-  - If you make changes in the portal, you can run the extractor to automatically extract all the APIs and other relevant policies, operations, and configurations from API Management. You can synchronize this information to the git repository.
-  
+- Develop the API in the portal or make changes to the OpenAPI Specification by using a tool of your choice.
+  - If you make changes in the portal, you can run the extractor to automatically extract all the APIs and other relevant policies, operations, and configurations from API Management. You can synchronize this information to the Git repository.
+
   - Optionally, use the Azure DevOps CLI to [create a new pull request](/azure/devops/repos/Git/pull-requests?tabs=azure-devops-cli#create-a-pull-request).
 
 - The extractor workflow includes the following steps that you take:
@@ -160,7 +160,7 @@ Deploying this solution involves these steps:
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
@@ -182,4 +182,3 @@ Principal author:
 - [GitOps for Azure Kubernetes Service](../gitops-aks/gitops-blueprint-aks.yml)
 - [Migrate a web app using Azure API Management](../apps/apim-api-scenario.yml)
 - [Protect APIs with Application Gateway and API Management](../../web-apps/api-management/architectures/protect-apis.yml)
-- [Publish internal APIs to external users](../apps/publish-internal-apis-externally.yml)

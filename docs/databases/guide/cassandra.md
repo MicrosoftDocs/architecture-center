@@ -131,7 +131,7 @@ For more information, see [Observations on Cassandra usage of Linux page caching
 
 ## Multi-datacenter replication
 
-Cassandra natively supports the concept of multiple datacenters, making it easy to configure one Cassandra ring across multiple [Azure regions](https://azure.microsoft.com/global-infrastructure/regions) or across [availability zones](/azure/availability-zones/az-overview) within one region.
+Cassandra natively supports the concept of multiple datacenters, making it easy to configure one Cassandra ring across multiple [Azure regions](https://azure.microsoft.com/global-infrastructure/regions) or across [availability zones](/azure/reliability/availability-zones-overview) within one region.
 
 For a multiregion deployment, use Azure Global VNet-peering to connect the virtual networks in the different regions. When VMs are deployed in the same region but in separate availability zones, the VMs can be in the same virtual network.
 
@@ -177,7 +177,6 @@ For information on general Cassandra settings, not specific to Azure, see:
 
 ## Related resources
 
-- [Linux N-tier application in Azure with Apache Cassandra](../../databases/architecture/n-tier-cassandra.yml)
 - [N-tier architecture style](../../guide/architecture-styles/n-tier.yml)
 - [Data partitioning guidance](../../best-practices/data-partitioning.yml)
 
