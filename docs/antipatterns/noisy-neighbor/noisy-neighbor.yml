@@ -6,8 +6,7 @@ metadata:
   author: RobBagby
   ms.date: 07/10/2024
   ms.topic: design-pattern
-  ms.service: azure-architecture-center
-  ms.subservice: best-practice
+    ms.subservice: best-practice
   ms.custom:
     - arb-saas
 azureCategories:

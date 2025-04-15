@@ -6,7 +6,6 @@ ms.author: robbag
 author: RobBagby
 ms.date: 03/27/2025
 ms.topic: best-practice
-ms.service: azure-architecture-center
 ms.subservice: best-practice
 products:
   - aspnet

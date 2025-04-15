@@ -6,7 +6,6 @@ author: RobBagby
 ms.author: robbag
 ms.date: 07/25/2023
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-app-service

@@ -7,8 +7,7 @@ metadata:
   ms.author: ruolivei
   ms.date: 09/19/2024
   ms.topic: example-scenario
-  ms.service: azure-architecture-center
-  ms.subservice: example-scenario
+    ms.subservice: example-scenario
   ms.custom:
   - fcp
   - arb-hybrid

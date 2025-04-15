@@ -7,8 +7,7 @@ metadata:
   ms.author: callard
   ms.date: 02/19/2021
   ms.topic: example-scenario
-  ms.service: azure-architecture-center
-  ms.subservice: example-scenario
+    ms.subservice: example-scenario
   ms.custom:
     - fcp
     - arb-data

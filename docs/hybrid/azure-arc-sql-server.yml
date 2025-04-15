@@ -6,8 +6,7 @@ metadata:
   ms.author: pnp
   ms.date: 07/26/2022
   ms.topic: reference-architecture
-  ms.service: azure-architecture-center
-  ms.subservice: reference-architecture
+    ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - databases

@@ -8,8 +8,7 @@ metadata:
   ms.reviewer: estfan, azla
   ms.date: 11/06/2024
   ms.topic: conceptual
-  ms.service: azure-architecture-center
-  ms.subservice: example-scenario
+    ms.subservice: example-scenario
   ms.category:
     - integration
     - developer-tools

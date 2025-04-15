@@ -8,8 +8,7 @@ metadata:
   ms.date: 12/18/2024
   ms.topic: reference-architecture
   ms.collection: ce-skilling-ai-copilot
-  ms.service: azure-architecture-center
-  ms.subservice: reference-architecture
+    ms.subservice: reference-architecture
   ms.category:
     - ai-machine-learning
     - analytics

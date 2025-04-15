@@ -6,8 +6,7 @@ metadata:
   ms.author: vibhav
   ms.date: 03/07/2025
   ms.topic: conceptual
-  ms.service: azure-architecture-center
-  ms.subservice: architecture-guide
+    ms.subservice: architecture-guide
   ms.custom:
     - arb-iot
     - arb-data
