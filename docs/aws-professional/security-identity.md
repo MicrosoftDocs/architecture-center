@@ -16,7 +16,7 @@ ms.custom:
 ---
 # Compare AWS and Azure security and identity management solutions
 
-This guide is for organizations that use Amazon Web Services (AWS) and want to migrate to Azure or adopt a multicloud strategy. This guidance compares AWS solutions to similar Azure identity management solutions.
+This guide is for organizations that use Amazon Web Services (AWS) and want to migrate to Azure or adopt a multicloud strategy. This guidance compares AWS identity management solutions to similar Azure solutions.
 
 > [!TIP]
 > For information about extending Microsoft Entra ID into AWS, see [Microsoft Entra identity management and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security).
@@ -105,7 +105,7 @@ Both platforms provide identity services to secure application access and API au
 
 | AWS service | Microsoft service | Description |
 |-------------|------------------|-------------|
-| [Amazon Cognito OAuth 2.0 grants](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-integrate-apps.html) | [Microsoft identity platform authentication flows](/entra/identity-platform/authentication-flows-app-scenarios) | Both options support standard OAuth 2.0 flows, including authorization code, implicit, client credentials, and device code. |
+| [Amazon Cognito OAuth 2.0 grants](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-integrate-apps.html) | [Microsoft identity platform authentication flows](/entra/identity-platform/authentication-flows-app-scenarios) | Support standard OAuth 2.0 flows, including authorization code, implicit, client credentials, and device code |
 | [Cognito user pools authorization code flow](https://docs.aws.amazon.com/cognito/latest/developerguide/authentication.html) | [Microsoft identity platform authorization code flow](/entra/identity-platform/v2-oauth2-auth-code-flow) | Implementation of the secure redirect-based OAuth flow for web applications |
 | [Cognito user pools Proof Key for Code Exchange (PKCE) support](https://docs.aws.amazon.com/cognito/latest/developerguide/using-pkce-in-authorization-code.html) | [Microsoft identity platform PKCE support](/entra/identity-platform/v2-oauth2-auth-code-flow#applications-that-support-the-auth-code-flow) | Enhanced security for public clients by using PKCE |
 | [Cognito custom authentication flows](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html) | [Microsoft identity platform custom policies](/entra/identity-platform/authentication-flows-app-scenarios) | Customization of authentication sequences but with different implementation |
@@ -122,7 +122,7 @@ Both platforms provide identity services to secure application access and API au
 
 | AWS service | Microsoft service | Description |
 |-------------|------------------|-------------|
-| [AWS STS](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html) | [Microsoft Entra token service](/entra/identity-platform/security-tokens) | Issues security tokens for application and service authentication |
+| [AWS STS](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html) | [Microsoft Entra token service](/entra/identity-platform/security-tokens) | Issue security tokens for application and service authentication |
 | [Cognito token customization](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html) | [Microsoft identity platform token configuration](/entra/identity-platform/access-tokens) | Customization of JSON Web Tokens by using claims and scopes |
 | [Cognito token validation](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html) | [Microsoft identity platform token validation](/entra/identity-platform/access-tokens#validate-tokens) | Libraries and services to verify token authenticity |
 
@@ -138,7 +138,7 @@ Both platforms provide identity services to secure application access and API au
 
 | AWS service | Microsoft service | Description |
 |-------------|------------------|-------------|
-| [AWS Amplify CLI](https://docs.amplify.aws/cli/) | [Microsoft identity platform PowerShell CLI](https://github.com/AzureAD/MSIdentityTools) | Command-line tools for identity configuration. |
+| [AWS Amplify CLI](https://docs.amplify.aws/cli/) | [Microsoft identity platform PowerShell CLI](https://github.com/AzureAD/MSIdentityTools) | Command-line tools for identity configuration |
 | [AWS Cognito console](https://console.aws.amazon.com/cognito/home) | [Microsoft Entra admin center](https://entra.microsoft.com/) | Management interfaces for identity services |
 | [Cognito hosted UI](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-integration.html) | [Microsoft identity platform MSAL UI](/entra/identity-platform/msal-authentication-flows) | Pre-built UIs for authentication |
 | [AWS AppSync with Cognito](https://docs.aws.amazon.com/appsync/latest/devguide/security-authorization-use-cases.html) | [Microsoft Graph API with MSAL](/graph/sdks/sdks-overview) | Data access patterns with authentication |
