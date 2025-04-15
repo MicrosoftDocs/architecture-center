@@ -8,7 +8,7 @@ metadata:
   ms.date: 09/12/2022
   ms.reviewer: ssumner
   ms.topic: reference-architecture
-    ms.subservice: reference-architecture
+  ms.subservice: reference-architecture
 azureCategories:
   - networking
   - web

@@ -7,7 +7,7 @@ metadata:
   ms.author: csiemens
   ms.date: 10/08/2024
   ms.topic: solution-idea
-    ms.subservice: solution-idea
+  ms.subservice: solution-idea
 name: DR for Azure Data Platform - Recommendations
 azureCategories:
   - analytics

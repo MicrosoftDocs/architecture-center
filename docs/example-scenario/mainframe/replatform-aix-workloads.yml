@@ -6,7 +6,7 @@ metadata:
   ms.author: bhbandam
   ms.date: 04/01/2024
   ms.topic: example-scenario
-    ms.subservice: example-scenario
+  ms.subservice: example-scenario
 name: Replatform AIX workloads on Azure
 azureCategories:
   - migration

@@ -6,7 +6,7 @@ metadata:
   ms.author: askhande
   ms.date: 02/26/2025
   ms.topic: example-scenario
-  ms.subservice: example-scenario
+ms.subservice: example-scenario
 azureCategories:
   - migration
 products:

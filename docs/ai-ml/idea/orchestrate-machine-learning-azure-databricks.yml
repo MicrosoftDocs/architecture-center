@@ -8,7 +8,7 @@ metadata:
   ms.date: 10/22/2024
   ms.topic: solution-idea
   ms.collection: ce-skilling-ai-copilot  
-    ms.subservice: solution-idea
+  ms.subservice: solution-idea
   ms.custom: arb-aiml
 name: Use Azure Databricks to orchestrate MLOps
 azureCategories:

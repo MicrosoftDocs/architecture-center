@@ -8,7 +8,7 @@ metadata:
   ms.date: 12/05/2024
   ms.topic: reference-architecture
   ms.collection: ce-skilling-ai-copilot  
-    ms.subservice: reference-architecture
+  ms.subservice: reference-architecture
   ms.custom: arb-aiml
 azureCategories:
   - ai-machine-learning
