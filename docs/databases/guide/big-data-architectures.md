@@ -1,6 +1,6 @@
 ---
 title: Big Data Architectures
-description: Learn about big data architectures that handle the ingestion, processing, and analysis of data too large or complex for traditional database systems.
+description: Learn how big data architectures manage the ingestion, processing, and analysis of data that's too large or complex for traditional database systems.
 author: vibhareddyv
 ms.author: vibhav
 ms.date: 03/07/2025
@@ -21,11 +21,11 @@ products:
 
 # Big data architectures
 
-A big data architecture manages the ingestion, processing, and analysis of data that's too large or complex for traditional database systems. The threshold at which organizations enter into the big data realm differs, depending on the capabilities of the users and their tools. Some organizations manage hundreds of gigabytes of data, and others manage hundreds of terabytes. As tools for working with big datasets advance, so does the meaning of big data. Increasingly, this term relates to the value that you can extract from your datasets through advanced analytics, rather than strictly the size of the data. Although these types of scenarios tend to have large amounts of data.
+A big data architecture manages the ingestion, processing, and analysis of data that's too large or complex for traditional database systems. The threshold for entering the realm of big data varies among organizations, depending on their tools and user capabilities. Some organizations manage hundreds of gigabytes of data, and others manage hundreds of terabytes. As tools for working with big datasets advance, the definition of big data shifts from focusing solely on data size to emphasizing the value derived from advanced analytics. Although these types of scenarios tend to have large amounts of data.
 
-Over the years, the data landscape has changed. What you can do, or are expected to do, with data has changed. The cost of storage has fallen dramatically, while the means by which data is collected keeps growing. Some data arrives at a rapid pace, constantly demanding to be collected and observed. Other data arrives more slowly, but in large chunks, often in the form of decades of historical data. You might be facing an advanced analytics problem, or one that requires machine learning. Big data architectures strive to solve these challenges.
+Over the years, the data landscape has changed. What you can do, or are expected to do, with data has changed. The cost of storage has fallen dramatically, while the methods for data collection keep expanding. Some data arrives at a rapid pace and requires continuous collection and observation. Other data arrives more slowly, but in large chunks, often in the form of decades of historical data. You might encounter an advanced analytics problem or one that requires machine learning. Big data architectures strive to solve these challenges.
 
-Big data solutions typically involve one or more of the following types of workload:
+Big data solutions typically involve one or more of the following types of workloads:
 
 - Batch processing of big data sources at rest
 - Real-time processing of big data in motion
@@ -40,7 +40,7 @@ Consider big data architectures when you need to do the following tasks:
 
 ## Components of a big data architecture
 
-The following diagram shows the logical components that fit into a big data architecture. Individual solutions might not contain every item in this diagram.
+The following diagram shows the logical components of a big data architecture. Individual solutions might not contain every item in this diagram.
 
 :::image type="complex" source="_images/big-data-pipeline.png" border="false" lightbox="_images/big-data-pipeline.png" alt-text="Diagram that shows the overall data pipeline.":::
 The process starts at data sources. The data goes to data storage and real-time message ingestion, which are connected to each other. The data in data storage goes to batch processing and then goes either to the analytical data store and then analytics and reporting or directly to analytics and reporting. The data in real-time message ingestion goes to stream processing and then goes either to the analytical data store and then analytics and reporting or directly to analytics and reporting. Machine learning points to batch processing and stream processing. 
@@ -52,7 +52,7 @@ Most big data architectures include some or all of the following components:
 
   - Application data stores, such as relational databases.
   - Static files that applications produce, such as web server log files.
-  - Real-time data sources, such as IoT devices.
+  - Real-time data sources, such as Internet of Things (IoT) devices.
 
 - **Data storage:** Data for batch processing operations is typically stored in a distributed file store that can hold high volumes of large files in various formats. This kind of store is often called a *data lake*. Options for implementing this storage include Azure Data Lake Store, blob containers in Azure Storage, or OneLake in Microsoft Fabric.
 
@@ -67,7 +67,7 @@ Most big data architectures include some or all of the following components:
 
 - **Real-time message ingestion:** If the solution includes real-time sources, the architecture must capture and store real-time messages for stream processing. For example, you can have a simple data store that collects incoming messages for processing. However, many solutions need a message ingestion store to serve as a buffer for messages, and to support scale-out processing, reliable delivery, and other message queuing semantics. This part of a streaming architecture is often referred to as *stream buffering*. Options include Azure Event Hubs, Azure IoT Hub, and Kafka.
 
-- **Stream processing:** After the solution captures real-time messages, it must process them by filtering, aggregating, and otherwise preparing the data for analysis. The processed stream data is then written to an output sink.
+- **Stream processing:** After the solution captures real-time messages, it must process them by filtering, aggregating, and preparing the data for analysis. The processed stream data is then written to an output sink.
 
   - Azure Stream Analytics is a managed stream processing service that uses continuously running SQL queries that operate on unbounded streams.
 
@@ -79,15 +79,15 @@ Most big data architectures include some or all of the following components:
 
   Use [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) to do these tasks. Machine Learning provides tools to build, train, and deploy models. Alternatively, you can use pre-built APIs from Azure AI services for common machine learning tasks, such as vision, speech, language, and decision-making tasks.
 
-- **Analytical data store:** Many big data solutions prepare data for analysis and then serve the processed data in a structured format that can analytical tools can query. The analytical data store that serves these queries can be a Kimball-style relational data warehouse. Most traditional business intelligence (BI) solutions use this type of data warehouse. Alternatively, you can present the data through a low-latency NoSQL technology, such as HBase, or an interactive Hive database that provides a metadata abstraction over data files in the distributed data store.
+- **Analytical data store:** Many big data solutions prepare data for analysis and then serve the processed data in a structured format that analytical tools can query. The analytical data store that serves these queries can be a Kimball-style relational data warehouse. Most traditional business intelligence (BI) solutions use this type of data warehouse. Alternatively, you can present the data through a low-latency NoSQL technology, such as HBase, or an interactive Hive database that provides a metadata abstraction over data files in the distributed data store.
 
   - Azure Synapse Analytics is a managed service for large-scale, cloud-based data warehousing.
 
   - HDInsight supports Interactive Hive, HBase, and Spark SQL. These tools can serve data for analysis.
-  - Microsoft Fabric provides various data stores, including SQL databases, data warehouses, lakehouses, and eventhouses, which can serve data for analysis.
+  - Microsoft Fabric provides various data stores, including SQL databases, data warehouses, lakehouses, and eventhouses. These tools can serve data for analysis.
   - Azure provides other analytical data stores, such as Azure Databricks, Azure Data Explorer, Azure SQL Database, and Azure Cosmos DB.
 
-- **Analysis and reporting:** Most big data solutions strive to provide insights into the data through analysis and reporting. To empower users to analyze the data, the architecture might include a data modeling layer, such as a multidimensional online analytical processing cube or tabular data model in Azure Analysis Services. It might also support self-service BI by using the modeling and visualization technologies in Power BI or Excel.
+- **Analytics and reporting:** Most big data solutions strive to provide insights into the data through analysis and reporting. To empower users to analyze the data, the architecture might include a data modeling layer, such as a multidimensional online analytical processing cube or tabular data model in Azure Analysis Services. It might also support self-service BI by using the modeling and visualization technologies in Power BI or Excel.
 
   Data scientists or data analysts can also analyze and report through interactive data exploration. For these scenarios, many Azure services support analytical notebooks, such as Jupyter, to enable these users to use their existing skills with Python or Microsoft R. For large-scale data exploration, you can use Microsoft R Server, either standalone or with Spark. Additionally, you can use Microsoft Fabric to edit data models, which provides flexibility and efficiency for data modeling and analysis.
 
@@ -107,7 +107,7 @@ One drawback to this approach is that it introduces latency. If processing takes
 
 The **Lambda architecture** addresses this problem by creating two paths for dataflow. All data that comes into the system goes through these two paths:
 
-- A **batch layer** (cold path) stores all the incoming data in its raw form and performs batch processing on the data. The result of this processing is stored as a **batch view**.
+- A **batch layer** (cold path) stores all the incoming data in its raw form and performs batch processing on the data. The result of this processing is stored as a batch view.
 
 - A **speed layer** (hot path) analyzes data in real-time. This layer is designed for low latency, at the expense of accuracy.
 
@@ -129,7 +129,7 @@ The raw data that's stored at the batch layer is immutable. Incoming data is app
 
 A drawback to the Lambda architecture is its complexity. Processing logic appears in two different places, the cold and hot paths, via different frameworks. This process leads to duplicate computation logic and complex management of the architecture for both paths.
 
-The **Kappa architecture** is an alternative to the Lambda architecture. It has the same basic goals as the Lambda architecture, but with an important distinction: All data flows through a single path via a stream processing system.
+The **Kappa architecture** is an alternative to the Lambda architecture. It has the same basic goals as the Lambda architecture, but all data flows through a single path via a stream processing system.
 
 :::image type="complex" source="_images/kappa.png" border="false" lightbox="_images/kappa.png" alt-text="Diagram that shows the Kappa architecture.":::
 The dataflow source is a unified log of event data. The data goes to either the speed layer or long-term storage. The line from the source data to the long-term storage read "mirror events to long-term storage." The long-term storage points to the speed layer. This line reads "recompute log events from storage if needed." The speed layer points to the analytics client and is outlined in green.
@@ -143,7 +143,7 @@ If you need to recompute the entire dataset (equivalent to what the batch layer 
 
 A data lake is a centralized data repository that stores structured data (database tables), semi-structured data (XML files), and unstructured data (images and audio files). This data is in its raw, original format and doesn't require predefined schema. A data lake can handle large volumes of data, so it's suitable for big data processing and analytics. Data lakes use low-cost storage solutions, which provide a cost-effective way to store large amounts of data.
 
-A data warehouse is a centralized repository that stores structured and semi-structured data for reporting, analysis, and BI purposes. Data warehouses help organizations make informed decisions by providing a consistent and comprehensive view of their data.
+A data warehouse is a centralized repository that stores structured and semi-structured data for reporting, analysis, and BI purposes. Data warehouses can help you make informed decisions by providing a consistent and comprehensive view of your data.
 
 The **Lakehouse architecture** combines the best elements of data lakes and data warehouses. The pattern aims to provide a unified platform that supports both structured and unstructured data, which enables efficient data management and analytics. These systems typically use low-cost cloud storage in open formats, such as Parquet or Optimized Row Columnar, to store raw and processed data.
 
@@ -156,9 +156,9 @@ Common use cases for a lakehouse architecture include:
 - **Machine learning:** Supports advanced analytics and machine learning workloads by integrating data management capabilities
 - **Data governance:** Ensures compliance and data quality across large datasets
 
-## Internet of Things
+## IoT
 
-The Internet of Things (IoT) represents any device that connects to the internet and sends or receives data. IoT devices include PCs, mobile phones, smart watches, smart thermostats, smart refrigerators, connected automobiles, and heart monitoring implants.
+The IoT represents any device that connects to the internet and sends or receives data. IoT devices include PCs, mobile phones, smart watches, smart thermostats, smart refrigerators, connected automobiles, and heart monitoring implants.
 
 The number of connected devices grows every day, as does the amount of data collected from them. This data is often collected in environments that have significant constraints and sometimes high latency. In other cases, thousands or millions of devices send data from low-latency environments, which requires rapid ingestion and processing. You must properly plan to handle these constraints and unique requirements.
 
