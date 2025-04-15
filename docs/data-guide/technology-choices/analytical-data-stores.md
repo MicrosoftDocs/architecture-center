@@ -1,9 +1,9 @@
 ---
 title: Choose an analytical data store
 description: Evaluate analytical data store options for big data in Azure, including key selection criteria and a capability matrix.
-author: raunakjhawar
-ms.author: rajhawar
-ms.date: 03/07/2023
+author: rajasekharreddy-duddugunta
+ms.author: rduddugunta
+ms.date: 03/26/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -11,6 +11,7 @@ categories:
   - storage
 products:
   - azure
+  - Microsoft Fabric
   - azure-data-explorer
 ms.custom:
   - guide
@@ -24,10 +25,13 @@ The serving layer deals with processed data from both the hot path and cold path
 
 There is no single best data management choice for all data storage tasks. Different data management solutions are optimized for different tasks. Most real-world cloud apps and big data processes have a variety of data storage requirements and often use a combination of data storage solutions.
 
+Modern analytical solutions, such as [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview), provide a comprehensive platform that integrates various data services and tools to meet diverse analytical needs. Microsoft Fabric includes OneLake, a single, unified, logical data lake for your entire organization, designed to store, manage, and secure all organizational data in one location. This flexibility allows organizations to address a wide range of data storage and processing requirements within a unified framework.
+
 ## What are your options when choosing an analytical data store?
 
 There are several options for data serving storage in Azure, depending on your needs:
 
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview)
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)
 - [Azure Synapse Spark pools](/azure/synapse-analytics/spark/apache-spark-overview)
 - [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
@@ -46,6 +50,7 @@ These options provide various database models that are optimized for different t
 - [Column store](../big-data/non-relational-data.yml#columnar-data-stores) databases are key/value data stores that store each column separately on disk. A *wide column store* database is a type of column store database that stores *column families*, not just single columns. For example, a census database might have a column family for a person's name (first, middle, last), a family for the person's address, and a family for the person's profile information (date of birth, gender). The database can store each column family in a separate partition, while keeping all the data for one person related to the same key. An application can read a single column family without reading through all of the data for an entity.
 - [Graph](../big-data/non-relational-data.yml#graph-data-stores) databases store information as a collection of objects and relationships. A graph database can efficiently perform queries that traverse the network of objects and the relationships between them. For example, the objects might be employees in a human resources database, and you might want to facilitate queries such as "find all employees who directly or indirectly work for Scott."
 - Telemetry and time-series databases are an append-only collection of objects. Telemetry databases efficiently index data in a variety of column stores and in-memory structures, making them the optimal choice for storing and analyzing vast quantities of telemetry and time series data.
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) supports various database models, including key/value, document, column store, graph, and telemetry databases, providing flexibility and scalability for different analytical tasks.
 
 ## Key selection criteria
 
@@ -58,6 +63,7 @@ To narrow the choices, start by answering these questions:
 - Do you prefer to use a relational data store? If so, narrow your options to those with a relational database model. However, note that some non-relational stores support SQL syntax for querying, and tools such as PolyBase can be used to query non-relational data stores.
 
 - Do you collect time series data? Do you use append-only data?
+- Microsoft Fabric's OneLake supports multiple analytical engines, including Analysis Services, T-SQL, and Apache Spark, making it suitable for various data processing and querying needs
 
 ## Capability matrix
 
@@ -65,12 +71,12 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| Capability | SQL Database | Azure Synapse SQL pool | Azure Synapse Spark pool | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Azure Cosmos DB |
+| Capability | SQL Database | Azure Synapse SQL pool | Azure Synapse Spark pool | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Azure Cosmos DB | Microsoft Fabric |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Is managed service | Yes | Yes |Yes |  Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes |
-| Primary database model | Relational (column store format when using columnstore indexes) | Relational tables with column storage | Wide column store | Relational (column store), telemetry, and time series store | Wide column store | Hive/In-Memory | Tabular semantic models | Document store, graph, key-value store, wide column store |
-| SQL language support | Yes | Yes | Yes | Yes | Yes (using [Phoenix](https://phoenix.apache.org/) JDBC driver) | Yes | No | Yes |
-| Optimized for speed serving layer | Yes <sup>2</sup> | Yes <sup>3</sup> |Yes | Yes | Yes | Yes | No | Yes |
+| Is managed service | Yes | Yes |Yes |  Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes | Yes |
+| Primary database model | Relational (column store format when using columnstore indexes) | Relational tables with column storage | Wide column store | Relational (column store), telemetry, and time series store | Wide column store | Hive/In-Memory | Tabular semantic models | Document store, graph, key-value store, wide column store | Unified data lake, relational, telemetry, time series, document store, graph, key-value store |
+| SQL language support | Yes | Yes | Yes | Yes | Yes (using [Phoenix](https://phoenix.apache.org/) JDBC driver) | Yes | No | Yes | Yes |
+| Optimized for speed serving layer | Yes <sup>2</sup> | Yes <sup>3</sup> |Yes | Yes | Yes | Yes | No | Yes | Yes |
 
 [1] With manual configuration and scaling.
 
@@ -80,22 +86,22 @@ The following tables summarize the key differences in capabilities.
 
 ### Scalability capabilities
 
-| Capability | SQL Database | Azure Synapse SQL pool | Azure Synapse Spark pool | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Azure Cosmos DB |
+| Capability | SQL Database | Azure Synapse SQL pool | Azure Synapse Spark pool | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Azure Cosmos DB | Microsoft Fabric |
 |--------------------------------------------------|--------------|--------------------|---------------------------|----------------------------|------------------------|-------------------------|-----------|-----------|
-| Redundant regional servers for high availability |     Yes      |        No         |        No         |       Yes   |            Yes             |           No           |           Yes            |    Yes    |
-|             Supports query scale-out             |      No      |        Yes         |        Yes         |         Yes         |         Yes             |          Yes           |           Yes           |    Yes    |
-|          Dynamic scalability (scale up)          |     Yes      |        Yes       |        Yes         |        Yes           |             No             |           No           |           Yes           |    Yes    |
-|        Supports in-memory caching of data        |     Yes      |        Yes         |        Yes         |            Yes         |        No             |          Yes           |           Yes           |    No     |
+| Redundant regional servers for high availability |     Yes      |        No         |        No         |       Yes   |            Yes             |           No           |           Yes            |    Yes    |    Yes      |
+|             Supports query scale-out             |      No      |        Yes         |        Yes         |         Yes         |         Yes             |          Yes           |           Yes           |    Yes    |    Yes      |
+|          Dynamic scalability (scale up)          |     Yes      |        Yes       |        Yes         |        Yes           |             No             |           No           |           Yes           |    Yes    |     Yes      |
+|        Supports in-memory caching of data        |     Yes      |        Yes         |        Yes         |            Yes         |        No             |          Yes           |           Yes           |    No     |    Yes      |
 
 ### Security capabilities
 
-| Capability | SQL Database | Azure Synapse | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Azure Cosmos DB |
+| Capability | SQL Database | Azure Synapse | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Azure Cosmos DB | Microsoft Fabric |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Authentication  | SQL / Microsoft Entra ID | SQL / Microsoft Entra ID | Microsoft Entra ID | local / Microsoft Entra ID <sup>1</sup> | local / Microsoft Entra ID <sup>1</sup> | Microsoft Entra ID | database users / Microsoft Entra ID via access control (identity and access management (IAM)) |
-| Data encryption at rest | Yes <sup>2</sup> | Yes <sup>2</sup> | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes |
-| Row-level security | Yes | Yes <sup>3</sup> | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | No |
-| Supports firewalls | Yes | Yes | Yes | Yes <sup>4</sup> | Yes <sup>4</sup> | Yes | Yes |
-| Dynamic data masking | Yes | Yes | Yes | Yes <sup>1</sup> | Yes | No | No |
+| Authentication  | SQL / Microsoft Entra ID | SQL / Microsoft Entra ID | Microsoft Entra ID | local / Microsoft Entra ID <sup>1</sup> | local / Microsoft Entra ID <sup>1</sup> | Microsoft Entra ID | database users / Microsoft Entra ID via access control (identity and access management (IAM)) | Microsoft Entra ID |
+| Data encryption at rest | Yes <sup>2</sup> | Yes <sup>2</sup> | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes | Yes |
+| Row-level security | Yes | Yes <sup>3</sup> | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | No | Yes |
+| Supports firewalls | Yes | Yes | Yes | Yes <sup>4</sup> | Yes <sup>4</sup> | Yes | Yes | Yes |
+| Dynamic data masking | Yes | Yes | Yes | Yes <sup>1</sup> | Yes | No | No | Yes |
 
 [1] Requires using a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
 
@@ -107,11 +113,7 @@ The following tables summarize the key differences in capabilities.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal author:
-
-- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+*This article is maintained by Microsoft.*
 
 ## Next steps
 

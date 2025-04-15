@@ -175,7 +175,6 @@ Other contributor:
 
 ## Related resources
 
-- [Secure your Microsoft Teams channel bot and web app behind a firewall][Securing your Microsoft Teams channel bot and web app behind a firewall]
 - [Web app private connectivity to Azure SQL database][Web app private connectivity to Azure SQL database]
 
 [Azure Private Link availability]: /azure/private-link/availability
@@ -187,7 +186,6 @@ Other contributor:
 [Hub-spoke network topology in Azure]: ../architecture/hub-spoke.yml
 [Integrate Azure services with virtual networks for network isolation]: /azure/virtual-network/vnet-integration-for-azure-services
 [Private Link and DNS integration at scale]: /azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale
-[Securing your Microsoft Teams channel bot and web app behind a firewall]: ../../example-scenario/teams/securing-bot-teams-channel.yml
 [SVG version of architecture diagram]: ./images/private-link-hub-spoke-network-basic-hub-spoke-diagram.svg
 [SVG version of decision tree]: ./images/private-link-hub-spoke-network-decision-tree.svg
 [SVG version of Private Link diagram]: ./images/private-link-hub-spoke-network-private-link.svg

@@ -1,21 +1,22 @@
 ### YamlMime:Architecture
 metadata:
-  title: Manage and deploy Kubernetes in Azure Arc
+  title: Manage and Deploy Kubernetes in Azure Arc
   description: Learn how Azure Arc extends Kubernetes cluster management and configuration across customer data centers, edge locations, and multiple cloud environments.
   author: mestredelpino
   ms.author: carlosmes
   ms.date: 01/31/2025
   ms.topic: reference-architecture
-  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - management-and-governance
+  ms.custom:
+    - arb-hybrid
 name: Azure Arc hybrid management and deployment for Kubernetes clusters
 azureCategories:
   - hybrid
   - management-and-governance
-summary: Use Azure Arc to register Kubernetes clusters hosted outside of Azure, and using Azure tools to manage these clusters along with clusters hosted in Azure Kubernetes Service.
+summary: Learn how Azure Arc extends Kubernetes cluster management and configuration across customer data centers, edge locations, and multiple cloud environments.
 products:
   - azure-arc
   - azure-kubernetes-service
@@ -24,5 +25,5 @@ products:
   - azure-rbac
 thumbnailUrl: /azure/architecture/browse/thumbs/arc-hybrid-kubernetes.png
 content: |
-   [!include[](arc-hybrid-kubernetes-content.md)]
+   [!INCLUDE[](arc-hybrid-kubernetes-content.md)]
    

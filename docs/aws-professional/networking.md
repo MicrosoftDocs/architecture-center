@@ -13,6 +13,9 @@ azureCategories:
   - networking
 products:
   - azure-load-balancer
+ms.collection: 
+ - migration
+ - aws-to-azure
 ---
 
 # Compare AWS and Azure networking options

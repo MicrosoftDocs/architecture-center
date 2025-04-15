@@ -53,10 +53,10 @@ The following workflow describes a high-level flow for a data pipeline that supp
 
 1. Documents are either pushed or pulled into a data pipeline.
 1. The data pipeline processes each document individually by completing the following steps:
-    1. Chunk document: Breaks down the document into semantically relevant parts that ideally have a single idea or concept.
-    1. Enrich chunks: Adds metadata fields that the pipeline creates based on the content in the chunks. The data pipeline categorizes the metadata into discrete fields, such as title, summary, and keywords.
-    1. Embed chunks: Uses an embedding model to vectorize the chunk and any other metadata fields that are used for vector searches.
-    1. Persist chunks: Stores the chunks in the search index.
+   1. Chunk document: Breaks down the document into semantically relevant parts that ideally have a single idea or concept.
+   1. Enrich chunks: Adds metadata fields that the pipeline creates based on the content in the chunks. The data pipeline categorizes the metadata into discrete fields, such as title, summary, and keywords.
+   1. Embed chunks: Uses an embedding model to vectorize the chunk and any other metadata fields that are used for vector searches.
+   1. Persist chunks: Stores the chunks in the search index.
 
 ## RAG design and evaluation considerations
 
@@ -68,43 +68,43 @@ The following list provides a brief description of what you should do during eac
 
 - During the [preparation phase](./rag-preparation-phase.md), you should:
 
-   - **Determine the solution domain.** Clearly define the business requirements for the RAG solution.
-   - **Gather representative test documents.** Gather test documents for your RAG solution that are representative of your document collection.
-   - **Gather test queries.** Gather information and test queries and generate synthetic queries and queries that your documents don't cover.
-   
+  - **Determine the solution domain.** Clearly define the business requirements for the RAG solution.
+  - **Gather representative test documents.** Gather test documents for your RAG solution that are representative of your document collection.
+  - **Gather test queries.** Gather information and test queries and generate synthetic queries and queries that your documents don't cover.
+
 - During the [chunking phase](./rag-chunking-phase.md), you should:
 
-   - **Understand chunking economics.** Understand which factors to consider as you evaluate the overall cost of your chunking solution for your text collection.
-   - **Perform document analysis.** Ask the following questions to help you make decisions when you analyze a document type:
-      - What content in the document do you want to ignore or exclude?
-      - What content do you want to capture in chunks?
-      - How do you want to chunk that content?
-   - **Understand chunking approaches.** Understand the different approaches to chunking, including sentence-based, fixed-size, and custom approaches or by using language model augmentation, document layout analysis, and machine learning models.
-   - **Understand how document structure affects chunking.** Choose a chunking approach based on the degree of structure that the document has.
+  - **Understand chunking economics.** Understand which factors to consider as you evaluate the overall cost of your chunking solution for your text collection.
+  - **Perform document analysis.** Ask the following questions to help you make decisions when you analyze a document type:
+    - What content in the document do you want to ignore or exclude?
+    - What content do you want to capture in chunks?
+    - How do you want to chunk that content?
+  - **Understand chunking approaches.** Understand the different approaches to chunking, including sentence-based, fixed-size, and custom approaches or by using language model augmentation, document layout analysis, and machine learning models.
+  - **Understand how document structure affects chunking.** Choose a chunking approach based on the degree of structure that the document has.
 
 - During the [chunk enrichment phase](./rag-enrichment-phase.md), you should:
 
-   - **Clean chunks.** Implement cleaning approaches to eliminate differences that don't affect the meaning of the text. This method supports closeness matches.
-   - **Augment chunks.** Consider augmenting your chunk data with common metadata fields and understand their potential uses in search. Learn about commonly used tools or techniques for generating metadata content.
+  - **Clean chunks.** Implement cleaning approaches to eliminate differences that don't affect the meaning of the text. This method supports closeness matches.
+  - **Augment chunks.** Consider augmenting your chunk data with common metadata fields and understand their potential uses in search. Learn about commonly used tools or techniques for generating metadata content.
 
 - During the [embedding phase](./rag-generate-embeddings.md), you should:
 
-   - **Understand the importance of the embedding model.** An embedding model can significantly affect the relevancy of your vector search results.
-   - **Choose the right embedding model for your use case.**
-   - **Evaluate embedding models.** Evaluate embedding models by visualizing embeddings and calculating embedding distances.
+  - **Understand the importance of the embedding model.** An embedding model can significantly affect the relevancy of your vector search results.
+  - **Choose the right embedding model for your use case.**
+  - **Evaluate embedding models.** Evaluate embedding models by visualizing embeddings and calculating embedding distances.
 
 - During the [information retrieval phase](./rag-information-retrieval.md), you should:
 
-   - **Create a search index.** Apply the appropriate vector search configurations to your vector fields.
-   - **Understand search options.** Consider the different types of searches, including vector, full-text, hybrid, and manual multiple searches. Learn about how to split a query into subqueries and filter queries.
-   - **Evaluate searches.** Use retrieval evaluation methods to evaluate your search solution.
+  - **Create a search index.** Apply the appropriate vector search configurations to your vector fields.
+  - **Understand search options.** Consider the different types of searches, including vector, full-text, hybrid, and manual multiple searches. Learn about how to split a query into subqueries and filter queries.
+  - **Evaluate searches.** Use retrieval evaluation methods to evaluate your search solution.
 
 - During the [language model end-to-end evaluation phase](./rag-llm-evaluation-phase.md), you should:
 
-   - **Understand language model evaluation metrics.** There are several metrics, including groundedness, completeness, utilization, and relevancy, that you can use to evaluate the language model's response.
-   - **Understand similarity and evaluation metrics.** You can use similarity and evaluation metrics to evaluate your RAG solution.
-   - **Understand the importance of documentation, reporting, and aggregation.** Document the hyperparameters and the evaluation results. Aggregate the results from multiple queries and visualize the results.
-   - **Use the RAG Experiment Accelerator.** You can use the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator) to help your team find the best strategies for RAG implementation by running multiple experiments, persisting, and evaluating the results.
+  - **Understand language model evaluation metrics.** There are several metrics, including groundedness, completeness, utilization, and relevancy, that you can use to evaluate the language model's response.
+  - **Understand similarity and evaluation metrics.** You can use similarity and evaluation metrics to evaluate your RAG solution.
+  - **Understand the importance of documentation, reporting, and aggregation.** Document the hyperparameters and the evaluation results. Aggregate the results from multiple queries and visualize the results.
+  - **Use the RAG experiment accelerator.** Use the [RAG experiment accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator) to help your team find the best strategies for RAG implementation by running multiple experiments, persisting, and evaluating the results.
 
 ## Structured approach
 
@@ -129,7 +129,7 @@ Principal authors:
 ## Next steps
 
 - [Retrieval Augmented Generation (RAG) in Azure AI Search](/azure/search/retrieval-augmented-generation-overview)
-- [Retrieval augmented generation and indexes](/azure/ai-studio/concepts/retrieval-augmented-generation)
+- [Retrieval augmented generation and indexes](/azure/ai-foundry/concepts/retrieval-augmented-generation)
 
 ## Related resources
 

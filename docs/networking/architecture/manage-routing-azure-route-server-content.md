@@ -156,7 +156,6 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 
 ## Related resources
 
-- [Azure Firewall architecture overview][Azure Firewall architecture overview]
 - [Choose between virtual network peering and VPN gateways][Choose between virtual network peering and VPN gateways]
 - [Recommendations for using availability zones and regions][Recommendations for using availability zones and regions]
 - [Deploy highly available NVAs][Deploy highly available NVAs]
@@ -165,7 +164,6 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 [About Azure Route Server support for ExpressRoute and Azure VPN]: /azure/route-server/expressroute-vpn-support
 [About dual-homed network with Azure Route Server]: /azure/route-server/about-dual-homed-network
 [Azure ExpressRoute pricing]: https://azure.microsoft.com/pricing/details/expressroute
-[Azure Firewall architecture overview]: ../guide/network-virtual-appliances-architecture.yml
 [Azure road map]: https://azure.microsoft.com/updates/?category=networking
 [Azure Route Server]: /azure/route-server/overview
 [Azure Route Server FAQ]: /azure/route-server/route-server-faq

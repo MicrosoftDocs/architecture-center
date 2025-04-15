@@ -26,6 +26,8 @@ Here's a brief overview of the underlying architecture that powers this solution
 
 The Azure environment comprises the following platform as a service (PaaS) resources: a Key Vault dedicated to storing certificates only issued by the same nonintegrated CA, an Azure Event Grid system topic, a storage account queue, and an Azure Automation account that exposes a webhook targeted by Event Grid.
 
+To monitor the process and status of expired and expiring certificates, Log Analytics stores the data, and the workspace presents it in the form of tabular and graphical dashboards.
+
 This scenario assumes that an existing public key infrastructure (PKI) is already in place and consists of a Microsoft Enterprise CA joined to a domain in Microsoft Entra ID. Both the PKI and the Active Directory domain can reside on Azure or on-premises, and the servers that must be configured for certificate renewal.
 
 The virtual machines (VMs) with certificates to monitor renewal don't need to be joined to Active Directory or Microsoft Entra ID. The sole requirement is for the CA and the hybrid worker, if located on a different VM from the CA, to be joined to Active Directory.
@@ -48,6 +50,9 @@ This image shows the automatic workflow for certificate renewal within the Azure
 
 1. **Key Vault extension configuration:** You must equip the servers that need to use the certificates with the Key Vault extension, a versatile tool compatible with [Windows](/azure/virtual-machines/extensions/key-vault-windows) and [Linux](/azure/virtual-machines/extensions/key-vault-linux) systems. Azure infrastructure as a service (IaaS) servers and on-premises or other cloud servers that integrate through [Azure Arc](/azure/azure-arc/overview) are supported. Configure the Key Vault extension to periodically poll Key Vault for any updated certificates. The polling interval is customizable and flexible so it can align with specific operational requirements.
 
+   > [!NOTE]
+   > The Key Vault extension is unavailable on Linux RedHat and CentOS. To extend the solution to these systems, schedule the [**script_for_not_supported_ARC_on_Linux_distro script**](https://github.com/Azure/certlc/tree/main/.scripts) that periodically checks Key Vault for certificate updates and applies them to the server. The script can run on both Azure native VMs (IaaS) and on-premises servers integrated with Azure Arc.
+
 1. **Event Grid integration:** As a certificate approaches expiration, two Event Grid subscriptions intercept this important lifetime event from the key vault.
 
 1. **Event Grid triggers:** One Event Grid subscription sends certificate renewal information to a storage account queue. The other subscription triggers the launch of a runbook through the configured webhook in the Automation account. If the runbook fails to renew the certificate, or if the CA is unavailable, a scheduled process retries renewing the runbook from that point until the queue clears. This process makes the solution robust.
@@ -69,6 +74,8 @@ This image shows the automatic workflow for certificate renewal within the Azure
 1. **Monitoring and email notification:** All operations that various Azure components run, such as an Automation account, Key Vault, a storage account queue, and Event Grid, are logged within the Azure Monitor Logs workspace to enable monitoring. After the certificate merges into the key vault, the script sends an email message to administrators to notify them of the outcome.
 
 1. **Certificate retrieval:** The Key Vault extension on the server plays an important role during this phase. It automatically downloads the latest version of the certificate from the key vault into the local store of the server that's using the certificate. You can configure multiple servers with the Key Vault extension to retrieve the same certificate (wildcard or with multiple Subject Alternative Name (SAN) certificates) from the key vault.
+
+   For Linux distributions where the Azure Key Vault Extension cannot be installed, the [script_for_not_supported_ARC_on_Linux_distro script](https://github.com/Azure/certlc/tree/main/.scripts) can be scheduled to achieve the same functionality as the extension.
 
 ### Components
 
@@ -133,6 +140,24 @@ Event Grid handles event-driven communication within Azure. Configure Event Grid
   - **Subscription Name:** The name of the event subscription.
   - **Endpoint Type:** The type of endpoint to be used. For example, the endpoint type for this solution is `StorageQueue`.
   - **Endpoint:** The storage account queue.
+
+#### Log Analytics Workspace and Azure Workbook
+
+The solution uses Log Analytics Workspace and Azure Workbook to enhance monitoring and visualization of certificate statuses stored in Key Vault. These components play a crucial role in maintaining visibility into certificate health:
+
+- **Log Analytics Workspace:** Collects and stores data regarding certificate states, identifying whether they are expired, expiring soon, or still valid.
+
+- **Azure Workbook:** Retrieves data from the Log Analytics Workspace and presents it in a dashboard with visual representations, such as pie charts and detailed tables, categorizing certificates into "Not Expired" (green), "Expiring Soon" (yellow), and "Expired" (red).
+
+Here is how certificate information is retrieved and presented in the workbook:
+
+- **Data ingestion runbook execution:** A runbook, executed directly from Azure (without requiring the context of a Hybrid Worker), retrieves certificate data from the Key Vault and sends this information to a custom table defined in the Log Analytics Workspace. The runbook runs on a scheduled cadence.
+
+- **Workbook visualization:** A Workbook queries the data from the custom table and displays it in both a pie chart and a detailed table, highlighting certificates based on their expiration status.
+
+By integrating these additional components, your solution builds a more comprehensive approach to certificate lifecycle management.
+
+![Screenshot showing the dashboard of the certificates status.](./media/Workbook.png)
 
 ### Alternatives
 
@@ -221,13 +246,13 @@ Select the following button to deploy the environment described in this article.
 Detailed information about the parameters needed for the deployment can be found in the [code sample](/samples/azure/certlc/certlc/) portal.
 
 > [!IMPORTANT]
-> > You can deploy a full lab environment to demonstrate the entire automatic certificate renewal workflow. Use the [code sample](/samples/azure/certlc/certlc/) to deploy the following resources:
-> > - **Active Directory Domain Services (AD DS)** within a domain controller VM.
-> > - **Active Directory Certificate Services (AD CS)** within a CA VM, joined to the domain, configured with a template, *WebServerShort*, for enrolling the certificates to renew.
-> > - A **Windows Simple Mail Transfer Protocol (SMTP) server** installed on the same VM of the CA for sending email notifications. MailViewer also installs to verify the email notifications sent.
-> > - The **Key Vault extension** installed on the VM of the domain controller for retrieving the renewed certificates from the Key Vault extension.
-> >
-> > [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fcertlc%2Fmain%2F.armtemplate%2Ffulllabdeploy.json)
+> You can deploy a full lab environment to demonstrate the entire automatic certificate renewal workflow. Use the [code sample](/samples/azure/certlc/certlc/) to deploy the following resources:
+> - **Active Directory Domain Services (AD DS)** within a domain controller VM.
+> - **Active Directory Certificate Services (AD CS)** within a CA VM, joined to the domain, configured with a template, *WebServerShort*, for enrolling the certificates to renew.
+> - A **Windows Simple Mail Transfer Protocol (SMTP) server** installed on the same VM of the CA for sending email notifications. MailViewer also installs to verify the email notifications sent.
+> - The **Key Vault extension** installed on the VM of the domain controller for retrieving the renewed certificates from the Key Vault extension.
+>
+> [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fcertlc%2Fmain%2F.armtemplate%2Ffulllabdeploy.json)
 
 ## Contributors
 
@@ -236,7 +261,7 @@ Detailed information about the parameters needed for the deployment can be found
 Principal authors:
 
 - [Fabio Masciotra](https://www.linkedin.com/in/fabiomasciotra/) | Principal Consultant
-- [Angelo Mazzucchi](https://www.linkedin.com/in/angelo-mazzucchi-a5a94270) | Delivery Architect
+- [Angelo Mazzucchi](https://www.linkedin.com/in/angelo-mazzucchi-a5a94270) | Principal Consultant
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

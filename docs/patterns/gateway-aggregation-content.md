@@ -118,5 +118,5 @@ http {
 - [Gateway Routing pattern](./gateway-routing.yml)
 
 [bulkhead]: ./bulkhead.yml
-[circuit-breaker]: ./circuit-breaker.yml
+[circuit-breaker]: ./circuit-breaker.md
 [retry]: ./retry.yml

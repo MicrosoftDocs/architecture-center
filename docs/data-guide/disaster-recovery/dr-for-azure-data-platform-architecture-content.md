@@ -293,15 +293,15 @@ The following tables present a breakdown of each Azure service and component use
         - Azure Synapse Analytics performs a [standard geo-backup](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse#disaster-recovery) once per day to a paired datacenter. The recovery point objective (RPO) for a geo-restore is 24 hours.
         - If Self-Hosted Data Pipelines are used, they'll remain the customers responsibility recovery from a disaster.
 
-- **Azure AI services (formerly Cognitive Services)**
+- **Azure AI services**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Microsoft
     - Contoso SKU selection: Pay As You Go
-    - DR uplift options: N/A, the APIs for AI services are hosted by [Microsoft-managed data centers](/azure/cognitive-services/what-are-cognitive-services#regional-availability).
+    - DR uplift options: N/A, the APIs for AI services are hosted by [Microsoft-managed data centers](/azure/ai-services/what-are-ai-services#regional-availability).
     - Notes
-        - If AI services has been deployed via customer deployed [Docker containers](/azure/cognitive-services/cognitive-services-container-support), recovery remains the responsibility of the customer.
+        - If AI services has been deployed via customer deployed [Docker containers](/azure/ai-services/cognitive-services-container-support), recovery remains the responsibility of the customer.
 
-- **Azure AI Search (formerly Cognitive Search)**
+- **Azure AI Search**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Microsoft
     - Contoso SKU selection: Standard S1

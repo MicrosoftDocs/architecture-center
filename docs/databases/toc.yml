@@ -54,10 +54,10 @@ items:
           href: ../example-scenario/analytics/pipelines-disaster-recovery.yml
       - name: Mainframe
         items:
-        - name: Mainframe access to Azure databases
-          href: ../solution-ideas/articles/mainframe-access-azure-databases.yml
         - name: Replicate and sync mainframe data
           href: ../reference-architectures/migration/sync-mainframe-data-with-azure.yml
+        - name: Mainframe data replication with Connect
+          href: ../example-scenario/mainframe/mainframe-replication-precisely-connect.yml
         - name: Mainframe data replication with Qlik
           href: ../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml
         - name: Mainframe data replication with RDRS
@@ -70,6 +70,8 @@ items:
           href: ../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml
         - name: Rehost IMS DC and IMS DB
           href: ../example-scenario/mainframe/rehost-ims-raincode-imsql.yml
+        - name: SMA OpCon in Azure
+          href: ../solution-ideas/articles/sma-opcon-azure.yml    
     - name: Apply guidance
       items:
       - name: Databases
@@ -84,6 +86,8 @@ items:
         items:
         - name: Big data architectures
           href: guide/big-data-architectures.yml
+        - name: Microsoft Fabric deployment patterns
+          href: ../analytics/architecture/fabric-deployment-patterns.yml
       - name: Governance
         items:
         - name: Data obfuscation with Delphix

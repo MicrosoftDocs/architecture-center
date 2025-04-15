@@ -44,7 +44,7 @@ H. A printer subsystem manages on-premises printers.
 
 ### Workflow
 
-1. A web browser accesses Azure resources, which replaces standard mainframe protocols like T27 terminal emulation for demand and online users. Users access web-based applications over a private Azure ExpressRoute connection by using TLS port 443 **(A)**. For security and performance, this solution deploys all Azure resources in an Azure virtual network, with a network security group to help manage traffic. For administrator access to the Azure virtual machines (VMs), Azure Bastion hosts maximize security by minimizing open ports.
+1. A web browser accesses Azure resources. This method replaces standard mainframe protocols like T27 terminal emulation for demand and online users. Users access web-based applications over a private Azure ExpressRoute connection by using TLS port 443 **(A)**. For security and performance, this solution deploys all Azure resources in an Azure virtual network, with a network security group to help manage traffic. For administrator access to the Azure virtual machines (VMs), Azure Bastion hosts maximize security by minimizing open ports.
 
 1. AMT converts Unisys mainframe and emulated MCP presentation workloads to run on Azure Virtual Machine Scale Sets. These VMs run original web and application layers. The VMs use Premium SSD or Ultra Disk Storage with accelerated networking for high performance. Azure Load Balancer load balances traffic to the VMs. The VMs run the web and application layers in an active-active arrangement to spread query traffic. Presentation layer code runs in the web presentation service and uses the AMT framework to provide the Unisys user-interface screens **(B)**. The original presentation layers are migrated functionally unchanged to minimize user retraining. The presentation layers are updated with a web based modern user experience framework.
 
@@ -92,7 +92,7 @@ This solution transforms proprietary legacy applications, infrastructure, busine
 
 Unisys ClearPath mainframe systems are full-featured operating environments that can scale up vertically to handle mission-critical workloads. ClearPath mainframe models include Dorado, which runs legacy Sperry 1100/2200, and Libra, which runs legacy Burroughs A Series/MCP. Emulating, converting, or modernizing these systems into Azure can provide similar or better performance and service-level agreement (SLA) guarantees, while taking advantage of Azure flexibility, reliability, and future capabilities.
 
-Use the Avanade AMT framework to quickly move into Azure without rewriting application code or redesigning data architecture. The framework converts legacy code to C#, while maintaining the source code in its original form. You don't have to change application user interfaces and interactions, which minimizes the need for end user retraining.
+Use the Avanade AMT framework to quickly move into Azure without rewriting application code or redesigning data architecture. The framework converts legacy code to C#, while maintaining the source code in its original form. You don't have to change application user interfaces and interactions. This approach minimizes the need for end user retraining.
 
 Avanade AMT Transform automates the migration of the complete mainframe ecosystem to Azure by converting:
 
@@ -180,6 +180,5 @@ Explore related resources:
 - [Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure](../../mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)
 - [High-volume batch transaction processing](../../example-scenario/mainframe/process-batch-transactions.yml)
 - [Mainframe file replication and synchronization on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
-- [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
 - [Replicate and synchronization mainframe data in Azure](./sync-mainframe-data-with-azure.yml)
 - [Modernize mainframe and midrange data](../../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)

@@ -91,6 +91,7 @@ Large-scale Batch and HPC workloads have demands for data storage and access tha
 - [Storage Optimized Virtual Machines](/azure/virtual-machines/windows/sizes-storage)
 - [Blob, table, and queue storage](/azure/storage/common/storage-introduction)
 - [Azure SMB File storage](/azure/storage/files/storage-files-introduction)
+- [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview)
 
 For more information comparing Lustre, GlusterFS, and BeeGFS on Azure, review the [Parallel Files Systems on Azure](/archive/blogs/azurecat/azurecat-ebook-parallel-virtual-file-systems-on-microsoft-azure) e-book and the [Lustre on Azure](https://techcommunity.microsoft.com/t5/azurecat/lustre-on-azure/ba-p/1052536) blog.
 

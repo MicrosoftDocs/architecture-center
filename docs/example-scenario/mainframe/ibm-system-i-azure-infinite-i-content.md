@@ -10,7 +10,7 @@ The Infinite i suite is from Microsoft partner Infinite Corporation. The archite
 
 The following workflow corresponds to the previous diagram:
 
-1. TN5250 web terminal emulation provides user access to Azure over an Secure Sockets Layer/Transport Layer Security encrypted connection.
+1. TN5250 web terminal emulation provides user access to Azure over a Secure Sockets Layer/Transport Layer Security encrypted connection.
 
 1. Azure ExpressRoute provides a dedicated high-speed connection between on-premises and Azure resources.
 

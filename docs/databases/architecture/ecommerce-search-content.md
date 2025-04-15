@@ -23,7 +23,7 @@ This scenario covers an e-commerce solution where customers can search through a
 - [Azure SQL Database][docs-sql-database-service-page] is a general-purpose relational database-managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML.
 - [AI Search][docs-search-service-page] is a cloud solution that provides a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications.
 - [Azure AI Bot Service][docs-botservice-service-page] provides tools to build, test, deploy, and manage intelligent bots.
-- [Azure AI services][docs-cognitive-service-page] lets you use intelligent algorithms to see, hear, speak, understand, and interpret your user needs through natural methods of communication.
+- [Azure AI services][docs-ai-services-service-page] lets you use intelligent algorithms to see, hear, speak, understand, and interpret your user needs through natural methods of communication.
 
 ### Alternatives
 
@@ -126,7 +126,7 @@ To find out more about other Azure components, see these resources:
 - [What is Azure SQL Database?][docs-sql-database]
 - [App Service overview][docs-webapps]
 - [Azure AI Bot Service documentation][docs-botservice]
-- [What is Azure AI services?][docs-cognitive]
+- [What is Azure AI services?][docs-ai-services]
 
 ## Related resources
 
@@ -136,14 +136,14 @@ To find out more about other Azure components, see these resources:
 [architecture]: ./_images/architecture-ecommerce-search.png
 [docs-sql-fts]: /sql/relational-databases/search/query-with-full-text-search
 [docs-search]: /azure/search/search-what-is-azure-search
-[docs-search-service-page]: https://azure.microsoft.com/products/search
+[docs-search-service-page]: https://azure.microsoft.com/products/ai-services/ai-search
 [docs-sql-database]: /azure/sql-database/sql-database-technical-overview
 [docs-sql-database-service-page]: https://azure.microsoft.com/products/azure-sql/database
 [docs-webapps]: /azure/app-service/app-service-web-overview
 [docs-botservice]: /azure/bot-service/
-[docs-botservice-service-page]: https://azure.microsoft.com/products/bot-services
-[docs-cognitive]: /azure/cognitive-services/what-are-cognitive-services
-[docs-cognitive-service-page]: https://azure.microsoft.com/products/cognitive-services
+[docs-botservice-service-page]: https://azure.microsoft.com/products/ai-services/ai-bot-service
+[docs-ai-services]: /azure/ai-services/what-are-ai-services
+[docs-ai-services-service-page]: https://azure.microsoft.com/products/ai-services
 [apache-lucene]: https://lucene.apache.org/
 [elastic-marketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp
 [end-to-end-walkthrough]: https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs
@@ -153,7 +153,7 @@ To find out more about other Azure components, see these resources:
 [search-security]: /azure/search/search-security-overview
 [search-analysis]: /azure/search/search-traffic-analytics
 [search-languages]: /rest/api/searchservice/language-support
-[search-analyzers]: /rest/api/searchservice/custom-analyzers-in-azure-search
+[search-analyzers]: /azure/search/index-add-custom-analyzers
 [search-scoring]: /rest/api/searchservice/add-scoring-profiles-to-a-search-index
 [search-samples]: https://azure.microsoft.com/resources/samples/?service=search&sort=0
 [small-pricing]: https://azure.com/e/db2672a55b6b4d768ef0060a8d9759bd

@@ -15,6 +15,9 @@ products:
   - azure
   - azure-queue-storage
   - azure-service-bus
+ms.collection: 
+ - migration
+ - aws-to-azure
 ---
 
 # Messaging services on Azure and AWS

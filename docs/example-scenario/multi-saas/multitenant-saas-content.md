@@ -72,7 +72,7 @@ The primary components are the suggested components for the architecture in this
 
 * [Azure SQL Elastic Pools](/azure/sql-database/sql-database-elastic-pool): Provides a solution for managing a set of databases flexibly with a pool of resources. The service allocates resources on demand to the databases. It gives the developer of a multitenant SaaS architecture the power to deliver database resources to clients as they need it. The service also reduces the budget and overhead of maintaining multiple SQL Servers with large chunks of unused compute resources.
 
-* [Azure Cognitive Search](/azure/search/search-what-is-azure-search) (formerly known as Azure Search): A service that adds a powerful indexing and query engine to your application. It gives clients access to strong query functionality. They can also use Azure's AI capabilities to enrich and enhance the query functionality. Azure Cognitive Search can account for multitenancy using an index-per-tenant or service-per-tenant strategy.
+* [Azure AI Search](/azure/search/search-what-is-azure-search): A service that adds a powerful indexing and query engine to your application. It gives clients access to strong query functionality. They can also use Azure's AI capabilities to enrich and enhance the query functionality. AI Search can account for multitenancy using an index-per-tenant or service-per-tenant strategy.
 
 * [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/operational-excellence): Applies a caching layer as a service to the solution, providing an in-memory managed cache to reduce latency and increase performance for the clients. High throughput allows for a high volume of requests to handle multiple tenants accessing the system. You can flexibly scale up the service as application loads increase. It also supports encryption at rest to protect and isolate cached tenant data.
 
@@ -168,7 +168,7 @@ You can find the pricing structure for Azure Cache for Redis on the [Azure Cache
 
 Azure Front Door's pricing depends on the amount of data transfer in and out of the service. For outbound data, the pricing is different based on zones. Different regions will incur different costs. If you come across a price differential, estimate the cost separately. The price includes some routing and domain capacity, but the system incurs costs past the initial limits. Azure Web Application Firewall incurs a small additional charge per policy or rule applied. You can find the pricing details for Azure Front Door on the [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/) page.
 
-The [pricing for Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/) is a fully tiered system. A free tier is available for development and testing. After that, each tier incurs a per-hour cost for each Cognitive Search instance allocated. As the tiers increase, the total storage, number of indexes, and scale-out limits also increase. Azure Cognitive Search provides image extraction as a service at the same rate to all paid tiers.
+The [pricing for AI Search](https://azure.microsoft.com/pricing/details/search/) is a fully tiered system. A free tier is available for development and testing. After that, each tier incurs a per-hour cost for each AI Search instance allocated. As the tiers increase, the total storage, number of indexes, and scale-out limits also increase. AI Search provides image extraction as a service at the same rate to all paid tiers.
 
 ## Next steps
 

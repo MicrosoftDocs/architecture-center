@@ -3,9 +3,9 @@ metadata:
   title: Troubleshoot a hybrid VPN connection
   titleSuffix: Azure Reference Architectures
   description: Learn tips for how to troubleshoot a VPN gateway connection between an on-premises network and Azure.
-  author: martinekuan
+  author: RobBagby
   ms.author: pnp
-  ms.date: 07/28/2022
+  ms.date: 02/28/2025
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.subservice: architecture-guide
@@ -16,6 +16,7 @@ metadata:
     - networking
     - article
     - e2e-hybrid
+    - arb-hybrid
 name: Troubleshoot a hybrid VPN connection
 azureCategories:
   - hybrid
@@ -24,6 +25,7 @@ summary: Troubleshoot a VPN gateway connection between an on-premises network an
 products:
   - azure-virtual-network
   - azure-vpn-gateway
+  - windows-server
 thumbnailUrl: /azure/architecture/browse/thumbs/default.png
 content: |
    [!include[](troubleshoot-vpn-content.md)]

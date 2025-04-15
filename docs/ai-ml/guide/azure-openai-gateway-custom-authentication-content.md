@@ -115,7 +115,7 @@ A gateway provides several advantages in this scenario:
 
 - Implement mutual Transport Layer Security (mTLS) to ensure that both the client and server authenticate each other. This strategy provides an extra layer of security. To configure the gateway to enforce mTLS,  set the appropriate policies and constraints.
 
-- Use the [`validate-client-certificate` policy](/azure/api-management/api-management-howto-mutual-certificates-for-clients) in API Management to validate client certificates that an Azure key vault references. This policy validates the client certificate that the client application presents and checks the issuer, expiration date, thumbprint, and revocation lists.
+- Use the [`validate-client-certificate` policy](/azure/api-management/api-management-howto-mutual-certificates-for-clients) in API Management to validate client certificates that an Azure Key Vault references. This policy validates the client certificate that the client application presents and checks the issuer, expiration date, thumbprint, and revocation lists.
 
 ### Reasons to avoid a gateway for this scenario
 

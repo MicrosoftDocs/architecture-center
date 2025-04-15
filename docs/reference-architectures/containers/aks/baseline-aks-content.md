@@ -289,6 +289,8 @@ In this reference implementation, [Microsoft Entra Workload ID on AKS](/azure/ak
 
 ## Select a networking model
 
+[!INCLUDE [kubenet retirement](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/retirement/kubenet-retirement-callout.md)]
+
 AKS supports multiple networking models including kubenet, CNI, and [Azure CNI Overlay](/azure/aks/azure-cni-overlay). The CNI models are the more advanced models, and are highly performant. When communicating between pods, the performance of CNI is similar to the performance of VMs in a virtual network. CNI also offers enhanced security control because it enables the use of Azure network policy. We recommend a CNI-based networking model.
 
 In the non-overlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. Network Address Translation (NAT) isn't needed for routing that traffic.
@@ -494,7 +496,7 @@ Both the autoscaling and manual approach require you to monitor and set alerts o
 
 We recommend the autoscaling approach because some of those manual mechanisms are built into the autoscaler.
 
-As a general method, start by performance testing with a minimum number of pods and nodes. Use those values to establish the baseline expectation. Then, use a combination of performance metrics and manual scaling to locate bottlenecks and understand the application's response to scaling. Finally, use this data to set the parameters for autoscaling. For more information about a performance tuning scenario using AKS, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.yml).
+As a general method, start by performance testing with a minimum number of pods and nodes. Use those values to establish the baseline expectation. Then, use a combination of performance metrics and manual scaling to locate bottlenecks and understand the application's response to scaling. Finally, use this data to set the parameters for autoscaling.
 
 ### Horizontal Pod Autoscaler
 

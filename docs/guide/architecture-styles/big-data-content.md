@@ -45,7 +45,7 @@ Consider this architecture style when you need to:
 - Store and process data in volumes too large for a traditional database.
 - Transform unstructured data for analysis and reporting.
 - Capture, process, and analyze unbounded streams of data in real time, or with low latency.
-- Use Azure Machine Learning or Azure Cognitive Services.
+- Use Azure Machine Learning or Azure AI services.
 
 ## Benefits
 

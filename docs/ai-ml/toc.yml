@@ -22,6 +22,10 @@ items:
           href: idea/orchestrate-machine-learning-azure-databricks.yml
         - name: Many models with Machine Learning
           href: idea/many-models-machine-learning-azure-machine-learning.yml
+      - name: Document processing
+        items:
+        - name: Extract text using Power Automate
+          href: ../example-scenario/ai/extract-object-text.yml
     - name: Design architectures
       items:
       - name: Chat bots
@@ -37,7 +41,7 @@ items:
         - name: Automate document classification
           href: architecture/automate-document-classification-durable-functions.yml
         - name: Automate document processing
-          href: architecture/automate-document-processing-azure-form-recognizer.yml
+          href: architecture/automate-document-processing-azure-ai-document-intelligence.yml
         - name: Automate PDF form processing
           href: architecture/automate-pdf-forms-processing.yml
         - name: Build custom document processing models
@@ -56,10 +60,6 @@ items:
         items:
         - name: Batch scoring with Spark on Databricks
           href: architecture/batch-scoring-databricks.yml
-      - name: Monitoring
-        items:
-        - name: Monitor OpenAI models
-          href: openai/architecture/log-monitor-azure-openai.yml
       - name: Regulatory
         items:
         - name: Secure research for regulated data
@@ -90,8 +90,6 @@ items:
         items:
         - name: Machine learning operations (MLOps) v2
           href: guide/machine-learning-operations-v2.md
-        - name: Network security for MLOps
-          href: guide/network-security-mlops.yml
         - name: Generative AI ops with MLOps
           href: guide/genaiops-for-mlops.md
         - name: MLOps maturity model
@@ -104,6 +102,8 @@ items:
           href: guide/azure-openai-gateway-multi-backend.yml
         - name: Provide custom authentication to Azure OpenAI through a gateway
           href: guide/azure-openai-gateway-custom-authentication.yml
+        - name: Implement advanced monitoring for Azure OpenAI through a gateway
+          href: guide/azure-openai-gateway-monitoring.yml
     - name: OpenAI
       items:
       - name: Design architectures
@@ -116,8 +116,6 @@ items:
           href: architecture/azure-openai-baseline-landing-zone.yml
         - name: Extract and analyze call center data
           href: openai/architecture/call-center-openai-analytics.yml
-        - name: Monitor OpenAI models
-          href: openai/architecture/log-monitor-azure-openai.yml
       - name: Apply guidance
         items:
         - name: Developing and evaluating RAG solutions
@@ -146,4 +144,5 @@ items:
             href: guide/azure-openai-gateway-multi-backend.yml
           - name: Custom authentication for a gateway in front of Azure OpenAI
             href: guide/azure-openai-gateway-custom-authentication.yml
-
+          - name: Implement advanced monitoring for Azure OpenAI through a gateway
+            href: guide/azure-openai-gateway-monitoring.yml

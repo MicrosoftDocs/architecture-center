@@ -176,7 +176,7 @@ Other contributors:
 
 ## Next step
 
-[Implement knowledge mining with Azure AI Search](/training/paths/implement-knowledge-mining-azure-cognitive-search/). This learning path explores how to use Azure AI Search.
+[Implement knowledge mining with Azure AI Search](/training/paths/implement-knowledge-mining-azure-cognitive-search). This learning path explores how to use Azure AI Search.
 
 ## Related resources
 
