@@ -214,5 +214,3 @@ Principal author:
 - [Azure enterprise cloud file share](/azure/architecture/hybrid/azure-files-private)
 - [Azure files accessed on-premises and secured by AD DS](/azure/architecture/example-scenario/hybrid/azure-files-on-premises-authentication)
 - [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services)
-- [Use Azure file shares in a hybrid environment](/azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers)
-- [Hybrid file share with disaster recovery for remote and local branch workers](/azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers)
