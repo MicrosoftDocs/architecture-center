@@ -1762,8 +1762,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Extend mainframes to digital channels by using standards-based REST APIs]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis"/>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/extend-mainframes-rest-apis</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/extend-mainframes-rest-apis"/>
         <updated>2025-01-14T15:51:28.000Z</updated>
         <summary type="html"><![CDATA[Learn how the digital transformation architecture extends mainframe applications to Azure without disruptions or modifications to the existing applications.]]></summary>
         <category label="updated" term="updated"/>
