@@ -6,7 +6,6 @@ ms.author: robbag
 author: RobBagby
 ms.date: 10/11/2022
 ms.topic: best-practice
-ms.service: azure-architecture-center
 ms.subservice: best-practice
 categories:
   - compute

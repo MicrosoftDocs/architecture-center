@@ -5,7 +5,6 @@ ms.author: robbag
 author: RobBagby
 ms.date: 12/13/2023
 ms.topic: design-pattern
-ms.service: azure-architecture-center
 ms.subservice: best-practice
 ms.custom:
   - article

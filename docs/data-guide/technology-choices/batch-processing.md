@@ -7,7 +7,6 @@ categories: azure
 ms.reviewer: tozimmergren
 ms.date: 07/31/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 azureCategories:
   - analytics

@@ -7,7 +7,6 @@ ms.author: pnp
 ms.reviewer: ambers
 ms.date: 08/20/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 azureCategories:
   - analytics
