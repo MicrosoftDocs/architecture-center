@@ -365,7 +365,7 @@ Aided with this understanding of different data storage models, the next step is
 
 ## Related resources
 
-- [Big data architectures](../../databases/guide/big-data-architectures.yml)
+- [Big data architectures](../../databases/guide/big-data-architectures.md)
 - [Choose a data storage technology](../../data-guide/technology-choices/data-storage.md)
 - [Data store decision tree](data-store-decision-tree.md)
 
