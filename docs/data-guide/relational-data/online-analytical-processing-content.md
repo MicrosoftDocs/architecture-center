@@ -154,7 +154,7 @@ The following tables summarize the key differences in capabilities.
 
 ## Next steps
 
-- [Microsoft Fabric analytical data store ](https://techcommunity.microsoft.com/blog/analyticsonazure/decision-guide-for-selecting-an-analytical-data-store-in-microsoft-fabric/4362079)
+- [Microsoft Fabric analytical data store](https://techcommunity.microsoft.com/blog/analyticsonazure/decision-guide-for-selecting-an-analytical-data-store-in-microsoft-fabric/4362079)
 - [Columnstore indexes: Overview](/sql/relational-databases/indexes/columnstore-indexes-overview)
 - [Create an Analysis Services server](/azure/analysis-services/analysis-services-create-server)
 - [What is Azure Data Factory?](/azure/data-factory/introduction)
