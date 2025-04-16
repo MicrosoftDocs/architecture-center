@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Extend mainframes to digital channels by using standards-based REST APIs
-  titleSuffix: Azure Architecture Center
+  title: Extend Mainframes to Digital Channels by using Standards-Based REST APIs
   description: Learn how the digital transformation architecture extends mainframe applications to Azure without disruptions or modifications to the existing applications.
   author: bhbandam
   ms.author: bhbandam 
-  ms.date: 03/20/2025
-  ms.topic: conceptual
-  ms.service: azure-architecture-center
+  ms.date: 09/28/2023
+  ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom:
     - linux-related-content
