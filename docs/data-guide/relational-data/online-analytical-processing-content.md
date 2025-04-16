@@ -10,7 +10,7 @@ OLAP systems tackle this by efficiently extracting business intelligence from da
 Fig 1. Azure Analytics Service
 
 
-OLAP systems have traditionally used CUBE data design, organizing data in a multi-dimensional model. As technology has progressed and both data and computation scales have increased, OLAP systems are transitioning to Massively Parallel Processing (MPP) architecture supported by [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/get-started/microsoft-fabric-overview). For more information about Microsoft Fabric analytical data store architecture visit [Microsoft Fabric analytical data store ](https://techcommunity.microsoft.com/blog/analyticsonazure/decision-guide-for-selecting-an-analytical-data-store-in-microsoft-fabric/4362079). 
+OLAP systems have traditionally used CUBE data design, organizing data in a multi-dimensional model. As technology has progressed and both data and computation scales have increased, OLAP systems are transitioning to Massively Parallel Processing (MPP) architectures supported by [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview). For more information about Microsoft Fabric analytical data store architecture visit [Microsoft Fabric analytical data store ](https://techcommunity.microsoft.com/blog/analyticsonazure/decision-guide-for-selecting-an-analytical-data-store-in-microsoft-fabric/4362079). 
 
 ![Diagram that shows the OLAP logical architecture in Azure.](../images/olap-fabric.png)
 Fig 2. Microsoft Fabric
@@ -27,7 +27,7 @@ Semantic modeling is predominately used for read-heavy scenarios, such as analyt
 - Business logic and calculations are defined.
 - Time-oriented calculations are included.
 - Data is often integrated from multiple sources.
-- Real time analytics.
+- Real-time analytics.
 
 Traditionally, the semantic layer is placed over a data warehouse for these reasons.
 
@@ -41,7 +41,7 @@ There are two primary types of semantic models:
 Relevant Azure service:
 
 - [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/)
-- [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/get-started/microsoft-fabric-overview)
+- [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview)
   
 
 ## Example use case
@@ -90,7 +90,7 @@ For all the benefits OLAP systems provide, they do produce a few challenges:
 
 ## OLAP in Azure
 
-In Azure, data held in OLTP systems such as Azure SQL Database is copied into the OLAP system, such as [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) or [Azure Analysis Services](/azure/analysis-services/). Data exploration and visualization tools like [Power BI](https://powerbi.microsoft.com), Excel, and third-party options connect to Analysis Services servers and provide users with highly interactive and visually rich insights into the modeled data. The flow of data from OLTP data to OLAP is typically orchestrated using SQL Server Integration Services, which can be executed using [Azure Data Factory](/azure/data-factory/concepts-integration-runtime).
+In Azure, data held in OLTP systems such as Azure SQL Database is copied into an OLAP system, such as [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) or [Azure Analysis Services](/azure/analysis-services/). Data exploration and visualization tools like [Power BI](https://powerbi.microsoft.com), Excel, and third-party options connect to Analysis Services servers and provide users with highly interactive and visually rich insights into the modeled data. The flow of data from OLTP data to OLAP is typically orchestrated using SQL Server Integration Services (SSIS), which can be executed using [Azure Data Factory](/azure/data-factory/concepts-integration-runtime).
 
 In Azure, all of the following data stores will meet the core requirements for OLAP:
 
@@ -142,7 +142,7 @@ The following tables summarize the key differences in capabilities.
 
 [2] Connecting to SQL Server running on an Azure Virtual Machine is not supported using a Microsoft Entra account. Use a domain Active Directory account instead.
 
-[3] Microsoft Fabric offers the flexibility to integrate data sources, by moving data into OneLake using ADF piplelines or mirroring, creating shortcuts or doing real time analytics on data streams.
+[3] Microsoft Fabric offers the flexibility to integrate data sources, by moving data into OneLake using ADF pipelines or mirroring, creating shortcuts or doing real time analytics on data streams.
 
 ### Scalability Capabilities
 
