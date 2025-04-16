@@ -90,14 +90,14 @@ For all the benefits OLAP systems provide, they do produce a few challenges:
 
 ## OLAP in Azure
 
-In Azure, data held in OLTP systems such as Azure SQL Database is copied into the OLAP system, such as [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/get-started/microsoft-fabric-overview) or [Azure Analysis Services](https://learn.microsoft.com/en-us/azure/analysis-services/). Data exploration and visualization tools like [Power BI](https://powerbi.microsoft.com), Excel, and third-party options connect to Analysis Services servers and provide users with highly interactive and visually rich insights into the modeled data. The flow of data from OLTP data to OLAP is typically orchestrated using SQL Server Integration Services, which can be executed using [Azure Data Factory](/azure/data-factory/concepts-integration-runtime).
+In Azure, data held in OLTP systems such as Azure SQL Database is copied into the OLAP system, such as [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) or [Azure Analysis Services](/azure/analysis-services/). Data exploration and visualization tools like [Power BI](https://powerbi.microsoft.com), Excel, and third-party options connect to Analysis Services servers and provide users with highly interactive and visually rich insights into the modeled data. The flow of data from OLTP data to OLAP is typically orchestrated using SQL Server Integration Services, which can be executed using [Azure Data Factory](/azure/data-factory/concepts-integration-runtime).
 
 In Azure, all of the following data stores will meet the core requirements for OLAP:
 
-- [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/get-started/microsoft-fabric-overview)
-- [SQL Server with Columnstore indexes](https://learn.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-overview?view=sql-server-ver16)
-- [Azure Analysis Services](https://learn.microsoft.com/en-us/azure/analysis-services/)
-- [SQL Server Analysis Services (SSAS)](https://learn.microsoft.com/en-us/analysis-services/ssas-overview?view=asallproducts-allversions)
+- [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview)
+- [SQL Server with Columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-overview)
+- [Azure Analysis Services](/azure/analysis-services/)
+- [SQL Server Analysis Services (SSAS)](/analysis-services/ssas-overview)
 
 SQL Server Analysis Services (SSAS) offers OLAP and data mining functionality for business intelligence applications. You can either install SSAS on local servers, or host within a virtual machine in Azure. Azure Analysis Services is a fully managed service that provides the same major features as SSAS. Azure Analysis Services supports connecting to [various data sources](/azure/analysis-services/analysis-services-datasource) in the cloud and on-premises in your organization.
 
@@ -113,7 +113,7 @@ To narrow the choices, start by answering these questions:
 
 - Do you want to conduct real-time analytics? If so, narrow your options to those that support real-time analytics.
 
-  *Real-time analytics* [Real-Time Intelligence](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/overview) is a powerful service within Microsoft Fabric that empowers everyone in your organization to extract insights and visualize their data in motion. It offers an end-to-end solution for event-driven scenarios, streaming data, and data logs. Whether dealing with gigabytes or petabytes, all organizational data in motion converges in the Real-Time Hub.
+  *Real-time analytics* [Real-Time Intelligence](/fabric/real-time-intelligence/overview) is a powerful service within Microsoft Fabric that empowers everyone in your organization to extract insights and visualize their data in motion. It offers an end-to-end solution for event-driven scenarios, streaming data, and data logs. Whether dealing with gigabytes or petabytes, all organizational data in motion converges in the Real-Time Hub.
 
 - Do you need to use pre-aggregated data, for example to provide semantic models that make analytics more business user friendly? If yes, choose an option that supports multidimensional cubes or tabular semantic models.
 
