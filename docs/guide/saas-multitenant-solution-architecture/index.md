@@ -41,7 +41,7 @@ This diagram illustrates how you can use a multitenant architecture in a non-Saa
 
 ![A diagram that depicts how an organization can use a multitenant architecture.](./images/enterprise-business-model.png)
 
-The main difference between the two diagrams is the business model, which ultimately influences how you define a tenant in the context of your organization. Your business model also influences your design choices for the underlying multitenant architecture, but the principals of multitenancy always remain the same.
+The main difference between the two diagrams is the business model, which ultimately influences how you define a tenant in the context of your organization. Your business model also influences your design choices for the underlying multitenant architecture, but the principles of multitenancy always remain the same.
 
 ## Next steps
 
