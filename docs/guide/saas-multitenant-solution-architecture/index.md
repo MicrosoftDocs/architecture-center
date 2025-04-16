@@ -3,7 +3,7 @@ title: SaaS and multitenant solution architecture
 description: This guide provides an overview of the architectural content for SaaS, startups, and multitenancy and guidance about architecting multitenant solutions on Azure.
 author: landonpierce 
 ms.author: landonpierce 
-ms.date: 03/04/2024
+ms.date: 04/16/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
