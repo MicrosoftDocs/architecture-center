@@ -1,6 +1,5 @@
 ---
 title: Mission-critical global HTTP ingress
-titleSuffix: Azure Architecture Center
 description: Learn how to develop highly resilient global HTTP applications when your focus is on HTTP ingress.
 author: johndowns
 ms.author: jodowns

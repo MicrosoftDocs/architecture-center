@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Big data analytics with Azure Data Explorer
-  titleSuffix: Azure Architecture Center
   description: Big Data Analytics with Azure Data Explorer demonstrates Azure Data Explorer's abilities to cater to volume, velocity, and variety of data.
   author: joaria
   ms.author: joaria

@@ -1,6 +1,5 @@
 ---
 title: Use an Identity as a Service platform
-titleSuffix: Azure Architecture Center
 description: Learn why it's important to use an identity as a service (IDaaS) platform instead of building or running your own.
 author: johndowns
 ms.date: 10/05/2024

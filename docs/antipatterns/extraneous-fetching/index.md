@@ -1,6 +1,5 @@
 ---
 title: Extraneous Fetching antipattern
-titleSuffix: Azure Architecture Center
 description: Learn about ways to mitigate the Extraneous Fetching antipattern, the common design flaw of fetching more data than needed for a business operation.
 ms.author: robbag
 author: RobBagby

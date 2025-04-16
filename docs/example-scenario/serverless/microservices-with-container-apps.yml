@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Deploy microservices with Azure Container Apps
-  titleSuffix: Azure Architecture Center
   description: Deploy existing microservice applications with Azure Container Apps.
   author: craigshoemaker
   ms.author: cshoe

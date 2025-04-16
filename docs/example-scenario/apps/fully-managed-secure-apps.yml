@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Securely managed web applications
-  titleSuffix: Azure Architecture Center
   description: Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall.
   author: fmustaf
   ms.author: faisalm

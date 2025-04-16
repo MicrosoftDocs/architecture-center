@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Improved-security access to App Service web apps from an on-premises network
-  titleSuffix: Azure Architecture Center
   description: Set up improved-security private connectivity to an App Service web app or function app from an on-premises network or from within an Azure virtual network. 
   author: ansingha
   ms.author: ansingha

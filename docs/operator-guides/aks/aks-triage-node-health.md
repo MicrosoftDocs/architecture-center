@@ -1,6 +1,5 @@
 ---
 title: AKS triage—Node health
-titleSuffix: Azure Architecture Center
 description: Learn about the triage step in which you examine the health of Azure Kubernetes Service (AKS) worker nodes and pods and resolve issues.
 author: paolosalvatori
 ms.author: paolos

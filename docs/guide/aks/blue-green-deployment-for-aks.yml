@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Blue-green deployment of AKS clusters
-  titleSuffix: Azure Architecture Center
   description: Learn how to deploy AKS clusters using a blue-green strategy.
   author: vimorra
   ms.author: vimorra

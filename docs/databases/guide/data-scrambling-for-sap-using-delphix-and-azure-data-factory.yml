@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Data scrambling for SAP applications using Delphix and Azure Data Factory or Azure Synapse Analytics
-  titleSuffix: Azure Architecture Center
   description: Learn about how to perform data scrambling for SAP applications using Delphix and Azure Data Factory or Azure Synapse Analytics.
   author: nabhishek
   ms.author: abnarain

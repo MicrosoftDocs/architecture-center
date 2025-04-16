@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Use a split-brain DNS configuration to host a web app
-  titleSuffix: Azure Architecture Center
   description: Implement a split-brain DNS configuration to differentiate traffic treatment based on DNS and whether a client originates from the internet or a corporate network.
   author: troyhite
   ms.author: troyhite

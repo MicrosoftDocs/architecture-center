@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure Data Factory enterprise hardened architecture
-  titleSuffix: Azure Architecture Center
   description: Learn how to design an enterprise-hardened workload for Azure Data Factory on Azure landing zones to build robust and efficient data pipelines.
   author: claytonsiemens77
   ms.author: csiemens

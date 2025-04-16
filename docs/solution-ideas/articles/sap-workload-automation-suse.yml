@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: SAP workload automation using SUSE on Azure
-  titleSuffix: Azure Architecture Center
   description: The SUSE SAP automation solution speeds deployment of SAP infrastructure on Azure. Use it to bolster productivity and facilitate innovation.
   author: YenChiHo
   ms.author: yenchiho

@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Use AI to forecast customer orders 
-  titleSuffix: Azure Architecture Center
   description: Learn how to use AI and machine learning to forecast a customer's future order quantity for a specific SKU. 
   author: manasatramalinga
   ms.author: manasatr

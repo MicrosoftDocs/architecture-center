@@ -1,6 +1,5 @@
 ---
 title: Architectural approaches for IoT Hub-based multitenant solutions
-titleSuffix: Azure Architecture Center
 description: This article describes approaches for supporting multitenancy in your IoT Hub-based solution.
 author: MikeBazMSFT
 ms.author: micbaz

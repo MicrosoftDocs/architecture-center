@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Analyze video content with Computer Vision and Azure Machine Learning
-  titleSuffix: Azure Architecture Center
   description: Find out how to automate video analysis. Use Computer Vision and Azure Machine Learning to analyze your content.
   author: oscarsk91
   ms.author: oscarsh

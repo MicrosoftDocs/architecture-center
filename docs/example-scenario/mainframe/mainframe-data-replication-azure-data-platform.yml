@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Migrate mainframe data tier to Azure with mLogica LIBER*IRIS
-  titleSuffix: Azure Architecture Center
   description: Find out how mLogica LIBER*IRIS provides a proven solution for bulk data migration from a mainframe to Azure for enterprise workloads.
   author: sandippk
   ms.author: sandipk

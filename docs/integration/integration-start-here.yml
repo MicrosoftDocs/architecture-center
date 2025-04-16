@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Integration architecture design
-  titleSuffix: Azure Architecture Center
   description: Bring workflows together and automate processes by connecting apps, data, services, and devices. See resources with integration guidelines and recommendations.
   author: karlrissland
   ms.author: karlriss

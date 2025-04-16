@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: DevSecOps for infrastructure as code (IaC)
-  titleSuffix: Azure Architecture Center
   description: Learn how to use DevSecOps for IaC to securely deploy cloud infrastructure into a new Azure landing zone.
   author: yeeshian
   ms.author: yeeshianlee

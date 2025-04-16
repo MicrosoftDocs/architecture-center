@@ -1,6 +1,5 @@
 ---
 title: Microsoft SaaS stories
-titleSuffix: Azure Architecture Center
 description: Collection of insightful interviews featuring Microsoft partners who have embarked on their unique software as a service (SaaS) journey.
 author: arsenvlad
 ms.author: arsenv

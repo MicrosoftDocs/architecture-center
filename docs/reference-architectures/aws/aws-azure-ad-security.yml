@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Microsoft Entra security for AWS
-  titleSuffix: Azure Architecture Center
   description: Learn how Microsoft Entra ID can help secure and protect Amazon Web Services (AWS) identity management and account access. Discover Microsoft security solutions.
   author: RobBagby
   ms.author: pnp

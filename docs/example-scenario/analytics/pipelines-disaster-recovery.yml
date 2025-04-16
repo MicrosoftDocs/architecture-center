@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: BCDR for Azure Data Factory and Azure Synapse Analytics pipelines
-  titleSuffix: Azure Architecture Center
   description: See automated and user-managed methods to achieve business continuity and disaster recovery (BCDR) for Data Factory and Azure Synapse pipelines.
   author: ssabat
   ms.author: susabat

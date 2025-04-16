@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Use Azure Kubernetes Service to host GPU-based workloads
-  titleSuffix: Azure Architecture Center
   description: Learn how to use Azure Kubernetes Service to host GPU-based workloads, including machine learning, deep learning, and high-performance computing (HPC) workloads.
   author: mosabami
   ms.author: aayodeji

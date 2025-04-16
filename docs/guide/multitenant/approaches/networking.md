@@ -1,6 +1,5 @@
 ---
 title: Architectural approaches for networking in multitenant solutions
-titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for networking in a multitenant solution.
 author: johndowns
 ms.author: jodowns

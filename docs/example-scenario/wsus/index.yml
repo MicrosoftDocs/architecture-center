@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Plan deployment for updating Windows VMs in Azure
-  titleSuffix: Azure Architecture Center
   description: A discussion of how best to configure your environment for Windows Server Update Services (WSUS).
   author: vpaulreed
   ms.author: preed

@@ -1,6 +1,5 @@
 ---
 title: Azure Kubernetes Service (AKS) - planning
-titleSuffix: Azure Architecture Center
 description: An overview of Microsoft Azure Kubernetes Service (AKS) guidance offerings ranging from &quot;just starting out&quot;, to production, and through sustained operations.
 author: francisnazareth
 ms.author: fnazaret

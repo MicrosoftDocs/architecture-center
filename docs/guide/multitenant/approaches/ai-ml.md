@@ -1,6 +1,5 @@
 ---
 title: Architectural approaches for AI and ML in multitenant solutions
-titleSuffix: Azure Architecture Center
 description: This article describes approaches to support multitenancy for the artificial intelligence (AI) and machine learning (ML) components of your solution.
 author: landonpierce
 ms.author: landonpierce

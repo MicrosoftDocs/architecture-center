@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Refactor IBM z/TPF mainframe systems to Azure 
-  titleSuffix: Azure Architecture Center
   description: Learn how to refactor IBM z/TPF mainframe systems to functionally equivalent systems on Microsoft Azure. 
   author: Venkat-Github-Account
   ms.author: vramakrishna

@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Design a medallion lakehouse with Azure Data Factory
-  titleSuffix: Azure Architecture Center
   description: Learn how to design and implement the medallion lakehouse architecture on Azure landing zones by using Azure Data Factory, Azure Databricks, Azure SQL Server, and Power BI.
   author: claytonsiemens77
   ms.author: csiemens

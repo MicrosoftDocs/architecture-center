@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Deployment Patterns for Microsoft Fabric
-  titleSuffix: Azure Architecture Center
   description: Learn about common deployment scenarios for Microsoft Fabric.
   ms.author: csiemens
   author: claytonsiemens77

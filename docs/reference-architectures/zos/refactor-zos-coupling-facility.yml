@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Refactor an IBM z/OS coupling facility
-  titleSuffix: Azure Architecture Center
   description: Learn how Azure services and components can provide scale-out performance comparable to IBM z/OS mainframe CF and Parallel Sysplex capabilities.
   author: ashish-khandelwal-ms
   ms.author: askhande

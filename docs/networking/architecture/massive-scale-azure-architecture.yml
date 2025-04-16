@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Massive-scale VWAN architecture design
-  titleSuffix: Azure Architecture Center
   description: Learn about the architecture for a massive-scale Azure Virtual WAN deployment that has multiple hubs per region.
   author: JohnPoetzinger
   ms.author: jopoetzi

@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Serverless web application
-  titleSuffix: Azure Architecture Center
   description: This reference architecture shows a serverless web application, which serves static content from Azure Blob Storage and implements an API using Azure Functions.
   author: RobBagby
   ms.author: pnp

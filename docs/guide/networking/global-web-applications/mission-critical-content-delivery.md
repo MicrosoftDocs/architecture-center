@@ -1,6 +1,5 @@
 ---
 title: Mission-critical global content delivery
-titleSuffix: Azure Architecture Center
 description: Learn how to develop highly resilient global HTTP applications when your focus is on content delivery and caching.
 author: johndowns
 ms.author: jodowns

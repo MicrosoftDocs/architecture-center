@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Use Azure Red Hat OpenShift in the financial services industry
-  titleSuffix: Azure Architecture Center
   description: Learn how to use Azure Red Hat OpenShift landing zone to create secure, resilient, and compliant solutions in a hybrid cloud environment.
   author: mosabami
   ms.author: aayodeji

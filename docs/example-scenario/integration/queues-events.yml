@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Use a Message Broker and Events to Integrate Enterprise Systems
-  titleSuffix: Azure Architecture Center
   description: Learn how to integrate enterprise back-end systems by using a message broker and events to decouple services for greater scalability and reliability.
   author: wsilveiranz
   ms.author: wsilveira
