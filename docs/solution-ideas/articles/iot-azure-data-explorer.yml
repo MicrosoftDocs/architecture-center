@@ -7,7 +7,6 @@ metadata:
   ms.author: shsagir
   ms.date: 02/11/2025
   ms.topic: solution-idea
-  ms.service: azure-architecture-center
   ms.subservice: solution-idea
   ms.custom: arb-iot
 name: IoT analytics with Azure Data Explorer and Azure IoT Hub

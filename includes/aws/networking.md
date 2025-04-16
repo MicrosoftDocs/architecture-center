@@ -2,7 +2,6 @@
 author: kobile70
 ms.author: vaboya
 ms.topic: include
-ms.service: azure-architecture-center
 ---
 
 | Area | AWS service | Azure service | Description |

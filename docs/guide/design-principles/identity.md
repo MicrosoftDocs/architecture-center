@@ -6,7 +6,6 @@ author: johndowns
 ms.date: 10/05/2024
 ms.author: jodowns
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 categories:
   - identity

@@ -6,7 +6,6 @@ author: tarabhatiamsft
 ms.author: tarabhatia
 ms.date: 11/16/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure

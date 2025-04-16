@@ -1,13 +1,12 @@
 ---
-title: Security and identity with Azure and AWS
-description: Get guidance for integrating security and identity services across Azure and AWS. Explore strong authentication and explicit trust validation, PIM, and more.
-author: dougkl007
-ms.author: dougkl
-ms.date: 01/02/2022
+title: Compare AWS and Azure Security and Identity Management Solutions
+description: Learn about comparable AWS and Azure security and identity management solutions so that you can efficiently migrate solutions.
+author: jerrymsft
+ms.author: gerhoads
+ms.date: 03/27/2025
 ms.topic: conceptual
-ms.subservice: cloud-fundamentals
+ms.subservice: architecture-guide
 categories:
-  - security
   - identity
 products:
   - entra-id
@@ -15,66 +14,168 @@ ms.collection:
  - migration
  - aws-to-azure
 ---
+# Compare AWS and Azure security and identity management solutions
 
-# Multicloud security and identity with Azure and Amazon Web Services (AWS)
+This guide is for organizations that use Amazon Web Services (AWS) and want to migrate to Azure or adopt a multicloud strategy. This guidance compares AWS identity management solutions to similar Azure solutions.
 
-Many organizations are finding themselves with a de facto multicloud strategy, even if that wasn't their deliberate strategic intention. In a multicloud environment, it's critical to ensure consistent security and identity experiences to avoid increased friction for developers, business initiatives and increased organizational risk from cyberattacks taking advantage of security gaps.
+> [!TIP]
+> For information about extending Microsoft Entra ID into AWS, see [Microsoft Entra identity management and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security).
 
-Driving security and identity consistency across clouds should include:
+## Core identity services
 
-- Multicloud identity integration
-- Strong authentication and explicit trust validation
-- Cloud Platform Security (multicloud)
-- Microsoft Defender for Cloud
-- Privilege Identity Management (Azure)
-- Consistent end-to-end identity management
+Core identity services in both platforms form the foundation of identity and access management. These services include core authentication, authorization, and accounting capabilities, and the ability to organize cloud resources into logical structures. AWS professionals can use similar capabilities in Azure. These capabilities might have architectural differences in implementation.
 
-## Multicloud identity integration
+| AWS service | Azure service | Description |
+|------------|---------------|-------------|
+| [AWS Identity and Access Management (IAM) Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) | [Microsoft Entra ID](/entra/fundamentals/whatis) | Centralized identity management service that provides single sign-on (SSO), multifactor authentication (MFA), and integration with various applications|
+| [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) | [Azure management groups](/azure/governance/management-groups/overview) | Hierarchical organization structure to manage multiple accounts and subscriptions by using inherited policies |
+| [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) | [Microsoft Entra ID SSO](/entra/identity/enterprise-apps/what-is-single-sign-on) | Centralized access management that enables users to access multiple applications by using a single set of credentials |
+| [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html) | [Microsoft Entra Domain Services](/entra/identity/domain-services/overview) | Managed directory services that provide domain join, group policy, Lightweight Directory Access Protocol (LDAP), and Kerberos or NT LAN Manager (NTLM) authentication |
 
-Customers using both Azure and AWS cloud platforms benefit from consolidating identity services between these two clouds using [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) and Single Sign-on (SSO) services. This model allows for a consolidated identity plane through which access to services in both clouds can be consistently accessed and governed.
+## Authentication and access control
 
-This approach allows for the rich role-based access controls in Microsoft Entra ID to be enabled across the Identity and Access Management (IAM) services in AWS using rules to associate the `user.userprincipalname` and `user.assignrole` attributes from Microsoft Entra ID into IAM permissions. This approach reduces the number of unique identities users and administrators are required to maintain across both clouds including a consolidation of the identity per account design that AWS employs. The [AWS IAM solution](https://aws.amazon.com/iam/features/?nc=sn&loc=2) allows for and specifically identifies Microsoft Entra ID as a federation and authentication source for their customers.
+Authentication and access control services in both platforms provide essential security features to verify user identities and manage resource access. These services handle MFA, access reviews, external user management, and role-based permissions.
 
-A complete walk-through of this integration can be found in the [Tutorial: Microsoft Entra single sign-on (SSO) integration with Amazon Web Services (AWS)](/azure/active-directory/saas-apps/amazon-web-service-tutorial).
+| AWS service | Azure service | Description |
+|------------|---------------|-------------|
+| [AWS MFA](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) | [Microsoft Entra MFA](/entra/identity/authentication/tutorial-enable-azure-mfa) | Extra security layer that requires multiple forms of verification for user sign-ins |
+| [AWS IAM Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html) | [Microsoft Entra access reviews](/entra/id-governance/access-reviews-overview) | Tools and services to review and manage access permissions to resources |
+| [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) | [Microsoft Entra External ID](/entra/external-id/external-identities-overview) | External user access management platform for secure cross-organization collaboration. These platforms support protocols like Security Assertion Markup Language (SAML) and OpenID Connect (OIDC). |
+| [AWS Resource Access Manager](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) | [Microsoft Entra role-based access control (RBAC)](/entra/identity/role-based-access-control/custom-overview) and [Azure RBAC](/azure/role-based-access-control/overview) | Services that can share cloud resources within an organization. AWS typically shares cloud resources across multiple accounts. Azure RBAC can achieve similar resource sharing.  |
 
-## Strong authentication and explicit trust validation
+## Identity governance
 
-Because many customers continue to support a hybrid identity model for Active Directory services, it's increasingly important for security engineering teams to implement strong authentication solutions and block legacy authentication methods associated primarily with on-premises and legacy Microsoft technologies.
+To maintain security and compliance, you must manage identities and access. Both AWS and Azure provide solutions for identity governance. Organizations and workload teams can use these solutions to manage the lifecycle of identities, conduct access reviews, and control privileged access.
 
-A combination of multifactor authentication and Conditional Access policies enable enhanced security for common authentication scenarios for end users in your organization. While multifactor authentication itself provides an increase level of security to confirm authentications, additional controls can be applied using [conditional access controls to block legacy authentication](/azure/active-directory/conditional-access/howto-conditional-access-policy-block-legacy) to both Azure and AWS cloud environments. Strong authentication using only modern authentication clients is only possible with the combination of multifactor authentication and Conditional Access policies.
+In AWS, managing the identity lifecycle, access reviews, and privileged access requires a combination of several services.
 
-## Cloud Platform Security (multicloud)
+- AWS IAM handles secure access to resources.
+- IAM Access Analyzer helps identify shared resources.
+- AWS Organizations provides centralized management of multiple accounts.
+- IAM Identity Center provides centralized access management.
+- AWS CloudTrail and AWS Config enable governance, compliance, and auditing of AWS resources.
 
-Once a common identity has been established in your multicloud environment, the [Cloud Platform Security (CPS)](/cloud-app-security/tutorial-cloud-platform-security) service of [Microsoft Defender for Cloud Apps](/cloud-app-security) can be used to discover, monitor, assess, and protect those services. Using the Cloud Discovery dashboard, security operations personnel can review the apps and resources being used across AWS and Azure cloud platforms. Once services are reviewed and sanctioned for use, the services can then be managed as enterprise applications in Microsoft Entra ID to enable Security Assertion Markup Language (SAML), password-based, and linked Single Sign-On mode for the convenience of users.
+You can tailor these services to meet specific organizational needs, which helps ensure compliance and security.
 
-CPS also provides for the ability to assess the cloud platforms connected for misconfigurations and compliance using vendor specific recommended security and configuration controls. This design enables organizations to maintain a single consolidated view of all cloud platform services and their compliance status.
+In Azure, [Microsoft Entra ID Governance](/entra/id-governance/identity-governance-overview) provides an integrated solution to manage the identity lifecycle, access reviews, and privileged access. It simplifies these processes by incorporating automated workflows, access certifications, and policy enforcement. These capabilities provide a unified approach to identity governance.
 
-CPS also provides access and session control policies to prevent and protect your environment from risky endpoints or users when data exfiltration or malicious files are introduced into those platforms.
+## Privileged access management
 
-## Microsoft Defender for Cloud
+AWS IAM temporary elevated access is an open-source security solution that grants temporary elevated access to AWS resources via AWS IAM Identity Center. This approach ensures that users only have elevated privileges for a limited time and for specific tasks to reduce the risk of unauthorized access.
 
-[Microsoft Defender for Cloud](/azure/defender-for-cloud) provides unified security management and threat protection across your hybrid and multicloud workloads, including workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP). Defender for Cloud helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack.
+[Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) provides just-in-time privileged access management. You use PIM to manage, control, and monitor access to important resources and critical permissions in your organization. PIM includes features such as role activation via approval workflows, time-bound access, and access reviews to ensure that privileged roles are only granted when necessary and are fully audited.
 
-To [protect your AWS-based resources on Microsoft Defender for Cloud](/azure/defender-for-cloud/quickstart-onboard-aws?pivots=env-settings), you can connect an account with either the Classic cloud connectors experience or the Environment settings page (in preview), which is recommended.
 
-## Privileged Identity Management (Azure)
+| AWS service | Azure service | Description |
+|------------|---------------|-------------|
+| [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) | [Microsoft Entra privileged access audit](/entra/id-governance/privileged-identity-management/pim-how-to-use-audit-log) | Comprehensive audit logging for privileged access activities |
+| [AWS IAM and partner products or custom automation](https://docs.aws.amazon.com/singlesignon/latest/userguide/temporary-elevated-access.html) | [Microsoft Entra just-in-time access](/entra/id-governance/privileged-identity-management/pim-configure) | Time-bound privileged role activation process |
 
-To limit and control access for your highest privileged accounts in Microsoft Entra ID, [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management) can be enabled to provide just-in-time access to Azure services. Once deployed, PIM can be used to control and limit access using the assignment model for roles, eliminate persistent access for these privileged accounts, and provide additional discover and monitoring of users with these account types.
+## Hybrid identity
 
-When combined with [Microsoft Sentinel](/azure/sentinel), workbooks and playbooks can be established to monitor and raise alerts to your security operations center personnel when there is lateral movement of accounts that have been compromised.
+Both platforms provide solutions to manage hybrid identity scenarios that integrate cloud and on-premises resources.
 
-## Consistent end-to-end identity management
+| AWS service | Azure service | Description |
+|------------|---------------|-------------|
+| [AWS Directory Service AD Connector](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_ad_connector.html) | [Microsoft Entra Connect](/entra/identity/hybrid/connect/whatis-azure-ad-connect) | Directory synchronization tool for hybrid identity management |
+| [AWS IAM SAML provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html) | [Active Directory Federation Services](/entra/identity/hybrid/connect/how-to-connect-fed-whatis) | Identity federation service for SSO |
+| [AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) | [Microsoft Entra password hash synchronization](/entra/identity/hybrid/connect/whatis-phs) | Password synchronization between on-premises and cloud instances |
 
-Ensure that all processes include an end-to-end view of all clouds as well as on-premises systems and that security and identity personnel are trained on these processes.
+## Application and API user authentication and authorization
 
-Using a single identity across Microsoft Entra ID, AWS Accounts and on-premises services enable this end-to-end strategy and allows for greater security and protection of accounts for privileged and non-privileged accounts. Customers who are currently looking to reduce the burden of maintaining multiple identities in their multicloud strategy adopt Microsoft Entra ID to provide consistent and strong control, auditing, and detection of anomalies and abuse of identities in their environment.
+Both platforms provide identity services to secure application access and API authentication. These services manage user authentication, application permissions, and API access controls through identity-based mechanisms. The [Microsoft identity platform](/entra/identity-platform/) serves as the Azure unified framework for authentication and authorization across applications, APIs, and services. It implements standards like OAuth 2.0 and OIDC. AWS provides similar capabilities through [Amazon Cognito](https://aws.amazon.com/cognito/) as part of its identity suite.
 
-Continued growth of new capabilities across the Microsoft Entra ecosystem helps you stay ahead of threats to your environment as a result of using identities as a common control plane in your multicloud environments.
+| AWS service | Microsoft service | Description |
+|-------------|------------------|-------------|
+|[Amazon Cognito](https://aws.amazon.com/cognito/) <br><br> [AWS Amplify Authentication](https://aws.amazon.com/amplify/authentication/) <br><br> [AWS Security Token Service (STS)](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html) |[Microsoft identity platform](/entra/identity-platform/v2-overview) | Comprehensive identity platform that provides authentication, authorization, and user management for applications and APIs. Both options implement OAuth 2.0 and OIDC standards but have different architectural approaches. |
+
+### Key architectural differences
+
+- **AWS approach:** Distributed services that are composed together
+- **Microsoft approach:** Unified platform that has integrated components
+
+### Developer SDK and libraries
+
+| AWS service | Microsoft service | Description |
+|-------------|------------------|-------------|
+| [AWS Amplify Authentication libraries](https://aws.amazon.com/amplify/authentication/) | [Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview) | Client libraries for implementing authentication flows. MSAL provides a unified SDK across multiple platforms and languages. AWS provides separate implementations through Amplify. |
+| [AWS SDKs for several programming languages](https://aws.amazon.com/developer/tools/) | [MSAL for several programming languages](/entra/identity-platform/msal-overview#msal-languages-and-frameworks) | Language-specific SDKs to implement authentication. The Microsoft approach provides a high level of consistency across programming languages. |
+
+### OAuth 2.0 flow implementation
+
+| AWS service | Microsoft service | Description |
+|-------------|------------------|-------------|
+| [Amazon Cognito OAuth 2.0 grants](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-integrate-apps.html) | [Microsoft identity platform authentication flows](/entra/identity-platform/authentication-flows-app-scenarios) | Support standard OAuth 2.0 flows, including authorization code, implicit, client credentials, and device code |
+| [Cognito user pools authorization code flow](https://docs.aws.amazon.com/cognito/latest/developerguide/authentication.html) | [Microsoft identity platform authorization code flow](/entra/identity-platform/v2-oauth2-auth-code-flow) | Implementation of the secure redirect-based OAuth flow for web applications |
+| [Cognito user pools Proof Key for Code Exchange (PKCE) support](https://docs.aws.amazon.com/cognito/latest/developerguide/using-pkce-in-authorization-code.html) | [Microsoft identity platform PKCE support](/entra/identity-platform/v2-oauth2-auth-code-flow#applications-that-support-the-auth-code-flow) | Enhanced security for public clients by using PKCE |
+| [Cognito custom authentication flows](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html) | [Microsoft identity platform custom policies](/entra/identity-platform/authentication-flows-app-scenarios) | Customization of authentication sequences but with different implementation |
+
+### Identity provider integration
+
+| AWS service | Microsoft or Azure service | Description |
+|-------------|------------------|-------------|
+| [Cognito identity provider federation](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-integrate-apps.html) | [Microsoft identity platform external identity providers](/entra/identity-platform/v2-overview) | Support for social and enterprise identity providers through OIDC and SAML protocols |
+| [Cognito user pools social sign-in](https://docs.aws.amazon.com/cognito/latest/developerguide/tutorial-create-user-pool-social-idp.html) | [Microsoft identity platform social identity providers](/entra/external-id/customers/concept-authentication-methods-customers#social-identity-providers-facebook-google-and-apple) | Integration with providers like Google, Facebook, and Apple for consumer authentication |
+| [Cognito SAML federation](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-integrate-apps.html) | [Microsoft Entra ID SAML federation](/entra/architecture/auth-saml) | Enterprise identity federation through SAML 2.0 |
+
+### Token services
+
+| AWS service | Microsoft or Azure service | Description |
+|-------------|------------------|-------------|
+| [AWS STS](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html) | [Microsoft Entra token service](/entra/identity-platform/security-tokens) | Issue security tokens for application and service authentication |
+| [Cognito token customization](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html) | [Microsoft identity platform token configuration](/entra/identity-platform/access-tokens) | Customization of JSON Web Tokens by using claims and scopes |
+| [Cognito token validation](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html) | [Microsoft identity platform token validation](/entra/identity-platform/access-tokens#validate-tokens) | Libraries and services to verify token authenticity |
+
+### Application registration and security
+
+| AWS service | Microsoft or Azure service | Description |
+|-------------|------------------|-------------|
+| [Cognito app client configuration](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html) | [Microsoft Entra app registrations](/entra/identity-platform/quickstart-register-app) | Registration and configuration of applications by using the identity platform |
+| [AWS IAM roles for applications](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html) | [Microsoft Entra Workload ID](/entra/workload-id/) | Managed identities for application code resource access |
+| [Cognito resource servers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html) | [Microsoft identity platform API permissions](/entra/identity-platform/how-to-add-credentials) | Configuration of protected resources and scopes |
+
+### Developer experience
+
+| AWS service | Microsoft or Azure service | Description |
+|-------------|------------------|-------------|
+| [AWS Amplify CLI](https://docs.amplify.aws/cli/) | [Microsoft identity platform PowerShell CLI](https://github.com/AzureAD/MSIdentityTools) | Command-line tools for identity configuration |
+| [AWS Cognito console](https://console.aws.amazon.com/cognito/home) | [Microsoft Entra admin center](https://entra.microsoft.com/) | Management interfaces for identity services |
+| [Cognito hosted UI](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-integration.html) | [Microsoft identity platform MSAL UI](/entra/identity-platform/msal-authentication-flows) | Pre-built UIs for authentication |
+| [AWS AppSync with Cognito](https://docs.aws.amazon.com/appsync/latest/devguide/security-authorization-use-cases.html) | [Microsoft Graph API with MSAL](/graph/sdks/sdks-overview) | Data access patterns with authentication |
+
+### Platform-specific features
+
+| AWS service | Microsoft service | Description |
+|-------------|------------------|-------------|
+| [Cognito identity pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html) | No direct equivalent | AWS-specific approach to federate identities to AWS resources |
+| No direct equivalent | [Web Apps feature of Azure App Service Easy Auth](/azure/app-service/overview-authentication-authorization) | Platform-level authentication for web applications without code changes |
+| [Cognito user pool Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html) | [Microsoft identity platform B2C custom policies](/azure/active-directory-b2c/custom-policy-overview) | Extensibility mechanisms for authentication flows |
+| [AWS Web Application Firewall with Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) | No direct equivalent | Security policies for access control |
+
+## Contributors
+
+*Microsoft maintains this article. The following contributors wrote this article.*
+
+Principal author:
+
+- [Jerry Rhoads](https://www.linkedin.com/in/jerrymsft/) |
+Principal Partner Solutions Architect
+
+Other contributor:
+
+- [Adam Cerini](https://www.linkedin.com/in/adamcerini/) | Director, Partner Technology Strategist
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- [Microsoft Entra B2B](/azure/active-directory/external-identities/what-is-b2b): enables access to your corporate applications from partner-managed identities.
-- [Azure Active Directory B2C](/azure/active-directory-b2c/overview): service offering support for single sign-on and user management for consumer-facing applications.
-- [Microsoft Entra Domain Services](/azure/active-directory-domain-services/overview): hosted domain controller service, allowing Active Directory compatible domain join and user management functionality.
-- [Getting started with Microsoft Azure security](/azure/security)
-- [Azure Identity Management and access control security best practices](/azure/security/azure-security-identity-management-best-practices)
+- [Plan your Microsoft Entra ID deployment](/entra/architecture/deployment-plans)
+- [Configure hybrid identity with Microsoft Entra Connect](/entra/identity/hybrid/connect/how-to-connect-install-roadmap)
+- [Implement Microsoft Entra PIM](/entra/id-governance/privileged-identity-management/pim-deployment-plan)
+- [Secure applications by using the Microsoft identity platform](/entra/identity-platform/quickstart-register-app)
+
+## Related resources
+
+- [Compare AWS and Azure resource management](resources.md)
+- [Compare AWS and Azure accounts](accounts.md)
+
