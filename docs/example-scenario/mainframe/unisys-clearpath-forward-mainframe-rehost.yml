@@ -4,13 +4,8 @@ metadata:
   description: Learn how to apply Unisys virtualization technologies to migrate a legacy Unisys ClearPath Forward Libra mainframe to Azure.
   author: crzywabbit
   ms.author: pbrooks
-<<<<<<< HEAD
-  ms.date: 11/09/2023
-  ms.topic: conceptual
-=======
   ms.date: 04/07/2025
   ms.topic: example-scenario
->>>>>>> 8d7b402cfd78af80c3a53f1c799bf5068f14cdca
   ms.subservice: example-scenario
   ms.custom:
     - fcp
