@@ -30,6 +30,8 @@ The following diagram shows some of the options for replicating and syncing on-p
 
      Copybooks define the data structure of COBOL, PL/I, and assembly language files. HIS converts these files to ASCII based on the copybook layouts.
 
+   - Mainframe File Data conversion can also be accomplished by using Azure Logic Apps connector for IBM host files.
+
    - Before transferring data to Azure data stores, you might need to transform the data or use it for analytics. Data Factory can manage these extract-transform-load (ETL) and extract-load-transform (ELT) activities and store the data directly in Azure Data Lake Storage.
 
    - For big data integrations, Azure Databricks and Azure Synapse Analytics can perform all transformation activities fast and effectively by using the Apache Spark engine to perform in-memory computations.
@@ -51,13 +53,15 @@ The following diagram shows some of the options for replicating and syncing on-p
 
 ### Components
 
-Various file transfer, integration, and storage scenarios use different components. See the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for Azure resources.
+This architecture uses the following components.
 
 #### Networking
 
 An [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) is bridge software that connects on-premises data to cloud services. You can install the gateway [on a dedicated on-premises VM](/azure/logic-apps).
 
 #### Data integration and transformation
+
+This architecture outlines various Azure-native migration tools that you use depending on the mainframe source data and the target database.
 
 - [Data Provider for Host Files](/host-integration-server/core/data-for-host-files) is a component of [HIS](/host-integration-server/what-is-his) that converts EBCDIC code page files to ASCII. The  provider can read and write records offline in a local binary file, or use Systems Network Architecture (SNA) or Transmission Control Protocol/Internet Protocol (TCP/IP) to read and write records in remote IBM z/OS mainframe datasets or i5/OS physical files. HIS connectors are available for [BizTalk](/host-integration-server/core/biztalk-adapter-for-host-files-configuration1) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps).
 
@@ -67,7 +71,11 @@ An [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) 
   
 - [Azure Synapse Analytics](https://azure.microsoft.com/en-us/products/synapse-analytics/) is a fast and flexible cloud data warehouse with a massively parallel processing (MPP) architecture that you can use to scale, compute, and store data elastically and independently.
 
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview): Logic Apps helps you create and run automated recurring tasks and processes on a schedule. You can call services inside and outside Azure like HTTP or HTTPS endpoints. You can also post messages to Azure services like Azure Service Bus, or get files uploaded to a file share.
+
 #### Databases
+
+This architecture describes how to migrate data to scalable, more secure cloud storage and managed databases for flexible, intelligent data management in Azure.
 
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a scalable relational cloud database service. Azure SQL Database is evergreen and always up to date, with AI-powered and automated features that optimize performance and durability. Serverless compute and hyperscale storage options automatically scale resources on demand. With [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit), you can use your existing on-premises SQL Server licenses on the cloud with no extra cost.
 
