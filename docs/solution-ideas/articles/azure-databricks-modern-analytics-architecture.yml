@@ -10,7 +10,6 @@ metadata:
   ms.custom:
     - arb-data
     - arb-aiml
-  ms.service: azure-architecture-center
   ms.subservice: solution-idea
 azureCategories:
   - ai-machine-learning

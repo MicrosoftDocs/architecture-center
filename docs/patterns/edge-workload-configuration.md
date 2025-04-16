@@ -8,7 +8,6 @@ categories: azure
 ms.author: robbag
 ms.date: 10/12/2022
 ms.topic: design-pattern
-ms.service: azure-architecture-center
 ms.subservice: design-pattern
 azureCategories:
   - analytics
