@@ -86,7 +86,7 @@ Configure mainframe application access via REST APIs for the following scenarios
 
 - **Hybrid solutions with citizen developers:** REST APIs in mainframe applications help citizen developers within enterprises build hybrid solutions. Citizen developers can use mainframe APIs and other APIs within their organization to create innovative applications and integrations. This democratization of API access provides faster development cycles and promotes collaboration among teams.
 
-REST APIs in mainframe applications provide opportunities for modernization and expansion while preserving the essential business logic and data integrity of the mainframe systems. REST APIs in mainframe applications support an array of front-end technologies and empower citizen developers.
+REST APIs in mainframe applications provide opportunities for modernization and expansion while preserving the essential business logic and data integrity of the mainframe systems. REST APIs in mainframe applications support several front-end technologies and empower citizen developers.
 
 ## Considerations
 
@@ -152,7 +152,7 @@ Other contributors:
 
 ## Next steps
 
-For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
+For more information, [contact the Legacy Migrations Engineering team](mailto:legacy2azure@microsoft.com).
 
 - [Azure DevOps services](https://azure.microsoft.com/products/devops)
 - [IBM Z and Cloud Modernization Stack](https://www.ibm.com/products/z-and-cloud-modernization-stack)

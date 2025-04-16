@@ -21,4 +21,4 @@ name: Extend mainframes to digital channels by using standards-based REST APIs
 summary: Learn how the digital transformation architecture extends mainframe applications to Azure without disruptions or modifications to existing applications.
 thumbnailUrl: /azure/architecture/browse/thumbs/extend-mainframes-rest-apis.png
 content: |
-  [!include[](extend-mainframes-rest-apis-content.md)]
+  [!INCLUDE[](extend-mainframes-rest-apis-content.md)]
