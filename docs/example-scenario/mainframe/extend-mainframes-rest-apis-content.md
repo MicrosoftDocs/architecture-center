@@ -6,21 +6,25 @@ To meet the demand for streamlined access, you can adopt integration approaches 
 
 The following architecture shows how IBM Z and Cloud Modernization Stack provide a low-code solution to extend mainframe subsystems via standards-based REST APIs.
 
-:::image type="complex" source="./media/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.svg" alt-text="A diagram of the responsibility matrix, showing a deployment using an Azure network connection." lightbox="./media/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.svg" border="false":::
+:::image type="complex" source="./media/extend-mainframes.svg" alt-text="Diagram that shows an architecture that extends mainframe subsystems via REST APIs." lightbox="./media/extend-mainframes.svg" border="false":::
+The diagram is divided into the cloud environment and the on-premises environment. The Microsoft edge routers and local edge routers connect via an ExpressRoute circuit. The cloud environment contains the Red Hat OpenShift Container Platform, which IBM Z and Cloud Modernization Stack, which contains z/OS Connect. z/OS Connect contains Designer and Server. This entire component connects to custom connectors and REST APIs. The custom connectors connect to Power Apps, which connects to external users and Microsoft Entra ID. Microsoft Entra ID connects to external users and applications and App Service environments. The REST APIs connect to API Management, which connects to applications and App Service environments. Applications and App Service environments also connect to external users. The cloud environment also contains Azure Monitor, Application Insights, and Azure Site Recovery.
+
+The on-premises environment hosts the IBM zSeries mainframe. On-premises web interface users and on-premises admin and users connect to a box that contains several components. These components include communications standards, integration middleware, z/OS applications, data and databases, test logical partitions, production logical partitions, and Hypervisor. Integration middleware includes middleware, environment integrators, and other services, such as tape storage and monitoring. z/OS applications include Customer Information Control System and Information Management System transaction processing monitors, business applications, and shared business services. Data and databases include relational databases, hierarchical databases, and data files.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.vsdx) of this architecture.*
 
 ### Workflow
-Access mainframe applications through Azure by:
 
-Take the following steps to create and deploy APIs for mainframe applications by using a contract-first approach:
+The following workflow corresponds to the previous diagram.
+
+To create and deploy APIs for mainframe applications by using a contract-first approach, do the following steps:
 
 1. Import an OpenAPI v3 (OAS3) declarative JSON API schema file into the [z/OS Connect Designer](https://www.ibm.com/docs/cloud-paks/z-modernization-stack/2023.4?topic=concepts-what-is-zos-connect-designer).
 
 1. Use the z/OS Connect Designer to [map your API and z/OS assets](https://www.ibm.com/docs/cloud-paks/z-modernization-stack/2023.4?topic=designer-mapping-your-rest-api-operations-zos-assets).
 1. Test the functionality of the APIs by interacting with core z/OS applications. Push the mappings into source control management.
-1. Build a web archive file, and run the production in [the z/OS Connect Server image](https://www.ibm.com/docs/zos-connect/zos-connect/3.0?topic=concepts-what-is-zos-connect-server-image).
+1. Build a web archive file, and run the production in [the z/OS Connect Server image](https://www.ibm.com/docs/zos-connect/3.0.0?topic=zos-connect-server-image).
 1. Import the OAS3 specification into [Azure API Management](https://azure.microsoft.com/products/api-management/), and establish a connection with the z/OS Connect Server.
 1. Enable and enforce API authentication and authorization mechanisms by using Microsoft Entra ID for enhanced security. For more information, see [Authentication and authorization to APIs in API Management](/azure/api-management/authentication-authorization-overview).
 1. Microsoft Entra ID is validated from Power Apps.
@@ -100,7 +104,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-- Microsoft Entra ID provides a variety of security features and capabilities to help protect identities, applications, and data. It also provides authentication and authorization of users and applications. The integration of Microsoft Entra ID with OAuth enables more secure authentication and authorization for applications.
+- Microsoft Entra ID provides various security features and capabilities to help protect identities, applications, and data. It also provides authentication and authorization of users and applications. The integration of Microsoft Entra ID with OAuth enables more secure authentication and authorization for applications.
 
 - IBM zSystems provide robust security capabilities for DevSecOps to mitigate business risks, safeguard application data, and help ensure long-term security for your systems.
 
@@ -126,7 +130,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-- z/OS Connect handles multiple API requests concurrently via the parallel processing capabilities of IBM Z. This parallel processing uses system resources and reduces response times for API calls, which enhances performance.
+- z/OS Connect handles multiple API requests concurrently via the parallel processing capabilities of IBM Z. This parallel processing uses system resources and reduces response times for API calls, which enhance performance.
 
 - Performance efficiency is a core strength of IBM z/OS Connect. It handles high transaction volumes and manages concurrent connections. The solution's scalability expands both horizontally and vertically so that it can adapt to the evolving demands of workloads.
 

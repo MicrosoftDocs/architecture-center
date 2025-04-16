@@ -19,6 +19,6 @@ products:
   - power-apps
 name: Extend mainframes to digital channels by using standards-based REST APIs
 summary: Digital transformation architecture extends mainframe applications to Azure without disruptions or modifications to the existing mainframe applications.
-thumbnailUrl: /azure/architecture/browse/thumbs/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.png
+thumbnailUrl: /azure/architecture/browse/thumbs/extend-mainframes-rest-apis.png
 content: |
-  [!include[](extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis-content.md)]
+  [!include[](extend-mainframes-rest-apis-content.md)]
