@@ -10,7 +10,7 @@ OLAP systems tackle this by efficiently extracting business intelligence from da
 Fig 1. Azure Analytics Service
 
 
-OLAP systems have traditionally used CUBE data design, organizing data in a multi-dimensional model. As technology has progressed and both data and computation scales have increased, OLAP systems are transitioning to Massively Parallel Processing (MPP) architectures supported by [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview). For more information about Microsoft Fabric analytical data store architecture visit [Microsoft Fabric analytical data store ](https://techcommunity.microsoft.com/blog/analyticsonazure/decision-guide-for-selecting-an-analytical-data-store-in-microsoft-fabric/4362079). 
+OLAP systems have traditionally utilized multi-dimensional data cubes to organize data in a way that supports complex queries and analysis. As technology has progressed and both data and computation scales have increased, OLAP systems are transitioning to Massively Parallel Processing (MPP) architectures supported by [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview). For more information about Microsoft Fabric analytical data store architecture visit [Microsoft Fabric analytical data store](https://techcommunity.microsoft.com/blog/analyticsonazure/decision-guide-for-selecting-an-analytical-data-store-in-microsoft-fabric/4362079). 
 
 ![Diagram that shows the OLAP logical architecture in Azure.](../images/olap-fabric.png)
 Fig 2. Microsoft Fabric
