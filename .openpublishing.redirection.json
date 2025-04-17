@@ -1012,7 +1012,8 @@
     },
     {
       "source_path": "docs/example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.yml",
-      "redirect_url": "/azure/architecture/example-scenario/mainframe/extend-mainframes-rest-apis"
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/extend-mainframes-rest-apis",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/cloud-adoption/digital-estate/rationalize.md",

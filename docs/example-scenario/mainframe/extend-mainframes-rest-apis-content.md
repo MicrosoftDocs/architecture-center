@@ -24,7 +24,7 @@ To create and deploy APIs for mainframe applications by using a contract-first a
 
 1. Use the z/OS Connect Designer to [map your API and z/OS assets](https://www.ibm.com/docs/cloud-paks/z-modernization-stack/2023.4?topic=designer-mapping-your-rest-api-operations-zos-assets).
 1. Test the functionality of the APIs by interacting with core z/OS applications. Push the mappings into source control management.
-1. Build a web archive file, and run the production in [the z/OS Connect Server image](https://www.ibm.com/docs/zos-connect/3.0.0?topic=zos-connect-server-image).
+1. Build a web archive file, and deploy it in [the z/OS Connect Server image](https://www.ibm.com/docs/zos-connect/3.0.0?topic=zos-connect-server-image).
 1. Import the OAS3 specification into [Azure API Management](https://azure.microsoft.com/products/api-management/), and establish a connection with the z/OS Connect Server.
 1. Enable and enforce API authentication and authorization mechanisms by using Microsoft Entra ID for enhanced security. For more information, see [Authentication and authorization to APIs in API Management](/azure/api-management/authentication-authorization-overview).
 1. Microsoft Entra ID is validated from Power Apps.
@@ -54,7 +54,7 @@ IT staff use Azure tools to monitor the system and implement disaster recovery m
 
 - [API Management](/azure/well-architected/service-guides/azure-api-management) provides a hybrid, multicloud management platform for APIs across all environments. APIs enable digital experiences, simplify application integration, support new digital products, and make data and services reusable and accessible.
 
-- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform that you can use to build, deploy, and scale web apps. It supports various programming languages and frameworks, which provides seamless integration with Azure services. App Service provides autoscaling and high availability features to simplify app deployment and management. [Visual Studio](/visualstudio/get-started/visual-studio-ide) is an integrated development environment that you can use to write, edit, debug, and build code, and deploy web apps.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform that you can use to build, deploy, and scale web apps. It supports various programming languages and frameworks, which provides seamless integration with Azure services. App Service provides autoscaling and high availability features to simplify app deployment and management.
 
 - [Microsoft Power Platform](/power-platform) enables you to rapidly implement low-code application development on Azure to modernize processes and solve challenges. These features increase agility across your organization.
 
@@ -73,8 +73,6 @@ Instead of an ExpressRoute gateway, you can use an Azure VPN gateway. A VPN gate
 You can deploy IBM Z and Cloud Modernization Stack and z/OS Connect on Azure via Azure Marketplace or Azure Resource Manager templates. You can use this solution to build REST APIs for z/OS applications and data while adhering to OpenAPI standards. You can also scale business-critical APIs and take advantage of IBM Z benefits. Seamless integration with API management solutions like [API Management](https://azure.microsoft.com/products/api-management/) ensures effective API governance. You can integrate APIs with web applications or Microsoft Power Platform for efficient data exchange and integration.
 
 [z/OS Connect Designer](https://www.ibm.com/docs/cloud-paks/z-modernization-stack/2023.2?topic=concepts-what-is-zos-connect-designer) features an intuitive web user interface that provides a low-code approach that's designed to create APIs for IBM Z. This graphical interface reduces development time and the learning curve for new developers who use z/OS Connect.
-
-[API Management](https://azure.microsoft.com/products/api-management/) is a fully managed service that helps you publish, secure, and manage APIs for applications. It provides a comprehensive set of tools and features to create, monitor, and control the lifecycle of APIs.
 
 [Power Apps](/power-apps/powerapps-overview) in [Microsoft Power Platform](https://www.microsoft.com/power-platform) is a low-code or no-code option to create a web-based user interface that connects to the previously mentioned developed services. This architecture shows both a low-code Power Apps client and a custom web app client.
 
@@ -124,7 +122,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - [IBM z/OS Connect](https://www.ibm.com/products/zos-connect) facilitates access to back-end application functions by converting them into microservices that have accessible APIs. IBM z/OS Connect enables other applications to interact with these services at scale, while also providing API management and monitoring capabilities.
 
-- [Red Hat OpenShift Container Platform](https://www.redhat.com/technologies/cloud-computing/openshift/container-platform) streamlines deployment processes, bolsters scalability, fortifies security measures, provides robust monitoring capabilities, facilitates CI/CD features, and integrates with existing operational tools and processes.
+- [Red Hat OpenShift Container Platform](https://www.redhat.com/technologies/cloud-computing/openshift/container-platform) streamlines deployment processes, provides robust monitoring capabilities, facilitates CI/CD features, and integrates with existing operational tools and processes.
 
 ### Performance Efficiency
 
