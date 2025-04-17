@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Certificate Lifecycle Management on Azure
-  description: Learn how to create an infrastructure and workflow to automate the renewal process for certificates issued by a non-integrated certification authority (CA).
+  description: Learn how to create an infrastructure and workflow to automate the renewal process for certificates issued by a nonintegrated certification authority (CA).
   author: fabmas
   ms.author: fabmas
   ms.date: 03/12/2025
@@ -14,7 +14,7 @@ products:
   - azure-event-grid
   - azure-key-vault
 name: Certificate lifecycle management on Azure
-summary: Learn how to create an infrastructure and workflow to automate the renewal process for certificates issued by a non-integrated CA.
+summary: Learn how to create an infrastructure and workflow to automate the renewal process for certificates issued by a nonintegrated CA.
 thumbnailUrl: ../../browse/thumbs/certlc-thumb.png
 content: |
    [!INCLUDE[](index-content.md)]
