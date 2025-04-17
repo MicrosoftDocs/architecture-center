@@ -1,12 +1,10 @@
 ---
 title: Multitenancy and Azure OpenAI
-titleSuffix: Azure Architecture Center
 description: Learn how to deploy the Azure OpenAI models and work with the features associated with each model when you have a multitenant system.
 author: PlagueHO
 ms.author: dascottr
 ms.date: 04/11/2025
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
 products:

@@ -7,7 +7,6 @@ ms.author: robbag
 categories: azure
 ms.date: 07/25/2023
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-devops

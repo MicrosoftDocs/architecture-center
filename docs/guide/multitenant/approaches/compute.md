@@ -1,12 +1,10 @@
 ---
 title: Architectural approaches for compute in multitenant solutions
-titleSuffix: Azure Architecture Center
 description: This article describes approaches to support multitenancy for the compute components of your solution.
 author: DixitArora-MSFT
 ms.author: dixitaro
 ms.date: 06/05/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure

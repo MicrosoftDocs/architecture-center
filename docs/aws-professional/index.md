@@ -5,7 +5,6 @@ author: scaryghosts
 ms.author: adamcerini
 ms.date: 02/07/2025
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.collection: 
  - migration

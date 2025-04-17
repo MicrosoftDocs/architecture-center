@@ -85,7 +85,7 @@ items:
       - name: Big data
         items:
         - name: Big data architectures
-          href: guide/big-data-architectures.yml
+          href: guide/big-data-architectures.md
         - name: Microsoft Fabric deployment patterns
           href: ../analytics/architecture/fabric-deployment-patterns.yml
       - name: Governance
