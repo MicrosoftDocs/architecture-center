@@ -1,11 +1,13 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes two OpCon options for implementation in Azure. The first is a managed OpCon implementation supplied and managed by SMA called OpCon Cloud and the second is cloud installation created and managed by the customer called OpCon Datacenter.
+This article describes two OpCon options for implementation in Azure. The first is a managed OpCon implementation supplied and managed by SMA called *OpCon Cloud* and the second is cloud installation created and managed by you called *OpCon Datacenter*.
+
+Reviewing both options will help you make a decision on which approach is best suited for your specific scenario.
 
 ## Architecture: OpCon Cloud
 
-Figure 1 provides an architectural diagram explaining how an OpCon environment using Azure SQL for the database requirements can be deployed within an Azure environment or a hybrid Azure on-premises environment.  
-The implementation uses a single virtual network and multiple subnets to support the various functions. Network security groups can be used to filter network traffic between Azure resources in the virtual network. 
+Figure 1 provides an architectural diagram explaining how an *OpCon Cloud* environment using Azure SQL Database for the database requirements should be deployed within an Azure environment or a hybrid Azure on-premises environment.
+The implementation uses a single virtual network and multiple subnets to support the various functions. Network security groups are used to filter network traffic between Azure resources in the virtual network.
 
 :::image type="content" source="../media/opcon-cloud-architecture.svg" alt-text="Architecture diagram that shows how to deploy OpCon in Azure or a hybrid environment. Besides OpCon, components include SQL Database and VPN Gateway." lightbox="../media/opcon-cloud-architecture.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/opcon-architectures.vsdx) of this architecture.*
@@ -52,33 +54,33 @@ The implementation uses a single virtual network and multiple subnets to support
 
 1. On-premises network: OpCon Core services communicate with OpCon Agents installed on legacy systems within the on-premises systems through the Relay software component.
 
-   Similarly, OpCon Core services communicate directly with Application Rest-API endpoints within the on-premises systems through the Relay software component using Rest-API connectivity options.
+   Similarly, OpCon Core services communicate directly with Application REST API endpoints within the on-premises systems through the OpCon Relay software component using REST API connectivity options.
 
 ## Scenario details
 
-OpCon Cloud is an Azure Cloud installed version of OpCon which is provisioned and managed by SMA. SMA manages software upgrades and monitoring services. It's also possible to purchase more services to assist for creating workflows
+OpCon Cloud is an Azure Cloud installed version of OpCon which is provisioned and managed by SMA. SMA manages software upgrades and monitoring services. It's also possible to purchase more services to assist for creating workflows.
 
 This example architecture depicts an example of running SMA's OpCon Cloud environment in Azure. From this single automation control point, OpCon automates workflows across the enterprise – both on-premises and in Azure - facilitating workflows among all servers/systems in the enterprise. The OpCon Schedule Activity Monitor (SAM) is the core OpCon module and communicates with agents on target systems for scheduling and monitoring tasks as well as receiving external events. OpCon agents are supported for installation on Windows, Linux / Unix, Unisys ClearPath Forward mainframes (MCP and 2200), IBM z/OS, and IBM AIX drawing all these platforms under one automation umbrella.
 
-Relay, a new component, connects on-premises systems with the OpCon Cloud environment through a single point of contact. This feature eliminates the need for Azure VPN connections.
+OpCon Relay connects on-premises systems with the OpCon Cloud environment through a single point of contact. This feature eliminates the need for Azure VPN connections.
 
-A new 'Connectionless' agent platform is also available that provides direct connectivity between OpCon Cloud systems and Rest-API implementations meaning no extra containers are required to support connections to applications. 
+A 'Connectionless' agent platform is also available that provides direct connectivity between OpCon Cloud systems and REST API implementations. With this platform, no extra containers are required to support connections to applications.
 
-OpCon Cloud is provisioned within the SMA environment and managed by SMA. On-premises servers are connected to the Relay software component. It's possible to install multiple Relay components within the on-premises environment. For OpCon Cloud, the OpCon environment is deployed within a Kubernetes cluster using the Azure Kubernetes Service and an Azure SQL Server database.  
+OpCon Cloud is provisioned within the SMA environment and managed by SMA. On-premises servers are connected to the Relay software component. It's possible to install multiple Relay components within the on-premises environment. For OpCon Cloud, the OpCon environment is deployed within a Kubernetes cluster using the Azure Kubernetes Service and an Azure SQL Database server.
 
 ## Architecture: OpCon Datacenter
 
 It's possible to install OpCon within the Azure cloud environment supporting a hybrid cloud / on-premises infrastructure or a cloud-only infrastructure. 
 
-For deployment in cloud environments, the OpCon software is available from Docker Hub as Docker images.  
+The OpCon software is available from Docker Hub as Docker images.
 
 For the Azure cloud, the OpCon environment is deployed within a Kubernetes cluster using the Azure Kubernetes Service and a SQL Server database. The following example architecture depicts an example of running SMA's OpCon in Azure using a Kubernetes configuration.   
 
-Figure 2 provides an architectural diagram explaining how an OpCon environment using Azure SQL for the database requirements can be deployed within an Azure environment or a hybrid Azure on-premises environment. The figure uses a VPN Gateway to provide a secure link between the cloud infrastructure and the on-premises infrastructure.  
+Figure 2 provides an architectural diagram explaining how an OpCon environment using Azure SQL Database for the database requirements is deployed by you within an Azure environment or a hybrid Azure on-premises environment. The figure uses a site-to-site VPN Gateway to provide a secure link between the cloud infrastructure and the on-premises infrastructure.
 
 :::image type="content" source="../media/opcon-datacenter-architecture.svg" alt-text="Diagram that shows the OpCon Datacenter architecture." lightbox="../media/opcon-datacenter-architecture.svg" border="false":::
 
-The implementation uses a single virtual network and multiple subnets to support the various functions. Network security groups can be used to filter network traffic between Azure resources in the virtual network. 
+The implementation uses a single virtual network and multiple subnets to support the various functions. Network security groups are used to filter network traffic between Azure resources in the virtual network.
 
 ### Workflow: OpCon Datacenter
 
@@ -101,13 +103,13 @@ The implementation uses a single virtual network and multiple subnets to support
    - The subnet includes an OpCon MFT Server which is an OpCon component that provides full file transfer capabilities such as compression, encryption, decryption, decompression, file watching, and automated file routing for the enterprise.  
    - Network Security Groups can be used to limit traffic flow between subnets if needed. 
 
-1. VPN Gateway: In a hybrid environment, the Gateway Subnet provides a secure connection between the on-premises environment and the Azure Cloud environment through a Site-to-Site VPN tunnel connection.
+1. In a hybrid environment, the gateway subnet provides a secure connection between the on-premises environment and the Azure Cloud environment through a Site-to-Site VPN tunnel connection.
    
-1. Site-to-Site VPN Tunnel: The gateway includes a cross-premises IPsec/IKE VPN tunnel connection between the VPN gateway and an on-premises VPN device (Site-to-Site). All data passed between the Azure Cloud and the on-premises environment is encrypted in the private tunnel as it crosses the internet.
+1. The gateway includes a cross-premises IPsec/IKE VPN tunnel connection between the VPN gateway and an on-premises VPN device (Site-to-Site). All data passed between the Azure Cloud and the on-premises environment is encrypted in the private tunnel as it crosses the internet.
 
-1. Local Gateway: The Local Network Gateway is a representation of the gateway on the other end of the tunnel within the on-premises environment. This gateway holds configuration information that the tunnel needs to know about to build a VPN tunnel to the other end. 
+1. The local network gateway is a representation of the gateway on the other end of the tunnel within the on-premises environment. This gateway holds configuration information that the tunnel needs to know about to build a VPN tunnel to the other end.
 
-1. Users: All user requests are routed via the gateway connection to the OpCon Core services environment.   
+1. All user requests are routed via the VPN gateway connection to the OpCon Core services environment.
    - User access utilizes the OpCon Solution Manager framework, a web-based user interface for  
      - OpCon Administration.  
      - OpCon MFT Administration.  
@@ -128,11 +130,11 @@ From this single automation control point, OpCon automates workflows across the 
 
 ### Components
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) Azure virtual machines (VMs) are one of several types of on-demand, scalable computing resources that Azure offers. An Azure VM gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. With Azure VMs, you have a choice of operating system which includes both Windows and Linux.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) Azure virtual machines (VMs) give you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. With Azure VMs, you have a choice of operating system which includes both Windows and Linux.
 
   These architectures use Azure VMs to host OpCon agents that communicate with OpCon core services for workload management.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) Azure Virtual Network is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. Virtual Network is like a traditional network that you would operate in your own datacenter but brings with it extra benefits of Azure's infrastructure such as scale, availability, and isolation.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) Azure Virtual Network is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
 
   In these architectures, Virtual Network supports multiple subnets for different functions and uses network security groups to filter traffic.
 
@@ -156,7 +158,7 @@ From this single automation control point, OpCon automates workflows across the 
 
    In these architectures, Site Recovery allows failover during outages to a secondary site where you can access apps. It also provides failback after the primary site is operational.
 
-- Microsoft Azure SQL or [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) – The OpCon backend can utilize either Azure SQL or SQL MI to manage OpCon entries. 
+- Microsoft Azure SQL Database or [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) – The OpCon backend can utilize either Azure SQL Database or SQL Managed Instances to manage OpCon entries.
 
   In these architectures, the OpCon database is installed within an Azure SQL environment and accessed through a private endpoint.
 
@@ -168,11 +170,13 @@ From this single automation control point, OpCon automates workflows across the 
    These architectures use OpCon Cloud to automate workflows across the enterprise, both on-premises and in Azure.
 - [OpCon Self Service](https://help.smatechnologies.com/opcon/core/v21.0/Files/UI/Solution-Manager/Working-with-Self-Service) - OpCon Self Service is a web-based implementation that allows users to execute on-demand tasks, optionally entering arguments within the OpCon environment.
 
-  These architectures use OpCon Self Service to provide a user interaface for task implemementation and monitoring.
-- [OpCon Vision](https://smatechnologies.com/product-opcon/opcon-vision)-gets-powerful-new-capabilities- OpCon Vision provides a dashboard capability for monitoring OpCon tasks. It's a logical representation of the tasks across all flows. Tasks are grouped using tags, with each group representing all associated tasks. When problems occur is it possible to 'drill' down from the dashboard to the failed task.
+  These architectures use OpCon Self Service to provide a user interface for task implementation and monitoring.
 
-  These architectures use OpCon Vision to set SLA values for task groups and provide early warnings if SLA values will be exceeded.
-- [OpCon MFT](https://help.smatechnologies.com/opcon/agents/opconmft/introduction) - OpCon MFT provides Managed File Transfer within the OpCon environment. Providing file transfer and monitoring functionality across the enterprise using an integrated MFT Agent and a File Transfer Server.
+- [OpCon Vision](https://smatechnologies.com/product-opcon/opcon-vision) provides a dashboard capability for monitoring OpCon tasks. It's a logical representation of the tasks across all flows. Tasks are grouped using tags, with each group representing all associated tasks. When problems occur is it possible to 'drill' down from the dashboard to the failed task.
+
+  These architectures use OpCon Vision to set SLO values for task groups and provide early warnings if SLO values will be exceeded.
+
+- [OpCon MFT](https://help.smatechnologies.com/opcon/agents/opconmft/introduction) provides managed file transfer within the OpCon environment. Providing file transfer and monitoring functionality across the enterprise using an integrated MFT Agent and a File Transfer Server.
 
   These architectures use OpCon MFT to support compression, encryption, decryption, decompression, file watching, and automated file routing.
 
@@ -198,30 +202,45 @@ Instead of using a VPN Gateway and a Site-to-Site VPN Tunnel, an ExpressRoute im
 
 ExpressRoute is recommended for hybrid applications running large-scale mission-critical workloads that require a high degree of scalability and resiliency. 
 
-## AKS Kubernetes information
+## Azure Kubernetes Service configuration
 
-The deployed OpCon environment consists of two pods (OpCon & Impex2) within a single replica set and an Azure-SQL database. Access to the pods is controlled through a load balancer that maps the external addresses and ports to the internal Rest-API server addresses ports. Figure 3 shows the configuration requirements and the relationship between the various definitions. 
+The deployed OpCon environment consists of two pods (OpCon & Impex2) within a single replica set and an Azure SQL database. Access to the pods is controlled through a load balancer that maps the external addresses and ports to the internal Rest-API server addresses ports. Figure 3 shows the configuration requirements and the relationship between the various definitions.
 
 :::image type="content" source="../media/opcon-kubernetes.svg" alt-text="Diagram that shows the Kubernetes configuration." lightbox="../media/opcon-kubernetes.svg" border="false":::
 
-The previous diagram shows the various definitions included in the Kubernetes configuration yaml file. 
+The previous diagram shows the various definitions included in the Kubernetes configuration yaml file.
+
 - Kind: Secret - dbpasswords   
-Contains the database passwords required to connect to the OpCon database.
+
+  Contains the database passwords required to connect to the OpCon database.
 
 - Kind: ConfigMap - opcon  
-The OpCon config map contains the OpCon database information (address, db name, db user), the OpCon Rest-API information, and time zone and language information. 
+
+  The OpCon config map contains the OpCon database information (address, DB name, DB user), the OpCon REST API information, and time zone and language information.
+
 - Kind: ConfigMap - impex  
-The Impex2 config map contains the OpCon database information (address, db name, db user) and the ImpEx2 Rest-API information. 
+
+  The Impex2 config map contains the OpCon database information (address, db name, db user) and the ImpEx2 Rest-API information.
+
 - Kind: PersistentVolumeClaim - opconconfig  
-The opcon config PVC contains the various .ini files and the OpCon license file. 
+
+  The opcon config PVC contains the various .ini files and the OpCon license file.
+
 - Kind: PersistentVolumeClaim - opconlog  
-The opconlog PVC contains the log files associated with the OpCon environment. 
+
+  The opconlog PVC contains the log files associated with the OpCon environment.
+
 - Kind: PersistentVolumeClaim - impexlog  
-The impexlog PVC contains the log files associated with the ImpEx2 environment. 
-- Kind: ReplicaSet -opcon  
-The OpCon and ImpEx2 container definitions referencing the previously defined secret, configmaps, and PersistentVolumeClaim definitions. 
-- Kind: Service – loadbalancer  
-Defines the mapping of the internal Rest-API ports for the OpCon and Impex2 Rest Servers to external addresses and ports. 
+
+  The impexlog PVC contains the log files associated with the ImpEx2 environment.
+
+- Kind: ReplicaSet - opcon
+
+  The OpCon and ImpEx2 container definitions referencing the previously defined secret, configmaps, and PersistentVolumeClaim definitions.
+
+- Kind: Service – loadbalancer
+
+  Defines the mapping of the internal Rest-API ports for the OpCon and Impex2 rest servers to external addresses and ports.
 
 ### Potential Use Cases
 
