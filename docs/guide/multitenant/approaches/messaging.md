@@ -1,12 +1,10 @@
 ---
 title: Architectural approaches for messaging in multitenant solutions
-titleSuffix: Azure Architecture Center
 description: This article describes approaches for messaging in a multitenant solution.
 author: paolosalvatori
 ms.author: paolos
 ms.date: 11/27/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-service-bus

@@ -1,12 +1,10 @@
 ---
 title: Multitenancy and Azure Event Hubs
-titleSuffix: Azure Architecture Center
 description: Learn about the Azure Event Hubs features and isolation models that you can use to implement an event-driven architecture for a multitenant system.
 author: landonpierce
 ms.author: landonpierce
 ms.date: 06/05/2024 
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure

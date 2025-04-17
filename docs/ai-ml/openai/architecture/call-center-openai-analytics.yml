@@ -1,14 +1,12 @@
 ### YamlMime:Architecture
 metadata:
   title: Extract and analyze call center data by using Azure OpenAI Service, Speech services, and Language services
-  titleSuffix: Azure Architecture Center
   description: Learn how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service.
   author: DixitArora-MSFT
   ms.author: dixitaro
   ms.date: 10/27/2024
   ms.topic: conceptual
   ms.collection: ce-skilling-ai-copilot
-  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom:
     - arb-aiml

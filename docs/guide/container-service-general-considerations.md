@@ -5,7 +5,6 @@ author: MarcosMMartinez
 ms.author: mamartin
 ms.date: 01/03/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers

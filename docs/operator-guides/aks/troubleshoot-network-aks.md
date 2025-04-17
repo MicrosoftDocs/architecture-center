@@ -5,7 +5,6 @@ author: francisnazareth
 ms.author: fnazaret
 ms.date: 04/15/2022
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks

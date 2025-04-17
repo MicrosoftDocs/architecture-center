@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Intelligent e-commerce product search engine
-  titleSuffix: Azure Architecture Center
   description: This example scenario shows how using a dedicated search service can dramatically increase the relevance of search results for your e-commerce customers.
   author: jelledruyts
   ms.author: jelled
   ms.date: 03/01/2024
   ms.topic: example-scenario
-  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom:
     - fasttrack

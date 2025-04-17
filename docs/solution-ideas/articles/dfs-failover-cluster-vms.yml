@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Deploy a DFS Namespaces failover cluster
-  titleSuffix: Azure Architecture Center
   description: Learn how to deploy a Distributed File System (DFS) Namespaces failover cluster that uses Azure virtual machines.
   author: DevOpsStyle
   ms.author: tommasosacco
   ms.date: 05/23/2024
   ms.topic: conceptual
-  ms.service: azure-architecture-center
   ms.subservice: solution-idea
 azureCategories:
   - compute

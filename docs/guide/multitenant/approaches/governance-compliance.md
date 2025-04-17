@@ -1,12 +1,10 @@
 ---
 title: Architectural approaches for governance and compliance in multitenant solutions
-titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for governance and compliance in a multitenant solution.
 author: johndowns
 ms.author: jodowns
 ms.date: 07/22/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 products:
   - azure
 categories:
