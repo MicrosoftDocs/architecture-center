@@ -6,7 +6,6 @@ metadata:
   author: RobBagby
   ms.date: 07/28/2022
   ms.topic: design-pattern
-  ms.service: azure-architecture-center
   ms.subservice: design-pattern
 azureCategories:
   - web

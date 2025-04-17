@@ -1,12 +1,10 @@
 ---
 title: Choose an Azure storage service
-titleSuffix: Azure Architecture Center
 description: Use this guide to decide which Azure storage service best suits your application.
 author: claytonsiemens77
 ms.author: csiemens
 ms.date: 10/11/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.custom: fcp
 categories: storage

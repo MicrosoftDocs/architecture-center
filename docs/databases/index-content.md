@@ -49,7 +49,7 @@ A *nonrelational database* doesn't use the tabular schema of rows and columns. F
 
 To learn about data lakes, which hold a large amount of data in its native, raw format, see [Data lakes](../data-guide/scenarios/data-lake.md).
 
-A big data architecture can handle ingestion, processing, and analysis of data that is too large or too complex for traditional database systems. For more information, see [Big data architectures](../databases/guide/big-data-architectures.yml) and [Analytics](/azure/architecture/solution-ideas/articles/analytics-start-here).
+A big data architecture can handle ingestion, processing, and analysis of data that is too large or too complex for traditional database systems. For more information, see [Big data architectures](../databases/guide/big-data-architectures.md) and [Analytics](/azure/architecture/solution-ideas/articles/analytics-start-here).
 
 A hybrid cloud is an IT environment that combines public cloud and on-premises datacenters. For more information, consider [Azure Arc](/azure/azure-arc/overview) combined with Azure databases.
 

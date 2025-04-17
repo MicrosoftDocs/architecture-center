@@ -5,7 +5,6 @@ ms.author: robbag
 author: RobBagby
 ms.date: 02/20/2025
 ms.topic: design-pattern
-ms.service: azure-architecture-center
 ms.subservice: design-pattern
 products:
   - azure-storage

@@ -1,14 +1,12 @@
 ### YamlMime:Architecture
 metadata:
   title: Automate PDF forms processing
-  titleSuffix: Azure Architecture Center
   description: Use Azure services such as AI Document Intelligence, Azure Logic Apps, and Azure Functions to implement cost-effective and flexible automated PDF processing.
   author: gailzmicrosoft 
   ms.author: gazho
   ms.date: 01/10/2025
   ms.topic: example-scenario
   ms.collection: ce-skilling-ai-copilot
-  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom: arb-aiml
 azureCategories:

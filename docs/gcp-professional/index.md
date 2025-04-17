@@ -5,7 +5,6 @@ author: ZacharyRiffle
 ms.author: zriffle
 ms.date: 07/11/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
 ms.collection: 
  - migration

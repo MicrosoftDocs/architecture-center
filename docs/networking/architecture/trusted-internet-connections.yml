@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Implement TIC 3.0 compliance 
-  titleSuffix: Azure Architecture Center
   description: Implement Trusted Internet Connection (TIC) 3.0 compliance for your internet-facing Azure applications and services, and improve the user experience.
   author: paullizer
   ms.author: paullizer
   ms.date: 11/21/2024
   ms.topic: conceptual
-  ms.service: azure-architecture-center
   ms.subservice: example-scenario
 azureCategories:
   - networking

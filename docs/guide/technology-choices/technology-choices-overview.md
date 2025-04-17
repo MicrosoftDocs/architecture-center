@@ -5,7 +5,6 @@ author: RobBagby
 ms.author: pnp
 ms.date: 09/19/2022
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-machine-learning

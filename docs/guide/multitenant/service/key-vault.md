@@ -1,12 +1,10 @@
 ---
 title: Azure Key Vault considerations for multitenancy
-titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Key Vault that are useful when you work with multitenanted systems, and it provides links to guidance for how to use Azure Key Vault in a multitenant solution.
 author: johndowns
 ms.author: jodowns
 ms.date: 09/17/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure

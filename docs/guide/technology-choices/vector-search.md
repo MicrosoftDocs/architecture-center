@@ -4,7 +4,6 @@ description: Learn how to use this information to decide which Azure service for
 author: konabuta
 ms.author: yongl
 ms.reviewer: krmeht
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products: azure-machine-learning
 categories: ai-machine-learning
