@@ -75,7 +75,7 @@ The following workflow corresponds to the previous diagram:
 
 1. Azure Site Recovery provides disaster recovery (DR) for VM and container cluster components.
 
-1. Services like [Microsoft Entra ID](/security/business/identity-access/microsoft-entra-id), [Azure Networking](https://azure.microsoft.com/products/category/networking), Stream Analytics, Azure Databricks, and [Power BI](https://azure.microsoft.com/power-platform/products/power-bi/) can easily integrate with the modernized system.
+1. Services like [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id), [Azure Networking](https://azure.microsoft.com/products/category/networking), Stream Analytics, Azure Databricks, and [Power BI](https://www.microsoft.com/power-platform/products/power-bi/) can easily integrate with the modernized system.
 
 ### Components
 
@@ -105,7 +105,7 @@ This example features the following Azure components. Several of these component
 
   - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is a fully managed file storage service that provides enterprise-grade Azure file shares powered by NetApp. Use it to migrate and run complex, file-based applications without requiring code changes.
 
-  - [Blob Storage](/azure/well-architected/service-guides/azure-netapp-files) is scalable and secure object storage for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads. In this architecture, Blob Storage serves as a common landing zone for external data sources.
+  - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is scalable and secure object storage for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads. In this architecture, Blob Storage serves as a common landing zone for external data sources.
 
 - [Azure databases](https://azure.microsoft.com/product-categories/databases) provide a choice of fully managed relational and NoSQL databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security.
 
@@ -125,7 +125,7 @@ The general refactoring approach for mainframe applications drives infrastructur
 
 This general refactoring approach can use AKS or Azure VMs. The choice depends on the portability of existing applications and your preference. Refactoring can accelerate the move into Azure by automatically converting code to Java or .NET, and converting pre-relational databases to relational databases.
 
-Refactoring supports various methods for moving client workloads to Azure. One method is to convert and migrate the entire mainframe system to Azure in a single, comprehensive process. This approach eliminates the need for interim mainframe maintenance and facility support costs. However, it carries some risk, because all application conversion, data migration, and testing processes must align to ensure a smooth transition from the mainframe to Azure.
+Refactoring supports various methods for moving client workloads to Azure. One method is to convert and migrate the entire mainframe system to Azure in a single, comprehensive process. This approach eliminates the need for interim mainframe maintenance and facility support costs. However, this method carries some risk, because all application conversion, data migration, and testing processes must align to ensure a smooth transition from the mainframe to Azure.
 
 Another method is to migrate applications from the mainframe to Azure gradually, with the aim to transition over time. This approach provides cost savings for each application and allows lessons learned during each conversion to inform and improve subsequent migrations. This method provides a more manageable and less intensive alternative to migrating everything at once by modernizing each application according to its own schedule.
 
@@ -147,7 +147,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-In this solution, [Site Recovery](/azure/site-recovery/site-recovery-overview) mirrors the Azure VMs to a secondary Azure region for quick failover and DR if the primary Azure datacenter fails.
+In this architecture, [Site Recovery](/azure/site-recovery/site-recovery-overview) mirrors the Azure VMs to a secondary Azure region for quick failover and DR if the primary Azure datacenter fails.
 
 ### Security
 
@@ -181,7 +181,7 @@ Refactoring not only supports faster cloud adoption, but also promotes the adopt
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-The [load balancers](/products/load-balancer/) integrate performance efficiency into this solution. If one presentation or transaction server fails, the other servers behind the load balancers handle the workloads.
+The [load balancers](/azure/load-balancer/load-balancer-overview) integrate performance efficiency into this solution. If one presentation or transaction server fails, the other servers behind the load balancers handle the workloads.
 
 ## Contributors
 
