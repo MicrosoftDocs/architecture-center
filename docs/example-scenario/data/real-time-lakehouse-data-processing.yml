@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Near real-time lakehouse data processing
-  titleSuffix: Azure Architecture Center
   description: Use Azure Event Hubs, Azure Synapse Analytics, and Azure Data Lake Storage to create an end-to-end, near real-time data lakehouse data processing solution.
   author: pratimav0420
   ms.author: prvalava
   ms.date: 06/07/2024
   ms.topic: example-scenario
-  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom: arb-data
 azureCategories:

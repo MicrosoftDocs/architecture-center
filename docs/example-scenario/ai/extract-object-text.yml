@@ -1,14 +1,12 @@
 ### YamlMime:Architecture
 metadata:
   title: Extract text from objects using Power Automate and AI Builder
-  titleSuffix: Azure Architecture Center
   description: Use AI Builder and Azure AI Document Intelligence in a Power Automate workflow to extract text from images, for indexing and retrieval.
   author: Spucelik
   ms.author: stpuceli
   ms.date: 09/27/2024
   ms.collection: ce-skilling-ai-copilot 
   ms.topic: example-scenario
-  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom: arb-aiml
 azureCategories:

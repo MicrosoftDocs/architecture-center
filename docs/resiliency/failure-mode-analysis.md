@@ -5,7 +5,6 @@ author: claytonsiemens77
 ms.author: csiemens
 ms.date: 07/25/2023
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 azureCategories: management-and-governance
 categories: management-and-governance
