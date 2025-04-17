@@ -121,7 +121,6 @@ Principal author:
 
 ## Related resources
 
-- [Hybrid file share with disaster recovery for remote and local branch workers](hybrid-file-share-dr-remote-local-branch-workers.yml)
 - [Azure enterprise cloud file share](../../hybrid/azure-files-private.yml)
 - [Using Azure file shares in a hybrid environment](../../hybrid/azure-file-share.yml)
 - [Hybrid file services](../../hybrid/hybrid-file-services.yml)

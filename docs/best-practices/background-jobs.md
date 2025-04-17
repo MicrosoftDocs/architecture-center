@@ -7,7 +7,6 @@ author: RobBagby
 ms.date: 10/18/2022
 categories: azure
 ms.topic: best-practice
-ms.service: azure-architecture-center
 ms.subservice: best-practice
 azureCategories:
   - compute

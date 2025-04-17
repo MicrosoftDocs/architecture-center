@@ -302,6 +302,6 @@ Review the [Azure Well-Architected Framework Security pillar](/azure/well-archit
 
 ## Related resources
 
-- [Big data architectures](../../databases/guide/big-data-architectures.yml)
+- [Big data architectures](../../databases/guide/big-data-architectures.md)
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 - [Modern data warehouse for small and medium business](../../example-scenario/data/small-medium-data-warehouse.yml)

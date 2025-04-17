@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Rehost IMS workloads to virtual machines by using IMSql
-  titleSuffix: Azure Architecture Center
   description: Learn how to use IMSql to rehost IMS DB and IMS TM systems on .NET and SQL Server by using virtual machines.
   author: Venkat-Github-Account
   ms.author: vramakrishna
   ms.date: 07/10/2024
   ms.topic: example-scenario
-  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom:
     - devx-track-dotnet

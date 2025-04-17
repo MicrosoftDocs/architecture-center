@@ -5,7 +5,6 @@ author: rajasekharreddy-duddugunta
 ms.author: rduddugunta
 ms.date: 03/26/2025
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 categories:
   - storage

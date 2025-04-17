@@ -905,8 +905,6 @@ items:
           href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
         - name: Hybrid file services
           href: hybrid/hybrid-file-services.yml
-        - name: Hybrid file share with disaster recovery
-          href: example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml
         - name: Use file shares in a hybrid environment
           href: hybrid/azure-file-share.yml
   - name: Identity

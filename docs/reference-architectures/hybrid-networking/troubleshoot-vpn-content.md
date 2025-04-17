@@ -282,7 +282,6 @@ Microsoft Learn modules:
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
 - [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
-- [Hybrid file share with disaster recovery for remote and local branch workers](../../example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml)
 
 <!-- links -->
 
