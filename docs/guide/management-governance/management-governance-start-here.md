@@ -5,7 +5,6 @@ author: RobBagby
 ms.author: pnp
 ms.date: 06/16/2023
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-attestation

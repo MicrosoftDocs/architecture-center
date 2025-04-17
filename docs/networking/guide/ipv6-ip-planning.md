@@ -5,7 +5,6 @@ author: brsteph
 ms.author: leuthaeusern
 ms.date: 01/17/2025
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-virtual-network

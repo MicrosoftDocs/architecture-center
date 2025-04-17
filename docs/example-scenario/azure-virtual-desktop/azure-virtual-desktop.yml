@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure Virtual Desktop for the enterprise
-  titleSuffix: Azure Architecture Center
   description: Explore Azure Virtual Desktop and learn how to build virtual desktop infrastructure solutions at enterprise scale.
   author: TomHickling
   ms.author: thhickli
   ms.date: 06/07/2024
   ms.topic: example-scenario
-  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.category:
     - azure-virtual-desktop

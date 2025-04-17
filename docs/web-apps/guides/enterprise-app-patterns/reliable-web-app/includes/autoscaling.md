@@ -3,7 +3,6 @@ author: ssumner
 ms.author: ssumner
 ms.date: 10/15/2024
 ms.topic: include
-ms.service: azure-architecture-center
 ---
 Autoscaling helps ensure that a web app remains resilient, responsive, and capable of handling dynamic workloads efficiently. To implement autoscaling, follow these recommendations:
 

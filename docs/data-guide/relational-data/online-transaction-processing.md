@@ -5,7 +5,6 @@ author: hz4dkr
 ms.author: ambers
 ms.date: 07/25/2022
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 categories:
   - databases

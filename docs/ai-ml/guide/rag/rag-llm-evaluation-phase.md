@@ -5,7 +5,6 @@ author: robbagby
 ms.author: robbag
 ms.date: 01/29/2025 
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom: arb-aiml

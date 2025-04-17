@@ -1,14 +1,12 @@
 ### YamlMime:Architecture
 metadata:
   title: Basic OpenAI End-to-End Chat Reference Architecture
-  titleSuffix: Azure Architecture Center
   description: Establish foundational knowledge for how to build and deploy enterprise chat applications by using Azure OpenAI, Azure AI Foundry, and Azure App Service.
   author: robbagby
   ms.author: robbag
   ms.date: 12/05/2024
   ms.topic: reference-architecture
   ms.collection: ce-skilling-ai-copilot  
-  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.custom: arb-aiml
 azureCategories:

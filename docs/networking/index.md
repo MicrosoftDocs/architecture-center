@@ -5,7 +5,6 @@ author: RobBagby
 ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-virtual-network
