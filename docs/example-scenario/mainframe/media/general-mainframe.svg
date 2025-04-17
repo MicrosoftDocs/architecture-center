@@ -7,6 +7,7 @@
 	<v:documentProperties v:langID="1033" v:viewMarkup="false">
 		<v:userDefs>
 			<v:ud v:nameU="msvNoAutoConnect" v:prompt="" v:val="VT0(1):26"/>
+			<v:ud v:nameU="msvWarnOnPersonalInfo" v:val="VT0(1):5"/>
 		</v:userDefs>
 	</v:documentProperties>
 
@@ -394,14 +395,14 @@
 		</g>
 		<g id="shape887-96" v:mID="887" v:groupContext="shape" transform="translate(813.098,-333.255)">
 			<title>Sheet.887</title>
-			<desc>Hierarchical/network database system</desc>
+			<desc>Hierarchical or network database system</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(26000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="65.25" cy="478.31" width="130.5" height="54"/>
 			<rect x="0" y="451.31" width="130.5" height="54" class="st4"/>
-			<text x="4" y="475.01" class="st23" v:langID="1033"><v:paragraph/><v:tabList/>Hierarchical/network <tspan x="4"
+			<text x="4" y="475.01" class="st23" v:langID="1033"><v:paragraph/><v:tabList/>Hierarchical or network <tspan x="4"
 						dy="1.2em" class="st7">database system </tspan> </text>		</g>
 		<g id="shape888-100" v:mID="888" v:groupContext="shape" transform="translate(816.293,-196.005)">
 			<title>Sheet.888</title>
@@ -455,8 +456,8 @@
 				<v:ud v:nameU="visNavOrder" v:val="VT0(48000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="96.75" cy="478.31" width="193.5" height="54"/>
-			<rect x="0" y="451.31" width="193.5" height="54" class="st4"/>
+			<v:textRect cx="103.185" cy="478.31" width="206.37" height="54"/>
+			<rect x="0" y="451.31" width="206.37" height="54" class="st4"/>
 			<text x="4" y="474.71" class="st5" v:langID="1033"><v:paragraph/><v:tabList/>Transaction processing monitor <tspan
 						x="4" dy="1.2em" class="st7">and applications</tspan></text>		</g>
 		<g id="group1127-118" transform="translate(474.396,-300.543)" v:mID="1127" v:groupContext="group">
