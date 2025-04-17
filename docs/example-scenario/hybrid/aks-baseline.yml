@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure Kubernetes Service (AKS) baseline architecture for AKS on Azure Local
-  titleSuffix: Azure Example Scenarios
   description: Learn how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) running on Azure Local.
   author: sethmanheim
   ms.author: sethm

@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: General mainframe refactor to Azure
-  titleSuffix: Azure Example Scenarios
   description: See how to refactor general mainframe applications to run more cost-effectively and efficiently on Azure.
   author: Venkat-Github-Account
   ms.author: vramakrishna

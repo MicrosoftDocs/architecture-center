@@ -1,6 +1,5 @@
 ---
 title: Criteria for data store choice
-titleSuffix: Azure Application Architecture Guide
 description: Explore general considerations when you choose your data store. Examine functional and nonfunctional requirements, management and cost, security, and DevOps.
 author: PageWriter-MSFT
 ms.author: prwilk

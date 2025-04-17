@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Troubleshoot a hybrid VPN connection
-  titleSuffix: Azure Reference Architectures
   description: Learn tips for how to troubleshoot a VPN gateway connection between an on-premises network and Azure.
   author: RobBagby
   ms.author: pnp
