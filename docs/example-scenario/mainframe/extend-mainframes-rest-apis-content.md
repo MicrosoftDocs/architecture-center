@@ -46,23 +46,23 @@ IT staff use Azure tools to monitor the system and implement disaster recovery m
 
 ### Components
 
-- [Red Hat OpenShift](https://www.redhat.com/technologies/cloud-computing/openshift) reduces the friction of developing, modernizing, deploying, running, and managing applications. Red Hat OpenShift delivers a consistent experience across public cloud, on-premises, hybrid cloud, and edge architectures.
+- [Red Hat OpenShift](https://www.redhat.com/technologies/cloud-computing/openshift) reduces the friction of developing, modernizing, deploying, running, and managing applications. In this architecture, Red Hat OpenShift delivers a consistent experience across public cloud, on-premises, hybrid cloud, and edge architectures.
 
-- [IBM Z and Cloud Modernization Stack](https://www.ibm.com/products/z-and-cloud-modernization-stack) provides simple and more secure access to mainframe applications and data through APIs. You can use modern [DevOps for IBM Z](https://www.ibm.com/z/devops) with industry-standard tooling and modern languages to expand your talent pool.
+- [IBM Z and Cloud Modernization Stack](https://www.ibm.com/products/z-and-cloud-modernization-stack) provides simple and more secure access to mainframe applications and data through APIs. This architecture enables modern [DevOps for IBM Z](https://www.ibm.com/z/devops) with industry-standard tooling and modern languages to expand your talent pool.
 
-- [IBM z/OS Connect](https://www.ibm.com/products/zos-connect) is a middleware solution that provides more secure connectivity between cloud-native applications and IBM z/OS systems. You can use it to integrate and use data and services that reside on the mainframe, while also embracing modern technologies and open standards.
+- [IBM z/OS Connect](https://www.ibm.com/products/zos-connect) is a middleware solution that provides more secure connectivity between cloud-native applications and IBM z/OS systems. In this architecture, IBM z/OS Connect integrates and uses data and services that reside on the mainframe, while embracing modern technologies and open standards.
 
-- [API Management](/azure/well-architected/service-guides/azure-api-management) provides a hybrid, multicloud management platform for APIs across all environments. APIs enable digital experiences, simplify application integration, support new digital products, and make data and services reusable and accessible.
+- [API Management](/azure/well-architected/service-guides/azure-api-management) provides a hybrid, multicloud management platform for APIs across all environments. This architecture uses APIs to enable digital experiences, simplify application integration, support new digital products, and make data and services reusable and accessible.
 
-- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform that you can use to build, deploy, and scale web apps. It supports various programming languages and frameworks, which provides seamless integration with Azure services. App Service provides autoscaling and high availability features to simplify app deployment and management.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform that you can use to build, deploy, and scale web apps. In this architecture, App Service supports various programming languages and frameworks, which provides seamless integration with Azure services. It also provides autoscaling and high availability features to simplify app deployment and management.
 
-- [Microsoft Power Platform](/power-platform) enables you to rapidly implement low-code application development on Azure to modernize processes and solve challenges. These features increase agility across your organization.
+- [Microsoft Power Platform](/power-platform) enables you to rapidly implement low-code application development on Azure to modernize processes and solve challenges. In this architecture, Microsoft Power Platform enhances the ability to quickly develop and deploy applications.
 
-- [Azure Monitor](/azure/azure-monitor/overview) helps maximize the availability and performance of applications and services. It delivers a comprehensive solution to collect, analyze, and act on information from cloud and on-premises environments. This information helps you identify problems and understand how your applications perform.
+- [Azure Monitor](/azure/azure-monitor/overview) helps maximize the availability and performance of applications and services. This architecture uses Azure Monitor to collect, analyze, and act on information from cloud and on-premises environments. This information helps you identify problems and understand how your applications perform.
 
-- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends on-premises networks into the Microsoft Cloud over a private connection that a connectivity provider facilitates. Use ExpressRoute to establish connections to Microsoft Cloud services, such as Microsoft Azure and Microsoft 365.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends on-premises networks into the Microsoft Cloud over a private connection that a connectivity provider facilitates. In this architecture, ExpressRoute establishes connections to Microsoft Cloud services, such as Microsoft Azure and Microsoft 365.
 
-- [Site Recovery](/azure/site-recovery/site-recovery-overview) is a disaster recovery solution that helps protect and recover applications and workloads that run on virtual or physical machines. It provides business continuity and minimizes downtime during planned or unplanned outages.
+- [Site Recovery](/azure/site-recovery/site-recovery-overview) is a disaster recovery solution that helps protect and recover applications and workloads that run on virtual or physical machines. This architecture uses Site Recovery to provide business continuity and minimize downtime during planned or unplanned outages.
 
 ### Alternatives
 
