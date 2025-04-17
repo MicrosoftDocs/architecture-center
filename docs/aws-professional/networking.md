@@ -6,7 +6,6 @@ categories: azure
 ms.author: adamcerini
 ms.date: 01/02/2025
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
 azureCategories:
   - compute

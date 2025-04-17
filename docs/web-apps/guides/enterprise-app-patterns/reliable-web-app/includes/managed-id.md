@@ -3,7 +3,6 @@ author: ssumner
 ms.author: ssumner
 ms.date: 10/15/2024
 ms.topic: include
-ms.service: azure-architecture-center
 ---
 Use [managed identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) for all Azure services that support them. A managed identity allows Azure resources ([workload identities](/entra/workload-id/workload-identities-overview)) to authenticate to and interact with other Azure services without requiring you to manage credentials. To simplify the migration, you can continue to use on-premises authentication solutions for hybrid and legacy systems, but you should transition them to managed identities as soon as possible. To implement managed identities, follow these recommendations:
 

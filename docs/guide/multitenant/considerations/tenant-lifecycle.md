@@ -1,12 +1,10 @@
 ---
 title: Tenant lifecycle considerations in a multitenant solution
-titleSuffix: Azure Architecture Center
 description: This article describes the different stages of a tenant lifecycle, and considerations for each stage.
 author: johndowns
 ms.author: jodowns
 ms.date: 07/22/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure

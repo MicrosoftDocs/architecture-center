@@ -2,7 +2,6 @@
 author: RobBagby
 ms.author: pnp
 ms.topic: include
-ms.service: azure-architecture-center
 ---
 
 ### Virtual machines and servers

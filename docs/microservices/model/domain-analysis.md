@@ -5,7 +5,6 @@ author: RobBagby
 ms.author: pnp
 ms.date: 02/25/2019
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 categories:
   - migration

@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Data obfuscation using Delphix in Azure Data Factory and Synapse Analytics
-  titleSuffix: Azure Architecture Center
   description: Learn about how to perform data obfuscation using Delphix in Azure Data Factory.
   author: nabhishek
   ms.author: abnarain
   ms.date: 06/18/2024
   ms.topic: solution-idea
-  ms.service: azure-architecture-center
   ms.subservice: solution-idea
   ms.custom: arb-data
 azureCategories: [databases]

@@ -1,12 +1,10 @@
 ---
 title: Architectural approaches for control planes in multitenant solutions
-titleSuffix: Azure Architecture Center
 description: Learn about approaches to designing and creating control planes for your multitenant solutions, including manual, low-code, and custom approaches.
 author: landonpierce 
 ms.author: landonpierce 
 ms.date: 07/15/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure

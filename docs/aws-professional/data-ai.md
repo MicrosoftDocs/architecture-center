@@ -6,7 +6,6 @@ categories: azure
 ms.author: rhackenberg
 ms.date: 11/13/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.collection: 
  - migration
