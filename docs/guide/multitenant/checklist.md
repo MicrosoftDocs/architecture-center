@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Multitenancy enables you to serve multiple distinct tenants in your Azure-hosted solution. Use this checklist to assess your multitenancy requirements and architecture. 
 author: arsenvlad
 ms.author: arsenv
-ms.date: 04/16/2025
+ms.date: 04/17/2025
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -46,7 +46,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 ## Security considerations
 
 * Apply the [Zero Trust](/security/zero-trust) and least privilege principles in all layers of your solution.
-* Ensure that you can [correctly map user requests](./considerations//map-requests.yml) to tenants. Consider including the tenant context as part of the identity system, or by using another means, like application-level tenant authorization.
+* Ensure that you can [correctly map user requests](./considerations/map-requests.yml) to tenants. Consider including the tenant context as part of the identity system, or by using another means, like application-level tenant authorization.
 * Design for [tenant isolation](./considerations/tenancy-models.yml#tenant-isolation). Continuously [test your isolation model](./approaches/compute.md#isolation).
 * Ensure that your application code prevents any cross-tenant access or data leakage.
 * Perform ongoing penetration testing and security code reviews.
