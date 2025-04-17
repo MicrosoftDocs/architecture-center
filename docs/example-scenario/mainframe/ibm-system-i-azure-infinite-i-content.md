@@ -2,7 +2,9 @@ The Infinite i suite is from Microsoft partner Infinite Corporation. The archite
 
 ## Architecture
 
-:::image type="content" source="media/ibm-system-i-azure-infinite-i.svg" alt-text="Diagram of an architecture that uses Infinite i to migrate System i workloads to Azure." lightbox="media/ibm-system-i-azure-infinite-i.svg" border="false":::
+:::image type="complex" source="media/ibm-system-i-azure-infinite-i.svg" alt-text="Diagram of an architecture that uses Infinite i to migrate System i workloads to Azure." lightbox="media/ibm-system-i-azure-infinite-i.svg" border="false":::
+   A dotted line divides the diagram into two sections, on-premises and Azure. The workflow begins in the on-premises section. A double-sided arrow connects a user icon and an Azure ExpressRoute icon. In the next step, a double-sided arrow connects the ExpressRoute icon and an Azure Load Balancer icon that's on the Azure side of the diagram. Another line shows how users from Azure systems can access this connection via a peered virtual network. Two arrows connect Load Balancer to icons that represent an Infinite i active application server and an Infinite i passive application server. A box for each server contains smaller boxes that represent technologies like RBG, COBOL, and SQL, data files, data, job, and message queues, an internal database, and an Azure Files SMB 3.0 mount. Arrows connect each Azure Files SMB 3.0 mount to an Azure Files file share in an Azure storage account. Another arrow connects the active server box and Azure SQL databases in the primary region. Arrows from these databases to databases in a secondary region represent automatic failover capabilities. An Azure Site Recovery icon represents disaster recovery capabilities for the components in the Azure section of the diagram.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ibm-system-i-azure-infinite-i.vsdx) of this architecture.*
 
