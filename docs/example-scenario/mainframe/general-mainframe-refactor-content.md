@@ -67,12 +67,15 @@ The following workflow corresponds to the previous diagram:
 1. Data storage can be either local-redundant or geo-redundant, depending on usage. Data storage can use a combination of:
 
    - High-performance storage with Ultra Disk Storage or Premium SSD.
+
    - File storage with Azure NetApp Files or Azure Files.
+   
    - Standard storage, including blob, archive, and backup options.
 
 1. Azure PaaS data services provide scalable and highly available data storage that you can share among compute cluster resources. This storage can also be geo-redundant.
 
    - Azure Blob Storage is a common landing zone for external data sources.
+
    - Azure Data Factory supports data ingestion and synchronization of multiple Azure and external data sources.
 
 1. Azure Site Recovery provides disaster recovery (DR) for VM and container cluster components.
