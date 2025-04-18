@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Multi-region load balancing
-  titleSuffix: Azure Reference Architectures
   description: Learn how to build an Azure system that serves web and non-web workloads with resilient multi-tier applications in multiple Azure regions.
   author: stephen-sumner
   ms.author: ssumner
