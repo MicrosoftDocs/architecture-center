@@ -100,7 +100,7 @@ This example features the following Azure components. Several of these component
 
 - [Private Link](/azure/private-link/private-link-overview) is a service that provides private connectivity from a virtual network to Azure services. In this architecture, Private Link simplifies network architecture and secures the connection between Azure endpoints by eliminating exposure to the public internet.
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed service that adds a quick caching layer to application architecture to handle large volumes at high speed. This architecture component scales performance simply and cost-effectively.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed service that adds a quick-caching layer to application architecture to handle large volumes at high speed. This architecture component scales performance simply and cost-effectively.
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a cloud-based service that provides scalable, secure cloud storage for all your data, applications, and workloads. In this architecture, Storage provides the necessary storage infrastructure for various data types and applications.
 
@@ -132,7 +132,7 @@ This general refactoring approach can use AKS or Azure VMs. The choice depends o
 
 Refactoring supports various methods for moving client workloads to Azure. One method is to convert and migrate the entire mainframe system to Azure in a single, comprehensive process. This approach eliminates the need for interim mainframe maintenance and facility support costs. However, this method carries some risk because all application conversion, data migration, and testing processes must align to ensure a smooth transition from the mainframe to Azure.
 
-Another method is to migrate applications from the mainframe to Azure gradually, with the aim to transition over time. This approach provides cost savings for each application and allows lessons learned during each conversion to inform and improve subsequent migrations. This method provides a more manageable and less intensive alternative to migrating everything at once by modernizing each application according to its own schedule.
+Another method is to migrate applications from the mainframe to Azure gradually, with the aim to transition over time. This approach provides cost savings for each application. It also provides an opportunity to learn from each conversion to inform and improve subsequent migrations. This method provides a more manageable and less intensive alternative to migrating everything at once by modernizing each application according to its own schedule.
 
 ### Potential use cases
 
