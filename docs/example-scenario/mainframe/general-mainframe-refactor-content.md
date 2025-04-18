@@ -10,11 +10,13 @@ The following architecture illustrates a general refactoring approach that can u
 
 ### Workflow
 
+The following workflow corresponds to the previous diagram:
+
 - **A:** On-premises users access the mainframe over Transmission Control Protocol/Internet Protocol (TCP/IP) by using standard mainframe protocols like TN3270 and HTTPS.
 
 - **B:** Receiving applications can be either batch systems or online systems.
 
-- **C:** Enabled environments support COBOL, Programming Language One (PL/I), Assembler, or compatible languages.
+- **C:** Enabled environments support common business-oriented language (COBOL), Programming Language One (PL/I), Assembler, or compatible languages.
 
 - **D:** Typical data and database services include hierarchical or network database systems, index or flat data files, and relational databases.
 
@@ -29,7 +31,7 @@ The following architecture illustrates a general refactoring approach that can u
 ## Refactored Azure architecture
 
 :::image type="complex" border="false" source="media/general-mainframe-refactor.svg" alt-text="Diagram that shows components of a refactored mainframe system on Azure." lightbox="media/general-mainframe-refactor.svg":::
-   The image is a detailed diagram that shows components of a refactored mainframe system on Azure. The On-premises section includes icons for web browsing and firewall access via TCP port 443 to Azure. The Azure section contains several components: Azure load balancers, an Azure Kubernetes service cluster, virtual machines, and a network security group. This section has two subsections. One subsection contains a Kubernetes node, a Java app server, Java services, Partner Java classes, SSD Managed Disk, Accelerated Networking with RDMA, Azure Files, Azure NetApp Files, and CIFS or NFS. The second subsection contains the refactored app server, client transaction runtimes, partner data services integration, applications like COBOL and PL/I App 1 and App 2, SSD Managed Disk, Accelerated Networking with RDMA, Azure Files, and CIFS or NFS. Multiple double-sided arrows connect these subsections to other sections in the diagram. The Azure SQL databases section includes a primary database server and a secondary database server, connected by double-sided arrows to the Private Link for Azure SQL Database section. The Azure Blob Storage account section contains a landing zone from external sources and Azure Blob containers. The data services section includes Azure Data Factory, Azure Files storage account, and Azure Site Recovery. A section that groups Microsoft Entra ID, Azure Networking, Azure Stream Analytics, Azure Databricks, and Power BI can be integrated with the system.
+   The image is a detailed diagram that shows components of a refactored mainframe system on Azure. The On-premises section includes icons for web browsing and firewall access via TCP port 443 to Azure. The Azure section contains several components: Azure load balancers, an Azure Kubernetes service cluster, virtual machines, and a network security group. This section has two subsections. One subsection contains a Kubernetes node, a Java app server, Java services, Partner Java classes, SSD managed disk, Accelerated networking with RDMA, Azure Files, Azure NetApp Files, and CIFS or NFS. The second subsection contains the refactored app server, client transaction runtimes, partner data services integration, applications like COBOL and PL/I App 1 and App 2, SSD managed disk, Accelerated networking with RDMA, Azure Files, and CIFS or NFS. Multiple double-sided arrows connect these subsections to other sections in the diagram. The Azure SQL databases section includes a primary database server and a secondary database server, connected by double-sided arrows to the Private Link for Azure SQL Database section. The Azure Blob Storage account section contains a landing zone from external sources and Azure Blob containers. The data services section includes Azure Data Factory, Azure Files storage account, and Azure Site Recovery. A section that groups Microsoft Entra ID, Azure Networking, Azure Stream Analytics, Azure Databricks, and Power BI can be integrated with the system.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-general-azure-refactor.vsdx) of this architecture.*
@@ -48,7 +50,7 @@ The following workflow corresponds to the previous diagram:
 
 1. In Azure, Azure Load Balancer manages access to the application compute clusters. Load Balancer supports scale-out compute resources to handle input. You can use a level-7 application level or level-4 network level load balancer, depending on how the application input reaches the compute cluster entry point.
 
-1. Application compute clusters can run on Azure VMs or run in containers in AKS clusters. Mainframe system emulation for PL/I or COBOL applications typically uses VMs and applications refactored to Java or .NET use containers. Some mainframe system emulation software also supports deployment in containers. Compute resources use Azure Premium SSDs or Azure Ultra Disk Storage with Accelerated Networking and Remote Direct Memory Access (RDMA).
+1. Application compute clusters can run on Azure VMs or run in containers in AKS clusters. Mainframe system emulation for PL/I or COBOL applications typically uses VMs. Applications refactored to Java or .NET use containers. Some mainframe system emulation software also supports deployment in containers. Compute resources use Azure Premium SSD disks or Azure Ultra Disk Storage with accelerated networking and remote direct memory access (RDMA).
 
 1. Application servers in the compute clusters host the applications based on language capability, such as Java classes or COBOL programs. The servers receive application input and share application state and data by using Azure Cache for Redis or RDMA.
 
@@ -58,13 +60,13 @@ The following workflow corresponds to the previous diagram:
 
    - Databases on VMs, such as Oracle or Db2.
 
-   - Big data repositories like [Azure Databricks](https://azure.microsoft.com/products/databricks) and Azure Data Lake.
+   - Big data repositories like [Azure Databricks](https://azure.microsoft.com/products/databricks) and Azure Data Lake Storage.
 
    - Streaming data services like Apache Kafka and [Azure Stream Analytics](https://azure.microsoft.com/products/stream-analytics).
 
 1. Data storage can be either local-redundant or geo-redundant, depending on usage. Data storage can use a combination of:
 
-   - High-performance storage with Ultra Disk Storage or Premium SSDs.
+   - High-performance storage with Ultra Disk Storage or Premium SSD.
    - File storage with Azure NetApp Files or Azure Files.
    - Standard storage, including blob, archive, and backup options.
 
@@ -99,7 +101,7 @@ This example features the following Azure components. Several of these component
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a cloud-based service that provides scalable, secure cloud storage for all your data, applications, and workloads. In this architecture, Storage provides the necessary storage infrastructure for various data types and applications.
 
-  - [Azure Disk Storage](/azure/virtual-machines/managed-disks-overview) is a high-performance, durable block storage service for business-critical applications. Azure managed disks are block-level storage volumes that Azure manages on Azure VMs. The available types of disks are Ultra Disk Storage, Premium SSDs, Azure Standard SSDs, and Azure Standard HDDs. This architecture uses either Premium SSDs or Ultra Disk Storage.
+  - [Azure Disk Storage](/azure/virtual-machines/managed-disks-overview) is a high-performance, durable block storage service for business-critical applications. Azure managed disks are block-level storage volumes that Azure manages on Azure VMs. The available types of disks are Ultra Disk Storage, Premium SSD, Azure Standard SSD, and Azure Standard HDD. This architecture uses either Premium SSD disks or Ultra Disk Storage.
 
   - [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed cloud-based file storage service that provides file shares in the cloud. These file shares are accessible via the industry-standard Server Message Block (SMB) protocol. In this architecture, Azure Files provides managed file shares for cloud and on-premises deployments. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure Files file shares concurrently.
 
@@ -109,11 +111,11 @@ This example features the following Azure components. Several of these component
 
 - [Azure databases](https://azure.microsoft.com/product-categories/databases) provide a choice of fully managed relational and NoSQL databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security.
 
-  - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine. In this architecture, it provides scalable and highly available data storage to share across multiple compute resources in a cluster. SQL Database always runs on the latest stable version of SQL Server and a patched operating system that has 99.99 percent availability. Built-in PaaS database management capabilities include upgrading, patching, backups, and monitoring. You can use SQL Database to focus on domain-specific, business-critical database administration and optimization.
+  - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine. In this architecture, it provides scalable and highly available data storage to share across multiple compute resources in a cluster. SQL Database always runs on the latest stable version of SQL Server and a patched operating system that has 99.99% availability. Built-in PaaS database management capabilities include upgrading, patching, backups, and monitoring. You can use SQL Database to focus on domain-specific, business-critical database administration and optimization.
 
   - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed database based on the open-source Postgres relational database engine. In this architecture, it provides the [Hyperscale (Citus) deployment option](https://techcommunity.microsoft.com/blog/adforpostgresql/when-to-use-hyperscale-citus-to-scale-out-postgres/1958269), which scales queries across multiple machines by using sharding. This capability is helpful for applications that require greater scale and performance.
 
-  - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed, fast NoSQL database that has open APIs for any scale. In this architecture, Cosmos DB provides scalable and highly available data storage for various applications.
+  - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed, fast NoSQL database that has open APIs for any scale. In this architecture, Azure Cosmos DB provides scalable and highly available data storage for various applications.
 
 - [Site Recovery](/azure/site-recovery/site-recovery-overview) is a DR service that mirrors Azure VMs to a secondary Azure region. This capability enables quick failover and recovery if an Azure datacenter failure occurs. In this architecture, Site Recovery supports DR for both the VM and container cluster components.
 
@@ -123,9 +125,9 @@ Refactoring workloads to Azure can transform mainframe applications that run on 
 
 The general refactoring approach for mainframe applications drives infrastructure transformation and shifts systems from legacy proprietary technologies to standardized, benchmarked, open solutions. This transformation supports agile DevOps principles, which are the foundation of today's high-productivity, open-systems standards. Refactoring replaces isolated legacy infrastructures, processes, and applications with a unified environment that enhances business and IT alignment.
 
-This general refactoring approach can use AKS or Azure VMs. The choice depends on the portability of existing applications and your preference. Refactoring can accelerate the move into Azure by automatically converting code to Java or .NET, and converting pre-relational databases to relational databases.
+This general refactoring approach can use AKS or Azure VMs. The choice depends on the portability of existing applications and your preference. Refactoring can accelerate the move to Azure by automatically converting code to Java or .NET and converting pre-relational databases to relational databases.
 
-Refactoring supports various methods for moving client workloads to Azure. One method is to convert and migrate the entire mainframe system to Azure in a single, comprehensive process. This approach eliminates the need for interim mainframe maintenance and facility support costs. However, this method carries some risk, because all application conversion, data migration, and testing processes must align to ensure a smooth transition from the mainframe to Azure.
+Refactoring supports various methods for moving client workloads to Azure. One method is to convert and migrate the entire mainframe system to Azure in a single, comprehensive process. This approach eliminates the need for interim mainframe maintenance and facility support costs. However, this method carries some risk because all application conversion, data migration, and testing processes must align to ensure a smooth transition from the mainframe to Azure.
 
 Another method is to migrate applications from the mainframe to Azure gradually, with the aim to transition over time. This approach provides cost savings for each application and allows lessons learned during each conversion to inform and improve subsequent migrations. This method provides a more manageable and less intensive alternative to migrating everything at once by modernizing each application according to its own schedule.
 
@@ -136,7 +138,7 @@ Refactoring on Azure can help organizations to:
 - Modernize infrastructure and avoid the high costs, limitations, and rigidity of mainframes.
 - Migrate mainframe workloads to the cloud while avoiding the complexities of a complete redevelopment.
 - Migrate business-critical applications while maintaining continuity with other on-premises applications.
-- Benefit from Azure's horizontal and vertical scalability.
+- Benefit from horizontal and vertical scalability on Azure.
 - Gain DR capabilities.
 
 ## Considerations
@@ -157,15 +159,15 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - Private Link provides private, direct connections isolated to the Azure networking backbone between the Azure VMs and Azure services.
 
-- Azure Bastion maximizes administrative access security by minimizing open ports. Bastion provides highly secure and seamless RDP and SSH connectivity to virtual network VMs from the Azure portal over TLS.
+- Azure Bastion maximizes administrative access security by minimizing open ports. Azure Bastion provides highly secure and seamless RDP and SSH connectivity to virtual network VMs from the Azure portal over TLS.
 
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling to meet business needs without overspending. Azure provides cost optimization by running on VMs. You can turn off the VMs when not in use and script a schedule for known usage patterns. For more information, see [Azure Well-Architected Framework](/azure/well-architected/) and [VM instances](/azure/well-architected/cost-optimization/optimize-component-costs).
+- Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling to meet business needs without overspending. Azure provides cost optimization by running on VMs. You can turn off the VMs when they're not in use and script a schedule for known usage patterns. For more information, see [Azure Well-Architected Framework](/azure/well-architected/) and [Recommendations for optimizing component costs](/azure/well-architected/cost-optimization/optimize-component-costs).
 
-- The VMs in this architecture use either premium SSDs or ultra disk SSDs. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
+- The VMs in this architecture use either Premium SSD disks or Ultra Disk Storage. For more information, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
 - SQL Database optimizes costs by using serverless compute and Hyperscale storage resources that automatically scale. For more information, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single).
 
@@ -175,7 +177,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Refactoring not only supports faster cloud adoption, but also promotes the adoption of both DevOps and Agile working principles. You have full flexibility in development and production deployment options.
+Refactoring supports faster cloud adoption and promotes the adoption of both DevOps and Agile working principles. You have full flexibility in development and production deployment options.
 
 ### Performance Efficiency
 
