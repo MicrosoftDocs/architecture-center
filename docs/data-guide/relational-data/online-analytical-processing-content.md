@@ -1,8 +1,19 @@
-Online analytical processing (OLAP) is a technology that organizes large business databases and supports complex analysis. It can be used to perform complex analytical queries without negatively affecting transactional systems.
+Online analytical processing (OLAP) organizes large business databases for complex calculations and trend analysis, enabling intricate queries without affecting transactional systems.
 
-The databases that a business uses to store all its transactions and records are called [online transaction processing (OLTP)](./online-transaction-processing.md) databases. These databases usually have records that are entered one at a time. Often they contain a great deal of information that is valuable to the organization. The databases that are used for OLTP, however, were not designed for analysis. Therefore, retrieving answers from these databases is costly in terms of time and effort. OLAP systems were designed to help extract this business intelligence information from the data in a highly performant way. This is because OLAP databases are optimized for heavy read, low write workloads.
+Business transactions and records are stored in databases known as online transaction processing (OLTP) databases, which are optimized for individual record entries. Though they hold valuable information, OLTP databases are not designed for analysis, making data retrieval time-consuming and arduous.
+
+OLAP systems tackle this by efficiently extracting business intelligence from data. Optimized for heavy read, low write tasks, OLAP databases are modeled and cleansed for effective analysis, often preserving historical data for time series analysis.
+
+
 
 ![Diagram that shows the OLAP logical architecture in Azure.](../images/olap-data-pipeline.png)
+Fig 1. Azure Analytics Service
+
+
+OLAP systems have traditionally utilized multi-dimensional data cubes to organize data in a way that supports complex queries and analysis. As technology has progressed and both data and computation scales have increased, OLAP systems are transitioning to Massively Parallel Processing (MPP) architectures supported by [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview). For more information about Microsoft Fabric analytical data store architecture visit [Microsoft Fabric analytical data store](https://techcommunity.microsoft.com/blog/analyticsonazure/decision-guide-for-selecting-an-analytical-data-store-in-microsoft-fabric/4362079). 
+
+![Diagram that shows the OLAP logical architecture in Azure.](../images/olap-fabric.png)
+Fig 2. Microsoft Fabric
 
 ## Semantic modeling
 
@@ -16,6 +27,7 @@ Semantic modeling is predominately used for read-heavy scenarios, such as analyt
 - Business logic and calculations are defined.
 - Time-oriented calculations are included.
 - Data is often integrated from multiple sources.
+- Real-time analytics.
 
 Traditionally, the semantic layer is placed over a data warehouse for these reasons.
 
@@ -29,6 +41,8 @@ There are two primary types of semantic models:
 Relevant Azure service:
 
 - [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/)
+- [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview)
+  
 
 ## Example use case
 
@@ -49,11 +63,11 @@ Semantic modeling and analytical processing tends to have the following traits:
 | Appendable | No (typically requires recomputing cube) |
 | Workload | Heavy reads, read-only |
 | Indexing | Multidimensional indexing |
-| Datum size | Small to medium sized |
-| Model | Multidimensional |
+| Datum size | Small to massively large size |
+| Model | Tabular or  Multidimensional |
 | Data shape:| Cube or star/snowflake schema |
 | Query flexibility | Highly flexible |
-| Scale: | Large (10s-100s GBs) |
+| Scale: | Large (100s GBs - multi PBs) |
 
 ## When to use this solution
 
@@ -76,13 +90,14 @@ For all the benefits OLAP systems provide, they do produce a few challenges:
 
 ## OLAP in Azure
 
-In Azure, data held in OLTP systems such as Azure SQL Database is copied into the OLAP system, such as [Azure Analysis Services](/azure/analysis-services/analysis-services-overview). Data exploration and visualization tools like [Power BI](https://powerbi.microsoft.com), Excel, and third-party options connect to Analysis Services servers and provide users with highly interactive and visually rich insights into the modeled data. The flow of data from OLTP data to OLAP is typically orchestrated using SQL Server Integration Services, which can be executed using [Azure Data Factory](/azure/data-factory/concepts-integration-runtime).
+In Azure, data held in OLTP systems such as Azure SQL Database is copied into an OLAP system, such as [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) or [Azure Analysis Services](/azure/analysis-services/). Data exploration and visualization tools like [Power BI](https://powerbi.microsoft.com), Excel, and third-party options connect to Analysis Services servers and provide users with highly interactive and visually rich insights into the modeled data. The flow of data from OLTP data to OLAP is typically orchestrated using SQL Server Integration Services (SSIS), which can be executed using [Azure Data Factory](/azure/data-factory/concepts-integration-runtime).
 
 In Azure, all of the following data stores will meet the core requirements for OLAP:
 
-- [SQL Server with Columnstore indexes](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
-- [Azure Analysis Services](/azure/analysis-services/analysis-services-overview)
-- [SQL Server Analysis Services (SSAS)](/sql/analysis-services/analysis-services)
+- [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview)
+- [SQL Server with Columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-overview)
+- [Azure Analysis Services](/azure/analysis-services/)
+- [SQL Server Analysis Services (SSAS)](/analysis-services/ssas-overview)
 
 SQL Server Analysis Services (SSAS) offers OLAP and data mining functionality for business intelligence applications. You can either install SSAS on local servers, or host within a virtual machine in Azure. Azure Analysis Services is a fully managed service that provides the same major features as SSAS. Azure Analysis Services supports connecting to [various data sources](/azure/analysis-services/analysis-services-datasource) in the cloud and on-premises in your organization.
 
@@ -98,7 +113,7 @@ To narrow the choices, start by answering these questions:
 
 - Do you want to conduct real-time analytics? If so, narrow your options to those that support real-time analytics.
 
-  *Real-time analytics* in this context applies to a single data source, such as an enterprise resource planning (ERP) application, that will run both an operational and an analytics workload. If you need to integrate data from multiple sources, or require extreme analytics performance by using pre-aggregated data such as cubes, you might still require a separate data warehouse.
+  *Real-time analytics* [Real-Time Intelligence](/fabric/real-time-intelligence/overview) is a powerful service within Microsoft Fabric that empowers everyone in your organization to extract insights and visualize their data in motion. It offers an end-to-end solution for event-driven scenarios, streaming data, and data logs. Whether dealing with gigabytes or petabytes, all organizational data in motion converges in the Real-Time Hub.
 
 - Do you need to use pre-aggregated data, for example to provide semantic models that make analytics more business user friendly? If yes, choose an option that supports multidimensional cubes or tabular semantic models.
 
@@ -112,30 +127,34 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| Capability | Azure Analysis Services | SQL Server Analysis Services | SQL Server with Columnstore Indexes | Azure SQL Database with Columnstore Indexes |
-| --- | --- | --- | --- | --- |
-| Is managed service | Yes | No | No | Yes |
-| Supports multidimensional cubes | No | Yes | No | No |
-| Supports tabular semantic models | Yes | Yes | No | No |
-| Easily integrate multiple data sources | Yes | Yes | No <sup>1</sup> | No <sup>1</sup> |
-| Supports real-time analytics | No | No | Yes | Yes |
-| Requires process to copy data from sources | Yes | Yes | No | No |
-| Microsoft Entra integration | Yes | No | No <sup>2</sup> | Yes |
+| Capability | Microsoft Fabric | Azure Analysis Services | SQL Server Analysis Services | SQL Server with Columnstore Indexes | Azure SQL Database with Columnstore Indexes |
+| --- | --- | --- | --- | --- | --- |
+| Is managed service | Yes | Yes | No | No | Yes |
+| Massively Parallel Processing | Yes | No | No | No | No |
+| Supports multidimensional cubes | No | No | Yes | No | No |
+| Supports tabular semantic models | Yes |Yes | Yes | No | No |
+| Easily integrate multiple data sources | Yes |Yes | Yes | No <sup>1</sup> | No <sup>1</sup> |
+| Supports real-time analytics | Yes |No | No | Yes | Yes |
+| Requires process to copy data from sources | Optional <sup>3</sup> | Yes | Yes | No | No |
+| Microsoft Entra integration | Yes |Yes | No | No <sup>2</sup> | Yes |
 
 [1] Although SQL Server and Azure SQL Database cannot be used to query from and integrate multiple external data sources, you can still build a pipeline that does this for you using [SSIS](/sql/integration-services/sql-server-integration-services) or [Azure Data Factory](/azure/data-factory/). SQL Server hosted in an Azure VM has additional options, such as linked servers and [PolyBase](/sql/relational-databases/polybase/polybase-guide). For more information, see [Pipeline orchestration, control flow, and data movement](../technology-choices/pipeline-orchestration-data-movement.md).
 
 [2] Connecting to SQL Server running on an Azure Virtual Machine is not supported using a Microsoft Entra account. Use a domain Active Directory account instead.
 
+[3] Microsoft Fabric offers the flexibility to integrate data sources, by moving data into OneLake using ADF pipelines or mirroring, creating shortcuts or doing real time analytics on data streams.
+
 ### Scalability Capabilities
 
-| Capability | Azure Analysis Services | SQL Server Analysis Services | SQL Server with Columnstore Indexes | Azure SQL Database with Columnstore Indexes |
-|--------------------------------------------------|-------------------------|------------------------------|-------------------------------------|---------------------------------------------|
-| Redundant regional servers for high availability |           Yes           |              No              |                 Yes                 |                     Yes                     |
-|             Supports query scale out             |           Yes           |              No              |                 Yes                 |                     Yes                      |
-|          Dynamic scalability (scale up)          |           Yes           |              No              |                 Yes                 |                     Yes                      |
+| Capability | Microsoft Fabric | Azure Analysis Services | SQL Server Analysis Services | SQL Server with Columnstore Indexes | Azure SQL Database with Columnstore Indexes |
+|-----|--------------------------------------------------|-------------------------|------------------------------|-------------------------------------|---------------------------------------------|
+| Redundant regional servers for high availability | Yes |           Yes           |              No              |                 Yes                 |                     Yes                     |
+|             Supports query scale out             |      Yes |     Yes           |              No              |                 Yes                 |                     Yes                      |
+|          Dynamic scalability (scale up)          |  Yes |         Yes           |              No              |                 Yes                 |                     Yes                      |
 
 ## Next steps
 
+- [Microsoft Fabric analytical data store](https://techcommunity.microsoft.com/blog/analyticsonazure/decision-guide-for-selecting-an-analytical-data-store-in-microsoft-fabric/4362079)
 - [Columnstore indexes: Overview](/sql/relational-databases/indexes/columnstore-indexes-overview)
 - [Create an Analysis Services server](/azure/analysis-services/analysis-services-create-server)
 - [What is Azure Data Factory?](/azure/data-factory/introduction)
@@ -144,4 +163,3 @@ The following tables summarize the key differences in capabilities.
 ## Related resources
 
 - [Big data architecture style](../../guide/architecture-styles/big-data.yml)
-- [Online analytical processing (OLAP)](../../data-guide/relational-data/online-analytical-processing.yml)
