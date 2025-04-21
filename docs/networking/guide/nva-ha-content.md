@@ -1,4 +1,4 @@
-This article explains the most common options to deploy a set of Network Virtual Appliances (NVAs) for high availability in Azure. An NVA is typically used to control the flow of traffic between network segments classified with different security levels, for example between a De-Militarized Zone (DMZ) Virtual Network and the public Internet, or to connect external locations to Azure, such as VPN or SDWAN (Software-Defined WAN) appliances.
+This article describes common options to deploy a set of network virtual appliances (NVAs) for high availability in Azure. An NVA typically controls the flow of traffic between network segments that have different security levels, for example between a De-Militarized Zone (DMZ) Virtual Network and the public internet, or to connect external locations to Azure, such as VPN or software-defined WAN (SD-WAN) appliances.
 
 There are many design patterns where NVAs are used to inspect traffic between different security zones, for example:
 
@@ -15,7 +15,7 @@ There are many examples of NVAs, including the following, among others:
 - IPsec VPN endpoints
 - SDWAN appliances
 - Web-based reverse-proxies with web application firewall functionality
-- Internet proxies to restrict which Internet pages can be accessed from Azure
+- Internet proxies to restrict which internet pages can be accessed from Azure
 - Layer-7 load balancers
 
 All of these NVAs can be inserted in an Azure design with the patterns described in this article. Even Azure first-party Network Virtual Appliances such as [Azure Firewall][azfw] and [Azure Application Gateway][appgw] use the designs explained later in this article. Understanding these options is critical both from a design perspective and when troubleshooting network issues.
@@ -27,6 +27,7 @@ The first question to be answered is why High Availability for Network Virtual A
 When choosing the best option to deploy a Network Virtual Appliance into an Azure VNet, the most important aspect to consider is whether the NVA vendor vetted and validated that specific design. The vendor must also provide the required NVA configuration that is needed to integrate the NVA in Azure. If the NVA vendor offers different alternatives as supported design options for an NVA, these factors can influence the decision:
 
 * Convergence time: how long does it take in each design to steer the traffic away from a failed NVA instance?
+
 * Topology support: what NVA configurations does each design option support? Active/active, active/standby, scale-out NVA clusters with n+1 redundancy?
 * Traffic symmetry: does a particular design force the NVA to perform Source Network Address Translation (SNAT) on the packets to avoid asymmetric routing? Or is traffic symmetry enforced by other means?
 
@@ -122,7 +123,7 @@ One benefit of this design is that no Source Network Address Translation (SNAT) 
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal authors:
 
@@ -130,13 +131,16 @@ Principal authors:
  - [Telmo Sampaio](https://www.linkedin.com/in/telmo-sampaio-172200) | Principal Service Engineering Manager
  - [Jose Moreno](https://www.linkedin.com/in/erjosito) | Principal Engineer
  
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- Learn how to [implement a secure hybrid network][secure_hybrid] using Azure Firewall.
-- [Perimeter Networks - Cloud Adoption Framework][caf_perimeter]
-- [Cloud DMZ - Cloud Adoption Framework][caf_dmz]
+- [Perimeter networks][caf_perimeter]
+- [Cloud perimeter networks][caf_dmz]
+
+## Related resources
+
+- [Implement a secure hybrid network by using Azure Firewall][secure_hybrid]
 
 <!-- links -->
 

@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Deploy highly available NVAs
+  title: Deploy Highly Available NVAs
   description: Learn how to deploy network virtual appliances for high availability architectures for ingress, egress, and both in Azure.
   author: erjosito
   ms.author: jomore
@@ -26,4 +26,4 @@ products:
   - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/nvaha-load-balancer-internet-thumb.png
 content: |
-   [!include[](nva-ha-content.md)]
+   [!INCLUDE[](nva-ha-content.md)]
