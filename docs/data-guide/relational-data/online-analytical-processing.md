@@ -23,7 +23,7 @@ To address this problem, OLAP systems efficiently extract business intelligence 
 
 OLAP systems traditionally use multidimensional data cubes to organize data in a way that supports complex queries and analysis. The following diagram shows a traditional OLAP system architecture.
 
-:::image type="complex" source="../images/olap-data-pipeline.png" lightbox="../images/olap-data-pipeline.png" alt-text="Diagram that shows a traditional OLAP logical architecture in Azure that uses Analysis Services." border="false":::
+:::image type="complex" source="../images/olap-data-pipeline.svg" lightbox="../images/olap-data-pipeline.svg" alt-text="Diagram that shows a traditional OLAP logical architecture in Azure that uses Analysis Services." border="false":::
 This diagram shows a flow from the client applications, to the OLTP system, to the OLAP system, and finally to analytics and reporting. The client applications contain web apps, API apps, and logic apps. The OLTP system contains SQL Database, SQL Server on VMs, Azure Database for MySQL, and Azure Database for PostgreSQL. The OLAP system contains Azure Analysis Services. Analytics and reporting contains Power BI and SQL Server reporting services. Orchestration runs along the bottom of the OLTP system and the OLAP system. It contains SQL Server Integration Services and Azure Data Factory.
 :::image-end:::
 
@@ -31,7 +31,7 @@ As technology progresses and both data and computation scales increase, OLAP sys
 
 The following diagram shows a modern OLAP system architecture.
 
-:::image type="complex" source="../images/olap-fabric.png" lightbox="../images/olap-fabric.png" alt-text="Diagram that shows a modern OLAP logical architecture in Azure that uses Fabric." border="false":::
+:::image type="complex" source="../images/olap-fabric.svg" lightbox="../images/olap-fabric.svg" alt-text="Diagram that shows a modern OLAP logical architecture in Azure that uses Fabric." border="false":::
 This diagram shows a flow from the client application, to the OLTP system, to the OLAP system - Fabric. The client application contains web apps, API apps, and logic apps. The OLTP system contains on-premises databases, Azure databases, Azure Database for MySQL, and Azure Database for PostgreSQL. The OLAP system contains One Lake and Power BI. Orchestration runs along the bottom of the OLTP systems and is integrated with the OLAP system. It contains Azure Data Factory.
 :::image-end:::
 
