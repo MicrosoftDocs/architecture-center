@@ -160,7 +160,7 @@ items:
       - name: Database scenarios
         items:
         - name: OLAP solutions
-          href: data-guide/relational-data/online-analytical-processing.yml
+          href: data-guide/relational-data/online-analytical-processing.md
         - name: OLTP solutions
           href: data-guide/relational-data/online-transaction-processing.md
         - name: Data lakes
