@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Virtual WAN architecture optimized for department-specific requirements
-  titleSuffix: Azure Example Scenarios
   description: Learn how to design a single network that has varying security and performance requirements.
   author: JohnPoetzinger
   ms.author: jopoetzi
