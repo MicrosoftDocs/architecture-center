@@ -95,6 +95,10 @@ This architecture describes how to migrate data to scalable, more secure cloud s
 
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a storage repository that holds a large amount of data in native, raw format. Data Lake Storage provides scaling for big data analytics workloads with terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources, and might be structured, semi-structured, or unstructured.
 
+## Scenario Details
+
+Converting Mainframe files from EBCDIC encoded format to ASCII format is necessary for migrating data from mainframe systems to Azure cloud storage and databases. Mainframe applications generate and handle large amounts of data daily, which must be accurately converted for use in other platforms. As organizations transition mainframe file system data it involves transforming the file metadata to cloud native schematics, and a migration strategy including effective file conversion techniques.
+
 ## Potential use cases
 
 On-premises file replication and synchronization use cases include:
