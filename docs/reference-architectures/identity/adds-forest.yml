@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Create an AD DS resource forest
-  titleSuffix: Azure Reference Architectures
   description: Understand how to create a separate Active Directory domain in Azure that's trusted by domains in your on-premises AD forest.
   author: justinha
   ms.author: justinha

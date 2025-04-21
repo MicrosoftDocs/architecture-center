@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Observability patterns and metrics
-  titleSuffix: Azure Example Scenarios
   description: Learn how to use observability patterns and metrics to improve the processing performance of a big data system using Azure Databricks.
   author: callard1
   ms.author: callard

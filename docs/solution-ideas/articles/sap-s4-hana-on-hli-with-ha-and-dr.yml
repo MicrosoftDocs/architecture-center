@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: SAP S/4 HANA for Large Instances
-  titleSuffix: Azure Solution Ideas
   description: With large SAP HANA instances, use Azure Virtual Machines, OS clustering, and NFS storage for scalability, performance, high reliability, and disaster recovery.
   author: bqtrinh
   ms.author: bentrin

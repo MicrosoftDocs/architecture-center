@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Multilayered protection for Azure virtual machines
-  titleSuffix: Azure Solution Ideas
   description: Protect access to Azure VMs through a multilayer approach, using Azure and Entra ID security services. These recommendations align with security principles and best practices, such as defense in depth, least privilege, and zero trust.
   author: husamhilal
   ms.author: huhilal
