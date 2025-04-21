@@ -2,8 +2,9 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 04/14/2025
+ms.date: 04/21/2025
 ms.topic: conceptual
+ms.service: azure-architecture-center
 ms.author: robbag
 categories: 
 - management-and-governance
@@ -26,6 +27,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Big Data Architectures](./databases/guide/big-data-architectures.md)
 - [SAP S/4HANA in Linux on Azure](./guide/sap/sap-s4hana.md)
 - [Cost Management for Kubernetes](./aws-professional/eks-to-aks/cost-management.md)
 - [Migrate from Amazon Elastic Kubernetes Service to Azure Kubernetes Service](./aws-professional/eks-to-aks/migrate.md)
@@ -49,6 +51,10 @@ The following new and updated articles have recently been published in the Azure
 - [Responsible Engineering Overview](./guide/responsible-innovation/index.md)  ([#3faccc2c85](https://github.com/MicrosoftDocs/architecture-center/commit/3faccc2c85))
 - [Migrate Cloud Workloads Across Security Tenants](./solution-ideas/articles/migrate-cloud-workloads-across-security-tenants.yml)  ([#4eae6ed023](https://github.com/MicrosoftDocs/architecture-center/commit/4eae6ed023))
 - [Migrate Mainframe Data to Azure](./example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml)  ([#5b28fa3068](https://github.com/MicrosoftDocs/architecture-center/commit/5b28fa3068))
+- [General Mainframe Refactor to Azure](./example-scenario/mainframe/general-mainframe-refactor.yml)  ([#326b3995f8](https://github.com/MicrosoftDocs/architecture-center/commit/326b3995f8))
+- [Compare AWS and Azure Security and Identity Management Solutions](./aws-professional/security-identity.md)  ([#1ab5fc7556](https://github.com/MicrosoftDocs/architecture-center/commit/1ab5fc7556))
+- [Unisys ClearPath MCP Virtualization on Azure](./example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml)  ([#2310bff65a](https://github.com/MicrosoftDocs/architecture-center/commit/2310bff65a))
+- [Core startup stack architecture](./example-scenario/startups/core-startup-stack.yml)  ([#59d4a8cec6](https://github.com/MicrosoftDocs/architecture-center/commit/59d4a8cec6))
 - [Unisys ClearPath Forward OS 2200 Enterprise Server Virtualization on Azure](./mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)  ([#a95ed47c51](https://github.com/MicrosoftDocs/architecture-center/commit/a95ed47c51))
 - [Multitenancy and Azure OpenAI](./guide/multitenant/service/openai.md)  ([#4cd26a7fc3](https://github.com/MicrosoftDocs/architecture-center/commit/4cd26a7fc3))
 - [Generative AI Ops for Organizations with MLOps Investments](./ai-ml/guide/genaiops-for-mlops.md)  ([#9ef1418ce8](https://github.com/MicrosoftDocs/architecture-center/commit/9ef1418ce8))
@@ -81,7 +87,6 @@ The following new and updated articles have recently been published in the Azure
 - [Microservices Architecture on Azure Kubernetes Service](./reference-architectures/containers/aks-microservices/aks-microservices.yml)  ([#4e31de2e52](https://github.com/MicrosoftDocs/architecture-center/commit/4e31de2e52))
 - [Mission-Critical Baseline with App Service](./guide/networking/global-web-applications/mission-critical-app-service.yml)  ([#5bbe3dc064](https://github.com/MicrosoftDocs/architecture-center/commit/5bbe3dc064))
 - [Certificate lifecycle management on Azure](./example-scenario/certificate-lifecycle/index.yml)  ([#07ce8a0394](https://github.com/MicrosoftDocs/architecture-center/commit/07ce8a0394))
-- [Big data architectures](./databases/guide/big-data-architectures.md)  ([#97fb8a7e48](https://github.com/MicrosoftDocs/architecture-center/commit/97fb8a7e48))
 - [Azure Local baseline reference architecture](./hybrid/azure-local-baseline.yml)  ([#a1c67a1fb1](https://github.com/MicrosoftDocs/architecture-center/commit/a1c67a1fb1))
 - [Azure Local storage switchless architecture](./hybrid/azure-local-switchless.yml)  ([#a1c67a1fb1](https://github.com/MicrosoftDocs/architecture-center/commit/a1c67a1fb1))
 - [Troubleshoot a hybrid VPN connection](./reference-architectures/hybrid-networking/troubleshoot-vpn.yml)  ([#a1c67a1fb1](https://github.com/MicrosoftDocs/architecture-center/commit/a1c67a1fb1))
@@ -217,7 +222,7 @@ The following new and updated articles have recently been published in the Azure
 - [Rehost Adabas &amp; Natural applications on Azure](./example-scenario/mainframe/rehost-adabas-software-ag.yml)  ([#67d22afea8](https://github.com/MicrosoftDocs/architecture-center/commit/67d22afea8))
 - [Rehost IMS DC and IMS DB on Azure by Using Raincode IMSql](./example-scenario/mainframe/rehost-ims-raincode-imsql.yml)  ([#67d22afea8](https://github.com/MicrosoftDocs/architecture-center/commit/67d22afea8))
 - [Rehost mainframe applications by using NTT DATA UniKix](./example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml)  ([#67d22afea8](https://github.com/MicrosoftDocs/architecture-center/commit/67d22afea8))
-- [Unisys ClearPath MCP virtualization on Azure](./example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml)  ([#67d22afea8](https://github.com/MicrosoftDocs/architecture-center/commit/67d22afea8))
+- [Unisys ClearPath MCP Virtualization on Azure](./example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml)  ([#67d22afea8](https://github.com/MicrosoftDocs/architecture-center/commit/67d22afea8))
 - [Siemens Teamcenter baseline architecture on Azure](./example-scenario/manufacturing/teamcenter-baseline.yml)  ([#67d22afea8](https://github.com/MicrosoftDocs/architecture-center/commit/67d22afea8))
 - [Use Teamcenter PLM with Azure NetApp Files](./example-scenario/manufacturing/teamcenter-plm-netapp-files.yml)  ([#67d22afea8](https://github.com/MicrosoftDocs/architecture-center/commit/67d22afea8))
 - [Build and Deploy Custom Document Processing Models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml)  ([#a53d844e24](https://github.com/MicrosoftDocs/architecture-center/commit/a53d844e24))
@@ -287,7 +292,7 @@ The following new and updated articles have recently been published in the Azure
 - [Refactor mainframe architecture by using CloudFrame Renovate](./example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml)  ([#00d47173c8](https://github.com/MicrosoftDocs/architecture-center/commit/00d47173c8))
 - [Extend mainframe applications to Azure by using Verastream Host Integrator](./example-scenario/mainframe/extend-mainframe-applications.yml)  ([#00d47173c8](https://github.com/MicrosoftDocs/architecture-center/commit/00d47173c8))
 - [Extend mainframes to digital channels by using standards-based REST APIs](./example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.yml)  ([#00d47173c8](https://github.com/MicrosoftDocs/architecture-center/commit/00d47173c8))
-- [General mainframe refactor to Azure](./example-scenario/mainframe/general-mainframe-refactor.yml)  ([#00d47173c8](https://github.com/MicrosoftDocs/architecture-center/commit/00d47173c8))
+- [General Mainframe Refactor to Azure](./example-scenario/mainframe/general-mainframe-refactor.yml)  ([#00d47173c8](https://github.com/MicrosoftDocs/architecture-center/commit/00d47173c8))
 - [IBM System i (AS/400) to Azure using Infinite i](./example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml)  ([#00d47173c8](https://github.com/MicrosoftDocs/architecture-center/commit/00d47173c8))
 - [Modern Web App Pattern for Java](./web-apps/guides/enterprise-app-patterns/modern-web-app/java/guidance.yml)  ([#ff52bb8bcc](https://github.com/MicrosoftDocs/architecture-center/commit/ff52bb8bcc))
 - [Automate PDF forms processing](./ai-ml/architecture/automate-pdf-forms-processing.yml)  ([#8b11bb996f](https://github.com/MicrosoftDocs/architecture-center/commit/8b11bb996f))

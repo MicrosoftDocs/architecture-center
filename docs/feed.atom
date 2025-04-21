@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2025-04-14T16:03:22.035Z</updated>
+    <updated>2025-04-21T16:28:48.172Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Big Data Architectures]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/guide/big-data-architectures</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/guide/big-data-architectures"/>
+        <updated>2025-04-16T18:35:07.000Z</updated>
+        <summary type="html"><![CDATA[Learn how big data architectures manage the ingestion, processing, and analysis of data that's too large or complex for traditional database systems.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[SAP S/4HANA in Linux on Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/sap/sap-s4hana</id>
@@ -166,6 +174,38 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-data-replication-azure-rdrs"/>
         <updated>2025-04-10T17:17:10.000Z</updated>
         <summary type="html"><![CDATA[Learn how to use RDRS, a mainframe data replication solution, to migrate data to and from multiple Azure data platform services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[General Mainframe Refactor to Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/general-mainframe-refactor</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/general-mainframe-refactor"/>
+        <updated>2025-04-18T18:50:11.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to refactor general mainframe applications to run more cost-effectively and efficiently on Azure by using AKS or virtual machines.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compare AWS and Azure Security and Identity Management Solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/security-identity</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/security-identity"/>
+        <updated>2025-04-16T18:39:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn about comparable AWS and Azure security and identity management solutions so that you can efficiently migrate solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Unisys ClearPath MCP Virtualization on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost"/>
+        <updated>2025-04-16T16:56:08.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to apply Unisys virtualization technologies to migrate a legacy Unisys ClearPath Forward Libra mainframe to Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Core startup stack architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/startups/core-startup-stack</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/startups/core-startup-stack"/>
+        <updated>2025-04-14T17:01:00.000Z</updated>
+        <summary type="html"><![CDATA[See an example and understand the components of a simple core startup stack architecture for an initial MVP or prototype.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -358,14 +398,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/certificate-lifecycle/index"/>
         <updated>2025-03-10T21:32:41.000Z</updated>
         <summary type="html"><![CDATA[Learn how to create an infrastructure and workflow to automate the renewal process for certificates issued by a non-integrated CA.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Big data architectures]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/databases/guide/big-data-architectures</id>
-        <link href="https://learn.microsoft.com/azure/architecture/databases/guide/big-data-architectures"/>
-        <updated>2025-03-10T17:40:49.000Z</updated>
-        <summary type="html"><![CDATA[Learn about big data architectures that handle the ingestion, processing, and analysis of data too large or complex for traditional database systems.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1321,11 +1353,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Unisys ClearPath MCP virtualization on Azure]]></title>
+        <title type="html"><![CDATA[Unisys ClearPath MCP Virtualization on Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost"/>
         <updated>2025-01-22T15:42:08.000Z</updated>
-        <summary type="html"><![CDATA[Use virtualization from Unisys and Microsoft Azure to migrate from a Unisys ClearPath Forward Libra mainframe, which allows an accelerated move into Azure.]]></summary>
+        <summary type="html"><![CDATA[Learn how to apply Unisys virtualization technologies to migrate a legacy Unisys ClearPath Forward Libra mainframe to Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1881,11 +1913,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[General mainframe refactor to Azure]]></title>
+        <title type="html"><![CDATA[General Mainframe Refactor to Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/general-mainframe-refactor</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/general-mainframe-refactor"/>
         <updated>2025-01-14T15:51:28.000Z</updated>
-        <summary type="html"><![CDATA[See how to refactor general mainframe applications to run more cost-effectively and efficiently on Azure.]]></summary>
+        <summary type="html"><![CDATA[Learn how to refactor general mainframe applications to run more cost-effectively and efficiently on Azure by using AKS or virtual machines.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
