@@ -37,9 +37,9 @@ This diagram shows a flow from the client application, to the OLTP system, to th
 
 ## Semantic modeling
 
-A semantic data model is a conceptual model that describes the meaning of the data elements that it contains. Organizations often have their own terms for items, sometimes with synonyms. They might also have different meanings for the same term. For example, an inventory database might track a piece of equipment by using an asset ID and a serial number. But a sales database might refer to the serial number as the asset ID. There's no simple way to relate these values without a model that describes the relationship.
+A semantic data model is a conceptual model that describes the meaning of the data elements that it contains. Organizations often have their own terms for items, and sometimes those terms have synonyms. Organizations might also have different meanings for the same term. For example, an inventory database might track a piece of equipment by using an asset ID and a serial number. But a sales database might refer to the serial number as the asset ID. There's no simple way to relate these values without a model that describes the relationship.
 
-Semantic modeling provides a level of abstraction over the database schema so that users don't need to know the underlying data structures. End users can easily query data without performing aggregates and joins over the underlying schema. Usually columns are renamed to more user-friendly names to make the context and meaning of the data more obvious.
+Semantic modeling provides a level of abstraction over the database schema so that users don't need to know the underlying data structures. End users can easily query data without performing aggregates and joins over the underlying schema. Columns are often renamed to more user-friendly names to make the context and meaning of the data more obvious.
 
 Semantic modeling is predominately for read-heavy scenarios, such as analytics and business intelligence (OLAP), rather than more write-heavy transactional data processing (OLTP). Semantic modeling suits read-heavy scenarios because of the characteristics of a typical semantic layer:
 
@@ -67,9 +67,9 @@ There are two primary types of semantic models:
 
 An organization stores data in a large database. It wants to make this data available to business users and customers to create their own reports and do analysis.
 
-They could give those users direct access to the database, but this option has drawbacks, including managing security and controlling access. And users might have difficuly understanding the design of the database, including the names of tables and columns. This option requires users to know which tables to query, how those tables should be joined, and how to apply other business logic to get the correct results. Users also need to know a query language like SQL. Typically, this option leads to multiple users reporting the same metrics but with different results.
+They could give those users direct access to the database, but this option has drawbacks, including security management and access control. And users might have difficulty understanding the design of the database, including the names of tables and columns. This option requires users to know which tables to query, how those tables should be joined, and how to apply other business logic to get the correct results. Users also need to know a query language like SQL. Typically, this option leads to multiple users reporting the same metrics but with different results.
 
-A better option is to encapsulate all the information that users need into a semantic model. Users can more easily query the semantic model by using a reporting tool of their choice. The data that the semantic model provides comes from a data warehouse, which ensures that all users view a single version of the truth. The semantic model also provides user-friendly table and column names, defines relationships between tables, includes descriptions and calculations, and enforces row-level security.
+A better option is to encapsulate all the information that users need into a semantic model. Users can more easily query the semantic model by using a reporting tool of their choice. The data that the semantic model provides comes from a data warehouse, which ensures that all users view a single source of truth. The semantic model also provides user-friendly table and column names, defines relationships between tables, includes descriptions and calculations, and enforces row-level security.
 
 ## Typical traits of semantic modeling
 
@@ -85,7 +85,7 @@ Semantic modeling and analytical processing tends to have the following traits.
 | Workload | Heavy reads, read-only |
 | Indexing | Multidimensional indexing |
 | Datum size | Small to massively large size |
-| Model | Tabular or  Multidimensional |
+| Model | Tabular or multidimensional |
 | Data shape | Cube, star, or snowflake schema |
 | Query flexibility | Highly flexible |
 | Scale | Large, hundreds of gigabytes (GBs) to multiple petabytes (PBs) |
@@ -122,7 +122,7 @@ The following Azure data stores meet the core requirements for OLAP:
 - [Analysis Services](/azure/analysis-services/)
 - [SQL Server Analysis Services](/analysis-services/ssas-overview)
 
-SQL Server Analysis Services provides OLAP and data-mining functionality for business intelligence applications. You can either install SQL Server Analysis Services on local servers, or host it within a virtual machine (VM) in Azure. Analysis Services is a fully managed service that provides the same major features as SQL Server Analysis Services. Analysis Services supports connecting to [various data sources](/azure/analysis-services/analysis-services-datasource) in the cloud and on-premises in your organization.
+SQL Server Analysis Services provides OLAP and data-mining functionality for business intelligence applications. You can either install SQL Server Analysis Services on local servers or host it within a virtual machine (VM) in Azure. Analysis Services is a fully managed service that provides the same major features as SQL Server Analysis Services. Analysis Services supports connecting to [various data sources](/azure/analysis-services/analysis-services-datasource) in the cloud and on-premises in your organization.
 
 Clustered columnstore indexes are available in SQL Server 2014 and higher and in SQL Database. These indexes are ideal for OLAP workloads. Beginning with SQL Server 2016, including SQL Database, you can take advantage of hybrid transactional and analytical processing (HTAP) through updateable nonclustered columnstore indexes. Use HTAP to perform OLTP and OLAP processing on the same platform. This approach eliminates the need for multiple copies of your data and separate OLTP and OLAP systems. For more information, see [Columnstore for real-time operational analytics](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics).
 
@@ -140,7 +140,7 @@ To narrow the choices, answer the following questions:
 
   [Fabric Real-Time Intelligence](/fabric/real-time-intelligence/overview) is a powerful service within Fabric that you can use to extract insights and visualize your data in motion. It provides an end-to-end solution for event-driven scenarios, streaming data, and data logs. Whether you manage GBs or PBs of data, all organizational data in motion converges in the Real-Time hub.
 
-- **Do you need to use pre-aggregated data, for example to provide semantic models that make analytics more business-user friendly?**
+- **Do you need to use pre-aggregated data, for example to provide semantic models that make analytics easier for business users?**
 
   If yes, choose an option that supports multidimensional cubes or tabular semantic models.
 
