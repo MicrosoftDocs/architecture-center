@@ -3,7 +3,7 @@ title: Machine learning operations
 description: Learn about a single deployable set of repeatable and maintainable patterns for creating machine learning CI/CD and retraining pipelines.
 author: setuc
 ms.author: setuchokshi
-ms.date: 04/15/2025
+ms.date: 07/03/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
@@ -196,7 +196,7 @@ The Machine Learning CV architecture is based on the classical machine learning 
 
 1. Data and model monitoring: events and actions
 
-   The data and model monitoring and event and action phases of MLOps for natural language processing are the key differences from classical machine learning. Automated retraining is typically not done in CV scenarios when model performance degradation on new images is detected. In this case, a human-in-the-loop process is necessary to review and annotate new images for  the model that performs poorly. The next action often goes back to the model development loop to update the model with the new images.
+   The data and model monitoring and event and action phases of MLOps for natural language processing are the key differences from classical machine learning. Automated retraining is typically not done in CV scenarios when model performance degradation on new images is detected. In this case, a human-in-the-loop process is necessary to review and annotate new images for the model that performs poorly. The next action often goes back to the model development loop to update the model with the new images.
 
 1. Infrastructure monitoring: events and actions
 
