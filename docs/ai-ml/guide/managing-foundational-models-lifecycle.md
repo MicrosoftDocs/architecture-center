@@ -91,8 +91,21 @@ When updating models, it's important to remember that you often need to update t
 
 #### Router
 
+The following diagram illustrates an architecture using a router to route requests to multiple deployments. An [example of this architecture with Azure AI Foundry](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#architecture) uses a managed online endpoint as the router and the different versions of the orchestrator are deployed to managed compute. 
+
 :::image type="complex" source="_images/model-lifecycle-single-layer-abstraction.svg" alt-text="Simple architecture diagram of a chat scenario showing the different breadths of change when updating a model." lightbox="_images/model-lifecycle-single-layer-abstraction.svg":::
+
+The following describes the flow in this architecture:
+
+1. A user issues a request in a intelligent application and that request is sent to a router.
+1. The router routes to either 'Deployment 1' or 'Deployment 2', depending upon its logic.
+1. Each deployment has its own version of the prompt.
+1. The orchestrator is configured with the specific model and version.
+1. Because the specific version of the prompt is deployed along with the orchstrator that is configured with the specific model and version, the correct prompt is sent to the correct model version.
 
 #### Gateway
 
+The following diagram illustrates an architecture using a router to route requests to multiple deployments. However, in this architecture, all model requests are routed through a gateway.
+
 :::image type="complex" source="_images/model-lifecycle-two-layers-abstraction.svg" alt-text="Simple architecture diagram of a chat scenario showing the different breadths of change when updating a model." lightbox="_images/model-lifecycle-two-layers-abstraction.svg":::
+
