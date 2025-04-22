@@ -82,9 +82,9 @@ You can migrate Kafka to Kafka on Azure HDInsight. For more information, see [Wh
 
 See [Use Azure Kubernetes Service with Apache Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-azure-container-services).
 
-### Use Kafka on AKS with the Strimzi Operator 
+### Use Kafka on AKS with the Strimzi Operator
 
-See [Deploy a Kafka cluster on Azure Kubernetes Service (AKS) using Strimzi](https://learn.microsoft.com/azure/aks/kafka-overview)
+See [Deploy a Kafka cluster on Azure Kubernetes Service (AKS) using Strimzi](/azure/aks/kafka-overview).
 
 #### Kafka Data Migration
 
