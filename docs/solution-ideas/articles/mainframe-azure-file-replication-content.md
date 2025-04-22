@@ -97,7 +97,9 @@ This architecture describes how to migrate data to scalable, more secure cloud s
 
 ## Scenario Details
 
-Converting Mainframe files from EBCDIC encoded format to ASCII format is necessary for migrating data from mainframe systems to Azure cloud storage and databases. Mainframe applications generate and handle large amounts of data daily, which must be accurately converted for use in other platforms. As organizations transition mainframe file system data it involves transforming the file metadata to cloud native schematics, and a migration strategy including effective file conversion techniques.
+Converting Mainframe files from EBCDIC encoded format to ASCII format is necessary for migrating data from mainframe systems to Azure cloud storage and databases. Mainframe applications generate and handle large amounts of data daily, which must be accurately converted for use in other platforms. 
+
+As organizations transition mainframe file system data it involves transforming the file metadata to cloud native schematics, and a migration strategy including effective file conversion techniques. 
 
 ## Potential use cases
 
