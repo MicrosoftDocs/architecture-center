@@ -92,23 +92,23 @@ Refactoring to Azure by using Renovate can help organizations and teams that wan
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 High availability and performance are built into this solution because of the load balancers and compute autoscaling. If one presentation, transaction, or batch server fails, the other server behind the load balancer handles the workload. The architecture uses [Site Recovery](/azure/site-recovery/site-recovery-overview) to mirror Azure VMs. It uses PaaS storage and database services for replication to a secondary Azure region for quick failover and disaster recovery if an Azure datacenter fails. Finally, you can fully automate the deployment and operational architecture.
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Security in Azure is achieved through a layered approach of policy, process, automated governance and incident reporting, training, network vulnerability analysis, penetration testing, encryption, and DevSecOps operating models. Services like Microsoft Entra ID, Azure Virtual Network, Azure Private Link, and network security groups are fundamental to achieving this enhanced security.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Azure provides cost optimization by running VMs and Kubernetes pods on commodity hardware, scripting a schedule to turn off VMs that aren't in use, and using Kubernetes pods to increase deployment density. Reserved and spot instances can further reduce costs. Microsoft Cost Management provides cost transparency by giving you a single, unified view of costs versus budgets. [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) generate significant discounts off of pay-as-you-go pricing. You can use these offerings separately or together to compound the savings. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing the solution.
 
