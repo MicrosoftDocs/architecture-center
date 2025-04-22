@@ -57,7 +57,7 @@ This architecture uses the following components.
 
 #### Networking
 
-An [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) is bridge software that connects on-premises data to cloud services. You can install the gateway [on a dedicated on-premises VM](/azure/logic-apps).
+An [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) is bridge software in this architeture that connects on-premises Mainframe data to cloud services. You can install the gateway [on a dedicated on-premises VM](/azure/logic-apps).
 
 #### Data integration and transformation
 
@@ -65,17 +65,17 @@ This architecture outlines various Azure-native migration tools that you use dep
 
 - [Data Provider for Host Files](/host-integration-server/core/data-for-host-files) is a component of [HIS](/host-integration-server/what-is-his) that converts EBCDIC code page files to ASCII. The  provider can read and write records offline in a local binary file, or use Systems Network Architecture (SNA) or Transmission Control Protocol/Internet Protocol (TCP/IP) to read and write records in remote IBM z/OS mainframe datasets or i5/OS physical files. HIS connectors are available for [BizTalk](/host-integration-server/core/biztalk-adapter-for-host-files-configuration1) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps).
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a hybrid data integration service you can use to create, schedule, and orchestrate ETL and ELT workflows.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a hybrid data integration service you can use to create, schedule, and orchestrate ETL and ELT workflows. In this architecture it is used to FTP Mainframe file to Azure Blob storage.
 
 - [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for Azure. You can use Databricks to correlate incoming data, and enrich it with other data stored in Databricks.
   
-- [Azure Synapse Analytics](https://azure.microsoft.com/en-us/products/synapse-analytics/) is a fast and flexible cloud data warehouse with a massively parallel processing (MPP) architecture that you can use to scale, compute, and store data elastically and independently.
+- [Azure Synapse Analytics](https://azure.microsoft.com/en-us/products/synapse-analytics/) is a fast and flexible cloud data warehouse with a massively parallel processing (MPP) architecture that you can use to scale, compute, and store data elastically and independently. It can be used for Mainframe data transformation to load into Azure Database.
 
-- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview): Logic Apps helps you create and run automated recurring tasks and processes on a schedule. You can call services inside and outside Azure like HTTP or HTTPS endpoints. You can also post messages to Azure services like Azure Service Bus, or get files uploaded to a file share.
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview): Azure Logic Apps offers a native Host File connector which interacts with Mainframe systems to read, parse, and generate host file content.
 
 #### Databases
 
-This architecture describes how to migrate data to scalable, more secure cloud storage and managed databases for flexible, intelligent data management in Azure.
+This architecture outlines the process of migrating Mainframe file data to cloud storage and managed databases in Azure. It involves moving data to various Azure databases and converting Mainframe file metadata to match the target schema in Azure.
 
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a scalable relational cloud database service. Azure SQL Database is evergreen and always up to date, with AI-powered and automated features that optimize performance and durability. Serverless compute and hyperscale storage options automatically scale resources on demand. With [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit), you can use your existing on-premises SQL Server licenses on the cloud with no extra cost.
 
