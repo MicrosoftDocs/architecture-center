@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure Kubernetes Service (AKS) network architecture for AKS on Azure Local
-  titleSuffix: Azure Example Scenarios
   description: Learn how to design and implement network concepts for deploying Azure Kubernetes Service (AKS) nodes on AKS clusters.
   author: sethmanheim
   ms.author: sethm

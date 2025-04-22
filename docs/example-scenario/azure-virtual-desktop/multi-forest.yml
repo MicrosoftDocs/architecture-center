@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Multiple forests with AD DS and Microsoft Entra ID
-  titleSuffix: Azure Example Scenarios
   description: This article describes an example workload of creating multiple Active Directory forests by using Azure Virtual Desktop.
   author: nehalineogi
   ms.author: tmaher

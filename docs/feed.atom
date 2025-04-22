@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2025-04-14T16:03:22.035Z</updated>
+    <updated>2025-04-21T16:28:48.172Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Big Data Architectures]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/guide/big-data-architectures</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/guide/big-data-architectures"/>
+        <updated>2025-04-16T18:35:07.000Z</updated>
+        <summary type="html"><![CDATA[Learn how big data architectures manage the ingestion, processing, and analysis of data that's too large or complex for traditional database systems.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[SAP S/4HANA in Linux on Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/sap/sap-s4hana</id>
@@ -153,6 +161,86 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Migrate IBM z/OS OLTP Workloads to Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure"/>
+        <updated>2025-04-11T20:36:13.000Z</updated>
+        <summary type="html"><![CDATA[Migrate a z/OS online transaction processing (OLTP) workload to an Azure application that is cost effective, responsive, scalable, and adaptable.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Replicate Mainframe and Midrange Data to Azure by Using Qlik]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik"/>
+        <updated>2025-04-11T20:36:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Qlik Replicate to migrate mainframe and midrange systems to the cloud or extend those systems by using cloud applications.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Modernize Mainframe and Midrange Data]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure"/>
+        <updated>2025-04-11T20:36:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to modernize IBM mainframe and midrange data. Use a data-first approach to migrate the data to scalable and more secure cloud storage on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Rehost IMS DC and IMS DB on Azure by Using Raincode IMSql]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/rehost-ims-raincode-imsql</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/rehost-ims-raincode-imsql"/>
+        <updated>2025-04-11T20:36:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to rehost IBM IMS DC and IMS DB on Azure by using Raincode IMSql. Rehost seamlessly without translating or changing your application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Replicate and Sync Mainframe Data to Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure"/>
+        <updated>2025-04-11T20:36:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to replicate data while you modernize mainframe and midrange systems. Sync on-premises data with Azure data during modernization.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Governance Options for a Kubernetes Cluster]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/governance</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/governance"/>
+        <updated>2025-04-07T21:41:22.000Z</updated>
+        <summary type="html"><![CDATA[Understand governance options for a Kubernetes cluster, and compare Amazon EKS and Azure Kubernetes Service (AKS) governance options.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS for Amazon EKS Professionals]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks"/>
+        <updated>2025-04-07T21:41:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the AKS managed solution, configurations, best practices, and similarities and differences compared to Amazon EKS.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Storage Options for a Kubernetes Cluster]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/storage</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/storage"/>
+        <updated>2025-04-07T21:41:22.000Z</updated>
+        <summary type="html"><![CDATA[Understand storage options for a Kubernetes cluster, and compare Amazon EKS and Azure Kubernetes Service (AKS) storage options.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Foundations of Assessing Harm]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/responsible-innovation/harms-modeling</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/responsible-innovation/harms-modeling"/>
+        <updated>2025-04-07T17:43:27.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to identify potential harms in your workload and create approaches to proactively address harms so that you can build trustworthy systems.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Responsible Engineering Overview]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/responsible-innovation</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/responsible-innovation"/>
+        <updated>2025-04-07T17:43:27.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to incorporate responsible engineering principles and practices so that you can deploy your technology ethically and sustainably.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Migrate Cloud Workloads Across Security Tenants]]></title>
         <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/migrate-cloud-workloads-across-security-tenants</id>
         <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/migrate-cloud-workloads-across-security-tenants"/>
@@ -166,6 +254,38 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-data-replication-azure-rdrs"/>
         <updated>2025-04-10T17:17:10.000Z</updated>
         <summary type="html"><![CDATA[Learn how to use RDRS, a mainframe data replication solution, to migrate data to and from multiple Azure data platform services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[General Mainframe Refactor to Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/general-mainframe-refactor</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/general-mainframe-refactor"/>
+        <updated>2025-04-18T18:50:11.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to refactor general mainframe applications to run more cost-effectively and efficiently on Azure by using AKS or virtual machines.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compare AWS and Azure Security and Identity Management Solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/security-identity</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/security-identity"/>
+        <updated>2025-04-16T18:39:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn about comparable AWS and Azure security and identity management solutions so that you can efficiently migrate solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Unisys ClearPath MCP Virtualization on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost"/>
+        <updated>2025-04-16T16:56:08.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to apply Unisys virtualization technologies to migrate a legacy Unisys ClearPath Forward Libra mainframe to Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Core startup stack architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/startups/core-startup-stack</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/startups/core-startup-stack"/>
+        <updated>2025-04-14T17:01:00.000Z</updated>
+        <summary type="html"><![CDATA[See an example and understand the components of a simple core startup stack architecture for an initial MVP or prototype.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -361,14 +481,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Big data architectures]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/databases/guide/big-data-architectures</id>
-        <link href="https://learn.microsoft.com/azure/architecture/databases/guide/big-data-architectures"/>
-        <updated>2025-03-10T17:40:49.000Z</updated>
-        <summary type="html"><![CDATA[Learn about big data architectures that handle the ingestion, processing, and analysis of data too large or complex for traditional database systems.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Azure Local baseline reference architecture]]></title>
         <id>https://learn.microsoft.com/azure/architecture/hybrid/azure-local-baseline</id>
         <link href="https://learn.microsoft.com/azure/architecture/hybrid/azure-local-baseline"/>
@@ -394,41 +506,51 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Migrate IBM z/OS OLTP Workloads to Azure]]></title>
+        <title type="html"><![CDATA[Migrate IBM z/OS OLTP Workloads to Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure"/>
         <updated>2025-03-03T19:26:30.000Z</updated>
+        <summary type="html"><![CDATA[Migrate a z/OS online transaction processing (OLTP) workload to an Azure application that is cost effective, responsive, scalable, and adaptable.]]></summary>
         <summary type="html"><![CDATA[Migrate a z/OS online transaction processing (OLTP) workload to an Azure application that is cost effective, responsive, scalable, and adaptable.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Replicate Mainframe and Midrange Data to Azure by Using Qlik]]></title>
+        <title type="html"><![CDATA[Replicate Mainframe and Midrange Data to Azure by Using Qlik]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik"/>
         <updated>2025-03-03T19:26:30.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Qlik Replicate to migrate mainframe and midrange systems to the cloud or extend those systems by using cloud applications.]]></summary>
         <summary type="html"><![CDATA[Learn how to use Qlik Replicate to migrate mainframe and midrange systems to the cloud or extend those systems by using cloud applications.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Modernize Mainframe and Midrange Data]]></title>
+        <title type="html"><![CDATA[Modernize Mainframe and Midrange Data]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure"/>
         <updated>2025-03-03T19:26:30.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to modernize IBM mainframe and midrange data. Use a data-first approach to migrate the data to scalable and more secure cloud storage on Azure.]]></summary>
         <summary type="html"><![CDATA[Learn how to modernize IBM mainframe and midrange data. Use a data-first approach to migrate the data to scalable and more secure cloud storage on Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Rehost IMS DC and IMS DB on Azure by Using Raincode IMSql]]></title>
+        <title type="html"><![CDATA[Rehost IMS DC and IMS DB on Azure by Using Raincode IMSql]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/rehost-ims-raincode-imsql</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/rehost-ims-raincode-imsql"/>
         <updated>2025-03-03T19:26:30.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to rehost IBM IMS DC and IMS DB on Azure by using Raincode IMSql. Rehost seamlessly without translating or changing your application.]]></summary>
         <summary type="html"><![CDATA[Learn how to rehost IBM IMS DC and IMS DB on Azure by using Raincode IMSql. Rehost seamlessly without translating or changing your application.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Replicate and Sync Mainframe Data to Azure]]></title>
+        <title type="html"><![CDATA[Replicate and Sync Mainframe Data to Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure"/>
         <updated>2025-03-03T19:26:30.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to replicate data while you modernize mainframe and midrange systems. Sync on-premises data with Azure data during modernization.]]></summary>
         <summary type="html"><![CDATA[Learn how to replicate data while you modernize mainframe and midrange systems. Sync on-premises data with Azure data during modernization.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
@@ -874,9 +996,11 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Replicate and Sync Mainframe Data to Azure]]></title>
+        <title type="html"><![CDATA[Replicate and Sync Mainframe Data to Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure"/>
         <updated>2025-01-31T16:29:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to replicate data while you modernize mainframe and midrange systems. Sync on-premises data with Azure data during modernization.]]></summary>
         <summary type="html"><![CDATA[Learn how to replicate data while you modernize mainframe and midrange systems. Sync on-premises data with Azure data during modernization.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
@@ -1058,6 +1182,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Governance Options for a Kubernetes Cluster]]></title>
+        <title type="html"><![CDATA[Governance Options for a Kubernetes Cluster]]></title>
         <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/governance</id>
         <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/governance"/>
         <updated>2025-01-28T16:25:01.000Z</updated>
@@ -1065,6 +1190,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Storage Options for a Kubernetes Cluster]]></title>
         <title type="html"><![CDATA[Storage Options for a Kubernetes Cluster]]></title>
         <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/storage</id>
         <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/storage"/>
@@ -1146,9 +1272,11 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Migrate IBM z/OS OLTP Workloads to Azure]]></title>
+        <title type="html"><![CDATA[Migrate IBM z/OS OLTP Workloads to Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure"/>
         <updated>2025-01-22T15:42:08.000Z</updated>
+        <summary type="html"><![CDATA[Migrate a z/OS online transaction processing (OLTP) workload to an Azure application that is cost effective, responsive, scalable, and adaptable.]]></summary>
         <summary type="html"><![CDATA[Migrate a z/OS online transaction processing (OLTP) workload to an Azure application that is cost effective, responsive, scalable, and adaptable.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
@@ -1186,9 +1314,11 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Replicate Mainframe and Midrange Data to Azure by Using Qlik]]></title>
+        <title type="html"><![CDATA[Replicate Mainframe and Midrange Data to Azure by Using Qlik]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik"/>
         <updated>2025-01-22T15:42:08.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Qlik Replicate to migrate mainframe and midrange systems to the cloud or extend those systems by using cloud applications.]]></summary>
         <summary type="html"><![CDATA[Learn how to use Qlik Replicate to migrate mainframe and midrange systems to the cloud or extend those systems by using cloud applications.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
@@ -1242,9 +1372,11 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Modernize Mainframe and Midrange Data]]></title>
+        <title type="html"><![CDATA[Modernize Mainframe and Midrange Data]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure"/>
         <updated>2025-01-22T15:42:08.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to modernize IBM mainframe and midrange data. Use a data-first approach to migrate the data to scalable and more secure cloud storage on Azure.]]></summary>
         <summary type="html"><![CDATA[Learn how to modernize IBM mainframe and midrange data. Use a data-first approach to migrate the data to scalable and more secure cloud storage on Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
@@ -1306,9 +1438,11 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Rehost IMS DC and IMS DB on Azure by Using Raincode IMSql]]></title>
+        <title type="html"><![CDATA[Rehost IMS DC and IMS DB on Azure by Using Raincode IMSql]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/rehost-ims-raincode-imsql</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/rehost-ims-raincode-imsql"/>
         <updated>2025-01-22T15:42:08.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to rehost IBM IMS DC and IMS DB on Azure by using Raincode IMSql. Rehost seamlessly without translating or changing your application.]]></summary>
         <summary type="html"><![CDATA[Learn how to rehost IBM IMS DC and IMS DB on Azure by using Raincode IMSql. Rehost seamlessly without translating or changing your application.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
@@ -1321,11 +1455,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Unisys ClearPath MCP virtualization on Azure]]></title>
+        <title type="html"><![CDATA[Unisys ClearPath MCP Virtualization on Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost"/>
         <updated>2025-01-22T15:42:08.000Z</updated>
-        <summary type="html"><![CDATA[Use virtualization from Unisys and Microsoft Azure to migrate from a Unisys ClearPath Forward Libra mainframe, which allows an accelerated move into Azure.]]></summary>
+        <summary type="html"><![CDATA[Learn how to apply Unisys virtualization technologies to migrate a legacy Unisys ClearPath Forward Libra mainframe to Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1441,6 +1575,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Unisys ClearPath Forward OS 2200 Enterprise Server Virtualization on Azure]]></title>
         <title type="html"><![CDATA[Unisys ClearPath Forward OS 2200 Enterprise Server Virtualization on Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure</id>
         <link href="https://learn.microsoft.com/azure/architecture/mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure"/>
@@ -1738,6 +1873,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Migrate Mainframe Data to Azure]]></title>
+        <title type="html"><![CDATA[Migrate Mainframe Data to Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-data-replication-azure-rdrs</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-data-replication-azure-rdrs"/>
         <updated>2025-01-15T17:37:41.000Z</updated>
@@ -1881,11 +2017,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[General mainframe refactor to Azure]]></title>
+        <title type="html"><![CDATA[General Mainframe Refactor to Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/general-mainframe-refactor</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/general-mainframe-refactor"/>
         <updated>2025-01-14T15:51:28.000Z</updated>
-        <summary type="html"><![CDATA[See how to refactor general mainframe applications to run more cost-effectively and efficiently on Azure.]]></summary>
+        <summary type="html"><![CDATA[Learn how to refactor general mainframe applications to run more cost-effectively and efficiently on Azure by using AKS or virtual machines.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

@@ -1,6 +1,5 @@
 ---
 title: Web API implementation
-titleSuffix: Best practices for cloud applications
 description: Learn about best practices for implementing a web API and publishing it to make it available to client applications.
 ms.author: robbag
 author: RobBagby

@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Databases architecture design
-  titleSuffix: Azure Reference Architectures
   description: Learn about the different Azure database solutions described in Azure Architecture Center.
   author: RobBagby
   ms.author: pnp

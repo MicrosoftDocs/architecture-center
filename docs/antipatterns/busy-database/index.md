@@ -1,6 +1,5 @@
 ---
 title: Busy Database antipattern
-titleSuffix: Performance antipatterns for cloud apps
 description: Understand the Busy Database antipattern, which can cause performance and scalability problems by offloading processing to a database server.
 ms.author: robbag
 author: RobBagby

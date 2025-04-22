@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Update route tables by using Azure Route Server
-  titleSuffix: Azure Example Scenarios
   description: Use Azure Route Server to manage the dynamic routing between NVAs and virtual networks. Simplify NVA maintenance, and avoid manually updating route tables.
   author: halkazwini
   ms.author: halkazwini

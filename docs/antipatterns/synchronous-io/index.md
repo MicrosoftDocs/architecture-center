@@ -1,6 +1,5 @@
 ---
 title: Synchronous I/O antipattern
-titleSuffix: Performance antipatterns for cloud apps
 description: Blocking the calling thread while I/O completes can reduce performance and affect vertical scalability.
 ms.author: robbag
 author: RobBagby

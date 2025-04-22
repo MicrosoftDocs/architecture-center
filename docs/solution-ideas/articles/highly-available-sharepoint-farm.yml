@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Highly available SharePoint farm
-  titleSuffix: Azure Solution Ideas
   description: Deploy a highly available SharePoint farm for intranet capabilities that uses Microsoft Entra ID, a SQL always on instance, and SharePoint resources.
   author: RobBagby
   ms.author: pnp

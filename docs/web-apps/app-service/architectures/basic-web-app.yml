@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Basic web application
-  titleSuffix: Azure Reference Architectures
   description: Learn about proven practices for deploying web applications that use Azure App Service and Azure SQL Database.
   author: robbagby
   ms.author: robbag

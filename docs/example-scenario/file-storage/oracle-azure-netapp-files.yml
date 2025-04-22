@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Oracle Database with Azure NetApp Files
-  titleSuffix: Azure Example Scenarios
   description: Implement a high-bandwidth, low-latency solution for Oracle Database workloads. Use Azure NetApp Files for enterprise-scale performance and reduced costs.
   author: arntdg
   ms.author: b-gevant

@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: CI/CD for AKS apps with Azure Pipelines
-  titleSuffix: Azure Guide
   description: Deploying Azure Kubernetes Service (AKS) apps with Azure Pipelines.
   author: francisnazareth
   ms.author: fnazaret
