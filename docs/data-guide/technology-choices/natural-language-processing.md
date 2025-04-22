@@ -6,7 +6,6 @@ ms.author: freddyayala
 ms.date: 02/10/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - ai-services

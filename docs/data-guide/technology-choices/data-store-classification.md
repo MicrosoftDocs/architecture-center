@@ -1,6 +1,5 @@
 ---
 title: Data store classification for Azure workloads
-titleSuffix: Azure Architecture Center
 description: Learn how to choose the right data store classification for Azure workloads. This article describes simple storage solutions and transactional and analytical databases.
 author: joaria
 categories: azure
@@ -8,7 +7,6 @@ ms.author: pnp
 ms.reviewer: ambers
 ms.date: 08/20/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 azureCategories:
   - analytics

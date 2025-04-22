@@ -2,7 +2,6 @@
 author: paolosalvatori
 ms.author: paolos
 ms.topic: include
-ms.service: azure-architecture-center
 ---
 
 > [!NOTE]

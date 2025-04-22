@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Unisys ClearPath MCP virtualization on Azure
-  titleSuffix: Azure Architecture Center
-  description: Use virtualization from Unisys and Microsoft Azure to migrate from a Unisys ClearPath Forward Libra mainframe, which allows an accelerated move into Azure.
-  author: pbrooks
+  title: Unisys ClearPath MCP Virtualization on Azure
+  description: Learn how to apply Unisys virtualization technologies to migrate a legacy Unisys ClearPath Forward Libra mainframe to Azure.
+  author: crzywabbit
   ms.author: pbrooks
-  ms.date: 11/09/2023
-  ms.topic: conceptual
-  ms.service: azure-architecture-center
+  ms.date: 04/07/2025
+  ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom:
     - fcp
@@ -22,7 +20,7 @@ products:
   - azure-virtual-machines
   - azure-virtual-network
 name: Unisys ClearPath MCP virtualization on Azure
-summary: Use virtualization technologies from Unisys and Microsoft Azure to migrate from a Unisys ClearPath Forward Libra (legacy Burroughs A Series/MCP) mainframe.
+summary: Learn how to apply Unisys virtualization technologies to migrate a legacy Unisys ClearPath Forward Libra mainframe to Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/unisys-clearpath-forward-mainframe-rehost.png
 content: |
-  [!include[](unisys-clearpath-forward-mainframe-rehost-content.md)]
+  [!INCLUDE[](unisys-clearpath-forward-mainframe-rehost-content.md)]

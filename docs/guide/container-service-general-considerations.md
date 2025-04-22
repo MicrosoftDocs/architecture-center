@@ -5,7 +5,6 @@ author: MarcosMMartinez
 ms.author: mamartin
 ms.date: 01/03/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers
@@ -394,7 +393,7 @@ As AKS exposes the native Kubernetes API, cluster security also can be evaluated
 
 For more information, see [Containers support matrix in Defender for Cloud](/azure/defender-for-cloud/support-matrix-defender-for-containers).
 
-Note that container image vulnerability assessments aren't real-time scans. The Azure container registry is scanned at regular intervals.
+Note that container image vulnerability assessments aren't real-time scans. The Azure Container Registry is scanned at regular intervals.
 
 ## Security baselines
 

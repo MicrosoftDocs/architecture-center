@@ -6,7 +6,6 @@ metadata:
   ms.author: pbrooks
   ms.date: 12/01/2023
   ms.topic: solution-idea
-  ms.service: azure-architecture-center
   ms.subservice: solution-idea
 azureCategories:
   - containers

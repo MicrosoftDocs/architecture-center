@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Stream Processing with Databricks
-  titleSuffix: Azure Architecture Center
   description: Learn how to create a four-stage, end-to-end stream processing pipeline in Azure by using Azure Databricks.
   author: garridoangelica
   ms.author: agarrido
   ms.date: 02/28/2025
   ms.topic: reference-architecture
-  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - analytics

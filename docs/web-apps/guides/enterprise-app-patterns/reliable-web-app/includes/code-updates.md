@@ -3,7 +3,6 @@ author: ssumner
 ms.author: ssumner
 ms.date: 10/15/2024
 ms.topic: include
-ms.service: azure-architecture-center
 ---
 To successfully move a web app to the cloud, you need to update your web app code with the Retry pattern, Circuit Breaker pattern, and Cache-Aside pattern.
 
