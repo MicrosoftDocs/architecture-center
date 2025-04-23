@@ -109,7 +109,7 @@ The following diagram illustrates an architecture using a router to route reques
    A diagram showing an intelligent client connecting to a router (labeled 1). The router has connections to two deployment boxes that are contained in an Orchestrator box (labled 2). In each deployment box, there is config, a prompt (labeled 3), and orchestration logic (labeled 4). Each deployment box has a connection line to a specific model box (labeled 5). Deployment 1 is connected to model-x-v1, while Deployment 2 is connected to model-x-v1.1. The orchestrator box connectd to an API/Agent box, which connects to a knowledge database box. There are arrows pointing to the router and gateway boxes with a lable that reads 'Common layers of abstraction in a generative AI workload'.
 :::image-end:::
 
-The following describes the flow in this architecture:
+The following describes how different deployments of an orchestrator, each with their own version of model configuration and a prompt, call the correct model:
 
 1. A user issues a request from an intelligent application and that request is sent to a router.
 1. The router routes to either 'Deployment 1' or 'Deployment 2', depending upon its logic.
@@ -125,7 +125,7 @@ The following diagram illustrates an architecture using a router to route reques
    A diagram showing an intelligent client connecting to a router (labeled 1). The router has connections to two deployment boxes that are contained in an Orchestrator box (labled 2). In each deployment box, there is config, a prompt (labeled 3), and orchestration logic (labeled 4). Each deployment box has a connection line to a gateway box (labeled 5). Each connector line has a label showing an HTTP header indicating the model and version. Deployment 1 indicates model-x-v1, while Deployment 2 indicates model-x-v1.1. The gateway box has connectors to model-x-v1 box and model-x-v1.1 box (labeled 6). The orchestrator box connectd to an API/Agent box, which connects to a knowledge database box. There are arrows pointing to the router and gateway boxes with a lable that reads 'Common layers of abstraction in a generative AI workload'.
 :::image-end:::
 
-The following describes the flow in this architecture:
+The following describes how different deployments of an orchestrator, each with their own version of model configuration and a prompt, call the correct model through a gateway:
 
 1. A user issues a request from an intelligent application and that request is sent to a router.
 1. The router routes to either 'Deployment 1' or 'Deployment 2', depending upon its logic.
@@ -134,3 +134,8 @@ The following describes the flow in this architecture:
 1. The orchestrator calls the gateway. The request contains the HTTP header indicating the name and version of the model to use.
 1. The gateway uses the HTTP header to route the request to the appropriate model and version.
 
+## Summary
+
+There are a variety of reasons to update the foundational model in your generative workload ranging from version upgrades required when models are retired to choosing a completely different model. Depending on the scope of the model update, you may need to implement and evaluate changes to the model, if it is fine-tuned, the prompt, your model configuration, your orchestration logic, or your data pipeline. You should follow MLOps, DataOps, and GenAIOps guidance to build automated workflows for the different aspects of your solution, allowing you to test, evaluate, and deploy new versions. You also need to ensure that your architecture supports running multiple versions of an orchestrator where each version ties its config and prompt version to a specific model version.
+
+Your architecture should support updating to new or different models, along with any required changes to the prompt or model config, without requiring changes to the intelligent application or to the user experience. The changes should be encapsulated within their appropriate components and your operations should automate the testing, evaluation, and deployment of those changes.
