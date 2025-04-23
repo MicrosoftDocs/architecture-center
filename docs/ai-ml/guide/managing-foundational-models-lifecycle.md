@@ -139,3 +139,21 @@ The following flow describes how different deployments of an orchestrator, each 
 There are a various reasons to update the foundational model in your generative workload ranging from version upgrades required when models are retired to choosing a different model. Depending on the scope of the model update, you may need to implement and evaluate changes to the model, if it's fine-tuned, the prompt, your model configuration, your orchestration logic, or your data pipeline. You should follow MLOps, DataOps, and GenAIOps guidance to build automated workflows for the different aspects of your solution, allowing you to test, evaluate, and deploy new versions. You also need to ensure that your architecture supports running multiple versions of an orchestrator where each version ties its config and prompt version to a specific model version.
 
 Your architecture should support updating to new or different models, along with any required changes to the prompt or model config, without requiring changes to the intelligent application or to the user experience. The changes should be encapsulated within their appropriate components and your operations should automate the testing, evaluation, and deployment of those changes.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+- [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/) | Principal Software Engineer  
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+
+## Next step
+
+[GenAIOps for MLOps practitioners](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/genaiops-for-mlops)
+
+## Related resources
+
+- [Azure OpenAI Service model deprecations and retirements](/azure/ai-services/openai/concepts/model-retirements)
+- [Baseline OpenAI end-to-end chat reference architecture](../architecture/baseline-openai-e2e-chat.yml)
+- [Machine learning operations](machine-learning-operations-v2.md)
