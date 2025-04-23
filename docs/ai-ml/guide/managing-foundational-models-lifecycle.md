@@ -20,7 +20,7 @@ categories:
 
 There are different reasons to update the foundational model you use in your generative AI solution and the scope of your model update can vary between upgrading for a slight revision change to choosing a different model altogether. Some reasons to update models are voluntary, while others are required. For example, depending upon the model deployment option you choose in Azure, MaaS, MaaP, or self-hosting, you may be required to update to new model versions, as old versions are retired.
 
-This article will touch on some of the reasons for updating to new models or model versions and will detail the architectural choices you should consider to make sure your solution supports these inevitable model updates.
+This article touches on some of the reasons for updating to new models or model versions and details the architectural choices you should consider to make sure your solution supports these inevitable model updates.
 
 ## Model update scopes
 
@@ -45,7 +45,7 @@ There are three main strategies for deploying models and it is important to unde
 - **MaaP (Models as a Platform)** - Models deployed and managed within a larger platform, such as Azure AI Foundry. This strategy provides greater control of the models, but requires more management and infrastructure.
 - **Self-hosting models** - Models deployed on your own infrastructure, providing maximum control over the models but requiring significant responsibility for management and maintenance.
 
-Both MaaS and MaaP strategies in Azure source models from the Azure AI model catalog. Models in the model catalog follow a lifecycle where models are eventually [deprecated](/azure/ai-foundry/concepts/model-lifecycle-retirement#deprecated) and [retired](/azure/ai-foundry/concepts/model-lifecycle-retirement#retired). You are not able to create new deployments for deprecated models, but existing deployments continue to work. Existing deployments for retired models return errors. Using these two strategies will require you to update your solution to use newer model versions. When you are self-hosting models, you have full control and you are not forced to update models.
+Both MaaS and MaaP strategies in Azure source models from the Azure AI model catalog. Models in the model catalog follow a lifecycle where models are eventually [deprecated](/azure/ai-foundry/concepts/model-lifecycle-retirement#deprecated) and [retired](/azure/ai-foundry/concepts/model-lifecycle-retirement#retired). You are not able to create new deployments for deprecated models, but existing deployments continue to work. Existing deployments for retired models return errors. Using these two strategies requires you to update your solution to use newer model versions. When you are self-hosting models, you have full control and you are not forced to update models.
 
 ## Breadth of change for model updates
 
@@ -53,17 +53,18 @@ Both MaaS and MaaP strategies in Azure source models from the Azure AI model cat
    A diagram showing an intelligent client connecting to an orchestrator. There are three boxes pointing to the orchestrator with dashed lines: 1. config, 2. prompt, and 3. orchestration logic. The orchestrator has solid lines pointing to three different AI models: 1. model x-1, 2. model x-1.1, and 3. model y-1. The orchestrator also has an arrow pointing to a box labeled API/Agent. The API/Agent box has a solid line pointing to a box labled Vector database. There is a pipeline with four steps that is pointing to the vector database with a dashed line. The four steps are: 1. chunk documents, 2. enrich chunks, 3. embed chunks, and 4. persist chunks. There are green numbered circles annotating several parts of the diagram. The first is next to the models. The second is between prompt and config. The third is where the pipeline is pointing to the vector database. The fourth is next to the orchestration logic. The fifth is next to the intelligent application.
 :::image-end:::
 
-Updating the model in your solution will require different breadths of change within your architecture depending upon factors such as the model update scope, the purpose of the update, and differences between the old and updated model. The diagram shows a simplified chat architecture, numbered to point out some of the areas of change in your architecture a model update might influence.
+Updating the model in your solution requires different breadths of change within your architecture depending upon factors such as the model update scope, the purpose of the update, and differences between the old and updated model. The diagram shows a simplified chat architecture, numbered to point out some of the areas of change in your architecture a model update might influence.
 
 1. **The model** - The obvious change is to the model itself. You deploy the new model using your chosen model deployment strategy.
 1. **The model config** - When updating the model in your generative AI solution, you might need to adjust hyperparameters or configurations to optimize performance for the new model's architecture and capabilities. For example, switching from a transformer-based model to a recurrent neural network might require different learning rates and batch sizes to achieve optimal results.
-1. **The prompt** - When changing models in a generative AI solution, you may need to adjust the prompt to align with the new model's strengths and capabilities. Along with updating the model config, updating the prompt is the most common change when updating models. When evaluating a new model, even for a minor version update, if the model is not performing to your requirements, you should start with testing changes to the prompt. You will certainly need to address the prompt when changing to new models and it is likely that you will need to address the prompt when making large revision changes.
-1. **The grounding data** - Some model updates, usually larger scoped changes, will lead you to making changes to your grounding data. For example, when moving from a generalized model to a domain specific model, such as one focused on finance or medicine, you may no longer need to pass domain specific grounding data to the model. See [Design and develop a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide) for more information.
-1. **The orchestration logic** - Some model updates, especially when taking advantage of new features, will lead you to making changes to your orchestration logic. For example, if you update your model to GPT-35 or GPT-4 to take advantage of [function calling](/azure/ai-services/openai/how-to/function-calling), you have to update your orchestration logic. Your old model returned a result which you could return to the caller. With function calling, the call to the model will return a function that your orchestration logic must call.
+1. **The prompt** - When changing models in a generative AI solution, you may need to adjust the prompt to align with the new model's strengths and capabilities. Along with updating the model config, updating the prompt is the most common change when updating models. When evaluating a new model, even for a minor version update, if the model is not performing to your requirements, you should start with testing changes to the prompt. You certainly need to address the prompt when changing to new models and it is likely that you need to address the prompt when making large revision changes.
+1. **The orchestration logic** - Some model updates, especially when taking advantage of new features, lead you to making changes to your orchestration logic. For example, if you update your model to GPT-35 or GPT-4 to take advantage of [function calling](/azure/ai-services/openai/how-to/function-calling), you have to update your orchestration logic. Your old model returned a result which you could return to the caller. With function calling, the call to the model returns a function that your orchestration logic must call.
+1. **The grounding data** - Some model updates, usually larger scoped changes, leads you to making changes to your grounding data. For example, when moving from a generalized model to a domain specific model, such as one focused on finance or medicine, you may no longer need to pass domain specific grounding data to the model. See [Design and develop a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide) for more information.
+1. **Fine-tuning** - When moving to a new model version from a fine-tuned model, you likely need to fine-tune the new model version. When updating to use a different model, you need to determine if fine-tuning is required.
 
 ## Architecting for change
 
-It is highly likely that you will be updating models. If you are using MaaS or MaaP deployment strategies in Azure, models will be retired and you will need to upgrade to a newer version. You may also choose to move to different models or model versions to take advantage of new features, lower pricing, or better performance. Either way, it should be clear that your architecture should support updating the model your generative AI workload is using.
+It is highly likely that you will be updating models. If you are using MaaS or MaaP deployment strategies in Azure, models are retired and you need to upgrade to a newer version. You may also choose to move to different models or model versions to take advantage of new features, lower pricing, or better performance. Either way, it should be clear that your architecture should support updating the model your generative AI workload is using.
 
 The previous section discussed the [different breadths of change](#breadth-of-change-for-model-updates). It was discussed that updates to the hyperparameters and the prompt are likely for most model updates. Because these changes are so likely, your architecture should take them into account.
 
@@ -87,7 +88,7 @@ Your architecture may implement one or more layers of abstraction. The diagram s
 - **Router** - Routes traffic to different deployments. This is useful in deployment strategies such as A/B deployments where you may choose to route a certain percentage of traffic to a new orchestrator version.
 - **Gateway** - It is common to [proxy access to AI models for a variety of reasons](/azure/architecture/ai-ml/guide/azure-openai-gateway-guide) including load balancing or failover between multiple backend instances, implementing custom authentication and authorization for client applications, and implementing logging and monitoring for your models.
 
-When updating models, it's important to remember that you often need to update the corresponding prompt. Due to the layers of indirection involved, your architecture must be designed to support sending specific versions of prompts to specific models or model versions. For instance, you might have a prompt in production, prompt1, that is designed for model1. If you upgrade to model1.1, you may need to update the prompt to prompt2. In this example, your architecture will need to always use prompt1 with model1 and prompt2 with model1.1.
+When updating models, it's important to remember that you often need to update the corresponding prompt. Due to the layers of indirection involved, your architecture must be designed to support sending specific versions of prompts to specific models or model versions. For instance, you might have a prompt in production, prompt1, that is designed for model1. If you upgrade to model1.1, you may need to update the prompt to prompt2. In this example, your architecture needs to always use prompt1 with model1 and prompt2 with model1.1.
 
 #### Router
 
@@ -100,7 +101,7 @@ The following describes the flow in this architecture:
 1. A user issues a request from an intelligent application and that request is sent to a router.
 1. The router routes to either 'Deployment 1' or 'Deployment 2', depending upon its logic.
 1. Each deployment has its own version of the prompt.
-1. The orchestrator is configured with the specific model and version. It will use this information to call the appropriate model and version directly.
+1. The orchestrator is configured with the specific model and version. It uses this information to call the appropriate model and version directly.
 1. Because the specific version of the prompt is deployed along with the orchstrator that is configured with the specific model and version, the correct prompt is sent to the correct model version.
 
 #### Gateway
@@ -114,7 +115,7 @@ The following describes the flow in this architecture:
 1. A user issues a request from an intelligent application and that request is sent to a router.
 1. The router routes to either 'Deployment 1' or 'Deployment 2', depending upon its logic.
 1. Each deployment has its own version of the prompt.
-1. The orchestrator is configured with the specific model and version. It will use this information to set an HTTP header indicating the correct model and version to call.
+1. The orchestrator is configured with the specific model and version. It uses this information to set an HTTP header indicating the correct model and version to call.
 1. The orchestrator calls the gateway. The request contains the HTTP header indicating the name and version of the model to use.
 1. The gateway uses the HTTP header to route the request to the appropriate model and version.
 
