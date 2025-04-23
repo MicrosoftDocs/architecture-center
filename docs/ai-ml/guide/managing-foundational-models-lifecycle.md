@@ -50,7 +50,7 @@ Both MaaS and MaaP strategies in Azure source models from the Azure AI model cat
 ## Breadth of change for model updates
 
 :::image type="complex" source="_images/model-lifecycle-breadth-change.svg" alt-text="Simple architecture diagram of a chat scenario showing the different breadths of change when updating a model." lightbox="_images/model-lifecycle-breadth-change.svg":::
-   A diagram showing an intelligent client connecting to an orchestrator. There are three boxes pointing to the orchestrator with dashed lines: 1. config, 2. prompt, and 3. orchestration logic. The orchestrator has solid lines pointing to three different AI models: 1. model x-1, 2. model x-1.1, and 3. model y-1. The orchestrator also has an arrow pointing to a box labeled API/Agent. The API/Agent box has a solid line pointing to a box labled Vector database. There is a pipeline with four steps that is pointing to the vector database with a dashed line. The four steps are: 1. chunk documents, 2. enrich chunks, 3. embed chunks, and 4. persist chunks. There are green numbered circles annotating several parts of the diagram. The first is next to the models. The second is between prompt and config. The third is where the pipeline is pointing to the vector database. The fourth is next to the orchestration logic. The fifth is next to the intelligent application.
+   A diagram showing an intelligent client connecting to an orchestrator. There are three boxes pointing to the orchestrator with dashed lines: 1. config, 2. prompt, and 3. orchestration logic. The orchestrator has solid lines pointing to three different AI models: 1. model-x-v1, 2. model-x-v1.1, and 3. model-y-v1. The orchestrator also has an arrow pointing to a box labeled API/Agent. The API/Agent box has a solid line pointing to a box labled Vector database. There is a pipeline with four steps that is pointing to the vector database with a dashed line. The four steps are: 1. chunk documents, 2. enrich chunks, 3. embed chunks, and 4. persist chunks. There are green numbered circles annotating several parts of the diagram. The first is next to the models. The second is between prompt and config. The third is where the pipeline is pointing to the vector database. The fourth is next to the orchestration logic. The fifth is next to the intelligent application.
 :::image-end:::
 
 Updating the model in your solution requires different breadths of change within your architecture depending upon factors such as the model update scope, the purpose of the update, and differences between the old and updated model. The diagram shows a simplified chat architecture, numbered to point out some of the areas of change in your architecture a model update might influence.
@@ -79,8 +79,8 @@ You should implement pipelines to:
 
 ### Layers of abstraction
 
-:::image type="complex" source="_images/model-lifecycle-layers-of-abstraction.svg" alt-text="Simple architecture diagram of a chat scenario showing the different breadths of change when updating a model." lightbox="_images/model-lifecycle-layers-of-abstraction.svg":::
-   A diagram showing an intelligent client connecting to a router. The router has connections to two deployment boxes. Each deployment box has a connection line to the gateway box. The gateway box has connection lines to three different models boxes: Model X v1, Model X v1.1, and Model Y v1. The orchestrator boxes connect to an API/Agent box, which connects to a knowledge database box. There are arrows pointing to the router and gateway boxes with a lable that reads 'Common layers of abstraction in a generative AI workload'.
+:::image type="complex" source="_images/model-lifecycle-layers-of-abstraction.svg" alt-text="Simple architecture diagram of a chat scenario showing two common layers of abstraction in a generative AI workload." lightbox="_images/model-lifecycle-layers-of-abstraction.svg":::
+   A diagram showing an intelligent client connecting to a router. The router has connections to two deployment boxes. Each deployment box has a connection line to the gateway box. The gateway box has connection lines to three different models boxes: model-x-v1, model-x-v1.1, and model-y-v1. The orchestrator boxes connect to an API/Agent box, which connects to a knowledge database box. There are arrows pointing to the router and gateway boxes with a lable that reads 'Common layers of abstraction in a generative AI workload'.
 :::image-end:::
 
 Your architecture may implement one or more layers of abstraction. The diagram shows two common ones:
@@ -92,9 +92,11 @@ When updating models, it's important to remember that you often need to update t
 
 #### Router
 
-The following diagram illustrates an architecture using a router to route requests to multiple deployments. An [example of this architecture with Azure AI Foundry](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#architecture) uses a managed online endpoint as the router and the different versions of the orchestrator are deployed to managed compute. 
+The following diagram illustrates an architecture using a router to route requests to multiple deployments. An [example of this architecture with Azure AI Foundry](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#architecture) uses a managed online endpoint as the router and the different versions of the orchestrator are deployed to managed compute.
 
-:::image type="complex" source="_images/model-lifecycle-single-layer-abstraction.svg" alt-text="Simple architecture diagram of a chat scenario showing the different breadths of change when updating a model." lightbox="_images/model-lifecycle-single-layer-abstraction.svg":::
+:::image type="complex" source="_images/model-lifecycle-single-layer-abstraction.svg" alt-text="Architecture diagram of a chat scenario that uses a router to route between deployments." lightbox="_images/model-lifecycle-single-layer-abstraction.svg":::
+   A diagram showing an intelligent client connecting to a router (labeled 1). The router has connections to two deployment boxes that are contained in an Orchestrator box (labled 2). In each deployment box, there is config, a prompt (labeled 3), and orchestration logic (labeled 4). Each deployment box has a connection line to a specific model box (labeled 5). Deployment 1 is connected to model-x-v1, while Deployment 2 is connected to model-x-v1.1. The orchestrator box connectd to an API/Agent box, which connects to a knowledge database box. There are arrows pointing to the router and gateway boxes with a lable that reads 'Common layers of abstraction in a generative AI workload'.
+:::image-end:::
 
 The following describes the flow in this architecture:
 
@@ -108,7 +110,9 @@ The following describes the flow in this architecture:
 
 The following diagram illustrates an architecture using a router to route requests to multiple deployments. However, in this architecture, all model requests are routed through a gateway.
 
-:::image type="complex" source="_images/model-lifecycle-two-layers-abstraction.svg" alt-text="Simple architecture diagram of a chat scenario showing the different breadths of change when updating a model." lightbox="_images/model-lifecycle-two-layers-abstraction.svg":::
+:::image type="complex" source="_images/model-lifecycle-two-layers-abstraction.svg" alt-text="Architecture diagram of a chat scenario that uses a router to route between deployments and a gateway to route between models." lightbox="_images/model-lifecycle-two-layers-abstraction.svg":::
+   A diagram showing an intelligent client connecting to a router (labeled 1). The router has connections to two deployment boxes that are contained in an Orchestrator box (labled 2). In each deployment box, there is config, a prompt (labeled 3), and orchestration logic (labeled 4). Each deployment box has a connection line to a gateway box (labeled 5). Each connector line has a label showing an HTTP header indicating the model and version. Deployment 1 indicates model-x-v1, while Deployment 2 indicates model-x-v1.1. The gateway box has connectors to model-x-v1 box and model-x-v1.1 box (labeled 6). The orchestrator box connectd to an API/Agent box, which connects to a knowledge database box. There are arrows pointing to the router and gateway boxes with a lable that reads 'Common layers of abstraction in a generative AI workload'.
+:::image-end:::
 
 The following describes the flow in this architecture:
 
