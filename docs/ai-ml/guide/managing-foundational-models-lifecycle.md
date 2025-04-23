@@ -73,9 +73,9 @@ It was discussed that updates to the hyperparameters and the prompt are likely f
 
 Implement automated pipelines that allow you to test and evaluate the differing aspects of your generative AI application:
 
-- Follow the guidance in [Machine learning operations](/azure/architecture/ai-ml/guide/machine-learning-operations-v2) to build pipelines for model fine-tuning, if applicable.
-- Implement GenAIOps pipelines to [test and evaluate changes to the model, model hyperparameters, the prompt, and changes to orchestration logic](/azure/architecture/ai-ml/guide/genaiops-for-mlops#rag-and-prompt-engineering-2).
-- Implement [DataOps](/azure/architecture/ai-ml/guide/genaiops-for-mlops#dataops) pipelines to [test and evaluate changes to your RAG grounding data](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide).
+- **MLOps** - Follow the guidance in [Machine learning operations](/azure/architecture/ai-ml/guide/machine-learning-operations-v2) to build pipelines for model fine-tuning, if applicable.
+- **GenAIOps** - Implement GenAIOps pipelines to [test and evaluate changes to the model, model hyperparameters, the prompt, and changes to orchestration logic](/azure/architecture/ai-ml/guide/genaiops-for-mlops#rag-and-prompt-engineering-2).
+- **DataOps** - Implement [DataOps](/azure/architecture/ai-ml/guide/genaiops-for-mlops#dataops) pipelines to [test and evaluate changes to your RAG grounding data](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide).
 
 You should implement pipelines to:
 
@@ -84,13 +84,13 @@ You should implement pipelines to:
 
 ### Architecture considerations
 
-In very simple architectures, like the following, the client directly calls the model with the corrent prompt version and configuration. If there are changes to the prompt, a new client is deployed with the new prompt and it calls the new model.
+In very simple architectures, like the following, the client directly calls the model with the corrent prompt version and configuration. If there are changes to the prompt, a new client is deployed with the new prompt and it calls the new model. Tying the prompt, config, and model versions is not a challenge.
 
 :::image type="complex" source="_images/model-lifecycle-direct-access-from-client.svg" alt-text="Simple architecture diagram of a chat scenario showing an intelligent app directly accessing a model." lightbox="_images/model-lifecycle-direct-access-from-client.svg":::
    A diagram showing an intelligent client connecting directly to a model. The intelligent app shows 3 elements pointing to it, illustrating that it contains those elements. The elements are the config, the prompt, and orchestration logic.
 :::image-end:::
 
-Production architectures are generally not so simple. They generally have an orchestrator whose responsibility is to manage the flow of the interactions. between any knowledge database and the models. Your architecture may implement one or more layers of abstraction. The following diagram shows two common layers:
+Production architectures are generally not so simple. You generally implement an orchestrator whose responsibility is to manage the flow of the interactions between any knowledge database and the models. Your architecture may also implement one or more layers of abstraction, such as a router or a gateway:
 
 - **Router** - Routes traffic to different deployments. This is useful in deployment strategies such as A/B deployments where you may choose to route a certain percentage of traffic to a new orchestrator version.
 - **Gateway** - It is common to [proxy access to AI models for a variety of reasons](/azure/architecture/ai-ml/guide/azure-openai-gateway-guide) including load balancing or failover between multiple backend instances, implementing custom authentication and authorization for client applications, and implementing logging and monitoring for your models.
