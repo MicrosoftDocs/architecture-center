@@ -1,3 +1,24 @@
+---
+title: Deploy Highly Available NVAs
+description: Learn how to deploy network virtual appliances in high availability architectures for ingress and egress traffic in Azure.
+author: erjosito
+ms.author: jomore
+ms.date: 03/21/2025
+ms.topic: conceptual
+ms.subservice: architecture-guide
+ms.category:
+    - networking
+    - management-and-governance
+ms.custom:
+    - networking
+    - reference-architecture
+categories:
+  - networking
+  - management-and-governance
+---
+
+# Deploy highly available NVAs
+
 This article describes common ways to deploy a set of network virtual appliances (NVAs) for high availability in Azure. An NVA typically controls the flow of traffic between network segments that have different security levels. For example, you might use an NVA between a perimeter network virtual network and the public internet, or to connect external locations to Azure via virtual private network (VPN) or software-defined WAN (SD-WAN) appliances.
 
 This article assumes that you have a basic understanding of Azure networking, [Azure load balancers][alb], [virtual network traffic routing][udr], and user-defined routes (UDRs).
