@@ -55,40 +55,51 @@ Both MaaS and MaaP strategies in Azure source models from the Azure AI model cat
 
 Updating the model in your solution requires different breadths of change within your architecture depending upon factors such as the model update scope, the purpose of the update, and differences between the old and updated model. The diagram shows a simplified chat architecture, numbered to point out some of the areas of change in your architecture a model update might influence.
 
-1. **The model** - The obvious change is to the model itself. You deploy the new model using your chosen model deployment strategy.
+1. **The model** - The obvious change is to the model itself. You deploy the new model using your chosen model deployment strategy. When moving to a new model version from a fine-tuned model, you likely need to fine-tune the new model version. When updating to use a different model, you need to determine if fine-tuning is required.
 1. **The model config** - When updating the model in your generative AI solution, you might need to adjust hyperparameters or configurations to optimize performance for the new model's architecture and capabilities. For example, switching from a transformer-based model to a recurrent neural network might require different learning rates and batch sizes to achieve optimal results.
 1. **The prompt** - When changing models in a generative AI solution, you may need to adjust the prompt to align with the new model's strengths and capabilities. Along with updating the model config, updating the prompt is the most common change when updating models. When evaluating a new model, even for a minor version update, if the model is not performing to your requirements, you should start with testing changes to the prompt. You certainly need to address the prompt when changing to new models and it is likely that you need to address the prompt when making large revision changes.
 1. **The orchestration logic** - Some model updates, especially when taking advantage of new features, lead you to making changes to your orchestration logic. For example, if you update your model to GPT-35 or GPT-4 to take advantage of [function calling](/azure/ai-services/openai/how-to/function-calling), you have to update your orchestration logic. Your old model returned a result which you could return to the caller. With function calling, the call to the model returns a function that your orchestration logic must call.
 1. **The grounding data** - Some model updates, usually larger scoped changes, leads you to making changes to your grounding data. For example, when moving from a generalized model to a domain specific model, such as one focused on finance or medicine, you may no longer need to pass domain specific grounding data to the model. See [Design and develop a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide) for more information.
-1. **Fine-tuning** - When moving to a new model version from a fine-tuned model, you likely need to fine-tune the new model version. When updating to use a different model, you need to determine if fine-tuning is required.
 
 ## Architecting for change
 
 It is highly likely that you will be updating models. If you are using MaaS or MaaP deployment strategies in Azure, models are retired and you need to upgrade to a newer version. You may also choose to move to different models or model versions to take advantage of new features, lower pricing, or better performance. Either way, it should be clear that your architecture should support updating the model your generative AI workload is using.
 
-The previous section discussed the [different breadths of change](#breadth-of-change-for-model-updates). It was discussed that updates to the hyperparameters and the prompt are likely for most model updates. Because these changes are so likely, your architecture should take them into account.
+The previous section discussed the [different breadths of change](#breadth-of-change-for-model-updates). You should follow proper MLOps, DataOps, and GenAIOps practices to build and maintain automated pipelines for model fine-tuning, your data operations, and generative AI operations like prompt engineering, changing hyperparameters, and orchestration logic.
+
+It was discussed that updates to the hyperparameters and the prompt are likely for most model updates. Because these changes are so likely, your architecture should take them into account. An important consideration is that prompts and hyperparameters are designed for specific model versions. You need to ensure that the prompts and hyperparameters are used with the correct model and version.
 
 ### Automated pipelines
 
-Implement automated pipelines that allow you to test and evaluate your generative AI solution. Implement GenAIOps pipelines to [test and evaluate changes to the model, model hyperparameters, the prompt, and changes to orchestration logic](/azure/architecture/ai-ml/guide/genaiops-for-mlops#rag-and-prompt-engineering-2). Implement [DataOps](/azure/architecture/ai-ml/guide/genaiops-for-mlops#dataops) pipelines to [test and evaluate RAG grounding data-related changes](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide).
+Implement automated pipelines that allow you to test and evaluate the differing aspects of your generative AI application:
+
+- Follow the guidance in [Machine learning operations](/azure/architecture/ai-ml/guide/machine-learning-operations-v2) to build pipelines for model fine-tuning, if applicable.
+- Implement GenAIOps pipelines to [test and evaluate changes to the model, model hyperparameters, the prompt, and changes to orchestration logic](/azure/architecture/ai-ml/guide/genaiops-for-mlops#rag-and-prompt-engineering-2).
+- Implement [DataOps](/azure/architecture/ai-ml/guide/genaiops-for-mlops#dataops) pipelines to [test and evaluate changes to your RAG grounding data](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide).
 
 You should implement pipelines to:
 
 - Help you in your iterative development and experimentation (Inner Loop)
 - Deployment and operationalization of your generative AI solution (Outer Loop)
 
-### Layers of abstraction
+### Architecture considerations
+
+In very simple architectures, like the following, the client directly calls the model with the corrent prompt version and configuration. If there are changes to the prompt, a new client is deployed with the new prompt and it calls the new model.
+
+:::image type="complex" source="_images/model-lifecycle-direct-access-from-client.svg" alt-text="Simple architecture diagram of a chat scenario showing an intelligent app directly accessing a model." lightbox="_images/model-lifecycle-direct-access-from-client.svg":::
+   A diagram showing an intelligent client connecting directly to a model. The intelligent app shows 3 elements pointing to it, illustrating that it contains those elements. The elements are the config, the prompt, and orchestration logic.
+:::image-end:::
+
+Production architectures are generally not so simple. They generally have an orchestrator whose responsibility is to manage the flow of the interactions. between any knowledge database and the models. Your architecture may implement one or more layers of abstraction. The following diagram shows two common layers:
+
+- **Router** - Routes traffic to different deployments. This is useful in deployment strategies such as A/B deployments where you may choose to route a certain percentage of traffic to a new orchestrator version.
+- **Gateway** - It is common to [proxy access to AI models for a variety of reasons](/azure/architecture/ai-ml/guide/azure-openai-gateway-guide) including load balancing or failover between multiple backend instances, implementing custom authentication and authorization for client applications, and implementing logging and monitoring for your models.
 
 :::image type="complex" source="_images/model-lifecycle-layers-of-abstraction.svg" alt-text="Simple architecture diagram of a chat scenario showing two common layers of abstraction in a generative AI workload." lightbox="_images/model-lifecycle-layers-of-abstraction.svg":::
    A diagram showing an intelligent client connecting to a router. The router has connections to two deployment boxes. Each deployment box has a connection line to the gateway box. The gateway box has connection lines to three different models boxes: model-x-v1, model-x-v1.1, and model-y-v1. The orchestrator boxes connect to an API/Agent box, which connects to a knowledge database box. There are arrows pointing to the router and gateway boxes with a lable that reads 'Common layers of abstraction in a generative AI workload'.
 :::image-end:::
 
-Your architecture may implement one or more layers of abstraction. The diagram shows two common ones:
-
-- **Router** - Routes traffic to different deployments. This is useful in deployment strategies such as A/B deployments where you may choose to route a certain percentage of traffic to a new orchestrator version.
-- **Gateway** - It is common to [proxy access to AI models for a variety of reasons](/azure/architecture/ai-ml/guide/azure-openai-gateway-guide) including load balancing or failover between multiple backend instances, implementing custom authentication and authorization for client applications, and implementing logging and monitoring for your models.
-
-When updating models, it's important to remember that you often need to update the corresponding prompt. Due to the layers of indirection involved, your architecture must be designed to support sending specific versions of prompts to specific models or model versions. For instance, you might have a prompt in production, prompt1, that is designed for model1. If you upgrade to model1.1, you may need to update the prompt to prompt2. In this example, your architecture needs to always use prompt1 with model1 and prompt2 with model1.1.
+Due to the layers of indirection involved, your architecture must be designed to support sending specific versions of prompts to specific models or model versions. For instance, you might have a prompt in production, prompt1, that is designed for model1. If you upgrade to model1.1, you may need to update the prompt to prompt2. In this example, your architecture needs to always use prompt1 with model1 and prompt2 with model1.1.
 
 #### Router
 
