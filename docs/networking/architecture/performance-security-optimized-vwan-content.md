@@ -110,37 +110,41 @@ To deploy a custom NVA model that supports both routing traffic to a dedicated f
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
+
 In this deployment, routes that cross the Virtual WAN hub to a performance-optimized environment don't pass through the NVA in that environment. This presents a potential problem with cross-regional traffic that's illustrated here:
 
 ![Diagram that shows a potential problem with cross-regional traffic.](./_images/performance-security-optimized-vwan-architecture-regions.png)
 
 Traffic across regions between performance-optimized environments doesn't cross the NVA. This is a limitation of directly routing hub traffic to the virtual networks.
 
-### Availability
+### Reliability
+
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Virtual WAN is a highly available networking service. You can set up more connectivity or paths from the branch to get multiple pathways to the Virtual WAN service. But you don't need anything additional within the VWAN service.
 
 You should set up NVAs in a highly available architecture similar to the one described here: [Deploy highly available NVAs](../guide/nva-ha.yml).
 
-### Performance
-
-This solution optimizes performance of the network where necessary. You can modify the routing according to your own requirements, enabling the traffic to the branch to cross the NVA and the traffic between virtual networks to flow freely or to use a single firewall for internet egress.
-
-### Scalability
-
-This architecture is scalable across regions. Consider your requirements when you set up routing labels for grouping routes and branch traffic forwarding between the virtual hubs.
-
 ### Security
+
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 With NVAs, you can use features like IDPS with Virtual WAN.
 
-### Resiliency
+### Cost Optimization
 
-For information about resiliency, see [Availability](#availability), earlier in this article.
-
-### Cost optimization
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Pricing for this architecture depends heavily on the NVAs that you deploy. For a 2-Gbps ER connection and a Virtual WAN hub that processes 10 TB per month, see this [pricing estimate](https://azure.com/e/0bf78de2bf3b45aa961e0dc2f57eb2fe).
+
+### Performance Efficiency
+
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+This solution optimizes performance of the network where necessary. You can modify the routing according to your own requirements, enabling the traffic to the branch to cross the NVA and the traffic between virtual networks to flow freely or to use a single firewall for internet egress.
+
+This architecture is scalable across regions. Consider your requirements when you set up routing labels for grouping routes and branch traffic forwarding between the virtual hubs.
 
 ## Contributors
 
