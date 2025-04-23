@@ -1,6 +1,6 @@
 ---
-title: Choose an Azure AI targeted language processing technology
-description: Learn about targeted language of Azure AI services. Learn which service to use for a specific use case.
+title: Choose an Azure AI Targeted Language Processing Technology
+description: Learn about Azure AI services targeted language processing capabilities, including NLP, text analytics, translation, and document data extraction. Determine which service aligns best with your specific use case.
 author: ritesh-modi
 ms.author: rimod
 categories:
@@ -46,16 +46,16 @@ The following services provide targeted language processing capabilities for Azu
 
 #### Capabilities
 
-The following table provides a list of capabilities available in Azure OpenAI service.
+The following table provides a list of capabilities available in Azure OpenAI.
 
 | Capability | Description |
-|----------|-------------|
-| [Text Generation & Completion](/azure/ai-services/openai/concepts/prompt-engineering) | Generates human-like text based on prompts, auto-complete sentences or paragraphs, summarizes long documents into concise summaries and answer questions based on given context. |
-| [Chat](/azure/ai-services/openai/chatgpt-quickstart) | Build chatbots and virtual assistants, maintains context in multi-turn conversations and personalize responses based on user interaction. |
-| [Assistants](/azure/ai-services/openai/concepts/assistants) | Create copilot like experience, maintaining a consistent personality across user interactions and Running multiple tools at once like code execution and knowledge search. |
-| [Embeddings](/azure/ai-services/openai/concepts/understand-embeddings) | Convert text into numerical vectors where similar meanings appear close together in vector space, enabling powerful similarity search in services like Azure AI Search, Cosmos DB, SQL Database, and PostgreSQL. |
-| [Content Filtering](/azure/ai-services/openai/concepts/content-filter) | Screens both user inputs and AI outputs for harmful content across categories like hate, sexual content, violence, and self-harm, supporting multiple languages. Monitors usage patterns to ensure compliance. |
-| [LLM Customization](/azure/ai-services/openai/concepts/customizing-llms) | Provides model adaptation techniques: prompt engineering for quick adjustments, RAG for incorporating external information, and fine-tuning for teaching the model specialized tasks - all of which can be combined to optimize performance for specific use cases. |
+|:----------|:-------------|
+| [Text generation and completion](/azure/ai-services/openai/concepts/prompt-engineering) | Generates human-like text based on prompts, automatically completes sentences or paragraphs, summarizes long documents into concise summaries, and answers questions based on context. |
+| [Chat](/azure/ai-services/openai/chatgpt-quickstart) | Build chatbots and virtual assistants, maintain context in multiple-turn conversations, and personalize responses based on user interaction. |
+| [Assistants](/azure/ai-services/openai/concepts/assistants) | Create a copilot-like experience that maintains a consistent personality across user interactions. Enable the use of multiple tools simultaneously, such as code implementation and knowledge search. |
+| [Embeddings](/azure/ai-services/openai/concepts/understand-embeddings) | Convert text into numerical vectors where similar meanings are positioned close together in vector space. This process enables powerful similarity search in services such as Azure AI Search, Cosmos DB, SQL Database, and PostgreSQL. |
+| [Content filtering](/azure/ai-services/openai/concepts/content-filter) | Screens both user inputs and AI outputs for harmful content in categories such as hate, sexual content, violence, and self-harm, with support for multiple languages. It also monitors usage patterns to ensure compliance. |
+| [LLM customization](/azure/ai-services/openai/concepts/customizing-llms) | Provides model adaptation techniques, including prompt engineering for quick adjustments, RAG for incorporating external information, and fine-tuning to train the model on specialized tasks. These methods can be combined to optimize performance for specific use cases. |
 
 ### Azure AI Language
 
