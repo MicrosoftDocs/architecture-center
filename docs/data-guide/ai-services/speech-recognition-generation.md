@@ -1,6 +1,6 @@
 ---
 title: Choose an Azure Speech Recognition and Generation Technology
-description: Learn about Azure's AI speech recognition and generation capabilities such as speech-to-text, and speech translation, and text-to-speech capabilities.
+description: Learn about Azure's AI speech recognition and generation capabilities, such as speech-to-text, speech translation, and text-to-speech.
 author: ritesh-modi
 ms.author: rimod
 categories:
@@ -40,11 +40,11 @@ The following AI services can provide speech recognition and generation capabili
 
   - **Use** Immersive Reader to provide an improved readability experience tailored for language learners or people with learning differences.
 
-  - **Don't use** Immersive Reader for traditional text to speech use cases.
+  - **Don't use** Immersive Reader for traditional text-to-speech use cases.
 
 ### Speech
 
-[Speech](/azure/ai-services/speech-service/overview) provides speech to text and text to speech capabilities with a Speech resource. You can transcribe speech to text with high accuracy, produce natural-sounding text-to-speech voices, translate spoken audio, and use speaker recognition during conversations. Create custom voices, add specific words to your base vocabulary, or build your own models. Run Speech anywhere, whether in the cloud or at the edge in containers.
+[Speech](/azure/ai-services/speech-service/overview) provides speech-to-text and text-to-speech capabilities with a Speech resource. You can transcribe speech-to-text with high accuracy, produce natural-sounding text-to-speech voices, translate spoken audio, and use speaker recognition during conversations. Create custom voices, add specific words to your base vocabulary, or build your own models. Run Speech anywhere, whether in the cloud or at the edge in containers.
 
 Speech is available for multiple languages and regions.
 
@@ -54,14 +54,14 @@ The following table provides a list of capabilities available in Speech.
 
 | Capability | Description |
 |:----------|:-------------|
-| [Batch transcription](/azure/ai-services/speech-service/batch-transcription) | Transcribe a large amount of audio data in storage. Both the speech-to-text REST API and Speech CLI support batch transcription. |
+| [Batch transcription](/azure/ai-services/speech-service/batch-transcription) | Transcribes a large amount of audio data in storage. Both the speech-to-text REST API and Speech CLI support batch transcription. |
 | [Intent recognition](/azure/ai-services/speech-service/intent-recognition) | An intent is something that the user wants to do, such as book a flight, check the weather, or make a call. Intent recognition enables your applications, tools, and devices to determine what the user wants to initiate or do based on options. You define user intent in the intent recognizer or conversational language understanding model. |
 | [Pronunciation assessment](/azure/ai-services/speech-service/how-to-pronunciation-assessment) | Evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. |
 | [Speaker recognition](/azure/ai-services/speech-service/speaker-recognition-overview) | Speaker recognition can help determine who is speaking in an audio clip. The service verifies and identifies speakers through their unique voice characteristics by using voice biometry. |
 | [Speech-to-text](/azure/ai-services/speech-service/speech-to-text) |Converts audio streams to text in real time or in batch processing. |
-| [Text-to-speech](/azure/ai-services/speech-service/text-to-speech) | Enables your applications, tools, or devices to convert text into human-like synthesized speech. |
+| [Text-to-speech](/azure/ai-services/speech-service/text-to-speech) | Enables your applications, tools, or devices to convert text into humanlike synthesized speech. |
 | [Speech translation](/azure/ai-services/speech-service/speech-translation) | Provides multiple-language speech-to-speech and speech-to-text translation of audio streams. |
-| [Video translation](/azure/ai-services/speech-service/video-translation-overview) | Translate and generate videos in multiple languages automatically. |
+| [Video translation](/azure/ai-services/speech-service/video-translation-overview) | Translates and generates videos in multiple languages automatically. |
 
 #### Use cases
 
@@ -73,7 +73,7 @@ The following table describes some of the ways that you can use Speech.
 | [Call center transcription](/azure/ai-services/speech-service/call-center-overview) | Speech-to-text | Transcribe calls in real time or process a batch of calls, redact personally identifying information, and extract insights such as sentiment to help with your call center use case.|
 | [Captioning](/azure/ai-services/speech-service/captioning-concepts) | Speech-to-text | Synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios. |
 | [Language learning](/azure/ai-services/speech-service/language-learning-overview) | Speech-to-text| Provide pronunciation assessment feedback to language learners, support real-time transcription for remote learning conversations, and read aloud teaching materials with neural voices. |
-| [Voice assistants](/azure/ai-services/speech-service/voice-assistants)| Text-to-speech | Create natural, human like conversational interfaces for their applications and experiences. The voice assistant feature provides fast and reliable interaction between a device and an assistant implementation. |
+| [Voice assistants](/azure/ai-services/speech-service/voice-assistants)| Text-to-speech | Create natural, humanlike conversational interfaces for applications and experiences. The voice assistant feature provides fast and reliable interaction between a device and an assistant implementation. |
 
 ### Immersive Reader
 

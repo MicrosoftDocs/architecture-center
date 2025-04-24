@@ -32,23 +32,23 @@ The following services provide video and image processing capabilities for AI se
 
   - **Use** Azure OpenAI for image generation from natural language by using pretrained generative imaging models. For example, you can use Azure OpenAI to generate custom art on demand.
 
-  - **Use** Azure OpenAI when you need to perform non-specific, broad analysis on images. For example, you can use Azure OpenAI to generate accessibility descriptions.
+  - **Use** Azure OpenAI when you need to perform nonspecific, broad analysis on images. For example, you can use Azure OpenAI to generate accessibility descriptions.
 
   - **Don't use** Azure OpenAI if you want to use open-source image generation models that are available in Azure Machine Learning.
 
-  - **Don't use** Azure OpenAI if you need to perform specific types of image processing like form extraction, face recognition, or domain-specialized image characteristic detection. For these scenarios, instead use or build AI solutions designed specifically trained for those purposes.
+  - **Don't use** Azure OpenAI if you need to perform specific types of image processing like form extraction, face recognition, or domain-specialized image characteristic detection. For these scenarios, use or build AI solutions designed specifically for those purposes.
 
 - [Microsoft Azure AI Vision](#vision)
 
   - **Use** Vision when you need basic optical character recognition (OCR), image analysis, or basic video analysis to detect motion and other events.
 
-  - **Don't use** Vision for analysis that large, multi-modal, foundation models already support.
+  - **Don't use** Vision for analysis that large, multimodal, foundation models already support.
 
   - **Don't use** Vision to moderate content. Use Content Safety instead.
 
 - [Microsoft Azure AI Custom Vision](#custom-vision)
 
-  - **Use** Custom Vision for specific requirements that can't be met by the image analysis that Vision provides. For example, Custom Vision can recognize unusual objects and manufacturing defects, or provide detailed custom classifications.
+  - **Use** Custom Vision for specific requirements that can't be met by the image analysis that Vision provides. For example, Custom Vision can recognize unusual objects and manufacturing defects. It can also provide detailed custom classifications.
 
   - **Don't use** Custom Vision if you need basic object detection or face detection. Use Azure AI Face or Vision instead.
 
@@ -56,9 +56,9 @@ The following services provide video and image processing capabilities for AI se
 
 - [Azure AI Face](#azure-ai-face):
 
-  - **Use** Azure AI Face when you need to check whether faces are live or spoofed, or to identify, group, or find similar faces.
+  - **Use** Azure AI Face when you need to check whether faces are live or spoofed or to identify, group, or find similar faces.
 
-  - **Don't use** Azure AI Face to detect emotions in faces or perform other high-level reasoning about faces. Use multi-modal language models for those tasks instead.
+  - **Don't use** Azure AI Face to detect emotions in faces or perform other high-level reasoning about faces. Use multimodal language models for those tasks instead.
 
 - [Microsoft Azure AI Video Indexer](#video-indexer)
 
@@ -86,7 +86,7 @@ The following table provides a list of capabilities available in Vision.
 
 ### Custom Vision
 
-[Custom Vision](/azure/ai-services/custom-vision-service/overview) is an image recognition service that lets you build, deploy, and improve your own image identifier models. An image identifier applies labels to images according to their visual characteristics. Each label represents a classification or object. Custom Vision allows you to specify your own labels and train custom models to detect them.
+[Custom Vision](/azure/ai-services/custom-vision-service/overview) is an image recognition service that you can use to build, deploy, and improve your image identifier models. An image identifier applies labels to images according to their visual characteristics. Each label represents a classification or object. Use Custom Vision to specify your own labels and train custom models to detect them.
 
 Custom Vision uses a machine learning algorithm to analyze images for custom features. You submit sets of images that do have and don't have the visual characteristics that you want. Then you label the images with your own labels, or *tags*, at the time of submission. The algorithm trains to this data and calculates its own accuracy by testing itself on the same images. After you train your model, you can test, retrain, and eventually use the model in your image recognition app to classify images or detect objects. You can also export the model for offline use.
 
@@ -131,7 +131,7 @@ The following table provides a list of possible use cases for Azure AI Face.
 
 | Use case |  Description |
 | :----------| :---------------|
-| Verify user identity | Verify a person against a trusted face image. This verification could be used to grant access to digital or physical properties. In most scenarios, the trusted face image could come from a government-issued ID such as a passport or driver's license, or from an enrollment photo taken in person. During verification, liveness detection can play a crucial role in verifying that the image comes from a real person and not a printed photo or mask. |
+| Verify user identity | Verify a person against a trusted face image. This verification can be used to grant access to digital or physical properties. In most scenarios, the trusted face image comes from a government-issued ID, such as a passport or driver's license, or from an enrollment photo taken in person. During verification, liveness detection can play a crucial role in verifying that the image comes from a real person and not a printed photo or mask. |
 | Face redaction | Redact or blur detected faces of people recorded in a video to protect their privacy. |
 | Touchless access control | Compared to methods like cards or tickets, opt-in face identification enables an enhanced access control experience while reducing the hygiene and security risks from physical media sharing, loss, or theft. Facial recognition assists the check-in process with a human in the loop for check-ins in airports, stadiums, theme parks, buildings, reception kiosks at offices, hospitals, gyms, clubs, or schools. |
 
@@ -147,7 +147,7 @@ The following table provides a list of some of the capabilities available in Vid
 | :----------| :-------------|
 | [Multiple-language speech identification and transcription](/azure/ai-services/computer-vision/concept-face-detection) | Identifies the spoken language in different segments from audio. It sends each segment of the media file to be transcribed and then combines the transcription back to one unified transcription. |
 | [Face detection](/azure/ai-services/computer-vision/overview-identity#find-similar-faces) | Detects and groups faces that appear in the video. |
-| [Celebrity identification](/azure/ai-services/computer-vision/overview-identity#group-faces) | Identifies over 1 million celebrities, like world leaders, actors, artists, athletes, researchers, business, and tech leaders across the globe. The data about these celebrities can also be found on various websites, such as IMDB and Wikipedia. |
+| [Celebrity identification](/azure/ai-services/computer-vision/overview-identity#group-faces) | Identifies over 1 million celebrities, like world leaders, actors, artists, athletes, researchers, and business and tech leaders across the globe. The data about these celebrities can also be found on various websites, such as IMDB and Wikipedia. |
 | [Account-based face identification](/azure/ai-services/computer-vision/overview-identity#identification) | Trains a model for a specific account. It then recognizes faces in the video based on the trained model. |
 | [Observed people tracking (preview)](/azure/ai-services/computer-vision/overview-identity#identification) | Detects observed people in videos. It provides information such as the person's location within the video frame by using bounding boxes. It also includes the exact start and end timestamps for when a person appears and a confidence level for the detection. |
 | [Audio transcription](/azure/ai-services/computer-vision/overview-identity#identification) | Converts speech to text across more than 50 languages and allows extensions. |
@@ -168,7 +168,7 @@ The following table provides a list of possible use cases for Video Indexer.
 | Accessibility | Whether you want to make your content available for people with disabilities or you want your content to be distributed to different regions that use different languages, you can use the transcription and translation that Video Indexer provides in multiple languages. |
 | Monetization | Video Indexer can help increase the value of videos. For example, industries that rely on ad revenue, such as news media and social media, can deliver relevant ads by using the extracted insights as additional signals to the ad server. |
 | Content moderation | Use textual and visual content moderation models to keep your users safe from inappropriate content and validate that the content that you publish matches your organization's values. You can automatically block certain videos or alert your users about the content. |
-| Recommendations | Video insights can be used to improve user engagement by highlighting the relevant video moments to users. By tagging each video with extra metadata, you can recommend to users the most relevant videos and highlight the parts of the video that matches their needs. |
+| Recommendations | Video insights can be used to improve user engagement by highlighting the relevant video moments to users. By tagging each video with extra metadata, you can recommend to users the most relevant videos and highlight the parts of the video that match their needs. |
 
 ## Next steps
 
