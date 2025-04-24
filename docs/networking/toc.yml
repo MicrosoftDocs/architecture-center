@@ -55,6 +55,6 @@ items:
       - name: Resource organization
         items:
         - name: Deploy highly available NVAs
-          href: guide/nva-ha.yml        
+          href: guide/network-virtual-appliance-high-availability.md       
         - name: SDWAN integration
           href: guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml     

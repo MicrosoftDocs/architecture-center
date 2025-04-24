@@ -120,7 +120,7 @@ Traffic across regions between performance-optimized environments doesn't cross 
 
 Virtual WAN is a highly available networking service. You can set up more connectivity or paths from the branch to get multiple pathways to the Virtual WAN service. But you don't need anything additional within the VWAN service.
 
-You should set up NVAs in a highly available architecture similar to the one described here: [Deploy highly available NVAs](../guide/nva-ha.yml).
+You should set up NVAs in a highly available architecture similar to the one described here: [Deploy highly available NVAs](../guide/network-virtual-appliance-high-availability.md).
 
 ### Performance
 
