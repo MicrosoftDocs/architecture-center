@@ -112,7 +112,7 @@ Look for correlations between increased response times and increased database ac
 
 ### Identify which data stores are accessed during those periods
 
-The next graph shows the utilization of database throughput units (DTUs) during the load test. A DTU is a measure of available capacity, It's a combination of CPU utilization, memory allocation, I/O rate. Utilization of DTUs quickly reach 100%. In the previous graph, throughput peaked at this point. Database utilization remains high until the test finishes. There's a slight drop toward the end, which can result from throttling, competition for database connections, or other factors.
+The next graph shows the utilization of database throughput units (DTUs) during the load test. A DTU is a measure of available capacity, It's a combination of CPU utilization, memory allocation, I/O rate. Utilization of DTUs quickly reaches 100%. In the previous graph, throughput peaked at this point. Database utilization remains high until the test finishes. There's a slight drop toward the end, which can result from throttling, competition for database connections, or other factors.
 
 ![Graph that shows the database monitor in the Azure classic portal showing resource utilization of the database.][MonolithicDatabaseUtilization]
 
@@ -128,7 +128,7 @@ At this point, you can review the source code, focusing on the points where the 
 
 - Data that's logically separate being written to the same store. Data such as logs, reports, and queued messages shouldn't be held in the same database as business information.
 - A mismatch between the choice of data store and the type of data, such as large blobs or XML documents in a relational database.
-- Data that has different usage patterns that share the same store, such as high-write and low-read data being stored with low-write and high-read data.
+- Data that has different usage patterns that share the same store. An example includes high-write and low-read data being stored with low-write and high-read data.
 
 ### Implement the solution and verify the result
 
