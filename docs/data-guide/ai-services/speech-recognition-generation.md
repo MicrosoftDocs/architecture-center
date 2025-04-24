@@ -55,7 +55,7 @@ The following table provides a list of capabilities available in Speech.
 | Capability | Description |
 |:----------|:-------------|
 | [Batch transcription](/azure/ai-services/speech-service/batch-transcription) | Transcribe a large amount of audio data in storage. Both the speech-to-text REST API and Speech CLI support batch transcription. |
-| [Intent recognition](/azure/ai-services/speech-service/intent-recognition) | An intent is something that the user wants to do, such as book a flight, check the weather, or make a call. With intent recognition, your applications, tools, and devices can determine what the user wants to initiate or do based on options. You define user intent in the intent recognizer or conversational language understanding model. |
+| [Intent recognition](/azure/ai-services/speech-service/intent-recognition) | An intent is something that the user wants to do, such as book a flight, check the weather, or make a call. Intent recognition enables your applications, tools, and devices to determine what the user wants to initiate or do based on options. You define user intent in the intent recognizer or conversational language understanding model. |
 | [Pronunciation assessment](/azure/ai-services/speech-service/how-to-pronunciation-assessment) | Evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. |
 | [Speaker recognition](/azure/ai-services/speech-service/speaker-recognition-overview) | Speaker recognition can help determine who is speaking in an audio clip. The service verifies and identifies speakers through their unique voice characteristics by using voice biometry. |
 | [Speech-to-text](/azure/ai-services/speech-service/speech-to-text) |Converts audio streams to text in real time or in batch processing. |
@@ -77,11 +77,11 @@ The following table describes some of the ways that you can use Speech.
 
 ### Immersive Reader
 
-[Immersive Reader](https://www.onenote.com/learningtools), part of AI services, is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can use the same technology used in Microsoft Word and Microsoft OneNote to provide a great experience to your workload's users.
+[Immersive Reader](https://www.onenote.com/learningtools), part of AI services, is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can use the same technology used in Microsoft Word and Microsoft OneNote to provide an enhanced experience for your workload's users.
 
 #### Capabilities
 
-The following capabilities are available for your workload to assist users in achieving their reading comprehension goals.
+The following capabilities are available for your workload to help users achieve their reading comprehension goals.
 
 - Isolate content to improve readability.
 

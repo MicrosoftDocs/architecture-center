@@ -22,18 +22,18 @@ ms.custom:
 
 # Choose an Azure AI services technology
 
-[Azure AI services](/azure/ai-services/what-are-ai-services) offers a suite of data science tools, models, and inferencing capabilities that support a broad array of functionality. Most require little or no specific AI expertise to use. So whether you're a student, run a small-business, are launching a startup, or lead a large enterprise-scale project, you can get started right away. It's recommended to use these services, over building custom solutions, to embed intelligent application functionality into your workload. For many use cases, these prebuilt models and SaaS solutions are sufficient to provide what your workload requires. However, many of these capabilities support further customization and fine tuning as necessary, without the need to redesign your workload.
+[Azure AI services](/azure/ai-services/what-are-ai-services) provides a suite of data science tools, models, and inferencing capabilities that support a broad array of functionality. Most require little or no specific AI expertise to use. So whether you're a student, run a small-business, are launching a startup, or lead a large enterprise-scale project, you can get started right away. It's recommended that you use these services, instead of building custom solutions, to embed intelligent application functionality in to your workload. For many use cases, these prebuilt models and software as a service solutions are sufficient to provide what your workload requires. However, many of these capabilities support further customization and fine tuning as necessary, without the need to redesign your workload.
 
 Some projects require functionality that goes beyond what prebuilt models can provide. You could need to use your own data exclusively to build a new model, or perform functions outside the scope of any existing prebuilt models. In those cases, [Azure Machine Learning services](/azure/machine-learning) let you build custom models of any type or scale. While these solutions require more expertise, they can also support bespoke requirements for organizations of every scale and for every budget.
 
-This article provides a comparison and decision guide between the different offerings of Azure AI and Azure Machine Learning services. It's organized by broad categories to help you choose which service or model is right for your use case.
+This article provides a comparison and decision guide between the different offerings of Azure AI and Machine Learning services. It's organized by broad categories to help you choose which service or model is right for your use case.
 
-## Categories of Azure AI services
+## Categories of AI services
 
 Azure provides several AI services that can be grouped into categories based on their capabilities:
 
 | Technology selection guide | Service descriptions |
-| :--- | :--- |
+| :----- | :----- |
 | [Azure AI Agents](/azure/ai-foundry/) | - Azure AI Agent Service <br><br> - Azure AI Model Inference <br><br> - Azure AI Projects <br><br> - Azure AI Evaluation |
 | [Retrieval Augmented Generation](../../ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.md) | - Azure AI Search <br><br> - Azure AI Document Intelligence <br><br> - Azure OpenAI Service |
 | [Targeted language processing](../ai-services/targeted-language-processing.md) | - Microsoft Azure AI Language <br><br> - Microsoft Azure AI Translator <br><br> - Azure AI Document Intelligence <br><br> - Azure OpenAI |
@@ -44,9 +44,9 @@ Azure provides several AI services that can be grouped into categories based on 
 
 ## Next steps
 
-- [Learning path: Get started with Azure AI Services](/training/paths/get-started-azure-ai/)
-- [Azure AI Services documentation](/azure/ai-services/)
-- [What are Azure AI services?](/azure/ai-services/what-are-ai-services)
+- [Learning path: Get started with AI services](/training/paths/get-started-azure-ai/)
+- [AI services documentation](/azure/ai-services/)
+- [What are AI services?](/azure/ai-services/what-are-ai-services)
 
 ## Related resources
 
