@@ -1,9 +1,9 @@
 ---
-title: Managing foundational model lifecycles in your generative AI application infrastructure
+title: Design to support foundational model lifecycles
 description: Learn how you should manage new model versions and retired model versions in your generative AI application infrastructure.
 author: robbagby
 ms.author: robbag
-ms.date: 04/18/2025
+ms.date: 04/29/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.service: azure-architecture-center
@@ -16,7 +16,7 @@ categories:
   - ai-machine-learning
 ---
 
-# Managing foundational model lifecycles
+# Design to support foundational model lifecycles
 
 There are different reasons to update the foundational model you use in your generative AI solution. The scope of your model update can vary between upgrading for a slight revision change to choosing a different model altogether. Some reasons to update models are voluntary, while others are required. For example, depending upon the model deployment option you choose in Azure, MaaS, MaaP, or self-hosting, you may be required to update to new model versions, as old versions are retired.
 
@@ -24,18 +24,18 @@ This article touches on some of the reasons for updating to new models or model 
 
 ## Model update scopes
 
-The scope of the model update in your generative AI solution can vary drastically, from upgrading for a minor revision change to choosing a new model altogether. There are a various reasons you may choose to upgrade the model in your solution. The following table lists different update scopes along with an example and some of the reasons you might choose to make a model upgrade of this scope:
+The scope of the model update in your generative AI solution can vary drastically, from upgrading for a minor revision change to choosing a new model altogether. There are a various reasons you may choose to upgrade the model in your solution. The following table lists different update scopes along with an example and some of the benefits of making a model upgrade of this scope:
 
-| Scope of change | Example | Reason for updating model |
+| Scope of change | Example | Benefit of updating model |
 | --- | --- | --- |
-| Minor version update | Moving from GPT-3.5-Turbo to GPT-3.5-Turbo-0125 | A small, incremental change or improvement within the same major version |
-| Intermediate version update | Moving from GPT-3 to GPT-3.5 | A significant but not major leap, often involving enhancements and optimizations |
-| Major version update | Moving from GPT-3 to GPT-4 | A substantial upgrade with significant new features and improvements |
-| Variant update | Moving from GPT-4 to GPT-4-Turbo or GPT-4o-mini | A variation of the same major version, often optimized for specific attributes like cost or speed |
-| Generational version update | Moving from GPT-4 to GPT-4o | A new generation of the model, typically introducing new features and capabilities |
-| Model change (general) | Moving from GPT-4 to DeepSeek | A change to a different general model for speed, cost, or model performance for your solution |
-| Model change (specialized) | Moving from GPT-4 to Prizedata | A change to a model that is trained on a specific domain to achieve better model performance for your solution |
-| Deployment option change | Moving from Llama-1 hosted as managed online endpoint in Azure AI Foundry to self-hosting Llama-1 on a virtual machine | Changing your hosting model to have more/less control and more/less hosting responsibility |
+| Minor version update | Moving from GPT-3.5-Turbo to GPT-3.5-Turbo-0125 | A small, incremental change or improvement within the same major version. Some examples are performance improvements, bug fixes, and increased stability. |
+| Intermediate version update | Moving from GPT-3 to GPT-3.5 | A significant but not major leap, often involving enhancements and optimizations. Some examples are imptoved accuracy through better natural language understanding and enhanced dialogue capabilities. |
+| Major version update | Moving from GPT-3 to GPT-4 | A substantial upgrade with significant new features and improvements. Some examples are major version updates can include significant improvements in reasoning capabilities, may have larger context windows, an increased knowledge base, or may support multimodal capabilities. |
+| Variant update | Moving from GPT-4 to GPT-4-Turbo or GPT-4o-mini | A variation of the same major version, often optimized for specific attributes like cost or speed. |
+| Generational version update | Moving from GPT-4 to GPT-4o | A new generation of the model, typically introducing new features and capabilities similar to a major version update allowing you to choose between generations depending on your requirements for features or performance and cost. |
+| Model change (general) | Moving from GPT-4 to DeepSeek | A change to a different general model for speed, cost, or model performance for your solution. |
+| Model change (specialized) | Moving from GPT-4 to Prizedata | A change to a model that is trained on a specific domain to achieve better model performance for your solution. |
+| Deployment option change | Moving from Llama-1 hosted as managed online endpoint in Azure AI Foundry to self-hosting Llama-1 on a virtual machine | Changing your hosting model to have more/less control and more/less hosting responsibility. |
 
 ## How the model deployment strategy in Azure effect version retirements
 
@@ -45,7 +45,12 @@ There are three main strategies for deploying models and it's important to under
 - **MaaP (Models as a Platform)** - Models deployed and managed within a larger platform, such as Azure AI Foundry. This strategy provides greater control of the models, but requires more management and infrastructure.
 - **Self-hosting models** - Models deployed on your own infrastructure, providing maximum control over the models but requiring significant responsibility for management and maintenance.
 
-Both MaaS and MaaP strategies in Azure source models from the Azure AI model catalog. Models in the model catalog follow a lifecycle where models are eventually [deprecated](/azure/ai-foundry/concepts/model-lifecycle-retirement#deprecated) and [retired](/azure/ai-foundry/concepts/model-lifecycle-retirement#retired). You aren't able to create new deployments for deprecated models, but existing deployments continue to work. Existing deployments for retired models return errors. Using these two strategies requires you to update your solution to use newer model versions. When you're self-hosting models, you have full control and you aren't forced to update models.
+Both MaaS and MaaP strategies in Azure source models from the Azure AI model catalog. Models in the model catalog follow a lifecycle where models are eventually [deprecated](/azure/ai-foundry/concepts/model-lifecycle-retirement#deprecated) and [retired](/azure/ai-foundry/concepts/model-lifecycle-retirement#retired).
+
+> [!WARNING]
+> For both MaaS services such as Azure OpenAI and MaaP services using the serverless API model, it is critical to understand that existing deployments for retired models return HTTP errors. If you fail to upgrade to a newer, supported model, your application will no longer operate as expected. For deprecated models, you aren't able to create new deployments for deprecated models, but existing deployments continue to work. See [Azure OpenAI Service model deprecations and retirements](/azure/ai-services/openai/concepts/model-retirements) and [Serverless API model deprecations and retirements](/azure/ai-foundry/concepts/model-lifecycle-retirement) for more information.
+
+When you're self-hosting models, or using managed compute you have full control and you aren't forced to update models.
 
 ## Breadth of change for model updates
 
@@ -133,6 +138,10 @@ The following flow describes how different deployments of an orchestrator, each 
 1. The orchestrator is configured with the specific model and version. It uses this information to set an HTTP header indicating the correct model and version to call.
 1. The orchestrator calls the gateway. The request contains the HTTP header indicating the name and version of the model to use.
 1. The gateway uses the HTTP header to route the request to the appropriate model and version.
+
+## Recommendation
+
+Be intentional about updating models. Test and evaluate new versions and new models using automated pipelines. Avoid using platform features that auto-upgrade models to new versions. You should be aware of how each model update effects your workload. Ensure that your service configuration does not enable auto-upgrade.
 
 ## Summary
 
