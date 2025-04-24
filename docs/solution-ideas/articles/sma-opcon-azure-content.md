@@ -14,7 +14,7 @@ The implementation uses a single virtual network and multiple subnets to support
 
 ### Workflow: OpCon Cloud
 
-1. An OpCon container provides the OpCon Core services. This container is deployed within an Azure Kubernetes Service (AKS) cluster. PersistentVolumes (Azure Files CSI storage drivers) are used for the storage of logs and configuration information to ensure data persistence across container restarts.
+1. You deploy the OpCon core services container within an Azure Kubernetes Service (AKS) cluster that you manage. PersistentVolumes (Azure Files CSI storage drivers) are used for the storage of logs and configuration information to ensure data persistence across container restarts.
 
    - Database connections between the OpCon Core services and the OpCon database are established through the configured Azure Private Endpoint that provides secure access to the Azure SQL Database server.
 
