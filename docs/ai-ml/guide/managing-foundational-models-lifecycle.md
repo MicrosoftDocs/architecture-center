@@ -20,7 +20,7 @@ categories:
 
 There are different reasons to update the foundational model you use in your generative AI solution. The scope of your model update can vary between upgrading for a slight revision change to choosing a different model altogether. Some reasons to update models are voluntary, while others are required. For example, depending upon the model deployment option you choose in Azure, MaaS, MaaP, or self-hosting, you may be required to update to new model versions, as old versions are retired.
 
-This article touches on some of the reasons for updating to new models or model versions and details the architectural choices you should consider to make sure your solution supports these inevitable model updates.
+This article discusses the reasons for updating to new models or model versions and outlines the architectural choices to ensure your solution can accommodate these inevitable updates.
 
 ## Model update scopes
 
@@ -29,10 +29,10 @@ The scope of the model update in your generative AI solution can vary drasticall
 | Scope of change | Example | Benefit of updating model |
 | --- | --- | --- |
 | Minor version update | Moving from GPT-3.5-Turbo to GPT-3.5-Turbo-0125 | A small, incremental change or improvement within the same major version. Some examples are performance improvements, bug fixes, and increased stability. |
-| Intermediate version update | Moving from GPT-3 to GPT-3.5 | A significant but not major leap, often involving enhancements and optimizations. Some examples are imptoved accuracy through better natural language understanding and enhanced dialogue capabilities. |
+| Intermediate version update | Moving from GPT-3 to GPT-3.5 | A significant but not major leap, often involving enhancements and optimizations. Some examples are improved accuracy through better natural language understanding and enhanced dialogue capabilities. |
 | Major version update | Moving from GPT-3 to GPT-4 | A substantial upgrade with significant new features and improvements. Some examples are major version updates can include significant improvements in reasoning capabilities, may have larger context windows, an increased knowledge base, or may support multimodal capabilities. |
 | Variant update | Moving from GPT-4 to GPT-4-Turbo or GPT-4o-mini | A variation of the same major version, often optimized for specific attributes like cost or speed. |
-| Generational version update | Moving from GPT-4 to GPT-4o | A new generation of the model, typically introducing new features and capabilities similar to a major version update allowing you to choose between generations depending on your requirements for features or performance and cost. |
+| Generational version update | Moving from GPT-4 to GPT-4o | A new generation of the model, typically introducing new features and capabilities similar to a major version update. Having multiple generations allows you to choose based on your requirements for features, performance, and cost. |
 | Model change (general) | Moving from GPT-4 to DeepSeek | A change to a different general model for speed, cost, or model performance for your solution. |
 | Model change (specialized) | Moving from GPT-4 to Prizedata | A change to a model that is trained on a specific domain to achieve better model performance for your solution. |
 | Deployment option change | Moving from Llama-1 hosted as managed online endpoint in Azure AI Foundry to self-hosting Llama-1 on a virtual machine | Changing your hosting model to have more/less control and more/less hosting responsibility. |
@@ -48,17 +48,17 @@ There are three main strategies for deploying models and it's important to under
 Both MaaS and MaaP strategies in Azure source models from the Azure AI model catalog. Models in the model catalog follow a lifecycle where models are eventually [deprecated](/azure/ai-foundry/concepts/model-lifecycle-retirement#deprecated) and [retired](/azure/ai-foundry/concepts/model-lifecycle-retirement#retired).
 
 > [!WARNING]
-> For both MaaS services such as Azure OpenAI and MaaP services using the serverless API model, it is critical to understand that existing deployments for retired models return HTTP errors. If you fail to upgrade to a newer, supported model, your application will no longer operate as expected. For deprecated models, you aren't able to create new deployments for deprecated models, but existing deployments continue to work. See [Azure OpenAI Service model deprecations and retirements](/azure/ai-services/openai/concepts/model-retirements) and [Serverless API model deprecations and retirements](/azure/ai-foundry/concepts/model-lifecycle-retirement) for more information.
+> For both MaaS services such as Azure OpenAI and MaaP services using the serverless API model, it's critical to understand that existing deployments for retired models return HTTP errors. If you fail to upgrade to a newer, supported model, your application no longer operates as expected. For deprecated models, you aren't able to create new deployments for deprecated models, but existing deployments continue to work. See [Azure OpenAI Service model deprecations and retirements](/azure/ai-services/openai/concepts/model-retirements) and [Serverless API model deprecations and retirements](/azure/ai-foundry/concepts/model-lifecycle-retirement) for more information.
 
 When you're self-hosting models, or using managed compute you have full control and you aren't forced to update models.
 
 ## Breadth of change for model updates
 
 :::image type="complex" source="_images/model-lifecycle-breadth-change.svg" alt-text="Simple architecture diagram of a chat scenario showing the different breadths of change when updating a model." lightbox="_images/model-lifecycle-breadth-change.svg":::
-   A diagram showing an intelligent client connecting to an orchestrator. There are three boxes pointing to the orchestrator with dashed lines: Config, Prompt, and Orchestration logic. The orchestrator has solid lines pointing to three different AI models: model-x-v1, model-x-v1.1, and model-y-v1. The orchestrator also has an arrow pointing to a box labeled API/Agent. The API/Agent box has a solid line pointing to a box labeled Vector database. There's a pipeline with four steps that is pointing to the vector database with a dashed line. The four steps are: Chunk documents, Enrich chunks, Embed chunks, and Persist chunks. There are green numbered circles annotating several parts of the diagram. The first is next to the models. The second is between prompt and config. The third is where the pipeline is pointing to the vector database. The fourth is next to the orchestration logic. The fifth is next to the intelligent application.
+   A diagram showing an intelligent client connecting to an orchestrator. There are three boxes pointing to the orchestrator with dashed lines: Config, Prompt, and Orchestration logic. The orchestrator has solid lines pointing to three different AI models: model-x-v1, model-x-v1.1, and model-y-v1. The orchestrator also has an arrow pointing to a box labeled API/Agent. The API/Agent box has a solid line pointing to a box labeled Vector database. There's a pipeline with four steps that is pointing to the vector database with a dashed line. The four steps are: Chunk documents, Enrich chunks, Embed chunks, and Persist chunks. There are numbered circles annotating several parts of the diagram. The first is next to the models. The second is between prompt and config. The third is where the pipeline is pointing to the vector database. The fourth is next to the orchestration logic. The fifth is next to the intelligent application.
 :::image-end:::
 
-Updating the model in your solution requires different breadths of change within your architecture depending upon factors such as the model update scope, the purpose of the update, and differences between the old and updated model. The diagram shows a simplified chat architecture, numbered to point out some of the areas of change in your architecture a model update might influence.
+Updating the model in your solution necessitates varying degrees of architectural changes, depending on factors such as the scope of the update, its purpose, and the differences between the old and new models. The diagram shows a simplified chat architecture, numbered to point out some of the areas of change in your architecture a model update might influence.
 
 1. **The model** - The obvious change is to the model itself. You deploy the new model using your chosen model deployment strategy. When moving to a new model version from a fine-tuned model, you likely need to fine-tune the new model version. When updating to use a different model, you need to determine if fine-tuning is required.
 1. **The model config** - When updating the model in your generative AI solution, you might need to adjust hyperparameters or configurations to optimize performance for the new model's architecture and capabilities. For example, switching from a transformer-based model to a recurrent neural network might require different learning rates and batch sizes to achieve optimal results.
@@ -141,7 +141,7 @@ The following flow describes how different deployments of an orchestrator, each 
 
 ## Recommendation
 
-Be intentional about updating models. Test and evaluate new versions and new models using automated pipelines. Avoid using platform features that auto-upgrade models to new versions. You should be aware of how each model update effects your workload. Ensure that your service configuration does not enable auto-upgrade.
+Be intentional about updating models. Test and evaluate new versions and new models using automated pipelines. Avoid using platform features that auto-upgrade models to new versions. You should be aware of how each model update affects your workload. Ensure that your service configuration doesn't enable auto-upgrade.
 
 ## Summary
 
