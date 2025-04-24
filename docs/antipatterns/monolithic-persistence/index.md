@@ -28,12 +28,12 @@ Putting all of an application's data into a single data store can hurt performan
 
 Historically, applications used a single data store, regardless of the different types of data that the application might need to store. Organizations used this method to simplify the application design or to match the existing skill set of the development team.
 
-Modern cloud-based systems often have extra functional and nonfunctional requirements. And these systems need to store many heterogeneous types of data, such as documents, images, cached data, queued messages, application logs, and telemetry. Following the traditional approach and putting all this information into the same data store can hurt performance for two main reasons:
+Modern cloud-based systems often have extra functional and nonfunctional requirements. These systems need to store many heterogeneous types of data, such as documents, images, cached data, queued messages, application logs, and telemetry. Following the traditional approach and putting all this information into the same data store can hurt performance for two main reasons:
 
 - Storing and retrieving large amounts of unrelated data in the same data store can cause contention, which leads to slow response times and connection failures.
-- Whichever data store is chosen, it might not be the best fit for all types of data. Or it might not be optimized for the operations that the application performs.
+- Regardless of which data store is chosen, it might not be the best fit for all types of data. Or it might not be optimized for the operations that the application performs.
 
-The following example shows an ASP.NET Web API controller that adds a new record to a database and also records the result to a log. The log is held in the same database as the business data. For more information, see the [complete sample][sample-app].
+The following example shows an ASP.NET Web API controller that adds a new record to a database and also records the result to a log. The log is stored in the same database as the business data. For more information, see the [complete sample][sample-app].
 
 ```csharp
 public class MonoController : ApiController
@@ -53,7 +53,7 @@ The rate at which log records are generated can affect the performance of the bu
 
 ## Solution
 
-Separate data according to its use. For each data set, select a data store that best matches how you use that data set. In the previous example, the application should be logging to a separate store from the database that holds business data:
+Separate data according to its use. For each data set, select a data store that best matches how you use that data set. In the previous example, the application should log to a separate store from the database that holds business data:
 
 ```csharp
 public class PolyController : ApiController
@@ -102,17 +102,17 @@ The following graph shows the results of load testing the sample application des
 
 ![Graph that shows load test performance results for the SQL-based controller.][MonolithicScenarioLoadTest]
 
-As the load increases to 700 users, so does the throughput. But at that point, throughput levels off, and the system appears to run at its maximum capacity. The average response gradually increases with user load, showing that the system can't keep up with demand.
+As the load increases to 700 users, so does the throughput. But at that point, throughput stabilizes, and the system appears to run at its maximum capacity. The average response gradually increases with user load, showing that the system can't keep up with demand.
 
 ### Identify periods of poor performance
 
 If you monitor the production system, you might notice patterns. For example, response times might drop off significantly at the same time each day. A regular workload or scheduled batch job can cause this fluctuation. Or the system might have more users at certain times. You should focus on the telemetry data for these events.
 
-Look for correlations between increased response times and increased database activity or input/output (I/O) to shared resources. If there are correlations, it means the database might be a bottleneck.
+Look for correlations between increased response times and increased database activity or input/output (I/O) to shared resources. If there are correlations, it means that the database might be a bottleneck.
 
 ### Identify which data stores are accessed during those periods
 
-The next graph shows the utilization of database throughput units (DTUs) during the load test. A DTU is a measure of available capacity, It's a combination of CPU utilization, memory allocation, I/O rate. Utilization of DTUs quickly reaches 100%. In the previous graph, throughput peaked at this point. Database utilization remains high until the test finishes. There's a slight drop toward the end, which can result from throttling, competition for database connections, or other factors.
+The next graph shows the utilization of database throughput units (DTUs) during the load test. A DTU is a measure of available capacity. It's a combination of CPU utilization, memory allocation, and I/O rate. Utilization of DTUs quickly reaches 100%. In the previous graph, throughput peaked at this point. Database utilization remains high until the test completes. There's a slight drop toward the end, which can result from throttling, competition for database connections, or other factors.
 
 ![Graph that shows the database monitor in the Azure classic portal showing resource utilization of the database.][MonolithicDatabaseUtilization]
 
