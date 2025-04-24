@@ -22,13 +22,13 @@ ms.custom:
 
 # Monolithic Persistence antipattern
 
-Putting all of an application's data into a single data store can hurt performance, either because it leads to resource contention or because the data store isn't a good fit for some of the data.
+Putting all of an application's data into a single data store can weaken performance, either because it leads to resource contention or because the data store isn't a good fit for some of the data.
 
 ## Context and problem
 
 Historically, applications used a single data store, regardless of the different types of data that the application might need to store. Organizations used this method to simplify the application design or to match the existing skill set of the development team.
 
-Modern cloud-based systems often have extra functional and nonfunctional requirements. These systems need to store many heterogeneous types of data, such as documents, images, cached data, queued messages, application logs, and telemetry. Following the traditional approach and putting all this information into the same data store can hurt performance for two main reasons:
+Modern cloud-based systems often have extra functional and nonfunctional requirements. These systems need to store many heterogeneous types of data, such as documents, images, cached data, queued messages, application logs, and telemetry. Following the traditional approach and putting all this information into the same data store can weaken performance for two main reasons:
 
 - Storing and retrieving large amounts of unrelated data in the same data store can cause contention, which leads to slow response times and connection failures.
 - Regardless of which data store is chosen, it might not be the best fit for all types of data. Or it might not be optimized for the operations that the application performs.
