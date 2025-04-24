@@ -108,11 +108,11 @@ For more information on how to configure Azure File Sync with a proxy server, se
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - You should consider the type and performance of the storage account that you use to host Azure file shares. All storage resources that are deployed into a storage account share the limits that apply to that storage account. To find out more about determining the current limits for a storage account, see [Azure Files scalability and performance targets][Azure Files scalability and performance targets].
 - There are two main types of storage accounts for Azure Files deployments:
@@ -125,7 +125,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Azure File Sync works with your standard Active Directory Domain Services (AD DS) identity without any special setup beyond setting up Azure File Sync. When you use Azure File Sync, file access typically goes through the Azure File Sync caching servers rather than through the Azure file share. Because the server endpoints are located on Windows Server machines, the only requirement for identity integration is to use domain-joined Windows file servers to register with the Storage Sync Service. Azure File Sync stores access control lists (ACLs) for the files in the Azure file share, and replicates them to all server endpoints.
 - Even though changes that are made directly to the Azure file share take longer to sync to the server endpoints in the sync group, you might want to ensure that you can enforce your AD DS permissions on your file share directly in the cloud also. To do this, you must domain join your storage account to your on-premises AD DS domain, just as your Windows file servers are domain joined. To learn more about domain joining your storage account to a customer-owned AD DS instance, see [Overview of Azure Files identity-based authentication options for SMB access][Overview of Azure Files identity-based authentication options for SMB access].
@@ -136,7 +136,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 ### Cost Optimization
 
-Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Consult the [Principles of cost optimization][Principles of cost optimization] page in the Azure Well-Architected Framework for cost optimization recommendations.
 - The [Azure Storage Pricing][Azure Storage Overview pricing] page provides detailed pricing information based on account type, storage capacity, replication, and transactions.

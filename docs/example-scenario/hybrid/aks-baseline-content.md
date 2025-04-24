@@ -115,9 +115,11 @@ To minimize the TCO, integrate AKS deployments with Azure Arc. Consider using th
 
 ## Considerations
 
-These considerations implement the pillars of the Azure *Well-Architected Framework*, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
+
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - Implement a highly available VM for the management cluster, and multiple hosts in the Kubernetes cluster to meet the minimum level of availability for workloads.
 - Back up and restore workload clusters using Velero and Azure Blob Storage. Define availability and recovery targets to meet business requirements.
@@ -127,6 +129,8 @@ These considerations implement the pillars of the Azure *Well-Architected Framew
 - Consider limiting usage of public container images, and only pull from container registries for which you have control over the SLA, such as ACR.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Focus on the entire stack by securing the host and containers.
 
@@ -158,19 +162,25 @@ Focus on the entire stack by securing the host and containers.
 - Secure the images in an Azure Container Registry that supports vulnerability scanning and RBAC.
 - [Use isolation of containers][], and avoid running containers in privileged mode to prevent attackers to escalate the privileges if the container is compromised.
 
-### Cost optimization
+### Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Use the [Azure pricing calculator][] to estimate costs for the services used in the architecture. The [cost optimization][] section in [Microsoft Azure Well-Architected Framework][cost optimization] describes other best practices. For more information, see [Pricing details](/azure/aks/hybrid/pricing).
 - Consider implementing hyper-threading on your physical computer, to optimize the cost, because the AKS billing unit is a virtual core.
 
-### Operational excellence
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 - **Create Cluster Wizard**. Experience a simplified provisioning and management experience with Windows Admin Center. The [Create Cluster wizard in Windows Admin Center][] provides a wizard-driven interface that guides you through creating an Azure Local instance. The Create Cluster Wizard is a tradeoff for ease vs creating deploy scripts that you can source control for auditing and repeatability across multiple deployments. Similarly, [Windows Admin Center simplifies the process of managing Azure Local VMs][].
 - [Azure Arc][]. Integrate with Azure Arc or a range of Azure services that provide additional management, maintenance, and resiliency capabilities (for example, Azure Monitor and Log analytics).
 - **GitOps.** Instead of manually configuring Kubernetes components, use automated tooling to apply configurations to a Kubernetes cluster, as these configurations are checked into a source repository. This process is often referred to as GitOps, and popular GitOps solutions for Kubernetes include Flux and Argo CD. In this architecture, we recommend using the Microsoft-provided GitOps extension, which is based on Flux.
 - **Azure Arc–enabled [Open Service Mesh (OSM)][].** A lightweight, extensible, cloud-native service mesh that allows users to uniformly manage, help secure, and get out-of-the-box observability features for highly dynamic microservice environments.
 
-### Performance efficiency
+### Performance Efficiency
+
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - Use Azure Local-certified hardware for improved application uptime and performance, simplified management and operations, and lower total cost of ownership.
 - Understand the AKS on Azure Local limits. Microsoft supports AKS on Azure Stack deployments with a maximum of eight physical servers per cluster, eight Kubernetes Clusters, and 200 VMs.
