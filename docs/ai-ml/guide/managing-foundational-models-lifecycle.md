@@ -159,7 +159,7 @@ Your architecture should support updating to new or different models, along with
 
 ## Next step
 
-[GenAIOps for MLOps practitioners](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/genaiops-for-mlops)
+[GenAIOps for MLOps practitioners](/azure/architecture/ai-ml/guide/genaiops-for-mlops)
 
 ## Related resources
 
