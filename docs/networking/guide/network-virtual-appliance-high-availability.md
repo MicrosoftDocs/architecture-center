@@ -7,11 +7,11 @@ ms.date: 03/21/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.category:
-    - networking
-    - management-and-governance
+  - networking
+  - management-and-governance
 ms.custom:
-    - networking
-    - reference-architecture
+  - networking
+  - reference-architecture
 categories:
   - networking
   - management-and-governance
@@ -42,7 +42,7 @@ You can add the following NVAs to an Azure design by using the patterns in this 
 
 - Network firewalls
 - Layer-4 reverse proxies
-- IPsec VPN endpoints
+- Internet Protocol Security (IPsec) VPN endpoints
 - SD-WAN appliances
 - Web-based reverse proxies that have Web Application Firewall functionality
 - Internet proxies to restrict which internet pages can be accessed from Azure
@@ -87,7 +87,7 @@ The following diagram shows the sequence of hops that packets take from the inte
 This diagram shows a hub and two spokes. The hub contains a gateway subnet and NVA subnet. The gateway subnet contains a VPN or Azure ExpressRoute gateway. The NVA subnet contains an internal Azure load balancer and NVAs. Each spoke contains an app server. Spoke2 has a note that reads spoke route table 0.0.0.0/0 to 10.0.0.36 and disable gateway propagation. Inbound traffic flows from the public internet to the NVAs through the public Azure load balancer. This traffic then flows to the app server in Spoke2. Return traffic flows from this app server to the NVAs through the internal Azure load balancer. This traffic then flows to the public internet.
 :::image-end:::
 
-*Download a [Visio file][visio-download] of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/deploy-highly-available-nva-diagrams.vsdx) of this architecture.*
 
 To send traffic from spokes to the public internet through the NVAs, this design uses a UDR for `0.0.0.0/0`. The next hop is the internal load balancer's IP address.
 
@@ -155,9 +155,9 @@ In the NVA cluster, Azure load balancer health check probes detect failures in i
 
 ## Dynamic public IP address and UDR management
 
-The goal of this design is to have a setup that functions without NVA redundancy and can be modified if the NVA experiences downtime. The following diagram shows how an Azure public IP address associates with an active NVA (NVA1). The UDRs in the spokes use the active NVA's IP address (`10.0.0.37`) as the next hop.
+The goal of this design is to have a setup that functions without NVA redundancy and can be modified if the NVA experiences downtime. The following diagram shows how an Azure public IP address associates with an active NVA (NVA1 in the diagram). The UDRs in the spokes use the active NVA's IP address (`10.0.0.37`) as the next hop.
 
-:::image type="complex" source="./images/private-ip-internet.svg" lightbox="./images/private-ip-internet.svg" alt-text="Diagram that shows internet traffic with moving PIP/UDR." border="false":::
+:::image type="complex" source="./images/private-ip-internet.svg" lightbox="./images/private-ip-internet.svg" alt-text="Diagram that shows internet traffic with dynamic public IP address and UDR management." border="false":::
 This diagram shows a hub and two spokes. The hub contains a gateway subnet and NVA subnet. The gateway subnet contains a VPN or ExpressRoute gateway. The NVA subnet contains two NVAs. NVA1 is labeled as active and NVA2 is labeled as standby. Each spoke contains an app server. Spoke2 has a note that reads spoke route table 0.0.0.0/0 to 10.0.0.37 and disable gateway propagation. Inbound traffic flows from the internet to NVA1 through a public IP address. This traffic then flows to Spoke2. Return traffic flows from Spoke2 to NVA1 and then to the internet.
 :::image-end:::
 
@@ -179,11 +179,11 @@ Principal authors:
  
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
 - [Perimeter networks][caf_perimeter]
 
-## Related resources
+## Related resource
 
 - [Implement a secure hybrid network by using Azure Firewall][secure_hybrid]
 
@@ -204,4 +204,3 @@ Principal authors:
 [caf_hns]: /azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology
 [secure_hybrid]: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz
 [azfw_appgw]: /azure/architecture/example-scenario/gateway/firewall-application-gateway
-[visio-download]: https://arch-center.azureedge.net/deploy-highly-available-nva-diagrams.vsdx
