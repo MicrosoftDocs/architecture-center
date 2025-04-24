@@ -86,23 +86,23 @@ The implementation uses a single virtual network and multiple subnets to support
 ### Workflow: OpCon Datacenter
 
 1. You deploy the OpCon Core services container within an Azure Kubernetes Service (AKS) cluster you manage. PersistentVolumes (Azure Files CSI storage drivers) are used for the storage of logs and configuration information to ensure data persistence across container restarts.
-   - Database connections between the OpCon Core services and the OpCon database are established through the configured Azure Private Endpoint that provides secure access to the Azure SQL Server.
+   - Database connections between the OpCon Core services and the OpCon database are established through the configured Azure Private Endpoint that provides secure access to the Azure SQL Database server.
 
    - OpCon Core services communicate with OpCon Agents installed on virtual machines within the Virtual Network environment or with on-premises systems through the Virtual Network Gateway.
   
    -  Similarly, OpCon Core services communicate directly with Application Rest-API endpoints within the Virtual Network environment or with on-premises systems through the Virtual Network Gateway using Rest-API connectivity options.  
    - OpCon Core services provide Solution Manager which is the web-based user interface for interacting with the entire OpCon environment. 
-   - Network Security Groups can be used to limit traffic flow between subnets if needed. 
+   - Network Security Groups are used to limit traffic flow between subnets. 
 
-1. Azure SQL: The OpCon database is installed within an Azure SQL environment which is reached through a private endpoint.
+1. The OpCon database objects and data are installed within an Azure SQL Database server environment which is reached through a private endpoint.
 
-1. Azure Storage: OpCon Connector technology allows OpCon Core services to interact with Azure Storage providing capabilities to manage Blob Storage. OpCon Managed File Transfer (MFT) also supports interaction with Azure Storage. 
+1. OpCon Connector technology allows OpCon Core services to interact with Azure Storage providing capabilities to manage Blob Storage. OpCon Managed File Transfer (MFT) also supports interaction with Azure Storage.
 
-1. Applications: The application subnet includes the virtual machines that provide the application infrastructure. The application servers could also be installed into multiple subnets or virtual networks creating separate environments for web servers, application servers, etc.  
-   - Application virtual machines or on-premises legacy systems require connections to the OpCon Core services for the management of their workloads, while applications providing Rest-API endpoints don't require extra software.
+1. The application subnet includes the virtual machines that provide the application infrastructure. The application servers could also be installed into multiple subnets or virtual networks creating separate environments for web servers, application servers, etc.
+   - Application virtual machines or on-premises legacy systems require connections to the OpCon Core services for the management of their workloads, while applications providing REST API endpoints don't require extra software.
 
-   - The subnet includes an OpCon MFT Server which is an OpCon component that provides full file transfer capabilities such as compression, encryption, decryption, decompression, file watching, and automated file routing for the enterprise.  
-   - Network Security Groups can be used to limit traffic flow between subnets if needed. 
+   - The subnet includes an OpCon MFT server which is an OpCon component that provides full file transfer capabilities such as compression, encryption, decryption, decompression, file watching, and automated file routing for the enterprise.
+   - Network Security Groups are used to limit traffic flow between subnets. 
 
 1. In a hybrid environment, the gateway subnet provides a secure connection between the on-premises environment and the Azure Cloud environment through a Site-to-Site VPN tunnel connection.
    
@@ -112,6 +112,7 @@ The implementation uses a single virtual network and multiple subnets to support
 
 1. All user requests are routed via the VPN gateway connection to the OpCon Core services environment.
    - User access utilizes the OpCon Solution Manager framework, a web-based user interface for  
+
      - OpCon Administration.  
      - OpCon MFT Administration.  
      - OpCon workflow development, execution, and monitoring.  
@@ -119,7 +120,7 @@ The implementation uses a single virtual network and multiple subnets to support
      - Vision (OpCon Task Dashboard).  
      - OpCon MFT Central Application (Dashboard & Query application).
 
-1. On-premises network: OpCon Core services communicate with OpCon Agents installed on legacy systems within the on-premises systems through the Virtual Network Gateway.  
+1. OpCon Core services communicate with OpCon Agents installed on on-premises systems through the Virtual Network Gateway.  
 
    Similarly, OpCon Core services communicate directly with Application Rest-API endpoints within the on-premises systems through the Virtual Network Gateway using Rest-API connectivity options.  
 
