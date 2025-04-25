@@ -67,7 +67,7 @@ Azure Virtual Desktop is resilient to failures of individual components like Web
 
 When an outage occurs in a region, the service infrastructure components fail over to the secondary location and continue to be fully functioning. You can still access and configure service-related metadata, and users can still connect to available hosts. End-user connections stay online if the tenant environment or hosts remain accessible. [Data locations for Virtual Desktop](/azure/virtual-desktop/data-locations) are different from the location of the host pool session host virtual machines (VMs) deployment. It's possible to locate Azure Virtual Desktop metadata in one of the supported regions and then deploy VMs in a different location. More details are provided in the [Azure Virtual Desktop service architecture and resilience](/azure/virtual-desktop/service-architecture-resilience) article.
 
-For the remainder of this article, you're going to learn about solutions for the two different Azure Virtual Desktop host pool types. There are also observations provided so that you can compare this architecture with other solutions:
+The two different Azure Virtual Desktop host pool types support different recovery solutions.
 
 - **Personal:** In this type of host pool, a user has a permanently assigned session host, which should never change. Since it's personal, this VM can store user data. The assumption is to use replication and backup techniques to preserve and protect the state.
 - **Pooled:** Users are temporarily assigned one of the available session host VMs from the pool, either directly through a desktop application group or by using remote apps. VMs are stateless and user data and profiles are stored in external storage or OneDrive.
