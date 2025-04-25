@@ -259,7 +259,7 @@ The Cloud Cache configuration and replication mechanisms guarantee profile data 
 
 #### Dataflow
 
-1. A Azure Virtual Desktop user launches Virtual Desktop client, and then opens a published Desktop or Remote App application assigned to the primary region host pool.
+1. An Azure Virtual Desktop user launches Virtual Desktop client, and then opens a published Desktop or Remote App application assigned to the primary region host pool.
 1. FSLogix retrieves the user Profile and Office containers, and then mounts the underlying storage VHD/X from the storage account located in the primary region.
 1. At the same time, the Cloud Cache component initializes replication between the files in the primary region and the files in the secondary region. For this process, Cloud Cache in the primary region acquires an exclusive read-write lock on these files.
 1. The same Virtual Desktop user now wants to launch another published application assigned on the secondary region host pool.
