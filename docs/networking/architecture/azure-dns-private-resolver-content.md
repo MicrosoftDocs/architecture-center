@@ -157,9 +157,7 @@ The following diagram shows the traffic flow that results when VM 1 issues a DNS
    The image includes two main sections. The On-premises section contains the on-premises server, Windows desktops, App 1, App 2, App 3, and servers and their IP addresses. Azure ExpressRoute connects the On-premises section to the site-to site or Azure ExpressRoute gateway section located in the Azure section. The Azure section contains the inbound and outbound endpoints, Azure DNS, Azure Private DNS, Azure DNS Private Resolver, and DNS server sections that contain a spoke and a VM. The DNS server sections also connect via the DNS forwarding virtual network link to the DNS forwarding rule set. A purple arrow shows the flow of operations.
 :::image-end:::
 
-1. VM 1 queries a DNS record. The spoke virtual networks are configured to use `192.168.0.1/2` as the name resolution DNS server. As a result, an on-premises DNS server is used to resolve the DNS query.
-
-1. The request is sent to the local DNS server at IP address `192.168.0.1` or `192.168.0.2`.
+1. VM 1 queries a DNS record. The spoke virtual networks are configured to use `192.168.0.1/2` as the name resolution DNS server. As a result, an on-premises DNS server is used to resolve the DNS query. The request is sent to the local DNS server at IP address `192.168.0.1` or `192.168.0.2`.
 
 1. A conditional forwarder on the local DNS server for `blob.core.windows.net` forwards the request to the DNS resolver at IP address `10.0.0.8`.
 
