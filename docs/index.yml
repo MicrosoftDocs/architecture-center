@@ -278,7 +278,7 @@ conceptualContent:
           url: ./reference-architectures/dmz/secure-vnet-dmz.yml
         - text: Highly available network virtual appliances
           itemType: concept
-          url: networking/guide/nva-ha.yml
+          url: networking/guide/network-virtual-appliance-high-availability.md
 
     - title: Security
       links:
