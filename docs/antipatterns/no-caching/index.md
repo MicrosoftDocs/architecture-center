@@ -1,12 +1,10 @@
 ---
 title: No Caching antipattern
-titleSuffix: Performance antipatterns for cloud apps
 description: Learn about ways to mitigate the No Caching antipattern, the common design flaw of repeatedly fetching the same data.
 ms.author: robbag
 author: RobBagby
 ms.date: 06/05/2017
 ms.topic: design-pattern
-ms.service: azure-architecture-center
 ms.subservice: best-practice
 categories:
   - databases
@@ -223,7 +221,7 @@ The volume of successful tests still reaches a plateau, but at a higher user loa
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/main/NoCaching
 [cache-aside-pattern]: ../../patterns/cache-aside.yml
 [caching-guidance]: ../../best-practices/caching.yml
-[circuit-breaker]: ../../patterns/circuit-breaker.yml
+[circuit-breaker]: ../../patterns/circuit-breaker.md
 [api-implementation]: ../../best-practices/api-implementation.md#optimizing-client-side-data-access
 [NewRelic]: https://newrelic.com/partner/azure
 [NewRelic-server-requests]: ./_images/New-Relic.jpg

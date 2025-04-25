@@ -253,7 +253,7 @@ Other contributors:
 - [Create Data Activator alerts from a real-time dashboard](/fabric/data-activator/data-activator-get-data-real-time-dashboard)
 - [Power BI report](/fabric/real-time-intelligence/create-powerbi-report)
 - [Visualize data from Azure Data Explorer in Grafana](/azure/data-explorer/grafana)
-- [Automotive messaging, data, and analytics reference architecture](./automotive-connected-fleets.yml)
+- [Automotive messaging, data, and analytics reference architecture](/industry/mobility/architecture/automotive-connected-fleets-content)
 
 ## Related resources
 

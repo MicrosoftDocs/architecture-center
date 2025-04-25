@@ -1,12 +1,11 @@
 ---
 title: Mission-critical global HTTP ingress
-titleSuffix: Azure Architecture Center
 description: Learn how to develop highly resilient global HTTP applications when your focus is on HTTP ingress.
 author: johndowns
 ms.author: jodowns
+ms.reviewer: dburkhardt
 ms.date: 02/19/2025
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-traffic-manager
@@ -40,7 +39,7 @@ Caching at the network edge isn't critical part of your application delivery. If
 
 ## Approach
 
-This DNS-based load balancing solution uses multiple Azure Traffic Manager profiles. In the unlikely event of an availability issue with Azure Front Door, Traffic Manager redirects traffic through Application Gateway.
+This DNS-based load balancing solution uses multiple Azure Traffic Manager profiles. In the unlikely event of an availability issue with Azure Front Door, Azure Traffic Manager redirects traffic through Application Gateway.
 
 :::image type="content" source="./media/mission-critical-global-http-ingress/front-door-application-gateway.png" alt-text="Diagram showing Azure Traffic Manager with priority routing to Azure Front Door, and a nested Traffic Manager profile using performance routing to send to Application Gateway instances in two regions." border="false":::
 
@@ -124,6 +123,18 @@ However, there are tradeoffs:
 > If you consider exposing your application directly to the internet, create a thorough threat model and ensure that the architecture meets your security, performance, and resiliency requirements.
 >
 > If you use virtual machines to host your solution, you should not expose the virtual machines to the internet.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Dave Burkhardt](https://linkedin.com/in/dave-burkhardt-13b79b3/) | Principal Program Manager, Azure Front Door
+- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer
+- [Priyanka Wilkins](https://linkedin.com/in/priyanka-w/) | Principal Content Developer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

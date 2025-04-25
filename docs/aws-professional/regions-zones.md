@@ -5,8 +5,10 @@ author: splitfinity-zz-zz
 ms.author: yubaijna
 ms.date: 12/13/2021
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
+ms.collection: 
+ - migration
+ - aws-to-azure
 products:
   - azure
 categories:

@@ -211,7 +211,6 @@ To see nonpublic LinkedIn profiles, sign in to LinkedIn.
 ## Related resources
 
 - [Choose an Azure compute option for microservices](../../microservices/design/compute-options.md)
-- [Lift and shift to containers with Azure App Service](../../solution-ideas/articles/migrate-existing-applications-to-container-apps.yml)
 - [Technology choices for Azure solutions](technology-choices-overview.md)
 
 [cost-linux-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/linux

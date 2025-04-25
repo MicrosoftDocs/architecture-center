@@ -27,7 +27,7 @@ The architecture has the following components.
   > For security reasons, Microsoft Entra ID stores user's passwords as a hash. If a user requires a password reset, this must be performed on-premises and the new hash must be sent to Microsoft Entra ID. Microsoft Entra ID P1 or P2 editions include features that can allow for password changes to happen in the cloud and then be written back to on-premises AD DS.
   >
 
-- **VMs for N-tier application**. For more information about these resources, see [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+- **VMs for N-tier application**. For more information about these resources, see [N-tier architecture on virtual machines](/azure/architecture/guide/architecture-styles/n-tier#n-tier-architecture-on-virtual-machines).
 
 ## Scenario details
 
@@ -206,7 +206,7 @@ Cost considerations include:
 
   - For pricing information about the editions of Microsoft Entra ID, see [Microsoft Entra pricing][Azure-AD-pricing].
 
-- **VMs for N-Tier application** - For cost information about these resources, see [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+- **VMs for N-Tier application** - For cost information about these resources, see [Architecture best practices for Virtual Machines and scale sets](/azure/well-architected/service-guides/virtual-machines).
 
 ### Operational Excellence
 

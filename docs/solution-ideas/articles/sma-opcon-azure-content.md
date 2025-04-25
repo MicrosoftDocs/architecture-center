@@ -4,7 +4,7 @@ This article presents a solution for automating workloads that run on various ty
 
 ## Architecture
 
-:::image type="content" source="../media/sma-opcon-azure-architecture.png" alt-text="Architecture diagram that shows how to deploy OpCon in Azure or a hybrid environment. Besides OpCon, components include SQL Database and VPN Gateway." lightbox="../media/sma-opcon-azure-architecture.png" border="false":::
+:::image type="content" source="../media/sma-opcon-azure-architecture.svg" alt-text="Architecture diagram that shows how to deploy OpCon in Azure or a hybrid environment. Besides OpCon, components include SQL Database and VPN Gateway." lightbox="../media/sma-opcon-azure-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/sma-opcon-azure-architecture.vsdx) of this architecture.*
 
@@ -13,7 +13,9 @@ This article presents a solution for automating workloads that run on various ty
 1. An OpCon container provides core services, which are deployed within Azure Kubernetes Service (AKS). These core services include Solution Manager, a web-based user interface. Users can interact with the entire OpCon environment by using Solution Manager. Besides other components, the environment includes:
 
    - Persistent volumes that store logs and configuration information and provide data persistence across container restarts. For these volumes, the solution uses Azure Files, which is configured in the `StorageClass` value.
+
    - The OpCon database.
+
    - Virtual machines (VMs) that run workloads.
 
 1. The solution uses Azure SQL Database as the OpCon database. The core services have access to this database through an Azure Private Link private endpoint.
@@ -23,7 +25,9 @@ This article presents a solution for automating workloads that run on various ty
 1. The Applications subnet contains an OpCon Managed File Transfer server that provides comprehensive file-transfer functionality. Capabilities include compression, encryption, decryption, decompression, file watching, and enterprise-grade automated file routing.
 
 1. Azure VMs make up the application infrastructure. The placement of these VMs in subnets and virtual networks is flexible. For more information, see [Component placement](#component-placement).
+
    - To manage workloads on these VMs and on-premises legacy systems, OpCon core services communicate with OpCon agents that are installed on the VMs. The core services communicate with on-premises systems through a site-to-site connection on a virtual network gateway.
+
    - OpCon core services communicate directly with applications that provide REST API endpoints. These applications don't need extra software to connect to the core services. With on-premises systems, the communication uses REST API connectivity options and travels via a virtual network gateway.
 
 1. In a hybrid environment, the Gateway subnet uses a site-to-site VPN tunnel to help secure the connection between the on-premises environment and the Azure cloud environment.
@@ -88,6 +92,7 @@ The following sections describe alternatives to consider when you implement the 
 The placement of the VMs and OpCon database is flexible.
 
 - The application subnet can include the application VMs. You can also install the application servers in multiple subnets or virtual networks. Use this approach when you want to create separate environments for different types of servers, such as web and application servers.
+
 - You can place the database inside or outside the OpCon subnet.
 
 #### SQL Managed Instance
@@ -126,7 +131,7 @@ The deployed OpCon environment consists of two pods within a single replica set 
 
 The following diagram shows configuration requirements for an environment with two pods: OpCon and Impex2. The diagram also shows the relationship between various definitions in the Kubernetes configuration YAML file.
 
-:::image type="content" source="../media/sma-opcon-azure-kubernetes-service-configuration.png" alt-text="Architecture diagram that shows Kubernetes configuration values that the solution uses." lightbox="../media/sma-opcon-azure-kubernetes-service-configuration.png" border="false":::
+:::image type="content" source="../media/sma-opcon-azure-kubernetes-service-configuration.svg" alt-text="Architecture diagram that shows Kubernetes configuration values that the solution uses." lightbox="../media/sma-opcon-azure-kubernetes-service-configuration.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/sma-opcon-azure-architecture.vsdx) of this architecture.*
 
@@ -337,12 +342,12 @@ spec:
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 - [Philip Brooks](https://www.linkedin.com/in/philipbbrooks) | Senior Program Manager
 - [Bertie van Hinsbergen](https://www.linkedin.com/in/gys-bertie-van-hinsbergen-7802204) | Principal Automation Consultant
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

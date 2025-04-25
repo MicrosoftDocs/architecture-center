@@ -176,7 +176,7 @@ To learn about related solutions, see the following guides and architectures.
 [Azure Monitor]: /azure/azure-monitor/overview
 [Batch scoring of Spark models on Azure Databricks]: ../../ai-ml/architecture/batch-scoring-databricks.yml
 [Compare the machine learning products and technologies from Microsoft]: ../../ai-ml/guide/data-science-and-machine-learning.md
-[Choosing a natural language processing technology in Azure]: ../../data-guide/technology-choices/natural-language-processing.yml
+[Choosing a natural language processing technology in Azure]: ../../data-guide/technology-choices/natural-language-processing.md
 [Choosing a stream processing technology in Azure]: ../../data-guide/technology-choices/stream-processing.md
 [Databricks Delta Lake]: https://databricks.com/product/delta-lake-on-databricks
 [Event Hubs]: /azure/well-architected/service-guides/event-hubs

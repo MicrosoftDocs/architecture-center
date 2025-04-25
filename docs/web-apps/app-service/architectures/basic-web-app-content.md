@@ -50,10 +50,9 @@ Because this architecture isn't designed for production deployments, the followi
 
 See how to overcome these reliability concerns in the [reliability section in the Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#reliability).
 
-If this workload will eventually require a multi-region active-active or active-passive architecture, see the following resources:
+If this workload will eventually require a multi-region active-active or active-passive architecture, see the following resource:
 
 - [Multi-region App Service app approaches for disaster recovery](../../guides/multi-region-app-service/multi-region-app-service.yml) for guidance on deploying your App Service-hosted workload across multiple regions.
-- [Highly available multi-region web application](./multi-region.yml) for a reference architecture that follows an active-passive approach.
 
 ### Security
 
@@ -176,7 +175,6 @@ The guidance is backed by an [example implementation](https://github.com/Azure-S
 ## Related resources
 
 - [Baseline zone-redundant web application](./baseline-zone-redundant.yml)
-- [Highly available multi-region web application](./multi-region.yml)
 - [Multi-region App Service app approaches for disaster recovery](../../guides/multi-region-app-service/multi-region-app-service.yml)
 
 Product documentation:

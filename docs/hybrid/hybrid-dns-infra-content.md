@@ -167,7 +167,6 @@ Learn more about the component technologies:
 Explore related architectures:
 
 - [Azure enterprise cloud file share](./azure-files-private.yml)
-- [N-tier application with Apache Cassandra](../databases/architecture/n-tier-cassandra.yml)
 - [Multitenant SaaS on Azure](../example-scenario/multi-saas/multitenant-saas.yml)
 
 [architectual-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-dns-infra.vsdx

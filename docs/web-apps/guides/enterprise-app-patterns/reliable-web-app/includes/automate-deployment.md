@@ -3,7 +3,6 @@ author: ssumner
 ms.author: ssumner
 ms.date: 10/15/2024
 ms.topic: include
-ms.service: azure-architecture-center
 ---
 Use automation to deploy and update Azure resources and code across all environments. Follow these recommendations:
 

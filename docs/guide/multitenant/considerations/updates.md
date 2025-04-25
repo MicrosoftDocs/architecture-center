@@ -1,12 +1,10 @@
 ---
 title: Considerations for updating a multitenant solution
-titleSuffix: Azure Architecture Center
 description: This article describes considerations for updating your multitenant solution.
 author: johndowns
 ms.author: jodowns
 ms.date: 07/22/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure
@@ -135,7 +133,7 @@ You can determine how many rings to create and what each ring means for your own
 
 ### API versions
 
-If your service exposes an external API, consider that any updates you apply might affect the way that customers or partners integrate with your platform. In particular, you need to be conscious of breaking changes to your APIs. Consider using [an API versioning strategy](../../../best-practices/api-design.md#versioning-a-restful-web-api) to mitigate the risk of updates to your API.
+If your service exposes an external API, consider that any updates you apply might affect the way that customers or partners integrate with your platform. In particular, you need to be conscious of breaking changes to your APIs. Consider using [an API versioning strategy](../../../best-practices/api-design.md#implement-versioning) to mitigate the risk of updates to your API.
 
 ## Contributors
 

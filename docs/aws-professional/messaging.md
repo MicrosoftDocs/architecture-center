@@ -6,7 +6,6 @@ ms.author: yubaijna
 categories: azure
 ms.date: 08/10/2021
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
 azureCategories:
   - databases
@@ -15,6 +14,9 @@ products:
   - azure
   - azure-queue-storage
   - azure-service-bus
+ms.collection: 
+ - migration
+ - aws-to-azure
 ---
 
 # Messaging services on Azure and AWS

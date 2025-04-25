@@ -1,25 +1,23 @@
 ### YamlMime:Architecture
 metadata:
   title: Automate document classification in Azure
-  titleSuffix: Azure Architecture Center
   description: Learn how to use the durable functions feature of Azure Functions as an automated document processing pipeline to classify documents by type.
   author: kwkraus
   ms.author: kkraus
-  ms.date: 08/20/2024
+  ms.date: 02/21/2025
   ms.topic: conceptual
   ms.collection: ce-skilling-ai-copilot
-  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom: arb-aiml
 azureCategories:
   - ai-machine-learning
 products:
   - azure-functions
-  - azure-app-service
+  - azure-openai
   - ai-services
   - azure-cognitive-search
   - document-intelligence
-name: Use Azure AI services to automate document identification, classification, and search
+name: Use Azure AI services to automate document identification, classification, and natural language processing search
 summary: Learn how to use the durable functions feature of Azure Functions as an automated document processing pipeline to classify documents by type.
 thumbnailUrl: /azure/architecture/browse/thumbs/automate-document-classification-durable-functions.png
 content: |

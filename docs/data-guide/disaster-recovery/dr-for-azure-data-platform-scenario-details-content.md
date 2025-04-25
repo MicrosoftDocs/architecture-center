@@ -204,7 +204,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - Notes
         - A key feature of Stream Analytics is its ability to recover from [Node failure](/azure/stream-analytics/stream-analytics-concepts-checkpoint-replay#job-recovery-from-node-failure-including-os-upgrade).
 
-- **Azure AI services (formerly Cognitive Services)**
+- **Azure AI services**
     - Contoso SKU selection: Pay As You Go
     - DR impact
         - Azure datacenter failure: N/A
@@ -270,7 +270,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - [Single-region accounts may lose availability](/azure/cosmos-db/high-availability#availability) following a regional outage. To ensure high availability of your Azure Cosmos DB instance, configure it with a single write region and at least a second (read) region and enable Service-Managed failover.
         - To avoid the loss of write availability, it advised that production workloads are configured with "enable service-managed failover", enabling automatic failover to [available regions](/azure/cosmos-db/high-availability#availability).
 
-- **Azure AI Search (formerly Cognitive Search)**
+- **Azure AI Search**
     - Contoso SKU selection: Standard S1
     - DR impact
         - Azure datacenter failure: Contoso would need to validate availability and redeploy if necessary.
@@ -316,5 +316,3 @@ Now that you've learned about the scenario details, you can learn about [recomme
 
 - [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.yml)
 - [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.yml)
-- [DR for Azure Data Platform - Deploy this scenario](dr-for-azure-data-platform-deploy-this-scenario.yml)
-- [DR for Azure Data Platform - Summary](dr-for-azure-data-platform-summary.yml)

@@ -5,7 +5,6 @@ author: robbagby
 ms.author: robbag
 ms.date: 01/29/2025 
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
@@ -43,8 +42,8 @@ There are several metrics that you should use to evaluate the language model's r
 
 Use the following methods to calculate the groundedness of responses:
 
-- [Azure AI Content Safety-based groundedness](/azure/ai-studio/concepts/evaluation-metrics-built-in#aacs-based-groundedness) is a custom model that uses natural language inference to determine whether claims, or in this case chunks, are based on context in the source document.
-- [Large language model-based groundedness](/azure/ai-studio/concepts/evaluation-metrics-built-in#prompt-only-based-groundedness) uses a language model to determine the level of groundedness of the response.
+- [Azure AI Content Safety-based groundedness](/azure/ai-foundry/concepts/evaluation-metrics-built-in#ai-assisted-groundedness) is a custom model that uses natural language inference to determine whether claims, or in this case chunks, are based on context in the source document.
+- [Large language model-based groundedness](/azure/ai-foundry/concepts/evaluation-metrics-built-in#ai-assisted-groundedness) uses a language model to determine the level of groundedness of the response.
 - [Ragas faithfulness library](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/faithfulness/).
 - [MLflow faithfulness calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge).
 
@@ -60,7 +59,7 @@ A low groundedness calculation indicates that the language model doesn't see the
 
 Use the following methods to calculate the completeness of responses:
 
-- [AI-assisted retrieval score prompting](/azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-retrieval-score).
+- [AI-assisted retrieval score prompting](/azure/ai-foundry/concepts/evaluation-metrics-built-in#ai-assisted-retrieval).
 - A language model can help you measure the quality of the language model response. You need the question, context, and generated answer to take this measurement. The following steps outline the high-level process:
   1. Use the language model to rephrase, summarize, or simplify the question. This step identifies the intent.
   2. Ask the model to check whether the intent or the answer to the intent is found in or can be derived from the retrieved documents. The answer can be "yes" or "no" for each document. Answers that start with "yes" indicate that the retrieved documents are relevant to the intent or answer to the intent.
@@ -96,12 +95,12 @@ The following table provides guidance for how to evaluate completeness and utili
 
 Use the following methods to calculate the relevance of responses:
 
-- [AI-assisted: Relevance in Azure AI Foundry](/azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-relevance)
+- [AI-assisted: Relevance in Azure AI Foundry](/azure/ai-foundry/concepts/evaluation-metrics-built-in#ai-assisted-relevance)
 - [Ragas answer relevancy library](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/answer_relevance/)
 - [MLflow relevance calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 
 > [!NOTE]
-> You can use Azure AI Foundry portal to perform the calculations or use the guidance in this article to calculate relevance yourself.
+> You can use Azure [Azure AI Foundry portal](https://ai.azure.com?cid=learnDocs) to perform the calculations or use the guidance in this article to calculate relevance yourself.
 
 #### Evaluate relevance
 
@@ -185,11 +184,11 @@ After your hyperparameters and results are persisted, you should consider making
 
 It's important to understand that designing and evaluating your RAG solution isn't a one-time operation. Your collection of documents changes over time. The questions that your customers ask change over time, and your understanding of the types of questions evolves as you learn from production. You should revisit this process again and again. Maintaining documentation of past evaluations is critical for future design and evaluation efforts.
 
-## The RAG Experiment Accelerator
+## The RAG experiment accelerator
 
-These articles walk you through all the phases and design choices that are involved in designing and evaluating a RAG solution. The articles focus on what you should do, not how to do it. An engineering team that works with Microsoft top customers developed a tool called the [RAG Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator). The RAG Experiment Accelerator is a state-of-the-art experimentation framework. It was designed to optimize and enhance the development of RAG solutions. The RAG Experiment Accelerator empowers researchers and developers to efficiently explore and fine-tune the critical components that drive RAG performance. This innovation ultimately results in more accurate and coherent text generation.
+These articles walk you through all the phases and design choices that are involved in designing and evaluating a RAG solution. The articles focus on what you should do, not how to do it. An engineering team that works with Microsoft top customers developed a tool called the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator). The RAG experiment accelerator is a state-of-the-art experimentation framework. It was designed to optimize and enhance the development of RAG solutions. The RAG experiment accelerator empowers researchers and developers to efficiently explore and fine-tune the critical components that drive RAG performance. This innovation ultimately results in more accurate and coherent text generation.
 
-The RAG Experiment Accelerator uses a command-line interface, so you can easily experiment with various embedding models, refine chunking strategies, and evaluate different search approaches to unlock the full potential of your RAG system. It allows you to focus on the core aspects of RAG development by using a simple configuration for hyperparameter tuning.
+The RAG experiment accelerator uses a command-line interface, so you can easily experiment with various embedding models, refine chunking strategies, and evaluate different search approaches to unlock the full potential of your RAG system. It allows you to focus on the core aspects of RAG development by using a simple configuration for hyperparameter tuning.
 
 The framework also provides comprehensive support for language model configuration. This support helps you strike the perfect balance between model complexity and generation quality. This tool helps you streamline the experimentation process, save time, and significantly improve the performance of your RAG models.
 
@@ -216,11 +215,11 @@ The framework loads, chunks, and enriches text and images from MHTML files. It t
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [RAG Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator)
+> [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator)
 
 > [!div class="nextstepaction"]
 > [RAG with Vision Application Framework](https://github.com/Azure-Samples/rag-as-a-service-with-vision)
 
 ## Related resource
 
-- [Develop an evaluation flow](/azure/ai-studio/how-to/flow-develop-evaluation)
+- [Develop an evaluation flow](/azure/ai-foundry/how-to/flow-develop-evaluation)

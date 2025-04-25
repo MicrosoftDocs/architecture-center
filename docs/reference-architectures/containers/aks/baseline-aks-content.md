@@ -83,8 +83,6 @@ This architecture uses a hub and spoke network topology. Deploy the hub and spok
 
 For more information, see [Hub-spoke network topology in Azure](../../../networking/architecture/hub-spoke.yml).
 
-For more information about the network design changes included in the Windows containers on AKS baseline reference architecture, see [Windows containers on AKS](./windows-containers-on-aks.yml#network-design).
-
 ### Hub virtual network
 
 The hub virtual network is the central point of connectivity and observability. In this architecture, the hub contains:
@@ -175,8 +173,6 @@ For more information, see [the guidance about IP address planning for Azure CNI 
 
 For the complete set of networking considerations for this architecture, see [AKS baseline network topology](https://github.com/mspnp/aks-baseline/blob/main/network-team/topology.md). For information related to planning IP addressing for an AKS cluster, see [Plan IP addressing for your cluster](/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster).
 
-For more information on the IP address planning considerations included in the Windows containers on AKS baseline reference architecture, see [Windows containers on AKS](./windows-containers-on-aks.yml#ip-address-planning).
-
 ## Add-ons and preview features
 
 Kubernetes and AKS continuously evolve, with faster release cycles than software for on-premises environments. This baseline architecture depends on select AKS preview features and AKS add-ons. Here's the difference between the two:
@@ -223,8 +219,6 @@ For the user node pool, here are some considerations:
 ### Select an operating system
 
 Most AKS clusters use Linux as the operating system for their node pools. In this reference implementation, we use [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that has been tuned for Azure. You can choose to use another Linux distribution, such as Ubuntu, if you prefer, or if you have requirements that Azure Linux can't meet.
-
-AKS also supports node pools that run the Windows Server operating system. There are special requirements for some aspects of a cluster that runs Windows. To learn more about Windows node pool architecture, see [Running Windows containers on AKS](./windows-containers-on-aks.yml).
 
 If you have a workload that is composed of a mixture of technologies, you can use different operating systems in different node pools. However, if you don't need different operating systems for your workload, we recommend that you use a single operating system for all your workload's node pools.
 
@@ -295,6 +289,8 @@ In this reference implementation, [Microsoft Entra Workload ID on AKS](/azure/ak
 
 ## Select a networking model
 
+[!INCLUDE [kubenet retirement](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/retirement/kubenet-retirement-callout.md)]
+
 AKS supports multiple networking models including kubenet, CNI, and [Azure CNI Overlay](/azure/aks/azure-cni-overlay). The CNI models are the more advanced models, and are highly performant. When communicating between pods, the performance of CNI is similar to the performance of VMs in a virtual network. CNI also offers enhanced security control because it enables the use of Azure network policy. We recommend a CNI-based networking model.
 
 In the non-overlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. Network Address Translation (NAT) isn't needed for routing that traffic.
@@ -333,8 +329,6 @@ The ingress controller is a critical component of the cluster. Consider the foll
 > Traefik is an open-source option for a Kubernetes cluster and is in this architecture for illustrative purposes. It shows non-Microsoft product integration with Azure services. For example, the implementation shows how to integrate Traefik with Microsoft Entra Workload ID and Key Vault.
 >
 > You can also use [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), which integrates well with AKS. Apart from its capabilities as an ingress controller, it offers other benefits. For example, Application Gateway acts as the virtual network entry point of your cluster. It can observe traffic entering the cluster. Use Application Gateway if you have an application that requires a web application firewall. Also, Application Gateway enables you to do TLS termination.
-
-For more information about the ingress design for the Windows containers on AKS in the baseline reference architecture, see [Windows containers on AKS](./windows-containers-on-aks.yml#ingress-design).
 
 ### Router settings
 
@@ -427,8 +421,6 @@ An exception to the Zero Trust control is when the cluster needs to communicate 
 
 If Private Link or service endpoints aren't an option, you can reach other services through their public endpoints and control access through Azure Firewall rules and the firewall built into the target service. Because this traffic goes through the static IP addresses of the firewall, you can add those addresses to the service's IP allowlist. One downside is that Azure Firewall then needs more rules to make sure it allows only traffic from a specific subnet. Factor in those addresses when you're planning multiple IP addresses for egress traffic with Azure Firewall. Otherwise, you could reach port exhaustion. For more information about planning for multiple IP addresses, see [Create an Azure Firewall with multiple IP addresses](/azure/firewall/quick-create-multiple-ip-bicep).
 
-For information about the Windows-specific egress considerations in the Windows containers on AKS baseline reference architecture, see [Windows containers on AKS](./windows-containers-on-aks.yml#egress-traffic-flow).
-
 ### Pod-to-pod traffic
 
 By default, a pod can accept traffic from any other pod in the cluster. Use Kubernetes `NetworkPolicy` to restrict network traffic between pods. Apply policies judiciously, or you might have a situation where a critical network flow is blocked. *Only* allow specific communication paths, as needed, such as traffic between the ingress controller and workload. For more information, see [Network policies](/azure/aks/use-network-policies).
@@ -494,8 +486,6 @@ The implementation also sets extra policies that aren't part of any built-in ini
 
 To observe how Azure Policy functions from within your cluster, you can access the pod logs for all pods in the `gatekeeper-system` namespace and the logs for the `azure-policy` and `azure-policy-webhook` pods in the `kube-system` namespace.
 
-For more information about Windows-specific Azure Policy considerations, see the [Windows containers on AKS policy management](./windows-containers-on-aks.yml#policy-management) article.
-
 ## Node and pod scalability
 
 With increasing demand, Kubernetes can scale out by adding more pods to existing nodes, through horizontal pod autoscaling. When Kubernetes can no longer schedule more pods, the number of nodes must be increased through AKS cluster autoscaling. A complete scaling solution must have ways to scale both pod replicas and the node count in the cluster.
@@ -506,7 +496,7 @@ Both the autoscaling and manual approach require you to monitor and set alerts o
 
 We recommend the autoscaling approach because some of those manual mechanisms are built into the autoscaler.
 
-As a general method, start by performance testing with a minimum number of pods and nodes. Use those values to establish the baseline expectation. Then, use a combination of performance metrics and manual scaling to locate bottlenecks and understand the application's response to scaling. Finally, use this data to set the parameters for autoscaling. For more information about a performance tuning scenario using AKS, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.yml).
+As a general method, start by performance testing with a minimum number of pods and nodes. Use those values to establish the baseline expectation. Then, use a combination of performance metrics and manual scaling to locate bottlenecks and understand the application's response to scaling. Finally, use this data to set the parameters for autoscaling.
 
 ### Horizontal Pod Autoscaler
 
@@ -529,8 +519,6 @@ The Kubernetes scheduler triggers the cluster autoscaler. When the Kubernetes sc
 When you enable the autoscaler, set the maximum and minimum node count. The recommended values depend on the performance expectation of the workload, how much you want the cluster to grow, and cost implications. The minimum number is the reserved capacity for that node pool. In this reference implementation, the minimum value is set to two because of the simplicity of the workload.
 
 For the system node pool, the recommended minimum value is three.
-
-For information about Windows-specific scaling considerations included in this baseline reference architecture, see the [Windows containers on AKS](./windows-containers-on-aks.yml#node-and-pod-scaling) article.
 
 ## Business continuity decisions
 
@@ -673,8 +661,6 @@ It might be helpful for you to enable other log categories, such as `KubeSchedul
 While Azure Monitor includes a set of existing log queries to start with, you can also use them as a foundation to help build your own queries. As your library grows, you can save and reuse log queries by using one or more [query packs](/azure/azure-monitor/logs/query-packs). Your custom library of queries provides more observability into the health and performance of your AKS clusters. It supports achieving your SLOs.
 
 For more information about our monitoring best practices for AKS, see [Monitor AKS with Azure Monitor](/azure/aks/monitor-aks).
-
-For more information about Windows-specific monitoring considerations, see [Windows containers on AKS](./windows-containers-on-aks.yml#monitoring).
 
 ### Network metrics
 
@@ -863,8 +849,6 @@ Start by reviewing the cost optimization design checklist and list of recommenda
 
 Consider using [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes-specific constructs.
 
-For information about Windows-specific cost management considerations, see [Windows containers on AKS](./windows-containers-on-aks.yml#cost-management).
-
 ### Provision
 
 - Understand where your costs come from. There are minimal costs associated with AKS in deployment, management, and operations of the Kubernetes cluster itself. What affects the cost are the VM instances, storage, log data, and networking resources consumed by the cluster. Consider choosing cheaper VMs for system node pools. The [DS2_v2](/azure/virtual-machines/dv2-dsv2-series) series is a typical VM type for the system node pool.
@@ -923,7 +907,6 @@ For other cost-related information, see [AKS pricing](https://azure.microsoft.co
 - [Advanced AKS microservices architecture](../aks-microservices/aks-microservices-advanced.yml)
 - [AKS baseline for multiregion clusters](../aks-multi-region/aks-multi-cluster.yml)
 - [AKS regulated cluster for PCI-DSS 3.2.1](../aks-pci/aks-pci-intro.yml)
-- [Windows containers on AKS baseline reference architecture](./windows-containers-on-aks.yml)
 
 ## Related resources
 

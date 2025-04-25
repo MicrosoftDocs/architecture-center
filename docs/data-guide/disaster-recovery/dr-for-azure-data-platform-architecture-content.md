@@ -42,7 +42,7 @@ The workflow is read left to right, following the flow of data:
 > [!NOTE]
 > For many customers, the conceptual level of the Data Platform reference architecture used will align, but the physical implementation may vary. For example, ELT (extract, load, transform) processes may be performed through [Azure Data Factory](/azure/data-factory/), and data modeling by [Azure SQL server](/azure/azure-sql/?view=azuresql). To address this concern, the [Stateful vs stateless components](#stateful-vs-stateless-components) section below will provide guidance.
 
-For the Data Platform, Contoso has selected the lowest recommended production service tiers for all components and has chosen to adopt a ["Redeploy on disaster"](/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario#redeploy-on-disaster) disaster recovery (DR) strategy based upon an operating cost-minimization approach.
+For the Data Platform, Contoso has selected the lowest recommended production service tiers for all components and has chosen to adopt a "Redeploy on disaster" disaster recovery (DR) strategy based upon an operating cost-minimization approach.
 
 The following sections will provide a baseline understanding of the DR process and levers available to customers to uplift this posture.
 
@@ -293,15 +293,15 @@ The following tables present a breakdown of each Azure service and component use
         - Azure Synapse Analytics performs a [standard geo-backup](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse#disaster-recovery) once per day to a paired datacenter. The recovery point objective (RPO) for a geo-restore is 24 hours.
         - If Self-Hosted Data Pipelines are used, they'll remain the customers responsibility recovery from a disaster.
 
-- **Azure AI services (formerly Cognitive Services)**
+- **Azure AI services**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Microsoft
     - Contoso SKU selection: Pay As You Go
-    - DR uplift options: N/A, the APIs for AI services are hosted by [Microsoft-managed data centers](/azure/cognitive-services/what-are-cognitive-services#regional-availability).
+    - DR uplift options: N/A, the APIs for AI services are hosted by [Microsoft-managed data centers](/azure/ai-services/what-are-ai-services#regional-availability).
     - Notes
-        - If AI services has been deployed via customer deployed [Docker containers](/azure/cognitive-services/cognitive-services-container-support), recovery remains the responsibility of the customer.
+        - If AI services has been deployed via customer deployed [Docker containers](/azure/ai-services/cognitive-services-container-support), recovery remains the responsibility of the customer.
 
-- **Azure AI Search (formerly Cognitive Search)**
+- **Azure AI Search**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Microsoft
     - Contoso SKU selection: Standard S1
@@ -349,4 +349,3 @@ Now that you've learned about the scenario's architecture, you can learn about t
 - [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.yml)
 - [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.yml)
 - [DR for Azure Data Platform - Recommendations](dr-for-azure-data-platform-recommendations.yml)
-- [DR for Azure Data Platform - Deploy this scenario](dr-for-azure-data-platform-deploy-this-scenario.yml)

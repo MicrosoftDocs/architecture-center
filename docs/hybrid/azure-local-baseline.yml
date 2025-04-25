@@ -4,9 +4,8 @@ metadata:
   description: Learn how to design Azure Local for highly available virtualized and containerized workloads
   author: neilbird
   ms.author: nebird
-  ms.date: 07/24/2024
+  ms.date: 02/28/2025
   ms.topic: conceptual
-  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - hybrid
@@ -20,7 +19,7 @@ summary: Learn how to design Azure Local for highly available virtualized and co
 products:
   - azure-local
   - azure-arc
-  - azure-blob-storage
+  - azure-key-vault
   - azure-monitor
   - defender-for-cloud
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-local-baseline-thumbnail.png

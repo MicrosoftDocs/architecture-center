@@ -1,8 +1,7 @@
 ---
 title: Hybrid architecture design
 description: Get an introductory overview of hybrid cloud technologies and how you can connect an on-premises environment to Azure in a way that works best for your organization.
-author: martinekuan
-ms.service: azure-architecture-center
+author: RobBagby
 ms.subservice: reference-architecture
 ms.topic: reference-architecture
 ms.date: 07/26/2022
@@ -14,13 +13,14 @@ ms.custom:
   - fcp
   - reference-architecture
   - e2e-hybrid
+  - arb-hybrid
 products:
   - azure
 ---
 
 # Hybrid architecture design
 
-Many organizations need a hybrid approach to analytics, automation, and services because their data is hosted both on-premises and in the cloud. Organizations often [extend on-premises data solutions to the cloud](../databases/guide/hybrid-on-premises-and-cloud.md). To connect environments, organizations start by [choosing a hybrid network architecture](../reference-architectures/hybrid-networking/index.yml).
+Many organizations need a hybrid approach to analytics, automation, and services because their data is hosted both on-premises and in the cloud. Organizations often extend on-premises data solutions to the cloud. To connect environments, organizations start by [choosing a hybrid network architecture](../reference-architectures/hybrid-networking/index.yml).
 
 ## Learn about hybrid solutions
 

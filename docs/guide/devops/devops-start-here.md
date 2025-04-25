@@ -1,12 +1,10 @@
 ---
 title: DevOps architecture design
-titleSuffix: Azure Architecture Center
 description: Learn about DevOps and how to implements DevOps solutions on Azure by using services such as Azure DevOps, Azure Pipelines, Azure Monitor, and Azure DevTest Labs.
 author: brandonmartinez
 ms.author: brmar
 ms.date: 07/25/2022
 ms.topic: reference-architecture
-ms.service: azure-architecture-center
 ms.subservice: reference-architecture
 categories:
   - devops
@@ -56,7 +54,6 @@ Plan your path to production by reviewing:
 | Article or section | Description |
 |--------------|-------------|
 | [Operational Excellence patterns](/azure/well-architected/operational-excellence/design-patterns) | A list of design patterns for achieving Operational Excellence—one of the five pillars of the [Microsoft Azure Well-Architected Framework](/azure/well-architected/)—in a cloud environment. See [Cloud Design Patterns](../../patterns/index.md) for more patterns. |
-| [Update a resource in an Azure Resource Manager template](../../guide/azure-resource-manager/advanced-templates/update-resource.md) | An advanced example of template use. |
 | Azure Monitor guidance | A series of articles to help you use Azure Monitor to monitor cloud environments. The first article in the series is [Azure Monitor best practices - Planning your monitoring strategy and configuration](/azure/azure-monitor/best-practices-plan?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json). |
 | [Continuous integration and delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | An outline of how to use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse workspace to multiple environments. |
 | [Platform automation for Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | An overview for deploying Azure VMware Solution, including guidance for operational automation. |

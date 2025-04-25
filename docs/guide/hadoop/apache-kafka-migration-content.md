@@ -11,6 +11,7 @@ This article presents various strategies for migrating Kafka to Azure:
 - [Migrate Kafka to Azure Event Hubs for Kafka](#migrate-kafka-to-azure-event-hubs-for-kafka)
 - [Migrate Kafka on Azure HDInsight](#migrate-kafka-on-azure-hdinsight)
 - [Use AKS with Kafka on HDInsight](#use-aks-with-kafka-on-hdinsight)
+- [Use Kafka on AKS with the Strimzi Operator](#use-kafka-on-aks-with-the-strimzi-operator)
 
 Here's a decision flowchart for deciding which to use:
 
@@ -81,6 +82,10 @@ You can migrate Kafka to Kafka on Azure HDInsight. For more information, see [Wh
 
 See [Use Azure Kubernetes Service with Apache Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-azure-container-services).
 
+### Use Kafka on AKS with the Strimzi Operator
+
+See [Deploy a Kafka cluster on Azure Kubernetes Service (AKS) using Strimzi](/azure/aks/kafka-overview).
+
 #### Kafka Data Migration
 
 You can use Kafka's [MirrorMaker tool](/azure/hdinsight/kafka/apache-kafka-mirroring) to replicate topics from one cluster to another. This technique can help you migrate data after a Kafka cluster is provisioned. For more information, see [Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-mirroring).
@@ -112,7 +117,7 @@ The Kafka Streams API makes it possible to process data in near real-time, and i
 
 Confluent provides a cloud-native service for Apache Kafka. Microsoft and Confluent have a strategic alliance. For more information, see:
 
-- [Confluent and Microsoft Announce Strategic Alliance](https://www.confluent.io/ja-jp/press-release/confluent-strategic-alliance-with-microsoft)
+- [Confluent and Microsoft Announce Strategic Alliance](https://azure.microsoft.com/blog/introducing-seamless-integration-between-microsoft-azure-and-confluent-cloud/)
 - [Introducing seamless integration between Microsoft Azure and Confluent Cloud](https://azure.microsoft.com/blog/introducing-seamless-integration-between-microsoft-azure-and-confluent-cloud)
 
 ## Contributors

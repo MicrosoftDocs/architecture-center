@@ -1,12 +1,10 @@
 ---
 title: Storage architecture
-titleSuffix: Azure Architecture Center
 description: Get an overview of Azure Storage technologies, guidance offerings, solution ideas, and reference architectures.  
-author: martinekuan
+author: RobBagby
 ms.author: pnp 
 ms.date: 07/26/2022
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 categories:
 - storage
@@ -125,7 +123,6 @@ Here are a few sample implementations of storage on Azure:
 - [Azure files accessed on-premises and secured by AD DS](/azure/architecture/example-scenario/hybrid/azure-files-on-premises-authentication)
 - [Enterprise file shares with disaster recovery](/azure/architecture/example-scenario/file-storage/enterprise-file-shares-disaster-recovery)
 - [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services)
-- [Medical data storage solutions](/azure/architecture/solution-ideas/articles/medical-data-storage)
 
 [See more storage examples in the Azure Architecture Center.](/azure/architecture/browse/?azure_categories=storage)
 

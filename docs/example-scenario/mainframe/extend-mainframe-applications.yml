@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Extend mainframe applications to Azure by using Verastream Host Integrator
-  titleSuffix: Azure Architecture Center
   description: Extend your mainframe applications to Azure by using the Verastream Host Integrator (VHI). VHI simplifies mainframe and host-based application functionality into a web service.
   author: Venkat-Github-Account
   ms.author: vramakrishna
   ms.date: 07/10/2024
   ms.topic: conceptual
-  ms.service: azure-architecture-center
   ms.subservice: example-scenario
 azureCategories:
   - migration

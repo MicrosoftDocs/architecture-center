@@ -6,7 +6,7 @@ This article describes how to use Precisely Connect to migrate mainframe and mid
 
 :::image type="content" source="media/mainframe-midrange-data-replication-azure-precisely.svg" alt-text="Diagram that shows an architecture for migrating mainframe and midrange systems to Azure." lightbox="media/mainframe-midrange-data-replication-azure-precisely.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/mainframe-midrange-data-replication-azure-precisely1.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/mainframe-midrange-data-replication-azure-precisely.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -124,5 +124,4 @@ Other contributor:
 - [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [Re-engineer mainframe batch applications on Azure](../../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
 - [Replicate and sync mainframe data on Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
-- [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
 - [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)

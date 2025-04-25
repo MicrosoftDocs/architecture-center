@@ -5,7 +5,6 @@ ms.author: robbag
 author: RobBagby
 ms.date: 12/13/2023
 ms.topic: design-pattern
-ms.service: azure-architecture-center
 ms.subservice: best-practice
 ms.custom:
   - article
@@ -58,7 +57,7 @@ Here's the list of the antipatterns that we've identified:
 
 ## Next steps
 
-For more about performance tuning, see [Performance tuning a distributed application](../performance/index.md)
+For more about performance tuning, see [Performance efficiency in the Well Architected Framework](/azure/well-architected/performance-efficiency/)
 
 <!-- links -->
 

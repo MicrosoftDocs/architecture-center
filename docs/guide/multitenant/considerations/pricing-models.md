@@ -1,12 +1,10 @@
 ---
 title: Pricing models for a multitenant solution
-titleSuffix: Azure Architecture Center
 description: This article describes the considerations for planning pricing models for a multitenant solution.
 author: PlagueHO
 ms.author: dascottr
 ms.date: 11/07/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure

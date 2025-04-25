@@ -5,7 +5,6 @@ author: robbagby
 ms.author: robbag
 ms.date: 06/14/2023
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-app-service
@@ -50,7 +49,6 @@ Consider these patterns, guidelines, and architectures as you plan and implement
 
 - [Basic web application](app-service/architectures/basic-web-app.yml)
 - [Baseline zone-redundant web application](app-service/architectures/baseline-zone-redundant.yml)
-- [Multi-region active-passive web application](app-service/architectures/multi-region.yml)
 - [Common web application architectures](/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures)
 - [Design principles for Azure applications](../guide/design-principles/index.md)
 - [Enterprise deployment using App Services Environment](../web-apps/app-service-environment/architectures/ase-standard-deployment.yml)
@@ -74,7 +72,6 @@ The following sections, organized by category, provide links to sample web app a
 ### E-commerce
 
 - [Intelligent product search engine for e-commerce](../databases/architecture/ecommerce-search.yml)
-- [E-commerce website running in secured App Service Environment](../web-apps/idea/ecommerce-website-running-in-secured-ase.yml)
 - [Scalable e-commerce web app](../web-apps/idea/scalable-ecommerce-web-app.yml)
 
 ### Modernization
@@ -88,10 +85,6 @@ The following sections, organized by category, provide links to sample web app a
 ### Multi-tier apps
 
 - [Multi-tier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
-
-### Multi-region apps
-
-- [Highly available multi-region web application](../web-apps/app-service/architectures/multi-region.yml)
 
 ### Scalability
 
@@ -116,7 +109,6 @@ Get the latest [updates on Azure web app products and features](https://azure.mi
 
 Here are some additional implementations to consider:
 
-- [Eventual consistency between multiple Power Apps instances](/azure/architecture/guide/power-platform/eventual-consistency)
 - [App Service networking features](/azure/app-service/networking-features)
 - [Migrate a web app using Azure APIM](../example-scenario/apps/apim-api-scenario.yml)
 - [Serverless web application](../web-apps/serverless/architectures/web-app.yml)

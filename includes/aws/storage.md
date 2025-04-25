@@ -2,7 +2,6 @@
 author: RobBagby
 ms.author: pnp
 ms.topic: include
-ms.service: azure-architecture-center
 ---
 
 ### Object storage
@@ -51,11 +50,3 @@ ms.service: azure-architecture-center
 | ----------- | ------------- | ----------- |
 | [Import/Export Disk](https://aws.amazon.com/snowball/disk/details/) | [Import/Export](/azure/storage/common/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
 | [Snowball Edge](https://aws.amazon.com/snowball-edge/) | [Data Box](https://azure.microsoft.com/services/storage/databox/) | Petabyte-scale to exabyte-scale data transport solution that uses enhanced-security data storage devices to transfer large amounts of data to and from Azure. |
-
-#### Storage architectures
-
-| Architecture | Description |
-|----|----|
-| [Medical data storage solutions](/azure/architecture/solution-ideas/articles/medical-data-storage) | Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security. |
-
-[View Azure storage architectures](/azure/architecture/browse/?azure_categories=storage)

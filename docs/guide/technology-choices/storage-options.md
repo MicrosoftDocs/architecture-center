@@ -1,12 +1,10 @@
 ---
 title: Choose an Azure storage service
-titleSuffix: Azure Architecture Center
 description: Use this guide to decide which Azure storage service best suits your application.
 author: claytonsiemens77
 ms.author: csiemens
 ms.date: 10/11/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.custom: fcp
 categories: storage
@@ -18,6 +16,7 @@ products:
 - azure-file-storage
 - azure-netapp-files
 - azure-container-storage
+- azure-managed-lustre
 ---
 
 # Review your storage options
@@ -34,24 +33,25 @@ Azure Storage is the Azure platform's managed service for providing cloud storag
 -->
 
 ### Key questions
-
 Answer the following questions about your workloads to help make decisions about your storage needs:
 
 - **Do your workloads require disk storage to support the deployment of infrastructure as a service (IaaS) virtual machines?** [Azure managed disks](/azure/virtual-machines/managed-disks-overview) provide virtual disk capabilities for IaaS virtual machines.
 - **Will you need to provide downloadable images, documents, or other media as part of your workloads?** [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) hosts static files, which are then accessible for download over the internet. For more information, see [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website).
 - **Will you need a location to store virtual machine logs, application logs, and analytics data?** Azure Monitor has [native storage for metrics, logs, and distributed traces](/azure/azure-monitor/data-platform).
-    - Metrics in Azure Monitor are stored in a time-series database that's optimized for analyzing time-stamped data.
-    - Trace data is stored with other application log data collected by Application Insights. 
-    - Logs in Azure Monitor are stored in a Log Analytics workspace that's based on [Azure Data Explorer](/azure/data-explorer/), which provides a powerful analysis engine and [rich query language](/azure/kusto/query/).
+  - Metrics in Azure Monitor are stored in a time-series database that's optimized for analyzing time-stamped data.
+  - Trace data is stored with other application log data collected by Application Insights. 
+  - Logs in Azure Monitor are stored in a Log Analytics workspace that's based on [Azure Data Explorer](/azure/data-explorer/), which provides a powerful analysis engine and [rich query language](/azure/kusto/query/).
 - **Will you need to provide a location for backup, disaster recovery, or archiving workload-related data?** Blob Storage provides backup and disaster recovery capabilities. For more information, see [Backup and disaster recovery for Azure IaaS disks](/azure/virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks).
 
   You can also use Blob Storage to back up other resources, like on-premises or IaaS virtual machine-hosted SQL Server data. See [SQL Server Backup and Restore](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service).
 - **Will you need to support big data analytics workloads?** [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) is built on Azure Blob Storage. Data Lake Storage Gen2 supports large-enterprise data lake functionality. It also can handle storing petabytes of information while sustaining hundreds of gigabits of throughput.
-- **Will you need to provide cloud-native file shares?** Azure has two services that provide cloud-hosted file shares:
+- **Will you need to provide cloud-native file shares?** Azure has services that provide cloud-hosted file shares:
   - [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) provides high-performance NFS and SMB shares, with advanced data management features such as snapshots and cloning, that are well suited to common enterprise workloads like SAP.
   - [Azure Files](/azure/storage/files/storage-files-introduction) provides file shares accessible over SMB 3.1.1, NFS 4.1, and HTTPS.
+  - [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) is a high-performance distributed parallel file system solution, ideal for HPC workloads that require high throughput and low latency.
 - **Will you need to support high-performance computing (HPC) workloads?**
   - [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) provides high-performance NFS and SMB shares, with advanced data management features such as snapshots and cloning, that are well suited to HPC workloads.
+  - [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) is a high-performance distributed parallel file system solution, ideal for HPC workloads that require high throughput and low latency.
 - **Will you need to perform large-scale archiving and syncing of your on-premises data?** [Azure Data Box](/azure/databox/) products are designed to help you move large amounts of data from your on-premises environment to the cloud.
   - [Azure Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) is a virtual device that's on-premises. Data Box Gateway helps you manage large-scale data migration to the cloud.
   - [Azure Stack Edge](/azure/databox-online/) accelerates processing and the secure transfer of data to Azure. If you need to analyze, transform, or filter data before you move it to the cloud, use Azure Data Box.
@@ -94,6 +94,7 @@ Azure offers multiple products and services for different storage capabilities. 
 | I manage an ongoing data pipeline to the cloud. | [Azure Stack Edge](/azure/databox-online/) or [Data Box Gateway](/azure/databox-online/) | Move data to the cloud from systems that are constantly generating data by having them copy that data to the storage gateway. |
 | I have bursts of data that arrive at the same time. | [Azure Stack Edge](/azure/databox-online/) or [Data Box Gateway](/azure/databox-online/) | Manage large quantities of data that arrive at the same time. Some examples are when an autonomous car pulls into the garage or a gene sequencing machine finishes its analysis. Copy all that data to Data Box Gateway at fast local speeds. Then, let the gateway upload it as your network allows. |
 | I have containers with persistent volumes that require file storage. | [Azure Files](/azure/storage/files/storage-files-introduction) | File (ReadWriteMany) volume driver options are available for both Azure Kubernetes Service and custom Kubernetes deployments. |
+| I have an on-premises parallel file system for petabytes of data, such as Lustre, Gluster, or BeeGFS. | [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) | Azure Managed Lustre provides a fully managed Lustre file system in Azure, with features like storage capacity up to 12.5 PiB upon request, low (~2ms) latency, and the ability to spin up new clusters in minutes. |
 
 ### Plan based on data workloads
 
@@ -124,6 +125,8 @@ After you identify the Azure tools that best match your requirements, use this d
 | [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) | Use Azure File Sync to centralize your file shares in Azure Files. Azure File Sync offers the flexibility, performance, and compatibility of an on-premises file server. |
 | [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) | The Azure NetApp Files service is an enterprise-class, high-performance, metered file storage service. Azure NetApp Files supports any workload type and is highly available by default. You can select service and performance levels and set up snapshots through the service. |
 | [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction) | Azure Container Storage is a fully managed, cloud-based volume management, deployment, and orchestration service built natively for containers. It integrates with Kubernetes, allowing you to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters. |
+| [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) | A high-performance distributed parallel file system solution, ideal for HPC workloads that require high throughput and low latency. |
+| [Azure Data Box](/azure/databox/) | Azure Data Box is a solution that allows for offline, bulk data transfer into and out of Azure using a physical storage appliance. It's used time, network availability, or cost are limiting factors the preclude network-based data transfer. |
 | [Azure Stack Edge](/azure/databox-online/) | Azure Stack Edge is an on-premises network device that moves data into and out of Azure. Data Stack Edge has AI-enabled edge compute to pre-process data during upload. Data Box Gateway is a virtual version of the device but with the same data transfer capabilities. |
 | [Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) | Data Box Gateway is a storage solution that enables you to seamlessly send data to Azure. It's a virtual device based on a virtual machine provisioned in your virtualized environment or hypervisor. The virtual device is on-premises and you write data to it by using the NFS and SMB protocols. The device then transfers your data to Azure block blobs, page blobs, or to Azure Files. |
 
@@ -134,7 +137,6 @@ Azure Storage has various redundancy options to help ensure durability and high 
 - Locally redundant storage
 - Zone-redundant storage
 - Geo-redundant storage (GRS)
-- Geo-zone-redundant storage (GZRS)
 - Read-access GRS (RA-GRS)\*
 - Read-access GZRS (RA-GZRS)\*
 

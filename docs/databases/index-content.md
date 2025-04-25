@@ -42,16 +42,16 @@ Here are some Learn modules you might find useful:
 To find options helpful for dealing with relational data, consider these resources:
 
 - To learn about resources for gathering data from multiple sources and how to and apply data transformations within the data pipelines, see [Analytics in Azure](/azure/architecture/solution-ideas/articles/analytics-start-here).
-- To learn about OLAP, which organizes large business databases and supports complex analysis, see [Online analytical processing](../data-guide/relational-data/online-analytical-processing.yml).
+- To learn about OLAP, which organizes large business databases and supports complex analysis, see [Online analytical processing](../data-guide/relational-data/online-analytical-processing.md).
 - To learn about OLTP systems record business interactions as they occur, see [Online transaction processing](../data-guide/relational-data/online-transaction-processing.md).
 
 A *nonrelational database* doesn't use the tabular schema of rows and columns. For more information, see [Nonrelational data and NoSQL](../data-guide/big-data/non-relational-data.yml).
 
 To learn about data lakes, which hold a large amount of data in its native, raw format, see [Data lakes](../data-guide/scenarios/data-lake.md).
 
-A big data architecture can handle ingestion, processing, and analysis of data that is too large or too complex for traditional database systems. For more information, see [Big data architectures](../databases/guide/big-data-architectures.yml) and [Analytics](/azure/architecture/solution-ideas/articles/analytics-start-here).
+A big data architecture can handle ingestion, processing, and analysis of data that is too large or too complex for traditional database systems. For more information, see [Big data architectures](../databases/guide/big-data-architectures.md) and [Analytics](/azure/architecture/solution-ideas/articles/analytics-start-here).
 
-A hybrid cloud is an IT environment that combines public cloud and on-premises datacenters. For more information, see [Extend on-premises data solutions to the cloud](../databases/guide/hybrid-on-premises-and-cloud.md) or consider [Azure Arc](/azure/azure-arc/overview) combined with Azure databases.
+A hybrid cloud is an IT environment that combines public cloud and on-premises datacenters. For more information, consider [Azure Arc](/azure/azure-arc/overview) combined with Azure databases.
 
 Azure Cosmos DB is a fully managed NoSQL database service for modern app development. For more information, see [Azure Cosmos DB resource model](/azure/cosmos-db/account-databases-containers-items).
 
@@ -94,12 +94,6 @@ Refer to [Azure updates](https://azure.microsoft.com/updates/?category=databases
 - [Lamna Healthcare scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-lamna)
 - [Optimize administration of SQL Server instances](../hybrid/azure-arc-sql-server.yml)
 - [Relecloud scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-relecloud)
-
-### Example solutions
-
-This solution idea provides example approaches that you can adapt to your needs.
-
-- [Serverless apps using Azure Cosmos DB](../databases/idea/serverless-apps-using-cosmos-db.yml)
 
 ### Similar database products
 

@@ -58,7 +58,7 @@ The Event Sourcing pattern provides the following advantages:
 
 - The command handlers raise events, and tasks perform operations in response to those events. This decoupling of the tasks from the events provides flexibility and extensibility. Tasks know about the type of event and the event data, but not about the operation that triggered the event. In addition, multiple tasks can handle each event. This enables easy integration with other services and systems that only listen for new events raised by the event store. However, the event sourcing events tend to be very low level, and it might be necessary to generate specific integration events instead.
 
-> Event sourcing is commonly combined with the [CQRS pattern](./cqrs.yml) by performing the data management tasks in response to the events, and by materializing views from the stored events.
+> Event sourcing is commonly combined with the [CQRS pattern](./cqrs.md) by performing the data management tasks in response to the events, and by materializing views from the stored events.
 
 ## Issues and considerations
 
@@ -173,7 +173,7 @@ In addition to providing more scope for scalability, using an event store also p
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 
-- [Command and Query Responsibility Segregation (CQRS) pattern](./cqrs.yml). The write store that provides the permanent source of information for a CQRS implementation is often based on an implementation of the Event Sourcing pattern. Describes how to segregate the operations that read data in an application from the operations that update data by using separate interfaces.
+- [Command and Query Responsibility Segregation (CQRS) pattern](./cqrs.md). The write store that provides the permanent source of information for a CQRS implementation is often based on an implementation of the Event Sourcing pattern. Describes how to segregate the operations that read data in an application from the operations that update data by using separate interfaces.
 
 - [Materialized View pattern](./materialized-view.yml). The data store used in a system that's based on event sourcing is typically not well suited to efficient querying. Instead, a common approach is to generate prepopulated views of the data at regular intervals, or when the data changes.
 

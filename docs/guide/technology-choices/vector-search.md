@@ -4,7 +4,6 @@ description: Learn how to use this information to decide which Azure service for
 author: konabuta
 ms.author: yongl
 ms.reviewer: krmeht
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products: azure-machine-learning
 categories: ai-machine-learning
@@ -176,7 +175,7 @@ Other contributors:
 
 ## Next step
 
-[Implement knowledge mining with Azure AI Search](/training/paths/implement-knowledge-mining-azure-cognitive-search/). This learning path explores how to use Azure AI Search.
+[Implement knowledge mining with Azure AI Search](/training/paths/implement-knowledge-mining-azure-cognitive-search). This learning path explores how to use Azure AI Search.
 
 ## Related resources
 

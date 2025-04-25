@@ -7,7 +7,6 @@ categories: azure
 ms.date: 01/27/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-machine-learning
@@ -49,7 +48,7 @@ The following development platforms and tools are available for machine learning
 
 | Platform or tool | Description | Features and uses |
 |-|-|-|
-| [Azure&nbsp;AI&nbsp;Foundry&nbsp;portal](#azure-ai-foundry) | Unified development environment for AI and machine learning scenarios | Develop, evaluate, and deploy AI models and applications. The Azure AI Foundry portal facilitates collaboration and project management across various Azure AI services. You can even use it as a common environment across multiple workload teams. |
+| [Azure&nbsp;AI&nbsp;Foundry&nbsp;portal](#azure-ai-foundry) | Unified development environment for AI and machine learning scenarios | Develop, evaluate, and deploy AI models and applications. The [Azure AI Foundry portal](https://ai.azure.com?cid=learnDocs) facilitates collaboration and project management across various Azure AI services. You can even use it as a common environment across multiple workload teams. |
 | [Azure&nbsp;Machine&nbsp;Learning&nbsp;studio](#azure-machine-learning-studio) | Collaborative, drag-and-drop tool for machine learning | Build, test, and deploy predictive analytics solutions by using minimal coding. Machine Learning studio supports a wide range of machine learning algorithms and AI models. It provides tools for data preparation, model training, and evaluation. |
 | [Azure&nbsp;Data&nbsp;Science Virtual Machine](#azure-data-science-virtual-machine) | VM image that includes preinstalled data science tools | Use a preconfigured environment with tools like Jupyter, R, and Python to develop machine learning solutions on your own VMs.|
 | [Microsoft ML.NET](#mlnet) | Open-source, cross-platform machine learning SDK | Develop machine learning solutions for .NET applications. |
@@ -119,7 +118,7 @@ Azure AI Foundry helps developers and data scientists efficiently create and dep
 
 As part of the Microsoft Azure ecosystem, Azure AI Foundry provides robust tools and services that cater to various AI and machine learning needs, including natural language processing and computer vision. Its integration with other Azure services helps ensure seamless scalability and performance, which makes it an ideal option for enterprises. 
 
-The Azure AI Foundry portal fosters collaboration and innovation by providing features like shared workspaces, version control, and integrated development environments. By integrating popular open-source frameworks and tools, Azure AI Foundry accelerates the development process so that organizations can drive innovation and stay ahead in the competitive AI landscape.
+The [Azure AI Foundry portal](https://ai.azure.com?cid=learnDocs) fosters collaboration and innovation by providing features like shared workspaces, version control, and integrated development environments. By integrating popular open-source frameworks and tools, Azure AI Foundry accelerates the development process so that organizations can drive innovation and stay ahead in the competitive AI landscape.
 
 |Azure AI Foundry feature|Description|
 |--------|-----------|
@@ -139,7 +138,7 @@ The Azure AI Foundry portal fosters collaboration and innovation by providing fe
 | **Machine learning phases**|- Data preparation<br>- Model training<br>- Deployment|
 |**Key benefits**           |- Requires no coding to build machine learning models<br/>- Supports a wide range of machine learning algorithms and tools for data preparation, model training, and evaluation<br/>- Provides a visual interface for connecting datasets and modules on an interactive canvas<br/>- Supports integration with Machine Learning for advanced machine learning tasks|
 
-For a comprehensive comparison of Machine Learning studio and the Azure AI Foundry portal, see [Azure AI Foundry portal or Machine Learning studio](/ai/ai-studio-experiences-overview). The following table summarizes the key differences between them:
+For a comprehensive comparison of Machine Learning studio and the [Azure AI Foundry portal](https://ai.azure.com?cid=learnDocs), see [Azure AI Foundry portal or Machine Learning studio](/ai/ai-studio-experiences-overview). The following table summarizes the key differences between them:
 
 | Category             | Feature                         | Azure AI Foundry portal                                  | Machine Learning studio               |
 |----------------------|---------------------------------|-------------------------------------------------|---------------------------------------------|

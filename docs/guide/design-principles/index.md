@@ -5,7 +5,6 @@ author: RobBagby
 ms.author: robbag
 ms.date: 07/19/2022
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 categories:
   - management-and-governance

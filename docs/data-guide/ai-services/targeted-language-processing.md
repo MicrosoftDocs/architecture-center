@@ -1,13 +1,12 @@
 ---
 title: Choose an Azure AI targeted language processing technology
 description: Learn about targeted language of Azure AI services. Learn which service to use for a specific use case.
-author: FreddyAyala
-ms.author: freddyayala
+author: ritesh-modi
+ms.author: rimod
 categories:
 - ai-machine-learning
-ms.date: 09/25/2024
+ms.date: 03/20/2025
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
 products:
@@ -41,9 +40,27 @@ The following services provide targeted language processing capabilities for Azu
     - **Use** Document Intelligence to identify key structures (headers, footers, chapter breaks, and so on) in diverse document corpuses to further programmatically interact with the document, such as in a retrieval augmented generation (RAG) implementation.
     - **Don't use** Document Intelligence service as a real-time search API.
 
+### Azure OpenAI
+
+[Azure OpenAI](/azure/ai-services/openai/overview) Azure OpenAI Service provides REST API access to OpenAI's powerful language models including o3-mini, o1, o1-mini, GPT-4o, GPT-4o mini, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and Embeddings model series. These models can be easily adapted to your specific task including, but not limited to, content generation, summarization, image understanding, semantic search, and natural language to code translation.
+
+#### Capabilities
+
+The following table provides a list of capabilities available in Azure OpenAI service.
+
+| Capability | Description |
+|----------|-------------|
+| [Text Generation & Completion](/azure/ai-services/openai/concepts/prompt-engineering) | Generates human-like text based on prompts, auto-complete sentences or paragraphs, summarizes long documents into concise summaries and answer questions based on given context. |
+| [Chat](/azure/ai-services/openai/chatgpt-quickstart) | Build chatbots and virtual assistants, maintains context in multi-turn conversations and personalize responses based on user interaction. |
+| [Assistants](/azure/ai-services/openai/concepts/assistants) | Create copilot like experience, maintaining a consistent personality across user interactions and Running multiple tools at once like code execution and knowledge search. |
+| [Embeddings](/azure/ai-services/openai/concepts/understand-embeddings) | Convert text into numerical vectors where similar meanings appear close together in vector space, enabling powerful similarity search in services like Azure AI Search, Cosmos DB, SQL Database, and PostgreSQL. |
+| [Content Filtering](/azure/ai-services/openai/concepts/content-filter) | Screens both user inputs and AI outputs for harmful content across categories like hate, sexual content, violence, and self-harm, supporting multiple languages. Monitors usage patterns to ensure compliance. |
+| [LLM Customization](/azure/ai-services/openai/concepts/customizing-llms) | Provides model adaptation techniques: prompt engineering for quick adjustments, RAG for incorporating external information, and fine-tuning for teaching the model specialized tasks - all of which can be combined to optimize performance for specific use cases. |
+
 ### Azure AI Language
 
 [Azure AI Language](/azure/ai-services/language-service/overview) is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries.
+
 #### Capabilities
 
 The following table provides a list of capabilities available in Azure AI Language service.

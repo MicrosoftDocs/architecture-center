@@ -116,7 +116,7 @@ conceptualContent:
         url: ./guide/technology-choices/compute-decision-tree.yml
         itemType: reference
       - text: CQRS design pattern
-        url: ./patterns/cqrs.yml
+        url: ./patterns/cqrs.md
         itemType: concept
 
     - title: AI & Machine Learning
@@ -220,10 +220,6 @@ conceptualContent:
         - url: /azure/architecture/databases/idea/minimal-storage-change-feed-replicate-data
           itemType: architecture
           text: Use change feed to replicate data
-        - url: /azure/architecture/databases/idea/intelligent-apps-using-azure-database-for-postgresql
-          itemType: architecture
-          text: Intelligent apps using Azure Database for PostgreSQL
-
     - title: Hybrid + multicloud
       links:
         - text: Hybrid architecture design
@@ -282,7 +278,7 @@ conceptualContent:
           url: ./reference-architectures/dmz/secure-vnet-dmz.yml
         - text: Highly available network virtual appliances
           itemType: concept
-          url: networking/guide/nva-ha.yml
+          url: networking/guide/network-virtual-appliance-high-availability.md
 
     - title: Security
       links:
@@ -310,9 +306,6 @@ conceptualContent:
         - text: Baseline zone-redundant web application
           itemType: architecture
           url: web-apps/app-service/architectures/baseline-zone-redundant.yml
-        - text: Multi-region deployment
-          itemType: architecture
-          url: web-apps/app-service/architectures/multi-region.yml
         - text: E-commerce product search
           itemType: get-started
           url:  ./databases/architecture/ecommerce-search.yml

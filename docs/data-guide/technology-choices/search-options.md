@@ -7,7 +7,6 @@ categories: azure
 ms.custom: arb-data
 ms.date: 07/25/2022
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-cognitive-search
@@ -21,7 +20,7 @@ This article compares technology choices for search data stores in Azure. A sear
 
 In Azure, all of the following data stores will meet the core requirements for search against free-form text data by providing a search index:
 
-- [Azure Cognitive Search](/azure/search/search-what-is-azure-search)
+- [Azure AI Search](/azure/search/search-what-is-azure-search)
 - [Elasticsearch](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp)
 - [Azure SQL Database with full text search](/sql/relational-databases/search/full-text-search)
 
@@ -47,7 +46,7 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| Capability | Cognitive Search | Elasticsearch | SQL Database |
+| Capability | AI Search | Elasticsearch | SQL Database |
 | --- | --- | --- | --- |
 | Is managed service | Yes | No | Yes |
 | REST API | Yes | Yes | No |
@@ -56,14 +55,14 @@ The following tables summarize the key differences in capabilities.
 
 ### Manageability capabilities
 
-| Capability | Cognitive Search | Elasticsearch | SQL Database |
+| Capability | AI Search | Elasticsearch | SQL Database |
 | --- | --- | --- | --- |
 | Updateable schema | Yes | Yes | Yes |
 | Supports scale out  | Yes | Yes | No |
 
 ### Analytic workload capabilities
 
-| Capability | Cognitive Search | Elasticsearch | SQL Database |
+| Capability | AI Search | Elasticsearch | SQL Database |
 | --- | --- | --- | --- |
 | Supports analytics beyond full text search | No | Yes | Yes |
 | Part of a Log Analytics stack | No | Yes (ELK) | No |
@@ -71,7 +70,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Security capabilities
 
-| Capability | Cognitive Search | Elasticsearch | SQL Database |
+| Capability | AI Search | Elasticsearch | SQL Database |
 | --- | --- | --- | --- |
 | Row-level security | Partial (requires application query to filter by group ID) | Partial (requires application query to filter by group ID) | Yes |
 | Transparent data encryption | No | No | Yes |
@@ -89,7 +88,7 @@ Principal author:
 
 ## Next steps
 
-- [What is Azure Cognitive Search?](/azure/search/search-what-is-azure-search)
+- [What is AI Search?](/azure/search/search-what-is-azure-search)
 - [Full-Text Search in SQL Server and Azure SQL Database](/sql/relational-databases/search/full-text-search)
 - [Elastic Cloud (Elasticsearch Service)](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp)
 
@@ -97,4 +96,4 @@ Principal author:
 
 - [Process free-form text for search](../scenarios/search.yml)
 - [Choose a search data store in Azure](../technology-choices/search-options.md)
-- [Natural language processing technology](../technology-choices/natural-language-processing.yml)
+- [Natural language processing technology](../technology-choices/natural-language-processing.md)

@@ -117,11 +117,12 @@ For this outage scenario, the relative impact on the four high-level DR Strategi
 > The above table should be read as a comparison between the options - a strategy that has a green indicator is better for that classification than another strategy with a yellow or red indicator.
 
 ## Next steps
-Now that you've learned about the recommendations related to the scenario, you can learn how to  [deploy this scenario](../disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml)
+
+- [Mission-critical workload](/azure/architecture/framework/mission-critical/mission-critical-overview)
+- [Well-Architected Framework recommendations for designing a disaster recovery strategy](/azure/well-architected/reliability/disaster-recovery)
 
 ## Related resources
 
 - [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.yml)
 - [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.yml)
 - [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.yml)
-- [DR for Azure Data Platform - Summary](dr-for-azure-data-platform-summary.yml)

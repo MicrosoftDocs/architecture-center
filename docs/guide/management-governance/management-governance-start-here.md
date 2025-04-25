@@ -1,11 +1,10 @@
 ---
 title: Management and governance architecture design
 description: Get an overview of Azure management and governance technologies, guidance offerings, solution ideas, and reference architectures.
-author: martinekuan
-ms.author: robbag
+author: RobBagby
+ms.author: pnp
 ms.date: 06/16/2023
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-attestation
@@ -73,8 +72,7 @@ The following sections provide links to reference architectures in some key mana
 
 - [High availability enterprise deployment using App Service Environment](../../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
 - [Baseline zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
-- [Highly available multi-region web application](../../web-apps/app-service/architectures/multi-region.yml)
-- [Deploy highly available NVAs](../../networking/guide/nva-ha.yml)
+- [Deploy highly available NVAs](../../networking/guide/network-virtual-appliance-high-availability.md)
 - [Highly available SharePoint farm](../../solution-ideas/articles/highly-available-sharepoint-farm.yml)
 - [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones)
 

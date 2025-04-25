@@ -2,7 +2,7 @@
 
 This architecture demonstrates how to use the SUSE SAP automation solution on Azure.
 
-Since 2009, SUSE and Microsoft have partnered to provide Azure-optimized solutions for SUSE Linux Enterprise Server (SLES). SLES for SAP Applications is the leading platform for SAP solutions on Linux, with over 90 percent of SAP HANA deployments and 70 percent of SAP NetWeaver applications running on SUSE.
+SUSE and Microsoft have long term partnership in providing Azure-optimized solutions for SUSE Linux Enterprise Server (SLES). SLES for SAP Applications is the leading platform for SAP solutions on Linux, with over 90 percent of SAP HANA deployments and 70 percent of SAP NetWeaver applications running on SUSE.
 
 Automating SAP workloads in the cloud leads to better business outcomes by bolstering productivity and facilitating innovation. The task of building and manually deploying SAP infrastructures in the cloud involves a range of technical processes that can be inefficient and time-consuming. These processes also require configuration management and entail many steps. With each step, the level of complexity and the amount of specialized knowledge that's required increases if extra high availability (HA) is needed. Most SAP systems are important and require HA. The manual implementation of each step generates many opportunities for error that can render the entire infrastructure defective and delay success. Automation helps organizations streamline deployment of SAP infrastructure and accelerate customer cloud migration on Azure. Successful cloud migration allows customers to quickly and easily benefit from the power and flexibility of the cloud.
 
@@ -51,48 +51,34 @@ SUSE provides support with:
 - [Linux virtual machines in Azure](https://azure.microsoft.com/services/virtual-machines/linux) are on-demand, scalable Linux computing resources that give you the flexibility of virtualization but eliminate the maintenance demands of physical hardware.
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is a secure private network in the cloud. It connects VMs to one another, to the internet, and to on-premises networks.
 
+### Solution templates
+
+Explore SUSE SAP deployment template to create SAP infrastructure on Azure:
+
+- [Infrastructure for SAP NetWeaver and SAP HANA](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-sap-15-sp6-byos?tab=Overview) (Azure Marketplace)
+- [SUSE and Microsoft Solution Templates for SAP Applications](https://documentation.suse.com/sbp/all/single-html/SBP-SAP-AzureSolutionTemplates) (SUSE)
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
-- [Michael Yen-Chi Ho](https://www.linkedin.com/in/yenchiho/) | Senior Program Manager
+- [Michael Yen-Chi Ho](https://www.linkedin.com/in/yenchiho/) | Senior Product Manager
 
 ## Next steps
 
 ### SAP
 
+- [SAP on Azure](https://azure.microsoft.com/solutions/sap/)
 - [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/bread/toc.json)
-- [SAP workload configurations with Azure Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones?toc=/azure/architecture/toc.json&bc=/azure/architecture/bread/toc.json)
-- [SAP S/4HANA in Linux on Azure](/azure/architecture/guide/sap/sap-s4hana)
-- [SAP S/4 HANA for Large Instances](sap-s4-hana-on-hli-with-ha-and-dr.yml)
-- [Use Azure to host and run SAP workload scenarios](/azure/virtual-machines/workloads/sap/get-started)
-- [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
 - [Automated SAP/HA Deployments in Public/Private Clouds with Terraform](https://github.com/SUSE/ha-sap-terraform-deployments) (GitHub project)
-- [Deploying SUSE SAP HA Automation in Microsoft Azure](https://cloudblogs.microsoft.com/opensource/2021/01/21/deploying-suse-sap-ha-automation-in-microsoft-azure) (Microsoft blog)
 
-### Azure services
-
-- [Azure premium storage: design for high performance](/azure/virtual-machines/premium-storage-performance)
-- [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm)
-- [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
 
 ### SUSE
 
 - [SUSE on Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=SUSE)
-- [Highly Available NFS Storage with DRBD and Pacemaker](https://documentation.suse.com/sle-ha/15-SP1/html/SLE-HA-all/art-sleha-nfs-quick.html)
+- [Highly Available NFS Storage with DRBD and Pacemaker](https://documentation.suse.com/sle-ha/15-SP6/)
 - [Run SAP](https://www.suse.com/solutions/run-sap-solutions)
-- [SUSE Linux Enterprise Server for SAP Applications 15 SP3](https://documentation.suse.com/sles-sap/15-SP3)
-- [SUSE Best Practices - all documents](https://documentation.suse.com/sbp/all)
-- [Getting Started with SAP HANA High Availability Cluster Automation Operating on Azure](https://documentation.suse.com/sbp/all/single-html/SBP-SAP-HANA-PerOpt-HA-Azure)
-- [Monitor SAP in SLES with Grafana and Prometheus](https://www.youtube.com/watch?v=a8Lz0_pHzm0) (video)
-- [Set up and tune your SUSE system for SAP with saptune](https://www.youtube.com/watch?v=MNKpyQAFRJg)
-- [SAP S/4HANA in Linux on Azure](/azure/architecture/guide/sap/sap-s4hana)
 
-### Solution templates
 
-SUSE SAP ARM template to create the SAP infrastructure:
-
-- [Infrastructure for SAP NetWeaver and SAP HANA](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/suse.suse-sap-infra?tab=Overview) (Azure Marketplace)
-- [SUSE and Microsoft Solution Templates for SAP Applications](https://documentation.suse.com/sbp/all/single-html/SBP-SAP-AzureSolutionTemplates) (SUSE)

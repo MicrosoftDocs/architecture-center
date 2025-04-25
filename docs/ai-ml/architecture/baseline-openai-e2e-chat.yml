@@ -1,14 +1,12 @@
 ### YamlMime:Architecture
 metadata:
-  title: Baseline OpenAI end-to-end chat reference architecture
-  titleSuffix: Azure Reference Architectures
-  description: A baseline reference architecture for network secured, highly available, and zone-redundant enterprise chat applications with Azure OpenAI, Azure AI Foundry, and Azure App Service.
+  title: Baseline OpenAI End-to-End Chat Reference Architecture
+  description: Use this baseline reference architecture to learn how to build network-secured, highly available, and zone-redundant enterprise chat applications on Azure.
   author: robbagby
   ms.author: robbag
   ms.date: 11/8/2024
-  ms.topic: conceptual
+  ms.topic: reference-architecture
   ms.collection: ce-skilling-ai-copilot  
-  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.custom: arb-aiml
 azureCategories:
@@ -23,7 +21,7 @@ products:
   - azure-key-vault
   - azure-monitor
 name: Baseline OpenAI end-to-end chat reference architecture
-summary: A baseline reference architecture for network secured, highly available, and zone-redundant enterprise chat applications with Azure OpenAI, Azure AI Foundry, and Azure App Service.
+summary: Use this baseline reference architecture to learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Azure OpenAI Service, Azure AI Foundry, and Azure App Service.
 thumbnailUrl: /azure/architecture/browse/thumbs/openai-end-to-end.png
 content: |
    [!INCLUDE[](baseline-openai-e2e-chat-content.md)]

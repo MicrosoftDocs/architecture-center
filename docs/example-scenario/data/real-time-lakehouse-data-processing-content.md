@@ -37,7 +37,7 @@ This article describes an end-to-end solution for near real-time data processing
 
 1. For some low-latency interfaces, data must be denormalized for single-digit server latencies. This usage scenario is mainly for API responses. This scenario queries documents in a NoSQL datastore such as Azure Cosmos DB for single-digit millisecond responses.
 
-1. The Azure Cosmos DB partitioning strategy might not lend itself to all query patterns. If that's the case, you can augment the solution by indexing the data that the APIs need to access with Azure Cognitive Search. Azure Cosmos DB and Cognitive Search can fulfill most scenarios that require low latency query responses.
+1. The Azure Cosmos DB partitioning strategy might not lend itself to all query patterns. If that's the case, you can augment the solution by indexing the data that the APIs need to access with Azure AI Search. Azure Cosmos DB and AI Search can fulfill most scenarios that require low latency query responses.
 
 ### Components
 
@@ -59,7 +59,7 @@ This solution uses the following Azure components:
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a managed, multi-modal NoSQL database that supports open APIs such as MongoDB and Cassandra. This solution uses Azure Cosmos DB for applications that require single-digit millisecond response times and high availability. Azure Cosmos DB offers multi-region writes across all Azure regions. You can use [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) to derive insights and run analytics over data in real time.
 
-- [Azure Cognitive Search](/azure/search/search-what-is-azure-search) is a cloud search service that can index the data your applications and APIs need. Cognitive Search has optional AI enrichment features that help with text extraction and infer text from non-text files. Cognitive Search integrates with services like Azure Data Lake Storage and Azure Cosmos DB to easily access and index data. You can query the indexed data by using a REST API or the .NET SDK. To get data from two separate indexes, you can combine them into a single index or use [complex data types](/azure/search/search-howto-complex-data-types).
+- [Azure AI Search](/azure/search/search-what-is-azure-search) is a cloud search service that can index the data your applications and APIs need. AI Search has optional AI enrichment features that help with text extraction and infer text from non-text files. AI Search integrates with services like Azure Data Lake Storage and Azure Cosmos DB to easily access and index data. You can query the indexed data by using a REST API or the .NET SDK. To get data from two separate indexes, you can combine them into a single index or use [complex data types](/azure/search/search-howto-complex-data-types).
 
 ## Scenario details
 
@@ -89,19 +89,19 @@ Similar scenarios apply to retail, commerce, and healthcare sectors. Enabling th
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - Event Hubs offers 90-day data retention on the Premium and Dedicated tiers. For failover scenarios, you can set up a secondary namespace in the paired region and activate it during failover.
 
 - Azure Synapse Spark pool jobs are recycled every seven days as nodes are taken down for maintenance. Consider this activity as you work through the service level agreements (SLAs) tied to the system. This limitation isn't an issue for many scenarios where recovery time objective (RTO) is around 15 minutes.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - You can select from different Event Hubs tiers based on workload characteristics. Event Hubs bills Capture storage separately, based on the amount of data being stored on Data Lake Storage.
 
@@ -111,9 +111,9 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - Azure Cosmos DB offers different provisioning models, such as serverless, manual provisioned throughput, and autoscale. Consider using serverless provisioning for your development and test workloads. You can also use autoscale, where you can set maximum request units (RUs) per second (RU/s) on the container. The throughput on the container scales automatically between 10% of maximum RU/s as a lower threshold and the maximum configured RU/s.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - You can scale Event Hubs through partitioning. Consider partitioning your data to preserve the order of events through a commit log. Partitioning lets you create multiple parallel logs by maximizing the available throughput capacity.
 

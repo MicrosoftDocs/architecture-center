@@ -1,12 +1,11 @@
 ---
-title: Machine learning operations v2
+title: Machine learning operations
 description: Learn about a single deployable set of repeatable and maintainable patterns for creating machine learning CI/CD and retraining pipelines.
-author: sdonohoo
-ms.author: robbag
+author: setuc
+ms.author: setuchokshi
 ms.date: 07/03/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
 products:
@@ -45,7 +44,7 @@ For an implementation with sample deployment templates for MLOps v2, see [Azure 
 
 - Natural language processing: You can use this MLOps framework to implement:
 
-  - Named entity recognition:
+  - Named entity recognition
 
   - Text classification
 
@@ -197,7 +196,7 @@ The Machine Learning CV architecture is based on the classical machine learning 
 
 1. Data and model monitoring: events and actions
 
-   The data and model monitoring and event and action phases of MLOps for natural language processing are the key differences from classical machine learning. Automated retraining is typically not done in CV scenarios when model performance degradation on new images is detected. In this case, a human-in-the-loop process is necessary to review and annotate new text data for  the model that performs poorly. The next action often goes back to the model development loop to update the model with the new images.
+   The data and model monitoring and event and action phases of MLOps for natural language processing are the key differences from classical machine learning. Automated retraining is typically not done in CV scenarios when model performance degradation on new images is detected. In this case, a human-in-the-loop process is necessary to review and annotate new images for the model that performs poorly. The next action often goes back to the model development loop to update the model with the new images.
 
 1. Infrastructure monitoring: events and actions
 
@@ -219,7 +218,7 @@ The Machine Learning natural language processing architecture is based on the cl
 
 1. Administration and setup
 
-   This component is the first step in the MLOps v2 deployment. It consists of all tasks related to the creation and management of resources and roles associated with the project. For natural language processing scenarios, administration and setup of the MLOps v2 environment is largely the same as for classical machine learning, but with an extra step: create image labeling and annotation projects by using the labeling feature of Machine Learning or another tool.
+   This component is the first step in the MLOps v2 deployment. It consists of all tasks related to the creation and management of resources and roles associated with the project. For natural language processing scenarios, administration and setup of the MLOps v2 environment is largely the same as for classical machine learning, but with an extra step: create text labeling and annotation projects by using the labeling feature of Machine Learning or another tool.
 
 1. Model development (inner loop phase)
 
@@ -625,15 +624,13 @@ Monitor the ongoing service of an API for performance optimization, security, an
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
-- [Scott Donohoo](https://www.linkedin.com/in/scottdonohoo) | Senior Cloud Solution Architect
-- [Moritz Steller](https://www.linkedin.com/in/moritz-steller-426430116/) | Senior Cloud Solution Architect
+- [Setu Chokshi](https://www.linkedin.com/in/setuchokshi/) | Senior Technical Specialist
 
 Other contributors:
 
 - [Scott Mckinnon](https://www.linkedin.com/in/scott-mckinnon-96756a83/) | Cloud Solution Architect
-- [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore/) | Cloud Solution Architect
 - [Darren Turchiarelli](https://www.linkedin.com/in/darren-turchiarelli/) | Cloud Solution Architect
 - [Leo Kozhushnik](https://www.linkedin.com/in/leo-kozhushnik-ab16707/) | Cloud Solution Architect
 
@@ -658,6 +655,6 @@ Other contributors:
 ## Related resources
 
 - [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/ai-services.md)
-- [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
+- [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.md)
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [What is the Team Data Science Process?](../../data-science-process/overview.yml)

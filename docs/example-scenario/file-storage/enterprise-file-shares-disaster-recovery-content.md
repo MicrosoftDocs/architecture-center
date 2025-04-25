@@ -96,4 +96,4 @@ Principal authors:
 
 ## Related resources
 
-- [Hybrid file share with disaster recovery for remote and local branch workers](/azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers)
+- [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services)

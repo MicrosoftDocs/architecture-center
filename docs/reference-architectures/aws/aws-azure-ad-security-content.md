@@ -370,3 +370,10 @@ If you have Defender for Cloud Apps, you can use Conditional Access to configure
 - For in-depth coverage and comparison of Azure and AWS features, see the [Azure for AWS professionals](../../aws-professional/index.md) content set.
 - [Security and identity on Azure and AWS](../../aws-professional/security-identity.md)
 - [Defender for Cloud Apps and Microsoft Sentinel for AWS](/azure/architecture/guide/aws/aws-azure-security-solutions)
+- [Onboard an AWS account](/azure/active-directory/cloud-infrastructure-entitlement-management/onboard-aws)
+- [AWS single-account access](/azure/active-directory/saas-apps/amazon-web-service-tutorial)
+- [AWS Single Sign-on](/azure/active-directory/saas-apps/aws-single-sign-on-tutorial)
+- [Configure AWS Single Sign-On](/azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial)
+- [AWS multiple accounts](/azure/active-directory/saas-apps/aws-multi-accounts-tutorial)
+- [AWS ClientVPN](/azure/active-directory/saas-apps/aws-clientvpn-tutorial)
+- [Attach and detach policies](/azure/active-directory/cloud-infrastructure-entitlement-management/how-to-attach-detach-permissions)

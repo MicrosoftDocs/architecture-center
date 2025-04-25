@@ -94,11 +94,8 @@ Network security groups restrict access to each tier. For example, the database 
 
 - If your organization uses Active Directory to manage identity, you may want to extend your Active Directory environment to the Azure VNet.
 
-- If you need higher availability than the Azure SLA for VMs provides, replicate the application across two regions and use Azure Traffic Manager for failover. For more information, see [Run Linux VMs in multiple regions][multiregion-linux].
-
 ### Related Resources
 
-- [N-tier application with Apache Cassandra][n-tier-linux]
 - [Windows N-tier application on Azure with SQL Server][n-tier-windows-SQL]
 - [Microsoft Learn module: Tour the N-tier architecture style](/training/modules/n-tier-architecture/)
 - [Azure Bastion](/azure/bastion/bastion-overview)
@@ -107,8 +104,6 @@ Network security groups restrict access to each tier. For example, the database 
 [autoscaling]: ../../best-practices/auto-scaling.md
 [caching]: ../../best-practices/caching.yml
 [dmz]: ../../reference-architectures/dmz/secure-vnet-dmz.yml
-[ha-nva]: ../../networking/guide/nva-ha.yml
+[ha-nva]: ../../networking/guide/network-virtual-appliance-high-availability.md
 [hybrid-network]: ../../reference-architectures/hybrid-networking/index.yml
-[multiregion-linux]: ../../databases/architecture/n-tier-cassandra.yml
-[n-tier-linux]: ../../databases/architecture/n-tier-cassandra.yml
 [sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server

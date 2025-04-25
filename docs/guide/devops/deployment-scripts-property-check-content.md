@@ -225,6 +225,5 @@ Other contributor:
 ## Related resources
 
 - [Hub-spoke network topology with Azure Virtual WAN](../../networking/architecture/hub-spoke-vwan-architecture.yml)
-- [Enterprise infrastructure as code using Bicep and Azure Container Registry](../azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml)
 - [Architectural approaches for the deployment and configuration of multitenant solutions](../multitenant/approaches/deployment-configuration.yml)
 - [DevSecOps for infrastructure as code (IaC)](../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)

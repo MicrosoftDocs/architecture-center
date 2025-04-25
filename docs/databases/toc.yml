@@ -6,10 +6,6 @@ items:
       items:
       - name: Relational
         items:
-        - name: Intelligent apps using MySQL
-          href: idea/intelligent-apps-using-azure-database-for-mysql.yml
-        - name: Intelligent apps using PostgreSQL
-          href: idea/intelligent-apps-using-azure-database-for-postgresql.yml
         - name: Migrate an Oracle database to Azure
           href: idea/topic-migrate-oracle-azure.yml
         - name: Migrate an Oracle database to an Azure virtual machine
@@ -22,8 +18,6 @@ items:
           href: ../example-scenario/apps/sap-production.yml          
       - name: NoSQL
         items:
-        - name: Serverless apps using Azure Cosmos DB
-          href: idea/serverless-apps-using-cosmos-db.yml
         - name: Minimal storage – change feed replication
           href: idea/minimal-storage-change-feed-replicate-data.yml
     - name: Design architectures
@@ -48,8 +42,6 @@ items:
         items:
         - name: Analyze MongoDB Atlas data
           href: architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml
-        - name: N-tier app with Cassandra
-          href: architecture/n-tier-cassandra.yml
       - name: Relational
         items:
         - name: Intelligent search engine for e-commerce
@@ -62,8 +54,6 @@ items:
           href: ../example-scenario/analytics/pipelines-disaster-recovery.yml
       - name: Mainframe
         items:
-        - name: Mainframe access to Azure databases
-          href: ../solution-ideas/articles/mainframe-access-azure-databases.yml
         - name: Replicate and sync mainframe data
           href: ../reference-architectures/migration/sync-mainframe-data-with-azure.yml
         - name: Mainframe data replication with Connect
@@ -81,8 +71,7 @@ items:
         - name: Rehost IMS DC and IMS DB
           href: ../example-scenario/mainframe/rehost-ims-raincode-imsql.yml
         - name: SMA OpCon in Azure
-          href: ../solution-ideas/articles/sma-opcon-azure.yml
-
+          href: ../solution-ideas/articles/sma-opcon-azure.yml    
     - name: Apply guidance
       items:
       - name: Databases
@@ -93,14 +82,12 @@ items:
             href: guide/transactional-outbox-cosmos.yml
           - name: Run Apache Cassandra
             href: guide/cassandra.md
-        - name: Hybrid
-          items:
-          - name: Extend on-premises data solutions to Azure
-            href: guide/hybrid-on-premises-and-cloud.md
       - name: Big data
         items:
         - name: Big data architectures
-          href: guide/big-data-architectures.yml
+          href: guide/big-data-architectures.md
+        - name: Microsoft Fabric deployment patterns
+          href: ../analytics/architecture/fabric-deployment-patterns.yml
       - name: Governance
         items:
         - name: Data obfuscation with Delphix

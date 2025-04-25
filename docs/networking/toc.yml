@@ -34,8 +34,6 @@ items:
           href: ../example-scenario/networking/split-brain-dns.yml        
       - name: Private link
         items:
-        - name: Resolve overlapping IP address space constraints
-          href: guide/private-link-ip-constraints.yml        
         - name: Private Link in hub-and-spoke network
           href: guide/private-link-hub-spoke-network.yml
         - name: Guide to Private Link and DNS with Azure Virtual WAN
@@ -56,9 +54,7 @@ items:
           href: guide/ipv6-ip-planning.md
       - name: Resource organization
         items:
-        - name: Azure NVA Firewall architecture overview
-          href: guide/network-virtual-appliances-architecture.yml        
         - name: Deploy highly available NVAs
-          href: guide/nva-ha.yml        
+          href: guide/network-virtual-appliance-high-availability.md       
         - name: SDWAN integration
           href: guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml     

@@ -2,7 +2,6 @@
 author: kobile70
 ms.author: vaboya
 ms.topic: include
-ms.service: azure-architecture-center
 ---
 
 | Area | AWS service | Azure service | Description |
@@ -13,7 +12,7 @@ ms.service: azure-architecture-center
 | DNS management | [Route 53](https://aws.amazon.com/route53) | [Azure DNS](https://azure.microsoft.com/services/dns/) | Azure DNS lets you manage your DNS records by using the same credentials and billing and support contract that you use for your other Azure services. Both services support [DNSSEC](/azure/dns/dnssec). |
 | DNS-based routing | [Route 53](https://aws.amazon.com/route53) | [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) | These services host domain names, route users to internet applications, connect user requests to datacenters, manage traffic to apps, and improve app availability with automatic failover. |
 | Dedicated network | [Direct Connect](https://aws.amazon.com/directconnect) | [ExpressRoute](https://azure.microsoft.com/services/expressroute) | These services establish a dedicated, private network connection from a location to the cloud provider (not over the internet). |
-| Load balancing | [Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html) | [Load Balancer](https://azure.microsoft.com/services/load-balancer)  | Azure Load Balancer load balances traffic at layer 4 (TCP or UDP). Standard Load Balancer also supports cross-region or global load balancing. |
+| Load balancing | [Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html) | [Load Balancer](https://azure.microsoft.com/services/load-balancer)  | Azure Load Balancer load balances traffic at layer 4 (TCP or UDP). Standard Load Balancer also supports cross-subscription and global load balancing. |
 | Application-level load balancing |  [Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html) | [Application Gateway](https://azure.microsoft.com/services/application-gateway) | Application Gateway is a layer 7 load balancer. It supports SSL termination, cookie-based session affinity, and round robin for load-balancing traffic. It also provides multi-site routing and security features. |
 | Route tables | [Custom Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) | [User Defined Routes](/azure/virtual-network/virtual-networks-udr-overview) | These tables provide custom or user-defined (static) routes to override default system routes, or to add more routes to a subnet's route table. |
 | Private link | [PrivateLink](https://aws.amazon.com/privatelink) | [Azure Private Link](https://azure.microsoft.com/services/private-link) | Azure Private Link provides private access to services that are hosted on the Azure platform. This keeps your data on the Microsoft network. |
@@ -31,7 +30,7 @@ ms.service: azure-architecture-center
 
 | Architecture | Description |
 |----|----|
-| [Deploy highly available NVAs](/azure/architecture/networking/guide/nva-ha) | Learn how to deploy network virtual appliances for high availability in Azure. This article includes example architectures for ingress, egress, and both. |
+| [Deploy highly available NVAs](/azure/architecture/networking/guide/network-virtual-appliance-high-availability) | Learn how to deploy network virtual appliances for high availability in Azure. This article includes example architectures for ingress, egress, and both. |
 | [Hub-spoke network topology in Azure](/azure/architecture/networking/architecture/hub-spoke) | Learn how to implement a hub-spoke topology in Azure, where the hub is a virtual network and the spokes are virtual networks that peer with the hub. |
 | [Implement a secure hybrid network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz) | See a secure hybrid network that extends an on-premises network to Azure with a perimeter network between the on-premises network and an Azure virtual network. |
 

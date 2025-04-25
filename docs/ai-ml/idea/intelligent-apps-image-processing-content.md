@@ -78,5 +78,5 @@ For a guided learning path, see:
 <!-- links -->
 [architecture]: _images/architecture-intelligent-apps-image-processing.png
 [serverless]: /training/paths/create-serverless-applications/
-[cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
+[cv-categories]: /azure/ai-services/computer-vision/category-taxonomy
 [visio-download]: https://arch-center.azureedge.net/architecture-image-classification-on-azure.vsdx

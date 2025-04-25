@@ -97,11 +97,11 @@ Use this architecture for scenarios that require:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
    - **Identify failure points**: In this split-brain DNS architecture, reliability hinges on the correct functioning of key components, such as Azure Front Door, Application Gateway, and DNS configurations. You must identify potential failure points, such as misconfigurations, SSL certificate problems, or capacity overloads.
    
@@ -113,11 +113,11 @@ Adhere to these principles to ensure a robust and reliable system that can withs
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). 
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
    - **Use the Zero Trust approach**: In the split-brain DNS setup, apply the [Zero Trust](/azure/security/fundamentals/zero-trust) approach. Explicitly verify the identity of a customer, whether they originate from the internet or a corporate network. This approach ensures that only trusted entities do authorized actions.
    
-   - **Implementation**: Implement Microsoft Entra ID for robust identity management. Use [Microsoft Entra Conditional Access policies](/azure/architecture/guide/security/conditional-access-zero-trust) to enforce strict access controls based on customer context, device health, and location.
+   - **Implementation**: Implement Microsoft Entra ID for robust identity management. Use Microsoft Entra Conditional Access policies to enforce strict access controls based on customer context, device health, and location.
    - **Assess security efficacy**: Evaluate the effectiveness of the security measures for your dual-access workload by implementing:
       - **Defensive investments**: Regularly assess the effectiveness of Azure Front Door and Application Gateway. Ensure that they provide meaningful protection against threats.
       
@@ -134,9 +134,9 @@ Integrate these security principles into your split-brain DNS architecture to cr
    - **Azure Firewall**: You can add an Azure firewall to the hub virtual network and use [Azure Firewall threat intelligence](/azure/firewall/threat-intel) to block malicious traffic from known malicious IP addresses and domains. You can also use [Azure Firewall as a DNS proxy](/azure/firewall/dns-details) to intercept and inspect DNS traffic and apply DNS-filtering rules. 
    - **Azure Front Door**: You can use [Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) to protect your web applications from common web vulnerabilities and exploits at the edge. You can also use [Private Link](/azure/frontdoor/private-link) with the Azure Front Door Premium tier to securely access your back-end application servers from Azure Front Door without exposing them to the public internet.    
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
   - **Back-end compute**: Many factors, such as SKU selection, replica count, and region, drive the cost of running back-end compute services. Ensure that you consider all elements of a [compute resource](/azure/architecture/guide/technology-choices/compute-decision-tree#choose-a-candidate-service) before you select the best option for your workload.
   

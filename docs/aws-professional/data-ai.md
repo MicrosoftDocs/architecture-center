@@ -6,8 +6,10 @@ categories: azure
 ms.author: rhackenberg
 ms.date: 11/13/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
+ms.collection: 
+ - migration
+ - aws-to-azure
 azureCategories:
   - ai-machine-learning
   - databases
@@ -142,9 +144,9 @@ AI services provide prebuilt, customizable AI capabilities to applications, incl
 | AWS service     | Azure service | Analysis   |
 |  -------  | ------  |--|
 | [Amazon Rekognition](https://aws.amazon.com/rekognition/)               | [Azure AI Vision with OCR and AI](https://azure.microsoft.com/products/ai-services/ai-vision/)   | These services provide image and video analysis capabilities, including object recognition and content moderation.   |
-| [Amazon Polly](https://aws.amazon.com/polly/)    | [Azure AI Speech (text-to-speech)](https://azure.microsoft.com/services/cognitive-services/speech-services/)  | You can use these services to convert text into lifelike speech to enable applications to interact with users with natural-sounding voices.|
+| [Amazon Polly](https://aws.amazon.com/polly/)    | [Azure AI Speech (text-to-speech)](https://azure.microsoft.com/products/ai-services/ai-speech)  | You can use these services to convert text into lifelike speech to enable applications to interact with users with natural-sounding voices.|
 | [Amazon Transcribe](https://aws.amazon.com/transcribe/)    | [Azure AI Speech](https://azure.microsoft.com/products/ai-services/ai-speech/)  | These services convert spoken language into text, which enables applications to transcribe audio streams.        |
-| [Amazon Translate](https://aws.amazon.com/translate/)                   | [Azure AI Translator](https://azure.microsoft.com/services/cognitive-services/translator/)| These services provide machine translation capabilities for translating text from one language to another. |
+| [Amazon Translate](https://aws.amazon.com/translate/)                   | [Azure AI Translator](https://azure.microsoft.com/products/ai-services/ai-translator)| These services provide machine translation capabilities for translating text from one language to another. |
 | [Amazon Comprehend](https://aws.amazon.com/comprehend/)     | [Azure AI Language](https://azure.microsoft.com/products/ai-services/ai-language)  | These services analyze text to extract insights like sentiment, key phrases, entities, and language detection.  |
 | [Amazon Lex](https://aws.amazon.com/lex/)   | [Azure AI Bot Service](https://azure.microsoft.com/services/bot-service/) | You can use these services to create conversational interfaces and chatbots that use natural language understanding. Azure provides a modular approach with separate services for the bot development framework and language understanding. Amazon Lex provides an integrated solution for building conversational interfaces within AWS. |
 | [Amazon Textract](https://aws.amazon.com/textract/) | [Azure AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence/) | Both of these services automatically extract text and data from scanned documents and forms by using machine learning. Azure provides customizable models for specific document types, which enables tailored data extraction. Textract provides out-of-the-box extraction of complex data structures.  |
@@ -156,7 +158,7 @@ These AI services create new content or data that resembles human-generated outp
 
 | AWS service     | Azure services    | Analysis   |
 | ----  | --------  | ------  |
-| [Amazon Bedrock](https://aws.amazon.com/bedrock/) | [Azure OpenAI Service](https://azure.microsoft.com/services/cognitive-services/openai-service/), [Azure AI Foundry](https://azure.microsoft.com/products/ai-studio/) | Amazon Bedrock, Azure AI Foundry, and Azure OpenAI Service provide foundation models for creating and deploying generative AI applications.  |
+| [Amazon Bedrock](https://aws.amazon.com/bedrock/) | [Azure OpenAI Service](https://azure.microsoft.com/products/ai-services/openai-service), [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry/) | Amazon Bedrock, Azure AI Foundry, and Azure OpenAI Service provide foundation models for creating and deploying generative AI applications.  |
 
 ## Contributors
 

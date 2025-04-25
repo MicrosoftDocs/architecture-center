@@ -1,27 +1,25 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Local three-node storage switchless architecture
-  description: Learn how to design Azure Local infrastructure by using a three-node storage switchless architecture.
+  title: Azure Local storage switchless architecture
+  description: Learn how to design Azure Local infrastructure by using a storage switchless architecture.
   author: neilbird
   ms.author: nebird
-  ms.date: 07/24/2024
+  ms.date: 02/28/2025
   ms.topic: conceptual
-  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - management-and-governance
   ms.custom: arb-hybrid
-name: Azure Local three-node storage switchless architecture
+name: Azure Local storage switchless architecture
 azureCategories:
   - hybrid
   - management-and-governance
-summary: Learn how to design Azure Local infrastructure by using a three-node storage switchless architecture.
+summary: Learn how to design Azure Local infrastructure by using a storage switchless architecture.
 products:
   - azure-local
   - azure-arc
   - azure-key-vault
-  - azure-blob-storage
   - azure-monitor
   - defender-for-cloud
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-local-switchless-thumbnail.png

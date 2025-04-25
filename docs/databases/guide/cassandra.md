@@ -6,7 +6,6 @@ ms.author: arsenv
 categories: azure
 ms.date: 05/21/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: best-practice
 ms.custom:
   - fcp
@@ -177,7 +176,6 @@ For information on general Cassandra settings, not specific to Azure, see:
 
 ## Related resources
 
-- [Linux N-tier application in Azure with Apache Cassandra](../../databases/architecture/n-tier-cassandra.yml)
 - [N-tier architecture style](../../guide/architecture-styles/n-tier.yml)
 - [Data partitioning guidance](../../best-practices/data-partitioning.yml)
 

@@ -88,7 +88,7 @@ For the availability guarantees of the Azure services in this solution, see thes
 
 - [Service-level agreement (SLA) for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5)
 - [SLA for Azure Machine Learning](https://azure.microsoft.com/support/legal/sla/machine-learning-service/v1_0)
-- [SLA for Azure AI services](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1)
+- [SLA for Azure AI services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1)
 - [SLA for Logic Apps](https://azure.microsoft.com/support/legal/sla/logic-apps/v1_0)
 - [SLA for Azure Synapse Analytics](https://azure.microsoft.com/support/legal/sla/synapse-analytics/v1_1)
 - [SLA for Power BI](https://azure.microsoft.com/support/legal/sla/power-bi-embedded/v1_1)
@@ -146,7 +146,7 @@ Principal author:
 
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
-- [What is Azure AI services?](/azure/cognitive-services/what-are-cognitive-services)
+- [What is Azure AI services?](/azure/ai-services/what-are-ai-services)
 - [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 - [What is Power BI Embedded analytics?](/power-bi/developer/embedded/embedded-analytics-power-bi)

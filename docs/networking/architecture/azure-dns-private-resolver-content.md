@@ -245,8 +245,6 @@ A DNS resolver can only refer to a virtual network that's located in the same re
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Azure DNS supports the extended ASCII encoding set for text record sets. For more information, see [Azure DNS FAQ](/azure/dns/dns-faq#does-azure-dns-support-the-extended-ascii-encoding--8-bit--set-for-txt-record-sets-).
-
 Azure DNS has [DNS security extensions in preview](/azure/dns/dnssec).
 
 ### Cost Optimization

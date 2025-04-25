@@ -115,73 +115,20 @@ items:
         href: guide/technology-choices/compute-decision-tree.yml
       - name: Microservices compute options
         href: /azure/architecture/microservices/design/compute-options
-      - name: Web apps and single page apps
-        href: /dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps
-        maintainContext: true
-      - name: Multiparty computing
-        href: guide/technology-choices/multiparty-computing-service.yml
     - name: Choose a container option
       items:
       - name: Container options
-        href: guide/choose-azure-container-service.md
-        maintainContext: true
-      - name: Containers for confidential computing
-        href: /azure/confidential-computing/choose-confidential-containers-offerings
-        maintainContext: true
+        href: guide/choose-azure-container-service.md      
       - name: Kubernetes at the edge
         href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
-      - name: Bare-metal Kubernetes at the edge
-        href: operator-guides/aks/choose-bare-metal-kubernetes.yml
     - name: Choose a hybrid service
       items:
       - name: Azure hybrid options
         href: guide/technology-choices/hybrid-considerations.yml
-      - name: Compare Azure Stack Hub and Azure
-        href: /azure-stack/user/azure-stack-considerations
-        maintainContext: true
-    - name: Choose a security option
-      items:
-      - name: Deployment models
-        href: /azure/confidential-computing/confidential-computing-deployment-models
-        maintainContext: true
-      - name: Containers for confidential computing
-        href: /azure/confidential-computing/choose-confidential-containers-offerings
-        maintainContext: true
-    - name: Choose an identity service
-      items:
-      - name: Active Directory services
-        href: /azure/active-directory-domain-services/compare-identity-solutions
-        maintainContext: true
-      - name: Hybrid identity authentication methods
-        href: /azure/active-directory/hybrid/choose-ad-authn
-        maintainContext: true
     - name: Choose a storage service
       items:
       - name: Storage options
         href: guide/technology-choices/storage-options.md
-      - name: Managed disk types
-        href: /azure/virtual-machines/disks-types
-        maintainContext: true
-      - name: Data transfer
-        items:
-        - name: Data transfer solutions
-          href: /azure/storage/common/storage-choose-data-transfer-solution
-          maintainContext: true
-        - name: Compare data transfer options
-          href: /azure/storsimple/storsimple-8000-choose-storage-solution
-          maintainContext: true
-        - name: Large datasets, low bandwidth
-          href: /azure/storage/common/storage-solution-large-dataset-low-network
-          maintainContext: true
-        - name: Large datasets, moderate bandwidth
-          href: /azure/storage/common/storage-solution-large-dataset-moderate-high-network
-          maintainContext: true
-        - name: Small datasets, low bandwidth
-          href: /azure/storage/common/storage-solution-small-dataset-low-moderate-network
-          maintainContext: true
-        - name: Periodic data transfer
-          href: /azure/storage/common/storage-solution-periodic-data-transfer
-          maintainContext: true
     - name: Choose a data store
       items:
       - name: Understand data stores in Azure
@@ -213,7 +160,7 @@ items:
       - name: Database scenarios
         items:
         - name: OLAP solutions
-          href: data-guide/relational-data/online-analytical-processing.yml
+          href: data-guide/relational-data/online-analytical-processing.md
         - name: OLTP solutions
           href: data-guide/relational-data/online-transaction-processing.md
         - name: Data lakes
@@ -224,21 +171,16 @@ items:
         items:
         - name: Pipeline orchestration
           href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
+        - name: ETL guide
+          href: data-guide/relational-data/etl.yml
         - name: Data transfer options
           href: data-guide/scenarios/data-transfer.md
     - name: Choose an analytics solution
       items:
-      - name: Advanced analytics
-        href: data-guide/scenarios/advanced-analytics.md
       - name: Analytical data stores
         href: data-guide/technology-choices/analytical-data-stores.md
-      - name: Microsoft Fabric deployment patterns
-        href: analytics/architecture/fabric-deployment-patterns.yml
       - name: Stream processing
         href: data-guide/technology-choices/stream-processing.md
-      - name: Streaming analytics
-        href: /azure/stream-analytics/streaming-technologies
-        maintainContext: true
     - name: Choose an AI service
       items:
       - name: AI services
@@ -250,12 +192,9 @@ items:
       - name: Image and video processing
         href: data-guide/ai-services/image-video-processing.md
       - name: Natural language processing
-        href: data-guide/technology-choices/natural-language-processing.yml
+        href: data-guide/technology-choices/natural-language-processing.md
       - name: Machine learning
         href: ai-ml/guide/data-science-and-machine-learning.md
-      - name: Compare MLflow and Azure ML
-        href: /azure/machine-learning/concept-mlflow
-        maintainContext: true
     - name: Choose a networking service
       items:
       - name: Load balancing options
@@ -266,17 +205,6 @@ items:
       items:
       - name: Asynchronous messaging
         href: guide/technology-choices/messaging.yml
-    - name: Choose an IoT option
-      items:
-      - name: IoT solutions in Azure
-        href: /azure/iot/iot-services-and-technologies
-        maintainContext: true
-      - name: Compare IoT Hub and Event Hubs
-        href: /azure/iot-hub/iot-hub-compare-event-hubs
-        maintainContext: true
-    - name: Choose a command-line tool
-      href: /cli/azure/choose-the-right-azure-command-line-tool
-      maintainContext: true
     - name: Development tools
       items:
       - name: Compare Java application hosting options
@@ -307,87 +235,40 @@ items:
       href: best-practices/message-encode.md
     - name: Monitoring and diagnostics
       href: best-practices/monitoring.yml
-    - name: Retry guidance for specific services
-      href: best-practices/retry-service-specific.md
     - name: Transient fault handling
       href: best-practices/transient-faults.md
-  - name: Performance tuning and antipatterns
+  - name: Performance antipatterns
     items:
-    - name: Introduction
-      href: performance/index.md
-    - name: Scenario 1 - Distributed transactions
-      href: performance/distributed-transaction.yml
-    - name: Scenario 2 - Multiple backend services
-      href: performance/backend-services.yml
-    - name: Scenario 3 - Event streaming
-      href: performance/event-streaming.yml
-    - name: Performance antipatterns
-      items:
-      - name: Overview
-        href: antipatterns/index.md
-      - name: Busy Database
-        href: antipatterns/busy-database/index.md
-      - name: Busy Front End
-        href: antipatterns/busy-front-end/index.md
-      - name: Chatty I/O
-        href: antipatterns/chatty-io/index.md
-      - name: Extraneous Fetching
-        href: antipatterns/extraneous-fetching/index.md
-      - name: Improper Instantiation
-        href: antipatterns/improper-instantiation/index.md
-      - name: Monolithic Persistence
-        href: antipatterns/monolithic-persistence/index.md
-      - name: No Caching
-        href: antipatterns/no-caching/index.md
-      - name: Noisy Neighbor
-        href: antipatterns/noisy-neighbor/noisy-neighbor.yml
-      - name: Retry Storm
-        href: antipatterns/retry-storm/index.md
-      - name: Synchronous I/O
-        href: antipatterns/synchronous-io/index.md
+    - name: Overview
+      href: antipatterns/index.md
+    - name: Busy Database
+      href: antipatterns/busy-database/index.md
+    - name: Busy Front End
+      href: antipatterns/busy-front-end/index.md
+    - name: Chatty I/O
+      href: antipatterns/chatty-io/index.md
+    - name: Extraneous Fetching
+      href: antipatterns/extraneous-fetching/index.md
+    - name: Improper Instantiation
+      href: antipatterns/improper-instantiation/index.md
+    - name: Monolithic Persistence
+      href: antipatterns/monolithic-persistence/index.md
+    - name: No Caching
+      href: antipatterns/no-caching/index.md
+    - name: Noisy Neighbor
+      href: antipatterns/noisy-neighbor/noisy-neighbor.yml
+    - name: Retry Storm
+      href: antipatterns/retry-storm/index.md
+    - name: Synchronous I/O
+      href: antipatterns/synchronous-io/index.md
   - name: Responsible engineering
     items:
-    - name: Responsible innovation
-      items:
-      - name: Overview
-        href: guide/responsible-innovation/index.md
-      - name: Judgment call
-        href: guide/responsible-innovation/judgmentcall.md
-      - name: Harms modeling
-        items:
-        - name: Understand harm
-          href: guide/responsible-innovation/harms-modeling/index.md
-        - name: Assess types of harm
-          href: guide/responsible-innovation/harms-modeling/type-of-harm.md
-      - name: Community jury
-        href: guide/responsible-innovation/community-jury/index.md
-    - name: Responsible AI
-      items:
-      - name: Overview
-        href: /azure/cloud-adoption-framework/strategy/responsible-ai
-        maintainContext: true
-      - name: Six key principles
-        href: /azure/cloud-adoption-framework/innovate/best-practices/trusted-ai
-        maintainContext: true
-      - name: Guidelines for human-AI interaction
-        href: /ai/guidelines-human-ai-interaction/?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-      - name: Responsible AI with Cognitive Services
-        href: /azure/cognitive-services/responsible-use-of-ai-overview
-        maintainContext: true
-      - name: Machine learning
-        items:
-        - name: Responsible AI and machine learning
-          href: /azure/machine-learning/concept-responsible-ml
-          maintainContext: true
-        - name: Model interpretability
-          href: /azure/machine-learning/how-to-machine-learning-interpretability
-          maintainContext: true
-        - name: ML fairness
-          href: /azure/machine-learning/concept-fairness-ml
-          maintainContext: true
-        - name: Differential privacy
-          href: /azure/machine-learning/concept-differential-privacy
-          maintainContext: true
+    - name: Overview
+      href: guide/responsible-innovation/index.md
+    - name: Understand potential harms
+      href: guide/responsible-innovation/harms-modeling/index.md
+    - name: Implement AI responsibly when you use Azure AI services
+      href: /azure/ai-services/responsible-use-of-ai-overview
     - name: Measure Azure app sustainability
       href: example-scenario/apps/measure-azure-app-sustainability-sci-score.yml
   - name: Architecture for SaaS and multitenancy
@@ -434,48 +315,6 @@ items:
             href: guide/networking/global-web-applications/mission-critical-content-delivery.md
           - name: Global HTTP ingress
             href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md
-  - name: Solutions across Microsoft platforms
-    items:
-    - name: Microsoft cloud developer docs
-      href: /microsoft-cloud
-    - name: Azure and Power Platform scenarios
-      items:
-      - name: Overview
-        href: solutions/power-platform-scenarios.md
-      - name: All Power Platform architectures
-        href: /azure/architecture/browse/?products=power-platform
-      - name: Citizen AI with Power Platform
-        href: example-scenario/ai/citizen-ai-power-platform.yml
-      - name: Eventual consistency with Power Apps
-        href: guide/power-platform/eventual-consistency.yml
-      - name: Extract text using Power Automate
-        href: example-scenario/ai/extract-object-text.yml
-    - name: Azure and Microsoft 365 scenarios
-      items:
-      - name: Overview
-        href: solutions/microsoft-365-scenarios.md
-      - name: All Microsoft 365 architectures
-        href: /azure/architecture/browse/?products=m365
-      - name: Manage Microsoft 365 with DevOps
-        href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
-      - name: Secure a Teams channel bot with a firewall
-        href: example-scenario/teams/securing-bot-teams-channel.yml
-    - name: Azure and Dynamics 365 scenarios
-      items:
-      - name: Overview
-        href: solutions/dynamics-365-scenarios.md
-      - name: All Dynamics 365 architectures
-        href: /azure/architecture/browse/?terms=dynamics%20365
-      - name: Enhanced customer dimension
-        href: solution-ideas/articles/customer-insights-synapse.yml
-    - name: Azure and Microsoft on-premises servers
-      href: guide/on-premises-microsoft-technologies.md
-  - name: Third-party scenarios
-    items:
-    - name: Apache technologies
-      href: guide/apache-scenarios.md
-    - name: Partner technologies
-      href: guide/partner-scenarios.md
   - name: Azure for AWS professionals
     items:
     - name: Overview
@@ -508,155 +347,41 @@ items:
         items:
         - name: Microsoft Entra identity management for AWS
           href: reference-architectures/aws/aws-azure-ad-security.yml
-        - name: Onboard an AWS account
-          href: /azure/active-directory/cloud-infrastructure-entitlement-management/onboard-aws
-          maintainContext: true
-        - name: Amazon Managed Grafana
-          href: /azure/active-directory/saas-apps/amazon-managed-grafana-tutorial
-          maintainContext: true
-        - name: AWS single-account access
-          href: /azure/active-directory/saas-apps/amazon-web-service-tutorial
-          maintainContext: true
-        - name: AWS Single Sign-on
-          href: /azure/active-directory/saas-apps/aws-single-sign-on-tutorial
-          maintainContext: true
-        - name: Configure AWS Single Sign-On
-          href: /azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial
-          maintainContext: true
-        - name: AWS multiple accounts
-          href: /azure/active-directory/saas-apps/aws-multi-accounts-tutorial
-          maintainContext: true
-        - name: AWS ClientVPN
-          href: /azure/active-directory/saas-apps/aws-clientvpn-tutorial
-          maintainContext: true
-        - name: Attach and detach policies
-          href: /azure/active-directory/cloud-infrastructure-entitlement-management/how-to-attach-detach-permissions
-          maintainContext: true
       - name: AKS for AWS
         items:
         - name: AKS for Amazon EKS professionals
           href: aws-professional/eks-to-aks/index.md
         - name: Identity and access management
-          href: aws-professional/eks-to-aks/workload-identity.yml
+          href: aws-professional/eks-to-aks/workload-identity.md
         - name: Cluster monitoring and logging
-          href: aws-professional/eks-to-aks/monitoring.yml
+          href: aws-professional/eks-to-aks/monitoring.md
         - name: Network topologies and security
-          href: aws-professional/eks-to-aks/private-clusters.yml
+          href: aws-professional/eks-to-aks/private-clusters.md
         - name: Storage options
           href: aws-professional/eks-to-aks/storage.md
         - name: Cost management and optimization
-          href: aws-professional/eks-to-aks/cost-management.yml
+          href: aws-professional/eks-to-aks/cost-management.md
         - name: Agent node management
-          href: aws-professional/eks-to-aks/node-pools.yml
+          href: aws-professional/eks-to-aks/node-pools.md
         - name: Cluster governance
           href: aws-professional/eks-to-aks/governance.md
       - name: Migration from AWS
         items:
-        - name: Azure Migrate
-          items:
-          - name: Discover AWS instances
-            href: /azure/migrate/tutorial-discover-aws
-            maintainContext: true
-          - name: Assess AWS instances
-            href: /azure/migrate/tutorial-assess-aws
-            maintainContext: true
-          - name: Migrate AWS VMs
-            href: /azure/migrate/tutorial-migrate-aws-virtual-machines
-            maintainContext: true
-        - name: Compute
-          items:
-          - name: Migrate AWS to managed disks
-            href: /azure/virtual-machines/windows/on-prem-to-azure
-            maintainContext: true
-          - name: Migrate an AWS Windows VM
-            href: /azure/virtual-machines/windows/aws-to-azure
-            maintainContext: true
         - name: Containers
           items:
-          - name: Migrate Amazon EKS to Azure Kubernetes Service (AKS)
-            href: aws-professional/eks-to-aks/migrate-eks-to-aks.md
+          - name: Migrate Amazon EKS to AKS
+            href: aws-professional/eks-to-aks/migrate.md
       - name: Security for AWS
         items:
         - name: Microsoft security for AWS
           href: guide/aws/aws-azure-security-solutions.yml
-        - name: Defender recommendations for AWS
-          href: /azure/sentinel/connect-aws
-          maintainContext: true
-        - name: Defender for Cloud security policies for AWS
-          items:
-          - name: Protect AWS with Microsoft Defender
-            href: /defender-cloud-apps/protect-aws
-            maintainContext: true
-          - name: Defender recommendations for AWS
-            href: /azure/defender-for-cloud/recommendations-reference-aws
-            maintainContext: true
-          - name: Connect AWS to Microsoft Defender
-            href: /defender-cloud-apps/connect-aws
-            maintainContext: true
-          - name: 'Video: AWS connector in Defender'
-            href: /azure/defender-for-cloud/episode-one
-            maintainContext: true
-      - name: Azure Databricks for AWS
-        items:
-        - name: Repo access with AWS CodeCommit
-          href: /azure/databricks/repos/set-up-git-provider-access
-          maintainContext: true
-      - name: Azure Service Fabric in AWS
-        href: /azure/service-fabric/service-fabric-tutorial-standalone-create-infrastructure
-        maintainContext: true
-      - name: Azure VPN Gateway for AWS
-        href: /azure/vpn-gateway/vpn-gateway-howto-aws-bgp
-        maintainContext: true
   - name: Azure for Google Cloud professionals
     items:
     - name: Overview
       href: gcp-professional/index.md
     - name: Services comparison
       href: gcp-professional/services.md
-    - name: Guidance
-      items:
-      - name: Hybrid solutions for Google Cloud
-        items:
-        - name: GC Ubuntu with Terraform
-          href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/gcp-terraform-ubuntu
-          maintainContext: true
-        - name: GC Windows with Terraform
-          href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/gcp-terraform-windows
-          maintainContext: true
-      - name: Identity management for Google Cloud
-        items:
-        - name: Onboard a Google Cloud project
-          href: /azure/active-directory/cloud-infrastructure-entitlement-management/onboard-gcp
-          maintainContext: true
-        - name: Add and remove roles and tasks
-          href: /azure/active-directory/cloud-infrastructure-entitlement-management/how-to-add-remove-role-task
-          maintainContext: true
-      - name: Migration from Google Cloud
-        items:
-        - name: Discover Google Cloud instances
-          href: /azure/migrate/tutorial-discover-gcp
-          maintainContext: true
-        - name: Assess Google Cloud VM instances
-          href: /azure/migrate/tutorial-assess-gcp
-          maintainContext: true
-        - name: Migrate Google Cloud VMs to Azure
-          href: /azure/migrate/tutorial-migrate-gcp-virtual-machines
-          maintainContext: true
-      - name: Security for Google Cloud
-        items:
-        - name: Protect Google Cloud with Defender
-          href: /defender-cloud-apps/protect-gcp
-          maintainContext: true
-        - name: Connect Google Cloud projects
-          href: /azure/defender-for-cloud/quickstart-onboard-gcp
-          maintainContext: true
-        - name: Connect Google Cloud to Defender
-          href: /defender-cloud-apps/connect-google-gcp
-          maintainContext: true
-        - name: 'Video: Protect containers'
-          href: /azure/defender-for-cloud/episode-ten
-          maintainContext: true
-- name: Design Patterns
+- name: Design patterns
   items:
   - name: Overview
     href: patterns/index.md
@@ -666,7 +391,7 @@ items:
       href: pattern-implementations/network-secure-ingress.md
   - name: Ambassador
     href: patterns/ambassador.yml
-  - name: Anti-corruption Layer
+  - name: Anti-Corruption Layer
     href: patterns/anti-corruption-layer.yml
   - name: Asynchronous Request-Reply
     href: patterns/async-request-reply.yml
@@ -679,7 +404,7 @@ items:
   - name: Choreography
     href: patterns/choreography.yml
   - name: Circuit Breaker
-    href: patterns/circuit-breaker.yml
+    href: patterns/circuit-breaker.md
   - name: Claim Check
     href: patterns/claim-check.yml
   - name: Compensating Transaction
@@ -689,7 +414,7 @@ items:
   - name: Compute Resource Consolidation
     href: patterns/compute-resource-consolidation.yml
   - name: CQRS
-    href: patterns/cqrs.yml
+    href: patterns/cqrs.md
   - name: Deployment Stamps
     href: patterns/deployment-stamp.yml
   - name: Edge Workload Configuration
@@ -778,10 +503,6 @@ items:
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml
         - name: Recommendations
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml
-        - name: Deploy this scenario
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml
-        - name: Summary
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-summary.yml
       - name: Monitor Azure Databricks jobs
         items:
         - name: Overview
@@ -802,8 +523,6 @@ items:
         href: example-scenario/analytics/synapse-analytics-landing-zone.yml
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.yml
-      - name: Employee retention with Databricks and AKS
-        href: example-scenario/ai/employee-retention-databricks-kubernetes.yml
       - name: Use Azure Synapse Analytics to design an enterprise BI solution
         href: example-scenario/analytics/enterprise-bi-synapse.yml
       - name: Near real-time lakehouse processing
@@ -816,12 +535,8 @@ items:
         href: reference-architectures/data/stream-processing-databricks.yml
       - name: Stream processing with Stream Analytics
         href: reference-architectures/data/stream-processing-stream-analytics.yml
-      - name: Stream processing with open-source data
-        href: example-scenario/data/open-source-data-engine-stream-processing.yml
       - name: Modern data warehouse for small business
         href: example-scenario/data/small-medium-data-warehouse.yml
-      - name: Power BI data write-back
-        href: example-scenario/data/power-bi-write-back-power-apps.yml
       - name: Disaster recovery for data analytics pipelines
         href: example-scenario/analytics/pipelines-disaster-recovery.yml        
     - name: Solution ideas
@@ -830,12 +545,8 @@ items:
         items:
         - name: Big data analytics with Data Explorer
           href: solution-ideas/articles/big-data-azure-data-explorer.yml
-      - name: Content Delivery Network analytics
-        href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
       - name: Ingestion, ETL, and stream processing
         href: solution-ideas/articles/ingest-etl-stream-with-adb.yml
-      - name: Manage event data with HDInsight and Delta Lake
-        href: solution-ideas/articles/hdinsight-kafka-spark-delta-lake.yml
       - name: Modern analytics with Azure Databricks
         href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
       - name: Modern data platform for small and medium businesses
@@ -973,7 +684,7 @@ items:
         - name: SAP NetWeaver in Windows on Azure
           href: guide/sap/sap-netweaver.yml
         - name: SAP S/4HANA in Linux on Azure
-          href: guide/sap/sap-s4hana.yml
+          href: guide/sap/sap-s4hana.md
       - name: Solution ideas
         items:
         - name: SAP S/4 HANA for Large Instances
@@ -996,8 +707,6 @@ items:
         items:
         - name: Choose a Kubernetes at the edge option
           href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
-        - name: Choose a bare-metal Kubernetes option
-          href: operator-guides/aks/choose-bare-metal-kubernetes.yml
       - name: Architectures
         items:
         - name: Application
@@ -1032,10 +741,6 @@ items:
               href: reference-architectures/containers/aks-pci/aks-pci-policy.yml
             - name: Summary
               href: reference-architectures/containers/aks-pci/aks-pci-summary.yml
-          - name: Deploy web apps on Azure Red Hat OpenShift
-            href: reference-architectures/containers/aro/ha-zr-aro.yml
-          - name: Running Windows containers on AKS
-            href: reference-architectures/containers/aks/windows-containers-on-aks.yml
           - name: Use Azure Red Hat OpenShift in the financial services industry
             href: reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml
           - name: CI/CD for microservices on Kubernetes
@@ -1050,8 +755,6 @@ items:
             href: guide/aks/aks-cicd-azure-pipelines.yml
           - name: GitOps for AKS
             href: example-scenario/gitops-aks/gitops-blueprint-aks.yml
-          - name: Migrate an app from Service Fabric to AKS
-            href: guide/aks/migrate-app-service-fabric-azure-kubernetes-service.md
         - name: Infrastructure
           items:
           - name: Access an AKS API server
@@ -1080,8 +783,6 @@ items:
               href: operator-guides/aks/aks-upgrade-practices.md
             - name: Troubleshoot networking
               href: operator-guides/aks/troubleshoot-network-aks.md
-            - name: Troubleshoot virtual nodes
-              href: operator-guides/aks/troubleshoot-virtual-nodes-aks.md
             - name: Monitor AKS with Azure Monitor
               href: /azure/aks/monitor-aks?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
               maintainContext: true
@@ -1096,18 +797,10 @@ items:
             href: example-scenario/aks-front-door/aks-front-door.yml
           - name: Multitenancy with AKS and AGIC
             href: example-scenario/aks-agic/aks-agic.yml
-          - name: Overview of migration from Service Fabric to AKS
-            href: guide/aks/service-fabric-azure-kubernetes-service.md
-          - name: AKS data protection on Azure NetApp Files
-            href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
-          - name: AKS dual-stack network traffic
-            href: guide/aks/aks-dual-stack.yml
           - name: Use Azure Kubernetes Service to host GPU-based workloads
             href: reference-architectures/containers/aks-gpu/gpu-aks.yml
       - name: Solution ideas
         items:
-        - name: Build CNCF projects by using AKS
-          href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml
         - name: Data streaming with AKS
           href: solution-ideas/articles/data-streaming-scenario.yml
     - name: PaaS container hosting
@@ -1128,16 +821,6 @@ items:
       items:
       - name: Azure Sandbox
         href: guide/azure-sandbox/azure-sandbox.yml
-      - name: Advanced ARM templates
-        items:
-        - name: Update a resource
-          href: guide/azure-resource-manager/advanced-templates/update-resource.md
-        - name: Use an object as a parameter
-          href: guide/azure-resource-manager/advanced-templates/objects-as-parameters.md
-        - name: Property transformer and collector
-          href: guide/azure-resource-manager/advanced-templates/collector.md
-        - name: Infrastructure as code with Bicep
-          href: guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml
       - name: DevSecOps on AKS
         href: guide/devsecops/devsecops-on-aks.yml
       - name: Use deployment scripts to check resource properties
@@ -1146,49 +829,37 @@ items:
       items:
       - name: Automate API deployments with APIOps
         href: example-scenario/devops/automated-api-deployments-apiops.yml
-      - name: CI/CD pipeline using Azure DevOps
-        href: example-scenario/apps/devops-dotnet-baseline.yml
+      - name: Scalable cloud applications and site reliability engineering (SRE)
+        href: example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml
+      - name: Manage Microsoft 365 with DevOps
+        href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
     - name: "Solution idea: DevSecOps for infrastructure as code"
       href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
-  - name: Hybrid + Multicloud
+  - name: Hybrid + multicloud
     items:
     - name: Get started
       href: hybrid/hybrid-start-here.md
     - name: Guides
       items:
-      - name: Connect an on-premises network to Azure
-        href: reference-architectures/hybrid-networking/index.yml
       - name: Troubleshoot a hybrid VPN connection
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.yml
     - name: Architectures
       items:
-      - name: Azure Arc solutions
+      - name: Adaptive cloud
         items:
-        - name: Azure Arc hybrid management with AKS
-          href: hybrid/arc-hybrid-kubernetes.yml
-        - name: Deploy an Azure Arc-enabled SQL managed instance for DR
-          href: hybrid/arc-sql-managed-instance-disaster-recovery.yml
-        - name: Optimize SQL Server with Azure Arc
-          href: hybrid/azure-arc-sql-server.yml
-      - name: Azure Automation solutions
-        items:
-        - name: Azure Automation State Configuration
-          href: example-scenario/state-configuration/state-configuration.yml
-        - name: Implement a secure hybrid network
-          href: reference-architectures/dmz/secure-vnet-dmz.yml
-      - name: Azure enterprise cloud file share
-        href: hybrid/azure-files-private.yml
-      - name: Azure files secured by AD DS
-        href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
-      - name: Azure Functions in a hybrid environment
-        href: hybrid/azure-functions-hybrid.yml
-      - name: Azure Local solutions
-        items:
+        - name: Azure Arc solutions
+          items:
+          - name: Manage Kubernetes using Azure Arc
+            href: hybrid/arc-hybrid-kubernetes.yml
+          - name: Deploy an Azure Arc-enabled SQL managed instance for DR
+            href: hybrid/arc-sql-managed-instance-disaster-recovery.yml
+          - name: Optimize SQL Server with Azure Arc
+            href: hybrid/azure-arc-sql-server.yml
         - name: Azure Local infrastructure
           items:
           - name: Azure Local baseline
             href: hybrid/azure-local-baseline.yml
-          - name: Azure Local storage switchless configuration
+          - name: Azure Local storage switchless
             href: hybrid/azure-local-switchless.yml
           - name: Azure Local stretched clusters for DR
             href: hybrid/azure-local-dr.yml
@@ -1204,24 +875,38 @@ items:
               href: example-scenario/hybrid/aks-hybrid-azure-local.yml
           - name: Azure Virtual Desktop for Azure Local
             href: hybrid/azure-local-workload-virtual-desktop.yml
-      - name: Connect on-premises with ExpressRoute
-        href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
-      - name: Design a hybrid Domain Name System
-        href: hybrid/hybrid-dns-infra.yml
-      - name: 'Enhanced-security hybrid: client access'
-        href: example-scenario/hybrid/secure-hybrid-messaging-client.yml
-      - name: 'Enhanced-security hybrid: mobile access'
-        href: example-scenario/hybrid/secure-hybrid-messaging-mobile.yml
-      - name: 'Enhanced-security hybrid: web access'
-        href: example-scenario/hybrid/secure-hybrid-messaging-web.yml
-      - name: Hybrid availability and monitoring
-        href: hybrid/hybrid-perf-monitoring.yml
-      - name: Hybrid file services
-        href: hybrid/hybrid-file-services.yml
-      - name: Hybrid file share with disaster recovery
-        href: example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml
-      - name: Use file shares in a hybrid environment
-        href: hybrid/azure-file-share.yml
+      - name: Hybrid connectivity
+        items:
+        - name: Connect an on-premises network to Azure
+          href: reference-architectures/hybrid-networking/index.yml
+        - name: Connect on-premises with ExpressRoute
+          href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
+        - name: Design a hybrid Domain Name System
+          href: hybrid/hybrid-dns-infra.yml
+        - name: Implement a secure hybrid network
+          href: reference-architectures/dmz/secure-vnet-dmz.yml
+      - name: Hybrid messaging
+        items:
+        - name: 'Enhanced-security hybrid: client access'
+          href: example-scenario/hybrid/secure-hybrid-messaging-client.yml
+        - name: 'Enhanced-security hybrid: mobile access'
+          href: example-scenario/hybrid/secure-hybrid-messaging-mobile.yml
+        - name: 'Enhanced-security hybrid: web access'
+          href: example-scenario/hybrid/secure-hybrid-messaging-web.yml
+      - name: Hybrid monitoring
+        items:
+        - name: Hybrid availability and monitoring
+          href: hybrid/hybrid-perf-monitoring.yml
+      - name: Hybrid storage
+        items:
+        - name: Azure enterprise cloud file share
+          href: hybrid/azure-files-private.yml
+        - name: Azure files secured by AD DS
+          href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
+        - name: Hybrid file services
+          href: hybrid/hybrid-file-services.yml
+        - name: Use file shares in a hybrid environment
+          href: hybrid/azure-file-share.yml
   - name: Identity
     items:
     - name: Get started
@@ -1231,17 +916,7 @@ items:
       - name: Cross-tenant communication
         href: patterns/cross-tenant-communication-using-multitenanted-applications.md
       - name: Cross-tenant secure access to apps
-        href: networking/guide/cross-tenant-secure-access-private-endpoints.yml        
-      - name: Conditional Access
-        items:
-        - name: Conditional Access for Zero trust
-          href: guide/security/conditional-access-zero-trust.md
-        - name: Conditional Access design principles
-          href: guide/security/conditional-access-design.yml
-        - name: Conditional Access architecture
-          href: guide/security/conditional-access-architecture.yml
-        - name: Conditional Access framework
-          href: guide/security/conditional-access-framework.md
+        href: networking/guide/cross-tenant-secure-access-private-endpoints.yml
     - name: Architectures
       items:
       - name: AD DS resource forests in Azure
@@ -1292,7 +967,7 @@ items:
     items:
     - name: Guides
       items:
-      - name: Enable machine learning inference
+      - name: Enable ML inference on IoT Edge
         href: guide/iot/machine-learning-inference-iot-edge.yml
       - name: Scale your IoT Hub solutions
         href: guide/iot/scale-iot-solution-azure.md
@@ -1302,17 +977,15 @@ items:
         href: guide/multitenant/approaches/iot.md
     - name: Architectures
       items:
-      - name: Automotive connected fleets
-        href: industries/automotive/automotive-connected-fleets.yml
       - name: Automotive test data analytics
         href: industries/automotive/automotive-telemetry-analytics.yml
     - name: Solution ideas
       items:
-      - name: Azure load testing
+      - name: Azure Load Testing for IoT Hub
         href: guide/testing/load-testing/load-testing-with-custom-plugins.md
-      - name: IoT analytics with Azure Data Explorer
+      - name: IoT Hub analytics with Azure Data Explorer
         href: solution-ideas/articles/iot-azure-data-explorer.yml
-      - name: IoT private file upload to Azure Storage
+      - name: IoT Hub private file upload to Azure Storage
         href: example-scenario/iot/iot-private-file-upload.yml
       - name: Project 15 IoT sustainability
         href: solution-ideas/articles/project-15-iot-sustainability.yml
@@ -1326,20 +999,14 @@ items:
         href: example-scenario/wsus/index.yml
     - name: Architectures
       items:
+      - name: Azure Automation State Configuration
+        href: example-scenario/state-configuration/state-configuration.yml
       - name: Hybrid management
         items:
         - name: Azure Arc hybrid management with AKS
           href: hybrid/arc-hybrid-kubernetes.yml
-        - name: Back up files on Azure Stack Hub
-          href: hybrid/azure-stack-backup.yml
-        - name: Disaster recovery for Azure Stack Hub
-          href: hybrid/azure-stack-vm-disaster-recovery.yml
         - name: Hybrid availability and monitoring
           href: hybrid/hybrid-perf-monitoring.yml
-    - name: Solution ideas
-      items:
-      - name: Video capture and analytics for retail
-        href: solution-ideas/articles/video-analytics.yml
   - name: Migration
     items:
     - name: Get started
@@ -1407,12 +1074,12 @@ items:
         href: example-scenario/gateway/application-gateway-before-azure-firewall.yml
     - name: Architectures
       items:
-      - name: Secure a Microsoft Teams channel bot
-        href: example-scenario/teams/securing-bot-teams-channel.yml
       - name: Secure research for regulated data
         href: ai-ml/architecture/secure-compute-for-research.yml
       - name: Computer forensics
-        href: example-scenario/forensics/index.yml        
+        href: example-scenario/forensics/index.yml
+      - name: Certificate lifecycle management on Azure
+        href: example-scenario/certificate-lifecycle/index.yml
     - name: Solution ideas
       items:
       - name: Multilayered protection for Azure VMs
@@ -1433,144 +1100,6 @@ items:
     items:
     - name: Get started
       href: guide/storage/storage-start-here.md
-    - name: Guides
-      items:
-      - name: Storage accounts
-        href: /azure/storage/common/storage-account-overview
-        maintainContext: true
-      - name: Security and compliance
-        items:
-        - name: Storage encryption for data at rest
-          href: /azure/storage/common/storage-service-encryption
-          maintainContext: true
-        - name: Azure Policy controls for Storage
-          href: /azure/storage/common/security-controls-policy
-          maintainContext: true
-        - name: Use private endpoints
-          href: /azure/storage/common/storage-private-endpoints
-          maintainContext: true
-        - name: Security baseline for Azure Storage
-          href: /security/benchmark/azure/baselines/storage-security-baseline
-          maintainContext: true
-      - name: Data redundancy
-        href: /azure/storage/common/storage-redundancy
-        maintainContext: true
-      - name: DR and storage account failover
-        href: /azure/storage/common/storage-disaster-recovery-guidance
-        maintainContext: true
-      - name: Azure Storage migration guidance
-        href: /azure/storage/common/storage-migration-overview
-        maintainContext: true
-      - name: Blob storage guidance
-        items:
-        - name: Authorize access to blobs with Microsoft Entra ID
-          href: /azure/storage/blobs/authorize-access-azure-active-directory
-          maintainContext: true
-        - name: Authorize access with role conditions
-          href: /azure/storage/blobs/storage-auth-abac
-          maintainContext: true
-        - name: Data protection
-          href: /azure/storage/blobs/data-protection-overview
-          maintainContext: true
-        - name: Security recommendations
-          href: /azure/storage/blobs/security-recommendations
-          maintainContext: true
-        - name: Performance and scalability checklist
-          href: /azure/storage/blobs/storage-performance-checklist
-          maintainContext: true
-      - name: Data Lake Storage guidance
-        items:
-        - name: Best practices
-          href: /azure/storage/blobs/data-lake-storage-best-practices
-          maintainContext: true
-        - name: Security controls by Azure Policy
-          href: /azure/data-lake-store/security-controls-policy
-          maintainContext: true
-      - name: File storage guidance
-        items:
-        - name: Planning for deployment
-          href: /azure/storage/files/storage-files-planning
-          maintainContext: true
-        - name: Identity-based authentication
-          href: /azure/storage/files/storage-files-active-directory-overview
-          maintainContext: true
-        - name: Networking considerations
-          href: /azure/storage/files/storage-files-networking-overview
-          maintainContext: true
-        - name: Disaster recovery and failover
-          href: /azure/storage/common/storage-disaster-recovery-guidance
-          maintainContext: true
-        - name: File share backup
-          href: /azure/backup/azure-file-share-backup-overview
-          maintainContext: true
-      - name: Queue storage guidance
-        items:
-        - name: Authorize access with Microsoft Entra ID
-          href: /azure/storage/queues/authorize-access-azure-active-directory
-          maintainContext: true
-        - name: Performance and scalability checklist
-          href: /azure/storage/queues/storage-performance-checklist
-          maintainContext: true
-      - name: Table storage guidance
-        items:
-        - name: Authorize access with Microsoft Entra ID
-          href: /azure/storage/tables/authorize-access-azure-active-directory
-          maintainContext: true
-        - name: Performance and scalability checklist
-          href: /azure/storage/tables/storage-performance-checklist
-          maintainContext: true
-        - name: Design scalable and performant tables
-          href: /azure/storage/tables/table-storage-design
-          maintainContext: true
-        - name: Design for querying
-          href: /azure/storage/tables/table-storage-design-for-query
-          maintainContext: true
-        - name: Table design patterns
-          href: /azure/storage/tables/table-storage-design-patterns
-          maintainContext: true
-      - name: Disk storage guidance
-        items:
-        - name: Choose a managed disk type
-          href: /azure/virtual-machines/disks-types
-          maintainContext: true
-        - name: Server-side encryption
-          href: /azure/virtual-machines/disk-encryption
-          maintainContext: true
-        - name: Disk Encryption for Linux VMs
-          href: /azure/virtual-machines/linux/disk-encryption-overview
-          maintainContext: true
-        - name: Disk Encryption for Windows VMs
-          href: /azure/virtual-machines/windows/disk-encryption-overview
-          maintainContext: true
-        - name: Design for high performance
-          href: /azure/virtual-machines/premium-storage-performance
-          maintainContext: true
-        - name: Scalability and performance targets
-          href: /azure/virtual-machines/disks-scalability-targets
-          maintainContext: true
-        - name: Create an incremental snapshot
-          href: /azure/virtual-machines/disks-incremental-snapshots
-          maintainContext: true
-      - name: Azure NetApp Files guidance
-        items:
-        - name: Solution architectures
-          href: /azure/azure-netapp-files/azure-netapp-files-solution-architectures
-          maintainContext: true
-        - name: Use ANF with Oracle Database
-          href: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-oracle-database
-          maintainContext: true
-        - name: ANF for electronic design automation
-          href: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-electronic-design-automation
-          maintainContext: true
-        - name: Use ANF with Virtual Desktop
-          href: /azure/azure-netapp-files/solutions-windows-virtual-desktop
-          maintainContext: true
-        - name: Use ANF with SQL Server
-          href: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server
-          maintainContext: true
-        - name: ANF volume group for SAP HANA
-          href: /azure/azure-netapp-files/application-volume-group-introduction
-          maintainContext: true
     - name: Architectures
       items:
       - name: Azure file shares in a hybrid environment
@@ -1579,8 +1108,6 @@ items:
         href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
       - name: Azure NetApp Files solutions
         items:
-        - name: AKS data protection on ANF
-          href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
         - name: Enterprise file shares with DR
           href: example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml
         - name: Moodle deployment with ANF
@@ -1591,10 +1118,6 @@ items:
           href: example-scenario/file-storage/sql-server-azure-netapp-files.yml
       - name: Hybrid file services
         href: hybrid/hybrid-file-services.yml
-      - name: Minimal storage – change feed replication
-        href: databases/idea/minimal-storage-change-feed-replicate-data.yml
-      - name: Multi-region web app with replication
-        href: solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml
       - name: Mainframe
         items:
         - name: Mainframe file and tape backup to Azure using Luminex
@@ -1605,12 +1128,6 @@ items:
           href: example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml
         - name: Move mainframe archive data to Azure
           href: example-scenario/mainframe/move-archive-data-mainframes.yml
-    - name: Solution ideas
-      items:
-      - name: Medical data storage
-        href: solution-ideas/articles/medical-data-storage.yml
-      - name: Two-region app with Table storage failover
-        href: solution-ideas/articles/multi-region-web-app-azure-table-failover.yml
   - name: Virtual Desktop
     items:
     - name: Get started

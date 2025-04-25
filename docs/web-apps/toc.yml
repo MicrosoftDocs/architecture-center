@@ -6,10 +6,8 @@ items:
       items: 
       - name: Hosting an e-commerce web app
         href: idea/scalable-ecommerce-web-app.yml
-      - name: Network securing an e-commerce web app
-        href: idea/ecommerce-website-running-in-secured-ase.yml
-      - name: Migrating a workload to containers with App Service
-        href: idea/migrate-existing-applications-to-container-apps.yml
+      - name: Deploying a highly available SharePoint farm
+        href: ../solution-ideas/articles/highly-available-sharepoint-farm.yml
     - name: Design architectures
       items:
       - name: Host web apps with App Service
@@ -18,8 +16,6 @@ items:
           href: app-service/architectures/basic-web-app.yml
         - name: Baseline web application with zone redundancy
           href: app-service/architectures/baseline-zone-redundant.yml
-        - name: Active-passive multi-region web app
-          href: app-service/architectures/multi-region.yml
       - name: Host web apps with App Service Environment
         items:
         - name: Standard deployment
@@ -48,8 +44,6 @@ items:
         items:
         - name: Securing access to multitenant web apps from on prem
           href: guides/networking/access-multitenant-web-app-from-on-premises.yml
-        - name: Automate Application Gateway reconfiguration for web apps
-          href: guides/networking/automation-application-gateway.yml
       - name: Security guidance for web apps
         items:
         - name: Single-page application authorization
@@ -72,7 +66,6 @@ items:
               href: guides/enterprise-app-patterns/modern-web-app/dotnet/guidance.yml
             - name: Java
               href: guides/enterprise-app-patterns/modern-web-app/java/guidance.yml
-
       - name: Disaster recovery for web apps
         items:
         - name: Multi-region App Service apps for disaster recovery
@@ -85,5 +78,3 @@ items:
         href: ../example-scenario/infrastructure/wordpress-container.yml
       - name: App Service hosting
         href: ../example-scenario/infrastructure/wordpress-app-service.yml
-      - name: VM hosting
-        href: ../example-scenario/infrastructure/wordpress-iaas.yml

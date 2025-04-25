@@ -149,14 +149,14 @@ Use [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) t
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 - With the extend-target architecture, you have full flexibility with your deployment options in development and production. This transformation supports both the immediate adoption of the cloud and the adoption of both DevOps and Agile working principles.
-- Holistic Monitoring in Azure Monitor can be plugged in to get full observability across the integrated solution. As part of the Azure Monitor suite, Azure Application Insights is recommended due to its direct integration capabilities to monitor Power Apps, the VMs and Linux containers using Docker on Azure and for the services, VHI session pools, and security. The Verastream Management console provides an interface to configure the reporting of pertinent information to Azure Monitor.
+- Holistic Monitoring in Azure Monitor can be plugged in to get full observability across the integrated solution. As part of the Azure Monitor suite, Azure Application Insights is recommended due to its direct integration capabilities to monitor Power Apps, the VMs, and Linux containers using Docker on Azure, and for the services, VHI session pools, and security. The Verastream Management console provides an interface to configure the reporting of pertinent information to Azure Monitor.
 
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 - Performance efficiency is built into this solution because of the load balancers. When multiple runtime servers are deployed, the workload is dynamically balanced for optimal performance under high-transaction volumes. If a service outage occurs on any runtime server, the remaining servers automatically provide uninterrupted failover protection.
-- At the VHI level, the platform manages sessions using session pooling and emphasis on a low ratio of sessions to users. Verastream scales seamlessly across multiple runtime servers to deliver rapid response and 24/7 reliability.
+- At the VHI level, the platform manages sessions using session pooling and an emphasis on a low ratio of sessions to users. Verastream scales seamlessly across multiple runtime servers to deliver rapid response and 24/7 reliability.
 
 ## Contributors
 

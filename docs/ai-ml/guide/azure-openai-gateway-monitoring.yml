@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Monitor Azure OpenAI Service through a gateway
+  description: Learn how to implement advanced monitoring scenarios for Azure OpenAI, like chargeback and auditing, through accessing the Azure OpenAI Service through a gateway.
+  author: jakeatmsft
+  ms.author: jacwang
+  ms.date: 3/28/2025
+  ms.topic: conceptual
+  ms.collection: ce-skilling-ai-copilot
+  ms.subservice: architecture-guide
+  ms.custom: arb-aiml
+azureCategories:
+  - ai-machine-learning
+  - management-and-governance
+products:
+  - ai-services
+  - azure-openai
+  - azure-api-management
+  - entra-id
+  - azure-monitor
+name: Implement advanced monitoring of the Azure OpenAI Service through a gateway
+summary: Learn how to implement advanced monitoring scenarios for Azure OpenAI, like chargeback and auditing, through accessing the Azure OpenAI Service through a gateway.
+thumbnailUrl: /azure/architecture/browse/thumbs/tracking-multiple-models-inputs-outputs-bus.png
+content: |
+  [!INCLUDE[](azure-openai-gateway-monitoring-content.md)]

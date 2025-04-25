@@ -83,6 +83,8 @@ This solution applies to scenarios that:
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
+
 Consider these points when implementing this solution:
 
 - Route Server establishes connections and exchanges routes. It doesn't transfer data packets. As a result, the VMs that Route Server runs in its back end don't require significant CPU power or computational power.
@@ -95,28 +97,26 @@ Consider these points when implementing this solution:
 
 When considering this solution, also keep in mind the points in the following sections.
 
-### Availability
+### Reliability
+
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+This solution uses only managed components. At a regional level, all these components are automatically resilient. Route Server offers high availability. When you deploy Route Server in an Azure region that supports availability zones, your implementation has zone-level redundancy. For more information about availability zones, see [Regions and availability zones][Regions and availability zones].
 
 Route Server is a fully managed service that offers high availability. For this service's availability guarantee, see [SLA for Azure Route Server][SLA for Azure Route Server].
 
-### Scalability
-
-Most components in this solution are managed services that automatically scale. But there are some exceptions:
-
-- Route Server can support at most 4,000 VMs per virtual network, including peered virtual networks.
-
 ### Security
+
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - For guidance on improving the security of your applications and data on Azure, see [Overview of the Azure Security Benchmark (v1)][Overview of the Azure Security Benchmark (v1)].
 - For guidance from Azure Security Benchmark version 1.0 that's specific to Virtual Network, see [Azure security baseline for Virtual Network][Azure security baseline for Virtual Network].
 
-### Resiliency
+### Cost Optimization
 
-This solution uses only managed components. At a regional level, all these components are automatically resilient. Route Server offers high availability. When you deploy Route Server in an Azure region that supports availability zones, your implementation has zone-level redundancy. For more information about availability zones, see [Regions and availability zones][Regions and availability zones].
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-### Cost optimization
-
-To estimate the cost of implementing this solution, see the [Azure pricing calculator][Pricing calculator]. For general information about reducing unnecessary expenses, see [Overview of the cost optimization pillar][Overview of the cost optimization pillar].
+To estimate the cost of implementing this solution, see the [Azure pricing calculator][Pricing calculator].
 
 The following sections discuss pricing information for the solution's components.
 
@@ -144,6 +144,12 @@ There's no charge for using service endpoints.
 
 NVAs are charged based on the appliance that you use. You're also charged for the Azure VMs that you deploy and the underlying infrastructure resources that you consume, such as storage and networking. For more information, see [Linux Virtual Machines Pricing][Linux Virtual Machines Pricing].
 
+### Performance Efficiency
+
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+Most components in this solution are managed services that automatically scale. But there are some exceptions. For example, Route Server can support at most 4,000 VMs per virtual network, including peered virtual networks.
+
 ## Next steps
 
 - [Quickstart: Create and configure Route Server using the Azure portal][Quickstart: Create and configure Route Server using the Azure portal]
@@ -156,7 +162,6 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 
 ## Related resources
 
-- [Azure Firewall architecture overview][Azure Firewall architecture overview]
 - [Choose between virtual network peering and VPN gateways][Choose between virtual network peering and VPN gateways]
 - [Recommendations for using availability zones and regions][Recommendations for using availability zones and regions]
 - [Deploy highly available NVAs][Deploy highly available NVAs]
@@ -165,7 +170,6 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 [About Azure Route Server support for ExpressRoute and Azure VPN]: /azure/route-server/expressroute-vpn-support
 [About dual-homed network with Azure Route Server]: /azure/route-server/about-dual-homed-network
 [Azure ExpressRoute pricing]: https://azure.microsoft.com/pricing/details/expressroute
-[Azure Firewall architecture overview]: ../guide/network-virtual-appliances-architecture.yml
 [Azure road map]: https://azure.microsoft.com/updates/?category=networking
 [Azure Route Server]: /azure/route-server/overview
 [Azure Route Server FAQ]: /azure/route-server/route-server-faq
@@ -174,13 +178,12 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 [Recommendations for using availability zones and regions]: /azure/well-architected/reliability/regions-availability-zones
 [Choose between virtual network peering and VPN gateways]: ../../reference-architectures/hybrid-networking/vnet-peering.yml
 [Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell - Limits and limitations]: /azure/expressroute/expressroute-howto-coexist-resource-manager#limits-and-limitations
-[Deploy highly available NVAs]: ../guide/nva-ha.yml
+[Deploy highly available NVAs]: ../guide/network-virtual-appliance-high-availability.md
 [Introduction to the core Azure Storage services]: /azure/storage/common/storage-introduction?toc=/azure/storage/blobs/toc.json
 [Linux Virtual Machines Pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [Networking blog]: https://azure.microsoft.com/blog/topics/networking
 [Next steps in Virtual Network service endpoints]: /azure/virtual-network/virtual-network-service-endpoints-overview#next-steps
 [Overview of the Azure Security Benchmark (v1)]: /security/benchmark/azure/overview-v1
-[Overview of the cost optimization pillar]: /azure/architecture/framework/cost/overview
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Quickstart: Create and configure Route Server using the Azure portal]: /azure/route-server/quickstart-configure-route-server-portal
 [Regions and availability zones]: /azure/reliability/availability-zones-overview
