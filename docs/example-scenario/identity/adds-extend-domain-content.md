@@ -82,13 +82,13 @@ Monitor the resources of the domain controller VMs and the AD DS Services and cr
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
-### Reliability 
+### Reliability
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Deploy the VMs running AD DS into at least two [availability zones](/azure/reliability/availability-zones-overview). If availability zones aren't available in the region, use [availability sets][availability-set]. Also, consider assigning the role of [standby operations master][ad-ds-operations-masters] to at least one server, and possibly more, depending on your requirements. A standby operations master is an active copy of the operations master that can replace the primary operations master's server during failover.
 
-### Security 
+### Security
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
@@ -122,7 +122,7 @@ For more information, see [VPN Gateway pricing][azure-gateway-charges].
 
 Virtual Network is free. Every subscription is allowed to create up to 1,000 virtual networks across all regions. All traffic within a virtual network's boundaries is free, so communication between two VMs in the same virtual network is free.
 
-### Operational Excellence 
+### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
