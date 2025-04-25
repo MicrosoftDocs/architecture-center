@@ -162,13 +162,15 @@ The operating cost attributed to the higher levels of service resiliency often p
 > [!NOTE]  
 > [Cost Optimization](/azure/well-architected/cost-optimization/checklist) is one of the five pillars of architectural excellence within the [Azure Well-Architected Framework](/azure/well-architected/pillars). Its goal is to reduce unnecessary expenses and improve operational efficiencies.  
 
-The DR scenario for this worked example is a complete Azure regional outage that directly affects the primary region that hosts the Contoso Data Platform.  
+The DR scenario for this worked example is a complete Azure regional outage that directly affects the primary region that hosts the Contoso Data Platform.
 
-For this outage scenario, the relative impact on the four high-level DR strategies is based on the following factors:
+The following table is a comparison between the options. A strategy that has a green indicator is better for that classification than a strategy that has a yellow or red indicator.
 
 ![Diagram that shows the effects of the outage on the DR strategies.](../images/dr-for-azure-data-platform-strategy.png)  
 
-### Classification key  
+### Classification key
+
+For this outage scenario, the relative impact on the four high-level DR strategies is based on the following factors:  
 
 - **RTO:** The expected elapsed time from the disaster event to platform service recovery.  
 
@@ -178,10 +180,7 @@ For this outage scenario, the relative impact on the four high-level DR strategi
 
 - **Customer impact:** The direct impact to customers of the data platform service from the DR strategy.  
 
-- **Above-the-line OPEX cost:** The extra cost expected from implementing this strategy, like increased monthly billing for Azure for extra components and extra resources required to support.  
-
-> [!NOTE]
-> The previous table is a comparison between the options. A strategy that has a green indicator is better for that classification than a strategy that has a yellow or red indicator.
+- **Above-the-line OPEX cost:** The extra cost expected from implementing this strategy, like increased monthly billing for Azure for extra components and extra resources required to support.
 
 ## Next steps
 
