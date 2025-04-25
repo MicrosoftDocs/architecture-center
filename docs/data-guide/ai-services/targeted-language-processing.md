@@ -1,6 +1,6 @@
 ---
 title: Choose an Azure AI Targeted Language Processing Technology
-description: Learn about Azure AI services targeted language processing capabilities, including NLP, text analytics, translation, and document data extraction. Determine which service aligns best with your specific use case.
+description: Learn about Azure AI services targeted language processing capabilities, including NLP, text analytics, translation, and document data extraction.
 author: ritesh-modi
 ms.author: rimod
 categories:
@@ -39,7 +39,7 @@ The following services provide targeted language processing capabilities for AI 
   
   - **Don't use** Translator if you need to engage with chat, analyze content for sentiment, or moderate content. For sentiment analysis, use Language instead. For content moderation, use Microsoft Azure AI Content Safety.
 
-- [Azure AI Document Intelligence](#document-intelligence) is a service that can convert images directly into electronic forms. You can specify expected fields and then search images that you provide to capture those fields without human intervention. Document Intelligence hosts many prebuilt models and also allows you to build custom form models of your own.
+- [Azure AI Document Intelligence](#document-intelligence) is a service that can convert images directly into electronic forms. You can specify expected fields and then search images that you provide to capture those fields without human intervention. Document Intelligence hosts many prebuilt models and also allows you to build custom models of your own.
 
   - **Use** Document Intelligence when you know exactly which fields you need to extract from scanned documents to fill electronic forms appropriately.
 

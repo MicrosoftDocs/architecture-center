@@ -106,7 +106,7 @@ The following table provides a list of possible use cases for Custom Vision.
 | Use case | Description |
 | :----------| :---------|
 | [Use Custom Vision with an IoT device to report visual states](/azure/iot-edge/tutorial-deploy-custom-vision). | Use Custom Vision to train a device that has a camera to detect visual states. You can run this detection scenario on an IoT device by using an exported ONNX model. A visual state describes the content of an image, such as an empty room or a room with people or an empty driveway or a driveway with a truck. |
-| [Recognize logos in camera pictures](/azure/ai-services/custom-vision-service/logo-detector-mobile). | Analyze photos and scan for specific logos. |
+| [Classify images and objects](/azure/ai-services/custom-vision-service/overview#classification-and-object-detection). | Analyze photos and scan for specific logos by training a custom model. |
 
 ### Azure AI Face
 
