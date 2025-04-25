@@ -39,7 +39,7 @@ The following services provide targeted language processing capabilities for AI 
   
   - **Don't use** Translator if you need to engage with chat, analyze content for sentiment, or moderate content. For sentiment analysis, use Language instead. For content moderation, use Microsoft Azure AI Content Safety.
 
-- [Azure AI Document Intelligence](#document-intelligence) is a service that can convert images directly into electronic forms. You can specify expected fields and then searches images that you provide to capture those fields without human intervention. Document Intelligence hosts many prebuilt models and also allows you to build custom form models of your own.
+- [Azure AI Document Intelligence](#document-intelligence) is a service that can convert images directly into electronic forms. You can specify expected fields and then search images that you provide to capture those fields without human intervention. Document Intelligence hosts many prebuilt models and also allows you to build custom form models of your own.
 
   - **Use** Document Intelligence when you know exactly which fields you need to extract from scanned documents to fill electronic forms appropriately.
 
@@ -57,7 +57,7 @@ The following table provides a list of capabilities available in Azure OpenAI.
 
 | Capability | Description |
 | :----------| :-------------|
-| [Text generation and completion](/azure/ai-services/openai/concepts/prompt-engineering) | Generates human-like text based on prompts, automatically completes sentences or paragraphs, summarizes long documents into concise summaries, and answers questions based on context. |
+| [Text generation and completion](/azure/ai-services/openai/concepts/prompt-engineering) | Generates humanlike text based on prompts, automatically completes sentences or paragraphs, summarizes long documents into concise summaries, and answers questions based on context. |
 | [Chat](/azure/ai-services/openai/chatgpt-quickstart) | Build chatbots and virtual assistants, maintain context in multiple-turn conversations, and personalize responses based on user interaction. |
 | [Assistants](/azure/ai-services/openai/concepts/assistants) | Create a copilot-like experience that maintains a consistent personality across user interactions. Enable the use of multiple tools simultaneously, such as code implementation and knowledge search. |
 | [Embeddings](/azure/ai-services/openai/concepts/understand-embeddings) | Convert text into numerical vectors where similar meanings are positioned close together in vector space. This process enables powerful similarity search in services such as Azure AI Search, Azure Cosmos DB, Azure SQL Database, and Azure Database for PostgreSQL. |
@@ -66,7 +66,7 @@ The following table provides a list of capabilities available in Azure OpenAI.
 
 ### Language
 
-[Language](/azure/ai-services/language-service/overview) is a cloud-based service that provides NLP features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries.
+[Language](/azure/ai-services/language-service/overview) is a cloud-based service that provides NLP features for understanding and analyzing text. Use this service to help build intelligent applications by using the web-based Language Studio, REST APIs, and client libraries.
 
 #### Capabilities
 
@@ -94,9 +94,9 @@ The following table provides a list of possible use cases for Language.
 | Use case | Customizable |
 | :----------|:-----------------|
 | [Predict the intention of user inputs and extract information from them](/azure/ai-services/language-service/conversational-language-understanding/overview). |  Yes |
-| [Identify and/or redact sensitive information such as PII](/azure/ai-services/language-service/personally-identifiable-information/overview). |  |
+| [Identify and redact sensitive information such as PII](/azure/ai-services/language-service/personally-identifiable-information/overview). |  |
 | [Identify the language that a text was written in](/azure/ai-services/language-service/language-detection/overview). | |
-| [Extract medical information from clinical or medical documents without building a model](/azure/ai-services/language-service/text-analytics-for-health/overview) |   |
+| [Extract medical information from clinical or medical documents without building a model](/azure/ai-services/language-service/text-analytics-for-health/overview). |   |
 | [Extract medical information from clinical or medical documents by using a model that's trained on your data](/azure/ai-services/language-service/custom-text-analytics-for-health/overview). | Yes |
 | [Extract categories of information without creating a custom model](/azure/ai-services/language-service/named-entity-recognition/overview). |   |
 | [Extract categories of information by using a model specific to your data](/azure/ai-services/language-service/custom-named-entity-recognition/overview). | Yes |
@@ -108,7 +108,7 @@ The following table provides a list of possible use cases for Language.
 | [Link an entity with knowledge base articles](/azure/ai-services/language-service/entity-linking/overview). | |
 | [Understand questions and answers (generic)](/azure/ai-services/language-service/question-answering/overview). | Yes |
 | [Build a conversational application that responds to user inputs](/azure/ai-services/language-service/question-answering/overview). |   |
-| [Connect apps from conversational language understanding and question answering](/azure/ai-services/language-service/orchestration-workflow/overview). | Yes |
+| [Connect apps from CLU and question answering](/azure/ai-services/language-service/orchestration-workflow/overview). | Yes |
 
 If a feature is customizable, you can train an AI model by using our tools to fit your specific data. Otherwise, the feature is preconfigured, which means that its AI models remain unchanged. You provide your data and use the feature's output in your applications.
 
@@ -123,7 +123,7 @@ The following table provides a list of capabilities available in Translator.
 | Capability | Description |
 | :----------| :-------------|
 | [Azure Text translation](/azure/ai-services/translator/text-translation-overview) | Perform text translation between supported source and target languages in real time. Create a [dynamic dictionary](/azure/ai-services/translator/dynamic-dictionary) and learn how to [prevent translations](/azure/ai-services/translator/prevent-translation) by using the Translator API. |
-| [Document translation](/azure/ai-services/translator/document-translation/overview)| **Asynchronous batch translation:** Translate batch and complex files while preserving the structure and format of the original documents. The batch translation process requires an Azure Blob storage account with containers for your source and translated documents. </br> **Synchronous single file translation:** Translate a single document file alone or with a glossary file while preserving the structure and format of the original document. The file translation process doesn't require a Blob storage account. The final response contains the translated document and is returned directly to the calling client. |
+| [Document translation](/azure/ai-services/translator/document-translation/overview)| **Asynchronous batch translation:** Translate batch and complex files while preserving the structure and format of the original documents. The batch translation process requires an Azure Blob Storage account that has containers for your source and translated documents. </br> **Synchronous single file translation:** Translate a single document file alone or with a glossary file while preserving the structure and format of the original document. The file translation process doesn't require a Blob Storage account. The final response contains the translated document and is returned directly to the calling client. |
 | [Custom Translator](/azure/ai-services/translator/custom-translator/overview) | Build customized models to translate domain- and industry-specific language, terminology, and style. [Create a dictionary (phrase or sentence)](/azure/ai-services/translator/custom-translator/concepts/dictionaries) for custom translations. |
 
 #### Use cases
