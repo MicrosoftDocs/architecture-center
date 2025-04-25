@@ -61,7 +61,7 @@ You should consider any line-of-business applications and dependent resource ava
 
 ## Azure Virtual Desktop control plane business continuity and disaster recovery
 
-Azure Virtual Desktop is designed to be resilient to failures and provide a reliable service to users. The service is designed to be resilient to failures of individual components like Web service, Broker service, Gateway service, Resource directory, Geographical database. This components are Microsoft-managed as part of the Azure Virtual Desktop service and are currently located in around 40 Azure regions to be closer to users and to provide a resilient service.
+Azure Virtual Desktop is resilient to failures of individual components like Web service, Broker service, Gateway service, Resource directory, Geographical database and provides a reliable service to users. These components are Microsoft-managed as part of the Azure Virtual Desktop service and are located in around 40 Azure regions to be closer to users and to provide a resilient service.
 
 :::image type="content" source="images/azure-virtual-desktop-logical-architecture.png" alt-text="Diagram that shows the logical architecture of Virtual Desktop." lightbox="images/azure-virtual-desktop-logical-architecture.png":::
 
