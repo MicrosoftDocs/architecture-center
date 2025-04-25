@@ -113,7 +113,7 @@ The following new and updated articles have recently been published in the Azure
 - [Web API design best practices](./best-practices/api-design.md)  ([#86e26d59cb](https://github.com/MicrosoftDocs/architecture-center/commit/86e26d59cb))
 - [Choose an Azure storage service](./guide/technology-choices/storage-options.md)  ([#6b81270854](https://github.com/MicrosoftDocs/architecture-center/commit/6b81270854))
 - [Choose an analytical data store](./data-guide/technology-choices/analytical-data-stores.md)  ([#ca956df8a3](https://github.com/MicrosoftDocs/architecture-center/commit/ca956df8a3))
-- [Deploy highly available NVAs](./networking/guide/nva-ha.yml)  ([#0456353fea](https://github.com/MicrosoftDocs/architecture-center/commit/0456353fea))
+- [Deploy highly available NVAs](./networking/guide/network-virtual-appliance-high-availability.md)  ([#0456353fea](https://github.com/MicrosoftDocs/architecture-center/commit/0456353fea))
 - [Choose an Azure AI targeted language processing technology](./data-guide/ai-services/targeted-language-processing.md)  ([#f06888ac2d](https://github.com/MicrosoftDocs/architecture-center/commit/f06888ac2d))
 - [Choose an Azure AI services technology](./data-guide/technology-choices/ai-services.md)  ([#f06888ac2d](https://github.com/MicrosoftDocs/architecture-center/commit/f06888ac2d))
 - [Azure Load Testing with Custom Plugins for Event Hubs and IoT Hub to Simulate Device Behaviors](./guide/testing/load-testing/load-testing-with-custom-plugins.md)  ([#3a29cb946a](https://github.com/MicrosoftDocs/architecture-center/commit/3a29cb946a))
