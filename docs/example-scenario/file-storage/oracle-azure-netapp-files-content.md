@@ -147,8 +147,6 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-#### Availability
-
 For Azure NetApp Files:
 
 - See [SLA for Azure NetApp Files][SLA for Azure NetApp Files] for this service's availability guarantee.
@@ -195,8 +193,6 @@ These factors make Azure NetApp Files less costly than disk storage solutions.
 ### Performance Efficiency
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
-
-#### Scalability
 
 As the [Highly performant systems][Highly performant systems section of this article] section discusses, Azure NetApp Files provides built-in scalability.
 

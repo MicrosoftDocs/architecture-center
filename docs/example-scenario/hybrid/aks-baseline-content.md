@@ -132,7 +132,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Focus on the entire stack by securing the host and containers.
+Focus on the entire stack by securing both the host and its containers.
 
 #### Infrastructure security
 

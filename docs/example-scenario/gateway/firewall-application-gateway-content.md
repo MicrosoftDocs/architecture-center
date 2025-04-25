@@ -367,10 +367,6 @@ The designs in this article apply to a *hub-and-spoke* topology. Shared resource
 
 ![Diagram that shows a hybrid design with a VPN and Expressroute gateway and a hub-and-spoke topology.](./images/hubnspoke_500.png)
 
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
-
 - Azure Firewall is deployed in the central hub virtual network. The previous diagram shows how to deploy Application Gateway in the hub. Application teams often manage components such as Application Gateways or API Management gateways. In this scenario, these components are deployed in the spoke virtual networks.
 
 - Pay special attention to UDRs in the spoke networks. When an application server in a spoke receives traffic from a specific Azure Firewall instance, like the `192.168.100.7` IP address in the previous examples, it should send return traffic back to the same instance. If a UDR in the spoke sets the next hop of traffic addressed to the hub to the Azure Firewall IP address (`192.168.100.4` in the previous diagrams), return packets might end up on a different Azure Firewall instance. This situation causes asymmetric routing. If you have UDRs in the spoke virtual networks, make sure to send traffic to shared services in the hub through Azure Firewall. These UDRs don't include the prefix of the Azure Firewall subnet.

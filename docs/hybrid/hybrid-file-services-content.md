@@ -114,7 +114,6 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- You should consider the type and performance of the storage account that you use to host Azure file shares. All storage resources that are deployed into a storage account share the limits that apply to that storage account. To find out more about determining the current limits for a storage account, see [Azure Files scalability and performance targets][Azure Files scalability and performance targets].
 - There are two main types of storage accounts for Azure Files deployments:
   - General purpose version 2 (GPv2) storage accounts. GPv2 storage accounts allow you to deploy Azure file shares on standard, hard disk-based (HDD-based) hardware. In addition to storing Azure file shares, GPv2 storage accounts can store other storage resources such as blob containers, queues, and tables.
   - FileStorage storage accounts: FileStorage storage accounts make it possible for you to deploy Azure file shares on premium, solid-state disk-based (SSD-based) hardware. FileStorage accounts can only be used to store Azure file shares. You can't deploy other storage resources such as blob containers, queues, and tables in a FileStorage account.
@@ -138,7 +137,6 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- Consult the [Principles of cost optimization][Principles of cost optimization] page in the Azure Well-Architected Framework for cost optimization recommendations.
 - The [Azure Storage Pricing][Azure Storage Overview pricing] page provides detailed pricing information based on account type, storage capacity, replication, and transactions.
 - The [Data Transfers Pricing Details][Bandwidth Pricing Details] article provides detailed pricing information for data egress.
 - You can use the [Azure Storage Pricing Calculator][Pricing calculator] to help estimate your costs.
@@ -150,6 +148,12 @@ Operational Excellence covers the operations processes that deploy an applicatio
 - The Azure File Sync agent is updated on a regular basis to add new functionality and to address issues. Microsoft recommends that you configure Microsoft Update to provide updates for the Azure File Sync agent as they become available. For more information, see [Azure File Sync agent update policy][Azure File Sync agent update policy].
 - Azure Storage offers soft delete for file shares so that you can recover your data when it's mistakenly deleted by an application or by another storage account user. To learn more about soft delete, see [Enable soft delete on Azure file shares][Enable soft delete on Azure file shares].
 - Cloud tiering is an optional feature of Azure File Sync that caches frequently accessed files locally on the server and tiers the others to Azure Files based on policy settings. When a file is tiered, the Azure File Sync file system filter (StorageSync.sys) replaces the file locally with a pointer to the file in Azure Files. A tiered file has both the **offline** attribute and the **FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS** attribute set in NTFS so that third-party applications can securely identify tiered files. For more information, see [Cloud Tiering Overview][Cloud Tiering Overview].
+
+### Performance Efficiency
+
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+- You should consider the type and performance of the storage account that you use to host Azure file shares. All storage resources that are deployed into a storage account share the limits that apply to that storage account. To find out more about determining the current limits for a storage account, see [Azure Files scalability and performance targets][Azure Files scalability and performance targets].
 
 ## Next steps
 
@@ -192,7 +196,6 @@ Related architectures:
 [Azure File Sync agent update policy]: /azure/storage/files/storage-sync-files-planning#azure-file-sync-agent-update-policy
 [Cloud Tiering Overview]: /azure/storage/files/storage-sync-cloud-tiering
 [Self-service restore through Previous Versions and VSS (Volume Shadow Copy Service)]: /azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service
-[Principles of cost optimization]: /azure/architecture/framework/cost/overview
 [Azure Storage Overview pricing]: https://azure.microsoft.com/pricing/details/storage/
 [Bandwidth Pricing Details]: https://azure.microsoft.com/pricing/details/data-transfers/
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/?scenario=data-management
