@@ -130,9 +130,17 @@ You can also configure spokes to use the hub gateway to communicate with remote 
 
 For additional information, see [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)*.*
 
+#### Virtual network peering - Hub connection
+
+Virtual network peering is a nontransitive relationship between two virtual networks. While using Azure Virtual WAN, virtual network peering is managed by Microsoft. Each connection added to a hub will also configure virtual network peering. With the help Virtual WAN, all spokes will have a transitive relationship.
+
 ### Hub extensions
 
 To support network-wide shared services like DNS resources, custom NVAs, Azure Bastion, and others, implement each service following the [virtual hub extension pattern](../../guide/networking/private-link-virtual-wan-dns-virtual-hub-extension-pattern.yml). Following this model, you can build and operate single-responsibility extensions to individually expose these business-critical, shared services that you're otherwise unable to deploy directly in a virtual hub.
+
+#### Spoke connectivity and shared services
+
+Connectivity among spokes is already achieved using Azure Virtual WAN. However, using UDRs in the spoke traffic is useful to isolate virtual networks. Any shared service can also be hosted on the same Virtual WAN as a spoke.
 
 ## Considerations
 
@@ -181,16 +189,6 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 With the help of Azure Virtual WAN, lower latency among spokes and across regions can be achieved. Azure Virtual WAN enables you to scale up to 20Gbps aggregate throughput.
 
 Azure Virtual WAN provides a full mesh connectivity among spokes by preserving the ability to restrict traffic based on needs. With this architecture it's possible to have large-scale site-to-site performance. Moreover, you can create a global transit network architecture by enabling any-to-any connectivity between globally distributed sets of cloud workloads.
-
-### Spoke connectivity and shared services
-
-Connectivity among spokes is already achieved using Azure Virtual WAN. However, using UDRs in the spoke traffic is useful to isolate virtual networks. Any shared service can also be hosted on the same Virtual WAN as a spoke.
-
-### Virtual network peering - Hub connection
-
-Virtual network peering is a nontransitive relationship between two virtual networks. While using Azure Virtual WAN, virtual network peering is managed by Microsoft. Each connection added to a hub will also configure virtual network peering. With the help Virtual WAN, all spokes will have a transitive relationship.
-
-
 
 ## Contributors
 

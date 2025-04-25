@@ -103,8 +103,6 @@ Reliability helps ensure that your application can meet the commitments that you
 
 This solution uses only managed components. At a regional level, all these components are automatically resilient. Route Server offers high availability. When you deploy Route Server in an Azure region that supports availability zones, your implementation has zone-level redundancy. For more information about availability zones, see [Regions and availability zones][Regions and availability zones].
 
-#### Availability
-
 Route Server is a fully managed service that offers high availability. For this service's availability guarantee, see [SLA for Azure Route Server][SLA for Azure Route Server].
 
 ### Security
@@ -150,9 +148,7 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Most components in this solution are managed services that automatically scale. But there are some exceptions:
-
-- Route Server can support at most 4,000 VMs per virtual network, including peered virtual networks.
+Most components in this solution are managed services that automatically scale. But there are some exceptions. For example, Route Server can support at most 4,000 VMs per virtual network, including peered virtual networks.
 
 ## Next steps
 

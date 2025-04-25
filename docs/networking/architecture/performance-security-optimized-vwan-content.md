@@ -112,12 +112,6 @@ To deploy a custom NVA model that supports both routing traffic to a dedicated f
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
-In this deployment, routes that cross the Virtual WAN hub to a performance-optimized environment don't pass through the NVA in that environment. This presents a potential problem with cross-regional traffic that's illustrated here:
-
-![Diagram that shows a potential problem with cross-regional traffic.](./_images/performance-security-optimized-vwan-architecture-regions.png)
-
-Traffic across regions between performance-optimized environments doesn't cross the NVA. This is a limitation of directly routing hub traffic to the virtual networks.
-
 ### Reliability
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
@@ -131,6 +125,12 @@ You should set up NVAs in a highly available architecture similar to the one des
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 With NVAs, you can use features like IDPS with Virtual WAN.
+
+In this deployment, routes that cross the Virtual WAN hub to a performance-optimized environment don't pass through the NVA in that environment. This presents a potential problem with cross-regional traffic that's illustrated here:
+
+![Diagram that shows a potential problem with cross-regional traffic.](./_images/performance-security-optimized-vwan-architecture-regions.png)
+
+Traffic across regions between performance-optimized environments doesn't cross the NVA. This is a limitation of directly routing hub traffic to the virtual networks.
 
 ### Cost Optimization
 
