@@ -76,7 +76,7 @@ The following sections, organized by category, provide links to sample networkin
 
 ### High availability
 
-- [Deploy highly available NVAs](guide/nva-ha.yml)
+- [Deploy highly available NVAs](guide/network-virtual-appliance-high-availability.md)
 - [Multi-tier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
 
 ### Hybrid networking

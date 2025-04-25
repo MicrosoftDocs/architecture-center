@@ -578,8 +578,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Deploy highly available NVAs]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/networking/guide/nva-ha</id>
-        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/nva-ha"/>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/network-virtual-appliance-high-availability</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/network-virtual-appliance-high-availability"/>
         <updated>2025-03-21T21:33:29.000Z</updated>
         <summary type="html"><![CDATA[Learn how to deploy network virtual appliances for high availability architectures for ingress, egress, and both in Azure.]]></summary>
         <category label="updated" term="updated"/>

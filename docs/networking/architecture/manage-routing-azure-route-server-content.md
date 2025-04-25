@@ -178,7 +178,7 @@ Most components in this solution are managed services that automatically scale. 
 [Recommendations for using availability zones and regions]: /azure/well-architected/reliability/regions-availability-zones
 [Choose between virtual network peering and VPN gateways]: ../../reference-architectures/hybrid-networking/vnet-peering.yml
 [Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell - Limits and limitations]: /azure/expressroute/expressroute-howto-coexist-resource-manager#limits-and-limitations
-[Deploy highly available NVAs]: ../guide/nva-ha.yml
+[Deploy highly available NVAs]: ../guide/network-virtual-appliance-high-availability.md
 [Introduction to the core Azure Storage services]: /azure/storage/common/storage-introduction?toc=/azure/storage/blobs/toc.json
 [Linux Virtual Machines Pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [Networking blog]: https://azure.microsoft.com/blog/topics/networking

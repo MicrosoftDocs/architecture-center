@@ -138,6 +138,8 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 Pricing for this architecture depends heavily on the NVAs that you deploy. For a 2-Gbps ER connection and a Virtual WAN hub that processes 10 TB per month, see this [pricing estimate](https://azure.com/e/0bf78de2bf3b45aa961e0dc2f57eb2fe).
 
+You should set up NVAs in a highly available architecture similar to the one described here: [Deploy highly available NVAs](../guide/network-virtual-appliance-high-availability.md).
+
 ### Performance Efficiency
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
