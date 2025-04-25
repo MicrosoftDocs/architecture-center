@@ -54,7 +54,7 @@ The following solution uses DNS Private Resolver in a [hub-spoke network topolog
 
 The solution that uses DNS Private Resolver contains the following components:
 
-- An on-premises network. This network of customer datacenters is connected to Azure via ExpressRoute or a site-to-site Azure VPN Gateway connection. Network components include two local DNS servers. One uses the IP address `192.168.0.1`. The other uses `192.168.0.2`. Both servers work as resolvers or forwarders for all computers inside the on-premises network.
+- An on-premises network. This network of customer datacenters is connected to Azure via ExpressRoute or a site-to-site Azure VPN Gateway connection. Network components include two local DNS servers. One server uses the IP address `192.168.0.1`. The other server uses `192.168.0.2`. Both servers work as resolvers or forwarders for all computers inside the on-premises network.
 
   An administrator creates all local DNS records and Azure endpoint forwarders on these servers. Conditional forwarders are configured on these servers for the Azure Blob Storage and Azure API Management services. Those forwarders send requests to the DNS Private Resolver inbound connection. The inbound endpoint uses the IP address `10.0.0.8` and is hosted within the hub virtual network.
 
@@ -233,7 +233,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 DNS Private Resolver is a cloud-native service designed for high availability and built to integrate seamlessly with DevOps practices, which makes it well-suited for collaborative and automated workflows. It delivers a reliable and enhanced security DNS solution while maintaining simplicity and zero-maintenance for users.
 
-Don't deploy DNS Private Resolver into a virtual network that includes an ExpressRoute virtual network gateway and uses wildcard rules to direct all name resolution to a specific DNS server. This type of configuration can cause management connectivity problems. For more information, see DNS Private Resolver with wildcard rules on an ExpressRoute gateway](/azure/expressroute/expressroute-about-virtual-network-gateways#gwsub).
+Don't deploy DNS Private Resolver into a virtual network that includes an ExpressRoute virtual network gateway and uses wildcard rules to direct all name resolution to a specific DNS server. This type of configuration can cause management connectivity problems. For more information, see [DNS Private Resolver with wildcard rules on an ExpressRoute gateway](/azure/expressroute/expressroute-about-virtual-network-gateways#gwsub).
 
 #### Regional availability
 
