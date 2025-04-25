@@ -54,7 +54,7 @@ The following services provide video and image processing capabilities for AI se
 
   - **Don't use** Custom Vision for basic visual analysis. Use vision-capable models from Azure OpenAI or open-source models in Machine Learning instead.
 
-- [Azure AI Face](#azure-ai-face):
+- [Azure AI Face](#azure-ai-face)
 
   - **Use** Azure AI Face when you need to check whether faces are live or spoofed or to identify, group, or find similar faces.
 
