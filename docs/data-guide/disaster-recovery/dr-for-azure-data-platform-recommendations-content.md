@@ -189,6 +189,6 @@ For this outage scenario, the relative impact on the four high-level DR strategi
 
 ## Related resources
 
-- [DR for Azure data platform - Overview](dr-for-azure-data-platform-overview.yml)
-- [DR for Azure data platform - Architecture](dr-for-azure-data-platform-architecture.yml)
-- [DR for Azure data platform - Scenario details](dr-for-azure-data-platform-scenario-details.yml)
+- [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.yml)
+- [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.yml)
+- [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.yml)
