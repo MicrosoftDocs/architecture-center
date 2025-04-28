@@ -106,7 +106,7 @@ Review the MAS applications that you need for your complete business scenario, a
 You might also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure by using interconnection, but this isn't a tested configuration. For more information about interconnection, see [Interconnecting Oracle Cloud with Microsoft Azure](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html). Currently, Azure SQL Database and Azure Cosmos DB aren't supported.
 
 > [!NOTE]
-> In some cases, you can't reuse a database for multiple MAS applications because of conflicting database settings. For example, you can't use the same IBM Db2 Warehouse for Health and Manage in combination with Monitor. However, you can mix different database products, such as using SQL Managed Instance for one application and IBM Db2 Warehouse for another.
+> In some cases, you can't reuse a database for multiple MAS applications because of conflicting database settings. For example, you can't use the same IBM Db2 Warehouse for Health and Manage in combination with Monitor. However, you can mix different database products, such as using Azure SQL Managed Instance for one application and IBM Db2 Warehouse for another.
 >
 > For more information about database requirements for the Health application, see [Configuring the database for Maximo Health](https://www.ibm.com/support/pages/configuring-database-maximo-health).
 
