@@ -22,7 +22,7 @@ ms.custom:
 
 The goal of most big data solutions is to provide insights into the data through analysis and reporting. Analysis and reporting can include preconfigured reports and visualizations or interactive data exploration.
 
-## What are your options when choosing a data analytics technology?
+## Data analytics technology options
 
 There are several options for analysis, visualizations, and reporting in Azure, depending on your needs:
 
