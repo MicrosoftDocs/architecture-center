@@ -14,7 +14,7 @@ categories:
   - ai-machine-learning
 ---
 
-# Generative AI Operations for organizations with MLOps investments
+# Generative AI operations for organizations with MLOps investments
 
 This article provides guidance to workload teams that have existing machine learning operations (MLOps) investments and want to extend those investments to include generative AI technology and patterns in their workload. To operationalize generative AI workload features, you need to extend your MLOps investments with generative AI operations (GenAIOps), sometimes known as *LLMOps*. This article outlines technical patterns shared by both traditional machine learning and generative AI workloads, and patterns unique to generative AI. The article helps you understand where you can apply existing investments in operationalization and where you need to extend those investments.
 
