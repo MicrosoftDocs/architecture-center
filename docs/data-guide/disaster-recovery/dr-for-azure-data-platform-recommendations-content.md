@@ -18,7 +18,7 @@
 
     1. Read access without write capabilities.
 
-1. Your target RTO and RPO metrics determine the DR strategy that you choose to implement. These strategies include Active/Active, Active/Passive, and Active/Redeploy on disaster. Consider your own [composite service-level objective](/azure/well-architected/reliability/metrics) to factor in the tolerable downtimes.
+1. Your target RTO and RPO metrics determine the DR strategy that you choose to implement. These strategies include active/active, active/passive, and active/redeploy on disaster. Consider your own [composite service-level objective](/azure/well-architected/reliability/metrics) to factor in the tolerable downtimes.
 
 1. Ensure that you understand all the components that might affect the availability of your systems, such as:
 
@@ -40,13 +40,13 @@
 
     1. Implement an efficient monitoring and alerting system with accountable teams that review metrics and alerts promptly to support the goal.
 
-1. For subscription design, the extra infrastructure for DR can be stored in the original subscription. Platform-as-a-service services like Azure Data Lake Storage Gen2 and Azure Data Factory typically include native failover features. These capabilities allow secondary instances in other regions while remaining within the original subscription. To optimize costs, some organizations might choose to allocate a dedicated resource group exclusively for DR-related resources.
+1. For subscription design, the extra infrastructure for DR can be stored in the original subscription. Platform-as-a-service services like Azure Data Lake Storage and Azure Data Factory typically include native failover features. These capabilities allow secondary instances in other regions while remaining within the original subscription. To optimize costs, some organizations might choose to allocate a dedicated resource group exclusively for DR-related resources.
 
     1. [Subscription limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) might introduce constraints in this approach.
 
     1. Other constraints might include the design complexity and management controls to ensure that the DR resource groups aren't used for business-as-usual workflows.
 
-1. Design the DR workflow based on the criticality and dependencies of a solution. For example, don't try to rebuild an Azure Analysis Services instance before your data warehouse is operational because it triggers an error. Leave development labs later in the process and recover core enterprise solutions first.
+1. Design the DR workflow based on the criticality and dependencies of a solution. For example, don't try to rebuild an Azure Analysis Services instance before your data warehouse is operational because it triggers an error. Leave development labs for later in the process and recover core enterprise solutions first.
 
 1. Identify recovery tasks that can be parallelized across solutions. This approach reduces the total RTO.
 
@@ -62,13 +62,13 @@
 
 1. Because you have a plan for failover, you should consider procedures to fall back to the primary instances.
 
-1. Define clear indicators and metrics to validate that the failover was successful and that solutions are operational. Confirm that performance is back to normal, also known as *primary functional*.  
+1. Define clear indicators and metrics to validate that the failover is successful and that solutions are operational. Confirm that performance is back to normal, also known as *primary functional*.  
 
 1. Decide if your SLAs should remain unchanged after a failover or if you allow for a temporary reduction in service quality. This decision greatly depends on the business service process being supported. For example, the failover for a room-booking system is much different than a core operational system.
 
 1. Base an RTO or RPO definition on specific user scenarios instead of at the infrastructure level. This approach provides greater granularity in how to determine which processes and components you should prioritize for recovery during an outage or disaster.
 
-1. Ensure that you perform capacity checks in the target region before you proceed with a failover. In a major disaster, many customers might attempt to fail over to the same paired region simultaneously. This scenario can result in delays or contention in resource provisioning. If these risks are unacceptable, consider either an Active/Active or Active/Passive DR strategy.
+1. Ensure that you perform capacity checks in the target region before you proceed with a failover. In a major disaster, many customers might attempt to fail over to the same paired region simultaneously. This scenario can result in delays or contention in resource provisioning. If these risks are unacceptable, consider either an active/active or active/passive DR strategy.
 
 1. You must create and maintain a DR plan to document the recovery process and the action owners. Keep in mind that some team members might be on leave, and ensure that secondary contacts are included.
 
@@ -83,7 +83,7 @@
 1. During a disaster, effective communication between the many parties involved is key to the efficient and rapid implementation of the plan. Teams might include:
 
     1. Decision-makers.
-    1. Incident response team.
+    1. Incident response teams.
     1. Affected internal users and teams.
     1. External teams.
 
@@ -119,7 +119,7 @@
 
 - **Relying on Microsoft to do it all**
 
-  Within the Microsoft Azure services, there's a clear [division of responsibility](/azure/reliability/business-continuity-management-program#shared-responsibility-model), anchored by the cloud service tier used:
+  Within the Microsoft Azure services, there's a clear [division of responsibility](/azure/reliability/business-continuity-management-program#shared-responsibility-model), anchored by the cloud service tier used.
   
   ![Diagram that shows the shared responsibility model.](../images/shared-responsibility-model.png)  
 
@@ -129,7 +129,7 @@
 
 ### Disaster event scope  
 
-Different events have varying scopes of impact that require different responses. The following diagram illustrates the scope of impact and response for a disaster event:  
+Different events have varying scopes of impact that require different responses. The following diagram illustrates the scope of impact and response for a disaster event.
 
 ![Diagram that shows the event scope and recovery process.](../images/dr-for-azure-data-platform-event-scope.png)  
 
@@ -145,13 +145,13 @@ There are four high-level options for a DR strategy:
 
   The solution is manually redeployed as a fresh deployment into an available region after a disaster event.
 
-- **Warm Spare (active/passive)**
+- **Warm spare (active/passive)**
 
   A secondary hosted solution is created in an alternate region and components are deployed to guarantee minimal capacity. However, the components don't receive production traffic.
 
   The secondary services in the alternative region might be *turned off*, or run at a lower performance level until a DR event occurs.  
 
-- **Hot Spare (active/active)**
+- **Hot spare (active/active)**
 
   The solution is hosted in an active/active setup across multiple regions. The secondary hosted solution receives, processes, and serves data as part of the larger system.  
 
@@ -164,7 +164,7 @@ The operating cost attributed to the higher levels of service resiliency often p
 
 The DR scenario for this worked example is a complete Azure regional outage that directly affects the primary region that hosts the Contoso Data Platform.
 
-The following table is a comparison between the options. A strategy that has a green indicator is better for that classification than a strategy that has a yellow or red indicator.
+The following table is a comparison between the options. A strategy that has a green indicator is better for that classification than a strategy that has an orange or red indicator.
 
 ![Diagram that shows the effects of the outage on the DR strategies.](../images/dr-for-azure-data-platform-strategy.png)  
 
