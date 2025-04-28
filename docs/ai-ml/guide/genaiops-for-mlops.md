@@ -16,23 +16,23 @@ categories:
 
 # GenAIOps for MLOps practitioners
 
-This article provides guidance to workload teams that have existing machine learning operations (MLOps) investments and want to extend those investments to include generative AI technology and patterns in their workload. To operationalize generative AI workload features, you need to extend your MLOps investments with Generative AI Ops (GenAIOps, sometimes known as LLMOps). This article outlines technical patterns that are common to both traditional machine learning and generative AI workloads, and specific patterns for generative AI. The article helps you understand where you can apply existing investments in operationalization and where you need to extend those investments.
+This article provides guidance to workload teams that have existing machine learning operations (MLOps) investments and want to extend those investments to include generative AI technology and patterns in their workload. To operationalize generative AI workload features, you need to extend your MLOps investments with generative AI operations (GenAIOps), sometimes known as *LLMOps*. This article outlines technical patterns that are common to both traditional machine learning and generative AI workloads, and specific patterns for generative AI. The article helps you understand where you can apply existing investments in operationalization and where you need to extend those investments.
 
-The planning and implementation of MLOps and GenAIOps are part of a core design area in AI workloads on Azure. To get a background on why these workloads need specialized operations, see [MLOps and GenAIOps for AI workloads on Azure](/azure/well-architected/ai/mlops-genaiops) in the Azure Well-Architected Framework.
+The planning and implementation of MLOps and GenAIOps are part of a core design area in AI workloads on Azure. For more information about why these workloads need specialized operations, see [MLOps and GenAIOps for AI workloads on Azure](/azure/well-architected/ai/mlops-genaiops).
 
 ## Generative AI technical patterns
 
-Generative AI workloads differ from traditional machine learning workloads in a few ways:
+Generative AI workloads differ from traditional machine learning workloads in several ways:
 
-- **Focus on generative models.** Traditional machine learning workloads focus on training new models to perform specific tasks. Generative AI workloads consume and sometimes finetune generative models that can address a wider variety of use cases, and in some cases are multi-modal.
+- **Focus on generative models.** Traditional machine learning workloads focus on training new models to perform specific tasks. Generative AI workloads consume and sometimes fine-tune generative models that can address a wider variety of use cases, and in some cases are multi-modal.
 
 - **Focus on extending the models.** The key asset in traditional machine learning is the trained and deployed model. Access to the model is provided to client code in one or more workloads, but the workload typically isn't part of the MLOps process. With generative AI solutions, a key facet of the solution is the prompt provided to the generative model. The prompt must be composed of instructions and often contains context data from one or more data stores. The system that orchestrates the logic, calls to the various back ends or agents, generates the prompt, and calls to the generative model, is part of the generative AI system that you govern with GenAIOps.
 
-Although some generative AI solutions use traditional machine learning practices like model training and fine-tuning, these solutions introduce new patterns that you should standardize. There are three broad categories of technical patterns for generative AI solutions:
+Some generative AI solutions use traditional machine learning practices like model training and fine-tuning. However, these solutions introduce new patterns that you should standardize. The three broad categories of technical patterns for generative AI solutions include:
 
-- Pretraining and fine-tuning
-- Prompt engineering
-- Retrieval-augmented generation (RAG)
+- Pretraining and fine-tuning.
+- Prompt engineering.
+- Retrieval-augmented generation (RAG).
 
 ### Training and fine-tuning language models
 
@@ -42,7 +42,7 @@ Training a new SLM and fine-tuning a generative foundation model are logically t
 
 ### Prompt engineering
 
-Prompt engineering includes all the processes involved in designing an effective prompt that's sent as input to a generative model. There's generally an orchestrator that controls a workflow that generates the prompt. The orchestrator can call into any number of data stores directly or indirectly through agents to gather information, like grounding data, and apply the required logic to generate the most effective prompt. The orchestrator is then deployed as an API endpoint that's accessed by client code in an intelligent application.
+Prompt engineering includes all the processes included in designing an effective prompt that's sent as input to a generative model. There's generally an orchestrator that controls a workflow that generates the prompt. The orchestrator can call into any number of data stores directly or indirectly through agents to gather information, like grounding data, and apply the required logic to generate the most effective prompt. The orchestrator is then deployed as an API endpoint that client code in an intelligent application.
 
 The following diagram shows an architecture for prompt engineering.
 
@@ -52,24 +52,24 @@ The following diagram shows an architecture for prompt engineering.
 
 This category of technical patterns can address many use cases, including:
 
-- Classification
-- Translation
-- Summarization
-- Retrieval-augmented generation, which is discussed in the next section
+- Classification.
+- Translation.
+- Summarization.
+- RAG, which is discussed in the following section.
 
-### Retrieval-augmented generation
+### RAG
 
-Retrieval-augmented generation (RAG) is an architectural pattern that uses prompt engineering to incorporate domain-specific data as the grounding data for a language model. The language model is trained against a specific set of data. Your workload might require reasoning over data that's specific to your company, customers, or domain. In RAG solutions, your data is queried, and the most relevant results are provided to the language model as part of the prompt, usually through an orchestration layer.
+RAG is an architectural pattern that uses prompt engineering to incorporate domain-specific data as the grounding data for a language model. The language model is trained against a specific set of data. Your workload might require reasoning over data that's specific to your company, customers, or domain. In RAG solutions, your data is queried, and the most relevant results are provided to the language model as part of the prompt, usually through an orchestration layer.
 
 A common RAG implementation is to break up your source data into chunks and store them in a vector store along with metadata. Vector stores, such as Azure AI Search, allow you to perform both textual and vector similarity searches to return contextually relevant results. RAG solutions can also [use other data stores](/azure/architecture/guide/technology-choices/vector-search) to return grounding data.
 
-The following diagram illustrates a RAG architecture involving data from documents:
+The following diagram illustrates a RAG architecture that includes data from documents:
 
 :::image type="complex" source="_images/rag-architecture.svg" lightbox="_images/rag-architecture.png" alt-text="Diagram that shows a RAG architecture." border="false":::
    The diagram illustrates two flows. The first flow starts with a user and then flows to an intelligent application. From there, the flow leads to an orchestrator. From the orchestrator, the flow leads to Azure OpenAI Service and to Azure AI Search, which is the last item in the second flow. The second flow starts with documents and then flows to four stages: chunk documents, enrich chunks, embed chunks, and index chunks. From there, the flow leads to the same Azure AI Search instance that connects to the first flow.
 :::image-end:::
 
-## Extending MLOps for generative AI technical patterns
+## Extend MLOps for generative AI technical patterns
 
 Your MLOps process addresses both inner loop and outer loop processes. Generative AI technical patterns also have many of the same activities. In some cases, you apply your existing MLOps investments and in others, you need to extend them:
 
@@ -93,11 +93,11 @@ This technical pattern should fully take advantage of the existing DataOps inves
 
 #### RAG and prompt engineering
 
-The intent for the data in RAG solutions is to provide grounding data (context) that's presented to the language model as part of a prompt. RAG solutions often require the processing of large documents or data sets into a collection of right-sized, semantically relevant chunks, and persisting those chunks in a vector store. See [Designing and developing a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide) for details. Reproducibility and data versioning for RAG solutions allows you to experiment with different chunking and embedding strategies, compare performance, and roll back to previous versions.
+The intent for the data in RAG solutions is to provide grounding data (or context) that's presented to the language model as part of a prompt. RAG solutions often require the processing of large documents or data sets into a collection of right-sized, semantically relevant chunks, and persisting those chunks in a vector store. For more information, see [Designing and developing a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide). Reproducibility and data versioning for RAG solutions allows you to experiment with different chunking and embedding strategies, compare performance, and roll back to previous versions.
 
 Data pipelines for chunking documents aren't part of DataOps in traditional MLOps, so you have to extend your architecture and operations. The data pipelines can read data from disparate sources that include both structured and unstructured data. They can also write the transformed data to different targets. You must extend your pipelines to include the data stores that you use for grounding data. Common data stores for these patterns are vector stores like AI Search.
 
-As with training and fine-tuning, you can use Azure Machine Learning pipelines or other data pipelining tools to orchestrate the stages of chunking. You can take advantage of prompt flows in Azure Machine Learning pipelines to process and enrich your data in a consistent and reproducible manner.
+As with training and fine-tuning, you can use Azure Machine Learning pipelines or other data pipelining tools to orchestrate the stages of chunking. You can take advantage of prompt flows in Machine Learning pipelines to process and enrich your data in a consistent and reproducible manner.
 
 ##### Search index maintenance
 
@@ -109,23 +109,23 @@ Experimentation, a part of the inner loop, is the iterative process of creating,
 
 #### Training and fine-tuning
 
-When you fine-tune an existing language model or train a small language model, you can take advantage of your current MLOps investments. For instance, Azure Machine Learning pipelines provide a toolkit for conducting experiments efficiently and effectively. These pipelines enable you to manage the entire fine-tuning process, from data preprocessing to model training and evaluation.
+When you fine-tune an existing language model or train a small language model, you can take advantage of your current MLOps investments. For instance, Machine Learning pipelines provide a toolkit for conducting experiments efficiently and effectively. These pipelines enable you to manage the entire fine-tuning process, from data preprocessing to model training and evaluation.
 
 #### RAG and prompt engineering
 
 Experimentation with prompt engineering and RAG workloads requires you to extend your MLOps investments. For these technical patterns, the workload doesn't end with the model. The workload requires an orchestrator, which is a system that can run logic, call data stores or agents for required information like grounding data, generate prompts, call language models, and more. The data stores and the indexes in the stores are also part of the workload. You need to extend your operations to govern these aspects of the workload.
 
-You can experiment on multiple dimensions for prompt engineering solutions, including different instructions, personas, examples, constraints, and advanced techniques like prompt chaining. When you [experiment with RAG solutions](rag/rag-solution-design-and-evaluation-guide.md), you can experiment with other areas as well:
+You can experiment on multiple dimensions for prompt engineering solutions, including different instructions, personas, examples, constraints, and advanced techniques like prompt chaining. When you [experiment with RAG solutions](rag/rag-solution-design-and-evaluation-guide.md), you can experiment with other areas too, such as:
 
-- Chunking strategy
-- What and how to enrich chunks
-- Your embedding model
-- Configuration of your search index
-- What searches to perform (vector, full text, hybrid, and so on)
+- Chunking strategy.
+- What and how to enrich chunks.
+- Your embedding model.
+- Configuration of your search index.
+- Which searches to perform, like vector, full text, and hybrid.
 
 As discussed in [DataOps](#dataops), reproducibility and data versioning are key to experimentation. A good experimentation framework enables you to store inputs, such as changes to hyperparameters or prompts, along with outputs to be used when you [evaluate the experiment](#evaluation-and-experimentation).
 
-As in your existing MLOps environment, you can take advantage of frameworks like Azure Machine Learning pipelines. Azure Machine Learning pipelines have features that support indexing by integrating with vector stores like AI Search. Your GenAIOps environment can take advantage of these pipeline features and combine them with prompt flow features that manage prompt engineering and custom preprocessing logic.
+As in your existing MLOps environment, you can take advantage of frameworks like Machine Learning pipelines. Machine Learning pipelines have features that support indexing by integrating with vector stores like AI Search. Your GenAIOps environment can take advantage of these pipeline features and combine them with prompt flow features that manage prompt engineering and custom preprocessing logic.
 
 ### Evaluation and experimentation
 
@@ -133,7 +133,7 @@ Evaluation is key in the iterative experimentation process of building, evaluati
 
 #### Training and fine-tuning
 
-For the evaluation of fine-tuned or trained generative AI models, you should take advantage of your existing MLOps investments. For example, if you use Azure Machine Learning pipelines to orchestrate your machine learning model training, you can use the same evaluation features to fine-tune foundation language models or train new small language models. These features include the [Evaluate Model component](/azure/machine-learning/component-reference/evaluate-model), which computes industry-standard evaluation metrics for specific model types and compares results across models. If your workload is using Azure AI Foundry, you could instead extend your MLOps process to include its [evaluation capabilities](/azure/ai-foundry/how-to/develop/evaluate-sdk) found in the Evaluation SDK.
+For the evaluation of fine-tuned or trained generative AI models, you should take advantage of your existing MLOps investments. For example, if you use Machine Learning pipelines to orchestrate your machine learning model training, you can use the same evaluation features to fine-tune foundation language models or train new small language models. These features include the [Evaluate Model component](/azure/machine-learning/component-reference/evaluate-model), which computes industry-standard evaluation metrics for specific model types and compares results across models. If your workload is using Azure AI Foundry, you could instead extend your MLOps process to include its [evaluation capabilities](/azure/ai-foundry/how-to/develop/evaluate-sdk) found in the Evaluation SDK.
 
 #### RAG and prompt engineering
 
@@ -149,23 +149,23 @@ The experimentation process is the same regardless of the use case for your gene
 - RAG: Groundedness, Relevancy
 
 > [!NOTE]
-> See [LLM end-to-end evaluation](rag/rag-llm-evaluation-phase.md) for more information on evaluating language models and RAG solutions.
+> For more information about how to evaluate language models and RAG solutions, see [LLM end-to-end evaluation](rag/rag-llm-evaluation-phase.md).
 
-In general, generative AI solutions extend the responsibilities of the machine learning team from training models to prompt engineering and managing grounding data. Because prompt engineering and RAG experimentation and evaluation don't necessarily require data scientists, you might be tempted to use other roles, like software engineers and data engineers, to perform these functions. You'll experience challenges if you omit data scientists from the process of experimenting with prompt engineering and RAG solutions. Other roles aren't commonly trained on scientifically evaluating the results, as many data scientists are. Read the seven-part article series [Designing and developing a RAG solution](rag/rag-solution-design-and-evaluation-guide.md) to get an understanding of the complexity of designing generative AI solutions.
+Generative AI solutions generally extend the responsibilities of the machine learning team from training models to prompt engineering and managing grounding data. Because prompt engineering and RAG experimentation and evaluation don't necessarily require data scientists, you might be tempted to use other roles, like software engineers and data engineers, to perform these functions. You'll experience challenges if you omit data scientists from the process of experimenting with prompt engineering and RAG solutions. Other roles aren't commonly trained on scientifically evaluating the results, as many data scientists are. Read the seven-part article series [Designing and developing a RAG solution](rag/rag-solution-design-and-evaluation-guide.md) to get an understanding of the complexity of designing generative AI solutions.
 
 Investing in generative AI solutions enables you to take some pressure off your data science resources. The role of software engineers expands in these solutions. For example, software engineers are great resources for managing the orchestration responsibility in generative AI solutions, and they're adept at setting up the evaluation metrics in tools like prompt flow. It's important to have data scientists review this work. They have the training and experience to understand how to properly evaluate the experiments.
 
 ### Deployment
 
-Some generative AI solutions involve deploying custom-trained models or fine-tuning existing models, but others don't. For generative AI solutions, you need to include the additional tasks of deploying the orchestrators and any data stores. The following sections discuss deployment for common generative AI technical patterns.
+Some generative AI solutions involve deploying custom-trained models or fine-tuning existing models, but others don't. For generative AI solutions, you need to include the extra tasks of deploying the orchestrators and any data stores. The following sections discuss deployment for common generative AI technical patterns.
 
 #### Training and fine-tuning
 
-You should use your existing MLOps investments, with some possible adjustments, to deploy generative AI models and fine-tune foundation models. For example, to fine-tune a large language model in Azure OpenAI, you need to ensure that your training and validation datasets are in JSONL format, and you need to upload the data via a REST API. You also need to create a fine-tuning job. To deploy a trained small language model, you can take advantage of your existing MLOps investments.
+You should use your existing MLOps investments, with some possible adjustments, to deploy generative AI models and fine-tune foundation models. For example, to fine-tune a large language model in Azure OpenAI Service, you need to ensure that your training and validation datasets are in JSONL format, and you need to upload the data via a REST API. You also need to create a fine-tuning job. To deploy a trained small language model, you can take advantage of your existing MLOps investments.
 
 #### RAG and prompt engineering
 
-For RAG and prompt engineering, there are other concerns, including orchestration logic, changes to data stores like indexes and schemas, and changes to data pipeline logic. Orchestration logic is typically encapsulated in frameworks like prompt flow, Semantic Kernel, or LangChain. You can deploy the orchestrator to different compute resources, including resources that you might currently deploy custom models to. See [Azure OpenAI end-to-end chat architecture](../architecture/baseline-openai-e2e-chat.yml) for examples of deploying prompt flow to either online endpoints managed by Azure Machine Learning or to Azure App Service. To deploy to App Service, the Azure OpenAI chat architecture packages the flow and its dependencies as a container, a practice that increases portability and consistency across different environments.
+For RAG and prompt engineering, there are other concerns, including orchestration logic, changes to data stores like indexes and schemas, and changes to data pipeline logic. Orchestration logic is typically encapsulated in frameworks like prompt flow, Semantic Kernel, or LangChain. You can deploy the orchestrator to different compute resources, including resources that you might currently deploy custom models to. For more information about how to deploy prompt flow to online endpoints that Machine Learning manages or to Azure App Service, see [Azure OpenAI end-to-end chat architecture](../architecture/baseline-openai-e2e-chat.yml). To deploy to App Service, the Azure OpenAI chat architecture packages the flow and its dependencies as a container, a practice that increases portability and consistency across different environments.
 
 Deployments of changes to database resources, like changes to data models or indexes, are new tasks that need to be handled in GenAIOps. A common practice when working with large language models is to [use a gateway in front of the LLM](azure-openai-gateway-guide.yml).
 
@@ -179,7 +179,7 @@ Deployments of elements that are specific to generative AI, such as the orchestr
 - End-to-end tests
 - Roll-out strategies, like canary or blue/green deployments
 
-Because the deployment responsibilities for generative AI applications extend beyond model deployment, you might need additional job roles to manage the deployment and monitoring of things like the user interface, the orchestrator, and the data stores. These roles are often aligned to DevOps engineer skill sets.
+Because the deployment responsibilities for generative AI applications extend beyond model deployment, you might need extra job roles to manage the deployment and monitoring of things like the user interface, the orchestrator, and the data stores. These roles are often aligned to DevOps engineer skill sets.
 
 ### Inferencing and monitoring
 
@@ -219,7 +219,7 @@ You can also explore the benefits and tradeoffs introducing new tools into your 
 
 ## MLOps and GenAIOps maturity models
 
-You might have used the [MLOps maturity model](mlops-maturity-model.yml) to evaluate the maturity of your current machine learning operations and environment. As you extend your MLOps investments for generative AI workloads, you should use the GenAIOps [maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity) to evaluate those operations. You might be tempted to combine the two maturity models, but we recommend that you measure each independently. MLOps and GenAIOps will evolve independently from each other. For example, you might be at level four in the MLOps maturity model but at level one for generative AI.
+You might have used the [MLOps maturity model](mlops-maturity-model.yml) to evaluate the maturity of your current machine learning operations and environment. As you extend your MLOps investments for generative AI workloads, you should use the GenAIOps [maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity) to evaluate those operations. You might be tempted to combine the two maturity models, but we recommend that you measure each independently. MLOps and GenAIOps evolve independently from each other. For example, you might be at level 4 in the MLOps maturity model but at level 1 for generative AI.
 
 Use the [GenAIOps maturity model assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/). This assessment helps you understand how your investments in GenAIOps are progressing.
 
@@ -229,7 +229,7 @@ As you start extending your MLOps investments to include generative AI, it's imp
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 - [Luiz Braz](https://www.linkedin.com/in/lfbraz/) | Senior Technical Specialist
 - [Marco Aurelio Cardoso](https://www.linkedin.com/in/marco-cardoso/) | Senior Software Engineer  
@@ -240,12 +240,12 @@ As you start extending your MLOps investments to include generative AI, it's imp
 
 ## Next steps
 
-- [Azure Machine Learning](/azure/machine-learning)
-- [Azure OpenAI Service](/azure/ai-services/openai/overview)
+- [Machine Learning](/azure/machine-learning)
+- [Azure OpenAI](/azure/ai-services/openai/overview)
 
 ## Related resources
 
-- [Azure OpenAI](rag/rag-solution-design-and-evaluation-guide.md)
+- [Azure Azure OpenAI](rag/rag-solution-design-and-evaluation-guide.md)
 - [Designing and developing a RAG solution](rag/rag-solution-design-and-evaluation-guide.md)
 - [Baseline OpenAI end-to-end chat reference architecture](../architecture/baseline-openai-e2e-chat.yml)
 - [Machine learning operations](machine-learning-operations-v2.md)
