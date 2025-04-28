@@ -132,6 +132,8 @@ From this single automation control point, OpCon automates workflows across the 
 
 ### Components
 
+- [Azure Kubernetes Service (AKS) clusters](/azure/well-architected/service-guides/azure-kubernetes-service) are managed environments that simplify deploying, managing, and scaling containerized applications that use Kubernetes. In the OpCon cloud architecture, the OpCon core services are deployed within an AKS cluster to ensure efficient management and scalability of containerized workloads. PersistentVolumes within the AKS cluster provide storage, and an Azure private endpoint establishes secure database connections to maintain data integrity.
+
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) Azure virtual machines (VMs) give you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. With Azure VMs, you have a choice of operating system which includes both Windows and Linux.
 
   These architectures use Azure VMs to host OpCon agents that communicate with OpCon core services for workload management.
@@ -177,7 +179,7 @@ From this single automation control point, OpCon automates workflows across the 
 
 - [OpCon MFT](https://help.smatechnologies.com/opcon/agents/opconmft/introduction) provides managed file transfer within the OpCon environment. Providing file transfer and monitoring functionality across the enterprise using an integrated MFT Agent and a File Transfer Server.
 
-  These architectures use OpCon MFT to support compression, encryption, decryption, decompression, file watching, and automated file routing.
+  These architectures use OpCon MFT to support compression, encryption, decryption, decompression, file watching, and automated file routing. For example, a regional healthcare provider might process daily insurance claims and need to send files securely to multiple insurance partners by using different formats, encryption requirements, and delivery methods. OpCon MFT helps reduce errors, ensure encryption, and provide flexibility.
 
 ### Alternatives
 
@@ -265,6 +267,8 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 OpCon Cloud reduces infrastructure and maintenance costs, while providing clients with the security and reliability of an always-on solution and fast recovery from unplanned system interruptions or disasters. OpCon has its own build in resiliency capability or Azure Site Recovery can be utilized to maintain copies of the OpCon environment for use in DR situations. 
+
+For The Azure Files CSI driver in AKS, we recommend that you use the Premium_LRS tier. This tier provides locally redundant storage to ensure that your data is replicated within a single physical location. It also provides high performance and low latency, so it suits workloads that require fast and reliable storage.
 
 ### Security
 
