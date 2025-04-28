@@ -1,93 +1,93 @@
 ## Lessons learned
 
-1. Ensure that all the parties involved understand the difference between high availability (HA) and disaster recovery (DR). Confusing these concepts can result in mismatched solutions.
+- Ensure that all the parties involved understand the difference between high availability (HA) and disaster recovery (DR). Confusing these concepts can result in mismatched solutions.
 
-1. To define the recovery point objectives (RPOs) and recovery time objectives (RTOs), discuss with business stakeholders their expectations regarding the following factors:
+- To define the recovery point objectives (RPOs) and recovery time objectives (RTOs), discuss with business stakeholders their expectations regarding the following factors:
 
-    1. The amount of downtime that they can tolerate. Keep in mind that faster recovery usually incurs a higher cost.
+  - The amount of downtime that they can tolerate. Keep in mind that faster recovery usually incurs a higher cost.
 
-    1. The types of incidents that stakeholders need protection against and how likely they are to occur. For instance, a server failure is more likely to happen than a natural disaster that affects all datacenters in a region.
+  - The types of incidents that stakeholders need protection against and how likely they are to occur. For instance, a server failure is more likely to happen than a natural disaster that affects all datacenters in a region.
 
-    1. The effects of system unavailability on their business.
+  - The effects of system unavailability on their business.
 
-    1. The operational expenses (OPEX) budget for the long-term solution.
+  - The operational expenses (OPEX) budget for the long-term solution.
 
-1. Consider which degraded service options your end-users can accept. These options might include:
+- Consider which degraded service options your end-users can accept. These options might include:
 
-    1. Access to visualization dashboards, even if the data isn't up-to-date. In this scenario, end-users can view their data, even if ingestion pipelines fail.
+  - Access to visualization dashboards, even if the data isn't up-to-date. In this scenario, end-users can view their data, even if ingestion pipelines fail.
 
-    1. Read access without write capabilities.
+  - Read access without write capabilities.
 
-1. Your target RTO and RPO metrics determine the DR strategy that you choose to implement. These strategies include active/active, active/passive, and active/redeploy on disaster. Consider your own [composite service-level objective](/azure/well-architected/reliability/metrics) to factor in the tolerable downtimes.
+- Your target RTO and RPO metrics determine the DR strategy that you choose to implement. These strategies include active/active, active/passive, and active/redeploy on disaster. Consider your own [composite service-level objective](/azure/well-architected/reliability/metrics) to factor in the tolerable downtimes.
 
-1. Ensure that you understand all the components that might affect the availability of your systems, such as:
+- Ensure that you understand all the components that might affect the availability of your systems, such as:
 
-    1. Identity management.
+  - Identity management.
 
-    1. Networking topology.
+  - Networking topology.
 
-    1. Secret management and key management.
+  - Secret management and key management.
 
-    1. Data sources.
+  - Data sources.
 
-    1. Automation and job scheduling.
+  - Automation and job scheduling.
 
-    1. Source repository and deployment pipelines like GitHub and Azure DevOps.
+  - Source repository and deployment pipelines like GitHub and Azure DevOps.
 
-1. Early detection of outages is also a way to decrease RTO and RPO values significantly. Include the following key factors:
+- Early detection of outages is also a way to decrease RTO and RPO values significantly. Include the following key factors:
 
-    1. Define what an outage is and how it maps to the definition of an outage according to Microsoft. The Microsoft definition is available on the [Azure service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/) page at the product or service level.
+  - Define what an outage is and how it maps to the definition of an outage according to Microsoft. The Microsoft definition is available on the [Azure service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/) page at the product or service level.
 
-    1. Implement an efficient monitoring and alerting system with accountable teams that review metrics and alerts promptly to support the goal.
+  - Implement an efficient monitoring and alerting system with accountable teams that review metrics and alerts promptly to support the goal.
 
-1. For subscription design, the extra infrastructure for DR can be stored in the original subscription. Platform-as-a-service services like Azure Data Lake Storage and Azure Data Factory typically include native failover features. These capabilities allow secondary instances in other regions while remaining within the original subscription. To optimize costs, some organizations might choose to allocate a dedicated resource group exclusively for DR-related resources.
+- For subscription design, the extra infrastructure for DR can be stored in the original subscription. Platform-as-a-service services like Azure Data Lake Storage and Azure Data Factory typically include native failover features. These capabilities allow secondary instances in other regions while remaining within the original subscription. To optimize costs, some organizations might choose to allocate a dedicated resource group exclusively for DR-related resources.
 
-    1. [Subscription limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) might introduce constraints in this approach.
+  - [Subscription limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) might introduce constraints in this approach.
 
-    1. Other constraints might include the design complexity and management controls to ensure that the DR resource groups aren't used for business-as-usual workflows.
+  - Other constraints might include the design complexity and management controls to ensure that the DR resource groups aren't used for business-as-usual workflows.
 
-1. Design the DR workflow based on the criticality and dependencies of a solution. For example, don't try to rebuild an Azure Analysis Services instance before your data warehouse is operational because it triggers an error. Leave development labs for later in the process and recover core enterprise solutions first.
+- Design the DR workflow based on the criticality and dependencies of a solution. For example, don't try to rebuild an Azure Analysis Services instance before your data warehouse is operational because it triggers an error. Leave development labs for later in the process and recover core enterprise solutions first.
 
-1. Identify recovery tasks that can be parallelized across solutions. This approach reduces the total RTO.
+- Identify recovery tasks that can be parallelized across solutions. This approach reduces the total RTO.
 
-1. If Azure Data Factory is used in a solution, don't forget to include self-hosted integration runtimes in the scope. [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) is ideal for these machines.
+- If Azure Data Factory is used in a solution, don't forget to include self-hosted integration runtimes in the scope. [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) is ideal for these machines.
 
-1. Automate manual operations as much as possible to prevent human error, especially when under pressure. We recommend that you:
+- Automate manual operations as much as possible to prevent human error, especially when under pressure. We recommend that you:
 
-    1. Adopt resource provisioning through Bicep, Azure Resource Manager templates, or PowerShell scripts.
+  - Adopt resource provisioning through Bicep, Azure Resource Manager templates, or PowerShell scripts.
 
-    1. Adopt versioning of source code and resource configuration.
+  - Adopt versioning of source code and resource configuration.
 
-    1. Use continuous integration and continuous delivery release pipelines instead of select-ops.
+  - Use continuous integration and continuous delivery release pipelines instead of select-ops.
 
-1. Because you have a plan for failover, you should consider procedures to fall back to the primary instances.
+- Because you have a plan for failover, you should consider procedures to fall back to the primary instances.
 
-1. Define clear indicators and metrics to validate that the failover is successful and that solutions are operational. Confirm that performance is back to normal, also known as *primary functional*.  
+- Define clear indicators and metrics to validate that the failover is successful and that solutions are operational. Confirm that performance is back to normal, also known as *primary functional*.  
 
-1. Decide if your SLAs should remain unchanged after a failover or if you allow for a temporary reduction in service quality. This decision greatly depends on the business service process being supported. For example, the failover for a room-booking system is much different than a core operational system.
+- Decide if your SLAs should remain unchanged after a failover or if you allow for a temporary reduction in service quality. This decision greatly depends on the business service process being supported. For example, the failover for a room-booking system is much different than a core operational system.
 
-1. Base an RTO or RPO definition on specific user scenarios instead of at the infrastructure level. This approach provides greater granularity in how to determine which processes and components you should prioritize for recovery during an outage or disaster.
+- Base an RTO or RPO definition on specific user scenarios instead of at the infrastructure level. This approach provides greater granularity in how to determine which processes and components you should prioritize for recovery during an outage or disaster.
 
-1. Ensure that you perform capacity checks in the target region before you proceed with a failover. In a major disaster, many customers might attempt to fail over to the same paired region simultaneously. This scenario can result in delays or contention in resource provisioning. If these risks are unacceptable, consider either an active/active or active/passive DR strategy.
+- Ensure that you perform capacity checks in the target region before you proceed with a failover. In a major disaster, many customers might attempt to fail over to the same paired region simultaneously. This scenario can result in delays or contention in resource provisioning. If these risks are unacceptable, consider either an active/active or active/passive DR strategy.
 
-1. You must create and maintain a DR plan to document the recovery process and the action owners. Keep in mind that some team members might be on leave, and ensure that secondary contacts are included.
+- You must create and maintain a DR plan to document the recovery process and the action owners. Keep in mind that some team members might be on leave, and ensure that secondary contacts are included.
 
-1. Perform regular DR drills to validate the DR plan workflow, ensure that it meets the required RTO and RPO requirements, and train the responsible teams. Regularly test data and configuration backups to ensure that they're *fit for purpose*, which means that they're suitable and effective for their intended use. This process ensures that they can support recovery activities.
+- Perform regular DR drills to validate the DR plan workflow, ensure that it meets the required RTO and RPO requirements, and train the responsible teams. Regularly test data and configuration backups to ensure that they're *fit for purpose*, which means that they're suitable and effective for their intended use. This process ensures that they can support recovery activities.
 
-1. Early collaboration with teams responsible for networking, identity, and resource provisioning facilitates agreement on the most optimal solution for how to:
+- Early collaboration with teams responsible for networking, identity, and resource provisioning facilitates agreement on the most optimal solution for how to:
 
-    1. Redirect users and traffic from your primary to your secondary site. Concepts such as Domain Name System redirection or the use of specific tooling like [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) can be evaluated.
+  - Redirect users and traffic from your primary to your secondary site. Concepts such as Domain Name System redirection or the use of specific tooling like [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) can be evaluated.
 
-    1. Provide access and rights to the secondary site in a timely and secure manner.
+  - Provide access and rights to the secondary site in a timely and secure manner.
 
-1. During a disaster, effective communication between the many parties involved is key to the efficient and rapid implementation of the plan. Teams might include:
+- During a disaster, effective communication between the many parties involved is key to the efficient and rapid implementation of the plan. Teams might include:
 
-    1. Decision-makers.
-    1. Incident response teams.
-    1. Affected internal users and teams.
-    1. External teams.
+  - Decision-makers.
+  - Incident response teams.
+  - Affected internal users and teams.
+  - External teams.
 
-1. Orchestration of the different resources at the right time ensures efficiency in the DR plan implementation.
+- Orchestration of the different resources at the right time ensures efficiency in the DR plan implementation.
 
 ## Considerations
 
