@@ -16,7 +16,7 @@ ms.custom:
 
 # Design for operations
 
-## Design the application to equip the operations team
+## Design an application to equip the operations team
 
 The shift to the cloud has fundamentally changed the role of the operations team. They're no longer responsible for managing the hardware and infrastructure that hosts the application. However, operations remain crucial for running a successful cloud application. Key functions include:
 
@@ -30,11 +30,11 @@ Robust logging and tracing are especially important in cloud applications. Inclu
 
 ## Recommendations
 
-**Make all things observable.** After a solution is deployed and operational, logs and traces are your primary insight into the system. *Tracing* records a path through the system. Use tracing to pinpoint bottlenecks, performance problems, and failure points. *Logging* captures individual events such as application state changes, errors, and exceptions. Log in production, or you can lose crucial insights when you need them most.
+**Make all things observable.** After a solution is deployed and operational, logs and traces are your primary insight into the system. *Tracing* records a path through the system. Use tracing to pinpoint bottlenecks, performance problems, and failure points. *Logging* captures individual events such as application state changes, errors, and exceptions. Enable logging in production, or you can lose crucial insights when you need them most.
 
 **Instrument for monitoring.** Monitoring provides insight into an application's performance, including availability, efficiency, and system health. For example, it shows whether you're meeting your service-level agreement. Monitoring occurs during the system's normal operation and should be as close to real-time as possible. This approach helps ensure that the operations staff can react to problems quickly. Ideally, effective monitoring helps prevent problems before they escalate into critical failures. For more information, see [Monitoring and diagnostics][monitoring].
 
-**Instrument for root cause analysis.** Root cause analysis is the process of finding the underlying cause of failures. It takes place after a failure has occurred.
+**Instrument for root cause analysis.** Root cause analysis is the process of finding the underlying cause of failures. It takes place after a failure occurs.
 
 **Use distributed tracing.** Use a distributed tracing system designed for concurrency, asynchrony, and cloud scale. Traces should include a correlation ID that flows across service boundaries. A single operation might include calls to multiple application services. If an operation fails, the correlation ID helps to pinpoint the cause of the failure.
 
@@ -42,7 +42,7 @@ Robust logging and tracing are especially important in cloud applications. Inclu
 
 **Automate management tasks**, including provisioning, deployment, and monitoring. Automating a task makes it repeatable and less prone to human error.
 
-**Treat configuration as code.** Check configuration files in to a version control system so that you can track and version your changes and roll back changes if needed.
+**Treat configuration as code.** Store configuration files in a version control system so that you can track and version your changes and roll back changes if needed.
 
 <!-- links -->
 
