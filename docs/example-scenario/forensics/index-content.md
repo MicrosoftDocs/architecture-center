@@ -141,7 +141,11 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 The principles that validate this solution as a chain of custody are described in this section. To help ensure a valid chain of custody, digital evidence storage must demonstrate adequate access control, data protection and integrity, monitoring and alerting, and logging and auditing.
 
-### Compliance with security standards and regulations
+### Security
+
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+#### Compliance with security standards and regulations
 
 When you validate a chain of custody solution, one of the requirements to evaluate is the compliance with security standards and regulations.
 
@@ -161,19 +165,19 @@ For more information about updated audit reports that detail standards complianc
 
 It's Cohasset's opinion that Azure Storage, with the immutable storage feature of Blob Storage and policy lock option, retains time-based blobs (or *records*) in a nonerasable and nonrewriteable format and meets relevant storage requirements of SEC Rule 17a-4(f), FINRA Rule 4511(c), and the principles-based requirements of CFTC Rule 1.31(c)-(d).
 
-### Least privilege
+#### Least privilege
 
 When the roles of the SOC team are assigned, only two individuals in the team, known as SOC team custodians, should have rights to modify the [RBAC](/azure/role-based-access-control/overview) configuration of the subscription and its data. Grant other individuals only bare minimum access rights to data subsets that they need to perform their work.
 
-### Least access
+#### Least access
 
 Only the [virtual network](/azure/virtual-network/virtual-networks-overview) in the SOC subscription has access to the SOC Storage account and key vault that archives the evidence. Authorized SOC team members can grant investigators temporary access to evidence in the SOC storage.
 
-### Evidence acquisition
+#### Evidence acquisition
 
 Azure audit logs can document the evidence acquisition by recording the action of taking a VM disk snapshot. The logs include details such as who takes the snapshots and when they're taken.
 
-### Evidence integrity
+#### Evidence integrity
 
 Use [Automation](/azure/automation/overview) to move evidence to its final archive destination, without human intervention. This approach helps guarantee that evidence artifacts remain unaltered.
 
@@ -181,7 +185,7 @@ When you apply a legal hold policy to the destination storage, the evidence is i
 
 Lastly, you can use the provided solution as an integrity mechanism to compute the hash values of the disk images. The supported hash algorithms are MD5, SHA256, SKEIN, and KECCAK (or SHA3).
 
-### Evidence production
+#### Evidence production
 
 Investigators need access to evidence so that they can perform analyses. This access must be tracked and explicitly authorized.
 
@@ -193,7 +197,7 @@ The SOC team must explicitly place the IP addresses of investigators that requir
 
 Finally, investigators need the BEKs archived in the SOC key vault to access the encrypted disk copies. An SOC team member must extract the BEKs and provide them via secure channels to the investigators.
 
-### Regional store
+#### Regional store
 
 For compliance, some standards or regulations require evidence and the supporting infrastructure to be maintained in the same Azure region.
 
