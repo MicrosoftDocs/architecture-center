@@ -57,9 +57,11 @@ Use this architecture to easily migrate IBM System i and AS/400 workloads to Azu
 
 ## Considerations
 
-The following considerations apply to this solution.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
-### Availability
+### Reliability
+
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 The architecture accommodates redundancy and disaster recovery for high availability:
 
@@ -73,28 +75,17 @@ Take these steps to improve availability:
 - For increased availability, use Virtual Machine Scale Sets to set up a group of load-balanced VMs that make up an Azure Virtual Machine Scale Set.
 - [Azure load balancing services](https://azure.microsoft.com/products/azure-load-balancing/) provide scaling for high availability and high performance.
 
-### Operations
-
-- The Infinite i deployment methodology calls for converting and testing workloads before migrating them to the Azure platform.
-- When you move workloads to Azure, you can use Azure services such as Availability Zones, scale sets, and [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
-- Azure DevOps can help manage the migration.
-- Consider using [Azure Resource Manager templates (ARM templates)](https://azure.microsoft.com/services/arm-templates/) for scripted deployment, and for monitoring and alerting capabilities.
-
-### Performance
-
-- Azure services, including VMs, scale to meet desired performance.
-- The Infinite i migration design process considers the performance characteristics of the workloads running on System i, and selects the right configuration of Azure services for the desired performance on Azure.
-- Infinite i can take advantage of Azure scale sets to add capacity as needed.
-- The architecture is designed to accommodate parallel processing of independent transactions.
-- For this architecture, Premium SSDs or Ultra Disk SSDs are usually a good choice.
-
 ### Security
+
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Infinite i migrates the System i user-based access roles to Azure.
 - The Infinite i runtime environment provides the same level of security on Azure as the System i environment provided.
 - Azure security best practices can further protect the overall application  environment.
 
-### Cost optimization
+### Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 The Infinite i solution keeps costs at a minimum to lower your total cost of ownership:
 
@@ -116,6 +107,25 @@ Here are pricing considerations for specific components:
 - These services are free with your Azure subscription, but you pay for usage and traffic:
   - [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
   - For [Azure Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network), IP addresses carry a nominal charge.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+- The Infinite i deployment methodology calls for converting and testing workloads before migrating them to the Azure platform.
+- When you move workloads to Azure, you can use Azure services such as Availability Zones, scale sets, and [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
+- Azure DevOps can help manage the migration.
+- Consider using [Azure Resource Manager templates (ARM templates)](https://azure.microsoft.com/services/arm-templates/) for scripted deployment, and for monitoring and alerting capabilities.
+
+### Performance Efficiency
+
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+- Azure services, including VMs, scale to meet desired performance.
+- The Infinite i migration design process considers the performance characteristics of the workloads running on System i, and selects the right configuration of Azure services for the desired performance on Azure.
+- Infinite i can take advantage of Azure scale sets to add capacity as needed.
+- The architecture is designed to accommodate parallel processing of independent transactions.
+- For this architecture, Premium SSDs or Ultra Disk SSDs are usually a good choice.
 
 ## Contributors
 
