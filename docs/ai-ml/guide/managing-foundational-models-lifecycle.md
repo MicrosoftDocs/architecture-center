@@ -18,9 +18,11 @@ categories:
 
 # Design to support foundation model lifecycles
 
-There are different reasons to update the foundational model you use in your generative AI solution. The scope of your model update can vary between upgrading for a slight revision change to choosing a different model altogether. Some reasons to update models are voluntary, while others are required. For example, depending upon the model deployment option you choose in Azure, MaaS, MaaP, or self-hosting, you may be required to update to new model versions, as old versions are retired.
+Foundation models are versioned dependencies you consume in your AI workload and, as such, have a lifecycle that must be accounted for. Like other dependencies in your workload, such as code libraries, foundation models inevitably have new minor versions released to make improvements and optimizations. Foundation models also have major version updates that make a substantive change to model capabilities, performance, or training data freshness. Finally, foundation models become deprecated due to model obsolesce or your model's host's preferences that are out of your control.
 
-This article discusses the reasons for updating to new models or model versions and outlines the architectural choices to ensure your solution can accommodate these inevitable updates.
+Your workload must be designed to support the documented model lifecycles of the models you choose as dependencies. Without consideration for the lifecycle, you might find yourself performing risky upgrades, introducing untested behavior changes, taking unnecessary workload downtime, or having outages due to how your hosting platform handles end-of-life models.
+
+A workload that is designed to support its models' lifecycles is well positioned to experiment with and safely migrate to completely different foundation models as novel foundation models enter the marketplace.
 
 ## Types of model updates
 
@@ -64,7 +66,7 @@ Updating the model in your solution necessitates varying degrees of architectura
 1. **The model config** - When updating the foundation model in your AI solution, you might need to adjust hyperparameters or configurations to optimize performance for the new model's architecture and capabilities. For example, switching from a transformer-based model to a recurrent neural network might require different learning rates and batch sizes to achieve optimal results.
 1. **The prompt** - When changing foundation models in your workload, you may need to adjust the prompt to align with the new model's strengths and capabilities. Along with updating the model config, updating the prompt is the most common change when updating models. When evaluating a new model, even for a minor version update, if the model isn't performing to your requirements, you should start with testing changes to the prompt. You certainly need to address the prompt when changing to new models and it's likely that you need to address the prompt when making large revision changes.
 1. **The orchestration logic** - Some model updates, especially when taking advantage of new features, lead you to making changes to your orchestration logic. For example, if you update your model to GPT-35 or GPT-4 to take advantage of [function calling](/azure/ai-services/openai/how-to/function-calling), you have to change your orchestration logic. Your old model returned a result which you could return to the caller. With function calling, the call to the model returns a function that your orchestration logic must call.
-1. **The grounding data** - Some model updates, larger scoped changes, leads you to making changes to your grounding data. For example, when moving from a generalized model to a domain specific model, such as one focused on finance or medicine, you may no longer need to pass domain specific grounding data to the model. For more information, see [Design and develop a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide).
+1. **The grounding data** - Some model updates, larger scoped changes, may lead you to making changes to your grounding data, its use, or how you retrieve it. For example, when moving from a generalized model to a domain specific model, such as one focused on finance or medicine, you may no longer need to pass domain specific grounding data to the model. A second example is where a new model can handle a larger context window. In this case, you may want to retrieve additional relevant chunks or tune the size of your chunks. For more information, see [Design and develop a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide).
 
 ## Design for change
 
@@ -141,7 +143,15 @@ The following flow describes how different deployments of an orchestrator, each 
 
 ## Recommendation
 
-Be intentional about updating models. Test and evaluate new versions and new models using automated pipelines. Avoid using platform features that auto-upgrade models to new versions. You should be aware of how each model update affects your workload. Ensure that your service configuration doesn't enable auto-upgrade.
+- Add layers of abstraction that allow you to change just those layers of your workload (client, intelligent application API, orchestration, model hosting, grounding knowledge) in a controlled way.
+
+- All changes to model versions, prompts, configuration, orchestration logic, and grounding knowledge retrieval must be tested before being used in production. Ensure that tested combinations are "pinned together" in production. A/B testing, load balancing, blue-green deployments must not comingle the components such that a user experiences an untested combination.
+
+- Test and evaluate new versions and new models using automated pipelines.
+
+- Be intentional about updating models. Avoid using platform features that auto-upgrade production models to new versions. You need to be aware of how any model update affects your workload.
+
+- Ensure that your observability and logging solution collections enough information so that you can correlate observed behavior with the specific configuration, prompt, model, and data retrieval solution involved. In this way you can identify unexpected regressions in cost, performance, reliability, or AI specific qualitative measurements.
 
 ## Summary
 
