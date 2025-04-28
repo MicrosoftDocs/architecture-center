@@ -42,7 +42,7 @@ Training a new SLM and fine-tuning a generative foundation model follow the same
 
 ### Prompt engineering
 
-Prompt engineering includes all the processes included in designing an effective prompt that's sent as input to a generative model. There's generally an orchestrator that controls a workflow that generates the prompt. The orchestrator can call into multiple data stores directly or through agents to gather information, including grounding data. It then applies the required logic to generate the most effective prompt. The orchestrator is then deployed as an API endpoint, which allows client code in an intelligent application to interact with it.
+Prompt engineering includes all the processes included in designing an effective prompt that's sent as input to a generative model. There's generally an orchestrator that controls a workflow that generates the prompt. The orchestrator can call into multiple data stores directly or indirectly through agents to gather information, including grounding data. It then applies the required logic to generate the most effective prompt. The orchestrator is then deployed as an API endpoint that's accessed by client code in an intelligent application.
 
 The following diagram shows an architecture for prompt engineering.
 
@@ -93,7 +93,7 @@ This technical pattern should fully take advantage of the existing DataOps inves
 
 #### RAG and prompt engineering
 
-The intent for the data in RAG solutions is to provide grounding data (or context) that's presented to the language model as part of a prompt. RAG solutions often process large documents or data sets by breaking them into right-sized, semantically relevant chunks. These chunks are then stored in a vector database for efficient retrieval and analysis. For more information, see [Designing and developing a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide). Reproducibility and data versioning for RAG solutions allows you to experiment with different chunking and embedding strategies, compare performance, and roll back to previous versions.
+The intent for the data in RAG solutions is to provide grounding data (or context) that's presented to the language model as part of a prompt. RAG solutions often require the processing of large documents or data sets into a collection of right-sized, semantically relevant chunks, and persisting those chunks in a vector store. For more information, see [Designing and developing a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide). Reproducibility and data versioning for RAG solutions allows you to experiment with different chunking and embedding strategies, compare performance, and roll back to previous versions.
 
 Data pipelines for chunking documents aren't part of DataOps in traditional MLOps, so you have to extend your architecture and operations. The data pipelines can read data from disparate sources that include both structured and unstructured data. They can also write the transformed data to different targets. You must extend your pipelines to include the data stores that you use for grounding data. Typical data stores for these patterns are vector stores like AI Search.
 
@@ -197,7 +197,7 @@ In a multi-agent system, you need to monitor the availability, performance chara
 
 #### Learning from production
 
-A crucial aspect of monitoring during the inferencing stage is learning from production. Monitoring for traditional machine learning models tracks metrics like accuracy, precision, and recall. A key goal is to avoid prediction drift. Solutions that use generative models for predictions, such as a GPT model for classification, should take advantage of existing MLOps monitoring investments. This approach ensures efficient oversight and optimization of model performance.
+A crucial aspect of monitoring during the inferencing stage is learning from production. Monitoring for traditional machine learning models tracks metrics like accuracy, precision, and recall. A key goal is to avoid prediction drift. Solutions that use generative models for predictions, such as a GPT model for classification, should take advantage of existing MLOps monitoring investments.
 
 Solutions that use generative models to reason over grounding data use [metrics like groundedness, completeness, utilization, and relevancy](rag/rag-llm-evaluation-phase.md#language-model-evaluation-metrics). The goal is to ensure that the model fully answers the query and bases the response on its context. In this solution, you need to try to prevent problems like data drift. You want to ensure that the grounding data and the prompt that you provide to the model are maximally relevant to the user query.
 
