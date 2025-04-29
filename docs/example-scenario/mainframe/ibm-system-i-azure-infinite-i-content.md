@@ -52,11 +52,11 @@ The following workflow corresponds to the previous diagram:
 
 ## Scenario details
 
-Infinite i enables you to migrate your System i and AS/400 workloads to Azure. The migrated workloads match or improve performance and availability at a lower cost and with opportunities to modernize.
+Infinite i lets you migrate your System i and AS/400 workloads to Azure. The migrated workloads in Azure maintain or improve performance and availability, reduce costs, and create opportunities for modernization.
 
-To migrate your applications, you compile them with the Infinite i suite. After deployment on Infinite i on Azure, the applications run as they did on the System i platform. The Infinite i runtime environment provides everything you need to run jobs and run control language commands in a Linux environment.
+ After deployment on Infinite i in Azure, the applications run as they did on the System i platform. The Infinite i runtime environment supports job execution and control language commands in a Linux environment.
 
-There are compilers and translators for these technologies: RPG, RPG/ILE, RPG/Free, COBOL, Control Language Programs (CLP), and Data Description Specifications (DDS).
+You use the Infinite i suite to compile your applications. The suite includes compilers and translators for these technologies: RPG, RPG/ILE, RPG/Free, COBOL, Control Language Programs (CLP), and Data Description Specifications (DDS).
 
 
 The benefits of the Infinite i environment include:
