@@ -35,7 +35,7 @@ From the perspective of infrastructure, this architecture provides the following
 
 - [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) (optional) and a subnet for enhanced-security access to any of the worker nodes or optional JumpBox machines. Azure Bastion is a fully managed service that provides seamless enhanced-security RDP and SSH access to VMs without any exposure through public IP addresses.
 
-- [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) (optional) to provide data services to MAS. The database can also be another, like Oracle Exadata or IBM Db2 Warehouse. Azure SQL Database is not current supported.
+- [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) (optional) to provide data services to MAS. The database can also be another, like Oracle Exadata or IBM Db2 Warehouse. Azure SQL Database is not currently supported.
 
 - [Twilio Send Grid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021) (optional) to send emails from MAS to your consumers.
 
