@@ -1,6 +1,6 @@
 ---
 title: Generative AI Operations for Organizations with MLOps Investments
-description: Extend existing MLOps investments to include generative AI ops. Learn where you can apply existing investments and where you need to extend those investments.
+description: Extend existing MLOps investments to include generative AI operations. Learn where you can apply existing investments and where you need to extend those investments.
 author: robbagby
 ms.author: robbag
 ms.date: 04/09/2025
@@ -16,7 +16,7 @@ categories:
 
 # Generative AI operations for organizations with MLOps investments
 
-This article provides guidance to workload teams that have existing machine learning operations (MLOps) investments and want to extend those investments to include generative AI technology and patterns in their workload. To operationalize generative AI workload features, you need to extend your MLOps investments with generative AI operations (GenAIOps), sometimes known as *LLMOps*. This article outlines technical patterns shared by both traditional machine learning and generative AI workloads, and patterns unique to generative AI. The article helps you understand where you can apply existing investments in operationalization and where you need to extend those investments.
+This article provides guidance to workload teams that have existing machine learning operations (MLOps) investments and want to extend those investments to include generative AI technology and patterns in their workload. To operationalize generative AI workload features, you need to extend your MLOps investments with generative AI operations (GenAIOps), sometimes known as *LLMOps*. This article outlines technical patterns that are common to both traditional machine learning and generative AI workloads, and patterns unique to generative AI. The article helps you understand where you can apply existing investments in operationalization and where you need to extend those investments.
 
 The planning and implementation of MLOps and GenAIOps are part of a core design area in AI workloads on Azure. For more information about why these workloads need specialized operations, see [MLOps and GenAIOps for AI workloads on Azure](/azure/well-architected/ai/mlops-genaiops).
 
@@ -161,7 +161,7 @@ Some generative AI solutions include deploying custom-trained models or fine-tun
 
 #### Training and fine-tuning
 
-You should use your existing MLOps investments, with some possible adjustments, to deploy generative AI models and fine-tune foundation models. For example, to fine-tune an LLM in Azure OpenAI Service, you need to ensure that your training and validation data sets are in JSONL format and you need to upload the data via a REST API. You also need to create a fine-tuning job. To deploy a trained SLM, you can take advantage of your existing MLOps investments.
+You should use your existing MLOps investments, with some possible adjustments, to deploy generative AI models and fine-tune foundation models. For example, to fine-tune an LLM in Azure OpenAI Service, you need to ensure that your training and validation data sets are in JSONL format, and you need to upload the data via a REST API. You also need to create a fine-tuning job. To deploy a trained SLM, you can take advantage of your existing MLOps investments.
 
 #### RAG and prompt engineering
 
@@ -213,7 +213,7 @@ Generative solutions that use models exposed as a service, like Azure OpenAI, ha
 
 ## Tooling
 
-Many MLOps practitioners use a standardized toolkit to organize activities such as automation, tracking, deployment, and experimentation. This approach abstracts common concerns and implementation details, which makes these processes more efficient and manageable. A typical unified platform is [MLflow](/azure/machine-learning/concept-mlflow). Before you look for new tools to support GenAIOps patterns, you should review your existing MLOps tooling to evaluate its support for generative AI. For example, MLflow supports a [wide range features for language models](https://mlflow.org/docs/latest/llms/index.html).
+Many MLOps practitioners use a standardized toolkit to organize activities such as automation, tracking, deployment, and experimentation. This approach abstracts common concerns and implementation details, which makes these processes more efficient and manageable. A typical unified platform is [MLflow](/azure/machine-learning/concept-mlflow). Before you look for new tools to support GenAIOps patterns, you should review your existing MLOps tooling to evaluate its support for generative AI. For example, MLflow supports a [wide range of features for language models](https://mlflow.org/docs/latest/llms/index.html).
 
 You can also explore the benefits and trade-offs of introducing new tools into your flow. For example, the [Azure AI Evaluation SDK](/python/api/overview/azure/ai-evaluation-readme) for Python could be a feasible option because it has native support in the Azure AI Foundry portal.
 
