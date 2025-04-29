@@ -28,16 +28,16 @@ A workload that is designed to support its models' lifecycles is well positioned
 
 The scope of the model update in your generative AI solution can vary drastically, from upgrading for a minor revision change to choosing a new model family altogether. There are various reasons you may choose to upgrade the model in your solution. The following table lists different update scopes along with an example and some of the benefits of making this upgrade.
 
-| Scope of change | Example | Benefit of updating model |
+| Scope of change | Benefit of updating model | Example |
 | --- | --- | --- |
-| Minor version update | Moving from GPT-3.5-Turbo to GPT-3.5-Turbo-0125 | A small, incremental change or improvement within the same major version. Some examples are performance improvements, bug fixes, and increased stability. |
-| Intermediate version update | Moving from GPT-3 to GPT-3.5 | A significant but not major leap, often involving enhancements and optimizations. Some examples are improved accuracy through better natural language understanding and enhanced dialogue capabilities. |
-| Major version update | Moving from GPT-3 to GPT-4 | A substantial upgrade with significant new features and improvements. Some examples are major version updates can include significant improvements in reasoning capabilities, may have larger context windows, an increased knowledge base, or may support multimodal capabilities. |
-| Variant update | Moving from GPT-4 to GPT-4-Turbo or GPT-4o-mini | A variation of the same major version, often optimized for specific attributes like cost or speed. |
-| Generational version update | Moving from GPT-4 to GPT-4o | A new generation of the model, typically introducing new features and capabilities similar to a major version update. Having multiple generations allows you to choose based on your requirements for features, performance, and cost. |
-| Model change (general) | Moving from GPT-4 to DeepSeek | A change to a different general model for speed, cost, or model performance for your solution. |
-| Model change (specialized) | Moving from GPT-4 to Prizedata | A change to a model that is trained on a specific domain to achieve better model performance for your solution. |
-| Deployment option change | Moving from Llama-1 hosted as managed online endpoint in Azure AI Foundry to self-hosting Llama-1 on a virtual machine | Changing your hosting model to have more/less control and more/less hosting responsibility. |
+| Minor version update | A small, incremental change or improvement within the same major version. Some examples are performance improvements, bug fixes, and increased stability. | Moving from GPT-3.5-Turbo to GPT-3.5-Turbo-0125 |
+| Intermediate version update | A significant but not major leap, often involving enhancements and optimizations. Some examples are improved accuracy through better natural language understanding and enhanced dialogue capabilities. | Moving from GPT-3 to GPT-3.5 |
+| Major version update | A substantial upgrade with significant new features and improvements. Some examples are major version updates can include significant improvements in reasoning capabilities, may have larger context windows, an increased knowledge base, or may support multimodal capabilities. | Moving from GPT-3 to GPT-4 |
+| Variant update | A variation of the same major version, often optimized for specific attributes like cost or speed. | Moving from GPT-4 to GPT-4-Turbo or GPT-4o-mini |
+| Generational version update | A new generation of the model, typically introducing new features and capabilities similar to a major version update. Having multiple generations allows you to choose based on your requirements for features, performance, and cost. | Moving from GPT-4 to GPT-4o |
+| Model change (general) | A change to a different general model for speed, cost, or model performance for your solution. | Moving from GPT-4 to DeepSeek |
+| Model change (specialized) | A change to a model that is trained on a specific domain to achieve better model performance for your solution. | Moving from GPT-4 to Prizedata |
+| Deployment option change | Changing your hosting model to have more/less control and more/less hosting responsibility. | Moving from Llama-1 hosted as managed online endpoint in Azure AI Foundry to self-hosting Llama-1 on a virtual machine |
 
 ## How the model deployment strategy in Azure effect version retirements
 
@@ -89,6 +89,8 @@ You should implement pipelines to:
 - Help you in your iterative development and experimentation. (Inner loop)
 - Perform safe deployment and operationalization of your generative AI solution. (Outer loop)
 
+Where possible, use the same baseline data you are using with the production application to test the changes to your generative AI application. This may not be possible if the updated application is using new model features that require a change to the data.
+ 
 ### Architecture considerations
 
 In simple architectures, like the following, the client directly calls the model with the correct prompt version and configuration. If there are changes to the prompt, a new client is deployed with the new prompt and it calls the new model. Tying the prompt, config, and model versions isn't a challenge.
@@ -126,7 +128,7 @@ The following flow describes how different deployments of an orchestrator, each 
 
 #### Gateway
 
-The following diagram illustrates an architecture using a router to route requests to multiple deployments. However, in this architecture, all model requests are routed through a gateway.
+The following diagram illustrates an architecture using a router to route requests to multiple deployments. However, in this architecture, all model requests are routed through a gateway. Again, it's common to [proxy access to AI models for a various reasons](/azure/architecture/ai-ml/guide/azure-openai-gateway-guide) including load balancing, failover between multiple backend instances in a single or multiple regions, and implementing a PTU to pay-as-you-go spillover strategy.
 
 :::image type="complex" source="_images/model-lifecycle-two-layers-abstraction.svg" alt-text="Architecture diagram of a chat scenario that uses a router to route between deployments and a gateway to route between models." lightbox="_images/model-lifecycle-two-layers-abstraction.svg":::
    A diagram showing an intelligent client connecting to a router (labeled 1). The router has connections to two deployment boxes that are contained in an Orchestrator box (labeled 2). In each deployment box, there's config, a prompt (labeled 3), and orchestration logic (labeled 4). Each deployment box has a connection line to a gateway box (labeled 5). Each connector line has a label showing an HTTP header indicating the model and version. Deployment 1 indicates model-x-v1, while Deployment 2 indicates model-x-v1.1. The gateway box has connectors to model-x-v1 box and model-x-v1.1 box (labeled 6). The orchestrator box connected to an API/Agent box, which connects to a knowledge database box. There are arrows pointing to the router and gateway boxes with a label that reads 'Common layers of abstraction in a generative AI workload.'
@@ -147,7 +149,7 @@ The following flow describes how different deployments of an orchestrator, each 
 
 - All changes to model versions, prompts, configuration, orchestration logic, and grounding knowledge retrieval must be tested before being used in production. Ensure that tested combinations are "pinned together" in production. A/B testing, load balancing, blue-green deployments must not comingle the components such that a user experiences an untested combination.
 
-- Test and evaluate new versions and new models using automated pipelines.
+- Test and evaluate new versions and new models using automated pipelines. You should compare the results to the results of your baseline to ensure you are getting the results you require.
 
 - Be intentional about updating models. Avoid using platform features that auto-upgrade production models to new versions. You need to be aware of how any model update affects your workload.
 
