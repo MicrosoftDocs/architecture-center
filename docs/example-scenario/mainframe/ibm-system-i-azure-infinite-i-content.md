@@ -1,4 +1,4 @@
-The Infinite i suite is from Microsoft partner Infinite Corporation. The architecture described here uses it to migrate System i workloads to Azure. It converts Report Program Generator (RPG) and common business-oriented language (COBOL) source code to object code that runs natively on x86 virtual machines (VMs). Application screens and interactions work as before, thus minimizing user retraining. After migration, you maintain programs as usual by making changes to the source code.
+This article shows you how to migrate System i workloads to Azure using Infinite i. Infinite i converts Report Program Generator (RPG) and common business-oriented language (COBOL) source code to object code that runs natively on x86 virtual machines (VMs). Application screens and interactions work as before, minimizing the need for user retraining. After migration, you can maintain and update programs by modifying the original source code as usual.
 
 ## Architecture
 
@@ -16,11 +16,11 @@ The following workflow corresponds to the previous diagram:
 
 1. Azure ExpressRoute provides a dedicated high-speed connection between on-premises and Azure resources.
 
-1. Infinite i application servers run the migrated workloads. Each server runs in its own VM on Azure Virtual Machines. The architecture uses two or more VMs for high availability, and Azure Load Balancer controls inbound and outbound network traffic. Infinite i supports an active-passive configuration (one active VM, one standby VM).
+1. Azure Load Balancer distributes incoming TN5250 traffic across two Infinite i app servers (active and standby) in the virtual network. Azure-based clients connect via a peered virtual network.
 
 1. The compilers translate System i source code to 64-bit object code that runs on Azure x86 VMs.
 
-1. An Infinite i internal database emulates the behavior of a DB2/400 database, including features such as physical files, logical files, multiple-member files, joins, triggers, referential integrity, commitment control, and journaling. When an application runs on Azure, it accesses data as it did in the AS/400 environment, with no code changes required. Infinite i provides internal database connectors (ODBC and JDBC) for connecting to physical and logical files in the internal database.
+1. Infinite i includes an internal database that emulates DB2/400 features such as physical files, logical files, multiple-member files, joins, triggers, referential integrity, commitment control, and journaling. When an application runs on Azure, it accesses data as it did in the AS/400 environment with no code changes required. Infinite i provides internal database connectors (ODBC and JDBC) for connecting to physical and logical files in the internal database.
 
 1. Azure Files provides file shares to implement Infinite i files. Mounting a file share on the Azure VM gives programs direct access to the files. The file share also holds load modules and log files.
 
@@ -58,7 +58,6 @@ To migrate your applications, you compile them with the Infinite i suite. After 
 
 There are compilers and translators for these technologies: RPG, RPG/ILE, RPG/Free, COBOL, Control Language Programs (CLP), and Data Description Specifications (DDS).
 
-The Infinite i suite is from Microsoft partner Infinite Corporation. The architecture described here uses it to migrate System i workloads to Azure. It converts RPG and COBOL source code to object code that runs natively on x86 VMs. Application screens and interactions work as before, thus minimizing user retraining. After migration, you maintain programs as usual by making changes to the source code.
 
 The benefits of the Infinite i environment include:
 
