@@ -89,13 +89,13 @@ Reliability helps ensure that your application can meet the commitments that you
 
 This architecture accommodates redundancy and disaster recovery for high availability:
 
-- [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery) disaster recovery service protects against major outages by minimizing downtime and data loss. These actions enable low-impact recoveries from major failures. The service is dependable, cost-effective, and easy to deploy.
+- Use [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) for disaster recovery on Azure VMs. It helps protect virtual machines against major outages by minimizing downtime and data loss. The service is dependable, cost-effective, and easy to deploy.
 
 - For more information, see [Availability options for Azure Virtual Machines](/azure/virtual-machines/availability).
 
 To improve availability, take the following steps:
 
-- Use [Azure availability zones](https://azure.microsoft.com/explore/global-infrastructure/availability-zones) to protect against infrastructure disruptions by eliminating all single points of failure. The SLA for VMs is for 99.99% uptime.
+- Use [Azure availability zones](/azure/reliability/availability-zones-overview) to protect against infrastructure disruptions by eliminating all single points of failure. The SLA for VMs is for 99.99% uptime.
 
 - Use an availability set, which is a grouping of VMs, for redundancy and availability. For more information, see [Availability sets overview](/azure/virtual-machines/availability-set-overview).
 
@@ -155,7 +155,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - The Infinite i deployment methodology calls for converting and testing workloads before migrating them to the Azure platform.
 
-- When you move workloads to Azure, you can use Azure services such as availability zones, scale sets, and [Site Recovery](https://azure.microsoft.com/products/site-recovery).
+- When you move workloads to Azure, use availability zones, scale sets, and [Site Recovery](https://azure.microsoft.com/products/site-recovery) to reduce management overhead for scaling and reliability.
 
 - Azure DevOps can help manage the migration.
 
@@ -165,7 +165,6 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-- Azure services, including VMs, scale to meet desired performance.
 
 - The Infinite i migration design process considers the performance characteristics of the workloads running on System i and selects the right configuration of Azure services for the desired performance on Azure.
 
@@ -173,7 +172,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 - The architecture is designed to accommodate parallel processing of independent transactions.
 
-- For this architecture, Premium SSDs or Ultra Disk SSDs are usually a good choice.
+- For this architecture, use Premium SSDs or Ultra Disk SSDs.
 
 ## Contributors
 
