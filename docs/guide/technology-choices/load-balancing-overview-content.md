@@ -10,13 +10,13 @@ Azure load-balancing services can be categorized along two dimensions: global ve
 
 ### Global vs. regional
 
-- **Global**: These load-balancing services distribute traffic across regional back-ends, clouds, or hybrid on-premises services. These services support managing a single control plane responsible for globally routing end-user traffic to an available back-end. They often react to changes in service reliability or performance to maximize availability and performance. You can think of them as systems that load balance between application stamps, endpoints, or scale-units hosted across different regions/geographies.
-- **Regional**: These load-balancing services distribute traffic within virtual networks across virtual machines (VMs) or zonal and zone-redundant service endpoints within a region. You can think of them as systems that load balance between VMs, containers, or clusters within a region in a virtual network.
+- **Global:** These load-balancing services distribute traffic across regional back-ends, clouds, or hybrid on-premises services. These services support managing a single control plane responsible for globally routing end-user traffic to an available back-end. They often react to changes in service reliability or performance to maximize availability and performance. You can think of them as systems that load balance between application stamps, endpoints, or scale-units hosted across different regions/geographies.
+- **Regional:** These load-balancing services distribute traffic within virtual networks across virtual machines (VMs) or zonal and zone-redundant service endpoints within a region. You can think of them as systems that load balance between VMs, containers, or clusters within a region in a virtual network.
 
 ### HTTP(S) vs. non-HTTP(S)
 
-- **HTTP(S)**: These load-balancing services are [Layer 7](https://www.iso.org/ics/35.100.70/x/) load balancers that only accept HTTP(S) traffic. They're intended for web applications or other HTTP(S) endpoints. They might have features such as SSL offload, web application firewall, path-based load balancing, and session affinity.
-- **Non-HTTP(S)**: These load-balancing services are either [Layer 4](https://www.iso.org/ics/35.100.40/x/) TCP or UDP services, or DNS-based load balancing.
+- **HTTP(S):** These load-balancing services are [Layer 7](https://www.iso.org/ics/35.100.70/x/) load balancers that only accept HTTP(S) traffic. They're intended for web applications or other HTTP(S) endpoints. They might have features such as SSL offload, web application firewall, path-based load balancing, and session affinity.
+- **Non-HTTP(S):** These load-balancing services are either [Layer 4](https://www.iso.org/ics/35.100.40/x/) TCP or UDP services, or DNS-based load balancing.
 
 The following table summarizes the Azure load-balancing services.
 
@@ -49,11 +49,11 @@ Here are the main load-balancing services currently available in Azure:
 
 Consider these factors such as these when you select a load balancing solution:
 
-- **Traffic type**: Is it a web HTTP(S) application? Is it public facing or a private application?
-- **Global vs. regional**: Do you need to load balance VMs or containers within a single virtual network, or load balance scale unit/deployments across regions, or both?
-- **Availability**: What's the [service-level agreement](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services)?
-- **Cost**: For more information, see [Azure pricing](https://azure.microsoft.com/pricing/). In addition to the cost of the service itself, consider the operations cost for managing a solution built on that service.
-- **Features and limits**: What capabilities are supported on each service and what are the [Service limits](/azure/azure-subscription-service-limits) of each service?
+- **Traffic type:** Is it a web HTTP(S) application? Is it public facing or a private application?
+- **Global vs. regional:** Do you need to load balance VMs or containers within a single virtual network, or load balance scale unit/deployments across regions, or both?
+- **Availability:** What's the [service-level agreement](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services)?
+- **Cost:** For more information, see [Azure pricing](https://azure.microsoft.com/pricing/). In addition to the cost of the service itself, consider the operations cost for managing a solution built on that service.
+- **Features and limits:** What capabilities are supported on each service and what are the [Service limits](/azure/azure-subscription-service-limits) of each service?
 
 > [!TIP]
 > The Azure portal offers a questionnaire-based guide similar to the following flowchart. In the Azure portal, search for '**Load balancing - help me choose**'. By answering the questions, you can narrow down your load balancing options.
@@ -81,15 +81,15 @@ When your workload involves several services that require load balancing, it's i
   >
   > Using a regional resource as a router for globally distributed backends introduces a regional single point of failure and incurs additional latency as traffic is forced through one region before going to another and then back again.
 
-- **Platform as a service (PaaS)**: Provides a managed hosting environment, where you can deploy your application without needing to manage VMs or networking resources. In this case, PaaS refers to services that provide integrated load balancing within a region. For more information, see [Choose a compute service &ndash; Scalability](./compute-decision-tree.yml#scalability).
+- **Platform as a service (PaaS):** Provides a managed hosting environment, where you can deploy your application without needing to manage VMs or networking resources. In this case, PaaS refers to services that provide integrated load balancing within a region. For more information, see [Choose a compute service &ndash; Scalability](./compute-decision-tree.yml#scalability).
 
-- **Azure Kubernetes Service (AKS)**: Enables you to deploy and manage containerized applications. AKS provides serverless Kubernetes, an integrated continuous integration and continuous delivery experience, and enterprise-grade security and governance. For more information about AKS architectural resources, see [Azure Kubernetes Service architecture design](../../reference-architectures/containers/aks-start-here.md).
+- **Azure Kubernetes Service (AKS):** Enables you to deploy and manage containerized applications. AKS provides serverless Kubernetes, an integrated continuous integration and continuous delivery experience, and enterprise-grade security and governance. For more information about AKS architectural resources, see [Azure Kubernetes Service architecture design](../../reference-architectures/containers/aks-start-here.md).
 
-- **Infrastructure as a service (IaaS)**: A computing option where you provision the virtual machines that you need, along with associated network and storage components. IaaS applications require internal load balancing within a virtual network by using Load Balancer.
+- **Infrastructure as a service (IaaS):** A computing option where you provision the virtual machines that you need, along with associated network and storage components. IaaS applications require internal load balancing within a virtual network by using Load Balancer.
 
 - **Application-layer processing:** Refers to special routing within a virtual network. Examples include path-based routing across VMs or virtual machine scale sets. For more information, see [When should I deploy an Application Gateway behind Azure Front Door?](/azure/frontdoor/front-door-faq#when-should-i-deploy-an-application-gateway-behind-front-door-)
 
-- **Performance acceleration**: Refers to features that accelerate web access. Performance acceleration can be achieved by using content delivery networks (CDNs) or optimized point of presence ingress for accelerated client onboarding into the destination network. Azure Front Door supports both [CDNs](/azure/frontdoor/front-door-caching?pivots=front-door-standard-premium) and [Anycast traffic acceleration](/azure/frontdoor/front-door-traffic-acceleration?pivots=front-door-standard-premium). The benefits of both features can be gained with or without Application Gateway in the architecture.
+- **Performance acceleration:** Refers to features that accelerate web access. Performance acceleration can be achieved by using content delivery networks (CDNs) or optimized point of presence ingress for accelerated client onboarding into the destination network. Azure Front Door supports both [CDNs](/azure/frontdoor/front-door-caching?pivots=front-door-standard-premium) and [Anycast traffic acceleration](/azure/frontdoor/front-door-traffic-acceleration?pivots=front-door-standard-premium). The benefits of both features can be gained with or without Application Gateway in the architecture.
 
 ### Additional considerations
 
