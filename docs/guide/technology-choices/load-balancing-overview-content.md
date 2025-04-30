@@ -68,11 +68,11 @@ When your workload involves several services that require load balancing, it's i
 
 ### Definitions
 
-- **Web application (HTTP/HTTPS)**: This refers to needing the capability to make a routing decision for Layer 7 data such as URL path, support the inspection of the communication payload (such as an HTTP request body), or handle TLS functionality.
+- **Web application (HTTP/HTTPS):** This refers to needing the capability to make a routing decision for Layer 7 data such as URL path, support the inspection of the communication payload (such as an HTTP request body), or handle TLS functionality.
 
-- **Internet facing application**: Applications that are publicly accessible from the internet. As a best practice, application owners apply restrictive access policies or protect the application by setting up offerings like web application firewall and DDoS protection.
+- **Internet facing application:** Applications that are publicly accessible from the internet. As a best practice, application owners apply restrictive access policies or protect the application by setting up offerings like web application firewall and DDoS protection.
 
-- **Global / Deployed in multiple regions**: If this load balancer should have a single, highly available control plane that is responsible for routing traffic to public endpoints on your globally distributed application. This can be to support either active-active or active-passive topologies across regions.
+- **Global / Deployed in multiple regions:** If this load balancer should have a single, highly available control plane that is responsible for routing traffic to public endpoints on your globally distributed application. This can be to support either active-active or active-passive topologies across regions.
 
   > [!NOTE]
   > It is possible to use a regional service, such as Application Gateway, to load balance across backends spanning multiple regions and control routing through a single control plane. That architecture is made possible using [cross-region Private Link](/azure/private-link/private-link-faq#can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions-), global virtual network peering, or even public IPs of services in other regions.
