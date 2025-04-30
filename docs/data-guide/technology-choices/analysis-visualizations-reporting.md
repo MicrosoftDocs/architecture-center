@@ -1,5 +1,5 @@
 ---
-title: Choose a Data Analytics and Reporting Technology
+title: Choose a Data Analytics and Reporting Technology in Azure
 description: Evaluate big data analytics technology options for Azure. Use key selection criteria and a capability matrix to help you choose a data analytics technology.
 author: RobBagby
 ms.author: robbag
@@ -29,13 +29,13 @@ There are several options for analysis, visualizations, and reporting in Azure, 
 - [Power BI](/power-bi/)
 - [Jupyter notebooks](https://jupyter.readthedocs.io/en/latest/index.html)
 - [Zeppelin notebooks](https://zeppelin.apache.org/)
-- [Jupyter notebooks in Visual Studio Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
+- [Jupyter notebooks in Visual Studio Code (VS Code)](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
 
 ### Power BI
 
-[Power BI](/power-bi/) is a suite of business analytics tools. It can connect to hundreds of data sources, and you can use it for unplanned analysis. See [this list](/power-bi/desktop-data-sources) of the currently available data sources. Use [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) to integrate Power BI within your own applications without requiring any extra licensing.
+[Power BI](/power-bi/) is a suite of business analytics tools. It can [connect to hundreds of data sources](/power-bi/desktop-data-sources#connect-to-a-data-source), and you can use it for unplanned analysis. Use [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) to integrate Power BI within your own applications without requiring any extra licensing.
 
-Organizations can use Power BI to produce reports and publish them to the organization. Everyone can create personalized dashboards, with governance and [security built in](/power-bi/service-admin-power-bi-security). Power BI uses [Microsoft Entra ID](/azure/active-directory/) to authenticate users who sign in to the Power BI service. It uses the Power BI credentials whenever a user attempts to access resources that require authentication.
+Organizations can use Power BI to produce reports and publish them to the organization. Everyone can create personalized dashboards, with governance and [security built in](/power-bi/service-admin-power-bi-security). Power BI uses [Microsoft Entra ID](/azure/active-directory/) to authenticate users who sign in to the Power BI service. It uses the Power BI credentials when a user attempts to access resources that require authentication.
 
 ### Jupyter notebooks
 
@@ -43,17 +43,17 @@ Organizations can use Power BI to produce reports and publish them to the organi
 
 Most varieties of HDInsight clusters, such as Spark or Hadoop, are [preconfigured with Jupyter notebooks](/azure/hdinsight/spark/apache-spark-jupyter-notebook-kernels) for interacting with data and submitting jobs for processing. Depending on the type of HDInsight cluster that you use, one or more kernels are provided to interpret and run your code. For example, Spark clusters on HDInsight provide Spark-related kernels that you can select to run Python or Scala code by using the Spark engine.
 
-Jupyter notebooks provide aa effective environment for analyzing, visualizing, and processing your data before you build more advanced visualizations with a BI reporting tool like Power BI.
+Jupyter notebooks provide an effective environment for analyzing, visualizing, and processing your data before you build more advanced visualizations by using a BI reporting tool like Power BI.
 
 ### Zeppelin notebooks
 
-[Zeppelin notebooks](https://zeppelin.apache.org/) also provide a browser-based shell that has similar functionality to Jupyter notebooks. Some HDInsight clusters are [preconfigured with Zeppelin notebooks](/azure/hdinsight/spark/apache-spark-zeppelin-notebook). However, if you use an [HDInsight Interactive Query](/azure/hdinsight/interactive-query/apache-interactive-query-get-started) (Hive LLAP) cluster, [Zeppelin](/azure/hdinsight/hdinsight-connect-hive-zeppelin) is the only notebook that you can use to run interactive Hive queries. Also, if you use a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction), Zeppelin notebooks are the only type of notebooks that enable you to assign different user logins to control access to notebooks and the underlying Hive tables.
+[Zeppelin notebooks](https://zeppelin.apache.org/) also provide a browser-based shell that has similar functionality to Jupyter notebooks. Some HDInsight clusters are [preconfigured with Zeppelin notebooks](/azure/hdinsight/spark/apache-spark-zeppelin-notebook). However, if you use an [HDInsight Interactive Query](/azure/hdinsight/interactive-query/apache-interactive-query-get-started) (also called Apache Hive LLAP) cluster, [Zeppelin](/azure/hdinsight/hdinsight-connect-hive-zeppelin) is the only notebook that you can use to run interactive Hive queries. Also, if you use a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction), Zeppelin notebooks are the only type of notebooks that enable you to assign different user logins to control access to notebooks and the underlying Hive tables.
 
 ### Jupyter notebooks in VS Code
 
-VS Code is a free code editor and development platform that you can use locally or connected to remote compute. When you use VS Code with the Jupyter extension, it provides a complete environment for Jupyter development that can be enhanced with more language extensions. Choose this option if you want a best-in-class, free Jupyter experience and to be able to use your compute of choice. 
+VS Code is a free code editor and development platform that you can use locally or connected to remote compute. When you use VS Code with the Jupyter extension, it provides a fully integrated environment for Jupyter development that can be enhanced with more language extensions. Choose this option if you want a best-in-class, free Jupyter experience and to be able to use your compute of choice. 
 
-By using VS Code, you can develop and run notebooks against remotes and containers. To simplify the transition from Azure notebooks, the container image is available for you to use with VS Code too.
+By using VS Code, you can develop and run notebooks against remotes and containers. To simplify the transition from Azure notebooks, the container image is also available for you to use with VS Code.
 
 Jupyter (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a notebook. VS Code supports working with Jupyter notebooks natively and through Python code files.
 
@@ -85,8 +85,8 @@ The following table summarizes the key differences in capabilities.
 | Automatic data refresh | Yes | No | No | No |
 | Access to numerous open-source packages | No | Yes <sup>3</sup> | Yes <sup>3</sup> | Yes <sup>4</sup> |
 | Data transformation or cleansing options | [Power Query](https://powerbi.microsoft.com/blog/getting-started-with-power-query-part-i/), R | 40 languages, including Python, R, Julia, and Scala | More than 20 interpreters, including Python, JDBC, and R | Python, F#, R |
-| Pricing | Free for Power BI Desktop (authoring). See [Power BI pricing](https://powerbi.microsoft.com/pricing/) for hosting options | Free | Free | Free |
-| Multiuser collaboration | [Yes](/power-bi/service-how-to-collaborate-distribute-dashboards-reports) | Yes (through sharing or with a multiuser server like [JupyterHub](https://github.com/jupyterhub/jupyterhub)) | Yes | Yes (through sharing) |
+| Pricing | Free for Power BI Desktop (authoring). See [Power BI pricing](https://powerbi.microsoft.com/pricing/) for hosting options. | Free | Free | Free |
+| Multiuser collaboration | [Yes](/power-bi/service-how-to-collaborate-distribute-dashboards-reports) | Yes (via sharing or with a multiuser server like [JupyterHub](https://github.com/jupyterhub/jupyterhub)) | Yes | Yes (via sharing) |
 
 [1] When used as part of a managed HDInsight cluster.
 
