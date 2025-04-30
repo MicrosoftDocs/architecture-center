@@ -30,14 +30,14 @@ The scope of the model update in your generative AI solution can vary drasticall
 
 | Scope of change | Benefit of updating model | Example |
 | --- | --- | --- |
-| Minor version update | A small, incremental change or improvement within the same major version. Some examples are performance improvements, bug fixes, and increased stability. | Moving from GPT-3.5-Turbo to GPT-3.5-Turbo-0125 |
-| Intermediate version update | A significant but not major leap, often involving enhancements and optimizations. Some examples are improved accuracy through better natural language understanding and enhanced dialogue capabilities. | Moving from GPT-3 to GPT-3.5 |
-| Major version update | A substantial upgrade with significant new features and improvements. Some examples are major version updates can include significant improvements in reasoning capabilities, may have larger context windows, an increased knowledge base, or may support multimodal capabilities. | Moving from GPT-3 to GPT-4 |
-| Variant update | A variation of the same major version, often optimized for specific attributes like cost or speed. | Moving from GPT-4 to GPT-4-Turbo or GPT-4o-mini |
-| Generational version update | A new generation of the model, typically introducing new features and capabilities similar to a major version update. Having multiple generations allows you to choose based on your requirements for features, performance, and cost. | Moving from GPT-4 to GPT-4o |
-| Model change (general) | A change to a different general model for speed, cost, or model performance for your solution. | Moving from GPT-4 to DeepSeek |
-| Model change (specialized) | A change to a model that is trained on a specific domain to achieve better model performance for your solution. | Moving from GPT-4 to Prizedata |
-| Deployment option change | Changing your hosting model to have more/less control and more/less hosting responsibility. | Moving from Llama-1 hosted as managed online endpoint in Azure AI Foundry to self-hosting Llama-1 on a virtual machine |
+| Minor version update | Delivers improved performance, and refined capabilities without requiring significant changes to your existing implementation. | Moving from GPT-3.5-Turbo to GPT-3.5-Turbo-0125 |
+| Intermediate version update | Offers substantial performance improvements, new capabilities, and enhanced reliability while maintaining most backward compatibility and requiring only moderate implementation adjustments. | Moving from GPT-3 to GPT-3.5 |
+| Major version update | Delivers transformational improvements in reasoning, capabilities, context size and performance that justify the significant implementation changes and potential fine-tuning of prompts required. | Moving from GPT-3 to GPT-4 |
+| Variant update | Provides specialized optimizations such as increased processing speed, reduced latency, while maintaining the core architecture and capabilities of the base model. | Moving from GPT-4 to GPT-4-Turbo or GPT-4o-mini |
+| Generational version update | Delivers significant improvements in reasoning, multimodal capabilities, and performance that fundamentally expand the model's utility while potentially requiring complete reimagining of implementation strategies. | Moving from GPT-4 to GPT-4o |
+| Model change (general) | Provides access to specialized capabilities, different price-performance ratios, and potentially better alignment with specific use cases. | Moving from GPT-4 to DeepSeek |
+| Model change (specialized) | Provides domain-specific optimization, enhanced performance for particular tasks, and potentially lower costs compared to using general-purpose models for specialized applications. | Moving from GPT-4 to Prizedata |
+| Deployment option change | Provides greater control over infrastructure, customization options, and potential cost savings while allowing for specialized optimization and enhanced data privacy at the expense of increased management responsibility. | Moving from Llama-1 hosted as managed online endpoint in Azure AI Foundry to self-hosting Llama-1 on a virtual machine |
 
 ## How the model deployment strategy in Azure effect version retirements
 
