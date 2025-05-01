@@ -25,7 +25,7 @@ To create and deploy APIs for mainframe applications by using a contract-first a
 1. Use the z/OS Connect Designer to [map your API and z/OS assets](https://www.ibm.com/docs/cloud-paks/z-modernization-stack/2023.4?topic=designer-mapping-your-rest-api-operations-zos-assets).
 1. Test the functionality of the APIs by interacting with core z/OS applications. Push the mappings into source control management.
 1. Build a web archive file, and deploy it in [the z/OS Connect Server image](https://www.ibm.com/docs/zos-connect/3.0.0?topic=zos-connect-server-image).
-1. Import the OAS3 specification into [Azure API Management](https://azure.microsoft.com/products/api-management/), and establish a connection with the z/OS Connect Server.
+1. Import the OAS3 specification into [Azure API Management](https://azure.microsoft.com/products/api-management/), establish a connection with the z/OS Connect Server, and configure that connection to be a back end in API Management.
 1. Enable and enforce API authentication and authorization mechanisms by using Microsoft Entra ID for enhanced security. For more information, see [Authentication and authorization to APIs in API Management](/azure/api-management/authentication-authorization-overview).
 1. Microsoft Entra ID is validated from Power Apps.
 1. Use Azure monitoring for the application and all components of the solution. For example, you can use Azure alerting for notifications.
