@@ -152,7 +152,7 @@ Because JSON is a text-based format, it isn't efficient over the wire and not id
 
 Use JSON for single-record messages or for a sequence of messages in which each message has a different schema. Avoid using JSON for a sequence of records, such as for time-series data.
 
-There are other variations of JSON such as [binary JSON](http://bsonspec.org), which is a binary encoding aligned to work with MongoDB.
+There are other variations of JSON such as [binary JSON (BSON)](http://bsonspec.org). BSON is a binary encoding aligned to work with MongoDB.
 
 ### CSV
 
