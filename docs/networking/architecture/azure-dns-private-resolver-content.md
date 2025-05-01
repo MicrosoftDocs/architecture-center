@@ -167,25 +167,21 @@ The following diagram shows the traffic flow that results when VM 1 issues a DNS
 
 #### Components
 
-- [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual network gateway that you can use to send encrypted traffic:
+- [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual network gateway that lets you send encrypted traffic between an Azure virtual network and an on-premises location over the public internet. In this architecture, a VPN gateway is an optional component for ExpressRoute that enables hybrid connectivity between Azure and on-premises environments for DNS conditional forwarder traffic.
 
-  - Between an Azure virtual network and an on-premises location over the public internet.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a networking service that extends on-premises networks into the Microsoft cloud. It establishes private connections to cloud components like Azure services and Microsoft 365 through a connectivity provider. In this architecture, ExpressRoute is used for hybrid connectivity between Azure and on-premises environments, specifically for DNS conditional forwarder traffic.
 
-  - Between Azure virtual networks over the Azure backbone network.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service and the foundational building block for private networks in Azure. It lets Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. In the previous design, the primary purpose of the virtual networks is to host the DNS Private Resolver and Azure Virtual Machines. These virtual networks facilitate seamless communication and integration between various Azure services and on-premises resources.
 
-- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a networking service that extends on-premises networks into the Microsoft Cloud. ExpressRoute establishes private connections to cloud components like Azure services and Microsoft 365 by using a connectivity provider.
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a managed, cloud-based network security service that enforces application and network connectivity policies. It centrally manages policies across multiple virtual networks and subscriptions. In the previous use case, you can implement Azure Firewall to enhance security for network traffic. It provides advanced threat protection, network traffic filtering, and logging capabilities to allow only authorized traffic while blocking potential threats.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service and the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks.
+- [DNS Private Resolver](/azure/dns/dns-private-resolver-overview) is a service that bridges an on-premises DNS with Azure DNS. In this architecture, its primary function is to facilitate DNS queries between Azure DNS private zones and an on-premises environment. This facilitation eliminates the need for VM-based DNS servers. This setup ensures seamless and efficient DNS resolution across hybrid environments, which allows Azure and on-premises resources to communicate DNS resolutions effectively.
 
-- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a managed, cloud-based network security service that helps enforce application and network connectivity policies. This network security service centrally manages the policies across multiple virtual networks and subscriptions.
+- [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains that takes advantage of Azure’s infrastructure for name resolution. It plays a crucial role in this design by managing DNS resolution traffic.
 
-- [DNS Private Resolver](/azure/dns/dns-private-resolver-overview) is a service that bridges an on-premises DNS with Azure DNS. You can use this service to query Azure DNS private zones from an on-premises environment and query an on-premises environment from Azure DNS private zones without deploying VM-based DNS servers.
+- The [Azure private DNS service](/azure/dns/private-dns-overview) s a managed DNS service that resolves domain names within a virtual network and connected virtual networks. It eliminates the need for custom DNS configuration. With private DNS zones, you can assign custom domain names instead of using the default names that Azure provides during deployment.
 
-- [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains. By default, Azure virtual networks use Azure DNS for DNS resolution. Microsoft manages and maintains Azure DNS.
-
-- The [Azure private DNS service](/azure/dns/private-dns-overview) manages and resolves domain names in a virtual network and in connected virtual networks. When you use this service, you don't need to configure a custom DNS solution. When you use private DNS zones, you can use custom domain names instead of the names that Azure provides during deployment.
-
-- [DNS forwarders](/windows-server/identity/ad-ds/plan/reviewing-dns-concepts#resolving-names-by-using-forwarding) are DNS servers that forward queries to servers that are outside the network. The DNS forwarder only forwards queries for names that it can't resolve.
+- [DNS forwarders](/windows-server/identity/ad-ds/plan/reviewing-dns-concepts#resolving-names-by-using-forwarding) are DNS servers that send queries to external servers when they can't resolve domain names on their own. This has traditionally been a common method for DNS resolution. In this article and its use cases, the DNS Private Resolver replaces VM-based DNS forwarders, which provides a more efficient and streamlined approach to DNS resolution.
 
 ## Scenario details
 
