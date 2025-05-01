@@ -14,7 +14,7 @@ products:
 
 <!-- cSpell:ignore BSON CBOR -->
 
-# Message encoding considerations
+# Best practices for message encoding
 
 Many cloud applications use asynchronous messages to exchange information between components of the system. An important aspect of messaging is the format used to encode the payload data. After you [choose a messaging technology](../guide/technology-choices/messaging.yml), the next step is to define how the messages will be encoded. There are many options available, but the right choice depends on your use case.
 
