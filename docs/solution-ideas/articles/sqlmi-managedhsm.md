@@ -44,7 +44,7 @@ A customer needs to meet strict Service Level Agreement (SLA) thresholds for the
 
 ### Potential use cases
 
-- The customer is using two unpaired regions. The primary SQL Managed Instance is in one region with failover groups configured to the SQL MI in the secondary region.
+- The customer is using two unpaired regions (this use case could also be used with paired regions). The primary SQL Managed Instance is in one region with failover groups configured to the SQL MI in the secondary region.
 - The customer is using a managed HSM in the primary region with a cross-region replica in the secondary region. When a cross-region replica is enabled, a traffic manager instance is created. The Traffic Manager instance handles the routing of traffic to the local vault if both vaults are operational or to the vault that is operational in the event one is unavailable.
 - The customer is using two custom DNS zones to support a private endpoint for the managed HSM in each region.
 - The customer enabled TDE on the user databases using the customer managed key model, storing the protector key in the managed HSM.
