@@ -179,9 +179,9 @@ The following diagram shows the traffic flow that results when VM 1 issues a DNS
 
 - [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains that takes advantage of Azure’s infrastructure for name resolution. It plays a crucial role in this design by managing DNS resolution traffic.
 
-- The [Azure private DNS service](/azure/dns/private-dns-overview) s a managed DNS service that resolves domain names within a virtual network and connected virtual networks. It eliminates the need for custom DNS configuration. With private DNS zones, you can assign custom domain names instead of using the default names that Azure provides during deployment.
+- The [Azure private DNS service](/azure/dns/private-dns-overview) is a managed DNS service that resolves domain names within a virtual network and connected virtual networks. It eliminates the need for custom DNS configuration. With private DNS zones, you can assign custom domain names instead of using the default names that Azure provides during deployment.
 
-- [DNS forwarders](/windows-server/identity/ad-ds/plan/reviewing-dns-concepts#resolving-names-by-using-forwarding) are DNS servers that send queries to external servers when they can't resolve domain names on their own. This has traditionally been a common method for DNS resolution. In this article and its use cases, the DNS Private Resolver replaces VM-based DNS forwarders, which provides a more efficient and streamlined approach to DNS resolution.
+- [DNS forwarders](/windows-server/identity/ad-ds/plan/reviewing-dns-concepts#resolving-names-by-using-forwarding) are DNS servers that send queries to external servers when they can't resolve domain names on their own. This approach has long been a standard method for DNS resolution. In this article and its use cases, the DNS Private Resolver replaces VM-based DNS forwarders, which provides a more efficient and streamlined approach to DNS resolution.
 
 ## Scenario details
 
