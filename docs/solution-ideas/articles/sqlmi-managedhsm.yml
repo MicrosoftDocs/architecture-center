@@ -1,6 +1,6 @@
 ---
-title: Enhance SQL TDE with Customer Managed Keys and Azure Managed HSM
-description: This solution describes a secure and resilient deployment pattern for Azure SQL Managed Instance highglighting how incorporating Azure Managed HSM is used to store the customer managed transparent data encryption (TDE) protector keys.
+title: Enhance SQL Transparent Data Encryption (TDE) keys using Customer Managed Keys and Azure Managed Hardware Security Module (HSM)
+description: This solution describes a secure and resilient deployment pattern for Azure SQL Managed Instance highlighting how using Azure Managed HSM is used to store the customer managed transparent data encryption (TDE) protector keys.
 author: kriation
 ms.author: akaleshian
 ms.date: 04/25/2025
