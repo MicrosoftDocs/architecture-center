@@ -164,13 +164,13 @@ The disadvantage of CSV is a lack of standardization. There are multiple ways of
 
 [Protocol Buffers](https://protobuf.dev) (or protobuf) is a serialization format that uses strongly typed definition files to define schemas in key/value pairs. These definition files are then compiled to language-specific classes that are used for serializing and deserializing messages.
 
-The message contains a small, compressed binary payload, which results in faster data transfer. The downside is that the payload isn't human readable. Also, because the schema is stored externally, this format isn't ideal for scenarios that require archived data retrieval.
+The message contains a small, compressed binary payload, which results in faster data transfer. The downside is that the payload isn't human readable. Also, because the schema is stored externally, this format isn't ideal for scenarios that require you to retrieve archived data.
 
 ### Apache Avro
 
-[Apache Avro](https://avro.apache.org) is a binary serialization format that uses a definition file similar to Protobuf, but without a compilation step. Instead, serialized data always includes a schema preamble.
+[Apache Avro](https://avro.apache.org) is a binary serialization format that uses a definition file similar to protobuf, but without a compilation step. Instead, serialized data always includes a schema preamble.
 
-The preamble can contain either the header or a schema identifier. Because of its smaller encoding size, Avro is recommended for streaming data. Also, because it has a header that applies to a set of records, it's well-suited for tabular data.
+The preamble can contain the header or a schema identifier. Because of its smaller encoding size, Avro is recommended for streaming data. Also, because it has a header that applies to a set of records, it's well-suited for tabular data.
 
 ### Apache Parquet
 
