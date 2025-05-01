@@ -48,19 +48,13 @@ A customer needs to meet strict Service Level Agreement (SLA) thresholds for the
 
 ## Contributors
 
-•	Michael Piskorski
-•	Armen Kaleshian
-•	Laura Grob
-
 *Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal authors:
 
-<!-- List the primary authors alphabetically by last name. -->
-
-- [Laura Grob](https://www.linkedin.com/in/ProfileURL/) | Title, such as "Cloud Solution Architect"
-- [Michael Piskorski](https://www.linkedin.com/in/ProfileURL/) | Title, such as "Cloud Solution Architect"
-- [Armen Kaleshian](https://www.linkedin.com/in/ProfileURL/) | Title, such as "Cloud Solution Architect"
+- [Laura Grob](https://www.linkedin.com/in/laura-grob/) | Principal Cloud Solution Architect
+- [Michael Piskorski](https://www.linkedin.com/in/mike-piskorski-1451272/) | Senior Cloud Solution Architect
+- [Armen Kaleshian](https://www.linkedin.com/in/akaleshian/) | Principal Cloud Solution Architect
 
 ## Next steps
 
