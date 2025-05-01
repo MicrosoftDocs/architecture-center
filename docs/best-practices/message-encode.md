@@ -110,7 +110,7 @@ As business requirements change, the shape is expected to change, and the schema
 
 Consider whether the data in the payload is structured as a sequence of records or as a single discrete payload. The payload structure can be categorized into one of the following models:
 
-- **Array/dictionary/value:** Defines entries that hold values in one or multidimensional arrays. Entries have unique key/value pairs. It can be extended to represent complex structures. Some examples include JSON, Apache Avro, and MessagePack.
+- **Array/dictionary/value:** Defines entries that hold values in one or multidimensional arrays. Entries have unique key/value pairs. The model can be extended to represent complex structures. Some examples include JSON, Apache Avro, and MessagePack.
 
   This layout is suitable if messages are individually encoded with different schemas. If you have multiple records, the payload can get overly redundant. This redundancy can cause the payload to bloat.
 
