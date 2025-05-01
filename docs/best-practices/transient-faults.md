@@ -1,6 +1,5 @@
 ---
 title: Transient fault handling
-titleSuffix: Best practices for cloud applications
 description: Learn how to handle transient faults caused by loss of network connectivity, temporary unavailability, or timeouts.
 ms.author: robbag
 author: RobBagby

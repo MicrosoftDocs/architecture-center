@@ -1,6 +1,5 @@
 ---
 title: Design for self healing
-titleSuffix: Azure Application Architecture Guide
 description: Learn to design resilient applications that can recover from failures without manual intervention through self-healing.
 author: ckittel
 ms.author: chkittel

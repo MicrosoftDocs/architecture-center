@@ -261,10 +261,11 @@ your Kubernetes cluster, and its services and applications.
 
 ## Considerations
 
-The [Microsoft Azure Well-Architected Framework][] is a set of guiding tenets that are followed in this scenario. The following
-considerations are framed in the context of these tenets.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
+
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - Built-in resiliency, inherent to Microsoft software-defined compute (failover cluster of Hyper-V nodes), storage (Storage Spaces Direct nested resiliency), and networking (Software Defined Networking).
 - Consider selecting the network switch that supports industry standards and ensures reliable communications between nodes. The following standards include:
@@ -278,26 +279,34 @@ considerations are framed in the context of these tenets.
 
 ### Security
 
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
 - Secure traffic between pods using network policies in AKS on Azure Local.
 - The API server in AKS on Azure Local contains the Certificate Authority which signs certificates for communication from the Kubernetes API server to *kubelet*.
 - Use Microsoft Entra single sign-on (SSO) to create a secure connection to Kubernetes API server.
 - You can use Azure RBAC to manage access to Azure Arc–enabled Kubernetes across Azure and on-premises environments using Microsoft Entra identities. For more information, see [Use Azure RBAC for Kubernetes Authorization][].
 
-### Cost optimization
+### Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Use the [Azure pricing calculator][] to estimate costs for the services used in the architecture. Other best practices are described in the [cost optimization][] section in [Microsoft Azure Well-Architected Framework.][]
 - Consider implementing hyper-threading on your physical computer, to optimize the cost, because the AKS on Azure Local billing unit is a virtual core.
 - Azure Arc control plane functionality is provided at no extra cost. This includes support for resource organization through Azure management groups and tags, and access control through Azure RBAC. Azure services used in conjunction to Azure Arc–enabled servers incur costs according to their usage.
 - For cost-effectiveness, you can use as few as two cluster nodes with only four disks and 64 gigabytes (GB) of memory per node. To further minimize costs, you can use switchless interconnects between nodes, thereby eliminating the need for redundant switch devices.
 
-### Operational excellence
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 - Simplified management using Windows Admin Center. Windows Admin Center is the user interface for creating and managing AKS on Azure Local. It can be installed on Windows 10/11 or Windows Server VM that need to be registered in Azure and are in the same domain as the Azure Local or Windows Server Datacenter cluster.
 - Integration with Azure Arc or a range of Azure services that provide more management, maintenance, and resiliency capabilities (Azure Monitor, Azure Backup).
 - If your Kubernetes cluster is [attached to Azure Arc][Azure Arc–enabled Kubernetes service], you can [manage your Kubernetes cluster using GitOps][]. To review best practices for connecting a hybrid Kubernetes cluster to Azure Arc, see the [Azure Arc hybrid management and deployment for Kubernetes clusters][] scenario.
 - The Azure Local platform also helps to simplify virtual networking for AKS on Azure Local instances by providing the "underlying" network in a highly available manner.
 
-### Performance efficiency
+### Performance Efficiency
+
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - Use Azure Local certified hardware for improved application uptime and performance, simplified management and operations, and lower total cost of ownership.
 - Storage: Storage Spaces Direct

@@ -63,7 +63,7 @@ Product documentation:
 - [What is Azure API Management?](/azure/api-management/api-management-key-concepts)
 - [App Service overview](/azure/app-service/overview)
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
-- [Introduction to Azure container registry](/azure/container-registry/container-registry-intro)
+- [Introduction to Azure Container Registry](/azure/container-registry/container-registry-intro)
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [What is Azure Database for PostgreSQL?](/azure/postgresql/overview)
 - [What is Azure HDInsight?](/azure/hdinsight/hdinsight-overview)

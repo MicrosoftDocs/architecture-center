@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Minimal storage – change feed to replicate data
-  titleSuffix: Azure Architecture
   description: Architecture for a high-availability solution that uses two Azure storage services, one for quick access to high-demand data, the other for low-demand data.
   author: nabilshams
   ms.author: nasiddi

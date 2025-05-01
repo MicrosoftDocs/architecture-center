@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Deploy microservices with Azure Container Apps and Dapr
-  titleSuffix: Azure Example Scenarios
   description: Build a serverless microservices solution on Azure Container Apps using Distributed Application Runtime (Dapr) and Kubernetes Event-Driven Autoscaling (KEDA).
   author: francisnazareth
   ms.author: fnazaret

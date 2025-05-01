@@ -1,5 +1,5 @@
 ---
-title: Choose an Azure AI services technology
+title: Choose an Azure AI Services Technology
 description: Learn about Azure AI services that you can use in AI applications and data flows. Choose the appropriate service for your use case.
 author: ritesh-modi
 ms.author: rimod
@@ -22,31 +22,31 @@ ms.custom:
 
 # Choose an Azure AI services technology
 
-[Azure AI services](/azure/ai-services/what-are-ai-services) offers a suite of data science tools, models, and inferencing capabilities that support a broad array of functionality. Most require little or no specific AI expertise to use. So whether you're a student, run a small-business, are launching a startup, or lead a large enterprise-scale project, you can get started right away. It's recommended to use these services, over building custom solutions, to embed intelligent application functionality into your workload. For many use cases, these prebuilt models and SaaS solutions are sufficient to provide what your workload requires. However, many of these capabilities support further customization and fine tuning as necessary, without the need to redesign your workload.
+[Azure AI services](/azure/ai-services/what-are-ai-services) provide a suite of data science tools, models, and inferencing capabilities that support a broad range of functions. Most AI services require little to no AI expertise. This accessibility makes them available to students, small-business owners, startups, and large enterprises alike. Instead of building custom solutions, Microsoft recommends that you use these services to embed intelligent functionality into your workloads. In many cases, prebuilt models and software-as-a-service solutions provide the necessary capabilities. However, many services support further customization and fine-tuning without the need to redesign your workload.
 
-Some projects require functionality that goes beyond what prebuilt models can provide. You could need to use your own data exclusively to build a new model, or perform functions outside the scope of any existing prebuilt models. In those cases, [Azure Machine Learning services](/azure/machine-learning) let you build custom models of any type or scale. While these solutions require more expertise, they can also support bespoke requirements for organizations of every scale and for every budget.
+Some projects require capabilities beyond what prebuilt models provide. You might need to use your own data exclusively to build a new model or perform functions that existing prebuilt models don’t support. In these cases, you can use [Azure Machine Learning](/azure/machine-learning) to build custom models of any type or scale. These solutions require more expertise, but they provide tailored functionality for organizations of any size and budget.
 
-This article provides a comparison and decision guide between the different offerings of Azure AI and Azure Machine Learning services. It's organized by broad categories to help you choose which service or model is right for your use case.
+This article compares AI services and Machine Learning solutions. It’s organized by broad categories to help you choose the right service or model for your use case.
 
-## Categories of Azure AI services
+## Categories of AI services
 
-Azure offers a number of AI services that can be grouped into categories based on their capabilities:
+Azure provides several AI services that can be grouped into categories based on their capabilities:
 
 | Technology selection guide | Service descriptions |
-| --- | --- |
-| [Azure AI Agents](/azure/ai-foundry/) | Azure AI Agent Service; Azure AI Model Inference; Azure AI Projects; Azure AI Evaluation |
-| [Retrieval Augmented Generation](../../ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.md) | Azure AI Search; Azure AI Document Intelligence; Azure OpenAI |
-| [Targeted language processing](../ai-services/targeted-language-processing.md) | Azure AI Language &bullet; Azure AI Translator &bullet; Azure AI Document Intelligence; Azure OpenAI |
-| [Speech recognition and generation](../ai-services/speech-recognition-generation.md) | Azure AI Speech &bullet; Immersive Reader; Azure Open AI |
-| [Image and video processing guide](../ai-services/image-video-processing.md) | Azure AI Vision &bullet; Azure AI Custom Vision &bullet; Azure AI Video Indexer &bullet; Azure AI Face &bullet; Azure OpenAI|
-| [Azure AI Content Safety](/azure/ai-services/content-safety/) | Azure AI Content Safety is an AI service that detects harmful user-generated and AI-generated content in applications and processes images and text to flag content that's potentially offensive or unwanted. It's able to automatically detect and scan content regardless of its source language. |
-| [Custom Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) | Azure Machine Learning service procures and exposes many proprietary and open-source models that you can use directly or customize further with more training. It also supports the creation of new models of any type trained using your own data. |
+| :----- | :----- |
+| [Azure AI agents](/azure/ai-foundry/) | - [Azure AI Agent Service](/azure/ai-services/agents/overview) <br><br> - [Azure AI model inference](/azure/ai-foundry/model-inference/overview) <br><br> - [Azure AI projects](/azure/ai-foundry/how-to/create-projects?tabs=ai-studio#tabpanel_2_ai-studio) <br><br> - [Azure AI evaluation](/azure/ai-foundry/concepts/evaluation-approach-gen-ai) |
+| [Retrieval Augmented Generation](../../ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.md) | - [Azure AI Search](/azure/search/search-what-is-azure-search) <br><br> - [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) <br><br> - [Azure OpenAI Service](/azure/ai-services/openai/overview) |
+| [Targeted language processing](../ai-services/targeted-language-processing.md) | - [Microsoft Azure AI Language](/azure/ai-services/language-service/overview) <br><br> - [Microsoft Azure AI Translator](/azure/ai-services/translator/overview) <br><br> - Document Intelligence <br><br> - Azure OpenAI |
+| [Speech recognition and generation](../ai-services/speech-recognition-generation.md) | - [Microsoft Azure AI Speech](/azure/ai-services/speech-service/overview) <br><br> - [Immersive Reader](/training/educator-center/product-guides/immersive-reader/) <br><br> - Azure OpenAI |
+| [Image and video processing guide](../ai-services/image-video-processing.md) | - [Microsoft Azure AI Vision](/azure/ai-services/computer-vision/overview) <br><br> - [Microsoft Azure AI Custom Vision](/azure/ai-services/custom-vision-service/overview) <br><br> - [Microsoft Azure AI Video Indexer](/azure/azure-video-indexer/video-indexer-overview) <br><br> - [Azure AI Face](/azure/ai-services/computer-vision/overview-identity) <br><br> - Azure OpenAI |
+| [Microsoft Azure AI Content Safety](/azure/ai-services/content-safety/) | Content Safety is an AI service that detects harmful user-generated and AI-generated content in applications and processes images and text to flag content that's potentially offensive or unwanted. It can automatically detect and scan content regardless of its source language. |
+| [Custom Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) | Machine Learning procures and exposes many proprietary and open-source models that you can use directly or customize further with more training. It also supports the creation of new models of any type and is trained by using your own data. |
 
 ## Next steps
 
-- [Learning path: Get started with Azure AI Services](/training/paths/get-started-azure-ai/)
-- [Azure AI Services documentation](/azure/ai-services/)
-- [What are Azure AI services?](/azure/ai-services/what-are-ai-services)
+- [Learning path: Get started with AI services](/training/paths/get-started-azure-ai/)
+- [AI services documentation](/azure/ai-services/)
+- [What are AI services?](/azure/ai-services/what-are-ai-services)
 
 ## Related resources
 
