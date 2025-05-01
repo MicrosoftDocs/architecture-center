@@ -58,13 +58,15 @@ Principal authors:
 
 ## Next steps
 
-<!--
-- Add a bulleted list of links to third-party or Microsoft topics that can help customers build the workload.
-- Link formats: 
-  - Make Learn links site relative (for example, /azure/<feature>/<article-name>).
-  - Start third-party links with `https://` and omit `en-us` unless the links don't work without it.
-  - Omit a trailing slash, unless that is how the final URL renders after redirects.
--->
-
-## Related resources
+•	[A Comprehensive Guide to Azure Managed HSM for Regulated Industries - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-infrastructure-blog/a-comprehensive-guide-to-azure-managed-hsm-for-regulated/ba-p/4100749)
+•	[Local RBAC built-in roles for Azure Key Vault Managed HSM | Microsoft Learn](/azure/key-vault/managed-hsm/built-in-roles)
+•	[Enable multi-region replication on Azure Managed HSM | Microsoft Learn](/azure/key-vault/managed-hsm/multi-region-replication)
+•	[Configure Azure Key Vault Managed HSM with private endpoints | Microsoft Learn](/azure/key-vault/managed-hsm/private-link)
+•	[Azure Key Vault Managed HSM recovery overview | Microsoft Learn](/azure/key-vault/managed-hsm/recovery?tabs=azure-cli)
+•	[Key sovereignty, availability, performance, and scalability in Managed HSM | Microsoft Learn](/azure/key-vault/managed-hsm/managed-hsm-technical-details)
+•	[Best practices for securing Azure Key Vault Managed HSM | Microsoft Learn](/azure/key-vault/managed-hsm/best-practices)
+•	[Azure Key Vault security overview | Microsoft Learn](/azure/key-vault/general/security-features)
+•	[About keys - Azure Key Vault | Microsoft Learn](/azure/key-vault/keys/about-keys)
+•	[How to generate & transfer HSM-protected keys – BYOK – Azure Key Vault | Microsoft Learn](/azure/key-vault/keys/hsm-protected-keys-byok?tabs=azure-cli)
+•	[Azure Key Vault availability and redundancy - Azure Key Vault | Microsoft Learn](/azure/key-vault/general/disaster-recovery-guidance)
 
