@@ -34,7 +34,6 @@ Azure Private Endpoint is a network interface that securely connects your PaaS s
 #### Private DNS Zones
 Azure Private DNS Zones enable seamless name resolution for private endpoints, allowing resources within a VNet to access Azure services privately using their fully qualified domain names (FQDN) instead of public IP addresses. When a private endpoint is created, a corresponding Domain Name System (DNS) record (such as privatelink.database.windows.net for Azure SQL) is automatically registered in the linked private DNS zone. Using a private DNS zone ensures that traffic to the service remains within the Azure backbone network, improving security, performance, and compliance by avoiding exposure to the public internet.
 
-
 ## Scenario details
 
 A customer needs to meet strict Service Level Agreement (SLA) thresholds for their mission-critical system while maintaining full functionality of the listed services. They're using Azure SQL Managed Instance and with TDE enabled using a customer managed key model. They need to store the protector key in a vault that supports their choice of regions and meets all compliance and security requirements, including the use of private endpoints to access the vault.
@@ -75,4 +74,3 @@ Principal authors:
 
 ## Related resources
 
-<!-- Add a bulleted list of links to related architecture information in the AAC TOC. -->
