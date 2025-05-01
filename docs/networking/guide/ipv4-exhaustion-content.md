@@ -2,14 +2,14 @@ This article describes two methods for efficient IPv4 address management in Azur
 
 ## Scenario details
 
-Corporate networks typically use address spaces included in the private IPv4 address ranges defined by RFC 1918: 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16. In on-premises environments, these ranges provide enough IP addresses to meet the requirements of even the largest networks. As a result, many organizations developed address management practices that prioritize simple routing configurations and agile processes for IP allocation. Efficient use of the IPv4 address space isn't a priority. 
+Corporate networks typically use address spaces included in the private IPv4 address ranges defined by [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918): 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16. In on-premises environments, these ranges provide enough IP addresses to meet the requirements of even the largest networks. As a result, many organizations developed address management practices that prioritize simple routing configurations and agile processes for IP allocation. Efficient use of the IPv4 address space isn't a priority. 
 In the cloud, large networks are easy to build, and some common architectural patterns, like microservices or containerization, might lead to increased IPv4 address consumption. Therefore, it’s important to adopt more conservative address management practices and treat IPv4 addresses as a limited resource.
 
 ### Azure Virtual Network IP address ranges
 
 We recommend that you use the address blocks defined by RFC 1918 in your Azure virtual networks. These address blocks are for general purposes private networks and are non-routable on the public internet.
 In Azure Virtual Networks, you can use [other ranges](/azure/virtual-network/virtual-networks-faq#what-address-ranges-can-i-use-in-my-virtual-networks):
-- The address block 100.64.0.0/10 defined by RFC 6598 for carrier-grade network address translation (NAT). 
+- The address block 100.64.0.0/10 defined by [RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598) for carrier-grade network address translation (NAT). 
 - [Public, internet-routable IP addresses](/azure/virtual-network/virtual-networks-faq#can-i-have-public-ip-addresses-in-my-virtual-networks). We recommend that you do not use public IP addresses not owned by your organization. Doing so might lead to connectivity issues, depending on how those IP addresses are used by their official owners. 
 - Special-purpose address blocks that are defined by IANA, like 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, and 233.252.0.0/24. Read the Internet Assigned Numbers Authority (IANA) documentation to understand the potential implications to your environment.
 
