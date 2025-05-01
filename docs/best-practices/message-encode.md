@@ -34,7 +34,7 @@ The producer of the message defines the message shape based on the business logi
 - Does the payload always have specific fields?
 - Does the payload have a single record or a repeated set of values?
 
-Then choose an encoding format depending on your needs. Specific factors include the ability to create highly structured data if you need it, the time taken to encode and transfer the message, and the ability to parse the payload. Depending on the encoding format, choose a serialization library that's well supported.
+Then choose an encoding format depending on your needs. Specific factors include the ability to create highly structured data if you need it, the time taken to encode and transfer the message, and the ability to parse the payload. Then choose an encoding format that meets your needs.
 
 The consumer must understand those decisions to correctly read incoming messages.
 
@@ -44,7 +44,7 @@ Some encoding formats such as JSON are self-describing, which means that they ca
 
 ## Encoding format considerations
 
-The encoding format defines how a set of structured data is represented as bytes. The type of message can influence the choice of format. Messages related to business transactions most likely contain highly structured data. Also, you might want to retrieve it later for auditing purposes. For a stream of events, you might want to read a sequence of records as quickly as possible and store it for statistical analysis.
+The encoding format defines how a set of structured data is represented as bytes. The type of message can influence the choice of format. Messages related to business transactions most likely contain highly structured data. Also, you might want to retrieve the structured data later for auditing purposes. For a stream of events, you might want to read a sequence of records as quickly as possible and store it for statistical analysis.
 
 Consider the following factors when you choose an encoding format.
 
@@ -78,7 +78,7 @@ A message payload arrives as a sequence of bytes. To parse this sequence, the co
 
 **Schema.** A schema formally defines the structure and data fields of a message. In this model, the producer and consumer have a contract through a well-defined schema. The schema can define the data types, required or optional fields, version information, and the structure of the payload. The producer sends the payload according to the writer schema. The consumer receives the payload by applying a reader schema. The message is serialized and deserialized by using the encoding-specific libraries. Schemas can be distributed in two ways:
 
-- Store the schema as a preamble or header in the message but separate from the payload.
+- Store the schema as a preamble or header in the message but separately from the payload.
 
 - Store the schema externally.
 
