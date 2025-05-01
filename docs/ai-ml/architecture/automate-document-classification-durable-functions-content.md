@@ -2,7 +2,7 @@ This article describes an architecture that you can use to process various docum
 
 ## Architecture
 
-:::image type="complex" border="false" source="images/automate-document-classification-durable-functions.svg" alt-text="Diagram that shows an architecture to identify, classify, and search documents." lightbox="_images/automate-document-classification-durable-functions.svg":::
+:::image type="complex" border="false" source="_images/automate-document-classification-durable-functions.svg" alt-text="Diagram that shows an architecture to identify, classify, and search documents." lightbox="_images/automate-document-classification-durable-functions.svg":::
    The image is a flowchart that has multiple sections. The Ingestion section contains Azure web app. It connects via arrows to the Document store section that contains Azure Blob Storage and the Activation section that contains Azure Service Bus queue. The Azure Functions orchestration section contains icons that represent analyze activity, metadata store activity, and embedding activity. Arrows point from these icons to the Document processing, Document metadata collection, and Vectorize and index sections. The Chat with your data section contains Azure OpenAI Service.
 :::image-end:::
 
