@@ -160,7 +160,7 @@ CSV is a text-based tabular format. The header of the table indicates the fields
 
 The disadvantage of CSV is a lack of standardization. There are multiple ways of expressing separators, headers, and empty fields.
 
-### Protocol Buffers (protobuf)
+### Protocol Buffers
 
 [Protocol Buffers](https://protobuf.dev) (or protobuf) is a serialization format that uses strongly typed definition files to define schemas in key/value pairs. These definition files are then compiled to language-specific classes that are used for serializing and deserializing messages.
 
