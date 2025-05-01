@@ -64,7 +64,7 @@ If there's sensitive data in the messages, consider whether those messages shoul
 
 Message size affects network input/output performance across the wire. Binary formats are more compact than text-based formats. Binary formats require serialization and deserialization libraries. The payload can only be read when it's decoded.
 
-Use a binary format if you want to reduce wire footprint and transfer messages faster. This category of format is recommended in scenarios where storage or network bandwidth is a concern. Options for binary formats include Apache Avro, Google Protocol Buffers (protobuf), MessagePack, and Concise Binary Object Representation (CBOR). The pros and cons of those formats are described later in [Choices for encoding formats](#choices-for-encoding-formats).
+Use a binary format if you want to reduce wire footprint and transfer messages faster. This category of format is recommended in scenarios where storage or network bandwidth is a concern. Options for binary formats include Apache Avro, Google Protocol Buffers (protobuf), MessagePack, and Concise Binary Object Representation (CBOR). The pros and cons of these formats are described later in [Choices for encoding formats](#choices-for-encoding-formats).
 
 The disadvantage of binary format is that the payload isn't human readable. Most binary formats use complex systems that can be costly to maintain. Also, they need specialized libraries to decode, which might not be supported if you want to retrieve archival data.
 
@@ -110,19 +110,19 @@ As business requirements change, the shape is expected to change, and the schema
 
 Consider whether the data in the payload is structured as a sequence of records or as a single discrete payload. The payload structure can be categorized into one of the following models:
 
-- **Array/dictionary/value:** Defines entries that hold values in one or multi-dimensional arrays. Entries have unique key-value pairs. It can be extended to represent the complex structures. Some examples include JSON, Apache Avro, and MessagePack.
+- **Array/dictionary/value:** Defines entries that hold values in one or multidimensional arrays. Entries have unique key/value pairs. It can be extended to represent complex structures. Some examples include JSON, Apache Avro, and MessagePack.
 
   This layout is suitable if messages are individually encoded with different schemas. If you have multiple records, the payload can get overly redundant. This redundancy can cause the payload to bloat.
 
 - **Tabular data:** Information is divided into rows and columns. Each column indicates a field, or the subject of the information, and each row contains values for those fields. This layout is efficient for a repeating set of information, such as time series data.
 
-  Comma-Separated Values (CSV) is one of the simplest text-based formats. It presents data as a sequence of records with a common header. For binary encoding, Apache Avro has a preamble is similar to a CSV header but generates compact encoding size.
+  Comma-Separated Values (CSV) is one of the simplest text-based formats. It presents data as a sequence of records with a common header. For binary encoding, Apache Avro has a preamble that's similar to a CSV header but that generates a more compact encoding size.
 
 ### Library support
 
 You should use well-known formats instead of a proprietary model. Well-known formats are supported through libraries that the community universally supports. With specialized formats, you need specific libraries. Your business logic might have to work around some of the API design choices provided by the libraries.
 
-For schema-based format, choose an encoding library that makes compatibility checks between the reader and writer schema. Specific encoding libraries, such as Apache Avro, expect the consumer to specify both the writer and the reader schema before deserializing the message. This check ensures that the consumer is aware of the schema versions.
+For a schema-based format, choose an encoding library that makes compatibility checks between the reader and writer schema. Specific encoding libraries, such as Apache Avro, expect the consumer to specify both the writer and the reader schema before deserializing the message. This check ensures that the consumer is aware of the schema versions.
 
 ### Interoperability
 
@@ -144,11 +144,11 @@ The following popular encoding formats are used for data representation and tran
 
 JSON is an open standard, with its format defined by the [Internet Engineering Task Force (IETF)](https://www.ietf.org/) in [RFC 8259](https://tools.ietf.org/html/rfc8259). JSON is a text-based format that follows the array/dictionary/value model.
 
-JSON can be used for tagging metadata and you can parse the payload without a schema. JSON supports the option to specify optional fields, which helps with both forward and backward compatibility.
+JSON can be used for tagging metadata, and you can parse the payload without a schema. JSON supports the option to specify optional fields, which helps with both forward and backward compatibility.
 
 The biggest advantage is that it's universally available. JSON is the most interoperable encoding format and the default for many messaging services.
 
-Because JSON is a text-based format, it isn't efficient over the wire and not ideal when storage is a concern. Use minification techniques when possible. If you return cached items directly to a client via HTTP, storing JSON could save the cost of deserializing from another format and then serializing to JSON.
+Because JSON is a text-based format, it isn't efficient over the wire and not ideal when storage is a concern. Use minification techniques when possible. If you return cached items directly to a client via HTTP, storing JSON might save the cost of deserializing from another format and then serializing to JSON.
 
 Use JSON for single-record messages or for a sequence of messages in which each message has a different schema. Avoid using JSON for a sequence of records, such as for time-series data.
 
@@ -184,7 +184,7 @@ Apache Parquet supports data compression and has limited capabilities for schema
 
 ### CBOR
 
-[CBOR](http://cbor.io) (Specification) is a binary format that provides small encoding size. The advantage of CBOR over MessagePack is its compliance with IETF in RFC7049.
+[CBOR](http://cbor.io) (Specification) is a binary format that provides a small encoding size. The advantage of using CBOR over MessagePack is its compliance with IETF in RFC7049.
 
 ## Next steps
 
