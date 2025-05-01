@@ -114,7 +114,7 @@ public async Task<MyEntity> GetMyEntityAsync(int id)
 }
 ```
 
-> The examples use Azure Cache for Redis to access the store and retrieve information from the cache. For more information, see [Using Azure Cache for Redis](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache) and [How to create a Web App with Azure Cache for Redis](/azure/redis-cache/cache-web-app-howto).
+> The examples use Azure Cache for Redis to access the store and retrieve information from the cache. For more information, see [Using Azure Cache for Redis](/azure/redis/dotnet-how-to-use-azure-redis-cache) and [How to create a Web App with Azure Cache for Redis](/azure/redis/web-app-cache-howto).
 
 The `UpdateEntityAsync` method shown below demonstrates how to invalidate an object in the cache when the value is changed by the application. The code updates the original data store and then removes the cached item from the cache.
 
