@@ -11,7 +11,7 @@ Monitoring workloads that include Azure OpenAI Service can be as simple as enabl
 
 The following diagram illustrates the monitoring of Azure OpenAI instances without a gateway. A gateway isn't required for this topology. Your decision to include a gateway depends on whether the outlined monitoring scenarios are part of your requirements. This article examines the challenges that each monitoring scenario addresses, along with the benefits and costs of incorporating a gateway for each scenario.
 
-:::image type="complex" source="_images/tracking-multiple-models-before.svg" alt-text="Architecture diagram of a scenario that has multiple clients connecting directly to more than one model deployment across multiple instances of Azure OpenAI." lightbox="_images/tracking-multiple-models-before.svg":::
+:::image type="complex" border="false" source="_images/tracking-multiple-models-before.svg" alt-text="Architecture diagram of a scenario that has multiple clients connecting directly to more than one model deployment across multiple instances of Azure OpenAI." lightbox="_images/tracking-multiple-models-before.svg":::
    A diagram that shows two clients labeled A and B directly interfacing with model deployments in two Azure OpenAI instances. Client A directly accesses a gpt-35-turbo deployment and a gpt-4-o deployment in the same Azure OpenAI instance. Client B accesses the gpt-4o deployment in the first Azure OpenAI instance and accesses a gpt-4 deployment in a second Azure OpenAI instance. Client B also shows a dashed line that connects to a gpt-4o instance in the second Azure OpenAI deployment. Both Azure OpenAI instances pass Azure OpenAI metrics and logs to Azure Monitor.
 :::image-end:::
 
