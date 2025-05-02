@@ -1,9 +1,9 @@
 ---
 title: Considerations for using Azure Container Apps in a multitenant solution
 description: Learn about Azure Container Apps features that are useful in multitenant systems. Get links to additional guidance.
-author: landonpierce
-ms.author: landonpierce
-ms.date: 06/05/2024
+author: PlagueHO
+ms.author: dascottr
+ms.date: 02/05/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 products:
@@ -116,6 +116,23 @@ When you use managed identities, keep your choice of isolation model in mind. Fo
 
 For more information, see [Managed identities in Azure Container Apps](/azure/container-apps/managed-identity).
 
+### Workload profiles on dedicated compute
+
+Container Apps provides a dedicated plan that allows you to reserve dedicated resources for a tenant. This plan is useful to provide a limited on the resources available to a tenant that can be shared across multiple container apps or to meet tenant requirements such as higher memory-CPU ratios or GPU availbility.
+
+For more information, see [Workload profiles](/azure/container-apps/workload-profiles-overview).
+
+### Rule-based routing
+
+Rule‑based routing lets you direct inbound traffic to specific revisions of a container app according to HTTP characteristics (path, header, or cookie) or by simple percentage‑based weighting.  
+For multitenant systems this capability enables several useful scenarios:
+
+- **Tenant pinning**. Route requests that contain a tenant identifier (for example, an `X‑Tenant‑ID` header or `/tenant/{id}` path segment) to a dedicated revision that’s been customized or hot‑fixed for that tenant.
+- **Safe deployments**. Gradually expose a new revision to a subset of tenants by combining a weight rule (for broad canary) with a header or cookie rule that targets internal testers from a single tenant.
+- **A/B testing and feature flags**. Direct only the tenants that opt in to an experimental feature to an alternate revision, while all other tenants continue to use the stable version.
+
+For more information, see [Rule‑based traffic splitting and routing in Azure Container Apps](/azure/container-apps/rule-based-routing)
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -134,6 +151,7 @@ Other contributors:
 - [Kendall Roden](https://www.linkedin.com/in/kendallroden/) | Senior Program Manager, Azure Container Apps
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer, FastTrack for Azure
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
+- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Solution Architect, Data & AI
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
