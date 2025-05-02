@@ -107,7 +107,7 @@ When you design a RESTful web API, it's important that you use the correct namin
 
 - **Use plural nouns to name collection URIs.** In general, it helps to use plural nouns for URIs that reference collections. It's a good practice to organize URIs for collections and items into a hierarchy. For example, `/customers` is the path to the customer's collection, and `/customers/5` is the path to the customer with an ID that equals 5. This approach helps keep the web API intuitive. Also, many web API frameworks can route requests based on parameterized URI paths, so you can define a route for the path `/customers/{id}`.
 
-- **Consider the relationships between different types of resources and how you might expose these associations.** For example, the `/customers/5/orders` might represent all of the orders for customer 5. You can also approach the relationship in the other direction by representing the association from an order to a customer. In this scenario, the URI might be `/orders/99/customer`. However, extending this model too far can become cumbersome to implement. A better solution is to provide navigable links to associated resources in the body of the HTTP response message. [Use Hypertext as the Engine of Application State (HATEOAS) to enable navigation to related resources](#implement-hateoas-hypertext-as-the-engine-of-application-state) describes this mechanism in more detail.
+- **Consider the relationships between different types of resources and how you might expose these associations.** For example, the `/customers/5/orders` might represent all of the orders for customer 5. You can also approach the relationship in the other direction by representing the association from an order to a customer. In this scenario, the URI might be `/orders/99/customer`. However, extending this model too far can become cumbersome to implement. A better solution is to provide navigable links to associated resources in the body of the HTTP response message. [Use Hypertext as the Engine of Application State (HATEOAS) to enable navigation to related resources](#implement-hateoas) describes this mechanism in more detail.
 
 - **Keep relationships simple and flexible.** In more complex systems, you might be inclined to provide URIs that allow the client to navigate through several levels of relationships, such as `/customers/1/orders/99/products`. However, this level of complexity can be difficult to maintain and is inflexible if the relationships between resources change in the future. Instead, try to keep URIs relatively simple. After an application has a reference to a resource, you should be able to use this reference to find items related to that resource. You can replace the preceding query with the URI `/customers/1/orders` to find all the orders for customer 1, and then use `/orders/99/products` to find the products in this order.
 
@@ -246,9 +246,7 @@ A PATCH request should return one of the following HTTP status codes:
 
 #### DELETE requests
 
-A DELETE request removes the resource at the specified URI.
-
-A DELETE request should return one of the following HTTP status codes:
+A DELETE request removes the resource at the specified URI. A DELETE request should return one of the following HTTP status codes:
 
 | HTTP status code | Reason |
 |------------------|-------------|
@@ -320,16 +318,17 @@ To optimize data retrieval and reduce payload size, implement **data pagination*
 
 - **Pagination** divides large datasets into smaller, manageable chunks. Use query parameters like `limit` to specify the number of items to return and `offset` to specify the starting point. Make sure to also provide meaningful defaults for `limit` and `offset`, such as `limit=25` and `offset=0`. For example:
 
-```http
-GET /orders?limit=25&offset=50
-```
+   ```http
+   GET /orders?limit=25&offset=50
+   ```
 
-- **`limit`**: Specifies the maximum number of items to return.
-- **`offset`**: Specifies the starting index for the data.
+  - **`limit`**: Specifies the maximum number of items to return.
 
-> [!TIP]
-> To help prevent **Denial of Service** attacks, consider imposing an upper limit on the number of items returned. For example, if your service sets `max-limit=25`, and a client requests `limit=1000`, your service can either return 25 items or an HTTP BAD-REQUEST error, if the API is documented as such.
-    
+    > [!TIP]
+    > To help prevent **Denial of Service** attacks, consider imposing an upper limit on the number of items returned. For example, if your service sets `max-limit=25`, and a client requests `limit=1000`, your service can either return 25 items or an HTTP BAD-REQUEST error, if the API is documented as such.
+
+  - **`offset`**: Specifies the starting index for the data.
+
 - **Filtering** allows clients to refine the dataset by applying conditions. The API can allow the client to pass the filter in the query string of the URI:
 
     ```http
@@ -665,7 +664,7 @@ The levels are:
 - **Level 0**: Define one URI, and all operations are POST requests to this URI. SOAP web services are typically at this level.
 - **Level 1**: Create separate URIs for individual resources. This level isn't yet RESTful, but it begins to align with RESTful design.
 - **Level 2**: Use HTTP methods to define operations on resources. In practice, many published web APIs fall somewhere around this level.
-- **Level 3**: Use hypermedia ([HATEOAS](#implement-hateoas-hypertext-as-the-engine-of-application-state)). This level is truly a RESTful API, according to Fielding's definition. 
+- **Level 3**: Use hypermedia ([HATEOAS](#implement-hateoas)). This level is truly a RESTful API, according to Fielding's definition. 
 
 ## OpenAPI Initiative
 
