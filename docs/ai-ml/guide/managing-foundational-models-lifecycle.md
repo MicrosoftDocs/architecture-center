@@ -55,7 +55,7 @@ As illustrated in the table, the benefits of moving to a new model are typically
 
 There are three main strategies for deploying models and it's important to understand how each handles version retirements.
 
-- **MaaS (Models as a Service)** - Pretrained models are exposed as serverless APIs that offer scalability and ease of integration with the tradeoff of potentially higher costs and lower control of the models. Examples of MaaS include models deployed in the Azure OpenAI service and models from the model catalog deployed as serverless APIs.
+- **MaaS (Models as a Service)** - Pretrained models exposed as APIs that offer scalability and ease of integration with the tradeoff of potentially higher costs and lower control of the models. Examples of MaaS include models deployed in the Azure OpenAI service and models from the model catalog deployed as serverless APIs.
 - **MaaP (Models as a Platform)** - Models deployed and managed within a larger platform, such as models from the Azure model catalog deployed in [managed compute](/azure/ai-foundry/how-to/model-catalog-overview#managed-compute). This strategy usually provides greater control of the models but requires more management than MaaS.
 - **Self-hosting models** - Models deployed on your own infrastructure, providing maximum control over the models but requiring significant responsibility for infrastructure, management, and maintenance.
 
