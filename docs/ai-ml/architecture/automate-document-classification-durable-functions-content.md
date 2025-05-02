@@ -108,7 +108,7 @@ To optimize costs:
 
 - Use [commitment tier pricing](/azure/ai-services/commitment-tier) for Document Intelligence to manage [predictable costs](/azure/ai-foundry/how-to/costs-plan-manage).
 
-- Use reserved capacity and life cycle policies to [rightsize storage accounts](/azure/well-architected/service-guides/storage-accounts/cost-optimization).
+- Use reserved capacity and life cycle policies to [rightsize storage accounts](/azure/storage/blobs/storage-blob-reserved-capacity).
 
 - Use the pay-as-you-go strategy for your architecture and [scale out](/azure/well-architected/cost-optimization/optimize-scaling-costs) as needed instead of investing in large-scale resources at the start. As your solution matures, you can use [App Service reservations](/azure/cost-management-billing/reservations/reservation-discount-app-service) to help reduce costs where applicable.
 
