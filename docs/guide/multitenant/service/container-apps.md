@@ -118,18 +118,13 @@ For more information, see [Managed identities in Azure Container Apps](/azure/co
 
 ### Workload profiles on dedicated compute
 
-Container Apps provides a dedicated plan that allows you to reserve dedicated resources for a tenant. This plan is useful to provide a limited on the resources available to a tenant that can be shared across multiple container apps or to meet tenant requirements such as higher memory-CPU ratios or GPU availbility.
+Container Apps provides a dedicated plan that allows you to reserve dedicated resources for a tenant. This plan is useful to provide a limited on the resources available to a tenant that can be shared across multiple container apps or to meet tenant requirements such as higher memory-CPU ratios or GPU availability.
 
 For more information, see [Workload profiles](/azure/container-apps/workload-profiles-overview).
 
 ### Rule-based routing
 
-Rule‑based routing lets you direct inbound traffic to specific revisions of a container app according to HTTP characteristics (path, header, or cookie) or by simple percentage‑based weighting.  
-For multitenant systems this capability enables several useful scenarios:
-
-- **Tenant pinning**. Route requests that contain a tenant identifier (for example, an `X‑Tenant‑ID` header or `/tenant/{id}` path segment) to a dedicated revision that’s been customized or hot‑fixed for that tenant.
-- **Safe deployments**. Gradually expose a new revision to a subset of tenants by combining a weight rule (for broad canary) with a header or cookie rule that targets internal testers from a single tenant.
-- **A/B testing and feature flags**. Direct only the tenants that opt in to an experimental feature to an alternate revision, while all other tenants continue to use the stable version.
+Rule‑based routing lets you direct inbound traffic to specific container apps or container app revision according to the HTTP request path as well as rewrite the path in the URL. This feature is useful for multitenant systems that need to [map requests](../considerations/map-requests.yml) to tenant‑specific container apps or revisions using the path in the request. This is typically used with the [Tenant-specific container apps](#tenant-specific-container-apps) isolation model.
 
 For more information, see [Rule‑based traffic splitting and routing in Azure Container Apps](/azure/container-apps/rule-based-routing)
 
