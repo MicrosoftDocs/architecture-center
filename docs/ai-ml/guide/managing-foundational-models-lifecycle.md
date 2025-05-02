@@ -3,7 +3,7 @@ title: Design to support foundation model lifecycles
 description: Learn how you should manage new model versions and retired model versions in your generative AI application infrastructure.
 author: robbagby
 ms.author: robbag
-ms.date: 04/29/2025
+ms.date: 05/09/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.service: azure-architecture-center
@@ -55,14 +55,14 @@ As illustrated in the table, the benefits of moving to a new model are typically
 
 There are three main strategies for deploying models and it's important to understand how each handles version retirements.
 
-- **MaaS (Models as a Service)** - Pretrained models are exposed as serverless APIs that offer scalability and ease of integration with the tradeoff of potentially higher costs and lower control of the models.
-- **MaaP (Models as a Platform)** - Models deployed and managed within a larger platform, such as the Azure OpenAI Service. This strategy usually provides greater control of the models but requires more management and infrastructure than MaaS.
-- **Self-hosting models** - Models deployed on your own infrastructure, providing maximum control over the models but requiring significant responsibility for management and maintenance.
+- **MaaS (Models as a Service)** - Pretrained models are exposed as serverless APIs that offer scalability and ease of integration with the tradeoff of potentially higher costs and lower control of the models. Examples of MaaS include models deployed in the Azure OpenAI service and models from the model catalog deployed as serverless APIs.
+- **MaaP (Models as a Platform)** - Models deployed and managed within a larger platform, such as models from the Azure model catalog deployed in [managed compute](/azure/ai-foundry/how-to/model-catalog-overview#managed-compute). This strategy usually provides greater control of the models but requires more management than MaaS.
+- **Self-hosting models** - Models deployed on your own infrastructure, providing maximum control over the models but requiring significant responsibility for infrastructure, management, and maintenance.
 
 Both MaaS and MaaP strategies in Azure source models from the Azure AI model catalog. Models in the model catalog follow a lifecycle where models are [deprecated](/azure/ai-foundry/concepts/model-lifecycle-retirement#deprecated) and then [retired](/azure/ai-foundry/concepts/model-lifecycle-retirement#retired). You must plan for these eventualities in your workload.
 
 > [!WARNING]
-> For both MaaS services using the serverless API model and MaaP services such as Azure OpenAI Service, it's critical to understand that existing deployments for *retired* models return HTTP errors. If you do not upgrade to a supported model, your application no longer operates as expected. For *deprecated* models, you aren't able to create new deployments for those models, but existing deployments continue to work until they are retired. See [Serverless API model deprecations and retirements](/azure/ai-foundry/concepts/model-lifecycle-retirement) and [Azure OpenAI Service model deprecations and retirements](/azure/ai-services/openai/concepts/model-retirements) for more information.
+> For MaaS services, both Azure OpenAI deployed models and models deployed using the serverless API model, it's critical to understand that existing deployments for *retired* models return HTTP errors. If you do not upgrade to a supported model, your application no longer operates as expected. For *deprecated* models, you aren't able to create new deployments for those models, but existing deployments continue to work until they are retired. See [Serverless API model deprecations and retirements](/azure/ai-foundry/concepts/model-lifecycle-retirement) and [Azure OpenAI Service model deprecations and retirements](/azure/ai-services/openai/concepts/model-retirements) for more information.
 
 When you're self-hosting models or using managed compute, you have full control; you aren't forced to update models. But you likely will still want to replicate a model lifecycle for the added benefits a newer model can bring to your workload.
 
@@ -96,7 +96,7 @@ For each of these areas, you'll need to consider downtime caused by updates to t
 
 ## Design for change
 
-It's highly likely that you'll be updating models in your workload. If you're using MaaS or MaaP deployment strategies in Azure, models are retired and you need to upgrade to a newer version. You may also choose to move to different models or model versions to take advantage of new features, lower pricing, or better performance. Either way, your architecture must support updating the model your generative AI workload is using.
+It's highly likely that you'll be updating models in your workload. If you're using the MaaS deployment strategy in Azure, models are retired and you need to upgrade to a newer version. You may also choose to move to different models or model versions to take advantage of new features, lower pricing, or better performance. Either way, your architecture must support updating the model your generative AI workload is using.
 
 The previous section discussed the [different breadths of change](#breadth-of-change-for-model-updates). You should follow proper MLOps, DataOps, and GenAIOps practices to build and maintain automated pipelines for model fine-tuning, your data operations, and generative AI operations like prompt engineering, changing hyperparameters, and orchestration logic.
 
@@ -183,7 +183,7 @@ The [External Configuration Store](/azure/architecture/patterns/external-configu
 
 - Be intentional about updating models. Avoid using platform features that auto-upgrade production models to new versions without opportunity to test. You need to be aware of how every model update affects your workload.
 
-- Ensure that your observability and logging solution collection enough metadata so that you can correlate observed behavior with the specific prompt, configuration, model, and data retrieval solution involved. In this way you can identify unexpected regressions.
+- Ensure that your observability and logging solution collect enough metadata so that you can correlate observed behavior with the specific prompt, configuration, model, and data retrieval solution involved. In this way you can identify unexpected regressions.
 
 ## Summary
 
