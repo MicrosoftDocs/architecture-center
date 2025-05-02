@@ -11,9 +11,9 @@ We recommend that you use the address blocks defined by RFC 1918 in your Azure v
 In Azure Virtual Networks, you can use [other ranges](/azure/virtual-network/virtual-networks-faq#what-address-ranges-can-i-use-in-my-virtual-networks):
 - The address block 100.64.0.0/10 defined by [RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598) for carrier-grade network address translation (NAT). 
 - [Public, internet-routable IP addresses](/azure/virtual-network/virtual-networks-faq#can-i-have-public-ip-addresses-in-my-virtual-networks). We recommend that you do not use public IP addresses not owned by your organization. Doing so might lead to connectivity issues, depending on how those IP addresses are used by their official owners. 
-- Special-purpose address blocks that are defined by IANA, like 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, and 233.252.0.0/24. Read the Internet Assigned Numbers Authority (IANA) documentation to understand the potential implications to your environment.
+- Special-purpose address blocks defined by IANA, like 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, and 233.252.0.0/24. Read the Internet Assigned Numbers Authority (IANA) documentation to understand the potential implications to your environment.
 
-It should be noted that the ranges in the list above don't provide a long-term solution for organizations that are experiencing IPv4 exhaustion issues. Microsoft recommends that you adopt one of the techniques for minimizing IPv4 address consumption described in this article.
+It should be noted that the ranges in this list don't provide a long-term solution for organizations that are experiencing IPv4 exhaustion issues. Microsoft recommends that you adopt one of the techniques for minimizing IPv4 address consumption described in this article.
 
 In Azure virtual networks, you [can't use](/azure/virtual-network/virtual-networks-faq#what-address-ranges-can-i-use-in-my-virtual-networks) the following IP address ranges:
 - 224.0.0.0/4 (Multicast)
@@ -23,7 +23,7 @@ In Azure virtual networks, you [can't use](/azure/virtual-network/virtual-networ
 - 168.63.129.16/32 (Internal DNS)
 
 > [!NOTE]
-> The Class E IP address range 240.0.0.0/4 is blocked by Windows from assigning it to a NIC and has compatibility issues in the case of Linux. So, while it may be possible to programmatically assign range to a virtual network, we do not recommend its usage in Azure virtual networks.
+> In Windows operating systems, the Class E IP address range 240.0.0.0/4 cannot be assigned to network interfaces. That range also has compatibility issues in Linux operating systems. While it may be possible to programmatically assign it to a virtual network, we do not recommend using it.
 
 ### Azure landing zone alignment
 
@@ -32,21 +32,21 @@ The recommendations in this article apply to network topologies based on the [Az
 - Hub and spoke networks in different regions are connected to each other via global virtual network peering.
 - Hub and spoke networks are connected to on-premises sites via a combination of ExpressRoute circuits and site-to-site VPNs.
 
-In the Azure landing zone architecture, applications are deployed to their own spoke virtual network. Each spoke virtual network has an IPv4 address space that is unique across the corporate network. All resources deployed in a landing zone can (i) use their IP address to initiate connections to any other resources in the corporate network and (ii) be directly reached from the entire corporate network through their IP address. However, this is not always needed. For example, in a landing zone that contains a three-layer web application (HTTP front-end, business logic, data layer), only the HTTP front-end must be reachable from outside the landing zone. The other layers must be able to connect with each other and with the front-end, but do not need to be reachable by clients. This example suggests that IPv4 address consumption can be minimized by assigning to each landing zone:
--	An address space that is unique across the entire corporate network, only used for resources that must be reachable from outside their landing zone. In this article, this address space will be referred to as the landing zone’s routable address space. 
--	An internal address space for resources that need to communicate only with other resources inside their own landing zone. This address space does not need to be directly reachable from the corporate network. In this article, this address space will be referred to as the landing zone’s non-routable address space.
+In the Azure landing zone architecture, applications are deployed to their own spoke virtual network. Each spoke virtual network has an IPv4 address space that is unique across the corporate network. All resources deployed in a landing zone can (i) use their IP address to initiate connections to any other resources in the corporate network and (ii) be directly reached from the entire corporate network through their IP address. However, reachability from the entire corporate network is not always needed. For example, in a landing zone that contains a three-layer web application (HTTP front-end, business logic, data layer), only the HTTP front-end must be reachable from outside the landing zone. The other layers must be able to connect with each other and with the front-end, but do not need to be reachable by clients. This example suggests that IPv4 address consumption can be minimized by assigning to each landing zone:
+-	An address space that is unique across the entire corporate network, only used for resources that must be reachable from outside their landing zone. In this article, this address space is referred to as the landing zone’s routable address space. 
+-	An internal address space for resources that need to communicate only with other resources inside their own landing zone. This address space does not need to be directly reachable from the corporate network. In this article, this address space is referred to as the landing zone’s non-routable address space.
 
 This article covers two methods for building Azure landing zones with routable and non-routable address spaces. 
 - Method 1: Use [IPv4 subnet peering](/azure/virtual-network/how-to-configure-subnet-peering) to exclude one or more subnets from the peering between the landing zone’s spoke virtual network and the hub virtual network. Subnets excluded from the peering relationship can be assigned the same non-routable IP address ranges in all landing zones. These IP address ranges cannot overlap with any other routable IP address ranges.
-- Method 2: Deploy applications in isolated virtual networks not connected to the landing zone and expose the application as one or more Private Link services associated with Private Endpoints in the landing zone’s spoke virtual network. The isolated virtual networks can get any IPv4 address space, even if it overlaps with the corporate network’s routable address space.
+- Method 2: Deploy applications in isolated virtual networks not connected to the landing zones' virtual networks, and associate their endpoints with Private Link services. In the landing zones' spoke virtual networks, create Private Endpoints associated with Private Link Services. The isolated virtual networks can get any IPv4 address space, even if it overlaps with the corporate network’s routable address space.
 
 In the following sections, front-end component refers to an application component that must be reachable from the entire corporate network. Back-end component refers to an application component that doesn't expose endpoints in the corporate network and only needs to be reachable from within its own landing zone. 
 
 ## Method 1: Non-routable subnets in landing zone spoke virtual networks
 
-[IPv4 subnet peering](/azure/virtual-network/how-to-configure-subnet-peering) allows restricting a peering relationship between two virtual networks to select subnets. Only subnets that are included in the peering configuration can route traffic to each other. Subnets that are excluded from the peering configuration are not visible and not reachable from the peer virtual network. If, in a hub and spoke topology, one or more subnets in each spoke are excluded from the peering configuration, those subnets are not visible to/reachable from the hub (or any other remote network connected to the hub over other peerings, ExpressRoute connections or VPN connections). Therefore, the subnets that are excluded from the peering configuration can be assigned the same address range in all spoke virtual networks. That range must be defined as “non-routable” and cannot be used anywhere else in the corporate network.
+[IPv4 subnet peering](/azure/virtual-network/how-to-configure-subnet-peering) allows restricting a peering relationship between two virtual networks to select subnets. Only subnets that are included in the peering configuration can route traffic to each other. Subnets that are excluded from the peering configuration are not visible and not reachable from the peer virtual network. If, in a hub and spoke topology, one or more subnets in each spoke are excluded from the peering configuration, those subnets are not visible to/reachable from the hub or any other remote network connected to the hub over other peerings, ExpressRoute or VPN connections. Therefore, all subnets excluded from the peering configuration can be assigned the same address range in all spoke virtual networks. That range must be defined as “non-routable” and cannot be used anywhere else in the corporate network.
 
-The diagram below provides an example where the range 10.57.0.0/16 has been chosen as the non-routable address space. The hub virtual network and each landing zone spoke virtual network are assigned routable (unique) IP address ranges (10.0.0.0/24, 10.1.0.0/24, 10.2.0.0/24). Each landing zone spoke virtual network also contains one or more non-routable subnets with address ranges included in the non-routable range 10.57.0.0/16. These subnets are excluded from the peering relationship with the hub. Therefore, non-routable subnets in different landing zone spokes can have the same, or overlapping, address ranges included in 10.57.0.0/16.
+The following diagram provides an example where the range 10.57.0.0/16 has been chosen as the non-routable address space. The hub virtual network and each landing zone spoke virtual network are assigned routable (unique) IP address ranges (10.0.0.0/24, 10.1.0.0/24, 10.2.0.0/24). Each landing zone spoke virtual network also contains one or more non-routable subnets with address ranges included in the non-routable range 10.57.0.0/16. These subnets are excluded from the peering relationship with the hub. Therefore, non-routable subnets in different landing zone spokes can have the same, or overlapping, address ranges included in 10.57.0.0/16.
 
 :::image type="content" source="./images/ipv4-exhaustion-hub-spoke-subnet-peering.svg" alt-text="Diagram that shows how to use subnet peering for landing zones with routable and non-routable address spaces." border="false" lightbox="./images/ipv4-exhaustion-hub-spoke-subnet-peering.svg":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-hub-spoke-subnet-peering.pptx) of this architecture.*
@@ -67,30 +67,30 @@ The following diagram shows the two patterns. Landing zone “A” hosts a three
 
 ### Outbound dependencies
 
-An application’s back-end components don't need to be reachable, or receive inbound connections, from the corporate network. But they might need to initiate connections to endpoints that are outside their landing zone. Typical examples include DNS resolution, interaction with Active Directory Domain Services Domain Controllers, accessing application endpoints that are exposed by other landing zones, or accessing shared services such as log management or backup systems.
-When resources deployed in non-routable subnets need to initiate connections to endpoints outside of their landing zone, those connections must be Source-NATted behind a routable IP address. This requires a NAT-capable NVA to be deployed in each landing zone, in a routable subnet, as shown in the following diagram.
+An application’s back-end components don't need to be reachable, or receive inbound connections, from the corporate network. But they might need to initiate connections to endpoints that are outside their landing zone. Typical examples include DNS resolution, interaction with Active Directory Domain Services Domain Controllers, accessing applications in other landing zones or shared services (such as log management or backup systems).
+When resources deployed in non-routable subnets need to initiate connections to endpoints outside of their landing zone, those connections must be Source-NATted behind a routable IP address. Therefore, a NAT-capable NVA must be deployed in each landing zone, in a routable subnet, as shown in the following diagram.
 
 :::image type="content" source="./images/ipv4-exhaustion-snat-nva.svg" alt-text="Diagram that shows how the custom route table forwards traffic to the SNAT device." border="false" lightbox="./images/ipv4-exhaustion-snat-nva.svg":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-snat-nva.pptx) of this architecture.*
 
-All non-routable subnets must be associated with a custom route table that forwards all traffic destined outside of the landing zone to the NAT-capable NVA. In the diagram above, the range 10.57.0.0/16 has been defined as non-routable, while any other ranges included in 10.0.0.0/8 are routable. The custom route table associated with each non-routable subnet must contain the following UDR:
+All non-routable subnets must be associated with a custom route table that forwards all traffic destined outside of the landing zone to the NAT-capable NVA. In the previous diagram, the range 10.57.0.0/16 is non-routable, while any other ranges included in 10.0.0.0/8 are routable. The custom route table associated with each non-routable subnet must contain this UDR:
 
 | Destination | Next Hop Type           | Next Hop Ip Address    |
 | ----------- | ----------------------- | ---------------------- |
 | 10.0.0.0/8  | VirtualNetworkAppliance | \<NAT NVA IP address\> |
 
 A system route for destinations included in the non-routable range 10.57.0.0/16 is already present in the virtual network’s route table. No UDRs are needed for traffic destined to the non-routable subnets.
-Routable subnets, including the subnet hosting the NAT-capable NVA, must be associated with a custom route table that forwards traffic outside of the landing zone (typically to routing/firewalling NVA in the hub virtual network). In the diagram above, the custom route table associated with each routable subnet must contain the following UDRs:
+Routable subnets, including the subnet hosting the NAT-capable NVA, must be associated with a custom route table that forwards traffic outside of the landing zone (typically to routing/firewalling NVA in the hub virtual network). In the previous diagram, the custom route table associated with each routable subnet must contain these UDRs:
 
 | Destination  | Next Hop Type           | Next Hop Ip Address    |
 | ------------ | ----------------------- | ---------------------- |
 | 10.0.0.0/8   | VirtualNetworkAppliance | \<NAT NVA IP address\> |
 | 10.0.0.0/24  | VirtualNetworkAppliance | \<NAT NVA IP address\> |
 
-The second UDR with destination 10.0.0.0/24 is needed to make sure that connections to resources deployed in the hub virtual network are routed via the hub firewall. Specific applications may require additional UDRs. Also, a default route (0.0.0.0/0) is needed if virtual machines in the landing zone are meant to access the internet via NVAs (typically hosted in the hub virtual network).
+The second UDR with destination 10.0.0.0/24 is needed to make sure that connections to resources deployed in the hub virtual network are routed via the hub firewall. Specific applications may require more UDRs. Also, a default route (0.0.0.0/0) is needed if virtual machines in the landing zone are meant to access the internet via NVAs (typically hosted in the hub virtual network).
 
 > [!NOTE]
-> Client to Active Directory Domain Services (ADDS) Domain Controllers (DCs) communication over NAT has been tested and is supported, DC to DC communication has not been tested and is not supported as detailed further in [Description of support boundaries for Active Directory over NAT](/troubleshoot/windows-server/active-directory/support-for-active-directory-over-nat). Microsoft recommends that you deploy Active Directory DCs to routable subnets.
+> Client to Active Directory Domain Services (ADDS) Domain Controllers (DCs) communication over NAT is supported. DC to DC communication over NAT has not been tested and is not supported as detailed in [Description of support boundaries for Active Directory over NAT](/troubleshoot/windows-server/active-directory/support-for-active-directory-over-nat). Microsoft recommends that you deploy Active Directory DCs to routable subnets.
 
 Both Azure Firewall and third-party NVAs can be used as NAT-capable devices. The following sections cover both options. It should be noted that Azure NAT Gateway cannot be used, because it provides SNAT only for internet-bound traffic. 
 
@@ -129,14 +129,16 @@ The following diagram shows the landing zone layout to implement SNAT in a hub-a
 *Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-snat-3rd-party-nva.pptx) of this architecture.*
 
 ### Hub and spoke networks based on Azure Virtual WAN
-Subnet peering is currently not available for Virtual WAN. In hub and spoke networks based on Virtual WAN, it is currently not possible to have landing zone virtual networks with non- routable subnets. However, the fundamental principle of method 1 covered in this section can still be applied to Virtual WAN scenarios, by using two peered virtual networks for each landing zone. The first virtual network gets a routable address space and is connected to the Virtual WAN hub. The second virtual network gets a non-routable address space and is peered with the routable virtual network. The resulting topology is shown in the diagram below.
+Subnet peering is currently not available for Virtual WAN. In hub and spoke networks based on Virtual WAN, it is currently not possible to have landing zone virtual networks with non- routable subnets. However, the fundamental principle of method 1 covered in this section can still be applied to Virtual WAN scenarios, by using two peered virtual networks for each landing zone. The first virtual network gets a routable address space and is connected to the Virtual WAN hub. The second virtual network gets a non-routable address space and is peered with the routable virtual network. The resulting topology is shown in the following diagram.
 
 :::image type="content" source="./images/ipv4-exhaustion-vwan.svg" alt-text="Diagram that shows the SNAT implementation by using Azure Firewall." border="false" lightbox="./images/ipv4-exhaustion-vwan.svg":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-vwan.pptx) of this architecture.*
 
 This approach does not introduce any connectivity constraints within a landing zone. As the two virtual networks in the landing zone are directly peered, all resources can connect with each other, irrespective of which virtual network (routable or non-routable) they are in. However, only resources deployed in the routable virtual network can connect to resources outside of their own landing zone.
 
-Routing-wise, having routable and non-routable subnets in the same virtual network (which can be done with subnet peering, as described in the previous section for traditional hub and spoke networks) or in directly peered virtual networks (described in this section for hub and spoke networks based on Azure Virtual WAN) makes no difference. As a result, all the above considerations about deploying an application’s front-end components to routable subnets and back-end components to non-routable subnets and managing outbound dependencies with NAT-capable NVAs deployed to routable subnets still apply to networks based on Virtual WAN.
+Routing-wise, having routable and non-routable subnets in the same virtual network (described in the previous section for traditional hub and spoke networks) or in directly peered virtual networks (described in this section for hub and spoke networks based on Azure Virtual WAN) makes no difference. As a result, in networks based on Virtual WAN: 
+- all the considerations in the previous sections about spreading application components across routable and non-routable subnets are applicable. 
+- Outbound dependencies can be managed with with NAT-capable NVAs in routable subnets.
 
 ## Method 2: Azure Private Link services
 
@@ -144,22 +146,25 @@ Routing-wise, having routable and non-routable subnets in the same virtual netwo
 
 In order for an application to be consumed via Private Link, the application’s endpoints must be added to the back-end pool of an internal Azure Load Balancer (Standard SKU). The Load Balancer’s front-end IP is then associated with a [Private Link Service resource](/azure/private-link/private-link-service-overview). On the client side, a [Private Endpoint resource](/azure/private-link/private-endpoint-overview) is created and associated with the server-side Private Link Service. To consume the application, clients connect to the Private Endpoint. The platform transparently routes the connection to Load Balancer front-end IP associated with the corresponding Private Link Service.
 
-Private Link can help mitigate IPv4 exhaustion issues by assigning  two virtual networks to each landing zone: A virtual network with a routable address space, connected to the corporate network, and an isolated virtual network, which is assigned an arbitrarily chosen address space (which may even overlap with the corporate network’s). The application, along with the Private Link Services that expose its endpoints, are deployed to the isolated virtual network. The Private Endpoints associated with the Private Link Services are deployed into the routable virtual network.
+Private Link can help mitigate IPv4 exhaustion issues by assigning  two virtual networks to each landing zone: 
+- A virtual network with a routable address space, connected to the corporate network.
+- An isolated virtual network, with an arbitrarily chosen address space, which may even overlap with the corporate network’s. 
+
+Applications, along with the Private Link Services that expose their endpoints, are deployed to the isolated virtual networks. Private Endpoints associated with the Private Link Services are deployed into routable virtual networks.
 
 The following diagram shows two landing zones with a large address space (10.0.0.0/16, which overlaps with the corporate network’s), assigned to isolated virtual networks. The applications are deployed into the isolated spoke virtual networks and associated with Private Link Services. 
 
 :::image type="content" source="./images/ipv4-exhaustion-private-link.svg" alt-text="Diagram that shows the landing zone topology when Private Link services expose applications deployed in isolated virtual networks." border="false" lightbox="./images/ipv4-exhaustion-private-link.svg":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-private-link.pptx) of this architecture.*
 
-Clients in the corporate network consume the applications via Private Endpoints associated with Private Link Services, including across landing zones, as shown in the diagram below.
+Clients in the corporate network consume the applications via Private Endpoints associated with Private Link Services, including across landing zones, as shown in the following diagram.
 
 :::image type="content" source="./images/ipv4-exhaustion-private-link-conns.svg" alt-text="Diagram that shows the landing zone topology when Private Link services expose applications deployed in isolated virtual networks and how connections are established" border="false" lightbox="./images/ipv4-exhaustion-private-link-conns.svg":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-private-link-conns.pptx) of this architecture.*
 
 ### Use a Private Link service for outbound dependencies
 
-Applications deployed to isolated virtual networks cannot initiate connections to endpoints in the corporate network. As such, the method covered in this section is recommended for scenarios where applications hosted in different landing zones are independent of each other and have no dependencies on other systems in the corporate network. However, it is still applicable to scenarios where applications deployed in isolated virtual networks need to access select systems in the corporate network, or in other landing zones. Private Link Services can also be defined for such systems and associated with Private Endpoints in the isolated virtual networks. 
-The following diagram shows how Private Link Services can be used to allow the application deployed in the isolated virtual network in Landing Zone “A” to consume a shared service running in the hub virtual network (1) and an application endpoint in a different landing zone (2).
+Applications deployed to isolated virtual networks cannot initiate connections to endpoints in the corporate network. As such, the method covered in this section is recommended for scenarios where applications in different landing zones are independent of each other and have no dependencies on systems in the corporate network. However, it is still applicable when applications deployed in isolated virtual networks need to access select endpoints outside their landing zone. The following diagram shows how Private Link Services can be used to allow the application deployed in the isolated virtual network in Landing Zone "A" to consume a shared service in the hub virtual network and an application endpoint in a different landing zone "B".
 
 :::image type="content" source="./images/ipv4-exhaustion-private-link-outbound.svg" alt-text="Diagram that shows the architecture that uses a Private Link service for outbound dependencies." border="false" lightbox="./images/ipv4-exhaustion-private-link-outbound.svg":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-private-link-outbound.pptx) of this architecture.*
