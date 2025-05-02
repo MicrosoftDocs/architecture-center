@@ -1,9 +1,9 @@
-This article describes an architecture that you can use to process various documents. The architecture uses the durable functions feature of Azure Functions to implement pipelines. The pipelines process documents via Azure AI Document Intelligence for document splitting, named entity recognition (NER), and classification. Documents content and metadata are used for Retrieval-Augmented Generation (RAG)-based natural language processing (NLP).
+This article describes an architecture that you can use to process various documents. The architecture uses the durable functions feature of Azure Functions to implement pipelines. The pipelines process documents via Azure AI Document Intelligence for document splitting, named entity recognition (NER), and classification. Document content and metadata are used for retrieval-augmented generation (RAG)-based natural language processing (NLP).
 
 ## Architecture
 
 :::image type="complex" border="false" source="_images/automate-document-classification-durable-functions.svg" alt-text="Diagram that shows an architecture to identify, classify, and search documents." lightbox="_images/automate-document-classification-durable-functions.svg":::
-   The image is a flowchart that has multiple sections. The Ingestion section contains Azure web app. It connects via arrows to the Document store section that contains Azure Blob Storage and the Activation section that contains Azure Service Bus queue. The Azure Functions orchestration section contains icons that represent analyze activity, metadata store activity, and embedding activity. Arrows point from these icons to the Document processing, Document metadata collection, and Vectorize and index sections. The Chat with your data section contains Azure OpenAI Service.
+   The image is a flowchart that has multiple sections. The Ingestion section contains an Azure web app. It connects via arrows to the Document store section that contains Azure Blob Storage and the Activation section that contains an Azure Service Bus queue. The Azure Functions orchestration section contains icons that represent analyze activity, metadata store activity, and embedding activity. Arrows point from these icons to the Document processing, Document metadata collection, and Vectorize and index sections. The Chat with your data section contains Azure OpenAI Service.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/automate-document-classification-durable-functions.vsdx) of this architecture.*
@@ -20,29 +20,29 @@ This article describes an architecture that you can use to process various docum
 
 1. The *embedding* activity function uses Semantic Kernel to chunk each document and create embeddings for each chunk. Embeddings and associated content are sent to Azure AI Search and stored in a vector-enabled index. A correlation ID is also added to the search document so that the search results can be matched with the corresponding document metadata from Azure Cosmos DB.
 
-1. Semantic Kernel retrieves embeddings from AI Search vector store for NLP.
+1. Semantic Kernel retrieves embeddings from the AI Search vector store for NLP.
 
-1. Users can chat with their data by using NLP. This conversation is powered by grounded data retrieved from the vector store. To look up document records that are in Azure Cosmos DB, they use correlation IDs included in the search result set. The records include links to the original document file in Blob Storage.
+1. Users can chat with their data by using NLP. This conversation is powered by grounded data retrieved from the vector store. To look up document records that are in Azure Cosmos DB, users use correlation IDs included in the search result set. The records include links to the original document file in Blob Storage.
 
 ### Components
 
 - [Durable functions](/azure/azure-functions/durable/durable-functions-overview) is a feature of [Azure Functions](/azure/azure-functions/functions-overview) that you can use to write stateful functions in a serverless compute environment. In this architecture, a message in a Service Bus queue triggers a durable functions instance. This instance then initiates and orchestrates the document-processing pipeline.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multi-model database that you can use in your solutions to scale throughput and storage capacity across any number of geographic regions. Comprehensive service-level agreements (SLAs) guarantee throughput, latency, availability, and consistency. This architecture uses Azure Cosmos DB as the metadata store for the document classification information.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database that you can use in your solutions to scale throughput and storage capacity across any number of geographic regions. Comprehensive service-level agreements (SLAs) guarantee throughput, latency, availability, and consistency. This architecture uses Azure Cosmos DB as the metadata store for the document classification information.
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage), [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction). This architecture uses Blob Storage to store the document files that the user uploads and that the durable functions pipeline processes.
 
-- [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is a fully managed enterprise message broker with message [queues](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#queues) and publish-subscribe [topics](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#topics-and-subscriptions). This architecture uses Service Bus to trigger durable functions instances.
+- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a fully managed enterprise message broker with message [queues](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#queues) and publish-subscribe [topics](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#topics-and-subscriptions). This architecture uses Service Bus to trigger durable functions instances.
 
-- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a framework to build, deploy, and scale web apps. The Web Apps feature of App Service is an HTTP-based tool that you can use to host web applications, REST APIs, and mobile back ends. Use Web Apps to develop in .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications can easily run and scale in Windows and Linux-based environments. In this architecture, users interact with the document-processing system through an App Service-hosted web app.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a framework to build, deploy, and scale web apps. The Web Apps feature of App Service is an HTTP-based tool that you can use to host web applications, REST APIs, and mobile back ends. Use Web Apps to develop in .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications can easily run and scale in Windows-based and Linux-based environments. In this architecture, users interact with the document-processing system through an App Service-hosted web app.
 
 - [Document Intelligence](/azure/ai-services/document-intelligence/overview) is a service that you can use to extract insights from your documents, forms, and images. This architecture uses Document Intelligence to analyze the document files and extract the embedded documents along with content and metadata information.
 
-- [AI Search](/azure/search/search-what-is-azure-search) provides a rich search experience for private, diverse content in web, mobile, and enterprise applications. This architecture uses AI Search [Vector Storage](/azure/search/vector-store) to index embeddings of the extracted document content and metadata information so that users can search and retrieve documents by using NLP.
+- [AI Search](/azure/search/search-what-is-azure-search) provides a rich search experience for private, diverse content in web, mobile, and enterprise applications. This architecture uses AI Search [vector storage](/azure/search/vector-store) to index embeddings of the extracted document content and metadata information so that users can search and retrieve documents by using NLP.
 
 - [Semantic Kernel](/semantic-kernel/overview) is a framework that you can use to integrate large language models (LLMs) into your applications. This architecture uses Semantic Kernel to create embeddings for the document content and metadata information, which are stored in AI Search.
 
-- [Azure OpenAI Service](/azure/ai-services/openai/overview) provides access to OpenAI's powerful models. This architecture uses Azure OpenAI to provide a natural language interface for users to interact with the document-processing system.
+- [Azure OpenAI Service](/azure/well-architected/service-guides/azure-openai) provides access to OpenAI's powerful models. This architecture uses Azure OpenAI to provide a natural language interface for users to interact with the document-processing system.
 
 ### Alternatives
 
@@ -108,7 +108,7 @@ To optimize costs:
 
 - Use [commitment tier pricing](/azure/ai-services/commitment-tier) for Document Intelligence to manage [predictable costs](/azure/ai-foundry/how-to/costs-plan-manage).
 
-- Use reserved capacity and lifecycle policies to [right-size storage accounts](/azure/well-architected/service-guides/storage-accounts/cost-optimization).
+- Use reserved capacity and life cycle policies to [rightsize storage accounts](/azure/well-architected/service-guides/storage-accounts/cost-optimization).
 
 - Use the pay-as-you-go strategy for your architecture and [scale out](/azure/well-architected/cost-optimization/optimize-scaling-costs) as needed instead of investing in large-scale resources at the start. As your solution matures, you can use [App Service reservations](/azure/cost-management-billing/reservations/reservation-discount-app-service) to help reduce costs where applicable.
 
@@ -122,7 +122,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 This solution can expose performance bottlenecks when you process high volumes of data. To ensure proper performance efficiency for your solution, make sure that you understand and plan for [Azure Functions scaling options](/azure/azure-functions/functions-scale#scale), [AI services autoscaling](/azure/ai-services/autoscale), and [Azure Cosmos DB partitioning](/azure/cosmos-db/partitioning-overview).
 
-Azure OpenAI [PTUs](/azure/ai-services/openai/concepts/provisioned-throughput) provide guaranteed performance and availability, along with [global deployments](/azure/ai-services/openai/how-to/deployment-types#global-provisioned). These deployments use Azure's global infrastructure to dynamically route customer traffic to the data center that has the best availability for the customer's inference requests.
+Azure OpenAI [PTUs](/azure/ai-services/openai/concepts/provisioned-throughput) provide guaranteed performance and availability, along with [global deployments](/azure/ai-services/openai/how-to/deployment-types#global-provisioned). These deployments use the Azure global infrastructure to dynamically route customer traffic to the datacenter that has the best availability for the customer's inference requests.
 
 ## Contributors
 
@@ -149,7 +149,7 @@ Introductory articles:
 - [What is Azure OpenAI?](/azure/ai-services/openai/overview)
 - [What is Document Intelligence?](/azure/ai-services/document-intelligence/overview)
 - [What is AI Search?](/azure/search/search-what-is-azure-search)
-- [What is AI Search Vector Storage?](/azure/search/vector-store)
+- [What is AI Search vector storage?](/azure/search/vector-store)
 - [Getting started with App Service](/azure/app-service/getting-started)
 - [Introduction to Azure Cosmos DB](/azure/cosmos-db/introduction)
 
