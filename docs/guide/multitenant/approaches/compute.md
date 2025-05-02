@@ -3,7 +3,7 @@ title: Architectural approaches for compute in multitenant solutions
 description: This article describes approaches to support multitenancy for the compute components of your solution.
 author: DixitArora-MSFT
 ms.author: dixitaro
-ms.date: 02/05/2025
+ms.date: 05/02/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 products:
@@ -118,7 +118,7 @@ Azure Container Apps enables you to deploy multiple applications to a shared env
 
 Azure Kubernetes Service (AKS), and Kubernetes more broadly, provide a variety of options for multitenancy, including the following:
 
-- Tenant-specific namespaces, for logical isolation of tenant-specific resources, which are deployed to shared clusters and node pools.
+- Tenant-specific namespaces. Namespaces can provide logical isolation of tenant-specific resources, which are deployed to shared clusters and node pools.
 - Tenant-specific nodes or node pools on a shared cluster.
 - Tenant-specific pods that might use the same node pool.
 

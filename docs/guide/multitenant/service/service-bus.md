@@ -3,7 +3,7 @@ title: Azure Service Bus considerations for multitenancy
 description: This article describes the features of Azure Service Bus that are useful when you use it in multitenanted systems. It provides links to guidance for how to use Azure Service Bus in a multitenant solution.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 02/05/2025
+ms.date: 05/02/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 products:
@@ -116,7 +116,7 @@ See [Partitioned queues and topics](/azure/service-bus-messaging/service-bus-par
 
 ### Automatic update of messaging units
 
-Service Bus premium namespaces can automatically adjust the number of messaging units (MUs) assigned to a namespace. Enabling this feature allows the namespace to elastically scale based on load, which can be useful in shared namespace multitenant designs to the risk of [Noisy Neighbor](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) problems without manual intervention.
+Service Bus premium namespaces can automatically adjust the number of messaging units (MUs) assigned to a namespace. Enabling this feature allows the namespace to elastically scale based on load. Elastic scaling can be useful in shared namespace multitenant designs to reduce the risk of [Noisy Neighbor](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) problems without requiring manual intervention.
 
 See [Automatically update messaging units in Azure Service Bus](/azure/service-bus-messaging/automate-update-messaging-units).
 
@@ -133,8 +133,8 @@ Other contributors:
 - [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 - [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz) | Principal Customer Engineer, FastTrack for Azure
 - [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
-- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 - [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Solution Architect, Data & AI
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
