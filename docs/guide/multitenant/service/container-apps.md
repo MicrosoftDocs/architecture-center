@@ -118,7 +118,7 @@ For more information, see [Managed identities in Azure Container Apps](/azure/co
 
 ### Workload profiles on dedicated compute
 
-Container Apps provides a dedicated plan that allows you to reserve dedicated resources for a tenant. This plan is useful to limit the resources available to a tenant that can be shared across multiple container apps or to meet tenant requirements such as higher memory-CPU ratios or GPU availability.
+Container Apps provides a dedicated plan that allows you to reserve dedicated resources for a tenant. This plan is useful to provide a limited on the resources available to a tenant that can be shared across multiple container apps, or to meet a specific tenant's requirements like higher memory-to-CPU ratios or GPU availability.
 
 For more information, see [Workload profiles](/azure/container-apps/workload-profiles-overview).
 
