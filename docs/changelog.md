@@ -86,7 +86,7 @@ The following new and updated articles have recently been published in the Azure
 - [Certificate Lifecycle Management on Azure](./example-scenario/certificate-lifecycle/index.yml)  ([#5f8cefbf09](https://github.com/MicrosoftDocs/architecture-center/commit/5f8cefbf09))
 - [Monolithic Persistence Antipattern](./antipatterns/monolithic-persistence/index.md)  ([#4146f310ab](https://github.com/MicrosoftDocs/architecture-center/commit/4146f310ab))
 - [General Mainframe Refactor to Azure](./example-scenario/mainframe/general-mainframe-refactor.yml)  ([#326b3995f8](https://github.com/MicrosoftDocs/architecture-center/commit/326b3995f8))
-- [Compare AWS and Azure Security and Identity Management Solutions](./aws-professional/security-identity.md)  ([#1ab5fc7556](https://github.com/MicrosoftDocs/architecture-center/commit/1ab5fc7556))
+- [Compare AWS and Azure Identity Management Solutions](./aws-professional/security-identity.md)  ([#1ab5fc7556](https://github.com/MicrosoftDocs/architecture-center/commit/1ab5fc7556))
 - [Unisys ClearPath MCP Virtualization on Azure](./example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml)  ([#2310bff65a](https://github.com/MicrosoftDocs/architecture-center/commit/2310bff65a))
 - [Core startup stack architecture](./example-scenario/startups/core-startup-stack.yml)  ([#59d4a8cec6](https://github.com/MicrosoftDocs/architecture-center/commit/59d4a8cec6))
 - [Unisys ClearPath Forward OS 2200 Enterprise Server Virtualization on Azure](./mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)  ([#a95ed47c51](https://github.com/MicrosoftDocs/architecture-center/commit/a95ed47c51))
