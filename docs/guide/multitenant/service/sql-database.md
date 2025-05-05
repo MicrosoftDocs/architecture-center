@@ -30,9 +30,9 @@ SQL Database includes many features that support multitenancy.
 
 ### Elastic pools
 
-Elastic pools enable you to share compute resources between multiple databases on the same server. By using elastic pools, you can achieve performance elasticity for each database. You can also maximize cost efficiency by sharing provisioned resources across multiple databases. Elastic pools provide built-in protections against the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml).
+Elastic pools enable you to share compute resources between multiple databases on the same server. By using elastic pools, you can achieve performance elasticity for each database. You can also maximize cost efficiency by sharing provisioned resources across multiple databases. Elastic pools provide built-in protections against the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml).
 
-For more information, see:
+For more information, see the following resources:
 
 - [SQL Database elastic pools](/azure/azure-sql/database/elastic-pool-overview)
 - [Resource management in dense elastic pools](/azure/azure-sql/database/elastic-pool-resource-management)
@@ -40,20 +40,20 @@ For more information, see:
 
 ### Elastic database tools
 
-You can use the [Sharding pattern](../../../patterns/sharding.yml) to scale your workload across multiple databases. SQL Database provides tools to support sharding. These tools include the management of *shard maps*, which is a database that tracks the tenants assigned to each shard. These tools also include the capability to initiate and track queries and management operations on multiple shards by using *elastic jobs*.
+You can use the [Sharding pattern](../../../patterns/sharding.yml) to scale your workload across multiple databases. SQL Database provides tools to support sharding. These tools include the management of *shard maps*, which serve as databases that track the tenants assigned to each shard. These tools also include the capability to initiate and track queries and management operations on multiple shards by using *elastic jobs*.
 
 For more information, see:
 
 - [Multitenant applications with elastic database tools and row-level security](/azure/azure-sql/database/saas-tenancy-elastic-tools-multi-tenant-row-level-security)
 - [Scale out by using SQL Database](/azure/azure-sql/database/elastic-scale-introduction)
-- [Elastic database jobs](/azure/azure-sql/database/job-automation-overview)
-- The [elastic jobs tutorial](/azure/azure-sql/database/elastic-jobs-overview) describes how to create, configure, and manage elastic jobs.
+- [Elastic jobs](/azure/azure-sql/database/job-automation-overview)
+- [Create, configure, and manage elastic jobs](/azure/azure-sql/database/elastic-jobs-overview)
 
 ### Row-level security
 
 [Row-level security](/sql/relational-databases/security/row-level-security) helps enforce tenant-level isolation in shared tables.
 
-For more information, see:
+For more information, see the following resources:
 
 - [Row-level security implementation on Azure SQL](https://www.youtube.com/watch?v=QQobIo-gfmk)
 - [Multitenant applications with elastic database tools and row-level security](/azure/azure-sql/database/saas-tenancy-elastic-tools-multi-tenant-row-level-security)
@@ -87,6 +87,6 @@ Review [Architectural approaches for storage and data in multitenant solutions](
 ## Related resources
 
 - [Data partitioning strategies for SQL Database](../../../best-practices/data-partitioning-strategies.yml#partitioning-azure-sql-database)
-- **Case study:** [Running 1M databases on Azure SQL for a large SaaS provider: Microsoft Dynamics 365 and Power Platform](https://devblogs.microsoft.com/azure-sql/running-1m-databases-on-azure-sql-for-a-large-saas-provider-microsoft-dynamics-365-and-power-platform/)
+- **Case study:** [Run one million databases on Azure SQL for a large SaaS provider: Dynamics 365 and Microsoft Power Platform](https://devblogs.microsoft.com/azure-sql/running-1m-databases-on-azure-sql-for-a-large-saas-provider-microsoft-dynamics-365-and-power-platform/)
 - **Sample:** The [Wingtip Tickets SaaS application](/azure/azure-sql/database/saas-tenancy-welcome-wingtip-tickets-app) provides three multitenant examples of the same app. Each example explores a different database tenancy pattern on SQL Database. The first example uses a standalone application, where each tenant has its own database. The second example features a multitenant app, with each tenant having a separate database. The third example includes a multitenant app that has sharded multitenant databases.
 - **Video:** [Design patterns for SaaS applications on SQL Database](https://www.youtube.com/watch?v=jjNmcKBVjrc)
