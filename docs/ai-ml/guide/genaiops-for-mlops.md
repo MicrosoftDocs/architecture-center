@@ -46,7 +46,7 @@ Prompt engineering includes all the processes included in designing an effective
 
 The following diagram shows an architecture for prompt engineering.
 
-:::image type="complex" source="_images/prompt-engineering-architecture.svg" lightbox="_images/prompt-engineering-architecture.png" alt-text="Diagram that shows an architecture for prompt engineering." border="false":::
+:::image type="complex" source="_images/prompt-engineering-architecture.svg" lightbox="_images/prompt-engineering-architecture.svg" alt-text="Diagram that shows an architecture for prompt engineering." border="false":::
    The diagram illustrates a flow. The flow starts with a user. From there, it goes to an intelligent application. The intelligent application and a headless intelligent application flow to an orchestrator. The orchestrator flows to the data stores and then reaches the Azure OpenAI Service via a prompt.
 :::image-end:::
 
@@ -65,7 +65,7 @@ A typical RAG implementation is to break up your source data into chunks and sto
 
 The following diagram illustrates a RAG architecture that includes data from documents:
 
-:::image type="complex" source="_images/rag-architecture.svg" lightbox="_images/rag-architecture.png" alt-text="Diagram that shows a RAG architecture." border="false":::
+:::image type="complex" source="_images/rag-architecture.svg" lightbox="_images/rag-architecture.svg" alt-text="Diagram that shows a RAG architecture." border="false":::
    The diagram illustrates two flows. The first flow starts with a user and then flows to an intelligent application. From there, the flow leads to an orchestrator. From the orchestrator, the flow leads to Azure OpenAI Service and to Azure AI Search, which is the last item in the second flow. The second flow starts with documents and then flows to four stages: chunk documents, enrich chunks, embed chunks, and index chunks. From there, the flow leads to the same Azure AI Search instance that connects to the first flow.
 :::image-end:::
 
