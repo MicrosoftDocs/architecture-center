@@ -82,11 +82,11 @@ Other contributors:
 
 ## Next step
 
-Review [Architectural approaches for storage and data in multitenant solutions](../approaches/storage-data.yml).
-
-## Related resources
-
-- [Data partitioning strategies for SQL Database](../../../best-practices/data-partitioning-strategies.yml#partitioning-azure-sql-database)
 - **Case study:** [Run one million databases on Azure SQL for a large SaaS provider: Dynamics 365 and Microsoft Power Platform](https://devblogs.microsoft.com/azure-sql/running-1m-databases-on-azure-sql-for-a-large-saas-provider-microsoft-dynamics-365-and-power-platform/)
 - **Sample:** The [Wingtip Tickets SaaS application](/azure/azure-sql/database/saas-tenancy-welcome-wingtip-tickets-app) provides three multitenant examples of the same app. Each example explores a different database tenancy pattern on SQL Database. The first example uses a standalone application, where each tenant has its own database. The second example features a multitenant app, with each tenant having a separate database. The third example includes a multitenant app that has sharded multitenant databases.
 - **Video:** [Design patterns for SaaS applications on SQL Database](https://www.youtube.com/watch?v=jjNmcKBVjrc)
+
+## Related resources
+
+- [Architectural approaches for storage and data in multitenant solutions](../approaches/storage-data.yml).
+- [Data partitioning strategies for SQL Database](../../../best-practices/data-partitioning-strategies.yml#partitioning-azure-sql-database)
