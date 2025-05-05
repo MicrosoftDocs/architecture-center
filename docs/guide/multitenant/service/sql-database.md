@@ -22,7 +22,7 @@ Multitenant solutions on Azure commonly use Azure SQL Database. This article out
 
 ## Guidance
 
-The SQL Database team publishes extensive guidance for how to implement multitenant architectures by using SQL Database. For more information, see [Multitenant software as a service (SaaS) database tenancy patterns](/azure/azure-sql/database/saas-tenancy-app-design-patterns) and [Partition SQL databases](../../../best-practices/data-partitioning-strategies.yml#partitioning-azure-sql-database).
+The SQL Database team publishes extensive guidance for how to implement multitenant architectures by using SQL Database. For more information, see [Multitenant software as a service (SaaS) database tenancy patterns](/azure/azure-sql/database/saas-tenancy-app-design-patterns) and [Partition SQL Database](../../../best-practices/data-partitioning-strategies.yml#partitioning-azure-sql-database).
 
 ## Features of SQL Database that support multitenancy
 
