@@ -1,6 +1,6 @@
 ---
-title: Compare AWS and Azure Security and Identity Management Solutions
-description: Learn about comparable AWS and Azure security and identity management solutions so that you can efficiently migrate solutions.
+title: Compare AWS and Azure Identity Management Solutions
+description: Learn about comparable AWS and Azure identity management solutions so that you can efficiently migrate solutions.
 author: jerrymsft
 ms.author: gerhoads
 ms.date: 03/27/2025
@@ -14,7 +14,7 @@ ms.collection:
  - migration
  - aws-to-azure
 ---
-# Compare AWS and Azure security and identity management solutions
+# Compare AWS and Azure identity management solutions
 
 This guide is for organizations that use Amazon Web Services (AWS) and want to migrate to Azure or adopt a multicloud strategy. This guidance compares AWS identity management solutions to similar Azure solutions.
 
