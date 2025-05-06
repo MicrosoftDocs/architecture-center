@@ -5020,6 +5020,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/apache-scenarios.md",
       "redirect_url": "/azure/architecture/browse/?terms=apache",
       "redirect_document_id": false
