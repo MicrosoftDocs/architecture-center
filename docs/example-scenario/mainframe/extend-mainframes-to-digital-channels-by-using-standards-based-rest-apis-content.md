@@ -77,11 +77,11 @@ REST APIs in mainframe applications offer opportunities for modernization and ex
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - [Red Hat OpenShift Container Platform](https://www.redhat.com/en/technologies/cloud-computing/openshift) provides automated deployment capabilities that help ensure your applications are deployed consistently and reliably.
 
@@ -89,15 +89,15 @@ Reliability ensures your application can meet the commitments you make to your c
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Microsoft Entra ID provides a variety of security features and capabilities to help you protect identities, applications, and data. It also provides authentication and authorization of users and applications. The integration of Microsoft Entra ID with OAuth enables more secure authentication and authorization for applications.
 
 - IBM zSystems provides robust security capabilities for DevSecOps to mitigate business risks, safeguard application data, and help you ensure long-term security for your systems.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization reduces unnecessary expenses and improves operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - IBM Z and Cloud Modernization Stack and Azure DevOps reduce the need for custom z/OS tooling by allowing organizations to implement the same CI/CD toolchain and practices as the rest of their enterprise.
 
@@ -105,17 +105,17 @@ Cost optimization reduces unnecessary expenses and improves operational efficien
 
 Use the [Pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to estimate the cost of implementing your solution.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 - [IBM z/OS Connect](https://www.ibm.com/docs/en/was-liberty/zos?topic=overview-zos-connect) facilitates access to backend application functions, converting them into microservices with accessible APIs. IBM z/OS Connect enables other applications to interact at scale with these services while also providing API management and monitoring capabilities.
 
 - [Red Hat OpenShift Container Platform](https://www.redhat.com/en/technologies/cloud-computing/openshift) streamlines deployment processes, bolsters scalability, fortifies security measures, offers robust monitoring capabilities, facilitates continuous integration and delivery, and integrates with existing operational tools and processes.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency covers the operations processes that deploy an application and keep it in production. For more information, see [Overview of the performance efficiency pillar](/azure/well-architected/scalability/overview).
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - z/OS Connect handles multiple API requests concurrently by using the parallel processing capabilities of IBM Z. This parallel execution enhances performance by using system resources and reducing response times for API calls.
 - Performance efficiency is a core strength of IBM z/OS Connect. It handles high transaction volumes and manages concurrent connections. The solution's scalability expands both horizontally and vertically, allowing it to adapt to the evolving demands of workloads.

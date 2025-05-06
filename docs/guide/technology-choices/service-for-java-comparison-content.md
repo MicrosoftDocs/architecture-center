@@ -95,7 +95,7 @@ Searches are integral parts of any application. If speed, performance, and high 
 
 ### Big data tools
 
-Big data tools enable the automation of data flow among the software systems. They support scalable, robust, and streamlined data routing graphs along with system mediation logic. They're utilized to build live data flow pipelines and stream applications. Learn how [Nifi][8] and [Apache Kafka][9] on Azure might be suitable for your needs.
+Big data tools enable the automation of data flow among the software systems. They support scalable, robust, and streamlined data routing graphs along with system mediation logic. They're utilized to build live data flow pipelines and stream applications. Learn how [Apache Kafka][9] on Azure might be suitable for your needs.
 
 ### Supportability options
 
@@ -179,5 +179,4 @@ Principal authors:
 [5]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
 [6]: /azure/devops/pipelines/?view=azure-devops
 [7]: /azure/developer/jenkins
-[8]: /azure/architecture/example-scenario/data/azure-nifi
 [9]: /azure/hdinsight/kafka/apache-kafka-introduction

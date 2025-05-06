@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Data analytics for automotive test fleets
-  titleSuffix: Azure Architecture Center
   description: Learn about a data analytics solution that can democratize data access and provide R&D engineers with near real-time insights into test drive diagnostic data.
   author: msmarioo
   ms.author: marioo
   ms.date: 07/10/2024
   ms.topic: conceptual
-  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom:
   - arb-data

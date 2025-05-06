@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Analyze operational data on MongoDB Atlas using Azure Synapse Analytics
-  titleSuffix: Azure Example Scenarios
   description: Derive insights from siloed data. Connect operational data in MongoDB Atlas to Azure Synapse Analytics, and run real-time analytics on the data.
   author: KrishnakumarRukmangathan
   ms.author: krirukm
   ms.date: 06/01/2024
   ms.topic: example-scenario
-  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom:
     - arb-data

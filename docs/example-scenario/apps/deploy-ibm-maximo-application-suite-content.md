@@ -15,7 +15,7 @@ From the perspective of infrastructure, this architecture provides the following
 - A container hosting platform to deploy highly available workloads across availability zones
 - A privatized deployment of worker and control nodes that are integrated with storage
 - Azure Files premium and standard files for storage (OpenShift Data Foundation not required)
-- SQL Server on Azure VMs or container-based IBM Db2 Warehouse
+- Azure SQL Managed Instance or container-based IBM Db2 Warehouse
 - Azure DNS for DNS management of OpenShift and its containers
 - Microsoft Entra ID for single sign-on (SSO) into MAS
 
@@ -35,7 +35,7 @@ From the perspective of infrastructure, this architecture provides the following
 
 - [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) (optional) and a subnet for enhanced-security access to any of the worker nodes or optional JumpBox machines. Azure Bastion is a fully managed service that provides seamless enhanced-security RDP and SSH access to VMs without any exposure through public IP addresses.
 
-- [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) (optional) to provide data services to MAS. The database can also be another, like Oracle Exadata or IBM Db2 Warehouse. Azure SQL Database and Azure SQL Managed Instance aren't supported right now.
+- [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) (optional) to provide data services to MAS. The database can also be another, like Oracle Exadata or IBM Db2 Warehouse. Azure SQL Database is not currently supported.
 
 - [Twilio Send Grid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021) (optional) to send emails from MAS to your consumers.
 
@@ -46,7 +46,7 @@ From the perspective of infrastructure, this architecture provides the following
 The following services typically aren't necessary, but they're effective alternatives:
 
 - [Azure NetApp Files](https://azure.microsoft.com/en-us/services/netapp) as a replacement for Azure Files. Azure NetApp Files supports of any type of workload with high availability and high performance.
-- [Oracle Database on Azure](https://azure.microsoft.com/en-us/solutions/oracle) if you prefer that to SQL Server or Db2 Warehouse.
+- [Oracle Database on Azure](https://azure.microsoft.com/en-us/solutions/oracle) if you prefer that to SQL Managed Instance or Db2 Warehouse.
 - [OpenShift Data Foundation](https://www.redhat.com/en/technologies/cloud-computing/openshift-data-foundation) if you want to use Db2 Warehouse on OpenShift Data Foundation.
 
 ## Scenario details
@@ -100,13 +100,13 @@ Microsoft has tested MAS versions 8.7 and later on Azure. Our recommendation is 
 
 Review the MAS applications that you need for your complete business scenario, and then review the requirements for each of the applications. For more information, see [IBM Maximo Application Suite system requirements](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=deploy-system-requirements). Each of the applications might need separate databases. We have tested and support the following databases on Azure:
 
-- [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/) version 2019 using Windows or Linux
+- [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance)
 - IBM [Db2 Warehouse on Cloud Pak for Data 5](https://www.ibm.com/docs/en/cloud-paks/cp-data/5.0.x?topic=services-db2-warehouse)
 
-You might also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure by using interconnection, but this isn't a tested configuration. For more information about interconnection, see [Interconnecting Oracle Cloud with Microsoft Azure](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html). Currently, Azure SQL Database, Azure SQL Managed Instance, and Azure Cosmos DB aren't supported.
+You might also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure by using interconnection, but this isn't a tested configuration. For more information about interconnection, see [Interconnecting Oracle Cloud with Microsoft Azure](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html). Currently, Azure SQL Database and Azure Cosmos DB aren't supported.
 
 > [!NOTE]
-> In some cases, you can't reuse a database for multiple MAS applications because of conflicting database settings. For example, you can't use the same IBM Db2 Warehouse for Health and Manage in combination with Monitor. However, you can mix different database products, such as using SQL Server for one application and IBM Db2 Warehouse for another.
+> In some cases, you can't reuse a database for multiple MAS applications because of conflicting database settings. For example, you can't use the same IBM Db2 Warehouse for Health and Manage in combination with Monitor. However, you can mix different database products, such as using Azure SQL Managed Instance for one application and IBM Db2 Warehouse for another.
 >
 > For more information about database requirements for the Health application, see [Configuring the database for Maximo Health](https://www.ibm.com/support/pages/configuring-database-maximo-health).
 
@@ -257,7 +257,7 @@ A standard deployment of MAS consists of the following components:
  - 3 control VMs
  - 6 worker VMs
  - 3 worker VMs for Db2 Warehouse
-   - You can substitute SQL Server on Azure VMs in some configurations, rather than use Db2 Warehouse.
+   - You can substitute Azure SQL Managed Instance in some configurations, rather than use Db2 Warehouse.
 - 2 Azure Storage accounts
 - 2 DNS zones
 - 2 Load balancers

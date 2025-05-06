@@ -3,7 +3,6 @@ author: BryanLa
 ms.author: bryanla
 ms.date: 04/01/2023
 ms.topic: include
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ---
 <!-- NOTE that this include is used by files in the following repos:

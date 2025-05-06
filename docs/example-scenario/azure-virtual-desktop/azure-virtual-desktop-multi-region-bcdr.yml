@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Multiregion BCDR for Azure Virtual Desktop
-  titleSuffix: Azure Architecture Center
   description: Learn which options and scenarios are possible to design and implement an effective multi-region BCDR strategy for Azure Virtual Desktop.
   author: BenMartinBaur
   ms.author: bebaur
   ms.date: 07/05/2024
   ms.topic: conceptual
-  ms.service: azure-architecture-center
   ms.subservice: architecture-guide
 azureCategories:
   - compute

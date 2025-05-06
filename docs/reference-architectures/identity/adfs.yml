@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Extend on-premises AD FS to Azure
-  titleSuffix: Azure Reference Architectures
   description: Implement a secure hybrid network architecture with Active Directory Federation Service authorization in Azure.
   author: billmath
   ms.author: billmath
   ms.date: 10/30/2024
   ms.topic: reference-architecture
-  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - identity

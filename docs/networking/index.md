@@ -5,7 +5,6 @@ author: RobBagby
 ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-virtual-network
@@ -77,7 +76,7 @@ The following sections, organized by category, provide links to sample networkin
 
 ### High availability
 
-- [Deploy highly available NVAs](guide/nva-ha.yml)
+- [Deploy highly available NVAs](guide/network-virtual-appliance-high-availability.md)
 - [Multi-tier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
 
 ### Hybrid networking

@@ -217,13 +217,13 @@ This solution simplifies private DNS resolution in hybrid networks. It applies t
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 We recommend against deploying a DNS private resolver into a virtual network that contains an ExpressRoute Gateway. For more information, see [About ExpressRoute virtual network gateways](/azure/expressroute/expressroute-about-virtual-network-gateways#gwsub).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 DNS Private Resolver is a cloud-native service that is highly available and DevOps friendly. It delivers a reliable and secure DNS solution while maintaining simplicity and zero-maintenance for users.
 
@@ -235,15 +235,15 @@ A DNS resolver can only refer to a virtual network that's in the same region as 
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Azure DNS supports the extended ASCII encoding set for text (TXT) record sets. For more information, see [Azure DNS FAQ](/azure/dns/dns-faq#does-azure-dns-support-the-extended-ascii-encoding--8-bit--set-for-txt-record-sets-).
 
 Azure DNS has [DNS security extensions (DNSSEC) in preview](/azure/dns/dnssec).
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - As a solution, DNS Private Resolver is largely cost-effective. One of the primary benefits of DNS Private Resolver is that it's fully managed, which eliminates the need for dedicated servers.
 - To calculate the cost of DNS Private Resolver, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). For DNS Private Resolver pricing models, see [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns).
@@ -257,9 +257,9 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - If you use VPN Gateway instead of ExpressRoute, the cost varies by the product and is charged per hour. For more information, see [VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway).
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 DNS Private Resolver is a fully managed Microsoft service that can handle millions of requests. Use a subnet address space between /28 and /24. For most users, /26 works best. For more information, see [Subnet restrictions](/azure/dns/dns-private-resolver-overview#subnet-restrictions).
 

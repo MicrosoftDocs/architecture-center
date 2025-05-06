@@ -5,7 +5,6 @@ author: RobBagby
 ms.author: pnp
 ms.date: 09/19/2022
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-machine-learning
@@ -93,7 +92,7 @@ The cloud is changing the way applications are designed, including how data is p
 |[Choose an Azure data store for your application](data-store-decision-tree.md)    |    Use a flowchart to choose an Azure data store.    |
 |[Criteria for choosing a data store](data-store-considerations.md)|Review some general considerations for choosing a data store. |
 |[Choose a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)     |    Compare big data storage options in Azure. View key selection criteria and a capability matrix.     |
-|[OLAP solutions](../../data-guide/relational-data/online-analytical-processing.yml)|Learn about online analytical processing (OLAP) solutions for organizing large databases and supporting complex analysis without affecting transactional systems.|
+|[OLAP solutions](../../data-guide/relational-data/online-analytical-processing.md)|Learn about online analytical processing (OLAP) solutions for organizing large databases and supporting complex analysis without affecting transactional systems.|
 |[OLTP solutions](../../data-guide/relational-data/online-transaction-processing.md)|Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data and supports querying.|
 |[Data lakes](../../data-guide/scenarios/data-lake.md)|Learn about data lake storage repositories, which can hold terabytes or petabytes of data in a native, raw format.|
 |[Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.yml)|Learn about non-relational databases that store data as key/value pairs, graphs, time series, objects, and other storage models.|

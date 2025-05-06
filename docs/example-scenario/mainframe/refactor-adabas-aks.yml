@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Refactor mainframe computer systems that run Adabas & Natural
-  titleSuffix: Azure Example Scenarios
   description: Learn how to modernize mainframe computer systems that run Adabas & Natural and move them to the cloud.
   author: Mvrs
   ms.author: marljohn
   ms.date: 07/11/2024
   ms.topic: example-scenario
-  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom: arb-containers 
 azureCategories:

@@ -1,14 +1,12 @@
 ### YamlMime:Architecture
 metadata:
   title: Integrate Azure and Microsoft Defender XDR security services
-  titleSuffix: Azure Architecture Center
   description: Integrate security solutions from Azure and Microsoft 365 to create robust security for your hybrid and cloud IT environments. This article is part of a series.
   author: rudneir2
   ms.author: ruolivei
   ms.custom: fcp
   ms.date: 09/20/2024
   ms.topic: solution-idea
-  ms.service: azure-architecture-center
   ms.subservice: solution-idea
 azureCategories:
   - integration

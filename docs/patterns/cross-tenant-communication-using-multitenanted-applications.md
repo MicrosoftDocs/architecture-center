@@ -5,7 +5,6 @@ author: aulong-msft
 ms.author: aulong
 ms.date: 04/24/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - active-directory
