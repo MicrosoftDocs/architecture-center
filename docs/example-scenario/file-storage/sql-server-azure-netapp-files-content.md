@@ -1,24 +1,24 @@
 Azure NetApp Files is an Azure native, first-party, enterprise-class, high-performance file storage service.
 
-This article describes how SQL Server can be migrated to Azure Virtual Machines while maintaining the enterprise performance required for OLTP applications. Rather than using Azure disk for the database locations, this article explains how the solution can be deployed more cost-effectively while maintaining the performance you are used to from your on-premises deployments.
+This article describes how SQL Server can be migrated to Azure Virtual Machines while maintaining the enterprise performance required for OLTP applications. Rather than using Azure disk for the database locations, this article explains how the solution can be deployed more cost-effectively while maintaining the performance you're used to from your on-premises deployments.
 
 ## SQL Server on Azure Virtual Machines with Azure NetApp Files key value proposition
 
 The most demanding SQL Server database workloads require very high I/O, low latency access to storage. Azure offers very low latency, high bandwidth shared file access via SMB with [Azure NetApp Files](/azure/azure-sql/virtual-machines/windows/availability-group-overview). Azure VMs impose limits on I/O and bandwidth operations on managed disk, while only network bandwidth limits are applied against Azure NetApp Files on egress only. In other words, no VM-level storage I/O limits are applied to Azure NetApp Files.
 
-Without these I/O limits, SQL Server running on smaller virtual machines connected to Azure NetApp Files can perform as well as or oftentimes better than SQL Server running on much larger VMs using disk storage. And with the flexibility that Azure NetApp Files offers, deployments can be grown or shrunk on demand, unlike traditional on-premises configurations which are sized for the maximum workload requirement and are most cost-effective only at maximum utilization. In Azure with Azure NetApp Files, the configuration can be adjusted continually to the momentary workload requirement.
+Without these I/O limits, SQL Server running on smaller VMs connected to Azure NetApp Files can perform as well as or better than SQL Server running on much larger VMs using disk storage. And with the flexibility that Azure NetApp Files offers, deployments can be grown or shrunk on demand, unlike traditional on-premises configurations which are sized for the maximum workload requirement and are most cost-effective only at maximum utilization. In Azure with Azure NetApp Files, the configuration can be adjusted continually to the momentary workload requirement.
 
 [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) is designed to meet the core requirements of running high-performance workloads like databases in the cloud. Azure NetApp Files provides:
 
 - Total cost of ownership (TCO) savings compared to disk configurations
 - Enterprise performance with low latency
-	Enterprise class, very low latency (<1ms), shared and highly scalable storage, very well suited for running your SQL Server workloads over the network using the SMB protocol
+	Enterprise class, very low latency (<1 ms), shared and highly scalable storage, very well suited for running your SQL Server workloads over the network using the SMB protocol
 
 - High availability
 	[Standard SLA 99.99%](https://azure.microsoft.com/support/legal/sla/netapp/)
 
 - Advanced data management
-	- Fast and efficient primary data protection and recovery using application-consistent snapshots (with AzAcSnap or SnapCenter), to achieve the most aggressive RTO and RPO SLAs.
+	- Fast and efficient primary data protection and recovery using application-consistent snapshots (with AzAcSnap or SnapCenter), to achieve the most aggressive RTO and recovery point objective (RPO) SLAs.
 	- Integrated backup as an extension to snapshots for longer term retention and safe-keeping on alternate media.
 	- Time-efficient clones to enhance Dev/Test environments.
 
@@ -39,10 +39,10 @@ For larger and more demanding databases, it's more efficient to configure multip
 
 * **Simple & reliable**
 
-	Azure NetApp Files is built as a simple-to-consume 1P Azure storage service powered by ONTAP®. This enables customers to quickly and reliably provision enterprise-grade SMB volumes for their SQL Server and NFS volumes for other enterprise application workloads.
+	Azure NetApp Files is built as a simple-to-consume first-party Azure storage service powered by ONTAP®. This enables customers to quickly and reliably provision enterprise-grade SMB volumes for their SQL Server and NFS volumes for other enterprise application workloads.
 
 * **Highly performant**
-	Azure NetApp Files is powered by All-Flash ONTAP enterprise storage systems fully integrated with Azure SDN and ARM frameworks. Customers can enjoy on-premises-like high-I/O and low-latency scalable shared storage for demanding workloads. Using SQL Server with Azure NetApp Files' low latency storage, smaller VM configurations achieve equal or better performance levels, often more cost-efficient than larger VMs using ultra disk storage. Find performance and TCO information here.
+	Azure NetApp Files is powered by All-Flash ONTAP enterprise storage systems fully integrated with Azure software defined networking (SDN) and Azure Resource Manager (ARM) frameworks. You can enjoy on-premises-like high-I/O and low-latency scalable shared storage for demanding workloads. Using SQL Server with Azure NetApp Files' low latency storage, smaller VM configurations achieve equal or better performance levels, often more cost-efficient than larger VMs using ultra disk storage. For performance and TCO information, see [Benefits of using Azure NetApp Files for SQL Server deployment](/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server),
 
 * **Enterprise data management**
 	Azure NetApp Files targets the most demanding, mission-critical applications and workloads with key requirements that typically require advanced data management capabilities. ONTAP’s capabilities in this space are unmatched, offering time- and space-efficient snapshots and cloning, on-demand capacity and performance scaling, and efficient replication. Azure NetApp Files offers the same capabilities as a first-party platform service in Azure.
@@ -70,7 +70,7 @@ SQL Server can be deployed in Azure on Azure VMs making use of Azure NetApp File
 
 ## High availability and disaster recovery considerations
 
-When using SQL Server databases in Azure, you are responsible for implementing a high availability and disaster recovery solution to avoid any downtime.
+When using SQL Server databases in Azure, you're responsible for implementing a high availability and disaster recovery solution to avoid any downtime.
 
 :::image type="complex" source="./media/high-availability.png" alt-text="Architecture diagram displaying a SQL Server deployment with Azure NetApp Files." border="false":::
 	A large rectangle representing an Azure region surrounds the whole diagram. Inside the region, there's two rectangles representing availability zones one and two. Availability zone one contains the Azure NetApp Files delegated subnet and the virtual machine subnet, the latter of which contains the SQL Server VM. The SQL Server VM connects to the Azure NetApp Files capacity pool that contains four volumes: SQL data 1, SQL data 2, SQL logs, and SQL backup. A line connects the SQL Server VM in availability zone one to the SQL Server VM in availability zone 2. Availability zone two mirrors the deployment in availability zone one, representing the disaster recovery destination deployment.
@@ -80,7 +80,7 @@ High availability and disaster recovery for SQL Server can be achieved on Azure 
 
 ### Install SQL Server with SMB fileshare storage
 
-Starting with SQL Server 2012 (11.x), system databases (Master, Model, MSDB, and TempDB), and Database Engine user databases can be installed with Server Message Block (SMB) file server as a storage option. This applies to both SQL Server stand-alone and SQL Server failover cluster installations (FCI). [Learn how to nstall SQL Server with SMB fileshare storage](/sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option?view=sql-server-2017).
+Beginning with SQL Server 2012 (11.x), system databases (Master, Model, MSDB, and TempDB), and Database Engine user databases can be installed with Server Message Block (SMB) file server as a storage option. This applies to both SQL Server stand-alone and SQL Server failover cluster installations (FCI). [Learn how to install SQL Server with SMB fileshare storage](/sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option?view=sql-server-2017).
 
 ### Data Protection
 
@@ -109,7 +109,7 @@ Different Azure solutions exist for providing storage for SQL Server on Azure VM
 
 - **Performance efficiency**
 
-	Azure NetApp Files volumes can be expanded or shrunk without interruption to the database, which allows for flexibility for both growth and cost reduction where applicable, without having to shutdown and restart the database.
+	Azure NetApp Files volumes can be expanded or shrunk without interruption to the database, which allows for flexibility for both growth and cost reduction where applicable, without having to shut down and restart the database.
 
 - **Operational excellence**
 
@@ -129,7 +129,7 @@ Consult the Azure Architecture Center for [SQL server on Azure NetApp Files arch
 
 ## Pricing
 
-Cloud resources are generally IO constrained by design to prevent slowdowns from resource exhaustion or outages. VM SKUs have limits on disk IOPs/throughput and network bandwidth, with network limits usually higher than disk limits. Network-attached storage, limited by network bandwidth rather than disk IO, can perform better than disk IO.
+Cloud resources are generally I/O constrained by design to prevent slowdowns from resource exhaustion or outages. VM SKUs have limits on disk IOPs/throughput and network bandwidth, with network limits usually higher than disk limits. Network-attached storage, limited by network bandwidth rather than disk I/O, can perform better than disk I/O.
 
 These factors combined allow for the use of smaller sized VMs at similar or better performance characteristics.
 
@@ -137,14 +137,14 @@ Smaller VM sizes:
 
 - are less costly
 - carry lower SQL Server license cost
-- network attached storage does not have an IO cost component
+- network attached storage doesn't have an I/O cost component
 
 These factors far outweigh any cost delta of using Azure NetApp Files compared to disk storage solutions.
 
-For example, the following table compares total cost of a 50TiB SQL Server configuration, where the requirement is 80.000 IOPs, running on E64-32s_v3 VMs with 128GB RAM on Ultra and Premium SSD to E16-4/16s with 128GB RAM on Azure NetApp Files:
+For example, the following table compares total cost of a 50-TiB SQL Server configuration, where the requirement is 80.000 IOPs, running on E64-32s_v3 VMs with 128GB RAM on Ultra and Premium SSD to E16-4/16s with 128GB RAM on Azure NetApp Files:
 
 :::image type="complex" source="./media/cost-comparison.png" alt-text="Table comparing ultra and premium solid-state drives costs with Azure NetApp Files. " border="false":::
-   A four-column table shows a TCO comparison for a 50-TiB SQL Server deployment across an Ultra SSD, Premium SSD, and Azure NetApp Files. In the first row, the bandwidth cost of the Ulta SSD is $704. There's no cost for the Premium SSD or Azure NetApp Files. The next row shows I/O cost, which is $3,971 for the Ultra SSD. There's no cost for the Premium SSD or Azure NetApp Files. The next row shows capacity cost: $6,130 for Ultra SSD, $6,442 for Premium SSD, and $7,680 for Azure NetApp Files. The next row shows SQL Server license cost: $17,520 for Ultra SSD, $17,520 for Premium SSD, and $4,380 for Azure NetApp Files. The next row shows instance cost: $4,882 for Ultra SSD, $4,882 for Premium SSD, and $1,221 for Azure NetApp Files. The final row shows total cost: $33,207 for Ultra SSD, $28,844 for Premium SSD, and $13,281 for Azure NetApp Files.
+   A four-column table shows a TCO comparison for a 50-TiB SQL Server deployment across an Ultra SSD, Premium SSD, and Azure NetApp Files. In the first row, the bandwidth cost of the Ultra SSD is $704. There's no cost for the Premium SSD or Azure NetApp Files. The next row shows I/O cost, which is $3,971 for the Ultra SSD. There's no cost for the Premium SSD or Azure NetApp Files. The next row shows capacity cost: $6,130 for Ultra SSD, $6,442 for Premium SSD, and $7,680 for Azure NetApp Files. The next row shows SQL Server license cost: $17,520 for Ultra SSD, $17,520 for Premium SSD, and $4,380 for Azure NetApp Files. The next row shows instance cost: $4,882 for Ultra SSD, $4,882 for Premium SSD, and $1,221 for Azure NetApp Files. The final row shows total cost: $33,207 for Ultra SSD, $28,844 for Premium SSD, and $13,281 for Azure NetApp Files.
 :::image-end:::
 
 For a more detailed analysis of TCO, see [Solutions and benefits of Azure NetApp Files with SQL Server](/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server).
