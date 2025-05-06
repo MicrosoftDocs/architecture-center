@@ -30,7 +30,7 @@ Having a separate team manage the back-end service can create a disconnect betwe
 
 ## Solution
 
-Introduce a new layer that handles only the requirements that are specific to the interface. This layer, known as the backend-for-frontend (BFF) service, sits between the front-end client and the back-end service. If the application supports multiple interfaces, create a BFF service for each interface. For example, if you have a web interface and a mobile app, create separate BFF services for each of them.
+Introduce a new layer that handles only the requirements that are specific to the interface. This layer, known as the backend-for-frontend (BFF) service, sits between the front-end client and the back-end service. If the application supports multiple interfaces, create a BFF service for each interface. For example, if you have a web interface and a mobile app, create separate BFF services for both of them.
 
 This pattern customizes the client experience for a specific interface without affecting other interfaces. It also optimizes performance to meet the needs of the front-end environment. Because each BFF service is smaller and less complex, the application might benefit from optimization.
 
@@ -42,7 +42,7 @@ Many BFFs traditionally relied on REST APIs, but GraphQL implementations are eme
    The diagram shows three sections. The desktop client and mobile client section have solid arrows that point to the desktop client BFF and mobile client BFF section. Two dotted arrows point from this section to the back-end service section.
 :::image-end:::
 
-For more information, see [Backends for Frontends pattern](https://samnewman.io/patterns/architectural/bff/).
+For more information, see [Pattern: Backends for Frontends](https://samnewman.io/patterns/architectural/bff/).
 
 ## Problems and considerations
 
@@ -122,17 +122,19 @@ Each client has a dedicated BFF service running as an Azure Function that serves
 
 1. The policies are enforced, then API Management routes the request to the Azure Function mobile BFF.
 
-1. The Azure Function mobile BFF then interacts with the necessary microservices to fetch a single page and process the requested data. This process ensures a streamlined and efficient experience.
+1. The Azure Function mobile BFF then interacts with the necessary microservices to fetch a single page and process the requested data to provide with a lightweight experience.
 
 1. The response is returned to the client.
 
 ### Flow B for the first page cached request from the mobile client
 
-1. The mobile client sends the same `GET` request for the page `1` again, including the OAuth 2.0 token in the authorization header. The API Management gateway recognizes that this request was made before and:
+1. The mobile client sends the same `GET` request for the page `1` again, including the OAuth 2.0 token in the authorization header.
+
+1. The API Management gateway recognizes that this request was made before and:
 
    1. **The policies are enforced.** Then the gateway identifies a cached response that matches the request parameters.
 
-   1. **The cached response is returned immediately.** This quick response eliminates the need to forward the request to the Azure Function mobile BFF.
+   1. **Returns the cached response immediately.** This quick response eliminates the need to forward the request to the Azure Function mobile BFF.
 
 ### Flow C for the first request from the desktop client
 
