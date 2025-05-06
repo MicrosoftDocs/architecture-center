@@ -5020,7 +5020,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure",
+      "source_path": "docs/example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure.yml",
       "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
       "redirect_document_id": false
     },
