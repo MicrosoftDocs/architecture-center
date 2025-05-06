@@ -204,3 +204,4 @@ The following new and updated articles have recently been published in the Azure
 - [AKS Day-2 Guide: Patch and Upgrade Guidance](./operator-guides/aks/aks-upgrade-practices.md)  ([#99864e6124](https://github.com/MicrosoftDocs/architecture-center/commit/99864e6124))
 - [Choose an Azure container service](./guide/choose-azure-container-service.md)  ([#17fa458266](https://github.com/MicrosoftDocs/architecture-center/commit/17fa458266))
 - [General considerations for choosing an Azure container service](./guide/container-service-general-considerations.md)  ([#17fa458266](https://github.com/MicrosoftDocs/architecture-center/commit/17fa458266))
+
