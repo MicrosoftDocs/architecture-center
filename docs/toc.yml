@@ -337,7 +337,7 @@ items:
         href: aws-professional/regions-zones.md
       - name: Resources
         href: aws-professional/resources.md
-      - name: Security and identity
+      - name: Identity
         href: aws-professional/security-identity.md
       - name: Storage
         href: aws-professional/storage.md
