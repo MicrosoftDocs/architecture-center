@@ -10,9 +10,9 @@ If you move a single instance of your IoT Hub-based solution to production inste
 
 - **Non-linear scaling or cost.** Your solution components might not scale linearly with the number of requests or the volume of ingested data. Instead, some components might experience performance degradation or increased costs after a threshold is reached. In such cases, scaling out by adding stamps might be a more effective strategy than increasing capacity.
 
-- **Separation of customers.** You might need isolate data from certain customers from the data of other customers. Also, you might have customers that require more system resources to service than others, and consider grouping them on different stamps.
+- **Separation of customers.** You might need to isolate data from specific customers from the data of other customers. Also, you might have customers that require more system resources to service than others, and consider grouping them on different stamps.
 
-- **Single and multitenant instances.** You might have large customers who need their own independent instances of your solution. You might also have a pool of smaller customers who can share a multitenant deployment.
+- **Single and multitenant instances.** You might have several large customers who need their own independent instances of your solution. You might also have a pool of smaller customers who can share a multitenant deployment.
 
 - **Complex deployment requirements.** You might need to deploy updates to your service in a controlled manner and deploy to different stamps at different times.
 
