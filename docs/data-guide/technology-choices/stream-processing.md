@@ -44,7 +44,7 @@ To help you choose the right technology, this section outlines the common option
 
  ### Stream Producers
 
-  Streaming producers are responsible for generating and pushing data into Azure's ingestion services. They continuously produce data from external sources like IoT devices, application logs, or databases.
+Stream producers are responsible for generating and pushing data into Azure's ingestion services. They continuously produce data from sources like IoT devices, application logs, or databases.
 
 - Key Considerations:
 
