@@ -104,6 +104,6 @@ The following Azure services can be used to implement the gateway routing patter
 
 ## Related resources
 
-- [Backends for Frontends pattern](./backends-for-frontends.md)
+- [Back Ends for Front Ends pattern](./backends-for-frontends.md)
 - [Gateway Aggregation pattern](./gateway-aggregation.yml)
 - [Gateway Offloading pattern](./gateway-offloading.yml)

@@ -304,4 +304,4 @@ The following information may be relevant when implementing this pattern:
 
 ## Related resources
 
-- [Backends for Frontends pattern](./backends-for-frontends.md)
+- [Back Ends for Front Ends pattern](./backends-for-frontends.md)

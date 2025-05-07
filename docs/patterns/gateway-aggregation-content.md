@@ -113,7 +113,7 @@ http {
 
 ## Related resources
 
-- [Backends for Frontends pattern](./backends-for-frontends.md)
+- [Back Ends for Front Ends pattern](./backends-for-frontends.md)
 - [Gateway Offloading pattern](./gateway-offloading.yml)
 - [Gateway Routing pattern](./gateway-routing.yml)
 

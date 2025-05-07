@@ -49,7 +49,7 @@ Here are some specific considerations to keep in mind.
 
 - Watch out for APIs that leak internal implementation details or simply mirror an internal database schema. The API should model the domain. It's a contract between services, and ideally should only change when new functionality is added, not just because you refactored some code or normalized a database table.
 
-- Different types of client, such as mobile application and desktop web browser, may require different payload sizes or interaction patterns. Consider using the [Backends for Frontends pattern](../../patterns/backends-for-frontends.md) to create separate backends for each client, which expose an optimal interface for that client.
+- Different types of client, such as mobile application and desktop web browser, may require different payload sizes or interaction patterns. Consider using the [Back Ends for Front Ends pattern](../../patterns/backends-for-frontends.md) to create separate backends for each client, which expose an optimal interface for that client.
 
 - For operations with side effects, consider making them idempotent and implementing them as PUT methods. That will enable safe retries and can improve resiliency. The article [Interservice communication](./interservice-communication.yml) discuss this issue in more detail.
 
