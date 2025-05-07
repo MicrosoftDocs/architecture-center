@@ -69,8 +69,8 @@ Stream producers are responsible for generating and pushing data into Azure's in
 | Capability | Azure IOT Hub  | CDC Producers |Custom Applications|
 | --- | --- | --- | --- | 
 | Device Telemetry | Yes | No | No | 
-| Managed Service | Yes | No* | No* | 
-| Scalability | Yes | Yes** | Yes** | 
+| Managed Service | Yes | No | No | 
+| Scalability | Yes | Yes | Yes | 
 
 
 ### Stream Ingestion
@@ -142,14 +142,14 @@ leverage Confluent's extended ecosystem of connectors and stream processing tool
 
 #### General capabilities
 
-| Capability |Stream Analytics | * Spark Structured Streaming (Fabric, Databricks, Synapse) | Fabric Event Streams| Azure Functions|
+| Capability |Stream Analytics | Spark Structured Streaming (Fabric, Databricks, Synapse) | Fabric Event Streams| Azure Functions|
 | --- | --- | --- | --- | --- | 
 | Micro batch processing| Yes | Yes | Yes| No | 
 | Event based processing| No | No | Yes| Yes | 
 | Stateful Processing | Yes | Yes | Yes| No | 
 | Support for Check Pointing | Yes | Yes | Yes| No |
 | Low code Interface | Yes| No | Yes | No | 
-| Pricing model | [Streaming Units](/azure/stream-analytics/stream-analytics-streaming-unit-consumption) | Yes** | [Fabric SKU](https://azure.microsoft.com/pricing/details/microsoft-fabric/)| Yes** |
+| Pricing model | [Streaming Units](/azure/stream-analytics/stream-analytics-streaming-unit-consumption) | Yes | [Fabric SKU](https://azure.microsoft.com/pricing/details/microsoft-fabric/)| Yes |
 
 
 ### Streaming Sinks
