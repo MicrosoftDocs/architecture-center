@@ -1,10 +1,18 @@
----
-title: Enhance SQL Transparent Data Encryption (TDE) keys using Customer Managed Keys and Azure Managed Hardware Security Module (HSM)
-description: This solution describes a secure and resilient deployment pattern for Azure SQL Managed Instance highlighting how using Azure Managed HSM is used to store the customer managed transparent data encryption (TDE) protector keys.
-author: kriation
-ms.author: akaleshian
-ms.date: 04/25/2025
-ms.topic: solution-idea
-ms.service: azure-architecture-center
-ms.subservice: solution-idea
----
+### YamlMime:Architecture
+metadata:
+  title:  Enhance SQL Transparent Data Encryption (TDE) keys using Customer Managed Keys and Azure Managed Hardware Security Module (HSM)
+  description: This solution describes a secure and resilient deployment pattern for Azure SQL Managed Instance highlighting how using Azure Managed HSM is used to store the customer managed transparent data encryption (TDE) protector keys.
+  author: kriation
+  ms.author: akaleshian
+  ms.date: 04/25/2025
+  ms.topic: solution-idea
+  ms.subservice: solution-idea
+azureCategories:
+  - <List at least one category, as explained in the browser header template instructions.>
+products:
+  - <List 1-5 products, as explained in the browser header template instructions.>
+name: Enhance SQL Transparent Data Encryption (TDE) Keys Using Customer Managed Keys and Azure Managed Hardware Security Module (HSM)
+summary: This solution describes a secure and resilient deployment pattern for Azure SQL Managed Instance highlighting how using Azure Managed HSM is used to store the customer managed transparent data encryption (TDE) protector keys.
+thumbnailUrl: /azure/architecture/browse/thumbs/<file-name>.png
+content: |
+  [!INCLUDE[](sqlmi-managedhsm.md)]
