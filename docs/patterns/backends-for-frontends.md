@@ -1,5 +1,5 @@
 ---
-title: Back Ends for Front Ends Pattern
+title: Backends for Frontends Pattern
 description: Explore the Back Ends for Front Ends pattern, which creates separate back-end services for consumption by specific front-end applications or interfaces.
 ms.author: robbag
 author: RobBagby
@@ -12,15 +12,15 @@ products:
   - azure
 ---
 
-# Back Ends for Front Ends pattern
+# Backends for Frontends pattern
 
-This pattern describes how to decouple back-end services from front-end implementations to tailor experiences for different client interfaces. This pattern is useful when you want to avoid customizing a back end that serves multiple interfaces. This pattern is based on the [Back Ends for Front Ends pattern by Sam Newman](https://samnewman.io/patterns/architectural/bff/).
+This pattern describes how to decouple back-end services from front-end implementations to tailor experiences for different client interfaces. This pattern is useful when you want to avoid customizing a back end that serves multiple interfaces. This pattern is based on the [Backends for Frontends pattern by Sam Newman](https://samnewman.io/patterns/architectural/bff/).
 
 ## Context and problem
 
 Consider an application that's initially designed with a desktop web UI and a corresponding back-end service. As business requirements change over time, a mobile interface is added. Both interfaces interact with the same back-end service. But the capabilities of a mobile device differ significantly from a desktop browser in terms of screen size, performance, and display limitations.
 
-:::image type="complex" border="false" source="./_images/backend-for-frontend-problem.svg" alt-text="Architectural diagram that shows the context and problem of the Back Ends for Front Ends pattern." lightbox="./_images/backend-for-frontend-problem.svg":::
+:::image type="complex" border="false" source="./_images/backend-for-frontend-problem.svg" alt-text="Architectural diagram that shows the context and problem of the Backends for Frontends pattern." lightbox="./_images/backend-for-frontend-problem.svg":::
    The diagram has two sections: the back-end service and the desktop client and mobile client. Two double-sided arrows point from the back-end service to both the desktop client and the mobile client.
 :::image-end:::
 
@@ -38,11 +38,11 @@ Frontend teams independently manage their own BFF service, which gives them cont
 
 Many BFF services traditionally relied on REST APIs, but GraphQL implementations are emerging as an alternative. With GraphQL, the querying mechanism eliminates the need for a separate BFF layer because it allows clients to request the data that they need without relying on predefined endpoints.
 
-:::image type="complex" border="false" source="_images/backend-for-frontend-solution.svg" alt-text="Architectural diagram that shows the Back Ends for Front Ends pattern." lightbox="_images/backend-for-frontend-solution.svg":::
+:::image type="complex" border="false" source="_images/backend-for-frontend-solution.svg" alt-text="Architectural diagram that shows the Backends for Frontends pattern." lightbox="_images/backend-for-frontend-solution.svg":::
    The diagram shows three sections. The first section consists of the desktop client and mobile client. The second section consists of the desktop client BFF service and the mobile client BFF service. The desktop client has a solid arrow that points to the desktop client BFF service. The mobile client has a solid arrow that points to the mobile client BFF service. Each BFF service has a dotted arrow that points to the back-end service section.
 :::image-end:::
 
-For more information, see [Back Ends for Front Ends pattern by Sam Newman](https://samnewman.io/patterns/architectural/bff/).
+For more information, see [Backends for Frontends pattern by Sam Newman](https://samnewman.io/patterns/architectural/bff/).
 
 ## Problems and considerations
 
@@ -82,7 +82,7 @@ This pattern might not be suitable when:
 
 ## Workload design
 
-Evaluate how to use the Back Ends for Front Ends pattern in a workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). The following table provides guidance about how this pattern supports the goals of each pillar.
+Evaluate how to use the Backends for Frontends pattern in a workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). The following table provides guidance about how this pattern supports the goals of each pillar.
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
@@ -160,7 +160,7 @@ Each client has a dedicated BFF service running as an Azure function that serves
 
 ## Next steps
 
-- [Back Ends for Front Ends pattern by Sam Newman](https://samnewman.io/patterns/architectural/bff/)
+- [Backends for Frontends pattern by Sam Newman](https://samnewman.io/patterns/architectural/bff/)
 - [Authentication and authorization to APIs in API Management](/azure/api-management/authentication-authorization-overview)
 - [How to integrate API Management with Application Insights](/azure/api-management/api-management-howto-app-insights)
 
