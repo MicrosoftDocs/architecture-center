@@ -4,7 +4,7 @@ Digital transformation is imperative for any business that’s trying to compete
 
 This architecture extends mainframe applications to Azure without disruptions or modifications to existing mainframe applications. IBM z/OS Connect, a component of IBM Z and Cloud Modernization Stack, is used to provide a more reliable and more secure connectivity between applications on Azure and applications and data on z/OS. Its purpose is to integrate and provide access to the data and services available on the mainframe.
 
-IBM Z and Cloud Modernization Stack and z/OS Connect are easily deployed on Azure via Azure Marketplace or Azure Resource Manager templates. When you use this solution, you can build REST APIs for z/OS applications and data while adhering to OpenAPI standards. This approach allows you to scale business-critical application programming interfaces (APIs) and take advantage of the strengths of IBM Z. Seamless integration with API management solutions like [Azure API Management](https://azure.microsoft.com/en-us/products/api-management/) ensures effective API governance. You can integrate APIs with web applications or Microsoft Power Platform for efficient data exchange and integration.
+IBM Z and Cloud Modernization Stack and z/OS Connect are easily deployed on Azure via Azure Marketplace or Azure Resource Manager templates. When you use this solution, you can build REST APIs for z/OS applications and data while adhering to OpenAPI standards. This approach allows you to scale business-critical application programming interfaces (APIs) and take advantage of the strengths of IBM Z. Seamless integration with API management solutions like [Azure API Management](https://azure.microsoft.com/products/api-management/) ensures effective API governance. You can integrate APIs with web applications or Microsoft Power Platform for efficient data exchange and integration.
 
 ## Architecture
 
@@ -19,7 +19,7 @@ Take the following steps to create and deploy APIs for mainframe applications by
 1. Use z/OS Connect Designer to [Map your API and z/OS Assets](https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2023.2?topic=designer-mapping-your-rest-api-operations-zos-assets).
 1. Test the functionality of the APIs by interacting with core z/OS applications and push the mappings into source control management (SCM).
 1. Build a web archive (WAR) file and run the production in [the z/OS Connect Server image](https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2023.2?topic=server-zos-connect-image).
-1. Import the OAS3 specification into [API Management](https://azure.microsoft.com/en-us/products/api-management/) and establish a connection with the z/OS Connect Server.
+1. Import the OAS3 specification into [API Management](https://azure.microsoft.com/products/api-management/) and establish a connection with the z/OS Connect Server.
 1. Enable and enforce API authentication and authorization mechanisms by using Microsoft Entra ID for enhanced security. For more information, see [Authentication and authorization to APIs in Azure API Management](/azure/api-management/authentication-authorization-overview).
 
 Access mainframe applications through Azure by:
@@ -61,9 +61,9 @@ In place of ExpressRoute gateway, you can use the Azure VPN Gateway. The virtual
 
 [z/OS Connect Designer](https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2023.2?topic=concepts-what-is-zos-connect-designer) features an intuitive web user interface that provides a low-code approach, built specifically to create APIs for IBM Z. This graphical interface shortens development time and the learning curve for new developers who use z/OS Connect.
 
-[Azure API Management](https://azure.microsoft.com/en-us/services/api-management) is a fully managed service that helps organizations to publish, secure, and manage APIs for their applications. It provides a comprehensive set of tools and features to create, monitor, and control the lifecycle of APIs.
+[Azure API Management](https://azure.microsoft.com/services/api-management) is a fully managed service that helps organizations to publish, secure, and manage APIs for their applications. It provides a comprehensive set of tools and features to create, monitor, and control the lifecycle of APIs.
 
-[Microsoft Power Platform](https://powerplatform.microsoft.com/en-us) Power Apps is a low-code or no-code option to create a web-based user interface that connects to the previously mentioned developed services. This architecture illustrates both a low-code Power Apps client and a custom web app client.
+[Microsoft Power Platform](https://www.microsoft.com/power-platform/) Power Apps is a low-code or no-code option to create a web-based user interface that connects to the previously mentioned developed services. This architecture illustrates both a low-code Power Apps client and a custom web app client.
 
 ## Potential use cases
 
@@ -103,7 +103,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - Azure provides various licensing options for the Power Apps platform, which are managed depending on the total number of users, allowed sign-ins, and page views.
 
-Use the [Pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to estimate the cost of implementing your solution.
+Use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the cost of implementing your solution.
 
 ### Operational Excellence
 
@@ -140,8 +140,8 @@ Other Contributors:
 
 For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 
-- [Azure DevOps Services](https://azure.microsoft.com/en-us/products/devops)
+- [Azure DevOps Services](https://azure.microsoft.com/products/devops)
 - [IBM Z and Cloud Modernization Stack](https://www.ibm.com/products/z-and-cloud-modernization-stack)
 - [Technical White Paper on Azure DevOps for z Systems](https://www.ibm.com/support/pages/system/files/inline-files/Azure-DBB%20Integration%20v2g.pdf)
-- [Microsoft Power Platform](https://powerplatform.microsoft.com/en-us/)
-- [IBM z/OS Connect overview](https://www.ibm.com/docs/en/was-liberty/zos?topic=overview-zos-connect)
+- [Microsoft Power Platform](https://www.microsoft.com/power-platform/)
+- [IBM z/OS Connect overview](https://www.ibm.com/docs/was-liberty/zos?topic=overview-zos-connect)
