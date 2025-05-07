@@ -44,7 +44,7 @@ The data flows through the scenario as follows:
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is an extract, transform, load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
 - [Azure Storage](https://azure.microsoft.com/services/storage) stores the data extracted from sourandce datastores and the masked data that will be loaded into destination data stores.
 - [Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-portal) is a logical container for Azure resources. Resource groups organize everything related to this project in the Azure console.
-- [Self Hosted Integration Runtime](https://learn.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime?tabs=data-factory) must be set up and an SAP HANA ODBC driver must be installed for data extraction from SAP HANA.
+- [Self Hosted Integration Runtime](https://learn.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime?tabs=data-factory) must be set up and an SAP HANA ODBC driver must be installed for data extraction from SAP HANA.
 - Optional: [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) provides private networking capabilities for Azure resources that aren't a part of the Azure Synapse workspace. It allows you to manage access, security, and routing between resources.
 
 ## Potential use cases
@@ -69,7 +69,7 @@ The data flows through the scenario as follows:
 1. [Deploy the Delphix CC Engine on Azure](https://maskingdocs.delphix.com/Getting_Started/Installation/Azure_Installation/).
 1. In Azure Data Factory, deploy the Data Masking with Delphix and Sensitive Data Discovery with Delphix templates.
 Note: These templates work for both Azure Synapse Analytics pipelines and Azure Data Factory pipelines.
-1. Set up a Self Hosted Integration Runtime as detailed in this [how to guide](https://learn.microsoft.com/en-us/azure/data-factory/connector-sap-hana?tabs=data-factory) to extract data from SAP HANA.
+1. Set up a Self Hosted Integration Runtime as detailed in this [how to guide](https://learn.microsoft.com/azure/data-factory/connector-sap-hana?tabs=data-factory) to extract data from SAP HANA.
 1. In the Copy Data components, configure the desired source as SAP HANA in the Extract step and Synapse as the desired target in the Load step. In the Web Activity components, input the Delphix application IP address /host name and the credentials to authenticate with Delphix CC APIs.
 1. Run the Sensitive Data Discovery with Delphix Azure Data Factory template for initial setup, and anytime you would like to pre-identify sensitive data (for example, if there has been a schema change). This template provides Delphix CC with the initial configuration it requires to scan for columns that might contain sensitive data. You can also use this in tandem with the Delphix Compliance Accelerator for SAP, pre-identified sensitive fields and masking algorithms to protect data in core SAP tables, for example, Finance, HR, and Logistics modules. Contact Delphix if you're interested in this option.
 1. Create a [rule set](https://maskingdocs.delphix.com/Connecting_Data/Managing_Rule_Sets/#managing-rule-sets) indicating the collection of data you would like to profile. Run a [Profiling Job](https://maskingdocs.delphix.com/Identifying_Sensitive_Data/Running_A_Profiling_Job/) in the Delphix UI to identify and classify sensitive fields for that rule set and assign appropriate masking algorithms.
@@ -89,7 +89,7 @@ Delphix CC irreversibly masks data values with realistic data that remains fully
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-By adjusting values on the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/), you can see how your particular requirements impact cost.
+By adjusting values on the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/), you can see how your particular requirements impact cost.
 
 Azure Synapse: You can scale compute and storage levels independently. Compute resources are charged per hour, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs will increase as you ingest more data.
 
