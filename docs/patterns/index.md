@@ -50,7 +50,7 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | [Ambassador](./ambassador.yml) | Create helper services that send network requests on behalf of a consumer service or application. | - Reliability<br><br>- Security |
 | [Anti-Corruption Layer](./anti-corruption-layer.yml) | Implement a façade or adapter layer between a modern application and a legacy system. | - Operational&nbsp;Excellence |
 | [Asynchronous Request-Reply](./async-request-reply.yml) | Decouple back-end processing from a front-end host. This pattern is useful when back-end processing must be asynchronous, but the front end requires a clear and timely response. | - Performance&nbsp;Efficiency |
-| [Backends for Frontends](./backends-for-frontends.md) | Create separate back-end services for specific front-end applications or interfaces. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
+| [Back Ends for Front Ends](./backends-for-frontends.md) | Create separate back-end services for specific front-end applications or interfaces. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
 | [Bulkhead](./bulkhead.yml) | Isolate elements of an application into pools so that if one fails, the others continue to function. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
 | [Cache-Aside](./cache-aside.yml) | Load data on demand into a cache from a data store. | - Reliability<br><br>- Performance&nbsp;Efficiency |
 | [Choreography](./choreography.yml) | Let individual services decide when and how a business operation is processed, instead of depending on a central orchestrator. | - Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
