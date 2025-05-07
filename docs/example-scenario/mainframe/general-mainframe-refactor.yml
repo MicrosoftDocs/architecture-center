@@ -2,9 +2,9 @@
 metadata:
   title: General Mainframe Refactor to Azure
   description: Learn how to refactor general mainframe applications to run more cost-effectively and efficiently on Azure by using AKS or virtual machines.
-  author: Venkat-Github-Account
-  ms.author: pbrooks
-  ms.date: 04/02/2025
+  author: bhbandam
+  ms.author: bhbandam
+  ms.date: 05/07/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom:
