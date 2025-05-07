@@ -112,7 +112,7 @@ The following new and updated articles have recently been published in the Azure
 - [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))
 - [Choose a search data store](./data-guide/technology-choices/search-options.md)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))
 - [Intelligent e-commerce product search engine](./databases/architecture/ecommerce-search.yml)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))
-- [Back Ends for Front Ends pattern](./patterns/backends-for-frontends.md)  ([#8ac2b5b719](https://github.com/MicrosoftDocs/architecture-center/commit/8ac2b5b719))
+- [Backends for Frontends pattern](./patterns/backends-for-frontends.md)  ([#8ac2b5b719](https://github.com/MicrosoftDocs/architecture-center/commit/8ac2b5b719))
 - [Access an Azure Kubernetes Service (AKS) API Server](./guide/security/access-azure-kubernetes-service-cluster-api-server.yml)  ([#083afd34d4](https://github.com/MicrosoftDocs/architecture-center/commit/083afd34d4))
 - [Google Cloud to Azure services comparison](./gcp-professional/services.md)  ([#13b5110ee7](https://github.com/MicrosoftDocs/architecture-center/commit/13b5110ee7))
 - [Microsoft Entra security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml)  ([#13b5110ee7](https://github.com/MicrosoftDocs/architecture-center/commit/13b5110ee7))
