@@ -36,7 +36,7 @@ Organizations often have a variety of data sources simultaneously emitting messa
 
 ## What are your options when choosing a technology for real-time processing?
 
-Inorder to choose the right technology lets start exploring te different options we have across the stack from ingestion to consumption. Below, we have provided options segmented by using a highlevel stream processing flow.
+To help you choose the right technology, this section outlines the common options available in Azure across the stack, from ingestion to consumption. The options are broken down by their role in the stream processing flow.
 
 ## Highlevel Stream processing flow
 
