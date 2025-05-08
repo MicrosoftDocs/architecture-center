@@ -71,7 +71,7 @@ We also provide a checklist to use when you [design and build a multitenant solu
 
 ## Video
 
-For an overview of the content covered in this series, and the basic concepts of multitenancy, see this video from Microsoft Reactor:
+For an overview of the content covered in this series and the basic concepts of multitenancy, see this video from Microsoft Reactor:
 
 <br/>
 
