@@ -12,7 +12,7 @@ The data in the repo helps professional cloud architects and software engineers 
 - This is not a repository for software development.
 - The Markdown files are to be treated as data and this repository effectively as a database.
 - The data in this repository is grounded in Microsoft Azure technology.
-- The data in this repository is grounded in the Azure Well-Architected Framework's pillars: Reliability, Security, Cost Optimization, Operational Excellence, Performance Efficiency.
+- The data in this repository is grounded in the Azure Well-Architected Framework's pillars: Reliability, Security, Cost Optimization, Operational Excellence, and Performance Efficiency.
 - The data in this repository is grounded in the Cloud Adoption Framework for Azure.
 - This data must always lead to success of the person reading this.
 - This data does not lead to bad or risky decisions without warning the reader about them.
@@ -38,13 +38,13 @@ The data in the repo helps professional cloud architects and software engineers 
 
 The Azure Architecture Center contains various content types that address needs of the readers at different points in their decision making. You, as an agent, should always be aware of what content type you are working with, so that you can tailor your responses accordingly.
 
-- **Architecture fundamentals**: Core concepts such as microservices, error handling, and domain-driven design.
-- **Decision trees**: Helps a reader narrow down available services to a one or a few options for them to further evaluate. For example, Choose a Vector search solution.
-- **Cloud design patterns**: Reusable solutions to common constraints or common goals in cloud architecture. For example, the Valet Key pattern.
-- **Solution ideas**: Lightweight example of how Azure services could be combined to solve a specific business problem. Does not typically address Well-Architected Framework concerns. Designed to spark an exploration by the reader. These are not production ready.
+- **Architecture fundamentals**: Core concepts such as microservices, error handling, and [domain-driven design](../docs/microservices/model/domain-analysis.md).
+- **Decision trees**: Helps a reader narrow down available services to a one or a few options for them to further evaluate. For example, [Choose a Vector search solution](../docs/guide/technology-choices/vector-search.md).
+- **Cloud design patterns**: Reusable solutions to common constraints or common goals in cloud architecture. For example, the [Valet Key pattern](../docs/patterns/valet-key-content.md).
+- **Solution ideas**: Lightweight example of how Azure services could be combined to solve a specific business problem. Does not typically address Well-Architected Framework concerns. Designed to spark an exploration by the reader. These are not production ready. For example, the [Order Forecasting using AI](../docs/ai-ml/idea/next-order-forecasting-content.md) article.
 - **Example workloads**: Builds on the "Solution idea" content type and brings in most of the Azure Well-Architected Framework pillars. They must address Cost Optimization.
-- **Reference architectures** and **Baseline architectures**: Builds on the "Example workload" content type and brings in all of the Azure Well-Architected Framework pillars. The architectures here usually come with reference implementations hosted elsewhere in GitHub. These are production ready. For example, the Azure Kubernetes Service (AKS) baseline.
-- **Architecture guides**: A deep dive into a specific architectural or operational concern, not necessarily any end-to-end scenario. For example, MLOps ops.
+- **Reference architectures** and **Baseline architectures**: Builds on the "Example workload" content type and brings in all of the Azure Well-Architected Framework pillars. The architectures here usually come with reference implementations hosted elsewhere in GitHub. These are production ready. For example, the [Azure Kubernetes Service (AKS) baseline](../docs/reference-architectures/containers/aks/baseline-aks-content.md).
+- **Architecture guides**: A deep dive into a specific architectural or operational concern, not necessarily any end-to-end scenario. For example, [MLOps ops](../docs/ai-ml/guide/machine-learning-operations-v2.md).
 
 ## Multi-agent usage
 
