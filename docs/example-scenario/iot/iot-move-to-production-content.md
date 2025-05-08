@@ -1,8 +1,8 @@
-This article provides a list of key considerations for transitioning an IoT Hub-based solution to a production environment.
+This article provides a list of key considerations for transitioning an Azure IoT Hub-based solution to a production environment.
 
 ## Use deployment stamps
 
-Stamps are discrete units of core solution components that support a defined number of devices. Each copy is known as a *stamp* or *scale unit*. For example, a stamp might consist of a set device population, an IoT Hub, an event hub or other routing endpoint, and a processing component. Each stamp supports a defined device population. You choose the maximum number of devices that the stamp can hold. As the device population grows, you add stamp instances instead of independently scaling up different parts of the solution.
+Deployment stamps are discrete units of core solution components that support a defined number of devices. A single unit is known as a *stamp* or *scale unit*. A stamp might consist of a set device population, an IoT hub, an event hub or other routing endpoint, and a processing component. Each stamp supports a defined device population. You choose the maximum number of devices that the stamp can hold. As the device population grows, you add stamp instances instead of independently scaling up different parts of the solution.
 
 If you move a single instance of your IoT Hub-based solution to production instead of adding stamps, you might encounter the following limitations:
 
@@ -10,9 +10,9 @@ If you move a single instance of your IoT Hub-based solution to production inste
 
 - **Non-linear scaling or cost.** Your solution components might not scale linearly with the number of requests or the volume of ingested data. Instead, some components might experience performance degradation or increased costs after a threshold is reached. In such cases, scaling out by adding stamps might be a more effective strategy than increasing capacity.
 
-- **Separation of customers.** You might need to isolate data from specific customers from the data of other customers. Also, you might have customers that require more system resources to service than others, and consider grouping them on different stamps.
+- **Separation of customers.** You might need to isolate specific customers' data from other customers' data. You can group customers that have higher resource demands on different stamps.
 
-- **Single and multitenant instances.** You might have several large customers who need their own independent instances of your solution. You might also have a pool of smaller customers who can share a multitenant deployment.
+- **Single and multitenant instances.** You might have several large customers who need their own independent instances of your solution. Or you might have a pool of smaller customers who can share a multitenant deployment.
 
 - **Complex deployment requirements.** You might need to deploy updates to your service in a controlled manner and deploy to different stamps at different times.
 
@@ -22,7 +22,7 @@ If you move a single instance of your IoT Hub-based solution to production inste
 
 To avoid the previous problems, consider grouping your service into multiple stamps. Stamps operate independently of each other and can be deployed and updated independently. A single geographical region might contain a single stamp or might contain multiple stamps to enable horizontal scale-out within the region. Each stamp contains a subset of your customers.
 
-For more information, see [Deployment stamps pattern](/azure/architecture/patterns/deployment-stamp).
+For more information, see [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp).
 
 ## Use back-off when a transient fault occurs
 
@@ -39,13 +39,13 @@ These faults are often self-correcting, and if the action is repeated after a su
 
 - **Regular intervals.** The application waits for the same period of time between each attempt. For example, it might retry the operation every 3 seconds.
 
-- **Immediate retry.** Sometimes a transient fault is brief and can occur because of events like a network packet collision or a spike in a hardware component. In this scenario, retrying the operation immediately is appropriate because it might succeed if the fault has cleared in the time that it takes the application to assemble and send the next request. However, there should never be more than one immediate retry attempt. If the immediate retry fails, switch to alternative strategies, such as exponential back-off or fallback actions.
+- **Immediate retry.** Sometimes a transient fault is brief and can occur because of events like a network packet collision or a spike in a hardware component. In this scenario, retrying the operation immediately is appropriate. If the fault clears by the time the application assembles and sends the next request, the operation can succeed. However, there should never be more than one immediate retry attempt. If the immediate retry fails, switch to alternative strategies, such as exponential back-off or fallback actions.
 
-- **Randomization.** Any of the previous retry strategies might include a randomization element to prevent multiple instances of the client sending subsequent retry attempts at the same time.
+- **Randomization.** Any of the previous retry strategies might include a randomization element to prevent multiple instances of the client from sending subsequent retry attempts at the same time.
 
 Avoid the following anti-patterns:
 
-- Implementations shouldn't include duplicated layers of retry code.
+- Don't include duplicated layers of retry code in implementations.
 
 - Never implement an endless retry mechanism.
 
@@ -53,31 +53,31 @@ Avoid the following anti-patterns:
 
 - Avoid using a regular retry interval.
 
-- Prevent multiple instances of the same client, or multiple instances of different clients, from sending retries at the same times.
+- Prevent multiple instances of the same client, or multiple instances of different clients, from sending retries at the same time.
 
 For more information, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 
 ## Use zero-touch provisioning
 
-Provisioning is the process of enrolling a device into Azure IoT Hub. Provisioning registers a device with IoT Hub and specifies the attestation mechanism that it uses. You can use the [Azure IoT Hub device provisioning service (DPS)](/azure/iot-dps/) or provision directly via IoT Hub Registry Manager APIs. Using DPS provides the advantage of late binding, which allows the removal and reprovisioning of field devices to IoT Hub without changes to the device software.
+Provisioning is the process of enrolling a device into IoT Hub. Provisioning registers a device with IoT Hub and specifies the attestation mechanism that it uses. You can use the [IoT Hub device provisioning service (DPS)](/azure/iot-dps/) or provision directly via IoT Hub Registry Manager APIs. Using DPS provides the advantage of late binding, which allows the removal and reprovisioning of field devices to IoT Hub without changes to the device software.
 
 The following example shows how to implement a test-to-production environment transition workflow by using DPS.
 
 :::image type="complex" border="false" source="./media/late-binding-with-dps.png" alt-text="A diagram that shows how to implement a test-to-production environment transition workflow by using DPS." lightbox="./media/late-binding-with-dps.png":::
-   The diagram contains several icons. An arrow points from the Operator process section to the IoT DPS section. Another arrow, labeled Device provisioning request, connects to the Device requests hub. Two arrows extend from IoT DPS. One arrow points to the test hub and one arrow points to the production hub. Two arrows extend from the Device requests hub to both the test hub and the production hub.
+   The diagram contains several icons. An arrow points from the Operator process section to the IoT DPS section. A Device provisioning request is sent to IoT DPS from the Device requests hub. Two arrows extend from IoT DPS. One red arrow points to the test hub and one black arrow points to the production hub. Two arrows extend from the Device requests hub. One red arrow points to the test hub and one black arrow points to the production hub.
 :::image-end:::
 
 1. The solution developer links both the test and production IoT clouds to the provisioning service.
 
-1. The device implements the DPS protocol to find the IoT Hub, if it's no longer provisioned. The device is initially provisioned to the test environment.
+1. The device implements the DPS protocol to find the IoT hub, if it's no longer provisioned. The device is initially provisioned to the test environment.
 
-1. Because the device is registered with the test environment, it connects there and testing occurs.
+1. The device is registered with the test environment, so it connects there and testing occurs.
 
 1. The developer reprovisions the device to the production environment and removes it from the test hub. The test hub rejects the device the next time that it reconnects.
 
-1. The device connects and renegotiates the provisioning flow. DPS now directs the device to the production environment and the device connects and authenticates there.
+1. The device connects and renegotiates the provisioning flow. DPS directs the device to the production environment and the device connects and authenticates there.
 
-For more information, see [Overview of Azure IoT Hub device provisioning service](/azure/iot-dps/about-iot-dps#provisioning-process).
+For more information, see [Overview of IoT Hub device provisioning service](/azure/iot-dps/about-iot-dps#provisioning-process).
 
 ## Contributors
 
