@@ -4,7 +4,7 @@ This solution describes a secure and resilient deployment pattern for Azure SQL 
 
 ## Architecture
 
-:::image type="complex" border="false" source="./images/sqlmi-managedhsm.svg" alt-text="Diagram that shows the Secure and Resilient Azure SQL Managed Instance (MI) architecture." lightbox="./media/sqlmi-managedhsm.svg":::
+:::image type="complex" border="false" source="./media/sqlmi-managedhsm.svg" alt-text="Diagram that shows the Secure and Resilient Azure SQL Managed Instance (MI) architecture." lightbox="./media/sqlmi-managedhsm.svg":::
    A Visio diagram representing a secure and resilient deployment of Azure SQL Managed Instance (MI) configured for cross-region replication to store the Transparent Data Encryption (TDE) protector keys using Azure Managed Hardware Security Model (HSM) with private endpoints.
 :::image-end:::
 
