@@ -101,7 +101,7 @@ Just like training and fine-tuning, Azure Machine Learning pipelines or other da
 
 ##### Search index maintenance
 
-You also must extend your operations to maintain the freshness and validity of the search indexes in your data stores. You might need to periodically rebuild these indexes if you can't incrementally add, remove, or update data in place. Index updates must meet the business requirements for data freshness, the nonfunctional requirements, such as performance and availability, and the compliance requirements, such as *right to be forgotten* requests. You need to extend your existing MLOps process to account for this data management activity.
+You also must extend your operations to maintain the freshness and validity of the search indexes in your data stores. You might need to periodically rebuild these indexes if you can't incrementally add, remove, or update data in place. Index updates must meet the business requirements for data freshness, the nonfunctional requirements, such as performance and availability, and the compliance requirements, such as *right to be forgotten* requests. You need to extend your existing MLOps process to account for maintaining and updating search indexes to ensure accuracy, compliance, and optimal performance.
 
 ### Experimentation
 
@@ -115,13 +115,13 @@ When you fine-tune an existing language model or train an SLM, you can take adva
 
 Experimentation with prompt engineering and RAG workloads requires you to extend your MLOps investments. For these technical patterns, the workload doesn't end with the model. The workload requires an orchestrator, which is a system that can run logic, call data stores or agents for required information like grounding data, generate prompts, and call language models. The data stores and indexes in the stores are also part of the workload. You need to extend your operations to govern these aspects of the workload.
 
-You can experiment on multiple dimensions for prompt engineering solutions, including different instructions, personas, examples, constraints, and advanced techniques like prompt chaining. When you [experiment with RAG solutions](rag/rag-solution-design-and-evaluation-guide.md), you can also experiment with other areas. These areas include:
+You can experiment on multiple dimensions for prompt engineering solutions, including different instructions, personas, examples, constraints, and advanced techniques like prompt chaining. When you [experiment with RAG solutions](rag/rag-solution-design-and-evaluation-guide.md), you can also experiment with other areas:
 
-- Chunking strategies.
-- Methods for enriching chunks.
-- Embedding model selection.
-- Configuration of the search index.
-- Types of searches to perform, such as vector, full-text, and hybrid.
+- Chunking strategies
+- Methods for enriching chunks
+- Embedding model selection
+- Configuration of the search index
+- Types of searches to perform, such as vector, full-text, and hybrid
 
 As described in [DataOps](#dataops), reproducibility and data versioning are key to experimentation. A good experimentation framework enables you to store inputs, such as changes to hyperparameters or prompts, along with outputs to be used when you [evaluate the experiment](#evaluation-and-experimentation).
 

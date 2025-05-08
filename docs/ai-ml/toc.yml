@@ -90,7 +90,7 @@ items:
         items:
         - name: Machine learning operations (MLOps) v2
           href: guide/machine-learning-operations-v2.md
-        - name: Generative AI ops with MLOps
+        - name: Generative AI operations with MLOps
           href: guide/genaiops-for-mlops.md
         - name: MLOps maturity model
           href: guide/mlops-maturity-model.yml
