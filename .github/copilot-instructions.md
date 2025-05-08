@@ -55,6 +55,6 @@ The Azure Architecture Center contains various content types that address needs 
 
 - The root folder for the data used in articles is `docs/`.
 - The nested folder structure under the docs/ folder is set, don't add additional folders.
-- Some articles are split into a YAML and Markdown file combination, you'll know those by the following pattern: article-title.yml + article-title-content.md.
-- Other articles are just Markdown, such as article-title.md, and do not have a companion YAML file.
+- Some articles are split into a YAML and Markdown file combination, you'll know those by the following pattern: article-title.yml + article-title-content.md. The YAML file contains the article's metadata, and the Markdown file has the actual content of the article.
+- Other articles are just Markdown, such as article-title.md, and do not have a companion YAML file. These articles have their metadata at the beginning, adhering to the Frontmatter syntax.
 - Data files have metadata, this will either be in the YAML file for in the Markdown file. You won't update metadata unless requested.
