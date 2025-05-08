@@ -2,7 +2,7 @@
 title: Azure SQL Database considerations for multitenancy
 description: This article describes the features of Azure SQL Database that are useful when you design a multitenant system, and links to guidance and examples for how to use Azure SQL in a multitenant solution.
 author: johndowns
-ms.author: jodowns
+ms.author: pnp
 ms.date: 03/18/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
