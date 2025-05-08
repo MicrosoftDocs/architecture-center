@@ -17,6 +17,9 @@ ms.custom:
 
 # Related resources for multitenancy
 
+This article provides a set of links and resources for architects and developers of multitenant solutions.
+
+
 ## Architectures for multitenant applications
 
 The following articles provide examples of multitenant architectures on Azure.
@@ -24,7 +27,7 @@ The following articles provide examples of multitenant architectures on Azure.
 | Architecture | Summary | Technology focus |
 | ------- | ------- | ------- |
 | [Multitenant software as a service (SaaS) on Azure](../../example-scenario/multi-saas/multitenant-saas.yml) | Reference architecture for a multitenant SaaS scenario on Azure, which is deployed in multiple regions | Web |
-| [Use Application Gateway Ingress Controller (AGIC) with a multitenant Azure Kubernetes Service (AKS)](../../example-scenario/aks-agic/aks-agic.yml) | Example for how to implement multitenancy with AKS and AGIC | Kubernetes |
+| [Use Application Gateway Ingress Controller (AGIC) with a multitenant Azure Kubernetes Service (AKS) cluster](../../example-scenario/aks-agic/aks-agic.yml) | Example for how to implement multitenancy with AKS and AGIC | Kubernetes |
 | [All multitenant architectures](../../browse/index.yml?terms=multitenant) | Lists all the architectures that include multitenancy | Multiple |
 
 ## Cloud design patterns
@@ -38,7 +41,7 @@ The following [cloud design patterns](../../patterns/index.md) are frequently us
 | [Gatekeeper](../../patterns/gatekeeper.yml) | Protect applications and services by using a dedicated host instance that serves as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them. |
 | [Queue-Based Load Leveling](../../patterns/queue-based-load-leveling.yml) | Use a queue that serves as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads. |
 | [Sharding](../../patterns/sharding.yml) | Divide a data store into a set of horizontal partitions or shards. |
-| [Throttling](../../patterns/throttling.yml) | Control the consumption of resources that are used by an instance of an application uses, an individual tenant, or an entire service. |
+| [Throttling](../../patterns/throttling.yml) | Control the consumption of resources that an application instance, an individual tenant, or an entire service uses. |
 
 ## Antipatterns
 
@@ -56,15 +59,17 @@ The entirety of the [Well-Architected Framework](/azure/well-architected/) is im
 
 - [Azure Friday - Architect multitenant solutions on Azure](https://www.youtube.com/watch?v=9nJ8UdJYU4M) (video): This video from Azure Friday describes how to design, architect, and build multitenant SaaS solutions on Azure.
 
-- [Accelerate and de-risk your journey to SaaS](https://www.youtube.com/watch?v=B8dPAFIG1xA) (video): This video provides guidance on how to transition to the SaaS delivery model, whether you're lifting and shifting an existing solution from on premises to Azure, considering a multitenant architecture, or modernizing an existing SaaS web application."
+- [Accelerate and de-risk your journey to SaaS](https://www.youtube.com/watch?v=B8dPAFIG1xA) (video): This video provides guidance on how to transition to the SaaS delivery model, whether you're lifting and shifting an existing solution from on-premises to Azure, considering a multitenant architecture, or modernizing an existing SaaS web application.
 
 ## Resources for Azure services
 
+Use the following resources to help you build multitenant architectures on Azure.
+
 ### Governance and compliance
 
-- [Organize and manage multiple Azure subscriptions](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions): It's important to consider how you manage your Azure subscriptions, and how you allocate tenant resources to subscriptions.
+- [Organize and manage multiple Azure subscriptions](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions): It's important to consider how you manage your Azure subscriptions and how you allocate tenant resources to subscriptions.
 
-- [Cross-tenant management experiences](/azure/lighthouse/concepts/cross-tenant-management-experience): As a service provider, you can use Azure Lighthouse to manage resources, for multiple customers from within your own Microsoft Entra tenant. Many tasks and services can be performed across managed tenants, by using Azure delegated resource management.
+- [Cross-tenant management experiences](/azure/lighthouse/concepts/cross-tenant-management-experience): As a service provider, you can use Azure Lighthouse to manage resources for multiple customers from within your own Microsoft Entra tenant. Many tasks and services can be performed across managed tenants by using Azure delegated resource management.
 
 - [Azure-managed applications](/azure/azure-resource-manager/managed-applications/overview): In a managed application, the resources are deployed to a resource group that the publisher of the app manages. The resource group is present in the consumer's subscription, but an identity in the publisher's tenant has access to the resource group.
 
@@ -82,21 +87,21 @@ The entirety of the [Well-Architected Framework](/azure/well-architected/) is im
 
 #### Web
 
-- [Claims-based routing for SaaS solutions](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/claims-based-routing-for-saas-solutions/ba-p/3865707): This article describes the usage of a reverse proxy to facilitate tenant routing and mapping requests to tenants, enhancing the management of backend services in SaaS solutions.
+- [Claims-based routing for SaaS solutions](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/claims-based-routing-for-saas-solutions/ba-p/3865707): This article describes the usage of a reverse proxy to facilitate tenant routing and mapping requests to tenants, enhancing the management of back-end services in SaaS solutions.
   
 ### Storage and data
 
-- [Design and build multitenant SaaS apps at scale with Azure Cosmos DB](https://www.youtube.com/watch?v=dd7W_kMh-z4) (video): Learn how to design and optimize multitenant SaaS applications using Azure Cosmos DB. This session explores key design considerations related to tenant isolation, cost optimization, and global distribution. The contents of this session applies whether you have a high volume of small business-to-consumer (B2C) tenants or a low volume of highly skewed business-to-business tenants.
+- [Design and build multitenant SaaS apps at scale with Azure Cosmos DB](https://www.youtube.com/watch?v=dd7W_kMh-z4) (video): Learn how to design and optimize multitenant SaaS applications by using Azure Cosmos DB. This session explores key design considerations related to tenant isolation, cost optimization, and global distribution. The contents of this session apply whether you have a high volume of small business-to-consumer (B2C) tenants or a low volume of highly skewed business-to-business tenants.
 
-- [Azure Cosmos DB and multitenant systems](https://azure.microsoft.com/blog/azure-cosmos-db-and-multi-tenant-systems/): A blog post discussing how to build a multitenant system that uses Azure Cosmos DB.
+- [Azure Cosmos DB and multitenant systems](https://azure.microsoft.com/blog/azure-cosmos-db-and-multi-tenant-systems/): A blog post that discusses how to build a multitenant system that uses Azure Cosmos DB.
 
 - [Azure Cosmos DB hierarchical partition keys](/azure/cosmos-db/hierarchical-partition-keys): By using hierarchical partition keys, also known as subpartitioning, you can natively partition your container with multiple levels of partition keys. This approach enables more optimal partitioning strategies for multitenant scenarios or workloads that would otherwise use synthetic partition keys.
 
-- [Azure SQL Database multitenant SaaS database tenancy patterns](/azure/azure-sql/database/saas-tenancy-app-design-patterns): A set of articles describing various tenancy models that are available for a multitenant SaaS application, using Azure SQL Database.
+- [Azure SQL Database multitenant SaaS database tenancy patterns](/azure/azure-sql/database/saas-tenancy-app-design-patterns): A set of articles that describe various tenancy models that are available for a multitenant SaaS application, using Azure SQL Database.
 
-- [Running 1 million databases on Azure SQL for a large SaaS provider: Microsoft Dynamics 365 and Power Platform](https://devblogs.microsoft.com/azure-sql/running-1m-databases-on-azure-sql-for-a-large-saas-provider-microsoft-dynamics-365-and-power-platform/): A blog post describing how Dynamics 365 team manages databases at scale.
+- [Running 1 million databases on Azure SQL for a large SaaS provider: Microsoft Dynamics 365 and Power Platform](https://devblogs.microsoft.com/azure-sql/running-1m-databases-on-azure-sql-for-a-large-saas-provider-microsoft-dynamics-365-and-power-platform/): A blog post that describes how the Dynamics 365 team manages databases at scale.
 
-- [Design a multitenant database by using Azure Database for PostgreSQL Hyperscale](/azure/postgresql/tutorial-design-database-hyperscale-multi-tenant)
+- [Design a multitenant database by using Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/tutorial-design-database-multi-tenant)
 
 - [Horizontal, vertical, and functional data partitioning](../../best-practices/data-partitioning.yml): In many large-scale and multitenant solutions, data is divided into partitions that can be managed and accessed separately. Partitioning can improve scalability, reduce contention, and optimize performance. It can also provide a mechanism for dividing data, by the usage pattern and by the tenant.
 
@@ -106,7 +111,7 @@ The entirety of the [Well-Architected Framework](/azure/well-architected/) is im
 
 - [Multitenant applications with Azure Cosmos DB](https://www.youtube.com/watch?v=fOQoQnQqwwU) (video)
 
-- [Build a multitenant SaaS with Azure Cosmos DB and Azure](https://www.youtube.com/watch?v=Tht_RV5QPJ0) (video): A real-world case study of how Whally, a multitenant SaaS startup, built a modern platform from scratch on Azure Cosmos DB and Azure. Whally shows the design and implementation decisions they made related to partitioning, data modeling, secure multitenancy, performance, real-time streaming from change feed to SignalR and more, all using ASP.NET Core on Azure App Services.
+- [Build a multitenant SaaS with Azure Cosmos DB and Azure](https://www.youtube.com/watch?v=Tht_RV5QPJ0) (video): A real-world case study of how Whally, a multitenant SaaS startup, built a modern platform from scratch on Azure Cosmos DB and Azure. Whally shows the design and implementation decisions they made related to partitioning, data modeling, secure multitenancy, performance, and real-time streaming from change feed to SignalR, all using ASP.NET Core on Azure App Services.
 
 - [Multitenant design patterns for SaaS applications on Azure SQL Database](https://www.youtube.com/watch?v=jjNmcKBVjrc) (video)
 
@@ -114,7 +119,7 @@ The entirety of the [Well-Architected Framework](/azure/well-architected/) is im
 
 - [Azure Event Grid domains](/azure/event-grid/event-domains): Azure Event Grid domains allow you to manage multitenant eventing architectures, at scale.
 
-- [Service Bus sample: Cross-tenant communication by using Azure Service Bus](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus): Sample implementation of Azure Service Bus that shows how to communicate between a central provider and one or more customers (or tenants).
+- [Cross-tenant communication by using Azure Service Bus](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus): Sample implementation of Azure Service Bus that shows how to communicate between a central provider and one or more customers (or tenants).
 
 ### Identity
 
@@ -126,9 +131,9 @@ The entirety of the [Well-Architected Framework](/azure/well-architected/) is im
 
 - [Authenticate and authorize multitenant apps using Microsoft Entra ID](/training/modules/cna-set-up-azure-ad-use-scale): Learn how Microsoft Entra ID enables you to improve the functionality of cloud-native apps in multitenant scenarios.
 
-- [Azure Architecture walkthrough: Build a multitenant Azure Architecture for a B2C scenario](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-architecture-walkthrough-building-a-multi-tenant-azure/ba-p/1278357): a walk through the architecture behind a multitenant mobile app with Azure Active Directory B2C and API Management.
+- [Azure Architecture walk-through: Build a multitenant Azure Architecture for a B2C scenario](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-architecture-walkthrough-building-a-multi-tenant-azure/ba-p/1278357): A walk through the architecture behind a multitenant mobile app with Azure Active Directory B2C and API Management.
 
-- [Define and implement permissions, roles, and scopes with Microsoft Entra ID in SaaS solution](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/define-and-implement-permissions-roles-and-scopes-with-azure/ba-p/3810264): This article covers three main concepts related to Microsoft Entra authentication and authorization, which SaaS providers can use. It covers Application Roles functionality, Delegated & Application permissions, and Scopes functionality.
+- [Define and implement permissions, roles, and scopes with Microsoft Entra ID in SaaS solutions](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/define-and-implement-permissions-roles-and-scopes-with-azure/ba-p/3810264): This article covers three main concepts related to Microsoft Entra authentication and authorization, which SaaS providers can use. It covers Application Roles functionality, Delegated & Application permissions, and Scopes functionality.
   
 ### Analytics
 
@@ -144,7 +149,7 @@ The entirety of the [Well-Architected Framework](/azure/well-architected/) is im
 
 - [Design patterns for multitenant SaaS applications and Azure AI Search](/azure/search/search-modeling-multitenant-saas-applications): This document describes tenant isolation strategies for multitenant applications that are built with AI Search.
 
-- [A solution for the machine learning pipeline in multi-tenancy manner](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/a-solution-for-ml-pipeline-in-multi-tenancy-manner/ba-p/4124818): This blog post describes how Azure Machine Learning pipelines can be designed to support multiple tenants by using Azure Machine Learning workspaces.
+- [A solution for the machine learning pipeline in multitenancy manner](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/a-solution-for-ml-pipeline-in-multi-tenancy-manner/ba-p/4124818): This blog post describes how Azure Machine Learning pipelines can be designed to support multiple tenants by using Azure Machine Learning workspaces.
 
 ## Community content
 
@@ -152,11 +157,11 @@ The entirety of the [Well-Architected Framework](/azure/well-architected/) is im
 
 - [Three tenancy models for Kubernetes](https://kubernetes.io/blog/2021/04/15/three-tenancy-models-for-kubernetes/): Kubernetes clusters are typically used by several teams in an organization. This article explains three tenancy models for Kubernetes.
 
-- [Understanding Kubernetes multi-tenancy](https://cloudian.com/guides/kubernetes-storage/understanding-kubernetes-multi-tenancy/): Kubernetes isn't a multitenant system out of the box, and requires custom configuration. This article explains Kubernetes multitenancy types.
+- [Understand Kubernetes multitenancy](https://cloudian.com/guides/kubernetes-storage/understanding-kubernetes-multi-tenancy/): Kubernetes isn't a multitenant system out of the box. It requires custom configuration. This article explains Kubernetes multitenancy types.
 
-- [Kubernetes multi-tenancy best practices guide](https://loft.sh/blog/kubernetes-multi-tenancy-a-best-practices-guide/): Kubernetes multitenancy is a topic that organizations are increasingly interested in as their Kubernetes usage spreads out. However, because Kubernetes isn't explicitly a multitenant system, it can be challenging to design a multitenant Kubernetes implementation. This article describes these challenges and how to overcome them, and some useful tools for Kubernetes multitenancy.
+- [Kubernetes multitenancy best practices guide](https://loft.sh/blog/kubernetes-multi-tenancy-a-best-practices-guide/): Kubernetes multitenancy is a topic that organizations are increasingly interested in as their Kubernetes usage spreads out. However, because Kubernetes isn't explicitly a multitenant system, it can be challenging to design a multitenant Kubernetes implementation. This article describes these challenges, how to overcome them, and some useful tools for Kubernetes multitenancy.
 
-- [Capsule: Kubernetes multi-tenancy made simple](https://capsule.clastix.io/): Capsule helps to implement a multitenancy and policy-based environment in your Kubernetes cluster. It isn't a platform as a service (PaaS) offering, but instead is a microservices-based ecosystem with a minimalist design approach, using only upstream Kubernetes.
+- [Capsule: Kubernetes multitenancy made simple](https://capsule.clastix.io/): Capsule helps to implement a multitenancy and policy-based environment in your Kubernetes cluster. It isn't a platform as a service (PaaS) offering, but instead is a microservices-based ecosystem with a minimalist design approach, using only upstream Kubernetes.
 
 - [Crossplane: The cloud-native control plane framework](https://www.crossplane.io/): Crossplane enables you to build control planes for your own solution by using a Kubernetes-based approach.
 

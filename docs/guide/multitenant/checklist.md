@@ -18,7 +18,7 @@ ms.custom:
 
 # Multitenancy checklist on Azure
 
-When you build your multitenant solution in Azure, there are many elements that you need to consider. Use this checklist as a starting point to help you design and build your multitenant solution. This checklist is a companion resource to the [Architect multitenant solutions on Azure](./overview.md) series of articles. The checklist is structured around the business and technical considerations, and the five pillars of the [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+When you build your multitenant solution in Azure, there are many elements that you need to consider. Use this checklist as a starting point to help you design and build your multitenant solution. This checklist is a companion resource to the [Architect multitenant solutions on Azure](./overview.md) series of articles. The checklist is structured around the business and technical considerations and the five pillars of the [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 > [!TIP]
 > After you go through this checklist, take the [SaaS journey review](/assessments/3a5bbc6d-c7be-4ccf-92f8-c1a0bdb0196a/) to evaluate your SaaS product by analyzing your understanding of multitenant architecture and its alignment with SaaS operation best practices.
@@ -31,7 +31,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - [Define your pricing model](./considerations/pricing-models.md) and ensure that it aligns with your [tenants' consumption of Azure resources](./considerations/measure-consumption.md).  
 
-- Understand whether you need to separate your tenants into different [tiers](./considerations/pricing-models.md#feature--and-service-level-based-pricing). Tiers might have different pricing, features, performance promises, geographic locations, and so forth.  
+- Understand whether you need to separate your tenants into different [tiers](./considerations/pricing-models.md#feature--and-service-level-based-pricing). Tiers might have different pricing, features, performance promises, and geographic locations.
 
 - Based on your customers' requirements, decide on the [tenancy models](./considerations/tenancy-models.yml) that are appropriate for various parts of your solution.  
 
@@ -41,21 +41,21 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - Review the [Well-Architected Framework Reliability checklist](/azure/architecture/framework/resiliency/design-checklist), which is applicable to all workloads.  
 
-- Understand the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Prevent individual tenants from impacting the system's availability for other tenants.  
+- Understand the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Prevent individual tenants from affecting the system's availability for other tenants.  
 
 - [Design your multitenant solution](./approaches/overview.yml) for the level of growth that you expect. But don't overengineer for unrealistic growth.  
 
 - Define [service-level objectives (SLOs)](/azure/well-architected/reliability/metrics) and optionally [service-level agreements (SLAs)](/training/modules/choose-azure-services-sla-lifecycle/2-what-are-service-level-agreements) for your solution. SLAs and SLOs should be based on the requirements of your tenants.  
 
-- Test the [scale](./approaches/compute.md#scale) of your solution. Ensure that it performs well under all levels of load, and that it scales correctly as the number of tenants increases.  
+- Test the [scale](./approaches/compute.md#scale) of your solution. Ensure that it performs well under all levels of load and that it scales correctly as the number of tenants increases.  
 
 - Apply [chaos engineering principles](./approaches/compute.md#isolation) to test the reliability of your solution.  
 
 ## Security considerations  
 
-- Apply the [zero trust](/security/zero-trust) and least privilege principles in all layers of your solution.  
+- Apply [Zero Trust](/security/zero-trust) and least privilege principles in all layers of your solution. 
 
-- Ensure that you can correctly [map user requests](./considerations/map-requests.yml) to tenants. Consider including the tenant context as part of the identity system, or via another method, like application-level tenant authorization.  
+- Ensure that you can correctly [map user requests](./considerations/map-requests.yml) to tenants. Consider including the tenant context as part of the identity system or via another method, like application-level tenant authorization.  
 
 - Design for [tenant isolation](./considerations/tenancy-models.yml#tenant-isolation). Continuously [test your isolation model](./approaches/compute.md#isolation).  
 
@@ -81,7 +81,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - Use automation to manage the [tenant life cycle](./considerations/tenant-lifecycle.md), such as onboarding, [deployment, provisioning, and configuration](./approaches/deployment-configuration.yml).  
 
-- Understand the differences between [control plane](./considerations/control-planes.yml) and data plane in your multitenant solution.  
+- Understand the differences between [control planes](./considerations/control-planes.yml) and data planes in your multitenant solution.  
 
 - Find the right balance for [deploying service updates](./considerations/updates.md). Consider both your tenants' requirements and your own operational requirements.  
 
@@ -91,7 +91,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - [Organize your Azure resources](./approaches/resource-organization.yml) for isolation and scale.  
 
-- Avoid [deployment and configuration antipatterns](./approaches/deployment-configuration.yml#antipatterns-to-avoid). Antipatterns include running separate versions of the solution for each tenant, hardcoding tenant-specific configurations or logic, and manual deployments.  
+- Avoid [deployment and configuration antipatterns](./approaches/deployment-configuration.yml#antipatterns-to-avoid). Antipatterns include running separate versions of the solution for each tenant, hard-coding tenant-specific configurations or logic, and manual deployments.  
 
 ## Performance Efficiency considerations  
 
@@ -101,7 +101,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - Determine how to scale your [compute](./approaches/compute.md), [storage](./approaches/storage-data.yml), [networking](./approaches/networking.md), and other Azure resources to match the demands of your tenants.  
 
-- Consider each the scale limits for each Azure resource. [Organize your resources](./approaches/resource-organization.yml) appropriately, in order to avoid [resource organization antipatterns](./approaches/resource-organization.yml#antipatterns-to-avoid). For example, don't over-architect your solution to work within unrealistic scale requirements.  
+- Consider the scale limits for each Azure resource. [Organize your resources](./approaches/resource-organization.yml) appropriately to avoid [resource organization antipatterns](./approaches/resource-organization.yml#antipatterns-to-avoid). For example, don't over-architect your solution to work within unrealistic scale requirements.  
 
 ## Contributors
 

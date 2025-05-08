@@ -32,24 +32,24 @@ In this series, we provide guidance about how to design, build, and operate your
 > [!NOTE]
 > In this series, we use the term *tenant* to refer to **your** tenants, which might be your customers or groups of users. Our guidance is intended to help you build your own multitenant software solutions on top of the Azure platform.
 >
-> Microsoft Entra ID also includes the concept of a *tenant* to refer to individual directories. It uses the term *multitenancy* to refer to interactions between multiple Microsoft Entra tenants. The terms are the same, but the concepts aren't. When we refer to the Microsoft Entra concept of a tenant, we use the full term *Microsoft Entra tenant* to avoid ambiguity.
+> Microsoft Entra ID also includes the concept of a *tenant* to refer to individual directories. It uses the term *multitenancy* to refer to interactions between multiple Microsoft Entra tenants. The terms are the same, but the concepts aren't. When we refer to the Microsoft Entra concept of a tenant, we use the full term, *Microsoft Entra tenant*, to avoid ambiguity.
 
 ## Scope
 
 Azure is a multitenant service, and some of our guidance is based on our experience with running large multitenant solutions. However, the focus of this series is on helping you build your own multitenant services, while harnessing the power of the Azure platform.
 
-When you design a solution, there are many areas you need to consider. The content in this section is specific to how you design for multitenancy. We don't cover all of the features of the Azure services, or all of the architectural design considerations for every application. You should read this guide in conjunction with the [Microsoft Azure Well-Architected Framework](/azure/well-architected/) and the documentation for each Azure service that you use.
+When you design a solution, there are many areas you need to consider. The content in this section is specific to how you design for multitenancy. We don't cover all of the features of the Azure services or all of the architectural design considerations for every application. You should read this guide in conjunction with the [Microsoft Azure Well-Architected Framework](/azure/well-architected/) and the documentation for each Azure service that you use.
 
 ## Intended audience
 
-The guidance provided in this series is applicable to anyone building a multitenant application in Azure. The audience also includes anybody who is building SaaS products, such as independent software vendors (ISVs) and startups, whether those SaaS products are targeted for businesses or consumers. It also includes anyone building a product or platform that's intended to be used by multiple customers or tenants.
+The guidance provided in this series applies to anyone building a multitenant application in Azure. The audience also includes anyone who's building SaaS products, such as independent software vendors (ISVs) and startups, that target businesses or consumers. It also includes anyone building a product or platform that's intended to be used by multiple customers or tenants.
 
-Some of the content in this series is designed to be useful for technical decision-makers, like chief technology officers (CTOs) and architects, and anyone designing or implementing a multitenant solution on Microsoft Azure. Other content has a more technical focus and is targeted at solution architects and engineers who implement a multitenant solution.
+Some of the content in this series is designed to be useful for technical decision-makers, like chief technology officers (CTOs) and architects, and anyone designing or implementing a multitenant solution on Azure. Other content has a more technical focus and targets solution architects and engineers who implement a multitenant solution.
 
 > [!NOTE]
-> *Managed service providers (MSPs)* manage and operate Azure environments on behalf of their customers, and work with multiple Microsoft Entra tenants in the process. This is another form of multitenancy, but it's focused on managing Azure resources across multiple Microsoft Entra tenants. This series isn't intended to provide guidance for these scenarios.
+> *Managed service providers (MSPs)* manage and operate Azure environments on behalf of their customers and work with multiple Microsoft Entra tenants in the process. This is another form of multitenancy, but it's focused on managing Azure resources across multiple Microsoft Entra tenants. This series isn't intended to provide guidance for these scenarios.
 >
-> However, the series is likely to be helpful for ISVs who build software for MSPs, or for anyone who builds and deploys multitenant software.
+> However, the series is likely to be helpful for ISVs who build software for MSPs or for anyone who builds and deploys multitenant software.
 
 ## What's in this series?
 
@@ -63,7 +63,7 @@ The content in this series is composed of three main sections:
 
   The architectural approaches are intended to be useful for solution architects and lead developers.
 
-- **[Service-specific guidance for a multitenant solution](service/overview.md):** This section provides a targeted guidance for specific Azure services. It includes discussions of the tenancy isolation models that you might consider for the components in your solution and any features that are particularly relevant for a multitenant solution.
+- **[Service-specific guidance for a multitenant solution](service/overview.md):** This section provides targeted guidance for specific Azure services. It includes discussions of the tenancy isolation models that you might consider for the components in your solution and any features that are particularly relevant for a multitenant solution.
 
   The service-specific guidance is useful for architects, lead developers, and anyone building or implementing Azure components for a multitenant solution.
 
