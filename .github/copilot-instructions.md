@@ -1,6 +1,6 @@
 # Copilot instructions for the Azure Architecture Center on Microsoft Learn
 
-This is the repository contains the source data of the Azure Architecture Center articles that are published as official Microsoft documentation in Microsoft Learn. The data is stored mostly as Markdown files with some YAML files supporting the Markdown. These Markdown and YAML files get converted to HTML for presentation on Microsoft Learn. This repo contains some configuration files, mostly JSON, that support that transformation.
+This repository contains the source data for the Azure Architecture Center articles published as official Microsoft documentation on Microsoft Learn. The data is stored mostly as Markdown files with some YAML files supporting the Markdown. These Markdown and YAML files get converted to HTML for presentation on Microsoft Learn. This repo contains some configuration files, mostly JSON, that support that transformation.
 
 ## Audience and how they use this data
 
@@ -49,7 +49,7 @@ The Azure Architecture Center contains various content types that address needs 
 ## Multi-agent usage
 
 - Use GitHub Copilot for Azure's `@azure query learn` to query existing Microsoft Learn documentation as needed.
-- Use Web Search for Copliot's `Web Search` tool to query general knowledge from the Internet as needed.
+- Use Web Search for Copilot's `Web Search` tool to query general knowledge from the Internet as needed.
 
 ## Folder and file structure
 
