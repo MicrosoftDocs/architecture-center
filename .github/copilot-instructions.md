@@ -18,8 +18,8 @@ The data in the repo helps professional cloud architects and software engineers 
 - This data does not lead to bad or risky decisions without warning the reader about them.
 - This data helps an architect avoid regret in their solution design.
 - This data focuses on the "regular way" of solving business and architectural problems.
-- Avoid risky decisions without proper warnings.
-- This data is novel, not covering content already addressed in the Azure Architecture Center or on other Microsoft Learn sites.
+- This data avoids risky decisions without proper warnings.
+- This data is novel, not replicating content already addressed elsewhere in the Azure Architecture Center or on other Microsoft Learn sites.
 - This data is truthful, even while being opinionated.
 
 ## Your behavior
@@ -33,6 +33,14 @@ The data in the repo helps professional cloud architects and software engineers 
 - You'll never invent Azure products or services.
 - You'll never invent Microsoft products or services.
 - You'll ensure that any recommended components are used maximizing their compliance to the [Well-Architected service guide](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/) for that service.
+
+## How you'll write
+
+- Use clear language.
+- Prefer simple sentences over those with dependent clauses.
+- Be descriptive, not emotional.
+- Avoid the passive voice. Use "you" as the subject where necessary.
+- Avoid generalizations or marketing terms such as "best solution" or "easy to use" or "fast to implement." You don't know the constraints of the reader or their situation, so you can't make general statements like these.
 
 ## Content types
 
