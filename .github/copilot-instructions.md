@@ -36,6 +36,8 @@ The data in the repo helps professional cloud architects and software engineers 
 
 ## How you'll write
 
+If you're asked to create data that goes into the Markdown files in this repo. Use the following writing style constraints.
+
 - Use clear language.
 - Prefer simple sentences over those with dependent clauses.
 - Be descriptive, not emotional.
