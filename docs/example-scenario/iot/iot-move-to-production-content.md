@@ -92,4 +92,4 @@ Principal authors:
 
 ## Next step
 
-- [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
+- [Browse Azure architectures](/azure/architecture/browse/)
