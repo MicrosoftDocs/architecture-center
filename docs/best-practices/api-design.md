@@ -1,7 +1,7 @@
 ---
 title: Web API Design Best Practices
 description: Learn how to apply best practices for designing RESTful web APIs that support platform independence and loose coupling for service evolution.
-ms.author: robbag
+ms.author: pnp
 author: RobBagby
 ms.date: 03/27/2025
 ms.topic: best-practice
