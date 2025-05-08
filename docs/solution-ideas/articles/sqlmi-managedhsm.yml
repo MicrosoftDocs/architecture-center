@@ -8,7 +8,8 @@ metadata:
   ms.topic: solution-idea
   ms.subservice: solution-idea
 azureCategories:
-  - <List at least one category, as explained in the browser header template instructions.>
+  - databases
+  - security
 products:
   - <List 1-5 products, as explained in the browser header template instructions.>
 name: Enhance SQL Transparent Data Encryption (TDE) Keys Using Customer Managed Keys and Azure Managed Hardware Security Module (HSM)
