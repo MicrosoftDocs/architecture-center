@@ -28,11 +28,11 @@ Generative AI workloads differ from traditional machine learning workloads in se
 
 - **Focus on extending the models.** The key asset in traditional machine learning is the trained and deployed model. Access to the model is provided to client code in one or more workloads, but the workload typically isn't part of the MLOps process. With generative AI solutions, a key aspect of the solution is the prompt provided to the generative model. The prompt must be composed of instructions and often contains context data from one or more data stores. The system that orchestrates the logic, calls to the various back ends or agents, generates the prompt, and calls to the generative model is part of the generative AI system that you govern with GenAIOps.
 
-Some generative AI solutions use traditional machine learning practices like model training and fine-tuning. However, these solutions introduce new patterns that you should standardize. The three broad categories of technical patterns for generative AI solutions include:
+Some generative AI solutions use traditional machine learning practices like model training and fine-tuning. However, these solutions introduce new patterns that you should standardize. There are three broad categories of technical patterns for generative AI solutions:
 
-- Pretraining and fine-tuning.
-- Prompt engineering.
-- Retrieval-augmented generation (RAG).
+- Pretraining and fine-tuning
+- Prompt engineering
+- Retrieval-augmented generation (RAG)
 
 ### Training and fine-tuning language models
 
@@ -50,12 +50,12 @@ The following diagram shows an architecture for prompt engineering.
    The diagram illustrates a flow. An intelligent application collects input from a user. The intelligent application and a headless intelligent application send the input to an orchestrator. The orchestrator calls the data stores. And then the orchestrator sends a prompt to Azure OpenAI Service.
 :::image-end:::
 
-This category of technical patterns can address many use cases, including:
+This category of technical patterns can address many use cases:
 
-- Classification.
-- Translation.
-- Summarization.
-- RAG.
+- Classification
+- Translation
+- Summarization
+- RAG
 
 ### RAG
 
@@ -171,13 +171,13 @@ Deployments of changes to database resources, like changes to data models or ind
 
 Many generative AI architectures that consume platform-hosted language models, like those served from Azure OpenAI, include a [gateway like Azure API Management](azure-openai-gateway-guide.yml#implementation-options). The gateway use cases include load balancing, authentication, and monitoring. The gateway can play a role in deployment of newly trained or fine-tuned models, which allows you to progressively roll out new models. The use of a gateway, along with model versioning, enables you to minimize risk when you deploy changes and to roll back to previous versions when problems occur.
 
-Deployments of elements that are specific to generative AI, such as the orchestrator, should follow proper operational procedures. These procedures include:
+Deployments of elements that are specific to generative AI, such as the orchestrator, should follow proper operational procedures:
 
-- Rigorous testing, including unit tests.
-- Integration tests.
-- A/B tests.
-- End-to-end tests.
-- Roll-out strategies, like canary deployments or blue-green deployments.
+- Rigorous testing, including unit tests
+- Integration tests
+- A/B tests
+- End-to-end tests
+- Roll-out strategies, like canary deployments or blue-green deployments
 
 Because the deployment responsibilities for generative AI applications extend beyond model deployment, you might need extra job roles to manage the deployment and monitoring of components like the user interface, the orchestrator, and the data stores. These roles are often aligned to DevOps engineer skill sets.
 
