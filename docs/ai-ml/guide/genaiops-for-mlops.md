@@ -42,7 +42,7 @@ Training a new SLM and fine-tuning a generative foundation model follow the same
 
 ### Prompt engineering
 
-Prompt engineering includes all the processes included in designing an effective prompt that's sent as input to a generative model. There's generally an orchestrator that controls a workflow that generates the prompt. The orchestrator can call into multiple data stores directly or indirectly through agents to gather information, including grounding data. It then applies the required logic to generate the most effective prompt. The orchestrator is then deployed as an API endpoint that's accessed by client code in an intelligent application.
+Prompt engineering includes all the processes included in designing an effective prompt that's sent as input to a generative model. There's generally an orchestrator that controls a workflow that generates the prompt. The orchestrator can call into multiple data stores directly or indirectly through agents to gather information, including grounding data. It then applies the required logic to generate the most effective prompt. The orchestrator is then deployed as an API endpoint that the client code accesses in an intelligent application.
 
 The following diagram shows an architecture for prompt engineering.
 
