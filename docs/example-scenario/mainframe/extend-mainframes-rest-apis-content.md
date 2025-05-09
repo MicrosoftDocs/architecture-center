@@ -98,7 +98,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 - Reliability is a fundamental pillar of IBM z/OS Connect. z/OS Connect manages high-transaction volumes and handles many concurrent connections. The solution's scalability extends both horizontally and vertically so that it can accommodate the evolving demands of expanding workloads.
 
-- API Management enhances reliability by supporting multi-region deployments across Azure, which provides geographic redundancy.
+- API Management enhances reliability by supporting multi-region deployments across Azure, which provides geographic redundancy. It also integrates seamlessly with IBM z/OS Connect to expose mainframe services as REST APIs, which enables consistent and dependable access to critical workloads.
 
 ### Security
 
