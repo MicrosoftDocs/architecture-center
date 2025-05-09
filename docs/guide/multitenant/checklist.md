@@ -45,7 +45,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - [Design your multitenant solution](./approaches/overview.yml) for the level of growth that you expect. But don't overengineer for unrealistic growth.  
 
-- Define [service-level objectives (SLOs)](/azure/well-architected/reliability/metrics) and optionally [service-level agreements (SLAs)](/training/modules/choose-azure-services-sla-lifecycle/2-what-are-service-level-agreements) for your solution. SLAs and SLOs should be based on the requirements of your tenants.  
+- Define [service-level objectives (SLOs)](/azure/well-architected/reliability/metrics) and optionally service-level agreements (SLAs) for your solution. SLAs and SLOs should be based on the requirements of your tenants.  
 
 - Test the [scale](./approaches/compute.md#scale) of your solution. Ensure that it performs well under all levels of load and that it scales correctly as the number of tenants increases.  
 
