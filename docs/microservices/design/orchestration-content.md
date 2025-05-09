@@ -90,7 +90,7 @@ Principal author:
 
 ## Related resources
 
-- [Build microservices on Azure](../microservices.md)
+- [Build microservices on Azure](../../guide/architecture-styles/microservices.md)
 - [Design a microservices architecture](index.yml)
 - [Design patterns for microservices](patterns.yml)
 - [Microservices architectural style](../../guide/architecture-styles/microservices.md)

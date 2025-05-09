@@ -169,7 +169,7 @@ Principal authors:
 
 ## Related resources
 
-- [Microservices architecture design](../../microservices.md)
+- [Microservices architecture design](../architecture-styles/microservices.md)
 
 <!-- reference links, for use with tables -->
 [1]: https://azure.microsoft.com/global-infrastructure/services/?products=spring-apps

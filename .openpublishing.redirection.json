@@ -467,7 +467,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/microservices.yml",
+      "source_path": "docs/microservices/index.yml",
       "redirect_url": "/azure/architecture/guide/architecture-styles/microservices",
       "redirect_document_id": true
     },
@@ -2045,7 +2045,7 @@
     },
     {
       "source_path": "docs/microservices/introduction.md",
-      "redirect_url": "/azure/architecture/microservices/",
+      "redirect_url": "/azure/architecture/guide/architecture-styles/microservices",
       "redirect_document_id": true
     },
     {

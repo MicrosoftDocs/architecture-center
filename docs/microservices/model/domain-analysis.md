@@ -106,7 +106,7 @@ After completing a domain analysis, the next step is to apply tactical DDD, to d
 
 ## Related resources
 
-- [Microservices architecture design](../../microservices.md)
+- [Microservices architecture design](../../guide/architecture-styles/microservices.md)
 - [Design a microservices architecture](../../microservices/design/index.yml)
 - [Identify microservice boundaries](microservice-boundaries.yml)
 - [Choose an Azure compute option for microservices](../../microservices/design/compute-options.md)

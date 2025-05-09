@@ -71,7 +71,7 @@ At this point, you should have a clear understanding of the purpose and function
 
 ## Related resources
 
-- [Microservices architecture design](../../microservices.md)
+- [Microservices architecture design](../../guide/architecture-styles/microservices.md)
 - [Using tactical DDD to design microservices](tactical-ddd.yml)
 - [Using domain analysis to model microservices](domain-analysis.md)
 - [Choose an Azure compute option for microservices](../../microservices/design/compute-options.md)

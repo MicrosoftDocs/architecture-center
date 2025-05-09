@@ -14,7 +14,7 @@ In this set of articles, we explore how to build a microservices architecture on
 
 Before reading these articles, you might start with the following:
 
-- [Introduction to microservices architectures](../microservices.md). Understand the benefits and challenges of microservices, and when to use this style of architecture.
+- [Introduction to microservices architectures](../../guide/architecture-styles/microservices.md). Understand the benefits and challenges of microservices, and when to use this style of architecture.
 - [Using domain analysis to model microservices](../model/domain-analysis.md). Learn a domain-driven approach to modeling microservices.
 
 ## Reference implementation
