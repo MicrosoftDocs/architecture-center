@@ -1,8 +1,17 @@
 ---
+title: Microservices Architecture Style
+description: Learn about microservices on Azure, an architectural style for applications that are resilient, highly scalable, and independently deployable.
 author: RobBagby
-ms.author: pnp
-ms.topic: include
+ms.author: robbag
+ms.date: 07/26/2022
+ms.topic: conceptual
+ms.subservice: architecture-guide
+ms.custom: fcp
 ---
+
+# Microservices architecture style
+
+Microservices are a popular architectural style for building applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. But a successful microservices architecture requires a different approach to designing and building applications.
 
 A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability within a bounded context. A bounded context is a natural division within a business and provides an explicit boundary within which a domain model exists.
 
@@ -73,3 +82,48 @@ The benefits of microservices don't come for free. Here are some of the challeng
 - **Versioning**. Updates to a service must not break services that depend on it. Multiple services could be updated at any given time, so without careful design, you might have problems with backward or forward compatibility.
 
 - **Skill set**. Microservices are highly distributed systems. Carefully evaluate whether the team has the skills and experience to be successful.
+
+## Best practices
+
+- Model services around the business domain.
+
+- Decentralize everything. Individual teams are responsible for designing and building services. Avoid sharing code or data schemas.
+
+- Data storage should be private to the service that owns the data. Use the best storage for each service and data type.
+
+- Services communicate through well-designed APIs. Avoid leaking implementation details. APIs should model the domain, not the internal implementation of the service.
+
+- Avoid coupling between services. Causes of coupling include shared database schemas and rigid communication protocols.
+
+- Offload cross-cutting concerns, such as authentication and SSL termination, to the gateway.
+
+- Keep domain knowledge out of the gateway. The gateway should handle and route client requests without any knowledge of the business rules or domain logic. Otherwise, the gateway becomes a dependency and can cause coupling between services.
+
+- Services should have loose coupling and high functional cohesion. Functions that are likely to change together should be packaged and deployed together. If they reside in separate services, those services end up being tightly coupled, because a change in one service will require updating the other service. Overly chatty communication between two services may be a symptom of tight coupling and low cohesion.
+
+- Isolate failures. Use resiliency strategies to prevent failures within a service from cascading. See [Resiliency patterns](/azure/well-architected/reliability/design-patterns) and [Designing reliable applications](/azure/well-architected/reliability/principles).
+
+## Process for building a microservices architecture
+
+The articles listed here present a structured approach for designing, building, and operating a microservices architecture.
+
+**Domain analysis.** To avoid some common pitfalls when designing microservices, use domain analysis to define your microservice boundaries. Follow these steps:
+
+1. [Use domain analysis to model microservices](./model/domain-analysis.md).
+1. [Use tactical DDD to design microservices](./model/tactical-ddd.yml).
+1. [Identify microservice boundaries](./model/microservice-boundaries.yml).
+
+**Design the services**. Microservices require a different approach to designing and building applications. For more information, see [Designing a microservices architecture](./design/index.yml).
+
+**Operate in production**. Because microservices architectures are distributed, you must have robust operations for deployment and monitoring.
+
+- [CI/CD for microservices architectures](./ci-cd.yml)
+- [Build a CI/CD pipeline for microservices on Kubernetes](./ci-cd-kubernetes.yml)
+
+## Microservices reference architectures for Azure
+
+- [Microservices architecture on Azure Kubernetes Service (AKS)](../reference-architectures/containers/aks-microservices/aks-microservices.yml)
+
+## Next steps
+
+For detailed guidance about building a microservices architecture on Azure, see [Designing, building, and operating microservices on Azure](../../microservices/index.yml).

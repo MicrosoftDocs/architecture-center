@@ -467,6 +467,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/microservices.yml",
+      "redirect_url": "/azure/architecture/guide/architecture-styles/microservices",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/microservices/domain-analysis.md",
       "redirect_url": "/azure/architecture/microservices/model/domain-analysis",
       "redirect_document_id": true

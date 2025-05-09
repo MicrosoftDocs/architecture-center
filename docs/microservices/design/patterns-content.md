@@ -33,7 +33,7 @@ For the complete catalog of cloud design patterns on the Azure Architecture Cent
 
 ## Related resources
 
-- [Microservice architecture style](../../guide/architecture-styles/microservices.yml)
+- [Microservice architecture style](../../guide/architecture-styles/microservices.md)
 - [Design a microservices architecture](index.yml)
 - [Using domain analysis to model microservices](../model/domain-analysis.md)
 - [Data considerations for microservices](data-considerations.yml)
