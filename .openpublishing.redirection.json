@@ -2046,7 +2046,7 @@
     {
       "source_path": "docs/microservices/introduction.md",
       "redirect_url": "/azure/architecture/guide/architecture-styles/microservices",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/data/enterprise-bi-sqldw.md",
