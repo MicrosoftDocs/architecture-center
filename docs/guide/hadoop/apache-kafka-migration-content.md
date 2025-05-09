@@ -79,7 +79,7 @@ You can migrate Kafka to Kafka on HDInsight. For more information, see [What is 
 
 ### Use AKS with Kafka on HDInsight
 
-For more information, see [Use AKS with Apache Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-azure-container-services).
+For more information, see [Use AKS with Apache Kafka on HDInsight](https://docs.azure.cn/hdinsight/kafka/apache-kafka-azure-container-services).
 
 ### Use Kafka on AKS with the Strimzi Operator
 
@@ -183,10 +183,3 @@ Other contributors:
 - [Overview of Apache Spark Streaming](/azure/hdinsight/spark/apache-spark-streaming-overview)
 - [Structured Streaming tutorial](/azure/databricks/getting-started/spark/streaming)
 - [Use Event Hubs from Apache Kafka applications](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
-
-## Related resources
-
-- [Hadoop migration to Azure](overview.md)
-- [Apache HDFS migration to Azure](apache-hdfs-migration.yml)
-- [Apache HBase migration to Azure](apache-hbase-migration.yml)
-- [Apache Sqoop migration to Azure](apache-sqoop-migration.yml)
