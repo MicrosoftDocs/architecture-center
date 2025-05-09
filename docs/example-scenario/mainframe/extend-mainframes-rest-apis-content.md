@@ -122,7 +122,9 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
--	Azure DevOps enables customers to drive operational excellence in the development and modernization of z/OS applications by integrating with IBM Z and Cloud Modernization Stack. This approach enhances agility, accelerates delivery cycles, and boosts developer productivity. Customers can modernize COBOL, PL/I, Java, or assembler programs by using their preferred integrated development environments, while also adopting modern languages like Python, Node.js, and Go on z/OS. The flexibility to use familiar tools alongside newer technologies ensures seamless transitions, efficient workflows, and continuous improvement across the development lifecycle.
+- Use Azure DevOps to drive the development and modernization of z/OS applications by integrating it with IBM Z and Cloud Modernization Stack. This approach enhances agility, accelerates delivery cycles, and boosts developer productivity.
+
+- Modernize COBOL, PL/I, Java, or assembler programs by using your preferred integrated development environments, while also adopting modern languages like Python, Node.js, and Go on z/OS. The flexibility to use familiar tools alongside newer technologies helps transition to new technologies, build efficient workflows, and address technical debt across the development lifecycle.
 
 - [IBM z/OS Connect](https://www.ibm.com/products/zos-connect) facilitates access to back-end application functions by converting them into microservices that have accessible APIs. IBM z/OS Connect enables other applications to interact with these services at scale, while also providing API management and monitoring capabilities.
 
@@ -137,7 +139,6 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 - Performance efficiency is a core strength of IBM z/OS Connect. It handles high transaction volumes and manages concurrent connections. The solution's scalability expands both horizontally and vertically so that it can adapt to the evolving demands of workloads.
 
 - API Management enhances performance efficiency by automatically scaling out its infrastructure based on incoming traffic and demand. This dynamic scaling ensures consistent response times and reliable throughput, even during traffic spikes, which helps maintain a seamless experience for API consumers without over-provisioning resources.
-- 
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
