@@ -337,7 +337,7 @@ items:
         href: aws-professional/regions-zones.md
       - name: Resources
         href: aws-professional/resources.md
-      - name: Security and identity
+      - name: Identity
         href: aws-professional/security-identity.md
       - name: Storage
         href: aws-professional/storage.md
@@ -659,8 +659,6 @@ items:
           href: example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml
         - name: Unisys mainframe migration with Avanade AMT
           href: reference-architectures/migration/unisys-mainframe-migration.yml
-        - name: Use LzLabs SDM in Azure
-          href: example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure.yml
     - name: Solution ideas
       items:
       - name: DFS failover cluster

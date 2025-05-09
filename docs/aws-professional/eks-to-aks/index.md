@@ -53,7 +53,7 @@ The following articles compare Azure and AWS core platform components and capabi
 - [Networking on Azure and AWS](../networking.md)
 - [Regions and zones on Azure and AWS](../regions-zones.md)
 - [Resource management on Azure and AWS](../resources.md)
-- [Multicloud security and identity with Azure and AWS](../security-identity.md)
+- [Multicloud identity with Azure and AWS](../security-identity.md)
 - [Storage on Azure and AWS](../storage.md)
 
 ## Contributors

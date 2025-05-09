@@ -1,9 +1,9 @@
 ---
 title: Azure Service Bus considerations for multitenancy
 description: This article describes the features of Azure Service Bus that are useful when you use it in multitenanted systems. It provides links to guidance for how to use Azure Service Bus in a multitenant solution.
-author: landonpierce
-ms.author: landonpierce
-ms.date: 06/05/2024 
+author: PlagueHO
+ms.author: dascottr
+ms.date: 05/02/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 products:
@@ -44,6 +44,7 @@ You can also fine-tune messaging capabilities for each tenant based on their nee
 - Deploy a tenant-specific namespace with a pricing tier that's appropriate to that tenant. For example, you can provision [premium namespaces](/azure/service-bus-messaging/service-bus-premium-messaging) with a different number of [messaging units](/azure/service-bus-messaging/service-bus-premium-messaging#how-many-messaging-units-are-needed).
 - Apply networking restrictions based on the tenant's needs.
 - Use [tenant-specific encryption keys](#customer-managed-keys).
+- Configure [geo‑disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr) or [geo-replication](/azure/service-bus-messaging/service-bus-geo-replication) to replicate the metadata and data of the namespace to another region.
 
 The disadvantage to this isolation model is that, as the number of tenants grows within your system over time, the operational complexity of managing your namespaces also increases. If you reach the maximum number of namespaces per Azure subscription, you could deploy namespaces across different subscriptions (see [deployment stamp pattern](/azure/architecture/patterns/deployment-stamp)). This approach also increases resource costs, since you pay for each namespace you provision.
 
@@ -113,20 +114,27 @@ Partitioning is available when you deploy namespaces with specific SKUs. For mor
 
 See [Partitioned queues and topics](/azure/service-bus-messaging/service-bus-partitioning).
 
+### Automatic update of messaging units
+
+Service Bus premium namespaces can automatically adjust the number of messaging units (MUs) assigned to a namespace. Enabling this feature allows the namespace to elastically scale based on load. Elastic scaling can be useful in shared namespace multitenant designs to reduce the risk of [Noisy Neighbor](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) problems without requiring manual intervention.
+
+See [Automatically update messaging units in Azure Service Bus](/azure/service-bus-messaging/automate-update-messaging-units).
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
-* [Will Velida](https://linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
+- [Will Velida](https://linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
 
 Other contributors:
 
-* [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
-* [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz) | Principal Customer Engineer, FastTrack for Azure
-* [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
-* [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz) | Principal Customer Engineer, FastTrack for Azure
+- [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Solution Architect, Data & AI
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

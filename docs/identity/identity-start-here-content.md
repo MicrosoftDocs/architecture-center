@@ -114,7 +114,7 @@ The following resources provide practical recommendations and information for sp
 
 ### Information for Amazon Web Services (AWS) and Google Cloud professionals
 
-- [Multi-cloud security and identity with Azure and Amazon Web Services (AWS)][Multi-cloud security and identity with Azure and Amazon Web Services (AWS)]
+- [Multi-cloud identity with Azure and Amazon Web Services (AWS)](../aws-professional/security-identity.md)
 - [Microsoft Entra identity management and access management for AWS][Azure Active Directory identity management and access management for AWS]
 - [Google Cloud to Azure services comparison—Security and identity][Google Cloud to Azure services comparison—Security and identity]
 
@@ -150,7 +150,6 @@ The following resources provide practical recommendations and information for sp
 [Migrate application authentication to Azure Active Directory]: /azure/active-directory/manage-apps/migrate-application-authentication-to-azure-active-directory?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Move application authentication to Azure Active Directory]: /azure/active-directory/manage-apps/migrate-adfs-apps-to-azure?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [MS-500 part 1 - Implement and manage identity and access]: /training/paths/implement-manage-identity-access?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-[Multi-cloud security and identity with Azure and Amazon Web Services (AWS)]: ../aws-professional/security-identity.md
 [Resource organization]: /azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Resources for migrating applications to Azure Active Directory]: /azure/active-directory/manage-apps/migration-resources?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Review the application activity report]: /azure/active-directory/manage-apps/migrate-adfs-application-activity?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
