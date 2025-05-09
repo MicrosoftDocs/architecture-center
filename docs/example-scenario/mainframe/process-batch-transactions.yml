@@ -2,9 +2,9 @@
 metadata:
   title: High-volume batch transaction processing
   description: Use Azure Kubernetes Service (AKS) and Azure Service Bus to implement high-volume batch transaction processing.
-  author: RobBagby
-  ms.author: pnp
-  ms.date: 07/25/2022
+  author: bhbandam
+  ms.author: bhbandam
+  ms.date: 05/08/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom:
