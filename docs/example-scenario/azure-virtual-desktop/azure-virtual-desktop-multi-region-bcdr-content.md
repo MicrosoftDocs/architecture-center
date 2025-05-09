@@ -53,7 +53,7 @@ For detailed guidance on your network topology, you can use the Azure Cloud Adop
 - [Virtual WAN network topology (managed by Microsoft)](/azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology)
 - [Network topology and connectivity for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-network-topology-and-connectivity)
 
-In both models, deploy the primary Azure Virtual Desktop host pool and the secondary disaster recovery environment inside different spoke virtual networks and connect them to each hub in the same region. Place one hub in the primary location, one hub in the secondary location, and then establish connectivity between the two.
+In both personal or pooled scenarios, deploy the primary Azure Virtual Desktop host pool and the secondary disaster recovery environment inside different spoke virtual networks and connect them to each hub in the same region. Place one hub in the primary location, one hub in the secondary location, and then establish connectivity between the two.
 
 The hub eventually provides hybrid connectivity to on-premises resources, firewall services, identity resources like Active Directory Domain Controllers, and management resources like Log Analytics.
 
