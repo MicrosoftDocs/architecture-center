@@ -2,8 +2,8 @@
 metadata:
   title: Rehost mainframe applications by using NTT DATA UniKix
   description: Improve efficiency and cut costs by running mainframe applications and workloads on Azure. Use UniKix software from NTT DATA to rehost legacy assets.
-  author: RobBagby
-  ms.author: pnp
+  author: bhbandam
+  ms.author: bhbandam
   ms.date: 12/01/2023
   ms.topic: example-scenario
   ms.subservice: example-scenario

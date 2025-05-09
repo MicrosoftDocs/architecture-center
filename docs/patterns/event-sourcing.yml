@@ -10,7 +10,7 @@ metadata:
 azureCategories:
   - web
 products:
-  - office-bookings
+  - azure
 name: Event Sourcing pattern
 summary: Use an append-only store to record the full series of events that describe actions taken on data in a domain.
 thumbnailUrl: /azure/architecture/browse/thumbs/event-sourcing-overview.png
