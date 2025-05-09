@@ -7,11 +7,6 @@ ms.date: 04/11/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
-products:
-  - azure
-  - azure-openai
-categories:
-  - ai-machine-learning
 ms.custom:
   - arb-saas
   - arb-aiml
