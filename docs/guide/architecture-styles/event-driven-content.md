@@ -95,7 +95,7 @@ The benefits of this architecture are:
 
 - A request is only visible to the request-handling component. But events are often visible to multiple components in a workload, even if those components don't or aren't meant to consume them. To operate with an "assume breach" mindset, be mindful of what information you include in events to prevent unintended information exposure.
 
-- Many applications use event-driven architecture as their primary architecture. You can combine this approach with other architectural styles to create a hybrid architecture. Typical combinations include [microservices](./microservices.yml) and [pipes and filters](../../patterns/pipes-and-filters.yml). Integrate event-driven architecture to enhance system performance by eliminating bottlenecks and providing [back pressure](https://wikipedia.org/wiki/Back_pressure) during high request volumes.
+- Many applications use event-driven architecture as their primary architecture. You can combine this approach with other architectural styles to create a hybrid architecture. Typical combinations include [microservices](./microservices.md) and [pipes and filters](../../patterns/pipes-and-filters.yml). Integrate event-driven architecture to enhance system performance by eliminating bottlenecks and providing [back pressure](https://wikipedia.org/wiki/Back_pressure) during high request volumes.
 
 - [Specific domains](../../microservices/model/domain-analysis.md) often span multiple event producers, consumers, or event channels. Changes to a particular domain might affect many components.
 

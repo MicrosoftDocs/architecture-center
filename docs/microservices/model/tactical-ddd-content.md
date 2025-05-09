@@ -88,7 +88,7 @@ The next step is to define the boundaries for each microservice.
 
 ## Related resources
 
-- [Microservices architecture design](../../microservices/index.yml)
+- [Microservices architecture design](../../microservices.md)
 - [Design a microservices architecture](../../microservices/design/index.yml)
 - [Using domain analysis to model microservices](domain-analysis.md)
 - [Choose an Azure compute option for microservices](../../microservices/design/compute-options.md)

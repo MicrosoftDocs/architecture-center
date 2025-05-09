@@ -118,5 +118,5 @@ Here are some of the types of challenges to consider when selecting an architect
 - [Architecture for startups](/azure/architecture/guide/startups/startup-architecture)
 
 [ball-of-mud]: https://en.wikipedia.org/wiki/Big_ball_of_mud
-[microservices]: ./microservices.yml
+[microservices]: ./microservices.md
 [n-tier]: ./n-tier.yml

@@ -111,6 +111,6 @@ A canary release is more complex to manage than either blue-green or rolling upd
 ## Related resources
 
 - [CI/CD for microservices on Kubernetes](./ci-cd-kubernetes.yml)
-- [Design a microservices architecture](index.yml)
+- [Design a microservices architecture](./microservices.md)
 - [Using domain analysis to model microservices](model/domain-analysis.md)
 

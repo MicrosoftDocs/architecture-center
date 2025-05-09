@@ -15,7 +15,7 @@ Microservices are a popular architectural style for building applications that a
 
 A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability within a bounded context. A bounded context is a natural division within a business and provides an explicit boundary within which a domain model exists.
 
-![Logical diagram of microservices architecture style.](./images/microservices-logical.png)
+![Logical diagram of microservices architecture style.](./includes/images/microservices-logical.png)
 
 ## What are microservices?
 
@@ -73,7 +73,7 @@ The benefits of microservices don't come for free. Here are some of the challeng
 
 - **Lack of governance**. The decentralized approach to building microservices has advantages, but it can also lead to problems. You might end up with so many different languages and frameworks that the application becomes hard to maintain. It might be useful to put some project-wide standards in place, without overly restricting teams' flexibility. This especially applies to cross-cutting functionality such as logging.
 
-- **Network congestion and latency**. The use of many small, granular services can result in more interservice communication. Also, if the chain of service dependencies gets too long (service A calls B, which calls C...), the additional latency can become a problem. You will need to design APIs carefully. Avoid overly chatty APIs, think about serialization formats, and look for places to use asynchronous communication patterns like [queue-based load leveling](../patterns/queue-based-load-leveling.yml).
+- **Network congestion and latency**. The use of many small, granular services can result in more interservice communication. Also, if the chain of service dependencies gets too long (service A calls B, which calls C...), the additional latency can become a problem. You will need to design APIs carefully. Avoid overly chatty APIs, think about serialization formats, and look for places to use asynchronous communication patterns like [queue-based load leveling](../../patterns/queue-based-load-leveling.yml).
 
 - **Data integrity**. Each microservice responsible for its own data persistence. As a result, data consistency across multiple services can be a challenge. Different services persist data at different times, using different technology, and with potentially different levels of success. When more than one microservices is involved in persisting new or changed date, it's unlikely that the complete data change could be considered an ACID transaction. Instead, the technique is more aligned to BASE (Basically Available, Soft state, and Eventually consistent). Embrace eventual consistency where possible.
 
@@ -109,21 +109,17 @@ The articles listed here present a structured approach for designing, building, 
 
 **Domain analysis.** To avoid some common pitfalls when designing microservices, use domain analysis to define your microservice boundaries. Follow these steps:
 
-1. [Use domain analysis to model microservices](./model/domain-analysis.md).
-1. [Use tactical DDD to design microservices](./model/tactical-ddd.yml).
-1. [Identify microservice boundaries](./model/microservice-boundaries.yml).
+1. [Use domain analysis to model microservices](../../microservices/model/domain-analysis.md).
+1. [Use tactical DDD to design microservices](../../microservices/model/tactical-ddd.yml).
+1. [Identify microservice boundaries](../../microservices/model/microservice-boundaries.yml).
 
-**Design the services**. Microservices require a different approach to designing and building applications. For more information, see [Designing a microservices architecture](./design/index.yml).
+**Design the services**. Microservices require a different approach to designing and building applications. For more information, see [Designing a microservices architecture](../../microservices/design/index.yml).
 
 **Operate in production**. Because microservices architectures are distributed, you must have robust operations for deployment and monitoring.
 
-- [CI/CD for microservices architectures](./ci-cd.yml)
-- [Build a CI/CD pipeline for microservices on Kubernetes](./ci-cd-kubernetes.yml)
+- [CI/CD for microservices architectures](../../microservices/ci-cd.yml)
+- [Build a CI/CD pipeline for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.yml)
 
 ## Microservices reference architectures for Azure
 
-- [Microservices architecture on Azure Kubernetes Service (AKS)](../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-
-## Next steps
-
-For detailed guidance about building a microservices architecture on Azure, see [Designing, building, and operating microservices on Azure](../../microservices/index.yml).
+- [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
