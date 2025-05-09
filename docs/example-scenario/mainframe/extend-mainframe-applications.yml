@@ -4,7 +4,7 @@ metadata:
   description: Extend your mainframe applications to Azure by using the Verastream Host Integrator (VHI). VHI simplifies mainframe and host-based application functionality into a web service.
   author: bhbandam
   ms.author: bhbandam
-  ms.date: 05/06/2025
+  ms.date: 07/10/2024
   ms.topic: conceptual
   ms.subservice: example-scenario
 azureCategories:
