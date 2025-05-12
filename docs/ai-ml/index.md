@@ -2,7 +2,7 @@
 title: AI Architecture Design
 description: Get started with AI. Use high-level architectural types, see Azure AI platform offerings, and find customer success stories.
 author: anaharris-ms
-ms.author: anaharris
+ms.author: pnp
 ms.date: 01/31/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot

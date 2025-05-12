@@ -2,7 +2,7 @@
 title: Build for business needs
 description: Use these recommendations to design and build cloud applications that meet functional and nonfunctional business requirements for performance, availability, scalability, growth, and cost management.
 author: RobBagby
-ms.author: robbag
+ms.author: pnp
 ms.date: 07/25/2023
 ms.topic: conceptual
 ms.subservice: architecture-guide

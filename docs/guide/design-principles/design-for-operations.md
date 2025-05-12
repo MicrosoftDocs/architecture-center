@@ -2,7 +2,7 @@
 title: Design for Operations
 description: Learn about functions of the operations team for cloud-based applications, including deployment, monitoring, incident response, and security auditing.
 author: RobBagby
-ms.author: robbag
+ms.author: pnp
 ms.date: 08/30/2018
 ms.topic: conceptual
 ms.subservice: architecture-guide

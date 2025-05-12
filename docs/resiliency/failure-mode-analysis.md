@@ -2,7 +2,7 @@
 title: Failure mode analysis
 description: Get information about doing a failure mode analysis (FMA) for cloud solutions that are based on Azure.
 author: claytonsiemens77
-ms.author: csiemens
+ms.author: pnp
 ms.date: 07/25/2023
 ms.topic: conceptual
 ms.subservice: architecture-guide

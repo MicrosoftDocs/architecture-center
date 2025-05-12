@@ -2,7 +2,7 @@
 metadata:
   title: Health Endpoint Monitoring pattern
   description: Implement the functional checks of the Health Endpoint Monitoring pattern. Use external tools to check apps at regular intervals through exposed endpoints.
-  ms.author: robbag
+  ms.author: pnp
   author: RobBagby
   ms.date: 07/28/2022
   ms.topic: design-pattern

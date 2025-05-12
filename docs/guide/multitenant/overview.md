@@ -2,7 +2,7 @@
 title: Architect Multitenant Solutions on Azure
 description: Learn how to build multitenant solutions, including B2B, B2C, and enterprise-wide applications, on Azure by using the guidance that this series provides.
 author: johndowns
-ms.author: jodowns
+ms.author: pnp
 ms.date: 04/17/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
