@@ -196,5 +196,4 @@ Other contributor:
 - [Refactor mainframe applications with Advanced](refactor-mainframe-applications-advanced.yml)
 - [Refactor mainframe computer systems that run Adabas & Natural](refactor-adabas-aks.yml)
 - [Rehost mainframe applications to Azure with Raincode compilers](../..//reference-architectures/app-modernization/raincode-reference-architecture.yml)
-- [Use LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment](lzlabs-software-defined-mainframe-in-azure.yml)
 - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)

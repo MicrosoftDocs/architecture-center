@@ -45,8 +45,8 @@ From the perspective of infrastructure, this architecture provides the following
 
 The following services typically aren't necessary, but they're effective alternatives:
 
-- [Azure NetApp Files](https://azure.microsoft.com/en-us/services/netapp) as a replacement for Azure Files. Azure NetApp Files supports of any type of workload with high availability and high performance.
-- [Oracle Database on Azure](https://azure.microsoft.com/en-us/solutions/oracle) if you prefer that to SQL Managed Instance or Db2 Warehouse.
+- [Azure NetApp Files](https://azure.microsoft.com/services/netapp) as a replacement for Azure Files. Azure NetApp Files supports of any type of workload with high availability and high performance.
+- [Oracle Database on Azure](https://azure.microsoft.com/solutions/oracle) if you prefer that to SQL Managed Instance or Db2 Warehouse.
 - [OpenShift Data Foundation](https://www.redhat.com/en/technologies/cloud-computing/openshift-data-foundation) if you want to use Db2 Warehouse on OpenShift Data Foundation.
 
 ## Scenario details
