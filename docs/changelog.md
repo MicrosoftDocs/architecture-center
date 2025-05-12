@@ -24,7 +24,7 @@ The following new and updated articles have recently been published in the Azure
 
 ## May 2025
 
-### New articles
+### New article
 
 - [Extend Mainframes to Digital Channels by Using Standards-Based REST APIs](./example-scenario/mainframe/extend-mainframes-rest-apis.yml)
 
