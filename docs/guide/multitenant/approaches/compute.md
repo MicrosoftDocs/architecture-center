@@ -25,7 +25,7 @@ Both multitenancy and the isolation model that you choose affect the scaling, pe
 
 Systems must perform adequately as demand changes. As the number of tenants and traffic increase, you might need to scale your resources to match the growing demand and maintain acceptable performance. Similarly, when the number of active users or the amount of traffic decreases, you should automatically reduce compute capacity to lower costs. However, you should minimize any disruption for users when you adjust capacity.
 
-If you deploy dedicated resources for each tenant, you have the flexibility to scale each tenant's resources independently. In a solution where compute resources are shared among multiple tenants, scaling those resources allows all tenants to benefit from the increased capacity. However, all tenants suffer when the scale is insufficient to handle their overall load. For more information, see [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml).
+If you deploy dedicated resources for each tenant, you have the flexibility to scale each tenant's resources independently. In a solution where compute resources are shared among multiple tenants, scaling those resources allows all tenants to benefit from the increased capacity. However, all tenants suffer when the scale is insufficient to handle their overall load. For more information, see [Noisy Neighbor antipattern](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml).
 
 When you build cloud solutions, you can choose whether to [scale horizontally or vertically](/azure/architecture/framework/scalability/design-scale). In a multitenant solution that has a growing number of tenants, scaling horizontally typically provides greater flexibility and a higher overall scale ceiling.
 
@@ -37,7 +37,7 @@ Regardless of the approach that you use to scale, you typically need to plan the
 
 ### State
 
-Compute resources can be *stateless*, or they can be *stateful*. Stateless components don't maintain any data between requests. From a scalability perspective, stateless components are often easy to scale out because you can quickly add new workers, instances, or nodes. Stateless components can also immediately start to process requests. If your architecture supports it, you can also repurpose instances that are assigned to one tenant and allocate them to another tenant.
+Compute resources can be *stateless*, or they can be *stateful*. Stateless components don't maintain any data between requests. From a scalability perspective, stateless components are often easy to scale out because you can quickly add new workers, instances, or nodes. Stateless components can also immediately start to process requests. If your architecture supports instance repurposing, you can also reassign instances from one tenant to another tenant.
 
 Stateful resources can be further subdivided based on the type of state that they maintain. *Persistent state* is data that needs to be stored permanently. In cloud solutions, avoid storing a persistent state in your compute tier. Instead, use storage services like databases or storage accounts. *Transient state* is data that's stored temporarily. It includes read-only in-memory caches and the storage of temporary files on local disks.
 
@@ -52,7 +52,7 @@ It's also possible to store data in external caches, such as Azure Cache for Red
 
 ### Isolation
 
-When you design a multitenant compute tier, you have several options for tenant isolation. You can deploy [shared compute resources](#compute-resource-consolidation-pattern)for all tenants, [dedicated compute resources](#dedicated-compute-resources-for-each-tenant) for individual tenants, or a [semi-isolated approach](#semi-isolated-compute-resources) that falls between these extremes. Each option has trade-offs. To help you decide which option best suits your solution, consider your requirements for isolation.
+When you design a multitenant compute tier, you have several options for tenant isolation. You can deploy [shared compute resources](#compute-resource-consolidation-pattern) for all tenants, [dedicated compute resources](#dedicated-compute-resources-for-each-tenant) for individual tenants, or a [semi-isolated approach](#semi-isolated-compute-resources) that falls between these extremes. Each option has trade-offs. To help you decide which option best suits your solution, consider your requirements for isolation.
 
 You might be concerned with the logical isolation of tenants and how to separate the management responsibilities or policies that are applied to each tenant. Alternatively, you might need to deploy distinct resource configurations for specific tenants, such as deploying a specific virtual machine (VM) SKU to suit a tenant's workload.
 
@@ -76,11 +76,11 @@ Azure compute services provide various capabilities that scale workloads. [Many 
 
 ### Deployment Stamps pattern
 
-For more information about how you can use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) to support a multitenant solution, see [Overview](overview.yml#deployment-stamps-pattern).
+For more information about how you can use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) to support a multitenant solution, see [Architectural approaches for a multitenant solution](overview.yml#deployment-stamps-pattern).
 
 ### Compute Resource Consolidation pattern
 
-The [Compute Resource Consolidation pattern](../../../patterns/compute-resource-consolidation.yml) helps you achieve a higher density of tenants to compute infrastructure by sharing the underlying compute resources. By sharing compute resources, you're often able to reduce the direct cost of those resources. Also, your management costs are often lower because there are fewer components to manage.
+The [Compute Resource Consolidation pattern](../../../patterns/compute-resource-consolidation.yml) helps you achieve a higher density of tenants to compute infrastructure by sharing the underlying compute resources. By sharing compute resources, you can reduce the direct cost of those resources. Also, your management costs are often lower because there are fewer components to manage.
 
 However, compute resource consolidation increases the likelihood of the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Any tenant's workload might consume a disproportionate amount of the compute capacity that's available. You can often mitigate this risk by ensuring that you scale your solution appropriately and by applying controls like quotas and API limits to avoid tenants that consume more than their fair share of the capacity.
 
@@ -88,9 +88,9 @@ This pattern is achieved in different ways, depending on the compute service tha
 
 - **App Service and Azure Functions:** Deploy shared App Service plans, which represent the hosting server infrastructure.
 
-- **Azure Container Apps:** Deploy [shared environments](/azure/container-apps/environment).
+- **Container Apps:** Deploy [shared environments](/azure/container-apps/environment).
 
-- **AKS:** Deploy shared pods, with a multitenancy-aware application.
+- **AKS:** Deploy shared pods with a multitenancy-aware application.
 
 - **VMs:** Deploy a single set of VMs for all tenants to use.
 
@@ -101,7 +101,7 @@ You can also deploy dedicated compute resources for each tenant. Dedicated resou
 Depending on the Azure compute services that you use, you might need to deploy different dedicated resources:
 
 - **App Service and Azure Functions:** Deploy separate App Service plans for each tenant.
-- **Azure Container Apps:** Deploy separate environments for each tenant.
+- **Container Apps:** Deploy separate environments for each tenant.
 - **AKS:** Deploy dedicated clusters for each tenant.
 - **VMs:** Deploy dedicated VMs for each tenant.
 
@@ -113,7 +113,7 @@ Semi-isolated approaches require you to deploy aspects of the solution in an iso
 
 When you use App Service and Azure Functions, you can deploy distinct applications for each tenant and host the applications on shared App Service plans. This approach reduces the cost of your compute tier because App Service plans represent the unit of billing. It also enables you to apply distinct configuration and policies to each application. However, this approach introduces the risk of the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml).
 
-You can use Azure Container Apps to deploy multiple applications to a shared environment and then to use Dapr and other tools to configure each application separately.
+You can use Container Apps to deploy multiple applications to a shared environment and then to use Dapr and other tools to configure each application separately.
 
 AKS, and Kubernetes more broadly, provide various options for multitenancy:
 
@@ -135,7 +135,7 @@ When you deploy components that tenants share, the [noisy neighbor problem](../.
 
 ### Cross-tenant data leakage
 
-Compute tiers can be subject to cross-tenant data leakage if they aren't properly handled. This risk isn't usually something that you need to consider when you use a multitenant service on Azure because Microsoft provides protections at the platform layer. However, when you develop your own multitenant application, consider whether any shared resources (such as local disk caches, RAM, and external caches) might contain data that another tenant can accidentally view or modify.
+Compute tiers can be subject to cross-tenant data leakage if they aren't properly handled. This risk isn't usually something that you need to consider when you use a multitenant service on Azure because Microsoft provides protections at the platform layer. However, when you develop your own multitenant application, consider whether any shared resources, such as local disk caches, RAM, and external caches, might contain data that another tenant can accidentally view or modify.
 
 ### Busy Front End antipattern
 
@@ -145,7 +145,7 @@ Instead, consider using asynchronous processing by using queues or other messagi
 
 ### Inelastic or insufficient scaling
 
-Multitenant solutions are often subject to bursty scale patterns. Shared components are very susceptible to this problem because the scope for burst is higher, and the effect is greater when you have more tenants that has distinct usage patterns.
+Multitenant solutions are often subject to bursty scale patterns. Shared components are very susceptible to this problem because the scope for burst is higher, and the effect is greater when you have more tenants that have distinct usage patterns.
 
 Ensure that you take advantage of the elasticity and scale of the cloud. Consider whether you should use [horizontal or vertical scaling](/azure/architecture/framework/scalability/design-scale), and use autoscaling to automatically handle spikes in load. Test your solution to understand how it operates under different levels of load. Ensure that you include the load volumes that are expected in production, and your expected growth. You can use a fully managed service, such as [Load Testing](/azure/load-testing/overview-what-is-azure-load-testing), to learn how your application operates under stress.
 

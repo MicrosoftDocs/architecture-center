@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus Considerations for Multitenancy
-description: This article describes the features of Azure Service Bus that are useful when you use it in multitenant systems. It provides links to guidance for how to use Service Bus in a multitenant solution.
+description: This article describes the features of Azure Service Bus that are useful in multitenant systems. It provides links to guidance for how to use Service Bus in a multitenant solution.
 author: PlagueHO
 ms.author: dascottr
 ms.date: 05/02/2025
@@ -24,12 +24,12 @@ The following table summarizes the differences between the main tenancy models f
 | Considerations | Namespace for each tenant | Shared namespace, separate topics or queues for each tenant | Shared namespace, topics or queues between tenants |
 | :--- | :--- | :--- | :--- |
 | Data isolation | High | Medium  | None |
-| Performance isolation | Highest. Manage performance needs based on each tenant's requirements. | Medium. Potentially subject to noisy neighbor problems. | Low. Potentially subject to noisy neighbor problems |
-| Deployment complexity | Medium. Be aware of [Service Bus quotas and limits](/azure/service-bus-messaging/service-bus-quotas) at the subscription level. | Medium. Message entities must be deployed separately for each tenant. Be aware of [Service Bus quotas and limits](/azure/service-bus-messaging/service-bus-quotas) at the namespace level | Low |
-| Operational complexity | High. Need to manage namespaces separately for each tenant | Medium. Granular management of message entities might be required depending on tenant  | Low |
+| Performance isolation | Highest. Manage performance needs based on each tenant's requirements. | Medium. Potentially subject to noisy neighbor problems. | Low. Potentially subject to noisy neighbor problems. |
+| Deployment complexity | Medium. Be aware of [Service Bus quotas and limits](/azure/service-bus-messaging/service-bus-quotas) at the subscription level. | Medium. Message entities must be deployed separately for each tenant. Be aware of [Service Bus quotas and limits](/azure/service-bus-messaging/service-bus-quotas) at the namespace level. | Low |
+| Operational complexity | High. Need to manage namespaces separately for each tenant. | Medium. Granular management of message entities might be required depending on tenant.  | Low |
 | Example scenario | Individual application instances for each tenant | Dedicated queues for each tenant | Large multitenant solution with a shared application tier and one or more shared queues and topics |
 
-### Dedicated namespace per tenant
+### Dedicated namespace for each tenant
 
 Within your solution, you can use a specific Service Bus namespace for each tenant. This deployment approach provides your solution with the maximum level of isolation, with the ability to provide consistent performance for each tenant.
 
@@ -45,7 +45,7 @@ You can also fine-tune messaging capabilities for each tenant based on their nee
 
 - Configure [geo‑disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr) or [geo-replication](/azure/service-bus-messaging/service-bus-geo-replication) to replicate the metadata and data of the namespace to another region.
 
-The disadvantage to this isolation model is that, as the number of tenants grows within your system over time, the operational complexity of managing your namespaces also increases. If you reach the maximum number of namespaces for each Azure subscription, you could deploy namespaces across different subscriptions. For more information, see [Deployment Stamp pattern](/azure/architecture/patterns/deployment-stamp). This approach also increases resource costs because you pay for each namespace that you provision.
+The disadvantage to this isolation model is that as the number of tenants grows within your system over time, the operational complexity of managing your namespaces also increases. If you reach the maximum number of namespaces for each Azure subscription, you could deploy namespaces across different subscriptions. For more information, see [Deployment Stamp pattern](/azure/architecture/patterns/deployment-stamp). This approach also increases resource costs because you pay for each namespace that you provision.
 
 ### Separate topics and queues in a shared namespace
 
@@ -53,9 +53,9 @@ You can isolate your tenants on a messaging entity level. For example, each tena
 
 As the number of tenants grows within your system, the number of queues, topics, or subscriptions also increases to accommodate each tenant. This growth might result in higher operational costs and lower organizational agility.
 
-Because the namespace is shared across all tenants, [noisy neighbor](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) problems are more likely with this approach. For example, it's possible that a single tenant's messaging entities could consume a disproportionate amount of the namespace resources and affect all the other tenants. Service Bus namespaces have limits around the MU capacity and the number of concurrent connections to a namespace. Consider whether a single tenant might consume more than their fair share of these resources.
+Because the namespace is shared across all tenants, [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) are more likely with this approach. For example, it's possible that a single tenant's messaging entities could consume a disproportionate amount of the namespace resources and affect all the other tenants. Service Bus namespaces have limits around the MU capacity and the number of concurrent connections to a namespace. Consider whether a single tenant might consume more than their fair share of these resources.
 
-There are also [limits](/azure/service-bus-messaging/service-bus-quotas) on how many topics and queues you can provision within a single namespace. However, these limits are higher than the limit of namespaces in a subscription.
+There are also [limits](/azure/service-bus-messaging/service-bus-quotas) on the number of topics and queues you can provision within a single namespace. However, these limits are higher than the limit of namespaces in a subscription.
 
 ### Shared topics or queues
 
@@ -78,7 +78,7 @@ For more information, see [Authenticate a managed identity by using Microsoft En
 
 ### Customer-managed keys
 
-If your tenants need to use their own keys to encrypt and decrypt messages, you can configure customer-managed keys in Service Bus premium namespaces. This feature requires that you adopt the [dedicated namespace-per-tenant](#dedicated-namespace-per-tenant) isolation model.
+If your tenants need to use their own keys to encrypt and decrypt messages, you can configure customer-managed keys in Service Bus premium namespaces. This feature requires that you adopt the [dedicated namespace-per-tenant](#dedicated-namespace-for-each-tenant) isolation model.
 
 For more information, see [Configure customer-managed keys for encrypting Service Bus data at rest](/azure/service-bus-messaging/configure-customer-managed-key).
 
@@ -106,19 +106,17 @@ For more information, see [Suspend and reactivate messaging entities (disable)](
 
 ### Partitioning
 
-Partitions can be used to improve the throughput of your messaging entities by distributing the messages across multiple message brokers and message stores.
+You can use partitions to improve the throughput of your messaging entities by distributing the messages across multiple message brokers and message stores.
 
 You can assign a partition to a specific tenant by setting the message's partition key to that tenant's identifier. This approach ensures that Service Bus assigns the message to that tenant's partition. However, Service Bus has limits on the number of partitions that you can support on a single entity. For shared entities, consider using partition keys that are derived from the tenant ID. For example, you could use a hashing algorithm that converts tenant IDs to a fixed number of partition keys.
 
-Partitioning is available when you deploy namespaces with specific SKUs. For more information, see [Service Bus Premium and Standard messaging tiers](/azure/service-bus-messaging/service-bus-premium-messaging).
-
-For more information, see [Partitioned queues and topics](/azure/service-bus-messaging/service-bus-partitioning).
+Partitioning is available when you deploy namespaces with specific SKUs. For more information, see [Service Bus Premium messaging tiers](/azure/service-bus-messaging/service-bus-premium-messaging) and [Partitioned queues and topics](/azure/service-bus-messaging/service-bus-partitioning).
 
 ### Automatic update of MUs
 
-Service Bus premium namespaces can automatically adjust the number of MUs assigned to a namespace. Enabling this feature allows the namespace to elastically scale based on load. Elastic scaling can be useful in shared namespace multitenant designs to reduce the risk of [noisy neighbor](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) problems without requiring manual intervention.
+Service Bus premium namespaces can automatically adjust the number of MUs assigned to a namespace. Enable this feature to allow the namespace to elastically scale based on load. Elastic scaling can be useful in shared namespace multitenant designs to reduce the risk of [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) without requiring manual intervention.
 
-For more information, see [Automatically update MUs in Azure Service Bus](/azure/service-bus-messaging/automate-update-messaging-units).
+For more information, see [Automatically update MUs of a Service Bus namespace](/azure/service-bus-messaging/automate-update-messaging-units).
 
 ## Contributors
 

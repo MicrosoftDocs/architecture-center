@@ -32,11 +32,11 @@ The following table summarizes the differences between the main tenancy isolatio
 | Deployment complexity | Medium | Low to medium | Low |
 | Operational complexity | Medium | Low | Low |
 | Resource cost | High | Low | Low |
-| Example scenario | Runs hostile multitenant workloads in isolated environments for security and compliance |  Optimizes cost, networking resources, and operations for trusted multitenant applications | Implements a multitenant solution at the business-logic level |
+| Example scenario | Runs hostile multitenant workloads in isolated environments for security and compliance. |  Optimizes cost, networking resources, and operations for trusted multitenant applications. | Implements a multitenant solution at the business-logic level. |
 
 ### Shared container apps
 
-You might want to consider deploying shared container apps in a single Container Apps environment that's used for all your tenants.
+Consider deploying shared container apps in a single Container Apps environment that all your tenants use.
 
 :::image type="complex" border="false" source="./media/container-apps/shared-container-apps.svg" alt-text="Diagram that shows a shared Container Apps isolation model. All tenants share a single Container Apps environment and container apps." lightbox="./media/container-apps/shared-container-apps.svg":::
    The image shows Tenant A, Tenant B, and Tenant C. Three arrows point from each of these tenants to the Shared Container Apps environment section that contains the text Tenants A, B, C.
@@ -63,7 +63,7 @@ This isolation model ensures logical separation between tenants while providing 
 
 - **Cost efficiency.** By sharing a Container Apps environment, virtual network, and other attached resources like a Log Analytics workspace, you can generally reduce your overall cost and management complexity for each tenant.
 
-- **Separation of upgrades and deployments.** Each tenant's application binaries can be deployed and upgraded independently from the binaries of other container apps in the same environment. This approach can be helpful if you need to upgrade different tenants to specific versions of your code at different times.
+- **Separation of upgrades and deployments.** Each tenant's application binaries can be deployed and upgraded independently from the binaries of other container apps in the same environment. This approach can be useful if you need to upgrade different tenants to specific versions of your code at different times.
 
 - **Resource isolation.** Each container app within your environment is allocated its own CPU and memory resources. If a specific tenant requires more resources, you can allocate more CPU and memory to that tenant's specific container app. Keep in mind that there are [limits on total CPU and memory allocations](/azure/container-apps/containers#configuration) on container apps.
 
@@ -76,7 +76,7 @@ Container Apps has built-in support for Dapr, which uses a modular design to del
 
 ### One environment for each tenant
 
-You might consider deploying one Container Apps environment for each of your tenants. A [Container Apps environment](/azure/container-apps/environment) is the isolation boundary around a group of container apps. An environment provides compute and network isolation on the data plane. Each environment is deployed into its own virtual network. All apps within the environment share this virtual network. Each environment has its own Dapr and monitoring configuration.
+Consider deploying one Container Apps environment for each of your tenants. A [Container Apps environment](/azure/container-apps/environment) is the isolation boundary around a group of container apps. An environment provides compute and network isolation on the data plane. Each environment is deployed in to its own virtual network. All apps within the environment share this virtual network. Each environment has its own Dapr and monitoring configuration.
 
 :::image type="complex" border="false" source="./media/container-apps/environments-tenant.svg" alt-text="Diagram that shows a Container Apps isolation model in which each tenant gets its own Container Apps environment." lightbox="./media/container-apps/environments-tenant.svg":::
    The image contains icons that represent Tenant A, Tenant B, and Tenant C. Arrows point from these icons to their individual corresponding Container Apps environment. The three tenant environments are Tenant A, Tenant B, and Tenant C.
@@ -86,7 +86,7 @@ This approach provides the strongest level of data and performance isolation bec
 
 However, there are low [limits on the number of environments that you can deploy within a subscription for each region](/azure/container-apps/quotas). In some scenarios, you can increase these quotas by creating an [Azure support ticket](https://azure.microsoft.com/support/create-ticket).
 
-Be sure to know the expected growth in the number of tenants before you implement this isolation model. This approach often incurs a higher total cost of ownership and higher levels of deployment and operational complexity because of the extra resources that you need to deploy and manage.
+Ensure that you know the expected growth in the number of tenants before you implement this isolation model. This approach often incurs a higher total cost of ownership and higher levels of deployment and operational complexity because of the extra resources that you need to deploy and manage.
 
 ## Container Apps features that support multitenancy
 
@@ -124,13 +124,13 @@ For more information, see [Managed identities in Container Apps](/azure/containe
 
 Container Apps provides a dedicated plan that allows you to reserve dedicated resources for a tenant. This plan is useful for limiting the resources available to a tenant, which can be shared across multiple container apps. It also helps meet specific tenant requirements, such as higher memory-to-CPU ratios or GPU availability.
 
-For more information, see [Workload profiles](/azure/container-apps/workload-profiles-overview).
+For more information, see [Workload profiles in Container Apps](/azure/container-apps/workload-profiles-overview).
 
 ### Rule-based routing
 
 Rule‑based routing lets you direct inbound traffic to specific container apps or container app revisions. Requests can be routed based on the HTTP request path, and you can rewrite the path in the URL. This feature is useful for multitenant systems that need to [map requests](../considerations/map-requests.yml) to tenant‑specific container apps or revisions that use the path in the request. This capability is typically used with the [Tenant-specific container apps](#tenant-specific-container-apps) isolation model.
 
-For more information, see [Rule‑based traffic splitting and routing in Container Apps](/azure/container-apps/rule-based-routing).
+For more information, see [Use rule-based routing with Container Apps](/azure/container-apps/rule-based-routing).
 
 ## Contributors
 
