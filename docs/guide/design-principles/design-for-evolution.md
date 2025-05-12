@@ -2,7 +2,7 @@
 title: Design for change
 description: Use these recommendations to implement evolutionary design, which is key for continuous innovation. Microservices helps achieve an evolutionary design.
 author: RobBagby
-ms.author: robbag
+ms.author: pnp
 categories: azure
 ms.date: 08/30/2018
 ms.topic: conceptual

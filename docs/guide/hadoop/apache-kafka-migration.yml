@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Apache Kafka migration to Azure
+  title: Apache Kafka Migration to Azure
   description: Learn about Apache Kafka and about ways to migrate a Kafka implementation to Azure by using Azure services like HDInsight and Event Hubs.
   author: namrata01Apr
   ms.author: namratam
@@ -20,4 +20,4 @@ name: Apache Kafka migration to Azure
 summary: Learn about Apache Kafka and about ways to migrate a Kafka implementation to Azure by using Azure services like HDInsight and Event Hubs.
 thumbnailUrl: /azure/architecture/browse/thumbs/flowchart-kafka-azure-landing-targets-thumb.png
 content: |
-  [!include[](apache-kafka-migration-content.md)]
+  [!INCLUDE[](apache-kafka-migration-content.md)]

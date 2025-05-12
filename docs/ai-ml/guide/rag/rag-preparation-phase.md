@@ -2,7 +2,7 @@
 title: Develop a RAG Solution - Preparation Phase
 description: Learn about what to consider when you gather test documents and queries. Use this information to test and validate your chunking and prompt-engineering strategies.
 author: robbagby
-ms.author: robbag
+ms.author: pnp
 ms.date: 12/15/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot

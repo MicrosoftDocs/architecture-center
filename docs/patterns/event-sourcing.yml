@@ -2,7 +2,7 @@
 metadata:
   title: Event Sourcing pattern
   description: Use an append-only store to record the full series of events that describe actions taken on data in a domain.
-  ms.author: robbag
+  ms.author: pnp
   author: RobBagby
   ms.date: 1/15/2025
   ms.topic: design-pattern

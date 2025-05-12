@@ -1,7 +1,7 @@
 ---
 title: Extraneous Fetching antipattern
 description: Learn about ways to mitigate the Extraneous Fetching antipattern, the common design flaw of fetching more data than needed for a business operation.
-ms.author: robbag
+ms.author: pnp
 author: RobBagby
 categories: azure
 ms.date: 07/25/2022
