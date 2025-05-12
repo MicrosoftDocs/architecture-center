@@ -2,9 +2,9 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 05/06/2025
+ms.date: 05/12/2025
 ms.topic: conceptual
-ms.author: pnp
+ms.author: robbag
 categories: 
 - management-and-governance
 products:
@@ -24,8 +24,22 @@ The following new and updated articles have recently been published in the Azure
 
 ## May 2025
 
+### New articles
+
+- [Extend Mainframes to Digital Channels by Using Standards-Based REST APIs](./example-scenario/mainframe/extend-mainframes-rest-apis.yml)
+
 ### Updated articles
 
+- [Generative AI Operations for Organizations with MLOps Investments](./ai-ml/guide/genaiops-for-mlops.md)  ([#a3f82db38d](https://github.com/MicrosoftDocs/architecture-center/commit/a3f82db38d))
+- [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml)  ([#8c60960755](https://github.com/MicrosoftDocs/architecture-center/commit/8c60960755))
+- [Apache Kafka Migration to Azure](./guide/hadoop/apache-kafka-migration.yml)  ([#bc6d5e9cd8](https://github.com/MicrosoftDocs/architecture-center/commit/bc6d5e9cd8))
+- [Multitenancy Checklist on Azure](./guide/multitenant/checklist.md)  ([#6dd821802b](https://github.com/MicrosoftDocs/architecture-center/commit/6dd821802b))
+- [Architect Multitenant Solutions on Azure](./guide/multitenant/overview.md)  ([#6dd821802b](https://github.com/MicrosoftDocs/architecture-center/commit/6dd821802b))
+- [Related Resources for Multitenancy](./guide/multitenant/related-resources.md)  ([#6dd821802b](https://github.com/MicrosoftDocs/architecture-center/commit/6dd821802b))
+- [Move an IoT Hub-Based Solution from Test to Production](./example-scenario/iot/iot-move-to-production.yml)  ([#d6d45463f0](https://github.com/MicrosoftDocs/architecture-center/commit/d6d45463f0))
+- [Multitenancy and Azure SQL Database](./guide/multitenant/service/sql-database.md)  ([#b018dfd4c8](https://github.com/MicrosoftDocs/architecture-center/commit/b018dfd4c8))
+- [Automate Document Classification in Azure](./ai-ml/architecture/automate-document-classification-durable-functions.yml)  ([#071155e674](https://github.com/MicrosoftDocs/architecture-center/commit/071155e674))
+- [Web API Design Best Practices](./best-practices/api-design.md)  ([#ad86c398cd](https://github.com/MicrosoftDocs/architecture-center/commit/ad86c398cd))
 - [Architectural approaches for compute in multitenant solutions](./guide/multitenant/approaches/compute.md)  ([#eb72b53da2](https://github.com/MicrosoftDocs/architecture-center/commit/eb72b53da2))
 - [Considerations for using Azure Container Apps in a multitenant solution](./guide/multitenant/service/container-apps.md)  ([#eb72b53da2](https://github.com/MicrosoftDocs/architecture-center/commit/eb72b53da2))
 - [Azure Service Bus considerations for multitenancy](./guide/multitenant/service/service-bus.md)  ([#eb72b53da2](https://github.com/MicrosoftDocs/architecture-center/commit/eb72b53da2))
@@ -87,7 +101,6 @@ The following new and updated articles have recently been published in the Azure
 - [WordPress on Azure Kubernetes Service](./example-scenario/infrastructure/wordpress-container.yml)  ([#715c3bf500](https://github.com/MicrosoftDocs/architecture-center/commit/715c3bf500))
 - [Azure API Management landing zone architecture](./example-scenario/integration/app-gateway-internal-api-management-function.yml)  ([#715c3bf500](https://github.com/MicrosoftDocs/architecture-center/commit/715c3bf500))
 - [Extend mainframe applications to Azure by using Verastream Host Integrator](./example-scenario/mainframe/extend-mainframe-applications.yml)  ([#715c3bf500](https://github.com/MicrosoftDocs/architecture-center/commit/715c3bf500))
-- [Extend mainframes to digital channels by using standards-based REST APIs](./example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.yml)  ([#715c3bf500](https://github.com/MicrosoftDocs/architecture-center/commit/715c3bf500))
 - [Run HP-UX workloads in Azure with Stromasys Charon-PAR](./example-scenario/mainframe/hp-ux-stromasys-charon-par.yml)  ([#715c3bf500](https://github.com/MicrosoftDocs/architecture-center/commit/715c3bf500))
 - [IBM System i (AS/400) to Azure using Infinite i](./example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml)  ([#715c3bf500](https://github.com/MicrosoftDocs/architecture-center/commit/715c3bf500))
 - [Choose Azure AI Image and Video Processing Technology](./data-guide/ai-services/image-video-processing.md)  ([#92dba45459](https://github.com/MicrosoftDocs/architecture-center/commit/92dba45459))
@@ -119,7 +132,7 @@ The following new and updated articles have recently been published in the Azure
 - [Core startup stack architecture](./example-scenario/startups/core-startup-stack.yml)  ([#59d4a8cec6](https://github.com/MicrosoftDocs/architecture-center/commit/59d4a8cec6))
 - [Unisys ClearPath Forward OS 2200 Enterprise Server Virtualization on Azure](./mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)  ([#a95ed47c51](https://github.com/MicrosoftDocs/architecture-center/commit/a95ed47c51))
 - [Multitenancy and Azure OpenAI](./guide/multitenant/service/openai.md)  ([#4cd26a7fc3](https://github.com/MicrosoftDocs/architecture-center/commit/4cd26a7fc3))
-- [Generative AI Ops for Organizations with MLOps Investments](./ai-ml/guide/genaiops-for-mlops.md)  ([#9ef1418ce8](https://github.com/MicrosoftDocs/architecture-center/commit/9ef1418ce8))
+- [Generative AI Operations for Organizations with MLOps Investments](./ai-ml/guide/genaiops-for-mlops.md)  ([#9ef1418ce8](https://github.com/MicrosoftDocs/architecture-center/commit/9ef1418ce8))
 - [Cloud Design Patterns](./patterns/index.md)  ([#03c62aa25d](https://github.com/MicrosoftDocs/architecture-center/commit/03c62aa25d))
 - [Design and Develop a RAG Solution](./ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.md)  ([#70840c3465](https://github.com/MicrosoftDocs/architecture-center/commit/70840c3465))
 - [Use Azure Front Door to Secure AKS Workloads](./example-scenario/aks-front-door/aks-front-door.yml)  ([#3882965be5](https://github.com/MicrosoftDocs/architecture-center/commit/3882965be5))
@@ -158,7 +171,7 @@ The following new and updated articles have recently been published in the Azure
 - [Rehost IMS DC and IMS DB on Azure by Using Raincode IMSql](./example-scenario/mainframe/rehost-ims-raincode-imsql.yml)  ([#7ae720db01](https://github.com/MicrosoftDocs/architecture-center/commit/7ae720db01))
 - [Replicate and Sync Mainframe Data to Azure](./reference-architectures/migration/sync-mainframe-data-with-azure.yml)  ([#7ae720db01](https://github.com/MicrosoftDocs/architecture-center/commit/7ae720db01))
 - [Manage and Deploy Kubernetes in Azure Arc](./hybrid/arc-hybrid-kubernetes.yml)  ([#4979b699bb](https://github.com/MicrosoftDocs/architecture-center/commit/4979b699bb))
-- [Web API design best practices](./best-practices/api-design.md)  ([#86e26d59cb](https://github.com/MicrosoftDocs/architecture-center/commit/86e26d59cb))
+- [Web API Design Best Practices](./best-practices/api-design.md)  ([#86e26d59cb](https://github.com/MicrosoftDocs/architecture-center/commit/86e26d59cb))
 - [Choose an Azure storage service](./guide/technology-choices/storage-options.md)  ([#6b81270854](https://github.com/MicrosoftDocs/architecture-center/commit/6b81270854))
 - [Choose an analytical data store](./data-guide/technology-choices/analytical-data-stores.md)  ([#ca956df8a3](https://github.com/MicrosoftDocs/architecture-center/commit/ca956df8a3))
 - [Choose an Azure AI Targeted Language Processing Technology](./data-guide/ai-services/targeted-language-processing.md)  ([#f06888ac2d](https://github.com/MicrosoftDocs/architecture-center/commit/f06888ac2d))
@@ -193,7 +206,7 @@ The following new and updated articles have recently been published in the Azure
 - [Connect an On-Premises Network to Azure using ExpressRoute](./reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)  ([#873579d8a1](https://github.com/MicrosoftDocs/architecture-center/commit/873579d8a1))
 - [Real-time analytics on data with Azure Service Bus and Azure Data Explorer](./solution-ideas/articles/analytics-service-bus.yml)  ([#aed5875e65](https://github.com/MicrosoftDocs/architecture-center/commit/aed5875e65))
 - [Azure Virtual Desktop for the enterprise](./example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml)  ([#ddfe4af7cd](https://github.com/MicrosoftDocs/architecture-center/commit/ddfe4af7cd))
-- [Automate document classification in Azure](./ai-ml/architecture/automate-document-classification-durable-functions.yml)  ([#7429a1e037](https://github.com/MicrosoftDocs/architecture-center/commit/7429a1e037))
+- [Automate Document Classification in Azure](./ai-ml/architecture/automate-document-classification-durable-functions.yml)  ([#7429a1e037](https://github.com/MicrosoftDocs/architecture-center/commit/7429a1e037))
 - [Secure a data lakehouse on Synapse](./example-scenario/analytics/secure-data-lakehouse-synapse.yml)  ([#a6cb7e4d35](https://github.com/MicrosoftDocs/architecture-center/commit/a6cb7e4d35))
 - [Use Azure Front Door to Secure AKS Workloads](./example-scenario/aks-front-door/aks-front-door.yml)  ([#f06b42ed86](https://github.com/MicrosoftDocs/architecture-center/commit/f06b42ed86))
 - [Computer Forensics Chain of Custody in Azure](./example-scenario/forensics/index.yml)  ([#954de97b8c](https://github.com/MicrosoftDocs/architecture-center/commit/954de97b8c))
