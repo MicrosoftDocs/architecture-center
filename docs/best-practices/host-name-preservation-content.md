@@ -132,7 +132,7 @@ Most reverse proxies allow you to configure which host name is passed to the bac
 > [!NOTE]
 > In all cases, you can also choose to override the host name with an explicitly defined custom domain rather than taking it from the incoming request. If the application uses only a single domain, that approach might work fine. If the same application deployment accepts requests from multiple domains (for example, in multitenant scenarios), you can't statically define a single domain. You should take the host name from the incoming request (again, unless the application is explicitly coded to take additional HTTP headers into account). Therefore, the general recommendation is that you shouldn't override the host name at all. Pass the incoming host name unmodified to the back end.
 
-Whether you preserve or override the host name in the reverse proxy, ensure that the backend server is configured to accept the request in your format. Refer to Back-end Configuration for more information.
+Whether you preserve or override the host name in the reverse proxy, ensure that the [back-end server is configured](#back-end-configuration) to accept the request in your format.
 
 #### Application Gateway
 
