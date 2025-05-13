@@ -105,7 +105,7 @@ items:
         - name: Implement advanced monitoring for Azure OpenAI through a gateway
           href: guide/azure-openai-gateway-monitoring.yml
       - name: Design to support foundation model lifecycles
-        href: guide/managing-foundational-models-lifecycle.md
+        href: guide/manage-foundation-models-lifecycle.md
     - name: OpenAI
       items:
       - name: Design architectures
@@ -149,4 +149,4 @@ items:
           - name: Implement advanced monitoring for Azure OpenAI through a gateway
             href: guide/azure-openai-gateway-monitoring.yml
         - name: Design to support foundation model lifecycles
-          href: guide/managing-foundational-models-lifecycle.md
+          href: guide/manage-foundation-models-lifecycle.md
