@@ -69,7 +69,7 @@ When you're self-hosting models or using managed compute, you have full control;
 ## Breadth of change for model updates
 
 :::image type="complex" source="_images/model-lifecycle-breadth-change.svg" alt-text="Simple architecture diagram of a chat scenario showing the different breadths of change when updating a model." lightbox="_images/model-lifecycle-breadth-change.svg":::
-   A diagram showing an intelligent client connecting to an orchestrator. There are three boxes pointing to the orchestrator with dashed lines: Config, Prompt, and Orchestration logic. The orchestrator has solid lines pointing to three different AI models: model-x-v1, model-x-v1.1, and model-y-v1. The orchestrator also has an arrow pointing to a box labeled API/Agent. The API/Agent box has a solid line pointing to a box labeled Vector database. There's a pipeline with four steps that is pointing to the vector database with a dashed line. The four steps are: Chunk documents, Enrich chunks, Embed chunks, and Persist chunks. There are numbered circles annotating several parts of the diagram. The first is next to the models. The second is between prompt and config. The third is where the pipeline is pointing to the vector database. The fourth is next to the orchestration logic. The fifth is next to the intelligent application.
+   A diagram showing an intelligent client connecting to an orchestrator. There are three boxes pointing to the orchestrator with dashed lines: Config, Prompt, and Orchestration logic. The orchestrator has solid lines pointing to three different AI models: model-x-v1, model-x-v1.1, and model-y-v1. The orchestrator also has an arrow pointing to a box labeled API/Agent. The API/Agent box has a solid line pointing to a box labeled Vector database. There's a pipeline with four steps that is pointing to the vector database with a dashed line. The four steps are: Chunk documents, Enrich chunks, Embed chunks, and Persist chunks. There are numbered circles annotating several parts of the diagram. The first is next to the models. The second is between prompt and config. The third is where the pipeline is pointing to the vector database. The fourth is next to the orchestration logic. The fifth is next to the intelligent application. The sixth is below the models.
 :::image-end:::
 
 You'll need to evaluate the impact to your workload when considering a model update so you can plan how you will transition from the old model to the new model. The degree of workload change depends on the functional and non-functional differences between the old and new models. The diagram shows a simplified chat architecture, numbered to point out some of the areas in your architecture a model update might influence.
@@ -88,11 +88,13 @@ For each of these areas, you'll need to consider downtime caused by updates to t
 
 1. **The orchestration logic** - Some model updates, especially when taking advantage of new features, lead you to making changes to your orchestration or agent logic.
 
-   For example, if you update your model to GPT-4 to take advantage of [function calling](/azure/ai-services/openai/how-to/function-calling), you have to change your orchestration logic. Your old model returned a result which you could return to the caller. With function calling, the call to the model returns a function that your orchestration logic must call.
+   For example, if you update your model to GPT-4 to take advantage of [function calling](/azure/ai-services/openai/how-to/function-calling), you have to change your orchestration logic. Your old model returned a result which you could return to the caller. With function calling, the call to the model returns a function that your orchestration logic must call. In Azure, it is common to implement orchestration logic in the [Azure AI Agent Service](/azure/ai-services/agents/overview) or with middleware like [Semantic Kernel](/semantic-kernel/overview/) or [LangChain](/azure/ai-foundry/how-to/develop/langchain) hosted in Azure.
 
 1. **The grounding data** - Some model updates, larger scoped changes, may lead you to make changes to your grounding or fine-tuning data or how you retrieve that data.
 
    For example, when moving from a generalized model to a domain specific model, such as one focused on finance or medicine, you may no longer need to pass domain specific grounding data to the model. A second example is where a new model can handle a larger context window. In this case, you may want to retrieve additional relevant chunks or tune the size of your chunks. For more information, see [Design and develop a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide).
+
+1. **Hardware** - For models running in MaaP, a change in model might require new hardware. Only certain compute SKUs are enabled for models from the catalog. Also, hardware can be deprecated, requiring you to run the model on new hardware.
 
 ## Design for change
 
@@ -116,7 +118,7 @@ You should implement pipelines to:
 - Perform safe deployment and operationalization of your generative AI solution. (Outer loop)
 
 Where possible, use the same baseline data you are using with the production application to test the changes to your generative AI application. This may not be possible if the updated application is using new model features that require a change to the data.
- 
+
 ### Architecture considerations
 
 In simple architectures, like the following, the client directly calls the model with the correct prompt version and configuration. If there are changes to the prompt, a new client is deployed with the new prompt and it calls the new model. Tying the prompt, config, and model versions isn't a challenge.
@@ -173,6 +175,12 @@ The following flow describes how different deployments of an orchestrator, each 
 
 The [External Configuration Store](/azure/architecture/patterns/external-configuration-store) cloud design pattern is a good way to handle storing prompts and configuration. For some scopes of model changes, you might be able to coordinate the model deployment with the system prompt and configuration changes if they are stored in an updatable location outside of your orchestrator or agent's code. This won't work if you have orchestration logic to adjust, but is very useful in many smaller scope model updates.
 
+### Compute choice
+
+For MaaP hosting, be aware that models are often limited to a subset of host provided compute. Also be aware that all compute is subject to quota, availability constraints, and end-of-life announcements. Use the routing patterns above, to support transition to new hardware when your current hardware is no longer supported or there are constraints preventing additional scale out.
+
+An example of an end-of-life announcement is [NC A100 vv4 series of compute announcement](/azure/virtual-machines/sizes/retirement/nc-series-retirement). If you were hosting models on this hardware, you would have to transition to another supported SKU that is not end-of-life and has more availability. This transition might also concurrently require a model change if your current model is not supported on the new SKU.
+
 ## Recommendations
 
 - Add layers of abstraction and indirection that allow you to change just those areas of your workload (client, intelligent application API, orchestration, model hosting, grounding knowledge) in a controlled way.
@@ -181,7 +189,7 @@ The [External Configuration Store](/azure/architecture/patterns/external-configu
 
 - Test and evaluate new versions and new models using automated pipelines. You should compare the results to the results of your baseline to ensure you are getting the results you require.
 
-- Be intentional about updating models. Avoid using platform features that auto-upgrade production models to new versions without opportunity to test. You need to be aware of how every model update affects your workload.
+- Be intentional about updating models. Avoid using platform features that auto-upgrade production models to new versions without opportunity to test. You need to be aware of how every model update affects your workload. If you are using [Azure AI model inference](/azure/ai-foundry/model-inference/concepts/model-versions#how-model-versions-work), set your deployments with a specific version and do not offer an upgrade policy. This will require a manual upgrade of a new version is released. For Azure OpenAI, set deployments to [No Auto Upgrade](/azure/ai-services/openai/concepts/model-versions#how-model-versions-work) to turn off auto-upgrades.
 
 - Ensure that your observability and logging solution collect enough metadata so that you can correlate observed behavior with the specific prompt, configuration, model, and data retrieval solution involved. In this way you can identify unexpected regressions.
 
