@@ -13,25 +13,25 @@ ms.custom:
 
 # Azure Service Bus considerations for multitenancy
 
-Azure Service Bus provides highly reliable and asynchronous cloud messaging between applications and services that aren't necessarily online at the same time. Service Bus is a fully managed enterprise-level message broker that supports both message queues and publish-subscribe topics. In this article, we describe some of the features of Service Bus that are useful for multitenant solutions. We then provide links to the guidance that can help you when you plan how you're going to use Service Bus.
+Azure Service Bus provides highly reliable and asynchronous cloud messaging between applications and services that aren't necessarily online at the same time. Service Bus is a fully managed enterprise-level message broker that supports both message queues and publish-subscribe topics. This article describes features of Service Bus that are useful for multitenant solutions. It also provides resources that can help you plan how to use Service Bus.
 
 ## Isolation models
 
 When working with a multitenant system that uses Service Bus, you need to make a decision about the level of isolation that you want to adopt. Service Bus supports several isolation models.
 
-The following table summarizes the differences between the main tenancy models for Service Bus:
+The following table summarizes the differences between the main tenancy models for Service Bus.
 
-| Considerations | Namespace for each tenant | Shared namespace, separate topics or queues for each tenant | Shared namespace, topics or queues between tenants |
+| Consideration | Namespace for each tenant | Shared namespace or separate topics or queues for each tenant | Shared namespace, topics, or queues between tenants |
 | :--- | :--- | :--- | :--- |
 | Data isolation | High | Medium  | None |
 | Performance isolation | Highest. Manage performance needs based on each tenant's requirements. | Medium. Potentially subject to noisy neighbor problems. | Low. Potentially subject to noisy neighbor problems. |
 | Deployment complexity | Medium. Be aware of [Service Bus quotas and limits](/azure/service-bus-messaging/service-bus-quotas) at the subscription level. | Medium. Message entities must be deployed separately for each tenant. Be aware of [Service Bus quotas and limits](/azure/service-bus-messaging/service-bus-quotas) at the namespace level. | Low |
-| Operational complexity | High. Need to manage namespaces separately for each tenant. | Medium. Granular management of message entities might be required depending on tenant.  | Low |
+| Operational complexity | High. Manage namespaces separately for each tenant. | Medium. Granular management of message entities might be required depending on tenant.  | Low |
 | Example scenario | Individual application instances for each tenant | Dedicated queues for each tenant | Large multitenant solution with a shared application tier and one or more shared queues and topics |
 
 ### Dedicated namespace for each tenant
 
-Within your solution, you can use a specific Service Bus namespace for each tenant. This deployment approach provides your solution with the maximum level of isolation, with the ability to provide consistent performance for each tenant.
+Within your solution, you can use a specific Service Bus namespace for each tenant. This deployment approach provides your solution with the maximum level of isolation and the ability to provide consistent performance for each tenant.
 
 You can also fine-tune messaging capabilities for each tenant based on their needs by using the following approaches:
 
@@ -45,7 +45,7 @@ You can also fine-tune messaging capabilities for each tenant based on their nee
 
 - Configure [geo‑disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr) or [geo-replication](/azure/service-bus-messaging/service-bus-geo-replication) to replicate the metadata and data of the namespace to another region.
 
-The disadvantage to this isolation model is that as the number of tenants grows within your system over time, the operational complexity of managing your namespaces also increases. If you reach the maximum number of namespaces for each Azure subscription, you could deploy namespaces across different subscriptions. For more information, see [Deployment Stamp pattern](/azure/architecture/patterns/deployment-stamp). This approach also increases resource costs because you pay for each namespace that you provision.
+The disadvantage to this isolation model is that as the number of tenants grows within your system over time, the operational complexity of managing your namespaces also increases. If you reach the maximum number of namespaces for each Azure subscription, you could deploy namespaces across different subscriptions. For more information, see [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp). This approach also increases resource costs because you pay for each namespace that you provision.
 
 ### Separate topics and queues in a shared namespace
 
@@ -89,7 +89,6 @@ Shared access signatures give you the ability to grant a tenant access to Servic
 For more information, see the following articles:
 
 - [Shared access signatures in Service Bus](/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature)
-
 - [Service Bus access control with shared access signatures](/azure/service-bus-messaging/service-bus-sas)
 
 ### Topic filters and actions
@@ -138,4 +137,4 @@ Other contributors:
 
 ## Next step
 
-Review [architectural approaches for messaging in multitenant solutions](../approaches/messaging.md).
+- [Architectural approaches for messaging in multitenant solutions](../approaches/messaging.md)

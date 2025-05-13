@@ -1,5 +1,5 @@
 ---
-title: Considerations for using Azure Container Apps in a Multitenant Solution
+title: Considerations for Using Azure Container Apps in a Multitenant Solution
 description: Learn about Azure Container Apps features that are useful in multitenant systems, including scalability, isolation, and resource management. Get links to extra guidance.
 author: PlagueHO
 ms.author: dascottr
@@ -13,7 +13,7 @@ ms.custom:
 
 # Considerations for using Azure Container Apps in a multitenant solution
 
-You can use Azure Container Apps to run microservices and containerized applications on a serverless platform. This article describes several features of Container Apps that are useful for multitenant solutions. It also provides links to guidance that can help you during your planning phase.
+You can use Azure Container Apps to run microservices and containerized applications on a serverless platform. This article describes several features of Container Apps that are useful for multitenant solutions. It also provides resources that can help you during your planning phase.
 
 ## Isolation models
 
@@ -28,7 +28,7 @@ The following table summarizes the differences between the main tenancy isolatio
 | Consideration | One environment for each tenant | Tenant-specific container apps | Shared container apps |
 | :--- | :--- | :--- | :--- |
 | Data isolation | High | Low | Low |
-| Performance isolation | High | Medium. No network isolation. | Low |
+| Performance isolation | High | Medium, no network isolation | Low |
 | Deployment complexity | Medium | Low to medium | Low |
 | Operational complexity | Medium | Low | Low |
 | Resource cost | High | Low | Low |
@@ -49,7 +49,7 @@ However, if you want to use this isolation model, your application code must be 
 This model is potentially subject to [noisy neighbor concerns](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), which means that one tenant's workload might affect the performance of another tenant's workload. If you need to provide dedicated throughput to mitigate this concern, the shared container apps model might not be suitable.
 
 > [!NOTE]
-> The [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) is useful when tenants are on different costing models. For example, tenants might be assigned to shared or dedicated Container Apps environments depending on their pricing tier. This deployment strategy allows you to go beyond the Container Apps limit for a single subscription for each region and scale linearly as the number of tenants grows.
+> The [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) is useful when tenants are on different pricing models. For example, tenants might be assigned to shared or dedicated Container Apps environments depending on their pricing tier. This deployment strategy allows you to go beyond the Container Apps limit for a single subscription for each region and scale linearly as the number of tenants grows.
 
 ### Tenant-specific container apps
 
@@ -67,7 +67,7 @@ This isolation model ensures logical separation between tenants while providing 
 
 - **Resource isolation.** Each container app within your environment is allocated its own CPU and memory resources. If a specific tenant requires more resources, you can allocate more CPU and memory to that tenant's specific container app. Keep in mind that there are [limits on total CPU and memory allocations](/azure/container-apps/containers#configuration) on container apps.
 
-However, this approach provides no hardware or network isolation between tenants. All container apps in a single environment share the same virtual network. You must be able to trust that the workloads deployed to the apps won't misuse the shared resources.
+However, this approach provides no hardware or network isolation between tenants. All container apps in a single environment share the same virtual network. You must be able to trust that the workloads deployed to the apps don't misuse the shared resources.
 
 Container Apps has built-in support for Dapr, which uses a modular design to deliver functionality as [components](/azure/container-apps/dapr-overview). In Container Apps, Dapr components are environment-level resources. When you share a single environment across multiple tenants, ensure that Dapr components are properly scoped to the correct tenant-specific container app to guarantee isolation and prevent data leakage.
 
@@ -100,7 +100,7 @@ In Container Apps, you manage certificates at the environment level. [Ingress](/
 
 Container Apps can [validate authentication tokens on behalf of your app](/azure/container-apps/authentication#feature-architecture). If a request doesn't contain a token, the token isn't valid, or the request isn't authorized, you can configure Container Apps to either block the request or redirect the request to your identity provider so that the user can sign in.
 
-If your tenants use Microsoft Entra ID as the identity provider, you can configure Container Apps to use the [/common endpoint](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant) to validate user tokens. This approach ensures that user's tokens are validated and accepted, regardless of the user's Microsoft Entra tenant.
+If your tenants use Microsoft Entra ID as the identity provider, you can configure Container Apps to use the [/common endpoint](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant#update-your-code-to-send-requests-to-common) to validate user tokens. This approach ensures that users' tokens are validated and accepted, regardless of the user's Microsoft Entra tenant.
 
 You can also integrate Container Apps with [Azure Active Directory B2C](/azure/active-directory-b2c/overview) for user authentication via partner identity providers.
 
@@ -128,7 +128,7 @@ For more information, see [Workload profiles in Container Apps](/azure/container
 
 ### Rule-based routing
 
-Rule‑based routing lets you direct inbound traffic to specific container apps or container app revisions. Requests can be routed based on the HTTP request path, and you can rewrite the path in the URL. This feature is useful for multitenant systems that need to [map requests](../considerations/map-requests.yml) to tenant‑specific container apps or revisions that use the path in the request. This capability is typically used with the [Tenant-specific container apps](#tenant-specific-container-apps) isolation model.
+Rule‑based routing lets you direct inbound traffic to specific container apps or container app revisions. Requests can be routed based on the HTTP request path, and you can rewrite the path in the URL. This feature is useful for multitenant systems that need to [map requests](../considerations/map-requests.yml) to tenant‑specific container apps or revisions that use the path in the request. This capability is typically used with the [tenant-specific container apps](#tenant-specific-container-apps) isolation model.
 
 For more information, see [Use rule-based routing with Container Apps](/azure/container-apps/rule-based-routing).
 

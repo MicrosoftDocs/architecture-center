@@ -15,11 +15,11 @@ ms.custom:
 
 Most cloud-based solutions are composed of compute resources. These resources can include web and application tiers, batch processors, scheduled jobs, or specialized resources like GPUs and high-performance compute. Multitenant solutions often benefit from shared compute resources because a higher density of tenants for each infrastructure lowers operational costs and simplifies management. You should consider the isolation requirements and the implications of shared infrastructure.
 
-This article provides guidance about crucial considerations and requirements for solution architects to consider when they plan a multitenant compute tier. This guidance includes common patterns for applying multitenancy to compute services and antipatterns to avoid.
+This article provides guidance about crucial considerations and requirements for solution architects to consider when they plan a multitenant compute tier. This guidance includes common patterns for applying multitenancy to compute services, and antipatterns to avoid.
 
 ## Key considerations and requirements
 
-Both multitenancy and the isolation model that you choose affect the scaling, performance, state management, and security of your compute resources. In the following sections, we review some key decisions that you must make when you plan a multitenant compute solution.
+Both multitenancy and the isolation model that you choose affect the scaling, performance, state management, and security of your compute resources. The following sections review key decisions that you must make when you plan a multitenant compute solution.
 
 ### Scale
 
@@ -62,7 +62,7 @@ Depending on the isolation model that you choose, ensure that tenant data remain
 
 ### Autoscale
 
-Azure compute services provide various capabilities that scale workloads. [Many compute services support autoscaling](../../../best-practices/auto-scaling.md), which requires you to determine when to scale and set minimum and maximum scale levels. The specific scaling options depend on the compute services that you use. See the following example services:
+Azure compute services provide various capabilities that scale workloads. [Many compute services support autoscaling](../../../best-practices/auto-scaling.md), which requires you to determine when to scale and to set minimum and maximum scale levels. The specific scaling options depend on the compute services that you use. See the following example services or components:
 
 - **Azure App Service:** [Specify autoscale rules](/azure/app-service/manage-scale-up) that scale your infrastructure based on your requirements.
 
@@ -84,7 +84,7 @@ The [Compute Resource Consolidation pattern](../../../patterns/compute-resource-
 
 However, compute resource consolidation increases the likelihood of the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Any tenant's workload might consume a disproportionate amount of the compute capacity that's available. You can often mitigate this risk by ensuring that you scale your solution appropriately and by applying controls like quotas and API limits to avoid tenants that consume more than their fair share of the capacity.
 
-This pattern is achieved in different ways, depending on the compute service that you use. See the following example services:
+This pattern is achieved in different ways, depending on the compute service that you use. See the following example services or components:
 
 - **App Service and Azure Functions:** Deploy shared App Service plans, which represent the hosting server infrastructure.
 
@@ -101,11 +101,12 @@ You can also deploy dedicated compute resources for each tenant. Dedicated resou
 Depending on the Azure compute services that you use, you might need to deploy different dedicated resources:
 
 - **App Service and Azure Functions:** Deploy separate App Service plans for each tenant.
+
 - **Container Apps:** Deploy separate environments for each tenant.
 - **AKS:** Deploy dedicated clusters for each tenant.
 - **VMs:** Deploy dedicated VMs for each tenant.
 
-Physical host‑level isolation can also be provided by running tenant VMs on [Azure Dedicated Hosts](/azure/virtual-machines/dedicated-hosts), which reserve an entire physical server for a single customer. However, this approach is typically more expensive than using shared hosts.
+Physical host‑level isolation can also be provided by running tenant VMs on [Azure dedicated hosts](/azure/virtual-machines/dedicated-hosts), which reserve an entire physical server for a single customer. However, this approach is typically more expensive than using shared hosts.
 
 ### Semi-isolated compute resources
 
@@ -115,9 +116,9 @@ When you use App Service and Azure Functions, you can deploy distinct applicatio
 
 You can use Container Apps to deploy multiple applications to a shared environment and then to use Dapr and other tools to configure each application separately.
 
-AKS, and Kubernetes more broadly, provide various options for multitenancy:
+AKS, and Kubernetes more broadly, provides various options for multitenancy:
 
-- Tenant-specific namespaces. Namespaces can provide logical isolation of tenant-specific resources, which are deployed to shared clusters and node pools.
+- Tenant-specific namespaces that can provide logical isolation of tenant-specific resources, which are deployed to shared clusters and node pools.
 
 - Tenant-specific nodes or node pools on a shared cluster.
 
@@ -139,7 +140,7 @@ Compute tiers can be subject to cross-tenant data leakage if they aren't properl
 
 ### Busy Front End antipattern
 
-To avoid the [Busy Front End antipattern](../../../antipatterns/busy-front-end/index.md), avoid your front-end tier doing most of the work that other components or tiers of your architecture can handle. This antipattern is especially important when you create shared front-ends for a multitenant solution because a busy front end degrades the experience for all tenants.
+To avoid the [Busy Front End antipattern](../../../antipatterns/busy-front-end/index.md), make sure that your front-end tier doesn't do most of the work that other components or tiers of your architecture can handle. This antipattern is especially important when you create shared front ends for a multitenant solution because a busy front end degrades the experience for all tenants.
 
 Instead, consider using asynchronous processing by using queues or other messaging services. This approach also enables you to apply *quality of service* controls for different tenants based on their requirements. For example, all tenants might share a common front-end tier, but tenants who [pay for a higher service level](../considerations/pricing-models.md) might have a higher set of dedicated resources to process the work from their queue messages.
 
@@ -147,15 +148,15 @@ Instead, consider using asynchronous processing by using queues or other messagi
 
 Multitenant solutions are often subject to bursty scale patterns. Shared components are very susceptible to this problem because the scope for burst is higher, and the effect is greater when you have more tenants that have distinct usage patterns.
 
-Ensure that you take advantage of the elasticity and scale of the cloud. Consider whether you should use [horizontal or vertical scaling](/azure/architecture/framework/scalability/design-scale), and use autoscaling to automatically handle spikes in load. Test your solution to understand how it operates under different levels of load. Ensure that you include the load volumes that are expected in production, and your expected growth. You can use a fully managed service, such as [Load Testing](/azure/load-testing/overview-what-is-azure-load-testing), to learn how your application operates under stress.
+Ensure that you take advantage of the elasticity and scale of the cloud. Consider whether you should use [horizontal or vertical scaling](/azure/architecture/framework/scalability/design-scale), and use autoscaling to automatically handle spikes in load. Test your solution to understand how it operates under different levels of load. Ensure that you include the load volumes that are expected in production and your expected growth. You can use a fully managed service, such as [Load Testing](/azure/load-testing/overview-what-is-azure-load-testing), to learn how your application operates under stress.
 
 ### No Caching antipattern
 
-The [No Caching antipattern](../../../antipatterns/no-caching/index.md) is when the performance of your solution suffers because the application tier repeatedly requests or recomputes information that could be reused across requests. If you have data that can be shared, either among tenants or among users within a single tenant, it's likely worth caching it to reduce the load on your back end or database tier.
+The [No Caching antipattern](../../../antipatterns/no-caching/index.md) is when the performance of your solution suffers because the application tier repeatedly requests or recomputes information that could be reused across requests. If you have data that can be shared, either among tenants or among users within a single tenant, it's likely worth caching it to reduce the load on your back-end or database tier.
 
 ### Unnecessary statefulness
 
-The corollary to the No Caching antipattern is that you also should avoid storing unnecessary state in your compute tier. Be explicit about where you maintain state and why. Stateful front-end or application tiers can reduce your ability to scale. Stateful compute tiers typically also require session affinity, which can reduce your ability to effectively load balance traffic across workers or nodes.
+The implication of the No Caching antipattern is that you also should avoid storing unnecessary state in your compute tier. Be explicit about where you maintain state and why. Stateful front-end or application tiers can reduce your ability to scale. Stateful compute tiers typically also require session affinity, which can reduce your ability to effectively load balance traffic across workers or nodes.
 
 Consider the trade-offs for each piece of state that you maintain in your compute tier, and whether it affects your ability to scale or grow as your tenants' workload patterns change. You can also store state in an external cache, such as Azure Cache for Redis.
 
