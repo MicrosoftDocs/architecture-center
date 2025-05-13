@@ -2,8 +2,8 @@
 title: Design to support foundation model lifecycles
 description: Learn how you should manage new model versions and retired model versions in your generative AI application infrastructure.
 author: robbagby
-ms.author: robbag
-ms.date: 05/09/2025
+ms.author: pnp
+ms.date: 05/13/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.service: azure-architecture-center
