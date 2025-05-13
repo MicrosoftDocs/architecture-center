@@ -18,11 +18,11 @@ categories:
 
 # Design to support foundation model lifecycles
 
-Foundation models are versioned dependencies you consume in your AI workload and, as such, have a lifecycle that must be accounted for. Like other dependencies in your workload, such as code libraries, foundation models inevitably have new minor versions released to make improvements and optimizations. Foundation models also have major version updates that make a substantive change to model capabilities, performance, or training data freshness. Eventually, foundation models become deprecated due to model obsolesce or your model's host's preferences that are out of your control.
+Foundation models are versioned dependencies you consume in your AI workload and, as such, have a lifecycle that must be accounted for. Like other dependencies in your workload, such as code libraries, foundation models inevitably have new minor versions released to make improvements and optimizations. Foundation models also have major version updates that make a substantive change to model capabilities, performance, or training data freshness. Eventually, foundation models become deprecated due to model obsolescence or your model's host's preferences that are out of your control.
 
 You must design your workload to support the documented model lifecycles of the models you choose as dependencies. Without consideration for the models' lifecycles, you might find yourself performing risky upgrades, introducing untested behavior changes, taking unnecessary workload downtime, or having outages due to how your hosting platform handles end-of-life models.
 
-A workload that is designed to support its models' lifecycles is well positioned to experiment with and safely migrate to completely different foundation models as novel foundation models enter the marketplace.
+A workload that is designed to support its models' lifecycles is well positioned to experiment with and safely migrate to different foundation models as novel foundation models enter the marketplace.
 
 ## Types of model updates
 
@@ -62,9 +62,9 @@ There are three main strategies for deploying models and it's important to under
 Both MaaS and MaaP strategies in Azure source models from the Azure AI model catalog. Models in the model catalog follow a lifecycle where models are [deprecated](/azure/ai-foundry/concepts/model-lifecycle-retirement#deprecated) and then [retired](/azure/ai-foundry/concepts/model-lifecycle-retirement#retired). You must plan for these eventualities in your workload.
 
 > [!WARNING]
-> For MaaS services, both Azure OpenAI deployed models and models deployed using the serverless API model, it's critical to understand that existing deployments for *retired* models return HTTP errors. If you do not upgrade to a supported model, your application no longer operates as expected. For *deprecated* models, you aren't able to create new deployments for those models, but existing deployments continue to work until they are retired. See [Serverless API model deprecations and retirements](/azure/ai-foundry/concepts/model-lifecycle-retirement) and [Azure OpenAI Service model deprecations and retirements](/azure/ai-services/openai/concepts/model-retirements) for more information.
+> For MaaS services, both Azure OpenAI deployed models and models deployed using the serverless API model, it's critical to understand that existing deployments for *retired* models return HTTP errors. If you don't upgrade to a supported model, your application no longer operates as expected. For *deprecated* models, you aren't able to create new deployments for those models, but existing deployments continue to work until they're retired. For more information, see [Serverless API model deprecations and retirements](/azure/ai-foundry/concepts/model-lifecycle-retirement) and [Azure OpenAI Service model deprecations and retirements](/azure/ai-services/openai/concepts/model-retirements).
 
-When you're self-hosting models or using managed compute, you have full control; you aren't forced to update models. But you likely will still want to replicate a model lifecycle for the added benefits a newer model can bring to your workload.
+When you're self-hosting models or using managed compute, you have full control; you aren't forced to update models. But you likely still want to replicate a model lifecycle for the added benefits a newer model can bring to your workload.
 
 ## Breadth of change for model updates
 
@@ -72,11 +72,11 @@ When you're self-hosting models or using managed compute, you have full control;
    A diagram showing an intelligent client connecting to an orchestrator. There are three boxes pointing to the orchestrator with dashed lines: Config, Prompt, and Orchestration logic. The orchestrator has solid lines pointing to three different AI models: model-x-v1, model-x-v1.1, and model-y-v1. The orchestrator also has an arrow pointing to a box labeled API/Agent. The API/Agent box has a solid line pointing to a box labeled Vector database. There's a pipeline with four steps that is pointing to the vector database with a dashed line. The four steps are: Chunk documents, Enrich chunks, Embed chunks, and Persist chunks. There are numbered circles annotating several parts of the diagram. The first is next to the models. The second is between prompt and config. The third is where the pipeline is pointing to the vector database. The fourth is next to the orchestration logic. The fifth is next to the intelligent application. The sixth is below the models.
 :::image-end:::
 
-You'll need to evaluate the impact to your workload when considering a model update so you can plan how you will transition from the old model to the new model. The degree of workload change depends on the functional and non-functional differences between the old and new models. The diagram shows a simplified chat architecture, numbered to point out some of the areas in your architecture a model update might influence.
+You need to evaluate the impact to your workload when considering a model update so you can plan how you transition from the old model to the new model. The degree of workload change depends on the functional and non-functional differences between the old and new models. The diagram shows a simplified chat architecture, numbered to point out some of the areas in your architecture a model update might influence.
 
-For each of these areas, you'll need to consider downtime caused by updates to the area and how you'll handle any requests currently being processed by the system. If maintenance windows are available to your workload, using one is ideal if the scope of change is large. If maintenance windows are not available, you'll need to address change in these areas such that your workload's functionality and SLOs are retained during the model change.
+For each of these areas, you need to consider downtime caused by updates to the area and how you handle any requests currently being processed by the system. If maintenance windows are available to your workload, using one is ideal if the scope of change is large. If maintenance windows aren't available, you need to address change in these areas such that your workload's functionality and SLOs are retained during the model change.
 
-1. **The model** - The obvious change is to the model itself. You deploy the new model using your chosen model deployment strategy. You'll need to evaluate tradeoffs between inplace upgrades vs side-by-side deployment.
+1. **The model** - The obvious change is to the model itself. You deploy the new model using your chosen model deployment strategy. You need to evaluate tradeoffs between in place upgrades vs side-by-side deployment.
 
    When moving to a new model revision from a fine-tuned model, you need to reperform the fine-tuning on the new model version before using it. When updating to use a different model, you need to determine if fine-tuning is required.
 
@@ -88,7 +88,7 @@ For each of these areas, you'll need to consider downtime caused by updates to t
 
 1. **The orchestration logic** - Some model updates, especially when taking advantage of new features, lead you to making changes to your orchestration or agent logic.
 
-   For example, if you update your model to GPT-4 to take advantage of [function calling](/azure/ai-services/openai/how-to/function-calling), you have to change your orchestration logic. Your old model returned a result which you could return to the caller. With function calling, the call to the model returns a function that your orchestration logic must call. In Azure, it is common to implement orchestration logic in the [Azure AI Agent Service](/azure/ai-services/agents/overview) or with middleware like [Semantic Kernel](/semantic-kernel/overview/) or [LangChain](/azure/ai-foundry/how-to/develop/langchain) hosted in Azure.
+   For example, if you update your model to GPT-4 to take advantage of [function calling](/azure/ai-services/openai/how-to/function-calling), you have to change your orchestration logic. Your old model returned a result which you could return to the caller. With function calling, the call to the model returns a function that your orchestration logic must call. In Azure, it's common to implement orchestration logic in the [Azure AI Agent Service](/azure/ai-services/agents/overview) or with middleware like [Semantic Kernel](/semantic-kernel/overview/) or [LangChain](/azure/ai-foundry/how-to/develop/langchain) hosted in Azure.
 
 1. **The grounding data** - Some model updates, larger scoped changes, may lead you to make changes to your grounding or fine-tuning data or how you retrieve that data.
 
@@ -117,7 +117,7 @@ You should implement pipelines to:
 - Help you in your iterative development and experimentation. (Inner loop)
 - Perform safe deployment and operationalization of your generative AI solution. (Outer loop)
 
-Where possible, use the same baseline data you are using with the production application to test the changes to your generative AI application. This may not be possible if the updated application is using new model features that require a change to the data.
+Where possible, use the same baseline data you're using with the production application to test the changes to your generative AI application. This may not be possible if the updated application is using new model features that require a change to the data.
 
 ### Architecture considerations
 
@@ -143,7 +143,7 @@ Due to the layers of indirection involved, your architecture must be designed to
 The following diagram illustrates an architecture using a router to route requests to multiple deployments. An [example of this architecture with Azure AI Foundry](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#architecture) uses a managed online endpoint as the router and the different versions of the orchestrator are deployed to managed compute.
 
 :::image type="complex" source="_images/model-lifecycle-single-layer-abstraction.svg" alt-text="Architecture diagram of a chat scenario that uses a router to route between deployments." lightbox="_images/model-lifecycle-single-layer-abstraction.svg":::
-   A diagram showing an intelligent client connecting to a router (labeled 1). The router has connections to two deployment boxes that are contained in an Orchestrator box (labeled 2). In each deployment box, there's config, a prompt (labeled 3), and orchestration logic (labeled 4). Each deployment box has a connection line to a specific model box (labeled 5). Deployment 1 is connected to model-x-v1, while Deployment 2 is connected to model-x-v1.1. The orchestrator box connected to an API/Agent box, which connects to a knowledge database box. There are arrows pointing to the router and gateway boxes with a label that reads 'Common layers of abstraction in a generative AI workload'.
+   A diagram showing an intelligent client connecting to a router (labeled 1). The router has connections to two deployment boxes that are contained in an Orchestrator box (labeled 2). In each deployment box, there's config, a prompt (labeled 3), and orchestration logic (labeled 4). Each deployment box has a connection line to a specific model box (labeled 5). Deployment 1 is connected to model-x-v1, while Deployment 2 is connected to model-x-v1.1. The orchestrator box connected to an API/Agent box, which connects to a knowledge database box. There are arrows pointing to the router and gateway boxes with a label that reads 'Common layers of abstraction in a generative AI workload.'
 :::image-end:::
 
 The following flow describes how different deployments of an orchestrator, each with their own version of model configuration and a prompt, call the correct model:
@@ -173,13 +173,13 @@ The following flow describes how different deployments of an orchestrator, each 
 
 ### Externalize configuration
 
-The [External Configuration Store](/azure/architecture/patterns/external-configuration-store) cloud design pattern is a good way to handle storing prompts and configuration. For some scopes of model changes, you might be able to coordinate the model deployment with the system prompt and configuration changes if they are stored in an updatable location outside of your orchestrator or agent's code. This won't work if you have orchestration logic to adjust, but is very useful in many smaller scope model updates.
+The [External Configuration Store](/azure/architecture/patterns/external-configuration-store) cloud design pattern is a good way to handle storing prompts and configuration. For some scopes of model changes, you might be able to coordinate the model deployment with the system prompt and configuration changes if they are stored in an updatable location outside of your orchestrator or agent's code. This approach won't work if you have orchestration logic to adjust, but is useful in many smaller scope model updates.
 
 ### Compute choice
 
-For MaaP hosting, be aware that models are often limited to a subset of host provided compute. Also be aware that all compute is subject to quota, availability constraints, and end-of-life announcements. Use the routing patterns above, to support transition to new hardware when your current hardware is no longer supported or there are constraints preventing additional scale out.
+For MaaP hosting, models are often limited to a subset of host provided compute. Also, all compute is subject to quota, availability constraints, and end-of-life announcements. Use the routing patterns to support transition to new hardware when your current hardware is no longer supported or there are constraints preventing additional scale out.
 
-An example of an end-of-life announcement is [NC A100 vv4 series of compute announcement](/azure/virtual-machines/sizes/retirement/nc-series-retirement). If you were hosting models on this hardware, you would have to transition to another supported SKU that is not end-of-life and has more availability. This transition might also concurrently require a model change if your current model is not supported on the new SKU.
+An example of an end-of-life announcement is [NC A100 vv4 series of compute announcement](/azure/virtual-machines/sizes/retirement/nc-series-retirement). If you were hosting models on this hardware, you would have to transition to another supported SKU that isn't end-of-life and has more availability. This transition might also concurrently require a model change if your current model isn't supported on the new SKU.
 
 ## Recommendations
 
@@ -187,11 +187,11 @@ An example of an end-of-life announcement is [NC A100 vv4 series of compute anno
 
 - All changes to model versions, prompts, configuration, orchestration logic, and grounding knowledge retrieval must be tested before being used in production. Ensure that tested combinations are "pinned together" in production. A/B testing, load balancing, blue-green deployments must not comingle the components such that a user experiences an untested combination.
 
-- Test and evaluate new versions and new models using automated pipelines. You should compare the results to the results of your baseline to ensure you are getting the results you require.
+- Test and evaluate new versions and new models using automated pipelines. You should compare the results to the results of your baseline to ensure you're getting the results you require.
 
-- Be intentional about updating models. Avoid using platform features that auto-upgrade production models to new versions without opportunity to test. You need to be aware of how every model update affects your workload. If you are using [Azure AI model inference](/azure/ai-foundry/model-inference/concepts/model-versions#how-model-versions-work), set your deployments with a specific version and do not offer an upgrade policy. This will require a manual upgrade of a new version is released. For Azure OpenAI, set deployments to [No Auto Upgrade](/azure/ai-services/openai/concepts/model-versions#how-model-versions-work) to turn off auto-upgrades.
+- Be intentional about updating models. Avoid using platform features that auto-upgrade production models to new versions without opportunity to test. You need to be aware of how every model update affects your workload. If you're using [Azure AI model inference](/azure/ai-foundry/model-inference/concepts/model-versions#how-model-versions-work), set your deployments with a specific version and don't offer an upgrade policy. This requires a manual upgrade of a new version is released. For Azure OpenAI, set deployments to [No Auto Upgrade](/azure/ai-services/openai/concepts/model-versions#how-model-versions-work) to turn off auto-upgrades.
 
-- Ensure that your observability and logging solution collect enough metadata so that you can correlate observed behavior with the specific prompt, configuration, model, and data retrieval solution involved. In this way you can identify unexpected regressions.
+- Ensure that your observability and logging solution collect enough metadata so that you can correlate observed behavior with the specific prompt, configuration, model, and data retrieval solution involved. In this way, you can identify unexpected regressions.
 
 ## Summary
 
