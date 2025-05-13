@@ -1,8 +1,7 @@
 ---
 title: Transient fault handling
-titleSuffix: Best practices for cloud applications
 description: Learn how to handle transient faults caused by loss of network connectivity, temporary unavailability, or timeouts.
-ms.author: robbag
+ms.author: pnp
 author: RobBagby
 categories: azure
 ms.date: 07/25/2022

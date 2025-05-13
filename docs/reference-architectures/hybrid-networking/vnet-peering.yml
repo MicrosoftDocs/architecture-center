@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Virtual network peering and VPN gateways
-  titleSuffix: Azure Reference Architectures
   description: Review the differences between virtual network peering and VPN gateways, which are two ways to connect virtual networks in Azure.
   author: anavinahar
   ms.author: anavin

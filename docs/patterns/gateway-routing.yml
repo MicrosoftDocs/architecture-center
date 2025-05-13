@@ -2,7 +2,7 @@
 metadata:
   title: Gateway Routing pattern
   description: Use the Gateway Routing design pattern to route requests to multiple services using a single endpoint.
-  ms.author: robbag
+  ms.author: pnp
   author: RobBagby
   ms.date: 08/29/2022
   ms.topic: design-pattern

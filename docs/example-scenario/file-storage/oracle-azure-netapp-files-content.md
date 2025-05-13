@@ -141,9 +141,11 @@ The combination of ODG and Azure NetApp Files provides DR for this architecture.
 
 ## Considerations
 
-The following considerations apply to this solution:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
-### Availability
+### Reliability
+
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 For Azure NetApp Files:
 
@@ -161,15 +163,15 @@ When you use Oracle Database in Azure, implement a solution for HA and DR to avo
    A large rectangle labeled Oracle resource group fills most of the diagram. Inside it, another rectangle is labeled Oracle virtual network. It contains two smaller rectangles, one for the Oracle subnet and one for the Azure NetApp Files subnet. The Oracle subnet rectangle contains icons for Oracle Database and virtual machines. The Azure NetApp Files subnet rectangle contains icons for Azure NetApp Files and database files. An arrow labeled d N F S connects the two subnet rectangles. A colored key indicates that log data in the database file system requires high performance. The data files have a medium-to-high performance requirement.
 :::image-end:::
 
-### Scalability
-
-As the [Highly performant systems][Highly performant systems section of this article] section discusses, Azure NetApp Files provides built-in scalability.
-
 ### Security
+
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Azure NetApp Files secures data in many ways. For information about inherent protection, encryption, policy rules, role-based access control features, and activity logs, see [Security FAQs][FAQs About Azure NetApp Files - Security FAQs].
 
-## Cost optimization
+### Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Using Azure NetApp Files instead of block storage can reduce costs:
 
@@ -187,6 +189,12 @@ Using Azure NetApp Files instead of block storage can reduce costs:
   - The network-attached storage doesn't have an I/O cost component.
 
 These factors make Azure NetApp Files less costly than disk storage solutions.
+
+### Performance Efficiency
+
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+As the [Highly performant systems][Highly performant systems section of this article] section discusses, Azure NetApp Files provides built-in scalability.
 
 ## Deploy this scenario
 

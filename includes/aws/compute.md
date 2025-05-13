@@ -82,7 +82,6 @@ Serverless computing lets you integrate systems and run backend processes withou
 
 | Architecture | Description |
 |-----|-----|
-| [Query a data lake or lakehouse by using Azure Synapse Analytics serverless](/azure/architecture/example-scenario/data/synapse-exploratory-data-analytics) | This architecture can reduce the challenges of extract, transform, load (ETL) operations. You can use this architecture to generate business insights and then solve modeling and ETL tasks. |
 | [Cross-cloud scaling pattern](/azure/adaptive-cloud/app-solutions/pattern-cross-cloud-scale) | Learn how to improve cross-cloud scalability with a solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation. |
 
 [View all the serverless architectures](/azure/architecture/browse/?expanded=azure&products=azure-functions)

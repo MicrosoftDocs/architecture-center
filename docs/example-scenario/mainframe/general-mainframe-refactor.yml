@@ -1,11 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: General mainframe refactor to Azure
-  titleSuffix: Azure Example Scenarios
-  description: See how to refactor general mainframe applications to run more cost-effectively and efficiently on Azure.
-  author: Venkat-Github-Account
-  ms.author: vramakrishna
-  ms.date: 07/10/2024
+  title: General Mainframe Refactor to Azure
+  description: Learn how to refactor general mainframe applications to run more cost-effectively and efficiently on Azure by using AKS or virtual machines.
+  author: bhbandam
+  ms.author: bhbandam
+  ms.date: 04/02/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom:
@@ -20,7 +19,7 @@ products:
   - azure-storage
   - azure-virtual-machines
 name: General mainframe refactor to Azure
-summary: See how to refactor general mainframe applications to run more cost-effectively and efficiently on Azure.
+summary: Learn how to refactor general mainframe applications to run more cost-effectively and efficiently on Azure by using AKS or virtual machines.
 thumbnailUrl: /azure/architecture/browse/thumbs/general-mainframe-refactor.png
 content: |
-  [!include[](general-mainframe-refactor-content.md)]
+  [!INCLUDE[](general-mainframe-refactor-content.md)]

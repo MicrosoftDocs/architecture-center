@@ -85,11 +85,11 @@ The Avanade AMT framework supports several methodologies to move your workloads 
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - Use Site Recovery to mirror the Azure VMs to a secondary Azure region for quick failover and DR if there's an Azure datacenter failure.
 
@@ -98,25 +98,25 @@ Reliability ensures your application can meet the commitments you make to your c
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Use Azure [network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to manage traffic between Azure resources.
 
 - Use [Private Link](/azure/azure-sql/database/private-endpoint-overview) to provide a private, direct connection that's isolated to the Azure networking backbone from the Azure VMs to SQL Database.
 - Use [Azure Bastion](/azure/bastion/bastion-overview) to limit the number of open ports, which maximizes admin access security. Bastion provides secure and seamless secure RDP and SSH connectivity over TLS from the Azure portal to VMs in the virtual network.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Turn off VMs when you don't need them, and script schedules for known usage patterns to optimize Azure Reserved Virtual Machine Instances. Avanade AMT in Azure runs on Windows or Linux VMs, which optimizes costs.
 
 - Ensure that you use only one VM instance with Site Recovery if your VMs within server sets are duplicates. With Site Recovery, you pay for each protected instance.
 - To estimate and calculate costs for your implementation of this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - Take advantage of scaling capabilities. Avanade AMT has proven single-application scalability that's equivalent to at least 28,000 million instructions per second (MIPS) or 3,300 million service units (MSUs).
 

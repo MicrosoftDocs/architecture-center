@@ -2,7 +2,7 @@
 title: Architectural approaches for identity in multitenant solutions
 description: This article describes the approaches for managing identities in a multitenant solution.
 author: johndowns
-ms.author: jodowns
+ms.author: pnp
 ms.date: 07/18/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide

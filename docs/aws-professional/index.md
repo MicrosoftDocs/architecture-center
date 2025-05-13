@@ -55,7 +55,7 @@ Read the following articles to learn about Azure services and how they map to th
 - [Networking on Azure and AWS](./networking.md)
 - [Regions and zones on Azure and AWS](./regions-zones.md)
 - [Resource management on Azure and AWS](./resources.md)
-- [Multicloud security and identity with Azure and AWS](./security-identity.md)
+- [Multicloud identity with Azure and AWS](./security-identity.md)
 - [Storage on Azure and AWS](./storage.md)
 
 ## Other services

@@ -1,11 +1,10 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure DNS Private Resolver
-  titleSuffix: Azure Example Scenarios
   description: Learn how to use Azure DNS Private Resolver to simplify hybrid recursive domain name system (DNS) resolution for on-premises and Azure workloads.
   author: moorthyannadurai
   ms.author: moannadu 
-  ms.date: 03/21/2024
+  ms.date: 04/01/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
 name: Azure DNS Private Resolver
@@ -21,4 +20,4 @@ products:
   - azure-vpn-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-dns-private-resolver-thumbnail.png
 content: |
-   [!include[](azure-dns-private-resolver-content.md)]
+   [!INCLUDE[](azure-dns-private-resolver-content.md)]

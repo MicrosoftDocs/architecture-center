@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Move an IoT Hub-based solution from test to production
-  description: Learn what to avoid doing when moving from a test environment to a production environment.
+  title: Move an IoT Hub-Based Solution from Test to Production
+  description: Learn best practices for moving an IoT Hub-based solution to production, including deployment stamps, transient fault handling, and zero-touch provisioning.
   author: dominicbetts
   ms.author: dobett
   ms.date: 12/10/2024
@@ -13,7 +13,7 @@ azureCategories:
 products:
   - azure-iot-hub
 name: Move an IoT Hub-based solution from test to production
-summary: Learn what to avoid doing when moving from a test environment to a production environment.
+summary: Learn best practices for moving an IoT Hub-based solution to production, including deployment stamps, transient fault handling, and zero-touch provisioning.
 thumbnailUrl: /azure/architecture/browse/thumbs/late-binding-dps.png
 content: |
-  [!include[](iot-move-to-production-content.md)]
+  [!INCLUDE[](iot-move-to-production-content.md)]
