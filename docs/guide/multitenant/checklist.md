@@ -1,6 +1,6 @@
 ---
 title: Multitenancy Checklist on Azure
-description: Multitenancy lets you serve multiple tenants in Azure. Use this checklist to evaluate your multitenancy needs and architecture.
+description: Multitenancy lets you serve multiple tenants in an Azure-hosted solution. Use this checklist to evaluate your multitenancy needs and architecture.
 author: arsenvlad
 ms.author: arsenv
 ms.date: 04/17/2025
@@ -23,9 +23,9 @@ When you build your multitenant solution in Azure, there are many elements that 
 > [!TIP]
 > After you go through this checklist, take the [SaaS journey review](/assessments/3a5bbc6d-c7be-4ccf-92f8-c1a0bdb0196a/) to evaluate your SaaS product by analyzing your understanding of multitenant architecture and its alignment with SaaS operation best practices.
 
-## Business considerations  
+## Business considerations
 
-- Understand the type of solution you're creating, such as business-to-business (B2B), business-to-consumer, or your enterprise software, and [how tenants are different from users](./overview.md).  
+- Understand the type of solution you're creating, such as business-to-business (B2B), business-to-consumer (B2C), or your enterprise software, and [how tenants are different from users](./overview.md).  
 
 - [Define your tenants](./considerations/tenancy-models.yml#define-a-tenant). Understand how many tenants you support initially and your growth plans.  
 
