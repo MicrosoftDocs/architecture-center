@@ -88,13 +88,13 @@ For each of these areas, you need to consider downtime caused by updates to the 
 
 1. **The orchestration logic** - Some model updates, especially when taking advantage of new features, lead you to making changes to your orchestration or agent logic.
 
-   For example, if you update your model to GPT-4 to take advantage of [function calling](/azure/ai-services/openai/how-to/function-calling), you have to change your orchestration logic. Your old model returned a result which you could return to the caller. With function calling, the call to the model returns a function that your orchestration logic must call. In Azure, it's common to implement orchestration logic in the [Azure AI Agent Service](/azure/ai-services/agents/overview) or with middleware like [Semantic Kernel](/semantic-kernel/overview/) or [LangChain](/azure/ai-foundry/how-to/develop/langchain) hosted in Azure.
+   For example, if you update your model to GPT-4 to take advantage of [function calling](/azure/ai-services/openai/how-to/function-calling), you have to change your orchestration logic. Your old model returned a result which you could return to the caller. With function calling, the call to the model returns a function that your orchestration logic must call. In Azure, it's common to implement orchestration logic in the [Azure AI Agent Service](/azure/ai-services/agents/overview) or with code based solutions like [Semantic Kernel](/semantic-kernel/overview/) or [LangChain](/azure/ai-foundry/how-to/develop/langchain) hosted in Azure.
 
 1. **The grounding data** - Some model updates, larger scoped changes, may lead you to make changes to your grounding or fine-tuning data or how you retrieve that data.
 
    For example, when moving from a generalized model to a domain specific model, such as one focused on finance or medicine, you may no longer need to pass domain specific grounding data to the model. A second example is where a new model can handle a larger context window. In this case, you may want to retrieve additional relevant chunks or tune the size of your chunks. For more information, see [Design and develop a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide).
 
-1. **Hardware** - For models running in MaaP, a change in model might require new hardware. Only certain compute SKUs are enabled for models from the catalog. Also, hardware can be deprecated, requiring you to run the model on new hardware.
+1. **Hardware** - For models running in MaaP, a model change might require new hardware. Only certain compute SKUs are enabled for models from the catalog. Also, hardware can be deprecated, requiring you to run the model on new hardware.
 
 ## Design for change
 
