@@ -27,7 +27,7 @@ A multitenant solution is a solution used by multiple customers, or *tenants*. T
 
 When you build your own multitenant solution in Azure, there are several elements that you need to consider for your architecture.
 
-In this series, we provide guidance about how to design, build, and operate your own multitenant solutions in Azure.
+This series provides guidance about how to design, build, and operate your own multitenant solutions in Azure.
 
 > [!NOTE]
 > In this series, the term *tenant* refers to **your** tenants, which might be your customers or groups of users. The guidance is intended to help you build multitenant software solutions on top of the Azure platform.  
