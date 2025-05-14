@@ -21,13 +21,13 @@ ms.custom:
 When you build your multitenant solution in Azure, there are many elements that you need to consider. Use this checklist as a starting point to help you design and build your multitenant solution. This checklist is a companion resource to the [Architect multitenant solutions on Azure](./overview.md) series of articles. The checklist is structured around the business and technical considerations and the five pillars of the [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 > [!TIP]
-> After you go through this checklist, take the [SaaS journey review](/assessments/3a5bbc6d-c7be-4ccf-92f8-c1a0bdb0196a/) to evaluate your SaaS product by analyzing your understanding of multitenant architecture and its alignment with SaaS operation best practices.
+> After you go through this checklist, take the [SaaS journey review](/assessments/3a5bbc6d-c7be-4ccf-92f8-c1a0bdb0196a/) to evaluate your software as a service (SaaS) product by analyzing your understanding of multitenant architecture and its alignment with SaaS operation best practices.
 
 ## Business considerations
 
-- Understand the type of solution you're creating, such as business-to-business (B2B), business-to-consumer (B2C), or your enterprise software, and [how tenants are different from users](./overview.md).  
+- Understand the type of solution that you're creating, such as business-to-business (B2B), business-to-consumer, or your enterprise software, and [how tenants are different from users](./overview.md).  
 
-- [Define your tenants](./considerations/tenancy-models.yml#define-a-tenant). Understand how many tenants you support initially and your growth plans.  
+- [Define your tenants](./considerations/tenancy-models.yml#define-a-tenant). Understand how many tenants you initially support and define your growth plans.  
 
 - [Define your pricing model](./considerations/pricing-models.md) and ensure that it aligns with your [tenants' consumption of Azure resources](./considerations/measure-consumption.md).  
 
@@ -45,7 +45,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - [Design your multitenant solution](./approaches/overview.yml) for the level of growth that you expect. But don't overengineer for unrealistic growth.  
 
-- Define [service-level objectives (SLOs)](/azure/well-architected/reliability/metrics) and optionally service-level agreements (SLAs) for your solution. SLAs and SLOs should be based on the requirements of your tenants.  
+- Define [service-level objectives (SLOs)](/azure/well-architected/reliability/metrics) and optionally service-level agreements (SLAs) for your solution. SLOs and SLAs should be based on the requirements of your tenants.  
 
 - Test the [scale](./approaches/compute.md#scale) of your solution. Ensure that it performs well under all levels of load and that it scales correctly as the number of tenants increases.  
 
@@ -53,7 +53,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 ## Security considerations  
 
-- Apply [Zero Trust](/security/zero-trust) and least privilege principles in all layers of your solution. 
+- Apply [Zero Trust](/security/zero-trust) and least privilege principles in all layers of your solution.
 
 - Ensure that you can correctly [map user requests](./considerations/map-requests.yml) to tenants. Consider including the tenant context as part of the identity system or via another method, like application-level tenant authorization.  
 
