@@ -22,21 +22,13 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
 
-#### Azure SQL Managed Instance
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a scalable cloud database service that's always running on the latest stable version of the Microsoft SQL Server database engine and a patched OS with 99.99% built-in high availability, offering close to 100% feature compatibility with SQL Server.
 
-Azure SQL Managed Instance is a Platform as a Service (PaaS) offering that boasts nearly 100% compatibility with the latest Enterprise Edition SQL Server database engine. It provides a native virtual network (VNet) implementation that addresses common security concerns and features a business model advantageous for existing SQL Server customers. SQL Managed Instance enables these customers to migrate their on-premises applications to the cloud with minimal modifications to applications and databases. Additionally, SQL Managed Instance offers comprehensive PaaS capabilities, including automatic patching and version updates, automated backups, and high availability. These features significantly reduce management overhead and total cost of ownership (TCO).
+- [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm) is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs.
 
-#### Azure Managed HSM
+- [Private Endpoint](/azure/private-link/private-endpoint-overview) is a network interface that uses a private IP address from your virtual network. This network interface connects you privately and securely to a service that's powered by Azure Private Link.
 
-Azure Key Vault Managed Hardware Security Module (HSM) is a fully managed, highly available, single-tenant, standards-compliant cloud service. The service is designed to safeguard cryptographic keys for cloud applications, utilizing Federal Information Processing Standards (FIPS) 140-2 Level 3 validated HSMs. It's one of several key management solutions in Azure.
-
-#### Private Endpoints
-
-Azure Private Endpoint is a network interface that securely connects your PaaS services (such as Azure Storage, SQL Database, and Key Vault) to your VNet using a private IP address. The use of this service eliminates the need for public internet exposure, enhancing security by ensuring that traffic remains within the Azure backbone network while using the customer VNet for added security.
-
-#### Private DNS Zones
-
-Azure Private DNS Zones enable seamless name resolution for private endpoints, allowing resources within a VNet to access Azure services privately using their fully qualified domain names (FQDN) instead of public IP addresses. When a private endpoint is created, a corresponding Domain Name System (DNS) record (such as privatelink.database.windows.net for Azure SQL) is automatically registered in the linked private DNS zone. Using a private DNS zone ensures that traffic to the service remains within the Azure backbone network, improving security, performance, and compliance by avoiding exposure to the public internet.
+- [Azure Private DNS](/azure/dns/private-dns-overview) provides a reliable and secure DNS service for your virtual networks. Azure Private DNS manages and resolves domain names in the virtual network without the need to configure a custom DNS solution.
 
 ## Scenario details
 
