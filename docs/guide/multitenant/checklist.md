@@ -75,7 +75,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - Ensure that you can adequately [measure per-tenant consumption](./considerations/measure-consumption.md) and correlate it with [your infrastructure costs](./approaches/cost-management-allocation.yml).  
 
-- Avoid [antipatterns](./approaches/cost-management-allocation.yml#antipatterns-to-avoid). Antipatterns include failing to track costs, tracking costs with unnecessary precision, real-time measurement, and using monitoring tools for billing.  
+- Avoid [antipatterns](./approaches/cost-management-allocation.yml#antipatterns-to-avoid). Antipatterns include failing to track costs, tracking costs with unnecessary precision, using real-time measurement, and using monitoring tools for billing.  
 
 ## Operational Excellence considerations  
 
@@ -91,11 +91,11 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - [Organize your Azure resources](./approaches/resource-organization.yml) for isolation and scale.  
 
-- Avoid [deployment and configuration antipatterns](./approaches/deployment-configuration.yml#antipatterns-to-avoid). Antipatterns include running separate versions of the solution for each tenant, hard-coding tenant-specific configurations or logic, and manual deployments.  
+- Avoid [deployment and configuration antipatterns](./approaches/deployment-configuration.yml#antipatterns-to-avoid). Antipatterns include running separate versions of the solution for each tenant, hard-coding tenant-specific configurations or logic, and relying on manual deployments.  
 
 ## Performance Efficiency considerations  
 
-- Review the [Well-Architected Performance Efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency), which is applicable to all workloads.  
+- Review the [Well-Architected Framework Performance Efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency), which is applicable to all workloads.  
 
 - If you use shared infrastructure, plan for how to mitigate [noisy neighbor](../../antipatterns/noisy-neighbor/noisy-neighbor.yml) concerns. Ensure that one tenant can't reduce the performance of the system for other tenants.  
 
@@ -118,7 +118,7 @@ Other contributor:
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Related resources
 
 - [Architectural considerations for multitenant solutions](./considerations/overview.yml)
 - [Architectural approaches for multitenancy](./approaches/overview.yml)
