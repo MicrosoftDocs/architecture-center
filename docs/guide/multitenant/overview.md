@@ -59,7 +59,7 @@ The content in this series is composed of three main sections:
 
   The architectural considerations are especially relevant for technical decision-makers, like CTOs and architects. Product managers will also find it valuable to understand how multitenancy affects their solutions. Also, anyone who works with multitenant architectures should have some familiarity with these principles and trade-offs.
 
-- **[Architectural approaches for multitenancy](approaches/overview.yml):** This section describes the approaches that you can consider when you design and build multitenant solutions by using key cloud resource types. This section includes a discussion about how to build multitenant solutions with compute, networking, storage, data, messaging, identity, AI/ML, and IoT components, as well as deployment, configuration, resource organization, governance, compliance, and cost management.
+- **[Architectural approaches for multitenancy](approaches/overview.yml):** This section describes the approaches that you can consider when you design and build multitenant solutions by using key cloud resource types. This section includes a discussion about how to build multitenant solutions with compute, networking, storage, data, messaging, identity, artificial intelligence and machine learning, and Internet of Things components, as well as deployment, configuration, resource organization, governance, compliance, and cost management.
 
   The architectural approaches are intended to be useful for solution architects and lead developers.
 
