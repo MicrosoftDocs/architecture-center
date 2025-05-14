@@ -31,7 +31,7 @@ This series provides guidance about how to design, build, and operate your own m
 
 > [!NOTE]
 > In this series, the term *tenant* refers to **your** tenants, which might be your customers or groups of users. The guidance is intended to help you build multitenant software solutions on top of the Azure platform.  
-
+>
 > Microsoft Entra ID also uses the term *tenant* to refer to individual directories. It defines *multitenancy* as interactions between multiple Microsoft Entra tenants. The terms are the same, but the concepts differ. To avoid ambiguity, the full term, *Microsoft Entra tenant*, is used when referring to the Microsoft Entra concept of a tenant.
 
 ## Scope
