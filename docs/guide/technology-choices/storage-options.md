@@ -2,7 +2,7 @@
 title: Choose an Azure storage service
 description: Use this guide to decide which Azure storage service best suits your application.
 author: claytonsiemens77
-ms.author: csiemens
+ms.author: pnp
 ms.date: 10/11/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide

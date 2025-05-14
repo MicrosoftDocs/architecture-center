@@ -2,7 +2,7 @@
 title: Mission-critical global content delivery
 description: Learn how to develop highly resilient global HTTP applications when your focus is on content delivery and caching.
 author: johndowns
-ms.author: jodowns
+ms.author: pnp
 ms.reviewer: dburkhardt
 ms.date: 02/21/2025
 ms.topic: conceptual

@@ -2,7 +2,7 @@
 title: Generative AI Operations for Organizations with MLOps Investments
 description: Extend existing MLOps investments to include generative AI operations. Learn where you can apply existing investments and where you need to extend those investments.
 author: robbagby
-ms.author: robbag
+ms.author: pnp
 ms.date: 04/09/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot

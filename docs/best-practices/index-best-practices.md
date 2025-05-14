@@ -1,7 +1,7 @@
 ---
 title: Best practices in cloud applications
 description: Learn best practices for building reliable, scalable, and secure applications in the cloud. See resources on caching, partitioning, monitoring, and other areas.
-ms.author: robbag
+ms.author: pnp
 author: RobBagby
 ms.date: 01/04/2022
 ms.topic: best-practice
