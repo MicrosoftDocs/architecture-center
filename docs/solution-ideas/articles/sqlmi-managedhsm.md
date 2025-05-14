@@ -16,9 +16,9 @@ The following workflow corresponds to the previous diagram:
 
 1. Azure SQL Managed Instance (MI) is configured with availability groups to a secondary region (unpaired) which replicates the data for disaster recovery.
 2. Managed HSM is configured with a cross-region pool which replicates the key material and permissions to the vault in the secondary region (unpaired) automatically.
-3. Data plane traffic from the SQL Managed Instance transits through the private endpoint of the Managed HSM. Managed HSM uses a Traffic Manager which routes the traffic to the closest vault.
-4. The traffic manager checks the health status of each vault and routes traffic to the closest operational vault.
-5. Management plane traffic from the Azure SQL Managed Instance, if the managed instance needs to check permissions on a key, transits using the Azure backbone to Traffic Manager which routes the request to the closest operational vault.
+3. Data plane traffic from the SQL Managed Instance transits through the private endpoint of the Managed HSM.
+4. Managed HSM uses Traffic Manager, which routes the traffic to the closest vault by choosing the closest, operational vault.
+5. Management plane traffic from the Azure SQL Managed Instance, if the managed instance needs to check permissions on a key, transits using the Azure backbone.
 
 ### Components
 
