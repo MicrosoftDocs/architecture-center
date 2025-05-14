@@ -67,7 +67,7 @@ The content in this series is composed of three main sections:
 
   The service-specific guidance is useful for architects, lead developers, and anyone building or implementing Azure components for a multitenant solution.
 
-We also provide a checklist to use when you [design and build a multitenant solution](checklist.md) and a [list of related resources and links](related-resources.md) for architects and developers of multitenant solutions.
+A checklist is also available for when you [design and build a multitenant solution](checklist.md), along with a [list of related resources and links](related-resources.md) for architects and developers of multitenant solutions.
 
 ## Video
 
