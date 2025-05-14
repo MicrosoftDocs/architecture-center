@@ -30,9 +30,9 @@ When you build your own multitenant solution in Azure, there are several element
 In this series, we provide guidance about how to design, build, and operate your own multitenant solutions in Azure.
 
 > [!NOTE]
-> In this series, we use the term *tenant* to refer to **your** tenants, which might be your customers or groups of users. Our guidance is intended to help you build your own multitenant software solutions on top of the Azure platform.
->
-> Microsoft Entra ID also includes the concept of a *tenant* to refer to individual directories. It uses the term *multitenancy* to refer to interactions between multiple Microsoft Entra tenants. The terms are the same, but the concepts aren't. When we refer to the Microsoft Entra concept of a tenant, we use the full term, *Microsoft Entra tenant*, to avoid ambiguity.
+> In this series, the term *tenant* refers to **your** tenants, which might be your customers or groups of users. The guidance is intended to help you build multitenant software solutions on top of the Azure platform.  
+
+> Microsoft Entra ID also uses the term *tenant* to refer to individual directories. It defines *multitenancy* as interactions between multiple Microsoft Entra tenants. The terms are the same, but the concepts differ. To avoid ambiguity, the full term, *Microsoft Entra tenant*, is used when referring to the Microsoft Entra concept of a tenant.
 
 ## Scope
 
