@@ -4,14 +4,17 @@ metadata:
   description: Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure.
   author: ashish-khandelwal-ms
   ms.author: askhande
-  ms.date: 04/15/2025
+  ms.date: 03/19/2024
   ms.topic: solution-idea
   ms.subservice: solution-idea
-  products:
-  - azure-data-factory	
-  - azure-data-lake	
-  - azure-sql-database	
-  - azure-storage	
+azureCategories:
+  - migration
+  - storage
+products:
+  - azure-data-factory
+  - azure-data-lake
+  - azure-sql-database
+  - azure-storage
   - azure-virtual-machines
 name: Mainframe file replication and sync on Azure
 summary: Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure.
