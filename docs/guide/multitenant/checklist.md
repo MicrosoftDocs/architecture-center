@@ -18,14 +18,14 @@ ms.custom:
 
 # Multitenancy checklist on Azure
 
-When you build your multitenant solution in Azure, there are many elements that you need to consider. Use this checklist as a starting point to help you design and build your multitenant solution. This checklist is a companion resource to the [Architect multitenant solutions on Azure](./overview.md) series of articles. The checklist is structured around the business and technical considerations and the five pillars of the [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+When you build your multitenant solution in Azure, there are many elements that you need to consider. Use this checklist as a starting point to help you design and build your multitenant solution. This checklist is a companion resource to the [Architect multitenant solutions on Azure](./overview.md) series of articles. The checklist is structured around the business and technical considerations and the five pillars of the [Azure Well-Architected Framework](/azure/well-architected/).
 
 > [!TIP]
-> After you go through this checklist, take the [SaaS journey review](/assessments/3a5bbc6d-c7be-4ccf-92f8-c1a0bdb0196a/) to evaluate your software as a service (SaaS) product by analyzing your understanding of multitenant architecture and its alignment with SaaS operation best practices.
+> After you go through this checklist, take the [SaaS Journey Review](/assessments/3a5bbc6d-c7be-4ccf-92f8-c1a0bdb0196a/) to evaluate your software as a service (SaaS) product by analyzing your understanding of multitenant architecture and its alignment with SaaS operation best practices.
 
 ## Business considerations
 
-- Understand the type of solution that you're creating, such as business-to-business (B2B), business-to-consumer, or your enterprise software, and [how tenants are different from users](./overview.md).  
+- Understand the type of solution that you're creating, such as business-to-business (B2B), business-to-consumer (B2C), or your enterprise software, and [how tenants are different from users](./overview.md).  
 
 - [Define your tenants](./considerations/tenancy-models.yml#define-a-tenant). Understand how many tenants you initially support and define your growth plans.  
 
