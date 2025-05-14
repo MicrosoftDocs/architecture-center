@@ -20,7 +20,7 @@
 		.st4 {fill:none;stroke:none;stroke-width:0.25}
 		.st5 {fill:#000000;font-family:Calibri;font-size:1.66667em}
 		.st6 {font-size:1em}
-		.st7 {marker-end:url(#mrkr13-34);marker-start:url(#mrkr13-32);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+		.st7 {marker-end:url(#mrkr13-33);marker-start:url(#mrkr13-31);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
 		.st8 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.28409090909091}
 		.st9 {fill:none;stroke:none;stroke-width:0.75}
 		.st10 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
@@ -31,11 +31,11 @@
 		<g id="lend13">
 			<path d="M 3 1 L 0 0 L 3 -1 L 3 1 " style="stroke:none"/>
 		</g>
-		<marker id="mrkr13-32" class="st8" v:arrowType="13" v:arrowSize="2" v:setback="10.2" refX="10.2" orient="auto"
+		<marker id="mrkr13-31" class="st8" v:arrowType="13" v:arrowSize="2" v:setback="10.2" refX="10.2" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend13" transform="scale(3.52) "/>
 		</marker>
-		<marker id="mrkr13-34" class="st8" v:arrowType="13" v:arrowSize="2" v:setback="10.56" refX="-10.56" orient="auto"
+		<marker id="mrkr13-33" class="st8" v:arrowType="13" v:arrowSize="2" v:setback="10.56" refX="-10.56" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend13" transform="scale(-3.52,-3.52) "/>
 		</marker>
@@ -83,16 +83,16 @@
 		</g>
 		<g id="shape4-7" v:mID="4" v:groupContext="shape" transform="translate(332.787,-413.683)">
 			<title>Sheet.4</title>
-			<desc>Back-end service</desc>
+			<desc>Backend service</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(3000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="80.7874" cy="482.65" width="161.58" height="49.6063"/>
 			<rect x="0" y="457.847" width="161.575" height="49.6063" class="st4"/>
-			<text x="12.59" y="488.65" class="st5" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Back<tspan
-						class="st6" v:langID="1033">-</tspan>end <tspan class="st6" v:langID="1033">s</tspan>ervice</text>		</g>
-		<g id="shape5-12" v:mID="5" v:groupContext="shape" transform="translate(271.843,-155.231)">
+			<text x="15.65" y="488.65" class="st5" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Backend <tspan
+						class="st6" v:langID="1033">s</tspan>ervice</text>		</g>
+		<g id="shape5-11" v:mID="5" v:groupContext="shape" transform="translate(271.843,-155.231)">
 			<title>Sheet.5</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(4000):26"/>
@@ -176,7 +176,7 @@
 						1isfnQ4mQf9gUn1SfHT1oSTki8jz05ponCzOd3LR6XAK9A+nfPQZlatZP4ekcbJwaC6cLBzvzP8Dr0uvxqa6SMsAAAAASUVORK5CYII="/>
 			<rect v:rectContext="foreign" x="0" y="397.82" width="119.055" height="109.633" class="st4"/>
 		</g>
-		<g id="shape6-16" v:mID="6" v:groupContext="shape" transform="translate(461.981,-165.129)">
+		<g id="shape6-15" v:mID="6" v:groupContext="shape" transform="translate(461.981,-165.129)">
 			<title>Sheet.6</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(5000):26"/>
@@ -205,7 +205,7 @@
 						m5CIko+pAAAAAElFTkSuQmCC"/>
 			<rect v:rectContext="foreign" x="0" y="417.616" width="61.9269" height="89.8376" class="st4"/>
 		</g>
-		<g id="shape7-20" v:mID="7" v:groupContext="shape" transform="translate(261.381,-116.248)">
+		<g id="shape7-19" v:mID="7" v:groupContext="shape" transform="translate(261.381,-116.248)">
 			<title>Sheet.7</title>
 			<desc>Desktop client</desc>
 			<v:userDefs>
@@ -215,7 +215,7 @@
 			<v:textRect cx="69.3339" cy="486.193" width="138.67" height="42.5197"/>
 			<rect x="0" y="464.933" width="138.668" height="42.5197" class="st4"/>
 			<text x="11.21" y="492.19" class="st5" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Desktop client</text>		</g>
-		<g id="shape8-23" v:mID="8" v:groupContext="shape" transform="translate(439.998,-125.359)">
+		<g id="shape8-22" v:mID="8" v:groupContext="shape" transform="translate(439.998,-125.359)">
 			<title>Sheet.8</title>
 			<desc>Mobile client</desc>
 			<v:userDefs>
@@ -225,21 +225,21 @@
 			<v:textRect cx="58.6164" cy="494.393" width="117.24" height="26.1193"/>
 			<rect x="0" y="481.334" width="117.233" height="26.1193" class="st4"/>
 			<text x="5.32" y="500.39" class="st5" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Mobile client</text>		</g>
-		<g id="shape9-26" v:mID="9" v:groupContext="shape" transform="translate(864.335,134.872) rotate(90)">
+		<g id="shape9-25" v:mID="9" v:groupContext="shape" transform="translate(864.335,134.872) rotate(90)">
 			<title>Sheet.9</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(8000):26"/>
 			</v:userDefs>
 			<path d="M10.2 507.45 L10.56 507.45 L91.49 507.45" class="st7"/>
 		</g>
-		<g id="shape10-35" v:mID="10" v:groupContext="shape" transform="translate(983.39,134.872) rotate(90)">
+		<g id="shape10-34" v:mID="10" v:groupContext="shape" transform="translate(983.39,134.872) rotate(90)">
 			<title>Sheet.10</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(9000):26"/>
 			</v:userDefs>
 			<path d="M10.2 507.45 L10.56 507.45 L97.16 507.45" class="st7"/>
 		</g>
-		<g id="shape11-42" v:mID="11" v:groupContext="shape" transform="translate(2.86352,0.44944)">
+		<g id="shape11-41" v:mID="11" v:groupContext="shape" transform="translate(2.86352,0.44944)">
 			<title>Sheet.11</title>
 			<v:userDefs>
 				<v:ud v:nameU="visAltText" v:val="VT4(Microsoft Azure Logo)"/>
