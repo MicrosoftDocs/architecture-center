@@ -1,13 +1,11 @@
 ---
-title: Web API implementation
-titleSuffix: Best practices for cloud applications
+title: Web API Implementation
 description: Learn about best practices for implementing a web API and publishing it to make it available to client applications.
-ms.author: robbag
+ms.author: pnp
 author: RobBagby
 categories: azure
 ms.date: 07/25/2022
 ms.topic: best-practice
-ms.service: azure-architecture-center
 ms.subservice: best-practice
 azureCategories:
   - compute
@@ -669,7 +667,7 @@ The HTTP protocol supports persistent HTTP connections where they are available.
 Keeping a connection open can help to improve responsiveness by reducing latency and network congestion, but it can be detrimental to scalability by keeping unnecessary connections open for longer than required, limiting the ability of other concurrent clients to connect. It can also affect battery life if the client application is running on a mobile device; if the application only makes occasional requests to the server, maintaining an open connection can cause the battery to drain more quickly. To ensure that a connection is not made persistent with HTTP 1.1, the client can include a Connection:Close header with messages to override the default behavior. Similarly, if a server is handling a very large number of clients it can include a Connection:Close header in response messages which should close the connection and save server resources.
 
 > [!NOTE]
-> Persistent HTTP connections are a purely optional feature to reduce the network overhead associated with repeatedly establishing a communications channel. Neither the web API nor the client application should depend on a persistent HTTP connection being available. Don't use persistent HTTP connections to implement Comet-style notification systems; instead you should use sockets (or WebSockets if available) at the TCP layer. Finally, note Keep-Alive headers are of limited use if a client application communicates with a server via a proxy; only the connection with the client and the proxy will be persistent.
+> Persistent HTTP connections are an optional feature that you can use to reduce network overhead by avoiding the repeated establishment of a communication channel. However, neither the web API nor the client application should depend on the availability of a persistent HTTP connection. Don't use persistent HTTP connections to implement Comet-style notification systems. Use sockets instead, or WebSockets if available, at the Transmission Control Protocol layer. Keep-Alive headers have limited usefulness when a client application communicates with a server via a proxy. Only the connection between the client and the proxy remains persistent.
 
 ## Publishing and managing a web API
 

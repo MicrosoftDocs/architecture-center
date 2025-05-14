@@ -1,9 +1,8 @@
 ---
 author: ssumner
-ms.author: ssumner
+ms.author: pnp
 ms.date: 10/15/2024
 ms.topic: include
-ms.service: azure-architecture-center
 ---
 - *Prefer temporary access to storage.* Use temporary permissions to safeguard against unauthorized access and breaches. For example, you can use [shared access signatures (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature) to limit access to a period of time. Use user delegation SAS to maximize security when you grant temporary access. It's the only SAS that uses Microsoft Entra ID credentials and doesn't require a permanent storage account key.
 

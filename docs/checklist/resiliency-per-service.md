@@ -1,12 +1,10 @@
 ---
 title: Resiliency checklist for services
-titleSuffix: Azure Architecture Center
 description: Resiliency is the ability to recover from failures and continue to function. Use this checklist to review the resiliency considerations for Azure services.
 author: RobBagby
-ms.author: robbag
+ms.author: pnp
 ms.date: 07/25/2023
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-app-service
@@ -92,9 +90,9 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Configure zone redundancy.** When zone redundancy is enabled on your cache, Azure Cache for Redis spreads the virtual machines that host your cache across multiple availability zones. Zone redundancy provides high availability and fault tolerance in the event of a datacenter outage. For more information, see [Enable zone redundancy for Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-zone-redundancy).
 
-**Configure Geo-replication**. Geo-replication provides a mechanism for linking two Premium-tier Azure Cache for Redis instances. Data written to the primary cache is replicated to a secondary read-only cache. For more information, see [How to configure geo-replication for Azure Cache for Redis](/azure/redis-cache/cache-how-to-geo-replication)
+**Configure Geo-replication**. Geo-replication provides a mechanism for linking two Premium-tier Azure Cache for Redis instances. Data written to the primary cache is replicated to a secondary read-only cache. For more information, see [How to configure geo-replication for Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-geo-replication#geo-replication-prerequisites).
 
-**Configure data persistence.** Redis persistence allows you to persist data stored in Redis. You can also take snapshots and back up the data, which you can load in case of a hardware failure. For more information, see [How to configure data persistence for a Premium-tier Azure Cache for Redis](/azure/redis-cache/cache-how-to-premium-persistence)
+**Configure data persistence.** Redis persistence allows you to persist data stored in Redis. You can also take snapshots and back up the data, which you can load in case of a hardware failure. For more information, see [How to configure data persistence for a Premium-tier Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-premium-persistence?tabs=premium#tabpanel_1_premium).
 
 If you are using Azure Cache for Redis as a temporary data cache and not as a persistent store, these recommendations may not apply.
 

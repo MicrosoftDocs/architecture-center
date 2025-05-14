@@ -1,12 +1,10 @@
 {
-  "BaseConfiguration": "docutune-default.json",
-  "DocSets": [
+  "Docsets": [
     {
       "DocsetName": "azure-architecture-center-pr2",
-      "BasePath": "/azure/architecture"
-  } ],
-  "MetadataMultilineValues": true,
-  "MarkdownListIndicator": "-",
+      "BuildSourceFolder": "docs"
+    }
+  ],
   "Exclude": [
     "SECURITY.md",
     "docs/_bread/toc.yml"
@@ -16,14 +14,5 @@
     "Bundle-Cloud.txt",
     "Dictionary-EntraRebrand.ps1",
     "Dictionary-AAC.ps1"
-  ],
-  "RemoveTermSets": [
-    "*-cni-*",
-    "*-llm-*",
-    "*-nlp-*",
-    "*-tts-*",
-    "*-stt-*",
-    "invalid-product-azure-machine-learning-*",
-    "invalid-spelling-various-0011"
   ]
 }

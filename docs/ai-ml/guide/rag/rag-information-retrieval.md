@@ -2,10 +2,9 @@
 title: Develop a RAG Solution—Information-Retrieval Phase
 description: Learn about how to configure a search index, the types of searches that you can perform, how to break queries into subqueries, and why and how to rerank queries.
 author: robbagby
-ms.author: robbag
+ms.author: pnp
 ms.date: 01/09/2025
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom: arb-aiml

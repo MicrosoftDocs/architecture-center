@@ -3,10 +3,9 @@ metadata:
   title: Architectural approaches for cost management and allocation in a multitenant solution
   description: This article describes approaches to consider for cost management and cost allocation in a multitenant solution.
   author: johndowns
-  ms.author: jodowns
+  ms.author: pnp
   ms.date: 08/01/2024 
   ms.topic: conceptual
-  ms.service: azure-architecture-center
   ms.subservice: architecture-guide
   ms.custom:
     - arb-saas

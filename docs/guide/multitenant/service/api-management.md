@@ -2,10 +2,9 @@
 title: Use Azure API Management in a multitenant solution
 description: Learn about the features of Azure API Management that are useful when you work in multitenant solutions.
 author: johndowns
-ms.author: jodowns
+ms.author: pnp
 ms.date: 07/24/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
  - azure-api-management

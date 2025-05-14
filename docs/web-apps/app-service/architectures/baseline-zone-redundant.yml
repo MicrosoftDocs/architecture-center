@@ -3,10 +3,9 @@ metadata:
   title: Baseline highly available zone-redundant app services web application
   description: A baseline reference architecture for a network secured, highly available, and zone-redundant App Service web application.
   author: robbagby
-  ms.author: robbag
+  ms.author: pnp
   ms.date: 7/12/2024
   ms.topic: reference-architecture
-  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - web

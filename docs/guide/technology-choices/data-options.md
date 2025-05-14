@@ -1,12 +1,10 @@
 --- 
 title: Choose an Azure data service
-titleSuffix: Azure Architecture Center
 description: Use this guide to decide which data service best suits your application.
 author: claytonsiemens77
-ms.author: csiemens
+ms.author: pnp
 ms.date: 03/28/2023
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.custom: fcp
 keyword: Azure

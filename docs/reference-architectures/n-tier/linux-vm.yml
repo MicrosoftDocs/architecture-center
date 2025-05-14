@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Run a Linux VM on Azure
-  titleSuffix: Azure Architecture Center
   description: Learn the best practices for running a Linux virtual machine on Azure, which requires some additional components, including networking and storage resources.
   author: DTInTheCloud
   ms.author: dtrumpower
   ms.date: 07/10/2024
   ms.topic: conceptual
-  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - compute

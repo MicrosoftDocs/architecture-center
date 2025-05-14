@@ -2,11 +2,10 @@
 metadata:
   title: Gateway Offloading pattern
   description: Use the Gateway Offloading design pattern to offload shared or specialized service functionality to a gateway proxy.
-  ms.author: robbag
+  ms.author: pnp
   author: RobBagby
   ms.date: 07/28/2022
   ms.topic: design-pattern
-  ms.service: azure-architecture-center
   ms.subservice: design-pattern
 azureCategories:
   - networking

@@ -3,11 +3,10 @@ metadata:
   title: Provide custom authentication to Azure OpenAI Service through a gateway
   description: Learn how to implement alternative authentication mechanisms for client applications that communicate with Azure OpenAI Service through a gateway.
   author: RobBagby
-  ms.author: robbag
+  ms.author: pnp
   ms.date: 12/16/2024
   ms.topic: conceptual
   ms.collection: ce-skilling-ai-copilot
-  ms.service: azure-architecture-center
   ms.subservice: architecture-guide
   ms.custom: arb-aiml
 azureCategories:

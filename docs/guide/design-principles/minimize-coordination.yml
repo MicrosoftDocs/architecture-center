@@ -3,10 +3,9 @@ metadata:
   title: Minimize coordination
   description: Follow these recommendations to improve scalability by minimizing coordination between application services.
   author: RobBagby
-  ms.author: robbag
+  ms.author: pnp
   ms.date: 01/30/2022
   ms.topic: conceptual
-  ms.service: azure-architecture-center
   ms.subservice: architecture-guide
   ms.custom: fcp
 azureCategories:

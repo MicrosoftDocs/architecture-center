@@ -1,13 +1,11 @@
 ---
 title: Make all things redundant
-titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to avoid having single points of failure, by building redundancy into your application.
 author: ckittel
-ms.author: chkittel
+ms.author: pnp
 categories: azure
 ms.date: 07/30/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-load-balancer

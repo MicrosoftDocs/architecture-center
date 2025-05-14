@@ -104,6 +104,6 @@ Network security groups restrict access to each tier. For example, the database 
 [autoscaling]: ../../best-practices/auto-scaling.md
 [caching]: ../../best-practices/caching.yml
 [dmz]: ../../reference-architectures/dmz/secure-vnet-dmz.yml
-[ha-nva]: ../../networking/guide/nva-ha.yml
+[ha-nva]: ../../networking/guide/network-virtual-appliance-high-availability.md
 [hybrid-network]: ../../reference-architectures/hybrid-networking/index.yml
 [sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server

@@ -1,12 +1,10 @@
 ---
 title: Architectural approaches for compute in multitenant solutions
-titleSuffix: Azure Architecture Center
 description: This article describes approaches to support multitenancy for the compute components of your solution.
 author: DixitArora-MSFT
 ms.author: dixitaro
-ms.date: 06/05/2024
+ms.date: 05/02/2025
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure
@@ -108,6 +106,8 @@ Depending on the Azure compute services you use, you need to deploy different de
 - **Azure Kubernetes Service (AKS)**: Deploy dedicated clusters for each tenant.
 - **Virtual machines**: Deploy dedicated virtual machines for each tenant.
 
+Physical host‑level isolation can also be provided by running tenant VMs on [Azure Dedicated Hosts](/azure/virtual-machines/dedicated-hosts), which reserve an entire physical server for a single customer. However, this approach is typically more expensive than using shared hosts.
+
 ### Semi-isolated compute resources
 
 Semi-isolated approaches require you to deploy aspects of the solution in an isolated configuration, while you share the other components.
@@ -118,9 +118,9 @@ Azure Container Apps enables you to deploy multiple applications to a shared env
 
 Azure Kubernetes Service (AKS), and Kubernetes more broadly, provide a variety of options for multitenancy, including the following:
 
- - Tenant-specific namespaces, for logical isolation of tenant-specific resources, which are deployed to shared clusters and node pools.
- - Tenant-specific nodes or node pools on a shared cluster.
- - Tenant-specific pods that might use the same node pool.
+- Tenant-specific namespaces. Namespaces can provide logical isolation of tenant-specific resources, which are deployed to shared clusters and node pools.
+- Tenant-specific nodes or node pools on a shared cluster.
+- Tenant-specific pods that might use the same node pool.
 
 AKS also enables you to apply pod-level governance to mitigate the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). For more information, see [Best practices for application developers to manage resources in Azure Kubernetes Service (AKS)](/azure/aks/developer-best-practices-resource-management).
 

@@ -5,7 +5,6 @@ author: scaryghosts
 ms.author: adamcerini
 ms.date: 02/07/2025
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.collection: 
  - migration
@@ -56,7 +55,7 @@ Read the following articles to learn about Azure services and how they map to th
 - [Networking on Azure and AWS](./networking.md)
 - [Regions and zones on Azure and AWS](./regions-zones.md)
 - [Resource management on Azure and AWS](./resources.md)
-- [Multicloud security and identity with Azure and AWS](./security-identity.md)
+- [Multicloud identity with Azure and AWS](./security-identity.md)
 - [Storage on Azure and AWS](./storage.md)
 
 ## Other services

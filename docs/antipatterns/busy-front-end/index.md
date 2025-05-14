@@ -1,12 +1,10 @@
 ---
 title: Busy Front End antipattern
-titleSuffix: Performance antipatterns for cloud apps
 description: Asynchronous work on a large number of background threads can starve other foreground tasks of resources.
-ms.author: robbag
+ms.author: pnp
 author: RobBagby
 ms.date: 06/05/2017
 ms.topic: design-pattern
-ms.service: azure-architecture-center
 ms.subservice: best-practice
 products:
   - aspnet

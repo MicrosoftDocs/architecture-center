@@ -1,13 +1,11 @@
 ---
 title: Improper Instantiation antipattern
-titleSuffix: Azure Architecture Center
 description: Avoid continually creating new instances of an object that is meant to be created once and then shared.
-ms.author: robbag
+ms.author: pnp
 author: RobBagby
 categories: azure
 ms.date: 06/05/2017
 ms.topic: design-pattern
-ms.service: azure-architecture-center
 ms.subservice: best-practice
 azureCategories:
   - analytics

@@ -1,11 +1,10 @@
 ---
 title: Considerations for using Azure Container Apps in a multitenant solution
 description: Learn about Azure Container Apps features that are useful in multitenant systems. Get links to additional guidance.
-author: landonpierce
-ms.author: landonpierce
-ms.date: 06/05/2024
+author: PlagueHO
+ms.author: dascottr
+ms.date: 02/05/2025
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-container-apps
@@ -117,6 +116,18 @@ When you use managed identities, keep your choice of isolation model in mind. Fo
 
 For more information, see [Managed identities in Azure Container Apps](/azure/container-apps/managed-identity).
 
+### Workload profiles on dedicated compute
+
+Container Apps provides a dedicated plan that allows you to reserve dedicated resources for a tenant. This plan is useful to provide a limited on the resources available to a tenant that can be shared across multiple container apps, or to meet a specific tenant's requirements like higher memory-to-CPU ratios or GPU availability.
+
+For more information, see [Workload profiles](/azure/container-apps/workload-profiles-overview).
+
+### Rule-based routing
+
+Rule‑based routing lets you direct inbound traffic to specific container apps or container app revisions. Requests can be routed based on the HTTP request path, and you can rewrite the path in the URL. This feature is useful for multitenant systems that need to [map requests](../considerations/map-requests.yml) to tenant‑specific container apps or revisions using the path in the request. This capability is typically used with the [Tenant-specific container apps](#tenant-specific-container-apps) isolation model.
+
+For more information, see [Rule‑based traffic splitting and routing in Azure Container Apps](/azure/container-apps/rule-based-routing)
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -134,6 +145,7 @@ Other contributors:
 - [Aarthi Murugan](https://www.linkedin.com/in/aarthimurugan/) | Senior Program Manager, CS Tech Strategy App Innovation
 - [Kendall Roden](https://www.linkedin.com/in/kendallroden/) | Senior Program Manager, Azure Container Apps
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer, FastTrack for Azure
+- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Solution Architect, Data & AI
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

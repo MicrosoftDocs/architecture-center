@@ -1,12 +1,10 @@
 ---
 title: "The journey to SaaS: Dynamics 365"
-titleSuffix: Azure Architecture Center
 description: Learn from a first-hand account about the journey and decisions that made Microsoft Dynamics 365 a successful SaaS product.
 author: johndowns
-ms.author: jodowns
+ms.author: pnp
 ms.date: 10/11/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure

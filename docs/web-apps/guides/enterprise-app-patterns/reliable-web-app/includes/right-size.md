@@ -1,9 +1,8 @@
 ---
 author: ssumner
-ms.author: ssumner
+ms.author: pnp
 ms.date: 10/15/2024
 ms.topic: include
-ms.service: azure-architecture-center
 ---
 Use performance tiers (SKUs) of Azure services that meet the needs of each environment without exceeding them. To rightsize your environments, follow these recommendations:
 

@@ -1,12 +1,10 @@
 ---
-title: Design for operations
-titleSuffix: Azure Application Architecture Guide
+title: Design for Operations
 description: Learn about functions of the operations team for cloud-based applications, including deployment, monitoring, incident response, and security auditing.
 author: RobBagby
-ms.author: robbag
+ms.author: pnp
 ms.date: 08/30/2018
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 categories:
 - management-and-governance
@@ -18,33 +16,33 @@ ms.custom:
 
 # Design for operations
 
-## Design an application so that the operations team has the tools they need
+## Design an application to equip the operations team
 
-The cloud has dramatically changed the role of the operations team. They are no longer responsible for managing the hardware and infrastructure that hosts the application.  That said, operations is still a critical part of running a successful cloud application. Some of the important functions of the operations team include:
+The shift to the cloud has fundamentally changed the role of the operations team. They're no longer responsible for managing the hardware and infrastructure that hosts the application. However, operations remain crucial for running a successful cloud application. Key functions include:
 
-- Deployment
-- Monitoring
-- Escalation
-- Incident response
-- Security auditing
+- Deployment.
+- Monitoring.
+- Escalation.
+- Incident response.
+- Security auditing.
 
-Robust logging and tracing are particularly important in cloud applications. Involve the operations team in design and planning, to ensure the application gives them the data and insight they need to be successful.  <!-- to do: Link to DevOps checklist -->
+Robust logging and tracing are especially important in cloud applications. Include the operations team in design and planning to ensure that they receive the data and insights they need for success.  <!-- to do: Link to DevOps checklist -->
 
 ## Recommendations
 
-**Make all things observable**. Once a solution is deployed and running, logs and traces are your primary insight into the system. *Tracing* records a path through the system, and is useful to pinpoint bottlenecks, performance issues, and failure points. *Logging* captures individual events such as application state changes, errors, and exceptions. Log in production, or else you lose insight at the very times when you need it the most.
+**Make all things observable.** After a solution is deployed and operational, logs and traces are your primary insight into the system. *Tracing* records a path through the system. Use tracing to pinpoint bottlenecks, performance problems, and failure points. *Logging* captures individual events such as application state changes, errors, and exceptions. Enable logging in production, or you can lose crucial insights when you need them most.
 
-**Instrument for monitoring**. Monitoring gives insight into how well (or poorly) an application is performing, in terms of availability, performance, and system health. For example, monitoring tells you whether you are meeting your SLA. Monitoring happens during the normal operation of the system. It should be as close to real-time as possible, so that the operations staff can react to issues quickly. Ideally, monitoring can help avert problems before they lead to a critical failure. For more information, see [Monitoring and diagnostics][monitoring].
+**Instrument for monitoring.** Monitoring provides insight into an application's performance, including availability, efficiency, and system health. For example, it shows whether you're meeting your service-level agreement. Monitoring occurs during the system's normal operation and should be as close to real-time as possible. This approach helps ensure that the operations staff can react to problems quickly. Ideally, effective monitoring helps prevent problems before they escalate into critical failures. For more information, see [Monitoring and diagnostics][monitoring].
 
-**Instrument for root cause analysis**. Root cause analysis is the process of finding the underlying cause of failures. It occurs after a failure has already happened.
+**Instrument for root cause analysis.** Root cause analysis is the process of finding the underlying cause of failures. It takes place after a failure occurs.
 
-**Use distributed tracing**. Use a distributed tracing system that is designed for concurrency, asynchrony, and cloud scale. Traces should include a correlation ID that flows across service boundaries. A single operation may involve calls to multiple application services. If an operation fails, the correlation ID helps to pinpoint the cause of the failure.
+**Use distributed tracing.** Use a distributed tracing system designed for concurrency, asynchrony, and cloud scale. Traces should include a correlation ID that flows across service boundaries. A single operation might include calls to multiple application services. If an operation fails, the correlation ID helps to pinpoint the cause of the failure.
 
-**Standardize logs and metrics**. The operations team will need to aggregate logs from across the various services in your solution. If every service uses its own logging format, it becomes difficult or impossible to get useful information from them. Define a common schema that includes fields such as correlation ID, event name, IP address of the sender, and so forth. Individual services can derive custom schemas that inherit the base schema, and contain additional fields.
+**Standardize logs and metrics.** The operations team needs to aggregate logs from across the various services in your solution. If every service uses its own logging format, it becomes difficult or impossible to retrieve useful information. Define a common schema that includes fields such as correlation ID, event name, and IP address of the sender. Individual services can derive custom schemas that inherit the base schema and can contain extra fields.
 
-**Automate management tasks**, including provisioning, deployment, and monitoring. Automating a task makes it repeatable and less prone to human errors.
+**Automate management tasks**, including provisioning, deployment, and monitoring. Automating a task makes it repeatable and less prone to human error.
 
-**Treat configuration as code**. Check configuration files into a version control system, so that you can track and version your changes, and roll back if needed.
+**Treat configuration as code.** Store configuration files in a version control system so that you can track and version your changes and roll back changes if needed.
 
 <!-- links -->
 

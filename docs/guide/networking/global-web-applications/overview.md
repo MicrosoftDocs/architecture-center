@@ -1,13 +1,11 @@
 ---
 title: Global routing redundancy for mission-critical web applications
-titleSuffix: Azure Architecture Center
 description: Learn how to develop highly resilient global web applications.
 author: johndowns
-ms.author: jodowns
+ms.author: pnp
 ms.reviewer: dburkhardt
 ms.date: 02/19/2025
 ms.topic: conceptual
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-traffic-manager

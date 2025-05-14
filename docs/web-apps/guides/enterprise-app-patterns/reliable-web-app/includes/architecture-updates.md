@@ -1,9 +1,8 @@
 ---
 author: ssumner
-ms.author: ssumner
+ms.author: pnp
 ms.date: 10/15/2024
 ms.topic: include
-ms.service: azure-architecture-center
 ---
 The Reliable Web App pattern has a few essential architectural elements. You need DNS to manage endpoint resolution, a web application firewall to block malicious HTTP traffic, and a load balancer to route and help protect inbound user requests. The application platform hosts your web app code and makes calls to all the back-end services through private endpoints in a virtual network. An application performance monitoring tool captures metrics and logs to help you understand your web app.
 

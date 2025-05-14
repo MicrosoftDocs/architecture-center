@@ -56,11 +56,11 @@ You can use Azure NetApp Files for scenarios that need network file storage in t
 
 ## Considerations
 
-Azure NetApp Files contains a set of features that provide design considerations based on the pillars of the [Azure Well-Architected Framework](/azure/well-architected/), which is a set of guiding tenets used to improve the quality of a workload.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your applications meet the commitments you make to your customers. For more information, see the [Overview of the Reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Skytap on Azure provides a standard 99.95% availability service-level objective (SLO) for the platform and logical partitions (LPARs).
 
@@ -70,7 +70,7 @@ For improved recovery point objective and recovery time objective (RPO/RTO) SLAs
 
 ### Security
 
-Security provides assurance against deliberate attacks and abuse of valuable data and systems. For more information, see [Overview of the Security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Azure NetApp Files provides an extra level of security by keeping [volumes and data traffic within your virtual networks](/azure/azure-netapp-files/faq-security#can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted) and not providing a publicly addressable endpoint. All [data is encrypted at rest](/azure/azure-netapp-files/faq-security#can-the-storage-be-encrypted-at-rest) always. You can also use [NFS Kerberos](/azure/azure-netapp-files/understand-data-encryption) to encrypt data in transit.
 
@@ -78,9 +78,9 @@ Azure NetApp Files provides support for standard NFSv4.1 security measures, such
 
 The [Azure Policy](/azure/governance/policy/overview) can help you enforce organizational standards and assess compliance at scale. Azure NetApp Files supports Azure Policy through [custom and built-in policy definitions](/azure/azure-netapp-files/azure-policy-definitions).
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Understand the [Azure NetApp Files cost model](/azure/azure-netapp-files/azure-netapp-files-cost-model) to help you manage your cloud spend.
 
@@ -109,9 +109,9 @@ Determine which Azure NetApp Files service level (Standard, Premium, or Ultra) t
 - ExpressRoute circuits and VPN gateways
 - Virtual networks
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 Azure NetApp Files offers the ability to dynamically scale up performance service levels or scale down performance [service levels](/azure/azure-netapp-files/azure-netapp-files-service-levels) without disruption as your workload needs change.
 

@@ -2,11 +2,10 @@
 metadata:
   title: Backends for Frontends pattern
   description: Explore the Backends for Frontends pattern, which creates separate backend services to be consumed by specific frontend applications or interfaces.
-  ms.author: robbag
+  ms.author: pnp
   author: RobBagby
   ms.date: 03/19/2025
   ms.topic: design-pattern
-  ms.service: azure-architecture-center
   ms.subservice: design-pattern
 azureCategories:
   - integration  

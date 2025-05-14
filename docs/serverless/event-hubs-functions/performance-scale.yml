@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Performance and scale guidance for Event Hubs with Azure Functions
-  titleSuffix: Azure Example Scenarios
   description: Learn how to plan for and deploy more efficient and scalable code that runs on Azure Functions and responds to Event Hubs events.
   author: dbarkol
   ms.author: dabarkol
   ms.topic: conceptual
   ms.date: 07/03/2024
-  ms.service: azure-architecture-center
   ms.subservice: architecture-guide
 azureCategories:
   - compute

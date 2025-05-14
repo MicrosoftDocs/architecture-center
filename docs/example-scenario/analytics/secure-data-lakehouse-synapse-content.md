@@ -197,11 +197,11 @@ For example, in the plan we want to:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
-For information about the security pillar of the Well-Architected Framework, see [Security](/azure/architecture/framework/#security).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 #### Identity and access control
 
@@ -244,9 +244,9 @@ You automatically enable the Defender for Cloud free plan on all your Azure subs
 
 If the solution needs advanced security management and threat detection capabilities such as detection and alerting of suspicious activities, you can enable cloud workload protection individually for different resources.
 
-### Cost optimization
+### Cost Optimization
 
-For information about the cost optimization pillar of the Well-Architected Framework, see [Cost optimization](/azure/architecture/framework/#cost-optimization).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 A key benefit of the data lakehouse solution is its cost-efficiency and scalable architecture. Most components in the solution use consumption-based billing and will autoscale. In this solution, all data is stored in Data Lake Storage. You only pay to store the data if you don't run any queries or process data.
 
@@ -263,9 +263,9 @@ Different security protection solutions have different cost modes. You should ch
 
 You can use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of the solution.
 
-### Operational excellence
+### Operational Excellence
 
-For information about the operational excellence pillar of the Well-Architected Framework, see [Operational excellence](/azure/architecture/framework/#operational-excellence).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 #### Use a virtual network enabled self-hosted pipeline agent for CI/CD services
 
@@ -302,6 +302,6 @@ Review the [Azure Well-Architected Framework Security pillar](/azure/well-archit
 
 ## Related resources
 
-- [Big data architectures](../../databases/guide/big-data-architectures.yml)
+- [Big data architectures](../../databases/guide/big-data-architectures.md)
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 - [Modern data warehouse for small and medium business](../../example-scenario/data/small-medium-data-warehouse.yml)

@@ -90,7 +90,7 @@ items:
         items:
         - name: Machine learning operations (MLOps) v2
           href: guide/machine-learning-operations-v2.md
-        - name: Generative AI ops with MLOps
+        - name: Generative AI operations with MLOps
           href: guide/genaiops-for-mlops.md
         - name: MLOps maturity model
           href: guide/mlops-maturity-model.yml
@@ -104,6 +104,8 @@ items:
           href: guide/azure-openai-gateway-custom-authentication.yml
         - name: Implement advanced monitoring for Azure OpenAI through a gateway
           href: guide/azure-openai-gateway-monitoring.yml
+      - name: Design to support foundation model lifecycles
+        href: guide/manage-foundation-models-lifecycle.md
     - name: OpenAI
       items:
       - name: Design architectures
@@ -146,3 +148,5 @@ items:
             href: guide/azure-openai-gateway-custom-authentication.yml
           - name: Implement advanced monitoring for Azure OpenAI through a gateway
             href: guide/azure-openai-gateway-monitoring.yml
+        - name: Design to support foundation model lifecycles
+          href: guide/manage-foundation-models-lifecycle.md

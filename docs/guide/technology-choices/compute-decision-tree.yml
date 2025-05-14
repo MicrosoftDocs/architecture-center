@@ -3,11 +3,10 @@ metadata:
   title: Choose an Azure compute service
   description: Use this chart and other information to decide which compute service, or hosting model for computing resources, best suits your application.
   author: stephen-sumner
-  ms.author: ssumner
+  ms.author: pnp
   ms.date: 02/04/2025
   ms.reviewer: ssumner
   ms.topic: conceptual
-  ms.service: azure-architecture-center
   ms.subservice: architecture-guide
   ms.custom:
     - fcp
