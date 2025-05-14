@@ -114,7 +114,7 @@ Semi-isolated approaches require you to deploy aspects of the solution in an iso
 
 When you use App Service and Azure Functions, you can deploy distinct applications for each tenant and host the applications on shared App Service plans. This approach reduces the cost of your compute tier because App Service plans represent the unit of billing. It also enables you to apply distinct configuration and policies to each application. However, this approach introduces the risk of the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml).
 
-You can use Container Apps to deploy multiple applications to a shared environment and then to use Dapr and other tools to configure each application separately.
+You can use Container Apps to deploy multiple applications to a shared environment and then use Dapr and other tools to configure each application separately.
 
 AKS, and Kubernetes more broadly, provides various options for multitenancy:
 
