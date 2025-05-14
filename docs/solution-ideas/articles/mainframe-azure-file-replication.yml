@@ -1,25 +1,14 @@
 ### YamlMime:Architecture
 metadata:
-  title: Mainframe file replication and sync on Azure
-  titleSuffix: Azure Architecture Center
+  title: Mainframe File Replication and Sync on Azure
   description: Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure.
   author: ashish-khandelwal-ms
   ms.author: askhande
   ms.date: 04/15/2025
   ms.topic: solution-idea
-  ms.service: azure-architecture-center
   ms.subservice: solution-idea
-azureCategories:
-  - migration
-  - storage
-products:
-  - azure-data-factory
-  - azure-data-lake
-  - azure-sql-database
-  - azure-storage
-  - azure-virtual-machines
 name: Mainframe file replication and sync on Azure
 summary: Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-azure-file-replication-updated.png
 content: |
-  [!include[](mainframe-azure-file-replication-content.md)]
+  [!INCLUDE[](mainframe-azure-file-replication-content.md)]
