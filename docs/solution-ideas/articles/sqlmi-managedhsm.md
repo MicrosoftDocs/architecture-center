@@ -22,13 +22,13 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
 
-- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a scalable cloud database service that's always running on the latest stable version of the Microsoft SQL Server database engine and a patched OS with 99.99% built-in high availability, offering close to 100% feature compatibility with SQL Server.
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is the database target for the TDE protector keys.
 
-- [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm) is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs.
+- [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm) is used to securely vault the TDE protector keys and to provide cross-region resiliency.
 
-- [Private Endpoint](/azure/private-link/private-endpoint-overview) is a network interface that uses a private IP address from your virtual network. This network interface connects you privately and securely to a service that's powered by Azure Private Link.
+- [Private Endpoint](/azure/private-link/private-endpoint-overview) is the network interface that uses a private IP address from the private virtual network securing communication between resources.
 
-- [Azure Private DNS](/azure/dns/private-dns-overview) provides a reliable and secure DNS service for your virtual networks. Azure Private DNS manages and resolves domain names in the virtual network without the need to configure a custom DNS solution.
+- [Azure Private DNS](/azure/dns/private-dns-overview) provides native cross-region name resolution resiliency for Managed HSM, in the case of a regional outage of the service.
 
 ## Scenario details
 
