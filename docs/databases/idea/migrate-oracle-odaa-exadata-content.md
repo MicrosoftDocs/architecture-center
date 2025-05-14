@@ -12,9 +12,9 @@ The following diagram shows an example of this scenario.
 
 Consider the following scenario details:
 
-- You deployed Oracle Exadata Database@Azure into your chosen Azure region and configured a virtual machine(VM) cluster that has two database servers and three storage cell nodes.
+- You deployed Oracle Exadata Database@Azure into your chosen Azure region and configured a virtual machine (VM) cluster that has two database servers and three storage cell nodes.
 
-- The ODAA delegated subnet is in the Database virtual network, which peers to the hub virtual network. The IP address range of the ODAA subnet is 10.42.1.0/24. For more information, see [Plan for IP address space](https://docs.oracle.com/iaas/Content/database-at-azure/oaa_ip.htm).
+- The ODAA delegated subnet is in the database virtual network, which peers to the hub virtual network. The IP address range of the ODAA subnet is 10.42.1.0/24. For more information, see [Plan for IP address space](https://docs.oracle.com/iaas/Content/database-at-azure/oaa_ip.htm).
 - In the hub virtual network, the traffic has to traverse a network virtual appliance (NVA), such as AzureFirewall or a non-Microsoft network virtual appliance. The NVA functions as a routing device, which helps ensure that ODAA cluster nodes are fully routable within the infrastructure. You configure the NVA to inspect all traffic that goes to and from on-premises. The IP address of the hub NVA is 10.0.0.5.
 - You configure hybrid connectivity in the hub virtual network via an Azure ExpressRoute connection to your on-premises network.
 - In your on-premises network, you have an existing Exadata implementation, and you want to migrate one of the databases to Oracle Exadata Database@Azure. The database is 2 TB and runs on Exadata X8M-2. The database version is Oracle Database 19c, Enterprise Edition. Your on-premises IP address range is 192.168.0.0/16.
