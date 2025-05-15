@@ -71,18 +71,18 @@ To see additional examples of how Application Gateway can protect APIs, refer to
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - Deploy at least two [scale units](/azure/api-management/upgrade-and-scale) of API Management that are spread over two availability zones, per region. This method maximizes your availability and performance.
 - VNet peering provides great performance in a region, but it has a scalability limit of max 500 networks. If you require more workloads to be connected, use a [hub spoke design ](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) or [Azure vWAN](/azure/virtual-wan/virtual-wan-about).
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - API Management [validation policies](/azure/api-management/validation-policies) are available to validate API requests and responses against an OpenAPI schema. These features aren't a replacement for a [Web Application Firewall](/azure/web-application-firewall/overview), but they can provide additional protection against some threats. Adding validation policies can have performance implications, so we recommend you use performance load tests to assess their impact on API throughput.
 - Deploy Azure Web Application Firewall (WAF) in front of API Management to provide protection against common web application exploits and vulnerabilities.
@@ -91,16 +91,16 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - Deploy the API Management gateway in a VNet, to support hybrid connectivity and increased security.
 - VNet peering provides great performance in a region, but it has a scalability limit of max 500 networks. If you require more workloads to be connected, use a [hub spoke design](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) or [Azure vWAN](/azure/virtual-wan/virtual-wan-about).
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Due to the need of availability zone and virtual network support, we selected the Premium tier of API Management, following the [pricing for each region](https://azure.microsoft.com/pricing/details/api-management). Additionally, in this workload, Azure Functions is hosted on the [Premium plan](https://azure.microsoft.com/pricing/details/functions/), due to the need of VNet access. 
 - For proof of concept or prototypes, we recommend you use other tiers of API Management (such as Developer or Standard). 
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 - API Management configurations should be represented as ARM templates, and you should embrace an infrastructure-as-code mindset.
 - Use a CI/CD process to manage, version, and update API Management configurations.

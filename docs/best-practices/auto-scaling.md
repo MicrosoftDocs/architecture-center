@@ -1,7 +1,7 @@
 ---
 title: Autoscaling Guidance
 description: Review autoscaling guidance. Autoscaling is the process of dynamically allocating resources to match performance requirements.
-ms.author: robbag
+ms.author: pnp
 author: RobBagby
 ms.date: 10/11/2022
 ms.topic: best-practice

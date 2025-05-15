@@ -125,13 +125,13 @@ The relationships between host pools, workspaces, and other key logical componen
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 Use the [assessment tool](/azure/well-architected/azure-virtual-desktop/assessment) to assess the readiness of your Azure Virtual Desktop workload. This tool checks your alignment to best practices described in the [Azure Virtual Desktop workload documentation](/azure/well-architected/azure-virtual-desktop/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/well-architected/reliability).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - **Ensure capacity is reserved**: To ensure guaranteed allocation of compute resources, you can request an [On-demand capacity reservation](/azure/virtual-machines/capacity-reservation-overview) with no term commitment and can be combined with reserved instances.
 - **Add Intra-region resiliency**: Use [Availability zones](/azure/reliability/availability-zones-overview) for Azure services that support them such as:
@@ -141,7 +141,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Consider the following security-related factors when you deploy Azure Virtual Desktop.
 
@@ -154,7 +154,7 @@ Consider the following security-related factors when you deploy Azure Virtual De
 
 ### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Consider the following cost-related factors when you deploy Azure Virtual Desktop.
 
@@ -176,7 +176,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 ### Performance Efficiency 
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance Efficiency pillar overview](/azure/well-architected/performance-efficiency).
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - **Use antivirus exclusions**: For profile solutions like FSLogix that mount virtual hard disk files, it's recommended to exclude those file extensions. For more information, see [Configure Antivirus file and folder exclusions](/fslogix/overview-prerequisites#configure-antivirus-file-and-folder-exclusions).
 - **Tune for latency**: For clients using a Point-to-Site (P2S) VPN connection use a split tunnel that's based on User Datagram Protocol (UDP) to reduce latency and optimize your tunnel bandwidth usage. For on-site clients who use a VPN or Azure ExpressRoute, use [RDP Shortpath](/azure/virtual-desktop/rdp-shortpath?tabs=public-networks) to reduce the round-trip time, which improves the user experience in latency-sensitive applications and input methods.

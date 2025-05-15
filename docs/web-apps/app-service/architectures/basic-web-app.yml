@@ -3,7 +3,7 @@ metadata:
   title: Basic web application
   description: Learn about proven practices for deploying web applications that use Azure App Service and Azure SQL Database.
   author: robbagby
-  ms.author: robbag
+  ms.author: pnp
   ms.date: 07/12/2024
   ms.topic: reference-architecture
   ms.subservice: reference-architecture

@@ -58,11 +58,11 @@ This scenario is most relevant to customers in regulated industries, such as fin
 
 ## Considerations
 
-These recommendations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Resilience is essential for Microsoft Azure Red Hat OpenShift to maintain the uninterrupted operation of mission-critical applications. Follow these reliability recommendations:
 
@@ -76,7 +76,7 @@ Resilience is essential for Microsoft Azure Red Hat OpenShift to maintain the un
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Security is paramount in the financial industry. To protect sensitive data and ensure regulatory compliance, you need stringent security measures.
 
@@ -110,9 +110,9 @@ Security is paramount in the financial industry. To protect sensitive data and e
 
 - **Regulatory compliance**: Use Azure Policy to address various regulatory requirements related to compliance in FSI scenarios. For more information, see [Azure Policy](/azure/governance/policy/overview) and [Azure Policy built-in initiative definitions](/azure/governance/policy/samples/built-in-initiatives).
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 FSI companies can use robust observability tools and practices to proactively detect and address problems and optimize resource usage. Follow these operational-excellence recommendations:
 

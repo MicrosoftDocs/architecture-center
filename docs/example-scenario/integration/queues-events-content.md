@@ -54,11 +54,11 @@ When an Event Grid trigger fires, it means that *at least one* event happened. F
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - **Microsoft Entra ID** is a globally distributed, highly available SaaS platform.
 
@@ -71,7 +71,7 @@ For information about guaranteed availability details of each service, see [SLAs
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 To help secure Service Bus, pair [Microsoft Entra authentication](/azure/service-bus-messaging/service-bus-authentication-and-authorization#azure-active-directory) with [managed identities](/azure/service-bus-messaging/service-bus-managed-service-identity). Microsoft Entra ID integration for Service Bus resources provides Azure role-based access control (RBAC) for fine-grained control over a client's access to resources. You can use Azure RBAC to grant permissions to a security principal, such as a user, a group, or an application service principal. The application service principal in this scenario is a managed identity.
 
@@ -92,7 +92,7 @@ Consider network security throughout your design.
 
 ### Cost Optimization
 
-Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
 
@@ -128,7 +128,7 @@ Automate recovery operations as much as possible to help improve operational exc
 
 ### Performance Efficiency
 
-Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 To achieve higher scalability, the Service Bus Premium tier can scale out the number of messaging units. For more information, see [Service Bus Premium and Standard messaging tiers](/azure/service-bus-messaging/service-bus-premium-messaging) and [Autoscaling feature](/azure/service-bus-messaging/automate-update-messaging-units).
 

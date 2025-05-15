@@ -3,7 +3,7 @@ metadata:
   title: Considerations for multitenant control planes
   description: Learn about the responsibilities of control planes in multitenant solutions and how to design a control plane that meets your needs.
   author: johndowns
-  ms.author: jodowns
+  ms.author: pnp
   ms.date: 07/15/2024
   ms.topic: conceptual
   ms.subservice: architecture-guide

@@ -232,4 +232,4 @@ Principal authors:
 ## Related resources
 
 - [Connect an on-premises network to Azure using ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover)
-- [Deploy highly available NVAs](/azure/architecture/networking/guide/nva-ha)
+- [Deploy highly available NVAs](/azure/architecture/networking/guide/network-virtual-appliance-high-availability)
