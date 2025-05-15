@@ -30,7 +30,7 @@ Azure landing zones can be categorized into two main types:
 
    These are designed to host particular applications, workloads or services. They provide the necessary environment for running applications, pre-configured through code and governed via policies and management groups.
 
-:::image type="complex" source="./media/azure-landing-zone-architecture-diagram-hub-spoke.svg" alt-text="A conceptual architecture diagram of an Azure landing zone with application and platform landing zones overlaid." lightbox="./media/azure-landing-zone-architecture-diagram-hub-spoke.svg":::
+:::image type="complex" source="./media/azure-landing-zone-architecture-diagram-hub-spoke.svg" alt-text="A conceptual architecture diagram of an Azure landing zone with application and platform landing zones overlaid." border="false" lightbox="./media/azure-landing-zone-architecture-diagram-hub-spoke.svg":::
     TODO
 :::image-end:::
 
@@ -50,7 +50,7 @@ When designing Azure Virtual Desktop to run from application landing zone, it's 
 - **Security**: Built-in security measures like Role-Based Access Control (RBAC) and network security ensure your environment is protected from threats.
 - **Operational Efficiency**: Automation and monitoring tools reduce the operational burden and improve system performance.
 
-:::image type="complex" source="https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-enterprise-scale-alz-architecture.png" alt-text="Figure 2: Azure Virtual Desktop landing zone in an Azure landing zone reference architecture." border="false" lightbox="https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-enterprise-scale-alz-architecture.png":::
+:::image type="complex" source="./media/azure-virtual-desktop-reference-architecture.png" alt-text="Figure 2: Azure Virtual Desktop landing zone in an Azure landing zone reference architecture." border="false" lightbox="./media/azure-virtual-desktop-reference-architecture.png":::
     TODO
 :::image-end:::
 
@@ -137,7 +137,7 @@ The architecture is based on multiple subscriptions, each dedicated to specific 
    - **Connectivity**: Contains network-related components like Virtual Networks, Network security groups, and Azure Firewall to ensure secure communication between resources.
    - **Identity**: Handles the identity and access management services.
 
-:::image type="complex" source="https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png" alt-text="Figure 3: Azure Virtual Desktop reference architecture." border="false" lightbox="https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png":::
+:::image type="complex" source="./media/avd-accelerator-baseline-architecture.png" alt-text="Figure 3: Azure Virtual Desktop reference architecture." border="false" lightbox="./media/avd-accelerator-baseline-architecture.png":::
     TODO
 :::image-end:::
 
@@ -174,7 +174,7 @@ The accelerator uses resource naming automation based on the following recommend
 
 Before proceeding with the deployment scenarios, familiarize yourself with the Azure resource [naming, tagging, and organization](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/resource-naming.md) used by the accelerator:
 
-:::image type="complex" source="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.png" alt-text="Figure 4: Azure Virtual Desktop implementation resource organization and naming." border="false" lightbox="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.png":::
+:::image type="complex" source="./media/avd-accelerator-resource-organization-naming.png" alt-text="Figure 4: Azure Virtual Desktop implementation resource organization and naming." border="false" lightbox="./media/avd-accelerator-resource-organization-naming.png":::
     TODO
 :::image-end:::
 
