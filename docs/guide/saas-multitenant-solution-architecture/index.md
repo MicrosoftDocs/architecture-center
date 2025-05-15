@@ -46,7 +46,7 @@ The following diagram illustrates how you can use a multitenant architecture in 
 
 The key difference between the two diagrams is the business model, which affects how you define a tenant in the context of your organization. Your business model also affects your design choices for the underlying multitenant architecture, but the principles of multitenancy always remain the same.
 
-## Next steps
+## Related resources
 
 - [Plan your own journey to SaaS](../saas/plan-journey-saas.md)
 - [Understand how startups architect their solutions](../startups/startup-architecture.md)
