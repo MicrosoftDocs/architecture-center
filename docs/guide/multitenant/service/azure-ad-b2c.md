@@ -1,10 +1,10 @@
 ---
 title: Using Azure Active Directory B2C in a multitenant architecture
 description: Learn about considerations and approaches for using Azure Active Directory B2C in a multitenant architecture. 
-author: landonpierce
-ms.author: landonpierce 
+author: PlagueHO
+ms.author: dascottr
 ms.topic: conceptual
-ms.date: 06/06/2024
+ms.date: 05/16/2025
 ms.subservice: architecture-guide
 products:
   - entra-external-id
@@ -16,6 +16,11 @@ ms.custom:
 ---
 
 # Considerations for using Azure Active Directory B2C in a multitenant architecture
+
+> [!WARNING]
+> As of May 1, 2025, Azure AD B2C is no longer available for purchase by new customers. Existing Azure AD B2C customers can continue to use the service. The product experience—including creating new tenants or user flows—will remain unchanged. Operational commitments such as service level agreements (SLAs), security updates, and compliance will also remain in place. Azure AD B2C will be supported until at least May 2030.
+>
+> For new projects, consider using [Microsoft Entra External ID](/entra/external-id/external-identities-overview), the next-generation identity solution.
 
 Azure Active Directory (Azure AD) B2C provides business-to-consumer identity as a service. User identity is typically one of the main considerations when you design a multitenant application. Your identity solution serves as the gatekeeper to your application, ensuring that your tenants stay within the boundaries that you define for them. This article describes considerations and approaches for using Azure AD B2C in a multitenant solution.
 
@@ -80,7 +85,7 @@ The following table summarizes the differences among the main tenancy models for
 
 It's generally easiest to manage a single shared Azure AD B2C tenant if your requirements allow for it. You need to maintain only one tenant long term, and this option creates the lowest overhead.
 
->[!NOTE]
+> [!NOTE]
 > We recommend the use of a shared Azure AD B2C tenant for most scenarios.
 
 You should consider a shared Azure AD B2C tenant when:
@@ -103,7 +108,7 @@ The deployment and maintenance requirements for this tenancy model are higher th
 
 Vertical partitioning is similar to the [Data Sharding pattern](../../../patterns/sharding.yml). To vertically partition your Azure AD B2C tenants, you need to organize your application tenants into logical groups. This categorization of tenants is often called a *partitioning strategy*. Your partitioning strategy should be based on a common, stable factor of the application tenant, like region, size, or an application tenant's custom requirements. For example, if your goal is to solve your data residency requirements, you might decide to deploy an Azure AD B2C tenant for each region that hosts application tenants. Or, if you group by size, you might decide to locate most of your application tenants' identities on a single Azure AD B2C tenant, but locate your largest application tenants on their own dedicated Azure AD B2C tenants.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Avoid basing your partitioning strategy on factors that can change over time, because it's difficult to move users between Azure AD B2C tenants. For example, if you create a SaaS offering that has multiple SKUs or product tiers, you shouldn't partition your users based on the SKU they select, because the SKU might change if the customer upgrades their product.
 
 You should consider provisioning your Azure AD B2C tenants by using a vertically partitioned strategy if:
@@ -234,10 +239,11 @@ Other contributors:
 - [Simran Jeet Kaur](https://www.linkedin.com/in/sjkaur) | Customer Engineer, FastTrack for Azure
 - [LaBrina Loving](https://www.linkedin.com/in/chixcancode) | Principal Customer Engineering Manager, FastTrack for Azure
 - [Arsen Vladimirsky](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Solution Architect, Data & AI
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps 
+## Next steps
 
 - [Azure AD B2C custom policy samples](https://github.com/azure-ad-b2c/samples)
 - [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview)
