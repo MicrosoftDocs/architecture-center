@@ -16,13 +16,13 @@ This article provides a design-oriented overview of the [enterprise-scale landin
 
 An [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) is an environment that follows key design principles across eight design areas. These design principles accommodate all application portfolios and enable application migration, modernization, and innovation at scale. An Azure landing zone uses subscriptions to isolate and scale application resources and platform resources.
 
-An Azure landing zone provides the necessary foundation for cloud workloads such as **Azure Virtual Desktop**. It defines essential components like governance, security, networking, identity, and operations, all of these are required for hosting and managing services at scale.
+An Azure landing zone provides the necessary foundation for cloud workloads such as Azure Virtual Desktop. It defines essential components like governance, security, networking, identity, and operations, all of these are required for hosting and managing services at scale.
 
 ### Types of landing zones
 
 Azure landing zones can be categorized into two main types:
 
-1. **Platform landing zones**
+1. **Platform landing zone**
 
    This provides shared foundational services like networking, identity management, and resource governance. Your platform landing zone is the core infrastructure upon which application workloads are built.
 
@@ -62,7 +62,7 @@ Like other landing zones, the Azure Virtual Desktop landing zone is built upon t
 
 #### Cloud Adoption Framework (CAF) and Azure landing zone design principles
 
-The [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview) is a comprehensive approach that guides organizations through the process of adopting Azure, including planning, governance, and operations. One key stage of the CAF is the **Ready phase**, which focuses on preparing your organization and its cloud environment for successful adoption.
+The [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview) is a comprehensive approach that guides organizations through the process of adopting Azure, including planning, governance, and operations. One key stage of the CAF is the Ready phase, which focuses on preparing your organization and its cloud environment for successful adoption.
 
 As part of the Ready phase, Azure landing zones offer a framework of best practices to organize and safeguard your cloud infrastructure. These design principles aim to establish a governed, scalable, and secure foundation, setting the stage for a successful cloud migration.
 
@@ -101,7 +101,6 @@ Design areas for the Azure Virtual Desktop landing zone are indicated with lette
 > **Azure Virtual Desktop design areas**: These areas refer the architectural principles and best practices to design and operate an Azure Virtual Desktop workload. It covers areas such as Application delivery, Infrastructure design, Security, and Cost pptimization. These areas follow Azure's best practices for ensuring an optimal and cost-effective Azure Virtual Desktop implementation.
 >
 > 📖 Reference [Azure Virtual Desktop - design areas](/azure/well-architected/azure-virtual-desktop/overview#what-are-the-key-design-areas)
->
 
 ### Reference implementation
 
@@ -127,9 +126,9 @@ By using the accelerator, you can rapidly set up an enterprise-scale reference e
 
 The architecture is based on multiple subscriptions, each dedicated to specific purposes:
 
-1. **Azure Virtual Desktop LZ Subscription**: This subscription or subscriptions depending on environment scale, will be used to deploy the Azure Virtual Desktop resources that are workload specific (not shared across workloads), some of the resources created on this subscriptions are VMs, Storage, Key Vaults, Private Endpoints, among others.
+1. **Azure Virtual Desktop subscription**: This subscription or subscriptions depending on environment scale, will be used to deploy the Azure Virtual Desktop resources that are workload specific (not shared across workloads), some of the resources created on this subscriptions are VMs, Storage, Key Vaults, Private Endpoints, among others.
 
-1. **Azure Virtual Desktop Shared Services LZ Subscription**: This subscription hosts all the services that are used by more than one Azure Virtual Desktop workload, some of the resources created on this subscriptions are Automation Accounts, Data Collection Rules, Log Analytics Workspace, Compute Galleries, among others.
+1. **Azure Virtual Desktop shared services subscription**: This subscription hosts all the services that are used by more than one Azure Virtual Desktop workload, some of the resources created on this subscriptions are Automation Accounts, Data Collection Rules, Log Analytics Workspace, Compute Galleries, among others.
 
 1. **Platform subscriptions**: These are foundational subscriptions that provide shared services across the entire environment. They include:
 
@@ -143,14 +142,14 @@ The architecture is based on multiple subscriptions, each dedicated to specific 
 
 *Figure 3: Azure Virtual Desktop reference architecture. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.vsdx) of this architecture.*
 
-#### Benefits of Using the Azure Virtual Desktop landing zone accelerator
+#### Benefits of using the Azure Virtual Desktop landing zone accelerator
 
-1. **Scalability**: The accelerator helps set up an architecture that can scale with your organization's needs.
-2. **Security**: Implements enterprise-grade security, compliance, and governance controls to protect your environment.
-3. **Faster Deployment**: Predefined templates, configurations, and best practices ensure faster and more reliable deployments.
-4. **Best Practices Compliance**: The architecture follows the best practices outlined in the Cloud Adoption Framework.
+- **Scalability**: The accelerator helps set up an architecture that can scale with your organization's needs.
+- **Security**: Implements enterprise-grade security, compliance, and governance controls to protect your environment.
+- **Faster deployment**: Predefined templates, configurations, and best practices ensure faster and more reliable deployments.
+- **Best practices compliance**: The architecture follows the best practices outlined in the Cloud Adoption Framework.
 
-### Next Steps
+### Next steps
 
 1. **Review prerequisites**: review the baseline deployment prerequisites, this will help you ensure your environment is ready for the deployment.
 2. **Deploy the platform landing zone**: Start by deploying the platform landing zone to set up the foundational components.
@@ -160,7 +159,7 @@ For detailed guidance, refer to the full [Enterprise-Scale landing zone for Azur
 
 #### Accelerator overview
 
-The ![GitHub logo](../../_images/github.png) [Azure Virtual Desktop landing zone accelerator](https://github.com/Azure/avdaccelerator) supports multiple deployment scenarios depending on your requirements. Each deployment scenario supports both greenfield and brownfield deployments, and provides multiple IaC template options:
+The :::image type="icon" source="../../_images/github.png"::: [Azure Virtual Desktop landing zone accelerator](https://github.com/Azure/avdaccelerator) supports multiple deployment scenarios depending on your requirements. Each deployment scenario supports both greenfield and brownfield deployments, and provides multiple IaC template options.
 
 - Azure portal UI (ARM template)
 - Azure CLI or Azure PowerShell (Bicep/ARM template)
@@ -170,9 +169,9 @@ The accelerator uses resource naming automation based on the following recommend
 
 - [Microsoft Cloud Adoption Framework (CAF) best practices for naming convention](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)
 - The [recommended abbreviations for Azure resource types](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations)
-- The [minimum suggested tags](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging#minimum-suggested-tags).
+- The [minimum suggested tags](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging#minimum-suggested-tags)
 
-Before proceeding with the deployment scenarios, familiarize yourself with the Azure resource [naming, tagging, and organization](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/resource-naming.md) used by the accelerator:
+Before proceeding with the deployment scenarios, familiarize yourself with the Azure resource [naming, tagging, and organization](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/resource-naming.md) used by the accelerator.
 
 :::image type="complex" source="./media/avd-accelerator-resource-organization-naming.png" alt-text="Figure 4: Azure Virtual Desktop implementation resource organization and naming." border="false" lightbox="./media/avd-accelerator-resource-organization-naming.png":::
     TODO
@@ -182,12 +181,12 @@ Before proceeding with the deployment scenarios, familiarize yourself with the A
 
 ##### Accelerator deployment
 
-To continue with deployment, choose the following deployment scenario tab that best matches your requirements:
+To continue with deployment, choose the following deployment scenario tab that best matches your requirements.
 
 ##### [Baseline deployment](#tab/baseline)
 The baseline deployment deploys the Azure Virtual Desktop resources and dependent services that allow you to establish an Azure Virtual Desktop baseline.
 
-This deployment scenario includes the following items:
+This deployment scenario includes the following items.
 
 - [Azure Virtual Desktop](/azure/virtual-desktop/overview) resources, including Azure Virtual Desktop workspace, application groups, scaling plan, host pool, and session host virtual machines and optionally private endpoints
 
@@ -199,7 +198,7 @@ This deployment scenario includes the following items:
 
 - Optionally, storage account and key vault private endpoints and private DNS zones
 
-When you're ready for deployment, complete the following steps:
+When you're ready for deployment, complete the following steps.
 
 1. Review the [get started](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-baseline.md) document for details on prerequisites, planning information, and a discussion on what is deployed.
 
@@ -215,8 +214,7 @@ When you're ready for deployment, complete the following steps:
 ###### [Custom image build deployment](#tab/custom-image)
 The optional custom image build creates a new image from Azure Marketplace in an Azure compute gallery, optimized, patched and ready to be used. This deployment is optional and can be customized to extend functionality, like adding scripts to further customize your images.
 
-
-When you're ready for deployment, complete the following steps:
+When you're ready for deployment, complete the following steps.
 
 1. Review the [get started](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-custom-image-build.md) document for details on prerequisites, planning information, and a discussion on what is deployed.
 
