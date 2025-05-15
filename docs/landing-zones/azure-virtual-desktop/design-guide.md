@@ -30,7 +30,9 @@ Azure landing zones can be categorized into two main types:
 
    These are designed to host particular applications, workloads or services. They provide the necessary environment for running applications, pre-configured through code and governed via policies and management groups.
 
-:::image type="content" source="./media/azure-landing-zone-architecture-diagram-hub-spoke.svg" alt-text="A conceptual architecture diagram of an Azure landing zone with application and platform landing zones overlaid." lightbox="./media/azure-landing-zone-architecture-diagram-hub-spoke.svg":::
+:::image type="complex" source="./media/azure-landing-zone-architecture-diagram-hub-spoke.svg" alt-text="A conceptual architecture diagram of an Azure landing zone with application and platform landing zones overlaid." lightbox="./media/azure-landing-zone-architecture-diagram-hub-spoke.svg":::
+    TODO
+:::image-end:::
 
 *Figure 1: Azure landing zone conceptual architecture with application and platform landing zones overlaid. Download a [Visio file](https://github.com/microsoft/CloudAdoptionFramework/raw/main/ready/enterprise-scale-architecture.vsdx) of this architecture.*
 
@@ -49,6 +51,8 @@ When designing Azure Virtual Desktop to run from application landing zone, it's 
 - **Operational Efficiency**: Automation and monitoring tools reduce the operational burden and improve system performance.
 
 :::image type="complex" source="https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-enterprise-scale-alz-architecture.png" alt-text="Figure 2: Azure Virtual Desktop landing zone in an Azure landing zone reference architecture." border="false" lightbox="https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-enterprise-scale-alz-architecture.png":::
+    TODO
+:::image-end:::
 
 *Figure 2: Azure Virtual Desktop landing zone in an Azure landing zone reference architecture. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-enterprise-scale-alz-architecture.vsdx) of this architecture.*
 
@@ -134,6 +138,8 @@ The architecture is based on multiple subscriptions, each dedicated to specific 
    - **Identity**: Handles the identity and access management services.
 
 :::image type="complex" source="https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png" alt-text="Figure 3: Azure Virtual Desktop reference architecture." border="false" lightbox="https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png":::
+    TODO
+:::image-end:::
 
 *Figure 3: Azure Virtual Desktop reference architecture. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.vsdx) of this architecture.*
 
@@ -168,7 +174,9 @@ The accelerator uses resource naming automation based on the following recommend
 
 Before proceeding with the deployment scenarios, familiarize yourself with the Azure resource [naming, tagging, and organization](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/resource-naming.md) used by the accelerator: 
 
-:::image type="content" source="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.png" alt-text="Figure 4: Azure Virtual Desktop implementation resource organization and naming." border="false" lightbox="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.png":::
+:::image type="complex" source="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.png" alt-text="Figure 4: Azure Virtual Desktop implementation resource organization and naming." border="false" lightbox="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.png":::
+    TODO
+:::image-end:::
 
 *Figure 4: Azure Virtual Desktop implementation resource organization and naming. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.vsdx) of the image.*
 
@@ -200,6 +208,8 @@ When you're ready for deployment, complete the following steps:
 1. Continue with the [baseline deployment steps](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/deploy-baseline.md). If you created a custom Azure Compute Gallery image in the previous step, be sure to select "Compute gallery" for **OS image source** and select the correct **Image** on the **Session hosts** page:
 
    :::image type="complex" source="./media/portal-session-hosts-os-selection.png" alt-text="Screen shot of OS selection field on sessions hosts page in the Azure portal." border="false" lightbox="./media/portal-session-hosts-os-selection.png":::
+       TODO
+   :::image-end:::
 
 
 ###### [Custom image build deployment](#tab/custom-image)
