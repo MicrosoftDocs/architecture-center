@@ -396,7 +396,7 @@ items:
   - name: Asynchronous Request-Reply
     href: patterns/async-request-reply.yml
   - name: Backends for Frontends
-    href: patterns/backends-for-frontends.yml
+    href: patterns/backends-for-frontends.md
   - name: Bulkhead
     href: patterns/bulkhead.yml
   - name: Cache-Aside
