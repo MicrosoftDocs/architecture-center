@@ -142,9 +142,9 @@ The following outlines some of the security features that were omitted in this a
 
 - This architecture does not use [Private endpoints](https://docs.microsoft.com/azure/private-link/private-link-overview), which allow secure, private connectivity to Azure services by assigning them an IP address from your virtual network. When private endpoints are used, public network access can be disabled, keeping traffic on the Microsoft backbone and enhancing security and compliance.
 
-- This architecture does not include network egress monitoring. The sample repository includes a [tutorial](https://github.com/Azure/reddog-containerapps/blob/main/EGRESS-LOCKDOWN.md) that describes how to implement an Azure Firewall and route tables to enable traffic leaving an VNET to be monitored. This is an important step in ensuring that your architecture is not vulnerable to data exfiltration attacks.
+- Network activity should be continuously monitored to detect and prevent abuse. The sample repository includes a [tutorial](https://github.com/Azure/reddog-containerapps/blob/main/EGRESS-LOCKDOWN.md) that describes how to implement an Azure Firewall and route tables to enable traffic leaving an VNET to be monitored. This is an important step in ensuring that your architecture is not vulnerable to data exfiltration attacks.
 
-- This architecture does not include a web application firewall (WAF) to protect against common web vulnerabilities. You can use Azure Front Door or Azure Application Gateway to implement a WAF. For more information, see [Web application firewall on Azure Front Door](https://learn.microsoft.com/azure/frontdoor/front-door-waf-overview).
+- Using a web application firewall (WAF) can protect against common web vulnerabilities. You can use Azure Front Door or Azure Application Gateway to implement a WAF. For more information, see [Web application firewall on Azure Front Door](https://learn.microsoft.com/azure/frontdoor/front-door-waf-overview).
 
 - Consider using the integrated authentication mechanism for Azure Container Apps ("EasyAuth"). EasyAuth simplifies the process of integrating identity providers into your web app. It handles authentication outside your web app, so you don't have to make significant code changes.
 
