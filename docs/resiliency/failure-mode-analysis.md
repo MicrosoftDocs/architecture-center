@@ -479,7 +479,7 @@ See [Resiliency and dependencies](/azure/well-architected/resiliency/design-resi
 [circuit-breaker]: /previous-versions/msp-n-p/dn589784(v=pandp.10)
 [cosmos-db-multi-region]: /azure/cosmos-db/tutorial-global-distribution-sql-api
 [health-endpoint-monitoring-pattern]: ../patterns/health-endpoint-monitoring.yml
-[onstop-events]: https://azure.microsoft.com/blog/the-right-way-to-handle-azure-onstop-events
+[onstop-events]: https://azure.microsoft.com/fr-fr/blog/the-right-way-to-handle-azure-onstop-events/
 [lb-monitor]: /azure/load-balancer/load-balancer-monitor-log
 [lb-probe]: /azure/load-balancer/load-balancer-custom-probe-overview#types
 [new-relic]: https://newrelic.com
