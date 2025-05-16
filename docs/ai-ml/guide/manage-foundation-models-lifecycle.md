@@ -231,8 +231,6 @@ Your architecture should support updates to new or different models and any nece
 
 ## Related resources
 
-## Related resources
-
 - [Baseline OpenAI end-to-end chat reference architecture](../architecture/baseline-openai-e2e-chat.yml)
 - [MLOps](machine-learning-operations-v2.md)
 - [GenAIOps for MLOps practitioners](genaiops-for-mlops.md)
