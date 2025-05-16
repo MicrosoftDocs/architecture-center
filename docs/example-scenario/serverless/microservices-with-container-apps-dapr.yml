@@ -4,8 +4,9 @@ metadata:
   description: Build a serverless microservices solution on Azure Container Apps using Distributed Application Runtime (Dapr) and Kubernetes Event-Driven Autoscaling (KEDA).
   author: francisnazareth
   ms.author: fnazaret
-  ms.date: 06/24/2022
+  ms.date: 05/16/2025
   ms.topic: example-scenario
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.category:
     - containers

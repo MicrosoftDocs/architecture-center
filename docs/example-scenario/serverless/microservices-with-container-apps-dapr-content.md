@@ -120,19 +120,35 @@ The application map in Application Insights also shows how the services communic
 
 For more information on monitoring Azure Container Apps, see [Monitor an app in Azure Container Apps](/azure/container-apps/monitor).
 
-### Cost Optimization
+### Cost optimization
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of the services in this architecture.
 
-### Performance Efficiency
+### Performance efficiency
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 This solution relies heavily on the KEDA implementation in Azure Container Apps for event-driven scaling. When you deploy the virtual customer service, it will continuously place orders, which cause the order service to scale up via the HTTP KEDA scaler. As the order service publishes the orders on the service bus, the service bus KEDA scalers cause the accounting, receipt, Makeline, and loyalty services to scale up. The UI and Traefik container apps also configure HTTP KEDA scalers so that the apps scale as more users access the dashboard.
 
 When the virtual customer isn't running, all microservices in this solution scale to zero except for virtual worker and Makeline services. Virtual worker doesn't scale down since it's constantly checking for order fulfillment. For more information on scaling in container apps, see [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app). For more information on KEDA Scalers, read the [KEDA documentation on Scalers](https://keda.sh/docs/latest/scalers).
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](https://learn.microsoft.com/en-us/azure/well-architected/security/checklist).
+
+The following outlines some of the security features that were omitted in this architecture, along with other recommendations and considerations:
+
+- This architecture does not use [Private endpoints](https://docs.microsoft.com/azure/private-link/private-link-overview), which allow secure, private connectivity to Azure services by assigning them an IP address from your virtual network. When private endpoints are used, public network access can be disabled, keeping traffic on the Microsoft backbone and enhancing security and compliance.
+
+- This architecture does not include network egress monitoring. The sample repository includes a [tutorial](https://github.com/Azure/reddog-containerapps/blob/main/EGRESS-LOCKDOWN.md) that describes how to implement an Azure Firewall and route tables to enable traffic leaving an VNET to be monitored. This is an important step in ensuring that your architecture is not vulnerable to data exfiltration attacks.
+
+- This architecture does not include a web application firewall (WAF) to protect against common web vulnerabilities. You can use Azure Front Door or Azure Application Gateway to implement a WAF. For more information, see [Web application firewall on Azure Front Door](https://learn.microsoft.com/azure/frontdoor/front-door-waf-overview).
+
+- Consider using the integrated authentication mechanism for Azure Container Apps ("EasyAuth"). EasyAuth simplifies the process of integrating identity providers into your web app. It handles authentication outside your web app, so you don't have to make significant code changes.
+
+- Use managed identity for workload identities. Managed identity eliminates the need for developers to manage authentication credentials. For example, the basic architecture authenticates to SQL Server via password in a connection string. Consider using managed identity to authenticate to Azure SQL Server.
 
 ## Deploy this scenario
 
