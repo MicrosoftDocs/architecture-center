@@ -10,7 +10,7 @@ ms.subservice: architecture-guide
 
 # Azure Virtual Desktop landing zone design guide
 
-This article provides a design-oriented overview of the [enterprise-scale landing zone for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone), for architects and technical decision makers. The goal is to help you quickly gain an understanding of the Azure Virtual Desktop landing zone accelerator, allowing you to shorten the time required to complete a successful deployment.
+This article provides a design-oriented overview of the [Azure landing zone design for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone), for architects and technical decision makers. The goal is to help you quickly gain an understanding of the Azure Virtual Desktop landing zone reference implementation.
 
 ## Landing zone concepts
 
