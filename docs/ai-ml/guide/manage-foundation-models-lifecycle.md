@@ -82,25 +82,25 @@ You need to evaluate how a model update affects your workload so that you can pl
 
 For each of these areas, consider downtime caused by updates and how you handle any requests that the system is processing. If maintenance windows are available for your workload, use those windows when the scope of change is large. If maintenance windows aren't available, address changes in these areas to maintain your workload's functionality and service-level objectives during the model update.
 
-- **The model:** The obvious change is to the model itself. You deploy the new model by using your chosen model deployment strategy. You need to evaluate trade-offs between in-place upgrades versus side-by-side deployment.
+1. **The model:** The obvious change is to the model itself. You deploy the new model by using your chosen model deployment strategy. You need to evaluate trade-offs between in-place upgrades versus side-by-side deployment.
 
    When you move to a new model revision from a fine-tuned model, you need to perform the fine-tuning on the new model version again before you use it. When you update to use a different model, you need to determine if fine-tuning is required.
 
-- **The model configuration:** When you update the foundation model in your AI solution, you might need to adjust hyperparameters or configurations to optimize performance for the new model's architecture and capabilities. For example, switching from a transformer-based model to a recurrent neural network might require different learning rates and batch sizes to achieve optimal results.
+1. **The model configuration:** When you update the foundation model in your AI solution, you might need to adjust hyperparameters or configurations to optimize performance for the new model's architecture and capabilities. For example, switching from a transformer-based model to a recurrent neural network might require different learning rates and batch sizes to achieve optimal results.
 
-- **The prompt:** When you change foundation models in your workload, you might need to adjust system prompts in your orchestrators or agents to align with the new model's strengths and capabilities.
+1. **The prompt:** When you change foundation models in your workload, you might need to adjust system prompts in your orchestrators or agents to align with the new model's strengths and capabilities.
 
    Along with updating the model configuration, updating the prompt is one of the most common changes when you update models. When you evaluate a new model, even for a minor version update, test changes to the prompt if it doesn’t meet your requirements. This approach ensures that you address performance problems before exploring other modifications. You need to address the prompt when you change to new models. It's also likely that you need to address the prompt when you make large revision changes.
 
-- **The orchestration logic:** Some model updates, especially when you take advantage of new features, require you to make changes to your orchestration or agent logic.
+1. **The orchestration logic:** Some model updates, especially when you take advantage of new features, require you to make changes to your orchestration or agent logic.
 
    For example, if you update your model to GPT-4 to take advantage of [function calling](/azure/ai-services/openai/how-to/function-calling), you have to change your orchestration logic. Your old model returned a result that you could return to the caller. With function calling, the call to the model returns a function that your orchestration logic must call. In Azure, it's typical to implement orchestration logic in [Azure AI Agent Service](/azure/ai-services/agents/overview) or by using code-based solutions like [Semantic Kernel](/semantic-kernel/overview/) or [LangChain](/azure/ai-foundry/how-to/develop/langchain) hosted in Azure.
 
-- **The grounding data:** Some model updates and larger scoped changes might require you to make changes to your grounding or fine-tuning data or how you retrieve that data.
+1. **The grounding data:** Some model updates and larger scoped changes might require you to make changes to your grounding or fine-tuning data or how you retrieve that data.
 
    For example, when you move from a generalized model to a domain-specific model, such as a model focused on finance or medicine, you might no longer need to pass domain-specific grounding data to the model. Another example is when a new model can handle a larger context window. In this scenario, you might want to retrieve other relevant chunks or tune the size of your chunks. For more information, see [Design and develop a retrieval-augmented generation (RAG) solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide).
 
-- **Hardware:** For models that run in MaaP, a model change might require new hardware. Only specific compute SKUs are enabled for models from the catalog. Also, hardware can be deprecated, which requires you to run the model on new hardware.
+1. **Hardware:** For models that run in MaaP, a model change might require new hardware. Only specific compute SKUs are enabled for models from the catalog. Also, hardware can be deprecated, which requires you to run the model on new hardware.
 
 ## Design for change
 
