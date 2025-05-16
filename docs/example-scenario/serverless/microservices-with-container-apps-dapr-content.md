@@ -10,9 +10,9 @@ This article describes a solution for running an order management system with 10
 
 ### Dataflow
 
-This solution uses Bicep templates to execute the deployment of the Red Dog order management system and its supporting Azure infrastructure. The architecture is composed of a single Azure Container Apps environment that hosts 10 .NET Core microservice applications. You'll use the .NET Core Dapr SDK to integrate with Azure resources through publish-subscribe (pub/sub) and State and Binding building blocks. Although Dapr typically provides flexibility when you implement components, this solution is based on an opinion. The services also make use of KEDA scale rules to allow for scaling based on event triggers and scale to zero scenarios.
+This solution describes a fictitious Red Dog order management system and its supporting Azure infrastructure. The architecture is composed of a single Azure Container Apps environment that hosts 10 .NET Core microservice applications. You'll use the .NET Core Dapr SDK to integrate with Azure resources through publish-subscribe (pub/sub) and State and Binding building blocks. Although Dapr typically provides flexibility when you implement components, this solution is based on an opinion. The services also make use of KEDA scale rules to allow for scaling based on event triggers and scale to zero scenarios.
 
-The following list describes each microservice and the Azure Container Apps configuration it deploys with. See the [reddog-code repo on GitHub](https://github.com/Azure/reddog-code) to view the code.
+The following list describes each microservice and the Azure Container Apps configuration it deploys with.
 
 1. **Traefik:** The basic proxy for routing user requests from the UI to the accounting and Makeline services for the interactive dashboard.
 
@@ -128,9 +128,9 @@ The following outlines some of the security features that were omitted in this a
 
 - This architecture does not use [Private endpoints](https://docs.microsoft.com/azure/private-link/private-link-overview), which allow secure, private connectivity to Azure services by assigning them an IP address from your virtual network. When private endpoints are used, public network access can be disabled, keeping traffic on the Microsoft backbone and enhancing security and compliance.
 
-- Network activity should be continuously monitored to detect and prevent abuse. The sample repository includes a [tutorial](https://github.com/Azure/reddog-containerapps/blob/main/EGRESS-LOCKDOWN.md) that describes how to implement an Azure Firewall and route tables to enable traffic leaving an VNET to be monitored. This is an important step in ensuring that your architecture is not vulnerable to data exfiltration attacks.
+- Network activity should be continuously monitored to detect and prevent abuse. This can be achieved using an [Azure Firewall](https://learn.microsoft.com/en-us/azure/firewall/) and route tables. The route tables enable traffic leaving a VNET to be passed through the firewall first. This is an important step in ensuring that your architecture is not vulnerable to data exfiltration attacks.
 
-- Using a web application firewall (WAF) can protect against common web vulnerabilities. You can use Azure Front Door or Azure Application Gateway to implement a WAF. For more information, see the [Web Application Firewall documentation](https://learn.microsoft.com/en-us/azure/web-application-firewall/).
+- Using a web application firewall (WAF) can protect against common vulnerabilities. You can use Azure Front Door or Azure Application Gateway to implement a WAF. For more information, see the [Web Application Firewall documentation](https://learn.microsoft.com/en-us/azure/web-application-firewall/).
 
 - Consider using the integrated authentication mechanism for Azure Container Apps ("EasyAuth"). EasyAuth simplifies the process of integrating identity providers into your web app. It handles authentication outside your web app, so you don't have to make significant code changes.
 
@@ -149,12 +149,6 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 This solution relies heavily on the KEDA implementation in Azure Container Apps for event-driven scaling. When you deploy the virtual customer service, it will continuously place orders, which cause the order service to scale up via the HTTP KEDA scaler. As the order service publishes the orders on the service bus, the service bus KEDA scalers cause the accounting, receipt, Makeline, and loyalty services to scale up. The UI and Traefik container apps also configure HTTP KEDA scalers so that the apps scale as more users access the dashboard.
 
 When the virtual customer isn't running, all microservices in this solution scale to zero except for virtual worker and Makeline services. Virtual worker doesn't scale down since it's constantly checking for order fulfillment. For more information on scaling in container apps, see [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app). For more information on KEDA Scalers, read the [KEDA documentation on Scalers](https://keda.sh/docs/latest/scalers).
-
-## Deploy this scenario
-
-For deployment instructions, see the [Red Dog Demo: Azure Container Apps Deployment](https://github.com/Azure/reddog-containerapps/blob/main/README.md) on GitHub.
-
-The [Red Dog Demo: Microservices integration](https://github.com/Azure-Samples/app-templates-microservices-integration) is a packaged [app template](https://github.com/microsoft/App-Templates) that builds on the preceding code assets to demonstrate the integration of Azure Container Apps, App Service, Functions, and API Management and provisions the infra, deploys the code using GitHub Actions.
 
 ## Contributors
 
@@ -175,10 +169,6 @@ Other contributors:
 
 - [Azure Container Apps docs](/azure/container-apps)
 - [Comparing container offerings in Azure](/azure/container-apps/compare-options)
-- Other Red Dog order management system implementations:
-  - [Azure Arc hybrid deployment](https://github.com/Azure/reddog-hybrid-arc)
-  - [AKS deployment](https://github.com/Azure/reddog-aks)
-  - [Local development](https://github.com/Azure/reddog-code/blob/master/docs/local-dev.md)
 
 ## Related resources
 
