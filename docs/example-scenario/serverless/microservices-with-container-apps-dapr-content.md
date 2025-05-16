@@ -120,7 +120,7 @@ The application map in Application Insights also shows how the services communic
 
 For more information on monitoring Azure Container Apps, see [Monitor an app in Azure Container Apps](/azure/container-apps/monitor).
 
-### Cost optimization
+### Cost Optimization
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
