@@ -17,11 +17,6 @@ ms.custom:
 
 # Considerations for using Azure Active Directory B2C in a multitenant architecture
 
-> [!WARNING]
-> As of May 1, 2025, Azure AD B2C is no longer available for purchase by new customers. Existing Azure AD B2C customers can continue to use the service. The product experience—including creating new tenants or user flows—will remain unchanged. Operational commitments such as service level agreements (SLAs), security updates, and compliance will also remain in place. Azure AD B2C will be supported until at least May 2030.
->
-> For new projects, consider using [Microsoft Entra External ID](/entra/external-id/external-identities-overview), the next-generation identity solution.
-
 Azure Active Directory (Azure AD) B2C provides business-to-consumer identity as a service. User identity is typically one of the main considerations when you design a multitenant application. Your identity solution serves as the gatekeeper to your application, ensuring that your tenants stay within the boundaries that you define for them. This article describes considerations and approaches for using Azure AD B2C in a multitenant solution.
 
 One of the most common reasons for using Azure AD B2C is to enable [identity federation](/azure/active-directory-b2c/add-identity-provider) for an application. Identity federation is the process of establishing trust between two identity providers so that your users can sign in with a pre-existing account. If you use Azure AD B2C, you can implement identity federation to enable your users to sign in by using their social or enterprise accounts. If you use federation, your users don't need to create a separate [local account](/azure/active-directory-b2c/identity-provider-local) that's specific to your application.
@@ -239,7 +234,6 @@ Other contributors:
 - [Simran Jeet Kaur](https://www.linkedin.com/in/sjkaur) | Customer Engineer, FastTrack for Azure
 - [LaBrina Loving](https://www.linkedin.com/in/chixcancode) | Principal Customer Engineering Manager, FastTrack for Azure
 - [Arsen Vladimirsky](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
-- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Solution Architect, Data & AI
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
