@@ -8,11 +8,6 @@ ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
-products:
-  - azure-machine-learning
-  - azure-ai-foundry
-categories:
-  - ai-machine-learning
 ---
 
 # Design to support foundation model life cycles
@@ -230,12 +225,12 @@ Your architecture should support updates to new or different models and any nece
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
-- [GenAIOps for MLOps practitioners](/azure/architecture/ai-ml/guide/genaiops-for-mlops)
 - [Azure OpenAI model deprecations and retirements](/azure/ai-services/openai/concepts/model-retirements)
 
 ## Related resources
 
 - [Baseline OpenAI end-to-end chat reference architecture](../architecture/baseline-openai-e2e-chat.yml)
 - [MLOps](machine-learning-operations-v2.md)
+- [GenAIOps for MLOps practitioners](/azure/architecture/ai-ml/guide/genaiops-for-mlops)
