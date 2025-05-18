@@ -125,13 +125,9 @@ Use the following resources to help you build multitenant architectures on Azure
 
 - [Tenancy in Microsoft Entra ID](/azure/active-directory/develop/single-and-multi-tenant-apps): Microsoft Entra ID has its own concept of multitenancy, which refers to operating across multiple Microsoft Entra directories. When developers work with Microsoft Entra apps, they can choose to configure their app to be either single-tenant or multitenant to support different scenarios.
 
-- [Custom-branded identity solution with Azure AD B2C](/azure/active-directory-b2c/overview): Azure Active Directory B2C is a customer identity access management solution that is capable of supporting millions of users and billions of authentications per day.
-
 - [Build a multitenant daemon with the Microsoft identity platform endpoint](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp): This sample application shows how to use the [Microsoft identity platform](/azure/active-directory/develop/v2-overview) endpoint to access the data of Microsoft business customers in a long-running, non-interactive process. It uses the OAuth2 client credentials grant to acquire an access token, which it then uses to call the Microsoft Graph and access organizational data.
 
 - [Authenticate and authorize multitenant apps using Microsoft Entra ID](/training/modules/cna-set-up-azure-ad-use-scale): Learn how Microsoft Entra ID enables you to improve the functionality of cloud-native apps in multitenant scenarios.
-
-- [Azure Architecture walk-through: Build a multitenant Azure Architecture for a B2C scenario](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-architecture-walkthrough-building-a-multi-tenant-azure/ba-p/1278357): A walk through the architecture behind a multitenant mobile app with Azure Active Directory B2C and API Management.
 
 - [Define and implement permissions, roles, and scopes with Microsoft Entra ID in SaaS solutions](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/define-and-implement-permissions-roles-and-scopes-with-azure/ba-p/3810264): This article covers three main concepts related to Microsoft Entra authentication and authorization, which SaaS providers can use. It covers Application Roles functionality, Delegated & Application permissions, and Scopes functionality.
   
