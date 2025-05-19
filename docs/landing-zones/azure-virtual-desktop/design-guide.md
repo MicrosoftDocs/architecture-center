@@ -158,7 +158,16 @@ Before proceeding with the deployment scenarios, familiarize yourself with the A
 
 ##### Accelerator deployment
 
-To continue with deployment, choose the following deployment scenario tab that best matches your requirements.
+
+To perform the deployment, you'll follow these steps.
+
+1. **Review prerequisites**: Review the deployment prerequisites. This will help you ensure your environment is ready for the deployment.
+
+1. **Deploy the platform landing zone** *(if you don't already have one)*: Start by deploying the platform landing zone to set up the foundational components.
+
+1. **Deploy the Azure Virtual Desktop reference implementation**: Once the platform landing zone is in place, deploy the Azure Virtual Desktop landing zone reference implementation of the reference architecture.
+
+To start, you'll need to choose the following deployment scenario tab that best matches your requirements.
 
 ##### [Baseline deployment](#tab/baseline)
 The baseline deployment deploys the Azure Virtual Desktop resources and dependent services that allow you to establish an Azure Virtual Desktop baseline.
