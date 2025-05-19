@@ -61,8 +61,6 @@ This architecture follows the following key principles.
 - **Application-centric service model**: Focus on application-centric organizations.
 - **Single control and management plane**: Centralizing the management of resources to maintain oversight and control.
 
-> These principles help ensure that the organization is ready for cloud adoption and establishes a solid foundation for the Azure Virtul Desktop environment.
-
 ### Design areas
 
 Design areas for the Azure Virtual Desktop landing zone are indicated with letters "A" through "J" in the diagram, to illustrate the hierarchy of resource organization:
