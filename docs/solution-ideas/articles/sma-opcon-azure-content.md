@@ -167,10 +167,6 @@ If you want to take advantage of the SMA service offering, you can seamlessly tr
 
   These architectures use these disks to help ensure data persistence across container restarts. For this scenario, we recommend either Premium SSDs or Ultra Disk SSDs.
 
-- [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) Site Recovery helps ensure business continuity by keeping business apps and workloads running during outages. Site Recovery can replicate workloads running on physical and virtual machines (VMs) from a primary site to a secondary location.
-
-   In these architectures, Site Recovery allows failover during outages to a secondary site where you can access apps. It also provides failback after the primary site is operational.
-
 - Microsoft Azure SQL Database or [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) – The OpCon backend can utilize either Azure SQL Database or SQL Managed Instances to manage OpCon entries.
 
   In these architectures, the OpCon database is installed within an Azure SQL environment and accessed through a private endpoint.
