@@ -258,18 +258,17 @@ The previous diagram shows the various definitions included in the Kubernetes co
 
 ### Potential Use Cases
 
-- Workload automation and orchestration across the entire IT enterprise. 
-- Disaster Recovery automation. 
-- Cross platform file transfers. 
-- IT environment operations. 
-- Batch scheduler. 
-- Self-service automation workflows. 
-- Automation and deployment server updates. 
-- Automation and deployment of patch management. 
-- Automate provisioning / decommissioning of Azure resources. 
-- Monitor your entire IT environment from a single interface. 
-- Codify any repeatable or on-demand process. 
-- Azure SQL or SQL MI to manage OpCon entries. 
+- A global finance firm automates secure file transfers to ensure timely processing of end-of-day financial reports.
+
+- A retail company centralizes IT operations control to enhance efficiency.
+- A nationwide retail chain uses batch scheduling to automate nightly inventory reconciliation, which ensures that reports are ready by the start of the business day.
+- An enterprise IT team builds self-service workflows to reduce dependency on admin access and empower staff.
+- A healthcare provider coordinates server patch deployment to help ensure compliance.
+- An insurance company automates Microsoft Patch Tuesday updates by using OpCon workflows, which helps ensure timely compliance.
+- A software development team automates Azure resource management to optimize cloud spend.
+- An enterprise uses OpCon's centralized interface to monitor workflows and server statuses, which improves SLA adherence.
+- HR automates onboarding to reduce onboarding time from hours to minutes.
+- A logistics company tracks shipment events. OpCon watches for specific database entries and automatically triggers the next workflow, such as invoice generation, email alerts, or updates.
 
 ## Considerations
  
@@ -282,6 +281,8 @@ Reliability helps ensure that your application can meet the commitments that you
 OpCon Cloud reduces infrastructure and maintenance costs, while providing clients with the security and reliability of an always-on solution and fast recovery from unplanned system interruptions or disasters. OpCon has its own build in resiliency capability or Azure Site Recovery can be utilized to maintain copies of the OpCon environment for use in DR situations. 
 
 For The Azure Files CSI driver in AKS, we recommend that you use the Premium_LRS tier. This tier provides locally redundant storage to ensure that your data is replicated within a single physical location. It also provides high performance and low latency, so it suits workloads that require fast and reliable storage.
+
+For disaster recovery, OpCon can provide automated orchestration for organizations that require strict RTO and RPO compliance for their mission-critical systems. During datacenter outages or cyber incidents, you can use OpCon to automate your entire disaster recovery playbook. This approach ensures a graceful shutdown of primary site workloads and initiates failover sequences to the disaster recovery site or cloud environment. This process includes re-mapping storage, re-establishing database connections, and performing validation checks. The benefits of this approach include faster and more reliable recovery with minimal human intervention, regular disaster recovery testing without disrupting production systems, assurance of regulatory compliance, and reduced downtime.
 
 ### Security
 
