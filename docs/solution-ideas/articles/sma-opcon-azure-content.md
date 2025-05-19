@@ -289,7 +289,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 The OpCon Cloud configuration doesn't require outbound connections because the Relay app manages these connections. The Relay app uses TLS 1.3 for secure communication.
 
-The AKS configuration captures and encrypts all types of authentication methods, including workload identity and dbpasswords.
+The AKS configuration captures and encrypts the required passwords. Workload identity isn't supported.
 
 The OpCon configuration builds in security by using Gateway subnets to route only authorized traffic. Via OpCon automation, tasks such as security patch updating can be automated to ensure all target systems within the OpCon environment are kept current with the latest vulnerability patches. For more information, see Security baselines for Azure overview. 
 
