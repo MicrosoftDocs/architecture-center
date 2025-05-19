@@ -30,12 +30,6 @@ Azure landing zones are categorized into [two types](/azure/cloud-adoption-frame
 
    These are designed to host particular applications, workloads, or services. They provide the necessary environment for running applications and are governed via policies and management groups.
 
-:::image type="complex" source="./media/azure-landing-zone-architecture-diagram-hub-spoke.svg" alt-text="A conceptual architecture diagram of an Azure landing zone with application and platform landing zones overlaid." border="false" lightbox="./media/azure-landing-zone-architecture-diagram-hub-spoke.svg":::
-    TODO
-:::image-end:::
-
-*Figure 1: Azure landing zone conceptual architecture with application and platform landing zones overlaid. Download a [Visio file](https://github.com/microsoft/CloudAdoptionFramework/raw/main/ready/enterprise-scale-architecture.vsdx) of this architecture.*
-
 ## Reference architecture
 
 The Azure Virtual Desktop reference architecture demonstrates how to deploy a proven architecture for Azure Virtual Desktop in your environment. This architecture is a suggested starting point for Azure Virtual Desktop. These reference solutions aid in accelerating deployment of Azure Virtual Desktop.
