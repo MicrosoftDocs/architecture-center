@@ -367,7 +367,7 @@ There are many customers who have seen great success by using Azure for their HP
 For the latest announcements, see the following resources:
 
 - [Microsoft HPC and Batch team blog](/archive/blogs/windowshpc)
-- Visit the [Azure blog](https://azure.microsoft.com/en-us/blog/tag/high-performance-computing/).
+- Visit the [Azure blog](https://azure.microsoft.com/blog/tag/high-performance-computing/).
 
 ### Microsoft Batch Examples
 
