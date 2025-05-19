@@ -135,6 +135,14 @@ OpCon Datacenter is the on-premises version of OpCon and all of the software is 
 
 From this single automation control point, OpCon automates workflows across the enterprise – both on-premises and in Azure - facilitating workflows among all servers/systems in the enterprise. The OpCon Schedule Activity Monitor (SAM) is the core OpCon module and communicates with agents on target systems for scheduling and monitoring tasks as well as receiving external events. OpCon agents are supported for installation on Windows, Linux / Unix, Unisys ClearPath Forward mainframes (MCP and 2200), IBM z/OS, and IBM AIX drawing all these platforms under one automation umbrella. 
 
+### Choose between OpCon Cloud and OpCon Datacenter
+
+OpCon Cloud is a managed service provided by SMA within the SMA Azure environment. SMA handles the environment management, which ensures business continuity through OpCon database backups and disaster recovery capabilities, including failover to a separate region. SMA also provides software upgrades as part of the service.
+
+OpCon Datacenter is the OpCon solution that you can install either on-premises or within your local cloud environment.
+
+If you want to take advantage of the SMA service offering, you can seamlessly transition from OpCon Datacenter to OpCon Cloud.
+
 ### Components
 
 - [Azure Kubernetes Service (AKS) clusters](/azure/well-architected/service-guides/azure-kubernetes-service) are managed environments that simplify deploying, managing, and scaling containerized applications that use Kubernetes. In the OpCon cloud architecture, the OpCon core services are deployed within an AKS cluster to ensure efficient management and scalability of containerized workloads. PersistentVolumes within the AKS cluster provide storage, and an Azure private endpoint establishes secure database connections to maintain data integrity.
@@ -149,7 +157,7 @@ From this single automation control point, OpCon automates workflows across the 
 
 - [Azure network interface cards](/azure/virtual-network/virtual-network-network-interface) - A network interface enables an Azure Virtual Machine to communicate with internet, Azure, and on-premises resources.
 
-  In these architectures, you can add more network interface cards to the same Azure VM, which allows the Solaris child-VMs to have their own dedicated network interface device and IP address.
+  In these architectures, network interface cards enable VMs to communicate within virtual networks and with external resources, which enhances security and performance. They also support high availability and load balancing by distributing traffic and ensuring service continuity.
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. 
 
@@ -279,6 +287,10 @@ For The Azure Files CSI driver in AKS, we recommend that you use the Premium_LRS
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
+The OpCon Cloud configuration doesn't require outbound connections because the Relay app manages these connections. The Relay app uses TLS 1.3 for secure communication.
+
+The AKS configuration captures and encrypts all types of authentication methods, including workload identity and dbpasswords.
+
 The OpCon configuration builds in security by using Gateway subnets to route only authorized traffic. Via OpCon automation, tasks such as security patch updating can be automated to ensure all target systems within the OpCon environment are kept current with the latest vulnerability patches. For more information, see Security baselines for Azure overview. 
 
 ### Cost Optimization
@@ -291,7 +303,9 @@ OpCon workload automation reduces manual steps ensuring that workflows are consi
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-OpCon delivers enterprise power and scalability without the complexity or cost. OpCon enables companies to easily automate manual tasks and seamlessly orchestrate workloads across business-critical operations, saving time and reducing cost by eliminating human error and deploying IT resources on strategic initiatives. 
+OpCon delivers enterprise power and scalability without the complexity or cost. OpCon enables companies to easily automate manual tasks and seamlessly orchestrate workloads across business-critical operations, saving time and reducing cost by eliminating human error and deploying IT resources on strategic initiatives.
+
+For OpCon Cloud, SMA sets up, deploys, and manages the OpCon environment, including container life cycle management and disaster recovery options, which saves time and reduces errors.
 
 ### Performance Efficiency
 
