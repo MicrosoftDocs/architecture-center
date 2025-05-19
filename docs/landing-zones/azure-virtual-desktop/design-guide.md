@@ -32,7 +32,7 @@ Azure landing zones are categorized into [two types](/azure/cloud-adoption-frame
 
 ## Reference architecture
 
-The Azure Virtual Desktop reference architecture demonstrates how to deploy a proven architecture for Azure Virtual Desktop in your environment. This architecture is a suggested starting point for Azure Virtual Desktop. These reference solutions aid in accelerating deployment of Azure Virtual Desktop.
+The Azure Virtual Desktop reference architecture is a proven architecture for running Azure Virtual Desktop in an application landing zone. This architecture is a recommended starting point for Azure Virtual Desktop deployments.
 
 The [landing zone architecture for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone) is part of the [Virtual Desktop scenario article series](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/) in the Cloud Adoption Framework for Azure. The series provides compatibility requirements, design principles, and deployment guidance for the landing zone.
 
