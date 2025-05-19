@@ -163,10 +163,6 @@ If you want to take advantage of the SMA service offering, you can seamlessly tr
 
   In the OpCon Cloud architecture, OpCon core services store transaction records, such as financial or sales records, in Azure Blob Storage for secure and scalable storage. The core services also use MFT to automate the secure transfer of these files to various departments. This integration enhances data security, reliability, and operational efficiency.
 
-- [Azure SSD Managed Disk](/azure/well-architected/service-guides/azure-disk-storage) - Azure managed disks are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. The available types of disks are ultra disks, premium solid-state drives (SSD), standard SSDs, and standard hard disk drives (HDD).
-
-  These architectures use these disks to help ensure data persistence across container restarts. For this scenario, we recommend either Premium SSDs or Ultra Disk SSDs.
-
 - Microsoft Azure SQL Database or [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) – The OpCon backend can utilize either Azure SQL Database or SQL Managed Instances to manage OpCon entries.
 
   In these architectures, the OpCon database is installed within an Azure SQL environment and accessed through a private endpoint.
@@ -213,11 +209,11 @@ ExpressRoute is recommended for hybrid applications running large-scale mission-
 
 ## Azure Kubernetes Service configuration
 
-The deployed OpCon environment consists of two pods (OpCon & Impex2) within a single replica set and an Azure SQL database. Access to the pods is controlled through a load balancer that maps the external addresses and ports to the internal Rest-API server addresses ports. Figure 3 shows the configuration requirements and the relationship between the various definitions.
+The deployed OpCon environment consists of two pods (OpCon & Impex) within a single replica set and an Azure SQL database. Access to the pods is controlled through a load balancer that maps the external addresses and ports to the internal REST API server addresses ports. Figure 3 shows the configuration requirements and the relationship between the various definitions.
 
 :::image type="content" source="../media/opcon-kubernetes.svg" alt-text="Diagram that shows the Kubernetes configuration." lightbox="../media/opcon-kubernetes.svg" border="false":::
 
-The previous diagram shows the various definitions included in the Kubernetes configuration yaml file.
+The previous diagram shows the various definitions included in the Kubernetes configuration YAML file.
 
 - Kind: Secret - dbpasswords   
 
@@ -229,7 +225,7 @@ The previous diagram shows the various definitions included in the Kubernetes co
 
 - Kind: ConfigMap - impex  
 
-  The Impex2 config map contains the OpCon database information (address, db name, db user) and the ImpEx2 Rest-API information.
+  The Impex config map contains the OpCon database information (address, db name, db user) and the Impex REST API information.
 
 - Kind: PersistentVolumeClaim - opconconfig  
 
@@ -241,15 +237,15 @@ The previous diagram shows the various definitions included in the Kubernetes co
 
 - Kind: PersistentVolumeClaim - impexlog  
 
-  The impexlog PVC contains the log files associated with the ImpEx2 environment.
+  The impexlog PVC contains the log files associated with the Impex environment.
 
 - Kind: ReplicaSet - opcon
 
-  The OpCon and ImpEx2 container definitions referencing the previously defined secret, configmaps, and PersistentVolumeClaim definitions.
+  The OpCon and Impex container definitions referencing the previously defined secret, configmaps, and PersistentVolumeClaim definitions.
 
 - Kind: Service – loadbalancer
 
-  Defines the mapping of the internal Rest-API ports for the OpCon and Impex2 rest servers to external addresses and ports.
+  Defines the mapping of the internal REST API ports for the OpCon and Impex REST servers to external addresses and ports.
 
 ### Potential Use Cases
 
