@@ -161,7 +161,7 @@ If you want to take advantage of the SMA service offering, you can seamlessly tr
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. 
 
-  In the OpCon Cloud architecture, OpCon core services store transaction records, such as financial or sales records, in Azure Blob Storage for secure and scalable storage. They also use MFT to automate the secure transfer of these files to various departments. This integration enhances data security, reliability, and operational efficiency.
+  In the OpCon Cloud architecture, OpCon core services store transaction records, such as financial or sales records, in Azure Blob Storage for secure and scalable storage. The core services also use MFT to automate the secure transfer of these files to various departments. This integration enhances data security, reliability, and operational efficiency.
 
 - [Azure SSD Managed Disk](/azure/well-architected/service-guides/azure-disk-storage) - Azure managed disks are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. The available types of disks are ultra disks, premium solid-state drives (SSD), standard SSDs, and standard hard disk drives (HDD).
 
