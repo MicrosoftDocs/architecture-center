@@ -124,7 +124,7 @@ When you run your own identity system, you need to store password hashes or othe
 
 When you run an identity system, you're also responsible for generating and distributing MFA or one-time password (OTP) codes. These requirements then mean you need a mechanism to distribute these codes, by using SMS or email. Furthermore, you're responsible for detecting both targeted and brute-force attacks, throttling sign-in attempts, auditing, and so on.
 
-Instead of building or running your own identity system, it's a good practice to use an off-the-shelf service or component. For example, consider using Microsoft Entra ID or Microsoft Entra External ID , which are managed identity platforms. Managed identity platform vendors take responsibility to operate the infrastructure for their platforms, and typically to support the current identity and authentication standards.
+Instead of building or running your own identity system, it's a good practice to use an off-the-shelf service or component. For example, consider using Microsoft Entra ID or Microsoft Entra External ID, which are managed identity platforms. Managed identity platform vendors take responsibility to operate the infrastructure for their platforms, and typically to support the current identity and authentication standards.
 
 ### Failing to consider your tenants' requirements
 
