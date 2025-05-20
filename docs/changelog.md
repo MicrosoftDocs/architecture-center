@@ -94,7 +94,6 @@ The following new and updated articles have recently been published in the Azure
 - [GitOps for Azure Kubernetes Service](./example-scenario/gitops-aks/gitops-blueprint-aks.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
 - [Azure Kubernetes Service (AKS) baseline architecture for AKS on Azure Local](./example-scenario/hybrid/aks-baseline.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
 - [Deploy and operate apps with AKS enabled by Arc on Azure Local or Windows Server](./example-scenario/hybrid/aks-hybrid-azure-local.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
-- [Azure Kubernetes Service (AKS) network architecture for AKS on Azure Local](./example-scenario/hybrid/aks-network.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
 - [Azure Files Accessed from On-Premises and Secured by AD DS in a Private Network](./example-scenario/hybrid/azure-files-on-premises-authentication.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
 - [Enhanced-security hybrid messaging — client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
 - [Enhanced-security hybrid messaging — mobile access](./example-scenario/hybrid/secure-hybrid-messaging-mobile.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))

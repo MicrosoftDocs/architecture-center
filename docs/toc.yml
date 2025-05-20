@@ -863,13 +863,11 @@ items:
             href: hybrid/azure-local-dr.yml
         - name: Azure Local workloads
           items:
-          - name: AKS on Azure Local (AKS hybrid)
+          - name: AKS on Azure Local (AKS Arc)
             items:
             - name: AKS on Azure Local baseline architecture
               href: example-scenario/hybrid/aks-baseline.yml
-            - name: AKS on Azure Local network architecture
-              href: example-scenario/hybrid/aks-network.yml
-            - name: Deploy apps with AKS on Azure Local
+            - name: Deploy apps with AKS Arc on Azure Local  
               href: example-scenario/hybrid/aks-hybrid-azure-local.yml
           - name: Azure Virtual Desktop for Azure Local
             href: hybrid/azure-local-workload-virtual-desktop.yml
