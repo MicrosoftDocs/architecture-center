@@ -6,10 +6,6 @@ ms.author: ranema
 ms.date: 05/15/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-front-door
-categories:
-  - networking
 ms.custom:
   - guide
   - arb-saas
@@ -33,7 +29,7 @@ When you use Azure Front Door as part of a multitenant solution, you need to mak
 
 - Evaluate whether you need to use your own Transport Layer Security (TLS) certificates or if Microsoft will manage your TLS certificates.
 
-- Take into account the [quotas and limits](https://azure.microsoft.com/resources/resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits) that apply to Azure Front Door. Identify which limits you might approach as your solution scales. If you anticipate nearing these limits, consider using multiple Azure Front Door profiles or adjusting how you use Azure Front Door to remain within acceptable constraints. The Premium SKU has higher limits than the Standard SKU.  
+- Take into account the [quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) that apply to Azure Front Door. Identify which limits you might approach as your solution scales. If you anticipate nearing these limits, consider using multiple Azure Front Door profiles or adjusting how you use Azure Front Door to remain within acceptable constraints. The Premium SKU has higher limits than the Standard SKU.  
 
 - Determine whether you or your tenants have requirements for IP address filtering, geo-blocking, or customizing Web Application Firewall rules.  
 
@@ -171,6 +167,7 @@ Contoso deploys Azure Front Door by using the following configuration.
 #### Drawbacks
 
 - This approach doesn't easily scale beyond a single application stamp or region.
+
 - Contoso needs to buy a wildcard TLS certificate and renew and install the certificate when it expires.
 
 ### Scenario 2: Provider-managed wildcard domain, multiple stamps
@@ -377,8 +374,8 @@ If you have a stamp that serves multiple tenants, you need to consider how you r
 
 Principal authors:
 
-- [Raj Nemani](https://www.linkedin.com/in/rajnemani/) | Director, Partner Technology Strategist
 - [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer
+- [Raj Nemani](https://www.linkedin.com/in/rajnemani/) | Director, Partner Technology Strategist
 
 Other contributors:
 
