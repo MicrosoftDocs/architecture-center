@@ -66,7 +66,7 @@ Reliability helps ensure that your application can meet the commitments that you
 - **Use Flux v2** to further increase application availability in deployments that span multiple locations or clusters.
 
 - **Use automated deployments** to reduce the possibility of human error.
-- 
+
 - **Integrate a CI/CD pipeline** into your architecture to improve the effectiveness of automated testing.
 
 - **Track all code changes** so that you can quickly identify and resolve problems. To track these operational changes, use the built-in capabilities of GitHub or Azure DevOps. You can use these tools to implement policies and automation to make sure changes are tracked, follow the appropriate approval process, and are maintainable.
