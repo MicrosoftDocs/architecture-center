@@ -601,7 +601,7 @@
 						dy="1.2em" class="st18">Accounting</tspan></text>		</g>
 		<g id="shape183-191" v:mID="183" v:groupContext="shape" transform="translate(895.748,-291.285)">
 			<title>Sheet.183</title>
-			<desc>Accounting Employee</desc>
+			<desc>Accounting employee</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(36000):26"/>
 			</v:userDefs>
@@ -609,7 +609,7 @@
 			<v:textRect cx="36.1417" cy="451.479" width="72.29" height="26.9327"/>
 			<rect x="0" y="438.012" width="72.2835" height="26.9327" class="st7"/>
 			<text x="4" y="448.18" class="st11" v:langID="2052"><v:paragraph/><v:tabList/>Accounting<v:newlineChar/><tspan x="4"
-						dy="1.2em" class="st12">Employee</tspan></text>		</g>
+						dy="1.2em" class="st12" v:langID="1033">e</tspan>mployee</text>		</g>
 		<g id="shape184-195" v:mID="184" v:groupContext="shape" transform="translate(895.748,-247.185)">
 			<title>Sheet.184</title>
 			<desc>HR employees</desc>
