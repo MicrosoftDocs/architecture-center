@@ -21,7 +21,7 @@ An organization can use software as a service (SaaS) to efficiently deliver soft
 
 The key concepts in this article are *SaaS*, *startups*, and *multitenancy*. These terms are related, so they're often mistakenly used interchangeably. It's important to understand how these terms are different. SaaS and startups are business concepts, and multitenancy is an architecture concept.
 
-**SaaS is a business model.** An organization can choose to provide its software product as a service to its customers. SaaS products are sold either to businesses in a business-to-business model (B2B) or directly to consumers in a business-to-consumer (B2C) model. SaaS products are different from products that customers install and manage by themselves because the solution vendor hosts and maintains SaaS products. Many SaaS solutions use a multitenant architecture. SaaS solutions might also use different multitenancy models or approaches.
+**SaaS is a business model.** An organization can choose to provide its software product as a service to its customers. SaaS products are sold either to businesses in a business-to-business (B2B) model or directly to consumers in a business-to-consumer (B2C) model. SaaS products are different from products that customers install and manage by themselves because the solution vendor hosts and maintains SaaS products. Many SaaS solutions use a multitenant architecture. SaaS solutions might also use different multitenancy models or approaches.
 
 **Startups are businesses in an early stage of their life cycle.** Many software startups build SaaS solutions, but some might provide software in other ways. Startups often have specific concerns, including rapid innovation, finding a product and market fit, and anticipating scale and growth.
 
@@ -35,10 +35,10 @@ The key concepts in this article are *SaaS*, *startups*, and *multitenancy*. The
 The following diagram illustrates the differences between these concepts for an organization that uses a SaaS business model:
 
 :::image type="complex" border="false" source="./images/saas-business-model.svg" alt-text="Diagram that shows a multitenant application architecture that serves a SaaS business model." lightbox="./images/saas-business-model.svg":::
-   The diagram shows a business model section and a technical architecture section. The business model section includes a SaaS section that has B2B and B2B SaaS types. Arrows point from these types to the tenants in the multitenant application section. The technical architecture section includes tenants, user groups, and employees.
+   The diagram shows a business model section and a technical architecture section. The business model section includes a SaaS section that has B2C and B2B SaaS types. Arrows point from these types to the tenants in the multitenant application section. The technical architecture section includes tenants, user groups, and employees.
 :::image-end:::
 
-The following diagram illustrates how you can use a multitenant architecture in a non-SaaS business model:
+The following diagram illustrates how you can use a multitenant architecture in a business model that isn't a SaaS:
 
 :::image type="complex" border="false" source="./images/enterprise-business-model.svg" alt-text="Diagram that shows how an organization can use a multitenant architecture." lightbox="./images/enterprise-business-model.svg":::
    The diagram shows a business model section and a technical architecture section. The business model section includes an enterprise section which contains a business units section. The business units section includes accounting, HR, and sales. The technical architecture section includes a multitenant application section which contains a tenant section that has multiple tenants.
