@@ -151,7 +151,7 @@ Focus on the entire stack by securing both the host and its containers.
 
 - Use [SSH Access Restrictions][], to control/restrict access to AKS node VMs.
 
-- Use [Workload identity][] for securing and managing identities to access Azure resources from workloads.
+- Use [Workload identity][] for securing and managing identities to access Azure resources from workload pods.
 
 #### Application security
 
