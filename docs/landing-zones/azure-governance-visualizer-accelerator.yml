@@ -12,7 +12,7 @@ azureCategories:
 products:
   - azure
 name: Azure Governance Visualizer deployment guidance
-summary: Azure Governance Visualizer guidance for deploying and maintaining the Azure Governance Visualizer tool.
+summary: Visualize and analyze your Azure governance setup by using the Azure Governance Visualizer accelerator for better compliance and operational insights.
 thumbnailUrl: ../browse/thumbs/azure-governance-visualizer-accelerator-architecture.png
 content: |
   [!INCLUDE[](azure-governance-visualizer-accelerator-content.md)]
