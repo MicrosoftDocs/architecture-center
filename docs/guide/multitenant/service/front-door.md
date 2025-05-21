@@ -70,7 +70,8 @@ Acquiring and installing TLS certificates can be a complex and error prone proce
 
 Your origin application might be hosted on another Azure service that also provides managed TLS certificates, like Azure App Service. Azure Front Door transparently works with the other service to synchronize your TLS certificates.
 
-If your tenants can provide their own custom domains and you want Azure Front Door to issue certificates for these domain names, your tenants shouldn't configure Certification Authority Authorization (CAA) records on their DNS servers. These records might block Azure Front Door from issuing certificates on you tenants' behalf. For more information, see [TLS and SSL certificates](../considerations/domain-names.yml#tlsssl-certificates) and [TLS encryption with Azure Front Door](/azure/frontdoor/end-to-end-tls).
+If your tenants can provide their own custom domains and you want Azure Front Door to issue certificates for these domain names, your tenants shouldn't configure Certification Authority Authorization (CAA) records on their DNS servers. These records might block Azure Front Door from issuing certificates on your tenants' behalf. For more information, see [TLS and SSL certificates](../considerations/domain-names.yml#tlsssl-certificates) and [TLS encryption with Azure Front Door](/azure/frontdoor/end-to-end-tls).
+
 
 
 
