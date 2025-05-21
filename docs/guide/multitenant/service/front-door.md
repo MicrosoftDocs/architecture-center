@@ -323,7 +323,12 @@ Adventure Works and its tenants need to decide who issues TLS certificates:
 
 **One-time configuration:** Adventure Works creates an Azure Front Door profile and a single endpoint. They configure an origin group for each stamp. They don't create custom domain resources or routes.
 
-**When a new tenant is onboarded:** Adventure Works adds a custom domain resource to Azure Front Door. They use the tenant-provided domain name and associate the appropriate TLS certificate with the custom domain resource. They then create a route to specify which origin group or stamp that tenant's requests should be directed to. In the preceding diagram, `tenant1app.tenant1.com` is routed to the origin group in the Australia region, and `tenant2app.tenant3.com` is routed to the origin group in the US region.
+**When a new tenant is onboarded:** Adventure Works adds a custom domain resource to Azure Front Door.
+
+- They use the tenant-provided domain name and associate the appropriate TLS certificate with the custom domain resource.
+
+- They then create a route to specify which origin group or stamp that tenant's requests should be directed to. In the preceding diagram, `tenant1app.tenant1.com` is routed to the origin group in the Australia region, and `tenant2app.tenant3.com` is routed to the origin group in the US region.
+
 
 #### Benefits
 
