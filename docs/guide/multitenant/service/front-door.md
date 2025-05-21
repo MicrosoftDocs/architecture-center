@@ -112,7 +112,8 @@ The following example scenarios illustrate how you can configure various multite
 
 Many multitenant solutions implement the [Deployment Stamps pattern](../approaches/overview.yml#deployment-stamps-pattern). When you use this deployment approach, you typically deploy a single shared Azure Front Door profile and use Azure Front Door to route incoming traffic to the appropriate stamp. This deployment model is the most common one, and scenarios 1 through 4 in this article show how you can use it to meet a range of requirements.
 
-However, in some cases, you might deploy an Azure Front Door profile in each stamp of your solution. [Scenario 5](#scenario-5-azure-front-door-profile-per-stamp) describes this deployment model.
+However, in some cases, you might deploy an Azure Front Door profile in each stamp of your solution. [Scenario 5](#scenario-5-azure-front-door-profile-for-each-stamp) describes this deployment model.
+
 
 ### Scenario 1: Provider-managed wildcard domain, single stamp
 
