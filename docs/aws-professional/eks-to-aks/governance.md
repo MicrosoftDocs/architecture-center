@@ -1,8 +1,8 @@
 ---
 title: Governance Options for a Kubernetes Cluster
 description: Understand governance options for a Kubernetes cluster, and compare Amazon EKS and Azure Kubernetes Service (AKS) governance options.
-author: paolosalvatori
-ms.author: paolos
+author: francisnazareth
+ms.author: fnazaret
 ms.date: 01/28/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
