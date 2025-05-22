@@ -4,6 +4,7 @@ description: This article describes approaches to support multitenancy for the a
 author: landonpierce
 ms.author: landonpierce
 ms.date: 08/20/2024
+ms.update-cycle: 180-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
 products:
