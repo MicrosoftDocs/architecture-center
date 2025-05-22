@@ -10,7 +10,7 @@ This article describes a solution for running an order management system with 10
 
 ### Dataflow
 
-This solution describes a fictitious Red Dog order management system and its supporting Azure infrastructure. The architecture is composed of a single Azure Container Apps environment that hosts 10 .NET Core microservice applications. The solutions uses the Dapr SDK to integrate with Azure resources through publish-subscribe (pub/sub) and State and Binding building blocks. The services also make use of KEDA scale rules to allow for scaling based on event triggers and scale to zero scenarios.
+This solution describes a fictitious Red Dog order management system and its supporting Azure infrastructure. The architecture is composed of a single Azure Container Apps environment that hosts 10 .NET Core microservice applications. The solution uses the Dapr SDK to integrate with Azure resources through publish-subscribe (pub/sub) and State and Binding building blocks. The services also make use of KEDA scale rules to allow for scaling based on event triggers and scale to zero scenarios.
 
 The following list describes each microservice and the Azure Container Apps configuration it deploys with.
 
@@ -110,9 +110,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 The following outlines some of the security features that were omitted in this architecture, along with other recommendations and considerations:
 
-- This architecture does not use [Private endpoints](/azure/private-link/private-link-overview), which allow secure, private connectivity to Azure services by assigning them an IP address from your virtual network. When private endpoints are used, public network access can be disabled, keeping traffic on the Microsoft backbone and enhancing security and compliance.
+- This architecture doesn't use [Private endpoints](/azure/private-link/private-link-overview), which allow secure, private connectivity to Azure services by assigning them an IP address from your virtual network. When private endpoints are used, public network access can be disabled, keeping traffic on the Microsoft backbone and enhancing security and compliance.
 
-- Network activity should be continuously monitored to detect and prevent abuse. This can be achieved using an [Azure Firewall](/azure/firewall/) and route tables. The route tables enable traffic leaving a virtual network to be passed through the firewall first. This is an important step in ensuring that your architecture is not vulnerable to data exfiltration attacks.
+- Network activity should be continuously monitored to detect and prevent abuse. This can be achieved using an [Azure Firewall](/azure/firewall/) and route tables. The route tables enable traffic leaving a virtual network to be passed through the firewall first. This is an important step in ensuring that your architecture isn't vulnerable to data exfiltration attacks.
 
 - Use a web application firewall (WAF) to protect against common vulnerabilities. Use Azure Front Door or Azure Application Gateway to implement a WAF in this architecture. For more information, see the [Web Application Firewall documentation](/azure/web-application-firewall/).
 
