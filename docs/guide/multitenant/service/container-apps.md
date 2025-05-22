@@ -102,7 +102,7 @@ Container Apps can [validate authentication tokens on behalf of your app](/azure
 
 If your tenants use Microsoft Entra ID as the identity provider, you can configure Container Apps to use the [/common endpoint](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant#update-your-code-to-send-requests-to-common) to validate user tokens. This approach ensures that users' tokens are validated and accepted, regardless of the user's Microsoft Entra tenant.
 
-You can also integrate Container Apps with [Azure Active Directory B2C](/azure/active-directory-b2c/overview) for user authentication via partner identity providers.
+You can also integrate Container Apps with Microsoft Entra External ID for user authentication via partner identity providers.
 
 For more information, see the following resources:
 

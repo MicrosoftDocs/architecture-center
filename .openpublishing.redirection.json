@@ -7338,6 +7338,11 @@
       "source_path": "docs/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml",
       "redirect_url": "/azure/architecture/hybrid/hybrid-file-services",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/multitenant/service/azure-ad-b2c.md",
+      "redirect_url": "/azure/architecture//guide/multitenant/approaches/identity",
+      "redirect_document_id": false
     }
   ]
 }

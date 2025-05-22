@@ -132,10 +132,6 @@ items:
             items:
             - name: Azure Key Vault
               href: ../multitenant/service/key-vault.md
-          - name: Identity
-            items:
-            - name: Azure Active Directory B2C
-              href: ../multitenant/service/azure-ad-b2c.md
           - name: Integration
             items:
             - name: Azure API Management

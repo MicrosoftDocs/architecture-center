@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 05/12/2025
+ms.date: 05/19/2025
 ms.topic: conceptual
 ms.author: pnp
 categories: 
@@ -24,25 +24,30 @@ The following new and updated articles have recently been published in the Azure
 
 ## May 2025
 
-### New article
+### New articles
 
+- [Backends for Frontends Pattern](./patterns/backends-for-frontends.md)
 - [Extend Mainframes to Digital Channels by Using Standards-Based REST APIs](./example-scenario/mainframe/extend-mainframes-rest-apis.yml)
+- [Design to Support Foundation Model Life Cycles](./ai-ml/guide/manage-foundation-models-lifecycle.md)
 
 ### Updated articles
 
+- [Architectural approaches for identity in multitenant solutions](./guide/multitenant/approaches/identity.md)  ([#350d437efd](https://github.com/MicrosoftDocs/architecture-center/commit/350d437efd))
+- [Architectural Approaches for Compute in Multitenant Solutions](./guide/multitenant/approaches/compute.md)  ([#5998e0f989](https://github.com/MicrosoftDocs/architecture-center/commit/5998e0f989))
+- [Considerations for Using Azure Container Apps in a Multitenant Solution](./guide/multitenant/service/container-apps.md)  ([#5998e0f989](https://github.com/MicrosoftDocs/architecture-center/commit/5998e0f989))
+- [Azure Service Bus Considerations for Multitenancy](./guide/multitenant/service/service-bus.md)  ([#5998e0f989](https://github.com/MicrosoftDocs/architecture-center/commit/5998e0f989))
 - [Generative AI Operations for Organizations with MLOps Investments](./ai-ml/guide/genaiops-for-mlops.md)  ([#a3f82db38d](https://github.com/MicrosoftDocs/architecture-center/commit/a3f82db38d))
+- [Multitenancy Checklist on Azure](./guide/multitenant/checklist.md)  ([#496e7a1937](https://github.com/MicrosoftDocs/architecture-center/commit/496e7a1937))
+- [Architect Multitenant Solutions on Azure](./guide/multitenant/overview.md)  ([#496e7a1937](https://github.com/MicrosoftDocs/architecture-center/commit/496e7a1937))
+- [Migrate an Oracle Database to OD@A Exadata Database Service](./databases/idea/migrate-oracle-odaa-exadata.yml)  ([#5e3ae5b5d5](https://github.com/MicrosoftDocs/architecture-center/commit/5e3ae5b5d5))
+- [Multitenancy and Azure OpenAI](./guide/multitenant/service/openai.md)  ([#9b3946b7a4](https://github.com/MicrosoftDocs/architecture-center/commit/9b3946b7a4))
 - [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml)  ([#8c60960755](https://github.com/MicrosoftDocs/architecture-center/commit/8c60960755))
 - [Apache Kafka Migration to Azure](./guide/hadoop/apache-kafka-migration.yml)  ([#bc6d5e9cd8](https://github.com/MicrosoftDocs/architecture-center/commit/bc6d5e9cd8))
-- [Multitenancy Checklist on Azure](./guide/multitenant/checklist.md)  ([#6dd821802b](https://github.com/MicrosoftDocs/architecture-center/commit/6dd821802b))
-- [Architect Multitenant Solutions on Azure](./guide/multitenant/overview.md)  ([#6dd821802b](https://github.com/MicrosoftDocs/architecture-center/commit/6dd821802b))
 - [Related Resources for Multitenancy](./guide/multitenant/related-resources.md)  ([#6dd821802b](https://github.com/MicrosoftDocs/architecture-center/commit/6dd821802b))
 - [Move an IoT Hub-Based Solution from Test to Production](./example-scenario/iot/iot-move-to-production.yml)  ([#d6d45463f0](https://github.com/MicrosoftDocs/architecture-center/commit/d6d45463f0))
 - [Multitenancy and Azure SQL Database](./guide/multitenant/service/sql-database.md)  ([#b018dfd4c8](https://github.com/MicrosoftDocs/architecture-center/commit/b018dfd4c8))
 - [Automate Document Classification in Azure](./ai-ml/architecture/automate-document-classification-durable-functions.yml)  ([#071155e674](https://github.com/MicrosoftDocs/architecture-center/commit/071155e674))
 - [Web API Design Best Practices](./best-practices/api-design.md)  ([#ad86c398cd](https://github.com/MicrosoftDocs/architecture-center/commit/ad86c398cd))
-- [Architectural approaches for compute in multitenant solutions](./guide/multitenant/approaches/compute.md)  ([#eb72b53da2](https://github.com/MicrosoftDocs/architecture-center/commit/eb72b53da2))
-- [Considerations for using Azure Container Apps in a multitenant solution](./guide/multitenant/service/container-apps.md)  ([#eb72b53da2](https://github.com/MicrosoftDocs/architecture-center/commit/eb72b53da2))
-- [Azure Service Bus considerations for multitenancy](./guide/multitenant/service/service-bus.md)  ([#eb72b53da2](https://github.com/MicrosoftDocs/architecture-center/commit/eb72b53da2))
 - [Azure DNS Private Resolver](./networking/architecture/azure-dns-private-resolver.yml)  ([#de4e1ff583](https://github.com/MicrosoftDocs/architecture-center/commit/de4e1ff583))
 - [Implement Advanced Monitoring for Azure OpenAI Through a Gateway](./ai-ml/guide/azure-openai-gateway-monitoring.yml)  ([#d11c6c7ff1](https://github.com/MicrosoftDocs/architecture-center/commit/d11c6c7ff1))
 - [Message Encoding Considerations](./best-practices/message-encode.md)  ([#457876053e](https://github.com/MicrosoftDocs/architecture-center/commit/457876053e))
@@ -153,7 +158,6 @@ The following new and updated articles have recently been published in the Azure
 - [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))
 - [Choose a search data store](./data-guide/technology-choices/search-options.md)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))
 - [Intelligent e-commerce product search engine](./databases/architecture/ecommerce-search.yml)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))
-- [Backends for Frontends pattern](./patterns/backends-for-frontends.md)  ([#8ac2b5b719](https://github.com/MicrosoftDocs/architecture-center/commit/8ac2b5b719))
 - [Access an Azure Kubernetes Service (AKS) API Server](./guide/security/access-azure-kubernetes-service-cluster-api-server.yml)  ([#083afd34d4](https://github.com/MicrosoftDocs/architecture-center/commit/083afd34d4))
 - [Google Cloud to Azure services comparison](./gcp-professional/services.md)  ([#13b5110ee7](https://github.com/MicrosoftDocs/architecture-center/commit/13b5110ee7))
 - [Microsoft Entra security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml)  ([#13b5110ee7](https://github.com/MicrosoftDocs/architecture-center/commit/13b5110ee7))
