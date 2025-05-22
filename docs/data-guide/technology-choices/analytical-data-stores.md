@@ -6,12 +6,6 @@ ms.author: rduddugunta
 ms.date: 03/26/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-categories:
-  - storage
-products:
-  - azure
-  - Microsoft Fabric
-  - azure-data-explorer
 ms.custom:
   - guide
 ---
@@ -32,7 +26,7 @@ There are several options for data serving storage in Azure, depending on your n
 
 - [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview)
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)
-- [Azure Synapse Spark pools](/azure/synapse-analytics/spark/apache-spark-overview)
+- [Azure Synapse Analytics Spark pools](/azure/synapse-analytics/spark/apache-spark-overview)
 - [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
 - [Azure Data Explorer](/azure/data-explorer/)
 - [Azure SQL Database](/azure/sql-database/)
@@ -48,7 +42,13 @@ The following database models are optimized for different types of tasks:
 
 - [Document databases](../big-data/non-relational-data.yml#document-data-stores) are key-value databases in which the values are *documents*. In this context, a document is a collection of named fields and values. The database typically stores the data in a format such as XML, YAML, JSON, or binary JSON, but might use plain text. Document databases can query on non-key fields and define secondary indexes to improve querying efficiency. This capability makes a document database more suitable for applications that need to retrieve data based on criteria that's more complex than the value of the document key. For example, you could query on fields such as product ID, customer ID, or customer name.
 
-- [Column store databases](../big-data/non-relational-data.yml#columnar-data-stores) are key-value data stores that store each column separately on disk. A *wide column store* database is a type of column store database that stores *column families*, not only single columns. For example, a census database might have a column family for a person's first, middle, and last name, a family for the person's address, and a family for the person's profile information, like their date of birth or gender. The database can store each column family in a separate partition, while keeping all the data for one person related to the same key. An application can read a single column family without scanning all the data for an entity.
+- [Column store databases](../big-data/non-relational-data.yml#columnar-data-stores) are key-value data stores that store each column separately on disk. A *wide column store* database is a type of column store database that stores *column families*, not only single columns. For example, a census database might have a separate column family for each of the following items:
+
+  - A person's first, middle, and last name
+  - That person's address
+  - That person's profile information, like their date of birth or gender 
+  
+  The database can store each column family in a separate partition, while keeping all the data for one person related to the same key. An application can read a single column family without scanning all the data for an entity.
 
 - [Graph databases](../big-data/non-relational-data.yml#graph-data-stores) store information as a collection of objects and relationships. A graph database can efficiently perform queries that traverse the network of objects and the relationships between them. For example, the objects might be employees in a human resources database, and you might want to facilitate queries such as "find all employees who directly or indirectly work for Scott."
 
