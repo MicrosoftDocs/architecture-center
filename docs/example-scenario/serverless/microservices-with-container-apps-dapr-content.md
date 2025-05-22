@@ -53,7 +53,6 @@ The following list describes each microservice and the Azure Container Apps conf
 
 This solution uses the following components:
 
-- [Azure resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal) are logical containers for Azure resources. You use a single resource group to structure everything related to this solution in the Azure portal.
 - [Azure Container Apps](/azure/container-apps/overview) is a fully managed, serverless container service used to build and deploy modern apps at scale. In this solution, you're hosting all 10 microservices on Azure Container Apps and deploying them into a single Container App environment. This environment acts as a secure boundary around the system.
 - [Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a fully managed enterprise message broker complete with queues and publish-subscribe topics. In this solution, use it for the Dapr pub/sub component implementation. Multiple services use this component. The order service publishes messages on the bus, and the Makeline, accounting, loyalty, and receipt services subscribe to these messages.
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a NoSQL, multi-model managed database service. Use it as a Dapr state store component for the loyalty service to store customer's loyalty data.
@@ -71,9 +70,9 @@ All Azure infrastructure, except Azure SQL Database, use Dapr components for int
 
 ## Scenario details
 
-Microservices are an increasingly popular architecture style that can have many benefits, including high scalability, shorter development cycles, and increased simplicity. You can use containers as a mechanism to deploy microservices applications, and then use a container orchestrator like Kubernetes to simplify operations. There are many factors to consider for large scale microservices architectures. Typically, the infrastructure platform requires significant understanding of complex technologies like the container orchestrators.
+Microservices are a widely adopted architectural style, offering benefits such as scalability, agility, and independent deployments. You can use containers as a mechanism to deploy microservices applications, and then use a container orchestrator like Kubernetes to simplify operations. There are many factors to consider for large scale microservices architectures. Typically, the infrastructure platform requires significant understanding of complex technologies like the container orchestrators.
 
-[Azure Container Apps](/azure/container-apps/overview) is a fully managed serverless container service for running modern applications at scale. It enables you to deploy containerized apps through abstraction of the underlying platform. This way, you won't need to manage a complicated infrastructure. Azure Container Apps is powered by open-source technologies.
+[Azure Container Apps](/azure/container-apps/overview) is a fully managed serverless container service for running modern applications at scale. It enables you to deploy containerized apps through abstraction of the underlying platform. This way, you won't need to manage a complicated infrastructure.
 
 This architecture uses Azure Container Apps integration with a managed version of the [Distributed Application Runtime (Dapr)](https://dapr.io/). Dapr is an open source project that helps developers with the inherent challenges in distributed applications, like state management and service invocation.
 
@@ -103,22 +102,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Azure Container Apps runs on Kubernetes behind the scenes. Resiliency mechanisms are built into Kubernetes that monitor and restart containers, or pods, if there are issues. The resiliency mechanisms combine with the built-in load balancer to run multiple replicas of each container app. With this redundancy, the solution can tolerate an instance being unavailable.
-
-You can use Azure Monitor and Application Insights to monitor Azure Container Apps. You can view container logs by navigating in the portal to the **Logs** pane in each container app, and then run the following Kusto query. This example shows logs for the Makeline service app.
-
-```kusto
-ContainerAppConsoleLogs_CL |
-    where ContainerAppName_s contains "make-line-service" |
-    project TimeGenerated, _timestamp_d, ContainerGroupName_s, Log_s |
-    order by _timestamp_d asc
-```
-
-The application map in Application Insights also shows how the services communicate in real time. You can then use them for debugging scenarios. Navigate to the application map under the Application Insights resource to view something like the following.
-
-:::image type="content" source="./media/microservices-with-container-apps-dapr-appmap.png" alt-text="Screenshot that shows an application map in Application Insights." lightbox="./media/microservices-with-container-apps-dapr-appmap.png":::
-
-For more information on monitoring Azure Container Apps, see [Monitor an app in Azure Container Apps](/azure/container-apps/monitor).
+Azure Container Apps runs on Kubernetes behind the scenes. Resiliency mechanisms are built into Kubernetes that monitor and restart containers, or pods, if there are issues. The resiliency mechanisms include a built-in load balancer that distributes traffic across multiple replicas of each container app. This redundancy allows the system to remain operational even if one replica becomes unavailable.
 
 ### Security
 
@@ -141,6 +125,25 @@ The following outlines some of the security features that were omitted in this a
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of the services in this architecture.
+
+### Operational Excellence
+
+Operational Excellence is the ability to run and monitor systems to deliver business value and continually improve supporting processes and procedures. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+You can use Azure Monitor and Application Insights to monitor Azure Container Apps. You can view container logs by navigating in the portal to the **Logs** pane in each container app, and then run the following Kusto query. This example shows logs for the Makeline service app.
+
+```kusto
+ContainerAppConsoleLogs_CL |
+    where ContainerAppName_s contains "make-line-service" |
+    project TimeGenerated, _timestamp_d, ContainerGroupName_s, Log_s |
+    order by _timestamp_d asc
+```
+
+The application map in Application Insights also shows how the services communicate in real time. You can then use them for debugging scenarios. Navigate to the application map under the Application Insights resource to view something like the following.
+
+:::image type="content" source="./media/microservices-with-container-apps-dapr-appmap.png" alt-text="Screenshot that shows an application map in Application Insights." lightbox="./media/microservices-with-container-apps-dapr-appmap.png":::
+
+For more information on monitoring Azure Container Apps, see [Monitor an app in Azure Container Apps](/azure/container-apps/monitor).
 
 ### Performance Efficiency
 
