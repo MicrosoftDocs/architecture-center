@@ -2,7 +2,7 @@ This article describes two methods for efficient IPv4 address management in Azur
 
 ## Scenario details
 
-Corporate networks typically use address spaces included in the private IPv4 address ranges defined by [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918): 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16. In on-premises environments, these ranges provide enough IP addresses to meet the requirements of even the largest networks. As a result, many organizations developed address management practices that prioritize simple routing configurations and agile processes for IP allocation. Efficient use of the IPv4 address space isn't a priority. 
+Corporate networks typically use address spaces included in the private IPv4 address ranges defined by [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918): 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16. In on-premises environments, these ranges provide enough IP addresses to meet the requirements of even the largest networks. As a result, many organizations developed address management practices that prioritize simple routing configurations and agile processes for IP allocation. Efficient use of the IPv4 address space often isn't a priority. 
 In the cloud, large networks are easy to build, and some common architectural patterns, like microservices or containerization, might lead to increased IPv4 address consumption. Therefore, it’s important to adopt more conservative address management practices and treat IPv4 addresses as a limited resource.
 
 ### Azure Virtual Network IP address ranges
