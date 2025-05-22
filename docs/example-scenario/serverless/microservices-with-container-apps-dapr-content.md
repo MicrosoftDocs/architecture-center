@@ -10,7 +10,7 @@ This article describes a solution for running an order management system with 10
 
 ### Dataflow
 
-This solution describes a fictitious Red Dog order management system and its supporting Azure infrastructure. The architecture is composed of a single Azure Container Apps environment that hosts 10 .NET Core microservice applications. You'll use the .NET Core Dapr SDK to integrate with Azure resources through publish-subscribe (pub/sub) and State and Binding building blocks. Although Dapr typically provides flexibility when you implement components, this solution is based on an opinion. The services also make use of KEDA scale rules to allow for scaling based on event triggers and scale to zero scenarios.
+This solution describes a fictitious Red Dog order management system and its supporting Azure infrastructure. The architecture is composed of a single Azure Container Apps environment that hosts 10 .NET Core microservice applications. The solutions uses the Dapr SDK to integrate with Azure resources through publish-subscribe (pub/sub) and State and Binding building blocks. The services also make use of KEDA scale rules to allow for scaling based on event triggers and scale to zero scenarios.
 
 The following list describes each microservice and the Azure Container Apps configuration it deploys with.
 
@@ -122,19 +122,19 @@ For more information on monitoring Azure Container Apps, see [Monitor an app in 
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](https://learn.microsoft.com/en-us/azure/well-architected/security/checklist).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 The following outlines some of the security features that were omitted in this architecture, along with other recommendations and considerations:
 
-- This architecture does not use [Private endpoints](https://docs.microsoft.com/azure/private-link/private-link-overview), which allow secure, private connectivity to Azure services by assigning them an IP address from your virtual network. When private endpoints are used, public network access can be disabled, keeping traffic on the Microsoft backbone and enhancing security and compliance.
+- This architecture does not use [Private endpoints](/azure/private-link/private-link-overview), which allow secure, private connectivity to Azure services by assigning them an IP address from your virtual network. When private endpoints are used, public network access can be disabled, keeping traffic on the Microsoft backbone and enhancing security and compliance.
 
-- Network activity should be continuously monitored to detect and prevent abuse. This can be achieved using an [Azure Firewall](https://learn.microsoft.com/en-us/azure/firewall/) and route tables. The route tables enable traffic leaving a VNET to be passed through the firewall first. This is an important step in ensuring that your architecture is not vulnerable to data exfiltration attacks.
+- Network activity should be continuously monitored to detect and prevent abuse. This can be achieved using an [Azure Firewall](/azure/firewall/) and route tables. The route tables enable traffic leaving a virtual network to be passed through the firewall first. This is an important step in ensuring that your architecture is not vulnerable to data exfiltration attacks.
 
-- Using a web application firewall (WAF) can protect against common vulnerabilities. You can use Azure Front Door or Azure Application Gateway to implement a WAF. For more information, see the [Web Application Firewall documentation](https://learn.microsoft.com/en-us/azure/web-application-firewall/).
+- Use a web application firewall (WAF) to protect against common vulnerabilities. Use Azure Front Door or Azure Application Gateway to implement a WAF in this architecture. For more information, see the [Web Application Firewall documentation](/azure/web-application-firewall/).
 
-- Consider using the integrated authentication mechanism for Azure Container Apps ("EasyAuth"). EasyAuth simplifies the process of integrating identity providers into your web app. It handles authentication outside your web app, so you don't have to make significant code changes.
+- Consider using the built-in authentication and authorization feature for Azure Container Apps ("Easy Auth"). Easy Auth simplifies the process of integrating identity providers into your web app. It handles authentication outside your web app, so you don't have to make significant code changes.
 
-- Use managed identity for workload identities. Managed identity eliminates the need for developers to manage authentication credentials. For example, the basic architecture authenticates to SQL Server via password in a connection string. Consider using managed identity to authenticate to Azure SQL Server.
+- Use managed identity for workload identities. Managed identity eliminates the need for developers to manage authentication credentials. For example, the basic architecture authenticates to SQL Server via password in a connection string. Where possible, always use Microsoft Entra IDs to authenticate to Azure SQL Server.
 
 ### Cost Optimization
 
