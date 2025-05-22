@@ -1,8 +1,8 @@
 ---
 title: Manage Kubernetes Nodes and Node Pools
 description: Understand Kubernetes nodes and node pools, how to handle Azure Kubernetes Service (AKS) nodes and node pools, and node pool options for Amazon EKS and AKS.
-author: paolosalvatori
-ms.author: paolos
+author: francisnazareth
+ms.author: fnazaret
 ms.date: 01/28/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
