@@ -18,13 +18,13 @@ The serving layer handles processed data from both the hot path and the cold pat
 
 There's no single best data management choice for all data storage tasks. Different data management solutions are optimized for different tasks. Most real-world cloud apps and big data processes have various data storage requirements and often use a combination of data storage solutions.
 
-Modern analytical solutions, such as [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview), provide a comprehensive platform that integrates various data services and tools to meet diverse analytical needs. Microsoft Fabric includes OneLake, which is a single, unified, logical data lake for your entire organization. OneLake is designed to store, manage, and secure all organizational data in one location. This flexibility allows your organization to address a wide range of data storage and processing requirements.
+Modern analytical solutions, such as [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview), provide a comprehensive platform that integrates various data services and tools to meet diverse analytical needs. Fabric includes OneLake, which is a single, unified, logical data lake for your entire organization. OneLake is designed to store, manage, and secure all organizational data in one location. This flexibility allows your organization to address a wide range of data storage and processing requirements.
 
 ## Choose an analytical data store
 
 There are several options for data serving storage in Azure, depending on your needs:
 
-- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview)
+- [Fabric](/fabric/fundamentals/microsoft-fabric-overview)
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)
 - [Azure Synapse Analytics Spark pools](/azure/synapse-analytics/spark/apache-spark-overview)
 - [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
@@ -56,7 +56,7 @@ The following database models are optimized for different types of tasks:
 
 - Telemetry and time-series databases are an append-only collection of objects. Telemetry databases efficiently index data in various column stores and in-memory structures. This capability makes them the optimal choice for storing and analyzing vast quantities of telemetry and time-series data.
 
-[Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) supports various database models, including key-value, document, column store, graph, and telemetry databases. This flexibility ensures scalability for a wide range of analytical tasks.
+[Fabric](/fabric/fundamentals/microsoft-fabric-overview) supports various database models, including key-value, document, column store, graph, and telemetry databases. This flexibility ensures scalability for a wide range of analytical tasks.
 
 ## Key selection criteria
 
@@ -70,7 +70,7 @@ To refine the selection process, consider the following criteria:
 
 - Do you collect time-series data? Do you use append-only data?
 
-Microsoft Fabric OneLake supports multiple analytical engines, including Analysis Services, T-SQL, and Apache Spark. This support makes it suitable for various data processing and querying needs.
+Fabric OneLake supports multiple analytical engines, including Analysis Services, T-SQL, and Apache Spark. This support makes it suitable for various data processing and querying needs.
 
 ## Capability matrix
 
@@ -78,7 +78,7 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| Capability | SQL Database | Azure Synapse Analytics SQL pool | Azure Synapse Analytics Spark pool | Azure Data Explorer | Apache HBase or Apache Phoenix on HDInsight | Hive LLAP on HDInsight | Analysis Services | Azure Cosmos DB | Microsoft Fabric |
+| Capability | SQL Database | Azure Synapse Analytics SQL pool | Azure Synapse Analytics Spark pool | Azure Data Explorer | Apache HBase or Apache Phoenix on HDInsight | Hive LLAP on HDInsight | Analysis Services | Azure Cosmos DB | Fabric |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Is a managed service? | Yes | Yes |Yes | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes | Yes |
 | Primary database model | Relational (column store format when you use columnstore indexes) | Relational tables with column storage | Wide column store | Relational (column store), telemetry, and time-series store | Wide column store | Hive or in-memory | Tabular semantic models | Document store, graph, key-value store, wide column store | Unified data lake, relational, telemetry, time series, document store, graph, key-value store |
@@ -93,7 +93,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Scalability capabilities
 
-| Capability | SQL Database | Azure Synapse Analytics SQL pool | Azure Synapse Analytics Spark pool | Azure Data Explorer | Apache HBase or Apache Phoenix on HDInsight | Hive LLAP on HDInsight | Analysis Services | Azure Cosmos DB | Microsoft Fabric |
+| Capability | SQL Database | Azure Synapse Analytics SQL pool | Azure Synapse Analytics Spark pool | Azure Data Explorer | Apache HBase or Apache Phoenix on HDInsight | Hive LLAP on HDInsight | Analysis Services | Azure Cosmos DB | Fabric |
 | :------| :--------| :---------| :--------| :-------| :--------| :--------| :-----| :----|
 | Redundant regional servers for high availability |     Yes      |        No         |        No         |       Yes   |            Yes             |           No           |           Yes        |    Yes    |    Yes      |
 |             Supports query scale-out             |      No      |        Yes         |        Yes         |         Yes         |         Yes             |          Yes           |           Yes           |    Yes    |    Yes      |
@@ -102,7 +102,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Security capabilities
 
-| Capability | SQL Database | Azure Synapse Analytics | Azure Data Explorer | Apache HBase or Apache Phoenix on HDInsight | Hive LLAP on HDInsight | Analysis Services | Azure Cosmos DB | Microsoft Fabric |
+| Capability | SQL Database | Azure Synapse Analytics | Azure Data Explorer | Apache HBase or Apache Phoenix on HDInsight | Hive LLAP on HDInsight | Analysis Services | Azure Cosmos DB | Fabric |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Authentication  | SQL or Microsoft Entra ID | SQL or Microsoft Entra ID | Microsoft Entra ID | Local or Microsoft Entra ID <sup>1</sup> | Local or Microsoft Entra ID <sup>1</sup> | Microsoft Entra ID | Database users or Microsoft Entra ID via access control (identity and access management) | Microsoft Entra ID |
 | Data encryption at rest | Yes <sup>2</sup> | Yes <sup>2</sup> | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes | Yes |
