@@ -4,6 +4,7 @@ description: Multitenancy lets you serve multiple tenants in an Azure-hosted sol
 author: arsenvlad
 ms.author: arsenv
 ms.date: 04/17/2025
+ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
 products:
