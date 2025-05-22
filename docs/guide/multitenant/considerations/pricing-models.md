@@ -4,6 +4,7 @@ description: This article describes the considerations for planning pricing mode
 author: PlagueHO
 ms.author: dascottr
 ms.date: 11/07/2024
+ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
 products:
