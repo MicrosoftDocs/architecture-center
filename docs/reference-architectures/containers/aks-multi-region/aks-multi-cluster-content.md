@@ -21,6 +21,14 @@ Many components and Azure services are used in this multi-region AKS architectur
 - **Global Azure Front Door profile:** [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is used to load balance and route traffic to a regional Azure Application Gateway instance, which sits in front of each AKS cluster. Azure Front Door allows for layer 7 global routing, both of which are required for this architecture.
 - **Global container registry:** The container images for the workload are stored in a managed container registry. In this architecture, a single Azure Container Registry is used for all Kubernetes instances in the cluster. Geo-replication for [Azure Container Registry](/azure/container-registry/container-registry-intro) enables replicating images to the selected Azure regions and providing continued access to images even if a region is experiencing an outage.
 
+## Alternatives
+
+This solution uses [Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/). Fleets enable a range of capabilities for managing multiple clusters, with a focus on streamlining day-2 operations by providing a control plane that can orchestrate activities across multiple clusters.
+
+In this solution, the fleet orchestrates Kubernetes version updates across multiple clusters, as well as node image version updates. These capabilities don't require a hub cluster to be deployed. You could choose to have each cluster perform Kubernetes version and node image updates independently, which doesn't require a fleet. However, if you do so, clusters are likely to get version updates at different times, and it can become difficult to validate your workload and configuration with multiple versions in your production environment simultaneously.
+
+Additionally, you can optionally add a hub cluster for workload deployment coordination within this solution, which is discussed in more detail below.
+
 ## Design patterns
 
 This architecture uses two cloud design patterns:
@@ -45,10 +53,6 @@ When you manage a multi-region AKS solution, you deploy multiple AKS clusters ac
 - Consider how to gain visibility of and monitor the collection of stamps as a single unit.
 
 Each of these items is detailed with specific guidance in the following sections.   
-
-## Fleet management
-
-This solution uses [Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/). Fleet Manager enables a range of capabilities for managing multiple clusters, with a focus on streamlining day-2 operations by providing a control plane that can orchestrate activities across multiple clusters Fleet Manager has a range of capabilities. In this solution, Fleet Manager orchestrates Kubernetes version updates across multiple clusters, as well as node image version updates. These capabilities don't require a hub cluster to be deployed. Additionally, you can optionally use Fleet Manager with a hub cluster for workload deployment coordination within this solution, which is discussed in more detail below.
 
 ## Considerations
 
