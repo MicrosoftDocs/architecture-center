@@ -45,7 +45,9 @@ The following database models are optimized for different types of tasks:
 - [Column store databases](../big-data/non-relational-data.yml#columnar-data-stores) are key-value data stores that store each column separately on disk. A *wide column store* database is a type of column store database that stores *column families*, not only single columns. For example, a census database might have a separate column family for each of the following items:
 
   - A person's first, middle, and last name
+
   - That person's address
+
   - That person's profile information, like their date of birth or gender 
   
   The database can store each column family in a separate partition, while keeping all the data for one person related to the same key. An application can read a single column family without scanning all the data for an entity.
