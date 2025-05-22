@@ -9,11 +9,11 @@ This article provides a basic architecture to help you learn how to run chat app
 ## Architecture
 
 :::image type="complex" source="./_images/openai-end-to-end-basic.svg" lightbox="./_images/openai-end-to-end-basic.svg" alt-text="Diagram that shows a basic end-to-end chat architecture." border= "false":::
-    The diagram presents a flowchart depicting the integration of Azure services in an AI Foundry project. At the top left, a user initiates interaction by accessing a URL: "https://dsdemos.azure.ai/reviews/test". This request flows into an App Service that uses built-in authentication, labeled as "App Service built-in authentication (Easy Auth)", and is hosted within Azure. From this App Service, an arrow leads to a component labeled "Managed Identity", indicating that the application uses Azure-managed identities for secure authentication.
+    The diagram presents a flowchart depicting the integration of Azure services in an AI Foundry project. At the top left, a user initiates interaction by accessing a URL: "https://domainname.azurewebsites.net", labeled with the number 1. This request flows into an App Service that uses built-in authentication, labeled as "App Service built-in authentication (Easy Auth)", labeled with the number 2. The App Service box has a component labeled "Managed Identity", indicating that the application uses Azure-managed identities for secure authentication.
 
-    Both the App Service and the Managed Identity components direct their flows into a central box labeled "Azure AI Foundry account". Within this account, two sub-components are shown: "Azure AI Foundry project" and "Managed Identities", suggesting that the project operates under the governance of the foundry account and leverages managed identities for access control. From the Azure AI Foundry account, one arrow points downward to "Azure AI Search", indicating integration with search capabilities for indexing or querying data.
+    The App Service has an arrrow pointing to an Azure AI Agent Service box, labeled with the number 3. This box is inside a larger box labeled Azure AI Foundry project which also has a Managed identities box. The Azure AI Foundry project box falls in a dashed box labeled "Azure AI Foundry", along with a box labeled "Azure AI Foundry account" that has a dotted line poining to the Azure AI Agent Service box. There is an arrow from the Azure AI foundry project box that points to an Azure AI Search box that falls outside of the Azure AI Foundry dashed box, labeled with the number 4. The Azure AI Agent Service box, inside the Azure AI Foundry project, has an arrow pointing to an "Azure OpenAI model" box, labeled with the number 5. The Azure OpenAI model falls inside the Azure AI Foundry dashed box. 
 
-    Another arrow from the Azure AI Foundry account points leftward to a monitoring section. This section includes "Application logs", an icon labeled "Azure Monitor" with the descriptor "Monitoring", and a final element labeled "A Trained Model" at the bottom. This suggests that logs and monitoring data are collected and possibly used to evaluate or refine the trained model. The diagram uses green to denote steps or processes and blue to represent Azure services or accounts. The Microsoft and Azure logos appear at the bottom left, reinforcing the branding.
+    There is a box at the left of the diagram labeled "Monitoring" that includes an icon labeled "Application Insights" and an icon labeled "Azure Monitor" with the descriptor "Monitoring"
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/openai-end-to-end-basic.vsdx) of this architecture.*
@@ -22,11 +22,9 @@ This article provides a basic architecture to help you learn how to run chat app
 
 1. A user issues an HTTPS request to the app service default domain on azurewebsites.net. This domain automatically points to the App Service built-in public IP address. The Transport Layer Security connection is established from the client directly to App Service. Azure completely manages the certificate.
 1. Easy Auth, a feature of App Service, helps ensure that the user who accesses the site is authenticated by using Microsoft Entra ID.
-1. The client application code that's deployed to App Service handles the request and presents the user a chat UI. The chat UI code connects to APIs that are also hosted in that same App Service instance. The API code connects to an Azure Machine Learning managed online endpoint to handle user interactions.
-1. The managed online endpoint routes the request to Machine Learning managed compute where the prompt flow orchestration logic is deployed.
-1. The prompt flow orchestration code runs. Among other things, the logic extracts the user's query from the request.
-1. The orchestration logic connects to Azure AI Search to fetch grounding data for the query. The grounding data is added to the prompt that is sent to Azure OpenAI in the next step.
-1. The orchestration logic connects to Azure OpenAI and sends the prompt that includes the relevant grounding data.
+1. The client application code that's deployed to App Service handles the request and presents the user a chat UI. The chat UI code connects to APIs that are also hosted in that same App Service instance. The API code connects to the Azure AI Agent Service in Azure AI Foundry.
+1. The Azure AI Agent Service connects to Azure AI Search to fetch grounding data for the query. The grounding data is added to the prompt that is sent to the Azure OpenAI model in the next step.
+1. The Azure AI Agent Service connects to an Azure OpenAI model that was deployed in Azure AI Foundry and sends the prompt that includes the relevant grounding data.
 1. Information about the original request to App Service and the call to the managed online endpoint are logged in Application Insights. This log uses the same Azure Monitor Logs workspace that Azure OpenAI telemetry flows to.
 
 ### Prompt flow
