@@ -16,9 +16,16 @@ The following workflow corresponds to the previous diagram:
 
 1. Azure ExpressRoute provides a dedicated high-speed connection between on-premises and Azure resources.
 
-1. Azure Load Balancer distributes incoming TN5250 traffic across two Infinite i app servers (active and standby) in the virtual network. Azure-based clients connect via a peered virtual network.
+1. Azure Load Balancer distributes incoming TN5250 traffic across two Infinite i app servers (active and standby) in the virtual network. Azure-based clients connect via a peered virtual network. The following table describes the supported configurations:
 
-1. The compilers translate System i source code to 64-bit object code that runs on Azure x86 VMs.
+| Model | Support | Details |
+|---|---|---|
+| Active/Passive | Yes | Recommended model. Uses replication/failover across AZs. |
+| Active/Active (LB) | No | Not supported due to DB and session state constraints. |
+| Multiple VMs (VMSS) | Limited | For infra deployment only, not workload scaling. |
+| Clustered DB backend | No | Not compatible with Infinite i's current architecture. |
+
+1. The Infinite i compilers translate the System i source code (RPG and COBOL) into 64-bit object code for execution on Azure x86 VMs. The runtime interprets CL, CMD and SQL.
 
 1. Infinite i includes an internal database that emulates DB2/400 features such as physical files, logical files, multiple-member files, joins, triggers, referential integrity, commitment control, and journaling. When an application runs on Azure, it accesses data as it did in the AS/400 environment with no code changes required. Infinite i provides internal database connectors (ODBC and JDBC) for connecting to physical and logical files in the internal database.
 
@@ -91,17 +98,13 @@ This architecture accommodates redundancy and disaster recovery for high availab
 
 - Use [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) for disaster recovery on Azure VMs. It helps protect virtual machines against major outages by minimizing downtime and data loss. The service is dependable, cost-effective, and easy to deploy.
 
-- For more information, see [Availability options for Azure Virtual Machines](/azure/virtual-machines/availability).
-
 To improve availability, take the following steps:
 
 - Use [Azure availability zones](/azure/reliability/availability-zones-overview) to protect against infrastructure disruptions by eliminating all single points of failure. The SLA for VMs is for 99.99% uptime.
 
-- Use an availability set, which is a grouping of VMs, for redundancy and availability. For more information, see [Availability sets overview](/azure/virtual-machines/availability-set-overview).
-
 - Use Virtual Machine Scale Sets to set up a group of load-balanced VMs that make up an Azure virtual machine scale set. This approach increases availability.
 
-- Use [Azure load balancing services](https://azure.microsoft.com/solutions/load-balancing-with-azure), which provide scaling for high availability and high performance.
+- For more information, see [Availability options for Azure Virtual Machines](/azure/virtual-machines/availability).
 
 ### Security
 
@@ -110,8 +113,6 @@ Security provides assurances against deliberate attacks and the misuse of your v
 - Infinite i migrates the System i user-based access roles to Azure.
 
 - The Infinite i runtime environment provides the same level of security on Azure that the System i environment provided.
-
-- Azure security best practices can further protect the overall application environment.
 
 ### Cost Optimization
 
@@ -153,11 +154,9 @@ Here are pricing considerations for specific components:
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-- The Infinite i deployment methodology calls for converting and testing workloads before migrating them to the Azure platform.
+- The Infinite i deployment methodology calls for converting and testing workloads on the original platform before migrating the code and data to the Azure platform.
 
 - When you move workloads to Azure, use availability zones, scale sets, and [Site Recovery](https://azure.microsoft.com/products/site-recovery) to reduce management overhead for scaling and reliability.
-
-- Azure DevOps can help manage the migration.
 
 - Consider using [Azure Resource Manager templates](https://azure.microsoft.com/products/arm-templates) for scripted deployment and for monitoring and alerting capabilities.
 
@@ -170,9 +169,9 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 - Infinite i can take advantage of Azure scale sets to add capacity as needed.
 
-- The architecture is designed to accommodate parallel processing of independent transactions.
+- The architecture is designed to accommodate parallel processing by running multiple sets of VMs to the same database. Independent transactions don't rely on each other being serial.
 
-- For this architecture, use Premium SSDs or Ultra Disk SSDs.
+- For this architecture, use Premium SSDs or Ultra Disk SSDs for improved performance.
 
 ## Contributors
 
