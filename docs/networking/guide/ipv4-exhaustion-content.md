@@ -27,7 +27,7 @@ In Azure virtual networks, you [can't use](/azure/virtual-network/virtual-networ
 
 ### Azure landing zone alignment
 
-The recommendations in this article apply to network topologies based on the [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture), which can be summarized as follows:
+The recommendations in this article apply to network topologies based on the [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture). In these types of network topologies:
 - Each region where Azure resources are deployed has a hub and spoke network.
 - Hub and spoke networks in different regions are connected to each other via global virtual network peering.
 - Hub and spoke networks are connected to on-premises sites via a combination of ExpressRoute circuits and site-to-site VPNs.
