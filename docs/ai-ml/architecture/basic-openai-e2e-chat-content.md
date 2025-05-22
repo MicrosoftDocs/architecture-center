@@ -27,46 +27,17 @@ This article provides a basic architecture to help you learn how to run chat app
 1. The Azure AI Agent Service connects to an Azure OpenAI model that was deployed in Azure AI Foundry and sends the prompt that includes the relevant grounding data.
 1. Information about the original request to App Service and the call to the managed online endpoint are logged in Application Insights. This log uses the same Azure Monitor Logs workspace that Azure OpenAI telemetry flows to.
 
-### Prompt flow
-
-The preceding workflow describes the flow for the chat application, but the following list outlines a typical prompt flow in more detail.
-
-> [!NOTE]
-> The numbers in this flow don't correspond to the numbers in the architecture diagram.
-
-1. The user enters a prompt in a custom chat UI.
-1. The interface's API code sends that text to prompt flow.
-1. Prompt flow extracts the user intent, which is either a question or a directive, from the prompt.
-1. Optionally, prompt flow determines which data stores hold data that's relevant to the user prompt.
-1. Prompt flow queries the relevant data stores.
-1. Prompt flow sends the intent, the relevant grounding data, and any history that the prompt provides to the language model.
-1. Prompt flow returns the result so that it can be displayed on the UI.
-
-You can implement the flow orchestrator in any number of languages and deploy it to various Azure services. This architecture uses prompt flow because it provides a [streamlined experience](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) to build, test, and deploy flows that orchestrate between prompts, back-end data stores, and language models.
-
 ### Components
 
 Many of the components of this architecture are the same as the resources in the [basic App Service web application architecture](../../web-apps/app-service/architectures/basic-web-app.yml) because the chat UI is based on that architecture. This section highlights the components that you can use to build and orchestrate chat flows, data services, and the services that expose the language models.
 
-- [Azure AI Foundry](/azure/ai-foundry/what-is-ai-foundry) is a platform that you can use to build, test, and deploy AI solutions. This architecture uses AI Foundry to build, test, and deploy the prompt flow orchestration logic for the chat application.
+- [Azure AI Foundry](/azure/ai-foundry/what-is-ai-foundry) is a platform that you can use to build, test, and deploy AI solutions and ML models. This architecture uses AI Foundry to deploy an Azure OpenAI model, and uses the Azure AI Agent Service to orchestrate the flow that fetches grounding data from our instance of Azure AI Search and passes it along with the prompt to the deployed Azure OpenAI model.
 
-  - [AI Foundry hubs](/azure/ai-foundry/concepts/ai-resources) are top-level resources for AI Foundry. A hub is the central place where you can govern security, connectivity, and compute resources for use in your AI Foundry projects. You define connections to resources like Azure OpenAI in an AI Foundry hub. The AI Foundry projects inherit these connections.
+  - [Azure AI Foundry projects](/azure/ai-foundry/how-to/create-projects) allows you to access agents and deployed models, including Azure OpenAI.
 
-  - [AI Foundry projects](/azure/ai-foundry/how-to/create-projects) are the environments that you use to collaborate while you develop, deploy, and evaluate AI models and solutions.
-
-- [Prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) is a development tool that you can use to build, evaluate, and deploy flows that link user prompts, actions through Python code, and calls to language learning models. This architecture uses prompt flow as the layer that orchestrates flows between the prompt, different data stores, and the language model. For development, you can host your prompt flows in two types of runtimes.
-
-  - **Automatic runtime** is a serverless compute option that manages the lifecycle and performance characteristics of the compute. It also facilitates flow-driven customization of the environment. This architecture uses the automatic runtime for simplicity.
-
-  - **Compute instance runtime** is an always-on compute option in which the workload team must choose the performance characteristics. This runtime provides more customization and control of the environment.
-
-- [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed cloud service that you can use to train, deploy, and manage machine learning models. This architecture uses [Managed online endpoints](/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference), a feature of Machine Learning that deploys and hosts executable flows for AI applications that are powered by language models. Use managed online endpoints to deploy a flow for real-time inferencing. This architecture uses them as a platform as a service endpoint for the chat UI to invoke the prompt flows that the Machine Learning automatic runtime hosts.
-
-- [Azure Storage](/azure/storage/common/storage-introduction) is a storage solution that you can use to persist the prompt flow source files for prompt flow development.
-
-- [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed registry service that you can use to build, store, and manage container images and artifacts in a private registry for all types of container deployments. This architecture packages flows as container images and stores them in Container Registry.
-
-- [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is a fully managed service that provides REST API access to Azure OpenAI language models, including the GPT-4, GPT-3.5-Turbo, and embeddings set of models. This architecture uses Azure OpenAI and model access to add common enterprise features like [managed identity](/azure/ai-services/openai/how-to/managed-identity) support and content filtering.
+  - [Azure AI Foundry Agent Service](/azure/ai-services/agents/overview) - enables the operation of agents across development, deployment, and production through a single runtime. It manages threads, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems to ensure agents are secure, scalable, and production-ready.
+  
+  - [Azure AI Foundry Models](/azure/ai-foundry/concepts/deployments-overview) an Azure AI Foundry model deployment option that allows you to deploy flagship models in Azure AI catalog, including OpenAI.
 
 - [AI Search](/azure/search/) is a cloud search service that supports [full-text search](/azure/search/search-lucene-query-architecture), [semantic search](/azure/search/semantic-search-overview), [vector search](/azure/search/vector-search-overview), and [hybrid search](/azure/search/hybrid-search-overview). The architecture includes AI Search because it's a common service to use in the flows that support chat applications. You can use AI Search to retrieve and index data that's relevant for user queries. The prompt flow implements the [Retrieval Augmented Generation](/azure/search/retrieval-augmented-generation-overview) pattern to extract the appropriate query from the prompt, query AI Search, and use the results as grounding data for the Azure OpenAI model.
 
