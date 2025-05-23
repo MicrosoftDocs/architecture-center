@@ -1,4 +1,4 @@
-This article provides a basic architecture to help you learn how to run chat applications that use [Azure OpenAI Service language models](/azure/ai-services/openai/concepts/models). The architecture includes a client user interface (UI) that runs in Azure App Service and uses the Azure AI Foundry Agent Service to orchestrate the workflow from incoming prompts out to data stores to fetch grounding data for the language model. The architecture is designed to operate out of a single region.
+This article provides a basic architecture to help you learn how to run chat applications with [Azure AI Foundry]((/azure/ai-foundry/what-is-ai-foundry)) that use [Azure OpenAI Service language models](/azure/ai-services/openai/concepts/models). The architecture includes a client user interface (UI) that runs in Azure App Service and uses the Azure AI Foundry Agent Service to orchestrate the workflow from incoming prompts out to data stores to fetch grounding data for the language model. The architecture is designed to operate out of a single region.
 
 > [!IMPORTANT]
 > This architecture isn't meant for production applications. It's intended to be an introductory architecture that you can use for learning and proof of concept (POC) purposes. When you design your production enterprise chat applications, see the [Baseline OpenAI end-to-end chat reference architecture](./baseline-openai-e2e-chat.yml), which adds production design decisions to this basic architecture.
@@ -45,7 +45,7 @@ Many of the components of this architecture are the same as the resources in the
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-This basic architecture isn't intended for production deployments. The architecture favors simplicity and cost efficiency over functionality so that you can learn how to build end-to-end chat applications by using Azure OpenAI. The following sections outline some deficiencies of this basic architecture and describe recommendations and considerations.
+This basic architecture isn't intended for production deployments. The architecture favors simplicity and cost efficiency over functionality so that you can learn how to build end-to-end chat applications by using Azure AI Foundry and Azure OpenAI. The following sections outline some deficiencies of this basic architecture and describe recommendations and considerations.
 
 ### Reliability
 
@@ -57,13 +57,13 @@ This architecture isn't designed for production deployments, so the following li
 
 - Autoscaling for the client UI isn't enabled in this basic architecture. To prevent reliability problems caused by a lack of available compute resources, you need to overprovision resources to always run with enough compute to handle maximum concurrent capacity.
 
-- Machine Learning compute doesn't support [availability zones](/azure/reliability/availability-zones-overview). The orchestrator becomes unavailable if there are any problems with the instance, the rack, or the datacenter that hosts the instance. To learn how to deploy the orchestration logic to infrastructure that supports availability zones, see [zonal redundancy for flow deployments](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#zonal-redundancy-for-flow-deployments) in the baseline architecture.
+- The Azure Foundry AI Agent Service and its dependencies, Azure CosmosDB, an Azure Storage account, and Azure AI Search, are hosted by Microsoft. The dependent resources are not visible to you in the portal. The Azure AI Search instance listed in components and seen in the diagram is a different instance than the instance that is a dependency of the Azure Foundry AI Agent Service. You do not have any control over the reliability of the service - it is the responsibility of Microsoft. If you need control of the dependencies to, for example, implement a BCDR strategy, see the baseline architecture. TODO: Add link
 
-- Azure OpenAI isn't implemented in a highly available configuration. To learn how to implement Azure OpenAI in a reliable manner, see [Azure OpenAI - reliability](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#azure-openai---reliability) in the baseline architecture.
+- TODO: We need to enumerate the availability story for our use of the Azure AI Foundry Models deployment of an Azure OpenAI model.
+
+- TODO: We need to enumerate the reliability story for Azure AI Foundry Agent Service. We need to understand the request limitations/throttling/max throughput story is - not currently documented. We need to know the SLA - or our availability story. We should mention that this architecture is using Microsoft created Agents. Those agents make the decisions that affect the context sizes which will influence the number of tokens per request. ou should estimate token usage from real world scenarios to ensure you have enough quota.
 
 - AI Search is configured for the Basic tier, which doesn't support [Azure availability zones](/azure/reliability/availability-zones-overview). To achieve zonal redundancy, deploy AI Search with the Standard pricing tier or higher in a region that supports availability zones and deploy three or more replicas.
-
-- Autoscaling isn't implemented for the Machine Learning compute. For more information, see the [reliability guidance](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#reliability) in the baseline architecture.
 
 For more information, see [Baseline Azure OpenAI end-to-end chat reference architecture](./baseline-openai-e2e-chat.yml).
 
@@ -75,49 +75,31 @@ This section describes some of the key recommendations that this architecture im
 
 #### Content filtering and abuse monitoring
 
-Azure OpenAI includes a [content filtering system](/azure/ai-services/openai/concepts/content-filter) that uses an ensemble of classification models to detect and prevent specific categories of potentially harmful content in input prompts and output completions. This potentially harmful content includes hate, sexual, self harm, violence, profanity, and jailbreak (content designed to bypass the constraints of a language model) categories. You can configure the strictness of what you want to filter from the content for each category by using the low, medium, or high options. This reference architecture adopts a stringent approach. Adjust the settings according to your requirements.
+Azure AI Foundry includes a [content filtering system](/azure/ai-foundry/concepts/content-filtering) that uses an ensemble of classification models to detect and prevent specific categories of potentially harmful content in input prompts and output completions. This potentially harmful content includes hate, sexual, self harm, violence, profanity, and jailbreak (content designed to bypass the constraints of a language model) categories. You can configure the strictness of what you want to filter from the content for each category by using the low, medium, or high options. This reference architecture adopts a stringent approach. Adjust the settings according to your requirements.
 
-Azure OpenAI implements content filtering and abuse monitoring features. Abuse monitoring is an asynchronous operation that detects and mitigates instances of recurring content or behaviors that suggest the use of the service in a manner that might violate the [Azure OpenAI code of conduct](/legal/ai-code-of-conduct). You can request an [exemption of abuse monitoring and human review](/legal/cognitive-services/openai/data-privacy#how-can-customers-get-an-exemption-from-abuse-monitoring-and-human-review) if your data is highly sensitive or if there are internal policies or applicable legal regulations that prevent the processing of data for abuse detection.
+TODO: Understand if Azure OpenAI models hosted in Azure AI Foundry support the abuse monitoring functionality...
+Azure OpenAI implements abuse monitoring features. Abuse monitoring is an asynchronous operation that detects and mitigates instances of recurring content or behaviors that suggest the use of the service in a manner that might violate the [Azure OpenAI code of conduct](/legal/ai-code-of-conduct). You can request an [exemption of abuse monitoring and human review](/legal/cognitive-services/openai/data-privacy#how-can-customers-get-an-exemption-from-abuse-monitoring-and-human-review) if your data is highly sensitive or if there are internal policies or applicable legal regulations that prevent the processing of data for abuse detection.
 
 #### Identity and access management
 
-The following guidance expands on the [identity and access management guidance](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#identity-and-access-management) in the App Service baseline architecture. This architecture uses system-assigned managed identities and creates separate identities for the following resources:
+The following guidance expands on the [identity and access management guidance](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#identity-and-access-management) in the App Service baseline architecture. The chat UI uses  its managed identity to authenticate the chat UI to the Azure Foundry AI Agent Service. This architecture uses system-assigned managed identities and creates an identity for the Azure AI Foundry project. That identity is used to authenticate to services such as Azure AI Search and the deployed Azure OpenAI model. The Azure Foundry AI Agent Service uses the project managed identity.
 
-- AI Foundry hub
-- AI Foundry project for flow authoring and management
-- Online endpoints in the deployed flow if the flow is deployed to a managed online endpoint
-
-If you choose to use user-assigned managed identities, you should create separate identities for each of the preceding resources.
-
-AI Foundry projects should be isolated from one another. Apply conditions to project role assignments for blob storage to allow multiple projects to write to the same Storage account and keep the projects isolated. These conditions grant access only to specific containers within the storage account. If you use user-assigned managed identities, you need to follow a similar approach to maintain least privilege access.
-
-Currently, the chat UI uses keys to connect to the deployed managed online endpoint. Azure Key Vault stores the keys. When you move your workload to production, you should use Microsoft Entra managed identities to authenticate the chat UI to the managed online endpoint.
+TODO: We need to understand whether the dependencies (cosmosDB, storage, AI Search) are at the account or project level. This will help us determine the guidance of whether we should suggest you maintain a 1:1 account to project relationship. We need to update the below text with that information
+<!-- AI Foundry projects should be isolated from one another. Apply conditions to project role assignments for blob storage to allow multiple projects to write to the same Storage account and keep the projects isolated. These conditions grant access only to specific containers within the storage account. If you use user-assigned managed identities, you need to follow a similar approach to maintain least privilege access. -->
 
 #### Role-based access roles
 
-The system automatically creates role assignments for the system-assigned managed identities. Because the system doesn't know what features of the hub and projects you might use, it creates role assignments to support all of the potential features. For example, the system creates the role assignment `Storage File Data Privileged Contributor` to the storage account for AI Foundry. If you aren't using prompt flow, your workload might not require this assignment.
+You are responsible for creating the required role assignments for the system-assigned managed identities. The following table summarizes the role assignment you must add to the Azure App Service, the Azure AI foundry project, and any individuals that need to use the portal:
 
-The following table summarizes the permissions that the system automatically grants for system-assigned identities:
-
-| Identity | Privilege | Resource |
+| Resource | Role | Scope |
 | --- | --- | --- |
-| AI Foundry hub | Read/write | Key Vault |
-| AI Foundry hub | Read/write | Storage |
-| AI Foundry hub | Read/write | Container Registry |
-| AI Foundry project | Read/write | Key Vault |
-| AI Foundry project | Read/write | Storage |
-| AI Foundry project | Read/write | Container Registry |
-| AI Foundry project | Write | Application Insights |
-| Managed online endpoint | Read | Container Registry |
-| Managed online endpoint | Read/write | Storage |
-| Managed online endpoint | Read | AI Foundry hub (configurations) |
-| Managed online endpoint | Write | AI Foundry project (metrics) |
-
-The role assignments that the system creates might meet your security requirements, or you might want to constrain them further. If you want to follow the principle of least privilege, you need to create user-assigned managed identities and create your own constrained role assignments.
+| Azure App Service | Azure AI User | Azure AI Foundry account |
+| Azure AI Foundry project | Search Index Data Reader | Azure AI Search |
+| Portal User (for each) | Search Index Data Reader | Azure AI Search |
 
 #### Network security
 
-To make it easier for you to learn how to build an end-to-end chat solution, this architecture doesn't implement network security. This architecture uses identity as its perimeter and uses public cloud constructs. Services such as AI Search, Key Vault, Azure OpenAI, the deployed managed online endpoint, and App Service are all reachable from the internet. The Key Vault firewall is configured to allow access from all networks. These configurations add surface area to the attack vector of the architecture.
+To make it easier for you to learn how to build an end-to-end chat solution, this architecture doesn't implement network security. This architecture uses identity as its perimeter and uses public cloud constructs. Services such as AI Search, Azure Foundry, and App Service are all reachable from the internet. These configurations add surface area to the attack vector of the architecture.
 
 To learn how to include network as an extra perimeter in your architecture, see the [networking](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#networking) section of the baseline architecture.
 
@@ -127,15 +109,14 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 This basic architecture doesn't represent the costs for a production-ready solution. The architecture also doesn't have controls in place to guard against cost overruns. The following considerations outline some of the crucial features that affect cost and that this architecture omits:
 
-- This architecture assumes that there are limited calls to Azure OpenAI. For this reason, we recommend that you use pay-as-you-go pricing instead of provisioned throughput. Follow the [Azure OpenAI cost optimization guidance](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#azure-openai) in the baseline architecture as you move toward a production solution.
+TODO: Make sure the following makes sense. Are you able to deploy provisioned throughput in Azure AI Foundry for Azure OpenAI models, or is that just through the Azure OpenAI Service? 
+- This architecture assumes that there are limited calls to the deployed Azure OpenAI model. For this reason, we recommend that you use pay-as-you-go pricing instead of provisioned throughput. Follow the [Azure OpenAI cost optimization guidance](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#azure-openai) in the baseline architecture as you move toward a production solution.
 
 - The app service plan is configured for the Basic pricing tier on a single instance, which doesn't provide protection from an availability zone outage. The [baseline App Service architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-service) recommends that you use Premium plans with three or more worker instances for high availability. This approach affects your costs.
 
-- Scaling isn't configured for the managed online endpoint managed compute. For production deployments, you should configure autoscaling. The [baseline end-to-end chat architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#zonal-redundancy-for-flow-deployments) recommends that you deploy to App Service in a zonal redundant configuration. Both of these architectural changes affect your costs when you move to production.
-
 - AI Search is configured for the Basic pricing tier with no added replicas. This topology can't withstand an Azure availability zone failure. The [baseline end-to-end chat architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#ai-search---reliability) recommends that you deploy the workload with the Standard pricing tier or higher and deploy three or more replicas. This approach can affect your costs as you move toward production.
 
-- There are no cost governance or containment controls in place in this architecture. Make sure that you guard against ungoverned processes or usage that might incur high costs for pay-as-you-go services like Azure OpenAI.
+- There are no cost governance or containment controls in place in this architecture. Make sure that you guard against ungoverned processes or usage that might incur high costs for pay-as-you-go services like deployed models in Azure AI Foundry.
 
 ### Operational Excellence
 
@@ -143,19 +124,14 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 #### System-assigned managed identities
 
-This architecture uses system-assigned managed identities for AI Foundry hubs, AI Foundry projects, and for the managed online endpoint. The system automatically creates and assigns identities to the resources. The system automatically creates the role assignments required for the system to run. You don't need to manage these assignments.
-
-#### Built-in prompt flow runtimes
-
-To minimize operational burdens, this architecture uses **Automatic Runtime**. Automatic Runtime is a serverless compute option within Machine Learning that simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. The automatic runtime is low maintenance, ephemeral, and application driven.
+This architecture uses system-assigned managed identities for the Azure AI Foundry project. The system automatically creates and assigns identities to the resources.
 
 #### Monitoring
 
-Diagnostics are configured for all services. All services except App Service are configured to capture all logs. App Service is configured to capture `AppServiceHTTPLogs`, `AppServiceConsoleLogs`, `AppServiceAppLogs`, and `AppServicePlatformLogs`. During the POC phase, it's important to understand which logs and metrics are available for capture. When you move to production, remove log sources that don't add value and only create noise and cost for your workload's log sink.
+TODO: We need to know what diagnostics we suggest for Azure AI Foundry - for the agent service and the deployed models and update the following...
+<!-- Diagnostics are configured for all services. All services except App Service are configured to capture all logs. App Service is configured to capture `AppServiceHTTPLogs`, `AppServiceConsoleLogs`, `AppServiceAppLogs`, and `AppServicePlatformLogs`. During the POC phase, it's important to understand which logs and metrics are available for capture. When you move to production, remove log sources that don't add value and only create noise and cost for your workload's log sink.
 
-We also recommend that you [collect data from deployed managed online endpoints](/azure/machine-learning/concept-data-collection) to provide observability to your deployed flows. When you choose to collect this data, the inference data is logged to Azure Blob Storage. Blob Storage logs both the HTTP request and the response payloads. You can also choose to log custom data.
-
-Ensure that you enable the [integration with Application Insights diagnostics](/azure/machine-learning/how-to-monitor-online-endpoints#using-application-insights) for the managed online endpoint. The built-in metrics and logs are sent to Application Insights, and you can use the features of Application Insights to analyze the performance of your inferencing endpoints.
+Ensure that you enable the [integration with Application Insights diagnostics](/azure/machine-learning/how-to-monitor-online-endpoints#using-application-insights) for the managed online endpoint. The built-in metrics and logs are sent to Application Insights, and you can use the features of Application Insights to analyze the performance of your inferencing endpoints. -->
 
 #### Language model operations
 
@@ -171,8 +147,9 @@ We recommend that you use the serverless compute option when you develop and tes
 
 ##### Evaluation
 
-You can conduct an evaluation of your Azure OpenAI model deployment by using user experience in AI Foundry. We recommend that you become familiar with how to [evaluate generative AI applications](/azure/ai-foundry/concepts/evaluation-approach-gen-ai) to help ensure that the model that you choose meets customer and workload design requirements.
+You can evaluate your generative application in AI Foundry. We recommend that you become familiar with how to [use evaluators to evaluate your generative AI applications](/azure/ai-foundry/concepts/evaluation-approach-gen-ai) to help ensure that the model that you choose meets customer and workload design requirements.
 
+TODO: See if the following is still relevant
 One important evaluation tool that you should familiarize yourself with during your workload's development phase is the [Responsible AI dashboards in Machine Learning](/azure/machine-learning/how-to-responsible-ai-dashboard?view=azureml-api-2). This tool helps you evaluate the fairness, model interpretability, and other key assessments of your deployments and is useful to help establish an early baseline to prevent future regressions.
 
 ##### Deployment
@@ -188,8 +165,6 @@ Because this architecture isn't designed for production deployments, this sectio
 One outcome of your POC should be the selection of a product that suits the workload for your app service and your Machine Learning compute. You should design your workload to efficiently meet demand through horizontal scaling. Horizontal scaling allows you to adjust the number of compute instances that are deployed in the app service plan and in instances that are deployed behind the online endpoint. Don't design a system that depends on changing the compute product to align with demand.
 
 - This architecture uses the consumption or pay-as-you-go model for most components. The consumption model is a best-effort model and might be subject to noisy neighbor problems or other stressors on the platform. Determine whether your application requires [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) as you move toward production. Provisioned throughput helps ensure that processing capacity is reserved for your Azure OpenAI model deployments. Reserved capacity provides predictable performance and throughput for your models.
-
-- The Machine Learning online endpoint doesn't have automatic scaling implemented, so you need to provision a product and instance quantity that can handle peak load. Because of how the service is configured, it doesn't dynamically scale in to efficiently keep supply aligned with demand. Follow the guidance about how to [autoscale an online endpoint](/azure/machine-learning/how-to-autoscale-endpoints) as you move toward production.
 
 ### Additional design recommendations
 
