@@ -4,7 +4,9 @@ This architecture builds on the [AKS baseline architecture](../aks/baseline-aks.
 
 ## Architecture
 
-[ ![Architecture diagram showing multi-region deployment.](./images/aks-multi-cluster.svg)](./images/aks-multi-cluster.svg#lightbox)
+:::image type="complex" border="false" source="./images/aks-multi-cluster.svg#lightbox" alt-text="Architecture diagram showing multi-region deployment." lightbox="./images/aks-multi-cluster.svg#lightbox":::
+   The diagram illustrates a multi-region Azure architecture with two distinct regions (Region A and Region B) and shared resources. Each region contains a similar structure with hub and spoke virtual networks. In the hub networks of both regions, there are subnets containing Azure Bastion and Azure Firewall services. The spoke virtual networks in both regions contain AKS clusters, load balancers, and Application Gateway components, with bidirectional connections between them indicated by green arrows. Each region has a Key Vault with an Azure Container Registry replica in the spoke networks. In the lower portion of the diagram, there's an additional spoke virtual network containing the fleet hub cluster. Various colored dotted lines (green, red, purple, and blue) connect components across regions, indicating network traffic flows and service relationships. Log Analytics instances appear in both regions and in the shared resources section to the right. The shared resources area also includes Container Registry, Azure Front Door, and the AKS fleet, which connect to both regions through green dotted lines.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-multi-cluster.vsdx) of this architecture.*
 
