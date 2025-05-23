@@ -15,11 +15,11 @@ This architecture builds on the [AKS baseline architecture](../aks/baseline-aks.
 Many components and Azure services are used in this multi-region AKS architecture. Only those components with uniqueness to this multi-cluster architecture are listed here. For the remaining, refer to the [AKS Baseline architecture](../aks/baseline-aks.yml).
 
 - **Regional AKS clusters:** Multiple [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) clusters are deployed, each in a separate Azure region. During normal operations, network traffic is routed between all regions. If one region becomes unavailable, traffic is routed to a region closest to the user who issued the request.
-- **Regional hub-spoke networks:** A regional hub-spoke network pair is deployed for each regional AKS instance. [Azure Firewall Manager](/azure/firewall-manager/overview) policies are used to manage firewall policies across all regions.
+- **Regional hub-spoke networks:** A regional hub-spoke pair of [virtual networks](/azure/well-architected/service-guides/virtual-network) is deployed for each regional AKS instance. [Azure Firewall Manager](/azure/firewall-manager/overview) policies are used to manage firewall policies across all regions.
 - **Regional key vault:** [Azure Key Vault](/azure/key-vault/general/overview) is provisioned in each region. Key vaults are used for storing sensitive values and keys specific to the AKS cluster and supporting services that are in that region.
 - **Multiple log workspaces:** Regional [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) workspaces are used for storing regional networking metrics and diagnostic logs. Additionally, a shared Log Analytics instance is used to store metrics and diagnostic logs for all AKS instances.
 - **AKS fleet:** An [Azure Kubernetes Fleet Manager resource](/azure/kubernetes-fleet/concepts-fleet) is deployed to coordinate both Kubernetes cluster version updates and node image version updates across each of the regional AKS clusters.
-- *Optional* **Fleet hub cluster (Microsoft-managed):** Optionally, a single [Azure Kubernetes Fleet Manager hub cluster](/azure/kubernetes-fleet/concepts-fleet#what-are-hub-clusters) can be deployed to support specific features of fleet, such as workload propagation. The hub cluster is a regionally scoped Azure resource that helps to manage multiple member clusters. It's best to deploy the hub cluster as a private AKS cluster, which must be reachable from member clusters to support heartbeat signals and to perform configuration reconciliation processes.
+- *Optional* **Fleet hub cluster (Microsoft-managed):** Optionally, a single [Azure Kubernetes Fleet Manager hub cluster](/azure/kubernetes-fleet/concepts-fleet#what-are-hub-clusters) can be deployed to support specific features of fleets, such as workload propagation. The hub cluster is a regionally scoped Azure resource that helps to manage multiple member clusters. It's best to deploy the hub cluster as a private AKS cluster, which must be reachable from member clusters to support heartbeat signals and to perform configuration reconciliation processes.
 - **Global Azure Front Door profile:** [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is used to load balance and route traffic to a regional Azure Application Gateway instance, which sits in front of each AKS cluster. Azure Front Door allows for layer 7 global routing, both of which are required for this architecture.
 - **Global container registry:** The container images for the workload are stored in a managed container registry. In this architecture, a single Azure Container Registry is used for all Kubernetes instances in the cluster. Geo-replication for [Azure Container Registry](/azure/container-registry/container-registry-intro) enables replicating images to the selected Azure regions and providing continued access to images even if a region is experiencing an outage.
 
@@ -29,7 +29,7 @@ This solution uses [Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/). F
 
 In this solution, the fleet orchestrates Kubernetes version updates across multiple clusters, as well as node image version updates. These capabilities don't require a hub cluster to be deployed. You could choose to have each cluster perform Kubernetes version and node image updates independently, which doesn't require a fleet. However, if you do so, clusters are likely to get version updates at different times, and it can become difficult to validate your workload and configuration with multiple versions in your production environment simultaneously.
 
-Additionally, you can optionally add a hub cluster for workload deployment coordination within this solution, which is discussed in more detail below.
+You can also optionally use a fleet for workload deployment coordination, which requires that you add a hub cluster. Workload deployments are discussed in more detail later in this article.
 
 ## Design patterns
 
@@ -123,7 +123,7 @@ See [Cloud Adoption Framework resource organization](/azure/cloud-adoption-frame
 
 Each AKS cluster in your environment runs applications that support your workload. It's important to plan how you'll deploy and upgrade your workload components in a safe and controlled manner, and how you'll maintain consistency of application versions between each cluster. Therefore, in addition to AKS instance configuration, consider the workloads that are deployed into each regional instance or stamp. Your deployment solutions or pipelines require configuration to accommodate each regional stamp. As more stamps are added to the global cluster, the deployment process needs to be extended, or it needs to be flexible enough to accommodate the new regional instances.
 
-There are several deployment approaches you can consider using:
+There are several deployment approaches you can consider, including:
 
 - **Pipelines:** For scenarios with a small number of clusters and relatively few, simple deployments, it's often best to use lightweight dedicated continuous delivery (CD) pipelines.
 
@@ -133,13 +133,13 @@ There are several deployment approaches you can consider using:
 
    Workload propagation requires the use of a hub cluster, which is a Microsoft-managed AKS cluster that helps to track the expected state of your member clusters. This hub cluster is a regional resource. If a regional outage affects the hub cluster, workload propagation might experience temporary disruption.
 
-- **GitOps:** As your infrastructure matures further, adopting a GitOps-based strategy becomes increasingly beneficial. GitOps allows for declarative, auditable, and pull-based deployment mechanisms, offering superior scalability, governance, and team collaboration. Transitioning to this model is especially recommended when managing a fleet of clusters across regions.
+- **GitOps:** As your infrastructure matures further, adopting a GitOps-based strategy becomes increasingly beneficial. GitOps allows for declarative, auditable, and pull-based deployment mechanisms, offering scalability, governance, and team collaboration. Transitioning to this model is especially recommended when managing a large and dynamic fleet of clusters across multiple regions.
 
    To learn more, see [GitOps for Azure Kubernetes Service](../../../example-scenario/gitops-aks/gitops-blueprint-aks.yml).
 
 To decide which approach makes sense for your solution, consider these questions:
 
-- **Do you expect the number of clusters to remain fixed or increase over time?** If you plan to expand the number of clusters, it might become unwieldy to maintain each cluster's configuration in your deployment pipelines.
+- **Do you expect the number of clusters to remain fixed or increase over time?** If you plan to expand the number of clusters, or if you plan to adjust the number of clusters dynamically, it can quickly become unwieldy to maintain each cluster's configuration in your deployment pipelines.
 - **How many deployable units do you have to manage?** If you have a small number of monolithic applications, you only have a small number of individual deployments to coordinate. However, if you have a distributed microservices-based architecture, a large number of workloads, or both. then  this can quickly grow into hundreds of deployable units. Creating a pipeline for each deployment might become infeasible.
 - **What kind of deployment strategies do you need?** Common strategies include rolling updates, blue-green deployments, and canary deployments. Some deployment approaches must allow for "bake time" between rollouts, with close monitoring to check for any regressions introduced by the deployment. Evaluate each deployment approach to determine whether it supports your specific requirements.
 - **What network security constraints do your clusters work within?** Azure Kubernetes Fleet Manager operates under a hub-and-spoke cluster topology, where member clusters maintain outbound connections to a central hub cluster for workload reconciliation and heartbeat monitoring. A GitOps-based strategy requires participating clusters establish outbound access to a Git repository. When you use pipelines, the pipeline agent typically requires connectivity to each cluster to perform deployment operations.
