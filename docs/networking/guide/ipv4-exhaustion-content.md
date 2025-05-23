@@ -1,4 +1,4 @@
-This article describes two methods for efficient IPv4 address management in Azure. The two methods minimize IPv4 address space consumption when you build large networks in Azure and you run out of IPv4 addresses.
+This article describes two methods to minimize IPv4 address space consumption when you build large networks in Azure. The proposed methods rely on network topologies that allow re-using the same IPv4 address blocks in multiple Virtual Networks or landing zones.
 
 ## Scenario details
 
@@ -8,22 +8,7 @@ In the cloud, large networks are easy to build, and some common architectural pa
 ### Azure Virtual Network IP address ranges
 
 We recommend that you use the address blocks defined by RFC 1918 in your Azure virtual networks. These address blocks are for general purposes private networks and are non-routable on the public internet.
-In Azure Virtual Networks, you can use [other ranges](/azure/virtual-network/virtual-networks-faq#what-address-ranges-can-i-use-in-my-virtual-networks):
-- The address block 100.64.0.0/10 defined by [RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598) for carrier-grade network address translation (NAT). 
-- [Public, internet-routable IP addresses](/azure/virtual-network/virtual-networks-faq#can-i-have-public-ip-addresses-in-my-virtual-networks). We recommend that you do not use public IP addresses not owned by your organization. Doing so might lead to connectivity issues, depending on how those IP addresses are used by their official owners. 
-- Special-purpose address blocks defined by IANA, like 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, and 233.252.0.0/24. Read the Internet Assigned Numbers Authority (IANA) documentation to understand the potential implications to your environment.
-
-It should be noted that the ranges in this list don't provide a long-term solution for organizations that are experiencing IPv4 exhaustion issues. Microsoft recommends that you adopt one of the techniques for minimizing IPv4 address consumption described in this article.
-
-In Azure virtual networks, you [can't use](/azure/virtual-network/virtual-networks-faq#what-address-ranges-can-i-use-in-my-virtual-networks) the following IP address ranges:
-- 224.0.0.0/4 (Multicast)
-- 255.255.255.255/32 (Broadcast)
-- 127.0.0.0/8 (Loopback)
-- 169.254.0.0/16 (Link-local)
-- 168.63.129.16/32 (Internal DNS)
-
-> [!NOTE]
-> In Windows operating systems, the Class E IP address range 240.0.0.0/4 cannot be assigned to network interfaces. That range also has compatibility issues in Linux operating systems. While it may be possible to programmatically assign it to a virtual network, we do not recommend using it.
+In Azure Virtual Networks, you can use other ranges. Please refer to [the official documentation](/azure/virtual-network/virtual-networks-faq#what-address-ranges-can-i-use-in-my-virtual-networks) for more details.
 
 ### Azure landing zone alignment
 
@@ -46,7 +31,10 @@ In the following sections, front-end component refers to an application componen
 
 [IPv4 subnet peering](/azure/virtual-network/how-to-configure-subnet-peering) allows restricting a peering relationship between two virtual networks to select subnets. Only subnets that are included in the peering configuration can route traffic to each other. Subnets that are excluded from the peering configuration are not visible and not reachable from the peer virtual network. If, in a hub and spoke topology, one or more subnets in each spoke are excluded from the peering configuration, those subnets are not visible to/reachable from the hub or any other remote network connected to the hub over other peerings, ExpressRoute or VPN connections. Therefore, all subnets excluded from the peering configuration can be assigned the same address range in all spoke virtual networks. That range must be defined as “non-routable” and cannot be used anywhere else in the corporate network.
 
-The following diagram provides an example where the range 10.57.0.0/16 has been chosen as the non-routable address space. The hub virtual network and each landing zone spoke virtual network are assigned routable (unique) IP address ranges (10.0.0.0/24, 10.1.0.0/24, 10.2.0.0/24). Each landing zone spoke virtual network also contains one or more non-routable subnets with address ranges included in the non-routable range 10.57.0.0/16. These subnets are excluded from the peering relationship with the hub. Therefore, non-routable subnets in different landing zone spokes can have the same, or overlapping, address ranges included in 10.57.0.0/16.
+The following diagram provides an example where the range 10.57.0.0/16 has been chosen as the non-routable address space:
+- The hub virtual network and each landing zone spoke virtual network are assigned routable (unique) IP address ranges (10.0.0.0/24, 10.1.0.0/24, 10.2.0.0/24). 
+- Each landing zone spoke virtual network also contains one or more non-routable subnets with address space included in the non-routable range 10.57.0.0/16 (the address space of an Azure Virtual Network can include multiple IP address ranges). 
+- These subnets are excluded from the peering relationship with the hub. Therefore, non-routable subnets in different landing zone spokes can have the same, or overlapping, address ranges included in 10.57.0.0/16.
 
 :::image type="content" source="./images/ipv4-exhaustion-hub-spoke-subnet-peering.svg" alt-text="Diagram that shows how to use subnet peering for landing zones with routable and non-routable address spaces." border="false" lightbox="./images/ipv4-exhaustion-hub-spoke-subnet-peering.svg":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-hub-spoke-subnet-peering.pptx) of this architecture.*
@@ -73,19 +61,20 @@ When resources deployed in non-routable subnets need to initiate connections to 
 :::image type="content" source="./images/ipv4-exhaustion-snat-nva.svg" alt-text="Diagram that shows how the custom route table forwards traffic to the SNAT device." border="false" lightbox="./images/ipv4-exhaustion-snat-nva.svg":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-snat-nva.pptx) of this architecture.*
 
-All non-routable subnets must be associated with a custom route table that forwards all traffic destined outside of the landing zone to the NAT-capable NVA. In the previous diagram, the range 10.57.0.0/16 is non-routable, while any other ranges included in 10.0.0.0/8 are routable. The custom route table associated with each non-routable subnet must contain this UDR:
+**Non-routable subnets** must be associated with a custom route table that forwards all traffic destined outside of the landing zone to the NAT-capable NVA. In the previous diagram, the range 10.57.0.0/16 is non-routable, while any other ranges included in 10.0.0.0/8 are routable. The custom route table associated with each non-routable subnet must contain this UDR:
 
-| Destination | Next Hop Type           | Next Hop Ip Address    |
-| ----------- | ----------------------- | ---------------------- |
-| 10.0.0.0/8  | VirtualNetworkAppliance | \<NAT NVA IP address\> |
+| Destination | Next Hop Type           | Next Hop Ip Address                  |
+| ----------- | ----------------------- | ------------------------------------ |
+| 10.0.0.0/8  | VirtualNetworkAppliance | \<Spoke NAT-capable NVA IP address\> |
 
 A system route for destinations included in the non-routable range 10.57.0.0/16 is already present in the virtual network’s route table. No UDRs are needed for traffic destined to the non-routable subnets.
-Routable subnets, including the subnet hosting the NAT-capable NVA, must be associated with a custom route table that forwards traffic outside of the landing zone (typically to routing/firewalling NVA in the hub virtual network). In the previous diagram, the custom route table associated with each routable subnet must contain these UDRs:
 
-| Destination  | Next Hop Type           | Next Hop Ip Address    |
-| ------------ | ----------------------- | ---------------------- |
-| 10.0.0.0/8   | VirtualNetworkAppliance | \<NAT NVA IP address\> |
-| 10.0.0.0/24  | VirtualNetworkAppliance | \<NAT NVA IP address\> |
+**Routable subnets**, including the subnet hosting the NAT-capable NVA, must be associated with a custom route table that forwards traffic outside of the landing zone (typically to routing/firewalling NVA in the hub virtual network). In the previous diagram, the custom route table associated with each routable subnet must contain these UDRs:
+
+| Destination  | Next Hop Type           | Next Hop Ip Address                |
+| ------------ | ----------------------- | ---------------------------------- |
+| 10.0.0.0/8   | VirtualNetworkAppliance | \<Hub router/firewall IP address\> |
+| 10.0.0.0/24  | VirtualNetworkAppliance | \<Hub router/firewall IP address\> |
 
 The second UDR with destination 10.0.0.0/24 is needed to make sure that connections to resources deployed in the hub virtual network are routed via the hub firewall. Specific applications may require more UDRs. Also, a default route (0.0.0.0/0) is needed if virtual machines in the landing zone are meant to access the internet via NVAs (typically hosted in the hub virtual network).
 
