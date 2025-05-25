@@ -13,6 +13,7 @@ products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - guide
   - arb-saas
