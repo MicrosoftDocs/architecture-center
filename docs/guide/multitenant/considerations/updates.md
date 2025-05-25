@@ -4,7 +4,6 @@ description: This article describes considerations for updating your multitenant
 author: johndowns
 ms.author: pnp
 ms.date: 07/22/2024
-ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
 products:
