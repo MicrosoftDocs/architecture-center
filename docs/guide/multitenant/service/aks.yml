@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Kubernetes Service (AKS) Considerations for Multitenancy
+  title: Guidance for using Azure Kubernetes Service (AKS) in a multitenant solution
   description: Learn about the features of Azure Kubernetes Service (AKS) that you can use when you work with multitenant systems. See guidance and examples for how to use AKS in a multitenant solution.
   author: francisnazareth
   ms.author: fnazaret
@@ -17,7 +17,7 @@ azureCategories:
 products:
   - azure
   - azure-kubernetes-service
-name: Azure Kubernetes Service (AKS) considerations for multitenancy
+name: Guidance for using Azure Kubernetes Service (AKS) in a multitenant solution
 summary: Learn about the features of Azure Kubernetes Service (AKS) that you can use when you work with multitenant systems. See guidance and examples for how to use AKS in a multitenant solution.
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
 content: |

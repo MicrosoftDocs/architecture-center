@@ -1,5 +1,5 @@
 ---
-title: Azure Private Link service considerations for multitenancy
+title: Guidance for using Azure Private Link service in a multitenant solution
 description: This article describes the features of Azure Private Link that are useful when working with multitenanted systems, and it provides links to guidance and examples.
 author: johndowns
 ms.author: pnp
@@ -16,7 +16,7 @@ ms.custom:
   - arb-saas
 ---
 
-# Multitenancy and Azure Private Link
+# Guidance for using Azure Private Link in a multitenant solution
 
 Azure Private Link provides private IP addressing for Azure platform services, and for your own applications that are hosted on Azure virtual machines. You can use Private Link to enable private connectivity from your tenants' Azure environments. Tenants can also use Private Link to access your solution from their on-premises environments, when they're connected through virtual private network gateways (VPN Gateway) or ExpressRoute.
 
