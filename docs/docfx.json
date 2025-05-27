@@ -114,12 +114,8 @@
         "solution-ideas/**/*.md": [ "Azure", "Azure Architecture Center", "Reference Architectures" ]
       },
       "ms.update-cycle": {
-        "guide/multitenant/considerations/*.md": [
-          "1095-days"
-        ],
-        "guide/multitenant/considerations/*.yml": [
-          "1095-days"
-        ]
+        "guide/multitenant/considerations/*.md": "1095-days",
+        "guide/multitenant/considerations/*.yml": "1095-days"
       }
     },
     "template": [
