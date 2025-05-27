@@ -7,7 +7,7 @@ Reviewing both options will help you make a decision on which approach is best s
 ## Architecture: OpCon Cloud
 
 Figure 1 provides an architectural diagram explaining how an *OpCon Cloud* environment using Azure SQL Database for the database requirements should be deployed within an Azure environment or a hybrid Azure on-premises environment.
-The implementation uses a single virtual network and multiple subnets to support the various functions. Network security groups are used to filter network traffic between Azure resources in the virtual network.
+The implementation uses a single virtual network and multiple subnets to support the various functions. Network security groups (NSGs) are used to filter network traffic between Azure resources in the virtual network.
 
 :::image type="complex" source="../media/opcon-cloud-architecture.svg" alt-text="Architecture diagram that shows how to deploy OpCon in Azure or a hybrid environment." lightbox="../media/opcon-cloud-architecture.svg" border="false":::
 The diagram has two main sections: the on-premises network and Azure. The environments are connected via the internet. The on-premises network includes various devices and servers such as Unisys ClearPath Forward, IBM zOS or AS400, and Windows and Linux servers. OpCon Relay points to these components via a green line that represents logical connections to OpCon agents. The on-premises network also contains an OpCon MFT server. Opcon Relay points to this component via a red line that represents logical REST API connections to applications. OpCon Relay connects to Opcon in the Azure environment via the internet. Users also reside in the on-premises network. The Azure virtual network contains the OpCon subnet and the applications subnet. The OpCon subnet contains OpCon, which points to Azure SQL Database and the opconconfig and opconlog components in the same subnet. The applications subnet contains Unisys ClearPath Forward, Windows, Linux, Azure Storage, an OpCon MFT server, and an application server. OpCon points to Azure Storage, an OpCon MFT server, and an application server via a red line that represents logical REST API connections to applications. OpCon points to Unisys ClearPath Forward, Windows, and Linux via a green line that represents logical connections to OpCon agents. The OpCon MFT server points to Azure Storage via a blue line that represents Logical Connector connections to applications. The OpCon subnet and applications subnet are connected via a network security group.
@@ -24,7 +24,7 @@ The diagram has two main sections: the on-premises network and Azure. The enviro
    - OpCon Core services communicate with OpCon Agents installed on virtual machines within the Virtual Network environment or with on-premises systems through the Relay Software component.
    - Similarly, OpCon Core services communicate directly with Application Rest-API endpoints within the Virtual Network environment or with on-premises systems through the Relay Software component using the 'Connectionless' system.
    - OpCon Core services provide Solution Manager which is the web-based user interface for interacting with the entire OpCon environment. 
-   - Network Security Groups are used to limit traffic flow between subnets.
+   - NSGs are used to limit traffic flow between subnets.
 
 1. The OpCon database objects and data are installed within an Azure SQL Database server which is reached through a private endpoint.
 
@@ -35,7 +35,7 @@ The diagram has two main sections: the on-premises network and Azure. The enviro
    - Application virtual machines or on-premises legacy systems require connections to the OpCon Core services for the management of their workloads, while applications providing REST API endpoints don't require extra software.
 
    - The subnet includes an OpCon MFT server which is an OpCon component that provides full file transfer capabilities such as compression, encryption, decryption, decompression, file watching, and automated file routing for the enterprise.
-   - Network Security Groups are used to limit traffic flow between subnets.
+   - NSGs are used to limit traffic flow between subnets.
 
 1. In a hybrid environment, an Internet connection is required to link the on-premises environment to the OpCon Cloud instance.
 
@@ -86,7 +86,7 @@ Figure 2 provides an architectural diagram explaining how an OpCon environment u
 The diagram has two main sections: the on-premises network and Azure. The environments are connected via a site-to-site VPN tunnel over the internet. The on-premises network includes a subnet that contains a local network gateway, VPN connection, and Virtual Network gateway. This subnet points to Unisys ClearPath Forward, IBM zOS or AS400, and Windows and Linux servers via a green line that represents logical connections to OpCon agents. The subnet points to an OpCon MFT server via a red line that represents logical REST API connections to applications. Users also reside in the on-premises network. The Azure virtual network contains the OpCon subnet, applications subnet, and gateway subnet. The OpCon subnet contains OpCon, which points to Azure SQL Database and the opconconfig and opconlog components in the same subnet. The applications subnet contains Unisys ClearPath Forward, Windows, Linux, Azure Storage, an OpCon MFT server, and an application server. OpCon points to Unisys ClearPath Forward, Windows, and Linux via a green line that represents logical connections to OpCon agents. OpCon points to an OpCon MFT server and application server via a red line that represents logical REST API connections to applications. OpCon and an OpCon MFT server point to Azure Storage via a blue line that represents Logical Connector connections to applications. The subnets are connected via a network security group.
 :::image-end:::
 
-The implementation uses a single virtual network and multiple subnets to support the various functions. Network security groups are used to filter network traffic between Azure resources in the virtual network.
+The implementation uses a single virtual network and multiple subnets to support the various functions. NSGs are used to filter network traffic between Azure resources in the virtual network.
 
 ### Workflow: OpCon Datacenter
 
@@ -97,9 +97,9 @@ The implementation uses a single virtual network and multiple subnets to support
   
    -  Similarly, OpCon Core services communicate directly with Application Rest-API endpoints within the Virtual Network environment or with on-premises systems through the Virtual Network Gateway using Rest-API connectivity options.  
    - OpCon Core services provide Solution Manager which is the web-based user interface for interacting with the entire OpCon environment. 
-   - Network Security Groups are used to limit traffic flow between subnets. 
+   - NSGs are used to limit traffic flow between subnets. 
 
-1. The OpCon database objects and data are installed within an Azure SQL Database server environment which is reached through a private endpoint.
+1. The OpCon database objects and data are stored in an Azure SQL Database that is configured to communicate through a private endpoint.
 
 1. OpCon Connector technology allows OpCon Core services to interact with Azure Storage providing capabilities to manage Blob Storage. OpCon Managed File Transfer (MFT) also supports interaction with Azure Storage.
 
@@ -107,7 +107,7 @@ The implementation uses a single virtual network and multiple subnets to support
    - Application virtual machines or on-premises legacy systems require connections to the OpCon Core services for the management of their workloads, while applications providing REST API endpoints don't require extra software.
 
    - The subnet includes an OpCon MFT server which is an OpCon component that provides full file transfer capabilities such as compression, encryption, decryption, decompression, file watching, and automated file routing for the enterprise.
-   - Network Security Groups are used to limit traffic flow between subnets. 
+   - NSGs are used to limit traffic flow between subnets. 
 
 1. In a hybrid environment, the gateway subnet provides a secure connection between the on-premises environment and the Azure Cloud environment through a Site-to-Site VPN tunnel connection.
    
@@ -153,7 +153,7 @@ If you want to take advantage of the SMA service offering, you can seamlessly tr
 
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) Azure Virtual Network is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
 
-  In these architectures, Virtual Network supports multiple subnets for different functions and uses network security groups to filter traffic.
+  In these architectures, Virtual Network supports multiple subnets for different functions and uses NSGs to filter traffic.
 
 - [Azure network interface cards](/azure/virtual-network/virtual-network-network-interface) - A network interface enables an Azure Virtual Machine to communicate with internet, Azure, and on-premises resources.
 
@@ -165,7 +165,7 @@ If you want to take advantage of the SMA service offering, you can seamlessly tr
 
 - Microsoft Azure SQL Database or [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) – The OpCon backend can utilize either Azure SQL Database or SQL Managed Instances to manage OpCon entries.
 
-  In these architectures, the OpCon database is installed within an Azure SQL environment and accessed through a private endpoint.
+  In these architectures, the OpCon database is hosted in an Azure SQL Database instance and accessed through a private endpoint.
 
 - [OpCon](https://smatechnologies.com/product-opcon) - OpCon core services running in a Linux container within a Kubernetes replica-set using an Azure SQL Server for the OpCon database.
 
@@ -203,7 +203,7 @@ Instead of using SQL Database, you can use SQL Managed Instance as the OpCon dat
 
 #### ExpressRoute
 
-Instead of using a VPN Gateway and a Site-to-Site VPN Tunnel, an ExpressRoute implementation that provides a private connection to the Microsoft Global Network using a connectivity provider could be used. ExpressRoute connections don't go over the public internet.  
+Instead of using a VPN Gateway and a Site-to-Site VPN Tunnel, an ExpressRoute connection to the Microsoft Global Network using a connectivity provider could be used. ExpressRoute connections don't go over the public internet.  
 
 ExpressRoute is recommended for hybrid applications running large-scale mission-critical workloads that require a high degree of scalability and resiliency. 
 
@@ -269,7 +269,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-OpCon Cloud reduces infrastructure and maintenance costs, while providing clients with the security and reliability of an always-on solution and fast recovery from unplanned system interruptions or disasters. OpCon has its own build in resiliency capability or Azure Site Recovery can be utilized to maintain copies of the OpCon environment for use in DR situations. 
+OpCon Cloud reduces infrastructure and maintenance costs, while providing clients with the security and reliability of an always-on solution and fast recovery from unplanned system interruptions or disasters. OpCon has its own built-in resiliency capability or Azure Site Recovery can be utilized to maintain copies of the OpCon environment for use in DR situations. 
 
 For The Azure Files CSI driver in AKS, we recommend that you use the Premium_LRS tier. This tier provides locally redundant storage to ensure that your data is replicated within a single physical location. It also provides high performance and low latency, so it suits workloads that require fast and reliable storage.
 
