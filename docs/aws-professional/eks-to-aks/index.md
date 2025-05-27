@@ -1,8 +1,8 @@
 ---
 title: AKS for Amazon EKS Professionals
 description: Learn about the AKS managed solution, configurations, best practices, and similarities and differences compared to Amazon EKS.
-author: paolosalvatori
-ms.author: paolos
+author: francisnazareth
+ms.author: fnazaret
 ms.date: 01/28/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
