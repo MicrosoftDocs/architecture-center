@@ -108,7 +108,7 @@ Deploying your workload is a significant milestone. After your integration proce
 
 ## Stay current with integration
 
-Azure integration receives improvements on an ongoing basis. To stay on top of recent developments, see [Azure updates][Azure updates].
+Azure integration receives improvements on an ongoing basis. To stay on top of recent developments, see [Azure updates](https://azure.microsoft.com/updates/?filters=%5B%22API+Management%22%2C%22Azure+Health+Data+Services%22%2C%22Azure+Web+PubSub%22%2C%22Event+Grid%22%2C%22Logic+Apps%22%2C%22Service+Bus%22%5D).
 
 ## Additional resources
 
@@ -131,7 +131,6 @@ The following resources provide practical recommendations and information for sp
 [Azure Logic Apps ACOM page]: https://azure.microsoft.com/services/logic-apps
 [Azure Policy Regulatory Compliance controls for Azure Logic Apps]: /azure/logic-apps/security-controls-policy?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Azure security baseline for Logic Apps]: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-[Azure updates]: https://azure.microsoft.com/updates/?category=integration
 [Basic enterprise integration on Azure]: ../reference-architectures/enterprise-integration/basic-enterprise-integration.yml
 [Business continuity and disaster recovery for Azure Logic Apps]: /azure/logic-apps/business-continuity-disaster-recovery-guidance?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Choose between virtual network peering and VPN gateways]: ../reference-architectures/hybrid-networking/vnet-peering.yml

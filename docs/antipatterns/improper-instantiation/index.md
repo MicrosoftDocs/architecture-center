@@ -1,7 +1,7 @@
 ---
 title: Improper Instantiation antipattern
 description: Avoid continually creating new instances of an object that is meant to be created once and then shared.
-ms.author: robbag
+ms.author: pnp
 author: RobBagby
 categories: azure
 ms.date: 06/05/2017

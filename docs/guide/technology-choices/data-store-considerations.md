@@ -2,7 +2,7 @@
 title: Criteria for data store choice
 description: Explore general considerations when you choose your data store. Examine functional and nonfunctional requirements, management and cost, security, and DevOps.
 author: PageWriter-MSFT
-ms.author: prwilk
+ms.author: pnp
 ms.date: 08/08/2020
 ms.topic: conceptual
 ms.subservice: architecture-guide

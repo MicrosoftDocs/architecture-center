@@ -2,7 +2,7 @@
 metadata:
   title: Valet Key pattern
   description: Use a token or key that provides clients with restricted direct access to a specific resource or service.
-  ms.author: robbag
+  ms.author: pnp
   author: RobBagby
   ms.date: 05/08/2024
   ms.topic: design-pattern

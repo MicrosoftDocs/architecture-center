@@ -2,7 +2,7 @@
 title: Considerations for updating a multitenant solution
 description: This article describes considerations for updating your multitenant solution.
 author: johndowns
-ms.author: jodowns
+ms.author: pnp
 ms.date: 07/22/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide

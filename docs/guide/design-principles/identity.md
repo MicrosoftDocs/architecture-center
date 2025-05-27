@@ -3,7 +3,7 @@ title: Use an Identity as a Service platform
 description: Learn why it's important to use an identity as a service (IDaaS) platform instead of building or running your own.
 author: johndowns
 ms.date: 10/05/2024
-ms.author: jodowns
+ms.author: pnp
 ms.topic: conceptual
 ms.subservice: architecture-guide
 categories:

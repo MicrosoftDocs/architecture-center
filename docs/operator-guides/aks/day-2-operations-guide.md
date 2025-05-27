@@ -1,8 +1,8 @@
 ---
 title: AKS (Kubernetes) day-2 operations guide
 description: Learn about Azure Kubernetes Services (AKS) day-2 operations, such as triage, patching, upgrading, and troubleshooting.
-author: paolosalvatori
-ms.author: paolos
+author: francisnazareth
+ms.author: fnazaret
 ms.date: 01/20/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide

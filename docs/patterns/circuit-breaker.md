@@ -1,7 +1,7 @@
 ---
 title: Circuit Breaker Pattern
 description: Learn how to handle faults that might take varying amounts of time to fix when applications connect to a remote service or resource.
-ms.author: robbag
+ms.author: pnp
 author: RobBagby
 ms.date: 02/05/2025
 ms.topic: design-pattern

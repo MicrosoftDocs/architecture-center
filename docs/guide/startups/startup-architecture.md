@@ -2,7 +2,7 @@
 title: Architecture for startups
 description: Understand how to approach architecture when you're working in a startup.
 author: mootpointer
-ms.author: robbag
+ms.author: pnp
 ms.date: 8/21/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide

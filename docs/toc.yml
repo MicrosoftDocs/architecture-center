@@ -394,7 +394,7 @@ items:
   - name: Asynchronous Request-Reply
     href: patterns/async-request-reply.yml
   - name: Backends for Frontends
-    href: patterns/backends-for-frontends.yml
+    href: patterns/backends-for-frontends.md
   - name: Bulkhead
     href: patterns/bulkhead.yml
   - name: Cache-Aside
@@ -600,7 +600,7 @@ items:
         - name: Extend mainframe applications with Verastream
           href: example-scenario/mainframe/extend-mainframe-applications.yml
         - name: Extend mainframes to digital channels by using standards-based REST APIs
-          href: example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.yml
+          href: example-scenario/mainframe/extend-mainframes-rest-apis.yml
         - name: General mainframe refactor to Azure
           href: example-scenario/mainframe/general-mainframe-refactor.yml
         - name: IBM System i to Azure using Infinite i

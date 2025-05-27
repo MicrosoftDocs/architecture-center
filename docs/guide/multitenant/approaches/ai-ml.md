@@ -1,9 +1,10 @@
 ---
 title: Architectural approaches for AI and ML in multitenant solutions
 description: This article describes approaches to support multitenancy for the artificial intelligence (AI) and machine learning (ML) components of your solution.
-author: landonpierce
-ms.author: landonpierce
+author: PlagueHO
+ms.author: dascottr
 ms.date: 08/20/2024
+ms.update-cycle: 180-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
 products:
@@ -12,6 +13,7 @@ products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - guide
   - arb-saas

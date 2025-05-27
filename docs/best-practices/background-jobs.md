@@ -1,7 +1,7 @@
 ---
 title: Background jobs guidance
 description: Learn about background tasks that run independently of the user interface, such as batch jobs, intensive processing tasks, and long-running processes.
-ms.author: robbag
+ms.author: pnp
 author: RobBagby
 ms.date: 10/18/2022
 categories: azure
