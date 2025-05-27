@@ -289,7 +289,7 @@ The OpCon configuration builds in security by using Gateway subnets to route onl
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-OpCon workload automation reduces manual steps ensuring that workflows are consistent with each iteration providing improved efficiency. This feature reduces the amount of time and resources needed for reruns due to human error or manual data inputs. See What is Workload Automation? | SMA Technologies for more examples. 
+OpCon workload automation reduces manual steps ensuring that workflows are consistent with each iteration providing improved efficiency. This feature reduces the amount of time and resources needed for reruns due to human error or manual data inputs. For more examples, see [What is workload automation?](https://smatechnologies.com/blog/what-is-workload-automation)
 
 ### Operational Excellence
 
