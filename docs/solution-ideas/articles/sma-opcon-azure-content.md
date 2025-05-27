@@ -103,7 +103,7 @@ The implementation uses a single virtual network and multiple subnets to support
 
 1. OpCon Connector technology allows OpCon Core services to interact with Azure Storage providing capabilities to manage Blob Storage. OpCon Managed File Transfer (MFT) also supports interaction with Azure Storage.
 
-1. The application subnet includes the virtual machines that provide the application infrastructure. The application servers could also be installed into multiple subnets or virtual networks creating separate environments for web servers, application servers, etc.
+1. The application subnet includes the virtual machines that provide the application infrastructure. The application servers could also be installed into multiple subnets or virtual networks creating separate environments for web servers, application servers, and other systems.
    - Application virtual machines or on-premises legacy systems require connections to the OpCon Core services for the management of their workloads, while applications providing REST API endpoints don't require extra software.
 
    - The subnet includes an OpCon MFT server which is an OpCon component that provides full file transfer capabilities such as compression, encryption, decryption, decompression, file watching, and automated file routing for the enterprise.
@@ -181,7 +181,7 @@ If you want to take advantage of the SMA service offering, you can seamlessly tr
 
   These architectures use OpCon Vision to set SLO values for task groups and provide early warnings if SLO values will be exceeded.
 
-- [OpCon MFT](https://help.smatechnologies.com/opcon/agents/opconmft/introduction) provides managed file transfer within the OpCon environment. Providing file transfer and monitoring functionality across the enterprise using an integrated MFT Agent and a File Transfer Server.
+- [OpCon MFT](https://help.smatechnologies.com/opcon/agents/opconmft/introduction) enables secure, managed file transfers within the OpCon environment. It integrates a dedicated MFT Agent and File Transfer Server to provide enterprise-wide file transfer and monitoring capabilities.
 
   These architectures use OpCon MFT to support compression, encryption, decryption, decompression, file watching, and automated file routing. For example, a regional healthcare provider might process daily insurance claims and need to send files securely to multiple insurance partners by using different formats, encryption requirements, and delivery methods. OpCon MFT helps reduce errors, ensure encryption, and provide flexibility.
 
