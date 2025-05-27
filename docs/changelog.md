@@ -2,9 +2,9 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 05/19/2025
+ms.date: 05/27/2025
 ms.topic: conceptual
-ms.author: pnp
+ms.author: robbag
 categories: 
 - management-and-governance
 products:
@@ -32,11 +32,16 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Use Azure Front Door in a Multitenant Solution](./guide/multitenant/service/front-door.md)  ([#fa99f8af18](https://github.com/MicrosoftDocs/architecture-center/commit/fa99f8af18))
+- [SaaS and Multitenant Solution Architecture](./guide/saas-multitenant-solution-architecture/index.md)  ([#0f76c2f436](https://github.com/MicrosoftDocs/architecture-center/commit/0f76c2f436))
 - [Architectural approaches for identity in multitenant solutions](./guide/multitenant/approaches/identity.md)  ([#350d437efd](https://github.com/MicrosoftDocs/architecture-center/commit/350d437efd))
 - [Architectural Approaches for Compute in Multitenant Solutions](./guide/multitenant/approaches/compute.md)  ([#5998e0f989](https://github.com/MicrosoftDocs/architecture-center/commit/5998e0f989))
 - [Considerations for Using Azure Container Apps in a Multitenant Solution](./guide/multitenant/service/container-apps.md)  ([#5998e0f989](https://github.com/MicrosoftDocs/architecture-center/commit/5998e0f989))
 - [Azure Service Bus Considerations for Multitenancy](./guide/multitenant/service/service-bus.md)  ([#5998e0f989](https://github.com/MicrosoftDocs/architecture-center/commit/5998e0f989))
 - [Generative AI Operations for Organizations with MLOps Investments](./ai-ml/guide/genaiops-for-mlops.md)  ([#a3f82db38d](https://github.com/MicrosoftDocs/architecture-center/commit/a3f82db38d))
+- [Choose an Analytical Data Store in Azure](./data-guide/technology-choices/analytical-data-stores.md)  ([#2390621603](https://github.com/MicrosoftDocs/architecture-center/commit/2390621603))
+- [Deploy microservices with Azure Container Apps and Dapr](./example-scenario/serverless/microservices-with-container-apps-dapr.yml)  ([#7e9010efc1](https://github.com/MicrosoftDocs/architecture-center/commit/7e9010efc1))
+- [Autoscaling Guidance](./best-practices/auto-scaling.md)  ([#0b258e9b9b](https://github.com/MicrosoftDocs/architecture-center/commit/0b258e9b9b))
 - [Multitenancy Checklist on Azure](./guide/multitenant/checklist.md)  ([#496e7a1937](https://github.com/MicrosoftDocs/architecture-center/commit/496e7a1937))
 - [Architect Multitenant Solutions on Azure](./guide/multitenant/overview.md)  ([#496e7a1937](https://github.com/MicrosoftDocs/architecture-center/commit/496e7a1937))
 - [Migrate an Oracle Database to OD@A Exadata Database Service](./databases/idea/migrate-oracle-odaa-exadata.yml)  ([#5e3ae5b5d5](https://github.com/MicrosoftDocs/architecture-center/commit/5e3ae5b5d5))
@@ -177,7 +182,7 @@ The following new and updated articles have recently been published in the Azure
 - [Manage and Deploy Kubernetes in Azure Arc](./hybrid/arc-hybrid-kubernetes.yml)  ([#4979b699bb](https://github.com/MicrosoftDocs/architecture-center/commit/4979b699bb))
 - [Web API Design Best Practices](./best-practices/api-design.md)  ([#86e26d59cb](https://github.com/MicrosoftDocs/architecture-center/commit/86e26d59cb))
 - [Choose an Azure storage service](./guide/technology-choices/storage-options.md)  ([#6b81270854](https://github.com/MicrosoftDocs/architecture-center/commit/6b81270854))
-- [Choose an analytical data store](./data-guide/technology-choices/analytical-data-stores.md)  ([#ca956df8a3](https://github.com/MicrosoftDocs/architecture-center/commit/ca956df8a3))
+- [Choose an Analytical Data Store in Azure](./data-guide/technology-choices/analytical-data-stores.md)  ([#ca956df8a3](https://github.com/MicrosoftDocs/architecture-center/commit/ca956df8a3))
 - [Choose an Azure AI Targeted Language Processing Technology](./data-guide/ai-services/targeted-language-processing.md)  ([#f06888ac2d](https://github.com/MicrosoftDocs/architecture-center/commit/f06888ac2d))
 - [Choose an Azure AI Services Technology](./data-guide/technology-choices/ai-services.md)  ([#f06888ac2d](https://github.com/MicrosoftDocs/architecture-center/commit/f06888ac2d))
 - [Azure Load Testing with Custom Plugins for Event Hubs and IoT Hub to Simulate Device Behaviors](./guide/testing/load-testing/load-testing-with-custom-plugins.md)  ([#3a29cb946a](https://github.com/MicrosoftDocs/architecture-center/commit/3a29cb946a))
