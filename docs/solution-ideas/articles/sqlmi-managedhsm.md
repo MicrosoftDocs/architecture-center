@@ -32,7 +32,7 @@ The following workflow corresponds to the previous diagram:
 
 ## Scenario details
 
-A customer needs to meet strict Service Level Agreement (SLA) thresholds for their mission-critical system while maintaining full functionality of the listed services. They're using Azure SQL Managed Instance and with TDE enabled using a customer managed key model. They need to store the protector key in a vault that supports their choice of regions and meets all compliance and security requirements, including the use of private endpoints to access the vault.
+In this scenario, a customer wants to meet strict Service Level Agreement (SLA) thresholds for their mission-critical system while maintaining full functionality of the listed services.  To achieve this, the customer uses Azure SQL MI with a customer managed TDE protector key, which is stored in a vault that supports their choice of regions and meets all compliance and security requirements, including the use of private endpoints to access the vault.
 
 ### Potential use cases
 
