@@ -22,13 +22,13 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
 
-- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is the database target for the TDE protector keys.
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a Platform as a Service (PaaS) offering that boasts nearly 100% compatibility with the latest Enterprise Edition SQL Server database engine. It provides a native virtual network (VNet) implementation that addresses common security concerns and features a business model advantageous for existing SQL Server customers. SQL Managed Instance enables these customers to migrate their on-premises applications to the cloud with minimal modifications to applications and databases. Additionally, SQL Managed Instance offers comprehensive PaaS capabilities, including automatic patching and version updates, automated backups, and high availability. These features significantly reduce management overhead and total cost of ownership (TCO). SQL Managed Instance is the database target for the TDE protector keys.
 
-- [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm) is used to securely vault the TDE protector keys and to provide cross-region resiliency.
+- [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm) is a fully-managed, highly available, single-tenant, standards-compliant cloud service. The service is designed to safeguard cryptographic keys for cloud applications, utilizing Federal Information Processing Standards (FIPS) 140-2 Level 3 validated HSMs. It's one of several key management solutions in Azure.  Azure Key Vault Manaegd HSM is used to securely vault the TDE protector keys and to provide cross-region resiliency.
 
-- [Private Endpoint](/azure/private-link/private-endpoint-overview) is the network interface that uses a private IP address from the private virtual network securing communication between resources.
+- [Private Endpoint](/azure/private-link/private-endpoint-overview) is a network interface that securely connects your PaaS services (such as Azure Storage, SQL Database, and Key Vault) to your VNet using a private IP address. The use of this service eliminates the need for public internet exposure, enhancing security by ensuring that traffic remains within the Azure backbone network while using the customer VNet for added security.
 
-- [Azure Private DNS](/azure/dns/private-dns-overview) provides native cross-region name resolution resiliency for Managed HSM, in the case of a regional outage of the service.
+- [Azure Private DNS](/azure/dns/private-dns-overview) enables seamless name resolution for private endpoints, allowing resources within a VNet to access Azure services privately using their fully qualified domain names (FQDN) instead of public IP addresses. When a private endpoint is created, a corresponding Domain Name System (DNS) record is automatically registered in the linked private DNS zone. Using a private DNS zone ensures that traffic to the service remains within the Azure backbone network, improving security, performance, and compliance by avoiding exposure to the public internet. provides native cross-region name resolution resiliency for Managed HSM, in the case of a regional outage of the service.
 
 ## Scenario details
 
