@@ -45,7 +45,7 @@ Web-queue-worker is suitable for relatively simple domains with some resource-in
 
 ### Microservices
 
-![Logical diagram of microservices architecture style.](../../includes/images/microservices-logical.png)
+![Logical diagram of microservices architecture style.](./images/microservices-logical.svg)
 
 If your application has a more complex domain, consider moving to a **[Microservices][microservices]** architecture. A microservices application is composed of many small, independent services. Each service implements a single business capability. Services are loosely coupled, communicating through API contracts.
 
