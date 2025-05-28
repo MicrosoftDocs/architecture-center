@@ -100,8 +100,6 @@ To deploy a Microsoft Sentinel playbook, proceed as follows:
     - Select values for **Subscription**, **Resource group**, and **Region** from the lists.
     - Enter a value for **Playbook name** if you don't want to use the default name that appears.
     - If you want, select **Enable diagnostics logs in Log Analytics** to enable logs.
-    - Leave the **Associate with integration service environment** checkbox unchecked.
-    - Leave **Integration service environment** empty.
   - Select **Next: Connections >** to go to the **Connections** tab of **Create playbook**.
   - Choose how to authenticate within the playbook's components. Authentication is required for:
     - Microsoft Entra ID
