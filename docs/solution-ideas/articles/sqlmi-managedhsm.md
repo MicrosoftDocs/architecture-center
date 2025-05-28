@@ -14,11 +14,11 @@ This solution describes a secure and resilient deployment pattern for Azure SQL 
 
 The following workflow corresponds to the previous diagram:
 
-1. Azure SQL Managed Instance (MI) is configured with availability groups to a secondary region (unpaired) which replicates the data for disaster recovery.
-2. Managed HSM is configured with a cross-region pool which replicates the key material and permissions to the vault in the secondary region (unpaired) automatically.
+1. Azure SQL Managed Instance (MI) is configured with Availability Groups (AGs) in the secondary nonpaired region to replicate the data for disaster recovery.
+2. Managed HSM is configured with a cross-region pool which replicates the key material and permissions to the vault in the secondary nonpaired region automatically.
 3. Data plane traffic from the SQL Managed Instance transits through the private endpoint of the Managed HSM.
-4. Managed HSM uses Traffic Manager, which routes the traffic to the closest vault by choosing the closest, operational vault.
-5. Management plane traffic from the Azure SQL Managed Instance, if the managed instance needs to check permissions on a key, transits using the Azure backbone.
+4. Managed HSM uses Traffic Manager, which routes the traffic to the closest vault by choosing the closest operational vault.
+5.  If the managed instance needs to check permissions on a key, management plane traffic from the Azure SQL Managed Instance transits using the Azure backbone.
 
 ### Components
 
@@ -36,10 +36,10 @@ A customer needs to meet strict Service Level Agreement (SLA) thresholds for the
 
 ### Potential use cases
 
-- The customer is using two unpaired regions (this use case could also be used with paired regions). The primary SQL Managed Instance is in one region with failover groups configured to the SQL MI in the secondary region.
+- The customer is using two nonpaired regions (this use case could also be used with paired regions). The primary SQL Managed Instance is in one region with failover groups configured to the SQL MI in the secondary region.
 - The customer is using a managed HSM in the primary region with a cross-region replica in the secondary region. When a cross-region replica is enabled, a traffic manager instance is created. The Traffic Manager instance handles the routing of traffic to the local vault if both vaults are operational or to the vault that is operational in the event one is unavailable.
 - The customer is using two custom DNS zones to support a private endpoint for the managed HSM in each region.
-- The customer enabled TDE on the user databases using the customer managed key model, storing the protector key in the managed HSM.
+- The customer enabled TDE on the user databases using the customer managed key model, and stored the protector key in the managed HSM.
 - The customer uses this design to provide the maximum resiliency possible.
 
 ## Contributors
