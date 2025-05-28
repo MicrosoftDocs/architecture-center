@@ -69,7 +69,7 @@ When resources deployed in non-routable subnets need to initiate connections to 
 
 A system route for destinations included in the non-routable range 10.57.0.0/16 is already present in the virtual network’s route table. No UDRs are needed for traffic destined to the non-routable subnets.
 
-**Routable subnets**, including the subnet hosting the NAT-capable NVA, must be associated with a custom route table that forwards traffic outside of the landing zone (typically to routing/firewalling NVA in the hub virtual network). In the previous diagram, the custom route table associated with each routable subnet must contain these UDRs:
+**Routable subnets**, including the subnet hosting the NAT-capable NVA, must be associated with a custom route table that forwards traffic outside of the landing zone (typically to NVAs in the hub virtual network, which route traffic among spokes; It should be noted that the NVAs in the hub do not perform any NAT operations). In the previous diagram, the custom route table associated with each routable subnet must contain these UDRs:
 
 | Destination  | Next Hop Type           | Next Hop Ip Address                |
 | ------------ | ----------------------- | ---------------------------------- |
