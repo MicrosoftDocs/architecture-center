@@ -44,15 +44,13 @@ The following dataflow corresponds to the previous diagram:
 
    - If analytics aren't required, Azure Data Factory can store data directly in a wide range of storage options, such as Data Lake Storage and Blob Storage.
 
-   - [Azure hosts various databases](/azure/architecture/guide/technology-choices/data-options), which address different needs:
+   - [Azure hosts various databases](/azure/architecture/guide/technology-choices/data-options) that address different needs:
 
-     - Relational databases include the SQL Server family and open-source databases like PostgreSQL and MySQL.
+     - Relational databases include the SQL Server family and open-source databases like PostgreSQL and MySQL
 
-     - Nonrelational databases include Azure Cosmos DB, which is a fast, multi-model, globally distributed NoSQL database.
+     - Nonrelational databases include Azure Cosmos DB, which is a fast, multi-model, globally distributed NoSQL database
 
-1. Review analytics and business intelligence:
-
-   [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an all-in-one analytics solution that your organization can use to study data movement, experiment with data sciences, and review real-time analytics and business intelligence. It provides a comprehensive suite of features, including a data lake, data engineering, and data integration.
+   - Review analytics and business intelligence. [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an all-in-one analytics solution that your organization can use to study data movement, experiment with data sciences, and review real-time analytics and business intelligence. It provides a comprehensive suite of features, including a data lake, data engineering, and data integration.
 
 ### Components
 
