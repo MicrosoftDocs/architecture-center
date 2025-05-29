@@ -66,13 +66,13 @@ This architecture outlines various Azure-native migration tools that organizatio
 
 - [Data Provider for Host Files](/host-integration-server/core/data-for-host-files) is a component of [HIS](/host-integration-server/what-is-his) that converts EBCDIC code page files to ASCII. The provider can read and write records offline in a local binary file. Or it can use Systems Network Architecture (SNA) or Transmission Control Protocol/Internet Protocol (TCP/IP) to read and write records in remote IBM z/OS mainframe datasets or i5/OS physical files. HIS connectors are available for [BizTalk](/host-integration-server/core/biztalk-adapter-for-host-files-configuration1) and [Logic Apps](https://azure.microsoft.com/products/logic-apps).
 
-- [Azure Data Factory](https://azure.microsoft.com/products/data-factory) is a hybrid data integration service that you can use to create, schedule, and orchestrate ETL and ELT workflows. In this architecture, Azure Data Factory is used to send mainframe files to Blob Storage via FTP.
+- [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service that you can use to create, schedule, and orchestrate ETL and ELT workflows. In this architecture, Azure Data Factory is used to send mainframe files to Blob Storage via FTP.
 
 - [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform optimized for Azure. You can use Azure Databricks to correlate incoming data, and enrich it with other data stored in Azure Databricks.
   
-- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) is a fast and flexible cloud data warehouse with a massively parallel processing architecture that you can use to scale, compute, and store data elastically and independently. It can be used for mainframe data transformation before you load it into an Azure database.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a fast and flexible cloud data warehouse with a massively parallel processing architecture that you can use to scale, compute, and store data elastically and independently. It can be used for mainframe data transformation before you load it into an Azure database.
 
-- [Logic Apps](https://azure.microsoft.com/products/logic-apps) is a cloud-based service that you can use to automate workflows and integrate applications, data, and services across different environments. It provides a native IBM Host File connector that interacts with mainframe systems to read, parse, and generate host file content.
+- [Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud-based service that you can use to automate workflows and integrate applications, data, and services across different environments. It provides a native IBM Host File connector that interacts with mainframe systems to read, parse, and generate host file content.
 
 #### Databases
 
@@ -80,9 +80,9 @@ This architecture outlines the process of migrating mainframe file data to cloud
 
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a scalable relational cloud database service. SQL Database is evergreen and always up-to-date, with AI-powered and automated features that optimize performance and durability. Serverless compute and hyperscale storage options automatically scale resources on demand. With [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit), you can use your existing on-premises SQL Server licenses on the cloud with no extra cost.
 
-- [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service. With SQL Managed Instance, you can modernize your existing apps at scale with familiar tools, skills, and resources.
+- [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview?view=azuresql) combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service. With SQL Managed Instance, you can modernize your existing apps at scale with familiar tools, skills, and resources.
 
-- [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines/sql-server) lifts and shifts your SQL Server workloads to the cloud to combine the flexibility and hybrid connectivity of Azure with SQL Server performance, security, and analytics. You can access the latest SQL Server updates and releases with total code compatibility.
+- [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresql) lifts and shifts your SQL Server workloads to the cloud to combine the flexibility and hybrid connectivity of Azure with SQL Server performance, security, and analytics. You can access the latest SQL Server updates and releases with total code compatibility.
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service based on the community edition of the open-source PostgreSQL database engine.
 
@@ -94,7 +94,7 @@ This architecture outlines the process of migrating mainframe file data to cloud
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud-based object storage solution that stores large amounts of unstructured data, such as text or binary data. You can access this data from anywhere via HTTP or HTTPS. You can use Blob Storage to expose data publicly or to store application data privately.
 
-- [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) is a storage repository that holds a large amount of data in native, raw format. Data Lake Storage provides scaling for big data analytics workloads with terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources, and can be structured, semi-structured, or unstructured.
+- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a storage repository that holds a large amount of data in native, raw format. Data Lake Storage provides scaling for big data analytics workloads with terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources, and can be structured, semi-structured, or unstructured.
 
 ## Scenario details
 
