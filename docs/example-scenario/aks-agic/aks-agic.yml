@@ -2,8 +2,8 @@
 metadata:
   title: Use the Application Gateway Ingress Controller with a Multitenant Azure Kubernetes Service Cluster
   description: Learn how to use the Application Gateway Ingress Controller (AGIC) with your AKS cluster to expose microservice-based applications to the internet.
-  author: paolosalvatori
-  ms.author: paolos
+  author: francisnazareth
+  ms.author: fnazaret
   ms.date: 11/15/2024
   ms.topic: conceptual
   ms.subservice: example-scenario

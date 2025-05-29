@@ -1,5 +1,5 @@
 ---
-title: Multitenancy and Azure Event Hubs
+title: Guidance for using Azure Event Hubs in a multitenant solution
 description: Learn about the Azure Event Hubs features and isolation models that you can use to implement an event-driven architecture for a multitenant system.
 author: landonpierce
 ms.author: landonpierce
@@ -15,7 +15,7 @@ ms.custom:
   - arb-saas
 ---
 
-# Multitenancy and Azure Event Hubs
+# Guidance for using Azure Event Hubs in a multitenant solution
 
 [Event Hubs](/azure/event-hubs/event-hubs-about) is a big data streaming platform and event ingestion service that can receive and process millions of events per second. You can transform and store event hub data by using real-time analytics providers and batching/storage adapters. For a comparison of Event Hubs and other Azure messaging services, see [Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus](/azure/event-grid/compare-messaging-services).
 
