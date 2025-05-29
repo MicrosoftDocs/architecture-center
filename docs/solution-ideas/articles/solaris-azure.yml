@@ -2,8 +2,8 @@
 metadata:
   title: Stromasys Charon-SSP Solaris emulator on Azure VMs
   description: Charon-SSP cross-platform hypervisor emulates legacy Sun SPARC systems on industry standard x86-64 computer systems and VMs.
-  author: Venkat-Github-Account
-  ms.author: vramakrishna
+  author: bhbandam
+  ms.author: bhbandam
   ms.date: 12/04/2024
   ms.topic: solution-idea
   ms.subservice: solution-idea

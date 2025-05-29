@@ -2,7 +2,7 @@
 title: Web architecture design
 description: Get an overview of Azure web app technologies, guidance, solution ideas, and reference architectures.
 author: robbagby
-ms.author: robbag
+ms.author: pnp
 ms.date: 06/14/2023
 ms.topic: conceptual
 ms.subservice: architecture-guide

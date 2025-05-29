@@ -2,7 +2,7 @@
 title: Network secure ingress pattern implementation with Azure Front Door Premium tier
 description: The pattern implementation for network secure ingress illustrates global routing, low-latency failover for unhealthy workloads, and mitigating attacks at the edge.
 author: robbagby
-ms.author: robbag
+ms.author: pnp
 ms.date: 10/18/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide

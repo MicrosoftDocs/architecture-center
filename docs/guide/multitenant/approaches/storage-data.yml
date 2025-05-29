@@ -3,7 +3,7 @@ metadata:
   title: Architectural approaches for storage and data in multitenant solutions
   description: This article describes approaches to support multitenancy for the storage and data components of your solution.
   author: johndowns
-  ms.author: jodowns
+  ms.author: pnp
   ms.date: 07/29/2024
   ms.topic: conceptual
   ms.subservice: architecture-guide

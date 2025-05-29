@@ -2,7 +2,7 @@
 title: Partition around limits
 description: Use partitioning to address limits to the ability to scale up. Limits include number of cores, database size, query throughput, and network throughput.
 author: RobBagby
-ms.author: robbag
+ms.author: pnp
 categories: azure
 ms.date: 08/30/2018
 ms.topic: conceptual

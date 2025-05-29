@@ -2,34 +2,162 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2025-05-06T13:38:25.183Z</updated>
+    <updated>2025-05-19T17:53:35.377Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
     <entry>
-        <title type="html"><![CDATA[Architectural approaches for compute in multitenant solutions]]></title>
+        <title type="html"><![CDATA[Backends for Frontends Pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/backends-for-frontends</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/backends-for-frontends"/>
+        <updated>2025-05-14T22:43:54.000Z</updated>
+        <summary type="html"><![CDATA[Explore the Backends for Frontends pattern, which creates separate backend services for consumption by specific frontend applications or interfaces.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Extend Mainframes to Digital Channels by Using Standards-Based REST APIs]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/extend-mainframes-rest-apis</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/extend-mainframes-rest-apis"/>
+        <updated>2025-05-09T15:23:36.000Z</updated>
+        <summary type="html"><![CDATA[Learn how the digital transformation architecture extends mainframe applications to Azure without disruptions or modifications to existing applications.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Design to Support Foundation Model Life Cycles]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle"/>
+        <updated>2025-05-13T21:00:49.000Z</updated>
+        <summary type="html"><![CDATA[Learn about how to manage both new model versions and retired model versions in your generative AI application infrastructure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for identity in multitenant solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/identity</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/identity"/>
+        <updated>2025-05-19T07:04:44.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the approaches for managing identities in a multitenant solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural Approaches for Compute in Multitenant Solutions]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/compute</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/compute"/>
-        <updated>2025-05-02T01:35:24.000Z</updated>
-        <summary type="html"><![CDATA[This article describes approaches to support multitenancy for the compute components of your solution.]]></summary>
+        <updated>2025-05-14T16:33:48.000Z</updated>
+        <summary type="html"><![CDATA[Learn about approaches to support multitenancy for compute components, including scaling strategies, isolation models, and cost-efficient shared resources.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Considerations for using Azure Container Apps in a multitenant solution]]></title>
+        <title type="html"><![CDATA[Considerations for Using Azure Container Apps in a Multitenant Solution]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/container-apps</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/container-apps"/>
-        <updated>2025-05-02T01:35:24.000Z</updated>
-        <summary type="html"><![CDATA[Learn about Azure Container Apps features that are useful in multitenant systems. Get links to additional guidance.]]></summary>
+        <updated>2025-05-14T16:33:48.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Azure Container Apps features that are useful in multitenant systems, including scalability, isolation, and resource management. Get links to extra guidance.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Azure Service Bus considerations for multitenancy]]></title>
+        <title type="html"><![CDATA[Azure Service Bus Considerations for Multitenancy]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/service-bus</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/service-bus"/>
-        <updated>2025-05-02T01:35:24.000Z</updated>
-        <summary type="html"><![CDATA[This article describes the features of Azure Service Bus that are useful when you use it in multitenanted systems. It provides links to guidance for how to use Azure Service Bus in a multitenant solution.]]></summary>
+        <updated>2025-05-14T16:33:48.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure Service Bus that are useful in multitenant systems. It provides links to guidance for how to use Service Bus in a multitenant solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Generative AI Operations for Organizations with MLOps Investments]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops"/>
+        <updated>2025-05-09T17:11:59.000Z</updated>
+        <summary type="html"><![CDATA[Extend existing MLOps investments to include generative AI operations. Learn where you can apply existing investments and where you need to extend those investments.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy Checklist on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/checklist</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/checklist"/>
+        <updated>2025-05-15T20:17:17.000Z</updated>
+        <summary type="html"><![CDATA[Multitenancy lets you serve multiple tenants in an Azure-hosted solution. Use this checklist to evaluate your multitenancy needs and architecture.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architect Multitenant Solutions on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/overview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/overview"/>
+        <updated>2025-05-15T20:17:17.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build multitenant solutions, including B2B and B2C SaaS, on Azure by using the guidance that this series provides.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate an Oracle Database to OD@A Exadata Database Service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/idea/migrate-oracle-odaa-exadata</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/idea/migrate-oracle-odaa-exadata"/>
+        <updated>2025-05-14T20:31:54.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Oracle ZDM and Azure networking to migrate an Oracle database to Oracle Database@Azure Exadata Database Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Azure OpenAI]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/openai</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/openai"/>
+        <updated>2025-05-12T22:55:31.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy Azure OpenAI models and work with the features associated with each model when you have a multitenant system.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multiregion BCDR for Azure Virtual Desktop]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr"/>
+        <updated>2025-05-12T15:11:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn which options and scenarios are possible to design and implement an effective multi-region BCDR strategy for Azure Virtual Desktop.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Apache Kafka Migration to Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hadoop/apache-kafka-migration</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hadoop/apache-kafka-migration"/>
+        <updated>2025-05-09T17:37:55.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Apache Kafka and about ways to migrate a Kafka implementation to Azure by using Azure services like HDInsight and Event Hubs.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Related Resources for Multitenancy]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/related-resources</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/related-resources"/>
+        <updated>2025-05-09T17:01:24.000Z</updated>
+        <summary type="html"><![CDATA[This article provides a set of links and resources for architects and developers of multitenant solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Move an IoT Hub-Based Solution from Test to Production]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/iot/iot-move-to-production</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/iot/iot-move-to-production"/>
+        <updated>2025-05-08T16:43:02.000Z</updated>
+        <summary type="html"><![CDATA[Learn best practices for moving an IoT Hub-based solution to production, including deployment stamps, transient fault handling, and zero-touch provisioning.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Azure SQL Database]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/sql-database</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/sql-database"/>
+        <updated>2025-05-08T16:40:29.000Z</updated>
+        <summary type="html"><![CDATA[This article outlines Azure SQL Database features for designing a multitenant system. It provides guidance and examples for using Azure SQL in a multitenant solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Automate Document Classification in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/automate-document-classification-durable-functions</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/automate-document-classification-durable-functions"/>
+        <updated>2025-05-08T15:28:45.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use the durable functions feature of Azure Functions as an automated document processing pipeline to classify documents by type.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Web API Design Best Practices]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/api-design</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/api-design"/>
+        <updated>2025-05-07T20:16:31.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to apply best practices for designing RESTful web APIs that support platform independence and loose coupling for service evolution.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -433,14 +561,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Extend mainframes to digital channels by using standards-based REST APIs]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis"/>
-        <updated>2025-04-25T20:37:55.000Z</updated>
-        <summary type="html"><![CDATA[Learn how the digital transformation architecture extends mainframe applications to Azure without disruptions or modifications to the existing applications.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Run HP-UX workloads in Azure with Stromasys Charon-PAR]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/hp-ux-stromasys-charon-par</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/hp-ux-stromasys-charon-par"/>
@@ -685,15 +805,15 @@
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/openai</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/openai"/>
         <updated>2025-04-11T04:03:22.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to deploy the Azure OpenAI models and work with the features associated with each model when you have a multitenant system.]]></summary>
+        <summary type="html"><![CDATA[Learn how to deploy Azure OpenAI models and work with the features associated with each model when you have a multitenant system.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Generative AI Ops for Organizations with MLOps Investments]]></title>
+        <title type="html"><![CDATA[Generative AI Operations for Organizations with MLOps Investments]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops"/>
         <updated>2025-04-09T19:05:51.000Z</updated>
-        <summary type="html"><![CDATA[Extend existing MLOps investments to include generative AI ops. Learn where you can apply existing investments and where you need to extend those investments.]]></summary>
+        <summary type="html"><![CDATA[Extend existing MLOps investments to include generative AI operations. Learn where you can apply existing investments and where you need to extend those investments.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -790,14 +910,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/databases/architecture/ecommerce-search"/>
         <updated>2025-03-20T16:50:14.000Z</updated>
         <summary type="html"><![CDATA[This example scenario shows how using a dedicated search service can dramatically increase the relevance of search results for your e-commerce customers.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Backends for Frontends pattern]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/patterns/backends-for-frontends</id>
-        <link href="https://learn.microsoft.com/azure/architecture/patterns/backends-for-frontends"/>
-        <updated>2025-03-20T07:16:19.000Z</updated>
-        <summary type="html"><![CDATA[Explore the Backends for Frontends pattern, which creates separate backend services to be consumed by specific frontend applications or interfaces.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -937,11 +1049,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Web API design best practices]]></title>
+        <title type="html"><![CDATA[Web API Design Best Practices]]></title>
         <id>https://learn.microsoft.com/azure/architecture/best-practices/api-design</id>
         <link href="https://learn.microsoft.com/azure/architecture/best-practices/api-design"/>
         <updated>2025-03-27T16:31:17.000Z</updated>
-        <summary type="html"><![CDATA[Learn best practices for designing web APIs that support platform independence and service evolution.]]></summary>
+        <summary type="html"><![CDATA[Learn how to apply best practices for designing RESTful web APIs that support platform independence and loose coupling for service evolution.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1153,7 +1265,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Automate document classification in Azure]]></title>
+        <title type="html"><![CDATA[Automate Document Classification in Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/automate-document-classification-durable-functions</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/automate-document-classification-durable-functions"/>
         <updated>2025-02-24T19:19:44.000Z</updated>

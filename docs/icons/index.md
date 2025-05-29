@@ -1,7 +1,7 @@
 ---
 title: Azure icons
 description: Icons for use in building architecture diagrams for Azure
-ms.author: robbag
+ms.author: pnp
 author: RobBagby
 ms.reviewer: chkittel
 ms.date: 03/28/2025
