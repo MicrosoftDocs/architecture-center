@@ -7,15 +7,6 @@ metadata:
   ms.date: 03/19/2024
   ms.topic: solution-idea
   ms.subservice: solution-idea
-azureCategories:
-  - migration
-  - storage
-products:
-  - azure-data-factory
-  - azure-data-lake
-  - azure-sql-database
-  - azure-storage
-  - azure-virtual-machines
 name: Mainframe file replication and sync on Azure
 summary: Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-azure-file-replication-updated.png
