@@ -68,7 +68,7 @@ This architecture outlines various Azure-native migration tools that organizatio
 
 - [Azure Data Factory](https://azure.microsoft.com/products/data-factory) is a hybrid data integration service that you can use to create, schedule, and orchestrate ETL and ELT workflows. In this architecture, Azure Data Factory is used to send mainframe files to Blob Storage via FTP.
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform optimized for Azure. You can use Databricks to correlate incoming data, and enrich it with other data stored in Databricks.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform optimized for Azure. You can use Azure Databricks to correlate incoming data, and enrich it with other data stored in Azure Databricks.
   
 - [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) is a fast and flexible cloud data warehouse with a massively parallel processing architecture that you can use to scale, compute, and store data elastically and independently. It can be used for mainframe data transformation before you load it into an Azure database.
 
@@ -118,14 +118,14 @@ On-premises file replication and synchronization are essential for various use c
 
 Principal authors:
 
-- [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
 - [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
+- [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- For more information, contact [Microsoft SQL Data Engineering team](mailto:datasqlninja@microsoft.com).
+- For more information, contact the [Microsoft SQL Data Engineering team](mailto:datasqlninja@microsoft.com).
 - [Azure database migration guides](https://datamigration.microsoft.com)
 
 ## Related resources
