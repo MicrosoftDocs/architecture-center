@@ -1,4 +1,4 @@
-This article shows you how to migrate System i workloads to Azure using Infinite i. Infinite i converts Report Program Generator (RPG) and common business-oriented language (COBOL) source code to object code that runs natively on x86 virtual machines (VMs). Application screens and interactions work as before, minimizing the need for user retraining. After migration, you can maintain and update programs by modifying the original source code as usual.
+This article describes how to migrate IBM System i workloads to Azure by using Infinite i. Infinite i converts Report Program Generator (RPG) and common business-oriented language (COBOL) source code to object code that runs natively on x86 virtual machines (VMs). Application screens and interactions work as before, minimizing the need for user retraining. After migration, you can maintain and update programs by modifying the original source code as usual.
 
 ## Architecture
 
@@ -18,16 +18,16 @@ The following workflow corresponds to the previous diagram:
 
 1. Azure Load Balancer distributes incoming TN5250 traffic across two Infinite i app servers (active and standby) in the virtual network. Azure-based clients connect via a peered virtual network. The following table describes the supported configurations:
 
-| Model | Support | Details |
-|---|---|---|
-| Active/Passive | Yes | Recommended model. Uses replication/failover across AZs. |
-| Active/Active (LB) | No | Not supported due to DB and session state constraints. |
-| Multiple VMs (VMSS) | Limited | For infra deployment only, not workload scaling. |
-| Clustered DB backend | No | Not compatible with Infinite i's current architecture. |
+   | Model | Support | Details |
+   |---|---|---|
+   | Active/Passive | Yes | We recommend this model. It uses replication and failover across availability zones. |
+   | Active/Active (Load Balancer) | No | This model isn't supported because of database and session state constraints. |
+   | Multiple VMs (Azure Virtual Machine Scale Sets) | Limited | Use this model for infra deployment only. Don't use it for workload scaling. |
+   | Clustered database back end | No | This model isn't compatible with Infinite i's current architecture. |
 
-1. The Infinite i compilers translate the System i source code (RPG and COBOL) into 64-bit object code for execution on Azure x86 VMs. The runtime interprets CL, CMD and SQL.
+1. The Infinite i compilers translate the System i source code (RPG and COBOL) into 64-bit object code for execution on Azure x86 VMs. The runtime interprets CL, CMD, and SQL.
 
-1. Infinite i includes an internal database that emulates DB2/400 features such as physical files, logical files, multiple-member files, joins, triggers, referential integrity, commitment control, and journaling. When an application runs on Azure, it accesses data as it did in the AS/400 environment with no code changes required. Infinite i provides internal database connectors (ODBC and JDBC) for connecting to physical and logical files in the internal database.
+1. Infinite i includes an internal database that emulates DB2/400 features such as physical files, logical files, multiple-member files, joins, triggers, referential integrity, commitment control, and journaling. When an application runs on Azure, it accesses data as it did in the AS/400 environment with no code changes required. Infinite i provides internal database connectors like ODBC and JDBC to connect to physical and logical files in the internal database.
 
 1. Azure Files provides file shares to implement Infinite i files. Mounting a file share on the Azure VM gives programs direct access to the files. The file share also holds load modules and log files.
 
@@ -39,7 +39,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) VMs are on-demand, scalable computing resources that eliminate the maintenance demands of physical hardware. In this architecture, they run the migrated workloads and provide flexibility and scalability. The operating system choices include Windows and Linux.
 
-- [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) automate and load-balance VM scaling. These actions simplify application management and increase availability to ensure high availability and performance for the applications.
+- [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) automate and load-balance VM scaling. These actions simplify application management and increase availability to ensure high availability and performance for the applications.
 
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a secure private network in the cloud. It connects VMs to each other, to the internet, and to on-premises networks. It provides the necessary connectivity for the migrated workloads.
 
@@ -51,20 +51,19 @@ The following workflow corresponds to the previous diagram:
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) provides simple, secure, and serverless enterprise-grade file shares in the cloud. The shares support access by the industry-standard Server Message Block (SMB) and Network File System (NFS) protocols. Cloud and on-premises deployments of Windows, Linux, and macOS can mount file shares concurrently.
 
-- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) carries private connections between on-premises infrastructure and Azure datacenters. It helps ensure high-speed and secure connectivity.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) carries private connections between on-premises infrastructure and Azure datacenters. It helps ensure high-speed and secure connectivity.
 
 - [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) is a family of SQL cloud databases that provide a unified experience for your entire SQL portfolio and a wide range of deployment options from edge to cloud. It provides fully managed database services for the migrated workloads.
 
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database), which is part of the Azure SQL family, is a fully managed platform as a service (PaaS) database engine. It handles most database management functions, such as upgrading, patching, backups, and monitoring, without your involvement. Azure SQL Database always runs on the latest stable version of the SQL Server database engine and patched OS, with 99.99% availability to help ensure high availability and performance.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database), which is part of the Azure SQL family, is a fully managed platform as a service (PaaS) database engine. It handles most database management functions, such as upgrading, patching, backups, and monitoring, without your involvement. SQL Database always runs on the latest stable version of the SQL Server database engine and patched OS, with 99.99% availability to help ensure high availability and performance.
 
 ## Scenario details
 
 Infinite i lets you migrate your System i and AS/400 workloads to Azure. The migrated workloads in Azure maintain or improve performance and availability, reduce costs, and create opportunities for modernization.
 
- After deployment on Infinite i in Azure, the applications run as they did on the System i platform. The Infinite i runtime environment supports job execution and control language commands in a Linux environment.
+After deployment on Infinite i in Azure, the applications run as they did on the System i platform. The Infinite i runtime environment supports job execution and control language commands in a Linux environment.
 
 You use the Infinite i suite to compile your applications. The suite includes compilers and translators for these technologies: RPG, RPG/ILE, RPG/Free, COBOL, Control Language Programs (CLP), and Data Description Specifications (DDS).
-
 
 The benefits of the Infinite i environment include:
 
@@ -96,15 +95,15 @@ Reliability helps ensure that your application can meet the commitments that you
 
 This architecture accommodates redundancy and disaster recovery for high availability:
 
-- Use [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) for disaster recovery on Azure VMs. It helps protect virtual machines against major outages by minimizing downtime and data loss. The service is dependable, cost-effective, and easy to deploy.
+- Use [Site Recovery](/azure/site-recovery/site-recovery-overview) for disaster recovery on Azure VMs. It helps protect virtual machines against major outages by minimizing downtime and data loss. The service is dependable, cost-effective, and easy to deploy.
 
 To improve availability, take the following steps:
 
-- Use [Azure availability zones](/azure/reliability/availability-zones-overview) to protect against infrastructure disruptions by eliminating all single points of failure. The SLA for VMs is for 99.99% uptime.
+- Use [Azure availability zones](/azure/reliability/availability-zones-overview) to protect against infrastructure disruptions by eliminating all single points of failure. The service-level agreement (SLA) for VMs is for 99.99% uptime.
 
 - Use Virtual Machine Scale Sets to set up a group of load-balanced VMs that make up an Azure virtual machine scale set. This approach increases availability.
 
-- For more information, see [Availability options for Azure Virtual Machines](/azure/virtual-machines/availability).
+- For more information, see [Availability options for Virtual Machines](/azure/virtual-machines/availability).
 
 ### Security
 
@@ -140,21 +139,21 @@ Here are pricing considerations for specific components:
 
 - For Premium SSD or Ultra SSD managed storage disks pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
-- There are no upfront costs for [Azure SQL Database](https://azure.microsoft.com/pricing/details/azure-sql-database/single). You pay for resources as you use them.
+- There are no upfront costs for [SQL Database](https://azure.microsoft.com/pricing/details/azure-sql-database/single). You pay for resources as you use them.
 
 - For [Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery), you pay for each protected instance.
 
-- These services are free with your Azure subscription, but you pay for usage and traffic:
+- The following services are free with your Azure subscription, but you pay for usage and traffic:
 
   - [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer).
 
-  - For [Azure Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network), IP addresses carry a nominal charge.
+  - For [Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network), IP addresses carry a nominal charge.
 
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-- The Infinite i deployment methodology calls for converting and testing workloads on the original platform before migrating the code and data to the Azure platform.
+- The Infinite i deployment methodology recommends that you convert and test workloads on the original platform before you migrate the code and data to the Azure platform.
 
 - When you move workloads to Azure, use availability zones, scale sets, and [Site Recovery](https://azure.microsoft.com/products/site-recovery) to reduce management overhead for scaling and reliability.
 
@@ -163,7 +162,6 @@ Operational Excellence covers the operations processes that deploy an applicatio
 ### Performance Efficiency
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
-
 
 - The Infinite i migration design process considers the performance characteristics of the workloads running on System i and selects the right configuration of Azure services for the desired performance on Azure.
 
@@ -184,8 +182,6 @@ Principal author:
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
-
-- For more information, contact <legacy2azure@microsoft.com>.
 
 - See the [Microsoft Azure Well-Architected Framework](/azure/well-architected) recommendations for [optimizing component costs](/azure/well-architected/cost-optimization/optimize-component-costs).
 
