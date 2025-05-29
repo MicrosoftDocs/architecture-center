@@ -23,7 +23,7 @@ In the Azure landing zone architecture, applications are deployed to their own s
 
 In the following sections, front-end component refers to an application component that must be reachable from the entire corporate network. Back-end component refers to an application component that doesn't expose endpoints in the corporate network and only needs to be reachable from within its own landing zone. 
 
-## Method 1: Non-routable subnets in landing zone spoke virtual networks
+## Method 1: Non-routable subnets in spoke virtual networks
 
 [IPv4 subnet peering](/azure/virtual-network/how-to-configure-subnet-peering) allows restricting a peering relationship between two virtual networks to select subnets. Only subnets that are included in the peering configuration can route traffic to each other. Subnets that are excluded from the peering configuration are not visible and not reachable from the peer virtual network. If, in a hub and spoke topology, one or more subnets in each spoke are excluded from the peering configuration, those subnets are not visible to/reachable from the hub or any other remote network connected to the hub over other peerings, ExpressRoute or VPN connections. Therefore, all subnets excluded from the peering configuration can be assigned the same address range in all spoke virtual networks. That range must be defined as “non-routable” and cannot be used anywhere else in the corporate network.
 
