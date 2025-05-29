@@ -1,5 +1,5 @@
 ---
-title: Azure NAT Gateway considerations for multitenancy
+title: Guidance for using Azure NAT Gateway in a multitenant solution
 description: This article describes the features of NAT Gateway that are useful when you work with multitenanted systems. It also provides links to guidance and examples for how to use NAT Gateway in a multitenant solution.
 author: johndowns
 ms.author: pnp
@@ -16,7 +16,7 @@ ms.custom:
   - arb-saas
 ---
 
-# Azure NAT Gateway considerations for multitenancy
+# Guidance for using Azure NAT Gateway in a multitenant solution
 
 Azure NAT Gateway provides control over outbound network connectivity from your resources that are hosted within an Azure virtual network. In this article, we review how NAT Gateway can mitigate Source Network Address Translation (SNAT) port exhaustion, which can affect multitenant applications. We also review how NAT Gateway assigns static IP addresses to the outbound traffic from your multitenant solution.
 

@@ -4,6 +4,7 @@ description: Learn how to deploy Azure OpenAI models and work with the features 
 author: PlagueHO
 ms.author: dascottr
 ms.date: 04/11/2025
+ms.update-cycle: 180-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
