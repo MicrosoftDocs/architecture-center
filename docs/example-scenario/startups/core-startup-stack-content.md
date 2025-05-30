@@ -29,7 +29,7 @@ In this core startup stack architecture:
 
 - [Azure Database for PostgreSQL](/azure/postgresql/overview) is an Azure database service for a leading open-source relational database management system (RDBMS). You can concentrate on developing your application rather than managing database servers.
 
-  Azure also has managed database services for [SQL](/azure/azure-sql/database/sql-database-paas-overview), [MySQL](/azure/mysql/overview), [MariaDB](/azure/mariadb/overview), [MongoDB](https://www.mongodb.com/mongodb-on-azure), [Apache Cassandra](/azure/cosmos-db/cassandra/introduction), [Gremlin](/azure/cosmos-db/gremlin/introduction), and [Redis](/azure/azure-cache-for-redis/cache-overview).
+  Azure also has managed database services for [SQL](/azure/azure-sql/database/sql-database-paas-overview), [MySQL](/azure/mysql/overview), [MongoDB](https://www.mongodb.com/mongodb-on-azure), [Apache Cassandra](/azure/cosmos-db/cassandra/introduction), [Gremlin](/azure/cosmos-db/gremlin/introduction), and [Redis](/azure/azure-cache-for-redis/cache-overview).
 
   In addition to managed offerings, the Azure Marketplace includes databases used in startup architectures as well, such as [CockroachDB](https://azuremarketplace.microsoft.com/marketplace/apps/cockroachlabs1586448087626.cockroachdb-azure), [Neon Serverless Postgres](https://azuremarketplace.microsoft.com/marketplace/apps/neon1722366567200.neon_serverless_postgres_azure_prod), and [SQLite](https://azuremarketplace.microsoft.com/marketplace/apps/cloud-infrastructure-services.sqlite-ubuntu).
 
@@ -63,7 +63,7 @@ Serving static content from your app server wastes resources. Once you configure
 
 ### Database
 
-Once your app is running, you need to store your data in a database. For most cases, a relational database is the best solution. A relational database has multiple access methods and the speed of a time-tested solution. Relational databases include [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework), [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql), and [Azure Database for MariaDB](/azure/mariadb/overview). Some use cases need a document database or NoSQL database like [MongoDB](https://www.mongodb.com/mongodb-on-azure) or [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db).
+Once your app is running, you need to store your data in a database. For most cases, a relational database is the best solution. A relational database has multiple access methods and the speed of a time-tested solution. Relational databases include [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) and [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql). Some use cases need a document database or NoSQL database like [MongoDB](https://www.mongodb.com/mongodb-on-azure) or [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db).
 
 ### Log aggregation
 

@@ -40,7 +40,7 @@ When using Azure as a modern data platform, you have your choice of platform as 
 ### Alternatives
 
 -   For the data layer, you have your choice of managed services, including
-    [Azure Database for PostgreSQL](/azure/postgresql/), [Azure Database for MySQL](/azure/mysql/overview), [Azure Cosmos DB](/azure/cosmos-db/introduction), [Azure Database for MariaDB](/azure/mariadb/overview), and [Azure SQL](/azure/azure-sql/).
+    [Azure Database for PostgreSQL](/azure/postgresql/), [Azure Database for MySQL](/azure/mysql/overview), [Azure Cosmos DB](/azure/cosmos-db/introduction), and [Azure SQL](/azure/azure-sql/).
 
 -   For the storage layer, create an enterprise data lake using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction).
 
