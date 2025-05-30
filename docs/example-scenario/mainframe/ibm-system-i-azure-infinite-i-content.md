@@ -22,12 +22,12 @@ The following workflow corresponds to the previous diagram:
    |---|---|---|
    | Active/Passive | Yes | We recommend this model. It uses replication and failover across availability zones. |
    | Active/Active (Load Balancer) | No | This model isn't supported because of database and session state constraints. |
-   | Multiple VMs (Azure Virtual Machine Scale Sets) | Limited | Use this model for infra deployment only. Don't use it for workload scaling. |
+   | Multiple VMs (Azure Virtual Machine Scale Sets) | Limited | Use this model for infrastructure deployment only. Don't use it for workload scaling. |
    | Clustered database back end | No | This model isn't compatible with Infinite i's current architecture. |
 
-1. The Infinite i compilers translate the System i source code (RPG and COBOL) into 64-bit object code for execution on Azure x86 VMs. The runtime interprets CL, CMD, and SQL.
+1. The Infinite i compilers translate the System i source code (RPG and COBOL) into 64-bit object code to run on Azure x86 VMs. The runtime interprets CL, CMD, and SQL.
 
-1. Infinite i includes an internal database that emulates DB2/400 features such as physical files, logical files, multiple-member files, joins, triggers, referential integrity, commitment control, and journaling. When an application runs on Azure, it accesses data as it did in the AS/400 environment with no code changes required. Infinite i provides internal database connectors like ODBC and JDBC to connect to physical and logical files in the internal database.
+1. Infinite i includes an internal database that emulates DB2/400 features such as physical files, logical files, multiple-member files, joins, triggers, referential integrity, commitment control, and journaling. When an application runs on Azure, it accesses data as it did in the AS/400 environment with no code changes required. Infinite i provides internal database connectors like Open Database Connectivity (ODBC) and Java Database Connectivity (JDBC) to connect to physical and logical files in the internal database.
 
 1. Azure Files provides file shares to implement Infinite i files. Mounting a file share on the Azure VM gives programs direct access to the files. The file share also holds load modules and log files.
 
@@ -39,7 +39,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) VMs are on-demand, scalable computing resources that eliminate the maintenance demands of physical hardware. In this architecture, they run the migrated workloads and provide flexibility and scalability. The operating system choices include Windows and Linux.
 
-- [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) automate and load-balance VM scaling. These actions simplify application management and increase availability to ensure high availability and performance for the applications.
+- [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) automates and load-balances VM scaling. These actions simplify application management and increase availability to ensure high availability and performance for the applications.
 
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a secure private network in the cloud. It connects VMs to each other, to the internet, and to on-premises networks. It provides the necessary connectivity for the migrated workloads.
 
@@ -47,13 +47,13 @@ The following workflow corresponds to the previous diagram:
 
 - [Azure load balancing services](../../guide/technology-choices/load-balancing-overview.yml) scale VMs for high availability and high performance. This architecture uses [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer), which provides low-latency balancing of traffic among VMs and across multitiered hybrid apps.
 
-- [Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage) provides highly durable and high-performance block storage for Azure VMs. It supports various disk storage options to meet performance and durability needs. There are four disk storage options for the cloud: Ultra Disk SSD Managed Disks, Premium SSD Managed Disks, Standard SSD Managed Disks, and Standard HDD Managed Disks.
+- [Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage) provides highly durable and high-performance block storage for Azure VMs. It supports various disk storage options to meet performance and durability needs. There are four disk storage options for the cloud: Azure Ultra Disk Storage, Azure Premium SSD, Azure Standard SSD, and Azure Standard HDD.
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) provides simple, secure, and serverless enterprise-grade file shares in the cloud. The shares support access by the industry-standard Server Message Block (SMB) and Network File System (NFS) protocols. Cloud and on-premises deployments of Windows, Linux, and macOS can mount file shares concurrently.
 
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) carries private connections between on-premises infrastructure and Azure datacenters. It helps ensure high-speed and secure connectivity.
 
-- [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) is a family of SQL cloud databases that provide a unified experience for your entire SQL portfolio and a wide range of deployment options from edge to cloud. It provides fully managed database services for the migrated workloads.
+- [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) is a family of SQL cloud databases that provide a unified experience for your entire SQL portfolio and a wide range of deployment options from the edge to the cloud. It provides fully managed database services for migrated workloads.
 
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database), which is part of the Azure SQL family, is a fully managed platform as a service (PaaS) database engine. It handles most database management functions, such as upgrading, patching, backups, and monitoring, without your involvement. SQL Database always runs on the latest stable version of the SQL Server database engine and patched OS, with 99.99% availability to help ensure high availability and performance.
 
@@ -61,11 +61,11 @@ The following workflow corresponds to the previous diagram:
 
 Infinite i lets you migrate your System i and AS/400 workloads to Azure. The migrated workloads in Azure maintain or improve performance and availability, reduce costs, and create opportunities for modernization.
 
-After deployment on Infinite i in Azure, the applications run as they did on the System i platform. The Infinite i runtime environment supports job execution and control language commands in a Linux environment.
+After deployment on Infinite i in Azure, the applications run as they did on the System i platform. The Infinite i runtime environment supports job processing and control language commands in a Linux environment.
 
 You use the Infinite i suite to compile your applications. The suite includes compilers and translators for these technologies: RPG, RPG/ILE, RPG/Free, COBOL, Control Language Programs (CLP), and Data Description Specifications (DDS).
 
-The benefits of the Infinite i environment include:
+The Infinite i environment provides the following benefits:
 
 - Easy migration of System i workloads to Azure.
  
@@ -77,7 +77,7 @@ The benefits of the Infinite i environment include:
 
 - Savings on licensing and maintenance that significantly reduces your total cost of ownership.
 
-- Faster and lower-cost options for disaster recovery on Azure than on System i.
+- Faster and lower-cost options for disaster recovery on Azure compared to System i.
 
 ### Potential use cases
 
@@ -95,7 +95,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 This architecture accommodates redundancy and disaster recovery for high availability:
 
-- Use [Site Recovery](/azure/site-recovery/site-recovery-overview) for disaster recovery on Azure VMs. It helps protect virtual machines against major outages by minimizing downtime and data loss. The service is dependable, cost-effective, and easy to deploy.
+- Use [Site Recovery](/azure/site-recovery/site-recovery-overview) for disaster recovery on Azure VMs. It helps protect VMs against major outages by minimizing downtime and data loss. The service is dependable, cost-effective, and easy to deploy.
 
 To improve availability, take the following steps:
 
@@ -131,13 +131,13 @@ Here are pricing considerations for specific components:
 
 - [Windows VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows) and [Linux VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux) depend on your compute capacity.
 
-- For [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute), you pay a monthly port fee and outbound data transfer charges.
+- For [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute), you pay a monthly port fee and outbound data transfer fees.
 
 - [Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs) costs depend on data redundancy options and volume.
 
 - [Azure Files](https://azure.microsoft.com/pricing/details/storage/files) pricing depends on several factors, including data volume, data redundancy, transaction volume, and the number of file sync servers that you use.
 
-- For Premium SSD or Ultra SSD managed storage disks pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
+- For Premium SSD or Ultra Disk Storage pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
 - There are no upfront costs for [SQL Database](https://azure.microsoft.com/pricing/details/azure-sql-database/single). You pay for resources as you use them.
 
@@ -169,7 +169,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 - The architecture is designed to accommodate parallel processing by running multiple sets of VMs to the same database. Independent transactions don't rely on each other being serial.
 
-- For this architecture, use Premium SSDs or Ultra Disk SSDs for improved performance.
+- For this architecture, use Premium SSD or Ultra Disk Storage for improved performance.
 
 ## Contributors
 
@@ -183,18 +183,18 @@ Principal author:
 
 ## Next steps
 
-- See the [Microsoft Azure Well-Architected Framework](/azure/well-architected) recommendations for [optimizing component costs](/azure/well-architected/cost-optimization/optimize-component-costs).
+- See the [Well-Architected Framework](/azure/well-architected) recommendations for [optimizing component costs](/azure/well-architected/cost-optimization/optimize-component-costs).
 
 - Infinite i from partner Infinite Corporation:
 
   - [Overview](https://www.infinitecorporation.com/infinite-i)
   - [Migrate legacy cold storage AS/400](https://www.infinitecorporation.com/data-migration)
-  - [Infinite Cloud: Beautiful screens from IBM i and AS400 green screens](https://www.infinitecorporation.com/infinite-cloud)
+  - [Infinite Cloud: Beautiful screens from IBM i and AS/400 green screens](https://www.infinitecorporation.com/infinite-cloud)
 
 - IBM System i (AS/400) information:
 
   - [IBM Power systems servers](https://www.ibm.com/power)
-  - [IBM i: An operating system for IMB Power servers](https://www.ibm.com/products/ibm-i)
+  - [IBM i: An operating system for IBM Power servers](https://www.ibm.com/products/ibm-i)
   - [Enterprise server solutions](https://www.ibm.com/servers)
 
 ## Related resources

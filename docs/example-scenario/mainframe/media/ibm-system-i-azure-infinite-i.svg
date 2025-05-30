@@ -1992,7 +1992,7 @@
 		</g>
 		<g id="shape1667-661" v:mID="1667" v:groupContext="shape" transform="translate(1191.37,-685.125)">
 			<title>Sheet.1667</title>
-			<desc>Azure SQL Database (Logical Server) [Secondary Region]</desc>
+			<desc>Azure SQL Database (Logical server) [Secondary region]</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(222000):26"/>
 			</v:userDefs>
@@ -2000,7 +2000,7 @@
 			<v:textRect cx="83.8125" cy="916.875" width="167.63" height="20.25"/>
 			<rect x="0" y="906.75" width="167.625" height="20.25" class="st30"/>
 			<text x="4" y="921.55" class="st63" v:langID="1033"><v:paragraph/><v:tabList/>Azure SQL Database<v:newlineChar/><tspan
-						x="4" dy="1.2em" class="st34">(Logical Server)<v:newlineChar/></tspan><tspan x="4" dy="1.2em" class="st34">[Secondary Region]</tspan></text>		</g>
+						x="4" dy="1.2em" class="st34">(Logical server)<v:newlineChar/></tspan><tspan x="4" dy="1.2em" class="st34">[Secondary region]</tspan></text>		</g>
 		<g id="shape1668-666" v:mID="1668" v:groupContext="shape" transform="translate(1200.37,-592.709)">
 			<title>Sheet.1668</title>
 			<desc>Database 1</desc>
