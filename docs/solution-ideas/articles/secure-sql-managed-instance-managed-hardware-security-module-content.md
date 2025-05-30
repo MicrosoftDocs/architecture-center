@@ -1,0 +1,75 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
+This solution describes a secure and resilient deployment pattern for Azure SQL Managed Instance (MI) highlighting how Azure Managed Hardware Security Module (HSM) is used to store the customer managed Transparent Data Encryption (TDE) protector keys.
+
+## Architecture
+
+:::image type="complex" border="false" source="./media/azure-sql-managed-instance-architecture.svg" alt-text="Diagram that shows the Secure and Resilient Azure SQL Managed Instance (MI) architecture." lightbox="./media/azure-sql-managed-instance-architecture.svg":::
+   A Visio diagram representing a secure and resilient deployment of Azure SQL Managed Instance (MI) configured for cross-region replication to store the Transparent Data Encryption (TDE) protector keys using Azure Managed Hardware Security Model (HSM) with private endpoints.
+:::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-sql-managed-instance-architecture.vsdx) of this architecture.*
+
+### Workflow
+
+The following workflow corresponds to the previous diagram:
+
+1. Azure SQL Managed Instance (MI) is configured with Availability Groups (AGs) in the secondary nonpaired region to replicate the data for disaster recovery.
+
+1. Managed HSM is configured with a cross-region pool which replicates the key material and permissions to the vault in the secondary nonpaired region automatically.
+
+1. Data plane traffic from the SQL Managed Instance transits through the private endpoint of the Managed HSM.
+
+1. Managed HSM uses Traffic Manager, which routes the traffic to the closest vault by choosing the closest operational vault.
+
+1. If the managed instance needs to check permissions on a key, management plane traffic from the Azure SQL Managed Instance transits using the Azure backbone.
+
+### Components
+
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a Platform as a Service (PaaS) offering that is nearly 100% compatible with the latest Enterprise Edition SQL Server database engine. It provides a native virtual network implementation that addresses common security concerns and features a business model that's advantageous for existing SQL Server customers. With SQL Managed Instance, customers can migrate their on-premises applications to the cloud with minimal modifications to applications and databases. Also, SQL Managed Instance offers comprehensive PaaS capabilities, including automatic patching and version updates, automated backups, and high availability. These features significantly reduce management overhead and total cost of ownership (TCO). SQL Managed Instance is the database target for the TDE protector keys.
+
+- [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm) is a fully managed, highly available, single-tenant, standards-compliant cloud service. The service is designed to safeguard cryptographic keys for cloud applications, utilizing Federal Information Processing Standards (FIPS) 140-2 Level 3 validated HSMs. It's one of several key management solutions in Azure. Azure Key Vault Managed HSM is used to securely vault the TDE protector keys and to provide cross-region resiliency.
+
+- [Private Endpoint](/azure/private-link/private-endpoint-overview) is a network interface that securely connects your PaaS services (such as Azure Storage, SQL Database, and Key Vault) to your virtual network using a private IP address. The use of this service eliminates the need for public internet exposure, enhancing security by ensuring that traffic remains within the Azure backbone network while using the customer virtual network for added security.
+
+- [Azure Private DNS](/azure/dns/private-dns-overview) enables seamless name resolution for private endpoints, allowing resources within a virtual network to access Azure services privately using their fully qualified domain names (FQDN) instead of public IP addresses. When a private endpoint is created, a corresponding Domain Name System (DNS) record is automatically registered in the linked private DNS zone. Using a private DNS zone ensures that traffic to the service remains within the Azure backbone network, improving security, performance, and compliance by avoiding exposure to the public internet. provides native cross-region name resolution resiliency for Managed HSM, if a regional outage of the service occurs.
+
+## Scenario details
+
+In this scenario, a customer wants to meet strict Service Level Agreement (SLA) thresholds for their mission-critical system while maintaining full functionality of the listed services. To achieve this, the customer uses Azure SQL MI with a customer managed TDE protector key, which is stored in a vault that supports their choice of regions and meets all compliance and security requirements, including the use of private endpoints to access the vault.
+
+### Potential use cases
+
+- The customer is using two nonpaired regions (this use case could also be used with paired regions). The primary SQL Managed Instance is in one region with failover groups configured to the SQL MI in the secondary region.
+
+- The customer is using a managed HSM in the primary region with a cross-region replica in the secondary region. When a cross-region replica is enabled, a traffic manager instance is created. The Traffic Manager instance handles the routing of traffic to the local vault if both vaults are operational or to the vault that is operational in the event one is unavailable.
+
+- The customer is using two custom DNS zones to support a private endpoint for the managed HSM in each region.
+
+- The customer enabled TDE on the user databases using the customer managed key model, and stored the protector key in the managed HSM.
+
+- The customer uses this design to provide the maximum resiliency possible.
+
+## Contributors
+
+*Microsoft maintains this article. The following contributors wrote this article.*
+
+Principal authors:
+
+- [Laura Grob](https://www.linkedin.com/in/laura-grob/) | Principal Cloud Solution Architect
+- [Armen Kaleshian](https://www.linkedin.com/in/akaleshian/) | Principal Cloud Solution Architect
+- [Michael Piskorski](https://www.linkedin.com/in/mike-piskorski-1451272/) | Senior Cloud Solution Architect
+
+## Next steps
+
+- [A Comprehensive Guide to Azure Managed HSM for Regulated Industries - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-infrastructure-blog/a-comprehensive-guide-to-azure-managed-hsm-for-regulated/ba-p/4100749)
+- [Local role-based access control built-in roles for Azure Key Vault Managed HSM | Microsoft Learn](/azure/key-vault/managed-hsm/built-in-roles)
+- [Enable multi-region replication on Azure Managed HSM | Microsoft Learn](/azure/key-vault/managed-hsm/multi-region-replication)
+- [Configure Azure Key Vault Managed HSM with private endpoints | Microsoft Learn](/azure/key-vault/managed-hsm/private-link)
+- [Azure Key Vault Managed HSM recovery overview | Microsoft Learn](/azure/key-vault/managed-hsm/recovery?tabs=azure-cli)
+- [Key sovereignty, availability, performance, and scalability in Managed HSM | Microsoft Learn](/azure/key-vault/managed-hsm/managed-hsm-technical-details)
+- [Best practices for securing Azure Key Vault Managed HSM | Microsoft Learn](/azure/key-vault/managed-hsm/best-practices)
+- [Azure Key Vault security overview | Microsoft Learn](/azure/key-vault/general/security-features)
+- [About keys - Azure Key Vault | Microsoft Learn](/azure/key-vault/keys/about-keys)
+- [How to generate & transfer HSM-protected keys – BYOK – Azure Key Vault | Microsoft Learn](/azure/key-vault/keys/hsm-protected-keys-byok?tabs=azure-cli)
+- [Azure Key Vault availability and redundancy - Azure Key Vault | Microsoft Learn](/azure/key-vault/general/disaster-recovery-guidance)
