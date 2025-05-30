@@ -23,8 +23,8 @@ The diagram has two main sections: the on-premises network and Azure. The enviro
    - The OpCon Core services connect to the OpCon database through the configured Azure private endpoint, which provides secure access to the SQL Database server.
 
    - OpCon Core services communicate with OpCon Agents that are installed on virtual machines (VMs) within the Virtual Network environment. The services also communicate with on-premises systems via the Relay Software component.
-   - Similarly, OpCon Core services communicate directly with application REST API endpoints within the Virtual Network environment. The services also communication with on-premises systems via the Relay Software component and a "Connectionless" system.
-   - OpCon Core services provide Solution Manager which is the web-based user interface for interacting with the entire OpCon environment. 
+   - Similarly, OpCon Core services communicate directly with application REST API endpoints within the Virtual Network environment. The services also communicate with on-premises systems via the Relay Software component and a "Connectionless" system.
+   - OpCon Core services provide Solution Manager, which is the web-based user interface for interacting with the entire OpCon environment. 
    - NSGs limit traffic flow between subnets.
 
 1. The OpCon database objects and data are installed within a SQL Database server, which is accessed through a private endpoint.
@@ -75,34 +75,31 @@ SMA sets up and manages OpCon Cloud. On-premises servers connect to the Relay so
 
 ## Architecture: OpCon Datacenter
 
-If you want more control, you can install and manage OpCon yourself within the Azure cloud environment. You can design a hybrid cloud and on-premises infrastructure, or a cloud-only infrastructure.
+If you want more control, you can install and manage OpCon yourself within the Azure environment. You can design a hybrid cloud and on-premises infrastructure, or a cloud-only infrastructure.
 
-The OpCon software is available from Docker Hub as Docker images.
+You can get the OpCon software from Docker Hub as Docker images. Deploy the OpCon environment within your own Kubernetes cluster by using AKS and a SQL Database server.
 
-You'll deploy the OpCon environment within your own Kubernetes cluster using the AKS and a SQL Database server. The following example architecture depicts an example of running SMA's OpCon in Azure using a Kubernetes configuration.
+The following example architecture runs SMA's OpCon in Azure by using a Kubernetes configuration. It uses a site-to-site VPN gateway to securely connect the cloud infrastructure and the on-premises infrastructure. This implementation uses a single virtual network and multiple subnets to support the various functions. NSGs filter network traffic between Azure resources in the virtual network.
 
-Figure 2 provides an architectural diagram explaining how an OpCon environment using SQL Database for the database requirements is deployed by you within an Azure environment or a hybrid Azure on-premises environment. The figure uses a site-to-site VPN Gateway to provide a secure link between the cloud infrastructure and the on-premises infrastructure.
 
 :::image type="complex" source="../media/opcon-datacenter-architecture.svg" alt-text="Diagram that shows the OpCon Datacenter architecture." lightbox="../media/opcon-datacenter-architecture.svg" border="false":::
 The diagram has two main sections: the on-premises network and Azure. The environments are connected via a site-to-site VPN tunnel over the internet. The on-premises network includes a subnet that contains a local network gateway, VPN connection, and Virtual Network gateway. This subnet points to Unisys ClearPath Forward, IBM zOS or AS400, and Windows and Linux servers via a green line that represents logical connections to OpCon agents. The subnet points to an OpCon MFT server via a red line that represents logical REST API connections to applications. Users also reside in the on-premises network. The Azure virtual network contains the OpCon subnet, applications subnet, and gateway subnet. The OpCon subnet contains OpCon, which points to SQL Database and the opconconfig and opconlog components in the same subnet. The applications subnet contains Unisys ClearPath Forward, Windows, Linux, Azure Storage, an OpCon MFT server, and an application server. OpCon points to Unisys ClearPath Forward, Windows, and Linux via a green line that represents logical connections to OpCon agents. OpCon points to an OpCon MFT server and application server via a red line that represents logical REST API connections to applications. OpCon and an OpCon MFT server point to Azure Storage via a blue line that represents Logical Connector connections to applications. The subnets are connected via a network security group.
 :::image-end:::
 
-The implementation uses a single virtual network and multiple subnets to support the various functions. NSGs are used to filter network traffic between Azure resources in the virtual network.
-
 ### Workflow: OpCon Datacenter
 
-1. You deploy the OpCon Core services container within an AKS cluster you manage. PersistentVolumes (Azure Files CSI storage drivers) are used for the storage of logs and configuration information to ensure data persistence across container restarts.
-   - Database connections between the OpCon Core services and the OpCon database are established through the configured Azure Private Endpoint that provides secure access to the SQL Database server.
+1. You deploy the OpCon Core services container within an AKS cluster that you manage. PersistentVolumes (Azure Files CSI storage drivers) store logs and configuration information to ensure data persistence across container restarts.
+   - The OpCon Core services connect to the OpCon database through the configured Azure private endpoint, which provides secure access to the SQL Database server.
 
-   - OpCon Core services communicate with OpCon Agents installed on VMs within the Virtual Network environment or with on-premises systems through the Virtual Network Gateway.
+   - OpCon Core services communicate with OpCon Agents that are installed on VMs within the Virtual Network environment. The services also communicate with on-premises systems via the Virtual Network gateway.
   
-   -  Similarly, OpCon Core services communicate directly with Application Rest-API endpoints within the Virtual Network environment or with on-premises systems through the Virtual Network Gateway using Rest-API connectivity options.  
-   - OpCon Core services provide Solution Manager which is the web-based user interface for interacting with the entire OpCon environment. 
-   - NSGs are used to limit traffic flow between subnets. 
+   -  Similarly, OpCon Core services communicate directly with application REST API endpoints within the Virtual Network environment. The services also communicate with on-premises systems via the Virtual Network gateway by using REST API connectivity options.
+   - OpCon Core services provide Solution Manager, which is the web-based user interface for interacting with the entire OpCon environment. 
+   - NSGs limit traffic flow between subnets. 
 
-1. The OpCon database objects and data are stored in a SQL Database that is configured to communicate through a private endpoint.
+1. The OpCon database objects and data are stored in a SQL database that's configured to communicate through a private endpoint.
 
-1. OpCon Connector technology allows OpCon Core services to interact with Azure Storage providing capabilities to manage Blob Storage. OpCon Managed File Transfer (MFT) also supports interaction with Azure Storage.
+1. OpCon Core services interact with Azure Storage via OpCon Connector technology. This integration provides capabilities to manage Azure Blob Storage. OpCon MFT also supports interaction with Azure Storage.
 
 1. The application subnet includes the VMs that provide the application infrastructure. The application servers could also be installed into multiple subnets or virtual networks creating separate environments for web servers, application servers, and other systems.
    - Application VMs or on-premises legacy systems require connections to the OpCon Core services for the management of their workloads, while applications providing REST API endpoints don't require extra software.
