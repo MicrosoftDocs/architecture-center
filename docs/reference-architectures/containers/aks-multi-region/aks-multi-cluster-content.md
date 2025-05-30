@@ -226,10 +226,6 @@ This configuration is defined in the cluster stamp Bicep file, so that each time
 
 #### Azure Monitor
 
-The Azure Monitor Container insights feature is the recommended tool to monitor and understand the performance and health of your cluster and container workloads. [Container insights](/azure/azure-monitor/containers/container-insights-overview) utilizes both a Log Analytics workspace for storing log data, and [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) to store numeric time-series data. Prometheus metrics can also be collected by Container Insights and the data can be sent to either [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) or [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs). For more information, see the [AKS baseline reference architecture](../aks/baseline-aks.yml#monitor-and-collect-metrics).
-
-You can also configure your [AKS cluster diagnostic settings](/azure/aks/monitor-aks#aks-control-planeresource-logs) to collect and analyze resource logs from the AKS control plane components and forward them to a Log Analytics workspace.
-
 When you're designing a monitoring solution for a multi-region architecture, it's important to consider the coupling between each stamp. You might deploy a single Log Analytics workspace, shared by each Kubernetes cluster. Like with the other shared resources, define your regional stamp to consume information about the single globally shared Log Analytics workspace, and connect each regional cluster to that one shared workspace. When each regional cluster emits diagnostic logs to that single Log Analytics workspace, you can use the data, along with resource metrics, to more easily build reports and dashboards that help you understand how your whole multi-region solution is running.
 
 #### Azure Front Door
@@ -281,6 +277,28 @@ When using a globally distributed set of AKS clusters, consider the architecture
 This architecture's design doesn't include configuration for state concerns. If you run a single logical application across multiple AKS clusters, consider architecting your workload to use a globally distributed data service, such as Azure Cosmos DB. Azure Cosmos DB is a globally distributed database system that allows you to read and write data from the local replicas of your database, and the Cosmos DB service manages geo-replication for you. For more information, see [Azure Cosmos DB](/azure/cosmos-db).
 
 If your workload utilizes a caching solution, ensure that you architect your caching services so that they remain functional even during failover events. Ensure that the workload itself is resilient to cache-related failover, and that the caching solutions are present on all regional AKS instances.
+
+### Operational excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+When you operate a multi-cluster environment with a fleet resource, monitoring becomes more challenging. Manual review of dashboards and logs can become difficult as the number of clusters increases, so consider how you'll systematically aggregate logs and metrics.
+
+#### Monitor clusters and workloads
+
+The Azure Monitor Container insights feature is the recommended tool to monitor and understand the performance and health of your cluster and container workloads. [Container insights](/azure/azure-monitor/containers/container-insights-overview) utilizes both a Log Analytics workspace for storing log data, and [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) to store numeric time-series data. Prometheus metrics can also be collected by Container Insights and the data can be sent to either [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) or [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs). For more information, see the [AKS baseline reference architecture](../aks/baseline-aks.yml#monitor-and-collect-metrics).
+
+You can also configure your [AKS cluster diagnostic settings](/azure/aks/monitor-aks#aks-control-planeresource-logs) to collect and analyze resource logs from the AKS control plane components and forward them to a Log Analytics workspace.
+
+To learn more about how to configure Azure Monitor workspaces in a multi-cluster environment, see [Azure Monitor](#azure-monitor).
+
+#### Monitor the fleet
+
+When Fleets orchestrates an update run, you can monitor the progress of the run as it progresses across clusters. Data are stored in Azure Resource Graph and [can be exported to Azure Monitor for alerting and storage](/azure/kubernetes-fleet/howto-monitor-update-runs).
+
+If you choose to use Fleets for workload propagation, you can monitor the rollout [by using the Azure portal or kubectl](/azure/kubernetes-fleet/quickstart-resource-propagation).
+
+You can also collect [resource logs from the fleet resource](/azure/azure-monitor/reference/supported-logs/microsoft-containerservice-fleets-logs) and forward them to a Log Analytics workspace.
 
 ### Cost Optimization
 
