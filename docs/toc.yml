@@ -859,8 +859,6 @@ items:
             href: hybrid/azure-local-baseline.yml
           - name: Azure Local storage switchless
             href: hybrid/azure-local-switchless.yml
-          - name: Azure Local stretched clusters for DR
-            href: hybrid/azure-local-dr.yml
         - name: Azure Local workloads
           items:
           - name: AKS on Azure Local (AKS hybrid)
