@@ -59,7 +59,7 @@ This architecture isn't designed for production deployments, so the following li
 
 - The Azure AI Agent Service and its dependencies, Azure CosmosDB, an Azure Storage account, and Azure AI Search (the Azure AI Search instance listed in components and seen in the diagram is a different instance than the instance that is a dependency of the Azure AI Agent Service), are hosted by Microsoft. The dependent resources are not visible to you in the portal. You do not have any control over the reliability of the Azure AI Agent Service or its dependencies - it is the responsibility of Microsoft. If you need control of the dependencies to, for example, implement a BCDR strategy, see the baseline architecture. TODO: Add link
 
-- TODO: We need to enumerate the availability story for our use of the Azure AI Foundry Models deployment of an Azure OpenAI model.
+- For a basic architecture targeting learning, using the deployment type of `Global Standard` is fine. As you move towards production you should have a better idea of your throughput and residency requirements. Once you understand your throughput requirements, consider using provisioned throughput by choosing a deployment type of `Data Zone Provisioned` or `Global Provisioned`. If you have data residency requirements, choose `Data Zone Provisioned`.
 
 - TODO: We need to enumerate the reliability story for Azure AI Agent Service. We need to understand the request limitations/throttling/max throughput story is - not currently documented. We need to know the SLA - or our availability story. We should mention that this architecture is using Microsoft created Agents. Those agents make the decisions that affect the context sizes which will influence the number of tokens per request. ou should estimate token usage from real world scenarios to ensure you have enough quota.
 
@@ -75,7 +75,7 @@ This section describes some of the key recommendations that this architecture im
 
 #### Content filtering and abuse monitoring
 
-Azure AI Foundry includes a [content filtering system](/azure/ai-foundry/concepts/content-filtering) that uses an ensemble of classification models to detect and prevent specific categories of potentially harmful content in input prompts and output completions. This potentially harmful content includes hate, sexual, self harm, violence, profanity, and jailbreak (content designed to bypass the constraints of a language model) categories. You can configure the strictness of what you want to filter from the content for each category by using the low, medium, or high options. This reference architecture adopts a stringent approach. Adjust the settings according to your requirements.
+Azure AI Foundry includes a [content filtering system](/azure/ai-foundry/concepts/content-filtering) that uses an ensemble of classification models to detect and prevent specific categories of potentially harmful content in input prompts and output completions. This potentially harmful content includes hate, sexual, self harm, violence, profanity, and jailbreak (content designed to bypass the constraints of a language model) categories. You can configure the strictness of what you want to filter from the content for each category by using the low, medium, or high options. This reference architecture uses the `DefaultV2` content filter when deploying models. Adjust the settings according to your requirements.
 
 TODO: Understand if Azure OpenAI models hosted in Azure AI Foundry support the abuse monitoring functionality...
 Azure OpenAI implements abuse monitoring features. Abuse monitoring is an asynchronous operation that detects and mitigates instances of recurring content or behaviors that suggest the use of the service in a manner that might violate the [Azure OpenAI code of conduct](/legal/ai-code-of-conduct). You can request an [exemption of abuse monitoring and human review](/legal/cognitive-services/openai/data-privacy#how-can-customers-get-an-exemption-from-abuse-monitoring-and-human-review) if your data is highly sensitive or if there are internal policies or applicable legal regulations that prevent the processing of data for abuse detection.
@@ -103,14 +103,17 @@ To make it easier for you to learn how to build an end-to-end chat solution, thi
 
 To learn how to include network as an extra perimeter in your architecture, see the [networking](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#networking) section of the baseline architecture.
 
+#### Defender
+
+For the basic architecture, you do not need to enable the Cloud Workload Protection (CWP) for any services in Microsoft Defender. When you move to production, follow the [security guidance in the baseline architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#security) for Microsoft Defender.
+
 ### Cost Optimization
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 This basic architecture doesn't represent the costs for a production-ready solution. The architecture also doesn't have controls in place to guard against cost overruns. The following considerations outline some of the crucial features that affect cost and that this architecture omits:
 
-TODO: Make sure the following makes sense. Are you able to deploy provisioned throughput in Azure AI Foundry for Azure OpenAI models, or is that just through the Azure OpenAI Service? 
-- This architecture assumes that there are limited calls to the deployed Azure OpenAI model. For this reason, we recommend that you use pay-as-you-go pricing instead of provisioned throughput. Follow the [Azure OpenAI cost optimization guidance](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#azure-openai) in the baseline architecture as you move toward a production solution.
+- This architecture assumes that there are limited calls to the deployed Azure OpenAI model. For this reason, we recommend that you use the `Global Standard` deployment type for pay-as-you-go pricing instead of any of the provisioned throughput deployment types. Follow the [Azure OpenAI cost optimization guidance](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#azure-openai) in the baseline architecture as you move toward a production solution.
 
 - The app service plan is configured for the Basic pricing tier on a single instance, which doesn't provide protection from an availability zone outage. The [baseline App Service architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-service) recommends that you use Premium plans with three or more worker instances for high availability. This approach affects your costs.
 
@@ -128,10 +131,9 @@ This architecture uses system-assigned managed identities for the Azure AI Found
 
 #### Monitoring
 
-TODO: We need to know what diagnostics we suggest for Azure AI Foundry - for the agent service and the deployed models and update the following...
-<!-- Diagnostics are configured for all services. All services except App Service are configured to capture all logs. App Service is configured to capture `AppServiceHTTPLogs`, `AppServiceConsoleLogs`, `AppServiceAppLogs`, and `AppServicePlatformLogs`. During the POC phase, it's important to understand which logs and metrics are available for capture. When you move to production, remove log sources that don't add value and only create noise and cost for your workload's log sink.
+Diagnostics are configured for all services. All services except App Service and Azure AI Foundry are configured to capture all logs. App Service is configured to capture `AppServiceHTTPLogs`, `AppServiceConsoleLogs`, `AppServiceAppLogs`, and `AppServicePlatformLogs` and Aure AI Foundry is configured to capture `RequestResponse`. During the POC phase, it's important to understand which logs and metrics are available for capture. When you move to production, remove log sources that don't add value and only create noise and cost for your workload's log sink.
 
-Ensure that you enable the [integration with Application Insights diagnostics](/azure/machine-learning/how-to-monitor-online-endpoints#using-application-insights) for the managed online endpoint. The built-in metrics and logs are sent to Application Insights, and you can use the features of Application Insights to analyze the performance of your inferencing endpoints. -->
+Ensure that you [connect an Application Insights resource to your Azure AI Foundry project](/azure/machine-learning/how-to-monitor-online-endpoints#using-application-insights) to use the monitoring capabilities in Azure AI Foundry. This integration enables real-time monitoring of token usage—including prompt, completion, and total tokens—as well as detailed request-response telemetry, such as latency, exceptions, and response quality. You can also [trace agents using OpenTelemetry](/azure/ai-services/agents/concepts/tracing#trace-agents-using-opentelemetry-and-an-application-insights-resource)
 
 #### Language model operations
 
@@ -139,10 +141,7 @@ Because this architecture is optimized for learning and isn't intended for produ
 
 ##### Development
 
-TODO: We need the development guidance for Azure AI Agent Service - that will be enumerated in the baseline. For the basic, we can state that it is okay to use the browser-based model. Should we provide similar guidance as we did for prompt flow?
-<!-- Prompt flow provides a browser-based authoring experience in AI Foundry or through a  [Visual Studio Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension). Both options store the flow code as files. When you use AI Foundry, the files are stored in files in a storage account. When you work in VS Code, the files are stored in your local file system.
-
-Because this architecture is meant for learning, it's okay to use the browser-based authoring experience. When you start moving toward production, follow the [development and source control guidance](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#development) in the baseline architecture. -->
+For the basic architecture, it is fine to use the browser-based authoring experience in Azure AI Foundry. When you start moving toward production, follow the [development and source control guidance](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#development) in the baseline architecture.
 
 ##### Evaluation
 
