@@ -88,13 +88,15 @@ As new stamps are added or removed from the global cluster, the deployment pipel
 
 Another option would be to create business logic to create clusters based on a list of desired locations or other indicating data points. For instance, the deployment pipeline could contain a list of desired regions; a step within the pipeline could then loop through this list, deploying a cluster into each region found in the list. The disadvantage to this configuration is the complexity in deployment generalization and that each cluster stamp isn't explicitly detailed in the deployment pipeline. The positive benefit is that adding or removing cluster stamps from the pipeline becomes a simple update to the list of desired regions.
 
+Following the creation of a cluster, it needs to be enrolled into the fleet as a member cluster. This step can be completed by deploying a Resource Manager resource of type `Microsoft.ContainerService/fleets/members`, which references the member cluster's resource ID. After the member cluster is enrolled in the fleet, it participates in update runs and can use other fleet capabilities that you configure.
+
 Also, removing a cluster stamp from the deployment pipeline doesn't always decommission the stamp's resources. Depending on your deployment solution and configuration, you might need an extra step to decommission the AKS instances and other Azure resources. Consider using [deployment stacks](/azure/azure-resource-manager/bicep/deployment-stacks) to enable full lifecycle management of Azure resources, including cleanup when you don't need them anymore.
 
 #### Cluster bootstrapping
 
 After each Kubernetes instance or stamp has been deployed, cluster components such as ingress controllers, identity solutions, and workload components need to be deployed and configured. You also need to consider applying security, access, and governance policies across the cluster.
 
-Similar to deployment, these configurations can become challenging to manage across several Kubernetes instances manually. Instead, consider the following options for configuration and policy at scale.
+Similar to deployment, these configurations can become challenging to manage across several Kubernetes instances manually. Azure Kubernetes Fleet Manager doesn't affect how you bootstrap your member cluster resources, and you should instead consider the following options for configuration and policy at scale.
 
 ##### GitOps
 
@@ -250,6 +252,8 @@ When planning for a production cluster, use your organization's preferred method
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
+#### Access control
+
 As discussed in the [AKS baseline reference architecture](../aks/baseline-aks.yml#integrate-microsoft-entra-id-for-the-cluster), we recommend that you use Microsoft Entra ID as the identity provider for your clusters. The Microsoft Entra groups can then be used to control access to cluster resources.
 
 When you manage multiple clusters, you need to decide on an access schema. Options include:
@@ -261,6 +265,14 @@ When you manage multiple clusters, you need to decide on an access schema. Optio
 For administrative access, consider creating a Microsoft Entra group for each region. Grant each group full access to the corresponding cluster stamp in that region. Members of each group then have administrative access to the corresponding clusters.
 
 For more information on managing AKS cluster access with Microsoft Entra ID, see [AKS Microsoft Entra integration](/azure/aks/azure-ad-rbac).
+
+#### Security of your fleet resources
+
+When you use a fleet to centralize aspects of your cluster management, it's important to protect the fleet resources to avoid misuse.
+
+Fleet resources use Azure role-based access control, and you can grant fleet permissions to a restricted set of administrators.
+
+If your fleet uses a hub cluster, consider implementing it as a private hub cluster to restrict internet connectivity. However, ensure your network architecture allows the member clusters to reach the hub cluster.
 
 ### Data, state, and cache
 
