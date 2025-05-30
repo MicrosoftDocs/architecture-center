@@ -57,11 +57,9 @@ This architecture isn't designed for production deployments, so the following li
 
 - Autoscaling for the client UI isn't enabled in this basic architecture. To prevent reliability problems caused by a lack of available compute resources, you need to overprovision resources to always run with enough compute to handle maximum concurrent capacity.
 
-- The Azure AI Agent Service and its dependencies, Azure CosmosDB, an Azure Storage account, and Azure AI Search (the Azure AI Search instance listed in components and seen in the diagram is a different instance than the instance that is a dependency of the Azure AI Agent Service), are hosted by Microsoft. The dependent resources are not visible to you in the portal. You do not have any control over the reliability of the Azure AI Agent Service or its dependencies - it is the responsibility of Microsoft. If you need control of the dependencies to, for example, implement a BCDR strategy, see the baseline architecture. TODO: Add link
+- The Azure AI Agent Service and its dependencies, Azure CosmosDB, an Azure Storage account, and Azure AI Search (the Azure AI Search instance listed in components and seen in the diagram is a different instance than the instance that is a dependency of the Azure AI Agent Service), are hosted by Microsoft. The dependent resources are not visible to you in the portal. You do not have any control over the reliability of the Azure AI Agent Service or its dependencies - it is the responsibility of Microsoft. If you need control of the dependencies to, for example, implement a BCDR strategy, see the [baseline architecture](./baseline-openai-e2e-chat.yml).
 
-- For a basic architecture targeting learning, using the deployment type of `Global Standard` is fine. As you move towards production you should have a better idea of your throughput and residency requirements. Once you understand your throughput requirements, consider using provisioned throughput by choosing a deployment type of `Data Zone Provisioned` or `Global Provisioned`. If you have data residency requirements, choose `Data Zone Provisioned`.
-
-- TODO: We need to enumerate the reliability story for Azure AI Agent Service. We need to understand the request limitations/throttling/max throughput story is - not currently documented. We need to know the SLA - or our availability story. We should mention that this architecture is using Microsoft created Agents. Those agents make the decisions that affect the context sizes which will influence the number of tokens per request. ou should estimate token usage from real world scenarios to ensure you have enough quota.
+- For a basic architecture targeting learning, using the model deployment type of `Global Standard` is fine. As you move towards production you should have a better idea of your throughput and data residency requirements. Once you understand your throughput requirements, consider using provisioned throughput by choosing a deployment type of `Data Zone Provisioned` or `Global Provisioned`. If you have data residency requirements, choose `Data Zone Provisioned`.
 
 - AI Search is configured for the Basic tier, which doesn't support [Azure availability zones](/azure/reliability/availability-zones-overview). To achieve zonal redundancy, deploy AI Search with the Standard pricing tier or higher in a region that supports availability zones and deploy three or more replicas.
 
@@ -77,15 +75,11 @@ This section describes some of the key recommendations that this architecture im
 
 Azure AI Foundry includes a [content filtering system](/azure/ai-foundry/concepts/content-filtering) that uses an ensemble of classification models to detect and prevent specific categories of potentially harmful content in input prompts and output completions. This potentially harmful content includes hate, sexual, self harm, violence, profanity, and jailbreak (content designed to bypass the constraints of a language model) categories. You can configure the strictness of what you want to filter from the content for each category by using the low, medium, or high options. This reference architecture uses the `DefaultV2` content filter when deploying models. Adjust the settings according to your requirements.
 
-TODO: Understand if Azure OpenAI models hosted in Azure AI Foundry support the abuse monitoring functionality...
-Azure OpenAI implements abuse monitoring features. Abuse monitoring is an asynchronous operation that detects and mitigates instances of recurring content or behaviors that suggest the use of the service in a manner that might violate the [Azure OpenAI code of conduct](/legal/ai-code-of-conduct). You can request an [exemption of abuse monitoring and human review](/legal/cognitive-services/openai/data-privacy#how-can-customers-get-an-exemption-from-abuse-monitoring-and-human-review) if your data is highly sensitive or if there are internal policies or applicable legal regulations that prevent the processing of data for abuse detection.
-
 #### Identity and access management
 
 The following guidance expands on the [identity and access management guidance](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#identity-and-access-management) in the App Service baseline architecture. The chat UI uses  its managed identity to authenticate the chat UI to the Azure AI Agent Service. This architecture uses system-assigned managed identities and creates an identity for the Azure AI Foundry project. That identity is used to authenticate to services such as Azure AI Search and the deployed Azure OpenAI model. The Azure AI Agent Service uses the project managed identity.
 
-TODO: We need to understand whether the dependencies (cosmosDB, storage, AI Search) are at the account or project level. This will help us determine the guidance of whether we should suggest you maintain a 1:1 account to project relationship. We need to update the below text with that information
-<!-- AI Foundry projects should be isolated from one another. Apply conditions to project role assignments for blob storage to allow multiple projects to write to the same Storage account and keep the projects isolated. These conditions grant access only to specific containers within the storage account. If you use user-assigned managed identities, you need to follow a similar approach to maintain least privilege access. -->
+AI Foundry projects have distinct identities. If you require different workloads to have isolated access to data sources, create different Azure AI Foundry projects within the account. Otherwise, using a single project is fine.
 
 #### Role-based access roles
 
@@ -106,6 +100,10 @@ To learn how to include network as an extra perimeter in your architecture, see 
 #### Defender
 
 For the basic architecture, you do not need to enable the Cloud Workload Protection (CWP) for any services in Microsoft Defender. When you move to production, follow the [security guidance in the baseline architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#security) for Microsoft Defender.
+
+#### Governance through policy
+
+Because this architecture is optimized for learning, there is no governance through policy. As you move toward production, follow the [governance recommendations in the baseline architecture](./baseline-openai-e2e-chat.yml#governance-through-policy).
 
 ### Cost Optimization
 
@@ -133,7 +131,7 @@ This architecture uses system-assigned managed identities for the Azure AI Found
 
 Diagnostics are configured for all services. All services except App Service and Azure AI Foundry are configured to capture all logs. App Service is configured to capture `AppServiceHTTPLogs`, `AppServiceConsoleLogs`, `AppServiceAppLogs`, and `AppServicePlatformLogs` and Aure AI Foundry is configured to capture `RequestResponse`. During the POC phase, it's important to understand which logs and metrics are available for capture. When you move to production, remove log sources that don't add value and only create noise and cost for your workload's log sink.
 
-Ensure that you [connect an Application Insights resource to your Azure AI Foundry project](/azure/machine-learning/how-to-monitor-online-endpoints#using-application-insights) to use the monitoring capabilities in Azure AI Foundry. This integration enables real-time monitoring of token usage—including prompt, completion, and total tokens—as well as detailed request-response telemetry, such as latency, exceptions, and response quality. You can also [trace agents using OpenTelemetry](/azure/ai-services/agents/concepts/tracing#trace-agents-using-opentelemetry-and-an-application-insights-resource)
+Ensure that you [connect an Application Insights resource to your Azure AI Foundry project](/azure/ai-foundry/how-to/monitor-applications#how-to-enable-monitoring) to use the monitoring capabilities in Azure AI Foundry. This integration enables real-time monitoring of token usage—including prompt, completion, and total tokens—as well as detailed request-response telemetry, such as latency, exceptions, and response quality. You can also [trace agents using OpenTelemetry](/azure/ai-services/agents/concepts/tracing#trace-agents-using-opentelemetry-and-an-application-insights-resource).
 
 #### Language model operations
 
@@ -141,14 +139,11 @@ Because this architecture is optimized for learning and isn't intended for produ
 
 ##### Development
 
-For the basic architecture, it is fine to use the browser-based authoring experience in Azure AI Foundry. When you start moving toward production, follow the [development and source control guidance](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#development) in the baseline architecture.
+For the basic architecture, it is fine to use the browser-based authoring experience in Azure AI Foundry. When you start moving toward production, follow the [development and source control guidance](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#development) in the baseline architecture. When you no longer need an agent, be sure to delete it. If the agent you are deleting is the last agent using a connection, remove the connection.
 
 ##### Evaluation
 
 You can evaluate your generative application in AI Foundry. We recommend that you become familiar with how to [use evaluators to evaluate your generative AI applications](/azure/ai-foundry/concepts/evaluation-approach-gen-ai) to help ensure that the model that you choose meets customer and workload design requirements.
-
-TODO: See if the following is still relevant
-One important evaluation tool that you should familiarize yourself with during your workload's development phase is the [Responsible AI dashboards in Machine Learning](/azure/machine-learning/how-to-responsible-ai-dashboard?view=azureml-api-2). This tool helps you evaluate the fairness, model interpretability, and other key assessments of your deployments and is useful to help establish an early baseline to prevent future regressions.
 
 ##### Deployment
 
