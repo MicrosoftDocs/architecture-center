@@ -29,9 +29,7 @@ The architecture uses [Azure AI Agent Service standard agent setup](/azure/ai-se
 
 Many of the components of this architecture are the same as the resources in the [basic Azure OpenAI end-to-end chat architecture](./basic-openai-e2e-chat.yml#components). The following list highlights the differences between the basic architecture and the baseline architecture.
 
-- [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is used in both architectures. Azure OpenAI is a fully managed service that provides REST API access to Azure OpenAI language models, including the GPT-4, GPT-3.5-Turbo, and embeddings set of models. The baseline architecture uses enterprise features like [virtual networks and private links](/azure/ai-services/cognitive-services-virtual-networks) that the basic architecture doesn't implement.
-
-- [Azure AI Foundry](/azure/ai-foundry/what-is-ai-foundry) is a platform that you can use to build, test, and deploy AI solutions. This architecture uses Azure AI Foundry portal to build, test, and deploy the prompt flow orchestration logic for the chat application. In this architecture, Azure AI Foundry provides the [managed virtual network](/azure/ai-foundry/how-to/configure-managed-network) for network security. For more information, see the [networking](#networking) section in this article.
+- [Azure AI Agent Service](/azure/ai-services/agents/overview) is a capability hosted in Azure AI Foundry. Developers define and host agents to handle chat requests. It manages chat threads, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. This architecture uses [Azure AI Agent Service standard agent setup](/azure/ai-services/agents/concepts/standard-agent-setup) to enable enterprise-grade security, compliance, and control. You bring your own network for network isolation and your own customer-managed resources to store state, including Azure Cosmos DB, Azure Storage and Azure AI Search.
 
 - [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer 7 (HTTP/S) load balancer and web traffic router. It uses URL path-based routing to distribute incoming traffic across availability zones and offloads encryption to improve application performance.
 
@@ -43,25 +41,21 @@ Many of the components of this architecture are the same as the resources in the
 
 - [Azure Private Link](/azure/private-link/private-link-overview) allows clients to access Azure PaaS services directly from private virtual networks without using public IP addresses.
 
+- [Azure Firewall](/azure/firewall/) is a cloud-native, intelligent network firewall security service that offers top-tier threat protection for your Azure cloud workloads. In this architecture all egress traffic is routed through Azure Firewall.
+
 - [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. Private DNS zones provide a way to map a service's fully qualified domain name (FQDN) to a private endpoint's IP address.
 
 ### Alternatives
 
-This architecture includes multiple components that can be served by other Azure services that might better align with the functional and nonfunctional requirements of your workload. 
+This architecture includes multiple components that can be served by other Azure services that might better align with the functional and nonfunctional requirements of your workload.
 
-#### Machine Learning workspaces and portal experiences
+#### Chat orchestration
 
-This architecture uses [Azure AI Foundry portal](/azure/ai-foundry/what-is-ai-foundry) to build, test, and deploy prompt flows. Alternatively, you can use [Machine Learning workspaces](/azure/well-architected/service-guides/azure-machine-learning). Both services have features that overlap. The portal is a good choice for designing a prompt flow solution, but Machine Learning currently has better support for some features. For more information, see [Detailed feature comparison](/ai/ai-studio-experiences-overview). We recommend that you don't mix and match the portal and Machine Learning studio. If your work can be done completely in Azure AI Foundry portal, use the portal. If you need features from Machine Learning studio, use the studio instead.
+This architecture uses [Azure AI Agent Service](/azure/ai-services/agents/overview) orchestrate the flow that fetches grounding data from Azure AI Search and passes it to a deployed Azure OpenAI model. The agent service handles chat requests, manages chat threads, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. The orchestration of the chat flow is non-deterministic. Alternatively, you can choose to host your own orchestrator that leverages frameworks like [Semantic Kernel](/semantic-kernel/overview/) or [LangChain](/azure/ai-foundry/how-to/develop/langchain) to implement deterministic chat flows.
 
 #### Application tier components
 
 Azure provides several managed application services that can serve as an application tier for the chat UI front end. These services include [compute options](/azure/architecture/guide/technology-choices/compute-decision-tree) and [container solutions](/azure/architecture/guide/choose-azure-container-service). For example, this architecture uses Web Apps and Web App for Containers for the chat UI API and the prompt flow host respectively. You might achieve similar results by using Azure Kubernetes Service (AKS) or Azure Container Apps. Choose the application platform for your workload based on its specific functional and nonfunctional requirements.
-
-#### Prompt flow hosting
-
-Deploying prompt flows isn't limited to Machine Learning compute clusters. This architecture illustrates this point by using an alternative solution in App Service. Flows are ultimately a containerized application that can be deployed to any Azure service that's compatible with containers. These options include services like AKS, Container Apps, and App Service. [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service) based on the requirements of your orchestration layer.
-
-An example of why you can consider deploying prompt flow hosting on an alternative compute is discussed later in this article.
 
 #### Grounding data store
 
