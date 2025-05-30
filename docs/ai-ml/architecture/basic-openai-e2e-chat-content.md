@@ -37,7 +37,7 @@ Many of the components of this architecture are the same as the resources in the
 
   - [Azure AI Agent Service](/azure/ai-services/agents/overview) - enables the operation of agents across development, deployment, and production through a single runtime. It manages threads, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems to ensure agents are secure, scalable, and production-ready. In this architecture, the Azure AI Agent Service is used to orchestrate the flow that fetches grounding data from Azure AI Search and passes it to a deployed Azure OpenAI model.
   
-  - [Azure AI Foundry Models](/azure/ai-foundry/concepts/deployments-overview) an Azure AI Foundry model deployment option that allows you to deploy flagship models in Azure AI catalog, including OpenAI.
+  - [Azure AI Foundry Models](/azure/ai-foundry/concepts/deployments-overview) allow you to deploy flagship models, including OpenAI models, from the Azure AI Catalog in a Microsoft hosted environment.
 
 - [AI Search](/azure/search/) is a cloud search service that supports [full-text search](/azure/search/search-lucene-query-architecture), [semantic search](/azure/search/semantic-search-overview), [vector search](/azure/search/vector-search-overview), and [hybrid search](/azure/search/hybrid-search-overview). The architecture includes AI Search because it's a common service to use in the flows that support chat applications. You can use AI Search to retrieve and index data that's relevant for user queries. The prompt flow implements the [Retrieval Augmented Generation](/azure/search/retrieval-augmented-generation-overview) pattern to extract the appropriate query from the prompt, query AI Search, and use the results as grounding data for the Azure OpenAI model.
 
@@ -57,7 +57,7 @@ This architecture isn't designed for production deployments, so the following li
 
 - Autoscaling for the client UI isn't enabled in this basic architecture. To prevent reliability problems caused by a lack of available compute resources, you need to overprovision resources to always run with enough compute to handle maximum concurrent capacity.
 
-- The Azure AI Agent Service and its dependencies, Azure Cosmos DB, an Azure Storage account, and Azure AI Search are Microsoft hosted.  The dependent resources aren't visible to you in the portal. You don't have any control over the reliability of the Azure AI Agent Service or its dependencies - it's the responsibility of Microsoft. If you need control of the dependencies to, for example, implement a BCDR strategy, see the [baseline architecture](./baseline-openai-e2e-chat.yml).
+- The Azure AI Agent Service and its dependencies, Azure Cosmos DB, an Azure Storage account, and Azure AI Search are Microsoft hosted.  The dependent resources aren't visible to you in the portal. You don't have any control over the reliability of the Azure AI Agent Service or its dependencies - it's the responsibility of Microsoft. If you need control of the dependencies to, for example, implement a BCDR strategy, see the [baseline architecture](./baseline-openai-e2e-chat.yml) for guidance.
 
 > [!NOTE]
 > The Azure AI Search instance listed in components and seen in the diagram is a different instance than the instance that is a dependency of the Azure AI Agent Service. The instance listed in components is used to store your grounding data.
