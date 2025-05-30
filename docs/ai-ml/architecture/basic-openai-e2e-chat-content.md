@@ -136,10 +136,6 @@ This basic architecture doesn't represent the costs for a production-ready solut
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-#### System-assigned managed identities
-
-This architecture uses system-assigned managed identities for the Azure AI Foundry project. The system automatically creates and assigns identities to the resources.
-
 #### Monitoring
 
 Diagnostics are configured for all services. All services except App Service and Azure AI Foundry are configured to capture all logs. App Service is configured to capture `AppServiceHTTPLogs`, `AppServiceConsoleLogs`, `AppServiceAppLogs`, and `AppServicePlatformLogs` and Azure AI Foundry is configured to capture `RequestResponse`. During the POC phase, it's important to understand which logs and metrics are available for capture. When you move to production, remove log sources that don't add value and only create noise and cost for your workload's log sink.
@@ -168,7 +164,7 @@ Performance Efficiency is the ability of your workload to meet the demands place
 
 Because this architecture isn't designed for production deployments, this section outlines some of the critical performance efficiency features that the architecture omits.
 
-One outcome of your POC should be the selection of a product that suits the workload for your app service and your Machine Learning compute. You should design your workload to efficiently meet demand through horizontal scaling. Horizontal scaling allows you to adjust the number of compute instances that are deployed in the app service plan and in instances that are deployed behind the online endpoint. Don't design a system that depends on changing the compute product to align with demand.
+One outcome of your POC should be the selection of a product that suits the workload for your app service. You should design your workload to efficiently meet demand through horizontal scaling. Horizontal scaling allows you to adjust the number of compute instances that are deployed in the app service plan. Don't design a system that depends on changing the compute product to align with demand.
 
 - This architecture uses the consumption or pay-as-you-go model for most components. The consumption model is a best-effort model and might be subject to noisy neighbor problems or other stressors on the platform. Determine whether your application requires [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) as you move toward production. Provisioned throughput helps ensure that processing capacity is reserved for your Azure OpenAI model deployments. Reserved capacity provides predictable performance and throughput for your models.
 
@@ -188,6 +184,6 @@ A deployment for a reference architecture that implements these recommendations 
 ## Related resources
 
 - A Well-Architected Framework perspective on [AI workloads on Azure](/azure/well-architected/ai/get-started)
-- [Azure OpenAI language models](/azure/ai-services/openai/concepts/models)
-- [Prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow)
-- [Content filtering](/azure/ai-services/openai/concepts/content-filter)
+- [Deploy AI models in Azure AI Foundry portal](/azure/ai-foundry/concepts/deployments-overview)
+- [Explore Azure AI Foundry Models](/azure/ai-foundry/concepts/foundry-models-overview)
+- [What is Azure AI Foundry Agent Service?](/azure/ai-services/agents/overview)
