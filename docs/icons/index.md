@@ -1,6 +1,6 @@
 ---
-title: Azure icons
-description: Icons for use in building architecture diagrams for Azure
+title: Azure Icons Guide
+description: Download official Azure icons, Azure logo files, and Azure architecture icons to create clear, professional cloud diagrams.
 ms.author: pnp
 author: RobBagby
 ms.reviewer: chkittel
@@ -11,9 +11,9 @@ categories: developer-tools
 products: azure
 ---
 
-# Azure architecture icons
+# Download Azure icons to use in architecture diagrams and documentation
 
-Helping our customers design solutions is core to the Azure Architecture Center's mission. Architecture diagrams like those included in our guidance can help communicate design decisions and the relationships between components of a given workload. On this page, you'll find an official collection of Azure architecture icons including Azure product icons to help you build a custom architecture diagram for your next solution.
+On this page, you'll find an official collection of Azure architecture icons including Azure product icons to help you build a custom architecture diagram for your next solution. Helping our customers design solutions is core to the Azure Architecture Center's mission. Architecture diagrams like those included in our guidance can help communicate design decisions and the relationships between components of a given workload.
 
 To learn more about communicating design intent, see [Architecture design diagrams](/azure/well-architected/architect-role/design-diagrams) in the Azure Well-Architected Framework.
 
@@ -33,7 +33,7 @@ To learn more about communicating design intent, see [Architecture design diagra
 
 ## Example architecture diagrams
 
-![Diagram that shows real-time analytics on big data architecture.](./images/real-time-analytics.png)
+![Diagram that uses Azure icons to show real-time analytics on big data architecture.](./images/real-time-analytics.png)
 
 [Browse all Azure architectures](../browse/index.yml) to view other examples.
 
