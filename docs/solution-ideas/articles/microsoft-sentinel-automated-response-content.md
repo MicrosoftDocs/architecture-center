@@ -54,7 +54,7 @@ This workflow shows the steps to deploy the playbook. Make sure that the [Prereq
 
 - [Microsoft Sentinel](https://azure.microsoft.com/services/microsoft-sentinel) is a cloud-native SIEM and SOAR solution. It uses advanced AI and security analytics to detect and respond to threats across the enterprise. There are many playbooks on Microsoft Sentinel that you can use to automate your responses and protect your system.
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a cloud-based directory and identity management service that combines core directory services, application access management, and identity protection into a single solution. It can synchronize with on-premises directories. The identity service provides single sign-on, multifactor authentication, and conditional access to guard against cybersecurity attacks. The solution shown in this article uses Microsoft Entra identity Protect to detect suspicious activity by a user.
-- [Logic Apps](https://azure.microsoft.com/services/logic-apps) is a serverless cloud service for creating and running automated workflows that integrate apps, data, services, and systems. Developers can use a visual designer to schedule and orchestrate common task workflows.  Logic Apps has [connectors](/connectors) for many popular cloud services, on-premises products, and other software as a service applications. In this solution, Logic Apps runs the threat response playbook.
+- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is a serverless cloud service for creating and running automated workflows that integrate apps, data, services, and systems. Developers can use a visual designer to schedule and orchestrate common task workflows. Azure Logic Apps has [connectors](/connectors) for many popular cloud services, on-premises products, and other software-as-a-service applications. In this solution, Azure Logic Apps runs the threat response playbook.
 
 ## Considerations
 
@@ -100,8 +100,6 @@ To deploy a Microsoft Sentinel playbook, proceed as follows:
     - Select values for **Subscription**, **Resource group**, and **Region** from the lists.
     - Enter a value for **Playbook name** if you don't want to use the default name that appears.
     - If you want, select **Enable diagnostics logs in Log Analytics** to enable logs.
-    - Leave the **Associate with integration service environment** checkbox unchecked.
-    - Leave **Integration service environment** empty.
   - Select **Next: Connections >** to go to the **Connections** tab of **Create playbook**.
   - Choose how to authenticate within the playbook's components. Authentication is required for:
     - Microsoft Entra ID
@@ -127,7 +125,7 @@ Other contributors:
 - [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
 - [Lavanya Kasturi](https://www.linkedin.com/in/lakshmilavanyakasturi) | Technical Writer
 
-## Next steps
+## Related content
 
 - [Overview of Azure Cloud Services?](/azure/cloud-services/cloud-services-choose-me)
 - [What is Microsoft Sentinel?](/azure/sentinel/overview)

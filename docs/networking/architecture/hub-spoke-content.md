@@ -64,7 +64,7 @@ Hub-spoke network topologies typically include the many of following architectur
 
 This architecture involves the creation, configuration, and maintenance of several Azure resource primitives, namely: `virtualNetworkPeerings`, `routeTables`, and `subnets`. [Azure Virtual Network Manager](/azure/virtual-network-manager/overview) is a management service that helps you group, configure, deploy, and manage virtual networks at scale across Azure subscriptions, regions, and Microsoft Entra directories. With Virtual Network Manager, you can define [network groups](/azure/virtual-network-manager/concept-network-groups) to identify and logically segment your virtual networks. You can use [connected groups](/azure/virtual-network-manager/concept-connectivity-configuration) that allow virtual networks within a group to communicate with each other as if they were manually connected.  This layer adds a layer of abstraction over those primitives to focus on describing the networking topology vs working about the implementation of that topology.
 
-It's recommended that you evaluate using Virtual Network Manager as a way to optimize your time spending with network management operations. Evaluate the cost of the service against your calculated value/savings to determine if Virtual Network Manger is a net benefit for your network's size and complexity.
+It's recommended that you evaluate using Virtual Network Manager as a way to optimize your time spending with network management operations. Evaluate the cost of the service against your calculated value/savings to determine if Virtual Network Manager is a net benefit for your network's size and complexity.
 
 ## Scenario details
 
