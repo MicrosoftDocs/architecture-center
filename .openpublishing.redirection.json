@@ -5212,7 +5212,7 @@
     {
       "source_path": "docs/hybrid/azure-stack-hci-dr.yml",
       "redirect_url": "/azure/architecture/hybrid/azure-local-baseline",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/hybrid/azure-local-dr.yml",
