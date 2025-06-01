@@ -4,7 +4,7 @@ metadata:
   description: Learn techniques for using GitOps principles to operate and manage an Azure Kubernetes Services (AKS) cluster. The solutions use Flux v2 and Argo CD.
   author: francisnazareth
   ms.author: fnazaret
-  ms.date: 06/06/2024
+  ms.date: 06/06/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom:
