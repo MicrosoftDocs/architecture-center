@@ -1011,6 +1011,11 @@
       "redirect_url": "/azure/cloud-adoption-framework/digital-estate/index"
     },
     {
+      "source_path": "docs/example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/extend-mainframes-rest-apis",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/cloud-adoption/digital-estate/rationalize.md",
       "redirect_url": "/azure/cloud-adoption-framework/digital-estate/rationalize"
     },
@@ -5020,6 +5025,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/apache-scenarios.md",
       "redirect_url": "/azure/architecture/browse/?terms=apache",
       "redirect_document_id": false
@@ -7327,6 +7337,11 @@
     {
       "source_path": "docs/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml",
       "redirect_url": "/azure/architecture/hybrid/hybrid-file-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/multitenant/service/azure-ad-b2c.md",
+      "redirect_url": "/azure/architecture//guide/multitenant/approaches/identity",
       "redirect_document_id": false
     }
   ]

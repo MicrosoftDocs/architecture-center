@@ -2,7 +2,7 @@
 title: Understand data store models
 description: Learn about the high-level differences between the various data storage models found in Azure data services.
 author: PageWriter-MSFT
-ms.author: prwilk
+ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
@@ -39,7 +39,6 @@ This model is very useful when strong consistency guarantees are important &mdas
 - [Azure SQL Database][sql-db] | [(Security Baseline)](/security/benchmark/azure/baselines/sql-database-security-baseline)
 - [Azure Database for MySQL][mysql] | [(Security Baseline)](/security/benchmark/azure/baselines/azure-database-for-mysql-flexible-server-security-baseline)
 - [Azure Database for PostgreSQL][postgres] | [(Security Baseline)](/security/benchmark/azure/baselines/azure-database-for-postgresql-flexible-server-security-baseline)
-- [Azure Database for MariaDB][mariadb] | [(Security Baseline)](/security/benchmark/azure/baselines/azure-database-for-mariadb-security-baseline)
 
 ### Workload
 
@@ -377,7 +376,6 @@ Aided with this understanding of different data storage models, the next step is
 [hbase]: /azure/hdinsight/hdinsight-hbase-overview
 [mysql]: https://azure.microsoft.com/services/mysql/
 [postgres]: https://azure.microsoft.com/services/postgresql/
-[mariadb]: https://azure.microsoft.com/services/mariadb/
 [redis]: https://azure.microsoft.com/services/cache/
 [search]: https://azure.microsoft.com/services/search/
 [sql-db]: https://azure.microsoft.com/services/sql-database

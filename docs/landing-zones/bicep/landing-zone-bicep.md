@@ -9,7 +9,7 @@ categories:
   - security
 ms.custom:
   - devx-track-bicep
-ms.author: robbag
+ms.author: pnp
 ms.date: 06/14/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide

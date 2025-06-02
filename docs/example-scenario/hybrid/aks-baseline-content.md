@@ -143,7 +143,7 @@ Focus on the entire stack by securing both the host and its containers.
 - BitLocker Drive Encryption allows you to encrypt Storage Spaces Direct volumes at rest.
 - Configure [Calico network policies][] to define network isolation rules between containers.
 - For increased security requirements, consider deploying a workload cluster on a dedicated Windows server.
-- Use [Microsoft Defender for Cloud][2], available through Windows Admin Center, to centrally manage security settings for servers and clusters. It provides threat protection for your Arc–enabled Kubernetes clusters. The Microsoft Defender for Cloud extension collects data from nodes in the cluster and sends it to the Azure Defender for Kubernetes backend in the cloud for further analysis.
+- Use [Microsoft Defender for Cloud][2], available through Windows Admin Center, to centrally manage security settings for servers and clusters. It provides threat protection for your Arc–enabled Kubernetes clusters. The Microsoft Defender for Cloud extension collects data from nodes in the cluster and sends it to the Microsoft Defender for Kubernetes backend in the cloud for further analysis.
 - Secure communication with certificates.
 - Rotate encryption keys of the Kubernetes secret store (etcd) using the Key Management Server (KMS) plug-in.
 

@@ -1,7 +1,7 @@
 ---
 title: Web API Implementation
 description: Learn about best practices for implementing a web API and publishing it to make it available to client applications.
-ms.author: robbag
+ms.author: pnp
 author: RobBagby
 categories: azure
 ms.date: 07/25/2022

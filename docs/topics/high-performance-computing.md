@@ -222,9 +222,7 @@ The cloud native model example diagram below, shows how the workload in the clou
 The following are examples of cluster and workload managers that can run in Azure infrastructure. Create stand-alone clusters in Azure VMs or burst to Azure VMs from an on-premises cluster.
 
 - Alces Flight Compute
-- [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace)
 - [Bright Cluster Manager](http://www.brightcomputing.com/technology-partners/microsoft)
-- [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf)
 - [Altair PBS Works](https://www.altair.com/pbs-works)
 - [Rescale](https://www.rescale.com/azure)
 - [Altair Grid Engine](https://www.altair.com/grid-engine)
@@ -297,8 +295,6 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 
 ### Engineering applications
 
-- [Altair RADIOSS](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure)
-- [ANSYS CFD](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud)
 - [MATLAB Distributed Computing Server](/azure/virtual-machines/windows/matlab-mdcs-cluster)
 - [StarCCM+](/archive/blogs/azurecat/run-star-ccm-in-an-azure-hpc-cluster)
 
@@ -360,7 +356,6 @@ There are many customers who have seen great success by using Azure for their HP
 - [Milliman](https://customers.microsoft.com/story/actuarial-firm-works-to-transform-insurance-industry-w)
 - [Mitsubishi UFJ Securities International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
 - [NeuroInitiative](https://customers.microsoft.com/story/neuroinitiative-health-provider-azure)
-- [Schlumberger](https://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
 - [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 
 ## Other important information
@@ -372,7 +367,7 @@ There are many customers who have seen great success by using Azure for their HP
 For the latest announcements, see the following resources:
 
 - [Microsoft HPC and Batch team blog](/archive/blogs/windowshpc)
-- Visit the [Azure blog](https://azure.microsoft.com/blog/tag/hpc).
+- Visit the [Azure blog](https://azure.microsoft.com/blog/tag/high-performance-computing/).
 
 ### Microsoft Batch Examples
 

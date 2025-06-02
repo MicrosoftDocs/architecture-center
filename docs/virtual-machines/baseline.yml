@@ -3,7 +3,7 @@ metadata:
   title: Azure Virtual Machines baseline architecture
   description: Learn how to set up an environment that's configured to run a workload on Azure Virtual Machines.
   author: BryanLa
-  ms.author: prwilk
+  ms.author: pnp
   ms.date: 01/19/2024
   ms.topic: reference-architecture
   ms.subservice: reference-architecture

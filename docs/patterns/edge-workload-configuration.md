@@ -4,7 +4,7 @@ description: Learn how to design your workload configuration processes to contro
 keywords: edge, workload, configuration
 author: RobBagby
 categories: azure
-ms.author: robbag
+ms.author: pnp
 ms.date: 10/12/2022
 ms.topic: design-pattern
 ms.subservice: design-pattern

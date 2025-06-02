@@ -39,7 +39,7 @@ The following items are considered out-of-scope for this article series:
 - Data loss scenarios, including recovery from [ransomware or similar data security incidents](/azure/security/fundamentals/backup-plan-to-protect-against-ransomware)
 - Data backup strategies and data restoration plans
 - Establishing the root cause of a DR event.
-    - For Azure service/component incidents, Microsoft publishes a "Root Cause Analysis" within the [Status – History webpage](https://azure.status.microsoft/en-us/status/history/)
+    - For Azure service/component incidents, Microsoft publishes a "Root Cause Analysis" within the [Status – History webpage](https://azure.status.microsoft/status/history/)
 
 ## Key assumptions
 

@@ -1,7 +1,7 @@
 ---
 title: CQRS Pattern
 description: Learn how to segregate operations that read data from operations that update data by using the Command Query Responsibility Segregation (CQRS) pattern.
-ms.author: robbag
+ms.author: pnp
 author: RobBagby
 ms.date: 02/20/2025
 ms.topic: design-pattern

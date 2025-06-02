@@ -3,7 +3,7 @@ metadata:
   title: DR for Azure Data Platform - Recommendations
   description: Fourth article in a series covering disaster recovery for an Azure data platform
   author: claytonsiemens77
-  ms.author: csiemens
+  ms.author: pnp
   ms.date: 10/08/2024
   ms.topic: solution-idea
   ms.subservice: solution-idea
