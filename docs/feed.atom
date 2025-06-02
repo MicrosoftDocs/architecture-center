@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2025-05-19T17:53:35.377Z</updated>
+    <updated>2025-05-27T15:02:57.675Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
@@ -31,6 +31,22 @@
         <updated>2025-05-13T21:00:49.000Z</updated>
         <summary type="html"><![CDATA[Learn about how to manage both new model versions and retired model versions in your generative AI application infrastructure.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Azure Front Door in a Multitenant Solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/front-door</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/front-door"/>
+        <updated>2025-05-22T17:46:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the key features of Azure Front Door that enhance reliability, scalability, and security when working in multitenant solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SaaS and Multitenant Solution Architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/saas-multitenant-solution-architecture</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/saas-multitenant-solution-architecture"/>
+        <updated>2025-05-20T17:35:19.000Z</updated>
+        <summary type="html"><![CDATA[This guide provides an overview of the architectural content for software as a service (SaaS), startups, and multitenancy and guidance about how to architect multitenant solutions on Azure.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Architectural approaches for identity in multitenant solutions]]></title>
@@ -70,6 +86,30 @@
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops"/>
         <updated>2025-05-09T17:11:59.000Z</updated>
         <summary type="html"><![CDATA[Extend existing MLOps investments to include generative AI operations. Learn where you can apply existing investments and where you need to extend those investments.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose an Analytical Data Store in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/analytical-data-stores</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/analytical-data-stores"/>
+        <updated>2025-05-22T20:29:48.000Z</updated>
+        <summary type="html"><![CDATA[Evaluate analytical data store options for big data by reviewing key selection criteria and a capability matrix to compare database models and features.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy microservices with Azure Container Apps and Dapr]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/serverless/microservices-with-container-apps-dapr</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/serverless/microservices-with-container-apps-dapr"/>
+        <updated>2025-05-22T15:41:11.000Z</updated>
+        <summary type="html"><![CDATA[Build a serverless microservices solution on Azure Container Apps using Distributed Application Runtime (Dapr) and Kubernetes Event-Driven Autoscaling (KEDA).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Autoscaling Guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/auto-scaling</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/auto-scaling"/>
+        <updated>2025-05-19T22:28:05.000Z</updated>
+        <summary type="html"><![CDATA[Review autoscaling guidance. Autoscaling is the process of dynamically allocating resources to match performance requirements.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1065,11 +1105,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Choose an analytical data store]]></title>
+        <title type="html"><![CDATA[Choose an Analytical Data Store in Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/analytical-data-stores</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/analytical-data-stores"/>
         <updated>2025-03-26T21:13:10.000Z</updated>
-        <summary type="html"><![CDATA[Evaluate analytical data store options for big data in Azure, including key selection criteria and a capability matrix.]]></summary>
+        <summary type="html"><![CDATA[Evaluate analytical data store options for big data by reviewing key selection criteria and a capability matrix to compare database models and features.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
