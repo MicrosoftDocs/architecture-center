@@ -1,8 +1,8 @@
-This article describes an architecture for many models that uses Azure Machine Learning and compute clusters. It provides versatility for situations that require complex setup.
+This article describes an architecture for many models that uses Azure Machine Learning and compute clusters. A many-models architecture provides versatility for situations that require complex setup.
 
 ## Architecture
 
-:::image type="complex" border="false" source="_images/many-models-machine-learning-azure.svg" alt-text="Diagram that shows the many models architecture." lightbox="_images/many-models-machine-learning-azure.svg":::
+:::image type="complex" border="false" source="_images/many-models-machine-learning-azure.svg" alt-text="Diagram that shows the many-models architecture." lightbox="_images/many-models-machine-learning-azure.svg":::
    This diagram illustrates the many models architecture. It starts with data ingestion, where Azure Data Factory transfers data to Azure Data Lake Storage and stores it in a Machine Learning data store as a tabular dataset. The model-training pipeline prepares and groups data into datasets to train multiple models in parallel, then registers them and their metrics. The model-promotion pipeline evaluates models and registers those that meet the criteria for deployment. The batch-scoring pipeline scores datasets in parallel and writes results to Data Lake Storage, with real-time scoring handled through a managed online endpoint. Predictions and metrics are saved in Synapse SQL, where Power BI retrieves them for presentation.
 :::image-end:::
 
