@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Basic AI Foundry Chat Reference Architecture
+  title: Basic Azure AI Foundry Chat Reference Architecture
   description: Establish foundational knowledge for how to build and deploy enterprise chat applications by using Azure AI Foundry and Azure App Service.
   author: robbagby
   ms.author: pnp
@@ -19,7 +19,7 @@ products:
   - azure-app-service
   - azure-key-vault
   - azure-monitor
-name: Basic AI Foundry chat reference architecture
+name: Basic Azure AI Foundry chat reference architecture
 summary: Establish foundational knowledge for how to build and deploy enterprise chat applications by using Azure AI Foundry and Azure App Service.
 thumbnailUrl: /azure/architecture/browse/thumbs/openai-end-to-end-basic.png
 content: |
