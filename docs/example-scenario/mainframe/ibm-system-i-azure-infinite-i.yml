@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Migrate IBM System I (AS/400) to Azure by Using Infinite I
+  title: Migrate IBM System i (AS/400) to Azure by Using Infinite i
   description: Use Infinite i to easily migrate your IBM System i (AS/400) workloads to Azure. You can lower costs, improve performance, improve availability, and modernize.
   author: crzywabbit
   ms.author: pbrooks
