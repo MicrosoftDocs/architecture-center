@@ -145,7 +145,10 @@ bin(timestamp, 5m)
 | render areachart kind=stacked
 ```
 
-![Message distribution across partitions](images/observability-message-distribution-across-partitions.png)
+![Chart of message distribution across partitions](images/observability-message-distribution-across-partitions.png)
+:::image type="complex" source="" alt-text="":::
+   
+:::image-end:::
 
 ### Message distribution across instances
 
