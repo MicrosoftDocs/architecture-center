@@ -135,7 +135,7 @@ When designing and implementing microservices, certain pitfalls frequently arise
 
 - Embedding security logic like token validation directly inside microservices complicates their code and maintenance. Offloading security to dedicated components, on the other hand, keeps services focused and cleaner.
 
-- Failing to abstract common microservices tasks leads to repetitive, error-prone code and limits flexibility, whereas using abstraction frameworks like Dapr simplifies development and addresses platform limitations.
+- Failing to abstract common microservices tasks leads to repetitive, error-prone code and limits flexibility, whereas using abstraction frameworks like Dapr simplifies development by decoupling business logic from infrastructure concerns.
 
 ## Process for building a microservices architecture
 
