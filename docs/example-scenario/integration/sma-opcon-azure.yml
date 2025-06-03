@@ -5,8 +5,8 @@ metadata:
   author: pbrooks
   ms.author: pbrooks
   ms.date: 05/27/2025
-  ms.topic: solution-idea
-  ms.subservice: solution-idea
+  ms.topic: example-scenario
+  ms.subservice: example-scenario
 azureCategories:
   - containers
   - hybrid

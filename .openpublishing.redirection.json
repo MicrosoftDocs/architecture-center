@@ -3446,6 +3446,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/solution-ideas/articles/sma-opcon-azure.yml",
+      "redirect_url": "/azure/architecture/example-scenario/integration/sma-opcon-azure",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/reference-architectures/enterprise-integration/ase-high-availability-deployment.yml",
       "redirect_url": "/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment",
       "redirect_document_id": true

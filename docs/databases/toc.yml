@@ -71,7 +71,7 @@ items:
         - name: Rehost IMS DC and IMS DB
           href: ../example-scenario/mainframe/rehost-ims-raincode-imsql.yml
         - name: SMA OpCon in Azure
-          href: ../solution-ideas/articles/sma-opcon-azure.yml    
+          href: ../example-scenario/integration/sma-opcon-azure.yml    
     - name: Apply guidance
       items:
       - name: Databases

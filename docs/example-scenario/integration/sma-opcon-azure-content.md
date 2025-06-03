@@ -1,5 +1,3 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 This article describes two OpCon options for implementation in Azure. *OpCon Cloud* is a managed OpCon implementation that SMA sets up and manages. The *OpCon datacenter* is a cloud installation that you set up and manage.
 
 Review both options to determine which approach best suits your scenario.
@@ -23,8 +21,8 @@ The diagram has two main sections: the on-premises network and Azure. The enviro
    - The OpCon core services connect to the OpCon database through the configured Azure private endpoint, which provides secure access to the SQL Database server.
 
    - OpCon core services communicate with OpCon agents that are installed on virtual machines (VMs) within the virtual network environment. The services also communicate with on-premises systems via the Relay component.
-   - Similarly, OpCon core services communicate directly with application REST API endpoints within the virtual network environment. The services also communicate with on-premises systems via the Relay component and a "connectionless" system.
-   - OpCon core services provide Solution Manager, which is a web-based user interface that interacts with the entire OpCon environment. 
+   - Similarly, OpCon core services communicate directly with application REST API endpoints within the virtual network environment. The services also communicate with on-premises systems via the Relay component and a *connectionless* system.
+   - OpCon core services provide Solution Manager, which is a web-based user interface that interacts with the entire OpCon environment.
    - NSGs limit traffic flow between subnets.
 
 1. The OpCon database objects and data are installed within a SQL Database server, which is accessed through a private endpoint.
@@ -43,9 +41,9 @@ The diagram has two main sections: the on-premises network and Azure. The enviro
 1. OpCon Relay is a software component that manages on-premises agents.
    - The link between OpCon Cloud and Relay uses standard encrypted protocols via WebSockets.
 
-   - Agent configurations are defined once in the OpCon environment and then pushed to the designated Relay component.
+   - Agent configurations are defined one time in the OpCon environment and then pushed to the designated Relay component.
    - After Relay receives its configuration, it establishes connections to the on-premises OpCon agents and reports their status to the OpCon environment in Azure. Messages to and from agents are passed across the defined connection.
-   - You can also install "connectionless" agents within the Relay environment.
+   - You can also install *connectionless* agents within the Relay environment.
 
 1. All user requests are routed via the internet connection to the OpCon core services environment.
    - Users interact with OpCon Solution Manager, which is a web-based user interface for the following tools:
@@ -69,7 +67,7 @@ This example architecture runs SMA's OpCon Cloud environment in Azure. It serves
 
 OpCon Relay connects on-premises systems with the OpCon Cloud environment through a single point of contact. This feature removes the need for Azure VPN connections.
 
-A "connectionless" agent platform can provide direct connectivity between OpCon Cloud systems and REST API implementations. You don't need extra containers to support connections to applications.
+A *connectionless* agent platform can provide direct connectivity between OpCon Cloud systems and REST API implementations. You don't need extra containers to support connections to applications.
 
 On-premises servers connect to the Relay software component. Multiple Relay components can be installed within the on-premises environment. The OpCon environment is deployed within a Kubernetes cluster by using AKS and a SQL Database server.
 
@@ -182,7 +180,7 @@ If you want to take advantage of the SMA service offering later, you can seamles
 
 - [OpCon MFT](https://help.smatechnologies.com/opcon/agents/opconmft/introduction) enables secure, managed file transfers within the OpCon environment. It integrates a dedicated MFT agent and File Transfer Server to provide enterprise-wide file transfer and monitoring capabilities.
 
-  These architectures use OpCon MFT to support compression, encryption, decryption, decompression, file watching, and automated file routing. For example, a regional healthcare provider might process daily insurance claims and need to send files securely to multiple insurance partners by using different formats, encryption requirements, and delivery methods. OpCon MFT helps reduce errors, ensure encryption, and provide flexibility.
+  These architectures use OpCon MFT to support compression, decompression, encryption, decryption, file watching, and automated file routing. For example, a regional healthcare provider might process daily insurance claims and need to send files securely to multiple insurance partners by using different formats, encryption requirements, and delivery methods. OpCon MFT helps reduce errors, ensure encryption, and provide flexibility.
 
 ### Alternatives
 
@@ -258,7 +256,7 @@ The following diagram shows configuration requirements and the relationship betw
 - A software development team automates Azure resource management to optimize cloud spend.
 - An enterprise uses OpCon's centralized interface to monitor workflows and server statuses, which improves service-level agreement adherence.
 - HR automates onboarding to reduce onboarding time from hours to minutes.
-- A logistics company tracks shipment events. OpCon watches for specific database entries and automatically triggers the next workflow, such as invoice generation, email alerts, or updates.
+- A logistics company tracks shipment events. OpCon monitors for specific database entries and automatically triggers the next workflow, such as invoice generation, email alerts, or updates.
 
 ## Considerations
  
