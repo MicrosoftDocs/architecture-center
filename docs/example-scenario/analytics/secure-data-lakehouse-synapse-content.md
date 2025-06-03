@@ -224,12 +224,12 @@ There are several components in the system. Each one requires a different identi
   A crucial part of identity and access control is choosing the right identity solution for each access control layer. The [security design principles](/azure/architecture/framework/security/security-principles) of the Azure Well-Architected Framework suggest using native controls and driving simplicity. Therefore, this solution uses the Microsoft Entra user Account of the end user in the application and Azure Synapse DB access layers. It uses the native first-party IAM solutions and provides fine-grained access control. The Azure Synapse access external resource layer and Data Lake access layer use managed identity in Azure Synapse to simplify the authorization process.
 - **Consider least-privileged access**
 
-  A Zero Trust guiding principle suggests providing just-in-time and just enough access to critical resources. See [Microsoft Entra Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to enhance security in the future.
+  A Zero Trust guiding principle suggests providing just-in-time and just enough access to critical resources. See [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) to enhance security in the future.
 - **Protect linked service**
 
     Linked services define the connection information that's needed for a service to connect to external resources. It's important to secure linked services configurations.
   - Create an [Azure Data Lake linked service with Private Link](/azure/synapse-analytics/data-integration/linked-service).
-  - Use [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) as the authentication method in linked services.
+  - Use [managed identity](/entra/identity/managed-identities-azure-resources/overview) as the authentication method in linked services.
   - Use Azure Key Vault to secure the credentials for accessing the linked service.
 
 #### Security score assessment and threat detection

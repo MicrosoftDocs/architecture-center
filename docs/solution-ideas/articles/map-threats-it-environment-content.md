@@ -41,14 +41,14 @@ For the Azure environment, the diagram shows the components that are listed in t
 | **WEB APPS** | [App Service overview](/azure/app-service/overview) |
 | **AZURE STORAGE** | [Introduction to Azure Storage](/azure/storage/common/storage-introduction) |
 | **DB** | [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview) |
-| **Microsoft Entra ID** | [What is Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis)? |
+| **Microsoft Entra ID** | [What is Microsoft Entra ID](/entra/fundamentals/whatis)? |
 
 The diagram represents Microsoft 365 through the components listed in the following table.
 
 | Label | Description | Documentation |
 |---|---|---|
 | `OFFICE 365` | Microsoft 365 services (formerly Office 365). The applications that Microsoft 365 makes available depends on the type of license. | [Microsoft 365 - Subscription for Office Apps](https://www.microsoft.com/microsoft-365) |
-| `Microsoft Entra ID` | Microsoft Entra ID, the same one utilized by Azure. Many companies use the same Microsoft Entra service for Azure and Microsoft 365. | [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis) |
+| `Microsoft Entra ID` | Microsoft Entra ID, the same one utilized by Azure. Many companies use the same Microsoft Entra service for Azure and Microsoft 365. | [What is Microsoft Entra ID?](/entra/fundamentals/whatis) |
 
 ### Workflow
 

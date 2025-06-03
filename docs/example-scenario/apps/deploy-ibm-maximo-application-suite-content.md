@@ -241,13 +241,13 @@ If you need access to your VMs for some reason, you can connect through your hyb
 
 MAS currently supports single sign-on (SSO) with Security Assertion Markup Language (SAML) in Microsoft Entra ID. This authentication method requires an enterprise application within Microsoft Entra ID and permissions to modify the application. For more information, see [Microsoft Entra SSO integration with Maximo Application Suite](/entra/identity/saas-apps/maximo-application-suite-tutorial).
 
-Before you set up SAML-based authentication, we recommend that you go through the IBM configuration and the Azure configuration. For information about SAML with MAS, see [SAML](https://www.ibm.com/docs/en/tfim/6.2.1?topic=overview-saml-20) in the documentation for MAS. For information about SAML with Azure, see [Quickstart: Enable single sign-on for an enterprise application](/azure/active-directory/manage-apps/add-application-portal-setup-sso).
+Before you set up SAML-based authentication, we recommend that you go through the IBM configuration and the Azure configuration. For information about SAML with MAS, see [SAML](https://www.ibm.com/docs/en/tfim/6.2.1?topic=overview-saml-20) in the documentation for MAS. For information about SAML with Azure, see [Quickstart: Enable single sign-on for an enterprise application](/entra/identity/enterprise-apps/add-application-portal-setup-sso).
 
 You should also configure Open Authorization (OAuth) for OpenShift. For more information, see [Overview of authentication and authorization](https://docs.openshift.com/container-platform/4.16/authentication/index.html) in the OpenShift documentation.
 
 #### Protect your infrastructure
 
-Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with a Microsoft Entra tenant. Use [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Be sure to audit all changes to infrastructure. For more information about auditing, see [Azure Monitor activity log](/azure/azure-resource-manager/resource-group-audit).
+Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/entra/fundamentals/how-subscriptions-associated-directory) with a Microsoft Entra tenant. Use [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Be sure to audit all changes to infrastructure. For more information about auditing, see [Azure Monitor activity log](/azure/azure-resource-manager/resource-group-audit).
 
 ### Cost optimization
 

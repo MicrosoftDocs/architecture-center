@@ -102,7 +102,7 @@ In some scenarios, your tenants might create the Azure OpenAI instance in their 
 
 - Tenants require a component in their environment to process and send data through their customer-managed Azure OpenAI instance for processing.
 
-To access an Azure OpenAI instance in your tenant's subscription, the tenant must provide your application with access. Your application must authenticate through its Microsoft Entra instance. One approach is to publish a [multitenant Microsoft Entra application](/azure/active-directory/develop/single-and-multi-tenant-apps). The following workflow outlines this approach:
+To access an Azure OpenAI instance in your tenant's subscription, the tenant must provide your application with access. Your application must authenticate through its Microsoft Entra instance. One approach is to publish a [multitenant Microsoft Entra application](/entra/identity-platform/single-and-multi-tenant-apps). The following workflow outlines this approach:
 
 1. The tenant registers the multitenant Microsoft Entra application in its own Microsoft Entra tenant.
 

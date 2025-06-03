@@ -172,11 +172,11 @@ The [pricing for AI Search](https://azure.microsoft.com/pricing/details/search/)
 
 ## Next steps
 
-* [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals) is about leveraging Microsoft Entra ID to implement multitenant apps.
+* [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals) is about leveraging Microsoft Entra ID to implement multitenant apps.
 
 * [Multitenant SaaS database tenancy patterns](/azure/azure-sql/database/saas-tenancy-app-design-patterns) covers implementing multitenancy patterns in SQL.
 
-* [Tenancy in Microsoft Entra ID](/azure/active-directory/develop/single-and-multi-tenant-apps) is also about leveraging Microsoft Entra ID to implement multitenant apps.
+* [Tenancy in Microsoft Entra ID](/entra/identity-platform/single-and-multi-tenant-apps) is also about leveraging Microsoft Entra ID to implement multitenant apps.
 
 ## Related resource
 

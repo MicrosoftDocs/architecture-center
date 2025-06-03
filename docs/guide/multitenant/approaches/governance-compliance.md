@@ -92,7 +92,7 @@ Use [resource tags](cost-management-allocation.yml#allocate-costs-by-using-resou
 
 ### Access control
 
-Use [Azure RBAC](/azure/role-based-access-control/overview) to restrict access to the Azure resources that constitute the multitenant solution. Follow the RBAC [best practices](/azure/role-based-access-control/best-practices), such as applying role assignments to groups instead of users. Scope your role assignments so they provide the minimum permissions necessary. Avoid long-standing access to resources by using just-in-time access and features like [Microsoft Entra ID Privileged Access Management](/azure/active-directory/privileged-identity-management/pim-configure).
+Use [Azure RBAC](/azure/role-based-access-control/overview) to restrict access to the Azure resources that constitute the multitenant solution. Follow the RBAC [best practices](/azure/role-based-access-control/best-practices), such as applying role assignments to groups instead of users. Scope your role assignments so they provide the minimum permissions necessary. Avoid long-standing access to resources by using just-in-time access and features like [Microsoft Entra ID Privileged Access Management](/entra/id-governance/privileged-identity-management/pim-configure).
 
 ### Azure Resource Graph
 

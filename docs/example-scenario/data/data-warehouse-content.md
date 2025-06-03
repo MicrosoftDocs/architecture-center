@@ -110,7 +110,7 @@ Principal author:
    - [What is dedicated SQL pool in Azure Synapse Analytics?](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
    - [Azure Analysis Services documentation](/azure/analysis-services)
    - [Power BI documentation](/power-bi)
-   - [Microsoft Entra documentation](/azure/active-directory)
+   - [Microsoft Entra documentation](/entra/identity)
 
 <!-- links -->
 

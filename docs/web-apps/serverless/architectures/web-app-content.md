@@ -331,7 +331,7 @@ Product documentation:
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 - [About API Management][apim] 
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
-- [Microsoft Entra ID](/azure/active-directory)
+- [Microsoft Entra ID](/entra/identity)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 
@@ -391,7 +391,7 @@ Related guidance:
 [pipelines]: /azure/devops/pipelines/index
 [gh-actions]: /azure/developer/github/github-actions
 [ru]: /azure/cosmos-db/request-units
-[scopes]: /azure/active-directory/develop/v2-permissions-and-consent
+[scopes]: /entra/identity-platform/permissions-consent-overview
 [static-hosting]: /azure/storage/blobs/storage-blob-static-website
 [storage-https]: /azure/storage/common/storage-require-secure-transfer
 [tm]: /azure/traffic-manager/traffic-manager-overview

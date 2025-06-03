@@ -38,7 +38,7 @@ Permissions Management is a cloud infrastructure entitlement management soluti
 
 - Monitor and alert anomalous activities to help prevent data breaches caused by misuse and malicious exploitation of permissions.
 
-For more information and detailed onboarding instructions, see [Onboard an Amazon Web Services (AWS) account](/azure/active-directory/cloud-infrastructure-entitlement-management/onboard-aws). 
+For more information and detailed onboarding instructions, see [Onboard an Amazon Web Services (AWS) account](/entra/permissions-management/onboard-aws). 
 
 ### Microsoft Defender for Cloud Apps
 
