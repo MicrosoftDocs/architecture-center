@@ -334,7 +334,7 @@ Azure delivers SAS by using an infrastructure as a service (IaaS) cloud model. M
 
 Carefully evaluate the services and technologies that you select for the areas above the hypervisor, such as the guest operating system for SAS. Make sure to provide the proper security controls for your architecture.
 
-SAS currently doesn't fully support [Microsoft Entra ID](/azure/active-directory/). For authentication into the visualization layer for SAS, you can use Microsoft Entra ID. But for back-end authorization, use a strategy that's similar to on-premises authentication. When managing IaaS resources, you can use Microsoft Entra ID for authentication and authorization to the Azure portal. When using Microsoft Entra Domain Services, you can't authenticate guest accounts. Guest attempts to sign in will fail.
+SAS currently doesn't fully support [Microsoft Entra ID](/entra/identity/). For authentication into the visualization layer for SAS, you can use Microsoft Entra ID. But for back-end authorization, use a strategy that's similar to on-premises authentication. When managing IaaS resources, you can use Microsoft Entra ID for authentication and authorization to the Azure portal. When using Microsoft Entra Domain Services, you can't authenticate guest accounts. Guest attempts to sign in will fail.
 
 Use [network security groups](/azure/virtual-network/security-overview) to filter network traffic to and from resources in your [virtual network](/azure/virtual-network/virtual-networks-overview). With these groups, you can define rules that grant or deny access to your SAS services. Examples include:
 
@@ -347,7 +347,7 @@ You can use [Azure Disk Encryption](/azure/security/azure-security-disk-encrypti
 
 #### Protect your infrastructure
 
-Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with a Microsoft Entra tenant. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Make sure to [audit all changes to infrastructure](/azure/azure-resource-manager/resource-group-audit).
+Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/entra/fundamentals/how-subscriptions-associated-directory) with a Microsoft Entra tenant. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Make sure to [audit all changes to infrastructure](/azure/azure-resource-manager/resource-group-audit).
 
 Manage remote access to your VMs through [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/#get-started). Don't expose any of these components to the internet:
 

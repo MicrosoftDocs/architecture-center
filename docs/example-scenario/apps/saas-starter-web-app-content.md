@@ -61,7 +61,7 @@ The user sign-in workflow consists of the following steps:
 
 1. The *Permission data API* looks up the *end user*'s information in the *Permission data storage* and returns a list of permissions and roles that are assigned to that *end user*.
 
-1. The *Identity provider* adds the permissions and roles as custom claims to the [ID token](/azure/active-directory/develop/id-tokens), which is a JSON web token (JWT).
+1. The *Identity provider* adds the permissions and roles as custom claims to the [ID token](/entra/identity-platform/id-tokens), which is a JSON web token (JWT).
 
 1. The *Identity provider* returns an ID token to the *end user* and initiates a redirect to the *front-end application*.
 
@@ -71,7 +71,7 @@ The user sign-in workflow consists of the following steps:
 
 1. The *Front-end application* returns a successful sign-in page and the *end user* is now signed in.
 
-For more information about how this sign-in flow works, see [OpenID Connect protocol](/azure/active-directory/develop/v2-protocols-oidc).
+For more information about how this sign-in flow works, see [OpenID Connect protocol](/entra/identity-platform/v2-protocols-oidc).
 
 #### Onboard a new tenant
 
@@ -179,7 +179,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-This solution relies on identity as its security paradigm. Authentication and authorization for the web apps and APIs is governed by the [Microsoft identity platform](/azure/active-directory/develop/v2-overview), which is responsible for issuing and verifying user ID tokens (JWTs).
+This solution relies on identity as its security paradigm. Authentication and authorization for the web apps and APIs is governed by the [Microsoft identity platform](/entra/identity-platform/v2-overview), which is responsible for issuing and verifying user ID tokens (JWTs).
 
 ### Cost Optimization
 

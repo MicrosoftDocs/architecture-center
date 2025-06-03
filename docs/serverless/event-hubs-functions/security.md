@@ -39,7 +39,7 @@ When using a shared access signature with Azure Functions and Event Hubs, the fo
 
 ### Managed identity
 
-An Active Directory identity can be assigned to a managed resource in Azure such as a function app or web app. Once an identity is assigned, it has the capabilities to work with other resources that use Microsoft Entra ID for authorization, much like a [service principal](/azure/active-directory/develop/app-objects-and-service-principals).
+An Active Directory identity can be assigned to a managed resource in Azure such as a function app or web app. Once an identity is assigned, it has the capabilities to work with other resources that use Microsoft Entra ID for authorization, much like a [service principal](/entra/identity-platform/app-objects-and-service-principals).
 
 Function apps can be assigned a [managed identity](/azure/app-service/overview-managed-identity) and take advantage of identity-based connections for a subset of services, including Event Hubs. Identity-based connections provide support for both the trigger and output binding extensions and must use the [Event Hubs extension 5.x and higher](/azure/azure-functions/functions-bindings-event-hubs#event-hubs-extension-5x-and-higher) for support.
 

@@ -183,7 +183,7 @@ Product documentation:
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Azure App Service plan overview](/azure/app-service/overview-hosting-plans)
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
-- [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Microsoft Entra ID?](/entra/fundamentals/whatis)
 - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
 
 Microsoft Learn modules:

@@ -164,7 +164,7 @@ AD DS is designed for scalability. You don't need to configure a load balancer o
 
 ## Next steps
 
-- [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Microsoft Entra ID?](/entra/fundamentals/whatis)
 - [Azure DevOps][az-devops]
 - [Azure Pipelines][az-pipelines]
 - [Azure Monitor][azure-monitor]

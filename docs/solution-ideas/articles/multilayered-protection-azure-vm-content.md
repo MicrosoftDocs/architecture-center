@@ -110,9 +110,9 @@ Principal author:
 
 - [Azure Virtual Machines baseline architecture][Azure Virtual Machines baseline]
 
-[Activate my Azure resource roles in Privileged Identity Management]: /azure/active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles
-[Azure AD]: https://azure.microsoft.com/services/active-directory
-[Azure AD Conditional Access]: /azure/active-directory/conditional-access/overview
+[Activate my Azure resource roles in Privileged Identity Management]: /entra/id-governance/privileged-identity-management/pim-resource-roles-activate-your-roles
+[Azure AD]: https://www.microsoft.com/security/business/identity-access/microsoft-entra-id
+[Azure AD Conditional Access]: /entra/identity/conditional-access/overview
 [Azure Bastion]: /azure/bastion
 [Azure Key Vault]: /azure/key-vault
 [Azure RBAC]: /azure/role-based-access-control/overview
@@ -120,9 +120,9 @@ Principal author:
 [Azure Virtual Machines]: /azure/well-architected/service-guides/virtual-machines
 [Configure Bastion and connect to a Windows VM through a browser]: /azure/bastion/tutorial-create-host-portal
 [Just-in-time (JIT) VM access]: /azure/security-center/security-center-just-in-time
-[Privileged Identity Management (PIM)]: /azure/active-directory/privileged-identity-management
+[Privileged Identity Management (PIM)]: /entra/id-governance/privileged-identity-management/
 [Understanding just-in-time (JIT) VM access]: /azure/security-center/just-in-time-explained
-[Secure user sign-in events with Azure AD Multi-Factor Authentication]: /azure/active-directory/authentication/tutorial-enable-azure-mfa
+[Secure user sign-in events with Microsoft Entra multifactor authentication]: /entra/identity/authentication/tutorial-enable-azure-mfa
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1880866-multilayered-protection-azure-vm-architecture-diagram.vsdx
 [Zero Trust]: https://www.microsoft.com/security/business/zero-trust
 [Azure Virtual Machines baseline]: /azure/architecture/virtual-machines/baseline
