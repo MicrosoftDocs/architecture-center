@@ -8,7 +8,7 @@ The following architectural diagram shows an OpCon Cloud environment that uses A
 
 This implementation uses a single virtual network and multiple subnets to support various functions. Network security groups (NSGs) filter network traffic between Azure resources in the virtual network.
 
-:::image type="complex" source="../media/opcon-cloud-architecture.svg" alt-text="Architecture diagram that shows how to deploy OpCon in Azure or a hybrid environment." lightbox="../media/opcon-cloud-architecture.svg" border="false":::
+:::image type="complex" source="./media/opcon-cloud-architecture.svg" alt-text="Architecture diagram that shows how to deploy OpCon in Azure or a hybrid environment." lightbox="./media/opcon-cloud-architecture.svg" border="false":::
 The diagram has two main sections: the on-premises network and Azure. The environments are connected via the internet. The on-premises network includes various devices and servers such as Unisys ClearPath Forward, IBM zOS or AS400, and Windows and Linux servers. OpCon Relay points to these components via a green line that represents logical connections to OpCon agents. The on-premises network also contains an OpCon MFT server. Opcon Relay points to this component via a red line that represents logical REST API connections to applications. OpCon Relay connects to Opcon in the Azure environment via the internet. Users also reside in the on-premises network. The Azure virtual network contains the OpCon subnet, private endpoint subnet, and applications subnet. The OpCon subnet contains OpCon, which points to the opconconfig and opconlog components in the same subnet. It also points to SQL Database (via a black line) and Azure Storage (via a red line) in the private endpoint subnet. The applications subnet contains Unisys ClearPath Forward, Windows, Linux, Storage, an OpCon MFT server, and an application server. OpCon points to several components. It points to an OpCon MFT server and an application server via a red line. It also points to Unisys ClearPath Forward, Windows, and Linux via a green line. The OpCon MFT server points to Storage via a blue line that represents Logical Connector connections to applications. The OpCon subnet and applications subnet are connected via an NSG.
 :::image-end:::
 
@@ -79,7 +79,7 @@ You can get the OpCon software from Docker Hub as Docker images. Deploy the OpCo
 
 The following example architecture runs SMA's OpCon in Azure by using a Kubernetes configuration. It uses a site-to-site VPN gateway to securely connect the cloud infrastructure and the on-premises infrastructure. This implementation uses a single virtual network and multiple subnets to support various functions. NSGs filter network traffic between Azure resources in the virtual network.
 
-:::image type="complex" source="../media/opcon-datacenter-architecture.svg" alt-text="Diagram that shows the OpCon datacenter architecture." lightbox="../media/opcon-datacenter-architecture.svg" border="false":::
+:::image type="complex" source="./media/opcon-datacenter-architecture.svg" alt-text="Diagram that shows the OpCon datacenter architecture." lightbox="./media/opcon-datacenter-architecture.svg" border="false":::
 The diagram has two main sections: the on-premises network and Azure. The environments are connected via a site-to-site VPN tunnel over the internet. The on-premises network includes a subnet that contains a local network gateway, VPN connection, and virtual network gateway. This subnet points to Unisys ClearPath Forward, IBM zOS or AS400, and Windows and Linux servers via a green line that represents logical connections to OpCon agents. The subnet points to an OpCon MFT server via a red line that represents logical REST API connections to applications. Users also reside in the on-premises network. The Azure virtual network contains the OpCon subnet, private endpoint subnet, gateway subnet, and applications subnet. The OpCon subnet contains OpCon, which points to the opconconfig and opconlog components in the same subnet. It also points to SQL Database (via a black line) and Storage (via a blue line) in the private endpoint subnet. The applications subnet contains Unisys ClearPath Forward, Windows, Linux, an OpCon MFT server, and an application server. OpCon points to Unisys ClearPath Forward, Windows, and Linux via a green line. OpCon points to an OpCon MFT server and application server via a red line. An OpCon MFT server points to Storage via a blue line that represents Logical Connector connections to applications. All subnets except the private endpoint subnet are connected via NSGs.
 :::image-end:::
 
@@ -210,7 +210,7 @@ The deployed OpCon environment consists of two pods, OpCon and Impex, within a s
 
 The following diagram shows configuration requirements and the relationship between various definitions in the Kubernetes YAML file.
 
-:::image type="content" source="../media/opcon-kubernetes.svg" alt-text="Diagram that shows the Kubernetes configuration." lightbox="../media/opcon-kubernetes.svg" border="false":::
+:::image type="content" source="./media/opcon-kubernetes.svg" alt-text="Diagram that shows the Kubernetes configuration." lightbox="./media/opcon-kubernetes.svg" border="false":::
 
 - Kind: Secret (dbpasswords) 
 
