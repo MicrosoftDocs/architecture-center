@@ -16,9 +16,9 @@ In this architecture, we divide the solution into two areas, describing security
 
 ### General notes
 
-- This architecture uses the [federated](/azure/active-directory/hybrid/whatis-fed) Microsoft Entra identity model. For the password hash synchronization and pass-through authentication models, the logic and the flow are the same. The only difference is related to the fact that Microsoft Entra ID won't redirect the authentication request to on-premises Active Directory Federation Services (AD FS).
+- This architecture uses the [federated](/entra/identity/hybrid/connect/whatis-fed) Microsoft Entra identity model. For the password hash synchronization and pass-through authentication models, the logic and the flow are the same. The only difference is related to the fact that Microsoft Entra ID won't redirect the authentication request to on-premises Active Directory Federation Services (AD FS).
 - The diagram shows access to the Outlook on the web service that corresponds to an …/owa path. Exchange admin center (or Exchange Control Panel) user access that corresponds to an …/ecp path follows the same flow.
-- In the diagram, dashed lines show basic interactions between local Active Directory, Microsoft Entra Connect, Microsoft Entra ID, AD FS, and Web Application Proxy components. You can learn more about these interactions in [Hybrid identity required ports and protocols](/azure/active-directory/hybrid/reference-connect-ports).
+- In the diagram, dashed lines show basic interactions between local Active Directory, Microsoft Entra Connect, Microsoft Entra ID, AD FS, and Web Application Proxy components. You can learn more about these interactions in [Hybrid identity required ports and protocols](/entra/identity/hybrid/connect/reference-connect-ports).
 - By *Exchange on-premises*, we mean Exchange 2019 with the latest updates, Mailbox role. By *Exchange Edge on-premises*, we mean Exchange 2019 with the latest updates, Edge Transport role. We include Edge server in the diagram to highlight that you can use it in these scenarios. It's not involved in the work with client protocols that's discussed here.
 - In a real environment, you won't have just one server. You'll have a load-balanced array of Exchange servers for high availability. The scenarios described here are suited for that configuration.
 
@@ -55,7 +55,7 @@ You also need to enable integration of AD FS and Microsoft Entra multifactor aut
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis). Microsoft Entra ID is a Microsoft cloud-based identity and access management service. It provides modern authentication that's based on EvoSTS (a Security Token Service used by Microsoft Entra ID). It's used as an authentication server for Exchange Server on-premises.
 
-- [Microsoft Entra multifactor authentication](/azure/active-directory/authentication/howto-mfa-getstarted). Multifactor authentication is a process in which users are prompted during the sign-in process for another form of identification, like a code on their cellphone or a fingerprint scan.
+- [Microsoft Entra multifactor authentication](/entra/identity/authentication/howto-mfa-getstarted). Multifactor authentication is a process in which users are prompted during the sign-in process for another form of identification, like a code on their cellphone or a fingerprint scan.
 
 - [Microsoft Entra Conditional Access](/entra/identity/conditional-access/overview). Conditional Access is the feature that Microsoft Entra ID uses to enforce organizational policies like multifactor authentication.
 
@@ -105,7 +105,7 @@ Overall availability depends on the availability of the components involved. For
 
 - [Advancing Microsoft Entra availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability)
 - [Cloud services you can trust: Office 365 availability](https://www.microsoft.com/microsoft-365/blog/2013/08/08/cloud-services-you-can-trust-office-365-availability)
-- [What is the Microsoft Entra architecture?](/azure/active-directory/fundamentals/active-directory-architecture)
+- [What is the Microsoft Entra architecture?](/entra/architecture/architecture)
 
 Availability of on-premises solution components depends on the implemented design, hardware availability, and your internal operations and maintenance routines. For availability information about some of these components, see the following resources:
 
@@ -127,7 +127,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 For information about the security of the components in this architecture, see the following resources:
 
-- [Microsoft Entra security operations guide](/azure/active-directory/fundamentals/security-operations-introduction)
+- [Microsoft Entra security operations guide](/entra/architecture/security-operations-introduction)
 - [Best practices for securing AD FS and Web Application Proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs)
 - [Configure AD FS Extranet Smart Lockout Protection](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection)
 
@@ -164,7 +164,7 @@ For information about Exchange Server on-premises scalability, see [Exchange 201
 
 To deploy this scenario, complete these high-level steps:
 
-1. Start with the web access service. Improve its security by using an [Azure Conditional Access policy for Exchange Online](/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa).
+1. Start with the web access service. Improve its security by using an [Azure Conditional Access policy for Exchange Online](/entra/identity/conditional-access/policy-all-users-mfa-strength).
 1. Improve the security of web access for on-premises EMI [by using AD FS claim-based authentication](/exchange/clients/outlook-on-the-web/ad-fs-claims-based-auth?view=exchserver-2019).
 
 ### Set up a Conditional Access policy

@@ -34,7 +34,7 @@ When deploying your infrastructure as code from a deployment pipeline, we recomm
 
 [Template specs](/azure/azure-resource-manager/templates/template-specs) can be useful for provisioning new resources, deployment stamps, or environments from a single and well-parameterized template. By using template specs, you can create a central repository of the templates that you use to deploy your tenant-specific infrastructure. The templates are stored and managed within Azure itself, and you can reuse the template specs whenever you need to deploy from them.
 
-In some solutions, you might choose to write custom code to dynamically provision or configure resources, or to initiate a template deployment. The [Azure SDKs](https://azure.microsoft.com/downloads) can be used from your own code, to manage your Azure environment. Ensure that you follow good practices around managing the authentication of your application to Resource Manager, and use [managed identities](/azure/active-directory/managed-identities-azure-resources) to avoid storing and managing credentials.
+In some solutions, you might choose to write custom code to dynamically provision or configure resources, or to initiate a template deployment. The [Azure SDKs](https://azure.microsoft.com/downloads) can be used from your own code, to manage your Azure environment. Ensure that you follow good practices around managing the authentication of your application to Resource Manager, and use [managed identities](/entra/identity/managed-identities-azure-resources/) to avoid storing and managing credentials.
 
 ### Role-based access control
 

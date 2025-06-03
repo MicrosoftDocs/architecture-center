@@ -26,7 +26,7 @@ This article describes how Amazon Elastic Kubernetes Service (EKS) and Azure Kub
 - [Microsoft Entra identity management and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security)
 - [Map AWS IAM concepts to similar Azure concepts](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/mapping-aws-iam-concepts-to-similar-ones-in-azure/ba-p/3612216)
 
-This guide explains how AKS clusters, built-in services, and add-ons use [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) to access Azure resources, like load balancers and managed disks. It also demonstrates how to use [Microsoft Entra Workload ID](https://azure.github.io/azure-workload-identity/docs) so that AKS workloads can access Azure resources without needing a connection string, access key, or user credentials.
+This guide explains how AKS clusters, built-in services, and add-ons use [managed identities](/entra/identity/managed-identities-azure-resources/overview) to access Azure resources, like load balancers and managed disks. It also demonstrates how to use [Microsoft Entra Workload ID](https://azure.github.io/azure-workload-identity/docs) so that AKS workloads can access Azure resources without needing a connection string, access key, or user credentials.
 
 [!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 

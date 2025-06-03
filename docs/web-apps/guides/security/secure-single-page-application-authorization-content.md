@@ -50,7 +50,7 @@ To learn more about using custom domains for Azure resources, see [Custom domain
 
 ## Authentication flow
 
-This process uses the [OAuth2 Authorization Code flow](/azure/active-directory/fundamentals/auth-oauth2). To obtain an access token that allows the single-page application to access the API, users must first authenticate themselves. You invoke the authentication flow by redirecting users to the Microsoft Entra authorization endpoint. You need to configure a redirect URI in Microsoft Entra ID. This redirect URI must be the API Management callback endpoint. Users are prompted to authenticate themselves by using Microsoft Entra ID and are redirected back to the API Management callback endpoint with an authorization code. The API Management policy then exchanges the authorization code for an access token by calling the Microsoft Entra token endpoint. The following diagram shows the sequence of events for this flow.
+This process uses the [OAuth2 Authorization Code flow](/entra/architecture/auth-oauth2). To obtain an access token that allows the single-page application to access the API, users must first authenticate themselves. You invoke the authentication flow by redirecting users to the Microsoft Entra authorization endpoint. You need to configure a redirect URI in Microsoft Entra ID. This redirect URI must be the API Management callback endpoint. Users are prompted to authenticate themselves by using Microsoft Entra ID and are redirected back to the API Management callback endpoint with an authorization code. The API Management policy then exchanges the authorization code for an access token by calling the Microsoft Entra token endpoint. The following diagram shows the sequence of events for this flow.
 
 ![Diagram that shows the authentication flow.](../_images/no-token-in-browser-set-token-sequence.png)
 
@@ -195,7 +195,7 @@ Other contributor:
 - [Policies in Azure API Management](/azure/api-management/api-management-howto-policies)
 - [How to set or edit Azure API Management policies](/azure/api-management/set-edit-policies)
 - [Use named values in Azure API Management policies](/azure/api-management/api-management-howto-properties)
-- [OAuth 2.0 authentication with Microsoft Entra ID](/azure/active-directory/fundamentals/auth-oauth2)
+- [OAuth 2.0 authentication with Microsoft Entra ID](/entra/architecture/auth-oauth2)
 - [What is Azure Static Web Apps?](/azure/static-web-apps/overview)
 
 ## Related resource
