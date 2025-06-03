@@ -17,4 +17,4 @@ name: Enhance SQL Transparent Data Encryption Keys Using Customer Managed Keys a
 summary: This solution describes a secure and resilient deployment pattern for Azure SQL Managed Instance. It highlights how Azure Managed HSM stores customer-managed TDE protector keys.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-sql-managed-instance-architecture.png
 content: |
-  [!INCLUDE[](secure-sql-managed-instance-managed-hardware-security-module.md)]
+  [!INCLUDE[](secure-sql-managed-instance-managed-hardware-security-module-content.md)]
