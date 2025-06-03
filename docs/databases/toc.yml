@@ -70,7 +70,7 @@ items:
           href: ../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml
         - name: Rehost IMS DC and IMS DB
           href: ../example-scenario/mainframe/rehost-ims-raincode-imsql.yml
-        - name: SMA OpCon in Azure
+        - name: Implement SMA OpCon in Azure
           href: ../example-scenario/integration/sma-opcon-azure.yml    
     - name: Apply guidance
       items:
