@@ -28,18 +28,6 @@ AWS organizations that use Microsoft Entra ID for Microsoft 365 or hybrid cloud 
 
 For more information and detailed instructions, see [Microsoft Entra identity and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security). 
 
-### Microsoft Entra Permissions Management
-
-Permissions Management is a cloud infrastructure entitlement management solution that provides comprehensive visibility into and control over permissions on identities, actions, and resources across multicloud infrastructure on Azure, AWS, and Google Cloud Platform. You can use Permissions Management to:
-
-- Discover the number of unused or excessive permissions across all AWS accounts to identify risks via a multidimensional view of identities, permissions, and resources. 
-
-- Remediate and right-size permissions via enforcement of the [principle of least privilege](https://wikipedia.org/wiki/Principle_of_least_privilege)  across all AWS accounts.
-
-- Monitor and alert anomalous activities to help prevent data breaches caused by misuse and malicious exploitation of permissions.
-
-For more information and detailed onboarding instructions, see [Onboard an Amazon Web Services (AWS) account](/entra/permissions-management/onboard-aws). 
-
 ### Microsoft Defender for Cloud Apps
 
 When several users or roles make administrative changes, _configuration drift_ away from intended security architecture and standards can occur. Security standards can also change over time. Security personnel must constantly and consistently detect new risks, evaluate mitigation options, and update security architecture to help prevent potential breaches. Security management across multiple public cloud and private infrastructure environments can become burdensome.
