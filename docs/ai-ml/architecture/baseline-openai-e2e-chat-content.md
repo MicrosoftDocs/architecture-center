@@ -3,19 +3,19 @@ Enterprise chat applications can empower employees through conversational intera
 - A chat user interface (UI).
 - Data repositories that contain domain-specific information that's pertinent to the user's queries.
 - Language models that reason over the domain-specific data to produce a relevant response.
-- An orchestrator that oversees the interactions between components.
+- An orchestrator or agent that oversees the interactions between components.
 
-This article provides a baseline architecture to help you build and deploy enterprise chat applications with [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) that use [Azure OpenAI language models](/azure/ai-services/openai/concepts/models). The architecture uses an Azure AI Agent to orchestrate the workflow from incoming prompts out to data stores to fetch grounding data for the language model.
+This article provides a baseline architecture to help you build and deploy enterprise chat applications with [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) that use [Azure OpenAI language models](/azure/ai-services/openai/concepts/models). The architecture uses an Azure AI Agent to orchestrate the workflow from incoming prompts from the user out to data stores to fetch grounding data for the language model.
 
-The hosting of the custom chat UI follows the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) guidance for how to deploy a secure, zone-redundant, and highly available web application on Azure App Service. In that architecture, App Service communicates to the Azure platform as a service (PaaS) solution through virtual network integration over private endpoints. In the chat UI architecture, App Service communicates with the Azure AI Agent over a private endpoint. Public access to Azure AI Foundry portal is disabled.
+The Chat UI follows the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) guidance for how to deploy a secure, zone-redundant, and highly available web application on Azure App Service. In that architecture, App Service communicates to the Azure platform as a service (PaaS) solution through virtual network integration over private endpoints. In the chat UI architecture, App Service communicates with the Azure AI Agent over a private endpoint. Public access to Azure AI Foundry portal and agents are disabled.
 
 > [!IMPORTANT]
-> This article doesn't describe the components or architecture decisions from the [baseline App Service web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml). Read that article for architectural guidance about how to host the chat UI.
+> This article doesn't describe the components or architecture decisions from the [baseline App Service web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml). Read that article for architectural guidance about how to host your web application containing your chat UI.
 
-The architecture uses [Azure AI Agent Service standard agent setup](/azure/ai-services/agents/concepts/standard-agent-setup) to enable enterprise-grade security, compliance, and control. In this configuration, you bring your own network for network isolation and your own customer-managed resources to store state. All communication to your private resources are done through private endpoints.
+The architecture uses [Azure AI Agent Service standard agent setup](/azure/ai-services/agents/concepts/standard-agent-setup) to enable enterprise-grade security, compliance, and control. In this configuration, you bring your own network for network isolation and your own customer-managed resources to store state. All communication to your private resources are done through private endpoints. All egress from the agents are routed through your Azure Firewall.
 
 > [!TIP]
-> ![GitHub logo.](../../_images/github.svg) This [reference implementation](https://github.com/Azure-Samples/openai-end-to-end-baseline) showcases a baseline end-to-end chat implementation on Azure. You can use this implementation as a basis for custom solution development in your first step toward production.
+> :::image type="icon" source="../../_images/github.svg"::: This [reference implementation](https://github.com/Azure-Samples/openai-end-to-end-baseline) showcases a baseline end-to-end chat implementation on Azure. You can use this implementation as a basis for custom solution development in your first step toward production.
 
 ## Architecture
 
@@ -31,19 +31,29 @@ Many of the components of this architecture are the same as the resources in the
 
 - [Azure AI Agent Service](/azure/ai-services/agents/overview) is a capability hosted in Azure AI Foundry. Developers define and host agents to handle chat requests. It manages chat threads, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. This architecture uses [Azure AI Agent Service standard agent setup](/azure/ai-services/agents/concepts/standard-agent-setup) to enable enterprise-grade security, compliance, and control. You bring your own network for network isolation and your own customer-managed resources to store state, including Azure Cosmos DB, Azure Storage and Azure AI Search.
 
-- [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer 7 (HTTP/S) load balancer and web traffic router. It uses URL path-based routing to distribute incoming traffic across availability zones and offloads encryption to improve application performance.
+  In the standard setup for Azure AI Agent Service, you bring your own Azure resources as required dependencies for the capability. In this architecture, these resources are dedicated to serving the Azure AI Agent service and are not designed to be used by other components in the workload.
 
-- [Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) is a cloud-native service that helps protect web apps from common exploits such as SQL injection and cross-site scripting. Web Application Firewall provides visibility into the traffic to and from your web application. This visibility helps you monitor and secure your application.
+  - A dedicated [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) account contains the *memory* database, called `enterprise_memory`, for this workload's chat experience. This database stores the chat history, known as threads. It also stores the defintions of all of your agents. This database, its collections, and the data within is fully managed by the Azure AI Agent Service.
 
-- [Azure Key Vault](/azure/key-vault/general/overview) is a service that securely stores and manages secrets, encryption keys, and certificates. It centralizes the management of sensitive information.
+  - A dedicated [Azure Storage](/azure/well-architected/service-guides/azure-blob-storage) account contains blob containers that are the destination for files uploaded as part of conversations with the agent. Like Cosmos DB, the containers and the data within are fully managed by the Azure AI Agent Service.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a service that you can use to create isolated and more secure private virtual networks in Azure. For a web application on App Service, you need a virtual network subnet to use private endpoints for network-secure communication between resources.
+  - A dedicated [Azure AI Search](/azure/search/search-what-is-azure-search) instance is used to store a searchable and chunked version of files uploaded as part of conversations with the agent or as files that are added as knowledge sources at the time of agent creation. The Azure AI Agent Service manages the index and the data within it.
 
-- [Azure Private Link](/azure/private-link/private-link-overview) allows clients to access Azure PaaS services directly from private virtual networks without using public IP addresses.
+- [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer 7 (HTTP/S) load balancer and web traffic router. It uses URL path-based routing to distribute incoming traffic across availability zones and offloads encryption to improve application performance. In this architecture, it is the TLS-secured entry point for the chat UI, routing traffic to the App Service that hosts the application code.
 
-- [Azure Firewall](/azure/firewall/) is a cloud-native, intelligent network firewall security service that offers top-tier threat protection for your Azure cloud workloads. In this architecture all egress traffic is routed through Azure Firewall.
+- [Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) is a cloud-native service that helps protect web apps from common exploits such as SQL injection and cross-site scripting. Web Application Firewall provides visibility into the traffic to and from your web application. This visibility helps you secure your chat UI application from malicious HTTP requests.
 
-- [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. Private DNS zones provide a way to map a service's fully qualified domain name (FQDN) to a private endpoint's IP address.
+- [Azure Key Vault](/azure/key-vault/general/overview) is a service that securely stores and manages secrets, encryption keys, and certificates. It centralizes the management of sensitive information. In this architecture, Key Vault is used to store the TLS certificate used by Application Gateway; there are no keys or other secrets in this architecture to store.
+
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a service that you can use to create isolated and more secure private virtual networks in Azure. In this architecture, the network becomes a new security perimiter, keeping component to component traffic private, and giving you the ability to inspect and control ingress and egress traffic traversing the network boundries.
+
+- [Azure Private Link](/azure/private-link/private-link-overview) allows clients to access Azure PaaS services directly from private virtual networks without using public IP addresses. In this architecture, Private endpoints are created for all of the core components in this architecture and are required to be used by their respective client components.
+
+- [Azure Firewall](/azure/firewall/) is a cloud-native, intelligent network firewall security service that offers top-tier threat protection for your Azure cloud workloads. In this architecture all egress traffic destined for the internet is first routed through Azure Firewall so you can apply network and fully qualified domain name (FQDN) application rules to limit the traffic that can leave your network.
+
+- [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. In this architecture, private DNS zones linked to the virtual network provide the method to map a service's FQDN to its private endpoint's IP address.
+
+- [Azure Storage](/azure/well-architected/service-guides/azure-blob-storage) account is a service that provides scalable, durable, and secure storage for unstructured data. In this architecture, a blob container is used to store the web application code, as a .zip file, for Azure App Service.
 
 ### Alternatives
 
@@ -51,15 +61,15 @@ This architecture includes multiple components that can be served by other Azure
 
 #### Chat orchestration
 
-This architecture uses [Azure AI Agent Service](/azure/ai-services/agents/overview) orchestrate the flow that fetches grounding data from Azure AI Search and passes it to a deployed Azure OpenAI model. The agent service handles chat requests, manages chat threads, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. The orchestration of the chat flow is non-deterministic. Alternatively, you can choose to host your own orchestrator that leverages frameworks like [Semantic Kernel](/semantic-kernel/overview/) or [LangChain](/azure/ai-foundry/how-to/develop/langchain) to implement deterministic chat flows.
+This architecture uses [Azure AI Agent Service](/azure/ai-services/agents/overview) orchestrate the flow that fetches grounding data from Azure AI Search and passes it to a deployed Azure OpenAI model. The agent service handles chat requests, manages chat threads, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. The orchestration of the chat flow is codeless and nondeterministic. Alternatively, you can choose to host your own orchestrator that leverages frameworks like [Semantic Kernel](/semantic-kernel/overview/) or [LangChain](/azure/ai-foundry/how-to/develop/langchain) to implement more deterministic and code driven chat flows.
 
 #### Application tier components
 
-Azure provides several managed application services that can serve as an application tier for the chat UI front end. These services include [compute options](/azure/architecture/guide/technology-choices/compute-decision-tree) and [container solutions](/azure/architecture/guide/choose-azure-container-service). For example, this architecture uses Web Apps and Web App for Containers for the chat UI API and the prompt flow host respectively. You might achieve similar results by using Azure Kubernetes Service (AKS) or Azure Container Apps. Choose the application platform for your workload based on its specific functional and nonfunctional requirements.
+Azure provides several managed application services that can serve as an application tier for the chat UI front end. These services include [compute options](/azure/architecture/guide/technology-choices/compute-decision-tree) and [container solutions](/azure/architecture/guide/choose-azure-container-service). For example, this architecture uses Web Apps for the chat UI API. You might achieve similar results by using Azure Container Apps or Azure Kubernetes Service (AKS). Choose the application platform for your workload based on its specific functional and nonfunctional requirements.
 
 #### Grounding data store
 
-This architecture leads with AI Search, but your choice of data store for your grounding data is an architectural decision that's specific to your workload. Many workloads use several languages and have disparate sources and technologies for grounding data. These data platforms include existing online transaction processing data stores, cloud-native databases like Azure Cosmos DB, and specialized solutions like AI Search. Vector search is a common characteristic for this type of data store, but it isn't required. For more information, see [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search).
+This architecture leads with AI Search, but your choice of data store for your grounding data is an architectural decision that's specific to your workload. Many workloads use several languages and have disparate sources and technologies for grounding data. These data platforms include existing online transaction processing (OLTP) data stores, cloud-native databases like Azure Cosmos DB, and specialized solutions like AI Search. Vector search is a common characteristic for this type of data store, but it isn't required. For more information, see [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search).
 
 ## Considerations
 

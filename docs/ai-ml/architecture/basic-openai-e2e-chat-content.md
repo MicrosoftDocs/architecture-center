@@ -4,7 +4,7 @@ This article provides a basic architecture to help you learn how to run chat app
 > This architecture isn't for production applications. It's an introductory architecture for learning and proof-of-concept (POC) purposes. When you design your production enterprise chat applications, use the [baseline Azure OpenAI end-to-end chat reference architecture](./baseline-openai-e2e-chat.yml), which adds production design decisions to this basic architecture.
 
 > [!IMPORTANT]
-> :::image type="icon" source="../../_images/github.svg"::: An [example implementation](https://github.com/Azure-Samples/openai-end-to-end-basic) supports this guidance. It includes deployment steps for a basic end-to-end chat implementation. You can use this implementation as a foundation for your POC to work with chat applications that use Azure OpenAI.
+> :::image type="icon" source="../../_images/github.svg"::: An [example implementation](https://github.com/Azure-Samples/openai-end-to-end-basic) supports this guidance. It includes deployment steps for a basic end-to-end chat implementation. You can use this implementation as a foundation for your POC to work with chat applications that use Azure AI Foundry agents.
 
 ## Architecture
 
