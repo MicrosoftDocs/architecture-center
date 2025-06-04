@@ -45,7 +45,7 @@ The following are descriptions of the inbound flow of internet traffic to the Ap
 #### Inbound flow
 
 1. The user issues a request to the Application Gateway public IP. 
-2. The WAF rules are evaluated. WAF rules positively affect the system's reliability by protecting against various attacks, such as cross-site scripting (XSS) and SQL injection. Azure Application Gateway returns an error to the requester if a WAF rule is violated and processing stops. If no WAF rules are violated, Application Gateway routes the request to the backend pool, which in this case is the App Service default domain.
+2. The WAF rules are evaluated. WAF rules positively affect the system's reliability by protecting against various attacks, such as cross-site scripting (XSS) and SQL injection. Azure Application Gateway returns an error to the requestor if a WAF rule is violated and processing stops. If no WAF rules are violated, Application Gateway routes the request to the backend pool, which in this case is the App Service default domain.
 3. The private DNS zone `privatelink.azurewebsites.net` is linked to the virtual network. The DNS zone has an A record that maps the App Service default domain to the private IP address of the App Service private endpoint. This linked private DNS zone allows Azure DNS to resolve the default domain to the private endpoint IP address.
 4. The request is routed to an App Service instance through the private endpoint.
 

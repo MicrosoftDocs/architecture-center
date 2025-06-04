@@ -12,7 +12,7 @@ Other common services such as authentication, authorization, logging, monitoring
 
 Offload some features into a gateway, particularly cross-cutting concerns such as certificate management, authentication, SSL termination, monitoring, protocol translation, or throttling.
 
-The following diagram shows a gateway that terminates inbound SSL connections. It requests data on behalf of the original requester from any HTTP server upstream of the gateway.
+The following diagram shows a gateway that terminates inbound SSL connections. It requests data on behalf of the original requestor from any HTTP server upstream of the gateway.
 
  ![Diagram of the Gateway Offloading pattern](./_images/gateway-offload.png)
 

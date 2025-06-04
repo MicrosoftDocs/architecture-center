@@ -40,7 +40,7 @@ There are multitenant concerns beyond ensuring that users only access the inform
 In this single-tenant RAG architecture, an orchestrator fetches relevant proprietary tenant data from the data stores and provides it as grounding data to the foundation model. The following steps describe a high-level workflow.
 
 1. A user issues a request to the intelligent web application.
-2. An identity provider authenticates the requester.
+2. An identity provider authenticates the requestor.
 3. The intelligent application calls the orchestrator API with the user's query and the authorization token for the user.
 4. The orchestration logic extracts the user's query from the request and calls the appropriate data store to fetch relevant grounding data for the query. The grounding data is added to the prompt that's sent to the foundation model, like a model that's exposed in Azure OpenAI, in the next step.
 5. The orchestration logic connects to the foundation model's inferencing API and sends the prompt that includes the retrieved grounding data. The results are returned to the intelligent application.
@@ -63,7 +63,7 @@ This variant of the single-tenant RAG architecture uses the [On Your Data featur
 In this RAG architecture, the service that provides the foundation model fetches the appropriate proprietary tenant data from the data stores and uses that data as grounding data to the foundation model. The following steps describe a high-level workflow. The italicized steps are identical to the preceding single-tenant RAG architecture that has an orchestrator workflow.
 
 1. *A user issues a request to the intelligent web application.*
-1. *An identity provider authenticates the requester.*
+1. *An identity provider authenticates the requestor.*
 1. The intelligent application calls Azure OpenAI with the user's query.
 1. Azure OpenAI connects to supported data stores, such as AI Search and Azure Blob Storage, to fetch the grounding data. The grounding data is used as part of the context when Azure OpenAI calls the OpenAI language model. The results are returned to the intelligent application.
 
@@ -82,7 +82,7 @@ In multitenant solutions, tenant data might exist in a tenant-specific store or 
 The following steps describe a high-level workflow. The italicized steps are identical to the [single-tenant RAG architecture with an orchestrator](#single-tenant-rag-architecture-with-an-orchestrator) workflow.
 
 1. *A user issues a request to the intelligent web application.*
-1. *An identity provider authenticates the requester.*
+1. *An identity provider authenticates the requestor.*
 1. *The intelligent application calls the orchestrator API with the user's query and the authorization token for the user.*
 1. The orchestration logic extracts the user's query from the request and calls the appropriate data stores to fetch tenant-authorized, relevant grounding data for the query. The grounding data is added to the prompt that's sent to Azure OpenAI in the next step. Some or all of the following steps are included:
     1. The orchestration logic fetches grounding data from the appropriate tenant-specific data store instance and potentially applies security filtering rules to return only the data that the user is authorized to access.
