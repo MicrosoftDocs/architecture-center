@@ -130,7 +130,7 @@ The following tables list dependencies for Azure network connection. Windows 365
 | Dependency | Intune enrollment – Checks if Intune allows Windows enrollment. |
 | --- | --- |
 | Architecture patterns | Azure network connection for Microsoft Entra join, Azure network connection for Microsoft Entra hybrid join|
-| Recommendations | - Ensure that Intune device type enrollment restrictions are set to allow the Windows mobile device management (MDM) platform for corporate enrollment. <br> - For Microsoft Entra hybrid join, set up devices automatically by configuring the service connection point (SCP) for each domain in Microsoft Entra Connect or by using the targeted deployment model. For more information, see [Configure Microsoft hybrid join](/azure/active-directory/devices/howto-hybrid-azure-ad-join#prerequisitese) and [Microsoft Entra hybrid join targeted deployment](/azure/active-directory/devices/hybrid-azuread-join-control). |
+| Recommendations | - Ensure that Intune device type enrollment restrictions are set to allow the Windows mobile device management (MDM) platform for corporate enrollment. <br> - For Microsoft Entra hybrid join, set up devices automatically by configuring the service connection point (SCP) for each domain in Microsoft Entra Connect or by using the targeted deployment model. For more information, see [Configure Microsoft hybrid join](/entra/identity/devices/how-to-hybrid-join#prerequisites) and [Microsoft Entra hybrid join targeted deployment](/entra/identity/devices/hybrid-join-control). |
 
 | Dependency | First-party app permissions – Checks the Windows 365 app for permissions on the customer Azure subscription, resource group, and virtual network levels. |
 | --- | --- |

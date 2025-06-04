@@ -100,10 +100,10 @@ This section describes the components and services that appear in the diagram. M
     | Label | Description | Documentation |
     |---|---|---|
     | **RBAC** | Azure role-based access control (Azure RBAC) helps you manage access to Azure services by using granular permissions that are based on users' Microsoft Entra credentials. | [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview) |
-    | **MFA** | Multifactor authentication offers additional types of authentication beyond user names and passwords. | [How it works: Microsoft Entra multifactor authentication](/azure/active-directory/authentication/concept-mfa-howitworks) |
-    | **ID protection** | Identity Protection, a security service from Microsoft Entra ID, analyzes trillions of signals per day to identify and protect users from threats. | [What is Identity Protection?](/azure/active-directory/identity-protection/overview-identity-protection) |
-    | **PIM** | Privileged Identity Management (PIM), a security service from Microsoft Entra ID. It helps you to provide superuser privileges temporarily for Microsoft Entra ID (for example, User Administrator) and Azure subscriptions (for example, Role Based Access Control Administrator or Key Vault Administrator). | [What is Microsoft Entra Privileged Identity Management?](/azure/active-directory/privileged-identity-management/pim-configure) |
-    | **Cond Acc** | Conditional Access is an intelligent security service that uses policies that you define for various conditions to block or grant access to users. | [What is Conditional Access?](/azure/active-directory/conditional-access/overview) |
+    | **MFA** | Multifactor authentication offers additional types of authentication beyond user names and passwords. | [How it works: Microsoft Entra multifactor authentication](/entra/identity/authentication/concept-mfa-howitworks) |
+    | **ID protection** | Identity Protection, a security service from Microsoft Entra ID, analyzes trillions of signals per day to identify and protect users from threats. | [What is Identity Protection?](/entra/id-protection/overview-identity-protection) |
+    | **PIM** | Privileged Identity Management (PIM), a security service from Microsoft Entra ID. It helps you to provide superuser privileges temporarily for Microsoft Entra ID (for example, User Administrator) and Azure subscriptions (for example, Role Based Access Control Administrator or Key Vault Administrator). | [What is Microsoft Entra Privileged Identity Management?](/entra/id-governance/privileged-identity-management/pim-configure) |
+    | **Cond Acc** | Conditional Access is an intelligent security service that uses policies that you define for various conditions to block or grant access to users. | [What is Conditional Access?](/entra/identity/conditional-access/overview) |
 
 ### Components
 

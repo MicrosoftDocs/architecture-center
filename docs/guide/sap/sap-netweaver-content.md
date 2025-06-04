@@ -286,7 +286,7 @@ Use a centralized identity management system like Microsoft Entra ID and Active 
 
 - Grant access to Azure VMs by using Lightweight Directory Access Protocol (LDAP), Microsoft Entra ID, Kerberos, or another system.
 
-Support access within the applications themselves by using the services that SAP provides. Or use [OAuth 2.0 and Microsoft Entra ID](/azure/active-directory/develop/active-directory-protocols-oauth-code).
+Support access within the applications themselves by using the services that SAP provides. Or use [OAuth 2.0 and Microsoft Entra ID](/entra/identity-platform/v2-oauth2-auth-code-flow).
 
 ### Monitoring
 

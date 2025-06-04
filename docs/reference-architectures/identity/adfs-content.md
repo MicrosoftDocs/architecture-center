@@ -47,7 +47,7 @@ This reference architecture implements a secure hybrid network that extends your
 
 This architecture extends the implementation described in [Extending AD DS to Azure][extending-ad-to-azure]. It contains the following components.
 
-- [**AD DS subnet**](/azure/active-directory-domain-services/network-considerations#azure-virtual-network-design)
+- [**AD DS subnet**](/entra/identity/domain-services/network-considerations#azure-virtual-network-design)
 - [**AD DS servers**](/windows-server/identity/ad-ds/plan/ad-ds-design-and-planning)
 - [**AD FS subnet**](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs#steps-to-deploy-ad-fs-in-azure)
 - [**AD FS servers**](/defender-for-identity/active-directory-federation-services#server-specifications)
@@ -136,7 +136,7 @@ The [Microsoft System Center Management Pack for Active Directory Federation Ser
 - The performance data that the AD FS performance counters collect.
 - The overall health of the AD FS system and web applications (relying parties), and provides alerts for critical issues and warnings.
 
-Another option is [Monitor AD FS using Microsoft Entra Connect Health](/azure/active-directory/hybrid/connect/how-to-connect-health-adfs). [Microsoft Entra Connect Health](/azure/active-directory/hybrid/connect/whatis-azure-ad-connect) provides robust monitoring of your on-premises identity infrastructure. It enables you to maintain a reliable connection to Microsoft 365 and Microsoft Online Services. This reliability is achieved by providing monitoring capabilities for your key identity components. Also, it makes the key data points about these components easily accessible.
+Another option is [Monitor AD FS using Microsoft Entra Connect Health](/entra/identity/hybrid/connect/how-to-connect-health-adfs). [Microsoft Entra Connect Health](/entra/identity/hybrid/connect/whatis-azure-ad-connect) provides robust monitoring of your on-premises identity infrastructure. It enables you to maintain a reliable connection to Microsoft 365 and Microsoft Online Services. This reliability is achieved by providing monitoring capabilities for your key identity components. Also, it makes the key data points about these components easily accessible.
 
 ## Considerations
 
@@ -234,7 +234,7 @@ Principal author:
 
 ## Next steps
 
-- [Azure Activity Directory Documentation](/azure/active-directory)
+- [Microsoft Entra ID documentation](/entra/identity)
 - [Manage Identity in multitenant applications](../../multitenant-identity/index.yml)
 - [Identity Management Security](/azure/security/fundamentals/identity-management-overview)
 - [Azure Firewall](/azure/firewall/overview)
@@ -261,6 +261,6 @@ Principal author:
 [install_and_configure_the_web_application_proxy_server]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11)
 [publish_applications_using_AD_FS_preauthentication]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383640(v=ws.11)
 [oms-adfs-pack]: https://www.microsoft.com/download/details.aspx?id=54526
-[adfs-intro]: /azure/active-directory/hybrid/whatis-hybrid-identity
+[adfs-intro]: /entra/identity/hybrid/whatis-hybrid-identity
 [considerations]: ./index.yml
 [visio-download]: https://arch-center.azureedge.net/identity-architectures.vsdx
