@@ -277,7 +277,7 @@ In this architecture, the platform team must ensure reliable and timely DNS host
 
 ## Data scientist and prompt flow authorship access
 
-Like the [baseline architecture](./baseline-openai-e2e-chat.yml#ingress-to-machine-learning), public ingress access to the Azure AI Foundry portal and other browser-based experiences are disabled. The baseline architecture deploys a jump box to provide a browser with a source IP address from the virtual network that's used by various workload roles.
+Like the [baseline architecture](./baseline-openai-e2e-chat.yml#ingress-to-azure-ai-foundry), public ingress access to the Azure AI Foundry portal and other browser-based experiences are disabled. The baseline architecture deploys a jump box to provide a browser with a source IP address from the virtual network that's used by various workload roles.
 
 When your workload is connected to an Azure landing zone, more options are available to your team for this access. Work with your platform team to see whether private access to the various browser-based AI studios can instead be achieved without the need to manage and govern a virtual machine (VM). This access might be accomplished through transitive access from an already-established ExpressRoute or VPN Gateway connection. Native workstation-based access requires cross-premises routing and DNS resolution, which the platform team can help provide. Make this requirement known in your subscription vending request.
 
