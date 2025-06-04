@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution describes a secure and resilient deployment pattern for Azure SQL Managed Instance. It highlights how Azure Managed Hardware Security Module is used to store the customer-managed transparent data encryption (TDE) protector keys.
+This solution describes a secure and resilient deployment pattern for Azure SQL Managed Instance. It highlights how Azure Managed HSM is used to store the customer-managed transparent data encryption (TDE) protector keys.
 
 ## Architecture
 
