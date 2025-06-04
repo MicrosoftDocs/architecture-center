@@ -11,7 +11,7 @@ azureCategories:
   - devops
 products:
   - azure
-name: Use the Azure Governance Visualizer to optimize cloud governance 
+name: Use the Azure Governance Visualizer to optimize cloud governance
 summary: Analyze and streamline cloud governance for compliance and operational insights by using the Azure Governance Visualizer accelerator.
 thumbnailUrl: ../browse/thumbs/azure-governance-visualizer-accelerator-architecture.png
 content: |
