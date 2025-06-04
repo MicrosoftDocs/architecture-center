@@ -823,6 +823,9 @@ items:
           href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
   - name: Databases
     href: databases/index.yml
+    items:
+    - name: Enhance SQL TDE keys by using customer-managed keys and Azure Managed HSM
+      href: secure-sql-managed-instance-managed-hardware-security-module.yml
   - name: DevOps
     items:
     - name: Get started
