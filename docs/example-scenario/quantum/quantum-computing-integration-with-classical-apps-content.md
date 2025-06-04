@@ -36,7 +36,7 @@ The tightly coupled approach is preferred in these cases:
 
 1. A signed-in user triggers quantum job execution via a classical client application.
 1. The client application puts input data into Azure Storage.
-1. The client application submits the job to an Azure Quantum workspace, specifying the execution target or targets. The client identifies the workspace via data that's stored in Key Vault and authenticates to the workspace via [managed identity](/azure/active-directory/managed-identities-azure-resources/overview).
+1. The client application submits the job to an Azure Quantum workspace, specifying the execution target or targets. The client identifies the workspace via data that's stored in Key Vault and authenticates to the workspace via [managed identity](/entra/identity/managed-identities-azure-resources/overview).
 1. A quantum provider runs the job on a target environment.
 1. The client application monitors job execution by polling job status.
 1. As soon as the quantum job finishes, the client application gets the compute result from Storage.
@@ -71,7 +71,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Unlike the architecture for the [loosely coupled alternative](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps), the architecture presented here is based on the assumption that only one client accesses the Azure Quantum workspace. This scenario leads to the following configurations:
 
-* Because the client is known, you can implement authentication via [managed identity](/azure/active-directory/managed-identities-azure-resources/overview), associated to the application.
+* Because the client is known, you can implement authentication via [managed identity](/entra/identity/managed-identities-azure-resources/overview), associated to the application.
 * You can implement throttling of requests and caching of results in the client itself.
 
 In general, consider applying the [typical design patterns for security](/azure/architecture/framework/security/security-patterns) when appropriate.
@@ -97,7 +97,7 @@ The loosely coupled approach is preferred in these cases:
 1. The classical application calls the custom job API to submit the job.
 1. The API gateway triggers the job submission Azure function, which passes job input data.
 1. The function puts the input data into Azure Storage.
-1. The function submits the job to an Azure Quantum workspace, specifying the execution target or targets. The function identifies the workspace via data stored in Azure Key Vault and authenticates to the workspace via [managed identity](/azure/active-directory/managed-identities-azure-resources/overview).
+1. The function submits the job to an Azure Quantum workspace, specifying the execution target or targets. The function identifies the workspace via data stored in Azure Key Vault and authenticates to the workspace via [managed identity](/entra/identity/managed-identities-azure-resources/overview).
 1. A quantum provider runs the job on a target environment.
 1. The client application monitors job execution by polling job status via API calls.
 1. The API gateway monitors job execution by polling job status from the quantum provider.
@@ -130,7 +130,7 @@ For the surrounding Azure services, the usual availability considerations apply:
 Unlike the architecture for the [tightly coupled alternative](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps), the architecture presented here is based on the assumption that multiple clients access the Azure Quantum workspace via the API. This scenario leads to the following configurations:
 
 * Clients must authenticate to the API. You can implement this authentication by using [authentication policies](/azure/api-management/api-management-authentication-policies).
-* You can implement authentication of the Azure functions via [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) associated with the functions. You can use these identities to authenticate to the Azure Quantum workspace.
+* You can implement authentication of the Azure functions via [managed identities](/entra/identity/managed-identities-azure-resources/overview) associated with the functions. You can use these identities to authenticate to the Azure Quantum workspace.
 * Multiple clients access the API. You can implement request throttling by using [API Management request throttling](/azure/api-management/api-management-sample-flexible-throttling) to protect the quantum back end and limit the use of quantum resources.
 * Depending on the request pattern, you might be able to implement the caching of quantum computing results by using [API Management caching policies](/azure/api-management/api-management-caching-policies).
 

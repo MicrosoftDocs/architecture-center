@@ -23,7 +23,7 @@ It's also important to avoid making any assumptions throughout your code and con
 
 ### Tenant isolation
 
-Azure resources are deployed and managed through a hierarchy. Most *resources* are deployed into [*resource groups*](/azure/azure-resource-manager/management/manage-resource-groups-portal), which are contained in *subscriptions*. [*Management groups*](/azure/governance/management-groups/overview) logically group subscriptions together. All of these hierarchical layers are associated with a [*Microsoft Entra tenant*](/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory).
+Azure resources are deployed and managed through a hierarchy. Most *resources* are deployed into [*resource groups*](/azure/azure-resource-manager/management/manage-resource-groups-portal), which are contained in *subscriptions*. [*Management groups*](/azure/governance/management-groups/overview) logically group subscriptions together. All of these hierarchical layers are associated with a [*Microsoft Entra tenant*](/entra/fundamentals/how-subscriptions-associated-directory).
 
 When you determine how to deploy resources for each tenant, you might isolate at different levels in the hierarchy. Each option is valid for certain types of multitenant solutions, and comes with benefits and tradeoffs. It's also common to combine approaches, using different isolation models for different components of a solution.
 

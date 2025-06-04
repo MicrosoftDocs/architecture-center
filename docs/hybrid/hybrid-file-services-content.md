@@ -184,7 +184,7 @@ Related architectures:
 [Visio diagram]: https://arch-center.azureedge.net/hybrid-file-services.vsdx
 [Storage Account]: /azure/storage/common/storage-account-overview
 [Azure Files]: /azure/storage/files/storage-files-planning
-[Azure Active Directory]: /azure/active-directory/fundamentals/active-directory-whatis
+[Azure Active Directory]: /entra/fundamentals/whatis
 [Azure File Sync proxy and firewall settings]: /azure/storage/files/storage-sync-files-firewall-and-proxy
 [Windows file server considerations]: /azure/storage/files/storage-sync-files-planning#windows-file-server-considerations
 [Azure File Sync Agent Download]: https://go.microsoft.com/fwlink/?linkid=858257
