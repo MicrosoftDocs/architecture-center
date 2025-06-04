@@ -825,7 +825,7 @@ items:
     href: databases/index.yml
     items:
     - name: Enhance SQL TDE keys by using customer-managed keys and Azure Managed HSM
-      href: secure-sql-managed-instance-managed-hardware-security-module.yml
+      href: solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml
   - name: DevOps
     items:
     - name: Get started
