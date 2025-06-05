@@ -1,5 +1,9 @@
 Windows 365 delivers cloud-based Windows computing instances called Cloud PCs that provide users with personalized, optimized desktop experiences. Each Cloud PC integrates with these Microsoft cloud services to deliver enterprise-grade security, management, and connectivity:
 
+- Microsoft Intune for device management, security policies, and application deployment
+- Microsoft Entra ID for identity management and access control  
+- Azure Virtual Desktop for secure remote connectivity and session management
+
 Cloud PCs run in the Windows 365 service and provide users with consistent Windows desktop experiences accessible from any device, anywhere. This architecture guide focuses on Windows 365 deployments that use Azure network connections to integrate with your existing network infrastructure and on-premises resources.
 
 ### The Windows 365 shared responsibility model
