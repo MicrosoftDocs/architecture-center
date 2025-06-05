@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution describes a secure and resilient deployment pattern for Azure SQL Managed Instance. It highlights how Azure Managed HSM is used to store the customer-managed transparent data encryption (TDE) protector keys.
+This solution describes a secure and resilient deployment pattern for Azure SQL Managed Instance. It highlights how Azure Key Vault Managed HSM is used to store the customer-managed transparent data encryption (TDE) protector keys.
 
 ## Architecture
 
@@ -16,7 +16,7 @@ The following workflow corresponds to the previous diagram:
 
 1. SQL Managed Instance is configured with availability groups in the secondary nonpaired region to replicate the data for disaster recovery.
 
-1. Azure Managed HSM is configured with a cross-region pool. This pool automatically replicates the key material and permissions to the vault in the secondary nonpaired region.
+1. Managed HSM is configured with a cross-region pool. This pool automatically replicates the key material and permissions to the vault in the secondary nonpaired region.
 
 1. Data plane traffic from SQL Managed Instance flows through the private endpoint of Managed HSM.
 
@@ -30,7 +30,7 @@ The following workflow corresponds to the previous diagram:
 
   SQL Managed Instance also provides comprehensive PaaS capabilities, including automatic patching and version updates, automated backups, and high availability. These features significantly reduce management overhead and total cost of ownership. In this architecture, SQL Managed Instance is the database that uses the TDE protector keys.
 
-- [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview) is a fully managed cloud service that provides high availability, single-tenancy, and compliance with industry standards. Managed HSM is designed to safeguard cryptographic keys for cloud applications. It uses Federal Information Processing Standards 140-2 Level 3-validated HSMs. Managed HSM is one of several key management solutions in Azure. In this architecture, Managed HSM securely stores the TDE protector keys and provides cross-region resiliency.
+- [Managed HSM](/azure/key-vault/managed-hsm/overview) is a fully managed cloud service that provides high availability, single-tenancy, and compliance with industry standards. Managed HSM is designed to safeguard cryptographic keys for cloud applications. It uses Federal Information Processing Standards 140-2 Level 3-validated HSMs. Managed HSM is one of several key management solutions in Azure. In this architecture, Managed HSM securely stores the TDE protector keys and provides cross-region resiliency.
 
 - An [Azure private endpoint](/azure/private-link/private-endpoint-overview) serves as a network interface that securely connects PaaS services, such as Azure Storage, Azure SQL Database, and Azure Key Vault to a virtual network via a private IP address. This feature eliminates the need for public internet exposure, which enhances security by keeping traffic within the Azure backbone network. It also uses the customer virtual network for added protection. In this architecture, an Azure private endpoint ensures that traffic between services flows through a private virtual network.
 
@@ -68,7 +68,7 @@ Principal authors:
 
 - [A comprehensive guide to Managed HSM for regulated industries](https://techcommunity.microsoft.com/t5/azure-infrastructure-blog/a-comprehensive-guide-to-azure-managed-hsm-for-regulated/ba-p/4100749)
 - [Local role-based access control built-in roles for Managed HSM](/azure/key-vault/managed-hsm/built-in-roles)
-- [Enable multiregion replication on Azure Managed HSM](/azure/key-vault/managed-hsm/multi-region-replication)
+- [Enable multiregion replication on Managed HSM](/azure/key-vault/managed-hsm/multi-region-replication)
 - [Configure Managed HSM with private endpoints](/azure/key-vault/managed-hsm/private-link)
 - [Managed HSM recovery overview](/azure/key-vault/managed-hsm/recovery)
 - [Key sovereignty, availability, performance, and scalability in Managed HSM](/azure/key-vault/managed-hsm/managed-hsm-technical-details)
