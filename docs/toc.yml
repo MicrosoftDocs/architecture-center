@@ -824,7 +824,7 @@ items:
   - name: Databases
     href: databases/index.yml
     items:
-    - name: Cross-region resiliency for SQL TDE with Azure Managed HSM
+    - name: Cross-region resiliency for SQL TDE with Azure Key Vault Managed HSM
       href: solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml
   - name: DevOps
     items:
