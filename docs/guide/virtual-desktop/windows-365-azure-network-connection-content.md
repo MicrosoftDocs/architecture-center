@@ -1,4 +1,4 @@
-Windows 365 is a cloud-based service that you can use to deliver highly optimized and personalized Windows computing instances called Cloud PCs that are purpose-built for each user's requirements. Cloud PCs use a combination of the following services:
+Windows 365 is a cloud-based service that you can use to deliver highly optimized and personalized Windows computing instances called Cloud PCs that are purpose-built for each user's requirements. Cloud PCs use a combination of these  services:
 
 - Intune to customize, secure, and manage Cloud PCs
 - Entra ID for identity and access control
