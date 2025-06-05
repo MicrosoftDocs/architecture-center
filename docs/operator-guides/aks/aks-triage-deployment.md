@@ -1,20 +1,19 @@
 ---
 title: AKS triage—Workload deployments
-titleSuffix: Azure Architecture Center
 description: Learn how to check whether workload deployments and DaemonSet features are running properly. This step is part of the triage practices for an AKS cluster.
-author: paolosalvatori
-ms.author: paolos
-ms.date: 11/22/2023
+author: francisnazareth
+ms.author: fnazaret
+ms.date: 01/20/2025
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
+ms.custom:
+  - e2e-aks
+  - arb-containers
 azureCategories: compute
 categories: compute
 products:
   - azure-kubernetes-service
   - azure-monitor
-ms.custom:
-  - e2e-aks
 ---
 
 # Monitor workload deployments
@@ -56,29 +55,27 @@ Ensure that the status is *bound* for all the persistent volume claims and persi
 
 [Container insights](/azure/azure-monitor/containers/container-insights-overview) is a feature of [Monitor](/azure/azure-monitor/overview) that provides monitoring capabilities for container workloads that are deployed to AKS or managed by [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview). This feature gathers performance and health information, like memory and processor metrics from controllers, nodes, and containers. It also captures container logs for analysis.
 
-You can use various views and prebuilt workbooks to analyze the collected data. Examine the performance and behavior of various components within your cluster. With container insights, you can get insights about the overall state of your container workloads so you can make informed decisions to optimize their performance and troubleshoot issues.
+> [!IMPORTANT]
+> While Container Insights can be used for metric gathering, we suggest utilizing the [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) to improve metric collection and use Container Insights solely for log collection.
 
-You can use container insights to:
+You can use Container Insights to analyze collected data and understand the performance and behavior of components within your cluster. Here are some ways you can use Container Insights:
 
-- Identify resource bottlenecks by identifying containers that run on each node and their processor and memory usage.
+- Identify resource bottlenecks by analyzing processor and memory usage of containers on each node.
+- Examine the performance of container groups and their containers in container instances.
+- View the overall performance of controllers or pods by identifying the location of containers within them.
+- Review resource usage of workloads on the host that are unrelated to supporting the pod's standard processes.
+- Understand how the cluster behaves under average and heavy loads to determine capacity needs and maximum load.
+- Access live container logs and metrics to troubleshoot issues in real time.
+- Set up alerts to be notified or record CPU and memory usage exceeding thresholds, and health state changes in the cluster.
 
-- Identify the processor and memory usage of container groups and their containers that are hosted in container instances.
-- View the controller's or pod's overall performance by identifying where the container resides in a controller or a pod.
-- Review the resource usage of workloads that run on the host and are unrelated to the standard processes that support the pod.
-- Understand the behavior of a cluster under average and heavy loads so you can identify the capacity needs and determine the maximum load that the cluster can sustain.
-- Access live container logs and metrics that the container engine generates so you can troubleshoot issues in real time.
-- Configure alerts to proactively notify you or record when CPU and memory usage on nodes or containers exceed your thresholds, or when a health state change occurs in the cluster at the infrastructure or nodes health rollup.
+In the Azure portal, Container Insights provides tools to monitor and analyze the health and performance of an AKS cluster:
 
-In the Azure portal, container insights provides several tools to help monitor and analyze an AKS cluster's health and performance.
-
-- **Cluster**: This feature provides an overview of your AKS cluster, including key metrics like CPU and memory usage, pod and node counts, and network traffic. You can get insights into the overall health and resource usage of the cluster.
-
-- **Reports**: This feature provides prebuilt reports that you can use to visualize and analyze various aspects of your cluster's performance, such as resource usage, pod health, and container insights. This data helps you understand the behavior and performance of your containers and workloads.
-- **Nodes**: This feature provides detailed information about the nodes in your cluster. It shows the metrics for CPU and memory usage, disk and network I/O, and the condition and status of each node. You can use this data to monitor individual node performance, identify potential bottlenecks, and ensure efficient resource allocation.
-- **Controllers**: This feature provides visibility into the Kubernetes controllers in your AKS cluster. It shows information such as the number of controller instances, the current state, and the status of controller operations. You can monitor the health and performance of controllers that manage workload deployments, services, and other resources.
-- **Containers**: This feature provides insights into containers that run in your AKS cluster. It provides information related to resource usage, restarts, and the lifecycle events of each container. You can use this data to help monitor and troubleshoot containers in your workloads.
-
-- **Live logs**: The [live logs](/azure/azure-monitor/containers/container-insights-livedata-metrics) feature provides a live stream of log events from running containers, so you can view container logs in real time. You can use this data to effectively monitor and troubleshoot applications and quickly identify and resolve issues in your containers.
+- **Cluster**: Gives an overview of the AKS cluster, including metrics like CPU and memory usage, pod and node counts, and network traffic.
+- **Reports**: Provides prebuilt reports to visualize and analyze cluster performance, resource usage, pod health, and container insights.
+- **Nodes**: Provides detailed information about nodes in the cluster, including CPU and memory usage, disk and network I/O, and node condition and status.
+- **Controllers**: Offers visibility into Kubernetes controllers in the AKS cluster, showing the number of instances, current state, and status of controller operations.
+- **Containers**: Provides insights into containers running in the AKS cluster, including resource usage, restarts, and lifecycle events.
+- **Live logs**: Gives a live stream of log events from running containers, allowing real-time viewing of container logs for monitoring and troubleshooting applications.
 
 For more information, see the following resources:
 

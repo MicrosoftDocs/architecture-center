@@ -6,8 +6,9 @@ ms.author: saperla
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
+ms.custom:
+  - arb-data
 azureCategories:
   - databases
   - developer-tools
@@ -29,7 +30,7 @@ products:
 >
 > Databricks has contributed an updated version to support Azure Databricks Runtimes 11.0 (Spark 3.3.x) and above on the `l4jv2` branch at: <https://github.com/mspnp/spark-monitoring/tree/l4jv2>.
 >
-> Please note that the 11.0 release is not backwards compatible due to the different logging systems used in the Databricks Runtimes. Be sure to use the correct build for your Databricks Runtime. The library and GitHub repository are in maintenance mode. There are no plans for further releases, and issue support will be best-effort only. For any additional questions regarding the library or the roadmap for monitoring and logging of your Azure Databricks environments, please contact [azure-spark-monitoring-help@databricks.com](mailto:azure-spark-monitoring-help@databricks.com).
+> Please note that the 11.0 release is not backward compatible due to the different logging systems used in the Databricks Runtimes. Be sure to use the correct build for your Databricks Runtime. The library and GitHub repository are in maintenance mode. There are no plans for further releases, and issue support will be best-effort only. For any additional questions regarding the library or the roadmap for monitoring and logging of your Azure Databricks environments, please contact [azure-spark-monitoring-help@databricks.com](mailto:azure-spark-monitoring-help@databricks.com).
 
 This article shows how to send application logs and metrics from Azure Databricks to a [Log Analytics workspace](/azure/azure-monitor/platform/manage-access). It uses the [Azure Databricks Monitoring Library](https://github.com/mspnp/spark-monitoring), which is available on GitHub.
 
@@ -132,7 +133,7 @@ The monitoring library includes a [sample application][sample-app] that demonstr
 
 1. Build the **spark-jobs** project in the monitoring library, as described in the [GitHub readme][config-cluster].
 
-1. Navigate to your Databricks workspace and create a new job, as described [here](/azure/databricks/jobs#create-a-job).
+1. Navigate to your Databricks workspace and create a new job, as described in [Create and run Azure Databricks Jobs](/azure/databricks/jobs#create-a-job).
 
 1. In the job detail page, select **Set JAR**.
 
@@ -178,4 +179,5 @@ Deploy the performance monitoring dashboard that accompanies this code library t
 [config-cluster]: https://github.com/mspnp/spark-monitoring/blob/main/README.md
 [log4j.properties]: https://github.com/mspnp/spark-monitoring/blob/main/sample/spark-sample-job/src/main/resources/com/microsoft/pnp/samplejob/log4j.properties
 [sample-app]: https://github.com/mspnp/spark-monitoring/tree/main/sample/spark-sample-job
-[spark-logging]: https://spark.apache.org/docs/2.3.0/api/java/org/apache/spark/internal/Logging.html
+[spark-logging]: https://spark.apache.org/docs/3.5.2/configuration.html#configuring-logging
+

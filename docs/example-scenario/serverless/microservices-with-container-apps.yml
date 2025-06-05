@@ -1,19 +1,19 @@
 ### YamlMime:Architecture
 metadata:
   title: Deploy microservices with Azure Container Apps
-  titleSuffix: Azure Architecture Center
   description: Deploy existing microservice applications with Azure Container Apps.
-  author: cebundy
-  ms.author: v-catherbund
-  ms.date: 07/13/2022
+  author: craigshoemaker
+  ms.author: cshoe
+  ms.date: 11/21/2024
   ms.topic: example-scenario
-  ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:
     - containers
   ms.custom: 
     - microservices
     - example-scenario
+    - arb-web
+    - arb-containers
 name: Deploy microservices with Azure Container Apps
 azureCategories:
   - developer-tools
@@ -25,4 +25,4 @@ products:
   - azure-service-bus
 thumbnailUrl: /azure/architecture/browse/thumbs/microservices-with-container-apps-runtime-diagram.png
 content: |
-   [!include[](microservices-with-container-apps-content.md)]
+   [!INCLUDE[](microservices-with-container-apps-content.md)]

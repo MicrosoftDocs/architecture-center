@@ -1,73 +1,104 @@
 ---
-title: Compare AWS and Azure networking options
-description: Compare networking options between Azure and AWS. The comparisons cover cloud virtual networking, cross-premises connectivity, DNS management, and more.
-author: vaboya
+title: Compare AWS and Azure Networking Options
+description: Compare the networking options of Azure and AWS. The comparisons cover cloud virtual networking, cross-premises connectivity, DNS management, and more.
+author: scaryghosts
 categories: azure
-ms.author: johanv
-ms.date: 10/31/2022
+ms.author: adamcerini
+ms.date: 01/02/2025
 ms.topic: conceptual
-ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 azureCategories:
   - compute
   - networking
 products:
   - azure-load-balancer
+ms.collection: 
+ - migration
+ - aws-to-azure
 ---
 
-# Networking on Azure and AWS
+# Compare AWS and Azure networking options
+
+ This article compares the core networking services that Azure and Amazon Web Services (AWS) offer.
+
+For links to articles that compare other AWS and Azure services and a complete service mapping between AWS and Azure, see [Azure for AWS professionals](/azure/architecture/aws-professional/).
+
+## Azure virtual networks and AWS VPCs
+
+Azure virtual networks and AWS virtual private clouds (VPCs) are similar in that they both provide isolated, logically defined network spaces within their respective cloud platforms. There are, however, key differences in terms of architecture, features, and integration.
+
+- **Subnet placement.** AWS subnets are tied to AWS Availability Zones, whereas Azure subnets are region-specific without availability zone constraints. The Azure design allows resources to switch availability zones without changing IP addresses.
+- **Security models.** AWS uses both security groups (stateful) and network access control lists (stateless). Azure uses network security groups (stateful).
+- **Peering.** Both Azure and AWS support virtual network / VPC peering. Both technologies allow more complex peering via Azure Virtual WAN or AWS Transit Gateway.
+
+## VPN
+
+Both AWS Site-to-Site VPN and Azure VPN Gateway are robust solutions for connecting on-premises networks to the cloud. They provide similar features, but there's a notable difference:
+
+ - **Performance.** VPN Gateway offers higher throughput for certain configurations (up to 10 Gbps), whereas Site-to-Site VPN generally ranges between 1.25 Gbps and 5 Gbps per connection (using ECMP).
 
 ## Elastic Load Balancing, Azure Load Balancer, and Azure Application Gateway
 
-The Azure equivalent of the Elastic Load Balancing services are:
+The Azure equivalents of the Elastic Load Balancing services are:
 
-- [Load Balancer](/azure/load-balancer/load-balancer-overview): Provides the same network layer 4 capabilities as the AWS Network Load Balancer and Classic Load Balancer, allowing you to distribute traffic for multiple VMs at the network level. It also provides a failover capability.
-
-- [Application Gateway](/azure/application-gateway/overview): Offers application-level rule-based routing comparable to the AWS Application Load Balancer.
+- **Load Balancer** provides the same network layer 4 capabilities as the AWS Network Load Balancer, so you can distribute traffic for multiple VMs at the network level. It also provides failover capability.
+- **Application Gateway** provides application-level rule-based routing comparable to that of the AWS Application Load Balancer.
 
 ## Route 53, Azure DNS, and Azure Traffic Manager
 
-In AWS, Route 53 provides both DNS name management and DNS-level traffic routing and failover services. In Azure this is handled through two services:
+In AWS, Route 53 provides both DNS name management and DNS-level traffic routing and failover services. In Azure, two services handle these tasks:
 
-- [Azure DNS](https://azure.microsoft.com/documentation/services/dns) provides domain and DNS management.
+- **Azure DNS** provides domain and DNS management.
+- **Traffic Manager** provides DNS-level traffic routing, load balancing, and failover capabilities.
 
-- [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) provides DNS level traffic routing, load balancing, and failover capabilities.
+## AWS Direct Connect and Azure ExpressRoute
 
-## Direct connect and Azure ExpressRoute
-
-Azure provides similar site-to-site dedicated connections through its
-[ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute) service. ExpressRoute allows you to connect your local network directly to Azure resources using a dedicated private network connection. Azure also offers more conventional [site-to-site VPN connections](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) at a lower cost.
+AWS Direct Connect can link a network directly to AWS. Azure provides similar site-to-site dedicated connections through ExpressRoute. You can use ExpressRoute to connect your local network directly to Azure resources by using a dedicated private network connection. Both Azure and AWS offer site-to-site VPN connections.
 
 ## Route tables
 
-AWS provides route tables that contain routes to direct traffic, from a subnet/gateway subnet to the destination. In Azure, this feature is called user-defined routes (UDRs).
+AWS provides route tables that contain routes that direct traffic from a subnet or gateway subnet to the destination. In Azure, the corresponding feature is called user-defined routes (UDRs).
 
-With [user-defined routes](/azure/virtual-network/virtual-networks-udr-overview), you can create custom or user-defined (static) routes in Azure, to override Azure's default system routes, or to add more routes to a subnet's route table.
+With user-defined routes, you can create custom or user-defined (static) routes. These routes override the default Azure system routes. You can also add more routes to a subnet's route table.
 
-## Private Link
+## Azure Private Link
 
-Similar to AWS PrivateLink, [Azure Private Link](https://azure.microsoft.com/services/private-link) provides private connectivity from a virtual network to an Azure platform as a service (PaaS) solution, a customer-owned service, or a Microsoft partner service.
+Private Link is similar to AWS PrivateLink. Azure Private Link provides private connectivity from a virtual network to an Azure platform as a service (PaaS) solution, a customer-owned service, or a Microsoft partner service.
 
-## VPC Peering, Azure VNet Peering
+## VPC peering and virtual network peering
 
-In AWS, a VPC peering connection is a networking connection between two VPCs, which enables you to route traffic between them using private Internet Protocol version 4 (IPv4) addresses or Internet Protocol version 6 (IPv6) addresses.
+In AWS, a VPC peering connection is a networking connection between two VPCs. You can use this connection to route traffic between the VPCs by using private Internet Protocol version 4 (IPv4) addresses or Internet Protocol version 6 (IPv6) addresses.
 
-[Azure virtual network (VNet) peering](/azure/virtual-network/virtual-network-peering-overview) enables you to seamlessly connect two or more Virtual Networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between virtual machines in the same network, traffic is routed through Microsoft's private network only.
+You can use Azure virtual network peering to connect two or more virtual networks in Azure. For connectivity purposes, the virtual networks appear as one. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between virtual machines in a single network, traffic is routed only through the Microsoft private network.
 
-## Content delivery networks - CloudFront and Azure Front Door
-
-In AWS, CloudFront provides content delivery network (CDN) services, to globally deliver data, videos, applications, and APIs. This is similar to Azure Front Door.
-
-[Azure Front Door](https://azure.microsoft.com/services/frontdoor) is a modern cloud content delivery network service that delivers high performance, scalability, and secure user experiences for your content and applications. For a full list of Azure Front Door product offerings, see [Overview of Azure Front Door tiers](/azure/frontdoor/standard-premium/tier-comparison).
+Neither virtual networks nor VPCs allow transitive peering. In Azure, however, you can achieve transitive networking by using network virtual appliances (NVAs) or gateways in the hub virtual network.
 
 ## Network service comparison
 
 [!INCLUDE [Networking Services](../../includes/aws/networking.md)]
 
-## See also
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Konstantin Rekatas](https://www.linkedin.com/in/krekatas/) | Principal Cloud Solution Architect
+
+Other contributor:
+
+- [Adam Cerini](https://www.linkedin.com/in/adamcerini) | 
+Director, Partner Technology Strategist
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
 
 - [Create a virtual network using the Azure portal](/azure/virtual-network/quick-create-portal)
+- [Plan and design Azure virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm)
+- [Azure network security best practices](/azure/security/fundamentals/network-best-practices)
 
-- [Plan and design Azure Virtual Networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm)
+## Related resources
 
-- [Azure Network Security Best Practices](/azure/security/fundamentals/network-best-practices)
+- [Compare AWS and Azure resource management](resources.md)
+- [Compare AWS and Azure accounts](accounts.md)

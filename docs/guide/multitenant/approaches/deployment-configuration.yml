@@ -3,11 +3,12 @@ metadata:
   title: Architectural approaches for the deployment and configuration of multitenant solutions
   description: This article describes approaches to consider when deploying and configuring a multitenant solution.
   author: johndowns
-  ms.author: jodowns
-  ms.date: 03/24/2023
+  ms.author: pnp
+  ms.date: 08/01/2024 
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.subservice: architecture-guide
+  ms.custom:
+    - arb-saas
 azureCategories:
   - management-and-governance
   - devops

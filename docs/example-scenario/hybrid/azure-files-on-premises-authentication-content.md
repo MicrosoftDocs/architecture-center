@@ -1,4 +1,4 @@
-This architecture demonstrates a way to provide file shares in the cloud to on-premises users and applications that also access files on Windows Server.
+This architecture demonstrates one way to provide file shares in the cloud to on-premises users and applications that access files on Windows Server through a private endpoint.
 
 ## Architecture
 
@@ -10,7 +10,7 @@ This architecture demonstrates a way to provide file shares in the cloud to on-p
 
 1. This solution synchronizes the on-premises AD DS and the cloud-based Microsoft Entra ID. Synchronizing makes users more productive by providing a common identity for accessing both cloud and on-premises resources.
 
-   Microsoft Entra Connect is the on-premises Microsoft application that does the synchronizing. For more information about Microsoft Entra Connect, see [What is Microsoft Entra Connect?](/azure/active-directory/hybrid/whatis-azure-ad-connect) and [Microsoft Entra Connect Sync: Understand and customize synchronization](/azure/active-directory/hybrid/how-to-connect-sync-whatis).
+   Microsoft Entra Connect is the on-premises Microsoft application that does the synchronizing. For more information about Microsoft Entra Connect, see [What is Microsoft Entra Connect?](/entra/identity/hybrid/connect/whatis-azure-ad-connect) and [Microsoft Entra Connect Sync: Understand and customize synchronization](/entra/identity/hybrid/connect/how-to-connect-sync-whatis).
 1. Azure Virtual Network provides a virtual network in the cloud. For this solution, it has at least two subnets, one for Azure DNS, and one for a private endpoint to access the file share.
 1. Either VPN or Azure ExpressRoute provides secure connections between the on-premises network and the virtual network in the cloud. If you use VPN, create a gateway by using Azure VPN Gateway. If you use ExpressRoute, create an ExpressRoute virtual network gateway. For more information, see [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways) and [About ExpressRoute virtual network gateways](/azure/expressroute/expressroute-about-virtual-network-gateways).
 1. Azure Files provides a file share in the cloud. This requires an Azure Storage account. For more information about file shares, see [What is Azure Files?](/azure/storage/files/storage-files-introduction).
@@ -23,26 +23,26 @@ This architecture demonstrates a way to provide file shares in the cloud to on-p
 
 ### Components
 
-- [Azure Storage](https://azure.microsoft.com/product-categories/storage) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Azure Files](https://azure.microsoft.com/services/storage/files), [Azure Table Storage](https://azure.microsoft.com/services/storage/tables), and [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues).
-- [Azure Files](https://azure.microsoft.com/services/storage/files) offers fully managed file shares in an Azure Storage account. The files are accessible from the cloud or on-premises. Windows, Linux, and macOS deployments can mount Azure file shares concurrently. File access uses the industry standard Server Message Block (SMB) protocol.
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. It provides the environment for Azure resources, such as virtual machines, to securely communicate with each other, with the internet, and with on-premises networks.
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends on-premises networks into the Microsoft cloud over a private connection.
-- [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway) connects on-premises networks to Azure through site-to-site VPNs, in much the same way as you connect to a remote branch office. The connectivity is secure and uses the industry-standard protocols Internet Protocol Security (IPsec) and Internet Key Exchange (IKE).
-- [Azure Private Link](https://azure.microsoft.com/services/private-link) provides private connectivity from a virtual network to Azure platform as a service (PaaS), customer-owned, or Microsoft partner services. It simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet.
+- [Azure Storage](/azure/storage/common/storage-introduction) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](/azure/well-architected/service-guides/queue-storage/reliability).
+- [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in an Azure Storage account. The files are accessible from the cloud or on-premises. Windows, Linux, and macOS deployments can mount Azure file shares concurrently. File access uses the industry standard Server Message Block (SMB) protocol.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. It provides the environment for Azure resources, such as virtual machines, to securely communicate with each other, with the internet, and with on-premises networks.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends on-premises networks into the Microsoft cloud over a private connection.
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) connects on-premises networks to Azure through site-to-site VPNs, in much the same way as you connect to a remote branch office. The connectivity is secure and uses the industry-standard protocols Internet Protocol Security (IPsec) and Internet Key Exchange (IKE).
+- [Azure Private Link](/azure/private-link/private-link-overview) provides private connectivity from a virtual network to Azure platform as a service (PaaS), customer-owned, or Microsoft partner services. It simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet.
 - A private endpoint is a network interface that uses a private IP address from your virtual network. You can use private endpoints for your Azure Storage accounts to allow clients on a virtual network to access data over a private link.
-- [Azure Firewall](https://azure.microsoft.com/services/azure-firewall) is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. You can configure Azure Firewall to act as a DNS proxy. A DNS proxy is an intermediary for DNS requests from client virtual machines to a DNS server.
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. You can configure Azure Firewall to act as a DNS proxy. A DNS proxy is an intermediary for DNS requests from client virtual machines to a DNS server.
 
 ## Scenario details
 
-Consider the following common situation. An on-premises Windows Server provides files to users and applications. Windows Server Active Directory Domain Services (AD DS) secures the files, and there's an on-premises DNS server. Everything is on the same private network.
+Consider the following common scenario: an on-premises computer running Windows Server is used to provide file shares for users and applications. Active Directory Domain Services (AD DS) is used to help secure the files, and an on-premises DNS server manages network resources. Everything operates within the same private network.
 
-Now suppose that the need arises to have file shares in the cloud.
+Now assume that you need to extend file shares to the cloud.
 
-The architecture that's described here shows how to use Azure to satisfy this need, and how to do it at low cost, and by continuing to use the on-premises network, AD DS, and DNS.
+The architecture described here demonstrates how Azure can meet this need cost-effectively while maintaining the use of your on-premises network, AD DS, and DNS.
 
-In this architecture, Azure Files provides the file share. Site-to-site VPN or Azure ExpressRoute provides secure connections between the on-premises network and Azure virtual network. Users and applications use the connections to access the files. Microsoft Entra ID and Azure DNS cooperate with on-premises AD DS and DNS to secure the access.
+In this setup, Azure Files is used to host the file shares. A site-to-site VPN or Azure ExpressRoute provides enhanced-security connections between the on-premises network and Azure Virtual Network. Users and applications access the files via these connections. Microsoft Entra ID and Azure DNS work together with on-premises AD DS and DNS to help ensure secure access.
 
-In short, if you're in the described situation, you can provide cloud files to your on-premises users at low cost, and continue to provide secure file access with your on-premises AD DS and DNS.
+In summary, if this scenario applies to you, you can provide cloud-based file shares to your on-premises users at a low cost while maintaining enhanced-security access via your existing AD DS and DNS infrastructure.
 
 ### Potential use cases
 
@@ -52,18 +52,18 @@ In short, if you're in the described situation, you can provide cloud files to y
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures that your application can meet the commitments that you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - Azure Storage always stores multiple copies of your data in the same zone, so that it's protected from planned and unplanned outages. There are options for creating additional copies in other zones or regions. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
 - Azure Firewall has built-in high availability. For more information, see [Azure Firewall Standard features](/azure/firewall/features).
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 These articles have security information for Azure components:
 
@@ -72,9 +72,9 @@ These articles have security information for Azure components:
 - [Azure security baseline for Virtual Network](/security/benchmark/azure/baselines/virtual-network-security-baseline)
 - [Azure security baseline for Azure Firewall](/security/benchmark/azure/baselines/firewall-security-baseline)
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 To estimate the cost of Azure products and configurations, use the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
@@ -85,9 +85,9 @@ These articles have pricing information for Azure components:
 - [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network)
 - [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall)
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - Your Azure Storage accounts contain all of your Azure Storage data objects, including file shares. A storage account provides a unique namespace for its data, a namespace that's accessible from anywhere in the world over HTTP or HTTPS. For this architecture, your storage account contains file shares that are provided by Azure Files. For best performance, we recommend the following:
   - Don't put databases, blobs, and so on, in storage accounts that contain file shares.
@@ -104,7 +104,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Principal author:
 
-- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Customer Engineer
+- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Azure Security Engineer
 
 ## Next steps
 
@@ -117,11 +117,10 @@ Principal author:
 - [Use private endpoints for Azure Storage](/azure/storage/common/storage-private-endpoints)
 - [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns)
 - [Azure Firewall DNS settings](/azure/firewall/dns-settings)
-- [Compare self-managed Active Directory Domain Services, Microsoft Entra ID, and managed Microsoft Entra Domain Services](/azure/active-directory-domain-services/compare-identity-solutions)
+- [Compare self-managed Active Directory Domain Services, Microsoft Entra ID, and managed Microsoft Entra Domain Services](/entra/identity/domain-services/compare-identity-solutions)
 
 ## Related resources
 
-- [Hybrid file share with disaster recovery for remote and local branch workers](hybrid-file-share-dr-remote-local-branch-workers.yml)
 - [Azure enterprise cloud file share](../../hybrid/azure-files-private.yml)
 - [Using Azure file shares in a hybrid environment](../../hybrid/azure-file-share.yml)
 - [Hybrid file services](../../hybrid/hybrid-file-services.yml)

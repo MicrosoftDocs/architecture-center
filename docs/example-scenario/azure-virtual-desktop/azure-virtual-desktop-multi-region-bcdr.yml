@@ -1,14 +1,12 @@
 ### YamlMime:Architecture
 metadata:
   title: Multiregion BCDR for Azure Virtual Desktop
-  titleSuffix: Azure Architecture Center
   description: Learn which options and scenarios are possible to design and implement an effective multi-region BCDR strategy for Azure Virtual Desktop.
-  author: igorpag
-  ms.author: igorpag
-  ms.date: 04/24/2023
+  author: BenMartinBaur
+  ms.author: bebaur
+  ms.date: 07/05/2024
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.subservice: architecture-guide
 azureCategories:
   - compute
   - hybrid
@@ -19,4 +17,4 @@ name: Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Vir
 summary: Learn which options and scenarios are possible to design and implement an effective multi-region BCDR strategy for Azure Virtual Desktop.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-virtual-desktop-bcdr-pooled-host-pool.png
 content: |
-  [!include[](azure-virtual-desktop-multi-region-bcdr-content.md)]
+  [!INCLUDE[](azure-virtual-desktop-multi-region-bcdr-content.md)]

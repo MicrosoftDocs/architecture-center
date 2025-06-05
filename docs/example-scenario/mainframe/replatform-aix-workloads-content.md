@@ -36,21 +36,21 @@ This workflow corresponds to the preceding architecture.
 
 ### Components
 
-- [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) eliminates network-based trust and provides system-assigned managed identities, which improves security.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) eliminates network-based trust and provides system-assigned managed identities, which improves security.
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) eliminates the need to administer an operating system and server, which increases operational efficiency and business agility.
 
-- [Application Gateway](https://azure.microsoft.com/products/application-gateway) is a fully managed and scalable service that provides web application firewall and reverse proxy functionality.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a fully managed and scalable service that provides web application firewall and reverse proxy functionality.
 
-- [Azure Files](https://azure.microsoft.com/products/storage/files) provides data reports that are published via a managed service.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) provides data reports that are published via a managed service.
 
-- [Azure Functions](https://azure.microsoft.com/products/functions) is an event-driven, serverless compute platform that is used to efficiently develop code in the specified programming language. 
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is an event-driven, serverless compute platform that is used to efficiently develop code in the specified programming language. 
 
-- An [Azure VM](https://azure.microsoft.com/products/virtual-machines) is used by the Oracle database and SAS analysis nodes.
+- An [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is used by the Oracle database and SAS analysis nodes.
 
 - [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery) builds and stores images for the Oracle database and SAS analysis nodes. There are two galleries: one in the primary region and one in the disaster recovery region.
 
-- [Communication Services](https://azure.microsoft.com/products/communication-services) sends emails with a CLI utility. This service replaces the `mailx` command on AIX.
+- [Communication Services](/azure/communication-services/overview) sends emails with a CLI utility. This service replaces the `mailx` command on AIX.
 
 ### Alternatives
 
@@ -117,11 +117,11 @@ You can use this architecture for traditional application workloads with technol
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 This architecture uses Azure Site Recovery to mirror the database Azure VMs to a secondary Azure region for quick failover and disaster recovery if an entire Azure region fails. Similarly, Azure Files uses geo-redundant storage.
 
@@ -129,25 +129,25 @@ Data-processing nodes use zone-redundant (RA-ZRS) managed disks to provide resil
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 This architecture adopts an immutable infrastructure approach to application deployments and proactively scans code in Azure pipelines to help secure sensitive data in production. It incorporates a *shift left* approach for security scanning and frequently runs CI/CD pipeline-enabled deployments to improve software current adherence and reduce technical debt.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 This solution removes as many serverful components as possible, which reduces operating costs by more than 70%. This architecture reduces compute and software licensing costs. 
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 The product team supports themselves in Azure, which reduces the resolution time for reported incident tickets. Additionally, the bounce count for tickets, or the number of tickets that are assigned from one group to another, is zero because one product team supports the entire application stack in Azure.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 The customer adopts Azure App Service where possible so they can automatically [scale up and scale out](/azure/app-service/manage-scale-up) their compute requirements to align with application demand. This elasticity ensures consistent application performance during peak times. This approach is also cost efficient. 
 
@@ -169,8 +169,5 @@ For more information about migrating to Azure, [contact the Legacy Migrations En
 
 ## Related resources
 
-- [High availability and disaster recovery scenarios for infrastructure as a service (IaaS) apps](../infrastructure/iaas-high-availability-disaster-recovery.yml)
 - [Multi-tier web application built for high availability and disaster recovery](../infrastructure/multi-tier-app-disaster-recovery.yml)
-- [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml)
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
-

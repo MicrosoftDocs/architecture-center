@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Use Azure NetApp Files to deploy IBM Power in Skytap on Azure
+  description: Learn how to deploy IBM Power workloads in Skytap on Azure by using Azure NetApp Files for file storage and other Microsoft Azure components.
+  author: gvanteylingen
+  ms.author: b-gevant
+  ms.date: 06/04/2024
+  ms.topic: conceptual
+  ms.subservice: example-scenario
+azureCategories:
+  - hybrid
+  - migration
+products:
+  - azure-virtual-network
+  - azure-expressroute
+  - azure-virtual-machines
+  - azure-netapp-files
+name: Use Azure NetApp Files to deploy IBM Power in Skytap on Azure
+summary: Learn how to deploy IBM Power workloads in Skytap on Azure by using Azure NetApp Files for file storage and other Microsoft Azure components.
+thumbnailUrl: /azure/architecture/browse/thumbs/deploy-ibm-power-workloads.png
+content: |
+  [!include[](deploy-ibm-power-workloads-content.md)]

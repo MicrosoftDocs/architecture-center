@@ -1,18 +1,16 @@
 ### YamlMime:Architecture
 metadata:
-  title: Defender for Cloud Apps and Microsoft Sentinel for AWS
-  titleSuffix: Azure Architecture Center
-  description: See how Microsoft Defender for Cloud Apps and Microsoft Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.
+  title: Microsoft Security for AWS
+  description: See how Microsoft security solutions can help secure and protect Amazon Web Services (AWS) account access and environments.
   author: murthyla
   ms.author: lmurthy
-  ms.date: 09/20/2022
+  ms.date: 10/16/2024
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
-name: Azure security solutions for AWS
+  ms.subservice: architecture-guide
+name: Microsoft security solutions for AWS
 azureCategories:
   - security
-summary: See how Microsoft Defender for Cloud Apps and Microsoft Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.
+summary: See how Microsoft security solutions can help secure and protect Amazon Web Services (AWS) account access and environments.
 products:
   - azure
   - microsoft-sentinel

@@ -30,16 +30,16 @@ This article describes how to achieve Trusted Internet Connections (TIC) 3.0 com
 ### Components
 
 - Firewall. Your architecture will use one or more of the following firewalls. (For more information, see the [Alternatives](#alternatives) section of this article.) 
-  - [Azure Firewall](https://azure.microsoft.com/products/azure-firewall) is a cloud-native, intelligent network firewall security service that provides enhanced threat protection for cloud workloads that run on Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It's available in two performance tiers: Standard and Premium. Azure Firewall Premium includes all the functionality of Azure Firewall Standard and provides additional features like Transport Layer Security (TLS) inspection and an intrusion detection and prevention system (IDPS).
-  - [Application Gateway](https://azure.microsoft.com/products/application-gateway/) with [WAF](/azure/web-application-firewall/overview) is a regional web traffic load balancer that enables you to manage traffic to your web applications. WAF provides enhanced centralized protection of your web applications from common exploits and vulnerabilities. 
-  - [Azure Front Door](https://azure.microsoft.com/products/frontdoor/) with [WAF](/azure/web-application-firewall/overview) is a global web traffic load balancer that enables you to manage traffic to your web applications. It provides content delivery network (CDN) capabilities to speed up and modernize your applications. WAF provides enhanced centralized protection of your web applications from common exploits and vulnerabilities. 
+  - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native, intelligent network firewall security service that provides enhanced threat protection for cloud workloads that run on Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It's available in two performance tiers: Standard and Premium. Azure Firewall Premium includes all the functionality of Azure Firewall Standard and provides additional features like Transport Layer Security (TLS) inspection and an intrusion detection and prevention system (IDPS).
+  - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) with [WAF](/azure/web-application-firewall/overview) is a regional web traffic load balancer that enables you to manage traffic to your web applications. WAF provides enhanced centralized protection of your web applications from common exploits and vulnerabilities. 
+  - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) with [WAF](/azure/web-application-firewall/overview) is a global web traffic load balancer that enables you to manage traffic to your web applications. It provides content delivery network (CDN) capabilities to speed up and modernize your applications. WAF provides enhanced centralized protection of your web applications from common exploits and vulnerabilities. 
   - A third-party firewall is an NVA that runs on an Azure virtual machine and uses firewall services from non-Microsoft vendors. Microsoft supports a large ecosystem of third-party vendors that provide firewall services. 
 - Logging and authentication.
-  - Log Analytics is a tool that's available in the Azure portal that you can use to edit and run log queries against Azure Monitor Logs. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
-  - [Azure Monitor](https://azure.microsoft.com/services/monitor) is a comprehensive solution for collecting, analyzing, and acting on telemetry.
-  - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides identity services, single sign-on, and multifactor authentication across Azure workloads.
-  - A [service principal](/azure/active-directory/develop/app-objects-and-service-principals) (registered application) is an entity that defines the access policy and permissions for a user or application in a Microsoft Entra tenant.
-  - [Event Hubs Standard](https://azure.microsoft.com/products/event-hubs) is a modern big data streaming platform and event ingestion service.
+  - Log Analytics is a tool that's available in the Azure portal that you can use to edit and run log queries against Azure Monitor Logs. For more information, see [Azure Well-Architected Framework perspective on Log Analytics](/azure/well-architected/service-guides/azure-log-analytics).
+  - [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive solution for collecting, analyzing, and acting on telemetry.
+  - [Microsoft Entra ID](/entra/fundamentals/whatis) provides identity services, single sign-on, and multifactor authentication across Azure workloads.
+  - A [service principal](/entra/identity-platform/app-objects-and-service-principals) (registered application) is an entity that defines the access policy and permissions for a user or application in a Microsoft Entra tenant.
+  - [Event Hubs Standard](/azure/well-architected/service-guides/event-hubs) is a modern big data streaming platform and event ingestion service.
   - CISA TALON is a CISA-operated service that runs on Azure. TALON connects to your Event Hubs service, authenticates by using a CISA-supplied certificate that's associated with your service principal, and collects logs for CLAW consumption.
 
 ### Alternatives
@@ -62,7 +62,7 @@ For more information on CLAW, TIC 3.0, and MTIPS, see:
 
 - [Trusted Internet Connections guidance](/azure/azure-government/compliance/compliance-tic)
 - [TIC 3.0 core guidance documents](https://www.cisa.gov/publication/tic-30-core-guidance-documents)
-- [National Cybersecurity Protection System (NCPS) documents](https://www.cisa.gov/publication/national-cybersecurity-protection-system-documents)
+- [National Cybersecurity Protection System (NCPS) documents](https://www.cisa.gov/resources-tools/resources/cybersecurity-publications)
 - [EINSTEIN](https://www.cisa.gov/einstein)
 - [Managed Trusted Internet Protocol Services (MTIPS)](https://www.gsa.gov/technology/it-contract-vehicles-and-purchasing-programs/information-technology-category/it-security/trusted-internet-connections-tic/mtips-features-and-price-structure)
 
@@ -72,20 +72,14 @@ TIC 3.0 compliance solutions are commonly used by federal organizations and gove
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 - Evaluate your current architecture to determine which of the solutions presented here provides the best approach to TIC 3.0 compliance.
 - Contact your CISA representative to request access to CLAW.
-- Use the **Deploy to Azure** buttons in this article to deploy one or more of the solutions in a test environment. Doing so should help you become familiar with the process and the deployed resources.
-- See [TIC 3.0 compliance for internet-facing applications](https://github.com/Azure/trusted-internet-connection), a complementary article that provides more  details and assets for TIC 3.0:
-  - Additional information about achieving compliance.
-  - ARM templates to simplify deployment.
-  - Information to assist with integrating existing resources into the solution.
-  - The types of logs collected for each service layer and Kusto queries for reviewing logs collected by CISA. You can use the queries for your organization's security requirements.
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - Azure Firewall Standard and Premium integrate with availability zones to increase availability.
 - Application Gateway v2 supports autoscaling and availability zones to increase reliability.
@@ -94,32 +88,32 @@ Reliability ensures your application can meet the commitments you make to your c
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - When you register an enterprise application, a service principal is created. Use a naming scheme for service principals that indicates the purpose of each one.
 - Perform audits to determine the activity of service principals and the status of service principal owners.
 - Azure Firewall has standard policies. WAFs associated with Application Gateway and Azure Front Door have managed rule sets to help secure your web service. Start with these rule sets and build organizational policies over time based on industry requirements, best practices, and government regulations.
 - Event Hubs access is authorized via Microsoft Entra managed identities and a certificate that's provided by CISA.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 The cost of each solution scales down as the resources increase. The pricing in this [Azure pricing calculator example scenario](https://azure.com/e/2554c32b19c24b3d9f90d2a73683bd6a) is based on the Azure Firewall solution. If you change the configuration, costs might increase. With some plans, costs increase as the number of ingested logs increase.
 
 > [!NOTE]
 > Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to get up-to-date pricing that's based on the resources that are deployed for the selected solution.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 - [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview) are built into the solutions to notify you when an upload fails to deliver logs to CLAW. You need to determine the severity of the alerts and how to respond.
-- You can use ARM templates to speed up the deployment of TIC 3.0 architectures for new applications.
+- You can use Azure Resource Manager (ARM), Bicep, or Terraform templates to speed up the deployment of TIC 3.0 architectures for new applications.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - [Azure Firewall](/azure/firewall/firewall-performance), [Application Gateway](/azure/application-gateway/application-gateway-faq#performance), [Azure Front Door](/azure/frontdoor/scenarios#performance-efficiency), and [Event Hubs](/azure/architecture/serverless/event-hubs-functions/performance-scale) performance scales as usage increases.
 - Azure Firewall Premium allows more TCP connections than Standard and provides increased bandwidth.
@@ -129,7 +123,11 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 ## Deploy an Azure Firewall solution
 
-The following solution uses Azure Firewall to manage traffic entering your Azure application environment. The solution includes all resources for generating, collecting, and delivering logs to CLAW. It also includes an app service to track the types of telemetry collected by the firewall.
+> [!NOTE]
+>
+> Deployment resources aren't provided for this solution. It's included only to provide guidance.
+
+Deploying Azure Firewall within your network architecture allows you to effectively manage and secure traffic entering your Azure application environment. This solution provides comprehensive guidance for collecting, and delivering logs to the Cybersecurity and Infrastructure Security Agency (CISA) Cloud Log Aggregation Warehouse (CLAW), ensuring compliance with Trusted Internet Connections (TIC) 3.0 requirements. Deployment can be automated using ARM, Bicep, or Terraform templates streamlining the setup process and adhering to infrastructure-as-code best practices.
 
 :::image type="content" source="_images/trusted-internet-connections-azure-firewall.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture. Azure Firewall uploads logs to CLAW." border="false" lightbox="_images/trusted-internet-connections-azure-firewall.png":::
 
@@ -144,27 +142,13 @@ The following solution uses Azure Firewall to manage traffic entering your Azure
 - An event hub.
 - An alert rule that sends an email if a job fails.
 
-For the sake of simplicity, all resources are deployed to a single subscription and virtual network. You can deploy the resources in any combination of resource groups or across multiple virtual networks.
-
-[![Deploy to Azure](_images/trusted-internet-connections-deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Firewall%2FComplete%2Fazuredeploy.json)
-
-[![Deploy to Azure Government](_images/trusted-internet-connections-deploy-azure-government.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Firewall%2FComplete%2Fazuredeploy.json)
-
-### Post-deployment tasks 
-
-After deployment, your environment performs the firewall capabilities and logging connections. To meet compliance with TIC 3.0 policies for network telemetry collection, you need to ensure that the logs make it to CISA CLAW. The post-deployment steps finish the tasks to enable compliance. To complete these steps, you need to coordinate with CISA because CISA needs to supply a certificate to associate with your service principal. For step-by-step details, see [Post-deployment tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
-
-You need to manually perform the following tasks after deployment. You can't complete them by using an ARM template.
-
-- Obtain a public key certificate from CISA. 
-- Create a service principal (application registration).
-- Add the public key certificate to the application registration.
-- Assign the application the Azure Event Hubs Data Receiver role at the Event Hubs namespace scope.
-- Activate the feed by sending the Azure tenant ID, application (client) ID, event hub namespace name, event hub name, and consumer group name to CISA.
-
 ## Deploy a solution that uses Application Gateway with WAF
 
-The following solution uses Application Gateway with WAF to manage traffic entering your Azure application environment. The solution includes all resources for generating, collecting, and delivering logs to CLAW. It also includes an app service to track the types of telemetry collected by the firewall.
+> [!NOTE]
+>
+> Deployment resources aren't provided for this solution. It's included only to provide guidance.
+
+Deploying Application Gateway with Web Application Firewall (WAF) within your network architecture allows you to effectively manage and secure web traffic entering your Azure application environment. This solution provides comprehensive guidance for collecting and delivering logs to the Cybersecurity and Infrastructure Security Agency (CISA) Cloud Log Aggregation Warehouse (CLAW), ensuring compliance with Trusted Internet Connections (TIC) 3.0 requirements. Deployment can be automated using ARM, Bicep, or Terraform templates, streamlining the setup process and adhering to infrastructure-as-code best practices.
 
 :::image type="content" source="_images/trusted-internet-connections-architecture-application-gateway.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture. Application Gateway with WAF uploads logs to CLAW." border="false" lightbox="_images/trusted-internet-connections-architecture-application-gateway.png"::: 
 
@@ -178,27 +162,13 @@ The solution includes:
 - An event hub.
 - An alert rule that sends an email if a job fails.
 
-For the sake of simplicity, all resources are deployed to a single subscription and virtual network. You can deploy the resources in any combination of resource groups or across multiple virtual networks.
-
-[![Deploy to Azure](_images/trusted-internet-connections-deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Application-Gateway%2FComplete%2Fazuredeploy.json)
-
-[![Deploy to Azure Government](_images/trusted-internet-connections-deploy-azure-government.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Application-Gateway%2FComplete%2Fazuredeploy.json)
-
-### Post-deployment tasks  
-
-After deployment, your environment performs the firewall capabilities and logging connections. To meet compliance with TIC 3.0 policies for network telemetry collection, you need to ensure that the logs make it to CISA CLAW. The post-deployment steps finish the tasks to enable compliance. To complete these steps, you need to coordinate with CISA because CISA needs to supply a certificate to associate with your service principal. For step-by-step details, see [Post-deployment tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
-
-You need to manually perform the following tasks after deployment. You can't complete them by using an ARM template.
-
-- Obtain a public key certificate from CISA. 
-- Create a service principal (application registration).
-- Add the public key certificate to the application registration.
-- Assign the application the Azure Event Hubs Data Receiver role at the Event Hubs namespace scope.
-- Activate the feed by sending the Azure tenant ID, application (client) ID, event hub namespace name, event hub name, and consumer group name to CISA.
-
 ## Deploy a solution that uses Azure Front Door with WAF
 
-The following solution uses Azure Front Door with WAF to manage traffic entering your Azure application environment. The solution includes all resources for generating, collecting, and delivering logs to CLAW. It also includes an app service to track the types of telemetry collected by the firewall.
+> [!NOTE]
+>
+> Deployment resources aren't provided for this solution. It's included only to provide guidance.
+
+The following solution uses Azure Front Door with WAF to manage and secure global web traffic entering your Azure application environment. This solution provides comprehensive guidance for generating, collecting, and delivering logs to the CISA Cloud Log Aggregation Warehouse (CLAW), ensuring compliance with Trusted Internet Connections (TIC) 3.0 requirements. Deployment can be automated using ARM, Bicep, or Terraform templates, streamlining the setup process and adhering to infrastructure-as-code best practices.
 
 :::image type="content" source="_images/trusted-internet-connections-architecture-front-door.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture. Azure Front Door with WAF uploads logs to CLAW." border="false" lightbox="_images/trusted-internet-connections-architecture-front-door.png":::
 
@@ -212,24 +182,6 @@ The following solution uses Azure Front Door with WAF to manage traffic entering
 - An event hub.
 - An alert rule that sends an email if a job fails.
 
-For the sake of simplicity, all resources are deployed to a single subscription and virtual network. You can deploy the resources in any combination of resource groups or across multiple virtual networks.
-
-[![Deploy to Azure](_images/trusted-internet-connections-deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Front-Door%2FComplete%2Fazuredeploy.json)
-
-[![Deploy to Azure Government](_images/trusted-internet-connections-deploy-azure-government.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Front-Door%2FComplete%2Fazuredeploy.json)
-
-### Post-deployment tasks
-
-After deployment, your environment performs the firewall capabilities and logging connections. To meet compliance with TIC 3.0 policies for network telemetry collection, you need to ensure that the logs make it to CISA CLAW. The post-deployment steps finish the tasks to enable compliance. To complete these steps, you need to coordinate with CISA because CISA needs to supply a certificate to associate with your service principal. For step-by-step details, see [Post-deployment tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
-
-You need to manually perform the following tasks after deployment. You can't complete them by using an ARM template.
-
-- Obtain a public key certificate from CISA. 
-- Create a service principal (application registration).
-- Add the public key certificate to the application registration.
-- Assign the application the Azure Event Hubs Data Receiver role at the Event Hubs namespace scope.
-- Activate the feed by sending the Azure tenant ID, application (client) ID, event hub namespace name, event hub name, and consumer group name to CISA.
-
 ## Third-party firewall (NVA) solution
 
 > [!NOTE]
@@ -239,9 +191,9 @@ The following solution illustrates how you can use a third-party firewall to man
 
 :::image type="content" source="_images/trusted-internet-connections-architecture-nva.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture. A third-party firewall uploads logs to CLAW." border="false" lightbox="_images/trusted-internet-connections-architecture-nva.png":::
 
-### Post-deployment tasks
+## Post-deployment tasks
 
-After deployment, your environment performs the firewall capabilities and logging connections. To meet compliance with TIC 3.0 policies for network telemetry collection, you need to ensure that the logs make it to CISA CLAW. The post-deployment steps finish the tasks to enable compliance. To complete these steps, you need to coordinate with CISA because CISA needs to supply a certificate to associate with your service principal. For step-by-step details, see [Post-deployment tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
+After deployment, your environment performs the firewall capabilities and logging connections. To meet compliance with TIC 3.0 policies for network telemetry collection, you need to ensure that the logs make it to CISA CLAW. The post-deployment steps finish the tasks to enable compliance. To complete these steps, you need to coordinate with CISA because CISA needs to supply a certificate to associate with your service principal.
 
 You need to manually perform the following tasks after deployment. You can't complete them by using an ARM template.
 
@@ -268,11 +220,11 @@ Other contributor:
 ## Next steps
 
 - [TIC 3.0 core guidance documents](https://www.cisa.gov/publication/tic-30-core-guidance-documents)
-- [National Cybersecurity Protection System (NCPS) documents](https://www.cisa.gov/publication/national-cybersecurity-protection-system-documents)
+- [National Cybersecurity Protection System (NCPS) documents](https://www.cisa.gov/resources-tools/resources/cybersecurity-publications)
 - [EINSTEIN](https://www.cisa.gov/einstein)
 - [Managed Trusted Internet Protocol Services (MTIPS)](https://www.gsa.gov/technology/it-contract-vehicles-and-purchasing-programs/information-technology-category/it-security/trusted-internet-connections-tic/mtips-features-and-price-structure)
 - [Azure Trusted Internet Connection - Extended](https://github.com/Azure/trusted-internet-connection)
-- [Federal App Innovation - TIC 3.0](https://github.com/microsoft/Federal-App-Innovation-Community/tree/main/topics/infrastructure/solutions/tic3.0)
+- [Federal App Innovation - TIC 3.0](https://github.com/microsoft/Federal-App-Innovation-Community/tree/main/assets/topics/infrastructure/solutions/tic3.0)
 - [What is Azure Firewall?](/azure/firewall/overview)
 - [Azure Firewall documentation](/azure/firewall)
 - [What is Azure Application Gateway?](/azure/application-gateway/overview)
@@ -281,8 +233,8 @@ Other contributor:
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
 - [What is Azure Event Hubs?](/azure/event-hubs/event-hubs-about)
 - [Overview of alerts in Azure](/azure/azure-monitor/alerts/alerts-overview)
-- [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals)
-- [Use the portal to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal)
+- [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals)
+- [Use the portal to create a Microsoft Entra application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal)
 - [Register an application with the Microsoft identity platform](/graph/auth-register-app-v2)
 - [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 - [Create resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups)
@@ -290,12 +242,11 @@ Other contributor:
 - [Collect Syslog data sources with the Log Analytics agent](/azure/azure-monitor/agents/data-sources-syslog)
 - [Parse text data in Azure Monitor logs](/azure/azure-monitor/logs/parse-text)
 - [Introduction to flow logging for network security groups](/azure/network-watcher/network-watcher-nsg-flow-logging-overview)
-- [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
+- [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 - [Deploy and configure Azure Firewall using the Azure portal](/azure/firewall/tutorial-firewall-deploy-portal)
 
 ## Related resources
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
 - [Securely managed web applications](../../example-scenario/apps/fully-managed-secure-apps.yml)
-- [Secure and govern workloads with network-level segmentation](../guide/network-level-segmentation.yml)
 - [Improved-security access to multitenant web apps from an on-premises network](../../web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml)

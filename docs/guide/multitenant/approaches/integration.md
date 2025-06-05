@@ -1,24 +1,20 @@
 ---
 title: Architectural approaches for tenant integration and data access
-titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for integrations in a multitenant solution.
 author: johndowns
-ms.author: jodowns
-ms.date: 05/08/2023
+ms.author: pnp
+ms.date: 07/22/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 products:
   - azure
   - azure-api-management
   - azure-logic-apps
 categories:
   - integration
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Architectural approaches for tenant integration and data access
@@ -88,7 +84,7 @@ Some integrations require you to make a connection to your tenant's systems or d
 
 Consider the network topology for accessing your tenant's system, which might include the following options:
 
-- **Connect across the internet.** If you connect across the internet, how will the connection be secured, and how will the data be encrypted? If your tenants plan to restrict based on your IP addresses, ensure that the Azure services that your solution uses can support static IP addresses for outbound connections. For example, consider using [NAT Gateway](../service/nat-gateway.md) to provide static IP addresses, if necessary.
+- **Connect across the internet.** If you connect across the internet, how will the connection be secured, and how will the data be encrypted? If your tenants plan to restrict based on your IP addresses, ensure that the Azure services that your solution uses can support static IP addresses for outbound connections. For example, consider using [NAT Gateway](../service/nat-gateway.md) to provide static IP addresses, if necessary. If you require a VPN, consider how to exchange keys securely with your tenants.
 - [**Agents**](../approaches/networking.md#agents), which are deployed into a tenant's environment, can provide a flexible approach and can help you avoid the need for your tenants to allow inbound connections.
 - **Relays**, such as [Azure Relay](/azure/azure-relay/relay-what-is-it), also provide an approach to avoid inbound connections.
 
@@ -99,7 +95,7 @@ For more information, see the guidance on [networking approaches for multitenanc
 Consider how you authenticate with each tenant when you initiate a connection. Consider the following approaches:
 
 - **Secrets**, such as API keys or certificates. It's important to plan how you'll securely manage your tenants' credentials. Leakage of your tenants' secrets could result in a major security incident, potentially impacting many tenants.
-- **Microsoft Entra tokens**, where you use a token issued by the tenant's own Microsoft Entra instance. The token might be issued directly to your workload by using a multitenant Microsoft Entra application registration or a specific service principal. Alternatively, your workload can request delegated permission to access resources on behalf of a specific user within the tenant's directory.
+- **Microsoft Entra tokens**, where you use a token issued by the tenant's own Microsoft Entra directory. The token might be issued directly to your workload by using a multitenant Microsoft Entra application registration or a specific service principal. Alternatively, your workload can request delegated permission to access resources on behalf of a specific user within the tenant's directory.
 
 Whichever approach you select, ensure that your tenants follow the principle of least privilege and avoid granting your system unnecessary permissions. For example, if your system only needs to read data from a tenant's data store, then the identity that your system uses shouldn't have write permissions.
 
@@ -127,7 +123,7 @@ Real-time integrations commonly involve exposing APIs to your tenants or other p
 - Is there a limit to the number of requests that an API user can make over a period of time?
 - How will you provide information about your APIs and documentation for each API? For example, do you need to implement a developer portal?
 
-A good practice is to use an API gateway, such as [Azure API Management](/azure/api-management/api-management-key-concepts), to handle these concerns and many others. API gateways give you a single place to implement policies that your APIs follow, and they simplify the implementation of your backend API systems.
+A good practice is to use an API gateway, such as [Azure API Management](/azure/api-management/api-management-key-concepts), to handle these concerns and many others. API gateways give you a single place to implement policies that your APIs follow, and they simplify the implementation of your backend API systems. To learn more about how how API Management supports multitenant architecture, see [Use Azure API Management in a multitenant solution](../service/api-management.md).
 
 ### Valet Key pattern
 
@@ -146,19 +142,19 @@ If you choose to build your own webhook eventing system, consider following the 
 Alternatively, you can use a service like [Azure Event Grid](/azure/event-grid/overview) to provide webhook functionality. Event Grid works natively with CloudEvents, and supports [event domains](/azure/event-grid/event-domains), which are useful for multitenant solutions.
 
 > [!NOTE]
-> Whenever you make outbound connections to your tenants' systems, remember that you're connecting to an external system. Follow recommended cloud practices, including using the [Retry pattern](../../../patterns/retry.yml), the [Circuit Breaker pattern](../../../patterns/circuit-breaker.yml), and the [Bulkhead pattern](../../../patterns/bulkhead.yml) to ensure that problems in the tenant's system don't propagate to your system.
+> Whenever you make outbound connections to your tenants' systems, remember that you're connecting to an external system. Follow recommended cloud practices, including using the [Retry pattern](../../../patterns/retry.yml), the [Circuit Breaker pattern](../../../patterns/circuit-breaker.md), and the [Bulkhead pattern](../../../patterns/bulkhead.yml) to ensure that problems in the tenant's system don't propagate to your system.
 
 ### Delegated user access
 
 When you access data from a tenant's data stores, consider whether you need to use a specific user's identity to access the data. When you do, your integration is subject to the same permissions that the user has. This approach is often called [delegated access](#full-or-user-delegated-access).
 
-For example, suppose your multitenant service runs machine learning models over your tenants' data. You need to access each tenant's instances of services, like Azure Synapse Analytics, Azure Storage, Azure Cosmos DB, and others. Each tenant has their own Microsoft Entra instance. Your solution can be granted delegated access to the data store, so that you can retrieve the data that a specific user can access.
+For example, suppose your multitenant service runs machine learning models over your tenants' data. You need to access each tenant's instances of services, like Azure Synapse Analytics, Azure Storage, Azure Cosmos DB, and others. Each tenant has their own Microsoft Entra directory. Your solution can be granted delegated access to the data store, so that you can retrieve the data that a specific user can access.
 
-Delegated access is easier if the data store supports Microsoft Entra authentication. [Many Azure services support Microsoft Entra identities](/azure/active-directory/managed-identities-azure-resources/services-azure-active-directory-support).
+Delegated access is easier if the data store supports Microsoft Entra authentication. [Many Azure services support Microsoft Entra identities](/entra/identity/managed-identities-azure-resources/managed-identities-status).
 
 For example, suppose that your multitenant web application and background processes need to access Azure Storage by using your tenants' user identities from Microsoft Entra ID. You might do the following steps:
 
-1. [Create a multitenant Microsoft Entra application registration](/azure/active-directory/develop/scenario-web-app-sign-user-overview) that represents your solution.
+1. [Create a multitenant Microsoft Entra application registration](/entra/identity-platform/scenario-web-app-sign-user-app-registration) that represents your solution.
 1. Grant the application [delegated permission to access Azure Storage as the signed-in user](/azure/storage/common/storage-auth-aad-app#grant-your-registered-app-permissions-to-azure-storage).
 1. Configure your application to authenticate users by using Microsoft Entra ID.
 
@@ -194,9 +190,9 @@ If you use a [tiered pricing model](../considerations/pricing-models.md#feature-
 
 ## Antipatterns to avoid
 
-- **Exposing your primary data stores directly to tenants.** For example, avoid providing credentials to your data stores to your customers, and don't directly replicate data from your primary database to customers' read replicas of the same database system. Instead, create dedicated *integration data stores*, and use the [Valet Key pattern](#valet-key-pattern) to expose the data.
+- **Exposing your primary data stores directly to tenants.** When tenants access your primary data stores, it can become harder to secure those data stores, and they might accidentally cause performance problems that affect your solution. Avoid providing credentials to your data stores to your customers, and don't directly replicate data from your primary database to customers' read replicas of the same database system. Instead, create dedicated *integration data stores*, and use the [Valet Key pattern](#valet-key-pattern) to expose the data.
 - **Exposing APIs without an API gateway.** APIs have specific concerns for access control, billing, and metering. Even if you don't plan to use API policies initially, it's a good idea to include an API gateway early. That way, if you need to customize your API policies in the future, you don't need to make breaking changes to the URLs that a third party depends on.
-- **Unnecessary tight coupling.** Loose coupling, such as by using [messaging](#messaging) approaches, can provide a range of benefits for security, performance isolation, and resiliency. When possible, it's a good idea to loosely couple your integrations with third parties. If you do need to tightly couple to a third party, ensure that you follow good practices like the [Retry pattern](../../../patterns/retry.yml), the [Circuit Breaker pattern](../../../patterns/circuit-breaker.yml), and the [Bulkhead pattern](../../../patterns/bulkhead.yml).
+- **Unnecessary tight coupling.** Loose coupling, such as by using [messaging](#messaging) approaches, can provide a range of benefits for security, performance isolation, and resiliency. When possible, it's a good idea to loosely couple your integrations with third parties. If you do need to tightly couple to a third party, ensure that you follow good practices like the [Retry pattern](../../../patterns/retry.yml), the [Circuit Breaker pattern](../../../patterns/circuit-breaker.md), and the [Bulkhead pattern](../../../patterns/bulkhead.yml).
 - **Custom integrations for specific tenants.** Tenant-specific features or code can make your solution harder to test. It also makes it harder to modify your solution in the future, because you have to understand more code paths. Instead, try to build [composable components](#composable-integration-components) that abstract the requirements for any specific tenant, and reuse them across multiple tenants with similar requirements.
 
 ## Contributors
@@ -205,12 +201,12 @@ If you use a [tiered pricing model](../considerations/pricing-models.md#feature-
 
 Principal authors:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
- 
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
+
 Other contributor:
 
- * [Will Velida](http://linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
+- [Will Velida](https://www.linkedin.com/in/willvelida/) | Customer Engineer 2, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

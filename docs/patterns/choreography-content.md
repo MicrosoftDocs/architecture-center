@@ -40,7 +40,7 @@ Decentralizing the orchestrator can cause issues while managing the workflow.
 
 - Handing failures can be challenging. Components in an application might conduct atomic tasks but they might still have a level of dependency. Failure in one component can impact others, which might cause delays in completing the overall request. 
 
-    To handle failures gracefully, implementing [compensating transactions](./compensating-transaction.yml) might introduce complexity. 
+   To handle failures gracefully, implementing [compensating transactions](./compensating-transaction.yml) might introduce complexity. Failure handling logic, such as compensating transactions, is also prone to failures.
 
     ![A flowchart showing error handling in the choreography pattern.](./_images/choreography-pattern-handling-errors.png)
 
@@ -48,7 +48,7 @@ Decentralizing the orchestrator can cause issues while managing the workflow.
 
     ![A diagram of workflow in an messaging system that implements the choregraphy pattern in parallel and subsequently.](./_images/choreography-pattern-parallel-workflow.png)
 
-- The pattern becomes a challenge if the number of services grow rapidly. Given the high number of independent moving parts, the workflow between services tends to get complex. Also, distributed tracing becomes difficult.
+- The pattern becomes a challenge if the number of services grow rapidly. Given the high number of independent moving parts, the workflow between services tends to get complex. Also, [distributed tracing](/dotnet/core/diagnostics/distributed-tracing) becomes difficult, although tools like [ServiceInsight together with NServiceBus](https://docs.particular.net/serviceinsight/#sequence-diagram) can help reduce these challenges.
 
 - In an orchestrator-led design, the central component can partially participate and delegate resiliency logic to another component that retries transient, nontransient, and time-out failures, consistently. With the dissolution of the orchestrator in the choreography pattern, the downstream components shouldn't pick up those resiliency tasks. Those must still be handled by the resiliency handler. But now, the downstream components must directly communicate with the resiliency handler, increasing point-to-point communication. 
 
@@ -62,6 +62,8 @@ Use this pattern when:
 - The components are expected to get updated and replaced frequently. The pattern enables the application to be modified with less effort and minimal disruption to existing services.
 
 - The pattern is a natural fit for serverless architectures that are appropriate for simple workflows. The components can be short-lived and event-driven. When an event occurs, components are spun up, perform their tasks, and removed once the task is completed.
+
+- This pattern can be a good choice for communications between bounded contexts. For communications inside an individual bounded context, an orchestrator pattern might be considered.
 
 - There's performance bottleneck introduced by the central orchestrator.
 
@@ -115,9 +117,9 @@ The design ensures the choreography to occur in a sequence. A single Azure Servi
 
 This design uses Azure Service Bus to handle high-value messages that can't be lost or duplicated during the entire delivery process. When the package is shipped, it's also published a change of state to Azure Event Grid. In this design, the event sender has no expectation about how the change of state is handled. Downstream organization services that aren't included as part of this design could be listening to this event type, and react executing specific business purpose logic (that is, email the shipped order status to the user).
 
-> If you are planning to deploy this into another compute service such as [AKS](/azure/aks/) pub-sub pattern application boilplate could be implemented with [two containers in the same pod](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/#creating-a-pod-that-runs-two-containers). One container runs the [ambassador](./ambassador.yml) that interacts with your message bus of preference while the another executes the business logic. The approach with two containers in the same pod improves performance and scalability. The ambassador and the business service share the same network allowing for low latency and high throughput.
+> If you are planning to deploy this into another compute service such as [AKS](/azure/aks/) pub-sub pattern application boilerplate could be implemented with [two containers in the same pod](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/#creating-a-pod-that-runs-two-containers). One container runs the [ambassador](./ambassador.yml) that interacts with your message bus of preference while the another executes the business logic. The approach with two containers in the same pod improves performance and scalability. The ambassador and the business service share the same network allowing for low latency and high throughput.
 
-To avoid cascading retry operations that might lead to multiple efforts, business services should immediately flag unacceptable messages. It's possible to enrich such messages using well-known reason codes or a defined application code, so it can be moved to a [dead letter queue (DLQ)](/azure/service-bus-messaging/service-bus-dead-letter-queues). Consider managing consistency issues implementing [Saga](/azure/architecture/reference-architectures/saga/saga) from downstream services. For example, another service could handle dead lettered messages for remediation purposes only by executing a compensation, rety or pivot transaction.
+To avoid cascading retry operations that might lead to multiple efforts, business services should immediately flag unacceptable messages. It's possible to enrich such messages using well-known reason codes or a defined application code, so it can be moved to a [dead letter queue (DLQ)](/azure/service-bus-messaging/service-bus-dead-letter-queues). Consider managing consistency issues implementing [Saga](/azure/architecture/reference-architectures/saga/saga) from downstream services. For example, another service could handle dead lettered messages for remediation purposes only by executing a compensation, retry, or pivot transaction.
 
 The business services are idempotent to make sure retry operations don't result in duplicate resources. For example, the Package service uses upsert operations to add data to the data store.
 

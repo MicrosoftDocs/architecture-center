@@ -24,11 +24,13 @@ The following list is guidance for grouping functions. The guidance considers st
 
 ## Function hosting plans
 
-Every function app is hosted according to one of three hosting plans. For information about these plans, see [Azure Functions hosting options](/azure/azure-functions/functions-scale). Take note of how the three options scale.
+There are several hosting options for function apps and it is important to review their capabilities. For information about these hosting options, see [Azure Functions hosting options](/azure/azure-functions/functions-scale). Take note of how the options scale.
 
 The Consumption plan is the default. Function apps in the Consumption plan scale independently and are most effective when they avoid long-running tasks.
 
 The Premium and Dedicated plans are often used to host multiple function apps and functions that are more CPU and memory intensive. With the Dedicated plan, you run your functions in an Azure App Service plan at regular App Service plan rates. It's important to note that all the function apps in these plans share the resources that are allocated to the plan. If functions have different load profiles or unique requirements, it's best to host them in different plans, especially in stream processing applications.
+
+Azure Container Apps provides integrated support for developing, deploying, and managing containerized function apps on Azure Functions. This allows you to run your event-driven functions in a fully managed, Kubernetes-based environment with built-in support for open-source monitoring, mTLS, Dapr, and KEDA.
 
 ## Event Hubs scaling
 
@@ -61,18 +63,18 @@ If the application needs capacity that exceeds the maximum allowed number of TUs
 When an event hub is created, the number of
 [partitions](/azure/event-hubs/event-hubs-features#partitions) must be specified. The partition count remains fixed and can't be changed except from the Premium and Dedicated tiers. When Event Hubs triggers functions apps, it's possible that the number of concurrent instances can equal the number of partitions.
 
-In Consumption and Premium hosting plans, the function app instances scale out dynamically to the meet the number of partitions, if needed. The Dedicated hosting plan runs functions in an App Service plan and requires that you manually configure your instances or set up an autoscale scheme. For more information, see [Dedicated hosting plans for Azure Functions](/azure/azure-functions/dedicated-plan).
+In Consumption and Premium hosting plans, the function app instances scale out dynamically to meet the number of partitions, if needed. The Dedicated hosting plan runs functions in an App Service plan and requires that you manually configure your instances or set up an autoscale scheme. For more information, see [Dedicated hosting plans for Azure Functions](/azure/azure-functions/dedicated-plan).
 
-Ultimately, a one-to-one relationship between the number of partitions and function app instances is the ideal target for maximum throughput in a stream processing solution. To achieve optimal parallelism, have multiple consumers in a consumer group. For Functions, this objective translates to many instances of a function app in the plan. The result is referred to as *partition-level parallelism* or the *maximum degree of parallelism*, as shown in the following diagram:
+Ultimately, a one-to-one relationship between the number of partitions and function instances, or consumers, is the ideal target for maximum throughput in a stream processing solution. To achieve optimal parallelism, have multiple consumers in a consumer group. For Functions, this objective translates to many instances of a function in the plan. The result is referred to as *partition-level parallelism* or the *maximum degree of parallelism*, as shown in the following diagram:
 
 ![Maximum degree of parallelism](images/event-hubs-parallelism.svg)
 
 It might seem to make sense to configure as many partitions as possible to achieve maximum throughput and to account for the possibility of a higher volume of events. However, there are several important factors to consider when you configure many partitions:
 
-- **More partitions can lead to more throughput:** Because the degree of parallelism is the number of consumers (function app instances), the more partitions there are, the higher the concurrent throughput can be. This fact is important when you share a designated number of TUs for an event hub with other consumer applications.
-- **More functions can require more memory:** As the number of function app instances increases, so does the memory footprint of resources in the plan. At some point, too many partitions can deteriorate performance for consumers.
+- **More partitions can lead to more throughput:** Because the degree of parallelism is the number of consumers (function instances), the more partitions there are, the higher the concurrent throughput can be. This fact is important when you share a designated number of TUs for an event hub with other consumer applications.
+- **More functions can require more memory:** As the number of function instances increases, so does the memory footprint of resources in the plan. At some point, too many partitions can deteriorate performance for consumers.
 - **There's a risk of back pressure from downstream services:** As more throughput is generated, you run the risk of overwhelming downstream services or receiving back pressure from them. Consumer fan-out must be accounted for when considering the consequences to surrounding resources. Possible consequences included throttling from other services, network saturation, and other forms of resource contention.
-- **Partitions can be sparsely populated:** The combination of many partitions and a low volume of events can lead to data that's sparsely distributed across partitions. Instead, a smaller number of partitions can provide better performance and resource usage
+- **Partitions can be sparsely populated:** The combination of many partitions and a low volume of events can lead to data that's sparsely distributed across partitions. Instead, a smaller number of partitions can provide better performance and resource usage.
 
 ### Availability and consistency
 
@@ -90,7 +92,7 @@ This section focuses on the settings and considerations for optimizing functions
 
 ### Batching for triggered functions
 
-You can configure functions that an event hub triggers to process a batch of events or one event at a time. Processing a batch of events is more efficient because it eliminates some of the overhead of function invocations. Unless you need to process only a single event, your function should be configured to process multiple events when invoked.
+You can configure functions that an event hub triggers to process a batch of events or one event at a time. Processing a batch of events can be more efficient when it reduces some of the overhead of function invocations. Unless you need to process only a single event, your function should be configured to process multiple events when invoked.
 
 Enabling batching for the Event Hubs trigger binding varies between languages:
 
@@ -105,7 +107,7 @@ Several configuration settings in the [host.json](/azure/azure-functions/functio
 
 - **maxEventBatchSize:** This setting represents the maximum number of events that the function can receive when it's invoked. If the number of events received is less than this amount, the function is still invoked with as many events as are available. You can't set a minimum batch size.
 - **prefetchCount:** The prefetch count is one of the most important settings when you optimize for performance. The underlying AMQP channel references this value to determine how many messages to fetch and cache for the client. The prefetch count should be greater than or equal to the **maxEventBatchSize** value and is commonly set to a multiple of that amount. Setting this value to a number less than the **maxEventBatchSize** setting can hurt performance.
-- **batchCheckpointFrequency:** As your function processes batches, this value determines the rate at which checkpoints are created. The default value is 1, which means that there's a checkpoint whenever a function successfully processes a batch. A checkpoint is created at the partition level for each reader in the consumer group. For information about how this setting influences replays and retries of events, see [Event hub triggered Azure function: Replays and Retries (blog post)](https://shervyna.medium.com/event-triggered-azure-function-replays-retries-a3cb1efd17b5).
+- **batchCheckpointFrequency:** As your function processes batches, this value determines the rate at which checkpoints are created. The default value is 1, which means that there's a checkpoint whenever a function successfully processes a single batch. A checkpoint is created at the partition level for each reader in the consumer group. For information about how this setting influences replays and retries of events, see [Event hub triggered Azure function: Replays and Retries (blog post)](https://shervyna.medium.com/event-triggered-azure-function-replays-retries-a3cb1efd17b5).
 
 Do several performance tests to determine the values to set for the trigger binding. We recommend that you change settings incrementally and measure consistently to fine-tune these options. The default values are a reasonable starting point for most event processing solutions.
 
@@ -153,7 +155,7 @@ Batching is encouraged to improve performance when sending multiple events to a 
 
 Support for using the output binding to send multiple events to Event Hubs is available in C#, Java, Python, and JavaScript.
 
-### Output multiple events (C#)
+### Output multiple events with the In-process model (C#)
 
 Use the **ICollector** and **IAsyncCollector** types when you send multiple events from a function in C#.
 
@@ -162,11 +164,17 @@ Use the **ICollector** and **IAsyncCollector** types when you send multiple even
 
 For examples of using C# to publish single and multiple events, see [Azure Event Hubs output binding for Azure Functions](/azure/azure-functions/functions-bindings-event-hubs-output?tabs=csharp).
 
+### Output multiple events with the Isolated worker model (C#)
+
+Depending on the Functions runtime version, the Isolated worker model will support different types for the parameters that are passed to the output binding. For multiple events, an array is used to encapsulate the set. It is recommended to review the output binding attributes and usage details for the Isolated model and to make note of the differences between the extension versions. 
+
 ### Throttling and back pressure
 
-Throttling considerations apply to output binding, not only for Event Hubs but also for Azure services such as [Azure Cosmos DB](/azure/cosmos-db). It's important to become familiar with the limits and quotas that apply to those services and to plan accordingly.
+Throttling considerations apply to output bindings, not only for Event Hubs but also for Azure services such as [Azure Cosmos DB](/azure/cosmos-db). It's important to become familiar with the limits and quotas that apply to those services and to plan accordingly.
 
-To handle downstream errors, you can wrap **AddAsync** and **FlushAsync** in an exception handler for .NET Functions in order to catch exceptions from IAsyncCollector. Another option is to use the Event Hubs SDKs directly instead of using output bindings.
+To handle downstream errors with the In-process model, you can wrap **AddAsync** and **FlushAsync** in an exception handler for .NET Functions in order to catch exceptions from IAsyncCollector. Another option is to use the Event Hubs SDKs directly instead of using output bindings.
+
+If you are leveraging the Isolated model for functions, then structured exception handling should be used to responsibly catch exceptions when returning the output values.
 
 ## Function code
 
@@ -211,9 +219,3 @@ Before continuing, consider reviewing these related articles:
 
 > [!div class="nextstepaction"]
 > [Resilient Event Hubs and Functions design](resilient-design.md)
-
-## Related resources
-
-- [Monitoring serverless event processing](../guide/monitoring-serverless-event-processing.md)
-- [Serverless event processing](../../reference-architectures/serverless/event-processing.yml)
-- [De-batching and filtering in serverless event processing with Event Hubs](../../solution-ideas/articles/serverless-event-processing-filtering.yml)

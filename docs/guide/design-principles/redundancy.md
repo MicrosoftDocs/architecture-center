@@ -1,13 +1,12 @@
 ---
 title: Make all things redundant
-titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to avoid having single points of failure, by building redundancy into your application.
-author: martinekuan
+author: ckittel
+ms.author: pnp
 categories: azure
-ms.date: 07/25/2023
+ms.date: 07/30/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 products:
   - azure-load-balancer
   - azure-sql-database
@@ -20,6 +19,17 @@ ms.custom:
 ## Build redundancy into your application, to avoid having single points of failure
 
 A resilient application routes around failure. Identify the critical paths in your application. Is there redundancy at each point in the path? When a subsystem fails, will the application fail over to something else?
+ 
+In a perfect implementation, adding uniform redundancy could exponentially increase your system's availability. For example, imagine you have `N` equivalent, equally balanced components which:
+
+- can malfunction independently and simultaneously removed from the pool
+- have identical state or no state
+- have no work in progress that is permanently lost during the malfunction
+- are identical in capabilities
+- have no dependencies on each other
+- handles the reduction of capacity without additional malfunction
+
+If each individual component has an availability of `A`, then the overall system availability can be calculated using the formula `1 - (1 - A)^N`.
 
 ## Recommendations
 
@@ -34,9 +44,9 @@ If you have a mission-critical workload and need to mitigate the risk of a regio
 > [!TIP]
 > For many workloads, a zone-redundant architecture provides the best set of tradeoffs. Consider a multi-region architecture if your business requirements indicate that you need to mitigate the unlikely risk of a region-wide outage, and if you're prepared to accept the tradeoffs involved in such an approach.
 
-To learn more about how to design your solution to use availability zones and regions, see [Recommendations for using availability zones and regions](/azure/well-architected/resiliency/regions-availability-zones).
+To learn more about how to design your solution to use availability zones and regions, see [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones).
 
-**Place VMs behind a load balancer**. Don't use a single VM for mission-critical workloads. Instead, place multiple VMs behind a load balancer. If any VM becomes unavailable, the load balancer distributes traffic to the remaining healthy VMs. To learn how to deploy this configuration, see [Multiple VMs for scalability and availability][multi-vm-blueprint].
+**Place VMs behind a load balancer**. Don't use a single VM for mission-critical workloads. Instead, place multiple VMs behind a load balancer. If any VM becomes unavailable, the load balancer distributes traffic to the remaining healthy VMs.
 
 ![Diagram of load-balanced VMs](./images/load-balancing.svg)
 
@@ -46,21 +56,27 @@ If you use an IaaS database solution, choose one that supports replication and f
 
 **Partition for availability**. Database partitioning is often used to improve scalability, but it can also improve availability. If one shard goes down, the other shards can still be reached. A failure in one shard will only disrupt a subset of the total transactions.
 
+**Test and validate your redundant components**. Reliability benefits in many ways from simplicity and adding redundancy can increase complexity. To ensure that adding redundancy actually leads to higher availability, you should validate following:
+
+- Can your system *reliably* detect healthy and unhealthy redundant components, and safely and expeditiously remove them from the component pool?
+- Can your system *reliably* scale out and in the redundant components?
+- Can your routine, ad hoc, and emergency workload operations handle the redundancy?
+
 ### Multi-region solutions
 
 The following diagram shows a multi-region application that uses Azure Traffic Manager to handle failover.
 
 ![Diagram of using Azure Traffic Manager to handle failover](./images/failover.svg)
 
-If you use Traffic Manager in a multi-region solution, consider the following recommendations:
+If you use Traffic Manager or Azure Front Door in a multi-region solution as your failover routing mechanism, consider the following recommendations:
 
-**Synchronize front and backend failover**. Use Traffic Manager to fail over the front end. If the front end becomes unreachable in one region, Traffic Manager will route new requests to the secondary region. Depending on your backend components and database solution, you may need to coordinate failing over your backend services and databases.
+**Synchronize front and backend failover**. Use your routing mechanism to fail over the front end. If the front end becomes unreachable in one region, failover route new requests to the secondary region. Depending on your backend components and database solution, you might need to coordinate failing over your backend services and databases.
 
-**Use automatic failover but manual failback**. Use Traffic Manager for automatic failover, but not for automatic failback. Automatic failback carries a risk that you might switch to the primary region before the region is completely healthy. Instead, verify that all application subsystems are healthy before manually failing back. Also, depending on the database, you might need to check data consistency before failing back.
+**Use automatic failover but manual failback**. Use automation for failover, but not for failback. Automatic failback carries a risk that you might switch to the primary region before the region is completely healthy. Instead, verify that all application subsystems are healthy before manually failing back. Also you should check data consistency before failing back.
 
-To achieve this, disable the primary endpoint of Traffic Manager after failover. Note that if the monitoring interval of probes is short and the tolerated number of failures is small, failover as well as failback will take place in a short time. In some cases, disabling won't be completed in time. To avoid unconfirmed failback, consider also implementing a health endpoint that can verify that all subsystems are healthy. See the [Health Endpoint Monitoring pattern].
+To achieve this, disable the primary endpoint after failover. Note that if the monitoring interval of probes is short and the tolerated number of failures is small, failover as well as failback will take place in a short time. In some cases, disabling won't be completed in time. To avoid unconfirmed failback, consider also implementing a health endpoint that can verify that all subsystems are healthy. See the [Health Endpoint Monitoring pattern].
 
-**Include redundancy for Traffic Manager**. Traffic Manager is a possible failure point. Review the Traffic Manager SLA, and determine whether using Traffic Manager alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a failback. If the Azure Traffic Manager service fails, change your CNAME records in DNS to point to the other traffic management service.
+**Include redundancy for your routing solution**. Consider designing a [Global routing redundancy solution](../networking/global-web-applications/overview.md) for mission-critical web applications.
 
 <!-- links -->
 

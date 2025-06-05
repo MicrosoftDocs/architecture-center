@@ -1,17 +1,13 @@
 ---
 title: Busy Front End antipattern
-titleSuffix: Performance antipatterns for cloud apps
 description: Asynchronous work on a large number of background threads can starve other foreground tasks of resources.
-ms.author: robbag
+ms.author: pnp
 author: RobBagby
 ms.date: 06/05/2017
 ms.topic: design-pattern
-ms.service: architecture-center
-ms.subservice: anti-pattern
+ms.subservice: best-practice
 products:
   - aspnet
-ms.custom:
-  - article
 categories: featured
 ---
 
@@ -30,7 +26,7 @@ Resource-intensive tasks can increase the response times for user requests and c
 
 This problem typically occurs when an application is developed as monolithic piece of code, with all of the business logic combined into a single tier shared with the presentation layer.
 
-Here's an example using ASP.NET that demonstrates the problem. You can find the complete sample [here][code-sample].
+Here's pseudocode that demonstrates the problem.
 
 ```csharp
 public class WorkInFrontEndController : ApiController
@@ -84,9 +80,9 @@ public class WorkInBackgroundController : ApiController
 
     public WorkInBackgroundController()
     {
-        var serviceBusConnectionString = ...;
+        string serviceBusNamespace = ...;
         QueueName = ...;
-        ServiceBusQueueHandler = new ServiceBusQueueHandler(serviceBusConnectionString);
+        ServiceBusQueueHandler = new ServiceBusQueueHandler(serviceBusNamespace);
         QueueClient = ServiceBusQueueHandler.GetQueueClientAsync(QueueName).Result;
     }
 
@@ -209,7 +205,6 @@ The following graph shows the results of a load test. The overall volume of requ
 [AppDynamics]: https://www.appdynamics.com
 [autoscaling]: ../../best-practices/auto-scaling.md
 [background-jobs]: ../../best-practices/background-jobs.md
-[code-sample]: https://github.com/mspnp/performance-optimization/tree/main/BusyFrontEnd
 [load-leveling]: ../../patterns/queue-based-load-leveling.yml
 [sync-io]: ../synchronous-io/index.md
 [web-queue-worker]: ../../guide/architecture-styles/web-queue-worker.yml

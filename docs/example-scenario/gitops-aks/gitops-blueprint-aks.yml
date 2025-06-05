@@ -1,16 +1,14 @@
 ### YamlMime:Architecture
 metadata:
   title: GitOps for Azure Kubernetes Service
-  titleSuffix: Azure Example Scenarios
   description: Learn techniques for using GitOps principles to operate and manage an Azure Kubernetes Services (AKS) cluster. The solutions use Flux v2 and Argo CD.
   author: francisnazareth
   ms.author: fnazaret
-  ms.date: 03/11/2023
+  ms.date: 06/06/2024
   ms.topic: example-scenario
-  ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
-    - fcp
+    - arb-containers
 azureCategories:
   - containers
   - devops

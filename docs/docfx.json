@@ -77,7 +77,7 @@
       "uhfHeaderId": "azure",
       "titleSuffix": "Azure Architecture Center",
       "ms.author": "pnp",
-      "ms.service": "architecture-center",
+      "ms.service": "azure-architecture-center",
       "_op_documentIdPathDepotMapping": {
         "./": {
           "depot_name": "MSDN.azure-architecture-center",
@@ -112,6 +112,10 @@
         "reference-architectures/**/*.md": [ "Azure", "Azure Architecture Center", "Reference Architectures" ],
         "example-scenario/**/*.md": [ "Azure", "Azure Architecture Center", "Reference Architectures" ],
         "solution-ideas/**/*.md": [ "Azure", "Azure Architecture Center", "Reference Architectures" ]
+      },
+      "ms.update-cycle": {
+        "guide/multitenant/considerations/*.md": "1095-days",
+        "guide/multitenant/considerations/*.yml": "1095-days"
       }
     },
     "template": [

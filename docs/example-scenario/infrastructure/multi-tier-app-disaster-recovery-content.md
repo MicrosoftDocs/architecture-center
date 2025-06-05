@@ -52,7 +52,7 @@ Other relevant use cases include:
 
 ## Scenario details
 
-This scenario demonstrates a multitier application that uses ASP.NET and Microsoft SQL Server. In [Azure regions that support availability zones](/azure/availability-zones/az-overview#services-support-by-region), you can deploy your virtual machines (VMs) in a source region across availability zones and replicate the VMs to the target region used for disaster recovery. In Azure regions that don't support availability zones, you can deploy your VMs within an [availability set](/azure/virtual-machines/availability-set-overview) and replicate the VMs to the target region.
+This scenario demonstrates a multitier application that uses ASP.NET and Microsoft SQL Server. In [Azure regions that support availability zones](/azure/reliability/availability-zones-region-support), you can deploy your virtual machines (VMs) in a source region across availability zones and replicate the VMs to the target region used for disaster recovery. In Azure regions that don't support availability zones, you can deploy your VMs within an [availability set](/azure/virtual-machines/availability-set-overview) and replicate the VMs to the target region.
 
 To route traffic between regions, you need a global load balancer. There are two main Azure offerings:
 
@@ -75,19 +75,19 @@ This architecture uses Traffic Manager because it's lightweight. The failover ti
 
 ## Considerations
 
-### Scalability
-
-You can add or remove VMs in each tier based on your scaling requirements. Because this scenario uses load balancers, you can add more VMs to a tier without affecting application uptime.
-
-For other scalability topics, see the [performance efficiency checklist][scalability] in the Azure Architecture Center.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Security
+
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 All the virtual network traffic into the front-end application tier is protected by network security groups. Rules limit the flow of traffic so that only the front-end application tier VM instances can access the back-end database tier. No outbound internet traffic is allowed from the business tier or database tier. To reduce the attack footprint, no direct remote management ports are open. For more information, see [Azure network security groups][docs-nsg].
 
 For general guidance on designing secure scenarios, see the [Azure Security Documentation][security].
 
-## Pricing
+## Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Configuring disaster recovery for Azure VMs using Azure Site Recovery will incur the following charges on an ongoing basis.
 
@@ -96,6 +96,12 @@ Configuring disaster recovery for Azure VMs using Azure Site Recovery will incur
 - Storage costs on the recovery site. This is typically the same as the source region storage plus any additional storage needed to maintain the recovery points as snapshots for recovery.
 
 We've provided a [sample cost calculator][calculator] for configuring disaster recovery for a three-tier application using six virtual machines. All of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to estimate the cost.
+
+### Performance Efficiency
+
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+You can add or remove VMs in each tier based on your scaling requirements. Because this scenario uses load balancers, you can add more VMs to a tier without affecting application uptime.
 
 ## Contributors
 
@@ -114,28 +120,22 @@ Principal author:
 
 For additional high availability and disaster recovery reference architectures, see:
 
-- [Multi-region N-tier application][Multi-region-N-tier-application]
 - [Multi-region load balancing][Multi-region-load-balancing]
-- [Multi-region app with private database][Multi-region-app-with-private-database]
-- [Enterprise-scale disaster recovery][Enterprise-scale-disaster-recovery]
 
 <!-- links -->
 
 [architecture]: ./media/architecture-disaster-recovery-multi-tier-app.png
 [security]: /azure/security
-[scalability]: /azure/architecture/framework/scalability/performance-efficiency
-[docs-availability-zones]: /azure/availability-zones/az-overview
+[docs-availability-zones]: /azure/well-architected/service-guides/azure-load-balancer/reliability
 [docs-load-balancer]: /azure/load-balancer/load-balancer-overview
 [docs-nsg]: /azure/virtual-network/security-overview
 [docs-sql-always-on]: /sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server
 [docs-sql-server-linux]: /sql/linux/sql-server-linux-overview?view=sql-server-linux-2017
-[docs-traffic-manager]: /azure/traffic-manager
-[docs-azure-site-recovery]: /azure/site-recovery/azure-to-azure-quickstart
+[docs-traffic-manager]: /azure/well-architected/service-guides/traffic-manager/reliability
+[docs-azure-site-recovery]: /azure/site-recovery/site-recovery-overview
 [docs-availability-sets]: /azure/virtual-machines/windows/manage-availability
 [calculator]: https://azure.com/e/6835332265044d6d931d68c917979e6d
-[Multi-region-N-tier-application]: /azure/architecture/reference-architectures/n-tier/multi-region-sql-server
 [Multi-region-load-balancing]: /azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway
-[Enterprise-scale-disaster-recovery]: /azure/architecture/solution-ideas/articles/disaster-recovery-enterprise-scale-dr
 [Set-up-disaster-recovery-for-Azure-VMs]: /azure/site-recovery/azure-to-azure-tutorial-enable-replication
 [Deploy-Traffic-Manager-in-Azure]: /azure/traffic-manager/quickstart-create-traffic-manager-profile
 [visio-download]: https://arch-center.azureedge.net/architecture-disaster-recovery-multi-tier-app.vsdx

@@ -1,13 +1,11 @@
 ---
-title: Use a fully managed identity service platform
-titleSuffix: Azure Architecture Center
+title: Use an Identity as a Service platform
 description: Learn why it's important to use an identity as a service (IDaaS) platform instead of building or running your own.
 author: johndowns
-ms.date: 07/21/2022
-ms.author: jodowns
+ms.date: 10/05/2024
+ms.author: pnp
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: architecture-guide
 categories:
   - identity
 products:
@@ -17,11 +15,11 @@ ms.custom:
   - guide
 ---
 
-# Use a fully managed identity service platform
+# Use an Identity as a Service platform
 
 Almost every cloud application needs to work with user identities. Identity is the foundation of modern security practices like [zero trust](https://www.microsoft.com/security/business/zero-trust), and user identity for applications is a critical part of your solution's architecture.
 
-For most solutions, we strongly recommend using an identity as a service (IDaaS) platform, a fully managed identity solution, instead of building or operating your own. In this article, we describe the challenges of building or running your own identity system.
+For most solutions, we strongly recommend using an identity as a service (IDaaS) platform, which is an identity solution hosted and managed by a specialized provider, instead of building or operating your own. In this article, we describe the challenges of building or running your own identity system.
 
 ## Recommendations
 
@@ -34,33 +32,33 @@ For most solutions, we strongly recommend using an identity as a service (IDaaS)
 
 ### Avoid storing credentials
 
-When you run your own identity system, you have to store a database of credentials. You should never store credentials in clear text, or even as encrypted data.
+When you run your own identity system, you have to store a database of credentials.
 
-Instead, you might consider cryptographically hashing and salting credentials before storing them, which makes them more difficult to attack. However, even hashed and salted credentials are vulnerable to several types of attack.
+You should never store credentials in clear text, or even as encrypted data. Instead, you might consider cryptographically hashing and salting credentials before storing them, which makes them more difficult to attack. However, even hashed and salted credentials are vulnerable to several types of attack.
 
 Regardless of how you protect the individual credentials, maintaining a database of credentials makes you a target for attacks. Recent years have shown that both large and small organizations have had their credentials databases targeted for attack.
 
-*Consider credential storage to be a liability, not an asset.* By using an IDaaS, you outsource the problem of credential storage to experts who can invest the time and resources in securely managing credentials.
+**Consider credential storage to be a liability, not an asset.** By using an IDaaS, you outsource the problem of credential storage to experts who can invest the time and resources in securely managing credentials.
 
 ### Implement identity and federation protocols
 
-Modern identity protocols are complex. Industry experts have designed OAuth 2, OpenID Connect, and other protocols to ensure that they mitigate real-world attacks and vulnerabilities. The protocols also evolve to adapt to changes in technologies, attack strategies, and user expectations. Identity specialists, with expertise in the protocols and how they're used, are in the best position to implement and validate systems that follow these protocols. For more information about the protocols and the platform, see [OAuth 2.0 and OpenID Connect (OIDC) in the Microsoft identity platform](/azure/active-directory/develop/active-directory-v2-protocols).
+Modern identity protocols are complex. Industry experts have designed OAuth 2, OpenID Connect, and other protocols to ensure that they mitigate real-world attacks and vulnerabilities. The protocols also evolve to adapt to changes in technologies, attack strategies, and user expectations. Identity specialists, with expertise in the protocols and how they're used, are in the best position to implement and validate systems that follow these protocols. For more information about the protocols and the platform, see [OAuth 2.0 and OpenID Connect (OIDC) in the Microsoft identity platform](/entra/identity-platform/v2-protocols).
 
-It's also common to federate identity systems. Identity federation protocols are complex to establish, manage, and maintain, and they require specialist knowledge and experience. For more information, see [Federated identity pattern](../../patterns/federated-identity.yml).
+It's also common to federate identity systems. Identity federation protocols are complex to establish, manage, and maintain, and they require specialist knowledge and experience. IDaaS providers typically provide federation capabilities in their products for you to use. For more information about federation, see the [Federated identity pattern](../../patterns/federated-identity.yml).
 
 ### Adopt modern identity features
 
 Users expect an identity system to have a range of advanced features, including:
 
-- Passwordless authentication, which uses secure approaches to sign in that don't require users to enter credentials.
+- Passwordless authentication, which uses secure approaches to sign in that don't require users to enter credentials. Passkeys are an example of a passwordless authentication technology.
 
 - Single sign-on (SSO), which allows users to sign in by using an identity from their employer, school, or another organization.
 
 - Multifactor authentication (MFA), which prompts users to authenticate themselves in multiple ways. For example, a user might sign in by using a password and also by using an authenticator app on a mobile device or a code that's sent by email.
 
-- Auditing, which tracks every event that happens in the identity platform, including successful, failed, and aborted sign-in attempts. To forensically analyze a sign-in attempt later might require a detailed log.
+- Auditing, which tracks every event that happens in the identity platform, including successful, failed, and aborted sign-in attempts. Forensic examination of a sign-in attempt later requires these detailed logs.
 
-- Conditional access, which creates a risk profile around a sign-in attempt that's based on various factors. The factors might include the user's identity, the location of the sign-in attempt, previous sign-in activity, and the sensitivity of the data or application.
+- Conditional access, which creates a risk profile around a sign-in attempt that's based on various factors. The factors might include the user's identity, the location of the sign-in attempt, previous sign-in activity, and the sensitivity of the data or application that the user is attempting to access.
 
 - Just-in-time access control, which temporarily allows users to sign in based on an approval process, and then removes the authorization automatically.
 
@@ -79,9 +77,9 @@ If you build or run your own identity system, you can't take advantage of these 
 
 ### Use a reliable, high-performance identity system
 
-Because identity systems are such a key part of modern cloud applications, they must be reliable. If your identity system is unavailable, then the rest of your solution might be affected and either operate in a degraded fashion or fail to operate at all. By using an IDaaS with a service level agreement, you can increase your confidence that your identity system will remain operational when you need it. For example, Microsoft Entra ID offers an SLA for uptime for the Basic and Premium service tiers, which covers both the sign-in and token issuing processes. For more information, see [SLA for Microsoft Entra ID](https://azure.microsoft.com/support/legal/sla/active-directory/).
+Because identity systems are such a key part of modern cloud applications, they must be reliable. If your identity system is unavailable, then the rest of your solution might be affected and either operate in a degraded fashion or fail to operate at all. By using an IDaaS with a service level agreement, you can increase your confidence that your identity system will remain operational when you need it. For example, Microsoft Entra ID offers an SLA for uptime for the Basic and Premium service tiers, which covers both the sign-in and token issuing processes. For more information, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
-Similarly, an identity system must perform well and be able to scale to the level of growth that your system might experience. Depending on your application architecture, it's possible that every request might require interaction with your identity system, and any performance issues will be apparent to your users. IDaaS systems are incentivized to scale to large user loads. They're designed to absorb large volumes of traffic, including traffic generated by different forms of attacks.
+Similarly, an identity system must perform well and be able to scale to the level of growth that your system might experience. Depending on your application architecture, it's possible that every request might require interaction with your identity system, and any performance issues will be apparent to your users. IDaaS providers are incentivized to scale their platforms to accommodate large user loads. They're designed to absorb large volumes of traffic, including traffic generated by different forms of attacks.
 
 ### Test your security and apply tight controls
 
@@ -95,7 +93,7 @@ These controls are often expensive and difficult to implement.
 
 ### Use cloud-native security controls
 
-When you use Microsoft Entra ID as your solution's identity provider, you can take advantage of cloud-native security features like [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
+When you use Microsoft Entra ID as your solution's identity provider, you can take advantage of cloud-native security features like [managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
 If you choose to use a separate identity platform, you need to consider how your application can take advantage of managed identities and other Microsoft Entra features while simultaneously integrating with your own identity platform.
 
@@ -109,7 +107,7 @@ It's expensive and complex to maintain a secure, reliable, and responsive identi
 
 Principal author:
 
- - [John Downs](http://linkedin.com/in/john-downs) | Senior Customer Engineer, FastTrack for Azure
+ - [John Downs](http://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 
@@ -122,7 +120,7 @@ Other contributors:
 
 ## Next steps
 
-- [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Microsoft Entra ID?](/entra/fundamentals/whatis)
 - [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)
 - [Explore identity and Microsoft Entra ID](/training/modules/explore-identity-azure-active-directory)
 - [Design an identity security strategy](/training/modules/design-identity-security-strategy)
@@ -133,6 +131,4 @@ Other contributors:
 
 - [Authenticate using Microsoft Entra ID and OpenID Connect](../../multitenant-identity/authenticate.yml)
 - [Federated identity pattern](../../patterns/federated-identity.yml)
-- [Hybrid identity](../../solution-ideas/articles/hybrid-identity.yml)
 - [Identity architecture design](../../identity/identity-start-here.yml)
-- [Resilient identity and access management with Microsoft Entra ID](../../guide/resilience/resilience-overview.yml)

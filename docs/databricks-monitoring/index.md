@@ -5,8 +5,7 @@ author: mssaperla
 ms.author: saperla
 ms.date: 07/25/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 ms.category:
   - management-and-governance
   - databases
@@ -45,5 +44,4 @@ Start by building the code library and deploying it to your Azure Databricks clu
 
 - [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
 - [Ingestion, ETL (extract, transform, load), and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)
-- [Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
 - [Orchestrate MLOps by using Azure Databricks](../reference-architectures/ai/orchestrate-mlops-azure-databricks.yml)

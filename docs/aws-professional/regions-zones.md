@@ -5,8 +5,10 @@ author: splitfinity-zz-zz
 ms.author: yubaijna
 ms.date: 12/13/2021
 ms.topic: conceptual
-ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+ms.collection: 
+ - migration
+ - aws-to-azure
 products:
   - azure
 categories:
@@ -19,7 +21,7 @@ Failures can vary in the scope of their impact. Some hardware failures, such as 
 
 One of the main ways to make an application resilient is through redundancy. But you need to plan for this redundancy when you design the application. Also, the level of redundancy that you need depends on your business requirements&mdash;not every application needs redundancy across regions to guard against a regional outage. In general, a tradeoff exists between greater redundancy and reliability versus higher cost and complexity.
 
-In Azure, a region is divided into two or more Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including **availability sets**, **availability zones**, and **paired regions**.
+In Azure, some regions are further divided into three Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including **availability sets**, **availability zones**, and **paired regions**.
 
 :::image type="complex" source="../resiliency/images/redundancy.svg" alt-text="Diagram showing availability sets, availability zones, and paired regions.":::
    The diagram has three parts. The first part shows VMs in an availability set in a virtual network. The second part shows an availability zone with two availability sets in a virtual network. The third part shows regional pairs with resources in each region.
@@ -46,7 +48,7 @@ Availability sets should be organized by the instance's role in your application
 
 ## Availability zones
 
-An [Availability Zone](/azure/availability-zones/az-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures.
+An [Availability Zone](/azure/reliability/availability-zones-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures. Not all regions support availability zones.
 
 ## Paired regions
 

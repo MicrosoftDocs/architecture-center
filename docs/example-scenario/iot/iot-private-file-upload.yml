@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Use Azure IoT Hub to Privately Upload Files to an Azure Storage Account
+  description: Learn how to use the Azure IoT Hub file upload feature to privately upload files to an Azure Storage account that's exposed through a Firewall and custom domain.
+  author: katriendg
+  ms.author: katriend
+  ms.date: 11/4/2024
+  ms.topic: conceptual
+  ms.category:
+    - iot
+  ms.custom: arb-iot
+name: Use Azure IoT Hub to privately upload files to an Azure Storage account
+azureCategories:
+  - iot
+summary: Learn how to use the Azure IoT Hub file upload feature to privately upload files to an Azure Storage account that's exposed through a Firewall and custom domain.
+products:
+  - azure-iot-hub
+  - azure-storage
+  - azure-firewall
+  - azure-virtual-network
+  - azure-application-gateway
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-iot-file-upload-private-network.png
+content: |
+   [!INCLUDE[](iot-private-file-upload-content.md)]

@@ -1,26 +1,24 @@
 ### YamlMime:Architecture
 metadata:
-  title: Mainframe and midrange data replication to Azure using Qlik
-  titleSuffix: Azure Example Scenarios
-  description: See how Qlik Replication is a valuable tool for migrating mainframe and midrange systems to the cloud, or for extending such systems with cloud applications.
+  title: Replicate Mainframe and Midrange Data to Azure by Using Qlik
+  description: Learn how to use Qlik Replicate to migrate mainframe and midrange systems to the cloud or extend those systems by using cloud applications.
   author: ashish-khandelwal-ms
   ms.author: askhande
-  ms.date: 12/07/2023
+  ms.date: 02/26/2025
   ms.topic: example-scenario
-  ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:
     - migration
   ms.custom:
     - fcp
-name: Mainframe and midrange data replication to Azure using Qlik
+name: Use Qlik to replicate mainframe and midrange data to Azure
 azureCategories:
   - migration
-summary: See how Qlik Replication is a valuable tool for migrating mainframe and midrange systems to the cloud, or for extending such systems with cloud applications.
+summary: Learn how to use Qlik Replicate to migrate mainframe and midrange systems to the cloud or extend those systems by using cloud applications.
 products:
   - azure-event-hubs
   - azure-data-lake
   - azure-databricks
 thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-midrange-data-replication-azure-qlik.png
 content: |
-   [!include[](mainframe-midrange-data-replication-azure-qlik-content.md)]
+   [!INCLUDE[](mainframe-midrange-data-replication-azure-qlik-content.md)]

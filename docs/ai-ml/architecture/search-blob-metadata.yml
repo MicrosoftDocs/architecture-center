@@ -1,19 +1,18 @@
 ### YamlMime:Architecture
 metadata:
   title: Index file content and metadata by using Azure AI Search
-  titleSuffix: Azure Architecture Center
   description: Build an Azure AI Search index by using file content from Azure Blob Storage and metadata from Azure Table Storage.
   author: jelledruyts
   ms.author: jelled
-  ms.date: 03/01/2024
+  ms.date: 01/09/2025
   ms.topic: conceptual
-  ms.collection: ce-skilling-ai-copilot  
-  ms.service: architecture-center
+  ms.collection: ce-skilling-ai-copilot
   ms.subservice: example-scenario
+  ms.custom: arb-aiml
 azureCategories:
   - databases
   - ai-machine-learning
-  - storage  
+  - storage
 products:
   - azure-cognitive-search
   - azure-blob-storage

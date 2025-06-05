@@ -2,14 +2,6 @@ items:
 - name: Networking
   href: index.md
   items: 
-    - name: Explore ideas about
-      items: 
-      - name: Low-latency network for industry
-        href: idea/low-latency-network.yml
-      - name: Video capture and analytics for retail
-        href: idea/video-analytics.yml
-      - name: IoT network for healthcare facilities
-        href: idea/healthcare-network.yml        
     - name: Design architectures
       items:
       - name: Network topology
@@ -27,9 +19,7 @@ items:
         - name: Azure DNS Private Resolver
           href: architecture/azure-dns-private-resolver.yml
       - name: Network security
-        items: 
-        - name: Implement an open-source jump server
-          href: architecture/apache-guacamole.yml        
+        items:        
         - name: TIC 3.0 compliance
           href: architecture/trusted-internet-connections.yml          
     - name: Apply guidance
@@ -40,18 +30,12 @@ items:
           href: guide/spoke-to-spoke-networking.yml
       - name: Network security
         items:
-        - name: Segment virtual networks
-          href: guide/network-level-segmentation.yml
         - name: Use a split-brain DNS configuration to host a web app
           href: ../example-scenario/networking/split-brain-dns.yml        
       - name: Private link
         items:
-        - name: Resolve overlapping IP address space constraints
-          href: guide/private-link-ip-constraints.yml        
         - name: Private Link in hub-and-spoke network
           href: guide/private-link-hub-spoke-network.yml
-        - name: Cross-tenant secure access to apps
-          href: guide/cross-tenant-secure-access-private-endpoints.yml
         - name: Guide to Private Link and DNS with Azure Virtual WAN
           items:
           - name: Guide overview
@@ -70,11 +54,7 @@ items:
           href: guide/ipv6-ip-planning.md
       - name: Resource organization
         items:
-        - name: Azure NVA Firewall architecture overview
-          href: guide/network-virtual-appliances-architecture.yml        
         - name: Deploy highly available NVAs
-          href: guide/nva-ha.yml        
+          href: guide/network-virtual-appliance-high-availability.md       
         - name: SDWAN integration
-          href: guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml          
-      - name: NAT gateway framework review
-        href: guide/well-architected-network-address-translation-gateway.yml          
+          href: guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml     

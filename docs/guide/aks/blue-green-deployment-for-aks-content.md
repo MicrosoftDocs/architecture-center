@@ -262,7 +262,7 @@ Blue-green deployment makes it possible to make changes to clusters without affe
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 - Blue-green deployment can be fully automated, like a zero-touch deployment. Usually, an initial implementation has manual triggers to activate the stages. Along the way and with the proper maturity and monitoring features, it's possible to automate the triggers. This means that there's automated testing and specific metrics, SLA, and SLO to automate the triggers.
 - It's important to have dedicated host names for the blue and green clusters and also to have dedicated endpoint configurations on the gateways and load balancers that are in front of the clusters. This is critical to improving the reliability and validity of the deployment of the new cluster. This way, the validation of the deployment happens with the same architecture and configurations of a standard production cluster.
@@ -297,7 +297,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 ## Deploy this scenario
 
-For an implemented example of a blue-green deployment described in this guide, see [AKS Landing Zone Accelerator](https://github.com/Azure/AKS-Landing-Zone-Accelerator/tree/main/Scenarios/BlueGreen-Deployment-for-AKS).
+For an implemented example of a blue-green deployment described in this guide, see [AKS in an application landing zone](https://github.com/Azure/AKS-Landing-Zone-Accelerator/tree/main/Scenarios/BlueGreen-Deployment-for-AKS).
 
 This reference implementation is based on Application Gateway and [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview). Each cluster has its own application gateway and the traffic switch is done via DNS, in particular via `CNAME` configuration.
 
@@ -345,10 +345,10 @@ Other contributors:
 - [Blue-green deployment (Martin Fowler)](https://martinfowler.com/bliki/BlueGreenDeployment.html)
 - [AKS documentation](/azure/aks)
 - [Monitor documentation](/azure/azure-monitor)
-- [AKS landing zone accelerator for blue-green deployments](https://github.com/Azure/AKS-Landing-Zone-Accelerator/tree/main/Scenarios/BlueGreen-Deployment-for-AKS)
+- [AKS in an application landing zone with blue-green deployments](https://github.com/Azure/AKS-Landing-Zone-Accelerator/tree/main/Scenarios/BlueGreen-Deployment-for-AKS)
 - [Architecture pattern for mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-architecture-pattern)
 - [Azure services for securing network connectivity](/azure/architecture/framework/security/design-network-connectivity)
-- [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework)
+- [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/)
 
 ## Related resources
 

@@ -2,12 +2,11 @@
 metadata:
   title: Sequential Convoy pattern
   description: The sequential convoy cloud design pattern allows for first-in-first-out processing of data in a serverless environment.
-  ms.author: robbag
+  ms.author: pnp
   author: RobBagby
   ms.date: 12/14/2019
-  ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.topic: design-pattern
+  ms.subservice: design-pattern
 azureCategories:
   - networking
 products:

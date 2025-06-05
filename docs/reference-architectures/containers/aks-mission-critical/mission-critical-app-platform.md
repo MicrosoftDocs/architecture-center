@@ -2,19 +2,20 @@
 title: Application platform considerations for mission-critical workloads on Azure
 description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources - App Platform.
 author: msimecek
-ms.author: prwilk
-ms.date: 07/01/2022
+ms.author: msimecek
+ms.date: 09/24/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: architecture-guide
+ms.custom:
+  - arb-containers
 products:
-- azure-kubernetes-service
-- azure-front-door
+  - azure-kubernetes-service
+  - azure-front-door
 ms.category:
-- containers
-- networking
-- database
-- monitoring
+  - containers
+  - networking
+  - database
+  - monitoring
 categories: featured
 ---
 
@@ -72,7 +73,7 @@ Front Door offers many additional capabilities besides global traffic routing. A
 
 For information about Front Door capabilities, see [Frequently asked questions for Azure Front Door](/azure/frontdoor/front-door-faq).
 
-> For other considerations about global distribution of traffic, see [Misson-critical guidance in Well-architected Framework: Global routing](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#global-traffic-routing).
+> For other considerations about global distribution of traffic, see [Mission-critical guidance in Well-architected Framework: Global routing](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#global-traffic-routing).
 
 ### Container Registry
 
@@ -146,9 +147,9 @@ Here are some scaling and availability considerations when choosing Azure servic
 
 - **Review the Azure subscription scale limits and quotas** to support the capacity and cost model set by the business requirements. Also check the limits of individual services in consideration. Because units are typically deployed together, factor in the subscription resource limits that are required for canary deployments. For more information, see [Azure service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
-- **Choose services that support availability zones** to build redundancy. This might limit your technology choices. See [Availability Zones](/azure/availability-zones/az-region) for details.
+- **Choose services that support availability zones** to build redundancy. This might limit your technology choices. See [Availability Zones](/azure/reliability/availability-zones-overview) for details.
 
-> For other considerations about the size of a unit, and combination of resources, see [Misson-critical guidance in Well-architected Framework: Scale-unit architecture](/azure/architecture/framework/mission-critical/mission-critical-application-design#scale-unit-architecture).
+> For other considerations about the size of a unit, and combination of resources, see [Mission-critical guidance in Well-architected Framework: Scale-unit architecture](/azure/architecture/framework/mission-critical/mission-critical-application-design#scale-unit-architecture).
 
 ### Compute cluster
 
@@ -156,11 +157,11 @@ To containerize the workload, each stamp needs to run a compute cluster. In this
 
 The lifetime of the AKS cluster is bound to the ephemeral nature of the stamp. **The cluster is stateless** and doesn't have persistent volumes. It uses ephemeral OS disks instead of managed disks because they aren't expected to receive application or system-level maintenance.
 
-To increase reliability, the cluster is configured to **use all three availability zones** in a given region. This makes it possible for the cluster to use [AKS Uptime SLA](/azure/aks/uptime-sla) that guarantees 99.95% SLA availability of the AKS control plane.
+To increase reliability, the cluster is configured to **use all three availability zones** in a given region. Additionally, to enable AKS Uptime SLA with guaranteed 99.95% SLA availability of the AKS control plane, the cluster should use either **Standard**, or **Premium** tier. See [AKS pricing tiers](/azure/aks/free-standard-pricing-tiers) to learn more.
 
 Other factors such as scale limits, compute capacity, subscription quota can also impact reliability. If there isn't enough capacity or limits are reached, scale out and scale up operations will fail but existing compute is expected to function.
 
-The cluster has autoscaling enabled to let node pools **automatically scale out if needed**, which improves reliability. When using multiple node pools, all node pools should be autoscaled.  
+The cluster has autoscaling enabled to let node pools **automatically scale out if needed**, which improves reliability. When using multiple node pools, all node pools should be autoscaled.
 
 At the pod level, the Horizontal Pod Autoscaler (HPA) scales pods based on configured CPU, memory, or custom metrics. Load test the components of the workload to establish a baseline for the autoscaler and HPA values.
 
@@ -170,7 +171,7 @@ Some components such as cert-manager and ingress-nginx require container images 
 
 **Observability is critical** in this architecture because stamps are ephemeral. Diagnostic settings are configured to store all log and metric data in a regional Log Analytics workspace. Also, AKS Container Insights is enabled through an in-cluster OMS Agent. This agent allows the cluster to send monitoring data to the Log Analytics workspace.
 
-> For other considerations about the compute cluster, see [Misson-critical guidance in Well-architected Framework: Container Orchestration and Kubernetes](/azure/architecture/framework/mission-critical/mission-critical-application-platform#container-orchestration-and-kubernetes).
+> For other considerations about the compute cluster, see [Mission-critical guidance in Well-architected Framework: Container Orchestration and Kubernetes](/azure/architecture/framework/mission-critical/mission-critical-application-platform#container-orchestration-and-kubernetes).
 
 ### Key Vault
 
@@ -180,7 +181,7 @@ This architecture uses a [Secrets Store CSI driver](/azure/aks/csi-secrets-store
 
 Key Vault has a limit on the number of operations. Due to the automatic update of secrets, the limit can be reached if there are many pods. You can **choose to decrease the frequency of updates** to avoid this situation.
 
-For other considerations on secret management, see [Misson-critical guidance in Well-architected Framework: Data integrity protection](/azure/architecture/framework/mission-critical/mission-critical-security#data-integrity-protection).
+For other considerations on secret management, see [Mission-critical guidance in Well-architected Framework: Data integrity protection](/azure/architecture/framework/mission-critical/mission-critical-security#data-integrity-protection).
 
 ### Event Hubs
 
@@ -195,7 +196,7 @@ For scalability, enabling auto-inflate is recommended.
 For more information, see [Messaging services for mission-critical workloads](./mission-critical-data-platform.md#messaging-services).
 
 
-> For other considerations about messaging, see [Misson-critical guidance in Well-architected Framework: Asynchronous messaging](/azure/architecture/framework/mission-critical/mission-critical-application-platform#asynchronous-messaging).
+> For other considerations about messaging, see [Mission-critical guidance in Well-architected Framework: Asynchronous messaging](/azure/architecture/framework/mission-critical/mission-critical-application-platform#asynchronous-messaging).
 
 ### Storage accounts
 
@@ -228,7 +229,7 @@ Deploying monitoring resources is a typical example for regional resources. In t
 
 Similarly, Application Insights is also deployed as a regional resource to collect all application monitoring data.
 
-> For design recommendations about monitoring, see [Misson-critical guidance in Well-architected Framework: Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#design-recommendations-1).
+> For design recommendations about monitoring, see [Mission-critical guidance in Well-architected Framework: Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#design-recommendations-1).
 
 ## Next steps
 

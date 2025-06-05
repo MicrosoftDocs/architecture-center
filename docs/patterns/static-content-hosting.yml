@@ -2,12 +2,11 @@
 metadata:
   title: Static Content Hosting pattern
   description: Deploy static content to a cloud-based storage service that can deliver them directly to the client.
-  ms.author: robbag
+  ms.author: pnp
   author: RobBagby
   ms.date: 07/28/2022
-  ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.topic: design-pattern
+  ms.subservice: design-pattern
 azureCategories:
   - containers
   - storage

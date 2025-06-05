@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Oracle Database with Azure NetApp Files
-  titleSuffix: Azure Example Scenarios
   description: Implement a high-bandwidth, low-latency solution for Oracle Database workloads. Use Azure NetApp Files for enterprise-scale performance and reduced costs.
-  author: deannag
-  ms.author: deannag
-  ms.date: 06/08/2022
+  author: arntdg
+  ms.author: b-gevant
+  ms.date: 07/17/2024
   ms.topic: example-scenario
-  ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
     - fcp
@@ -23,6 +21,6 @@ products:
   - azure-virtual-network
 name: Oracle Database with Azure NetApp Files
 summary: Implement a high-bandwidth, low-latency solution for Oracle Database workloads. Use Azure NetApp Files for enterprise-scale performance and reduced costs.
-thumbnailUrl: /azure/architecture/browse/thumbs/oracle-azure-netapp-files-architecture-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/capacity-pool-architecture.png
 content: |
   [!include[](oracle-azure-netapp-files-content.md)]

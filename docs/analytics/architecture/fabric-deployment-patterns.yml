@@ -1,15 +1,15 @@
 ### YamlMime:Architecture
 metadata:
-  title: Deployment patterns for Microsoft Fabric
-  titleSuffix: Azure Architecture Center
+  title: Deployment Patterns for Microsoft Fabric
   description: Learn about common deployment scenarios for Microsoft Fabric.
-  ms.author: v-myerspeter
-  ms.date: 03/19/2024
+  ms.author: pnp
+  author: claytonsiemens77
+  ms.date: 03/28/2025
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.subservice: architecture-guide
   ms.category:
     - analytics
+  ms.custom: arb-data
 name: Microsoft Fabric deployment patterns
 azureCategories:
   - analytics
@@ -18,4 +18,4 @@ products:
   - fabric
 thumbnailUrl: /azure/architecture/browse/thumbs/fabric-deployment-pattern-1-monolithic-deployment.png
 content: |
-   [!include[](fabric-deployment-patterns-content.md)]
+   [!INCLUDE[](fabric-deployment-patterns-content.md)]

@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Integrate on-premises AD domains with Microsoft Entra ID
-  titleSuffix: Azure Architecture Center
   description: Learn how to implement a secure hybrid network architecture that integrates on-premises Active Directory domains with Microsoft Entra ID.
   author: justinha
   ms.author: justinha
-  ms.date: 06/03/2024
+  ms.date: 06/05/2025
   ms.topic: reference-architecture
-  ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - identity

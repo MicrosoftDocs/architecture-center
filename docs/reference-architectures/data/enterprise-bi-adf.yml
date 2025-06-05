@@ -2,18 +2,16 @@
 metadata:
   title: Automated enterprise BI
   description: Learn how to automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with Azure Synapse Analytics.
-  author: martinekuan
-  ms.author: pnp
+  author: josearper
+  ms.author: joaria
   ms.date: 07/28/2022
   ms.topic: reference-architecture
-  ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - analytics
     - databases
     - integration
-  ms.custom:
-    - reference-architecture
+  ms.custom: arb-data
 name: Automated enterprise BI
 azureCategories:
   - analytics

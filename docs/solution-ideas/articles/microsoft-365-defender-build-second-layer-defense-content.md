@@ -1,22 +1,24 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-It's common for organizations to use a hybrid environment, with resources running both on Azure and on-premises. Most Azure resources, such as virtual machines (VMs), Azure applications, and Microsoft Entra ID, can be protected by security services that run on Azure. 
+Many organizations operate in a hybrid environment, with resources hosted both on Azure and on-premises. Most Azure resources, such as virtual machines (VMs), Azure applications, and Microsoft Entra ID, can be secured using Azure’s built-in security services.
 
-Organizations often also subscribe to Microsoft 365 to provide users with applications like Word, Excel, PowerPoint, and Exchange online. Microsoft 365 also offers security services that you can use to build an additional layer of security for some of the most used Azure resources.
+In addition, organizations frequently subscribe to Microsoft 365 to provide users with applications like Word, Excel, PowerPoint, and Exchange Online. Microsoft 365 also offers security services that can be used to add an extra layer of protection to some of the most widely used Azure resources.
 
-To consider using security services from Microsoft 365, it's helpful to know some terminology and understand the structure of Microsoft 365 services. This fourth article in a series of five can help with that. This article builds on topics that are covered in the previous articles, particularly:
+To effectively utilize Microsoft 365 security services, it's important to understand key terminology and the structure of Microsoft 365 services. This fourth article in a series of five explores these topics in greater detail, building on concepts covered in previous articles, particularly:
 
 - [Map threats to your IT environment](./map-threats-it-environment.yml)
 - [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
 
-Microsoft 365 and Office 365 are cloud-based services that are designed to help you meet your organization's needs for robust security, reliability, and user productivity. Microsoft 365 includes services like Power Automate, Forms, Stream, Sway, and Office 365. Office 365 includes the well-known suite of productivity applications. For more information about subscription options for these two services, see [Microsoft 365 and Office 365 plan options](/office365/servicedescriptions/office-365-platform-service-description/office-365-plan-options).
+Microsoft 365 and Office 365 are cloud-based services designed to address your organization's needs for strong security, reliability, and enhanced user productivity. Microsoft 365 encompasses services such as Power Automate, Forms, Stream, Sway, and Office 365. Office 365 specifically includes the familiar suite of productivity applications. For more information about subscription options for these two services, see [Microsoft 365 and Office 365 plan options](/office365/servicedescriptions/office-365-platform-service-description/office-365-plan-options).
 
 Depending on the license that you acquire for Microsoft 365, you can also get the security services for Microsoft 365. These security services are called Microsoft Defender XDR, which provides multiple services:
 
--   Microsoft Defender for Endpoint
--   Microsoft Defender for Identity
--   Microsoft Defender for Office 365
--   Microsoft Defender for Cloud Apps
+-   Microsoft Defender for Endpoint (MDE)
+-   Microsoft Defender for Identity (MDI)
+-   Microsoft Defender for Office (MDO)
+-   Microsoft Defender for Cloud Apps (MDA)
+
+* "Microsoft Defender for Cloud Apps" accessed through "security.microsoft.com" is different from "Microsoft Defender for Cloud" that is another security solution accessed through "portal.azure.com".
 
 The following diagram illustrates the relationship of solutions and main services that Microsoft 365 offers, though not all services are listed.
 
@@ -24,19 +26,21 @@ The following diagram illustrates the relationship of solutions and main service
 
 ## Potential use case
 
-People are sometimes confused about Microsoft 365 security services and their role in IT cybersecurity. The main causes are names that are similar to each other, including some security services that run on Azure, such as Microsoft Defender for Cloud (formerly known as Azure Security Center) and Defender for Cloud Apps (formerly known as Microsoft Cloud Application Security).
+People often get confused about Microsoft 365 security services and their role in IT cybersecurity. A major cause of this confusion stems from the similarity in names, including some Azure security services like Microsoft Defender for Cloud (formerly Azure Security Center) and Defender for Cloud Apps (formerly Microsoft Cloud App Security).
 
-But the confusion isn't only about terminology. Some services deliver similar protection but for different resources, such as Defender for Identity and Azure Identity Protection. Both services offer protection for identity services, but Defender for Identity protects identity on-premises (through Active Directory Domain Services, based on Kerberos authentication) while Azure Identity Protection protects identity in the cloud (through Microsoft Entra ID, based on OAuth authentication).
+However, the confusion goes beyond terminology. Some services provide similar protections but for different resources. For example, Defender for Identity and Azure Identity Protection both safeguard identity services, but Defender for Identity secures on-premises identities (via Active Directory Domain Services and Kerberos authentication), while Azure Identity Protection secures cloud identities (via Microsoft Entra ID and OAuth authentication).
 
-These examples show that if you understand how Microsoft 365 security services work and the differences compared to Azure security services, you're able to plan your strategy for security in the Microsoft cloud in an effective way and still provide a great security posture for your IT environment. That is the purpose of this article.
+These examples highlight the importance of understanding how Microsoft 365 security services differ from Azure security services. By gaining this understanding, you can more effectively plan your security strategy in the Microsoft cloud while maintaining a strong security posture for your IT environment. This article aims to help you achieve that.
 
-The following diagram illustrates a real use case in which you might consider using Microsoft Defender XDR security services. The diagram shows the resources that need to be protected. The services that run in the environment are shown on top. Some potential threats are shown at the bottom. Microsoft Defender XDR services are in the middle, defending the organization's resources from potential threats.
+The following diagram presents a real-world use case for Microsoft Defender XDR security services. It shows the resources that need protection, the services running in the environment, and some potential threats. Microsoft Defender XDR services are positioned in the middle, defending the organization's resources from those threats.
 
 :::image type="content" alt-text="Diagram that shows threats, their attack order, the targeted resources, and the services of Microsoft Defender XDR that can provide protection." source="../media/microsoft-365-defender-build-second-layer-defense-attack-order.png" lightbox="../media/microsoft-365-defender-build-second-layer-defense-attack-order.png":::
 
 ## Architecture
 
-The following diagram shows a layer, labeled as **DEFENDER**, that represents the Microsoft Defender XDR security services. Adding these services to your IT environment helps you to build better defense for your environment. The services in the Defender layer can work with Azure security services.
+Microsoft's Extended Detection and Response (XDR) solution, known as Microsoft Defender XDR, integrates multiple security tools and services to provide unified protection, detection, and response across endpoints, identities, email, applications, and cloud environments. It combines advanced threat intelligence, automation, and AI-driven analytics to detect and respond to sophisticated cyber threats in real-time, enabling security teams to quickly mitigate risks and reduce the impact of attacks. By consolidating security data from various sources, Microsoft Defender XDR helps organizations achieve comprehensive, streamlined defense across their entire IT infrastructure.
+
+The following diagram shows a layer, labeled as **DEFENDER**, that represents the **Microsoft Defender XDR** security services. Adding these services to your IT environment helps you to build better defense for your environment. The services in the Defender layer can work with Azure security services.
 
 :::image type="content" alt-text="Diagram of services, threats, and the security services that you can configure to provide protection to the resources in your I T environment." source="../media/microsoft-365-defender-build-second-layer-defense-architecture.png" lightbox="../media/microsoft-365-defender-build-second-layer-defense-architecture.png":::
 
@@ -56,7 +60,7 @@ The following diagram shows a layer, labeled as **DEFENDER**, that represents th
 
     It's important to not confuse Defender for Cloud Apps with Microsoft Defender for Cloud, which provides recommendations and a score of the security posture of servers, apps, storage accounts, and other resources running in Azure, on-premises, and in other clouds. Defender for Cloud consolidates two previous services, Azure Security Center and Azure Defender. 
 
-3.  **Microsoft Defender for Office 365**
+3.  **Microsoft Defender for Office**
 
     Defender for Office 365 safeguards your organization against malicious threats that are posed by email messages, links (URLs), and collaboration tools. It provides protection for email and collaboration. Depending on the license, you're able to add post-breach investigation, hunting, and response, as well as automation and simulation (for training). For more information about licensing options, see [Microsoft Defender for Office 365 security overview](/microsoft-365/security/office-365-security/overview?view=o365-worldwide).
 
@@ -66,16 +70,11 @@ The following diagram shows a layer, labeled as **DEFENDER**, that represents th
 
     If you need protection for identities that are provided by Microsoft Entra ID and that runs natively on the cloud, consider Microsoft Entra ID Protection.
 
-5.  **Microsoft Endpoint Manager**
+5.  **Intune (formerly part of the Microsoft Endpoint Manager**
 
-    Endpoint Manager provides services for cloud services, on-premises services, and for Microsoft Intune, which allows you to control features and settings on Android, Android Enterprise, iOS, iPadOS, macOS, Windows 10, and Windows 11 devices. It integrates with other services, including:
-    - Microsoft Entra ID.
-    - Mobile threat defenders.
-    - Administrative (ADMX) templates.
-    - Win32 apps.
-    - Custom line-of-business apps.
+Microsoft Intune is a cloud-based service that helps organizations manage and secure their devices, apps, and data. It allows IT administrators to control how company devices such as laptops, smartphones, and tablets are used, ensuring compliance with security policies. With Intune, you can enforce device configurations, deploy software, manage mobile applications, and protect corporate data by using features like conditional access and remote wipe. It is particularly useful for enabling secure remote work, managing both corporate-owned and personal (BYOD) devices, and ensuring data security across diverse platforms like Windows, iOS, Android, and macOS.
 
-    Another service that is now part of Endpoint Manager is Configuration Manager, an on-premises management solution that allows you to manage client and server computers that are on your network, connected directly or via the internet. You can enable cloud functionality to integrate Configuration Manager with Intune, Microsoft Entra ID, Defender for Endpoint, and other cloud services. Use it to deploy apps, software updates, and operating systems. You can also monitor compliance, query for objects, act on clients in real time, and much more. To learn about all the services that are available, see [Microsoft Endpoint Manager overview](/mem/endpoint-manager-overview).
+Another service that was part of Endpoint Manager is the Configuration Manager, an on-premises management solution that allows you to manage client and server computers that are on your network, connected directly or via the internet. You can enable cloud functionality to integrate Configuration Manager with Intune, Microsoft Entra ID, Defender for Endpoint, and other cloud services. Use it to deploy apps, software updates, and operating systems. You can also monitor compliance, query for objects, act on clients in real time, and much more. To learn about all the services that are available, see [Microsoft Endpoint Manager overview](/mem/endpoint-manager-overview).
 
 ### Attack order of example threats
 
@@ -97,13 +96,13 @@ The diagram also shows in the layer labeled as **DEFENDER** which Microsoft Defe
 
 ### Access and manage Microsoft Defender XDR Security services
 
-Currently, you might need to use multiple portals to manage Microsoft Defender XDR services. However, Microsoft is working to centralize functionality as much as possible. The following diagram shows which portals are currently available and their relationships with each other.
+The following diagram shows which portals are currently available and their relationships with each other. In the time of the update for this articles, some of those portals may be already deprecated.
 
 :::image type="content" alt-text="A diagram that shows the current relationship of portals to services." source="../media/microsoft-365-defender-build-second-layer-defense-portals.png" lightbox="../media/microsoft-365-defender-build-second-layer-defense-portals.png":::
 
-*Security.microsoft.com* is currently the most important portal available because it brings functionalities from Microsoft Defender for Office 365 (1) and from Defender for Endpoint (2). However, as of March 2022, you can still access `protection.office.com` for security functionalities regarding Office 365 (3). For Defender for Endpoint, if you try to access the old portal, `securitycenter.windows.com`, you're redirected to the new portal at `security.microsoft.com` (7).
+*Security.microsoft.com* is currently the most important portal available because it brings functionalities from Microsoft Defender for Office 365 (1), from Defender for Endpoint (2), from Defender for Office (3), Defender for Identity (5), Defender for Apps (4) and also for Microsoft Sentinel. 
 
-The primary use of `portal.cloudappsecurity.com` is to manage (4) Defender for Cloud Apps. It allows you to manage cloud apps and some apps that run on-premises, manage unauthorized apps (shadow IT), and review user signals from Identity Protection. You can also use this portal to manage many signals and features from (5) Identity protection on-premises, which allows you to consolidate many functions from (6) `portal.atp.azure.com` on (4) the portal for Defender for Cloud Apps. However, you can still access (6) `portal.atp.azure.com` if you need it.
+It is important to mention that Microsoft Sentinel has some features that still run only on the Azure Portal (portal.azure.com). 
 
 Lastly, `endpoint.microsoft.com` provides functionality mainly for Intune and Configuration Manager, but also for other services that are part of Endpoint Manager. Because `security.microsoft.com` and `endpoint.microsoft.com` deliver security protection for endpoints, they have many interactions between them (9) to offer a great security posture for your endpoints.
 
@@ -156,7 +155,6 @@ Other contributors:
 
 For more details about this reference architecture, see the other articles in this series:
 
-- Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
-- Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
-- Part 3: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
-- Part 5: [Integration between Azure and Microsoft Defender XDR security services](./microsoft-365-defender-security-integrate-azure.yml)
+- Part 1: [Map threats to your IT environment](./map-threats-it-environment.yml)
+- Part 2: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
+- Part 4: [Integration between Azure and Microsoft Defender XDR security services](./microsoft-365-defender-security-integrate-azure.yml)

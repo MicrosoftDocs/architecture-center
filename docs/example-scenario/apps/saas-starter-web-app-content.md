@@ -30,8 +30,8 @@ The following table describes terms that appear in this article.
 | Tenant       | A purchased instance of the SaaS application from SaaS Vendor. | Fourth Coffee Shop. |
 | SaaS customer admin | People who purchase or administer an application tenant. | Joe, owner of Fourth Coffee Shop. |
 | SaaS customer user | People who use an application tenant without administering it and usually belong to the same company or group as the SaaS customer admin. | Jill, event manager at Fourth Coffee Shop, and Susan, customer of Fourth Coffee Shop. |
-| End user         | A SaaS customer admin, SaaS customer user, or any other user types that are introduced. This is a generic term to describe users who sign into the application. | Joe, Jill, and Susan are all end users (from the ISV perspective). |
-| Front-end application | Any front-end application. | The Onboarding & admin app and SaaS app are both front-end applications. |
+| End user         | A SaaS customer admin, SaaS customer user, or any other user types that are introduced. This is a generic term to describe users who sign in to the application. | Joe, Jill, and Susan are all end users (from the ISV perspective). |
+| Front-end application | Any front-end application. | The Onboarding and admin app and SaaS app are both front-end applications. |
 
 ### Workflow
 
@@ -61,7 +61,7 @@ The user sign-in workflow consists of the following steps:
 
 1. The *Permission data API* looks up the *end user*'s information in the *Permission data storage* and returns a list of permissions and roles that are assigned to that *end user*.
 
-1. The *Identity provider* adds the permissions and roles as custom claims to the [ID token](/azure/active-directory/develop/id-tokens), which is a JSON web token (JWT).
+1. The *Identity provider* adds the permissions and roles as custom claims to the [ID token](/entra/identity-platform/id-tokens), which is a JSON web token (JWT).
 
 1. The *Identity provider* returns an ID token to the *end user* and initiates a redirect to the *front-end application*.
 
@@ -71,7 +71,7 @@ The user sign-in workflow consists of the following steps:
 
 1. The *Front-end application* returns a successful sign-in page and the *end user* is now signed in.
 
-For more information about how this sign-in flow works, see [OpenID Connect protocol](/azure/active-directory/develop/v2-protocols-oidc).
+For more information about how this sign-in flow works, see [OpenID Connect protocol](/entra/identity-platform/v2-protocols-oidc).
 
 #### Onboard a new tenant
 
@@ -155,11 +155,11 @@ This architecture uses the following Azure services:
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps and API apps in the programming language that you choose without needing to manage infrastructure.
 
-- [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) easily enables identity and access management for end user applications.
+- [Azure Active Directory B2C](/azure/active-directory-b2c/overview) easily enables identity and access management for end user applications.
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is a general-purpose relational database managed service that supports relational data, spatial data, JSON, and XML.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a general-purpose relational database managed service that supports relational data, spatial data, JSON, and XML.
 
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) lets you quickly build powerful integrations using a simple graphical user interface (GUI) tool.
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) lets you quickly build powerful integrations using a simple graphical user interface (GUI) tool.
 
 ### Alternatives
 
@@ -173,36 +173,35 @@ The effectiveness of any alternative choices depends greatly on the [tenancy mod
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can follow to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-This solution relies on identity as its security paradigm. Authentication and authorization for the web apps and APIs is governed by the [Microsoft identity platform](/azure/active-directory/develop/v2-overview), which is responsible for issuing and verifying user ID tokens (JWTs).
+This solution relies on identity as its security paradigm. Authentication and authorization for the web apps and APIs is governed by the [Microsoft identity platform](/entra/identity-platform/v2-overview), which is responsible for issuing and verifying user ID tokens (JWTs).
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 The components in this solution have some cost associated with their operation, but the cost is modest for most web applications and SaaS solutions. Also, you can control the cost by managing the following resource settings:
 
-- You can scale the App Service plan that runs the application to fit the throughput that you need. In addition, you could run each app on a separate plan if you require higher throughput, but you'll incur a higher cost as a result. For more information, see [Azure App Service plan overview](/azure/app-service/overview-hosting-plans).
+- You can scale the app service plan that runs the application to fit the throughput that you need. In addition, you could run each app on a separate plan if you require higher throughput, but you'll incur a higher cost as a result. For more information, see [Azure App Service plan overview](/azure/app-service/overview-hosting-plans).
 
 - Azure AD B2C provides two SKUs: Premium P1 and Premium P2. Both SKUs include a free allowance for the number of monthly active users (MAUs), but you need to evaluate which features that each SKU provides to determine which is required for your use case. For more information, see [Microsoft Entra External ID pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
 
 - Azure SQL has several purchasing models to fit a wide array of use cases, including the ability to autoscale. You need to evaluate the usage on your own databases to ensure you size them correctly. For more information, see [Compare vCore and DTU-based purchasing models of Azure SQL Database](/azure/azure-sql/database/purchasing-models).
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Overview of the performance efficiency pillar](/azure/architecture/framework/scalability/overview).
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-This architecture should be able to scale to easily meet most medium to medium-large workloads. Since the architecture mostly uses Azure's platform (platform as a service (PaaS)) services, you have many options to adjust the scale of the solution based on your requirements and load.
+This architecture should be able to scale to easily meet most medium to medium-large workloads. Since the architecture mostly uses the Azure platform (platform as a service (PaaS)) services, you have many options to adjust the scale of the solution based on your requirements and load.
 
 ## Deploy this scenario
 
 If you'd like to deploy this scenario, see the [Azure SaaS Dev Kit](https://github.com/Azure/azure-saas) on GitHub. It's a deployable reference implementation of this architecture.
-
 
 ## Contributors
 
@@ -210,19 +209,19 @@ If you'd like to deploy this scenario, see the [Azure SaaS Dev Kit](https://gith
 
 Principal author:
 
- - [Landon Pierce](https://www.linkedin.com/in/landon-pierce-a84b37b6) | Customer Engineer
+- [Landon Pierce](https://www.linkedin.com/in/landon-pierce-a84b37b6) | Customer Engineer
 
-Other contributors: 
+Other contributors:
 
- - [Chris Ayers](https://www.linkedin.com/in/chris-l-ayers/) | Senior Customer Engineer
- - [John Downs](https://www.linkedin.com/in/john-downs) | Senior Customer Engineer
- - [LaBrina Loving](https://www.linkedin.com/in/chixcancode/) | Principal SVC Engineering Manager
- - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
- - [Nick Pinheiro](https://www.linkedin.com/in/nickpinheiro/) | Senior Consultant
- - [William Salazar](https://www.linkedin.com/in/whsalazar/) | Senior Customer Engineer
- - [Ali Sanjabi](https://www.linkedin.com/in/alisanjabi/) | Senior Customer Engineer
- - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer
- - [Jason Young](https://www.linkedin.com/in/jasony) | Principal SVC Engineering Manager
+- [Chris Ayers](https://www.linkedin.com/in/chris-l-ayers/) | Senior Customer Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs) | Senior Customer Engineer
+- [LaBrina Loving](https://www.linkedin.com/in/chixcancode/) | Principal SVC Engineering Manager
+- [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+- [Nick Pinheiro](https://www.linkedin.com/in/nickpinheiro/) | Senior Consultant
+- [William Salazar](https://www.linkedin.com/in/whsalazar/) | Senior Customer Engineer
+- [Ali Sanjabi](https://www.linkedin.com/in/alisanjabi/) | Senior Customer Engineer
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer
+- [Jason Young](https://www.linkedin.com/in/jasony) | Principal SVC Engineering Manager
 
 ## Next steps
 
@@ -230,7 +229,7 @@ Here are some additional recommended resources for building a SaaS application o
 
 - [Architect multitenant solutions on Azure](../../guide/multitenant/overview.md) - Describes best practices.
 - [ISV Considerations for Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/isv-landing-zone)
-- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)
+- [Microsoft Azure Well-Architected Framework](/azure/well-architected/)
 - [WingTips Tickets SaaS application](/azure/azure-sql/database/saas-tenancy-welcome-wingtip-tickets-app) - Provides details about tradeoffs between various tenancy models within the database layer.
 
 ## Related resources

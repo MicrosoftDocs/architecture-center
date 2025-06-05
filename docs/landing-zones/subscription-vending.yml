@@ -2,12 +2,11 @@
 metadata:
   title: Subscription vending implementation guidance
   description: Subscription vending implementation guidance to standardize the process for automating subscription creation and deploying workloads faster.
-  author: ssumner
-  ms.author: ssumner
-  ms.date: 03/17/2023
+  author: jtracey93
+  ms.author: jatracey
+  ms.date: 11/18/2024
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.subservice: architecture-guide
 azureCategories:
   - devops
 products:
@@ -16,4 +15,4 @@ name: Subscription vending implementation guidance
 summary: Subscription vending implementation guidance to standardize the process for automating subscription creation and deploying workloads faster.
 thumbnailUrl: /azure/architecture/browse/thumbs/sample-subscription-vending-architecture.png
 content: |
-  [!include[](subscription-vending-content.md)]
+  [!INCLUDE[](subscription-vending-content.md)]

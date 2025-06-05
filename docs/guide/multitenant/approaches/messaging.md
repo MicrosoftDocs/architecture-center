@@ -1,13 +1,11 @@
 ---
 title: Architectural approaches for messaging in multitenant solutions
-titleSuffix: Azure Architecture Center
 description: This article describes approaches for messaging in a multitenant solution.
 author: paolosalvatori
 ms.author: paolos
-ms.date: 05/18/2022
+ms.date: 11/27/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 products:
   - azure-service-bus
   - azure-event-grid
@@ -17,17 +15,16 @@ categories:
   - integration
   - compute
   - hybrid
-ms.category:
-  - fcp
 ms.custom:
   - guide
+  - arb-saas
 ---
 
 # Architectural approaches for messaging in multitenant solutions
 
 Asynchronous messaging and event-driven communication are critical assets when building a distributed application that's composed of several internal and external services. When you design a multitenant solution, it's crucial to conduct a preliminary analysis to define how to share or partition messages that pertain to different tenants.
 
-Sharing the same messaging system or event-streaming service can significantly reduce the operational cost and management complexity. However, using a dedicated messaging system for each tenant provides better data isolation, reduces the risk of data leakage, eliminates the [Noisy Neighbor issue](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), and allows to charge back Azure costs to tenants easily.
+Sharing the same messaging system or event-streaming service can significantly reduce the operational cost and management complexity. However, using a dedicated messaging system for each tenant provides better data isolation, reduces the risk of data leakage, eliminates the [Noisy Neighbor issue](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), and allows to charge your Azure costs back to your tenants easily.
 
 In this article, you can find a distinction between messages and events, and you'll find guidelines that solution architects can follow when deciding which approach to use for a messaging or eventing infrastructure in a multitenant solution.
 
@@ -107,7 +104,7 @@ In this case, the messaging system should be properly sized to sustain the expec
 
 A multitenant application can eventually adopt a hybrid approach, where core services use the same set of queues and topics in a single, shared messaging system, in order to implement internal, asynchronous communications. In contrast, other services could adopt a dedicated group of messaging entities or even a dedicated messaging system, for each tenant to mitigate the Noisy Neighbor issue and guarantee data isolation.
 
-When deploying a messaging system to virtual machines, you should co-locate these virtual machines with the compute resources, to reduce the network latency. These virtual machines should not be shared with other services or applications, to avoid the messaging infrastructure to compete for the system resources, such as CPU, memory, and network bandwidth with other systems. Virtual machines can also spread across the [availability zones](/azure/availability-zones/az-overview), to increase the intra-region resiliency and reliability of business-critical workloads, including messaging systems. Suppose you decide to host a messaging system, such as [RabbitMQ](https://www.rabbitmq.com) or [Apache ActiveMQ](https://activemq.apache.org), on virtual machines. In that case, we recommend deploying it to a virtual machine scale set and configuring it for autoscaling, based on metrics such as CPU or memory. This way, the number of agent nodes hosting the messaging system will properly scale out and scale in, based on traffic conditions. For more information, see [Overview of autoscale with Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
+When deploying a messaging system to virtual machines, you should co-locate these virtual machines with the compute resources, to reduce the network latency. These virtual machines should not be shared with other services or applications, to avoid the messaging infrastructure to compete for the system resources, such as CPU, memory, and network bandwidth with other systems. Virtual machines can also spread across the [availability zones](/azure/reliability/availability-zones-overview), to increase the intra-region resiliency and reliability of business-critical workloads, including messaging systems. Suppose you decide to host a messaging system, such as [RabbitMQ](https://www.rabbitmq.com) or [Apache ActiveMQ](https://activemq.apache.org), on virtual machines. In that case, we recommend deploying it to a virtual machine scale set and configuring it for autoscaling, based on metrics such as CPU or memory. This way, the number of agent nodes hosting the messaging system will properly scale out and scale in, based on traffic conditions. For more information, see [Overview of autoscale with Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
 
 Likewise, when hosting your messaging system on a Kubernetes cluster, consider using node selectors and taints to schedule the execution of its pods on a dedicated node pool, not shared with other workloads, in order to avoid the [Noisy Neighbor issue](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor). When deploying a messaging system to a zone-redundant AKS cluster, use [Pod topology spread constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints) to control how pods are distributed across your AKS cluster among failure-domains, such as regions, availability zones, and nodes. When hosting a third-party messaging system on AKS, use Kubernetes autoscaling to dynamically scale out the number of worker nodes when the traffic increases. With [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale) and [AKS cluster autoscaler](/azure/aks/cluster-autoscaler), node and pod volumes get adjusted dynamically in real-time, to match the traffic condition and to avoid downtimes that are caused by capacity issues. For more information, see [Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)](/azure/aks/cluster-autoscaler). Consider using [Kubernetes Even-Driven Autoscaling (KEDA)](https://keda.sh), if you want to scale out the number of pods of a Kubernetes-hosted messaging system, such as [RabbitMQ](https://www.rabbitmq.com) or [Apache ActiveMQ](https://activemq.apache.org), based on the length of a given queue. With KEDA, you can drive the scaling of any container in Kubernetes, based on the number of events needing to be processed. For example, you can use KEDA to scale applications based on the length of an [Azure Service Bus queue](https://keda.sh/docs/2.5/scalers/azure-service-bus), of a [RabbitMQ queue](https://keda.sh/docs/1.4/scalers/rabbitmq-queue), or an [ActiveMQ queue](https://keda.sh/docs/2.5/scalers/artemis). For more information on KEDA, see [Kubernetes Event-driven Autoscaling](https://keda.sh).
 
@@ -122,14 +119,14 @@ When designing the messaging system for a multitenant solution, you should consi
 Review the following additional considerations and observations:
 
 - If tenants need to use their own key to encrypt and decrypt messages, a multitenant solution should provide the option to adopt a separate Azure Service Bus Premium namespace for each tenant. For more information, see [Configure customer-managed keys for encrypting Azure Service Bus data at rest](/azure/service-bus-messaging/configure-customer-managed-key).
-- If tenants need a high level of resiliency and business continuity, a multitenant solution should provide the ability to provision a Service Bus Premium namespace with geo-disaster recovery and [availability zones](/azure/availability-zones/az-overview) enabled. For more information, see [Azure Service Bus Geo-disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr).
+- If tenants need a high level of resiliency and business continuity, a multitenant solution should provide the ability to provision a Service Bus Premium namespace with geo-disaster recovery and [availability zones](/azure/reliability/availability-zones-overview) enabled. For more information, see [Azure Service Bus Geo-disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr).
 - When using separate queue resources or a dedicated messaging system for each tenant, it's reasonable to adopt a separate pool of worker processes, for each of them to increase the data isolation level and reduce the complexity of dealing with multiple messaging entities. Each instance of the processing system could adopt different credentials, such as a connection string, a service principal, or a managed identity, in order to access the dedicated messaging system. This approach provides a better security level and isolation between tenants, but it requires an increased complexity in identity management.
 
 Likewise, an event-driven application can provide different levels of isolation:
 
 - An event-driven application receives events from multiple tenants, via a single, shared [Azure Event Hubs](/azure/event-hubs/event-hubs-about) instance. This solution provides a high level of agility, because onboarding a new tenant does not require creating a dedicated event-ingestion resource, but it provides a low data protection level, as it inter-mingles messages from multiple tenants in the same data structure.
 - Tenants can opt for a dedicated event hub or Kafka topic to avoid the [Noisy Neighbor issue](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) and to meet their data isolation requirements, when events must not be co-mingled with those of other tenants, for security and data protection.
-- If tenants need a high level of resiliency and business continuity, a multitenant should provide the ability to provision an Event Hubs Premium namespace, with geo-disaster recovery and [availability zones](/azure/availability-zones/az-overview) enabled. For more information, see  [Azure Event Hubs - Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr?tabs=portal).
+- If tenants need a high level of resiliency and business continuity, a multitenant should provide the ability to provision an Event Hubs Premium namespace, with geo-disaster recovery and [availability zones](/azure/reliability/availability-zones-overview) enabled. For more information, see  [Azure Event Hubs - Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr?tabs=portal).
 - Dedicated Event Hubs, with Event Hubs Capture enabled, should be created for those customers that need to archive events to an Azure Storage Account, for regulatory compliance reasons and obligations. For more information, see [Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage](/azure/event-hubs/event-hubs-capture-overview).
 - A single multitenant application can send notifications to multiple internal and external systems, by using [Azure Event Grid](/azure/event-grid/overview). In this case, a separate Event Grid subscription should be created for each consumer application. If your application makes use of multiple Event Grid instances to send notifications to a large number of external organizations, consider using *event domains*, which allow an application to publish events to thousands of topics, such as one for each tenant. For more information, see [Understand event domains for managing Event Grid topics](/azure/event-grid/event-domains).
 
@@ -224,13 +221,13 @@ The [Geode pattern](../../../patterns/geodes.yml) involves deploying a collectio
 
 Principal author:
 
- * [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+ * [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
  
 Other contributors:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
- * [Clemens Vasters](http://linkedin.com/in/clemensv) | Principal Architect, Messaging Services and Standards
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+ * [Clemens Vasters](https://linkedin.com/in/clemensv) | Principal Architect, Messaging Services and Standards
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 ## Next steps
 

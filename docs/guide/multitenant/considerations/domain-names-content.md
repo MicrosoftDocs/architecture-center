@@ -4,7 +4,7 @@ In many multitenant web applications, a domain name can be used as a way to iden
 
 Each tenant might get a unique subdomain under a common shared domain name, using a format like `tenant.provider.com`.
 
-Let's consider an example multitenant solution built by Contoso. Customers purchase Contoso's product to help manage their invoice generation. All of Contoso's tenants might be assigned their own subdomain, under the `contoso.com` domain name. Or, if Contoso uses regional deployments, they might assign subdomains under the `us.contoso.com` and `eu.contoso.com` domains. In this article, we refer to these as *stem domains*. Each customer gets their own subdomain under your stem domain. For example, Tailwind Toys might be assigned `tailwind.contoso.com`, and Adventure Works might be assigned `adventureworks.contoso.com`.
+Let's consider an example multitenant solution built by Contoso. Customers purchase Contoso's product to help manage their invoice generation. All of Contoso's tenants might be assigned their own subdomain, under the `contoso.com` domain name. Or, if Contoso uses regional deployments, they might assign subdomains under the `us.contoso.com` and `eu.contoso.com` domains. In this article, we refer to these as *stem domains*. Each customer gets their own subdomain under your stem domain. For example, Tailwind Toys might be assigned `tailwind.contoso.com`, and in a regional deployment model, Adventure Works might be assigned `adventureworks.us.contoso.com`.
 
 > [!NOTE]
 > Many Azure services use this approach. For example, when you create an Azure storage account, it is assigned a set of subdomains for you to use, such as `<your account name>.blob.core.windows.net`.
@@ -15,7 +15,7 @@ When you create subdomains under your own domain name, you need to be mindful th
 
 ### Wildcard DNS
 
-Consider using wildcard DNS entries to simplify the management of subdomains. Instead of creating DNS entries for `tailwind.contoso.com`, `adventureworks.contoso.com`, and so forth, you could instead create a wildcard entry for `*.contoso.com` and direct all subdomains to single IP address (A record) or canonical name (CNAME record).
+Consider using wildcard DNS entries to simplify the management of subdomains. Instead of creating DNS entries for `tailwind.contoso.com`, `adventureworks.contoso.com`, and so forth, you could instead create a wildcard entry for `*.contoso.com` and direct all subdomains to single IP address (A record) or canonical name (CNAME record). If you use regional stem domains, you might need multiple wildcard entries, such as `*.us.contoso.com` and `*.eu.contoso.com`.
 
 > [!NOTE]
 > Make sure that your web-tier services support wildcard DNS, if you plan to rely on this feature. Many Azure services, including Azure Front Door and Azure App Service, support wildcard DNS entries.
@@ -66,7 +66,7 @@ You might want to enable your customers to bring their own domain names. Some cu
 
 Ultimately, each domain name needs to be resolved to an IP address. As you've seen, the approach by which name resolution happens can depend on whether you deploy a single instance or multiple instances of your solution.
 
-Let's return to our example. One of Contoso's customers, Fabrikam, has asked to use `invoices.fabrikam.com`, as their custom domain name to access Contoso's service. Because Contoso has multiple deployments of their platform, they decide to use subdomains and CNAME records to achieve their routing requirements. Contoso and Fabrikam configure the following DNS records:
+Let's return to our example. One of Contoso's customers, Fabrikam, has asked to use `invoices.fabrikam.com` as their custom domain name to access Contoso's service. Because Contoso has multiple deployments of their multitenant platform, they decide to use subdomains and CNAME records to achieve their routing requirements. Contoso and Fabrikam configure the following DNS records:
 
 | Name | Record type | Value | Configured by |
 |-|-|-|-|
@@ -111,12 +111,14 @@ Common strategies to protect against dangling DNS attacks are:
 
 Transport Layer Security (TLS) is an essential component when working with modern applications. It provides trust and security to your web applications. The ownership and management of TLS certificates is something that needs careful consideration for multitenant applications.
 
-Typically, the owner of a domain name will be responsible for issuing and renewing its certificates. For example, Contoso is responsible for issuing and renewing TLS certificates for `us.contoso.com`, as well as a wildcard certificate for `*.contoso.com`. Similarly, Fabrikam would generally be responsible for managing any records for the `fabrikam.com` domain, including `invoices.fabrikam.com`. The CAA (Certificate Authority Authorization) DNS record type can be used by a domain owner. CAA records ensure that only specific authorities can create certificates for the domain.
+Typically, the owner of a domain name is responsible for issuing and renewing its certificates. For example, Contoso is responsible for issuing and renewing TLS certificates for `us.contoso.com`, as well as a wildcard certificate for `*.contoso.com`. Similarly, Fabrikam would generally be responsible for managing any records for the `fabrikam.com` domain, including `invoices.fabrikam.com`.
 
-If you plan to allow customers to bring their own domains, consider whether you plan to issue the certificate on the customer's behalf, or whether the customers must bring their own certificates. Each option has benefits and drawbacks.
+The CAA (Certificate Authority Authorization) DNS record type can be used by a domain owner. CAA records ensure that only specific authorities can create certificates for the domain.
 
-- If you issue a certificate for a customer, you can handle the renewal of the certificate, so the customer doesn't have to remember to keep it updated. However, if the customers have CAA records on their domain names, they might need to authorize you to issue certificates on their behalf.
-- If you expect customers should issue and provide you with their own certificates, you are responsible for receiving and managing the private keys in a secure manner, and you might have to remind your customers to renew the certificate before it expires, to avoid an interruption in their service.
+If you plan to allow customers to bring their own domains, consider whether you plan to issue the certificate on the customer's behalf, or whether the customers must bring their own certificates. Each option has benefits and drawbacks:
+
+- **If you issue a certificate for a customer,** you can handle the renewal of the certificate, so the customer doesn't have to remember to keep it updated. However, if the customers have CAA records on their domain names, they might need to authorize you to issue certificates on their behalf.
+- **If you expect customers to issue and provide you with their own certificates,** you are responsible for receiving and managing the private keys in a secure manner, and you might have to remind your customers to renew the certificate before it expires, to avoid an interruption in their service.
 
 Several Azure services support automatic management of certificates for custom domains. For example, Azure Front Door and App Service provide certificates for custom domains, and they automatically handle the renewal process. This removes the burden of managing certificates, from your operations team. However, you still need to consider the question of ownership and authority, such as whether CAA records are in effect and configured correctly. Also, you need to ensure your customers' domains are configured to allow the certificates that are managed by the platform.
 
@@ -126,12 +128,12 @@ Several Azure services support automatic management of certificates for custom d
 
 Principal author:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 
- * [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -140,4 +142,4 @@ Other contributors:
 > [!TIP]
 > Many services use Azure Front Door to manage domain names. For information about how to use Azure Front Door in a multitenant solution, see [Use Azure Front Door in a multitenant solution](../service/front-door.md).
 
-Return to the [architectural considerations overview](overview.yml). Or, review the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+Return to the [architectural considerations overview](overview.yml). Or, review the [Microsoft Azure Well-Architected Framework](/azure/well-architected/).

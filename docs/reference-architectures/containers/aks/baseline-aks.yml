@@ -1,12 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Baseline architecture for an AKS cluster
-  description: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.
-  author: PageWriter-MSFT
-  ms.author: prwilk
-  ms.date: 10/14/2022
+  description: Learn about the reference architecture for the recommended baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.
+  author: RobBagby
+  ms.author: pnp
+  ms.date: 08/07/2024
   ms.topic: reference-architecture
-  ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - containers
@@ -17,6 +16,7 @@ metadata:
     - reference-architecture
     - internal-intro
     - e2e-aks
+    - arb-containers
 name: Baseline architecture for an Azure Kubernetes Service (AKS) cluster
 azureCategories:
   - containers

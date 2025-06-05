@@ -20,7 +20,7 @@ Traditional data modeling uses the rule of "one fact in one place." Every entity
 
 There is no single approach that's correct in all cases, but here are some general guidelines for managing data in a microservices architecture.
 
-- Embrace eventual consistency where possible. Understand the places in the system where you need strong consistency or ACID transactions, and the places where eventual consistency is acceptable.
+- Define the required consistency level per component, preferring eventual consistency where possible. Understand the places in the system where you need strong consistency or ACID transactions, and the places where eventual consistency is acceptable. Review [Using tactical DDD to design microservices](../model/tactical-ddd.yml) for further component guidance.
 
 - When you need strong consistency guarantees, one service may represent the source of truth for a given entity, which is exposed through an API. Other services might hold their own copy of the data, or a subset of the data, that is eventually consistent with the master data but not considered the source of truth. For example, imagine an e-commerce system with a customer order service and a recommendation service. The recommendation service might listen to events from the order service, but if a customer requests a refund, it is the order service, not the recommendation service, that has the complete transaction history.
 

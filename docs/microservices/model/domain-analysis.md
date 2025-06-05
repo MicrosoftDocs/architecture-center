@@ -1,11 +1,11 @@
 ---
 title: Domain analysis for microservices
 description: This article shows a domain-driven approach to designing microservices so that each service follows the general rule of doing just one thing.
-author: martinekuan
+author: RobBagby
+ms.author: pnp
 ms.date: 02/25/2019
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 categories:
   - migration
   - developer-tools
@@ -17,13 +17,13 @@ products: azure
 
 # Using domain analysis to model microservices
 
-One of the biggest challenges of microservices is to define the boundaries of individual services. The general rule is that a service should do "one thing" &mdash; but putting that rule into practice requires careful thought. There is no mechanical process that will produce the "right" design. You have to think deeply about your business domain, requirements, and goals. Otherwise, you can end up with a haphazard design that exhibits some undesirable characteristics, such as hidden dependencies between services, tight coupling, or poorly designed interfaces. This article shows a domain-driven approach to designing microservices.
+One of the biggest challenges of microservices is to define the boundaries of individual services. The general rule is that a service should do "one thing" &mdash; but putting that rule into practice requires careful thought. There is no mechanical process that will produce the "right" design. You have to think deeply about your business domain, requirements, architecture characteristics (also known as non-functional requirements), and goals. Otherwise, you can end up with a haphazard design that exhibits some undesirable characteristics, such as hidden dependencies between services, tight coupling, or poorly designed interfaces. This article shows a domain-driven approach to designing microservices. Evaluating service boundaries is an ongoing effort on evolving workloads. Sometimes the evaluation results in redefined definitions of existing boundaries requiring additional application development to accommodate the changes.
 
 This article uses a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](../design/index.yml).
 
 ## Introduction
 
-Microservices should be designed around business capabilities, not horizontal layers such as data access or messaging. In addition, they should have loose coupling and high functional cohesion. Microservices are *loosely coupled* if you can change one service without requiring other services to be updated at the same time. A microservice is *cohesive* if it has a single, well-defined purpose, such as managing user accounts or tracking delivery history. A service should encapsulate domain knowledge and abstract that knowledge from clients. For example, a client should be able to schedule a drone without knowing the details of the scheduling algorithm or how the drone fleet is managed.
+Microservices should be designed around business capabilities, not horizontal layers such as data access or messaging. In addition, they should have loose coupling and high functional cohesion. Microservices are *loosely coupled* if you can change one service without requiring other services to be updated at the same time. A microservice is *cohesive* if it has a single, well-defined purpose, such as managing user accounts or tracking delivery history. A service should encapsulate domain knowledge and abstract that knowledge from clients. For example, a client should be able to schedule a drone without knowing the details of the scheduling algorithm or how the drone fleet is managed. Architecture characteristics have to be defined for each microservice to match its domain concerns, rather than being defined for the entire system. For example, a customer-facing microservice may need to have performance, availability, fault tolerance, security, testability, and agility. A backend microservice may need to have only fault tolerance and security. If microservices have synchronous communications with each other, the dependency between them often produces the need to share the same architecture characteristics.
 
 Domain-driven design (DDD) provides a framework that can get you most of the way to a set of well-designed microservices. DDD has two distinct phases, strategic and tactical. In strategic DDD, you are defining the large-scale structure of the system. Strategic DDD helps to ensure that your architecture remains focused on business capabilities. Tactical DDD provides a set of design patterns that you can use to create the domain model. These patterns include entities, aggregates, and domain services. These tactical patterns will help you to design microservices that are both loosely coupled and cohesive.
 
@@ -77,7 +77,7 @@ After some initial domain analysis, the Fabrikam team came up with a rough sketc
 Notice that at this point in the process, we haven't made any decisions about implementation or technologies. Some of the subsystems may involve external software systems or third-party services. Even so, the application needs to interact with these systems and services, so it's important to include them in the domain model.
 
 > [!NOTE]
-> When an application depends on an external system, there is a risk that the external system's data schema or API will leak into your application, ultimately compromising the architectural design. This is particularly true with legacy systems that may not follow modern best practices, and may use convoluted data schemas or obsolete APIs. In that case, it's important to have a well-defined boundary between these external systems and the application. Consider using the [Strangler Fig pattern](../../patterns/strangler-fig.yml) or the [Anti-Corruption Layer pattern](../../patterns/anti-corruption-layer.yml) for this purpose.
+> When an application depends on an external system, there is a risk that the external system's data schema or API will leak into your application, ultimately compromising the architectural design. This is particularly true with legacy systems that may not follow modern best practices, and may use convoluted data schemas or obsolete APIs. In that case, it's important to have a well-defined boundary between these external systems and the application. Consider using the [Strangler Fig pattern](../../patterns/strangler-fig.md) or the [Anti-Corruption Layer pattern](../../patterns/anti-corruption-layer.yml) for this purpose.
 
 ## Define bounded contexts
 

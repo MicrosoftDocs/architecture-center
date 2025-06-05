@@ -1,24 +1,20 @@
 ---
 title: Architectural approaches for networking in multitenant solutions
-titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for networking in a multitenant solution.
 author: johndowns
-ms.author: jodowns
-ms.date: 03/24/2023
+ms.author: pnp
+ms.date: 07/29/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 products:
   - azure
 categories:
   - azure-virtual-network
   - azure-private-link
   - azure-front-door
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Architectural approaches for networking in multitenant solutions
@@ -68,7 +64,7 @@ Consider whether your tenants will access your services through the internet or 
 
 For internet-based (public) access, you can use firewall rules, IP address allowlisting and denylisting, shared secrets and keys, and identity-based controls to secure your service.
 
-If you need to enable connectivity to your service by using private IP addresses, consider using [Azure Private Link Service](#azure-private-link-service) or [cross-tenant virtual network peering](/azure/virtual-network/create-peering-different-subscriptions). For some limited scenarios, you might also consider using Azure ExpressRoute or Azure VPN Gateway to enable private access to your solution. We only advise that you use this approach when you have a small number of tenants, and deploy dedicated VNets for each tenant.
+If you need to enable connectivity to your service by using private IP addresses, consider using [Azure Private Link Service](#azure-private-link-service) or [cross-tenant virtual network peering](/azure/virtual-network/create-peering-different-subscriptions). For some limited scenarios, you might also consider using Azure ExpressRoute or Azure VPN Gateway to enable private access to your solution. Typically, this approach only makes sense when you have a small number of tenants, and when you deploy dedicated VNets for each tenant.
 
 ### Access to tenants' endpoints
 
@@ -78,7 +74,7 @@ If you do need to send data to tenants' endpoints, consider the following common
 
 - Initiate connections from your solution to tenants' endpoints through the internet. Consider whether the connections must originate from a [static IP address](#static-ip-addresses). Depending on the Azure services you use, you might need to deploy a [NAT Gateway](/azure/virtual-network/nat-gateway/nat-overview), firewall, or load balancer.
 - Deploy an [agent](#agents) to enable connectivity between your Azure-hosted services and your customers' networks, regardless of where they are located.
-- For one-way messaging, consider using a service like [Azure Event Grid](/azure/event-grid/overview), with or without [event domains](/azure/event-grid/event-domains).
+- For one-way messaging, consider using a service like [Azure Event Grid](/azure/event-grid/overview), potentially in conjunction with [event domains](/azure/event-grid/event-domains).
 
 ## Approaches and patterns to consider
 
@@ -115,7 +111,7 @@ Consider whether your tenants need your service to use static public IP addresse
 
 When you work with virtual machines and other infrastructure components, consider using a load balancer or firewall for both inbound and outbound static IP addressing. Consider using NAT Gateway to control the IP address of outbound traffic. For more information about using NAT Gateway in a multitenant solution, see [Azure NAT Gateway considerations for multitenancy](../service/nat-gateway.md).
 
-When you work with platform services, the specific service you use determines whether and how you can control IP addresses. You might need to configure the resource in a specific way, such as by deploying the resource into a VNet and by using a NAT Gateway or firewall. Or, you can request the current set of IP addresses that the service uses for outbound traffic. For example, [App Service provides an API and web interface to obtain the current outbound IP addresses for your application](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
+When you work with platform services, the specific service you use determines whether and how you can control IP addresses. You might need to configure the resource in a specific way, such as by deploying a resource like a virtual machine into a VNet and then using a NAT Gateway or firewall. Or, you can request the current set of IP addresses that the service uses for outbound traffic. For example, [App Service provides an API and web interface to obtain the current outbound IP addresses for your application](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
 
 ### Agents
 
@@ -199,11 +195,11 @@ Ensure you test your application's behavior with the gateway configuration that 
 
 Principal author:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
  * [Joshua Waddell](https://www.linkedin.com/in/joshua-waddell) | Senior Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

@@ -16,7 +16,7 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 Azure provides the Container Insights feature that monitors containers, including AKS clusters. For more information, see [Container insights overview](/azure/azure-monitor/insights/container-insights-overview).
 
-AKS provides audit logs at multiple levels that can be useful protecting the system and data proactively. Activity logs provide information about, operations related to account and secret management; diagnostic setting management; server management; and other resource access operations. All logs are recorded with date, time, identity, and other detailed information. You can also access all chronological records of all API calls made into the AKS cluster. Logs include information about the caller, time when the call was made, source where the call was initiated, and so on. For more information, see [Enable and review Kubernetes control plane logs in Azure Kubernetes Service (AKS)](/azure/aks/view-master-logs).
+AKS provides audit logs at multiple levels that can be useful protecting the system and data proactively. Activity logs provide information about operations related to account and secret management, diagnostic setting management, server management, and other resource access operations. All logs are recorded with date, time, identity, and other detailed information. You can also access all chronological records of all API calls made into the AKS cluster. Logs include information about the caller, time when the call was made, and the source where the call was initiated. For more information, see [AKS control plane/resource logs](/azure/aks/monitor-aks#aks-control-planeresource-logs).
 
 RBAC (role-based access control) can be used to manage the resource access policy as a standard practice on Azure.
 
@@ -48,7 +48,7 @@ AKS is integrated with Azure monitoring services:
 
 - Azure Monitor can be used to set alerts based on event type to protect system integrity and security. When there are any expected system failures on AKS nodes, AKS autoheals the resource in a timely manner without interruption to system processing.
 
-AKS clusters are protected by Azure Application Gateway with Web Application Firewall (WAF), and can be configured in detect mode to log alerts and threats. A stronger mode is the preventive mode, which actively blocks detected intrusions and attacks. For details, see [Best practices for network connectivity and security in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-network).
+AKS clusters are protected by Azure Application Gateway with Web Application Firewall (WAF), and can be configured in *detection* mode to log alerts and threats. It's better to use *prevention* mode, which actively blocks detected intrusions and attacks. For details, see [Best practices for network connectivity and security in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-network).
 
 #### Your responsibilities
 
@@ -67,31 +67,31 @@ Implement audit trails to link all access to system components to each individua
 
 #### Your responsibilities
 
-We recommend that you use audit operations performed on each component using the following methods:
+We recommend that you audit operations performed on each component using the following methods:
 
-- [Azure Monitor activity log](/azure/azure-monitor/essentials/activity-log). The activity log provides information about the type and time of Azure resource operations. It also logs the identity that started the operation. It's enabled by default, and the information is collected as soon as the resource operation is done. The audit trail is write-only and cannot be deleted.
+- [Azure Monitor activity log](/azure/azure-monitor/essentials/activity-log). The activity log provides information about the type and time of Azure resource operations. It also logs the identity that started the operation. It's enabled by default, and the information is collected as soon as the resource operation is done. The audit trail is immutable and cannot be deleted.
 
   Data is retained for 90 days. For longer retention options, consider [sending activity log entries to Azure Monitor Logs](/azure/azure-monitor/logs/data-retention-archive) and configure a retention and archive policy.
 
     ![Screenshot that shows the Azure Activity Log.](images/activity-log.png)
 
-- [Azure Diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings). Provides diagnostic and auditing information of Azure resources and the platform to which the setting applies. We recommend that you enable diagnostic settings for AKS and other components in the system, such as Azure Blob Storage and Key Vault. Based on the resource type, you can choose the type of logs and metric data to send to a destination. Your diagnostics destination must meet the required retention periods.
+- [Azure Diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings). Diagnostic settings provides diagnostic and auditing information of Azure resources and the platform to which the setting applies. We recommend that you enable diagnostic settings for AKS and other components in the system, such as Azure Blob Storage and Key Vault. Based on the resource type, you can choose the type of logs and metric data to send to a destination. Your diagnostics destination must meet the required retention periods.
 
-    - Diagnostic setting for AKS. From the provided AKS categories, enable Kubernetes audit logs. Diagnostic settings include `kube-audit` or `kube-audit-admin`, and `guard`.
+    - From the provided AKS categories, enable Kubernetes audit logs. Diagnostic settings include `kube-audit` or `kube-audit-admin`, and `guard`.
 
       Enable `kube-audit-admin` to see log-based API server calls that might modify the state of your cluster. If you need an audit trail of all API server interactions (including non-modifying events such read requests), enable `kube-audit` instead. Those events can be prolific, create noise, and increase your consumption cost. These logs have information about the access and identity name that's used to make the request.
 
       Enable `guard` logs to track managed Microsoft Entra ID and Azure role-based access control (RBAC) audits.
 
-    In addition to the user-based logs, consider logs from the Kubernetes control plane, including `kube-apiserver` and `kube-controller-manager`. These logs aren't typically user-associated, but can help correlate system changes that users have made.
+    - In addition to the user-based logs, consider logs from the Kubernetes control plane, including `kube-apiserver` and `kube-controller-manager`. These logs aren't typically user-associated, but can help correlate system changes that users have made.
 
-    For more information, see [View the control plane component logs](/azure/aks/view-control-plane-logs).
+      For more information, see [View the control plane component logs](/azure/aks/view-control-plane-logs).
 
     This reference implementation enables `cluster-autoscaler`, `kube-controller-manager`, `kube-audit-admin`, and `guard` logs and forwards to a Log Analytics workspace. The workspace retention period is set to 90 days.
 
     ![Screenshot that shows the AKS diagnostic setting.](images/aks-diagnostic-setting.png)
 
-- Azure Kubernetes Service (AKS) diagnostics helps detect and troubleshoot issues with the cluster, such as node failures. It also includes networking-specific diagnostic data that doesn't cost extra. This data isn't typically user-associated, but it can help correlate system changes that users have made. For information, see [Azure Kubernetes Service diagnostics](/azure/aks/concepts-diagnostics).
+- Azure Kubernetes Service (AKS) diagnostics helps detect and troubleshoot issues with the cluster, such as node failures. It also includes networking-specific diagnostic data, which doesn't incur extra charges. This data isn't typically associated with user activity, but it can help if you need to understand the effects of system changes that users have made. For information, see [Azure Kubernetes Service diagnostics](/azure/aks/concepts-diagnostics).
 
 The preceding audit trail mechanisms should be implemented at the time of resource deployment. Azure Policy should also be active to ensure that these configurations aren't inadvertently or maliciously disabled in your CDE.
 
@@ -112,8 +112,8 @@ Implement automated audit trails for all system components to reconstruct the fo
 AKS provides audit logs at multiple levels, as described in [Requirement 10.1](#requirement-101). Here are some key points:
 
 - By default, activity logs provide information about critical Azure resource operations. All logs include status, time, and the identity that started the operation.
-- Enable diagnostic settings to access all records of all API calls made into the AKS cluster. The logs provide details about the requestor, the time stamp, the source of request, and the contents of the request. Store the logs in a Log Analytics workspace with an appropriate retention period. Enable Log Analytics workspace logging to make sure that even access to audit trail is logged.
-- Enable [syslog collection with Container Insights](/azure/azure-monitor/containers/container-insights-syslog) to capture AKS node-level operating system security and health event logs in your Log Analytics workspace. These logs should also be also ingested into your SIEM.
+- Enable diagnostic settings to access all records of all API calls made into the AKS cluster. The logs provide details about the requestor, the time stamp, the source of request, and the contents of the request. Store the logs in a Log Analytics workspace with an appropriate retention period. Enable Log Analytics workspace logging to make sure that even access to the audit trail is logged.
+- Enable [syslog collection with Container Insights](/azure/azure-monitor/containers/container-insights-syslog) to capture AKS node-level operating system security and health event logs in your Log Analytics workspace. These logs should also be ingested into your SIEM.
 - Include OS and usage audit logging for other compute such as build agents and jump boxes. Disable access to the systems directly as root. Verify all actions are being performed under a specific identity.
 - Log unsuccessful access attempts. This includes access requests to components such as Azure Storage, Azure Key Vault, the AKS API server, and any RDP/SSH access on other systems.
 - Take advantage of features, offered by third-party security agents, to help analyze user patterns inside your AKS cluster. These features might be useful for user-access audit data.
@@ -131,7 +131,7 @@ Record at least the following audit trail entries for all system components for 
 
 #### Your responsibilities
 
-As described in [Requirement 10.2](#requirement-102),  you can get audit logs from the cluster by enabling diagnostic setting for AKS. The logs contain detailed information about get, list, create, update, delete, patch, and post events. The logs contain information in the list under Requirements. Store the logs in a storage account so that you can query the information.
+As described in [Requirement 10.2](#requirement-102),  you can get audit logs from the cluster by enabling diagnostic setting for AKS. The logs contain detailed information about get, list, create, update, delete, patch, and post events. The logs contain the information specified in the requirement. Store the logs in a storage account so that you can query the information.
 
 For example, you want to view the preceding set of information for kube-audit-admin events by running this query:
 
@@ -155,7 +155,7 @@ The result set shows the information as part of the log_s field.
 |Origination of event|user|
 |Identity or name of affected data, system component, or resource| objectRef|
 
-For information about the master log, see [View the control plane component logs](/azure/aks/view-control-plane-logs).
+For information about the control plane logs, see [AKS control plane/resource logs](/azure/aks/monitor-aks#aks-control-planeresource-logs).
 
 ### Requirement 10.4
 
@@ -183,13 +183,13 @@ Limit viewing of audit trails to only people with a job-related need.
 
 #### Your responsibilities
 
-Having multiple logging syncs adds overhead to securing, reviewing, analyzing, and querying audit trail data. Plan your audit trail topologies to balance tradeoffs between complete audit trail isolation and management concerns.
+Having multiple logging sinks adds overhead to securing, reviewing, analyzing, and querying audit trail data. Plan your audit trail topologies to balance tradeoffs between complete audit trail isolation and management concerns.
 
 When possible, integrate logs. The advantage is the ability to review, analyze, and query data efficiently. Azure provides several technology options. You can use Azure Monitor container insights to write logs into a Log Analytics workspace. Another option is to integrate data into security information and event management (SIEM) solutions, such as Microsoft Sentinel. Other popular third-party choices are Splunk, QRadar, and ArcSight. Microsoft Defender for Cloud and Azure Monitor support all of those solutions. Those solutions are append-only data sinks to make sure the trail can't be altered.
 
 Defender for Cloud can export results at configured intervals. For more information, see [Continuous export](/azure/defender-for-cloud/continuous-export).
 
-All logs are kept with at least three copies in one region. As a backup strategy, you can have more copies by enabling cross-region backup or replication. All log entries are available only through secured HTTP/S channels.
+All logs are kept with at least three copies in one region. As a backup strategy, you can have more copies by enabling cross-region backup or replication. All log entries are available only through secured HTTP(s) channels.
 
 Log Analytics and Microsoft Sentinel support various role-based access controls to manage audit trail access. Make sure the roles are mapped to the roles and responsibilities of the organization.
 
@@ -227,19 +227,19 @@ Retain audit trail history for at least one year, with a minimum of three months
 
 #### Your responsibilities
 
-Logs aren't available indefinitely. Ensure that Azure activity logs and diagnostic settings are retained and can be queried. Specify a three-month retention period when you enable diagnostic settings for your resources. Azure Monitor Logs supports long-term archiving, so they can be used for audits or offline analysis. Implement your long-term archiving solution to align with the principle of write once, read many.
+By default, logs aren't retained indefinitely. Ensure that you configure your Azure activity logs and diagnostic settings to be retained in a way that can be queried. Specify a three-month retention period when you enable diagnostic settings for your resources. Azure Monitor Logs supports long-term archiving, so they can be used for audits or offline analysis. Implement your long-term archiving solution to align with the principle of *write once, read many*.
 
 ### Requirement 10.8
 
-- 10.8.1 Additional requirement for service providers only: Respond to failures of any critical security controls in a timely manner. Processes for responding to failures in security controls must include:
+10.8.1 Additional requirement for service providers only: Respond to failures of any critical security controls in a timely manner. Processes for responding to failures in security controls must include:
 
-- Restoring security functions
-- Identifying and documenting the duration (date and time start to end) of the security failure
-- Identifying and documenting cause(s) of failure, including root cause, and documenting remediation required to address root cause
-- Identifying and addressing any security issues that arose during the failure
-- Performing a risk assessment to determine whether further actions are required as a result of the security failure
-- Implementing controls to prevent cause of failure from reoccurring
--Resuming monitoring of security controls"
+  - Restoring security functions
+  - Identifying and documenting the duration (date and time start to end) of the security failure
+  - Identifying and documenting cause(s) of failure, including root cause, and documenting remediation required to address root   cause
+  - Identifying and addressing any security issues that arose during the failure
+  - Performing a risk assessment to determine whether further actions are required as a result of the security failure
+  - Implementing controls to prevent cause of failure from reoccurring
+  - Resuming monitoring of security controls
 
 #### Your responsibilities
 
@@ -294,7 +294,9 @@ The quarterly scan for vulnerabilities must be run by skilled personnel with dee
 
 This scan must also include in-cluster (pod-to-pod) networks.
 
-**APPLIES TO 11.2.2** Select an Approved Scanning Vendor (ASV) that has extensive experience with Azure networking and Kubernetes. This provides depth and specificity in suggested remediation.
+**APPLIES TO 11.2.2**
+
+Select an Approved Scanning Vendor (ASV) that has extensive experience with Azure networking and Kubernetes. This provides depth and specificity in suggested remediation.
 
 ### Requirement 11.3
 
@@ -325,7 +327,7 @@ Use intrusion-detection and/or intrusion-prevention techniques to detect and/or 
 
 #### Your responsibilities
 
-Protect the AKS cluster by inspecting inbound traffic using a web application firewall (WAF). In this architecture, Azure Application Gateway with integrated WAF prevents intrusion. Use the **prevent** mode to actively block the detected intrusions and attacks. Don't just use **detect** mode. For more information, see [Best practices for network connectivity and security in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-network).
+Protect the AKS cluster by inspecting inbound traffic using a web application firewall (WAF). In this architecture, Azure Application Gateway with integrated WAF prevents intrusion. Use *prevention* mode to actively block the detected intrusions and attacks. Don't just use *detection* mode. For more information, see [Best practices for network connectivity and security in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-network).
 
 An alternate option is to use intrusion-detection and/or intrusion-prevention capabilities in Azure Firewall Premium. For more information, see [IDPS](/azure/firewall/premium-features#idps).
 
@@ -335,7 +337,7 @@ Enable Microsoft Defender plans as they apply to various components of the CDE. 
 
 Also, detect anomalies in traffic patterns by connecting NSG flow logs into a centralized SIEM solution, such as Microsoft Sentinel. In this reference implementation, logs are in append-only mode, which minimizes the change tracking on audit logs. However, all logs that are sent to external sinks for long-term storage must not be modified. They must follow the write-once/read-many approach. Make sure the file integrity monitoring (FIM) solution covers those external entities to detect changes.
 
-## Requirement 11.5
+### Requirement 11.5
 
 Deploy a change tracking solution (for example, a file integrity monitoring solution) to alert personnel to unauthorized modification of critical system files, configuration files, or content files. Configure the product to perform critical file comparisons at least weekly.
 
@@ -353,7 +355,7 @@ Enable the solution to send logs to your monitoring or SIEM solution so that the
 
 Any other compute in the CDE should have change tracking enabled.
 
-## Requirement 11.6
+### Requirement 11.6
 
 Ensure that security policies and operational procedures for security monitoring and testing are documented, in use, and known to all affected parties.
 

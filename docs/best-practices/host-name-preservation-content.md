@@ -22,7 +22,7 @@ In some scenarios, especially when there's an HTTP reverse proxy in the request 
 
 Multitenant PaaS services often require a registered and validated host name in order to route an incoming request to the appropriate tenant's back-end server. This is because there's typically a shared pool of load balancers that accept incoming requests for all tenants. The tenants commonly use the incoming host name to look up the correct back end for the customer tenant.
 
-To make it easy to get started, these platforms typically provide a default domain that's preconfigured to route traffic to your deployed instance. For App Service, this default domain is `azurewebsites.net`. Each web app that you create gets its own subdomain, for example, `contoso.azurewebsites.net`. Similarly, the default domain is `azuremicroservices.io` for Spring Apps and `azure-api.net` for API Management.
+To make it easy to get started, these platforms typically provide a default domain that's preconfigured to route traffic to your deployed instance. For App Service, this default domain is `azurewebsites.net`. Each web app that you create gets its own subdomain, for example, `contoso.azurewebsites.net`. Similarly, the default domain is `azuremicroservices.io` for Azure Spring Apps and `azure-api.net` for API Management.
 
 For production deployments, you don't use these default domains. You instead provide your own domain to align with your organization or application's brand. For example, `contoso.com` could resolve behind the scenes to the `contoso.azurewebsites.net` web app on App Service, but this domain shouldn't be visible to an end user visiting the website. This custom `contoso.com` host name has to be registered with the PaaS service, however, so the platform can identify the back-end server that should respond to the request.
 
@@ -42,7 +42,7 @@ You can meet all these requirements by adding the expected host name to the appl
 And sometimes the incoming host name is used by components outside of the application code or in middleware on the application server over which you don't have full control. Here are some examples:
 
 - In App Service, you can [enforce HTTPS](/azure/app-service/configure-ssl-bindings#enforce-https) for your web app. Doing so causes any HTTP requests that aren't secure to redirect to HTTPS. In this case, the incoming host name is used to generate the absolute URL for the HTTP redirect's `Location` header.
-- Spring Apps uses a similar feature to [enforce HTTPS](/azure/spring-cloud/tutorial-custom-domain#enforce-https). It also uses the incoming host to generate the HTTPS URL.
+- Azure Spring Apps uses a similar feature to [enforce HTTPS](/azure/spring-cloud/tutorial-custom-domain#enforce-https). It also uses the incoming host to generate the HTTPS URL.
 - App Service has an [ARR affinity setting](/azure/app-service/configure-common#configure-general-settings) to enable sticky sessions, so that requests from the same browser instance are always served by the same back-end server. This is performed by the App Service front ends, which add a cookie to the HTTP response. The cookie's `Domain` is set to the incoming host.
 - App Service provides [authentication and authorization capabilities](/azure/app-service/overview-authentication-authorization) to easily allow users to sign in and access data in APIs.
   - The incoming host name is used to construct the redirect URL to which the identity provider needs to return the user after successful authentication.
@@ -50,13 +50,13 @@ And sometimes the incoming host name is used by components outside of the applic
 
 ### Why you might be tempted to override the host name
 
-Say you create a web application in App Service that has a default domain of `contoso.azurewebsites.net`. (Or in another service like Spring Apps.) You haven't configured a custom domain on App Service. To put a reverse proxy like Application Gateway (or any similar service) in front of this application, you set the DNS record for `contoso.com` to resolve to the IP address of Application Gateway. It therefore receives the request for `contoso.com` from the browser and is configured to forward that request to the IP address that `contoso.azurewebsites.net` resolves to: this is the final back-end service for the requested host. In this case, however, App Service doesn't recognize the `contoso.com` custom domain and rejects all incoming requests for this host name. It can't determine where to route the request.
+Say you create a web application in App Service that has a default domain of `contoso.azurewebsites.net`. (Or in another service like Azure Spring Apps.) You haven't configured a custom domain on App Service. To put a reverse proxy like Application Gateway (or any similar service) in front of this application, you set the DNS record for `contoso.com` to resolve to the IP address of Application Gateway. It therefore receives the request for `contoso.com` from the browser and is configured to forward that request to the IP address that `contoso.azurewebsites.net` resolves to: this is the final back-end service for the requested host. In this case, however, App Service doesn't recognize the `contoso.com` custom domain and rejects all incoming requests for this host name. It can't determine where to route the request.
 
 It might seem like the easy way to make this configuration work is to override or rewrite the `Host` header of the HTTP request in Application Gateway and set it to the value of `contoso.azurewebsites.net`. If you do, the outgoing request from Application Gateway makes it seem like the original request was really intended for `contoso.azurewebsites.net` instead of `contoso.com`:
 
 ![Diagram that illustrates a configuration with the host name overridden.](images/host-name-preservation/configuration-host-overridden.png)
 
-At this point, App Service does recognize the host name, and it accepts the request without requiring that a custom domain name be configured. In fact, [Application Gateway makes it easy to override the host header](/azure/application-gateway/configuration-http-settings#pick-host-name-from-back-end-address) with the host of the back-end pool. [Azure Front Door even does so by default](/azure/frontdoor/front-door-backend-pool#backend-host-header).
+At this point, App Service does recognize the host name, and it accepts the request without requiring that a custom domain name be configured. In fact, [Application Gateway makes it easy to override the host header](/azure/application-gateway/configuration-http-settings#pick-host-name-from-back-end-address) with the host of the back-end pool. [Azure Front Door even does so by default](/azure/frontdoor/origin#origin-host-header).
 
 The problem with this solution, however, is that it can result in various problems when the app doesn't see the original host name.
 
@@ -64,7 +64,7 @@ The problem with this solution, however, is that it can result in various proble
 
 ### Incorrect absolute URLs
 
-If the original host name isn't preserved and the application server uses the incoming host name to generate absolute URLs, the back-end domain might be disclosed to an end user. These absolute URLs could be generated by the application code or, as noted earlier, by platform features like the support for HTTP-to-HTTPS redirection in App Service and Spring Apps. This diagram illustrates the problem:
+If the original host name isn't preserved and the application server uses the incoming host name to generate absolute URLs, the back-end domain might be disclosed to an end user. These absolute URLs could be generated by the application code or, as noted earlier, by platform features like the support for HTTP-to-HTTPS redirection in App Service and Azure Spring Apps. This diagram illustrates the problem:
 
 ![Diagram that illustrates the problem of incorrect absolute URLs.](images/host-name-preservation/issue-absolute-urls.png)
 
@@ -80,7 +80,7 @@ This might even pose a security risk in the common case where the reverse proxy 
 
 ### Incorrect redirect URLs
 
-A common and more specific case of the previous scenario occurs when absolute redirect URLs are generated. These URLs are required by identity services like Microsoft Entra ID when you use browser-based identity protocols like OpenID Connect, Open Authorization (OAuth) 2.0, or Security Assertion Markup Language (SAML) 2.0. These redirect URLs could be generated by the application server or middleware itself, or, as noted earlier, by platform features like the App Service [authentication and authorization capabilities](/azure/app-service/overview-authentication-authorization). This diagram illustrates the problem: 
+A common and more specific case of the previous scenario occurs when absolute redirect URLs are generated. These URLs are required by identity services like Microsoft Entra ID when you use browser-based identity protocols like OpenID Connect, Open Authorization (OAuth) 2.0, or Security Assertion Markup Language (SAML) 2.0. These redirect URLs could be generated by the application server or middleware itself, or, as noted earlier, by platform features like the app service [authentication and authorization capabilities](/azure/app-service/overview-authentication-authorization). This diagram illustrates the problem:
 
 ![Diagram that illustrates the problem of incorrect redirect URLs.](images/host-name-preservation/issue-redirect-urls.png)
 
@@ -93,7 +93,7 @@ A common and more specific case of the previous scenario occurs when absolute re
 
 ### Broken cookies
 
-A host name mismatch can also lead to problems when the application server issues cookies and uses the incoming host name to construct the [`Domain` attribute of the cookie](https://datatracker.ietf.org/doc/html/rfc6265#section-5.2.3). The Domain attribute ensures that the cookie will be used only for that specific domain. These cookies can be generated by the application code or, as noted earlier, by platform features like the App Service [ARR affinity setting](/azure/app-service/configure-common#configure-general-settings). This diagram illustrates the problem: 
+A host name mismatch can also lead to problems when the application server issues cookies and uses the incoming host name to construct the [`Domain` attribute of the cookie](https://datatracker.ietf.org/doc/html/rfc6265#section-5.2.3). The Domain attribute ensures that the cookie will be used only for that specific domain. These cookies can be generated by the application code or, as noted earlier, by platform features like the app service [ARR affinity setting](/azure/app-service/configure-common#configure-general-settings). This diagram illustrates the problem:
 
 ![Diagram that illustrates an incorrect cookie domain.](images/host-name-preservation/issue-cookies.png)
 
@@ -112,7 +112,7 @@ To avoid the potential problems discussed here, we recommend that you preserve t
 
 Many web hosting platforms require that you explicitly configure the allowed incoming host names. The following sections describe how to implement this configuration for the most common Azure services. Other platforms usually provide similar methods for configuring custom domains.
 
-If you host your web application in **App Service**, you can [attach a custom domain name to the web app](/azure/app-service/app-service-web-tutorial-custom-domain) and avoid using the default `azurewebsites.net` host name towards the back end. You don't need to change your DNS resolution when you attach a custom domain to the web app: you can [verify the domain by using a `TXT` record](/azure/app-service/manage-custom-dns-migrate-domain#create-domain-verification-record) without affecting your regular `CNAME` or `A` records. (These records will still resolve to the IP address of the reverse proxy.) If you require end-to-end TLS/SSL, you can [import an existing certificate from Key Vault](/azure/app-service/configure-ssl-certificate#import-a-certificate-from-key-vault) or use an [App Service Certificate](/azure/app-service/configure-ssl-certificate#buy-and-import-app-service-certificate) for your custom domain. (Note that the free [App Service managed certificate](/azure/app-service/configure-ssl-certificate#create-a-free-managed-certificate) can't be used in this case, as it requires the domain's DNS record to resolve directly to App Service, not the reverse proxy.)
+If you host your web application in **App Service**, you can [attach a custom domain name to the web app](/azure/app-service/app-service-web-tutorial-custom-domain) and avoid using the default `azurewebsites.net` host name toward the back end. You don't need to change your DNS resolution when you attach a custom domain to the web app: you can [verify the domain by using a `TXT` record](/azure/app-service/manage-custom-dns-migrate-domain#2-create-the-dns-records) without affecting your regular `CNAME` or `A` records. (These records will still resolve to the IP address of the reverse proxy.) If you require end-to-end TLS/SSL, you can [import an existing certificate from Key Vault](/azure/app-service/configure-ssl-certificate#import-a-certificate-from-key-vault) or use an [App Service Certificate](/azure/app-service/configure-ssl-certificate#import-an-app-service-certificate) for your custom domain. (Note that the free [App Service managed certificate](/azure/app-service/configure-ssl-certificate#create-a-free-managed-certificate) can't be used in this case, as it requires the domain's DNS record to resolve directly to App Service, not the reverse proxy.)
 
 Similarly, if you're using **Spring Apps**, you can [use a custom domain for your app](/azure/spring-cloud/tutorial-custom-domain) to avoid using the `azuremicroservices.io` host name. You can import an existing or self-signed certificate if you require end-to-end TLS/SSL.
 
@@ -122,7 +122,7 @@ If you host your applications on **other platforms**, like on Kubernetes or dire
 
 ### Reverse proxy configuration
 
-When you define the back ends within the reverse proxy, you can still use the default domain of the back-end service, for example, `https://contoso.azurewebsites.net/`. This URL is used by the reverse proxy to resolve the correct IP address for the back-end service. If you use the platform's default domain, the IP address is always guaranteed to be correct. You typically can't use the public-facing domain, like `contoso.com`, because it should resolve to the IP address of the reverse proxy itself. (Unless you use more advanced DNS resolution techniques, like [split-horizon DNS](/azure/dns/private-dns-scenarios#scenario-split-horizon-functionality)).
+When you define the back ends within the reverse proxy, you can still use the default domain of the back-end service, for example, `https://contoso.azurewebsites.net/`. This URL is used by the reverse proxy to resolve the correct IP address for the back-end service. If you use the platform's default domain, the IP address is always guaranteed to be correct. You typically can't use the public-facing domain, like `contoso.com`, because it should resolve to the IP address of the reverse proxy itself. (Unless you use more advanced DNS resolution techniques, like [Split-horizon DNS](/azure/dns/private-dns-scenarios#scenario-split-horizon-functionality)).
 
 > [!IMPORTANT]
 > If you have a next-generation firewall like [Azure Firewall Premium](/azure/firewall/premium-features) between the reverse proxy and the final back end, you might need to use split-horizon DNS. This type of firewall might explicitly check whether the HTTP `Host` header resolves to the target IP address. In these cases, the original host name that's used by the browser should resolve to the IP address of the reverse proxy when it's accessed from the public internet. From the point of view of the firewall, however, that host name should resolve to the IP address of the final back-end service. For more information, see [Zero-trust network for web applications with Azure Firewall and Application Gateway](../example-scenario/gateway/application-gateway-before-azure-firewall.yml#azure-firewall-premium-and-name-resolution).
@@ -132,23 +132,23 @@ Most reverse proxies allow you to configure which host name is passed to the bac
 > [!NOTE]
 > In all cases, you can also choose to override the host name with an explicitly defined custom domain rather than taking it from the incoming request. If the application uses only a single domain, that approach might work fine. If the same application deployment accepts requests from multiple domains (for example, in multitenant scenarios), you can't statically define a single domain. You should take the host name from the incoming request (again, unless the application is explicitly coded to take additional HTTP headers into account). Therefore, the general recommendation is that you shouldn't override the host name at all. Pass the incoming host name unmodified to the back end.
 
+Whether you preserve or override the host name in the reverse proxy, ensure that the [back-end server is configured](#back-end-configuration) to accept the request in your format.
+
 #### Application Gateway
 
-If you use [Application Gateway](/azure/application-gateway) as the reverse proxy, you can ensure that the original host name is preserved by disabling **Override with new host name** on the back-end HTTP setting. Doing so disables both [Pick host name from back-end address](/azure/application-gateway/configuration-http-settings#pick-host-name-from-back-end-address) and [Override with specific domain name](/azure/application-gateway/configuration-http-settings#host-name-override). (Both of these settings override the host name.) In the [Azure Resource Manager properties for Application Gateway](/azure/templates/microsoft.network/applicationgateways), this configuration corresponds to setting the `hostName` property to `null` and `pickHostNameFromBackendAddress` to `false`.
+If you use [Application Gateway](/azure/application-gateway) as the reverse proxy, you can ensure that the original host name is preserved by disabling **Override with new host name** on the back-end HTTP setting. Doing so disables both [Pick host name from back-end address](/azure/application-gateway/configuration-http-settings#pick-host-name-from-backend-address) and [Override with specific domain name](/azure/application-gateway/configuration-http-settings#host-name-override). (Both of these settings override the host name.) In the [Azure Resource Manager properties for Application Gateway](/azure/templates/microsoft.network/applicationgateways), this configuration corresponds to setting the `hostName` property to `null` and `pickHostNameFromBackendAddress` to `false`.
 
 Because health probes are sent outside the context of an incoming request, they can't dynamically determine the correct host name. Instead, you have to create a custom health probe, disable **Pick host name from backend HTTP settings**, and [explicitly specify the host name](/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings). For this host name, you should also use an appropriate custom domain, for consistency. (You could, however, use the default domain of the hosting platform here, because health probes ignore incorrect cookies or redirect URLs in the response.)
 
 #### Azure Front Door
 
-If you use [Azure Front Door](/azure/frontdoor), you can avoid overriding the host name by leaving the [back-end host header](/azure/frontdoor/front-door-backend-pool#backend-host-header) blank in the back-end pool definition. In the [Resource Manager definition of the back-end pool](/azure/templates/microsoft.network/frontdoors), this configuration corresponds to setting `backendHostHeader` to `null`.
-
-If you use [Azure Front Door Standard or Premium](/azure/frontdoor/standard-premium), you can preserve the host name by leaving the [origin host header](/azure/frontdoor/standard-premium/concept-origin#origin-host-header) blank in the origin definition. In the [Resource Manager definition of the origin](/azure/templates/microsoft.cdn/profiles/origingroups/origins#afdoriginproperties), this configuration corresponds to setting `originHostHeader` to `null`.
+If you use [Azure Front Door](/azure/frontdoor), you can preserve the host name by leaving the [origin host header](/azure/frontdoor/origin#origin-host-header) blank in the origin definition. In the [Resource Manager definition of the origin](/azure/templates/microsoft.cdn/profiles/origingroups/origins#afdoriginproperties), this configuration corresponds to setting `originHostHeader` to `null`.
 
 #### API Management
 
 By default, [API Management](/azure/api-management) overrides the host name that's sent to the back end with the host component of the API's web service URL (which corresponds to the `serviceUrl` value of the [Resource Manager definition of the API](/azure/templates/microsoft.apimanagement/2021-08-01/service/apis)).
 
-You can force API Management to instead use the host name of the incoming request by adding an `inbound` [Set HTTP header](/azure/api-management/api-management-transformation-policies#SetHTTPheader) policy, as follows:
+You can force API Management to instead use the host name of the incoming request by adding an `inbound` [Set header](/azure/api-management/set-header-policy) policy, as follows:
 
 ```xml
 <inbound>

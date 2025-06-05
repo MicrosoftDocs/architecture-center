@@ -1,19 +1,18 @@
 ---
 title: AKS triage—Admission controllers
-titleSuffix: Azure Architecture Center
 description: Learn how to verify that the admission controllers are working as expected. This step is part of the triage practices for AKS clusters.
-author: paolosalvatori
-ms.author: paolos
-ms.date: 11/22/2023
+author: francisnazareth
+ms.author: fnazaret
+ms.date: 01/20/2025
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
+ms.custom:
+  - e2e-aks
+  - arb-containers
 azureCategories: compute
 categories: compute
 products:
   - azure-kubernetes-service
-ms.custom:
-  - e2e-aks
 ---
 
 # Validate admission controllers

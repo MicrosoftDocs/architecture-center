@@ -33,7 +33,7 @@ There are also other benefits to serving static resources from a content deliver
 
 For large WordPress installations that use a content delivery network, such as Azure Front Door or Azure Content Delivery Network, you need to implement cache invalidation logic. Whenever a new event occurs, you need to invalidate the cache in the content delivery network for the affected page. Examples of events include publishing a new article, updating an existing page, and adding a comment. The invalidation logic needs to locate all the URLs that the change affects. Specifically, the logic needs to find and invalidate dynamically generated pages, such as categories and archives, in the content delivery network cache. With some installed themes and plug-ins, even a minor change can affect every page.
 
-An easy way to implement discovery logic is to use a plug-in that enables manual triggering of cache invalidation for all URLs. But invalidating all URLs at once can cause traffic to spike at your WordPress site. For an example of cache invalidation logic for Content Delivery Network, see the [Flush Azure cache and deploy hook](https://github.com/vjirovsky/pr-crisis-wp-website/blob/master/wordpress/wp-content/plugins/azure-invalidate-cdn/plugin.php) implementation on GitHub.
+A way to implement discovery logic is to use a plug-in that enables manual triggering of cache invalidation for all URLs. But invalidating all URLs at once can cause traffic to spike at your WordPress site.
 
 ### Enable two-factor authentication
 
@@ -68,7 +68,8 @@ Key Vault helps your authorized applications and services to securely access sec
 To optimize WordPress performance, you should tune various settings and use plug-ins. The following plug-ins can be useful for debugging WordPress installations:
 
 - [Query Monitor](https://wordpress.org/plugins/query-monitor) provides a breakdown of the time that's spent on each SQL query and other actions. Examples include PHP errors, hooks and actions, block editor blocks, enqueued scripts and stylesheets, and HTTP API calls.
-- [Laps](https://github.com/Rarst/laps) provides a breakdown of how time is spent on WordPress page loads.
+
+- [Laps](https://composer.rarst.net/case-study/laps/) is a plugin that shows performance information about WordPress page loads. Providing a visual summary that's easy to inspect, it automatically tracks events such as PHP execution, core processes, plugin loads, theme loads, main post loops, sidebars, database queries, and network requests. This breakdown shows how time is spent on WordPress page loads.
 
 ## Hosting challenges of WordPress
 
@@ -100,8 +101,6 @@ For more information, see [WordPress on App Service](../../example-scenario/infr
 Large WordPress installations can be storage intensive. In these scenarios, you should use a storage solution with a high-IOPS class and low latency. We recommend [Azure NetApp Files](/azure/azure-netapp-files). Azure NetApp Files can support storage-intensive WordPress deployments. It also provides extra features such as data protection, backup and restore, cross-region replication, and disaster recovery.
 
 For a container deployment of WordPress, you should use AKS. With Azure NetApp Files, implement storage via a Kubernetes Container Storage Interface (CSI) driver. Azure NetApp Files offers a `ReadWriteMany` mode so that all the nodes can read from and write to the same storage. For more information, see [AKS WordPress architecture](../../example-scenario/infrastructure/wordpress-container.yml).
-
-For a large WordPress installation that runs on VMs, you should mount Azure NetApp Files via the network file system (NFS) protocol. For more information, see [WordPress on virtual machines](../../example-scenario/infrastructure/wordpress-iaas.yml).
 
 ### Immutable WordPress container
 

@@ -18,9 +18,7 @@ The articles listed here present a structured approach for designing, building, 
 
 - [CI/CD for microservices architectures](./ci-cd.yml)
 - [Build a CI/CD pipeline for microservices on Kubernetes](./ci-cd-kubernetes.yml)
-- [Monitor microservices running on Azure Kubernetes Service (AKS)](./logging-monitoring.yml)
 
 ## Microservices reference architectures for Azure
 
 - [Microservices architecture on Azure Kubernetes Service (AKS)](../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-- [Microservices architecture on Azure Service Fabric](../reference-architectures/microservices/service-fabric.yml)

@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: On-premises network using ExpressRoute
-  titleSuffix: Azure Reference Architectures
-  description: Learn how to connect an on-premises network to an Azure virtual network (VNet) using ExpressRoute with a virtual private network (VPN) gateway failover.
-  author: telmosampaio
-  ms.author: meparkes
-  ms.date: 12/21/2022
+  title: Connect an On-Premises Network to Azure using ExpressRoute
+  description: Learn how to connect an on-premises network to an Azure virtual network by using ExpressRoute with a virtual private network (VPN) gateway failover.
+  author: duongau
+  ms.author: duau
+  ms.date: 11/01/2024
   ms.topic: reference-architecture
-  ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - hybrid
@@ -17,6 +15,7 @@ metadata:
     - reference-architecture
     - e2e-hybrid
     - devx-track-azurepowershell
+    - arb-hybrid
 name: Connect an on-premises network to Azure using ExpressRoute
 azureCategories:
   - hybrid

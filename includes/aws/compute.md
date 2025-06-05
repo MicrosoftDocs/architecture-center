@@ -1,8 +1,7 @@
 ---
-author: martinekuan
-ms.author: martinek
+author: RobBagby
+ms.author: pnp
 ms.topic: include
-ms.service: architecture-center
 ---
 
 ### Virtual machines and servers
@@ -63,13 +62,11 @@ Several AWS and Azure services provide containerized application deployment and 
 
 #### Example container architectures
 
-<ul class="grid">
-
-[!INCLUDE [Azure Kubernetes Service (AKS) Baseline Cluster](../../includes/cards/aks-baseline.md)]
-[!INCLUDE [Microservices architecture on Azure Kubernetes Service (AKS)](../../includes/cards/aks.md)]
-[!INCLUDE [CI/CD pipeline for container-based workloads](../../includes/cards/devops-with-aks.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Baseline architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks/baseline-aks) | Deploy a baseline infrastructure that deploys an AKS cluster with a focus on security. |
+| [Microservices architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices) | Deploy a microservices architecture on Azure Kubernetes Service (AKS). |
+| [CI/CD pipeline for container-based workloads](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops) | Build a DevOps pipeline for a Node.js web app with Jenkins, Azure Container Registry, Azure Kubernetes Service, Azure Cosmos DB, and Grafana. |
 
 [View all the container architectures](/azure/architecture/browse/?azure_categories=containers)
 
@@ -83,12 +80,8 @@ Serverless computing lets you integrate systems and run backend processes withou
 
 #### Example serverless architectures
 
-<ul class="grid">
-
-[!INCLUDE [Social App for Mobile and Web with Authentication](../../includes/cards/social-mobile-and-web-app-with-authentication.md)]
-[!INCLUDE [HIPAA and HITRUST compliant health data AI](../../includes/cards/security-compliance-blueprint-hipaa-hitrust-health-data-ai.md)]
-[!INCLUDE [Cross Cloud Scaling Architecture](../../includes/cards/cross-cloud-scaling.md)]
-
-</ul>
+| Architecture | Description |
+|-----|-----|
+| [Cross-cloud scaling pattern](/azure/adaptive-cloud/app-solutions/pattern-cross-cloud-scale) | Learn how to improve cross-cloud scalability with a solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation. |
 
 [View all the serverless architectures](/azure/architecture/browse/?expanded=azure&products=azure-functions)

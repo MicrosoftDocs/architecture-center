@@ -18,7 +18,7 @@ The concepts in this article apply to:
 
 The architecture that's considered here is that of a scalable API platform. The solution comprises multiple microservices that use a variety of databases and storage services, including software as a service (SaaS) solutions such as Dynamics 365 and Microsoft 365.
 
-This article considers a solution that handles high-level marketplace and e-commerce use cases to demonstrates the blocks shown in the diagram. The use cases are:
+This article considers a solution that handles high-level marketplace and e-Commerce use cases to demonstrates the blocks shown in the diagram. The use cases are:
 
 - Product browsing.
 - Registration and login.
@@ -29,13 +29,13 @@ Client applications such as web apps, mobile apps, and even service applications
 
 ### Components
 
-- [Azure Front Door](https://azure.microsoft.com/services/frontdoor) provides a secured, unified point of entry for all requests to the solution. For more information, see [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture).
-- [Azure API Management](https://azure.microsoft.com/services/api-management) provides a governance layer on top of all published APIs. You can use Azure API Management policies to apply additional capabilities on the API layer, such as access restrictions, caching, and data transformation. API Management supports autoscaling in standard and premium tiers.
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is the Azure implementation of open-source Kubernetes clusters. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance. Since Kubernetes masters are managed by Azure, you only manage and maintain the agent nodes. In this architecture, all microservices are deployed in AKS.
-- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway) is an application delivery controller service. It operates at layer 7, the application layer, and has various load-balancing capabilities. The Application Gateway Ingress Controller (AGIC) is a Kubernetes application that makes it possible for Azure Kubernetes Service (AKS) customers to use Azure's native Application Gateway L7 load-balancer to expose cloud software to the Internet. Autoscaling and zone redundancy are supported in the v2 SKU.
-- [Azure Storage](https://azure.microsoft.com/product-categories/storage), [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) and [Azure SQL](https://azure.microsoft.com/products/azure-sql) can store both structured and non-structured content. Azure Cosmos DB containers and databases can be created with autoscale throughput.
-- [Microsoft Dynamics 365](https://dynamics.microsoft.com) is a software as a service (SaaS) offering from Microsoft which provides several business applications for customer service, sales, marketing, and finance. In this architecture, Dynamics 365 is primarily used for managing product catalogs and for customer service management. Scale units provide resiliency to Dynamics 365 applications.
-- [Microsoft 365](https://www.microsoft.com/microsoft-365) (formerly Office 365) is used as an enterprise content management system that's built on Office 365 SharePoint Online. It's used to create, manage, and publish content such as media assets and documents.
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) provides a secured, unified point of entry for all requests to the solution. For more information, see [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture).
+- [Azure API Management](/azure/well-architected/service-guides/api-management/operational-excellence) provides a governance layer on top of all published APIs. You can use Azure API Management policies to apply additional capabilities on the API layer, such as access restrictions, caching, and data transformation. API Management supports autoscaling in Standard and Premium tiers.
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is the Azure implementation of open-source Kubernetes clusters. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance. Since Kubernetes masters are managed by Azure, you only manage and maintain the agent nodes. In this architecture, all microservices are deployed in AKS.
+- [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is an application delivery controller service. It operates at layer 7, the application layer, and has various load-balancing capabilities. The Application Gateway Ingress Controller (AGIC) is a Kubernetes application that makes it possible for Azure Kubernetes Service (AKS) customers to use the Azure native Application Gateway L7 load-balancer to expose cloud software to the Internet. Autoscaling and zone redundancy are supported in the v2 SKU.
+- [Azure Storage](/azure/storage/common/storage-introduction), [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction), [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) and [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) can store both structured and non-structured content. Azure Cosmos DB containers and databases can be created with autoscale throughput.
+- [Microsoft Dynamics 365](/dynamics365/get-started/intro-crossapp-index) is a software as a service (SaaS) offering from Microsoft which provides several business applications for Customer Service, Sales, Marketing, and finance. In this architecture, Dynamics 365 is primarily used for managing product catalogs and for Customer Service management. Scale units provide resiliency to Dynamics 365 applications.
+- [Microsoft 365](/office365/servicedescriptions/office-365-service-descriptions-technet-library) (formerly Office 365) is used as an enterprise content management system that's built on Microsoft 365 SharePoint in Microsoft 365. It's used to create, manage, and publish content such as media assets and documents.
 
 ### Alternatives
 
@@ -72,7 +72,7 @@ This article shows how you can ensure appropriate reliability for a cloud applic
 
 ## Considerations
 
-Refer to the [Reliability](/azure/architecture/framework/resiliency) and [Performance Efficiency](/azure/architecture/framework/scalability) pillars of [Azure Well Architected Framework](/azure/architecture/framework) for guidance on building scalable and reliable applications.
+Refer to the [Reliability](/azure/architecture/framework/resiliency) and [Performance Efficiency](/azure/architecture/framework/scalability) pillars of [Azure Well Architected Framework](/azure/well-architected/) for guidance on building scalable and reliable applications.
 
 This article explores how to apply scalability and performance modeling techniques to fine-tune the solution architecture and design. These techniques identify changes to the transaction flows for optimal user experience. Base your technical decisions on non-functional requirements of the solution. The process is:
 
@@ -80,7 +80,7 @@ This article explores how to apply scalability and performance modeling techniqu
 - Model the expected load.
 - Define the SLIs and SLOs for the user scenarios.
 
-> [!Note]
+> [!NOTE]
 > Azure Application Insights, part of Azure Monitor, is a powerful application performance management (APM) tool that you can easily integrate with your applications to send telemetry and analyze application-specific metrics. It also provides ready-to-use dashboards and a metrics explorer that you can use to analyze the data to explore business needs.
 
 ### Capture scalability requirements
@@ -119,7 +119,7 @@ For an API service, events refer to the application-specific metrics that are ca
 | Error Rate | Number of errors for the requests that the API handled |
 | Freshness | Number of times the user received the latest data for read operations on the API, despite the underlying data store being updated with a certain write latency |
 
-> [!Note]
+> [!NOTE]
 > Be sure to identify any additional SLIs that are important for your solution.
 
 Here are examples of SLIs:
@@ -220,7 +220,7 @@ Reliability, performance efficiency, and cost optimization go hand in hand. The 
 
 For AKS, you can initially start with standard-sized VMs for the node pool. You can then monitor resource requirements during development or production use, and adjust accordingly.
 
-Cost optimization is a pillar of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index). For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview). To estimate the cost of Azure products and configurations, use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
+Cost optimization is a pillar of the [Microsoft Azure Well-Architected Framework](/azure/well-architected/). For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview). To estimate the cost of Azure products and configurations, use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 ## Contributors
 
@@ -228,16 +228,15 @@ Cost optimization is a pillar of the [Microsoft Azure Well-Architected Framework
 
 Principal author:
 
-* [Subhajit Chatterjee](https://in.linkedin.com/in/subhajit-chatterjee-b9b53b44) | Principal Software Engineer
+- [Subhajit Chatterjee](https://www.linkedin.com/in/subhajit-chatterjee-b9b53b44) | Principal Software Engineer
 
 ## Next steps
 
 - [Azure documentation](/azure)
-- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)
+- [Microsoft Azure Well-Architected Framework](/azure/well-architected/)
 - [Microservices architecture style](/azure/architecture/guide/architecture-styles/microservices)
 - [Design to scale out](/azure/architecture/guide/design-principles/scale-out)
 - [Choose an Azure compute service for your application](/azure/architecture/guide/technology-choices/compute-decision-tree)
-- [Design and implementation patterns](/azure/architecture/patterns/category/design-implementation)
 - [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
 - [What is Azure Front Door?](/azure/frontdoor/front-door-overview)
 - [About API Management](/azure/api-management/api-management-key-concepts)
@@ -250,8 +249,4 @@ Principal author:
 - [Microsoft 365 documentation](/microsoft-365/?view=o365-worldwide)
 - [Site reliability engineering documentation](/azure/site-reliability-engineering)
 - [AZ-400: Develop a Site Reliability Engineering (SRE) strategy](/training/paths/az-400-develop-sre-strategy)
-
-## Related resources
-
 - [Baseline web application with zone redundancy](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
-- [Web application monitoring on Azure](../../web-apps/guides/monitoring/app-monitoring.yml)

@@ -1,19 +1,18 @@
 ---
 title: AKS Backup and Recovery
-titleSuffix: Azure Architecture Center
 description: Learn how to back up and recover your AKS clusters and their workloads.
 author: AdamSharif-MSFT
 ms.author: jotavar
-ms.date: 12/01/2023
+ms.date: 01/20/2025
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
+ms.custom:
+  - e2e-aks
+  - arb-containers
 azureCategories: compute
 categories: compute
 products:
   - azure-kubernetes-service
-ms.custom:
-  - e2e-aks
 ---
 
 # Backup and recovery for AKS
@@ -143,7 +142,7 @@ To ensure that your backup and recovery solution meets your organization's requi
 - **Cluster selection**: Decide if you need to backup all clusters or only specific production clusters based on your requirements.
 - **Test restore procedure**: Perform periodic test restores to validate the reliability and usability of your backup strategy. This step is crucial for ensuring the effectiveness of the backup and recovery solution. For more information, see [Restoring an AKS cluster](/azure/backup/azure-kubernetes-service-cluster-restore).
 - **Supported scenarios**: Verify that the AKS Backup solution supports your specific scenario. Refer to the [AKS Backup support matrix](/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix) for compatibility information.
-- **Budget allocations**: Consider if you have specific budget allocations for backup and restore operations. Review the [pricing](/azure/backup/azure-kubernetes-service-backup-overview#pricing) information provided by the AKS Backup solution to align with your budgetary requirements.
+- **Budget allocations**: Consider if you have specific budget allocations for backup and restore operations. Review the [pricing](/azure/backup/azure-kubernetes-service-backup-overview#understand-pricing) information provided by the AKS Backup solution to align with your budgetary requirements.
 
 By taking these other considerations into account, you can ensure that your backup and recovery solution for AKS meets your organization's needs and preferences efficiently and effectively.
 
@@ -200,7 +199,7 @@ Other contributors:
 - [Configuring backups](/azure/backup/azure-kubernetes-service-cluster-backup#configure-backups)
 - [Restoring an AKS cluster](/azure/backup/azure-kubernetes-service-cluster-restore)
 - [Business continuity and disaster recovery best practices for AKS](/azure/aks/operator-best-practices-multi-region)
-- [Reliability patterns - cloud design patterns](/azure/well-architected/resiliency/reliability-patterns#high-availability)
+- [Reliability patterns - cloud design patterns](/azure/well-architected/reliability/design-patterns)
 
 ### Third-party AKS backup and recovery options
 

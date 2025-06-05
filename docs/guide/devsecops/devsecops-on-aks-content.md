@@ -24,7 +24,7 @@ As a prerequisite to this article, we recommend you review [Build and deploy app
 > [!NOTE]
 > While this article references AKS and GitHub, these recommendations apply to any container orchestration or CI/CD platform. While the implementation details might vary, most of the concepts and practices mentioned in each stage are still relevant and applicable.
 
-1. [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) is configured as the identity provider for GitHub. Configure multi-factor authentication (MFA) to help provide extra authentication security.
+1. [Microsoft Entra ID](/entra/fundamentals/whatis) is configured as the identity provider for GitHub. Configure multi-factor authentication (MFA) to help provide extra authentication security.
 1. Developers use [Visual Studio Code](https://code.visualstudio.com) or [Visual Studio](https://visualstudio.microsoft.com/vs/) with security extensions enabled to proactively analyze their code for security vulnerabilities.
 1. Developers commit application code to a corporate owned and governed GitHub Enterprise repository.
 1. GitHub Enterprise integrates automatic security and dependency scanning through [GitHub Advanced Security](https://docs.github.com/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security).
@@ -80,7 +80,7 @@ The plan phase usually has the least amount of automation, but it has important 
 
 #### Best Practice – Design a more secure application platform
 
-Building a more secure AKS-hosted platform is an important step to help ensure security is built into the system at every layer, starting with the platform itself. The platform can include components both internal to the cluster (such as runtime security and policy agents) and components that are external to AKS (such as network firewalls and container registries). For more information, see [AKS Landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator), which includes critical design areas such as security, identity, and network topology.
+Building a more secure AKS-hosted platform is an important step to help ensure security is built into the system at every layer, starting with the platform itself. The platform can include components both internal to the cluster (such as runtime security and policy agents) and components that are external to AKS (such as network firewalls and container registries). For more information, see [AKS in an application landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator), which includes critical design areas such as security, identity, and network topology.
 
 #### Best Practice – Build threat modeling into your process
 
@@ -254,7 +254,7 @@ During this phase, operation monitoring and security monitoring tasks are perfor
 - Use Activity logs to monitor actions on AKS resources to view all activity and their status. Determine what operations were performed on the resources and by whom.
 - Enable [DNS query logging](/azure/aks/coredns-custom) by applying documented configuration in your CoreDNS custom ConfigMap.
 - Monitor attempts to access deactivated credentials.
-  - Integrate user authentication for AKS with Microsoft Entra ID. Create Diagnostic Settings for Microsoft Entra ID, [sending](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) the audit and sign-in logs to an Azure Log Analytics workspace. Configure desired alerts (such as when a deactivated account attempts to sign in) within an Azure Log Analytics workspace.
+  - Integrate user authentication for AKS with Microsoft Entra ID. Create Diagnostic Settings for Microsoft Entra ID, [sending](    /entra/identity/monitoring-health/howto-integrate-activity-logs-with-azure-monitor-logs) the audit and sign-in logs to an Azure Log Analytics workspace. Configure desired alerts (such as when a deactivated account attempts to sign in) within an Azure Log Analytics workspace.
 
 #### Best Practice – Enable diagnostics on your Azure Resources
 

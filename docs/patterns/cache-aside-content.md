@@ -114,7 +114,7 @@ public async Task<MyEntity> GetMyEntityAsync(int id)
 }
 ```
 
-> The examples use Azure Cache for Redis to access the store and retrieve information from the cache. For more information, see [Using Azure Cache for Redis](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache) and [How to create a Web App with Azure Cache for Redis](/azure/redis-cache/cache-web-app-howto).
+> The examples use Azure Cache for Redis to access the store and retrieve information from the cache. For more information, see [Using Azure Cache for Redis](/azure/redis/dotnet-how-to-use-azure-redis-cache) and [How to create a Web App with Azure Cache for Redis](/azure/redis/web-app-cache-howto).
 
 The `UpdateEntityAsync` method shown below demonstrates how to invalidate an object in the cache when the value is changed by the application. The code updates the original data store and then removes the cached item from the cache.
 
@@ -139,7 +139,7 @@ public async Task UpdateEntityAsync(MyEntity entity)
 
 The following information might be relevant when implementing this pattern:
 
-- [Reliable web app pattern](../web-apps/guides/reliable-web-app/overview.md) shows you how to apply the cache-aside pattern to web applications converging on the cloud.
+- [Reliable web app pattern](../web-apps/guides/enterprise-app-patterns/overview.md#reliable-web-app-pattern) shows you how to apply the cache-aside pattern to web applications converging on the cloud.
 
 - [Caching Guidance](../best-practices/caching.yml). Provides additional information on how you can cache data in a cloud solution, and the issues that you should consider when you implement a cache.
 

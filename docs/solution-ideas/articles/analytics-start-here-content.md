@@ -22,7 +22,7 @@ If you're new to analytics on Azure, the best place to learn more is with
 
 If your organization is new to the cloud, the [Cloud Adoption Framework](/azure/cloud-adoption-framework/) can help you get started. This collection of documentation and best practices offers proven guidance from Microsoft designed to accelerate your cloud adoption journey. It also lists [innovation tools to democratize data in Azure](/azure/cloud-adoption-framework/innovate/best-practices/data).
 
-To help assure the quality of your analytics solution on Azure, we recommend following the [Azure Well-Architected Framework](/azure/architecture/framework/index). It provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
+To help assure the quality of your analytics solution on Azure, we recommend following the [Azure Well-Architected Framework](/azure/well-architected/). It provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
 
 ## Path to production
 
@@ -35,8 +35,6 @@ To get started, consider the following example implementations:
 -   [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
 
 -   [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)
-
--   [Geospatial data processing and analytics](../../example-scenario/data/geospatial-data-processing-analytics-azure.yml)
 
 -   [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)
 
@@ -74,9 +72,9 @@ Analytics is a broad category and covers a range of solutions. The following res
 ### Hybrid
 
 The vast majority of organizations need a hybrid approach to analytics because their data is hosted both on-premises and in the cloud. Organizations often
-[extend on-premises data solutions to the cloud](../../databases/guide/hybrid-on-premises-and-cloud.md). To connect environments, organizations must [choose a hybrid network architecture](../../reference-architectures/hybrid-networking/index.yml).
+extend on-premises data solutions to the cloud. To connect environments, organizations must [choose a hybrid network architecture](../../reference-architectures/hybrid-networking/index.yml).
 
-A hybrid approach might include mainframe and midrange systems as a data source for Azure solutions. For example, your organization may want to [modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure) or provide [mainframe access to Azure databases](./mainframe-access-azure-databases.yml).
+A hybrid approach might include mainframe and midrange systems as a data source for Azure solutions. For example, your organization may want to [modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure).
 
 ### Example solutions
 
@@ -86,11 +84,7 @@ Here are a few sample implementations of analytics on Azure to consider:
 
 -   [IoT analytics with Azure Data Explorer](./iot-azure-data-explorer.yml)
 
--   [Real time analytics on big data architecture](./real-time-analytics.yml)
-
 -   [Modern analytics architecture with Azure Databricks](./azure-databricks-modern-analytics-architecture.yml)
-
--   [Big data analytics with enterprise-grade security using Azure Synapse](./big-data-analytics-enterprise-grade-security.yml)
 
 -   [Browse more analytics examples in the Azure Architecture Center](../../browse/index.yml?azure_categories=analytics)
 

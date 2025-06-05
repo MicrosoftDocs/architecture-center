@@ -58,11 +58,11 @@ The following workflow sections describe two configurations: a public internet w
 - DNS: For a public internet workflow, you must configure a [public Azure DNS zone](/azure/dns/dns-overview) with the proper CNAME of the Azure Front Door endpoint FQDN. On the private (enterprise) side, configure the local DNS provider (Windows Server Active Directory DNS or a partner solution) to point each application FQDN to the private IP address of Application Gateway.
 
 - [Azure DNS Private Resolver](/azure/architecture/networking/architecture/azure-dns-private-resolver): You can use DNS Private Resolver for the resolution of on-premises customers. Enterprise customers can use this split-brain DNS solution to gain access to applications without traversing the public internet.
-- [Azure Front Door](https://azure.microsoft.com/products/frontdoor/): Azure Front Door is a global load balancer and WAF that provides fast and secure web application delivery to customers around the world. In this architecture, Azure Front Door routes external customers to the Application Gateway instance and provides caching and optimization options to enhance customer experience.
-- [Application Gateway](https://azure.microsoft.com/products/application-gateway/): Application Gateway is a regional load balancer and WAF that provides high availability, scalability, and security for web applications. In this architecture, Application Gateway routes external and internal customer requests to the back-end compute and protects the web application from common web attacks.
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door): Azure Front Door is a global load balancer and WAF that provides fast and secure web application delivery to customers around the world. In this architecture, Azure Front Door routes external customers to the Application Gateway instance and provides caching and optimization options to enhance customer experience.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway): Application Gateway is a regional load balancer and WAF that provides high availability, scalability, and security for web applications. In this architecture, Application Gateway routes external and internal customer requests to the back-end compute and protects the web application from common web attacks.
 
   Both Azure Front Door and Application Gateway provide WAF capabilities, but the private workflow in this solution doesn't use Azure Front Door. Therefore, both architectures use the WAF functionality of Application Gateway.
-- [ExpressRoute](https://azure.microsoft.com/products/expressroute/): You can use ExpressRoute to extend your on-premises networks to the Microsoft Cloud via a private connection, with the help of a connectivity provider. In this architecture, you can use ExpressRoute to facilitate private connectivity to Application Gateway for on-premises customers.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute): You can use ExpressRoute to extend your on-premises networks to the Microsoft Cloud via a private connection, with the help of a connectivity provider. In this architecture, you can use ExpressRoute to facilitate private connectivity to Application Gateway for on-premises customers.
   
 ### Alternatives
 
@@ -97,11 +97,11 @@ Use this architecture for scenarios that require:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
    - **Identify failure points**: In this split-brain DNS architecture, reliability hinges on the correct functioning of key components, such as Azure Front Door, Application Gateway, and DNS configurations. You must identify potential failure points, such as misconfigurations, SSL certificate problems, or capacity overloads.
    
@@ -113,11 +113,11 @@ Adhere to these principles to ensure a robust and reliable system that can withs
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). 
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
    - **Use the Zero Trust approach**: In the split-brain DNS setup, apply the [Zero Trust](/azure/security/fundamentals/zero-trust) approach. Explicitly verify the identity of a customer, whether they originate from the internet or a corporate network. This approach ensures that only trusted entities do authorized actions.
    
-   - **Implementation**: Implement Microsoft Entra ID for robust identity management. Use [Microsoft Entra Conditional Access policies](/azure/architecture/guide/security/conditional-access-zero-trust) to enforce strict access controls based on customer context, device health, and location.
+   - **Implementation**: Implement Microsoft Entra ID for robust identity management. Use Microsoft Entra Conditional Access policies to enforce strict access controls based on customer context, device health, and location.
    - **Assess security efficacy**: Evaluate the effectiveness of the security measures for your dual-access workload by implementing:
       - **Defensive investments**: Regularly assess the effectiveness of Azure Front Door and Application Gateway. Ensure that they provide meaningful protection against threats.
       
@@ -134,9 +134,9 @@ Integrate these security principles into your split-brain DNS architecture to cr
    - **Azure Firewall**: You can add an Azure firewall to the hub virtual network and use [Azure Firewall threat intelligence](/azure/firewall/threat-intel) to block malicious traffic from known malicious IP addresses and domains. You can also use [Azure Firewall as a DNS proxy](/azure/firewall/dns-details) to intercept and inspect DNS traffic and apply DNS-filtering rules. 
    - **Azure Front Door**: You can use [Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) to protect your web applications from common web vulnerabilities and exploits at the edge. You can also use [Private Link](/azure/frontdoor/private-link) with the Azure Front Door Premium tier to securely access your back-end application servers from Azure Front Door without exposing them to the public internet.    
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
   - **Back-end compute**: Many factors, such as SKU selection, replica count, and region, drive the cost of running back-end compute services. Ensure that you consider all elements of a [compute resource](/azure/architecture/guide/technology-choices/compute-decision-tree#choose-a-candidate-service) before you select the best option for your workload.
   

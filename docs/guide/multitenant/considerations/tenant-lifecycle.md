@@ -1,21 +1,18 @@
 ---
 title: Tenant lifecycle considerations in a multitenant solution
-titleSuffix: Azure Architecture Center
 description: This article describes the different stages of a tenant lifecycle, and considerations for each stage.
 author: johndowns
-ms.author: jodowns
-ms.date: 02/28/2023
+ms.author: pnp
+ms.date: 07/22/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 products:
   - azure
 categories:
   - management-and-governance
-ms.category:
-  - fcp
 ms.custom:
   - guide
+  - arb-saas
 ---
 
 # Tenant lifecycle considerations in a multitenant solution
@@ -24,7 +21,7 @@ When you're considering a multitenant architecture, it's important to consider a
 
 ## Trial tenants
 
-When you build a SaaS solution consider that many customers request or require trials before they commit to purchase a solution.
+When you build a SaaS solution, consider that many customers request or require trials before they commit to purchase a solution.
 
 Trials bring along the following unique considerations:
 
@@ -38,7 +35,7 @@ In some situations, a [freemium pricing model](pricing-models.md#freemium-pricin
 
 ## Onboard new tenants
 
-When onboarding a new tenant, consider the following:
+When onboarding a new tenant, consider the following questions:
 
 - **Process:** Will onboarding be a self-service, automated, or manual process?
 - **Data residency:** Does the tenant have any specific requirements for data residency? For example, are there data sovereignty regulations in effect?
@@ -64,31 +61,31 @@ For example, if you provide a solution to retailers, you might expect that certa
 
 ## Move tenants between infrastructure
 
-You might need to move tenants between infrastructure for a number of reasons, including the following:
+You might need to move tenants between infrastructure for a number of reasons, such as:
 
 - **Rebalancing:** You follow a [vertically partitioned approach](tenancy-models.yml#vertically-partitioned-deployments) to map your tenants to infrastructure, and you need to move a tenant to a different deployment in order to rebalance your load.
 - **Upgrades:** A tenant upgrades their SKU or pricing tier, and they need to be moved to a single-tenant, dedicated deployment with higher isolation from other tenants.
 - **Migrations:** A tenant requests their data be moved to a dedicated data store.
-- **Region moves:** A tenant requires their data be moved to a new geographic region. This might occur during a company acquisition, or when laws or geopolitical situations change.
+- **Region moves:** A tenant requires their data be moved to a new geographic region. This requirement might occur during a company acquisition, or when laws or geopolitical situations change.
 
-Consider how you move your tenants' data, as well as redirect requests to the new set of infrastructure that hosts their instance. You should also consider whether moving a tenant might result in downtime, and make sure tenants are fully aware of the risk.
+Consider how you move your tenants' data, and how you redirect requests to the new set of infrastructure that hosts their instance. You should also consider whether moving a tenant might result in downtime, and make sure tenants are fully aware of the risk.
 
 ## Merge and split tenants
 
 It's tempting to think of tenants or customers as static, unchanging entities. However, in reality, this often isn't true. For example:
 
 - In business scenarios, companies might be acquired or merge, including companies located in different geographic regions.
-- Similarly, in business scenarios, companies might split or divest.
+- In business scenarios, companies might split or divest.
 - In consumer scenarios, individual users might join or leave families.
 
 Consider whether you need to provide capabilities to manage the merging and separation of data, user identities, and resources. Also, consider how data ownership affects your handling of merge and split operations. For example, consider a consumer photography application built for families to share photos with one another. Are the photos owned by the individual family members who contributed them, or by the family as a whole? If users leave the family, should their data be removed or remain in the family's data set? If users join another family, should their old photos move with them?
 
 ## Offboard tenants
 
-It's also inevitable that tenants will occasionally need be removed from your solution. In a multitenant solution, this brings along some important considerations, including the following:
+It's also inevitable that tenants will occasionally need to be removed from your solution. In a multitenant solution, this brings along some important considerations, including the following:
 
 - **Retention period:** How long should you maintain the customer data? Are there legal requirements to destroy data, after a certain period of time?
-- **Re-onboarding:** Should you provide the ability for customers to be re-onboarded?
+- **Reonboarding:** Should you provide the ability for customers to be reonboarded? Will their data still be available to them if they rejoin within the data retention period?
 - **Rebalancing:** If you run shared infrastructure, do you need to rebalance the allocation of tenants to infrastructure?
 
 ## Deactivate and reactivate tenants
@@ -106,13 +103,13 @@ Deactivation is separate to offboarding in that it's intended to be a temporary 
 
 Principal author:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 
  * [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
- * [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

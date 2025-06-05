@@ -120,7 +120,7 @@ Many of these features are exposed through client libraries which integrate with
 | Python                  | [azure.appconfiguration](https://pypi.org/project/azure-appconfiguration/) | Provides an `AzureAppConfigurationClient` | [Quickstart](/azure/azure-app-configuration/quickstart-python) |
 | JavaScript/Node.js      | [@azure/app-configuration](https://www.npmjs.com/package/@azure/app-configuration)  | Provides an `AppConfigurationClient` | [Quickstart](/azure/azure-app-configuration/quickstart-javascript) |
 
-In addition to client libraries, there are also an [Azure App Configuration Sync](https://github.com/marketplace/actions/azure-app-configuration-sync) GitHub Action and [Azure App Configuration Pull](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task) & [Azure App Configuration Push](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push) Azure DevOps tasks to integrate configuration steps into your build process.
+In addition to client libraries, there are also an [Azure App Configuration Sync](https://github.com/marketplace/actions/get-azure-app-configuration) GitHub Action and [Azure App Configuration Pull](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task) & [Azure App Configuration Push](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push) Azure DevOps tasks to integrate configuration steps into your build process.
 
 ## Next steps
 

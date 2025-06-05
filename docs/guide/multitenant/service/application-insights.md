@@ -3,14 +3,15 @@ title: Multitenancy and Application Insights
 description: Learn about tenancy models that you can use with Application Insights and features that are useful when you use this service in multitenant systems.
 author: rajnemani
 ms.author: ranema
-ms.date: 08/21/2023
+ms.date: 08/13/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 products:
- - azure-monitor
+  - azure-monitor
 categories:
- - analytics
+  - analytics
+ms.custom:
+  - arb-saas
 ---
 
 # Multitenancy and Application Insights
@@ -130,17 +131,17 @@ You can perform ingestion rate limiting in Application Insights by using [sampli
 
 Principal author:
 
- * [Raj Nemani](http://linkedin.com/in/rajnemani) | Director, Partner Technology Strategist, GPS-ISV
+ * [Raj Nemani](https://linkedin.com/in/rajnemani) | Director, Partner Technology Strategist, GPS-ISV
 
 Other contributors:
 
 * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
-* [Rob Bagby](http://linkedin.com/in/robbagby/) | Principal Content Developer, C+E Skilling Content R&D
-* [John Downs](http://linkedin.com/in/john-downs) | Principal Program Manager, MCAPS
-* [Rick Hallihan](http://linkedin.com/in/hallihan/) | Senior Software Engineer, C+E Skilling Content R&D
-* [Landon Pierce](http://linkedin.com/in/landon-pierce) | Customer Engineer, Azure CXP
-* [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist, OCP
-* [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, Azure CXP
+* [Rob Bagby](https://linkedin.com/in/robbagby/) | Principal Content Developer, C+E Skilling Content R&D
+* [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+* [Rick Hallihan](https://linkedin.com/in/hallihan/) | Senior Software Engineer, C+E Skilling Content R&D
+* [Landon Pierce](https://linkedin.com/in/landon-pierce) | Customer Engineer, Azure CXP
+* [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist, OCP
+* [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, Azure CXP
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

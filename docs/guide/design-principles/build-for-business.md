@@ -1,13 +1,11 @@
 ---
 title: Build for business needs
-titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to design and build cloud applications that meet functional and nonfunctional business requirements for performance, availability, scalability, growth, and cost management.
-author: martinekuan
+author: RobBagby
 ms.author: pnp
 ms.date: 07/25/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 products:
   - azure-cloud-services
   - azure-devops
@@ -36,9 +34,13 @@ The following recommendations help you design and build solutions to meet busine
 
 - **Define functional and nonfunctional requirements**. Functional requirements determine whether an application performs its task. Nonfunctional requirements determine how well the application performs. Make sure you understand nonfunctional requirements like scalability, availability, and latency. These requirements influence design decisions and technology choices.
 
-- **Decompose workloads**. Workload in this context means a discrete capability or computing task that can logically be separated from other tasks. Different workloads might have different requirements for availability, scalability, data consistency, and disaster recovery.
+- **Decompose workloads into discrete functionality**. A workload is a collection of application resources, data, and supporting infrastructure that function together to achieve defined business outcomes. A workload consists of components and also development and operational procedures. Workloads often can be decomposed into discrete functionality that aligns with user, data, or system flows and those flows can be attributed value and have non-functional requirements.
 
-- **Plan for growth**. A solution might support current needs for number of users, transaction volume, and data storage, but it also needs to handle growth without major architectural changes. Also consider that your business model and business requirements might change over time. It's hard to evolve a solution for new use cases and scenarios if the application's service model and data models are too rigid. 
+   Different user, data, or system flows often have different requirements for availability, scalability, data consistency, and disaster recovery. Well-designed systems allow you to optimize your design per flow. To achieve this, you must break down workloads into adjustable components. A typical strategy involves categorizing components based on their value. For example, Tier 1 components are crucial and should be optimized without regard to expense. Tier 2 components are significant but can be reduced temporarily with minimal consequences. Tier 3 components are optional; keep them cost-effective and easily manageable.  Establishing a shared understanding of the value of flows helps everyone designing and evolving a workload keep a balance between cost and other non-functional requirements.
+
+- **Plan for growth**. A solution might support current needs for number of users, transaction volume, and data storage, but it also needs to handle growth without major architectural changes. Also consider that your business model and business requirements might change over time. It's hard to evolve a solution for new use cases and scenarios if the application's service model and data models are too rigid.
+
+- **Align business model and cost**. The longevity of a system is influenced by how effectively its costs align with the business model. As an architect, you must consider value drivers and use that insight to guide your decisions. You should identify the dimension in which your solution will be providing value (such as profitability), then make sure the architecture follows the value stream. This way, your architecture can maximize value to investment, yielding a return on investment (ROI) that is aligned to business expectations.
 
 - **Manage costs**. In a traditional on-premises application, you pay up front for hardware as a capital expenditure. In a cloud application, you pay for the resources you consume. Make sure that you understand your services' pricing model. Total costs might include network bandwidth usage, storage, IP addresses, and service consumption.
 

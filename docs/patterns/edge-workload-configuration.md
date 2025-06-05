@@ -1,18 +1,13 @@
 ---
 title: Edge Workload Configuration pattern
-titleSuffix: Cloud Design Patterns
 description: Learn how to design your workload configuration processes to control the complexity of devices and systems on your shop floors.
 keywords: edge, workload, configuration
-author: heathercamm
+author: RobBagby
 categories: azure
-ms.author: heathercamm
+ms.author: pnp
 ms.date: 10/12/2022
 ms.topic: design-pattern
-ms.service: architecture-center
 ms.subservice: design-pattern
-ms.custom:
-  - fcp
-  - design-pattern
 azureCategories:
   - analytics
   - iot
@@ -21,7 +16,6 @@ products:
   - azure-cosmos-db
   - azure-iot-edge
 pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: [availability, design-implementation, management-monitoring]
 ---
 
 # Edge Workload Configuration pattern

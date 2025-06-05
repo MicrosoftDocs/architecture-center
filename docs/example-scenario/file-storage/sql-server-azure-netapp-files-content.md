@@ -89,9 +89,11 @@ The combination of Always On availability groups and Azure NetApp Files provides
 
 ## Considerations
 
-The following considerations apply to this solution:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
-### Availability
+### Reliability
+
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 For Azure NetApp Files:
 
@@ -114,17 +116,16 @@ For SQL Server on Azure Virtual Machines, implement a solution for HA and DR to 
 
 *Download an [SVG][Cluster architecture diagram in .svg format] of this architecture.*
 
-### Scalability
-
-- As [Highly performant systems][Highly performant systems section of this article] discusses, Azure NetApp Files provides built-in scalability.
-- With SQL Server on Azure Virtual Machines, you can add or remove VMs when data and compute requirements change. You can also switch to a higher or lower memory-to-vCore ratio. For more information, see [VM size: Performance best practices for SQL Server on Azure VMs][VM size: Performance best practices for SQL Server on Azure VMs - Overview].
-
 ### Security
+
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Azure NetApp Files secures data in many ways. For information about inherent protection, encryption, policy rules, role-based access control features, and activity logs, see [Security FAQs][FAQs About Azure NetApp Files - Security FAQs].
 - SQL Server on Azure Virtual Machines also protects data. For information about encryption, access control, vulnerability assessments, security alerts, and other features, see [Security considerations for SQL Server on Azure Virtual Machines][Security considerations for SQL Server on Azure Virtual Machines].
 
-### Cost optimization
+### Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Using Azure NetApp Files instead of block storage can reduce costs:
 
@@ -142,6 +143,13 @@ Using Azure NetApp Files instead of block storage can reduce costs:
   - The network-attached storage doesn't have an I/O cost component.
 
 These factors make Azure NetApp Files less costly than disk storage solutions. For a detailed TCO analysis, see [Benefits of using Azure NetApp Files for SQL Server deployment][Benefits of using Azure NetApp Files for SQL Server deployment - Detailed cost analysis].
+
+### Performance Efficiency
+
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+- As [Highly performant systems][Highly performant systems section of this article] discusses, Azure NetApp Files provides built-in scalability.
+- With SQL Server on Azure Virtual Machines, you can add or remove VMs when data and compute requirements change. You can also switch to a higher or lower memory-to-vCore ratio. For more information, see [VM size: Performance best practices for SQL Server on Azure VMs][VM size: Performance best practices for SQL Server on Azure VMs - Overview].
 
 ## Deploy this scenario
 
@@ -179,10 +187,10 @@ Fully deployable architectures that use Azure NetApp Files:
 
 [Always On availability group on SQL Server on Azure VMs]: /azure/azure-sql/virtual-machines/windows/availability-group-overview
 [Availability sets overview]: /azure/virtual-machines/availability-set-overview
-[Azure NetApp Files]: https://azure.microsoft.com/services/netapp
+[Azure NetApp Files]: /azure/well-architected/service-guides/azure-netapp-files
 [Azure NetApp Files documentation]: /azure/azure-netapp-files
-[Azure Virtual Machines]: https://azure.microsoft.com/services/virtual-machines/#overview
-[Azure Virtual Network]: https://azure.microsoft.com/services/virtual-network
+[Azure Virtual Machines]: /azure/well-architected/service-guides/virtual-machines
+[Azure Virtual Network]: /azure/well-architected/service-guides/virtual-network
 [Benefits of using Azure NetApp Files for SQL Server deployment - Detailed cost analysis]: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server#detailed-cost-analysis
 [Cluster architecture diagram in .svg format]: ./media/sql-server-azure-netapp-files-availability.svg
 [Convert existing SMB volumes to use Continuous Availability]: /azure/azure-netapp-files/enable-continuous-availability-existing-smb

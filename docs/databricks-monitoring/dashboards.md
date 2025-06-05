@@ -6,8 +6,7 @@ ms.author: saperla
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 azureCategories:
   - databases
   - management-and-governance
@@ -27,11 +26,11 @@ products:
 >
 > Databricks has contributed an updated version to support Azure Databricks Runtimes 11.0 (Spark 3.3.x) and above on the `l4jv2` branch at: <https://github.com/mspnp/spark-monitoring/tree/l4jv2>.
 >
-> Please note that the 11.0 release is not backwards compatible due to the different logging systems used in the Databricks Runtimes. Be sure to use the correct build for your Databricks Runtime. The library and GitHub repository are in maintenance mode. There are no plans for further releases, and issue support will be best-effort only. For any additional questions regarding the library or the roadmap for monitoring and logging of your Azure Databricks environments, please contact [azure-spark-monitoring-help@databricks.com](mailto:azure-spark-monitoring-help@databricks.com).
+> Please note that the 11.0 release is not backward compatible due to the different logging systems used in the Databricks Runtimes. Be sure to use the correct build for your Databricks Runtime. The library and GitHub repository are in maintenance mode. There are no plans for further releases, and issue support will be best-effort only. For any additional questions regarding the library or the roadmap for monitoring and logging of your Azure Databricks environments, please contact [azure-spark-monitoring-help@databricks.com](mailto:azure-spark-monitoring-help@databricks.com).
 
 This article shows how to set up a Grafana dashboard to monitor Azure Databricks jobs for performance issues.
 
-[Azure Databricks](/azure/azure-databricks) is a fast, powerful, and collaborative [Apache Spark](https://spark.apache.org)–based analytics service that makes it easy to rapidly develop and deploy big data analytics and artificial intelligence (AI) solutions. Monitoring is a critical component of operating Azure Databricks workloads in production. The first step is to gather metrics into a workspace for analysis. In Azure, the best solution for managing log data is [Azure Monitor](/azure/azure-monitor). Azure Databricks does not natively support sending log data to Azure monitor, but a [library for this functionality](https://github.com/mspnp/spark-monitoring) is available in GitHub.
+[Azure Databricks](/azure/azure-databricks) is a fast, powerful, and collaborative [Apache Spark](https://spark.apache.org)–based analytics service that makes it easy to rapidly develop and deploy big data analytics and artificial intelligence (AI) solutions. Monitoring is a critical component of operating Azure Databricks workloads in production. The first step is to gather metrics into a workspace for analysis. In Azure, the best solution for managing log data is [Azure Monitor](/azure/azure-monitor). Azure Databricks does not natively support sending log data to Azure Monitor, but a [library for this functionality](https://github.com/mspnp/spark-monitoring) is available in GitHub.
 
 This library enables logging of Azure Databricks service metrics as well as Apache Spark structure streaming query event metrics. Once you've successfully deployed this library to an Azure Databricks cluster, you can further deploy a set of [Grafana](https://grafana.com) dashboards that you can deploy as part of your production environment.
 
@@ -46,7 +45,7 @@ Configure your Azure Databricks cluster to use the monitoring library, as descri
 To deploy the Azure Log Analytics workspace, follow these steps:
 
 1. Navigate to the `/perftools/deployment/loganalytics` directory.
-1. Deploy the **logAnalyticsDeploy.json** Azure Resource Manager template. For more information about deploying Resource Manager templates, see [Deploy resources with Resource Manager templates and Azure CLI][rm-cli]. The template has the following parameters:
+1. Deploy the **logAnalyticsDeploy.json** Azure Resource Manager template. For more information about deploying Resource Manager templates, see [Deploy resources with Resource Manager templates and the Azure CLI][rm-cli]. The template has the following parameters:
 
     - **location**: The region where the Log Analytics workspace and dashboards are deployed.
     - **serviceTier**: The workspace pricing tier. See [here][sku] for a list of valid values.
@@ -61,7 +60,7 @@ This template creates the workspace and also creates a set of predefined queries
 
 ## Deploy Grafana in a virtual machine
 
-Grafana is an open source project you can deploy to visualize the time series metrics stored in your Azure Log Analytics workspace using the Grafana plugin for Azure Monitor. Grafana executes on a virtual machine (VM) and requires a storage account, virtual network, and other resources. To deploy a virtual machine with the bitnami-certified Grafana image and associated resources, follow these steps:
+Grafana is an open source project you can deploy to visualize the time series metrics stored in your Azure Log Analytics workspace using the Grafana plugin for Azure Monitor. Grafana executes on a virtual machine (VM) and requires a storage account, virtual network, and other resources. To deploy a virtual machine with the Bitnami-certified Grafana image and associated resources, follow these steps:
 
 1. Use the Azure CLI to accept the Azure Marketplace image terms for Grafana.
 
@@ -80,13 +79,13 @@ Grafana is an open source project you can deploy to visualize the time series me
         --parameters adminPass='<vm password>' dataSource=$DATA_SOURCE
     ```
 
-Once the deployment is complete, the bitnami image of Grafana is installed on the virtual machine.
+Once the deployment is complete, the Bitnami image of Grafana is installed on the virtual machine.
 
 ## Update the Grafana password
 
 As part of the setup process, the Grafana installation script outputs a temporary password for the **admin** user. You need this temporary password to sign in. To obtain the temporary password, follow these steps:
 
-1. Log in to the Azure portal.
+1. Sign in to the Azure portal.
 1. Select the resource group where the resources were deployed.
 1. Select the VM where Grafana was installed. If you used the default parameter name in the deployment template, the VM name is prefaced with **sparkmonitoring-vm-grafana**.
 1. In the **Support + troubleshooting** section, click **Boot diagnostics** to open the boot diagnostics page.
@@ -127,7 +126,7 @@ Next, change the Grafana administrator password by following these steps:
     }
     ```
 
-1. Log into Grafana as described earlier. Select **Configuration** (the gear icon) and then **Data Sources**.
+1. Sign in to Grafana as described earlier. Select **Configuration** (the gear icon) and then **Data Sources**.
 1. In the **Data Sources** tab, click **Add data source**.
 1. Select **Azure Monitor** as the data source type.
 1. In the **Settings** section, enter a name for the data source in the **Name** textbox.
@@ -138,7 +137,7 @@ Next, change the Grafana administrator password by following these steps:
     - Client Id: The value of "appId" from earlier.
     - Client Secret: The value of "password" from earlier.
 
-1. In the **Azure Log Analytics API Details** section, check the **Same Details as Azure Monitor API** checkbox.
+1. In the **Azure Log Analytics API Details** section, select the **Same Details as Azure Monitor API** checkbox.
 1. Click **Save & Test**. If the Log Analytics data source is correctly configured, a success message is displayed.
 
 ## Create the dashboard

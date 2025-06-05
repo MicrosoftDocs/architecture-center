@@ -3,10 +3,9 @@ metadata:
   title: Pipes and Filters pattern
   description: Break down a task that performs complex processing into a series of separate elements that can be reused or reordered.
   author: robbagby
-  ms.author: robbag
+  ms.author: pnp
   ms.date: 04/10/2024
   ms.topic: design-pattern
-  ms.service: architecture-center
   ms.subservice: design-pattern
 azureCategories:
   - compute

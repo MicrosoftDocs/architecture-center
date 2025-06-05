@@ -1,20 +1,19 @@
 ---
 title: Architectural approaches for control planes in multitenant solutions
-titleSuffix: Azure Architecture Center
 description: Learn about approaches to designing and creating control planes for your multitenant solutions, including manual, low-code, and custom approaches.
 author: landonpierce 
 ms.author: landonpierce 
-ms.date: 11/02/2023
+ms.date: 07/15/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 products:
- - azure
+  - azure
 categories:
- - compute
- - web
+  - compute
+  - web
 ms.custom:
   - guide
+  - arb-saas
 --- 
 
 # Architectural approaches for control planes in multitenant solutions
@@ -75,7 +74,7 @@ The following diagram illustrates one way to use manual processes for an initial
 #### Disadvantages of a manual approach
 
 - **Lack of control**: This approach relies on everybody involved doing the correct thing. Somebody might deviate from the prescribed processes, either accidentally or intentionally. Every variation in process increases the risk of inconsistency in your environment, which makes ongoing management much harder.
-- **Access-control challenges**: When you use this approach, you typically need to grant broadly scoped, highly permissive access to anybody who operates your solution, which makes it hard to follow the best practices for [access segmentation](/azure/well-architected/security/design-segmentation).
+- **Access-control challenges**: When you use this approach, you typically need to grant broadly scoped, highly permissive access to anybody who operates your solution, which makes it hard to follow the best practices for [access segmentation](/azure/well-architected/security/segmentation).
 - **Scalability**: The work required to run manual processes scales with the number of tenants that you need to manage. 
 - **Testability**: Manual processes are difficult to validate and test.
 
@@ -83,17 +82,17 @@ The following diagram illustrates one way to use manual processes for an initial
 
 - When your team can't keep up with the amount of work they need to do to maintain the application. For example, when your number of tenants scales beyond a critical point, which for most teams is between 5 and 10 tenants.
 - When you anticipate tenant growth beyond a critical number of tenants and you need to prepare for the work involved in administering that number of tenants.
-- When you need to mitigate the risk of inconsistencies. For example, you might observe some mistakes occurring because somebody isn't following the processes correctly, or because there's too much ambiguity in the processes. The risk of inconsistency typically grows as more tenants are onboarded manually.
+- When you need to mitigate the risk of inconsistencies. For example, you might observe some mistakes occurring because somebody isn't following the processes correctly, or because there's too much ambiguity in the processes. The risk of inconsistency typically grows as more tenants are onboarded manually, and as your team grows.
 
 ### Low-code control plane
 
-A low-code or no-code control plane is a type of control plane that's built on a platform that's designed to enable you to automate business processes and track information. There are many platforms that enable you to do that without writing custom code. Using one of these platforms can be a good approach to the low-code creation of a control plane.
+A low-code or no-code control plane is built on a platform that's designed to automate business processes and track information. There are many platforms that enable you to do these tasks without writing custom code.
 
-Microsoft Power Platform is an example of one of these platforms. If you use Power Platform, you might keep your tenant catalog in Dynamics 365, Dataverse, or Microsoft 365. You can also consider keeping the same tenant catalog that you use for your manual processes, if you don't want to fully commit yet to automating everything.
+Microsoft Power Platform is an example of one of these platforms. If you use Power Platform, you might keep your tenant catalog in Dynamics 365, Dataverse, or Microsoft 365. You can also consider keeping the same tenant catalog that you use for your manual processes, if you don't want to fully commit to automating everything at first.
 
-For tenant onboarding and maintenance, you could then use Power Automate to run workflows that perform tenant management, configure tenants, trigger pipelines or API calls, and so on. You could use Power Automate to watch for changes to your tenant catalog, if the data is somewhere accessible to Power Automate. If you use a manual tenant catalog, Power Automate workflows can also be triggered manually. You might decide to include manual approval steps in your workflows if you need somebody from your team to verify something or perform additional steps that can't be fully automated.
+For tenant onboarding and maintenance, you can use Power Automate to run workflows that perform tenant management, configure tenants, trigger pipelines or API calls, and so on. You can use Power Automate to watch for changes to your tenant catalog, if the data is somewhere accessible to Power Automate. If you use a manual tenant catalog, Power Automate workflows can also be triggered manually. You might decide to include manual approval steps in your workflows if you need somebody from your team to verify something or perform additional steps that can't be fully automated.
 
-This approach enables you to provide self-service sign-up to your customers by allowing your web application to directly add records to your tenant catalog without human intervention.
+This approach also enables you to provide self-service sign-up to your customers by allowing your web application to directly add records to your tenant catalog without human intervention.
 
 The following diagram illustrates how you might create a control plane with self-service sign-up by using the Microsoft Power Platform:
 
@@ -103,9 +102,9 @@ The following diagram illustrates how you might create a control plane with self
 
 #### Advantages of a low-code approach
 
-- **Lightweight**: It's often quick and inexpensive to create a set of low-code workflows and connect it to the surrounding systems.
-- **Uses platform tooling**: You can use native platform features to store data, create administrative portals for your team to use, and monitor the workflows as they run.
-- **Customizable**: If you need more customization, you can typically augment your workflows with custom code and processes. For example, you might use Power Automate to trigger a deployment workflow in GitHub Actions, or you might invoke Azure Functions to run your own code. This also helps facilitate a gradual implementation.
+- **Lightweight**: It's often quick and inexpensive to create a set of low-code workflows and connect them to the surrounding systems.
+- **Uses platform tooling**: You can use native platform features to store data, create administrative portals for your team to use, and monitor the workflows as they run. By using native platform features, you avoid building a lot of components yourself.
+- **Customizable**: If you need more customization, you can typically augment your workflows with custom code and processes. For example, you might use Power Automate to trigger a deployment workflow in GitHub Actions, or you might invoke Azure Functions to run your own code. This also helps to facilitate a gradual implementation.
 - **Low overhead**: Low-code services are typically fully managed, so you don't need to manage infrastructure.
 
 #### Disadvantages of a low-code approach
@@ -142,11 +141,11 @@ The following diagram shows one way to create a basic custom control plane that 
 
 #### Disadvantages of a custom approach
 
-- **Maintenance responsibilities**: This approach requires more maintenance overhead because you need to create everything yourself. A control plane is as important as any other part of your application. You need to take great care in developing and running your control plane to ensure it's reliable and secure.
+- **Maintenance responsibilities**: This approach requires more maintenance overhead because you need to create everything yourself. A control plane is as important as any other part of your application. You need to take great care in developing, testing, and operating your control plane to ensure it's reliable and secure.
 
 ### Hybrid approaches
 
-You can also consider using a hybrid approach. You might use a combination of manual and automated systems, or you might use a managed platform like Microsoft Power Platform and augment it with custom applications. Consider implementing a hybrid approach if you need the customizability of the custom control plane but don't necessarily want to build and maintain a fully custom system. Keep in mind that, at some point, your automated customizations to your manual processes or your managed platform might become as complex as a fully customized system. The tipping point is different for every organization, but if your hybrid approach is cumbersome to maintain, you should consider building a fully custom system.
+You can also consider using a hybrid approach. You might use a combination of manual and automated systems, or you might use a managed platform like Microsoft Power Platform and augment it with custom applications. Consider implementing a hybrid approach if you need the customizability of a custom control plane but don't necessarily want to build and maintain a fully custom system. Keep in mind that, at some point, your automated customizations to your manual processes or your managed platform might become as complex as a fully customized system. The tipping point is different for every organization, but if your hybrid approach is cumbersome to maintain, you should consider moving to a fully custom system.
 
 ### Gradual implementation
 
@@ -154,8 +153,8 @@ Even if you know that you want to eventually automate your control plane, you do
 
 ## Antipatterns to avoid
 
-- **Relying on manual processes for too long.** Although it's reasonable to use manual processes when you start out or when you have a low number of tenants and require fairly lightweight management, you need to plan how to scale to an automated solution as you grow. If you need to hire additional resources to keep up with the demand of your manual processes, that's a good sign that you should start automating parts of your control plane.
-- **Using inappropriate tools for long-running workflows.** For example, avoid using standard Azure functions, synchronous API calls, or other tools that have an execution time limit to perform long-running operations like Azure Resource Manager deployments or multi-step orchestrations. For more information, see [Azure Functions performance and reliability](/azure/azure-functions/performance-reliability) and [Asynchronous Request-Reply pattern](/azure/architecture/patterns/async-request-reply).
+- **Relying on manual processes for too long.** Although it's reasonable to use manual processes when you start out or when you have a low number of tenants and require fairly lightweight management, you need to plan how to scale to an automated solution as you grow. If you need to hire additional team members to keep up with the demand of your manual processes, that's a good sign that you should start automating parts of your control plane.
+- **Using inappropriate tools for long-running workflows.** For example, avoid using standard Azure functions, synchronous API calls, or other tools that have an execution time limit to perform long-running operations like Azure Resource Manager deployments or multi-step orchestrations. Instead, use tools like [Azure Logic Apps](/azure/logic-apps/logic-apps-overview), [Durable Functions](/azure/azure-functions/durable/durable-functions-overview), and other tools that can perform long-running workflows or sequences of operations. For more information, see [Azure Functions performance and reliability](/azure/azure-functions/performance-reliability) and [Asynchronous Request-Reply pattern](/azure/architecture/patterns/async-request-reply).
 
 ## Contributors
 
@@ -163,7 +162,7 @@ Even if you know that you want to eventually automate your control plane, you do
 
 Principal authors:
 
-- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Program Manager
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer
 - [Landon Pierce](https://www.linkedin.com/in/landon-pierce/) | Customer Engineer
 
 Other contributors:

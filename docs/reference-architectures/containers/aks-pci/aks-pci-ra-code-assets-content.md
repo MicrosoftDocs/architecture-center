@@ -58,7 +58,7 @@ Here are some significant changes from the baseline architecture:
 
 ### Node pool segmentation
 
-In this architecture, the cluster has two user node pools and one system node pool. The compute choice for the node pools remains the same. Each node pool resides in a dedicated subnet to provide an added network isolation boundary between compute tiers.
+In this architecture, the cluster has two user node pools and one system node pool. The compute choice for the node pools remains the same as in the baseline architecture. Unlike the baseline architecture, each node pool resides in a dedicated subnet to provide an added network isolation boundary between compute tiers.
 
 > [!NOTE]
 >
@@ -71,13 +71,13 @@ The PCI-DSS 3.2.1 requires isolation of the PCI workload from other workloads in
 
 - **Out-of-scope:** Other workloads that might share services, but are isolated from the in-scope components.
 
-The key strategy is to provide the required level of separation. The preferred way is to deploy in-scope and out-of-scope components in separate clusters. The down side is increased costs for the added infrastructure and the maintenance overhead. This implementation co-locates all components in a shared cluster for simplicity. If you choose to follow that model, use a  rigorous in-cluster segmentation strategy. No matter how you choose to maintain separation, be aware that as your solution evolves, some out-of-scope components might become in-scope.
+The key strategy is to provide the required level of separation. The preferred way is to deploy in-scope and out-of-scope components in separate clusters. The downside of using multiple clusters is the higher costs for the added infrastructure and the maintenance overhead. This implementation co-locates all components in a shared cluster for simplicity. If you choose to follow the single-cluster model, use a rigorous in-cluster segmentation strategy. No matter how you choose to maintain separation, be aware that as your solution evolves, some out-of-scope components might become in-scope.
 
-In the reference implementation, the second approach is demonstrated with a microservices application deployed to a single cluster. The in-scope and out-of-scope workloads are segmented in two separate user node pools. The application has two sets of services; one set has in-scope pods and the other is out-of-scope. Both sets are spread across two user node pools. With the use of Kubernetes taints, in-scope and out-of-scope pods are deployed to separate nodes and they never share a node VM or the network IP space.
+In the reference implementation, we demonstrate the shared cluster approach by deploying a microservices application to a single cluster. The in-scope and out-of-scope workloads are segmented in two separate user node pools. The application has two sets of services; one set has in-scope pods and the other is out-of-scope. Both sets are spread across two user node pools. By using Kubernetes taints, in-scope and out-of-scope pods are deployed to separate nodes and they never share a node VM or the network IP space.
 
 ### Ingress controller
 
-The Kubernetes ingress controller inside the cluster has been changed to NGINX. In the baseline architecture, used Traefik. This change illustrates that this component can be changed based on your workloads' requirements.
+The baseline architecture used Traefik for ingress control. In this reference architecture, we instead use Nginx. This change illustrates that this component can be changed based on your workloads' requirements.
 
 ### Private Kubernetes API server
 
@@ -105,9 +105,9 @@ There are several NSGs that control the flow in and out of the cluster. Here are
 - All inbound traffic from the internet is intercepted by Azure Application Gateway. For example, NSG rules make sure that:
 
   - Only HTTPS traffic is allowed in.
-  - Traffic from Azure Control Plane is allowed. For more information, see [Allow access to a few source IPs](/azure/application-gateway/configuration-infrastructure#network-security-groups).
+  - Traffic from the Azure control plane is allowed by using service tags. For more information, see [Allow access to a few source IPs](/azure/application-gateway/configuration-infrastructure#network-security-groups).
 - On the subnets that have Azure Container Registry agents, NSGs allow only necessary outbound traffic. For instance, traffic is allowed to Azure Key Vault, Microsoft Entra ID, Azure Monitor, and other services that the container registry needs to talk to.
-- The subnet with the jump box is intended for management operations. The NSG rule only allows SSH access from Azure Bastion in the hub, and limited outbound connections. Jump boxes do not have universal internet access, and are controlled at both the subnet NSG and Azure Firewall.
+- The subnet with the jump box is intended for management operations. The NSG rule on the jump box subnet only allows SSH access from Azure Bastion in the hub, and limited outbound connections. Jump boxes do not have universal internet access, and are controlled at both the subnet NSG and Azure Firewall.
 
 As your workloads, system security agents, and other components are deployed, add more NSG rules that help define the type of traffic that should be allowed. Traffic shouldn't traverse those subnet boundaries. Because each node pool lives in its own subnet, observe the traffic patterns, and then apply more specific rules.
 
@@ -115,7 +115,7 @@ As your workloads, system security agents, and other components are deployed, ad
 
 This architecture attempts to implement the "zero trust" principles of Microsoft as much as possible.
 
-Examples of Zero Trust networks as a concept are demonstrated in the implementation in `a0005-i` and `a0005-o` user-provided namespaces. All workload namespaces should have restrictive NetworkPolicy applied. The policy definitions will depend on the pods running in those namespaces. Make sure you're accounting for readiness, liveliness, and startup probes and also allowance for metrics gathered by the Log Analytics agent. Consider standardizing on ports across your workloads so that you can provide a consistent NetworkPolicy and Azure Policy for allowed container ports.
+Examples of zero trust networks as a concept are demonstrated in the implementation, within the `a0005-i` and `a0005-o` user-provided namespaces. Each workload namespace should have a restrictive NetworkPolicy applied. The policy definitions will depend on the pods running in those namespaces. Make sure you're accounting for readiness, liveliness, and startup probes, and allow for metrics gathered by the Log Analytics agent. Consider standardizing on ports across your workloads so that you can provide a consistent NetworkPolicy and Azure Policy for allowed container ports.
 
 In certain cases, this is not practical for communication within the cluster. Not all user-provided namespaces can use a zero trust network (for example, `cluster-baseline-settings` can't use one).
 
@@ -144,11 +144,13 @@ Azure Application Gateway doesn't support sourcing TLS certificates for the HTTP
 
 ### DDoS protection
 
-Enable [Azure DDoS Network Protection](/azure/ddos-protection/manage-ddos-protection) for virtual networks with a subnet that contains Application Gateway with a public IP. Doing so protects the infrastructure and workload from mass fraudulent requests. Such requests can cause service disruption or mask another concurrent attack. Azure DDoS comes at a significant cost, and is typically amortized across many workloads that span many IP addresses. Work with your networking team to coordinate coverage for your workload.
+If you have any virtual networks with public IP addresses, enable [Azure DDoS Network Protection](/azure/ddos-protection/manage-ddos-protection). In this reference architecture, the subnet that contains Application Gateway has a public IP address attached, so it's in scope for DDoS protection.
 
-## Identity access management
+Azure DDoS Network Protection protects the infrastructure and workload from mass fraudulent requests. Such requests can cause service disruption or mask another concurrent attack. Azure DDoS Network Protection comes at a significant cost, and is typically amortized across many workloads that span many IP addresses. Work with your networking team to coordinate coverage for your workloads.
 
-Define roles and set access control according to the requirements of the role. Map roles to Kubernetes actions scoped as narrowly as practical. Avoid roles that span multiple functions. If multiple roles are filled by one person, assign that person all roles that are relevant to the equivalent job functions. So, even if one person is directly responsible for both the cluster and the workload, create your Kubernetes `ClusterRoles` as if there were separate individuals. Then assign that single individual all relevant roles.
+## Identity and access management
+
+Define roles and set access control according to the requirements of the role. Map roles to Kubernetes actions scoped as narrowly as practical. Avoid roles that span multiple functions. If multiple roles are filled by one person, assign that person all roles that are relevant to the equivalent job functions. So, even if one person is directly responsible for both the cluster and the workload, create your Kubernetes `ClusterRole`s as if there were separate individuals. Then assign that single individual all relevant roles.
 
 Minimize standing access, especially for high-impact accounts, such as SRE/Ops interactions with your cluster. The AKS control plane supports both [Microsoft Entra ID Privileged Access Management (PAM) just-in-time (JIT)](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks) and [Conditional Access Policies](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks), which provides an additional layers of required authentication validation for privileged access, based on the rules you build.
 
@@ -160,9 +162,7 @@ When you're designing encryption for data at rest, consider storage disks, AKS a
 
 ### Storage disks
 
-By default, Azure Storage disks are encrypted at rest with Microsoft-managed keys. If you use non-ephemeral operating system disks, or add data disks, we recommend that you use customer-managed keys for control over the encryption keys. Encrypt outside of the storage layer and only write encrypted data into the storage medium. Also, make sure that the keys are never adjacent to the storage layer.
-
-For more information, see [Bring your own keys (BYOK) with Azure disks](/azure/aks/azure-disk-customer-managed-keys).
+By default, Azure Storage disks are encrypted at rest with Microsoft-managed keys. If you use non-ephemeral operating system disks, or add data disks, we recommend that you use customer-managed keys for control over the encryption keys. Encrypt outside of the storage layer and only write encrypted data into the storage medium. Also, make sure that the keys are never adjacent to the storage layer. For more information, see [Bring your own keys (BYOK) with Azure disks](/azure/aks/azure-disk-customer-managed-keys).
 
 Consider using BYOK for any other disks that might interact with the cluster, such as your Azure Bastion-fronted jump boxes. If you choose BYOK, the SKU choice for VMs and regional availability will be limited because this feature is not supported on all SKUs or regions.
 
@@ -176,15 +176,15 @@ You can enforce those features through Azure Policy.
 
 ### Cluster backups (state and resources)
 
-If your workload requires in-cluster storage, have a robust and secure process for backup and recovery. Consider services such as Azure Backup (for Azure Disks and Azure Files), for backup and recovery of any `PersistantVolumeClaim`. There are advantages if the backup system supports native Kubernetes resources. You can supplement your primary method that reconciles the cluster to a well-known state, with the backup system for critical system recovery techniques. For example, it can help in drift detection and cataloging system state changes over time at the Kubernetes resource level.
+If your workload requires in-cluster storage, have a robust and secure process for backup and recovery. Consider services such as Azure Backup (for Azure Disks and Azure Files), for backup and recovery of any `PersistentVolumeClaim`. There are advantages if the backup system supports native Kubernetes resources. You can supplement your primary method that reconciles the cluster to a well-known state, with the backup system for critical system recovery techniques. For example, it can help in drift detection and cataloging system state changes over time at the Kubernetes resource level.
 
-Backup processes need to classify data in the backup within or external to the cluster. If the data is in scope for PCI DSS 3.2.1, extend your compliance boundaries to include the lifecycle and destination of the backup, which will be outside of the cluster. Backups can be an attack vector. When designing your backup, consider geographic restrictions, encryption at rest, access controls, roles and responsibilities, auditing, time-to-live, and tampering prevention.
+Backup processes need to classify data in the backup, whether that data came from the cluster or was external to the cluster. If the data is in scope for PCI DSS 3.2.1, extend your compliance boundaries to include the lifecycle and destination of the backup, which will be outside of the cluster. Backups can be an attack vector. When designing your backup, consider geographic restrictions, encryption at rest, access controls, roles and responsibilities, auditing, time-to-live, and tampering prevention.
 
 In-cluster backup systems are expected to run with high privileges during its operations. Evaluate the risk and benefit of bringing a backup agent into your cluster. Does the agent capability overlap with another management solution in the cluster? What is the minimum set of tools you need to accomplish this task without expanding the attack surface?
 
 ## Azure Policy considerations
 
-Typically, Azure policies applied do not have workload-tuned settings. In the implementation, we're applying the **Kubernetes cluster pod security restricted standards for Linux-based workloads** initiative, which doesn't allow tuning of settings. Consider exporting this initiative and customizing its values for your specific workload. You can include all Gatekeeper `deny` Azure policies under one custom initiative, and all `audit` Azure policies under another initiative. Doing so categorizes block actions from information-only policies.
+Typically, Azure policies applied do not have workload-tuned settings. In the implementation, we're applying the **Kubernetes cluster pod security restricted standards for Linux-based workloads** initiative, which is one of the [built-in policy initiatives](/azure/aks/policy-reference#initiatives). This initiative doesn't allow tuning of settings. Consider exporting this initiative and customizing its values for your specific workload. You can include all Gatekeeper `deny` Azure policies under one custom initiative, and all `audit` Azure policies under another initiative. Doing so categorizes block actions from information-only policies.
 
 Consider including the `kube-system` and `gatekeeper-system` namespaces to policies in your *audit* policies for added visibility. Including those namespaces in *deny* policies could cause cluster failure because of an unsupported configuration.
 
@@ -206,7 +206,9 @@ You can limit commands executed against the cluster, without necessarily buildin
 
 ### Build agents
 
-Pipeline agents should be out-of-scope to the regulated cluster because build processes can be threat vectors. While it's common to use Kubernetes as an elastic build agent infrastructure, don't run that process within the boundary of the regulated workload runtime. Your build agents shouldn't have direct access to the cluster. For example, only give build agents network access to Azure Container Registry to push container images, helm charts, and so on. Then, deploy through GitOps. As a common practice, build and release workflows shouldn't have direct access to your Kubernetes Cluster API (or its nodes).
+Pipeline agents should be out-of-scope to the regulated cluster because build processes can be threat vectors. For example, build processes often work with untested and untrusted components.
+
+While it's common to use Kubernetes as an elastic build agent infrastructure, don't run that process within the boundary of the regulated workload runtime. Your build agents shouldn't have direct access to the cluster. For example, only give build agents network access to Azure Container Registry to push container images, helm charts, and so on. Then, deploy through GitOps. As a common practice, build and release workflows shouldn't have direct access to your Kubernetes Cluster API (or its nodes).
 
 ## Monitoring operations
 

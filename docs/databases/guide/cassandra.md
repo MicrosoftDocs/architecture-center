@@ -1,17 +1,17 @@
 ---
 title: Run Apache Cassandra on Azure VMs
-description: Examine performance considerations for running Apache Cassandra on Azure virtual machines. Use these recommendations as a baseline to test against your workload.
+description: Examine performance considerations for running Apache Cassandra on Azure Virtual Machines. Use these recommendations as a baseline to test against your workload.
 author: arsenvlad
 ms.author: arsenv
 categories: azure
 ms.date: 05/21/2024
 ms.topic: conceptual
-ms.service: architecture-center
 ms.subservice: best-practice
 ms.custom:
   - fcp
   - cse
   - best-practice
+  - arb-data
 azureCategories:
   - databases
 products:
@@ -24,16 +24,15 @@ products:
 # Run Apache Cassandra on Azure VMs
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL). Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
-
-This article describes performance considerations for running Apache Cassandra on Azure virtual machines.
+This article describes performance considerations for running Apache Cassandra on Azure Virtual Machines.
 
 These recommendations are based on the results of performance tests, which you can find on [GitHub][repo]. You should use these recommendations as a baseline and then test against your own workload.
 
 ## Azure Managed Instance for Apache Cassandra
 
-If you're looking for a more automated service for running Apache Cassandra on Azure virtual machines, consider using [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/). This service automates the deployment, management (patching and node health), and scaling of nodes within an Apache Cassandra cluster. It also provides the capability for [hybrid clusters](/azure/managed-instance-apache-cassandra/configure-hybrid-cluster), so Apache Cassandra datacenters deployed in Azure can join an existing on-premises or third-party hosted Cassandra ring. The service is deployed by using [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview). The following recommendations were adopted during the development of this service.
+If you're looking for a more automated service for running Apache Cassandra on Azure Virtual Machines, consider using [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/). This service automates the deployment, management (patching and node health), and scaling of nodes within an Apache Cassandra cluster. It also provides the capability for [hybrid clusters](/azure/managed-instance-apache-cassandra/configure-hybrid-cluster), so Apache Cassandra datacenters deployed in Azure can join an existing on-premises or third-party hosted Cassandra ring. The service is deployed by using [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview). The following recommendations were adopted during the development of this service.
 
 ## Azure VM sizes and disk types
 
@@ -55,7 +54,7 @@ Cassandra nodes make heavy use of the network to send and receive data from the 
 
 We recommended enabling [Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli) on the NIC of the Cassandra node and on VMs running client applications accessing Cassandra.
 
-Accelerated networking requires a modern Linux distribution with the latest drivers, such as Cent OS 7.5+ or Ubuntu 16.x/18.x. For more information, see [Create a Linux virtual machine with Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli#confirm-that-accelerated-networking-is-enabled).
+Accelerated Networking requires a modern Linux distribution with the latest drivers, such as Cent OS 7.5+ or Ubuntu 16.x/18.x. For more information, see [Create a Linux virtual machine with Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli#confirm-that-accelerated-networking-is-enabled).
 
 ## Azure VM data disk caching
 
@@ -71,7 +70,7 @@ For more information, see [Comparing Azure VM data disk caching configurations](
 
 ## Linux read-ahead
 
-In most Linux distributions in the Azure Marketplace, the default block device read-ahead setting is 4096 KB. Cassandra's read IOs are usually random and relatively small. Therefore, having a large read-ahead wastes throughput by reading parts of files that aren't needed.
+In most Linux distributions in the Azure Marketplace, the default block device read-ahead setting is 4096 KB. Cassandra's read I/OS are usually random and relatively small. Therefore, having a large read-ahead wastes throughput by reading parts of files that aren't needed.
 
 To minimize unnecessary lookahead, set the Linux block device read-ahead setting to 8 KB. (See [Recommended production settings](https://docs.datastax.com/en/dse/6.7/dse-admin/datastax_enterprise/config/configRecommendedSettings.html#OptimizeSSDs) in the DataStax documentation.)
 
@@ -131,13 +130,13 @@ For more information, see [Observations on Cassandra usage of Linux page caching
 
 ## Multi-datacenter replication
 
-Cassandra natively supports the concept of multiple data centers, making it easy to configure one Cassandra ring across multiple [Azure regions](https://azure.microsoft.com/global-infrastructure/regions) or across [availability zones](/azure/availability-zones/az-overview) within one region.
+Cassandra natively supports the concept of multiple datacenters, making it easy to configure one Cassandra ring across multiple [Azure regions](https://azure.microsoft.com/global-infrastructure/regions) or across [availability zones](/azure/reliability/availability-zones-overview) within one region.
 
 For a multiregion deployment, use Azure Global VNet-peering to connect the virtual networks in the different regions. When VMs are deployed in the same region but in separate availability zones, the VMs can be in the same virtual network.
 
 It's important to measure the baseline roundtrip latency between regions. Network latency between regions can be 10-100 times higher than latency within a region. Expect a lag between data appearing in the second region when using LOCAL_QUORUM write consistency, or significantly decreased performance of writes when using EACH_QUORUM.
 
-When you run Apache Cassandra at scale, and specifically in a multi-DC environment, [node repair](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) becomes challenging. Tools such as [Reaper](http://cassandra-reaper.io) can help to coordinate repairs at scale (for example, across all the nodes in a data center, one data center at a time, to limit the load on the whole cluster). However, node repair for large clusters isn't yet a fully solved problem and applies in all environments, whether on-premises or in the cloud.
+When you run Apache Cassandra at scale, and specifically in a multi-DC environment, [node repair](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) becomes challenging. Tools such as [Reaper](http://cassandra-reaper.io) can help to coordinate repairs at scale (for example, across all the nodes in a datacenter, one datacenter at a time, to limit the load on the whole cluster). However, node repair for large clusters isn't yet a fully solved problem and applies in all environments, whether on-premises or in the cloud.
 
 When nodes are added to a secondary region, performance doesn't scale linearly, because some bandwidth and CPU/disk resources are spent on receiving and sending replication traffic across regions.
 
@@ -151,16 +150,16 @@ For more information, see [Observations on hinted handoff in cross-region replic
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author: 
+Principal author:
 
- - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
- 
- Other contributor:
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
 
- - [Theo van Kraay](https://www.linkedin.com/in/theo-van-kraay-3388b130/) | Senior Program Manager
- 
+Other contributor:
+
+- [Theo van Kraay](https://www.linkedin.com/in/theo-van-kraay-3388b130/) | Senior Program Manager
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
@@ -177,10 +176,8 @@ For information on general Cassandra settings, not specific to Azure, see:
 
 ## Related resources
 
-- [Linux N-tier application in Azure with Apache Cassandra](../../databases/architecture/n-tier-cassandra.yml)
 - [N-tier architecture style](../../guide/architecture-styles/n-tier.yml)
 - [Data partitioning guidance](../../best-practices/data-partitioning.yml)
-
 
 [dsv2]: /azure/virtual-machines/dv2-dsv2-series-memory
 [dsv3]: /azure/virtual-machines/dv3-dsv3-series

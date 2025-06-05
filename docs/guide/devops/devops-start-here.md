@@ -1,12 +1,10 @@
 ---
 title: DevOps architecture design
-titleSuffix: Azure Architecture Center
 description: Learn about DevOps and how to implements DevOps solutions on Azure by using services such as Azure DevOps, Azure Pipelines, Azure Monitor, and Azure DevTest Labs.
-author: martinekuan
-ms.author: martinek
+author: brandonmartinez
+ms.author: brmar
 ms.date: 07/25/2022
 ms.topic: reference-architecture
-ms.service: architecture-center
 ms.subservice: reference-architecture
 categories:
   - devops
@@ -16,9 +14,7 @@ products:
   - azure-monitor
   - azure-pipelines
   - azure-devtest-labs
-ms.custom:
-  - overview
-  - fcp
+ms.custom: arb-devops
 ---
 
 # DevOps architecture design
@@ -57,10 +53,8 @@ Plan your path to production by reviewing:
 
 | Article or section | Description |
 |--------------|-------------|
-| [DevOps checklist](../../checklist/dev-ops.md) | A list of things to consider and do when you implement DevOps attitudes and methods in culture, development, testing, release, monitoring, and management. |
-| [Operational Excellence patterns](/azure/architecture/framework/devops/devops-patterns) | A list of design patterns for achieving Operational Excellence—one of the five pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)—in a cloud environment. See [Cloud Design Patterns](../../patterns/index.md) for more patterns. |
-| [Advanced Azure Resource Manager template functionality](../../guide/azure-resource-manager/advanced-templates/index.md) | Some advanced examples of template use. |
-| Azure Monitor guidance | A series of articles to help you use Azure Monitor to monitor cloud environments. The first article in the series is [Azure Monitor best practices - Planning your monitoring strategy and configuration](/azure/azure-monitor/best-practices-plan?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json).
+| [Operational Excellence patterns](/azure/well-architected/operational-excellence/design-patterns) | A list of design patterns for achieving Operational Excellence—one of the five pillars of the [Microsoft Azure Well-Architected Framework](/azure/well-architected/)—in a cloud environment. See [Cloud Design Patterns](../../patterns/index.md) for more patterns. |
+| Azure Monitor guidance | A series of articles to help you use Azure Monitor to monitor cloud environments. The first article in the series is [Azure Monitor best practices - Planning your monitoring strategy and configuration](/azure/azure-monitor/best-practices-plan?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json). |
 | [Continuous integration and delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | An outline of how to use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse workspace to multiple environments. |
 | [Platform automation for Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | An overview for deploying Azure VMware Solution, including guidance for operational automation. |
 
@@ -71,7 +65,6 @@ Plan your path to production by reviewing:
 | [Azure Artifacts](https://azure.microsoft.com/services/devops/artifacts) |  [Azure Artifacts overview](/azure/devops/artifacts/start-using-azure-artifacts) |  Fully integrated package management for your CI/CD pipelines.
 | [Azure DevOps](https://azure.microsoft.com/services/devops) | [Azure DevOps documentation](/azure/devops) | Modern dev services for managing your development lifecycle end-to-end. It includes Azure Repos, Azure Pipelines, and Azure Artifacts. |
 | [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab) | [Azure DevTest Labs documentation](/azure/devtest-labs) | Reusable templates and artifacts for provisioning development and test environments. |
-| [Azure Lab Services](https://azure.microsoft.com/services/lab-services) | [Azure Lab Services documentation](/azure/lab-services) | A tool for setting up and providing on-demand access to preconfigured virtual machines (VMs). |
 | [Azure Monitor](https://azure.microsoft.com/services/monitor) | [Azure Monitor documentation](/azure/azure-monitor) | Provides full observability into your applications, infrastructure, and network. |
 | [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) | [Azure Pipelines documentation](/azure/devops/pipelines) | Helps you automate build and deployment by using cloud-hosted pipelines. |
   [Azure Repos](https://azure.microsoft.com/services/devops/repos) | [Azure Repos documentation](/azure/devops/repos) | Provides unlimited, cloud-hosted private Git repos for your project and can be configured to use GitHub Advanced Security. |
@@ -93,11 +86,10 @@ Here are some example architectures. For each one there's a list of the key Azur
 |--------------|-------------|----------------|
 | [Automated API deployments with APIOps](../../example-scenario/devops/automated-api-deployments-apiops.yml) | Apply GitOps and DevOps techniques to ensure quality APIs. | Azure Repos, API Management, Azure DevOps, Azure Pipelines, Azure Repos |
 | [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-baseline.yml) | Build a CI/CD pipeline by using Azure DevOps and other services. | Azure Repos, Azure Test Plans, Azure Pipelines |
-| [Enterprise monitoring with Azure Monitor](../../example-scenario/monitoring/enterprise-monitoring.yml) | Use Azure Monitor to achieve enterprise-level monitoring and centralized monitoring management. | Azure Monitor |
 
 ## Best practices
 
-The [Microsoft Azure Well-Architected Framework](/azure/architecture/framework) provides reference guidance and best practices that you can use to improve the quality of your architectures. The framework comprises five pillars: Reliability, Security, Cost Optimization, Operational Excellence, and Performance Efficiency. Here's where to find documentation of the pillars:
+The [Microsoft Azure Well-Architected Framework](/azure/well-architected/) provides reference guidance and best practices that you can use to improve the quality of your architectures. The framework comprises five pillars: Reliability, Security, Cost Optimization, Operational Excellence, and Performance Efficiency. Here's where to find documentation of the pillars:
 
 - [Reliability](/azure/architecture/framework/resiliency)
 - [Security](/azure/architecture/framework/security)
@@ -110,7 +102,6 @@ The following articles are about best practices that are specific to DevOps and 
 ### DevOps
 
 - [How Teams at Microsoft Embraced a DevOps Culture - Azure webinar series](https://info.microsoft.com/ww-ondemand-how-teams-at-microsoft-embraced-a-devops-culture.html)
-- [DevOps checklist](../../checklist/dev-ops.md)
 - [Azure cloud migration best practices checklist](/azure/cloud-adoption-framework/migrate/azure-best-practices)
 - [Resiliency checklist for specific Azure services](../../checklist/resiliency-per-service.md)
 - [Continuous monitoring with Azure Monitor](/azure/azure-monitor/continuous-monitoring)
@@ -148,5 +139,5 @@ Stay current with Azure DevOps by monitoring these articles:
 
 ### AWS or Google Cloud professionals
 
-- [AWS to Azure services comparison - DevOps and application monitoring](../../aws-professional/services.md#devops-and-application-monitoring)
+- [AWS to Azure services comparison - DevOps and application monitoring](../../aws-professional/index.md#devops-and-application-monitoring)
 - [Google Cloud to Azure services comparison - DevOps and application monitoring](../../gcp-professional/services.md#devops-and-application-monitoring)

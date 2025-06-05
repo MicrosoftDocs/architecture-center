@@ -4,11 +4,11 @@ metadata:
   description: This article describes the considerations for mapping requests to tenants in a multitenant solution.
   author: PlagueHO
   ms.author: dascottr
-  ms.date: 12/14/2023
+  ms.date: 11/24/2024
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
-  ms.custom: fcp
+  ms.subservice: architecture-guide
+  ms.custom:
+    - arb-saas
 azureCategories:
   - management-and-governance
   - web

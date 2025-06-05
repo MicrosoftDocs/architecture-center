@@ -1,14 +1,12 @@
 ### YamlMime:Architecture
 metadata:
   title: Virtual hub extension pattern 
-  titleSuffix: Azure Architecture Center
   description: This article describes a pattern for exposing shared services, such as DNS, in a hub-and-spoke topology that uses Azure Virtual WAN.
   author: robbag
-  ms.author: robbag
+  ms.author: pnp
   ms.date: 04/26/2023
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.subservice: architecture-guide
 name: Virtual hub extension pattern 
 azureCategories:
   - networking

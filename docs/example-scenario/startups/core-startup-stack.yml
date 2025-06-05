@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Core startup stack architecture
-  titleSuffix: Azure Architecture Center
   description: See an example and understand the components of a simple core startup stack architecture for an initial MVP or prototype.
   author: mootpointer
   ms.author: pnp
-  ms.date: 06/24/2022
+  ms.date: 08/13/2024
   ms.topic: example-scenario
-  ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
     - fcp

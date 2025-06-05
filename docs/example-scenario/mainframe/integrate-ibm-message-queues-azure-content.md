@@ -25,7 +25,7 @@ When using Azure as a modern data platform, you have your choice of platform as 
 
 ### Components
 
-[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) provides tools for data orchestration, data integration, and data transformation. It includes hundreds of
+[Azure Logic Apps](/azure/logic-apps/logic-apps-overview) provides tools for data orchestration, data integration, and data transformation. It includes hundreds of
 [connectors](/connectors/connector-reference/) for accessing data on-premises or in the cloud. Make sure to test throughput and performance before choosing a data storage connector.
 
 [Logic Apps Scheduler](/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows) provides triggers for starting and running workflows based on the interval and frequency of recurrence that you specify.
@@ -40,7 +40,7 @@ When using Azure as a modern data platform, you have your choice of platform as 
 ### Alternatives
 
 -   For the data layer, you have your choice of managed services, including
-    [Azure Database for PostgreSQL](/azure/postgresql/), [Azure Database for MySQL](/azure/mysql/overview), [Azure Cosmos DB](/azure/cosmos-db/introduction), [Azure Database for MariaDB](/azure/mariadb/overview), and [Azure SQL](/azure/azure-sql/).
+    [Azure Database for PostgreSQL](/azure/postgresql/), [Azure Database for MySQL](/azure/mysql/overview), [Azure Cosmos DB](/azure/cosmos-db/introduction), and [Azure SQL](/azure/azure-sql/).
 
 -   For the storage layer, create an enterprise data lake using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction).
 
@@ -72,19 +72,31 @@ Either of these approaches can be used to:
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
 A hybrid datacenter configuration make sense for organizations that are developing their cloud strategies. Connecting to Azure can help bridge the gaps in your datacenter, enhance performance, improve business continuity, and expand your reach globally.
 
 For example, applications on-premises can communicate with a modern data platform on Azure and begin taking advantage of big data analytics or machine learning. If you need a cost-effective storage solution, you can replicate mainframe data, store it on Azure, and keep the data in sync. Azure can also add the scale needed to support online transaction processing (OLTP), batch, and data ingestion systems.
 
-### Availability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Azure service-level agreements (SLAs) describe your uptime guarantees. The SLAs for various components can vary. For example, Azure Logic Apps will be available at least 99.9 percent of the time. Configuration settings you choose can improve SLA.
 
-### Performance efficiency
+### Cost Optimization
 
-Make sure to test the throughput and performance of your data transformation layer before you finalize your architectural approach. Performance depends on several factors, including a workload's message size, latency, and the connectors that are used. Testing helps you find the most compatible target data platform.
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-### Storage
+This article outlines a wide range of Azure Services to demonstrate the various possibilities and you probably won't use them all for MQ integration.
+
+-   Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for the Azure resources.
+
+-   Use the [BizTalk pricing](https://azure.microsoft.com/pricing/details/biztalk-services/) to understand the pricing for the HIS solution.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 In this example architecture, Logic Apps connectors can be used to send messages directly to [Azure Storage](/azure/storage/common/storage-introduction) and [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). For example, Logic Apps includes the [Azure Blob Storage connector](/connectors/azureblob/) as the following figure shows. The connector makes it easy to store massive amounts of unstructured data in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction). Your data becomes accessible from anywhere in the world via HTTP or HTTPS. Blob storage also supports [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction), a big data analytics solution for the cloud. Data is loaded into storage using an Azure service such as the
 [AzCopy](/azure/storage/common/storage-ref-azcopy) tool, [Azure Data Factory](/azure/data-factory/introduction), or another solution that can connect to storage.
@@ -109,13 +121,11 @@ Both the PaaS and IaaS architecture options support many popular managed databas
 
 -   [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is). This enterprise analytics service accelerates time to insight across data warehouses and big data systems.
 
-### Cost optimization
+### Performance Efficiency
 
-This article outlines a wide range of Azure Services to demonstrate the various possibilities and you probably won't use them all for MQ integration.
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
--   Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for the Azure resources.
-
--   Use the [BizTalk pricing](https://azure.microsoft.com/pricing/details/biztalk-services/) to understand the pricing for the HIS solution.
+Make sure to test the throughput and performance of your data transformation layer before you finalize your architectural approach. Performance depends on several factors, including a workload's message size, latency, and the connectors that are used. Testing helps you find the most compatible target data platform.
 
 ## Contributors
 

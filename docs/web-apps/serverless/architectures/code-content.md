@@ -9,7 +9,7 @@ To help you explore Azure serverless technologies in Azure, Microsoft developed 
 
 The two-part solution describes a hypothetical drone delivery system. Drones send in-flight status to the cloud, which stores these messages for later use. A web app lets users retrieve the messages to get the latest status of the devices.
 
-You can download the code for this solution from [GitHub](https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0).
+You can download the code for this solution from [GitHub](https://github.com/mspnp/serverless-reference-implementation).
 
 This walkthrough assumes basic familiarity with the following technologies:
 
@@ -40,7 +40,7 @@ Here's a screenshot of the web app, showing the result of a query:
 
 ## Design the application
 
-Fabrikam has decided to use Azure Functions to implement the application business logic. Azure Functions is an example of "Functions as a Service" (FaaS). In this computing model, a *function* is a piece of code that is deployed to the cloud and runs in a hosting environment. This hosting environment completely abstracts the servers that run the code.
+Fabrikam has decided to use Azure Functions to implement the application business logic. Azure Functions is an example of "Functions as a Service" (FaaS). In this computing model, a *function* is a piece of code that is deployed to the cloud and runs in a hosting environment. This hosting environment abstracts the servers that run the code.
 
 ### Why choose a serverless approach?
 
@@ -75,12 +75,11 @@ Web app:
 1. Azure API Management acts as a gateway that exposes a REST API endpoint.
 1. HTTP requests from the client trigger an Azure Functions app that reads from Azure Cosmos DB and returns the result.
 
-This application is based on two reference architectures, corresponding to the two functional blocks described above:
+This application is based on the following reference architecture.
 
-- [Serverless event processing using Azure Functions](../../../reference-architectures/serverless/event-processing.yml)
 - [Serverless web application on Azure](./web-app.yml)
 
-You can read those articles to learn more about the high-level architecture, the Azure services that are used in the solution, and considerations for scalability, security, and reliability.
+You can read the preceding article to learn more about the high-level architecture, the Azure services that are used in the solution, and considerations for scalability, security, and reliability.
 
 ## Drone telemetry function
 
@@ -110,7 +109,7 @@ This class has several dependencies, which are injected into the constructor usi
 
 - The `ITelemetryProcessor` and `IStateChangeProcessor` interfaces define two helper objects. As we'll see, these objects do most of the work.
 
-- The [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet&preserve-view=true) is part of the Application Insights SDK. It is used to send custom application metrics to Application Insights.
+- The [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet&preserve-view=true) is part of the Application Insights SDK (Classic API). It is used to send custom application metrics to Application Insights.
 
 Later, we'll look at how to configure the dependency injection. For now, just assume these dependencies exist.
 
@@ -352,52 +351,6 @@ public async Task RunAsync(
 
 Here the `Queue` attribute specifies the output binding, and the `StorageAccount` attribute specifies the name of an app setting that holds the connection string for the storage account.
 
-**Deployment tip:** In the Resource Manager template that creates the storage account, you can automatically populate an app setting with the connection string. The trick is to use the [listKeys](/azure/azure-resource-manager/resource-group-template-functions-resource#listkeys) function.
-
-Here is the section of the template that creates the storage account for the queue:
-
-```json
-    {
-        "name": "[variables('droneTelemetryDeadLetterStorageQueueAccountName')]",
-        "type": "Microsoft.Storage/storageAccounts",
-        "location": "[resourceGroup().location]",
-        "apiVersion": "2017-10-01",
-        "sku": {
-            "name": "[parameters('storageAccountType')]"
-        },
-```
-
-Here is the section of the template that creates the function app.
-
-```json
-
-    {
-        "apiVersion": "2015-08-01",
-        "type": "Microsoft.Web/sites",
-        "name": "[variables('droneTelemetryFunctionAppName')]",
-        "location": "[resourceGroup().location]",
-        "tags": {
-            "displayName": "Drone Telemetry Function App"
-        },
-        "kind": "functionapp",
-        "dependsOn": [
-            "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-            ...
-        ],
-        "properties": {
-            "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-            "siteConfig": {
-                "appSettings": [
-                    {
-                        "name": "DeadLetterStorage",
-                        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('droneTelemetryDeadLetterStorageQueueAccountName'), ';AccountKey=', listKeys(variables('droneTelemetryDeadLetterStorageQueueAccountId'),'2015-05-01-preview').key1)]"
-                    },
-                    ...
-
-```
-
-This defines an app setting named `DeadLetterStorage` whose value is populated using the `listKeys` function. It's important to make the function app resource depend on the storage account resource (see the `dependsOn` element). This guarantees that the storage account is created first and the connection string is available.
-
 ## Setting up dependency injection
 
 The following code sets up dependency injection for the `RawTelemetryFunction` function:
@@ -421,11 +374,12 @@ namespace DroneTelemetryFunctionApp
             builder.Services.AddTransient<ITelemetryProcessor, TelemetryProcessor>();
             builder.Services.AddTransient<IStateChangeProcessor, StateChangeProcessor>();
 
-            builder.Services.AddSingleton<IDocumentClient>(ctx => {
+            builder.Services.AddSingleton<CosmosClient>(ctx => {
                 var config = ctx.GetService<IConfiguration>();
                 var cosmosDBEndpoint = config.GetValue<string>("CosmosDBEndpoint");
-                var cosmosDBKey = config.GetValue<string>("CosmosDBKey");
-                return new DocumentClient(new Uri(cosmosDBEndpoint), cosmosDBKey);
+                return new CosmosClient(
+                    accountEndpoint: cosmosDBEndpoint,
+                    new DefaultAzureCredential());
             });
         }
     }
@@ -454,11 +408,12 @@ Sometimes an object must be initialized with some configuration values. Generall
 There are two examples in this application. First, the `DocumentClient` class takes an Azure Cosmos DB service endpoint and key. For this object, the application registers a lambda that will be invoked by the DI container. This lambda uses the `IConfiguration` interface to read the configuration values:
 
 ```csharp
-builder.Services.AddSingleton<IDocumentClient>(ctx => {
+builder.Services.AddSingleton<CosmosClient>(ctx => {
     var config = ctx.GetService<IConfiguration>();
     var cosmosDBEndpoint = config.GetValue<string>("CosmosDBEndpoint");
-    var cosmosDBKey = config.GetValue<string>("CosmosDBKey");
-    return new DocumentClient(new Uri(cosmosDBEndpoint), cosmosDBKey);
+    return new CosmosClient(
+                    accountEndpoint: cosmosDBEndpoint,
+                    new DefaultAzureCredential());
 });
 ```
 
@@ -562,14 +517,14 @@ This function uses an HTTP trigger to process an HTTP GET request. The function 
 
 ## Authentication and authorization
 
-The web app uses Microsoft Entra ID to authenticate users. Because the app is a single-page application (SPA) running in the browser, the [implicit grant flow](/azure/active-directory/develop/v1-oauth2-implicit-grant-flow) is appropriate:
+The web app uses Microsoft Entra ID to authenticate users. Because the app is a single-page application (SPA) running in the browser, the [authorization code flow](/entra/identity-platform/v2-oauth2-auth-code-flow) is appropriate:
 
 1. The web app redirects the user to the identity provider (in this case, Microsoft Entra ID).
 1. The user enters their credentials.
-1. The identity provider redirects back to the web app with an access token.
-1. The web app sends a request to the web API and includes the access token in the Authorization header.
+1. The identity provider redirects back to the web app with an authorization code that can later be exchanged for access tokens.
+1. The web app sends a request to the web API and includes an access token for the resource in the Authorization header.
 
-![Implicit flow diagram](../_images/implicit-flow.png)
+![Authorization flow diagram](../_images/authentication-flow.png)
 
 A Function application can be configured to authenticate users with zero code. For more information, see [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
 
@@ -609,9 +564,7 @@ For more information about authentication and authorization in this application,
 
 ## Next steps
 
-Once you get a feel for how this reference solution works, learn best practices and recommendations for similar solutions.
-- For a serverless event ingestion solution, see [Serverless event processing using Azure Functions](../../../reference-architectures/serverless/event-processing.yml).
-- For a serverless web app, see [Serverless web application on Azure](./web-app.yml).
+Once you get a feel for how this reference solution works, learn best practices and recommendations for similar solutions. For a serverless web app, see [Serverless web application on Azure](./web-app.yml).
 
 Azure Functions is just one Azure compute option. For help with choosing a compute technology, see [Choose an Azure compute service for your application](../../../guide/technology-choices/compute-decision-tree.yml).
 

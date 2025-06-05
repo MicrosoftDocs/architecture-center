@@ -182,17 +182,17 @@ Use a single private endpoint or Private Link service to expose a proxy/NAT solu
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 - [Federico Guerrini](https://www.linkedin.com/in/federico-guerrini-phd-8185954) | EMEA Technical Lead
 - [Khush Kaviraj](https://www.linkedin.com/in/khushalkaviraj) | Cloud Solution Architect
 - [Jack Tracey](https://www.linkedin.com/in/jacktracey93) | Senior Cloud Solution Architect
   
-**Other contributors:**
+Other contributors:
 
 - [Jodi Martis](https://www.linkedin.com/in/jodimartis) | Technical Writer
 
- *To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

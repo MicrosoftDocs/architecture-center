@@ -1,13 +1,11 @@
 ---
 title: Background jobs guidance
-titleSuffix: Best practices for cloud applications
 description: Learn about background tasks that run independently of the user interface, such as batch jobs, intensive processing tasks, and long-running processes.
-ms.author: robbag
+ms.author: pnp
 author: RobBagby
 ms.date: 10/18/2022
 categories: azure
-ms.topic: conceptual
-ms.service: architecture-center
+ms.topic: best-practice
 ms.subservice: best-practice
 azureCategories:
   - compute
@@ -228,14 +226,13 @@ Azure Container Apps enables you to build serverless microservices based on cont
 
 - Optimized for running general purpose containers, especially for applications that span many microservices deployed in containers.
 - Powered by Kubernetes and open-source technologies like [Dapr](https://dapr.io/), [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh/), and [envoy](https://www.envoyproxy.io/).
-- Supports Kubernetes-style apps and microservices with features like [service discovery](/azure/container-apps/connect-apps) and [traffic splitting](/azure/container-apps/revisions).
+- Supports Kubernetes-style apps and microservices with features like [Service discovery](/azure/container-apps/connect-apps) and [traffic splitting](/azure/container-apps/revisions).
 - Enables event-driven application architectures by supporting scale based on traffic and pulling from [event sources like queues](/azure/container-apps/scale-app), including [scale to zero](/azure/container-apps/scale-app).
 - Support of long running processes and can run [background tasks](/azure/container-apps/background-processing).
 
 #### Considerations
 
 Azure Container Apps doesn't provide direct access to the underlying Kubernetes APIs. If you require access to the Kubernetes APIs and control plane, you should use [Azure Kubernetes Service](/azure/aks/intro-kubernetes). However, if you would like to build Kubernetes-style applications and don't require direct access to all the native Kubernetes APIs and cluster management, Container Apps provides a fully managed experience based on best-practices. For these reasons, many teams may prefer to start building container microservices with Azure Container Apps.
-
 
 For more information, see:
 
@@ -251,7 +248,7 @@ If you decide to include background tasks within an existing compute instance, y
 
 - **Scalability**: Background tasks are likely to have a different scalability requirement than the UI and the interactive parts of the application. Scaling the UI might be necessary to meet peaks in demand, while outstanding background tasks might be completed during less busy times by fewer compute instances.
 
-- **Resiliency**: Failure of a compute instance that just hosts background tasks might not fatally affect the application as a whole if the requests for these tasks can be queued or postponed until the task is available again. If the compute instance and/or tasks can be restarted within an appropriate interval, users of the application might not be affected.
+- **Resiliency**: Failure of a compute instance that just hosts background tasks might not fatally affect the application as a whole if the requests for these tasks can be queued or postponed until the task is available again. If the compute instance or tasks can be restarted within an appropriate interval, users of the application might not be affected.
 
 - **Security**: Background tasks might have different security requirements or restrictions than the UI or other parts of the application. By using a separate compute instance, you can specify a different security environment for the tasks. You can also use patterns such as Gatekeeper to isolate the background compute instances from the UI in order to maximize security and separation.
 
@@ -297,7 +294,7 @@ Background tasks must be resilient in order to provide reliable services to the 
 
   - Typically, a background task will peek at messages in the queue, which temporarily hides them from other message consumers. Then it deletes the messages after they have been successfully processed. If a background task fails when processing a message, that message will reappear on the queue after the peek time-out expires. It will be processed by another instance of the task or during the next processing cycle of this instance. If the message consistently causes an error in the consumer, it will block the task, the queue, and eventually the application itself when the queue becomes full. Therefore, it is vital to detect and remove poison messages from the queue. If you are using Azure Service Bus, messages that cause an error can be moved automatically or manually to an associated [dead letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
-  - Queues are guaranteed at *least once* delivery mechanisms, but they might deliver the same message more than once. In addition, if a background task fails after processing a message but before deleting it from the queue, the message will become available for processing again. Background tasks should be idempotent, which means that processing the same message more than once does not cause an error or inconsistency in the application's data. Some operations are naturally idempotent, such as setting a stored value to a specific new value. However, operations such as adding a value to an existing stored value without checking that the stored value is still the same as when the message was originally sent will cause inconsistencies. Azure Service Bus queues can be configured to automatically remove duplicated messages. For more information on the challenges with at-least-once message delivery, see [the guidance on idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
+  - Queues are guaranteed at *least once* delivery mechanisms, but they might deliver the same message more than once. In addition, if a background task fails after processing a message but before deleting it from the queue, the message will become available for processing again. Background tasks should be idempotent, which means that processing the same message more than once does not cause an error or inconsistency in the application's data. Some operations are naturally idempotent, such as setting a stored value to a specific new value. However, operations such as adding a value to an existing stored value without checking that the stored value is still the same as when the message was originally sent will cause inconsistencies. Azure Service Bus queues can be configured to automatically remove duplicated messages. For more information on the challenges with at-least-once message delivery, see the [guidance on idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 
   - Some messaging systems, such as Azure Queue Storage and Azure Service Bus queues, support a de-queue count property that indicates the number of times a message has been read from the queue. This can be useful in handling repeated and poison messages. For more information, see [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)) and [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns).
 

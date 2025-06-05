@@ -21,10 +21,10 @@ BCDR strategies include availability zone redundancy, automated recovery provide
 
 ### Components
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
-- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) and [Azure Synapse pipelines](/azure/synapse-analytics/get-started-pipelines)
-- [GitHub](https://github.com)
-- [Azure Repos](https://azure.microsoft.com/services/devops/repos)
+- [Azure Data Factory](/azure/data-factory/introduction)
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) and [Azure Synapse pipelines](/azure/synapse-analytics/get-started-pipelines)
+- [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git)
+- [Azure Repos](/azure/devops/repos/get-started/what-is-repos)
 
 ## Scenario details
 
@@ -52,12 +52,11 @@ You can use the following recommended practices to achieve BCDR for Data Factory
 
 ### Automated recovery with Azure disaster recovery
 
+With automated recovery provided backup and disaster recovery, when there is a complete regional outage for an Azure region that has a paired region, Data Factory or Azure Synapse pipelines automatically fail over to the paired region when you [Set up automated recovery](#deploy-this-scenario). The exceptions are Southeast Asia and Brazil regions, where data residency requirements require data to stay in those regions.
 
-With automated recovery provided Azure backup and disaster recovery, when there is a complete regional outage for an Azure region that has a paired region, Data Factory or Azure Synapse pipelines automatically fail over to the paired region when you [Set up automated recovery](#deploy-this-scenario). The exceptions are Southeast Asia and Brazil regions, where data residency requirements require data to stay in those regions.
+In DR failover, Data Factory recovers the production pipelines. If you need to validate your recovered pipelines, you can back up the Azure Resource Manager templates for your production pipelines in secret storage, and compare the recovered pipelines to the backups.
 
-In DR failover, Data Factory recovers the production pipelines. If you need to validate your recovered pipelines, you can back up the Azure Resource Manager (ARM) templates for your production pipelines in secret storage, and compare the recovered pipelines to the backups.
-
-The Azure Global team conducts regular BCDR drills, and Azure Data Factory and Azure Synapse Analytics participate in these drills. The BCDR drill simulates a region failure and fails over Azure services to a paired region without any customer involvement. For more information about the BCDR drills, see [Testing of services](/azure/availability-zones/business-continuity-management-program#testing-of-services).
+The Azure Global team conducts regular BCDR drills, and Azure Data Factory and Azure Synapse Analytics participate in these drills. The BCDR drill simulates a region failure and fails over Azure services to a paired region without any customer involvement. For more information about the BCDR drills, see [Testing of services](/azure/reliability/business-continuity-management-program#testing-of-services).
 
 ### User-managed redundancy with CI/CD
 
@@ -76,30 +75,30 @@ You can quickly move your production workloads to other regions and not be affec
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Data Factory and Azure Synapse pipelines are mainstream Azure services that support availability zones, and they're designed to provide the right level of resiliency and flexibility along with ultra-low latency.
 
-The user-managed recovery approach allows you to continue operating if there are any maintenance events, outages, or human errors in the primary region. By using CI/CD, the Data Factory and Azure Synapse pipelines can integrate to a Git repository and deploy to a secondary region for immediate recovery.
+The user-managed recovery approach allows you to continue operating if there are any maintenance events, outages, or human errors in the primary region. By using CI/CD, the data factory and Azure Synapse pipelines can integrate to a Git repository and deploy to a secondary region for immediate recovery.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 User-managed recovery integrates Data Factory with Git by using CI/CD, and optionally uses a secondary DR region that has all the necessary infrastructure configurations as a backup. This scenario might incur added costs. To estimate costs, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 For examples of Data Factory and Azure Synapse Analytics pricing, see:
 
-- [Understanding Azure Data Factory pricing through examples ](/azure/data-factory/pricing-concepts)
+- [Understanding Azure Data Factory pricing through examples](/azure/data-factory/pricing-concepts)
 - [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics)
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 By using the user-managed CI/CD recovery approach, you can integrate to Azure Repos or GitHub. For more information about best CI/CD practices, see [Best practices for CI/CD](/azure/data-factory/continuous-integration-delivery#best-practices-for-cicd).
 
@@ -115,9 +114,9 @@ In Data Factory, you can set the Azure integration runtime (IR) region for your 
 
 In the context of the integration runtimes, IR fails over automatically to the paired region when you select **Auto Resolve** as the IR region. For other specific location regions, you can create a secondary data factory in another region, and use CI/CD to provision your data factory from the Git repository.
 
-- For managed virtual networks, Data Factory also automatically switches over to the managed IR.
+- For managed virtual networks, users need to manually switch to the secondary region.
 
--  Azure managed automatic failover doesn't apply to self-hosted integration runtime (SHIR), because the infrastructure is customer-managed. For guidance on setting up multiple nodes for higher availability with SHIR, see [Create and configure a self-hosted integration runtime](/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability).
+- Azure managed automatic failover doesn't apply to self-hosted integration runtime (SHIR), because the infrastructure is customer-managed. For guidance on setting up multiple nodes for higher availability with SHIR, see [Create and configure a self-hosted integration runtime](/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability).
 
 - To configure BCDR for Azure-SSIS IR, see [Configure Azure-SSIS integration runtime for business continuity and disaster recovery (BCDR)](/azure/data-factory/configure-bcdr-azure-ssis-integration-runtime).
 
@@ -160,7 +159,7 @@ In general, you need to design your pipelines to include activities, like fail a
    - If the parameters match, this pipeline is running on the primary region. Proceed with the real work.
    - If the parameters don't match, this pipeline is running on the secondary region. Just return the result.
 
-> [!Note]
+> [!NOTE]
 > This approach introduces a dependency on the witness lookup into your pipeline. Failure to read the witness halts all pipeline runs.
 
 ## Contributors
@@ -169,28 +168,25 @@ In general, you need to design your pipelines to include activities, like fail a
 
 Principal authors:
 
-- [Krishnakumar Rukmangathan](https://www.linkedin.com/in/krishnakumar-rukmangathan) | Senior Program Manager - Azure Data Factory team 
+- [Krishnakumar Rukmangathan](https://www.linkedin.com/in/krishnakumar-rukmangathan) | Senior Program Manager - Azure Data Factory team
+- [Sunil Sabat](https://www.linkedin.com/in/sunilsabat) | Principal Program Manager - Azure Data Factory team
 
-- [Sunil Sabat](https://www.linkedin.com/in/sunilsabat) | Principal Program Manager - Azure Data Factory team 
+Other contributors:
 
-Other contributors: 
-
-- [Mario Zimmermann](https://www.linkedin.com/in/mario-zimmermann-11614755) | Principal Software Engineering Manager - Azure Data Factory team 
-
+- [Mario Zimmermann](https://www.linkedin.com/in/mario-zimmermann-11614755) | Principal Software Engineering Manager - Azure Data Factory team
 - [Wee Hyong Tok](https://www.linkedin.com/in/weehyongtok) | Principal Director of PM - Azure Data Factory team
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- [Business continuity management in Azure](/azure/availability-zones/business-continuity-management-program)
-- [Resiliency in Azure](/azure/availability-zones/overview)
-- [Azure resiliency terminology](/azure/availability-zones/glossary)
-- [Regions and availability zones](/azure/availability-zones/az-overview)
-- [Cross-region replication in Azure](/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies)
+- [What are business continuity, high availability, and disaster recovery?](/azure/reliability/concept-business-continuity-high-availability-disaster-recovery)
+- [Reliability in Azure](/azure/reliability/overview)
+- [What are Azure regions?](/azure/reliability/regions-overview)
+- [What are Azure availability zones?](/azure/reliability/availability-zones-overview)
 - [Azure regions decision guide](/azure/cloud-adoption-framework/migrate/azure-best-practices/multiple-regions)
-- [Azure services that support availability zones](/azure/availability-zones/az-region)
-- [Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility)
+- [Azure services that support availability zones](/azure/reliability/availability-zones-region-support)
+- [Shared responsibility for reliability](/azure/reliability/concept-shared-responsibility)
 - [Azure Data Factory data redundancy](/azure/data-factory/concepts-data-redundancy)
 - [Integration runtime in Azure Data Factory](/azure/data-factory/concepts-integration-runtime)
 - [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](https://learn.microsoft.com/azure/data-factory/concepts-pipelines-activities)
@@ -198,9 +194,6 @@ Other contributors: 
 
 ## Related resources
 
-- [Enterprise-scale disaster recovery](../../solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml)
-- [SMB disaster recovery with Azure Site Recovery](../../solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml)
 - [Build high availability into your BCDR strategy](../../solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml)
-- [High availability and disaster recovery scenarios for infrastructure as a service (IaaS) apps](../infrastructure/iaas-high-availability-disaster-recovery.yml)
 - [Choose a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
 - [Business continuity and disaster recovery for Azure Logic Apps](/azure/logic-apps/business-continuity-disaster-recovery-guidance?toc=https:%2f%2flearn.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2flearn.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json)

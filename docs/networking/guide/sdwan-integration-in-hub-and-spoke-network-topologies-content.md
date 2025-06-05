@@ -4,7 +4,7 @@ This article is intended for network architects that want to design Software-def
 
 The recommendations in this article are vendor-agnostic and applicable to any non-Microsoft SD-WAN technology that meets two basic prerequisites:
 
-- Reliance on tunneling protocols that use Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) as the underlying transport, such as being tunnel-mode IPSec ESP with NAT-Traversal.
+- Reliance on tunneling protocols that use Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) as the underlying transport, such as being tunnel-mode IPsec ESP with NAT-Traversal.
 - Border Gateway Protocol (BGP) v4 support for route exchange with external entities. No assumptions are made on the routing protocol used by the non-Microsoft SD-WAN devices to exchange routing information between each other.
 
 Customers who adhere to these recommendations can use their SD-WAN technology of choice to achieve the following goals:
@@ -22,9 +22,9 @@ Organizations with global presence and a multi-region Azure footprint typically 
 
 - Dedicated connectivity services, such as MPLS Internet-Protocol-Virtual-Private-Networks (IPVPNs), can be used at the largest sites, such as datacenters or headquarters.
 - Large sites can include dedicated connectivity to the Microsoft backbone through ExpressRoute circuits, using one of the [supported connectivity models](/azure/expressroute/expressroute-connectivity-models). More specifically, a site can use dedicated point-to-point circuits to connect to the nearest ExpressRoute peering location. Or it can apply its MPLS IPVPN to access ExpressRoute circuits provided by the MPLS carrier.
-- Branch offices that only have internet connectivity might use IPSec VPNs to connect to the closest on-premises datacenter and use that datacenter's ExpressRoute connection to access Azure resources. Or they might use IPSec VPNs to directly connect to Azure hub and spoke networks.
+- Branch offices that only have internet connectivity might use IPsec VPNs to connect to the closest on-premises datacenter and use that datacenter's ExpressRoute connection to access Azure resources. Or they might use IPsec VPNs to directly connect to Azure hub and spoke networks.
 
-SD-WAN projects can have different scopes in terms of which traditional network services they intend to replace. Some organizations might want to stick to dedicated links or MPLS for large facilities and deploy an SD-WAN only to replace legacy internet-based IPSec VPNs in small sites. Other organizations might want to extend their SD-WAN to MPLS-connected sites and use the existing MPLS network as a high-performance underlay. Finally, some organizations might want to dismiss their MPLS IPVPNs. or any dedicated connectivity service, to embrace the SD-WAN paradigm. In this way, they can build their entire corporate network as a logical overlay on top of public or shared underlays (the public internet and the Microsoft backbone).
+SD-WAN projects can have different scopes in terms of which traditional network services they intend to replace. Some organizations might want to stick to dedicated links or MPLS for large facilities and deploy an SD-WAN only to replace legacy internet-based IPsec VPNs in small sites. Other organizations might want to extend their SD-WAN to MPLS-connected sites and use the existing MPLS network as a high-performance underlay. Finally, some organizations might want to dismiss their MPLS IPVPNs. or any dedicated connectivity service, to embrace the SD-WAN paradigm. In this way, they can build their entire corporate network as a logical overlay on top of public or shared underlays (the public internet and the Microsoft backbone).
 
 The architecture described in this article supports all the scopes listed previously and is based on the following principles:
 
@@ -38,7 +38,7 @@ SD-WAN products can use proprietary protocols and features to detect, once dynam
 The high-level architecture of a global SD-WAN that uses the Microsoft backbone, the public internet, and dedicated ER connections as underlays is shown in the following picture.
 
 :::image type="content" source="images/sdwan-integration-sdwan-high-level-arch.png" alt-text="Diagram that shows the high level SD-WAN architecture." border="false" lightbox="images/sdwan-integration-sdwan-high-level-arch.png#lightbox":::
-*Figure 1: High-level architecture of a global SD-WAN that uses the Microsoft backbone, the public internet and dedicated ER connections as underlays. The black dashed line shows how traffic between two on-premises sites can be routed through SD-WAN NVAs deployed in Azure regions geographically close to the sites. The Microsoft backbone, due to its reach, capacity and "cold potato" routing policy can lead to substantially better/predicatable performance than the public internet, especially for long-haul connections.*
+*Figure 1: High-level architecture of a global SD-WAN that uses the Microsoft backbone, the public internet and dedicated ER connections as underlays. The black dashed line shows how traffic between two on-premises sites can be routed through SD-WAN NVAs deployed in Azure regions geographically close to the sites. The Microsoft backbone, due to its reach, capacity and "cold potato" routing policy can lead to substantially better/predictable performance than the public internet, especially for long-haul connections.*
 
 ## SD-WAN products in Azure hub-and-spoke networks
 
@@ -125,7 +125,7 @@ The architecture described in this article lets customers fully embrace the SD-W
 
 ### Scenario #1: ExpressRoute and SD-WAN coexistence
 
-SD-WAN solutions can coexist with ExpressRoute connectivity when SD-WAN devices are deployed only in a subset of sites. For example, some organizations might deploy SD-WAN solutions as a replacement for traditional IPSec VPNs in sites with internet connectivity only. Then they use MPLS services and ExpressRoute circuits for large sites and datacenters, as shown in the following figure.
+SD-WAN solutions can coexist with ExpressRoute connectivity when SD-WAN devices are deployed only in a subset of sites. For example, some organizations might deploy SD-WAN solutions as a replacement for traditional IPsec VPNs in sites with internet connectivity only. Then they use MPLS services and ExpressRoute circuits for large sites and datacenters, as shown in the following figure.
 
 :::image type="content" source="images/sdwan-integration-expressroute-sdwan-coexistence.png" alt-text="Diagram that shows SD-WAN and ExpressRoute coexistence." border="false" lightbox="images/sdwan-integration-expressroute-sdwan-coexistence.png#lightbox":::
 *Figure 6. SD-WAN solutions can coexist with ExpressRoute connectivity when SD-WAN CPE devices are deployed only in a subset of sites.*
@@ -227,9 +227,9 @@ Principal authors:
 
 ## Next steps
 
-- [Microsoft Well-Architected Framework](/azure/architecture/framework)
+- [Microsoft Well-Architected Framework](/azure/well-architected/)
 
 ## Related resources
 
 - [Connect an on-premises network to Azure using ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover)
-- [Deploy highly available NVAs](/azure/architecture/networking/guide/nva-ha)
+- [Deploy highly available NVAs](/azure/architecture/networking/guide/network-virtual-appliance-high-availability)

@@ -1,35 +1,39 @@
 ---
-author: doodlemania2
-ms.author: adboegli
+author: RobBagby
+ms.author: pnp
 ms.topic: include
-ms.service: architecture-center
 ---
 
 ### Object storage
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Simple Storage Services (S3)](https://aws.amazon.com/s3/) | [Blob storage](/azure/storage/blobs/storage-blobs-introduction) | Object storage service, for use cases including cloud applications, content distribution, backup, archiving, disaster recovery, and big data analytics. |
+| [Simple Storage Services (S3)](https://aws.amazon.com/s3/) | [Blob storage](/azure/storage/blobs/storage-blobs-introduction) | Object storage service for use cases that include cloud applications, content distribution, backup, archive, immutable storage, disaster recovery, and big data analytics. |
 
 ### Virtual server disks
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Elastic Block Store (EBS)](https://aws.amazon.com/ebs/) | [managed disks](https://azure.microsoft.com/services/storage/disks/) | SSD storage optimized for I/O intensive read/write operations. For use as high-performance Azure virtual machine storage. |
+| [Elastic Block Store (EBS)](https://aws.amazon.com/ebs/) | [Managed Disks](https://azure.microsoft.com/services/storage/disks/) | SSD storage that's optimized for I/O-intensive read/write operations. For use as high-performance Azure virtual machine storage. |
+| [Amazon FSX for NetApp ONTAP](https://aws.amazon.com/fsx/netapp-ontap/) iSCSI or NVMe/TCP LUNs | [Azure Elastic SAN](https://azure.microsoft.com/products/storage/elastic-san/?msockid=20b4ccc8ef0360d20a2dd85cee9a6140) |  Storage area network (SAN) capabilities in the cloud. Uses industry-standard storage protocols. |
 
 ### Shared files
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Elastic File System](https://aws.amazon.com/efs/) | [Files](https://azure.microsoft.com/services/storage/files/) | Provides a simple interface to create and configure file systems quickly, and share common files. Can be used with traditional protocols that access files over a network. |
+| [Elastic File System](https://aws.amazon.com/efs/) | [Files](https://azure.microsoft.com/services/storage/files/) | Provides a simple interface for creating and configuring file systems quickly and sharing common files. Supports NFS protocol for connectivity. |
+| [Amazon FSx for Windows File Server](https://aws.amazon.com/fsx/windows/) | [Files](https://azure.microsoft.com/services/storage/files/) | Provides a managed SMB file share that can work with Active Directory for access control. Azure Files can also natively integrate with Microsoft Entra ID. |
+| [Amazon FSx for Lustre](https://aws.amazon.com/fsx/lustre/) | [Azure Managed Lustre](https://azure.microsoft.com/products/managed-lustre/) | Provides a managed Lustre file system that integrates with object storage. Primary use cases include HPC, machine learning, and analytics. |
+| [Amazon FSx for NetApp ONTAP](https://aws.amazon.com/fsx/netapp-ontap/) | [Azure NetApp Files](https://azure.microsoft.com/products/netapp/) | Provides managed NetApp capabilities in the cloud. Includes dual-protocol high-performance file storage. |
 
 ### Archiving and backup
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | [S3 Infrequent Access (IA)](https://aws.amazon.com/s3/storage-classes) | [Storage cool tier](/azure/storage/blobs/access-tiers-overview) | Cool storage is a lower-cost tier for storing data that is infrequently accessed and long-lived. |
-| [S3 Glacier](https://aws.amazon.com/s3/storage-classes), Deep Archive | [Storage archive access tier](/azure/storage/blobs/access-tiers-overview) | Archive storage has the lowest storage cost and higher data retrieval costs compared to hot and cool storage. |
-| [Backup](https://aws.amazon.com/backup/) | [Backup](https://azure.microsoft.com/services/backup/) | Back up and recover files and folders from the cloud, and provide offsite protection against data loss. |
+| [S3 Glacier](https://aws.amazon.com/s3/storage-classes)| [Cold access storage tier](/azure/storage/blobs/access-tiers-overview) | Cold storage has lower storage costs and higher access costs. Access times remain in the milliseconds. |
+| [S3 Glacier Deep Archive](https://aws.amazon.com/s3/storage-classes) | [Storage archive access tier](/azure/storage/blobs/access-tiers-overview) | Archive storage has the lowest storage cost and higher data retrieval costs. It can take hours to retrieve data.|
+| [Backup](https://aws.amazon.com/backup/) | [Backup](https://azure.microsoft.com/services/backup/) | This option is used to back up and recover files, databases, disks, and virtual machines. Azure Backup also supports backing up compatible on-premises Windows systems. |
 
 ### Hybrid storage
 
@@ -45,16 +49,4 @@ ms.service: architecture-center
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | [Import/Export Disk](https://aws.amazon.com/snowball/disk/details/) | [Import/Export](/azure/storage/common/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
-| [Import/Export Snowball](https://aws.amazon.com/snowball/), [Snowball Edge](https://aws.amazon.com/snowball-edge/), [Snowmobile](https://aws.amazon.com/snowmobile/) | [Data Box](https://azure.microsoft.com/services/storage/databox/) | Petabyte- to exabyte-scale data transport solution that uses secure data storage devices to transfer large amounts of data to and from Azure. |
-
-#### Storage architectures
-
-<ul class="grid">
-
-[!INCLUDE [HIPAA and HITRUST compliant health data AI](../../includes/cards/security-compliance-blueprint-hipaa-hitrust-health-data-ai.md)]
-[!INCLUDE [Media Rendering – HPC Solution Architecture](../../includes/cards/azure-batch-rendering.md)]
-[!INCLUDE [Medical Data Storage Solutions](../../includes/cards/medical-data-storage.md)]
-
-</ul>
-
-[view all](/azure/architecture/browse/#storage)
+| [Snowball Edge](https://aws.amazon.com/snowball-edge/) | [Data Box](https://azure.microsoft.com/services/storage/databox/) | Petabyte-scale to exabyte-scale data transport solution that uses enhanced-security data storage devices to transfer large amounts of data to and from Azure. |

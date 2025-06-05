@@ -6,8 +6,8 @@ categories: networking
 ms.author: allensu
 ms.date: 11/30/2023
 ms.topic: reference-architecture
-ms.service: architecture-center
 ms.subservice: reference-architecture
+ms.custom: arb-containers
 ms.category:
   - management-and-governance
 azureCategories:
@@ -20,7 +20,7 @@ products:
 
 # Operations for mission-critical workloads on Azure
 
-Like with any application, change will occur in your mission-critical workloads. The application will evolve over time, keys will expire, patches will be released, and more. All changes and maintenance should be applied using deployment pipelines. This article provides operational guidance for making common changes and updates.
+Like with any application, change occurs in your mission-critical workloads. The application will evolve over time, keys will expire, patches will be released, and more. All changes and maintenance should be applied using deployment pipelines. This article provides operational guidance for making common changes and updates.
 
 Organizational alignment is equally important to operation procedures. It's crucial for the operational success of a mission-critical workload that the end-to-end responsibilities fall within a single team, the DevOps team.
 
@@ -30,7 +30,7 @@ The following sections describe approaches to handling different types of change
 
 ## Application automation
 
-Continuous Integration and Continuous Deployment (CI/CD) enables the proper deployment and verification of mission-critical workloads. CI/CD is the preferred approach to deploy changes to any environment, Dev/Test, production, and others. For mission-critical workloads, the changes listed below should result in the deployment of an entirely new stamp. The new stamp should be thoroughly tested as part of the release process before traffic is routed to the stamp via a blue/green deployment strategy.
+Continuous Integration and Continuous Deployment (CI/CD) enables the proper deployment and verification of mission-critical workloads. CI/CD is the preferred approach to deploy changes to any environment, Dev/Test, production, and others. For mission-critical workloads, the changes listed in the following section should result in the deployment of an entirely new stamp. The new stamp should be thoroughly tested as part of the release process before traffic is routed to the stamp via a blue/green deployment strategy.
 
 The following sections describe changes that should be implemented, where possible, through CI/CD.
 
@@ -54,12 +54,14 @@ For mission-critical applications, it's critical that source code and dependenci
 - JavaScript Node Package Manager packages
 - Terraform Provider
 
-The following is an example of automating library updates using [dependabot](https://github.com/dependabot) in a GitHub repository.
+The following scenario is an example of automating library updates using [dependabot](https://github.com/dependabot) in a GitHub repository.
 
 1. Dependabot detects updates of libraries and SDK used in application code
-2. Dependabot updates the application code in a branch and creates a pull request (PR) with those changes against the main branch. The PR contains all relevant information and is ready for final review.
+
+1. Dependabot updates the application code in a branch and creates a pull request (PR) with those changes against the main branch. The PR contains all relevant information and is ready for final review.
    :::image type="content" source="./images/mission-critical-operations-dependabot.png" alt-text="Screenshot of a pull request generated from dependabot." lightbox="./images/mission-critical-operations-dependabot.png":::
-3. When code review and testing are done, the PR can be merged to the main branch.
+
+1. When code review and testing are done, the PR can be merged to the main branch.
 
 For dependencies dependabot isn't able to monitor, ensure that you have processes in place to detect new releases.
 
@@ -69,12 +71,13 @@ Rotating (renewing) keys and secrets should be a standard procedure in any workl
 
 Because expired or invalid secrets can cause outages to the application [(see Failure Analysis)](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling#failure-analysis), it's important to have a clearly defined and proven process in place. For Azure Mission-Critical, stamps are only expected to live for a few weeks. Because of that, rotating secrets of stamp resources isn't a concern. If secrets in one stamp expire, the application as a whole would continue to function.
 
-Management of secrets to access long-living global resources, however, are critical. A notable example is the Azure Cosmos DB API keys. If Azure Cosmos DB API keys expire, all stamps will be affected simultaneously and cause a complete outage of the application.
+Management of secrets to access long-living global resources, however, are critical. A notable example is the Azure Cosmos DB API keys. If Azure Cosmos DB API keys expire, all stamps are affected simultaneously and cause a complete outage of the application.
 
-The following is Azure mission critical tested and documented approach for rotating Azure Cosmos DB keys without causing downtime to services running in Azure Kubernetes Service.
+The following approach is an Azure mission critical tested and documented approach for rotating Azure Cosmos DB keys without causing downtime to services running in Azure Kubernetes Service.
 
-1. Update stamps with secondary key. By default, the primary API key for Azure Cosmos DB is stored as a secret in Azure Key Vault in each stamp. Create a PR that updates the IaC template code to use the secondary Azure Cosmos DB API key. Run this change through the normal PR review and update procedure to get deployed as a new release or as a hotfix.
-2. (optional) If the update was deployed as a hotfix to an existing release, the pods will automatically pick up the new secret from Azure Key Vault after a few minutes. However, the Azure Cosmos DB client code does currently not reinitialize with a changed key. To resolve this issue, restart all pods manually using the following commands on the clusters:
+1. Update stamps with secondary key. By default, the primary API key for Azure Cosmos DB is stored as a secret in Azure Key Vault in each stamp. Create a PR that updates the IaC template code that uses the secondary Azure Cosmos DB API key. Run this change through the normal PR review and update procedure to get deployed as a new release or as a hotfix.
+
+1. (optional) If the update was deployed as a hotfix to an existing release, the pods will automatically pick up the new secret from Azure Key Vault after a few minutes. However, the Azure Cosmos DB client code does currently not reinitialize with a changed key. To resolve this issue, restart all pods manually using the following commands on the clusters:
 
    ```bash
    kubectl rollout restart deployment/CatalogService-deploy -n workload
@@ -82,14 +85,15 @@ The following is Azure mission critical tested and documented approach for rotat
    kubectl rollout restart deployment/healthservice-deploy -n workload
    ```
 
-3. Newly deployed or restarted pods will now use the secondary API key for the connection to Azure Cosmos DB.
-4. Once all pods on all stamps are restarted, or a new stamp has been deployed, regenerate the primary API key for Azure Cosmos DB. Here's an example for the command:
+1. Newly deployed or restarted pods now use the secondary API key for the connection to Azure Cosmos DB.
+
+1. Once all pods on all stamps are restarted, or a new stamp is deployed, regenerate the primary API key for Azure Cosmos DB. Here's an example for the command:
 
    ```Bash
    az cosmosdb keys regenerate --key-kind primary --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup
    ```
 
-5. Change the IaC template back to use the primary API key for future deployments. Alternatively, you can continue to use the secondary key and switch back to the primary API key when to the time comes to renew the secondary.
+1. Change the IaC template to use the primary API key for future deployments. Alternatively, you can keep using the secondary key and switch back to the primary API key when it's time to renew the secondary.
 
 ### Alerts
 
@@ -103,11 +107,11 @@ Many platforms and services running on Azure provide automation for common opera
 
 As part of the application design, the scale requirements that define a scale-unit for the stamp as a whole should be determined. The individual services within the stamp need to be able to scale out to meet peak demand or scale in to save money or resources.
 
-Services that don't have enough resources can exhibit different side effects, including the following:
+Services that don't have enough resources can exhibit different side effects, including the following list:
 
-- An insufficient number of pods processing messages from a queue/topic/partition will result in a growing number of unprocessed messages. This is sometimes referred to as a growing queue depth.
-- Insufficient resources on an AKS node can result in pods not being able to run.
-- The following will result in throttled requests:
+- An insufficient number of pods processing messages from a queue/article/partition results in a growing number of unprocessed messages. This outcome is sometimes referred to as a growing queue depth.
+- Insufficient resources on an Azure Kubernetes Service node can result in pods not being able to run.
+- The following outcome results in throttled requests:
   - Insufficient Request Units (RUs) for Azure Cosmos DB
   - Insufficient processing units (PUs) for Event Hubs premium or throughput units (TUs) for standard
   - Insufficient Messaging Units (MUs) for Service Bus premium tier
@@ -134,7 +138,7 @@ There are operational activities that require manual intervention. These process
 
 ### Dead-lettered messages
 
-Messages that can't be processed should be routed to a dead-letter queue with an alert configured for that queue. These messages usually require manual intervention to understand and mitigate the issue. You should build the ability to view, update and replay dead-lettered messages.
+Messages that can't be processed should be routed to a dead-letter queue with an alert configured for that queue. These messages usually require manual intervention to understand and mitigate the issue. You should build the ability to view, update, and replay dead-lettered messages.
 
 ### Azure Cosmos DB restore
 
@@ -143,21 +147,21 @@ Restoring from a periodic backup can only be accomplished via a support case. Th
 
 ### Quota increases
 
-Azure subscriptions have quota limits. Deployments can fail when these limits are reached. Some quotas are adjustable. For adjustable quotas, you can request an increase from the <b>My quotas</b> page on the Azure portal. For non-adjustable quotas you, need to submit a support request. The Azure support team will work with you to find a solution.
+Azure subscriptions have quota limits. Deployments can fail when these limits are reached. Some quotas are adjustable. For adjustable quotas, you can request an increase from the <b>My quotas</b> page on the Azure portal. For nonadjustable quotas you, need to submit a support request. The Azure support team works with you to find a solution.
 
 > [!IMPORTANT]
 > See [Operational procedures for mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures) for operational design considerations and recommendations.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*Microsoft maintains this article. The following contributors wrote this article.* 
 
 Principal authors:
 
  - [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Content Developer
  - [Allen Sudbring](https://www.linkedin.com/in/allen-sudbring-9163171/) | Senior Content Developer
  
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Quantum computing integration with classical apps
-  titleSuffix: Azure Example Scenarios
   description:  Learn how to use Azure Quantum to implement hybrid quantum applications
   author: hsirtl
   ms.author: hsirtl
-  ms.date: 03/16/2023
+  ms.date: 06/07/2024
   ms.topic: example-scenario
-  ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp 
 azureCategories:

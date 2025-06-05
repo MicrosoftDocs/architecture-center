@@ -19,16 +19,6 @@
             ]
         },
         {
-            "heading": "Examples of microservices architectures",
-            "cards": [
-                {
-                    "title": "Scalable order processing on Azure",
-                    "url": "../example-scenario/data/ecommerce-order-processing.md",
-                    "summary":"Order processing using a functional programming model implemented via microservices."
-                }
-            ]
-        },
-        {
             "heading": "Build a microservices application",
             "cards": [
                 {
@@ -61,11 +51,6 @@
         {
             "heading": "Operate microservices in production",
             "cards": [
-                {
-                    "title": "Logging and monitoring",
-                    "url": "./logging-monitoring.md",
-                    "summary": "The distributed nature of microservices architectures makes logging and monitoring especially critical."
-                },
                 {
                     "title": "Continuous integration and deployment",
                     "url": "./ci-cd.md",

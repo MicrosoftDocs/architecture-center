@@ -1,19 +1,18 @@
 ### YamlMime:Architecture
 metadata:
   title: WordPress on Azure
-  titleSuffix: Azure Architecture Center
   description: Learn about multiple options for hosting WordPress on Azure. See guidance and tips for deploying a secure, scalable, and cost-effective WordPress installation.
   author: vjirovsky
   ms.author: pnp
   ms.date: 06/30/2023
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.subservice: architecture-guide
   ms.category:
     - web
   ms.custom:
     - web-apps
     - scalability
+    - arb-web
 name: WordPress on Azure
 azureCategories:
   - web

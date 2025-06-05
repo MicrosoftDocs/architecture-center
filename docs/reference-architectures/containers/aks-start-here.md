@@ -1,25 +1,21 @@
 ---
 title: Azure Kubernetes Service (AKS) - planning
-titleSuffix: Azure Architecture Center
 description: An overview of Microsoft Azure Kubernetes Service (AKS) guidance offerings ranging from &quot;just starting out&quot;, to production, and through sustained operations.
-author: ckittel
-ms.author: chkittel
-ms.date: 12/13/2023
-ms.topic: reference-architecture
-ms.service: architecture-center
-ms.subservice: reference-architecture
+author: francisnazareth
+ms.author: fnazaret
+ms.date: 07/30/2024
+ms.topic: conceptual
+ms.subservice: architecture-guide
 categories:
   - containers
 products:
   - azure-kubernetes-service
-ms.custom:
-  - overview
-  - e2e-aks
+ms.custom: arb-containers
 ---
 
 # Azure Kubernetes Service (AKS) - Plan your design and operations
 
-Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. [Azure Kubernetes Service (AKS)](/azure/aks/) makes it simple to deploy a managed Kubernetes cluster in Azure.
+Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. [Azure Kubernetes Service (AKS)](/azure/aks/) is the recommended way to deploy a managed Kubernetes cluster in Azure.
 
 Organizations are at various points in their understanding, rationalizing, and adoption of Kubernetes on Azure. Your organization's journey will likely follow a similar path to many other technologies you've adopted; learning, aligning your organization around roles &amp; responsibilities, and deploying production-ready workloads. From there, you'll iterate; growing your product as your customer and business demands change.
 
@@ -34,18 +30,18 @@ If you're new to Kubernetes or AKS, the best place to learn about the service is
 
 ## Path to production
 
-You understand the benefits and trade-offs of Kubernetes, and have decided that AKS is the best Azure compute platform for your workload. Your organizational controls have been put into place; you're ready to learn how to deploy production-ready clusters for your workload.
+You understand the benefits and trade-offs of Kubernetes, and have decided that AKS is the best Azure compute platform for your workload. Your organizational policies for this technology have been established; you're ready to learn how to deploy production-ready clusters for your workload.
 
-**Microsoft's AKS Baseline Cluster** is the starting point to help you build production-ready AKS clusters.
+**Microsoft's AKS baseline cluster** is the recommended starting point to help you design a production-ready AKS cluster.
 
 > [!div class="nextstepaction"]
-> [Microsoft's AKS Baseline Cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
+> [Microsoft's AKS baseline cluster](./aks/baseline-aks.yml)
 
-We recommend you start from the baseline implementation and modify it to align to your workload's specific needs.
+We recommend you start your design from the baseline implementation and modify it to align to your workload's specific needs.
 
 ## Suite of baseline implementations
 
-We've provided a set of more baseline implementations to illustrate how you can adopt and configure components of AKS Baseline Cluster for various scenarios.
+We've provided a set of more baseline implementations to illustrate how you can adopt and configure components of the AKS baseline cluster for various scenarios.
 
 ### Microservices
 
@@ -79,14 +75,14 @@ As part of ongoing operations, you might want to spot check your cluster against
 
 See [Best Practices for Cluster Operations](/azure/aks/best-practices) and [Best Practices for AKS Workloads](/azure/aks/best-practices#developer-best-practices).
 
-> You may also consider evaluating a community-driven utility like [The AKS Checklist](https://www.the-aks-checklist.com) as a way of organizing and tracking your alignment to these best practices.
+> You might also consider evaluating a community-driven utility like [The AKS Checklist](https://www.the-aks-checklist.com) as a way of organizing and tracking your alignment to these best practices.
 
 ## Operations guide
 
-Getting your workload deployed on AKS is a great milestone and this is when [day-2 operations](https://dzone.com/articles/defining-day-2-operations) are going to be top-of-mind. **Microsoft's AKS Day 2 Operations Guide** was built for your ease of reference. This will help ensure you are ready to meet the demands of your customers and ensure you are prepared for break-fix situations via optimized triage processes.
+Getting your workload deployed on AKS is a great milestone and this is when [day-2 operations](https://dzone.com/articles/defining-day-2-operations) are going to be top-of-mind. **Microsoft's AKS day-2 operations guide** was built for your ease of reference. This will help ensure you are ready to meet the demands of your customers and ensure you are prepared for break-fix situations via optimized triage processes.
 
 > [!div class="nextstepaction"]
-> [Microsoft's AKS Day 2 Operations Guide](../../operator-guides/aks/day-2-operations-guide.md)
+> [Azure Kubernetes Services (AKS) day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
 
 ## Stay current with AKS
 
@@ -103,15 +99,14 @@ The typical AKS solution journey shown ranges from learning about AKS to growing
 
 ### Example solutions
 
-If you're seeking additional references that use AKS as their foundation, here are a few to consider.
+If you're seeking additional references that use AKS as their foundation, here are two to consider.
 
 * [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-* [Building a telehealth system](../../example-scenario/apps/telehealth-system.yml)
-* [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
+* [Blue-green deployment of AKS clusters](../../guide/aks/blue-green-deployment-for-aks.yml)
 
 ### Azure Arc-enabled Kubernetes
 
-Azure Kubernetes Service offers you a managed Kubernetes experience on Azure, however there are workloads or situations that might be best suited for placing your own Kubernetes clusters under [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes) management. This includes your clusters such as RedHat OpenShift, RedHat RKE, and Canonical Charmed Kubernetes. Azure Arc management can also be used with [Kubernetes Cluster API Provider Azure](https://github.com/kubernetes-sigs/cluster-api-provider-azure) clusters to benefit from the Azure Resource Manager representation of the cluster and availability of cluster extensions like Azure Monitor container insights and Azure Policy. Azure Arc-enabled Kubernetes can also be used with [AKS on Azure Stack HCI clusters](/azure-stack/aks-hci/connect-to-arc) and with Kubernetes clusters running on other cloud providers.
+Azure Kubernetes Service (AKS) offers you a managed Kubernetes experience on Azure, however there are workloads or situations that might be best suited for placing your own Kubernetes clusters under [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) management. This includes your clusters such as RedHat OpenShift, RedHat RKE, and Canonical Charmed Kubernetes. Azure Arc management can also be used with [Kubernetes Cluster API Provider Azure](https://capz.sigs.k8s.io/) clusters to benefit from the Azure Resource Manager representation of the cluster and availability of cluster extensions like Azure Monitor container insights and Azure Policy. Azure Arc-enabled Kubernetes can also be used with [AKS on Azure local instances](/azure/aks/hybrid/connect-to-arc) and with Kubernetes clusters running on other cloud providers.
 
 > [!div class="nextstepaction"]
 > [Azure Arc-enabled Kubernetes](/Azure/azure-arc/kubernetes/overview)
@@ -121,11 +116,12 @@ Azure Kubernetes Service offers you a managed Kubernetes experience on Azure, ho
 If you're a managed service provider, you already use Azure Lighthouse to manage resources for multiple customers. Azure Kubernetes Service supports Azure Lighthouse so that you can manage hosted Kubernetes environments and deploy containerized applications within your customers' tenants.
 
 > [!div class="nextstepaction"]
-> [AKS with Azure Lighthouse](/azure/lighthouse/overview)
+> [AKS with Azure Lighthouse](/azure/lighthouse/how-to/manage-hybrid-infrastructure-arc#manage-hybrid-kubernetes-clusters-at-scale-with-azure-arc-enabled-kubernetes)
 
 ### AWS or Google Cloud professionals
 
 These articles provide service mapping and comparison between Azure and other cloud services. This reference can help you ramp up quickly on Azure.
 
 * [Containers and container orchestrators for AWS Professionals](../../aws-professional/compute.md#containers-and-container-orchestrators)
+* [AKS for Amazon EKS professionals](../../aws-professional/eks-to-aks/index.md)
 * [Containers and container orchestrators for Google Cloud Professionals](../../gcp-professional/services.md#containers-and-container-orchestrators)

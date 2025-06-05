@@ -8,55 +8,66 @@ These faults are typically self-correcting, and if the action that triggered a f
 
 ## Solution
 
-In the cloud, transient faults aren't uncommon and an application should be designed to handle them elegantly and transparently. This minimizes the effects faults can have on the business tasks the application is performing.
+In the cloud, transient faults should be expected and an application should be designed to handle them elegantly and transparently. Doing so minimizes the effects faults can have on the business tasks the application is performing. The most common design pattern to address is to introduce a retry mechanism.
+
+![Diagram of invoking an operation in a hosted service using the Retry pattern](./_images/retry-pattern.png)
+
+The diagram above illustrates invoking an operation in a hosted service using a retry mechanism. If the request is unsuccessful after a predefined number of attempts, the application should treat the fault as an exception and handle it accordingly.
+
+>[!NOTE]
+>Due to the commonplace nature of transient faults, built-in retry mechanisms are now available in many client libraries and cloud services, with some degree of configurability for the number of maximum retries, the delay between retries, and other parameters. The [Microsoft Entity Framework](/ef) provides facilities to retry [failed database operations](/ef/core/miscellaneous/connection-resiliency).
+
+### Retry strategies
 
 If an application detects a failure when it tries to send a request to a remote service, it can handle the failure using the following strategies:
 
-- **Cancel**. If the fault indicates that the failure isn't transient or is unlikely to be successful if repeated, the application should cancel the operation and report an exception. For example, an authentication failure caused by providing invalid credentials is not likely to succeed no matter how many times it's attempted.
+- **Cancel**. If the fault indicates that the failure isn't transient or is unlikely to be successful if repeated, the application should cancel the operation and report an exception.
 
-- **Retry**. If the specific fault reported is unusual or rare, it might have been caused by unusual circumstances such as a network packet becoming corrupted while it was being transmitted. In this case, the application could retry the failing request again immediately because the same failure is unlikely to be repeated and the request will probably be successful.
+- **Retry immediately**. If the specific fault reported is unusual or rare, like a network packet becoming corrupted while it was being transmitted, the best course of action may be to immediately retry the request.
 
-- **Retry after delay**. If the fault is caused by one of the more commonplace connectivity or busy failures, the network or service might need a short period while the connectivity issues are corrected or the backlog of work is cleared. The application should wait for a suitable time before retrying the request.
-
-For the more common transient failures, the period between retries should be chosen to spread requests from multiple instances of the application as evenly as possible. This reduces the chance of a busy service continuing to be overloaded. If many instances of an application are continually overwhelming a service with retry requests, it'll take the service longer to recover.
-
+- **Retry after delay**. If the fault is caused by one of the more commonplace connectivity or busy failures, the network or service might need a short period while the connectivity issues are corrected or the backlog of work is cleared, so programmatically delaying the retry is a good strategy. In many cases, the period between retries should be chosen to spread requests from multiple instances of the application as evenly as possible to reduce the chance of a busy service continuing to be overloaded.
+ 
 If the request still fails, the application can wait and make another attempt. If necessary, this process can be repeated with increasing delays between retry attempts, until some maximum number of requests have been attempted. The delay can be increased incrementally or exponentially, depending on the type of failure and the probability that it'll be corrected during this time.
 
-The following diagram illustrates invoking an operation in a hosted service using this pattern. If the request is unsuccessful after a predefined number of attempts, the application should treat the fault as an exception and handle it accordingly.
-
-![Figure 1 - Invoking an operation in a hosted service using the Retry pattern](./_images/retry-pattern.png)
-
-The application should wrap all attempts to access a remote service in code that implements a retry policy matching one of the strategies listed above. Requests sent to different services can be subject to different policies. Some vendors provide libraries that implement retry policies, where the application can specify the maximum number of retries, the time between retry attempts, and other parameters.
+The application should wrap all attempts to access a remote service in code that implements a retry policy matching one of the strategies listed above. Requests sent to different services can be subject to different policies. 
 
 An application should log the details of faults and failing operations. This information is useful to operators. That being said, in order to avoid flooding operators with alerts on operations where subsequently retried attempts were successful, it is best to log early failures as *informational entries* and only the failure of the last of the retry attempts as an actual error. Here is an [example of how this logging model would look like](https://docs.particular.net/nservicebus/recoverability/#retry-logging).
 
 If a service is frequently unavailable or busy, it's often because the service has exhausted its resources. You can reduce the frequency of these faults by scaling out the service. For example, if a database service is continually overloaded, it might be beneficial to partition the database and spread the load across multiple servers.
 
-> [Microsoft Entity Framework](/ef) provides facilities for retrying database operations. Also, most Azure services and client SDKs include a retry mechanism. For more information, see [Retry guidance for specific services](../best-practices/retry-service-specific.md).
-
 ## Issues and considerations
 
 You should consider the following points when deciding how to implement this pattern.
+
+### Impact on performance
 
 The retry policy should be tuned to match the business requirements of the application and the nature of the failure. For some noncritical operations, it's better to fail fast rather than retry several times and impact the throughput of the application. For example, in an interactive web application accessing a remote service, it's better to fail after a smaller number of retries with only a short delay between retry attempts, and display a suitable message to the user (for example, &quot;please try again later&quot;). For a batch application, it might be more appropriate to increase the number of retry attempts with an exponentially increasing delay between attempts.
 
 An aggressive retry policy with minimal delay between attempts, and a large number of retries, could further degrade a busy service that's running close to or at capacity. This retry policy could also affect the responsiveness of the application if it's continually trying to perform a failing operation.
 
-If a request still fails after a significant number of retries, it's better for the application to prevent further requests going to the same resource and simply report a failure immediately. When the period expires, the application can tentatively allow one or more requests through to see whether they're successful. For more details of this strategy, see the [Circuit Breaker pattern](./circuit-breaker.yml).
+If a request still fails after a significant number of retries, it's better for the application to prevent further requests going to the same resource and simply report a failure immediately. When the period expires, the application can tentatively allow one or more requests through to see whether they're successful. For more details of this strategy, see the [Circuit Breaker pattern](./circuit-breaker.md).
+
+### Idempotency
 
 Consider whether the operation is idempotent. If so, it's inherently safe to retry. Otherwise, retries could cause the operation to be executed more than once, with unintended side effects. For example, a service might receive the request, process the request successfully, but fail to send a response. At that point, the retry logic might re-send the request, assuming that the first request wasn't received.
 
+### Exception type
+
 A request to a service can fail for a variety of reasons raising different exceptions depending on the nature of the failure. Some exceptions indicate a failure that can be resolved quickly, while others indicate that the failure is longer lasting. It's useful for the retry policy to adjust the time between retry attempts based on the type of the exception.
+
+### Transaction consistency
 
 Consider how retrying an operation that's part of a transaction will affect the overall transaction consistency. Fine tune the retry policy for transactional operations to maximize the chance of success and reduce the need to undo all the transaction steps.
 
-Ensure that all retry code is fully tested against a variety of failure conditions. Check that it doesn't severely impact the performance or reliability of the application, cause excessive load on services and resources, or generate race conditions or bottlenecks.
+## General guidance
 
-Implement retry logic only where the full context of a failing operation is understood. For example, if a task that contains a retry policy invokes another task that also contains a retry policy, this extra layer of retries can add long delays to the processing. It might be better to configure the lower-level task to fail fast and report the reason for the failure back to the task that invoked it. This higher-level task can then handle the failure based on its own policy.
+- Ensure that all retry code is fully tested against a variety of failure conditions. Check that it doesn't severely impact the performance or reliability of the application, cause excessive load on services and resources, or generate race conditions or bottlenecks.
 
-It's important to log all connectivity failures that cause a retry so that underlying problems with the application, services, or resources can be identified.
+- Implement retry logic only where the full context of a failing operation is understood. For example, if a task that contains a retry policy invokes another task that also contains a retry policy, this extra layer of retries can add long delays to the processing. It might be better to configure the lower-level task to fail fast and report the reason for the failure back to the task that invoked it. This higher-level task can then handle the failure based on its own policy.
 
-Investigate the faults that are most likely to occur for a service or a resource to discover if they're likely to be long lasting or terminal. If they are, it's better to handle the fault as an exception. The application can report or log the exception, and then try to continue either by invoking an alternative service (if one is available), or by offering degraded functionality. For more information on how to detect and handle long-lasting faults, see the [Circuit Breaker pattern](./circuit-breaker.yml).
+- Log all connectivity failures that cause a retry so that underlying problems with the application, services, or resources can be identified.
+
+- Investigate the faults that are most likely to occur for a service or a resource to discover if they're likely to be long lasting or terminal. If they are, it's better to handle the fault as an exception. The application can report or log the exception, and then try to continue either by invoking an alternative service (if one is available), or by offering degraded functionality. For more information on how to detect and handle long-lasting faults, see the [Circuit Breaker pattern](./circuit-breaker.md).
 
 ## When to use this pattern
 
@@ -80,88 +91,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-This example in C# illustrates an implementation of the Retry pattern. The `OperationWithBasicRetryAsync` method, shown below, invokes an external service asynchronously through the `TransientOperationAsync` method. The details of the `TransientOperationAsync` method will be specific to the service and are omitted from the sample code.
-
-```csharp
-private int retryCount = 3;
-private readonly TimeSpan delay = TimeSpan.FromSeconds(5);
-
-public async Task OperationWithBasicRetryAsync()
-{
-  int currentRetry = 0;
-
-  for (;;)
-  {
-    try
-    {
-      // Call external service.
-      await TransientOperationAsync();
-
-      // Return or break.
-      break;
-    }
-    catch (Exception ex)
-    {
-      Trace.TraceError("Operation Exception");
-
-      currentRetry++;
-
-      // Check if the exception thrown was a transient exception
-      // based on the logic in the error detection strategy.
-      // Determine whether to retry the operation, as well as how
-      // long to wait, based on the retry strategy.
-      if (currentRetry > this.retryCount || !IsTransient(ex))
-      {
-        // If this isn't a transient error or we shouldn't retry,
-        // rethrow the exception.
-        throw;
-      }
-    }
-
-    // Wait to retry the operation.
-    // Consider calculating an exponential delay here and
-    // using a strategy best suited for the operation and fault.
-    await Task.Delay(delay);
-  }
-}
-
-// Async method that wraps a call to a remote service (details not shown).
-private async Task TransientOperationAsync()
-{
-  ...
-}
-```
-
-The statement that invokes this method is contained in a try/catch block wrapped in a for loop. The for loop exits if the call to the `TransientOperationAsync` method succeeds without throwing an exception. If the `TransientOperationAsync` method fails, the catch block examines the reason for the failure. If it's believed to be a transient error the code waits for a short delay before retrying the operation.
-
-The for loop also tracks the number of times that the operation has been attempted, and if the code fails three times the exception is assumed to be more long lasting. If the exception isn't transient or it's long lasting, the catch handler throws an exception. This exception exits the for loop and should be caught by the code that invokes the `OperationWithBasicRetryAsync` method.
-
-The `IsTransient` method, shown below, checks for a specific set of exceptions that are relevant to the environment the code is run in. The definition of a transient exception will vary according to the resources being accessed and the environment the operation is being performed in.
-
-```csharp
-private bool IsTransient(Exception ex)
-{
-  // Determine if the exception is transient.
-  // In some cases this is as simple as checking the exception type, in other
-  // cases it might be necessary to inspect other properties of the exception.
-  if (ex is OperationTransientException)
-    return true;
-
-  var webException = ex as WebException;
-  if (webException != null)
-  {
-    // If the web exception contains one of the following status values
-    // it might be transient.
-    return new[] {WebExceptionStatus.ConnectionClosed,
-                  WebExceptionStatus.Timeout,
-                  WebExceptionStatus.RequestCanceled }.
-            Contains(webException.Status);
-  }
-
-  // Additional exception checking logic goes here.
-  return false;
-}
-```
+Refer to the [Implement a retry policy with .NET](/azure/storage/blobs/storage-retry-policy) guide for a detailed example using the Azure SDK with built-in retry mechanism support.
 
 ## Next steps
 
@@ -171,8 +101,8 @@ private bool IsTransient(Exception ex)
 
 ## Related resources
 
-- [Reliable web app pattern](../web-apps/guides/reliable-web-app/overview.md) shows you how to apply the retry pattern to web applications converging on the cloud.
+- [Reliable web app pattern](../web-apps/guides/enterprise-app-patterns/overview.md#reliable-web-app-pattern) shows you how to apply the retry pattern to web applications converging on the cloud.
 
-- For most Azure services, the client SDKs include built-in retry logic. For more information, see [Retry guidance for Azure services](../best-practices/retry-service-specific.md).
+- For most Azure services, the client SDKs include built-in retry logic.
 
-- [Circuit Breaker pattern](./circuit-breaker.yml). If a failure is expected to be more long lasting, it might be more appropriate to implement the Circuit Breaker pattern. Combining the Retry and Circuit Breaker patterns provides a comprehensive approach to handling faults.
+- [Circuit Breaker pattern](./circuit-breaker.md). If a failure is expected to be more long lasting, it might be more appropriate to implement the Circuit Breaker pattern. Combining the Retry and Circuit Breaker patterns provides a comprehensive approach to handling faults.

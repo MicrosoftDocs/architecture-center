@@ -2,15 +2,10 @@
 title: Failure mode analysis
 description: Get information about doing a failure mode analysis (FMA) for cloud solutions that are based on Azure.
 author: claytonsiemens77
-ms.author: csiemens
+ms.author: pnp
 ms.date: 07/25/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: well-architected
-azureCategories: management-and-governance
-categories: management-and-governance
-products:
-  - azure-app-service
+ms.subservice: architecture-guide
 ms.custom:
   - resiliency
   - article
@@ -26,12 +21,15 @@ Here is the general process to conduct an FMA:
 2. For each component, identify potential failures that could occur. A single component may have more than one failure mode. For example, you should consider read failures and write failures separately, because the impact and possible mitigation steps will be different.
 3. Rate each failure mode according to its overall risk. Consider these factors:
 
-   - What is the likelihood of the failure. Is it relatively common? Extremely rare? You don't need exact numbers; the purpose is to help rank the priority.
+   - What is the likelihood of the failure? Is it relatively common? Extremely rare? You don't need exact numbers; the purpose is to help rank the priority.
    - What is the impact on the application, in terms of availability, data loss, monetary cost, and business disruption?
 
 4. For each failure mode, determine how the application will respond and recover. Consider tradeoffs in cost and application complexity.
 
-As a starting point for your FMA process, this article contains a catalog of potential failure modes and their mitigation steps. The catalog is organized by technology or Azure service, plus a general category for application-level design. The catalog is not exhaustive, but covers many of the core Azure services.
+As a starting point for your FMA process, this article contains a catalog of potential failure modes and their mitigation steps. The catalog is organized by technology or Azure service, plus a general category for application-level design. The catalog isn't exhaustive, but covers many of the core Azure services.
+
+> [!NOTE]
+> Failures should be distinguished from errors. A failure is an unexpected event within a system that prevents it from continuing to function normally. For example, a hardware malfunction that causes a network partition is a failure. Usually, failures require intervention or specific design for that class of failures. In contrast, errors are an expected part of normal operations, are dealt with immediately and the system will continue to operate at the same capacity following an error. For example, errors discovered during input validation can be handled through business logic.
 
 ## App Service
 
@@ -54,7 +52,7 @@ Application_End logging will catch the app domain shutdown (soft process crash) 
 **Recovery:**
 
 - If the shutdown was expected, use the application's shutdown event to shut down gracefully. For example, in ASP.NET, use the `Application_End` method.
-- If the application was unloaded while idle, it is automatically restarted on the next request. However, you will incur the "cold start" cost.
+- If the application was unloaded while idle, it is automatically restarted on the next request. However, you'll incur the "cold start" cost.
 - To prevent the application from being unloaded while idle, enable the `Always On` setting in the web app. See [Configure web apps in Azure App Service][app-service-configure].
 - To prevent an operator from shutting down the app, set a resource lock with `ReadOnly` level. See [Lock resources with Azure Resource Manager][rm-locks].
 - If the app crashes or an App Service VM becomes unavailable, App Service automatically restarts the app.
@@ -86,9 +84,9 @@ Application_End logging will catch the app domain shutdown (soft process crash) 
 
 **Detection**. Possible failure modes include:
 
-1. Microsoft Entra ID is not available, or cannot be reached due to a network problem. Redirection to the authentication endpoint fails, and the OpenID Connect middleware throws an exception.
+1. Microsoft Entra ID isn't available, or can't be reached due to a network problem. Redirection to the authentication endpoint fails, and the OpenID Connect middleware throws an exception.
 2. Microsoft Entra tenant does not exist. Redirection to the authentication endpoint returns an HTTP error code, and the OpenID Connect middleware throws an exception.
-3. User cannot authenticate. No detection strategy is necessary; Microsoft Entra ID handles login failures.
+3. User can't authenticate. No detection strategy is necessary; Microsoft Entra ID handles login failures.
 
 **Recovery:**
 
@@ -97,9 +95,9 @@ Application_End logging will catch the app domain shutdown (soft process crash) 
 3. Redirect the user to an error page.
 4. User retries.
 
-## Azure Search
+## Azure AI Search
 
-### Writing data to Azure Search fails.
+### Writing data to Azure AI Search fails.
 
 **Detection**. Catch `Microsoft.Rest.Azure.CloudException` errors.
 
@@ -111,7 +109,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 **Diagnostics**. Use [Search Traffic Analytics][search-analytics].
 
-### Reading data from Azure Search fails.
+### Reading data from Azure AI Search fails.
 
 **Detection**. Catch `Microsoft.Rest.Azure.CloudException` errors.
 
@@ -137,14 +135,6 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 **Diagnostics**. Application logs
 
-## Cloud Service
-
-### Web or worker roles are unexpectedly  being shut down.
-
-**Detection**. The [RoleEnvironment.Stopping][RoleEnvironment.Stopping] event is fired.
-
-**Recovery**. Override the [RoleEntryPoint.OnStop][RoleEntryPoint.OnStop] method to gracefully clean up. For more information, see [The Right Way to Handle Azure OnStop Events][onstop-events] (blog).
-
 ## Azure Cosmos DB
 
 ### Reading data fails.
@@ -154,8 +144,8 @@ The default retry policy uses exponential back-off. To use a different retry pol
 **Recovery:**
 
 - The SDK automatically retries failed attempts. To set the number of retries and the maximum wait time, configure `ConnectionPolicy.RetryOptions`. Exceptions that the client raises are either beyond the retry policy or are not transient errors.
-- If Azure Cosmos DB throttles the client, it returns an HTTP 429 error. Check the status code in the `DocumentClientException`. If you are getting error 429 consistently, consider increasing the throughput value of the collection.
-  - If you are using the MongoDB API, the service returns error code 16500 when throttling.
+- If Azure Cosmos DB throttles the client, it returns an HTTP 429 error. Check the status code in the `DocumentClientException`. If you're getting error 429 consistently, consider increasing the throughput value of the collection.
+  - If you're using the MongoDB API, the service returns error code 16500 when throttling.
 - Enable zone redundancy when you work with a region that supports availability zones. When you use zone redundancy, Azure Cosmos DB automatically fails over in the event of a zone outage. For more information, see [Achieve high availability with Azure Cosmos DB](/azure/cosmos-db/high-availability).
 - If you're designing a multi-region solution, replicate the Azure Cosmos DB database across two or more regions. All replicas are readable. Using the client SDKs, specify the `PreferredLocations` parameter. This is an ordered list of Azure regions. All reads will be sent to the first available region in the list. If the request fails, the client will try the other regions in the list, in order. For more information, see [How to set up global distribution in Azure Cosmos DB for NoSQL][cosmos-db-multi-region].
 
@@ -168,7 +158,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 **Recovery:**
 
 - The SDK automatically retries failed attempts. To set the number of retries and the maximum wait time, configure `ConnectionPolicy.RetryOptions`. Exceptions that the client raises are either beyond the retry policy or are not transient errors.
-- If Azure Cosmos DB throttles the client, it returns an HTTP 429 error. Check the status code in the `DocumentClientException`. If you are getting error 429 consistently, consider increasing the throughput value of the collection.
+- If Azure Cosmos DB throttles the client, it returns an HTTP 429 error. Check the status code in the `DocumentClientException`. If you're getting error 429 consistently, consider increasing the throughput value of the collection.
 - Enable zone redundancy when you work with a region that supports availability zones. When you use zone redundancy, Azure Cosmos DB synchronously replicates all writes across availability zones. For more information, see [Achieve high availability with Azure Cosmos DB](/azure/cosmos-db/high-availability).
 - If you're designing a multi-region solution, replicate the Azure Cosmos DB database across two or more regions. If the primary region fails, another region will be promoted to write. You can also trigger a failover manually. The SDK does automatic discovery and routing, so application code continues to work after a failover. During the failover period (typically minutes), write operations will have higher latency, as the SDK finds the new write region. For more information, see [How to set up global distribution in Azure Cosmos DB for NoSQL][cosmos-db-multi-region].
 - As a fallback, persist the document to a backup queue, and process the queue later.
@@ -199,7 +189,7 @@ Move the message to a separate queue. Run a separate process to examine the mess
 Consider using Azure Service Bus Messaging queues, which provides a [dead-letter queue][sb-dead-letter-queue] functionality for this purpose.
 
 > [!NOTE]
-> If you are using Storage queues with WebJobs, the WebJobs SDK provides built-in poison message handling. See [How to use Azure queue storage with the WebJobs SDK][sb-poison-message].
+> If you're using Storage queues with WebJobs, the WebJobs SDK provides built-in poison message handling. See [How to use Azure queue storage with the WebJobs SDK][sb-poison-message].
 
 **Diagnostics**. Use application logging.
 
@@ -211,7 +201,7 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 
 **Recovery:**
 
-1. Retry on transient failures. Azure Cache for Redis supports built-in retry. For more information, see [Azure Cache for Redis retry guidelines][redis-retry].
+1. Retry on transient failures. Azure Cache for Redis supports built-in retry.
 2. Treat nontransient failures as a cache miss, and fall back to the original data source.
 
 **Diagnostics**. Use [Azure Cache for Redis diagnostics][redis-monitor].
@@ -222,7 +212,7 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 
 **Recovery:**
 
-1. Retry on transient failures. Azure Cache for Redis supports built-in retry. For more information, see [Azure Cache for Redis retry guidelines][redis-retry].
+1. Retry on transient failures. Azure Cache for Redis supports built-in retry.
 2. If the error is nontransient, ignore it and let other transactions write to the cache later.
 
 **Diagnostics**. Use [Azure Cache for Redis diagnostics][redis-monitor].
@@ -244,7 +234,7 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
   - For queries, read from a secondary replica.
   - For inserts and updates, manually fail over to a secondary replica. See [Initiate a planned or unplanned failover for Azure SQL Database][sql-db-failover].
 
-  The replica uses a different connection string, so you will need to update the connection string in your application.
+  The replica uses a different connection string, so you'll need to update the connection string in your application.
 
 ### Client runs out of connections in the connection pool.
 
@@ -281,8 +271,8 @@ For more information, see [Service Bus messaging exceptions][sb-messaging-except
 
 **Recovery:**
 
-1. Retry on transient failures. See [Service Bus retry guidelines][sb-retry].
-2. Messages that cannot be delivered to any receiver are placed in a *dead-letter queue*. Use this queue to see which messages could not be received. There is no automatic cleanup of the dead-letter queue. Messages remain there until you explicitly retrieve them. See [Overview of Service Bus dead-letter queues][sb-dead-letter-queue].
+1. Retry on transient failures.
+2. Messages that cannot be delivered to any receiver are placed in a *dead-letter queue*. Use this queue to see which messages couldn't be received. There's no automatic cleanup of the dead-letter queue. Messages remain there until you explicitly retrieve them. See [Overview of Service Bus dead-letter queues][sb-dead-letter-queue].
 
 ### Writing a message to a Service Bus queue fails.
 
@@ -292,16 +282,16 @@ For more information, see [Service Bus messaging exceptions][sb-messaging-except
 
 **Recovery:**
 
-- The Service Bus client automatically retries after transient errors. By default, it uses exponential back-off. After the maximum retry count or maximum timeout period, the client throws an exception. For more information, see [Service Bus retry guidelines][sb-retry].
-- If the queue quota is exceeded, the client throws [QuotaExceededException][QuotaExceededException]. The exception message gives more details. Drain some messages from the queue before retrying, and consider using the Circuit Breaker pattern to avoid continued retries while the quota is exceeded. Also, make sure the [BrokeredMessage.TimeToLive] property is not set too high.
+- The Service Bus client automatically retries after transient errors. By default, it uses exponential back-off. After the maximum retry count or maximum timeout period, the client throws an exception.
+- If the queue quota is exceeded, the client throws [QuotaExceededException][QuotaExceededException]. The exception message gives more details. Drain some messages from the queue before retrying, and consider using the Circuit Breaker pattern to avoid continued retries while the quota is exceeded. Also, make sure the [BrokeredMessage.TimeToLive] property isn't set too high.
 - Within a region, resiliency can be improved by using [partitioned queues or topics][sb-partition]. A non-partitioned queue or topic is assigned to one messaging store. If this messaging store is unavailable, all operations on that queue or topic will fail. A partitioned queue or topic is partitioned across multiple messaging stores.
 - Use zone redundancy to automatically replicate changes between multiple availability zones. If one availability zone fails, failover happens automatically. For more information, see [Best practices for insulating applications against Service Bus outages and disasters](/azure/service-bus-messaging/service-bus-outages-disasters).
 - If you're designing a multi-region solution, create two Service Bus namespaces in different regions, and replicate the messages. You can use either active replication or passive replication.
 
-    - Active replication: The client sends every message to both queues. The receiver listens on both queues. Tag messages with a unique identifier, so the client can discard duplicate messages.
-    - Passive replication: The client sends the message to one queue. If there is an error, the client falls back to the other queue. The receiver listens on both queues. This approach reduces the number of duplicate messages that are sent. However, the receiver must still handle duplicate messages.
+  - Active replication: The client sends every message to both queues. The receiver listens on both queues. Tag messages with a unique identifier, so the client can discard duplicate messages.
+  - Passive replication: The client sends the message to one queue. If there's an error, the client falls back to the other queue. The receiver listens on both queues. This approach reduces the number of duplicate messages that are sent. However, the receiver must still handle duplicate messages.
 
-    For more information, see [GeoReplication sample][sb-georeplication-sample] and [Best practices for insulating applications against Service Bus outages and disasters](/azure/service-bus-messaging/service-bus-outages-disasters).
+  For more information, see [GeoReplication sample][sb-georeplication-sample] and [Best practices for insulating applications against Service Bus outages and disasters](/azure/service-bus-messaging/service-bus-outages-disasters).
 
 ### Duplicate message.
 
@@ -438,7 +428,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 **Recovery:**
 
 - As a mitigation plan, implement the [Scheduler Agent Supervisor][scheduler-agent-supervisor] pattern to manage the entire workflow.
-- Don't retry on timeouts. There is a low success rate for this error.
+- Don't retry on timeouts. There's a low success rate for this error.
 - Queue work, in order to retry later.
 
 **Diagnostics**. Log all operations (successful and failed), including compensating actions. Use correlation IDs, so that you can track all operations within the same transaction.
@@ -477,7 +467,6 @@ See [Resiliency and dependencies](/azure/well-architected/resiliency/design-resi
 [circuit-breaker]: /previous-versions/msp-n-p/dn589784(v=pandp.10)
 [cosmos-db-multi-region]: /azure/cosmos-db/tutorial-global-distribution-sql-api
 [health-endpoint-monitoring-pattern]: ../patterns/health-endpoint-monitoring.yml
-[onstop-events]: https://azure.microsoft.com/blog/the-right-way-to-handle-azure-onstop-events
 [lb-monitor]: /azure/load-balancer/load-balancer-monitor-log
 [lb-probe]: /azure/load-balancer/load-balancer-custom-probe-overview#types
 [new-relic]: https://newrelic.com
@@ -486,9 +475,6 @@ See [Resiliency and dependencies](/azure/well-architected/resiliency/design-resi
 [QuotaExceededException]: /dotnet/api/microsoft.servicebus.messaging.quotaexceededexception?view=azure-dotnet&preserve-view=true
 [ra-web-apps-basic]: ../web-apps/app-service/architectures/basic-web-app.yml
 [redis-monitor]: /azure/azure-cache-for-redis/cache-how-to-monitor
-[redis-retry]: ../best-practices/retry-service-specific.md#azure-cache-for-redis
-[RoleEntryPoint.OnStop]: /previous-versions/azure/reference/ee772844(v=azure.100)
-[RoleEnvironment.Stopping]: /previous-versions/azure/reference/ee758136(v=azure.100)
 [rm-locks]: /azure/azure-resource-manager/resource-group-lock-resources/
 [sb-dead-letter-queue]: /azure/service-bus-messaging/service-bus-dead-letter-queues/
 [sb-georeplication-sample]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/GeoReplication
@@ -496,7 +482,6 @@ See [Resiliency and dependencies](/azure/well-architected/resiliency/design-resi
 [sb-messaging-exceptions]: /azure/service-bus-messaging/service-bus-messaging-exceptions
 [sb-partition]: /azure/service-bus-messaging/service-bus-partitioning
 [sb-poison-message]: /azure/app-service/webjobs-sdk-how-to#automatic-triggers
-[sb-retry]: ../best-practices/retry-service-specific.md#service-bus
 [search-sdk]:  /dotnet/api/overview/azure/search?view=azure-dotnet&preserve-view=true
 [scheduler-agent-supervisor]: /previous-versions/msp-n-p/dn589780(v=pandp.10)
 [search-analytics]: /azure/search/search-traffic-analytics

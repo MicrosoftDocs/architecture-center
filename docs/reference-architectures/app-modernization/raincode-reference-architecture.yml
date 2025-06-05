@@ -2,11 +2,10 @@
 metadata:
   title: Rehost mainframe applications to Azure with Raincode compilers
   description: This architecture shows how the Raincode COBOL compiler modernizes mainframe legacy applications.
-  author: jjfrost
-  ms.author: jfrost
-  ms.date: 07/05/2022
+  author: Venkat-Github-Account
+  ms.author: vramakrishna
+  ms.date: 07/10/2024
   ms.topic: reference-architecture
-  ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - integration

@@ -1,13 +1,11 @@
 ---
 title: Understand data store models
-titleSuffix: Azure Application Architecture Guide
 description: Learn about the high-level differences between the various data storage models found in Azure data services.
 author: PageWriter-MSFT
-ms.author: prwilk
+ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: architecture-guide
 azureCategories: developer-tools
 categories: developer-tools
 products: azure
@@ -39,9 +37,8 @@ This model is very useful when strong consistency guarantees are important &mdas
 ### Azure services
 
 - [Azure SQL Database][sql-db] | [(Security Baseline)](/security/benchmark/azure/baselines/sql-database-security-baseline)
-- [Azure Database for MySQL][mysql] | [(Security Baseline)](/azure/mysql/security-baseline)
-- [Azure Database for PostgreSQL][postgres] | [(Security Baseline)](/azure/postgresql/security-baseline)
-- [Azure Database for MariaDB][mariadb] | [(Security Baseline)](/azure/mariadb/security-baseline)
+- [Azure Database for MySQL][mysql] | [(Security Baseline)](/security/benchmark/azure/baselines/azure-database-for-mysql-flexible-server-security-baseline)
+- [Azure Database for PostgreSQL][postgres] | [(Security Baseline)](/security/benchmark/azure/baselines/azure-database-for-postgresql-flexible-server-security-baseline)
 
 ### Workload
 
@@ -258,7 +255,7 @@ Searching can be exact or fuzzy. A fuzzy search finds documents that match a set
 
 ### Azure service
 
-- [Azure Search][search] | [(Security Baseline)](/azure/search/security-baseline)
+- [Azure AI Search][search] | [(Security Baseline)](/azure/search/security-baseline)
 
 ### Workload
 
@@ -365,7 +362,7 @@ Aided with this understanding of different data storage models, the next step is
 
 ## Related resources
 
-- [Big data architectures](../../databases/guide/big-data-architectures.yml)
+- [Big data architectures](../../databases/guide/big-data-architectures.md)
 - [Choose a data storage technology](../../data-guide/technology-choices/data-storage.md)
 - [Data store decision tree](data-store-decision-tree.md)
 
@@ -379,7 +376,6 @@ Aided with this understanding of different data storage models, the next step is
 [hbase]: /azure/hdinsight/hdinsight-hbase-overview
 [mysql]: https://azure.microsoft.com/services/mysql/
 [postgres]: https://azure.microsoft.com/services/postgresql/
-[mariadb]: https://azure.microsoft.com/services/mariadb/
 [redis]: https://azure.microsoft.com/services/cache/
 [search]: https://azure.microsoft.com/services/search/
 [sql-db]: https://azure.microsoft.com/services/sql-database

@@ -38,24 +38,24 @@ This article presents a solution for using Luminex products to transfer mainfram
 
 ### Components
 
-- [ExpressRoute](https://azure.microsoft.com/products/expressroute) extends on-premises networks to the Microsoft cloud. ExpressRoute uses a connectivity provider to establish private connections between on-premises data and Microsoft cloud services.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends on-premises networks to the Microsoft cloud. ExpressRoute uses a connectivity provider to establish private connections between on-premises data and Microsoft cloud services.
 
-- [Azure Files](https://azure.microsoft.com/products/storage/files) is a service that's part of [Azure Storage](/azure/storage/common/storage-introduction). Azure Files offers fully managed file shares in the cloud. Azure file shares are accessible via the industry-standard Server Message Block (SMB) protocol. This solution uses Luminex MDI and MVT to transfer mainframe files to Azure Files.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) is a service that's part of [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability). Azure Files offers fully managed file shares in the cloud. Azure file shares are accessible via the industry-standard Server Message Block (SMB) protocol. This solution uses Luminex MDI and MVT to transfer mainframe files to Azure Files.
 
-- [Blob Storage](https://azure.microsoft.com/products/storage/blobs) is a service that's part of Storage. Blob Storage provides optimized cloud object storage for massive amounts of unstructured data. In this solution, Blob Storage provides a way to archive hot and cold mainstream data.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a service that's part of Storage. Blob Storage provides optimized cloud object storage for massive amounts of unstructured data. In this solution, Blob Storage provides a way to archive hot and cold mainstream data.
 
 - In this solution, Luminex products can transfer mainframe data to several Azure databases:
 
-  - [Azure SQL](https://azure.microsoft.com/services/azure-sql) is a family of Azure databases that are powered by the SQL Server engine.
-  - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed platform as a service (PaaS) database engine that's part of the Azure SQL family. With AI-powered, automated features, SQL Database handles database management functions like upgrading, patching, backups, and monitoring.
-  - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is a fully managed relational database service that's based on the community edition of the open-source PostgreSQL database engine.
-  - [Azure Database for MySQL](https://azure.microsoft.com/products/mysql) is a fully managed relational database service that's based on the community edition of the open-source MySQL database engine.
+  - [Azure SQL](/azure/azure-sql/) is a family of Azure databases that are powered by the SQL Server engine.
+  - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed platform as a service (PaaS) database engine that's part of the Azure SQL family. With AI-powered, automated features, SQL Database handles database management functions like upgrading, patching, backups, and monitoring.
+  - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service that's based on the community edition of the open-source PostgreSQL database engine.
+  - [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed relational database service that's based on the community edition of the open-source MySQL database engine.
 
-- [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed big data streaming platform. In this solution, Luminex zKonnect streams mainframe data to Event Hubs in near real time. Event Hubs provides an endpoint that's compatible with Apache Kafka producer and consumer APIs. Most existing Apache Kafka client applications use these APIs as an alternative to running their own Apache Kafka clusters.
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a fully managed big data streaming platform. In this solution, Luminex zKonnect streams mainframe data to Event Hubs in near real time. Event Hubs provides an endpoint that's compatible with Apache Kafka producer and consumer APIs. Most existing Apache Kafka client applications use these APIs as an alternative to running their own Apache Kafka clusters.
 
-- [Power BI](https://powerbi.microsoft.com) is a collection of software services and apps that display analytics information. This solution uses mainframe data that comes from various sources and has varying structures. Power BI is used to turn the data into coherent, visually immersive, and interactive insights.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services and apps that display analytics information. This solution uses mainframe data that comes from various sources and has varying structures. Power BI is used to turn the data into coherent, visually immersive, and interactive insights.
 
-- [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) provides a way to perform big data analytics with low-cost, tiered storage and high throughput.
+- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) provides a way to perform big data analytics with low-cost, tiered storage and high throughput.
 
 ### Alternatives
 
@@ -120,11 +120,11 @@ If you're implementing a similar solution and want to share your experiences or 
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - You can deploy this solution in multiple regions, and you can implement geo-replication in the data layer. Azure auto-failover groups also help provide data protection.
 - Clustered CGX controllers can provide an active-active recovery solution during a failure.
@@ -133,16 +133,16 @@ Reliability ensures your application can meet the commitments you make to your c
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - The fully managed storage in this solution eliminates issues that are related to physical media safety. Examples are damage or unauthorized access that might occur when you ship physical tapes in vehicles.
 - [Luminex CGSafe](https://luminex.com/solutions/virtual-tape/cgsafe) provides tape compression and encryption. This product is part of the MVT family and is included with CloudTAPE. CGSafe encrypts and compresses tapes during ingestion, at rest, and in transit.
 - When you use MDI Cloud Data Sharing, files are sent over HTTPS by using SSL. In Azure, you can encrypt the files at rest.
 - Because the solution uses FICON and ESCON connectivity, you don't need to open any ports for data transfer.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Pay-as-you-go pricing and multi-tiered models in Azure provide options to suit various cost and performance needs. For instance, if you access data infrequently, the Azure cool access tier is a good option for low-cost storage.
 - The pricing of this solution depends on your volume of tape data, your datacenter location, and your bandwidth. The cost also depends on which Azure services you use. These factors determine the hardware that you use, such as the number of Luminex CGX controllers. The factors also affect your software, service, licensing, and support costs.
@@ -151,17 +151,17 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 - If you already have an ExpressRoute infrastructure in place, you can use it for this solution.
 - Using Azure and Luminex for backup and recovery helps you eliminate some costs that are associated with physical tape infrastructure. Examples include media and shipping expenses and off-site storage for vaulting.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 - The data transfer to Azure in this solution gives you flexibility when you develop a backup strategy. You can enable automated, regular migration or phased-data migration. After you've installed a Luminex device in your datacenter, you can configure unidirectional or bidirectional communication, staged migration, or one-time migration. This flexibility provides support for implementing DevOps and Agile working principles and for immediate cloud adoption.
 - You can take advantage of Azure capabilities for mainframe backup, archive, and disaster recovery.
 - You can deploy continuous integration/continuous delivery (CI/CD) pipelines on Azure to manage data movement, transformation, and control activities.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - If you have a high volume of data, you can cluster CGX controllers. Typically, one CGX device offers a data-transfer speed of up to 800 megabytes per second (MB/s). CGX controllers are available with up to four Fibre Channel ports or 1 Gigabit Ethernet (GbE), 10 GbE, or 25 GbE. These controllers also offer up to four ports for connectivity to attached storage systems.
 - In Azure services, various performance options and tiers are available. For instance, block blob storage accounts offer standard and premium performance tiers. You can choose the tier that best meets your needs.
@@ -192,4 +192,4 @@ Principal authors:
 - [Mainframe and midrange data replication to Azure using Qlik](./mainframe-midrange-data-replication-azure-qlik.yml)
 - [Mainframe and midrange data replication to Azure using RDRS](./mainframe-data-replication-azure-rdrs.yml)
 - [Migrate a mainframe data tier to Azure by using mLogica LIBER*IRIS](./mainframe-data-replication-azure-data-platform.yml)
-- [Mainframe modernization using Model9](./mainframe-modernization-model9.yml)
+- [Mainframe modernization using BMC AMI Cloud](./mainframe-modernization-bmc-ami-cloud.yml)

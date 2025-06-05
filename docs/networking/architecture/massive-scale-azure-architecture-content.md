@@ -20,11 +20,11 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
 
-- [ExpressRoute](https://azure.microsoft.com/products/expressroute) is a service that provides a private connection between your on-premises environment and Azure resources.
-- [Virtual WAN](https://azure.microsoft.com/products/virtual-wan) is a networking service that provides optimized and automated branch to branch connectivity through Azure. It provides transit for networking and routing via ExpressRoute between your on-premises resources and your Azure resources.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a service that provides a private connection between your on-premises environment and Azure resources.
+- [Virtual WAN](/azure/virtual-wan/virtual-wan-about) is a networking service that provides optimized and automated branch to branch connectivity through Azure. It provides transit for networking and routing via ExpressRoute between your on-premises resources and your Azure resources.
   - Custom route tables optimize routing in the solution, so network-to-network traffic can bypass the firewalls. Traffic between networks and on-premises environments remains inspected.
   - Labels simplify the routing by eliminating the need to extensively propagate the routes of individual networks to all route tables.
-- [NVAs](https://azure.microsoft.com/solutions/network-appliances) are virtual machines that control routing to manage the flow of network traffic. This architecture uses NVAs. Large organizations with established investment in firewall technology and management often require NVAs.
+- Network Virtual Appliances are virtual machines that control routing to manage the flow of network traffic. This architecture uses NVAs. Large organizations with established investment in firewall technology and management often require NVAs.
 
 ### Alternatives
 
@@ -192,23 +192,23 @@ This design is applicable to any business of sufficient size and footprint in Az
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 This workload optimizes high availability with Virtual WAN, redundant ExpressRoute circuits, and scale sets for NVAs. This combination results in the redundancy that's necessary for highly critical workloads.
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 This workload provides firewall inspection between Azure and on-premises systems and inspection for outgoing internet traffic from Azure. For inbound internet traffic, consider Azure Front Door or Application Gateway. Use SNAT to avoid routing conflicts.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 For costs of Azure components, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). Pricing for this solution is based on factors such as:
 
@@ -219,15 +219,15 @@ For costs of Azure components, see the [Azure pricing calculator](https://azure.
 
 This workload prioritizes performance and availability over low cost. But using ExpressRoute Local for primary connections optimizes cost because it limits bandwidth expenses. If you want to compromise performance and reliability to optimize cost, you can reduce the number of ExpressRoute circuits and firewalls. When you reduce these resources, it reduces cost but traverses the Virtual WAN hubs with less efficiency when you connect to on-premises or cloud destinations.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 This design is compatible with Terraform and infrastructure as code. It requires the Terraform Azure API provider for deployment because of Virtual WAN lag in feature availability.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 This network is highly performant. Even if a connection fails, performance and routing use the best available path.
 

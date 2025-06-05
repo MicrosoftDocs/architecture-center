@@ -2,13 +2,13 @@
 metadata:
   title: Noisy Neighbor antipattern
   description: Learn how the activity of one tenant can impact the performance of other tenants in a multitenant system.
-  ms.author: robbag
+  ms.author: pnp
   author: RobBagby
-  ms.date: 03/14/2023
+  ms.date: 07/10/2024
   ms.topic: design-pattern
-  ms.service: architecture-center
-  ms.subservice: anti-pattern
-  ms.custom: fcp
+  ms.subservice: best-practice
+  ms.custom:
+    - arb-saas
 azureCategories:
   - management-and-governance
   - security
@@ -18,4 +18,4 @@ name: Noisy Neighbor antipattern
 summary: Learn how the activity of one tenant can impact the performance of other tenants in a multitenant system.
 thumbnailUrl: /azure/architecture/browse/thumbs/noisy-neighbor-single.png
 content: |
-  [!include[](noisy-neighbor-content.md)]
+  [!INCLUDE[](noisy-neighbor-content.md)]

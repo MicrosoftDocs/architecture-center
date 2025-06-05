@@ -1,14 +1,12 @@
 ### YamlMime:Architecture
 metadata:
-  title: Build the second layer of defense with Microsoft Defender XDR Security services
-  titleSuffix: Azure Architecture Center
-  description: Add additional security to your IT environment by using Microsoft 365 security service in addition to Azure security. This article is part of a series.
+  title: Build the second layer of defense with Microsoft Defender XDR Solutions
+  description: Add additional security to your IT environment by using Microsoft 365 security service in addition to Azure security. This article is part of a series. Now with the information about Sentinel running in the unified portal.
   author: rudneir2
   ms.author: ruolivei
   ms.custom: fcp
-  ms.date: 10/10/2022
+  ms.date: 10/03/2024
   ms.topic: solution-idea
-  ms.service: architecture-center
   ms.subservice: solution-idea
 azureCategories:
   - integration

@@ -1,13 +1,11 @@
 ---
 title: Data store decision tree
-titleSuffix: Azure Application Architecture Guide
 description: Select an Azure data store for your application. View a graphical representation of choosing your data store.
 author: PageWriter-MSFT
-ms.author: prwilk
+ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: architecture-guide
 azureCategories: developer-tools
 categories: developer-tools
 products: azure
@@ -25,7 +23,7 @@ If your application consists of multiple workloads, evaluate each workload separ
 
 Use the following flowchart to select a candidate Azure managed data store.
 
-![Data store decision tree](./images/data-store-decision-tree.svg)
+![Data store decision tree](./images/data-store-decision-tree.png)
 
 The output from this flowchart is a **starting point** for consideration. Next, perform a more detailed evaluation of the data store to see if it meets your needs. Refer to [Criteria for choosing a data store](./data-store-considerations.md) to aid in this evaluation.
 

@@ -4,10 +4,9 @@ metadata:
   description: Learn how to run IBM Maximo Application Suite (MAS) on Azure. See guidance for designing and implementing cloud solutions with MAS 8.5 and up that use Azure.
   author: ranieuwe
   ms.author: ronieuwe
-  ms.date: 07/11/2022
+  ms.date: 11/22/2024
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.subservice: architecture-guide
   ms.custom:
     - linux-related-content
 azureCategories:
@@ -26,4 +25,4 @@ name: Deploy IBM Maximo Application Suite on Azure
 summary: Learn how to run IBM Maximo Application Suite (MAS) on Azure. See guidance for designing and implementing cloud solutions with Maximo 8.5 and up that use Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/deploy-ibm-maximo-application-suite-thumbnail.png
 content: |
-  [!include[](deploy-ibm-maximo-application-suite-content.md)]
+  [!INCLUDE[](deploy-ibm-maximo-application-suite-content.md)]

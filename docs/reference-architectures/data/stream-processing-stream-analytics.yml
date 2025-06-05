@@ -2,11 +2,10 @@
 metadata:
   title: Stream processing with Stream Analytics
   description: This reference architecture shows an end-to-end stream processing pipeline, which ingests data, correlates records, and calculates a rolling average.
-  author: martinekuan
-  ms.author: pnp
+  author: josearper
+  ms.author: joaria
   ms.date: 07/28/2022
   ms.topic: reference-architecture
-  ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - analytics
@@ -14,6 +13,7 @@ metadata:
   ms.custom:
     - reference-architecture
     - internal-intro
+    - arb-data
 name: Stream processing with Azure Stream Analytics
 azureCategories:
   - analytics

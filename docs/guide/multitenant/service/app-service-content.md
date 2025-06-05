@@ -12,7 +12,7 @@ When you use [tenant-specific custom domain names](../considerations/domain-name
 
 ### Integration with Azure Front Door
 
-App Service and Azure Functions integrate with [Azure Front Door](/azure/frontdoor/front-door-overview), to act as the internet-facing component of your solution. Azure Front Door enables you to add a web application firewall (WAF) and edge caching, and it provides other performance optimizations. You can easily reconfigure your traffic flows to direct traffic to different backends, based on changing business or technical requirements.
+App Service and Azure Functions can integrate with [Azure Front Door](/azure/frontdoor/front-door-overview), to act as the internet-facing component of your solution. Azure Front Door enables you to add a web application firewall (WAF) and edge caching, and it provides other performance optimizations. You can easily reconfigure your traffic flows to direct traffic to different backends, based on changing business or technical requirements.
 
 When you use Azure Front Door with a multitenant app, you can use it to manage your custom domain names and to terminate your TLS connections. Your App Service application is then configured with a single hostname, and all traffic flows through to that application, which helps you avoid managing custom domain names in multiple places.
 
@@ -29,7 +29,7 @@ For more information about using Azure Front Door in a multitenant solution, see
 
 ### Authentication and authorization
 
-Azure App Service can [validate authentication tokens on behalf of your app](/azure/app-service/overview-authentication-authorization). When App Service receives a request, it checks to see whether each of the following conditions are met:
+Azure App Service can [validate authentication tokens on behalf of your app](/azure/app-service/overview-authentication-authorization). When App Service receives a request, it checks to see whether each of the following conditions is met:
 
 - The request contains a token.
 - The token is valid.
@@ -37,14 +37,11 @@ Azure App Service can [validate authentication tokens on behalf of your app](/az
 
 If any of the conditions aren't met, App Service can block the request, or it can redirect the user to your identity provider so that they can sign in.
 
-If your tenants use Microsoft Entra ID as their identity system, you can configure Azure App Service to use [the /common endpoint](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant) to validate user tokens. This ensures that, regardless of the user's Microsoft Entra tenant, their tokens are validated and accepted.
+If your tenants use Microsoft Entra ID as their identity system, you can configure Azure App Service to use [the /common endpoint](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to validate user tokens. This ensures that, regardless of the user's Microsoft Entra tenant, their tokens are validated and accepted.
 
-You can also integrate Azure App Service with Azure AD B2C for authentication of consumers.
+You can also integrate Azure App Service with Microsoft Entra External ID for authentication of consumers.
 
-More information:
-- [App Service authorization](/azure/app-service/overview-authentication-authorization)
-- [Configure authentication in a sample web app by using Azure AD B2C](/azure/active-directory-b2c/configure-authentication-sample-web-app)
-- [Working with multitenant Microsoft Entra identities](../../../multitenant-identity/index.yml)
+For more information, see [App Service authorization](/azure/app-service/overview-authentication-authorization).
 
 ### Access restrictions
 
@@ -139,12 +136,12 @@ Even with these controls in place, you might approach limits with a large number
 
 Principal author:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 
  * [Thiago Almeida](https://www.linkedin.com/in/thiagoalmeidaprofile) | Principal Program Manager, Azure Functions
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

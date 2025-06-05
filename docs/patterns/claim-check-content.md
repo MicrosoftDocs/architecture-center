@@ -78,7 +78,7 @@ Choose the example that suits your needs and follow the provided link to view th
 - The Enterprise Integration Patterns site has a [description][enterprise-integration-patterns] of this pattern.
 - For another example, see [Dealing with large Service Bus messages using Claim-Check pattern](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern) (blog post).
 - An alternative pattern for handling large messages is [Split][splitter] and [Aggregate][aggregator].
-- Libraries like NServiceBus provide support for this pattern out-of-the-box with their ["data bus" functionality](https://docs.particular.net/nservicebus/messaging/databus/azure-blob-storage).
+- Libraries like NServiceBus provide support for this pattern out-of-the-box with their [DataBus feature](https://docs.particular.net/nservicebus/messaging/claimcheck/).
 
 ## Related resources
 
@@ -89,9 +89,8 @@ Choose the example that suits your needs and follow the provided link to view th
 <!-- links -->
 [aggregator]: https://www.enterpriseintegrationpatterns.com/patterns/messaging/Aggregator.html
 [enterprise-integration-patterns]: https://www.enterpriseintegrationpatterns.com/patterns/messaging/StoreInLibrary.html
-[example-1]: https://github.com/mspnp/cloud-design-patterns/tree/master/claim-check/code-samples/sample-1
-[example-2]: https://github.com/mspnp/cloud-design-patterns/tree/master/claim-check/code-samples/sample-2
-[example-3]: https://github.com/mspnp/cloud-design-patterns/tree/master/claim-check/code-samples/sample-3
-[example-4]: https://github.com/mspnp/cloud-design-patterns/tree/master/claim-check/code-samples/sample-4
-[sample-code]: https://github.com/mspnp/cloud-design-patterns/tree/master/claim-check
+[example-1]: https://github.com/mspnp/cloud-design-patterns/tree/main/claim-check/code-samples/sample-1
+[example-2]: https://github.com/mspnp/cloud-design-patterns/tree/main/claim-check/code-samples/sample-2
+[example-3]: https://github.com/mspnp/cloud-design-patterns/tree/main/claim-check/code-samples/sample-3
+[example-4]: https://github.com/mspnp/cloud-design-patterns/tree/main/claim-check/code-samples/sample-4
 [splitter]: https://www.enterpriseintegrationpatterns.com/patterns/messaging/Sequencer.html

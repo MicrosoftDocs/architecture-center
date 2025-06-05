@@ -6,8 +6,7 @@ metadata:
   ms.author: pnp
   ms.date: 05/27/2021
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.subservice: architecture-guide
 azureCategories:
   - web
   - developer-tools

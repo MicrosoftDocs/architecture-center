@@ -4,9 +4,8 @@ metadata:
   description: Learn about an enterprise-level cloud file sharing solution that uses Azure Files, Azure File Sync, Azure Private DNS, and Azure Private Endpoint.
   author: huangyingting
   ms.author: ythuang
-  ms.date: 01/11/2024
+  ms.date: 01/24/2025
   ms.topic: reference-architecture
-  ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - hybrid
@@ -14,6 +13,7 @@ metadata:
   ms.custom:
     - fcp
     - e2e-hybrid
+    - arb-hybrid
 name: Azure enterprise cloud file share
 azureCategories:
   - hybrid

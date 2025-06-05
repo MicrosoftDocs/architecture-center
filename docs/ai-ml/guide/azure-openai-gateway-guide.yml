@@ -2,13 +2,13 @@
 metadata:
   title: Access Azure OpenAI and other language models through a gateway
   description: Learn about the challenges of directly accessing Azure OpenAI or other language models and how injecting a gateway lets you augment model usage with extra capabilities.
-  author: robbagby
-  ms.author: robbag
-  ms.date: 05/09/2024
+  author: RobBagby
+  ms.author: pnp
+  ms.date: 12/16/2024
   ms.topic: conceptual
   ms.collection: ce-skilling-ai-copilot  
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.subservice: architecture-guide
+  ms.custom: arb-aiml
 azureCategories:
   - ai-machine-learning
 products:

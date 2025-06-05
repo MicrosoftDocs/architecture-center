@@ -3,12 +3,12 @@ metadata:
   title: Architectural considerations for a multitenant solution
   description: This article introduces the key considerations when planning a multitenant architecture.
   author: johndowns
-  ms.author: jodowns
-  ms.date: 02/28/2023
+  ms.author: pnp
+  ms.date: 07/18/2024
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
-  ms.custom: fcp
+  ms.subservice: architecture-guide
+  ms.custom:
+    - arb-saas
 azureCategories:
   - management-and-governance
 products:

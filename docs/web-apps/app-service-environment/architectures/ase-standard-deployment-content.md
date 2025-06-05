@@ -1,7 +1,7 @@
 This reference architecture demonstrates a common enterprise workload that uses App Service Environment version 3. It also describes best practices for strengthening the security of the workload.
 
 > [!NOTE]
-> [App Service Environment](/azure/app-service/environment/overview) version 3 is the main component of this architecture. Version 3 is now available. Versions 1 and 2 will be [retired on August 31, 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/).
+> [App Service Environment](/azure/app-service/environment/overview) version 3 is the main component of this architecture. Versions 1 and 2 was [retired on August 31, 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/).
 
 ![GitHub logo](../../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/app-service-environments-ILB-deployments).
 
@@ -13,8 +13,9 @@ This reference architecture demonstrates a common enterprise workload that uses 
 
 ### Workflow
 
-App Service Environment version 3 provides different features than earlier versions, and advantages over those versions. For more information, see [Feature differences](/azure/app-service/environment/overview#feature-differences). You can deploy App Service Environment in two ways: 
-- As an external App Service Environment with a public IP address 
+You can deploy App Service Environment in two ways:
+
+- As an external App Service Environment with a public IP address
 - As an internal App Service Environment with an internal IP address that belongs to the internal load balancer (ILB)
 
 This reference architecture deploys an enterprise web application in an internal App Service Environment, also called an ILB App Service Environment. Use an ILB App Service Environment when your scenario requires you to:
@@ -34,17 +35,17 @@ The web apps are the only components accessible to the internet via Application 
 
 The following services are key to locking down the App Service Environment in this architecture:
 
-- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is a private Azure cloud network that's owned by an enterprise. It provides enhanced network-based security and isolation. App Service Environment is an App Service deployment into a subnet of the enterprise-owned virtual network. It allows the enterprise to tightly control that network space and the resources it accesses by using network security groups and private endpoints.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a private Azure cloud network that's owned by an enterprise. It provides enhanced network-based security and isolation. App Service Environment is an App Service deployment into a subnet of the enterprise-owned virtual network. It allows the enterprise to tightly control that network space and the resources it accesses by using network security groups and private endpoints.
 
-- [Application Gateway](https://azure.microsoft.com/products/application-gateway) is an application-level web traffic load balancer with TLS/SSL offloading and WAF. It listens on a public IP address and routes traffic to the application endpoint in the ILB App Service Environment. Since this is application-level routing, it can route traffic to multiple apps within the same ILB App Service Environment. For more information, see [Application Gateway multiple site hosting](/azure/application-gateway/multiple-site-overview).
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is an application-level web traffic load balancer with TLS/SSL offloading and WAF. It listens on a public IP address and routes traffic to the application endpoint in the ILB App Service Environment. Since this is application-level routing, it can route traffic to multiple apps within the same ILB App Service Environment. For more information, see [Application Gateway multiple site hosting](/azure/application-gateway/multiple-site-overview).
 
-- [Azure Firewall](https://azure.microsoft.com/products/azure-firewall) is used to restrict the outbound traffic from the web application. Outgoing traffic that doesn't go through the private endpoint channels and a route table required by App Service Environment is directed to the firewall subnet. For the sake of simplicity, this architecture configures all private endpoints on the services subnet.
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is used to restrict the outbound traffic from the web application. Outgoing traffic that doesn't go through the private endpoint channels and a route table required by App Service Environment is directed to the firewall subnet. For the sake of simplicity, this architecture configures all private endpoints on the services subnet.
 
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) or Microsoft Entra ID provides access rights and permissions management to Azure resources and services. [*Managed Identities*](/azure/active-directory/managed-identities-azure-resources/overview) assigns identities to services and apps, automatically managed by Microsoft Entra ID. These identities can be used to authenticate to any service that supports Microsoft Entra authentication. This removes the need to explicitly configure credentials for these apps. This architecture assigns a managed identity to the web app.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) or Microsoft Entra ID provides access rights and permissions management to Azure resources and services. [*Managed Identities*](/entra/identity/managed-identities-azure-resources/overview) assigns identities to services and apps, automatically managed by Microsoft Entra ID. These identities can be used to authenticate to any service that supports Microsoft Entra authentication. This removes the need to explicitly configure credentials for these apps. This architecture assigns a managed identity to the web app.
 
-- [Azure Key Vault](https://azure.microsoft.com/products/key-vault) stores any secrets and credentials required by the apps. Use this option over storing secrets directly in the application.
+- [Azure Key Vault](/azure/key-vault/general/overview) stores any secrets and credentials required by the apps. Use this option over storing secrets directly in the application.
 
-- [GitHub Actions](https://azure.microsoft.com/products/devops/pipelines) provides continuous integration and continuous deployment capabilities in this architecture. Because the App Service Environment is in the virtual network, a virtual machine is used as a jumpbox inside the virtual network to deploy apps in the App Service plans. The action builds the apps outside the virtual network. For enhanced security and seamless RDP/SSH connectivity, consider using [Azure Bastion](/azure/bastion/bastion-overview) for the jumpbox.
+- [GitHub Actions](/azure/developer/github/github-actions) provides continuous integration and continuous deployment capabilities in this architecture. Because the App Service Environment is in the virtual network, a virtual machine is used as a jumpbox inside the virtual network to deploy apps in the App Service plans. The action builds the apps outside the virtual network. For enhanced security and seamless RDP/SSH connectivity, consider using [Azure Bastion](/azure/bastion/bastion-overview) for the jumpbox.
 
 ### Multi-site configuration
 
@@ -64,11 +65,11 @@ Review [appgw.bicep](https://github.com/mspnp/app-service-environments-ILB-deplo
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 #### App Service Environment
 
@@ -77,15 +78,6 @@ An internal App Service Environment is deployed in the enterprise virtual networ
 Default certificates are created for each app service for the default domain name assigned by App Service Environment. This certificate can tighten the security of the traffic between the gateway and the app, and might be required in certain scenarios. These certificates aren't visible via the client browser. It can only respond to the certificates configured on Application Gateway.
 
 #### Application Gateway
-
-The reference implementation configures Application Gateway programmatically in [appgw.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/appgw.bicep). The file [commands_std.azcli](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/commands_std.azcli) uses this configuration when deploying the gateway:
-
-```azurecli
-az deployment group create --resource-group $RGNAME --template-file templates/appgw.bicep --parameters vnetName=$VNET_NAME appgwSubnetAddressPrefix=$APPGW_PREFIX appgwApplications=@appgwApps.parameters.json
-APPGW_PUBLIC_IP=$(az deployment group show -g $RGNAME -n appgw --query properties.outputs.appGwPublicIpAddress.value -o tsv)
-```
-
-##### Encryption
 
 As described in [Overview of TLS termination and end to end TLS with Application Gateway](/azure/application-gateway/ssl-overview), Application Gateway can use Transport Layer Security (TLS)/Secure Sockets Layer (SSL) to encrypt and protect all traffic from web browsers. Encryption can be configured in the following ways:
 
@@ -96,41 +88,41 @@ As described in [Overview of TLS termination and end to end TLS with Application
 This reference implementation uses self-signed certificates for Application Gateway. For production code, a certificate issued by a Certificate Authority should be used. For a list of supported certificate types, see [Certificates supported for TLS termination](/azure/application-gateway/ssl-overview#certificates-supported-for-tls-termination). Read [Configure an application gateway with TLS termination using the Azure portal](/azure/application-gateway/create-ssl-portal) to learn how to create Gateway-terminated encryption. The following lines of code in appgw.bicep configure this programmatically:
 
 ```bicep
-          httpListeners: [for item in appgwApplications: {
-          name: '${appgwListenerName}${item.name}'
-          properties: {
-            frontendIPConfiguration: {
-              id: '${appgwId}/frontendIPConfigurations/${appgwFrontendName}'
-            }
-            frontendPort: {
-              id: '${appgwId}/frontendPorts/port_443'
-            }
-            protocol: 'Https'
-            sslCertificate: {
-              id: '${appgwId}/sslCertificates/${appgwSslCertificateName}${item.name}'
-            }
-            hostName: item.hostName
-            requireServerNameIndication: true
-          }
-        }]
+httpListeners: [for item in appgwApplications: {
+name: '${appgwListenerName}${item.name}'
+properties: {
+  frontendIPConfiguration: {
+    id: '${appgwId}/frontendIPConfigurations/${appgwFrontendName}'
+  }
+  frontendPort: {
+    id: '${appgwId}/frontendPorts/port_443'
+  }
+  protocol: 'Https'
+  sslCertificate: {
+    id: '${appgwId}/sslCertificates/${appgwSslCertificateName}${item.name}'
+  }
+  hostName: item.hostName
+  requireServerNameIndication: true
+}
+}]
 ```
 
 The reference implementation demonstrates end-to-end encryption for traffic between Application Gateway and the web apps on the App Service Environment. The default SSL certificates are used. The backend pools in this implementation are configured to redirect HTTPS traffic with host name overridden by the default domain names associated to the web apps. Application Gateway trusts the default SSL certificates because they're issued by Microsoft. See [Configure App Service with Application Gateway](/azure/application-gateway/configure-web-app-portal) for information about how these configurations are made. The following code from appgw.bicep shows how this is configured in the reference implementation:
 
 ```bicep
-        backendHttpSettingsCollection: [for item in appgwApplications: {
-        name: '${appgwHttpSettingsName}${item.name}'
-        properties: {
-          port: 443
-          protocol: 'Https'
-          cookieBasedAffinity: 'Disabled'
-          pickHostNameFromBackendAddress: true
-          requestTimeout: 20
-          probe: {
-            id: '${appgwId}/probes/${appgwHealthProbeName}${item.name}'
-          }
-        }
-      }]
+backendHttpSettingsCollection: [for item in appgwApplications: {
+name: '${appgwHttpSettingsName}${item.name}'
+properties: {
+  port: 443
+  protocol: 'Https'
+  cookieBasedAffinity: 'Disabled'
+  pickHostNameFromBackendAddress: true
+  requestTimeout: 20
+  probe: {
+    id: '${appgwId}/probes/${appgwHealthProbeName}${item.name}'
+  }
+}
+}]
 ```
 
 ##### Web Application Firewall
@@ -138,12 +130,12 @@ The reference implementation demonstrates end-to-end encryption for traffic betw
 [Web Application Firewall (WAF) on Application Gateway](/azure/web-application-firewall/ag/ag-overview) protects the web apps from malicious attacks, such as SQL injection. It is also integrated with Azure Monitor, to monitor attacks using a real-time log. WAF needs to be enabled on the gateway, as described in [Create an application gateway with a Web Application Firewall using the Azure portal](/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal). The reference implementation enables WAF programmatically in the appgw.bicep file with the following snippet:
 
 ```bicep
-        webApplicationFirewallConfiguration: {
-        enabled: true
-        firewallMode: 'Detection'
-        ruleSetType: 'OWASP'
-        ruleSetVersion: '3.0'
-      }
+webApplicationFirewallConfiguration: {
+  enabled: true
+  firewallMode: 'Detection'
+  ruleSetType: 'OWASP'
+  ruleSetVersion: '3.2'
+}
 ```
 
 #### Virtual Network
@@ -178,82 +170,67 @@ You can lock down access to App Service Environment applications by tightly cont
 
 #### Key Vault
 
-Some services support managed identities but use Azure RBAC to set up permissions for the app. For example, see the built-in Service Bus [roles](/azure/service-bus-messaging/service-bus-managed-service-identity#built-in-rbac-roles-for-azure-service-bus) and [Azure RBAC in Azure Cosmos DB](/azure/cosmos-db/role-based-access-control). *Owner* access to the subscription is required for granting these permissions, even though personnel with *Contributor* access can deploy these services. To allow a wider team of developers to be able to run the deployment scripts, the next best option is to use native access control policies of the service:
+Some services support managed identities and use Azure RBAC to set up permissions for the app. For example, see the built-in Service Bus [roles](/azure/service-bus-messaging/service-bus-managed-service-identity#built-in-rbac-roles-for-azure-service-bus) and [Azure RBAC in Azure Cosmos DB](/azure/cosmos-db/role-based-access-control). *User access administrator* access to the subscription is required for granting these permissions, even though personnel with *Contributor* access can deploy these services. To allow a wider team of developers to be able to run the deployment scripts, the alternative is to use native access control provided by the services:
 
 - For Service Bus, it's [shared access signatures](/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature).
 - For Azure Cosmos DB, it's [keys](/azure/cosmos-db/secure-access-to-data#master-keys).
 
-The connection strings for these access control policies are then stored in Key Vault. The vault itself is accessed through managed identities, which require Azure RBAC. Set the access policy for these connection strings appropriately. For example, read-only for the backend, write-only for the frontend, and so on, instead of using default root access policy.
+If the workload needs service-based access, then those pre-shared secrets should be stored in Key Vault. The vault itself should be accessed through the managed identity of the web application.
 
-The following code in [services.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/services.bicep) shows the Key Vault configuration for these services:
-
-```bicep
-      resource keyVaultName_CosmosKey 'Microsoft.KeyVault/vaults/secrets@2022-07-01' = {
-      parent: keyVaultName
-      name: 'CosmosKey'
-      properties: {
-        value: cosmosName.listKeys().primaryMasterKey 
-      }
-    }
-
-      resource keyVaultName_ServiceBusListenerConnectionString 'Microsoft.KeyVault/vaults/secrets@2022-07-01' = {
-      parent: keyVaultName
-      name: 'ServiceBusListenerConnectionString'
-      properties: {
-        value: listKeys(serviceBusName_ListenerSharedAccessKey.id, '2021-11-01').primaryConnectionString
-      }
-    }
-
-      resource keyVaultName_ServiceBusSenderConnectionString 'Microsoft.KeyVault/vaults/secrets@2022-07-01' = {
-      parent: keyVaultName
-      name: 'ServiceBusSenderConnectionString'
-      properties: {
-        value: listKeys(serviceBusName_SenderSharedAccessKey.id, '2021-11-01').primaryConnectionString
-      }
-    }
-```
-
-These connection string values are accessed by the apps, which reference the Key Vault key/value pair. This is done in the [sites.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/sites.bicep) file, as the following code for Voting App shows:
+Secrets stored in Key Vault are accessed by the apps, which reference the Key Vault key/value pair. This is done in the [sites.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/sites.bicep) file, as the following code for Voting App shows:
 
 ```bicep
-  properties: {
-    enabled: true
-    hostingEnvironmentProfile: {
-      id:aseId
-    }
-    serverFarmId: votingWebPlanName.id
-    siteConfig: {
-      appSettings: [
-        {
-          name: 'ConnectionStrings:sbConnectionString'
-          value: '@Microsoft.KeyVault(SecretUri=${reference(resourceId('Microsoft.KeyVault/vaults/secrets', keyVaultName, serviceBusSenderConnectionStringSecretName), '2022-07-01').secretUriWithVersion})'
-        }
-        {
-          name: 'ConnectionStrings:RedisConnectionString'
-          value: '@Microsoft.KeyVault(SecretUri=${reference(keyVaultName_redisSecretName.id, '2022-07-01').secretUriWithVersion})'
-        }
-        {
-          name: 'ConnectionStrings:CosmosKey'
-          value: '@Microsoft.KeyVault(SecretUri=${reference(resourceId('Microsoft.KeyVault/vaults/secrets', keyVaultName, cosmosKeySecretName), '2022-07-01').secretUriWithVersion})'
-        }
-      ]
-    }
+properties: {
+  enabled: true
+  hostingEnvironmentProfile: {
+    id: aseId
   }
+  serverFarmId: votingWebPlanName.id
+  siteConfig: {
+    appSettings: [
+      {
+        name: 'ASecret'
+        value: '@Microsoft.KeyVault(SecretUri=${applicationKeyVault::secretName.secretUriWithVersion})'
+      }
+    ]
+  }
+}
 ```
 
-The function also accesses the Service Bus listener connection string in a similar manner.
+### Cost Optimization
 
-### Scalability
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-#### Design scalable apps
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview). Azure Reservations help you save money by committing to one-year or three-years plans for many Azure resources. Read more in the article [Buy a reservation](/azure/cost-management-billing/reservations/prepare-buy-reservation).
 
-The application in this reference architecture is structured so that individual components can be scaled based on usage. Each web app, API, and function is deployed in its own App Service plan. You can monitor each app for any performance bottlenecks, and then [scale it up](/azure/app-service/manage-scale-up) if required.
+Here are some points to consider for some of the key services used in this architecture.
 
-#### Autoscaling Application Gateway
+#### App Service Environment v3
 
-Autoscaling can be enabled on Azure Application Gateway V2. This allows Application Gateway to scale up or down based on the traffic load patterns. This reference architecture configures `autoscaleConfiguration` in the file [appgw.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/appgw.bicep) to scale between zero and 10 additional instances. See [Scaling Application Gateway and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#scaling-application-gateway-and-waf-v2) for more details.
+There are various [pricing options available for App Service](https://azure.microsoft.com/pricing/details/app-service/windows). An App Service Environment is deployed using the Isolated v2 Service Plan. Within this plan, there are multiple options for CPU sizes, from I1v2 through I6v2. This reference implementation uses three I1v2s per instance.
 
-### Deployment
+#### Application Gateway
+
+[Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/) provides various pricing options. This implementation uses the Application Gateway Standard v2 and WAF v2 SKU, which supports autoscaling and zone redundancy. See [Scaling Application Gateway v2 and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing) for more information about the pricing model used for this SKU.
+
+#### Azure Cache for Redis
+
+[Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache) provides the various pricing options for this service. This architecture uses the *Premium SKU*, for the virtual network support.
+
+
+#### Additional dependencies
+
+Following are pricing pages for other services that are used to lock down the App Service Environment:
+
+- [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall)
+
+- [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault)
+
+- [Microsoft Entra pricing](https://azure.microsoft.com/pricing/details/active-directory)
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 The deployment scripts in this reference architecture are used to deploy App Service Environment, other services, and the applications inside App Service Environment. Once these applications are deployed, enterprises might want to have a plan for continuous integration and deployment for app maintenance and upgrades. This section shows some of the common ways developers use for CI/CD of App Service Environment applications.
 
@@ -275,31 +252,17 @@ Some enterprises may not want to maintain a permanent build agent inside the vir
 
 To know some more ways the apps can be deployed to the App Service plans, read [the App Service articles focusing on deployment strategies](/azure/app-service/deploy-run-package).
 
-### Cost optimization
+### Performance Efficiency
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview). Azure Reservations help you save money by committing to one-year or three-years plans for many Azure resources. Read more in the article [Buy a reservation](/azure/cost-management-billing/reservations/prepare-buy-reservation).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Here are some points to consider for some of the key services used in this architecture.
+#### Design scalable apps
 
-#### App Service Environment v3
+The application in this reference architecture is structured so that individual components can be scaled based on usage. Each web app, API, and function is deployed in its own App Service plan. You can monitor each app for any performance bottlenecks, and then [scale it up](/azure/app-service/manage-scale-up) if required.
 
-There are various [pricing options available for App Service](https://azure.microsoft.com/pricing/details/app-service/windows). An App Service Environment is deployed using the Isolated v2 Service Plan. Within this plan, there are multiple options for CPU sizes, from I1v2 through I6v2. This reference implementation uses three I1v2s per instance.
+#### Autoscaling Application Gateway
 
-#### Application Gateway
-
-[Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/) provides various pricing options. This implementation uses the Application Gateway Standard v2 and WAF v2 SKU, which supports autoscaling and zone redundancy. See [Scaling Application Gateway v2 and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing) for more information about the pricing model used for this SKU.
-
-#### Azure Cache for Redis
-
-[Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache) provides the various pricing options for this service. This architecture uses the *Premium SKU*, for the virtual network support.
-
-Following are pricing pages for other services that are used to lock down the App Service Environment:
-
-- [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall)
-
-- [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault)
-
-- [Microsoft Entra pricing](https://azure.microsoft.com/pricing/details/active-directory)
+Autoscaling can be enabled on Azure Application Gateway V2. This allows Application Gateway to scale up or down based on the traffic load patterns. This reference architecture configures `autoscaleConfiguration` in the file [appgw.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/appgw.bicep) to scale between zero and 10 additional instances. See [Scaling Application Gateway and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#scaling-application-gateway-and-waf-v2) for more details.
 
 ## Deploy this scenario
 
@@ -307,13 +270,13 @@ To deploy the reference implementation for this architecture, see the [GitHub re
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
 - [Dhanashri Kshirsagar](https://www.linkedin.com/in/dhanashrikr/) | Senior Content PM
 
- Other contributors:
+Other contributors:
 
 - [Deep Bhattacharya](https://www.linkedin.com/in/deeplydiligent/) | Cloud Solution Architect
 - [Suhas Rao](https://www.linkedin.com/in/suhasaraos/) | Cloud Solution Architect

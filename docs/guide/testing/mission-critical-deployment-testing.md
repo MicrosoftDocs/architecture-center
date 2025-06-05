@@ -3,10 +3,9 @@ title: Continuous validation with Azure Load Testing and Azure Chaos Studio
 description: Guide on performing automated continuous validation in production-like environments with Azure Load Testing and Chaos Studio.
 author: heoelri
 ms.author: msimecek
-ms.date: 11/29/2023
+ms.date: 01/30/2025
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: architecture-guide
 ms.custom: mission-critical
 categories: azure
 products:
@@ -60,9 +59,9 @@ You can deploy and configure both Chaos Studio and Load Testing via the Azure po
 
 The following video shows a [combined implementation of Chaos and Load Testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#demo-continuous-validation-with-azure-load-test-and-azure-chaos-studio) integrated in Azure DevOps:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Y50k]
+> [!VIDEO 393a9ab4-6816-4bbf-9c25-94a34a5413e0]
 
-If you're developing a mission-critical workload, take advantage of the reference architectures, detailed guidance, sample implementations, and code artifacts provided as part of the [Azure Mission-Critical project](https://github.com/Azure/Mission-Critical) and [Azure Well-Architected Framework](/azure/architecture/framework/mission-critical). 
+If you're developing a mission-critical workload, take advantage of the reference architectures, detailed guidance, sample implementations, and code artifacts provided as part of the [Azure Mission-Critical project](https://github.com/Azure/Mission-Critical) and [Azure Well-Architected Framework](/azure/architecture/framework/mission-critical).
 
 The Mission-Critical implementation deploys the Load Testing service via Terraform and contains a [collection of PowerShell Core wrapper scripts](https://github.com/Azure/Mission-Critical-Online/tree/main/src/testing/loadtest-azure/scripts) to interact with the service via its API. These scripts can be embedded directly into a deployment pipeline.
 

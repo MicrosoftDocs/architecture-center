@@ -1,12 +1,11 @@
 ---
 title: Conceptual planning for IPv6 networking
 description: Learn strategies for transitioning an IPv4 network environment on Azure to IPv6. IPv6 provides a larger pool of internet addresses to accommodate growth.
-author: bsteph
-ms.author: bstephenson
-ms.date: 01/08/2024
+author: brsteph
+ms.author: leuthaeusern
+ms.date: 01/17/2025
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 products:
   - azure-virtual-network
   - azure-firewall
@@ -18,7 +17,7 @@ categories:
 
 # Conceptual planning for IPv6 networking
 
-This guide outlines strategies for transitioning an IPv4 network environment in Azure to IPv6. This transition is necessary as the number of internet-connected devices expands and IPv4 addresses near exhaustion. The IPv6 protocol provides a larger pool of internet addresses to accommodate future growth and offers enhanced security features (native IPSec), flow labeling, and simplified network configurations. This article helps you understand IPv6, acquire IPv6 addresses, and transition to IPv6.
+This guide outlines strategies for transitioning an IPv4 network environment in Azure to IPv6. This transition is necessary as the number of internet-connected devices expands and IPv4 addresses near exhaustion. The IPv6 protocol provides a larger pool of internet addresses to accommodate future growth and offers enhanced security features (native IPsec), flow labeling, and simplified network configurations. This article helps you understand IPv6, acquire IPv6 addresses, and transition to IPv6.
 
 ## Understand IPv6
 
@@ -94,6 +93,7 @@ You can use the following table to find instructions for transitioning specific 
 
 | Service/component | Transition instructions |
 |--|--|
+| Azure Application Gateway | For more information, see [Configure Application Gateway with a frontend public IPv6 address](/azure/application-gateway/ipv6-application-gateway-portal). |
 | Azure Container Networking Interface (CNI) Overlay for AKS| For more information, see [Use Azure CNI Overlay](/azure/aks/azure-cni-overlay). |
 | Azure custom IP address prefix | You need to create new prefixes for your IPv6 address ranges. For instructions, see [Create a custom IPv6 address prefix using the Azure portal](/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-portal). |
 | Azure Data Explorer | You must perform an API request to update the `publicIPType` property to `DualStack`. For more information, see [Create or update clusters](/rest/api/azurerekusto/clusters/create-or-update#kustoclusterscreateorupdate). |

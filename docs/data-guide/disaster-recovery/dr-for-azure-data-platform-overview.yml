@@ -1,14 +1,12 @@
 ### YamlMime:Architecture
 metadata:
   title: DR for Azure Data Platform - Overview
-  titleSuffix: Azure Architecture Center
   description: First article in a series covering disaster recovery for an Azure data platform
   author: claytonsiemens77
-  ms.author: csiemens
-  ms.date: 10/07/2022
+  ms.author: pnp
+  ms.date: 10/07/2024
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.subservice: architecture-guide
 name: DR for Azure Data Platform - Overview
 azureCategories:
   - databases
@@ -22,4 +20,4 @@ products:
   - azure-event-hubs
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-analytics-end-to-end.png
 content: |
-   [!include[](dr-for-azure-data-platform-overview-content.md)]
+   [!INCLUDE[](dr-for-azure-data-platform-overview-content.md)]

@@ -113,10 +113,10 @@ http {
 
 ## Related resources
 
-- [Backends for Frontends pattern](./backends-for-frontends.yml)
+- [Backends for Frontends pattern](./backends-for-frontends.md)
 - [Gateway Offloading pattern](./gateway-offloading.yml)
 - [Gateway Routing pattern](./gateway-routing.yml)
 
 [bulkhead]: ./bulkhead.yml
-[circuit-breaker]: ./circuit-breaker.yml
+[circuit-breaker]: ./circuit-breaker.md
 [retry]: ./retry.yml

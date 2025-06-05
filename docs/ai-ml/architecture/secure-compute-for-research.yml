@@ -1,26 +1,27 @@
 ### YamlMime:Architecture
 metadata:
-  title: Secure research environment for regulated data
-  description: Architecture on Azure that shows a regulated environment for researchers to access sensitive data while providing a higher level of control and data protection.
-  author: PageWriter-MSFT
+  title: Design a Secure Research Environment for Regulated Data
+  description: Learn how to design an architecture on Azure for a regulated environment that allows researchers to access sensitive data.
+  author: moodaddy
   ms.author: clbarlow
-  ms.date: 05/26/2022
+  ms.date: 11/13/2024
   ms.topic: example-scenario
   ms.collection: ce-skilling-ai-copilot  
-  ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
     - fcp
-name: Secure research environment for regulated data
+    - arb-aiml
+    - arb-telco
 azureCategories:
   - ai-machine-learning
   - compute
   - security
-summary: Architecture on Azure that shows a regulated environment for researchers to access sensitive data while providing a higher level of control and data protection.
 products:
-  - azure-data-science-vm
-  - azure-machine-learning
-  - azure-data-factory
-thumbnailUrl: /azure/architecture/browse/thumbs/secure-research-env.png
+   - azure-data-science-vm
+   - azure-machine-learning
+   - azure-data-factory
+name: Design a secure research environment for regulated data
+summary: Learn how to design an architecture on Azure for a regulated environment that allows researchers to access sensitive data.
+thumbnailUrl: /azure/architecture/browse/thumbs/secure-compute-for-research.png
 content: |
    [!INCLUDE[](secure-compute-for-research-content.md)]

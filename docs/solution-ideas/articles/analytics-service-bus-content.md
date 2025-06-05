@@ -8,7 +8,7 @@ This article describes how to use Azure Data Explorer and Azure Service Bus to e
 
 *Download a [Visio file](https://arch-center.azureedge.net/analytics-service-bus.vsdx) of this architecture.*
 
-*The Grafana logo is a trademark of Raintank, Inc., dba Grafana Labs. No endorsement is implied by the use of this mark.* 
+*The Grafana logo is a trademark of Raintank, Inc., dba Grafana Labs. No endorsement is implied by the use of this mark.*
 
 The diagram shows two data paths. The main path, which is represented by solid lines and boxes 1 through 5, is the ingestion of data from various sources into a service bus, where it's processed by a stream analytics job and stored in a SQL database. The second path, which is represented by dotted lines and boxes, shows the data flowing from the service bus to an Azure Data Explorer cluster, where it can be queried and analyzed via Kusto Query Language (KQL).
 
@@ -39,22 +39,22 @@ The data source in the architecture is an existing Online Transaction Processing
 
 ### Components
 
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure.
-- [Service Bus](https://azure.microsoft.com/products/service-bus/) provides reliable cloud messaging as a service.
-- [SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is a fully managed SQL database that's built for the cloud. It provides automatic updates, provisioning, scaling, and backups.
-- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db/) is a globally distributed, multimodel database for applications of any scale.
-- [Azure Functions](https://azure.microsoft.com/products/functions/) is an event-driven serverless compute platform. With Functions, you can deploy and operate at scale in the cloud and use triggers and bindings to integrate services.
-- [AKS](https://azure.microsoft.com/products/kubernetes-service/) is a highly available, highly secure, and fully managed Kubernetes service for application and microservices workloads.
-- [Azure Data Explorer](https://azure.microsoft.com/products/data-explorer/) is a fast, fully managed, and highly scalable data analytics service for real-time analysis of large volumes of data that streams from applications, websites, IoT devices, and more.
-- [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage/), built on Azure Blob Storage, provides massively scalable data lake functionality.
-- [Power BI](https://powerbi.microsoft.com) can help you turn your data into coherent, visually immersive, interactive insights. 
-- [Azure Managed Grafana](https://azure.microsoft.com/products/managed-grafana/) is a fully managed service that enables you to deploy Grafana without spending time on configuration.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure. In this architecture, App Service hosts the source OLTP application which generates the data to be ingested into Azure Service Bus.
+- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) provides reliable cloud messaging as a service. In this architecture, Service Bus captures data generated at source and triggers the orchestration flow.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed SQL database that's built for the cloud. It provides automatic updates, provisioning, scaling, and backups. In this architecture, the SQL Database is an operational database which stores data output from the Function app.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multimodel database for applications of any scale. Azure Cosmos DB, just like SQL Database, can also be used as an operational database to store data output from the Functions app.
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is an event-driven serverless compute platform. With Functions, you can deploy and operate at scale in the cloud and use triggers and bindings to integrate services. In this architecture, Azure Functions is used to send data to an operational database via an orchestration flow or directly to Azure Data Explorer.
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a highly available, highly secure, and fully managed Kubernetes service for application and microservices workloads. AKS hosts a polling service, which sends data to Azure Data Explorer in micro batches.
+- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a fast, fully managed, and highly scalable data analytics service for real-time analysis of large volumes of data that streams from applications, websites, IoT devices, and more. Azure Data Explorer is used to run analytics in near real-time and expose data via either APIs or direct queries.
+- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction), built on Azure Blob Storage, provides massively scalable data lake functionality. In this architecture, Azure Data Explorer pulls data from Data Lake Storage and combines it with data ingested from App Service for analytics.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) can help you turn your data into coherent, visually immersive, interactive insights. Power BI is used as a visualization tool for the data received from App Service.
+- [Azure Managed Grafana](/azure/managed-grafana/overview) is a fully managed service that enables you to deploy Grafana without spending time on configuration. In this architecture, similar to Power BI or Azure Data Explorer dashboards, Azure Managed Grafana can be used as a visualization tool to create analytics dashboards on the data received from App Service.
 
 ## Scenario details
 
-Real-time analytics is the process of analyzing data as soon as it's generated to get insights into the current state of the system. Organizations are increasingly adopting real-time analytics to gain a competitive edge. Near real-time analytics is a variant of real-time analytics that provides insights within seconds or minutes of data generation. 
+Real-time analytics is the process of analyzing data as soon as it's generated to get insights into the current state of the system. Organizations are increasingly adopting real-time analytics to gain a competitive edge. Near real-time analytics is a variant of real-time analytics that provides insights within seconds or minutes of data generation.
 
-These processes enable organizations to gain insights faster, make better decisions, and respond to changing conditions more effectively. Near real-time analytics can be applied to various domains, like e-commerce, healthcare, manufacturing, and finance. For example, an e-commerce company can use near real-time analytics to monitor customer behavior, optimize pricing, and personalize recommendations. 
+These processes enable organizations to gain insights faster, make better decisions, and respond to changing conditions more effectively. Near real-time analytics can be applied to various domains, like e-commerce, healthcare, manufacturing, and finance. For example, an e-commerce company can use near real-time analytics to monitor customer behavior, optimize pricing, and personalize recommendations.
 
 Many organizations implement near real-time analytics in existing solutions. This solution idea demonstrates how to add near real-time analytics to an existing architecture that's based on a message broker and that's part of an operational OLTP application.
 
@@ -64,9 +64,9 @@ OLTP stands for Online Transaction Processing. It's a type of data processing th
 
 Here are some use cases that illustrate the benefits of near real-time analytics:
 
-- Healthcare providers can track patient outcomes, detect anomalies, and improve quality of care. 
-- Manufacturing companies can optimize production, reduce waste, and prevent downtime. 
-- Financial institutions can monitor transactions, detect fraud, manage risk, and ensure compliance with regulations. 
+- Healthcare providers can track patient outcomes, detect anomalies, and improve quality of care.
+- Manufacturing companies can optimize production, reduce waste, and prevent downtime.
+- Financial institutions can monitor transactions, detect fraud, manage risk, and ensure compliance with regulations.
 - Commerce companies can monitor campaigns and gain insights to support promotion.
 - Companies can monitor, optimize, analyze, and forecast supply chains.
 
@@ -76,12 +76,11 @@ Here are some use cases that illustrate the benefits of near real-time analytics
 
 Principal author:
 
- * [Shlomo Sagir](https://il.linkedin.com/in/shlomo-sagir) | Senior Content Developer
-
+- [Shlomo Sagir](https://il.linkedin.com/in/shlomo-sagir) | Senior Content Developer
 
 Other contributor:
 
- * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -93,5 +92,3 @@ Other contributor:
 ## Related resources
 
 - [Near real-time lakehouse data processing](../../example-scenario/data/real-time-lakehouse-data-processing.yml)
-- [Real-time analytics on big data architecture](real-time-analytics.yml)
-- [Create personalized marketing solutions in near real time](../../ai-ml/idea/personalized-marketing.yml)

@@ -2,17 +2,16 @@
 metadata:
   title: Multitenant SaaS on Azure
   description: Build a multitenant SaaS solution on Azure, designed for high availability, scalability, data security and isolation using the App Service and Azure Kubernetes Service.
-  author: martinekuan
-  ms.author: pnp
-  ms.date: 07/25/2022
+  author: kyleburnsdev
+  ms.author: kyburns
+  ms.date: 05/28/2025
   ms.topic: example-scenario
-  ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:
     - identity
   ms.custom:
-    - fcp
     - example-scenario
+    - arb-web
 name: Multitenant SaaS on Azure
 azureCategories:
   - identity

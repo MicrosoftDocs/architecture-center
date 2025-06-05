@@ -1,4 +1,4 @@
-The Bulkhead pattern is a type of application design that is tolerant of failure. In a bulkhead architecture, elements of an application are isolated into pools so that if one fails, the others will continue to function. It's named after the sectioned partitions (bulkheads) of a ship's hull. If the hull of a ship is compromised, only the damaged section fills with water, which prevents the ship from sinking.
+The Bulkhead pattern is a type of application design that is tolerant of failure. In a bulkhead architecture, also known as cell-based architecture, elements of an application are isolated into pools so that if one fails, the others will continue to function. It's named after the sectioned partitions (bulkheads) of a ship's hull. If the hull of a ship is compromised, only the damaged section fills with water, which prevents the ship from sinking.
 
 ## Context and problem
 
@@ -31,6 +31,7 @@ The next diagram shows multiple clients calling a single service. Each client is
 ## Issues and considerations
 
 - Define partitions around the business and technical requirements of the application.
+- If using [tactical DDD to design microservices](/azure/architecture/microservices/model/tactical-ddd), partition boundaries should align with the bounded contexts.
 - When partitioning services or consumers into bulkheads, consider the level of isolation offered by the technology as well as the overhead in terms of cost, performance and manageability.
 - Consider combining bulkheads with retry, circuit breaker, and throttling patterns to provide more sophisticated fault handling.
 - When partitioning consumers into bulkheads, consider using processes, thread pools, and semaphores. Projects like [resilience4j](https://github.com/resilience4j/resilience4j) and [Polly][polly] offer a framework for creating consumer bulkheads.
@@ -92,7 +93,7 @@ spec:
 
 ## Related resources
 
-- [Circuit Breaker pattern](./circuit-breaker.yml)
+- [Circuit Breaker pattern](./circuit-breaker.md)
 - [Retry pattern](./retry.yml)
 - [Throttling pattern](./throttling.yml)
 

@@ -1,13 +1,13 @@
 ---
 title: Choose a Kubernetes at the edge compute option
-titleSuffix: Azure Architecture Center
 description: Learn about trade-offs for various options available for extending compute on the edge.
-author: martinekuan
+author: prabhkaur1977
 ms.author: prkau
-ms.date: 11/11/2022
+ms.date: 06/07/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
+ms.custom:
+  - arb-containers
 categories: containers
 ms.category:
   - containers
@@ -41,7 +41,7 @@ After reading this document, you'll be in a better position to identify which op
 |---------------------------------|----------------------|---------------------------|-----------------|----------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | **Bare-metal Kubernetes**       | High\*\*             | Difficult\*\*             | High\*\*        | Yes            | A ground-up configuration on any available infrastructure at location with the option to use Azure Arc for added Azure capabilities. |
 | **K8s on Azure Stack Edge Pro** | Low                  | Easy                      | Low             | Linux only     | Kubernetes deployed on Azure Stack Edge appliance deployed at location.                                                                   |
-| **AKS hybrid**                  | Low                  | Easy                      | Medium          | Yes            | AKS deployed on Azure Stack HCI or Windows Server 2019.                                                                                   |
+| **AKS hybrid**                  | Low                  | Easy                      | Medium          | Yes            | AKS deployed on Azure Local or Windows Server 2019.                                                                                   |
 
 \*Other managed edge platforms (OpenShift, Tanzu, and so on) aren't in scope for this document.
 
@@ -135,11 +135,11 @@ Flexibility:
 
 ## AKS hybrid
 
-AKS hybrid is a set of predefined settings and configurations that is used to deploy one or more Kubernetes clusters (with Windows Admin Center or PowerShell modules) on a multi-node cluster running either Windows Server or Azure Stack HCI 20H2 or later.
+AKS hybrid is a set of predefined settings and configurations that is used to deploy one or more Kubernetes clusters (with Windows Admin Center or PowerShell modules) on a multi-node cluster running either Windows Server.
 
 ### Scenario
 
-Ideal for those who want a simplified and streamlined way to get a Microsoft-supported cluster on compatible devices (Azure Stack HCI or Windows Server). Operations and configuration complexity are reduced at the expense of the flexibility when compared to the bare-metal Kubernetes option.
+Ideal for those who want a simplified and streamlined way to get a Microsoft-supported cluster on compatible devices (Azure Local or Windows Server). Operations and configuration complexity are reduced at the expense of the flexibility when compared to the bare-metal Kubernetes option.
 
 ### Considerations
 
@@ -153,7 +153,7 @@ Ease of configuration:
 
 Flexibility:
 
-- Cluster configuration itself is set, but Admin permissions are granted. The underlying infrastructure must either be Azure Stack HCI or Windows Server.
+- Cluster configuration itself is set, but Admin permissions are granted. The underlying infrastructure must either be Azure Local or Windows Server.
     2019. This option is more flexible than Kubernetes on Azure Stack Edge and less flexible than bare-metal Kubernetes.
 
 ## Contributors
@@ -181,7 +181,5 @@ For more information, see the following articles:
 - [Use Kubernetes dashboard to monitor your Azure Stack Edge Pro GPU device](/azure/databox-online/azure-stack-edge-gpu-monitor-kubernetes-dashboard)
 
 ## Related resources
-
-- [AI at the edge with Azure Stack Hub](../../solution-ideas/articles/ai-at-the-edge.yml)
 
 - [Building a CI/CD pipeline for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.yml)

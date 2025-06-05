@@ -149,20 +149,21 @@ For more information, see [Bandwidth pricing][Bandwidth pricing].
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - Jose Angel Fernandez Rodrigues | Senior Specialist GBB
+- Jose Angel Fernandez Rodrigues | Senior Specialist GBB
 
 Other contributor:
 
- - [Ivens Applyrs](https://www.linkedin.com/in/ivens-applyrs/) | Product Manager 2
- 
+- [Ivens Applyrs](https://www.linkedin.com/in/ivens-applyrs/) | Product Manager 2
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
+- [Hub-spoke network topology in Azure][Hub-spoke network topology in Azure]
 - [Hub-spoke network topology in Azure][Hub-spoke network topology in Azure]
 - [Azure Private Link availability][Azure Private Link availability]
 - [What is Azure Private Endpoint?][What is Azure Private Endpoint?]
@@ -174,10 +175,7 @@ Other contributor:
 
 ## Related resources
 
-- [Serverless event stream processing in a VNet with private endpoints][Serverless event stream processing in a VNet with private endpoints]
-- [Secure your Microsoft Teams channel bot and web app behind a firewall][Securing your Microsoft Teams channel bot and web app behind a firewall]
 - [Web app private connectivity to Azure SQL database][Web app private connectivity to Azure SQL database]
-- [Multi-region web app with private connectivity to database][Multi-region web app with private connectivity to database]
 
 [Azure Private Link availability]: /azure/private-link/availability
 [Bandwidth pricing]: https://azure.microsoft.com/pricing/details/bandwidth
@@ -188,8 +186,6 @@ Other contributor:
 [Hub-spoke network topology in Azure]: ../architecture/hub-spoke.yml
 [Integrate Azure services with virtual networks for network isolation]: /azure/virtual-network/vnet-integration-for-azure-services
 [Private Link and DNS integration at scale]: /azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale
-[Securing your Microsoft Teams channel bot and web app behind a firewall]: ../../example-scenario/teams/securing-bot-teams-channel.yml
-[Serverless event stream processing in a VNet with private endpoints]: ../../solution-ideas/articles/serverless-event-processing-private-link.yml
 [SVG version of architecture diagram]: ./images/private-link-hub-spoke-network-basic-hub-spoke-diagram.svg
 [SVG version of decision tree]: ./images/private-link-hub-spoke-network-decision-tree.svg
 [SVG version of Private Link diagram]: ./images/private-link-hub-spoke-network-private-link.svg

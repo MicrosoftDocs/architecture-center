@@ -1,14 +1,12 @@
 ### YamlMime:Architecture
 metadata:
   title: Batch scoring of Spark models on Azure Databricks
-  titleSuffix: Azure Reference Architectures
   description: Build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks.
-  author: ehrlinger
-  ms.author: pnp
-  ms.date: 11/14/2022
+  author: FreddyAyala
+  ms.author: freddyayala
+  ms.date: 12/18/2024
   ms.topic: reference-architecture
   ms.collection: ce-skilling-ai-copilot
-  ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - ai-machine-learning
@@ -19,6 +17,7 @@ metadata:
     - reference-architecture
     - ai-machine-learning
     - aml-project-improvement
+    - arb-aiml
 azureCategories:
   - ai-machine-learning
   - analytics

@@ -4,18 +4,13 @@ metadata:
   description: Learn about the SAP BW/4HANA application tier and how it's suitable for a high availability, small-scale production environment of SAP BW/4HANA on Azure.
   author: bqtrinh
   ms.author: bentrin
-  ms.date: 07/20/2023
+  ms.date: 11/18/2024
   ms.topic: reference-architecture
-  ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - databases
     - compute
-  ms.custom:
-    - fcp
-    - reference-architecture
-    - e2e-sap
-    - linux-related-content
+  ms.custom: arb-sap
 name: Run SAP BW/4HANA with Linux virtual machines on Azure
 azureCategories:
   - databases
@@ -29,4 +24,4 @@ products:
   - azure-sap
 thumbnailUrl: /azure/architecture/browse/thumbs/sap-bw4hana.png
 content: |
-   [!include[](run-sap-bw4hana-with-linux-virtual-machines-content.md)]
+   [!INCLUDE[](run-sap-bw4hana-with-linux-virtual-machines-content.md)]

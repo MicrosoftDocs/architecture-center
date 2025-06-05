@@ -1,14 +1,13 @@
 ### YamlMime:Architecture
 metadata:
-  title: Replicate mainframe data by using Precisely Connect
-  titleSuffix: Azure Architecture Center
+  title: Replicate Mainframe Data by using Precisely Connect
   description: Learn how to use Precisely Connect to migrate legacy mainframe and midrange systems to the Azure platform.
-  author: martinekuan
+  author: raman-wk
   ms.author: sesankar
   ms.date: 05/02/2023
   ms.topic: conceptual
-  ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.custom: arb-data
 azureCategories:
   - migration
 products:
@@ -21,4 +20,4 @@ name: Replicate mainframe data by using Precisely Connect
 summary: Learn how to use Precisely Connect to migrate mainframe and midrange systems to the Azure platform.
 thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-precisely-connect-thumb.png
 content: |
-  [!include[](mainframe-replication-precisely-connect-content.md)]
+  [!INCLUDE[](mainframe-replication-precisely-connect-content.md)]

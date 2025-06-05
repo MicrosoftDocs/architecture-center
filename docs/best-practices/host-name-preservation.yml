@@ -1,14 +1,13 @@
 ### YamlMime:Architecture
 metadata:
-  title: Host name preservation 
-  description:  Learn how to preserve the original HTTP host name between a reverse proxy and its back-end web application in common Azure services.
+  title: Host name preservation
+  description: Learn how to preserve the original HTTP host name between a reverse proxy and its back-end web application in common Azure services.
   author: jelledruyts
   ms.author: jelled
-  ms.date: 01/11/2024
+  ms.date: 01/16/2025
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
-  ms.custom: fcp
+  ms.subservice: architecture-guide
+  ms.custom: arb-web
 azureCategories:
   - networking
   - web
@@ -22,4 +21,4 @@ name: Preserve the original HTTP host name between a reverse proxy and its back-
 summary: Learn how to preserve the original HTTP host name between a reverse proxy and its back-end web application in common Azure services.
 thumbnailUrl: /azure/architecture/browse/thumbs/issue-redirect-urls.png
 content: |
-  [!include[](host-name-preservation-content.md)]
+  [!INCLUDE[](host-name-preservation-content.md)]

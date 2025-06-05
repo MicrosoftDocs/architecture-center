@@ -4,12 +4,12 @@ metadata:
   description: Use Bicep and a deployment script to pause a deployment in order to wait for a resource property to return a specific value.
   author: jtracey93
   ms.author: jatracey
-  ms.date: 05/16/2023
+  ms.date: 09/13/2024
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.subservice: architecture-guide
   ms.custom:
     - devx-track-bicep
+    - arb-devops
 azureCategories:
   - devops
   - networking

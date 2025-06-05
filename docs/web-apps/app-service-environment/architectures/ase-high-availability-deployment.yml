@@ -1,19 +1,18 @@
 ### YamlMime:Architecture
 metadata:
   title: HA enterprise deployment using ASE
-  titleSuffix: Azure Architecture Center
   description: Recommended architecture for deploying an enterprise application using App Services Environment in multiple availability zones.
   author: deepbhattacharyya
   ms.author: deepbh
-  ms.date: 08/03/2023
+  ms.date: 12/04/2024
   ms.topic: reference-architecture
-  ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - management-and-governance
     - featured
   ms.custom:
     - reference-architecture
+    - arb-web
 name: High availability enterprise deployment using App Service Environment
 azureCategories:
   - management-and-governance

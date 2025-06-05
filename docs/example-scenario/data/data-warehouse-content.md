@@ -27,12 +27,12 @@ The company has data sources on many different platforms:
 
 Data is loaded from these different data sources using several Azure components:
 
-- [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) is used to stage source data before it's loaded into Azure Synapse.
-- [Data Factory](https://azure.microsoft.com/products/data-factory) orchestrates the transformation of staged data into a common structure in Azure Synapse. Data Factory [uses PolyBase when loading data into Azure Synapse](/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-sql-data-warehouse) to maximize throughput.
-- [Azure Synapse](https://azure.microsoft.com/products/synapse-analytics) is a distributed system for storing and analyzing large datasets. Its use of massive parallel processing (MPP) makes it suitable for running high-performance analytics. Azure Synapse can use [PolyBase](/sql/relational-databases/polybase/polybase-guide) to rapidly load data from Azure Data Lake Storage.
-- [Analysis Services](https://azure.microsoft.com/products/analysis-services) provides a semantic model for your data. It can also increase system performance when analyzing your data.
-- [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) authenticates users who connect to the Analysis Services server through Power BI. Data Factory can also use Microsoft Entra ID to authenticate to Azure Synapse via a service principal or [Managed identity for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is used to stage source data before it's loaded into Azure Synapse.
+- [Data Factory](/azure/data-factory/introduction) orchestrates the transformation of staged data into a common structure in Azure Synapse. Data Factory [uses PolyBase when loading data into Azure Synapse](/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-sql-data-warehouse) to maximize throughput.
+- [Azure Synapse](/azure/synapse-analytics/overview-what-is) is a distributed system for storing and analyzing large datasets. Its use of massive parallel processing (MPP) makes it suitable for running high-performance analytics. Azure Synapse can use [PolyBase](/sql/relational-databases/polybase/polybase-guide) to rapidly load data from Azure Data Lake Storage.
+- [Analysis Services](/azure/analysis-services/analysis-services-overview) provides a semantic model for your data. It can also increase system performance when analyzing your data.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) authenticates users who connect to the Analysis Services server through Power BI. Data Factory can also use Microsoft Entra ID to authenticate to Azure Synapse via a service principal or [Managed identity for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
 ### Alternatives
 
@@ -68,7 +68,7 @@ This approach can also be used to:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 The technologies in this architecture were chosen because they met the company's requirements for scalability and availability, while helping them control costs.
 
@@ -79,15 +79,15 @@ The technologies in this architecture were chosen because they met the company's
 - Azure Analysis Services also has [guaranteed SLAs](https://azure.microsoft.com/support/legal/sla/analysis-services) and [recommended practices for achieving high availability](/azure/analysis-services/analysis-services-bcdr).
 - The [Azure Synapse security model](/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security) provides connection security, [authentication and authorization](/azure/sql-data-warehouse/sql-data-warehouse-authentication) via Microsoft Entra ID or SQL Server authentication, and encryption. [Azure Analysis Services](/azure/analysis-services/analysis-services-manage-users) uses Microsoft Entra ID for identity management and user authentication.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Review a [pricing sample for a data warehousing scenario][calculator] via the Azure pricing calculator. Adjust the values to see how your requirements affect your costs.
 
 - [Azure Synapse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2) allows you to scale your compute and storage levels independently. Compute resources are charged per hour, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs will increase as you ingest more data.
-- [Data Factory](https://azure.microsoft.com/pricing/details/data-factory) costs are based on the number of read/write operations, monitoring operations, and orchestration activities performed in a workload. Your Data Factory costs will increase with each additional data stream and the amount of data processed by each one.
-- [Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services) is available in developer, basic, and standard tiers. Instances are priced based on query processing units (QPUs) and available memory. To keep your costs lower, minimize the number of queries you run, how much data they process, and how often they run.
+- [Data Factory](https://azure.microsoft.com/pricing/details/data-factory) costs are based on the number of read/write operations, monitoring operations, and orchestration activities performed in a workload. Your data factory costs will increase with each additional data stream and the amount of data processed by each one.
+- [Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services) is available in Developer, Basic, and Standard tiers. Instances are priced based on query processing units (QPUs) and available memory. To keep your costs lower, minimize the number of queries you run, how much data they process, and how often they run.
 - [Power BI](https://powerbi.microsoft.com/pricing) has different product options for different requirements. [Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded) provides an Azure-based option for embedding Power BI functionality inside your applications. A Power BI Embedded instance is included in the pricing sample above.
 
 ## Contributors
@@ -110,12 +110,8 @@ Principal author:
    - [What is dedicated SQL pool in Azure Synapse Analytics?](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
    - [Azure Analysis Services documentation](/azure/analysis-services)
    - [Power BI documentation](/power-bi)
-   - [Microsoft Entra documentation](/azure/active-directory)
+   - [Microsoft Entra documentation](/entra/identity)
 
 <!-- links -->
 
 [calculator]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
-
-## Related resources
-
-- [Enterprise data warehouse](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse)

@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Refactor mainframe applications with Advanced
-  titleSuffix: Azure Architecture Center
   description: Learn how to use the Automated COBOL Refactoring solution from Advanced to modernize your mainframe COBOL applications, run them on Azure, and reduce costs.
-  author: bhbandam
-  ms.author: bhbandam
-  ms.date: 07/01/2022
+  author: Venkat-Github-Account
+  ms.author: vramakrishna
+  ms.date: 07/10/2024
   ms.topic: example-scenario
-  ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:
     - migration

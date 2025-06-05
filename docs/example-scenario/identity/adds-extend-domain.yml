@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Deploy AD DS in an Azure virtual network
-  titleSuffix: Azure Architecture Center
   description: Learn how to extend an on-premises Active Directory domain to Azure in order to provide distributed authentication services.
   author: justinha
   ms.author: justinha
-  ms.date: 06/03/2024
+  ms.date: 06/05/2025
   ms.topic: conceptual
-  ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
     - identity

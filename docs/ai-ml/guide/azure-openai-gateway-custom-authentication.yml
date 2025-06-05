@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Provide custom authentication to Azure OpenAI Service through a gateway
+  description: Learn how to implement alternative authentication mechanisms for client applications that communicate with Azure OpenAI Service through a gateway.
+  author: RobBagby
+  ms.author: pnp
+  ms.date: 12/16/2024
+  ms.topic: conceptual
+  ms.collection: ce-skilling-ai-copilot
+  ms.subservice: architecture-guide
+  ms.custom: arb-aiml
+azureCategories:
+  - ai-machine-learning
+products:
+  - ai-services
+  - azure-openai
+  - azure-api-management
+  - entra-id
+name: Provide custom authentication to Azure OpenAI Service through a gateway
+summary: Learn how to implement alternative authentication mechanisms for client applications that communicate with Azure OpenAI Service through a gateway.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-openai-gateway-identity-scenario-external-identity-provider.png
+content: |
+  [!INCLUDE[](azure-openai-gateway-custom-authentication-content.md)]

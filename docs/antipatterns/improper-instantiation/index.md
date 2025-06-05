@@ -1,16 +1,14 @@
 ---
 title: Improper Instantiation antipattern
-titleSuffix: Azure Architecture Center
 description: Avoid continually creating new instances of an object that is meant to be created once and then shared.
-ms.author: robbag
+ms.author: pnp
 author: RobBagby
 categories: azure
 ms.date: 06/05/2017
 ms.topic: design-pattern
-ms.service: architecture-center
-ms.subservice: anti-pattern
-azureCategories: 
-  - analytics 
+ms.subservice: best-practice
+azureCategories:
+  - analytics
   - compute
   - databases
   - storage
@@ -137,7 +135,7 @@ You can perform the following steps to help identify this problem:
 1. Performing process monitoring of the production system, to identify points when response times slow down or the system fails due to lack of resources.
 2. Examine the telemetry data captured at these points to determine which operations might be creating and destroying resource-consuming objects.
 3. Load test each suspected operation, in a controlled test environment rather than the production system.
-4. Review the source code and examine the how broker objects are managed.
+4. Review the source code and examine how the broker objects are managed.
 
 Look at stack traces for operations that are slow-running or that generate exceptions when the system is under load. This information can help to identify how these operations are using resources. Exceptions can help to determine whether errors are caused by shared resources being exhausted.
 

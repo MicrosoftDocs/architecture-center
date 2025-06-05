@@ -60,7 +60,7 @@ The following diagram shows a typical flow:
     | Location | A URL the client should poll for a response status. | This URL could be a SAS token with the [Valet Key Pattern](./valet-key.yml) being appropriate if this location needs access control. The valet key pattern is also valid when response polling needs offloading to another backend. |
     | Retry-After | An estimate of when processing will complete | This header is designed to prevent polling clients from overwhelming the back-end with retries. |
 
-    Expected client behavior must be considered when designing this response. While a client under your control can be coded to respect these response values explictly, clients that are not authored by you or use a no or low-code approach (such as Azure Logic Apps) are free to have their own HTTP 202 logic handling.
+    Expected client behavior must be considered when designing this response. While a client under your control can be coded to respect these response values explicitly, clients that are not authored by you or use a no or low-code approach (such as Azure Logic Apps) are free to have their own HTTP 202 logic handling.
 
 - You may need to use a processing proxy or façade to manipulate the response headers or payload depending on the underlying services used.
 
@@ -100,7 +100,7 @@ An architect should evaluate how the Asynchronous Request-Reply pattern can be u
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
-| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | Decoupling the request and reply phases of interactions for processes that don't need immediate answers improves the responsiveness and scalability of systems. As an asynchronous appproach, you can maximize concurrency on the server side and schedule work to be completed as capacity allows.<br/><br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition)<br/> - [PE:07 Code and infrastructure](/azure/well-architected/performance-efficiency/optimize-code-infrastructure) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | Decoupling the request and reply phases of interactions for processes that don't need immediate answers improves the responsiveness and scalability of systems. As an asynchronous approach, you can maximize concurrency on the server side and schedule work to be completed as capacity allows.<br/><br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition)<br/> - [PE:07 Code and infrastructure](/azure/well-architected/performance-efficiency/optimize-code-infrastructure) |
 
 As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
@@ -304,4 +304,4 @@ The following information may be relevant when implementing this pattern:
 
 ## Related resources
 
-- [Backends for Frontends pattern](./backends-for-frontends.yml)
+- [Backends for Frontends pattern](./backends-for-frontends.md)

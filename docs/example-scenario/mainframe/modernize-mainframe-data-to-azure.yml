@@ -1,24 +1,22 @@
 ### YamlMime:Architecture
 metadata:
-  title: Modernize mainframe and midrange data
-  titleSuffix: Azure Architecture Center
-  description: Learn how to modernize IBM mainframe and midrange data. Use a data-first approach to migrate the data to Azure.
+  title: Modernize Mainframe and Midrange Data
+  description: Learn how to modernize IBM mainframe and midrange data. Use a data-first approach to migrate the data to scalable and more secure cloud storage on Azure.
   author: ashish-khandelwal-ms-zz
   ms.author: askhande
-  ms.date: 06/09/2023
-  ms.topic: conceptual
-  ms.service: architecture-center
+  ms.date: 02/26/2025
+  ms.topic: example-scenario
   ms.subservice: example-scenario
 name: Modernize mainframe and midrange data
 azureCategories:
   - migration
-summary: Learn how to modernize IBM mainframe and midrange data. Use a data-first approach to migrate the data to Azure.
+summary: Learn how to modernize IBM mainframe and midrange data. Use a data-first approach to migrate the data to scalable and more secure cloud storage on Azure.
 products:
   - azure-cosmos-db
   - azure-data-lake
   - azure-sql-database
   - azure-sql-managed-instance
   - azure-storage
-thumbnailUrl: /azure/architecture/browse/thumbs/modernize-mainframe-data-with-azure.png
+thumbnailUrl: /azure/architecture/browse/thumbs/modernize-mainframe-data-azure.png
 content: |
-   [!include[](modernize-mainframe-data-to-azure-content.md)]
+   [!INCLUDE[](modernize-mainframe-data-to-azure-content.md)]

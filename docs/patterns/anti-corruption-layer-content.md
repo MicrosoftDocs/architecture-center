@@ -51,5 +51,5 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Related resources
 
-- [Strangler Fig pattern](./strangler-fig.yml)
+- [Strangler Fig pattern](./strangler-fig.md)
 - [Messaging Bridge pattern](./messaging-bridge.yml)

@@ -20,12 +20,12 @@ Charon-PAR runs on Azure, emulating the PA-RISC systems for HP-UX. On this virtu
 
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) provides on-demand, scalable computing resources in Azure. An Azure VM gives you the flexibility of virtualization without requiring you to buy and maintain physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks on Azure. Virtual networks enable Azure resources like VMs to communicate with each other, the internet, and on-premises networks. Azure Virtual Network is like a traditional network in your own datacenter, but it provides the additional scale, availability, and isolation benefits of the Azure infrastructure.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides on-demand, scalable computing resources in Azure. An Azure VM gives you the flexibility of virtualization without requiring you to buy and maintain physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks on Azure. Virtual networks enable Azure resources like VMs to communicate with each other, the internet, and on-premises networks. Azure Virtual Network is like a traditional network in your own datacenter, but it provides the additional scale, availability, and isolation benefits of the Azure infrastructure.
 - [Azure Virtual Network interface cards](/azure/virtual-network/virtual-network-network-interface) enable an Azure VM to communicate with internet, Azure, and on-premises resources. As shown in the diagram, you can add additional network interface cards to a single Azure VM, which allows the child VMs to have their own dedicated network interface devices and IP addresses.
 - [Azure SSD managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes managed by Azure that are used with Azure VMs. Ultra disks, premium SSDs, standard SSDs, and standard hard disk drives (HDDs) are available. For this architecture, we recommend either premium SSDs or ultra disk SSDs.
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) enables you to extend your on-premises networks into the Microsoft Cloud over a private connection that's facilitated by a connectivity provider. By using ExpressRoute, you can establish connections to Microsoft Cloud services like Azure and Microsoft 365.
-- [Azure Storage](https://azure.microsoft.com/product-categories/storage) and [Azure Files](https://azure.microsoft.com/services/storage/files) offer fully managed file shares in the cloud that can be accessed via the industry-standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) enables you to extend your on-premises networks into the Microsoft Cloud over a private connection that's facilitated by a connectivity provider. By using ExpressRoute, you can establish connections to Microsoft Cloud services like Azure and Microsoft 365.
+- [Azure Storage](/azure/storage/common/storage-introduction) and [Azure Files](/azure/well-architected/service-guides/azure-files) offer fully managed file shares in the cloud that can be accessed via the industry-standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
 - [Stromasys Charon-PAR](https://www.stromasys.com/solutions/charon-par) re-creates the PA-RISC virtual hardware layer on industry standard x86-64 computer systems and VMs. The virtual hardware layer is compatible with a range of HP-UX software that runs on it, so there's no need for code conversion or source code. (See a list of [compatible versions](https://fileserver.stromasys.com/files/list?apikey=par-3-0-4-lp_6363838b&name=).) Charon-PAR is a member of the Stromasys cross-platform hardware virtualization product family. It's a hardware virtualization layer that runs under Linux on industry standard servers. It emulates a range of historical 64-bit and 32-bit PA-RISC hardware and enables existing users of these systems to move to modern Intel-based server hardware.
 
 ### Alternatives
@@ -36,7 +36,7 @@ For the best performance, we recommend a compute-optimized FX-series VM. You can
 
 ## Scenario details
 
-Frequently, the evolution and maintenance of business applications is stalled because of underlying legacy hardware. Sometimes the hardware is no longer compatible with newer upgrades and integrations, or, worse, it's no longer supported. Aging infrastructure for mission-critical applications is a concern. The longer the problem remains unsolved, the higher the risk and cost of mitigation. 
+Frequently, the evolution and maintenance of business applications is stalled because of underlying legacy hardware. Sometimes the hardware is no longer compatible with newer upgrades and integrations, or, worse, it's no longer supported. Aging infrastructure for mission-critical applications is a concern. The longer the problem remains unsolved, the higher the risk and cost of mitigation.
 
 These applications might have supported the organization's critical business and evolved over decades, gone through audits and certifications, and have well-established operations around them. Instead of a high-risk and complex re-engineering project, an alternative approach is a low-risk project that moves the applications as-is to a modern and less expensive platform, like Azure, with the help of an emulator. Such a project, often called *lift and shift*, preserves the business functionality of the application and replaces only the hardware, providing business continuity.
 
@@ -59,7 +59,6 @@ Benefits of the lift-and-shift approach to migration include:
 - Azure/Charon customers can continue to use existing critical applications without the cost of rewriting, porting, migrating, or retraining.
 - Maintenance costs are reduced because these applications are moved to emulated systems that are hosted on Azure.
 
-
 ### Potential use cases
 
 - Enable low-friction lift-and-shift to Azure of on-premises HP-UX workloads that run on PA-RISC server machines.
@@ -70,18 +69,18 @@ Benefits of the lift-and-shift approach to migration include:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - This solution uses an Azure network security group to manage traffic between Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
 - [For increased security, consider using Azure Bastion](https://azure.microsoft.com/services/azure-bastion). Azure Bastion maximizes admin access security by minimizing open ports. It provides secure and seamless RDP/SSH connectivity to virtual network VMs directly from the Azure portal over TLS.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling to meet business needs without overspending. For example, with Azure, you pay as you go. When you don't need workloads, you can shut them down to save money. You can start Charon-PAR as a service manually or automatically when the Azure VM starts. You can stop the service manually or automatically when the host system shuts down. Ensure that you always first shut down the guest OS (HP-UX), then the emulator (Charon), and then the host VM. When you start up the system, do it in the reverse order. Here are a few other cost optimization considerations:
 
@@ -92,15 +91,15 @@ Azure avoids unnecessary costs by identifying the correct number of resource typ
 
 To estimate the cost of Azure products and configurations, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). To learn more about Stromasys products and their related services, see the [Stromasys website](https://www.stromasys.com).
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 For proactive monitoring and management, consider using [Azure Monitor](https://azure.microsoft.com/services/monitor) to monitor Azure services that host migrated HP-UX workloads.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 At least one CPU core for the host operating system and two cores per emulated CPU are required. This solution works best with [compute optimized Azure VMs](/azure/virtual-machines/sizes-compute). Compute optimized VMs have a high CPU-to-memory ratio. The [FX-series](/azure/virtual-machines/fx-series) virtual machine is a new addition to the F-Series. For the best performance, we recommend an FX-series VM. It's designed for high-frequency compute workloads. It features a base frequency of 3.4 GHz and an all-core-turbo clock speed of up to 4.0 GHz. We recommend FX-series for high-end HP-UX workloads.
 
@@ -112,13 +111,13 @@ Fx-series VMs are equipped with 2 GB of RAM and 16 GB of local SSD per CPU core.
 
 Principal author:
 
- - [Sunnyma Ghosh](https://www.linkedin.com/in/sunnymaghosh) | Senior Program Manager
+- [Sunnyma Ghosh](https://www.linkedin.com/in/sunnymaghosh) | Senior Program Manager
 
 Other contributors:
 
- - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
- - [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior Program Manager
- 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+- [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior Program Manager
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
@@ -137,4 +136,3 @@ For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@m
 - [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration)
 - [Make the switch from mainframes to Azure](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies)
 - [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
-- [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)

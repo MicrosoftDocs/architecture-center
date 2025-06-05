@@ -2,12 +2,11 @@
 metadata:
   title: Windows 365 Azure network connection  
   description: Learn how Windows 365 delivers highly optimized and personalized computing instances that are purpose built for each user's requirements.
-  author: ravisha22
-  ms.author: ranandag
+  author: PaulCollinge
+  ms.author: paulcoll
   ms.date: 10/11/2023
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.subservice: architecture-guide
 products:
   - azure-expressroute
   - azure-virtual-desktop

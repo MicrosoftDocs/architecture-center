@@ -1,13 +1,11 @@
 ---
 title: Architecture for startups
-titleSuffix: Azure Architecture Center
 description: Understand how to approach architecture when you're working in a startup.
 author: mootpointer
-ms.author: robbag
-ms.date: 6/27/2023
+ms.author: pnp
+ms.date: 8/21/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 ms.custom:
   - fcp
   - guide
@@ -22,9 +20,9 @@ products:
 
 # Architecture for startups
 
-Building a startup is a unique challenge. The core task is to find a place for an innovation as a product or service in the market. This process requires testing multiple assumptions that are built into the innovation. A successful startup must iterate through these assumptions, and grow and scale as its product gains product and market fit. After finding this fit, the startup must scale to meet market demands.
+Building a startup is a unique challenge. The core task is to find a place for an innovation as a product or service in the market. This process requires testing multiple assumptions that are built into the innovation. A successful startup must iterate through these assumptions, and grow and scale as its product gains product and market fit. After finding this fit, the startup must scale to capture the market demand.
 
-In the different startup life stages, developers, architects, and chief technical officers (CTOs) handle distinct phases of development. These stages require fundamentally different approaches and different technology choices. Part of the task is to establish which phase your startup is in. Choose the technologies and architectures that match that phase.
+In the different startup life stages, developers, architects, and chief technical officers (CTOs) handle distinct phases of development. These stages require fundamentally different approaches and different technology choices. Part of the task is to establish which phase your startup is in. Choose the technologies, approaches and architectures that match that phase.
 
 ## Innovation stages
 
@@ -36,9 +34,9 @@ Kent Beck describes a [three-stage process](https://medium.com/@kentbeck_7670/fa
 
 - The **Explore** stage starts with a low slope, where you're trying to find what works. Certainty is low, you only invest small amounts, and the risk from any changes you make is also low.
 
-- At some point, the graph rises more rapidly. This rapid growth is the **Expand** stage. Your certainty greatly increases, you invest much more, and you're much more aware of risks.
+- When product market fit is found, the graph rises more rapidly. This rapid growth is the **Expand** stage. Your certainty greatly increases, you invest much more, and you're much more aware of risks.
 
-- Finally, as the graph flattens out, you reach the **Extract** stage. The certainty, investment, and risk from change are all high, but the rate of growth has reached a plateau.
+- Finally, as the graph flattens out and the startup reaches maturity, you reach the **Extract** stage. The certainty, investment, and risk from change are all high, but the rate of growth has reached a plateau.
 
 ## Explore
 
@@ -60,7 +58,7 @@ Consider using our [suggested first technology stack](../../example-scenario/sta
 
 ## Expand
 
-Once your startup finds growth through exploration, you shift gears to expansion. You focus on removing any blockages to your product's and company's continued growth. From a technical perspective, you solve infrastructure scale challenges and increase development velocity. The goals are to meet your new customers' needs and advance your product roadmap.
+Once your startup finds product market fit and subsequent growth through exploration, you shift gears to expansion. You focus on removing any blockages to your product's and company's continued growth. From a technical perspective, you solve infrastructure scale challenges and increase development velocity. The goals are to meet your new customers' needs and advance your product roadmap.
 
 ### Extend your architecture
 
@@ -72,8 +70,8 @@ In early startup stages, any architecture extension should be just-in-time. The 
 
 Your architecture could be expanded in many ways, such as:
 
+- Adding Artificial Intelligence via [Retrieval Augmented Generation (RAG)](../../ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.md)
 - Enhancing resiliency through a [zone-redundant deployment](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
-- Enhancing resiliency through a [highly available multi-region deployment](../../web-apps/app-service/architectures/multi-region.yml)
 - Enhancing security through a [network hardened technology stack](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 
 ## Extract

@@ -37,7 +37,7 @@ Consider the following points when you decide how to implement this pattern:
 
 - It's not easy to generalize compensation logic. A compensating transaction is application-specific. It relies on the application having sufficient information to be able to undo the effects of each step in a failed operation.
 
-- You should define the steps in a compensating transaction as idempotent commands. If you do, the steps can be repeated if the compensating transaction itself fails.
+- Compensating transactions don't always work. You should define the steps in a compensating transaction as idempotent commands. If you do, the steps can be repeated if the compensating transaction itself fails.
 
 - The infrastructure that handles the steps must meet the following criteria:
   - It's resilient in the original operation and in the compensating transaction.
@@ -100,6 +100,6 @@ In many business solutions, failure of a single step doesn't always necessitate 
 
 - [Scheduler Agent Supervisor pattern](./scheduler-agent-supervisor.yml). This article describes how to implement resilient systems that perform business operations that use distributed services and resources. In these systems, you sometimes need to use a compensating transaction to undo the work that an operation performs.
 - [Retry pattern](./retry.yml). Compensating transactions can be computationally demanding. You can try to minimize their use by using the Retry pattern to implement an effective policy of retrying failed operations.
-- [Saga distributed transactions pattern](../reference-architectures/saga/saga.yml). This article explains how to use the Saga pattern to manage data consistency across microservices in distributed transaction scenarios. The Saga pattern handles failure recovery with compensating transactions.
+- [Saga distributed transactions pattern](./saga.yml). This article explains how to use the Saga pattern to manage data consistency across microservices in distributed transaction scenarios. The Saga pattern handles failure recovery with compensating transactions.
 - [Pipes and Filters pattern](./pipes-and-filters.yml). This article describes the Pipes and Filters pattern, which you can use to decompose a complex processing task into a series of reusable elements. You can use the Pipes and Filters pattern with the Compensating Transaction pattern as an alternative to implementing distributed transactions.
 - [Design for self healing](../guide/design-principles/self-healing.md). This guide explains how to design self-healing applications. You can use compensating transactions as part of a self-healing approach.

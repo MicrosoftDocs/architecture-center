@@ -37,7 +37,7 @@ Jakarta Enterprise Edition (Jakarta EE) applications can contain some, all, or n
 
 Jakarta EE applications can be packaged as WAR files or as archives that have the *.ear* extension, known as EAR files.
 
-Jakarta EE applications must be deployed onto application servers that are Jakarta EE compliant. Examples include [WebLogic](https://www.oracle.com/java/weblogic/editions), [WebSphere](https://www.ibm.com/products/websphere-application-server), [WildFly](https://www.wildfly.org), [GlassFish](https://glassfish.org), and [Payara](https://www.payara.org/home).
+Jakarta EE applications must be deployed onto application servers that are Jakarta EE compliant. Examples include [WebLogic](https://www.oracle.com/java/weblogic/editions), [WebSphere](https://www.ibm.com/products/websphere-application-server), [WildFly](https://www.wildfly.org), [GlassFish](https://glassfish.org), and [Payara](https://www.payara.org/).
 
 Applications that rely only on features provided by the Jakarta EE specification can be migrated from one compliant application server onto another. If your application is dependent on a specific application server, you might need to select an Azure service destination that permits you to host that application server.
 
@@ -91,11 +91,11 @@ Continuous integration and continuous delivery (CI/CD) is a method to frequently
 
 ### Open-source search engine
 
-Searches are integral parts of any application. If speed, performance, and high availability are critical, searches on terabytes and petabytes of data can be challenging. When you host Java applications on Azure, plan to host your related Solr and Elasticsearch instances. Alternatively, consider migrating to [Azure Cognitive Search](/azure/search).
+Searches are integral parts of any application. If speed, performance, and high availability are critical, searches on terabytes and petabytes of data can be challenging. When you host Java applications on Azure, plan to host your related Solr and Elasticsearch instances. Alternatively, consider migrating to [Azure AI Search](/azure/search).
 
 ### Big data tools
 
-Big data tools enable the automation of data flow among the software systems. They support scalable, robust, and streamlined data routing graphs along with system mediation logic. They're utilized to build live data flow pipelines and stream applications. Learn how [Nifi][8] and [Apache Kafka][9] on Azure might be suitable for your needs.
+Big data tools enable the automation of data flow among the software systems. They support scalable, robust, and streamlined data routing graphs along with system mediation logic. They're utilized to build live data flow pipelines and stream applications. Learn how [Apache Kafka][9] on Azure might be suitable for your needs.
 
 ### Supportability options
 
@@ -169,10 +169,7 @@ Principal authors:
 
 ## Related resources
 
-- [Expose Azure Spring Apps through a reverse proxy](../../web-apps/spring-apps/guides/spring-cloud-reverse-proxy.yml)
 - [Microservices architecture design](../../microservices/index.yml)
-- [Multicloud solutions with the Serverless Framework](../../example-scenario/serverless/serverless-multicloud.yml)
-- [Virtual network integrated serverless microservices](../../example-scenario/integrated-multiservices/virtual-network-integration.yml)
 
 <!-- reference links, for use with tables -->
 [1]: https://azure.microsoft.com/global-infrastructure/services/?products=spring-apps
@@ -182,5 +179,4 @@ Principal authors:
 [5]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
 [6]: /azure/devops/pipelines/?view=azure-devops
 [7]: /azure/developer/jenkins
-[8]: /azure/architecture/example-scenario/data/azure-nifi
 [9]: /azure/hdinsight/kafka/apache-kafka-introduction

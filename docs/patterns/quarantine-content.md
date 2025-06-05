@@ -69,7 +69,7 @@ Use this pattern when:
 
   - An external Infrastructure-as-Code (IaC) package such as Terraform modules, Community Chef Cookbooks, Azure Verified Modules
 
-  - A vendor-supplied OS image
+  - A vendor-supplied OS image or software installer
 
 - The workload team considers the artifact as a risk that's worth mitigating. The team understands the negative consequences of integrating compromised artifacts and the value of quarantine in assuring a trusted environment.
 
@@ -145,4 +145,4 @@ The following guidance might be relevant when implementing this pattern:
 
 - [Best practices for a secure software supply chain](/nuget/concepts/security-best-practices) especially when you have NuGet dependencies in your application.  
 
-- [Azure Artifacts documentation](/azure/devops/artifacts/) is a library of information related to managing software packages with Azure Artifacts.
+- [Safeguard against malicious public packages](/azure/devops/artifacts/concepts/upstream-behavior) using Azure Artifacts.

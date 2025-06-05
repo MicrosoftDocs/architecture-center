@@ -1,13 +1,12 @@
 ---
 title: Design for change
-titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to implement evolutionary design, which is key for continuous innovation. Microservices helps achieve an evolutionary design.
-author: martinekuan
+author: RobBagby
+ms.author: pnp
 categories: azure
 ms.date: 08/30/2018
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: architecture-guide
 products:
   - azure-devops
 ms.custom:
@@ -37,6 +36,8 @@ Microservices are becoming a popular way to achieve an evolutionary design, beca
 **Expose open interfaces**. Avoid creating custom translation layers that sit between services. Instead, a service should expose an API with a well-defined API contract. The API should be versioned, so that you can evolve the API while maintaining backward compatibility. That way, you can update a service without coordinating updates to all of the upstream services that depend on it. Public facing services should expose a RESTful API over HTTP. Backend services might use an RPC-style messaging protocol for performance reasons.
 
 **Design and test against service contracts**. When services expose well-defined APIs, you can develop and test against those APIs. That way, you can develop and test an individual service without spinning up all of its dependent services. (Of course, you would still perform integration and load testing against the real services.)
+
+**Use fitness functions**. Fitness functions measure the outcome to see whether it's closer or further away from an optimal solution. Fitness functions help to protect architectural characteristics as change occurs over time. Fitness function is any mechanism that provides an objective integrity assessment of architecture characteristics. The assessment may include a variety of mechanisms such as metrics, unit tests, chaos engineering, and so on. For example, the architect may identify page load time as an important characteristic. Subsequently, the workload should have a fitness function to test page load time and run the test as part of continuous integration.
 
 **Abstract infrastructure away from domain logic**. Don't let domain logic get mixed up with infrastructure-related functionality, such as messaging or persistence. Otherwise, changes in the domain logic will require updates to the infrastructure layers and vice versa.
 

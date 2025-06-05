@@ -25,18 +25,18 @@ This scenario covers a scalable installation of [WordPress that runs on Azure Ap
 
 - The [WordPress on App Service template](/azure/app-service/quickstart-wordpress) is a managed solution for hosting WordPress on App Service. Besides App Service, the solution also uses the other Azure services that are described in this section.
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a framework for building, deploying, and scaling web apps.
-- [Azure Front Door](https://azure.microsoft.com/products/frontdoor) is a modern cloud content delivery network. As a distributed network of servers, Azure Front Door efficiently delivers web content to users. Content delivery networks minimize latency by storing cached content on edge servers in point-of-presence locations near end users.
-- [Azure Content Delivery Network](https://azure.microsoft.com/products/cdn) efficiently delivers web content to users by storing blobs at strategically placed locations. In this solution, you can use Content Delivery Network as an alternative to Azure Front Door.
-- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) provides a way for deployed resources to communicate with each other, the internet, and on-premises networks. Virtual networks provide isolation and segmentation. They also filter and route traffic and make it possible to establish connections between various locations. In this solution, the two networks are connected via virtual network peering.
-- [Azure DDoS Protection](https://azure.microsoft.com/products/ddos-protection) provides enhanced DDoS mitigation features. When you combine these features with application-design best practices, they help defend against DDoS attacks. You should enable DDoS Protection on perimeter virtual networks.
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a modern cloud content delivery network. As a distributed network of servers, Azure Front Door efficiently delivers web content to users. Content delivery networks minimize latency by storing cached content on edge servers in point-of-presence locations near end users.
+- [Azure Content Delivery Network](/azure/cdn/cdn-overview) efficiently delivers web content to users by storing blobs at strategically placed locations. In this solution, you can use Content Delivery Network as an alternative to Azure Front Door.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) provides a way for deployed resources to communicate with each other, the internet, and on-premises networks. Virtual networks provide isolation and segmentation. They also filter and route traffic and make it possible to establish connections between various locations. In this solution, the two networks are connected via virtual network peering.
+- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) provides enhanced DDoS mitigation features. When you combine these features with application-design best practices, they help defend against DDoS attacks. You should enable DDoS Protection on perimeter virtual networks.
 - [Network security groups](/azure/virtual-network/network-security-groups-overview) use a list of security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this scenario's subnets, network security group rules restrict traffic flow between the application components.
-- [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) stores and controls access to passwords, certificates, and keys.
-- [Azure Database for MySQL - flexible server](https://azure.microsoft.com/products/mysql) is a relational database service that's based on the open-source MySQL database engine. The flexible server deployment option is a fully managed service that provides granular control and flexibility over database management functions and configuration settings. In this scenario, Azure Database for MySQL stores WordPress data.
-- [Blob Storage](https://azure.microsoft.com/products/storage/blobs) provides scalable, optimized object storage. Blob Storage is a good fit for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning.
+- [Azure Key Vault](/azure/key-vault/general/overview) stores and controls access to passwords, certificates, and keys.
+- [Azure Database for MySQL - flexible server](/azure/mysql/flexible-server/overview) is a relational database service that's based on the open-source MySQL database engine. The flexible server deployment option is a fully managed service that provides granular control and flexibility over database management functions and configuration settings. In this scenario, Azure Database for MySQL stores WordPress data.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) provides scalable, optimized object storage. Blob Storage is a good fit for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning.
 
 ### Alternatives
 
-- You can use [Azure Cache for Redis](https://azure.microsoft.com/products/cache) to host a key-value cache for WordPress performance optimization plug-ins. The cache can be shared among the App Service web apps.
+- You can use [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) to host a key-value cache for WordPress performance optimization plug-ins. The cache can be shared among the App Service web apps.
 - Instead of Azure Front Door, you can use Content Delivery Network to deliver web content to users.
 
 ## Scenario details
@@ -52,11 +52,11 @@ This example scenario is appropriate for small to medium-sized installations of 
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Consider the following recommendations when you deploy this solution:
 
@@ -67,7 +67,7 @@ Consider the following recommendations when you deploy this solution:
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Consider the following recommendations when you deploy this solution:
 
@@ -77,9 +77,9 @@ Consider the following recommendations when you deploy this solution:
 
 For more information about WordPress security, see [General WordPress security and performance tips](../../guide/infrastructure/wordpress-overview.yml#general-wordpress-security-and-performance-tips) and [Azure security documentation][security].
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Review the following cost considerations when you deploy this solution:
 
@@ -89,11 +89,11 @@ Review the following cost considerations when you deploy this solution:
 - **Static versus dynamic content**. Monitor your database storage performance and capacity to determine whether a cheaper SKU can support your site. The database stores dynamic content, and the content delivery network caches static content.
 - **App Service optimization**. For general tips for optimizing App Service costs, see [Azure App Service and cost optimization](/azure/well-architected/services/compute/azure-app-service/cost-optimization).
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-This scenario hosts the WordPress front end in App Service. You should enable the autoscale feature to automatically scale the number of App Service instances. You can set an autoscale trigger to respond to customer demand. You can also set a trigger that's based on a defined schedule. For more information, see [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started) and the Azure Well-Architected Framework article [Performance efficiency principles](/azure/well-architected/scalability/principles).
+This scenario hosts the WordPress front end in App Service. You should enable the autoscale feature to automatically scale the number of App Service instances. You can set an autoscale trigger to respond to customer demand. You can also set a trigger that's based on a defined schedule. For more information, see [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started).
 
 ## Contributors
 

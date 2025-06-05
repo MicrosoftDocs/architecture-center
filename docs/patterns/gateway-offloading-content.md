@@ -78,7 +78,7 @@ server {
                 proxy_pass http://$targ;
                 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
                 proxy_set_header X-Forwarded-Proto https;
-proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header Host $host;
         }
 }
@@ -88,6 +88,6 @@ On Azure, this can be achieved by [setting up SSL termination on Application Gat
 
 ## Related resources
 
-- [Backends for Frontends pattern](./backends-for-frontends.yml)
+- [Backends for Frontends pattern](./backends-for-frontends.md)
 - [Gateway Aggregation pattern](./gateway-aggregation.yml)
 - [Gateway Routing pattern](./gateway-routing.yml)

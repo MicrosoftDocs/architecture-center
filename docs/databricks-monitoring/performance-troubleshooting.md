@@ -6,8 +6,7 @@ ms.author: saperla
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 azureCategories:
   - management-and-governance
   - databases
@@ -27,7 +26,7 @@ products:
 >
 > Databricks has contributed an updated version to support Azure Databricks Runtimes 11.0 (Spark 3.3.x) and above on the `l4jv2` branch at: <https://github.com/mspnp/spark-monitoring/tree/l4jv2>.
 >
-> Please note that the 11.0 release is not backwards compatible due to the different logging systems used in the Databricks Runtimes. Be sure to use the correct build for your Databricks Runtime. The library and GitHub repository are in maintenance mode. There are no plans for further releases, and issue support will be best-effort only. For any additional questions regarding the library or the roadmap for monitoring and logging of your Azure Databricks environments, please contact [azure-spark-monitoring-help@databricks.com](mailto:azure-spark-monitoring-help@databricks.com).
+> Please note that the 11.0 release is not backward compatible due to the different logging systems used in the Databricks Runtimes. Be sure to use the correct build for your Databricks Runtime. The library and GitHub repository are in maintenance mode. There are no plans for further releases, and issue support will be best-effort only. For any additional questions regarding the library or the roadmap for monitoring and logging of your Azure Databricks environments, please contact [azure-spark-monitoring-help@databricks.com](mailto:azure-spark-monitoring-help@databricks.com).
 
 This article describes how to use monitoring dashboards to find performance bottlenecks in Spark jobs on Azure Databricks.
 
@@ -39,7 +38,7 @@ To set up the Grafana dashboards shown in this article:
 
 - Configure your Databricks cluster to send telemetry to a Log Analytics workspace, using the Azure Databricks Monitoring Library. For details, see the [GitHub readme][config-cluster].
 
-- Deploy Grafana in a virtual machine. See [Use dashboards to visualize Azure Databricks metrics](./dashboards.md).
+- Deploy Grafana in a virtual machine. For more information, see [Use dashboards to visualize Azure Databricks metrics](./dashboards.md).
 
 The Grafana dashboard that is deployed includes a set of time-series visualizations. Each graph is time-series plot of metrics related to an Apache Spark job, the stages of the job, and tasks that make up each stage.
 
@@ -79,7 +78,7 @@ The number of tasks per executor shows that two executors are assigned a disprop
 
 ## Task metrics per stage
 
-The task metrics visualization gives the cost breakdown for a task execution. You can use it see the relative time spent on tasks such as serialization and deserialization. This data might show opportunities to optimize &mdash; for example, by using [broadcast variables](https://spark.apache.org/docs/2.2.0/rdd-programming-guide.html#broadcast-variables) to avoid shipping data. The task metrics also show the shuffle data size for a task, and the shuffle read and write times. If these values are high, it means that a lot of data is moving across the network.
+The task metrics visualization gives the cost breakdown for a task execution. You can use it see the relative time spent on tasks such as serialization and deserialization. This data might show opportunities to optimize &mdash; for example, by using [broadcast variables](https://spark.apache.org/docs/3.5.2/rdd-programming-guide.html#broadcast-variables) to avoid shipping data. The task metrics also show the shuffle data size for a task, and the shuffle read and write times. If these values are high, it means that a lot of data is moving across the network.
 
 Another task metric is the scheduler delay, which measures how long it takes to schedule a task. Ideally, this value should be low compared to the executor compute time, which is the time spent actually executing the task.
 

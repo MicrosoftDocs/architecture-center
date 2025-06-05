@@ -1,12 +1,11 @@
 ---
 title: Performance testing and antipatterns
 description: Build scalability solutions for common stressors by learning about performance antipatterns. These are common practices that are likely to cause scalability problems when an application is under pressure.
-ms.author: robbag
+ms.author: pnp
 author: RobBagby
 ms.date: 12/13/2023
 ms.topic: design-pattern
-ms.service: architecture-center
-ms.subservice: anti-pattern
+ms.subservice: best-practice
 ms.custom:
   - article
 keywords:
@@ -58,7 +57,7 @@ Here's the list of the antipatterns that we've identified:
 
 ## Next steps
 
-For more about performance tuning, see [Performance tuning a distributed application](../performance/index.md)
+For more about performance tuning, see [Performance efficiency in the Well Architected Framework](/azure/well-architected/performance-efficiency/)
 
 <!-- links -->
 

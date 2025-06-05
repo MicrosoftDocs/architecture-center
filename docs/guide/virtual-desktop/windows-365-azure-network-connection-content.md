@@ -130,7 +130,7 @@ The following tables list dependencies for Azure network connection. Windows 365
 | Dependency | Intune enrollment – Checks if Intune allows Windows enrollment. |
 | --- | --- |
 | Architecture patterns | Azure network connection for Microsoft Entra join, Azure network connection for Microsoft Entra hybrid join|
-| Recommendations | - Ensure that Intune device type enrollment restrictions are set to allow the Windows mobile device management (MDM) platform for corporate enrollment. <br> - For Microsoft Entra hybrid join, set up devices automatically by configuring the service connection point (SCP) for each domain in Microsoft Entra Connect or by using the targeted deployment model. For more information, see [Configure Microsoft hybrid join](/azure/active-directory/devices/howto-hybrid-azure-ad-join#prerequisitese) and [Microsoft Entra hybrid join targeted deployment](/azure/active-directory/devices/hybrid-azuread-join-control). |
+| Recommendations | - Ensure that Intune device type enrollment restrictions are set to allow the Windows mobile device management (MDM) platform for corporate enrollment. <br> - For Microsoft Entra hybrid join, set up devices automatically by configuring the service connection point (SCP) for each domain in Microsoft Entra Connect or by using the targeted deployment model. For more information, see [Configure Microsoft hybrid join](/entra/identity/devices/how-to-hybrid-join#prerequisites) and [Microsoft Entra hybrid join targeted deployment](/entra/identity/devices/hybrid-join-control). |
 
 | Dependency | First-party app permissions – Checks the Windows 365 app for permissions on the customer Azure subscription, resource group, and virtual network levels. |
 | --- | --- |
@@ -205,14 +205,14 @@ Consider the following factors when you design an Azure virtual network architec
 - *IP address space*: The size of IP address space depends on the number of Cloud PCs to support. Plan for at least 1.5 times the maximum number of Cloud PCs that are deployed. The additional IP addresses account for IP addresses used during provisioning and deprovisioning of Cloud PCs.
 
 - *Name resolution*: The DNS process used by the Cloud PC to resolve the on-premises domain name in a Microsoft Entra hybrid join deployment or to resolve internet resources or Azure resources in a Microsoft Entra join deployment model.
-    - To use your existing on-premises DNS infrastructure, configure the IP addresses of one or more DNS servers for name resolution. For more information, see [DNS requirements](/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent#dns-requirements).
-    - Ensure the DNS server IP used in the Azure virtual network belong to the same geography as the Cloud PC and that it doesn't redirect DNS registration requests to another region. Otherwise, it results in delayed or failed deployments and Azure network connection health checks.
-    - For Azure DNS-based name resolution, use the public or private Azure DNS or the private resolver option. For more information, see [Azure DNS documentation](/azure/dns/).
+  - To use your existing on-premises DNS infrastructure, configure the IP addresses of one or more DNS servers for name resolution. For more information, see [DNS requirements](/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent#dns-requirements).
+  - Ensure the DNS server IP used in the Azure virtual network belong to the same geography as the Cloud PC and that it doesn't redirect DNS registration requests to another region. Otherwise, it results in delayed or failed deployments and Azure network connection health checks.
+  - For Azure DNS-based name resolution, use the public or private Azure DNS or the private resolver option. For more information, see [Azure DNS documentation](/azure/dns/).
 
 - *Network topology*: Azure networking supports topologies to accommodate different use cases.
 
-    - *Hub-spoke topology with virtual network peering*: This topology is the simplest way to provide an isolation of services with their own spoke and hub virtual networks. Shared services include Azure Firewall and network gateways. Choose this topology if you have a simple, single-site design to deploy a Cloud PC in one or more spoke virtual networks. For more information, see [Hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology).
-    - *Hub-spoke topology with Azure Virtual WAN*: Virtual WAN is an Azure networking service that brings together networking, security, and management capabilities that enable complex network requirements. Use this topology for multi-site, multi-region deployments with specific firewalling and routing requirements. For more information, see [Hub-spoke network topology with Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-vwan-architecture).
+  - *Hub-spoke topology with virtual network peering*: This topology is the simplest way to provide an isolation of services with their own spoke and hub virtual networks. Shared services include Azure Firewall and network gateways. Choose this topology if you have a simple, single-site design to deploy a Cloud PC in one or more spoke virtual networks. For more information, see [Hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology).
+  - *Hub-spoke topology with Azure Virtual WAN*: Virtual WAN is an Azure networking service that brings together networking, security, and management capabilities that enable complex network requirements. Use this topology for multi-site, multi-region deployments with specific firewalling and routing requirements. For more information, see [Hub-spoke network topology with Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-vwan-architecture).
 
 - *Network gateway*: Azure network gateways provide connectivity from a virtual network to an on-premises network. There are VPN and ExpressRoute network gateways. Ensure that the maximum bandwidth requirements of a Cloud PC are considered before deciding on the ExpressRoute or VPN method of connectivity. Both VPN and ExpressRoute gateways are offered in tiers, or SKUs, that differ in the amount of bandwidth provided and other metrics. For more information, see [Extend an on-premises network using ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute) and [Connect an on-premises network to Azure using ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover).
 
@@ -236,14 +236,14 @@ For more information, see [Optimizing RDP connectivity for Windows 365](https://
 
 - *Cloud PC placement*: For an optimal user experience and routing performance, determine where customers are in relation to the work apps or network they access. Also consider the time customers spend accessing the LOB apps compared to the overall time that they access other apps. See the following two possible deployment options:
 
-   - The following deployment model might be optimal if customers spend most of their work time accessing the LOB apps rather than work on locally installed apps, like apps in Microsoft 365. This model optimizes latency for LOB apps vs. Cloud PC access latency by placing the Cloud PC in the same region as the LOB app (Geography B). This optimization occurs even though the gateway is geographically closer to the end user (Geography A). The following diagram shows the possible traffic flow from the end user to the LOB apps.
+  - The following deployment model might be optimal if customers spend most of their work time accessing the LOB apps rather than work on locally installed apps, like apps in Microsoft 365. This model optimizes latency for LOB apps vs. Cloud PC access latency by placing the Cloud PC in the same region as the LOB app (Geography B). This optimization occurs even though the gateway is geographically closer to the end user (Geography A). The following diagram shows the possible traffic flow from the end user to the LOB apps.
 
-:::image type="content" source="./images/windows-365-placement-diagrams-updated-8.svg" alt-text="A diagram of a flow chart, showing a possible traffic flow from users to apps." lightbox="./images/windows-365-placement-diagrams-updated-8.svg" border="false":::
+    :::image type="content" source="./images/windows-365-placement-diagrams-updated-8.svg" alt-text="A diagram of a flow chart, showing a possible traffic flow from users to apps." lightbox="./images/windows-365-placement-diagrams-updated-8.svg" border="false":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/windows-365-placement-diagrams-updated-8.pptx) of this architecture.*
 
-   - If customers occasionally access the LOB apps in Geography B, then deploying a Cloud PC closer to the customers might be optimal because it optimizes the Cloud PC access latency over LOB apps access latency. The following diagram shows how the traffic might flow in such a scenario.
+  - If customers occasionally access the LOB apps in Geography B, then deploying a Cloud PC closer to the customers might be optimal because it optimizes the Cloud PC access latency over LOB apps access latency. The following diagram shows how the traffic might flow in such a scenario.
 
-:::image type="content" source="./images/windows-365-placement-diagrams-updated-9.svg" alt-text="A diagram of a flow chart that shows a possible traffic flow from users to apps." lightbox="./images/windows-365-placement-diagrams-updated-9.svg" border="false":::
+    :::image type="content" source="./images/windows-365-placement-diagrams-updated-9.svg" alt-text="A diagram of a flow chart that shows a possible traffic flow from users to apps." lightbox="./images/windows-365-placement-diagrams-updated-9.svg" border="false":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/windows-365-placement-diagrams-updated-9.pptx) of this architecture.*
 
 ## AD DS recommendations
@@ -281,7 +281,7 @@ Principal author:
 
 - [Ravishankar Nandagopalan](https://www.linkedin.com/in/ravisn) | Senior Product Manager
 
-Other contributors
+Other contributors:
 
 - [Paul Collinge](https://www.linkedin.com/in/paul-collinge-5159b729) | Principal Product Manager
 - [Claus Emerich](https://www.linkedin.com/in/claus-bavaria) | Principal Product Manager

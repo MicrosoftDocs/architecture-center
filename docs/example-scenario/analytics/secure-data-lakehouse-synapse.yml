@@ -1,15 +1,13 @@
 ### YamlMime:Architecture
 metadata:
   title: Secure a data lakehouse on Synapse
-  titleSuffix: Azure Architecture Center
-  description: Learn how to secure a data lakehouse that's implemented by using Azure Synapse Analytics. 
-  author: Herman-Wu
-  ms.author: pnp
-  ms.date: 06/21/2022
+  description: Learn how to secure a data lakehouse that's implemented by using Azure Synapse Analytics.
+  author: icchan
+  ms.author: iache
+  ms.date: 02/06/2025
   ms.topic: example-scenario
-  ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom: fcp
+  ms.custom: arb-data
 azureCategories:
   - analytics
   - databases
@@ -20,7 +18,7 @@ products:
   - azure-virtual-network
   - power-bi
 name: Secure a data lakehouse with Azure Synapse Analytics
-summary: Learn how to secure a data lakehouse that's implemented by using Azure Synapse Analytics. 
+summary: Learn how to secure a data lakehouse that's implemented by using Azure Synapse Analytics.
 thumbnailUrl: /azure/architecture/browse/thumbs/secure-data-lakehouse-architecture.png
 content: |
-  [!include[](secure-data-lakehouse-synapse-content.md)]
+  [!INCLUDE[](secure-data-lakehouse-synapse-content.md)]

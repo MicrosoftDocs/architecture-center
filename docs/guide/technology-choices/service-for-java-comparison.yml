@@ -4,12 +4,12 @@ metadata:
   description: Explore recommended strategies for hosting Java applications to Azure, including platform types and supportability.
   author: hangwan97
   ms.author: hangwan
-  ms.date: 11/03/2022
+  ms.date: 05/31/2024
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.subservice: architecture-guide
   ms.custom:
     - devx-track-extended-java
+    - arb-web
 azureCategories:
   - compute
 products:

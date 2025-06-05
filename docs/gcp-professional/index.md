@@ -1,21 +1,14 @@
 ---
 title: Azure for Google Cloud professionals
 description: Learn the basics of Microsoft Azure accounts, platform, and services, and key similarities and differences between the Google Cloud and Azure platforms.
-author: cjnova
-ms.author: petuton
-ms.date: 11/30/2022
+author: ZacharyRiffle
+ms.author: zriffle
+ms.date: 07/11/2024
 ms.topic: conceptual
-ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom:
-  - fcp
-keywords:
-  - Google Cloud experts
-  - Azure comparison
-  - Google Cloud comparison
-  - difference between Azure and Google Cloud
-  - Azure and GCP
-  - Azure and Google Cloud
+ms.collection: 
+ - migration
+ - gcp-to-azure
 products:
   - azure
 categories:
@@ -140,7 +133,7 @@ Availability sets
 
 ### Availability Zones
 
-Like Google Cloud, Azure regions can have Availability zones. An [Availability Zone](/azure/availability-zones/az-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures.
+Like Google Cloud, Azure regions can have Availability zones. An [Availability Zone](/azure/reliability/availability-zones-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures.
 
 ![Diagram showing a zone redundant virtual machine deployment with a Region that contains three zones with a subnet that crosses all three zones.](./images/availability_zones.png)
 

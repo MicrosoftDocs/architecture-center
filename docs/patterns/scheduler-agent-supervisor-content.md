@@ -53,7 +53,7 @@ You should consider the following points when deciding how to implement this pat
 
 - This pattern can be difficult to implement and requires thorough testing of each possible failure mode of the system.
 
-- The recovery/retry logic implemented by the Scheduler is complex and dependent on state information held in the state store. It might also be necessary to record the information required to implement a compensating transaction in a durable data store.
+- The recovery/retry logic implemented by the Scheduler is complex and dependent on state information held in the state store. It might also be necessary to record the information required to implement a compensating transaction in a durable data store. A compensating transaction might fail as well.
 
 - How often the Supervisor runs will be important. It should run often enough to prevent any failed steps from blocking an application for an extended period, but it shouldn't run so often that it becomes an overhead.
 
@@ -140,7 +140,7 @@ The following patterns might also be relevant when implementing this pattern:
 
 - [Retry pattern](./retry.yml). An Agent can use this pattern to transparently retry an operation that accesses a remote service or resource that has previously failed. Use when the expectation is that the cause of the failure is transient and can be corrected.
 
-- [Circuit Breaker pattern](./circuit-breaker.yml). An Agent can use this pattern to handle faults that take a variable amount of time to correct when connecting to a remote service or resource.
+- [Circuit Breaker pattern](./circuit-breaker.md). An Agent can use this pattern to handle faults that take a variable amount of time to correct when connecting to a remote service or resource.
 
 - [Compensating Transaction pattern](./compensating-transaction.yml). If the workflow being performed by a Scheduler can't be completed successfully, it might be necessary to undo any work it's previously performed. The Compensating Transaction pattern describes how this can be achieved for operations that follow the eventual consistency model. These types of operations are commonly implemented by a Scheduler that performs complex business processes and workflows.
 

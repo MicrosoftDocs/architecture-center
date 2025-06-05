@@ -132,13 +132,13 @@ items:
             items:
             - name: Azure Key Vault
               href: ../multitenant/service/key-vault.md
-          - name: Identity
+          - name: Integration
             items:
-            - name: Azure Active Directory B2C
-              href: ../multitenant/service/azure-ad-b2c.md
+            - name: Azure API Management
+              href: ../multitenant/service/api-management.md
           - name: AI and ML
             items:
-            - name: Azure Cognitive Search
+            - name: Azure AI Search
               href: /azure/search/search-modeling-multitenant-saas-applications
               maintainContext: true
             - name: Azure OpenAI
@@ -146,4 +146,4 @@ items:
         - name: Multitenancy checklist
           href: ../multitenant/checklist.md
         - name: Related resources
-          href: ../multitenant/related-resources.md      
+          href: ../multitenant/related-resources.md

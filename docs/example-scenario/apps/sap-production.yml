@@ -4,21 +4,13 @@ metadata:
   description: Learn proven practices for running SAP on Oracle in Azure, with high availability.
   author: robiro
   ms.author: robiro
-  ms.date: 07/20/2023
+  ms.date: 10/29/2024
   ms.topic: example-scenario
-  ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:
     - databases
   ms.custom:
-    - fasttrack
-    - SAP
-    - Windows
-    - Linux
-    - Oracle
-    - Azure
-    - example-scenario
-    - e2e-sap
+    - arb-sap
     - linux-related-content
 name: SAP deployment on Azure using an Oracle database
 azureCategories:
@@ -32,4 +24,4 @@ products:
   - azure-netapp-files
 thumbnailUrl: /azure/architecture/browse/thumbs/sap-oracle-architecture.png
 content: |
-   [!include[](sap-production-content.md)]
+   [!INCLUDE[](sap-production-content.md)]

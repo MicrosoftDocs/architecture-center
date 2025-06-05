@@ -2,11 +2,10 @@
 metadata:
   title: Replatform AIX workloads on Azure
   description: Learn how to replatform AIX workloads on Azure to reduce your TCO, improve business agility, and improve operational resiliency.
-  author: vatseyb
-  ms.author: bhuvivatsey 
+  author: bhbandam
+  ms.author: bhbandam
   ms.date: 04/01/2024
-  ms.topic: conceptual
-  ms.service: architecture-center
+  ms.topic: example-scenario
   ms.subservice: example-scenario
 name: Replatform AIX workloads on Azure
 azureCategories:
@@ -20,4 +19,4 @@ products:
   - azure-app-service
 thumbnailUrl: ../../browse/thumbs/aix-azure-replatform.png
 content: |
-   [!include[](replatform-aix-workloads-content.md)]
+   [!INCLUDE[](replatform-aix-workloads-content.md)]

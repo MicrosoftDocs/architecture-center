@@ -20,10 +20,10 @@ The following workflow corresponds to the preceding diagram:
 
 ### Components
 
-- [Azure Arc](https://azure.microsoft.com/products/azure-arc). Azure Arc is a bridge that extends the Azure platform to help you build applications and services. 
+- [Azure Arc](/azure/azure-arc). Azure Arc is a bridge that extends the Azure platform to help you build applications and services.
 - [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes). You can attach and configure Kubernetes clusters inside or outside of Azure by using Azure Arc-enabled Kubernetes. When a Kubernetes cluster is attached to Azure Arc, you can deploy Azure Arc data services to it, services like Azure Arc-enabled SQL Managed Instance.
 - [Azure Arc data controller](/azure/azure-arc/data/create-data-controller-direct-cli). Azure Arc data controller is the orchestrator in the Azure Arc-enabled data services architecture. It manages services like provisioning, elasticity, recoverability, monitoring, and high availability.
-- [Azure Arc-enabled SQL Managed Instance](/azure/azure-arc/data/managed-instance-overview). You can deploy Azure Arc-enabled [SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) to host your data workloads. It supports the Azure PaaS data services on your hybrid and multicloud infrastructure.
+- [Azure Arc-enabled SQL Managed Instance](/azure/azure-arc/data/managed-instance-overview). You can deploy Azure Arc-enabled [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) to host your data workloads. It supports the Azure PaaS data services on your hybrid and multicloud infrastructure.
 - Domain controllers. Domain controllers are deployed into this architecture to manage authentication and authorization to the Azure Arc-enabled SQL managed instances.
 
 ## Scenario details
@@ -79,11 +79,12 @@ For more best practices and guidance, see [Business continuity and disaster reco
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
 - Define your targets for [recovery point objective (RPO)](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-point-objectives-rpo) and [recovery time objective (RTO)](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-time-objectives-rto).
 - Configure [point-in-time restore](/azure/azure-sql/managed-instance/point-in-time-restore) so that you can restore your databases to a previous point in time.
 - Determine how many replicas, between one and three, to deploy in the Business Critical service tier.
@@ -96,7 +97,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Determine the Azure regions in which to deploy your Azure Arc-enabled SQL managed instance and data controllers. Take into account your security and compliance requirements and any data sovereignty requirements. Be aware of [the types of data that are collected from your resources](/azure/azure-arc/data/privacy-data-collection-and-reporting) in directly connected mode and in indirectly connected mode, and plan accordingly based on the data residency requirements of your organization.
 - Your Azure Arc-enabled SQL managed instance can reside in hybrid or multicloud Kubernetes clusters. Review the security and governance considerations for your cloud provider and Kubernetes distribution.
@@ -107,9 +108,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - Review the design considerations in the Azure Arc-enabled Kubernetes [governance and security disciplines design area](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-kubernetes/eslz-arc-kubernetes-governance-disciplines).
 - See the [security and governance disciplines](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-governance-disciplines#design-considerations) for a comprehensive overview of the security features in Azure Arc-enabled SQL Managed Instance.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Define your business requirements to determine the most appropriate service tier. Also consider the extra infrastructure that you need to support [business continuity and disaster recovery](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-business-continuity-disaster-recovery).
 - Be aware that the way in which usage and billing information is sent to Azure varies depending on whether you use the directly connected mode or the indirectly connected mode. If you use the indirectly connected mode, consider how the usage and billing information is regularly sent to Azure.
@@ -119,23 +120,23 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 - Use the [Azure pricing calculator][pricing-calculator] to estimate costs.
 - If you deploy the Jumpstart ArcBox for DataOps reference implementation for this architecture, keep in mind that ArcBox resources generate Azure consumption charges from the underlying Azure resources. These resources include core compute, storage, networking, and auxiliary services.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-- Review the upgradeability design principle in the [Azure Arc-enabled SQL Managed Instance landing zone accelerator](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-upgradeability-disciplines) for best practices on how to keep your instances up to date.
+- Review the upgradeability design principle in the [Azure Arc-enabled SQL Managed Instance landing zone guide](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-upgradeability-disciplines) for best practices on how to keep your instances up to date.
 - Review [Azure Arc Jumpstart Unified Operations Use Cases](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data/day2) to learn about more operational excellence scenarios for Azure Arc-enabled SQL Managed Instance.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - Use Azure Monitor to collect metrics and logs from your Azure Arc-enabled SQL managed instances for detailed analysis and correlation. Review the [deployment options](/azure/azure-arc/servers/concept-log-analytics-extension-deployment).
 - You can also use open-source tools like [Grafana and Kibana](/azure/azure-arc/data/monitor-grafana-kibana) to monitor your instances.
 
 ## Deploy this scenario
 
-You can find the reference implementation of this architecture in [Jumpstart ArcBox for DataOps](https://azurearcjumpstart.com/azure_jumpstart_arcbox/DataOps), which is part of the [Azure Arc Jumpstart](https://aka.ms/AzureArcJumpstart) project. ArcBox is designed to be self-contained in a single Azure subscription and [resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group). ArcBox can help you get hands-on experience with Azure Arc. 
+You can find the reference implementation of this architecture in [Jumpstart ArcBox for DataOps](https://azurearcjumpstart.com/azure_jumpstart_arcbox/DataOps), which is part of the [Azure Arc Jumpstart](https://aka.ms/AzureArcJumpstart) project. ArcBox is designed to be self-contained in a single Azure subscription and [resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group). ArcBox can help you get hands-on experience with Azure Arc.
 
 To get started, go to Jumpstart ArcBox for DataOps:
 
@@ -147,9 +148,11 @@ To get started, go to Jumpstart ArcBox for DataOps:
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
+
 - [Seif Bassem](https://www.linkedin.com/in/seif-bassem) | Senior Cloud Solution Architect
 
 Other contributor:
+
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
@@ -160,29 +163,14 @@ Other contributor:
 - [Azure Arc-enabled SQL Managed Instance overview][Azure Arc-enabled SQL Managed Instance docs]
 - [Azure Arc learning path](/training/paths/manage-hybrid-infrastructure-with-azure-arc)
 - [Azure Arc Jumpstart scenarios][Arc Jumpstart data services scenarios]
-- [Introduction to Azure Arc landing zone accelerator for hybrid and multicloud][CAF Arc Accelerator] 
+- [Introduction to Azure Arc in Azure landing zones][CAF Arc Accelerator]
 
 ## Related resources
 
-- [Manage configurations for Azure Arc-enabled servers](azure-arc-hybrid-config.yml)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](arc-hybrid-kubernetes.yml)
 
-[Arc Jumpstart]: https://aka.ms/AzureArcJumpstart
 [Azure Arc docs]: /azure/azure-arc
 [Azure Arc-enabled SQL Managed Instance docs]: /azure/azure-arc/data/managed-instance-overview
-[Azure Log Analytics]: /azure/azure-monitor/logs/log-analytics-overview
-[Azure Monitor]: https://azure.microsoft.com/services/monitor
-[Azure Arc]: /azure/azure-arc
 [Arc Jumpstart data services scenarios]: https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data
-[Azure Resource Group]: /azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group
 [CAF Arc Accelerator]: /azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone
-[Microsoft Defender for Cloud]: https://azure.microsoft.com/services/defender-for-cloud
-[Microsoft Sentinel]: https://azure.microsoft.com/services/microsoft-sentinel
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[rg-limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits
-[subscription-limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#subscription-limits
-[waf-principles-reliability]: /azure/architecture/framework/resiliency/principles
-[waf-principles-security]: /azure/architecture/framework/security/security-principles
-[waf-principles-cost-opt]: /azure/architecture/framework/cost/principles
-[waf-principles-operational-excellence]: /azure/architecture/framework/devops/principles
-[waf-principles-performance-efficiency]: /azure/architecture/framework/scalability/principles

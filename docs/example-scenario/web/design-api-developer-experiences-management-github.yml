@@ -1,15 +1,13 @@
 ### YamlMime:Architecture
 metadata:
   title: Design great API developer experiences using API Management and GitHub
-  titleSuffix: Azure Architecture Center
   description: Create great experiences for developers, support community engagement & contribution, and monetize your API offerings.
   author: SubhajitChatterjee
   ms.author: subhajch
-  ms.date: 01/03/2023
+  ms.date: 06/18/2024
   ms.topic: example-scenario
-  ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom: fcp 
+  ms.custom: arb-web 
 azureCategories:
   - web
   - devops

@@ -1,13 +1,11 @@
 ---
 title: "The journey to SaaS: Dynamics 365"
-titleSuffix: Azure Architecture Center
 description: Learn from a first-hand account about the journey and decisions that made Microsoft Dynamics 365 a successful SaaS product.
 author: johndowns
-ms.author: jodowns
-ms.date: 11/14/2023
+ms.author: pnp
+ms.date: 10/11/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 products:
   - azure
   - dynamics-365
@@ -17,6 +15,7 @@ ms.category:
   - fcp
 ms.custom:
   - guide
+  - arb-saas
 ---
 # The journey to SaaS: Dynamics 365
 
@@ -28,9 +27,9 @@ Our goal with this article is to give an overview of how this journey played out
 
 Microsoft Dynamics has a deep history as a set of on-premises products. We adopted the cloud for all of the many benefits it offered, and we knew that our technology and business model would need to adapt as we moved toward providing SaaS.
 
-The first decision that we confronted was the choice between building something new or evolving our on-premises applications into cloud services. For Dynamics 365, we believed two things. First, there was sufficient value in the data models and business logic that we’d created and validated with thousands of customers that it was worth trying to evolve our existing solutions. Second, the layered architecture and platform framework of our on-premises products provided the right levers to allow us to evolve to a great cloud architecture more quickly than starting from scratch. The combination of value and speed, along with the understanding that we could evolve to the correct cloud-native principles, made evolution to cloud-based SaaS and continuous improvement the right choice for Dynamics 365. Other organizations might have different priorities and come to a different strategy.
+The first decision that we confronted was the choice between building something new or evolving our on-premises applications into cloud services. For Dynamics 365, we believed two things. First, there was sufficient value in the data models and business logic that we’d created and validated with thousands of customers that it was worth evolving our existing solutions. Second, the layered architecture and platform framework of our on-premises products provided the right levers to allow us to adopt a great cloud architecture more quickly than starting from scratch. The combination of value and speed, along with the understanding that we could adopt cloud-native principles, made moving to cloud-based SaaS and continuous improvement the right choice for Dynamics 365. Other organizations might have different priorities and come to a different strategy.
 
-Early on, we decided to focus on building the best product we could build on the Microsoft Azure platform. Cloud platforms evolve rapidly, and we wanted to take advantage of the richness of one platform, instead of spreading our resources across multiple clouds. Other SaaS vendors might make different decisions based on their own situations. For example, a horizontal platform provider might build software for customers to use across multiple clouds, so it makes sense for them to have a presence on each of those cloud platforms. But a SaaS application developer can make a choice to focus on one cloud and gain the benefits of focusing on that one cloud provider and their evolution. For Dynamics 365, we knew that going all-in on Microsoft Azure would give us a more integrated and seamless experience while maintaining robust security and high performance.
+Early on, we decided to focus on building the best product we could build on the Microsoft Azure platform. Cloud platforms improve rapidly, and we wanted to take advantage of the richness of one platform, instead of spreading our resources across multiple clouds. Other SaaS vendors might make different decisions based on their own situations. For example, a horizontal platform provider might build software for customers to use across multiple clouds, so it makes sense for them to have a presence on each of those cloud platforms. But a SaaS application developer can make a choice to focus on one cloud and gain the benefits of focusing on that one cloud provider and their evolution. For Dynamics 365, we knew that going all-in on Microsoft Azure would give us a more integrated and seamless experience while maintaining robust security and high performance.
 
 As we started to deeply explore the Azure platform and plan our SaaS journey, we learned how to operate and scale a massive enterprise resource planning (ERP) platform in the cloud. At the same time, Azure has become richer and more capable, and it introduced new capabilities that we couldn't have imagined. We knew the constant evolution of the cloud meant that our migration wouldn't be a one-time thing. Instead, we thought about continuous improvement at every step of our journey. Continuous improvement affects everything we do, and in the early stages of our journey, we had to make significant changes&mdash;everything from our overall architecture to how we dealt with database queries. We’re constantly evolving our solution to make the most of what the cloud enables. We’ve embraced microservice architecture, and we use generative AI as part of our ongoing evolution. These approaches and technologies are easier to build, deploy, and operate when you use a powerful cloud platform like Microsoft Azure.
 
@@ -137,11 +136,11 @@ To apply this mindset to your own solution, there are some important practices t
 
 - Make sure that you invest in monitoring tools to quickly identify problems. With SaaS, your customers expect you to know about outages and to engage rapidly to restore service.
 - Use platform capabilities like availability zones and zone redundancy if they're appropriate for your service.
-- Design your applications for resiliency at every layer. For example, it's important to also consider other cloud best practices like using [retries](../../../patterns/retry.yml), [circuit breakers](../../../patterns/circuit-breaker.yml), and [bulkheads](/azure/architecture/patterns/bulkhead), and adopting asynchronous communication practices. These practices can keep your service healthy even when other services you depend on are under stress.
+- Design your applications for resiliency at every layer. For example, it's important to also consider other cloud best practices like using [retries](../../../patterns/retry.yml), [circuit breakers](../../../patterns/circuit-breaker.md), and [bulkheads](/azure/architecture/patterns/bulkhead), and adopting asynchronous communication practices. These practices can keep your service healthy even when other services you depend on are under stress.
 - Consider the availability of your control plane, especially because it has a role in the recovery of your solution when infrastructure assets are impacted.
 - When you've implemented capabilities for resiliency, run tests. You never know if your plans and features are complete until you try to use them. It can be useful to exercise your failover processes as part of your normal maintenance activities, which can give you both an approach to maintenance without downtime and a validation of your failover mechanisms.
 
-The [reliability pillar of the Azure Well-Architected Framework](/azure/architecture/framework/resiliency) provides great guidance on these topics.
+The [reliability pillar of the Azure Well-Architected Framework](/azure/well-architected/reliability/) provides great guidance on these topics.
 
 ### How we adapted to a cloud environment
 
@@ -246,5 +245,5 @@ The biggest lesson we’ve learned is that the journey to SaaS never ends. A pro
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 - [Mike Ehrenberg](https://www.linkedin.com/in/mike-ehrenberg-5a3492128/) | CTO, Microsoft Dynamics
-- [John Downs](http://linkedin.com/in/john-downs) | Principal Program Manager
+- [John Downs](http://linkedin.com/in/john-downs) | Principal Software Engineer
 - [Arsen Vladimirsky](http://linkedin.com/in/arsenv) | Principal Customer Engineer

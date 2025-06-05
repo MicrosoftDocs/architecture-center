@@ -1,13 +1,11 @@
 ---
 title: Storage architecture
-titleSuffix: Azure Architecture Center
 description: Get an overview of Azure Storage technologies, guidance offerings, solution ideas, and reference architectures.  
-author: martinekuan
+author: RobBagby
 ms.author: pnp 
 ms.date: 07/26/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 categories:
 - storage
 - analytics
@@ -31,6 +29,7 @@ The Azure Storage platform includes the following data services:
 
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs): A massively scalable object store for text and binary data. Also includes support for big data analytics through Azure Data Lake Storage Gen2.
 - [Azure Files](https://azure.microsoft.com/services/storage/files): Managed file shares for cloud or on-premises deployments.
+- [Azure NetApp Files](https://azure.microsoft.com/products/netapp/): An Azure native, first-party, enterprise-class, high-performance file storage service.
 - [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues): A messaging store for reliable messaging between application components.
 - [Azure Table Storage](https://azure.microsoft.com/services/storage/tables): A NoSQL store for schemaless storage of structured data.
 - [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks): Block-level storage volumes for Azure VMs.
@@ -40,13 +39,15 @@ If you're new to storage on Azure, the best way to learn more is [Microsoft Lear
 
 ## Path to production
 
-- Choose the storage approach that best meets your needs and then create an account. For more information, see [Storage account overview](/azure/storage/common/storage-account-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json). 
+- Choose the storage approach that best meets your needs and then create an account. For more information, see [Storage account overview](/azure/storage/common/storage-account-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json). For information about Azure NetApp Files, see [Storage hierarchy of Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-understand-storage-hierarchy).
 
 - Be sure you understand security and reliability. See these articles: 
   - [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
   - [Use private endpoints - Azure Storage](/azure/storage/common/storage-private-endpoints?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
   - [Data redundancy - Azure Storage](/azure/storage/common/storage-redundancy?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) 
   - [Disaster recovery and storage account failover - Azure Storage](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+  - [Understand data encryption in Azure NetApp Files](/azure/azure-netapp-files/understand-data-encryption)
+  - [Understand data protection and disaster recovery options in Azure NetApp Files](/azure/azure-netapp-files/data-protection-disaster-recovery-options)
 
 - For information about migrating existing data, see the [Azure Storage migration guide](/azure/storage/common/storage-migration-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json). 
 
@@ -57,6 +58,9 @@ Depending on the storage technology you use, see the following best practices re
 - [Planning for an Azure Files deployment](/azure/storage/files/storage-files-planning?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Performance and scalability checklist for Queue Storage](/azure/storage/queues/storage-performance-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)  
 - [Azure Storage table design patterns](/azure/storage/tables/table-storage-design-patterns?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) 
+- [Solution architectures using Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-solution-architectures)
+- [Performance considerations for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-performance-considerations)
+
 
 ## Blob Storage
 See the following guides for information about Blob Storage:
@@ -76,6 +80,17 @@ See the following guides for information about Azure Files:
 - [Overview of Azure Files identity-based authentication options for SMB access](/azure/storage/files/storage-files-active-directory-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Disaster recovery and storage account failover](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [About Azure file share backup](/azure/backup/azure-file-share-backup-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+
+## Azure NetApp Files
+
+See the following guides for information about Azure NetApp Files:
+
+- [Solution architectures using Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-solution-architectures)
+- [Storage hierarchy of Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-understand-storage-hierarchy)
+- [Service levels for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels)
+- [Understand data protection and disaster recovery options in Azure NetApp Files](/azure/azure-netapp-files/data-protection-disaster-recovery-options)
+- [Guidelines for Azure NetApp Files network planning](/azure/azure-netapp-files/azure-netapp-files-network-topologies)
+- [Quickstart: Set up Azure NetApp Files and NFS volume](/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes?tabs=azure-portal)
 
 ## Queue Storage
 See the following guides for information about Queue Storage: 
@@ -108,8 +123,6 @@ Here are a few sample implementations of storage on Azure:
 - [Azure files accessed on-premises and secured by AD DS](/azure/architecture/example-scenario/hybrid/azure-files-on-premises-authentication)
 - [Enterprise file shares with disaster recovery](/azure/architecture/example-scenario/file-storage/enterprise-file-shares-disaster-recovery)
 - [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services)
-- [Medical data storage solutions](/azure/architecture/solution-ideas/articles/medical-data-storage)
-- [HPC media rendering](/azure/architecture/solution-ideas/articles/azure-batch-rendering)
 
 [See more storage examples in the Azure Architecture Center.](/azure/architecture/browse/?azure_categories=storage)
 

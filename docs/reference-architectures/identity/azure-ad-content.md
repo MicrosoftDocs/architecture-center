@@ -1,6 +1,6 @@
 <!-- cSpell:ignore writeback MSOL -->
 
-Microsoft Entra ID is a cloud-based multi-tenant directory and identity service. This reference architecture shows best practices for integrating on-premises Active Directory domains with Microsoft Entra ID to provide cloud-based identity authentication.
+Microsoft Entra ID is a cloud-based directory and identity service. This reference architecture shows best practices for integrating on-premises Active Directory domains with Microsoft Entra ID to provide cloud-based identity authentication.
 
 ## Architecture
 
@@ -27,7 +27,7 @@ The architecture has the following components.
   > For security reasons, Microsoft Entra ID stores user's passwords as a hash. If a user requires a password reset, this must be performed on-premises and the new hash must be sent to Microsoft Entra ID. Microsoft Entra ID P1 or P2 editions include features that can allow for password changes to happen in the cloud and then be written back to on-premises AD DS.
   >
 
-- **VMs for N-tier application**. For more information about these resources, see [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+- **VMs for N-tier application**. For more information about these resources, see [N-tier architecture on virtual machines](/azure/architecture/guide/architecture-styles/n-tier#n-tier-architecture-on-virtual-machines).
 
 ## Scenario details
 
@@ -115,7 +115,7 @@ For more information about these topologies, see [Topologies for Microsoft Entra
 
 By default, the Microsoft Entra Connect Sync server configures password hash synchronization between the on-premises domain and Microsoft Entra ID. The Microsoft Entra service assumes that users authenticate by providing the same password that they use on-premises. For many organizations, this strategy is appropriate, but you should consider your organization's existing policies and infrastructure. For example:
 
-- The security policy of your organization may prohibit synchronizing password hashes to the cloud. In this case, your organization should consider [pass-through authentication](/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
+- The security policy of your organization may prohibit synchronizing password hashes to the cloud. In this case, your organization should consider [pass-through authentication](/entra/identity/hybrid/connect/how-to-connect-pta).
 - You might require that users experience seamless single sign-on (SSO) when accessing cloud resources from domain-joined machines on the corporate network.
 - Your organization might already have Active Directory Federation Services (AD FS) or a third-party federation provider deployed. You can configure Microsoft Entra ID to use this infrastructure to implement authentication and SSO rather than by using password information held in the cloud.
 
@@ -156,11 +156,11 @@ For more information on installing the AD Connect Health agents and their requir
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 The Microsoft Entra service is geo-distributed and runs in multiple datacenters spread around the world with automated failover. If a datacenter becomes unavailable, Microsoft Entra ID ensures that your directory data is available for instance access in at least two more regionally dispersed datacenters.
 
@@ -176,7 +176,7 @@ For additional considerations about achieving high availability of the Microsoft
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Use conditional access control to deny authentication requests from unexpected sources:
 
@@ -188,13 +188,13 @@ Use conditional access control to deny authentication requests from unexpected s
 
 - Control user access to resources based on group membership. Use [Microsoft Entra dynamic membership rules][aad-dynamic-membership-rules] to simplify group administration. For a brief overview of how this works, see [Introduction to Dynamic Memberships for Groups][aad-dynamic-memberships].
 
-- Use conditional access risk policies with Microsoft Entra ID Protection to provide advanced protection based on unusual sign-in activities or other events.
+- Use Conditional Access risk-based policies with Microsoft Entra ID Protection to provide advanced protection based on unusual sign-in activities or other events.
 
 For more information, see [Microsoft Entra Conditional Access][aad-conditional-access].
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 
@@ -206,11 +206,11 @@ Cost considerations include:
 
   - For pricing information about the editions of Microsoft Entra ID, see [Microsoft Entra pricing][Azure-AD-pricing].
 
-- **VMs for N-Tier application** - For cost information about these resources, see [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+- **VMs for N-Tier application** - For cost information about these resources, see [Architecture best practices for Virtual Machines and scale sets](/azure/well-architected/service-guides/virtual-machines).
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 #### Manageability
 
@@ -236,9 +236,9 @@ For more information and tips for managing Microsoft Entra Connect, see [Microso
 
 For DevOps considerations, see Operational excellence in [Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.yml#operational-excellence).
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 The Microsoft Entra service supports scalability based on replicas, with a single primary replica that handles write operations plus multiple read-only secondary replicas. Microsoft Entra ID transparently redirects attempted writes made against secondary replicas to the primary replica and provides eventual consistency. All changes made to the primary replica are propagated to the secondary replicas. This architecture scales well because most operations against Microsoft Entra ID are reads rather than writes. For more information, see [What is the Microsoft Entra architecture?][aad-scalability]
 
@@ -246,7 +246,7 @@ For the Microsoft Entra Connect Sync server, determine how many objects you're l
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
@@ -256,7 +256,6 @@ Principal author:
 
 ## Next steps
 
-- Review the [Microsoft Entra Hybrid Identity Design Considerations][hybrid-identity-design], which includes further information on making decisions regarding hybrid identity.
 - Review [Topologies for Microsoft Entra Connect][aad-topologies] to ensure the hybrid topology for Microsoft Entra Connect is deployed in a supported configuration.
 - Learn about using conditional access to protect access to your applications, with [Plan a Conditional Access deployment][aad-ca-plan].
 - For more information on providing AD DS in Azure as infrastructure, review [Integrating on-premises AD with Azure][adds-azure-design].
@@ -274,55 +273,55 @@ Principal author:
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
 
-[aad-agent-installation]: /azure/active-directory/active-directory-aadconnect-health-agent-install
+[aad-agent-installation]: /entra/identity/hybrid/connect/how-to-connect-health-agent-install
 
-[aad-application-proxy]: /azure/active-directory/active-directory-application-proxy-enable
+[aad-application-proxy]: /entra/identity/app-proxy/application-proxy-add-on-premises-application
 
-[aad-conditional-access]: /azure/active-directory//active-directory-conditional-access
+[aad-conditional-access]: /entra/id-protection/concept-identity-protection-policies
 
-[aad-connect-sync-default-rules]: /azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration
+[aad-connect-sync-default-rules]: /entra/identity/hybrid/connect/concept-azure-ad-connect-sync-default-configuration
 
-[aad-connect-sync-operational-tasks]: /azure/active-directory/hybrid/how-to-connect-sync-operations
+[aad-connect-sync-operational-tasks]: /entra/identity/hybrid/connect/how-to-connect-sync-staging-server
 
 [aad-dynamic-memberships]: https://youtu.be/Tdiz2JqCl9Q
 
-[aad-dynamic-membership-rules]: /azure/active-directory/active-directory-accessmanagement-groups-with-advanced-rules
+[aad-dynamic-membership-rules]: /entra/identity/users/groups-dynamic-membership
 
-[aad-filtering]: /azure/active-directory/hybrid/how-to-connect-sync-configure-filtering
+[aad-filtering]: /entra/identity/hybrid/connect/how-to-connect-sync-configure-filtering
 
-[aad-health]: /azure/active-directory/active-directory-aadconnect-health-sync
+[aad-health]: /entra/identity/hybrid/connect/how-to-connect-health-sync
 
-[aad-health-adds]: /azure/active-directory/active-directory-aadconnect-health-adds
+[aad-health-adds]: /entra/identity/hybrid/connect/how-to-connect-health-adds
 
-[aad-health-adfs]: /azure/active-directory/active-directory-aadconnect-health-adfs
+[aad-health-adfs]: /entra/identity/hybrid/connect/how-to-connect-health-adfs
 
-[aad-identity-protection]: /azure/active-directory/active-directory-identityprotection
+[aad-identity-protection]: /entra/id-protection/overview-identity-protection
 
-[aad-password-management]: /azure/active-directory/active-directory-passwords-customize
+[aad-password-management]: /entra/identity/authentication/howto-sspr-customization
 
 [aad-powershell]: /powershell/module/azuread/?view=azureadps-2.0
 
 [microsoft-graph-powershell]: /powershell/module/?view=graph-powershell-1.0
 
-[aad-reporting-guide]: /azure/active-directory/active-directory-reporting-guide
+[aad-reporting-guide]: /entra/identity/monitoring-health/overview-monitoring-health
 
-[aad-scalability]: /azure/active-directory/fundamentals/active-directory-architecture
+[aad-scalability]: /entra/architecture/architecture
 
-[aad-sync-best-practices]: /azure/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration
+[aad-sync-best-practices]: /entra/identity/hybrid/connect/how-to-connect-sync-best-practices-changing-default-configuration
 
-[aad-sync-disaster-recovery]: /azure/active-directory/hybrid/how-to-connect-sync-operations#disaster-recovery
+[aad-sync-disaster-recovery]: /entra/identity/hybrid/connect/how-to-connect-sync-staging-server#disaster-recovery
 
-[aad-sync-requirements]: /azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements
+[aad-sync-requirements]: /entra/identity/hybrid/
 
-[aad-topologies]: /azure/active-directory/hybrid/plan-connect-topologies
+[aad-topologies]: /entra/identity/hybrid/connect/plan-connect-topologies
 
-[aad-user-sign-in]: /azure/active-directory/hybrid/plan-connect-user-signin
+[aad-user-sign-in]: /entra/identity/hybrid/connect/plan-connect-user-signin
 
 [AAF-devops]: /azure/architecture/framework/devops/overview
 
-[azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
+[azure-active-directory]: /entra/identity/domain-services/overview
 
-[azure-ad-connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
+[azure-ad-connect]: /entra/identity/hybrid/whatis-hybrid-identity
 
 [Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory
 
@@ -336,9 +335,7 @@ Principal author:
 
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 
-[hybrid-identity-design]: /azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-overview
-
-[aad-ca-plan]: /azure/active-directory/conditional-access/plan-conditional-access
+[aad-ca-plan]: /entra/identity/conditional-access/plan-conditional-access
 
 [adds-azure-design]: ./index.yml
 
@@ -348,4 +345,4 @@ Principal author:
 
 [security-compass]:/security/compass/compass
 
-[azure-ad-connect-cloud-sync]:/azure/active-directory/cloud-sync/what-is-cloud-sync
+[azure-ad-connect-cloud-sync]:/entra/identity/hybrid/cloud-sync/what-is-cloud-sync

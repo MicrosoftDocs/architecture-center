@@ -2,12 +2,11 @@
 metadata:
   title: Caching guidance
   description: Learn how caching can improve the performance and scalability of a system by copying frequently accessed data to fast storage close to the application.
-  ms.author: robbag
+  ms.author: pnp
   author: RobBagby
   ms.date: 07/25/2022
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.subservice: architecture-guide
   ms.custom: fcp
 azureCategories:
   - databases
@@ -21,4 +20,4 @@ name: Caching guidance
 summary: Learn how caching can improve the performance and scalability of a system by copying frequently accessed data to fast storage close to the application.
 thumbnailUrl: /azure/architecture/browse/thumbs/caching-thumbnail.png
 content: |
-  [!include[](caching-content.md)]
+  [!INCLUDE[](caching-content.md)]

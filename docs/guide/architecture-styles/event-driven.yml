@@ -2,18 +2,18 @@
 metadata:
   title: Event-driven architecture style
   description: Explore the benefits, challenges, and best practices for event-driven and IoT architectures on Azure.
-  author: asergaz
-  ms.author: sergaz
+  author: RobBagby
+  ms.author: pnp
   ms.date: 07/26/2022
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: guide
-  ms.custom: fcp
+  ms.subservice: architecture-guide
+  ms.custom: arb-web
 azureCategories:
-  - iot
+  - web
 products:
-  - azure-iot
   - azure-stream-analytics
+  - azure-functions
+  - azure-service-bus
 name: Event-driven architecture style
 summary: Explore the benefits, challenges, and best practices for event-driven and IoT architectures on Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/event-driven.svg

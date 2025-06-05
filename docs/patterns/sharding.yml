@@ -2,11 +2,10 @@
 metadata:
   title: Sharding pattern
   description: Use the Sharding design pattern to divide a data store into a set of horizontal partitions or shards.
-  ms.author: robbag
+  ms.author: pnp
   author: RobBagby
   ms.date: 07/28/2022
-  ms.topic: conceptual
-  ms.service: architecture-center
+  ms.topic: design-pattern
   ms.subservice: design-pattern
 azureCategories:
   - databases

@@ -6,7 +6,7 @@ The article shows how to implement multifactor authentication for Outlook deskto
 - [Exchange on-premises, AD FS](#architecture-exchange-on-premises-ad-fs)
 
 > [!NOTE]
-> In the diagrams, black dashed lines show basic interactions between local Active Directory, Microsoft Entra Connect, Microsoft Entra ID, AD FS, and Web Application Proxy components. You can learn about these interactions in [Hybrid identity required ports and protocols](/azure/active-directory/hybrid/reference-connect-ports).
+> In the diagrams, black dashed lines show basic interactions between local Active Directory, Microsoft Entra Connect, Microsoft Entra ID, AD FS, and Web Application Proxy components. You can learn about these interactions in [Hybrid identity required ports and protocols](/entra/identity/hybrid/connect/reference-connect-ports).
 
 ## Architecture (Exchange Online)
 
@@ -223,15 +223,15 @@ After you create the authentication policy, you can first assign it to a pilot g
 
 ## Components
 
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory). Microsoft Entra ID is a Microsoft cloud-based identity and access management service. It provides modern authentication that's essentially based on EvoSTS (a Security Token Service used by Microsoft Entra ID). It's used as an authentication server for Exchange Server on-premises.
-- [Microsoft Entra multifactor authentication](/azure/active-directory/authentication/howto-mfa-getstarted). Multifactor authentication is a process in which users are prompted during the sign-in process for another form of identification, like a code on their cellphone or a fingerprint scan.
-- [Microsoft Entra Conditional Access](/azure/active-directory/conditional-access/concept-conditional-access-conditions). Conditional Access is the feature that Microsoft Entra ID uses to enforce organizational policies like multifactor authentication.
+- [Microsoft Entra ID](/entra/fundamentals/whatis). Microsoft Entra ID is a Microsoft cloud-based identity and access management service. It provides modern authentication that's essentially based on EvoSTS (a Security Token Service used by Microsoft Entra ID). It's used as an authentication server for Exchange Server on-premises.
+- [Microsoft Entra multifactor authentication](/entra/identity/authentication/howto-mfa-getstarted). Multifactor authentication is a process in which users are prompted during the sign-in process for another form of identification, like a code on their cellphone or a fingerprint scan.
+- [Microsoft Entra Conditional Access](/entra/identity/conditional-access/overview). Conditional Access is the feature that Microsoft Entra ID uses to enforce organizational policies like multifactor authentication.
 - [AD FS](/windows-server/identity/active-directory-federation-services). AD FS enables federated identity and access management by sharing digital identity and entitlements rights across security and enterprise boundaries with improved security. In these architectures, it's used to facilitate sign-in for users with federated identity.
 - [Web Application Proxy](/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-in-windows-server). Web Application Proxy pre-authenticates access to web applications by using AD FS. It also functions as an AD FS proxy.
-- [Microsoft Intune](https://www.microsoft.com/security/business/endpoint-management/microsoft-intune). Intune is our cloud-based unified endpoint management, managing endpoints across Windows, Android, Mac, iOS, and Linux operating systems.
-- [Exchange Server](https://www.microsoft.com/microsoft-365/exchange/email). Exchange Server hosts user mailboxes on-premises. In these architectures, it uses tokens issued to the user by Microsoft Entra ID to authorize access to mailboxes.
+- [Microsoft Intune](/mem/intune/fundamentals/what-is-intune). Intune is our cloud-based unified endpoint management, managing endpoints across Windows, Android, Mac, iOS, and Linux operating systems.
+- [Exchange Server](/exchange/exchange-server). Exchange Server hosts user mailboxes on-premises. In these architectures, it uses tokens issued to the user by Microsoft Entra ID to authorize access to mailboxes.
 - [Active Directory services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). Active Directory services stores information about members of a domain, including devices and users. In these architectures, user accounts belong to Active Directory services and are synchronized to Microsoft Entra ID.
-- [Outlook for business](https://www.microsoft.com/microsoft-365/outlook/outlook-for-business). Outlook is a client application that supports modern authentication.
+- [Outlook for business](/microsoft-365/business-premium/). Outlook is a client application that supports modern authentication.
 
 ## Scenario details
 
@@ -257,7 +257,7 @@ This article doesn't discuss other protocols, like IMAP or POP. Typically, these
 
 ### General notes
 
-- These architectures use the [federated](/azure/active-directory/hybrid/whatis-fed) Microsoft Entra identity model. For the password hash synchronization and Pass-through Authentication models, the logic and flow are the same. The only difference is related to the fact that Microsoft Entra ID doesn't redirect the authentication request to on-premises Active Directory Federation Services (AD FS).
+- These architectures use the [federated](/entra/identity/hybrid/connect/whatis-fed) Microsoft Entra identity model. For the password hash synchronization and Pass-through Authentication models, the logic and flow are the same. The only difference is related to the fact that Microsoft Entra ID doesn't redirect the authentication request to on-premises Active Directory Federation Services (AD FS).
 - By *Exchange on-premises*, we mean Exchange 2019 with the latest updates and a Mailbox role.
 - In a real environment, you won't have just one server. You'll have a load-balanced array of Exchange servers for high availability. The scenarios described here are suited for that configuration.
 
@@ -272,11 +272,11 @@ This architecture is relevant for the following scenarios:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures that your application can meet the commitments that you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 #### Availability
 
@@ -284,7 +284,7 @@ Overall availability depends on the availability of the components that are invo
 
 - [Advancing Microsoft Entra availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability)
 - [Cloud services you can trust: Office 365 availability](https://www.microsoft.com/microsoft-365/blog/2013/08/08/cloud-services-you-can-trust-office-365-availability)
-- [What is the Microsoft Entra architecture?](/azure/active-directory/fundamentals/active-directory-architecture)
+- [What is the Microsoft Entra architecture?](/entra/architecture/architecture)
 
 Availability of on-premises solution components depends on the implemented design, hardware availability, and your internal operations and maintenance routines. For availability information about some of these components, see the following resources:
 
@@ -310,22 +310,22 @@ For information about the resiliency of the components in this architecture, see
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 For information about security and hybrid modern authentication, see [Deep Dive: How Hybrid Authentication Really Works](https://techcommunity.microsoft.com/t5/exchange-team-blog/deep-dive-how-hybrid-authentication-really-works/ba-p/606780).
 
 For closed organizations that have traditional strong perimeter protection, there are security concerns related to Exchange Hybrid Classic configurations. The Exchange Hybrid Modern configuration doesn't support hybrid modern authentication.
 
-For information about Microsoft Entra ID, see [Microsoft Entra security operations guide](/azure/active-directory/fundamentals/security-operations-introduction).
+For information about Microsoft Entra ID, see [Microsoft Entra security operations guide](/entra/architecture/security-operations-introduction).
 
 For information about scenarios that use AD FS security, see these articles:
 
 - [Best practices for securing AD FS and Web Application Proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs)
 - [Configure AD FS Extranet Smart Lockout](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection)
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 The cost of your implementation depends on your Microsoft Entra ID and Microsoft 365 license costs. Total cost also includes costs for software and hardware for on-premises components, IT operations, training and education, and project implementation.
 
@@ -339,9 +339,9 @@ For more pricing information, see these resources:
 - [Exchange Online plans](https://www.microsoft.com/microsoft-365/exchange/compare-microsoft-exchange-online-plans)
 - [Exchange server pricing](https://www.microsoft.com/microsoft-365/exchange/microsoft-exchange-licensing-faq-email-for-business)
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale in an efficient manner to meet the demands that your users place on it. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 Workload performance depends on the performance of the components that are involved and on network performance. For more information, see [Office 365 performance tuning using baselines and performance history](/microsoft-365/enterprise/performance-tuning-using-baselines-and-history?view=o365-worldwide).
 
@@ -359,7 +359,7 @@ For information about Exchange Server on-premises scalability, see [Exchange 201
 Here are the high-level steps:
 
 1. Protect Outlook desktop access by [configuring Exchange Hybrid configuration and enabling hybrid modern authentication](/microsoft-365/enterprise/hybrid-modern-auth-overview?view=o365-worldwide).
-1. Block all legacy authentication attempts at the [Microsoft Entra ID level](/azure/active-directory/conditional-access/block-legacy-authentication). Block legacy authentication attempts on a messaging-services level by using [authentication policy](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online).
+1. Block all legacy authentication attempts at the [Microsoft Entra ID level](/entra/identity/conditional-access/policy-block-legacy-authentication). Block legacy authentication attempts on a messaging-services level by using [authentication policy](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online).
 
 ### Set up a Conditional Access policy
 

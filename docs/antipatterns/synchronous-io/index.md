@@ -1,16 +1,14 @@
 ---
 title: Synchronous I/O antipattern
-titleSuffix: Performance antipatterns for cloud apps
 description: Blocking the calling thread while I/O completes can reduce performance and affect vertical scalability.
-ms.author: robbag
+ms.author: pnp
 author: RobBagby
 categories: azure
 ms.date: 06/05/2017
 ms.topic: design-pattern
-ms.service: architecture-center
-ms.subservice: anti-pattern
-azureCategories: 
-  - analytics 
+ms.subservice: best-practice
+azureCategories:
+  - analytics
   - storage
   - web
 products:
@@ -177,7 +175,7 @@ The following sections apply these steps to the sample application described ear
 
 ### Monitor web server performance
 
-For Azure web applications and web roles, it's worth monitoring the performance of the IIS web server. In particular, pay attention to the request queue length to establish whether requests are being blocked waiting for available threads during periods of high activity. You can gather this information by enabling Azure diagnostics. For more information, see:
+For Azure web applications and web roles, it's worth monitoring the performance of the Internet Information Services (IIS) web server. In particular, pay attention to the request queue length to establish whether requests are being blocked waiting for available threads during periods of high activity. You can gather this information by enabling Azure Diagnostics. For more information, see:
 
 - [Monitor Apps in Azure App Service][web-sites-monitor]
 - [Create and use performance counters in an Azure application][performance-counters]

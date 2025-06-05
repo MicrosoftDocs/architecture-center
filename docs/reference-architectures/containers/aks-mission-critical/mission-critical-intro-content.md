@@ -10,9 +10,9 @@ Reliability is a relative concept, and for a workload to be appropriately reliab
 This architecture targets an SLO of 99.99%, which corresponds to a permitted annual downtime of 52 minutes and 35 seconds. All encompassed design decisions are therefore intended to accomplish this target SLO.
 
 > [!TIP]
-> To define a realistic SLO, it's important to understand the SLA of all Azure components within the architecture. These individual numbers should be aggregated to determine a [composite SLA](/azure/architecture/framework/resiliency/business-metrics#composite-slas) which should align with workload targets.
+> To define a realistic SLO, it's important to understand the reliability objectives of all Azure components and other factors within the scope of the architecture. For more information, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics). These individual numbers should be aggregated to determine a composite SLO which should align with workload targets.
 >
-> Refer to [Well-Architected mission-critical workloads: Design for business requirements](/azure/architecture/framework/mission-critical/mission-critical-design-methodology#1design-for-business-requirements).
+> Refer to [Well-Architected mission-critical workloads: Design for business requirements](/azure/well-architected/mission-critical/mission-critical-design-methodology#1design-for-business-requirements).
 
 ## Key design strategies
 
@@ -206,7 +206,7 @@ The description of this flow is in the following sections.
 
 1. A request for the web user interface is sent to a global load balancer. For this architecture, the global load balancer is Azure Front Door.
 
-2. The WAF Rules are evaluated. WAF rules positively affect the reliability of the system by protecting against a variety of attacks such as cross-site scripting (XSS) and SQL injection. Azure Front Door will return an error to the requester if a WAF rule is violated and processing stops. If there are no WAF rules violated, Azure Front Door continues processing.
+2. The WAF Rules are evaluated. WAF rules positively affect the reliability of the system by protecting against a variety of attacks such as cross-site scripting (XSS) and SQL injection. Azure Front Door will return an error to the requestor if a WAF rule is violated and processing stops. If there are no WAF rules violated, Azure Front Door continues processing.
 
 3. Azure Front Door uses routing rules to determine which backend pool to forward a request to. [How requests are matched to a routing rule](/azure/frontdoor/front-door-route-matching). In this reference implementation, the routing rules allow Azure Front Door to route UI and frontend API requests to different backend resources. In this case, the pattern "/*" matches the UI routing rule. This rule routes the request to a backend pool that contains storage accounts with static websites that host the Single Page Application (SPA). Azure Front Door uses the Priority and Weight assigned to the backends in the pool to select the backend to route the request. [Traffic routing methods to origin](/azure/frontdoor/routing-methods). Azure Front Door uses health probes to ensure that requests aren't routed to backends that aren't healthy. The SPA is served from the selected storage account with static website.
 

@@ -1,4 +1,4 @@
-This article presents a high-availability solution for a web application that uses massive amounts of data that must be available for a specific time period. It stores the data in Azure Cosmos DB, and uses the Azure Cosmos DB change feed to replicate the data to secondary storage. After the specified time period elapses, Azure Functions is used to delete the data from Azure Cosmos DB.
+This article presents a high-availability solution for a web application dealing with large volumes of data that need to be accessible within a specific time frame. The solution involves using Azure Cosmos DB as the primary data store and using the Azure Cosmos DB change feed to replicate data to low-cost secondary storage. When the specified time period expires, Azure Functions is used to delete the data from Azure Cosmos DB. The data in secondary storage remains available for a longer period of time to enable other solutions for auditing and analysis purposes. The solution also provides high durability by replicating data to different data services.
 
 ## Architecture
 
@@ -21,7 +21,7 @@ This article presents a high-availability solution for a web application that us
 
 ### Components
 
-- [Azure Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a multi-tenant identity and access management service that can synchronize with an on-premises directory.
+- [Azure Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is an identity and access management service that can synchronize with an on-premises directory.
 - [Azure DNS](https://azure.microsoft.com/services/dns) is a high-availability hosting service for DNS domains that provides apps with fast DNS queries and quick updates to DNS records. Managing Azure DNS is like managing other Azure services, and uses the same credentials, APIs, tools, and billing.
 - [Azure Front Door](https://azure.microsoft.com/services/frontdoor) is a secure content delivery network (CDN) and load balancer with instant failover. It operates at the edge close to users, accelerating content delivery while protecting apps, APIs, and websites from cyber threats.
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed service for building, deploying, and scaling web apps. You can build apps using .NET, .NET Core, Node.js, Java, Python, or PHP. Apps can run in containers or on Windows or Linux. In a mainframe migration, the front-end screens or web interface can be coded as HTTP-based REST APIs. They can be segregated and can be stateless to orchestrate a microservices-based system. For more information on web APIs, see [RESTful web API design](../../best-practices/api-design.md).
@@ -36,6 +36,7 @@ This article presents a high-availability solution for a web application that us
 
 - [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager) directs incoming DNS requests across the global Azure regions based on your choice of traffic routing methods. It also provides automatic failover and performance routing.
 - [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn) caches static content in edge servers for quick response, and uses network optimizations to improve response for dynamic content. Content Delivery Network is especially useful when the user base is global.
+- [Azure Container Apps](https://azure.microsoft.com/services/container-apps) is a fully managed, serverless container service used to build and deploy modern apps at scale.
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. You can use it to implement a microservices architecture whose components scale independently on demand.
 - [Azure Container Instances](https://azure.microsoft.com/services/container-instances) provides a quick and simple way to run tasks without having to manage infrastructure. It's useful during development or for running unscheduled tasks.
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a reliable cloud messaging service for simple hybrid integration. It can be used instead of Queue Storage in this architecture. For more information, see [Storage queues and Service Bus queues - compared and contrasted](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
@@ -58,7 +59,9 @@ The architecture is appropriate for any application that:
 
 Examples include apps that:
 
+- Personalize customer experience and drive engagement through live data feeds and sensors in physical locations.
 - Track customer spending habits and shopping behavior.
+- Track vehicle fleets by collecting data on vehicle location, performance, and driver behavior for improved efficiency and safety.
 - Forecast weather.
 - Offer smart traffic systems or implement smart traffic systems or use smart technology to monitor traffic.
 - Analyze manufacturing IoT data.
@@ -66,11 +69,11 @@ Examples include apps that:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 - When you implement and maintain this solution, you incur extra costs.
 - Using the change feed for replication requires less code maintenance than doing the replication in the core application.
-- You need to migrate existing data. The migration process requires ad-hoc scripts or routines to copy old data to storage accounts. When you migrate the data, make sure that you use time stamps and copy flags to track migration progress.
+- You need to migrate existing data. The migration process requires ad hoc scripts or routines to copy old data to storage accounts. When you migrate the data, make sure that you use time stamps and copy flags to track migration progress.
 - To avoid deleting entries from the Azure Table secondary storage, ignore delete feeds that are generated when your functions delete entries from Azure Cosmos DB.
 
 ## Contributors
@@ -99,5 +102,4 @@ Principal author:
 
 ## Related resources
 
-- [Build scalable database solutions with Azure services](../../data-guide/scenarios/build-scalable-database-solutions-azure-services.md)
 - [RESTful web API design](../../best-practices/api-design.md)

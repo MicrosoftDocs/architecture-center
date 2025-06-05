@@ -1,45 +1,46 @@
 ---
 title: Pricing models for a multitenant solution
-titleSuffix: Azure Architecture Center
 description: This article describes the considerations for planning pricing models for a multitenant solution.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 12/14/2023
+ms.date: 11/07/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 products:
   - azure
 categories:
   - management-and-governance
-ms.category:
-  - fcp
 ms.custom:
   - guide
+  - arb-saas
 ---
 
 # Pricing models for a multitenant solution
 
-A good pricing model ensures that you remain profitable as the number of tenants grows and as you add new features. An important consideration when developing a commercial multitenant solution is how to design pricing models for your product. On this page, we provide guidance for technical decision-makers about the pricing models you can consider and the tradeoffs involved.
+A good pricing model ensures that you remain profitable as the number of tenants grows and as you add new features. An important consideration when developing a commercial multitenant solution is how to design pricing models for your product. In this article, we provide guidance for technical decision-makers about the pricing models you can consider and the tradeoffs involved.
 
-When you determine the pricing model for your product, you need to balance the *return on value* (ROV) for your customers with the *cost of goods sold* (COGS) to deliver the service. Offering more flexible commercial models (for a solution) might increase the ROV for customers, but it might also increase the architectural and commercial complexity of the solution (and therefore also increase your COGS).
+## Understand profitability
 
-Some important considerations that you should take into account, when developing pricing models for a solution, are as follows:
+When you determine the pricing model for your product, you need to balance the *return on value (ROV)* for your customers with the *cost of goods sold (COGS)* to deliver the service. Offering more flexible commercial models might increase the ROV for customers, but it might also increase the architectural and commercial complexity of the solution, and therefore also increase your COGS.
 
-- Will the COGS be higher than the profit you earn from the solution?
-- Can the COGS change over time, based on growth in users or changes in usage patterns?
-- How difficult is it to [measure and record the information required to operate the pricing model](measure-consumption.md)? For example, if you plan to bill your customers based on the number of API calls they make, have you identified how you measure the API calls made by each customer?
-- Does your profitability depend on ensuring customers use your solution in a limited way?
-- If a customer overuses the solution, does that mean you're no longer profitable?
+When you're developing pricing models for your solution, consider the following questions:
+
+- **Will the COGS be higher than the profit you earn from the solution?** An [unprofitable pricing model](#unprofitable-pricing-models) approach might work for a time but it's unsustainable in the long term.
+- **Can the COGS change over time, based on growth in users or changes in usage patterns?** Model your COGS and growth to understand whether your COGS makes your solution unprofitable as you grow.
+- **How difficult is it to [measure and record the information required to operate the pricing model](measure-consumption.md)?** For example, if you plan to bill your customers based on the number of API calls they make, it's important to identify how you measure the API calls made by each customer.
+- **Does your pricing model discourage use of your product?** Avoid situations where your pricing model reduces the potential value a customer can achieve from the product, such as by making common activities very costly. This structure creates mismatched incentives and can lead to mixed signaling to customers.
+- **If a customer overuses the solution, does that mean you're no longer profitable?** If you're concerned about misuse, put guard rails in place like rate limits.
 
 There are some key factors that influence your profitability:
 
 - **Azure service pricing models.** The pricing models of the Azure or third-party services that make up your solution may affect which models are profitable.
 - **Service usage patterns.** Users may only need to access your solution during their working hours or may only have a small percentage of high-volume users. Can you reduce your COGS by reducing the unused capacity when your usage is low?
 - **Storage growth.** Most solutions accumulate data over time. More data means a higher cost to store and protect it, reducing your profitability per tenant. Can you set storage quotas or enforce a data retention period?
-- **Tenant isolation.** The [tenancy model](tenancy-models.yml) you use affects the level of isolation you have between your tenants. If you share your resources, do you need to consider how tenants might over-utilize or abuse the service? How will the level of tenant isolation affect your COGS and performance for everyone? Some pricing models aren't profitable without additional controls around resource allocation. For example, you might need to implement service throttling to make a flat-rate pricing model sustainable.
-- **Tenant lifecycle.** For example, solutions with high customer churn rates, or services that require a greater on-boarding effort, may suffer lower profitability--especially if they're priced using a consumption-based model.
-- **Service level requirements.** Tenants that require higher levels of service may mean your solution isn't profitable anymore. It's critical that you're clear about your customers' service-level expectations and any obligations you have, so that you can plan your pricing models accordingly.
+- **Tenant isolation.** The [tenancy model](tenancy-models.yml) you use affects the level of isolation you have between your tenants. If you share your resources, do you need to consider how tenants might over-utilize or abuse the service? How will the level of tenant isolation affect your COGS and performance for everyone?
+
+   Some pricing models aren't profitable without additional controls around resource allocation. For example, you might need to implement service throttling to make a flat-rate pricing model sustainable.
+- **Tenant lifecycle.** For example, solutions with high customer churn rates, or services that require a greater on-boarding effort, may suffer lower profitability&mdash;especially if they're priced using a consumption-based model.
+- **Service level requirements.** Tenants that require higher levels of service may mean your solution isn't profitable anymore. It's critical that you're clear about your customers' service level expectations and any obligations you have, so that you can plan your pricing models accordingly. Consider using different pricing tiers for customers with different service level requirements.
 
 ## Common pricing models
 
@@ -47,6 +48,8 @@ There are many common pricing models that are often used with multitenant soluti
 
 > [!NOTE]
 > You can offer multiple models for a solution or combine models together. For example, you could provide a per-user model for your customers that have fairly stable user numbers, and you can also offer a consumption model for customers who have fluctuating usage patterns.
+
+When selecting a pricing model, consider what makes sense from your customers' perspective. If your pricing model is too complex or abstract, they might struggle to estimate their costs. Aim to tie your pricing to your tenants' business constructs.
 
 ### Consumption-based pricing
 
@@ -67,21 +70,21 @@ When you measure consumption, you can consider simple factors, such as the amoun
 
 ### Per-user pricing
 
-A per-user pricing model involves charging your customers based on the number of people using your service, as demonstrated in the following diagram.
+A per-user pricing model involves charging your customers based on the number of people using your service:
 
 ![Diagram showing revenue increasing as the number of users increases.](media/pricing-models/per-user.png)
 
 Per-user pricing models are very common, due to their simplicity to implement in a multitenant solution. However, they're associated with several commercial risks.
 
-**Benefits:** When you bill your customers for each user, it's easy to calculate and forecast your revenue stream. Additionally, assuming that you have fairly consistent usage patterns for each user, then revenue increases at the same rate as service adoption, making this a scalable model.
+**Benefits:** When you bill your customers for each user, it's easy to calculate and forecast your revenue stream. Additionally, assuming that you have fairly consistent usage patterns for each user, then revenue increases at the same rate as service adoption, which makes this model scalable as you grow.
 
 **Complexity and operational cost:** Per-user models tend to be easy to implement. However, in some situations, you need to measure per-user consumption, which can help you to ensure that the COGS for a single user remains profitable. By measuring the consumption and associating it with a particular user, you can increase the operational complexity of your solution.
 
-**Risks:** Different user consumption patterns might result in a reduced profitability. For example, heavy users of the solution might cost more to serve than light users. Additionally, the actual return on value (ROV) for the solution isn't reflected by the actual number of user licenses purchased.
+**Risks:** Different user consumption patterns might result in a reduced profitability. For example, heavy users of the solution might cost more to serve than light users. Additionally, the actual return on value (ROV) for the solution isn't reflected by the actual number of user licenses purchased. If your solution includes capabilities that aren't directly related to users, like sending emails to large numbers of recipients, your revenue might not increase as your COGS increase.
 
 ### Per-active user pricing
 
-This model is similar to [per-user pricing](#per-user-pricing), but rather than requiring an upfront commitment from the customer on the number of expected users, the customer is only charged for users that actually log into and use the solution over a period (as shown in the following diagram).
+This model is similar to [per-user pricing](#per-user-pricing), but rather than requiring an upfront commitment from the customer on the number of expected users, the customer is only charged for users that actually sign into and use the solution over a period:
 
 ![Diagram showing revenue increasing as the number of active users increases, and not as the number of users increases.](media/pricing-models/per-active-user.png)
 
@@ -99,7 +102,7 @@ In many systems, the number of users isn't the element that has the greatest eff
 
 ![Diagram showing revenue increase, as the number of devices increases.](media/pricing-models/per-unit.png)
 
-Additionally, some solutions have highly variable usage patterns, where a small number of users has a disproportionate impact on the COGS. For example, in a solution sold to brick-and-mortar retailers, a per-store pricing model might be appropriate.
+Additionally, some solutions have highly variable usage patterns, where a small number of users has a disproportionate impact on the COGS. For example, in a solution sold to brick-and-mortar retailers, a per-store pricing model might be appropriate regardless of how many users are in each store.
 
 **Benefits:** In systems where individual users don't have a significant effect on COGS, per-unit pricing is a better way to represent the reality of how the system scales and the resulting impact to COGS. It also can improve the alignment to the actual patterns of usage for a customer. For many IoT solutions, where each device generates a predictable and constant amount of consumption, this can be an effective model to scale your solution's growth.
 
@@ -109,7 +112,7 @@ Additionally, some solutions have highly variable usage patterns, where a small 
 
 ### Feature- and service-level based pricing
 
-You may choose to offer your solution with different tiers of functionality at different price points. For example, you might provide two monthly flat-rate or per-unit prices, one being a basic offering with a subset of features available, and the other presenting the comprehensive set of your solution's features. See the following diagram.
+You may choose to offer your solution with different tiers of functionality at different price points. For example, you might provide three monthly flat-rate or per-unit prices, two providing basic offerings with a subset of features available, and the third presenting the comprehensive set of your solution's features:
 
 ![Diagram showing revenue increasing in steps between three tiers.](media/pricing-models/feature-service-level.png)
 
@@ -133,13 +136,13 @@ The free tier may also be offered as a time-limited trial, and during the trial 
 
 **Benefits:** It's very easy to market a solution when it's free.
 
-**Complexity and operational cost:** All of the complexity and operational cost concerns apply from the feature-based pricing model. However, you also have to consider the operational cost involved in managing free tenants. You might need to ensure that stale tenants are offboarded or removed, and you must have a clear retention policy, especially for free tenants. When promoting a tenant to a paid tier, you might need to move the tenant between Azure services, to obtain higher SLAs. It will also be important to retain the tenant's data and configuration, when moving to a paid tier.
+**Complexity and operational cost:** All of the complexity and operational cost concerns apply from the feature-based pricing model. You also have to consider the operational cost involved in managing free tenants. You might need to ensure that stale tenants are offboarded or removed, and you must have a clear retention policy, especially for free tenants. When moving a tenant to a paid tier, you might need to migrate the tenant's data or workload between Azure services to obtain higher SLAs. It will also be important to retain the tenant's data and configuration, when moving to a paid tier.
 
 **Risks:** You need to ensure that you provide a high enough ROV for tenants to consider switching to a paid tier. Additionally, the cost of providing your solution to customers on the free tier needs to be covered by the profit margin from those who are on paid tiers.
 
 ### Cost of goods sold pricing
 
-You might choose to price your solution so that each tenant only pays the cost of operating their share of the Azure services, with no added profit margin. This model - also called *pass through cost or pricing* - is sometimes used for multitenant solutions that aren't intended to be a profit center.
+You might choose to price your solution so that each tenant only pays the cost of operating their share of the components that make up your solution, with no added profit margin. This model - also called *passthrough pricing* or *chargeback* - is sometimes used for multitenant solutions that aren't intended to be a profit center.
 
 ![Diagram showing revenue varying over time with amount of use changing to match.](media/pricing-models/cost-of-goods-sold.png)
 
@@ -155,7 +158,7 @@ For internally facing multitenant solutions, tenants might accept approximate co
 
 ### Flat-rate pricing
 
-In this model, you charge a flat rate to a tenant for access to your solution, for a given period of time. The same pricing applies regardless of how much they use the service, the number of users, the number of devices they connect, or any other metric. See the following diagram.
+In this model, you charge a flat rate to a tenant for access to your solution, for a given period of time. The same pricing applies regardless of how much they use the service, the number of users, the number of devices they connect, or any other metric.
 
 ![Diagram showing revenue that remains consistent, regardless of the amount of use.](media/pricing-models/flat-rate.png)
 
@@ -172,13 +175,13 @@ This is the simplest model to implement and for customers to understand, and it'
 Once you've defined your pricing model, you might choose to implement commercial strategies to incentivize growth through discount pricing. *Discount pricing* can be used with consumption, per-user, and per-unit pricing models.
 
 > [!NOTE]
-> Discount pricing doesn't typically require architectural considerations, beyond adding support for a more complex billing structure. A complete discussion into the commercial benefits of discounting is beyond the scope of this document.
+> Discount pricing doesn't typically require architectural considerations, beyond adding support for a more complex billing structure. A complete discussion into the commercial benefits of discounting is beyond the scope of this article.
 
 Common discount pricing patterns include:
 
 - **Fixed pricing.** You have the same cost for each user, unit, or amount of consumption, no matter how much is purchased or consumed. This is the simplest approach. However, customers who make heavy use of your solution may feel like they should benefit from economies of scale by getting a discount.
 - **Digressive pricing.** As customers purchase or consume more units, you reduce the cost per unit. This is more commercially attractive to customers.
-- **Step pricing.** You reduce the cost per unit, as customers purchase more. However, you do so in step changes, based on predefined ranges of quantity. For example, you might charge a higher price for the first 100 users, then a lower price for the 101st to 200th user, then a lower price again after that. This can be more profitable.
+- **Step pricing.** As customers purchase more, you reduce the cost per unit. However, you do so in step changes, based on predefined ranges of quantity. For example, you might charge a higher price for the first 100 users, then a lower price for the 101st to 200th user, then a lower price again after that. This approach can be more profitable than digressive pricing.
 
 The following diagram illustrates these pricing patterns.
 
@@ -186,7 +189,7 @@ The following diagram illustrates these pricing patterns.
 
 ## Non-production environment discounts
 
-In many cases, customers require access to a non-production environment that they can use for testing, training, or for creating their own internal documentation. Non-production environments usually have lower consumption requirements and costs to operate. For example, non-production environments often aren't subject to service-level agreements (SLAs), and [rate limits](#rate-limits) might be set at lower values. You might also consider more aggressive [autoscaling](/azure/architecture/framework/cost/optimize-autoscale) on your Azure services.
+In many cases, customers require access to a non-production environment that they can use for testing, training, or for creating their own internal documentation. Non-production environments usually have lower consumption requirements and costs to operate. For example, non-production environments often aren't subject to service-level agreements (SLAs), and [rate limits](#rate-limits) might be set at lower values. You might also consider more aggressive [autoscaling](/azure/architecture/framework/cost/optimize-autoscale) on Azure services that support non-production workloads.
 
 Equally, customers often expect non-production environments to be significantly cheaper than their production environments. There are several alternatives that might be appropriate, when you provide non-production environments:
 
@@ -214,7 +217,7 @@ In the case that you inadvertently create an unprofitable pricing model, there a
 
 - Limit the use of the service through [usage limits](#usage-limits).
 - Require the use of capacity reservations.
-- Request the tenant move to a higher feature or service tier.
+- Request the tenant move to a higher feature or service tier. Consider making new capabilities exclusively available on a profitable service tier to encourage tenants to move.
 
 ### Risky pricing models
 
@@ -222,7 +225,7 @@ When implementing a pricing model for a solution, you'll usually have to make as
 
 Most SaaS solutions will add new features regularly. This increases the ROV to users, which may also lead to increases in the amount the solution is used. This could result in a solution that becomes unprofitable, if the use of new features drives usage, but the pricing model doesn't factor this in.
 
-For example, if you introduce a new video upload feature to your solution, which uses a consumption-based resource, and user uptake of the feature is higher than expected, then consider a combination of [usage limits](#usage-limits) and [feature and service level pricing](#feature--and-service-level-based-pricing).
+For example, if you introduce a new video upload feature to your solution, which uses a consumption-based resource, and user uptake of the feature is higher than expected, then consider whether you can mitigate the pricing risk by using a combination of [usage limits](#usage-limits) and [feature and service level pricing](#feature--and-service-level-based-pricing).
 
 ## Usage limits
 
@@ -237,7 +240,7 @@ Usage limits are often used in combination with [feature and service-level prici
 
 A common way to apply a usage limit is to add rate limits to APIs or to specific application functions. This is also referred to as [throttling](../../../patterns/throttling.yml). Rate limits prevent continuous overuse. They're often used to limit the number of calls to an API, over a defined time period. For example, an API may only be called 20 times per minute, and it will return an HTTP 429 error, if it is called more frequently than this.
 
-Some situations, where rate limiting is often used, include the following:
+The following scenarios often include rate limits:
 
 - REST APIs.
 - Asynchronous tasks.
@@ -257,23 +260,21 @@ Like any other part of your solution, pricing models have a lifecycle. As your a
 - Retiring a tier in an existing pricing model.
 - Changing usage limits on a feature in a pricing model.
 - Adding or removing features from a [feature and service-level pricing model](#feature--and-service-level-based-pricing).
-- Changing from a business-to-consumer (B2C) commercial model, to a business-to-business (B2B) commercial model. This change then necessitates new pricing structures for your business customers.
+- Changing from a business-to-consumer (B2C) commercial model to a business-to-business (B2B) commercial model. This change then necessitates new pricing structures for your business customers.
 
 It is usually complex to implement and manage many different pricing models at once. It's also confusing to your customers. So, it's better to implement only one or two models, with a small number of tiers. This makes your solution more accessible and easier to manage.
 
 > [!NOTE]
-> Pricing models and billing functions should be tested, ideally using automated testing, just like any other part of your system. The more complex the pricing models, the more testing is required, and so the cost of development and new features will increase.
+> Pricing models and billing functions should be tested, ideally using automated testing, just like any other part of your system. The more complex the pricing models, the more testing is required, and so the cost of development and operational complexity will increase.
 
-When changing pricing models, you'll need to consider the following factors:
+When changing pricing models, consider the following factors:
 
-- Will tenants want to migrate to the new model?
-- Is it easy for tenants to migrate to the new model?
-- Will new pricing models expose your service to risk? For example, are you removing rate limits that are currently protecting critical resources from overuse?
-- Do tenants have a clear path for migrating to the new pricing model?
-- How will you prevent tenants from using older pricing models, so that you can retire them?
-- Are tenants likely to receive *bill shock* (a negative reaction to an unexpected bill) upon changing pricing models?
-- Are you monitoring the performance and utilization of your services, for new or changed pricing models, so that you can ensure continued profitability?
-- Are you able to clearly communicate the ROV for new pricing models, to your existing tenants?
+- **Contractual implications.** If tenants have signed contracts based on a specific pricing model, ensure you don't accidentally violate those agreements.
+- **Desirability.** Clearly communicate the ROV for new pricing models to your existing tenants. Ensure you make the new model attractive enough so that tenants want to migrate to the new model. Decide how you'll discourage tenants from using older pricing models that you plan to retire.
+- **Timeline.** Give tenants plenty of notice for any changes, to allow them to prepare.
+- **Migration process.** Make it easy for tenants to migrate to the new model.
+- **Reduce pricing risks.** Evaluate each new pricing model to understand whether it's [risky](#risky-pricing-models). For example, be cautious when removing rate limits that are currently protecting critical resources from overuse. Throughout the change, monitor the performance and utilization of your services so that you can ensure continued satisfaction and profitability.
+- **Reduce bill shock risks.** Changes in pricing model can result in *bill shock*, which is a negative reaction to an unexpected bill. Communicate pricing model changes clearly and proactively. Calculate or simulate each tenant's bill before and after the change so you can detect situations where a tenant will pay significantly more after the change.
 
 ## Contributors
 
@@ -281,15 +282,15 @@ When changing pricing models, you'll need to consider the following factors:
 
 Principal author:
 
-- [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
 
 Other contributors:
 
-- [Bohdan Cherchyk](http://linkedin.com/in/cherchyk) | Senior Customer Engineer, FastTrack for Azure
-- [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+- [Bohdan Cherchyk](https://linkedin.com/in/cherchyk) | Senior Customer Engineer, FastTrack for Azure
+- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
-- [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
-- [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

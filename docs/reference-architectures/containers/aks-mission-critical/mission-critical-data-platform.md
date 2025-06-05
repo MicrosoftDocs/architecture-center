@@ -3,15 +3,16 @@ title: Data platform for mission-critical workloads on Azure
 description: Data decisions for the baseline reference architecture for a mission-critical workload on Azure.
 author: msimecek
 categories: database
-ms.author: csiemens
-ms.date: 12/01/2023
+ms.author: msimecek
+ms.date: 01/30/2025
 ms.topic: reference-architecture
-ms.service: architecture-center
 ms.subservice: reference-architecture
+ms.custom:
+  - arb-containers
 ms.category:
   - database
 azureCategories:
-  - database  
+  - database
 summary: Data decisions for the baseline reference architecture for a mission-critical workload on Azure.
 products:
   - azure-cosmosdb
@@ -34,7 +35,7 @@ In a mission-critical architecture, any state must be stored outside the compute
 
 In this architecture, there are two data stores:
 
-- **Database** 
+- **Database**
 
   Stores related to the workload.  It's recommended that all state is stored globally in a database separated from regional stamps. Build redundancy by deploying the database across regions. For mission-critical workloads, synchronizing data across regions should be the primary concern. Also, in case of a failure, write requests to the database should still be functional.
 
@@ -71,7 +72,7 @@ This architecture uses Azure Cosmos DB for NoSQL. This option is chosen because 
   It's recommended that you use the native backup feature of Azure Cosmos DB for data protection. [Azure Cosmos DB backup feature](/azure/cosmos-db/online-backup-and-restore) supports online backups and on-demand data restore.
 
 > [!NOTE]
-> Most workloads aren't purely OLTP. There is an increasing demand for real-time reporting, such as running reports against the operational system. This is also referred to as HTAP (Hybrid Transactional and Analytical Processing). Azure Cosmos DB supports this capability via [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link-use-cases).
+> Most workloads aren't purely OLTP. There's an increasing demand for real-time reporting, such as running reports against the operational system. This is also referred to as HTAP (Hybrid Transactional and Analytical Processing). Azure Cosmos DB supports this capability via [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link-use-cases).
 
 ### Data model for the workload
 
@@ -95,7 +96,7 @@ Azure Cosmos DB is configured as follows:
 
 - **Consistency level** is set to the default *Session consistency* because it's the most widely used level for single region and globally distributed applications. Weaker consistency with higher throughput isn't needed because of the asynchronous nature of write processing and doesn't require low latency on database write.
 
-  > [!NOTE] 
+  > [!NOTE]
   > The *Session* consistency level offers a reasonable tradeoff for latency, availability and consistency guarantees for this specific application. It's important to understand that *Strong* consistency level isn't available for multi-master write databases.
 
 - **Partition key** is set to `/id` for all collections. This decision is based on the usage pattern, which is mostly *"writing new documents with GUID as the ID"* and *"reading wide range of documents by IDs"*. Providing the application code maintains its ID uniqueness, new data is evenly distributed into partitions by Azure Cosmos DB, enabling infinite scale.
@@ -155,7 +156,7 @@ Azure Service Bus premium tier is the recommended solution for high-value messag
   - The consumer is given an exclusive lock on the message for a given time duration.
   - If the consumer successfully processes the message, it sends an acknowledgment back to the broker, and the message is removed from the queue.
   - If an acknowledgment isn't received by the broker in the allotted time period, or the handler explicitly abandons the message, the exclusive lock is released. The message is then available for other consumers to process the message.
-  - If a message is not successfully processed a configurable number of times, or the handler forwards the message to the [dead-letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues).
+  - If a message isn't successfully processed a configurable number of times, or the handler forwards the message to the [dead-letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues).
     - To ensure that messages sent to the dead-letter queue are acted upon, the dead-letter queue should be monitored, and alerts should be set.
     - The system should have tooling for operators to be able to [inspect, correct, and resubmit messages](/azure/service-bus-messaging/service-bus-dead-letter-queues#sending-dead-lettered-messages-to-be-reprocessed).
 
@@ -165,12 +166,12 @@ Azure Service Bus premium tier is the recommended solution for high-value messag
 
 In [RFC 7231](https://tools.ietf.org/html/rfc7231#section-4), the Hypertext Transfer Protocol states, "A ... method is considered *idempotent* if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request."
 
-One common technique of making message handling idempotent is to check a persistent store, like a database, if the message has already been processed. If it has been processed, you wouldn't run the logic to process it again. 
+One common technique of making message handling idempotent is to check a persistent store, like a database, if the message has already been processed. If it has been processed, you wouldn't run the logic to process it again.
 - There might be situations where the processing of the message includes database operations, specifically the insertion of new records with database-generated identifiers. New messages can be emitted to the broker, which contain those identifiers. Because there aren't distributed transactions that encompass both the database and the message broker, there can be a number of complications that can occur if the process running the code happens to fail. See the following example situations:
   - The code emitting the messages might run before the database transaction is committed, which is how many developers work using the [Unit of Work pattern](https://www.programmingwithwolfgang.com/repository-and-unit-of-work-pattern). Those messages can *escape*, if the failure occurs between calling the broker and asking that the database transaction be committed. As the transaction rolls back, those database-generated IDs are also undone, which leaves them available to other code that might be running at the same time. This can cause recipients of the *escaped* messages to process the wrong database entries, which hurts the overall consistency and correctness of your system.
-  - If developers put the code that emits the message *after* the database transaction completes, the process can still fail between these operations (transaction committed - message sent). When that happens, the message will go through processing again, but this time the idempotence guard clause will see that it has already been processed (based on the data stored in the database). The clause will skip the message emitting code, believing that everything was done successfully last time. Downstream systems, which were expecting to receive notifications about the completed process, do not receive anything. This situation again results in an overall state of inconsistency.
+  - If developers put the code that emits the message *after* the database transaction completes, the process can still fail between these operations (transaction committed - message sent). When that happens, the message will go through processing again, but this time the idempotence guard clause will see that it has already been processed (based on the data stored in the database). The clause will skip the message emitting code, believing that everything was done successfully last time. Downstream systems, which were expecting to receive notifications about the completed process, don't receive anything. This situation again results in an overall state of inconsistency.
 - The solution to the above problems involves using the [Transactional Outbox pattern](/azure/architecture/databases/guide/transactional-outbox-cosmos), where the outgoing messages are stored *off to the side*, in the same transactional store as the business data. The messages are then transmitted to the message broker, when the initial message has been successfully processed.
-- Since many developers are unfamiliar with these problems or their solutions, in order to guarantee that these techniques are applied consistently in a mission-critical system, we suggest you have the functionality of the outbox and the interaction with the message broker wrapped in some kind of library. All code processing and sending transactionally-significant messages should make use of that library, rather than interacting with the message broker directly.
+- Since many developers are unfamiliar with these problems or their solutions, in order to guarantee that these techniques are applied consistently in a mission-critical system, we suggest you have the functionality of the outbox and the interaction with the message broker wrapped in some kind of library. All code processing and sending transactionally significant messages should make use of that library, rather than interacting with the message broker directly.
   - Libraries that implement this functionality in .NET include [NServiceBus](https://docs.particular.net/nservicebus/outbox) and [MassTransit](https://masstransit-project.com/advanced/transactional-outbox.html).
 
 ### High availability and disaster recovery
@@ -182,13 +183,13 @@ The message broker must be available for producers to send messages and consumer
 - Consider [active-active replication](/azure/service-bus-messaging/service-bus-federation-overview#all-active-replication) or [active-passive replication](/azure/service-bus-messaging/service-bus-federation-overview#active-passive-replication) patterns to insulate against regional disasters.
 
 > [!NOTE]
-> Azure Service Bus Geo-disaster recovery only replicates metadata across regions. This feature does not replicate messages.
+> Azure Service Bus Geo-disaster recovery only replicates metadata across regions. This feature doesn't replicate messages.
 
 ### Monitoring
 
 The messaging system acts as a buffer between message producers and consumers. There are key indicator types that you should monitor in a mission-critical system that provide valuable insights described below:
 
-- **Throttling** - Throttling indicates that the system does't have the required resources to process the request. Both Service Bus and Event Hubs support monitoring throttled requests. You should alert on this indicator.
+- **Throttling** - Throttling indicates that the system doesn't have the required resources to process the request. Both Service Bus and Event Hubs support monitoring throttled requests. You should alert on this indicator.
 - **Queue depth** - A queue depth that is growing can indicate that message processors aren't working or there aren't enough processors to handle the current load. Queue depth can be used to inform auto-scaling logic of handlers.
   - For Service Bus, queue depth is exposed as message count
   - For Event Hubs, the consumers have to calculate queue depth per partition and push the metric to your monitoring software. For each read, the consumer gets the sequence number of the current event, and the event properties of the last enqueued event. The consumer can calculate the offset.

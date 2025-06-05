@@ -2,12 +2,12 @@
 metadata:
   title: AKS regulated cluster for PCI-DSS 3.2.1 - Data protection
   description: Best practices for securing data as per Requirement 3 and 4 of PCI-DSS 3.2.1.
-  author: PageWriter-MSFT
-  ms.author: prwilk
+  author: RobBagby
+  ms.author: pnp
   ms.date: 11/11/2021
   ms.topic: reference-architecture
-  ms.service: architecture-center
   ms.subservice: reference-architecture
+  ms.custom: arb-containers
 name: Secure data in an AKS regulated cluster for PCI-DSS 3.2.1 (Part 4 of 9)
 azureCategories:
   - containers

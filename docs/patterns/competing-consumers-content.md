@@ -31,13 +31,13 @@ This solution has the following benefits:
 
 Consider the following points when deciding how to implement this pattern:
 
-- **Message ordering**. The order in which consumer service instances receive messages isn't guaranteed, and doesn't necessarily reflect the order in which the messages were created. Design the system to ensure that message processing is idempotent because this will help to eliminate any dependency on the order in which messages are handled. For more information, see [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns/) on Jonathon Oliver's blog.
+- **Message ordering**. The order in which consumer service instances receive messages isn't guaranteed, and doesn't necessarily reflect the order in which the messages were created. Design the system to ensure that message processing is [idempotent](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing) because this will help to eliminate any dependency on the order in which messages are handled. For more information, see [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns/) on Jonathon Oliver's blog.
 
     > Microsoft Azure Service Bus Queues can implement guaranteed first-in-first-out ordering of messages by using message sessions. For more information, see [Messaging Patterns Using Sessions](/archive/msdn-magazine/2012/december/azure-insider-microsoft-azure-service-bus-messaging-patterns-using-sessions).
 
 - **Designing services for resiliency**. If the system is designed to detect and restart failed service instances, it might be necessary to implement the processing performed by the service instances as idempotent operations to minimize the effects of a single message being retrieved and processed more than once.
 
-- **Detecting poison messages**. A malformed message, or a task that requires access to resources that aren't available, can cause a service instance to fail. The system should prevent such messages being returned to the queue, and instead capture and store the details of these messages elsewhere so that they can be analyzed if necessary.
+- **Detecting poison messages**. A malformed message, or a task that requires access to resources that aren't available, can cause a service instance to fail. The system should prevent such messages being returned to the queue indefinitely, and instead capture and store the details of these messages elsewhere so that they can be analyzed if necessary. An example of this logic can be found in the [NServiceBus recoverability documentation](https://docs.particular.net/nservicebus/recoverability/).
 
 - **Handling results**. The service instance handling a message is fully decoupled from the application logic that generates the message, and they might not be able to communicate directly. If the service instance generates results that must be passed back to the application logic, this information must be stored in a location that's accessible to both. In order to prevent the application logic from retrieving incomplete data the system must indicate when processing is complete.
 
@@ -88,64 +88,7 @@ For detailed information on using Azure Service Bus queues, see [Service Bus que
 
 For information on Queue triggered Azure Functions, see [Azure Service Bus trigger for Azure Functions](/azure/azure-functions/functions-bindings-service-bus-trigger).
 
-The following code shows how you can create a new message and send it to a Service Bus Queue by using a `ServiceBusClient` instance.
-
-```csharp
-private string serviceBusConnectionString = ...;
-...
-
-  public async Task SendMessagesAsync(CancellationToken  ct)
-  {
-   try
-   {
-    var msgNumber = 0;
-
-    var serviceBusClient = new ServiceBusClient(serviceBusConnectionString);
-
-    // create the sender
-    ServiceBusSender sender = serviceBusClient.CreateSender("myqueue");
-
-    while (!ct.IsCancellationRequested)
-    {
-     // Create a new message to send to the queue
-     string messageBody = $"Message {msgNumber}";
-     var message = new ServiceBusMessage(messageBody);
-
-     // Write the body of the message to the console
-     this._logger.LogInformation($"Sending message: {messageBody}");
-
-     // Send the message to the queue
-     await sender.SendMessageAsync(message);
-
-     this._logger.LogInformation("Message successfully sent.");
-     msgNumber++;
-    }
-   }
-   catch (Exception exception)
-   {
-    this._logger.LogException(exception.Message);
-   }
-  }
-```
-
-The following code example shows a consumer, written as a C# Azure Function, that reads message metadata and logs a Service Bus Queue message. Note how the `ServiceBusTrigger` attribute is used to bind it to a Service Bus Queue.
-
-```csharp
-[FunctionName("ProcessQueueMessage")]
-public static void Run(
-    [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnectionString")]
-    string myQueueItem,
-    Int32 deliveryCount,
-    DateTime enqueuedTimeUtc,
-    string messageId,
-    ILogger log)
-{
-    log.LogInformation($"C# ServiceBus queue trigger function consumed message: {myQueueItem}");
-    log.LogInformation($"EnqueuedTimeUtc={enqueuedTimeUtc}");
-    log.LogInformation($"DeliveryCount={deliveryCount}");
-    log.LogInformation($"MessageId={messageId}");
-}
-```
+To see how you can use the Azure Service Bus client library for .NET to send messages to a Service Bus Queue, see the published [Examples](/dotnet/api/overview/azure/messaging.servicebus-readme?view=azure-dotnet#examples).
 
 ## Next steps
 

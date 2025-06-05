@@ -1,42 +1,40 @@
 ---
 title: Azure Resource Manager considerations for multitenancy
-titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Resource Manager that are useful when you work with multitenanted systems, and it provides links to guidance and examples for how to use Azure Resource Manager in a multitenant solution.
 author: johndowns
-ms.author: jodowns
-ms.date: 02/28/2023
+ms.author: pnp
+ms.date: 06/27/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 products:
- - azure
- - azure-resource-manager
+  - azure
+  - azure-resource-manager
 categories:
- - management-and-governance
- - devops
-ms.category:
-  - fcp
+  - management-and-governance
+  - devops
 ms.custom:
   - guide
-  - fcp
   - devx-track-arm-template
+  - arb-saas
 ---
 
 # Multitenancy and Azure Resource Manager
 
-Azure Resource Manager is the core resource management service for Azure. Every resource in Azure is created, managed, and eventually deleted through Resource Manager. When you build a multitenant solution, you often work with Resource Manager to dynamically provision resources for each tenant. On this page, we describe some of the features of Resource Manager that are relevant to multitenant solutions. We'll also provide links to guidance that can help you when you're planning to use Resource Manager.
+Azure Resource Manager is the core resource management service for Azure. Every resource in Azure is created, managed, and eventually deleted through Resource Manager. When you build a multitenant solution, you often work with Resource Manager to dynamically provision resources for each tenant. On this page, we describe some of the features of Resource Manager that are relevant to multitenant solutions. We also provide links to guidance that can help you when you're planning to use Resource Manager.
 
 ## Features of Resource Manager that support multitenancy
 
 ### Infrastructure as code
 
-Resource Manager provides tooling to support infrastructure as code, sometimes referred to as IaC. Infrastructure as code is important for all solutions in the cloud, but when working with multitenant solutions, it becomes particularly important. A multitenant solution often requires you to scale deployments, and to provision new resources as you onboard new tenants. If you manually create or configure resources, then you introduce extra risk and time to the process. It results in a less reliable deployment process overall.
+Resource Manager provides tooling to support infrastructure as code, sometimes referred to as IaC. Defining infrastructure as code is a good practice for all solutions in the cloud, but when working with multitenant solutions, it becomes particularly important. A multitenant solution often requires you to scale deployments, and to provision new resources as you onboard new tenants. If you manually create or configure resources, then you introduce extra risk and time to the process. A manual approach results in a less reliable deployment process overall.
 
 When deploying your infrastructure as code from a deployment pipeline, we recommend you use [Bicep](/azure/azure-resource-manager/bicep), which is a language specifically designed to deploy and manage Azure resources in a declarative way. You can also use [JSON Azure Resource Manager templates](/azure/azure-resource-manager/templates) (ARM templates), Terraform, or other third-party products that access the underlying Resource Manager APIs.
 
+[Deployment stacks](/azure/azure-resource-manager/bicep/deployment-stacks) provide the ability to manage a set of resources as a single unit, even if they're spread across resource groups or subscriptions. Deployment stacks can be helpful if you provision multiple tenant-specific resources in different places, and then need to manage their lifecycle as one logical unit.
+
 [Template specs](/azure/azure-resource-manager/templates/template-specs) can be useful for provisioning new resources, deployment stamps, or environments from a single and well-parameterized template. By using template specs, you can create a central repository of the templates that you use to deploy your tenant-specific infrastructure. The templates are stored and managed within Azure itself, and you can reuse the template specs whenever you need to deploy from them.
 
-In some solutions, you might choose to write custom code to dynamically provision or configure resources, or to initiate a template deployment. The [Azure SDKs](https://azure.microsoft.com/downloads) can be used from your own code, to manage your Azure environment. Ensure that you follow good practices around managing the authentication of your application to Resource Manager, and use [managed identities](/azure/active-directory/managed-identities-azure-resources) to avoid storing and managing credentials.
+In some solutions, you might choose to write custom code to dynamically provision or configure resources, or to initiate a template deployment. The [Azure SDKs](https://azure.microsoft.com/downloads) can be used from your own code, to manage your Azure environment. Ensure that you follow good practices around managing the authentication of your application to Resource Manager, and use [managed identities](/entra/identity/managed-identities-azure-resources/) to avoid storing and managing credentials.
 
 ### Role-based access control
 
@@ -73,11 +71,11 @@ In some multitenant solutions, you might decide to deploy separate or dedicated 
 
 Principal author:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributor:
 
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

@@ -4,10 +4,9 @@ metadata:
   description: Minimize private address space consumption when you build large networks in Azure. This article presents two methods to create more IPv4 address space.
   author: fguerri
   ms.author: fguerri
-  ms.date: 07/19/2023
+  ms.date: 10/18/2024
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.subservice: architecture-guide
 name: Prevent IPv4 exhaustion in Azure
 azureCategories:
   - networking

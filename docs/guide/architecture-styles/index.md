@@ -1,13 +1,11 @@
 ---
 title: Architecture styles
-titleSuffix: Azure Application Architecture Guide
 description: Learn about architecture styles for cloud applications, including descriptions, recommendations, best practices, and recommended deployment with Azure services.
-author: martinekuan
-ms.author: martinek
+author: RobBagby
+ms.author: pnp
 ms.date: 07/26/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: architecture-guide
 ms.custom:
   - guide
 products: azure
@@ -27,7 +25,7 @@ We have identified a set of architecture styles that are commonly found in cloud
 
 ## A quick tour of the styles
 
-This section gives a quick tour of the architecture styles that we've identified, along with some high-level considerations for their use. Read more details in the linked topics.
+This section gives a quick tour of the architecture styles that we've identified, along with some high-level considerations for their use. Please note that the list is not exhaustive. Read more details in the linked topics.
 
 ### N-tier
 
@@ -79,7 +77,9 @@ For example, the constraints in microservices include:
 
 By adhering to these constraints, what emerges is a system where services can be deployed independently, faults are isolated, frequent updates are possible, and it's easy to introduce new technologies into the application.
 
-Before choosing an architecture style, make sure that you understand the underlying principles and constraints of that style. Otherwise, you can end up with a design that conforms to the style at a superficial level, but does not achieve the full potential of that style. It's also important to be pragmatic. Sometimes it's better to relax a constraint, rather than insist on architectural purity.
+Each architecture style has its own trade-offs. Therefore, before choosing any architectural style, make sure that you understand the underlying principles and constraints of that style. Otherwise, you can end up with a design that conforms to the style at a superficial level, but does not achieve the full potential of that style. You need to pay attention more to why you're choosing a certain architectural style than to how to implement it. It's also important to be pragmatic. Sometimes it's better to relax a constraint, rather than insist on architectural purity.
+
+Choosing an appropriate architectural style should be done ideally with a consensuses of informed workload stakeholders. The workload team should firstly identify the nature of the problem they are trying to solve. Then they should identify business drivers and corresponding architecture characteristics (also known as non-functional requirements) then prioritize them. For example, if they need shorter time to market, they might prioritize maintainability, testability, and reliable by rapid deployment capabilities. Or if the workload team has constrained budget, they might prioritize feasibility and simplicity. Choosing and maintaining an architectural style is not a one-off activity but a continuous approach: the architecture should be continuously measured, validated and fine-tuned over time. There is usually significant cost involved in switching architectural style, so more effort up front can be justified for long term team efficiency and risk mitigation.
 
 The following table summarizes how each style manages dependencies, and the types of domain that are best suited for each.
 

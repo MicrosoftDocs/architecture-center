@@ -24,9 +24,9 @@ The preceding diagram shows how the typical components of an IBM z/OS mainframe 
 
 1. Server farms use scale set capabilities to accommodate the converted mainframe batch loads and transaction loads. The server farms handle workload peaks. An Azure load balancer fronts the transaction servers to distribute the traffic in an active-active arrangement across the server farm.
 
-1.	The mainframe application code is converted to either .NET C# or Java artifacts. This migrated code runs on the transaction servers to provide the current business logic.
+1. The mainframe application code is converted to either .NET C# or Java artifacts. This migrated code runs on the transaction servers to provide the current business logic.
 
-1.	Avanade AMT Transform automates the migration of database management systems (IBM Db2, IMS, Adabas), databases (hierarchical, network, relational), VSAM files, and schemas to modern databases and file handling.
+1. Avanade AMT Transform automates the migration of database management systems (IBM Db2, IMS, Adabas), databases (hierarchical, network, relational), VSAM files, and schemas to modern databases and file handling.
 
     Avanade AMT Transform converts Job Control Language (JCL) and Rexx scripts to PowerShell (.NET C#), Python, or Java. Azure Private Link provides a private, direct connection from the Azure VMs to the databases.
 
@@ -38,25 +38,25 @@ The preceding diagram shows how the typical components of an IBM z/OS mainframe 
 
 ### Components
 
-- [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that a connectivity provider facilitates. You can use ExpressRoute to establish connections to cloud services, like Azure and Microsoft 365.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that a connectivity provider facilitates. You can use ExpressRoute to establish connections to cloud services, like Azure and Microsoft 365.
 
-- [Azure Bastion](https://azure.microsoft.com/products/azure-bastion) is a fully managed platform as a service (PaaS) that you set up inside your virtual network. Azure Bastion provides secure and seamless Remote Desktop Protocol (RDP) and secure shell (SSH) connectivity to the VMs in your virtual network directly from the Azure portal over TLS.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed platform as a service (PaaS) that you set up inside your virtual network. Azure Bastion provides secure and seamless Remote Desktop Protocol (RDP) and secure shell (SSH) connectivity to the VMs in your virtual network directly from the Azure portal over TLS.
 
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines/) provides on-demand, scalable computing resources. Virtual Machines gives you the flexibility of virtualization without requiring you to buy and maintain physical hardware.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides on-demand, scalable computing resources. Virtual Machines gives you the flexibility of virtualization without requiring you to buy and maintain physical hardware.
 
-- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for Azure private networks. With Virtual Network, Azure resources, like VMs, can securely communicate with each other, the internet, and on-premises networks. Although a virtual network is similar to a traditional on-premises network, it offers the added Azure infrastructure benefits, such as scalability, availability, and isolation.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for Azure private networks. With Virtual Network, Azure resources, like VMs, can securely communicate with each other, the internet, and on-premises networks. Although a virtual network is similar to a traditional on-premises network, it offers the added Azure infrastructure benefits, such as scalability, availability, and isolation.
 
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) provide communication between Azure VMs and the internet, Azure resources, and on-premises resources. You can add several network interface cards to one Azure VM, so child VMs can have their own dedicated network interface devices and IP addresses.
 
-- [Azure Managed Disks](https://azure.microsoft.com/products/storage/disks) provides block-level storage volumes that Azure manages on Azure VMs. The available types of disks are Ultra disks, Premium SSDs, Standard SSDs, and Standard HDDs.
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) provide block-level storage volumes that Azure manages on Azure VMs. The available types of disks are Ultra disks, Premium SSDs, Standard SSDs, and Standard HDDs.
 
-- [Azure Files](https://azure.microsoft.com/products/storage/files) offers fully managed file shares in an Azure Storage account that are accessible from the cloud or on-premises. Windows, Linux, and macOS deployments can mount Azure file shares concurrently and access files via the industry standard Server Message Block (SMB) protocol.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in an Azure Storage account that are accessible from the cloud or on-premises. Windows, Linux, and macOS deployments can mount Azure file shares concurrently and access files via the industry standard Server Message Block (SMB) protocol.
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine that is always running on the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles most database management functions like upgrading, patching, backups, and monitoring without user involvement. Use these PaaS capabilities so you can focus on business-critical, domain-specific database administration and optimization.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine that is always running on the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles most database management functions like upgrading, patching, backups, and monitoring without user involvement. Use these PaaS capabilities so you can focus on business-critical, domain-specific database administration and optimization.
 
-- [Site Recovery](https://azure.microsoft.com/products/site-recovery) uses replication, failover, and recovery processes to help keep your applications running during planned and unplanned outages.
+- [Site Recovery](/azure/site-recovery/site-recovery-overview) uses replication, failover, and recovery processes to help keep your applications running during planned and unplanned outages.
 
-- [Load Balancer](https://azure.microsoft.com/solutions/load-balancing-with-azure) provides highly available and scalable apps in minutes with built-in application load balancing for cloud services and VMs. Load Balancer supports TCP/UDP-based protocols such as HTTP, HTTPS, and SMTP. With Load Balancer, you can automatically scale increasing app traffic to provide a better customer experience. You don't need to reconfigure or manage the load balancer.
+- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) provides highly available and scalable apps in minutes with built-in application load balancing for cloud services and VMs. Load Balancer supports TCP/UDP-based protocols such as HTTP, HTTPS, and SMTP. With Load Balancer, you can automatically scale increasing app traffic to provide a better customer experience. You don't need to reconfigure or manage the load balancer.
 
 ## Scenario details
 
@@ -85,39 +85,38 @@ The Avanade AMT framework supports several methodologies to move your workloads 
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- Use Site Recovery to mirror the Azure VMs to a secondary Azure region for quick failover and DR if there's an Azure datacenter failure.
- 
-- Use [Azure automatic failover group replication](/azure/azure-sql/database/failover-group-sql-db) to manage database replication and failover to another region. 
-- Use [Load Balancer](/azure/load-balancer) to build resiliency into this solution. If one presentation or transaction server fails, the other servers behind the load balancer take on the workload. 
+- Use Site Recovery to mirror the Azure VMs to a secondary Azure region for quick failover and DR if there's an Azure datacenter failure.
+
+- Use [Azure automatic failover group replication](/azure/azure-sql/database/failover-group-sql-db) to manage database replication and failover to another region.
+- Use [Load Balancer](/azure/load-balancer) to build resiliency into this solution. If one presentation or transaction server fails, the other servers behind the load balancer take on the workload.
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Use Azure [network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to manage traffic between Azure resources.
 
 - Use [Private Link](/azure/azure-sql/database/private-endpoint-overview) to provide a private, direct connection that's isolated to the Azure networking backbone from the Azure VMs to SQL Database.
 - Use [Azure Bastion](/azure/bastion/bastion-overview) to limit the number of open ports, which maximizes admin access security. Bastion provides secure and seamless secure RDP and SSH connectivity over TLS from the Azure portal to VMs in the virtual network.
 
+### Cost Optimization
 
-### Cost optimization
-
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Turn off VMs when you don't need them, and script schedules for known usage patterns to optimize Azure Reserved Virtual Machine Instances. Avanade AMT in Azure runs on Windows or Linux VMs, which optimizes costs.
 
 - Ensure that you use only one VM instance with Site Recovery if your VMs within server sets are duplicates. With Site Recovery, you pay for each protected instance.
 - To estimate and calculate costs for your implementation of this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - Take advantage of scaling capabilities. Avanade AMT has proven single-application scalability that's equivalent to at least 28,000 million instructions per second (MIPS) or 3,300 million service units (MSUs).
 
@@ -125,14 +124,13 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 - Use the SQL Database hyperscale tier or business-critical tier for high input/output operations per second (IOPS) and high-uptime service-level agreements (SLAs). For pricing information, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single).
 - Use SSD or Ultra Disk Storage for best performance. For pricing information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
-
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [Philip Brooks](https://www.linkedin.com/in/philipbbrooks) | Senior Technical Program Manager
+- [Philip Brooks](https://www.linkedin.com/in/philipbbrooks/) | Senior Technical Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -140,7 +138,7 @@ Principal author:
 
 - For more information, [contact the Legacy Migrations Engineering team](mailto:legacy2azure@microsoft.com).
 - Visit the [Avanade website](https://www.avanade.com).
-- Review [the CIO’s guide to mainframe modernization](https://www.avanade.com/en/solutions/cloud-and-application-services/mainframe-modernization-guide).
+- Review [the CIO's guide to mainframe modernization](https://www.avanade.com/en/solutions/cloud-and-application-services/mainframe-modernization-guide).
 - Learn about [MIPS equivalent sizing for IBM CICS COBOL applications](https://techcommunity.microsoft.com/t5/azure-global/mips-equivalent-sizing-for-ibm-cics-cobol-applications-migrated/ba-p/731665).
 
 ## Related resources
