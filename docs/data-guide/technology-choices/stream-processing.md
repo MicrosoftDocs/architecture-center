@@ -37,7 +37,7 @@ Streaming data often has the following characteristics:
 
 To help you choose the right technology, this section outlines common options in Azure, from ingestion to consumption. Each subsection highlights recommended technologies based on their role within the streaming processing flow.
 
-## High-level stream processing flow
+### High-level stream processing flow
 
 :::image type="complex" source="../images/stream-processing.svg" alt-text="A diagram that shows the dataflow for the end-to-end data processing solution." lightbox="../images/stream-processing.svg" border="false":::
 The flow starts with mobile apps and customer-facing apps. Step 1 is labeled stream producers. It includes three subsections. The subsection labeled device endpoint telemetry contains Azure IoT Hub and Azure IoT Edge. The subsection labeled CDC generated from databases contains Azure Cosmos DB and Azure SQL Database. These two subsections point to step 2. The subsection labeled telemetry and events from custom applications contains Azure Kubernetes Service (AKS) and Azure Functions. This subsection points to the line that goes from the first two subsections to step 2. Step 2 is labeled stream ingestion. It contains Azure Event Hubs, Azure Event Grid, Kafka on HDInsight, and Kafka on Confluent. This step points to step 3, which is labeled stream processing. It contains Azure Stream Analytics, Fabric eventstream, and Azure Functions. It includes a subsection labeled Spark Structured Streaming, which contains Microsoft Fabric, Azure Synapse Analytics, and Azure Databricks. Step 3 points to step 4, which is labeled streaming sinks. This step contains Azure Data Explorer, Azure Cosmos DB, Azure Blob Storage, One Lake, and Fabric eventhouse.
