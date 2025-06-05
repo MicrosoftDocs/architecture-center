@@ -55,8 +55,6 @@ public class PersonRepository : IPersonRepository
 }
 ```
 
-You can find the complete sample [here][sample-app].
-
 This antipattern typically occurs because:
 
 - Not using a cache is simpler to implement, and it works fine under low loads. Caching makes the code more complicated.
@@ -218,7 +216,6 @@ The volume of successful tests still reaches a plateau, but at a higher user loa
 - [Caching best practices][caching-guidance]
 - [Circuit Breaker pattern][circuit-breaker]
 
-[sample-app]: https://github.com/mspnp/performance-optimization/tree/main/NoCaching
 [cache-aside-pattern]: ../../patterns/cache-aside.yml
 [caching-guidance]: ../../best-practices/caching.yml
 [circuit-breaker]: ../../patterns/circuit-breaker.md
