@@ -81,7 +81,7 @@ Producers, such as web and mobile applications, IoT devices, and sensors, contin
 
 Consider the following factors:
   
-- **Data velocity:** Determine how to handle high-frequency data that arrives from multiple sources and often varies in formats and sizes.
+- **Data velocity:** Determine how to handle high-frequency data from multiple sources, which often varies in format and size.
 
 - **Scalability:** Ensure that the ingestion layer can scale dynamically as data volume, variety, and velocity increase.
 - **Data integrity and reliability:** Prevent data loss or duplication during transmission.
@@ -144,7 +144,7 @@ Consider the following factors:
 
 ### Streaming sinks
 
-After the system processes the data, it directs it to appropriate destinations, or *sinks*, for storage, further analysis, or use in real-time applications. These destinations can include databases, data lakes, analytics tools, or dashboards for visualization.
+After the system processes the data, it directs the data to appropriate destinations, or *sinks*, for storage, further analysis, or use in real-time applications. These destinations can include databases, data lakes, analytics tools, or dashboards for visualization.
 
 Consider the following factors:
 
@@ -155,7 +155,7 @@ Consider the following factors:
 
 #### Components
 
-- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable, distributed, and cost-effective solution for storing unstructured and semi-structured data. It supports  petabyte-scale storage and high-throughput workloads for storing large volumes of streaming data. It also enables fast read and write operations, which support analytics on streaming data and real-time data pipelines.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable, distributed, and cost-effective solution for storing unstructured and semi-structured data. It supports petabyte-scale storage and high-throughput workloads for storing large volumes of streaming data. It also enables fast read and write operations, which support analytics on streaming data and real-time data pipelines.
 
 - A [Fabric eventhouse](/fabric/real-time-intelligence/eventhouse) is a KQL database for real-time analytics and exploration on vent-based data, such as telemetry and log data, time-series data, and IoT data. It supports ingestion of millions of events per second with low latency. This feature enables near-instant access to streaming data. An eventhouse deeply integrates with the Fabric ecosystem. It enables users to query and analyze streaming data immediately by using tools like Power BI.
 
