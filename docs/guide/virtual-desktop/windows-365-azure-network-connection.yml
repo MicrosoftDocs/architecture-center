@@ -1,7 +1,7 @@
 ###YamlMime:Architecture
 metadata:
   title: Windows 365 Azure network connection  
-  description: Learn how Windows 365 delivers highly optimized and personalized computing instances that are purpose built for each user's requirements.
+  description: Learn how to design and implement Windows 365 Azure network connections to integrate Cloud PCs with your existing network infrastructure and on-premises resources.
   author: PaulCollinge
   ms.author: paulcoll
   ms.date: 06/05/2025
@@ -15,7 +15,7 @@ products:
 azureCategories:
   - azure-virtual-desktop
 name: Windows 365 Azure network connection
-summary: Learn how Windows 365 delivers highly optimized and personalized computing instances that are purpose built for each user's requirements.
+summary: Learn how to design and implement Windows 365 Azure network connections to integrate Cloud PCs with your existing network infrastructure and on-premises resources.
 thumbnailUrl: /azure/architecture/browse/thumbs/windows-365-azure-network-connection.png
 content: |
   [!include[](windows-365-azure-network-connection-content.md)]
