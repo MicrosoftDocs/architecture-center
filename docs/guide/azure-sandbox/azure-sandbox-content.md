@@ -111,7 +111,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
   - Limit `Contributor` Azure RBAC role assignments to sandbox subscription users.
   - Use Microsoft Entra Privileged Identity Management (PIM) to manage privileged Azure RBAC role assignments scoped to sandbox subscriptions, such as `Owner`, `Contributor`, and `User Access Administrator`.
 
-- Maintain your [data classification](/azure/well-architected/security/data-classification) compliance. For example, avoid hosting personally identifiable information (PII) or other sensitive data in a sandbox environment. If you must use sensitive data, use synthetic data or deidentified data.
+- Maintain your [data classification](/azure/well-architected/security/data-classification) compliance. For example, avoid hosting personally identifiable information (PII) or other sensitive data in a sandbox environment. If you must use sensitive data, use synthetic data or de-identified data.
 
 Also, consider the [Secure Futures Initiative](https://www.microsoft.com/microsoft-cloud/resources/secure-future-initiative) principles when you're designing and implementing sandbox environments. The [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) implementation on GitHub showcases many of these principles.
 
