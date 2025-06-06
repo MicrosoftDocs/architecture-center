@@ -141,7 +141,7 @@ Also, consider the [Secure Futures Initiative](https://www.microsoft.com/microso
 
   - For SQL Server VMs, [enable first-party updates](/azure/update-manager/configure-wu-agent#enable-updates-for-other-microsoft-products) in Windows Update to ensure that SQL Server is patched.
   
-- Monitor activity and diagnostic logs with [Azure Monitor](/azure/azure-monitor/overview) and [Microsoft Sentinel](/en-us/azure/sentinel/overview).
+- Monitor activity and diagnostic logs with [Azure Monitor](/azure/azure-monitor/overview) and [Microsoft Sentinel](/azure/sentinel/overview).
 
 - Decommission individual sandbox resources and whole sandboxes that are no longer in use.
 
