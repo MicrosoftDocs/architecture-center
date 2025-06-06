@@ -8,7 +8,7 @@ ms.topic: reference-architecture
 ms.subservice: reference-architecture
 ms.custom:
   - arb-containers
-ms.category:	
+ms.category:
   - database
 summary: Data decisions for the baseline reference architecture for a mission-critical workload on Azure.
 ---
