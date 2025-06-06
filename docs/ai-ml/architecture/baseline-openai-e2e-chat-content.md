@@ -271,7 +271,7 @@ This architecture primarily uses system-assigned managed identities for service-
 
 - Assign an identity to an Azure resource only if that resource must authenticate as a client to another Azure service.
 
-- Use fit-for-purpose identity types. Where possible, use [workload identities](/entra/workload-id/workload-identities-overview) for applications and automation, and [agent identities](https://techcommunity.microsoft.com/blog/microsoft-entra-agent-id-secure-and-manage-your-ai-agents/3827392) for AI agents.
+- Use fit-for-purpose identity types. Where possible, use [workload identities](/entra/workload-id/workload-identities-overview) for applications and automation, and [agent identities](https://techcommunity.microsoft.com/blog/microsoft-entra-blog/announcing-microsoft-entra-agent-id-secure-and-manage-your-ai-agents/3827392) for AI agents.
 
 ##### Azure AI Foundry portal employee access
 
@@ -501,33 +501,40 @@ Treat each agent as an independently deployable unit within your chat workload, 
 
 ### Performance Efficiency
 
--- TODO --
-
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-This section describes performance efficiency from the perspective of AI Search, Azure AI Foundry, and model deployments.
+This section addresses performance efficiency for Azure AI Search, Azure AI Foundry, and model deployments.
 
 #### Performance Efficiency in AI Search
 
-Follow the guidance to [analyze performance in AI Search](/azure/search/search-performance-analysis).
+When using Azure AI Agent service, you do not control the specific queries sent to your indexes because agents are codeless. To optimize performance, focus on what you can control with the index by observing how your agent typically queries the index. Follow the guidance to [analyze and optimize performance in AI Search](/azure/search/search-performance-analysis).
 
-#### Performance Efficiency in Azure OpenAI
+If you encounter bottlenecks that cannot be resolved through index server tuning alone, consider these options:
 
--- TODO --
+- Replace the direct connection to Azure AI Search with a connection to an API that you own. This API can implement code optimized for your agent's retrieval patterns.
+- Redesign the orchestration layer to use the [self-hosted alternative](#chat-orchestration), allowing you to define and optimize queries in your own orchestrator code.
 
-- Determine whether your application requires [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) or the shared hosting, or consumption, model. Provisioned throughput helps ensure reserved processing capacity for your OpenAI model deployments. Reserved capacity provides predictable performance and throughput for your models. This billing model is unlike the shared hosting, or consumption, model. The consumption model is best-effort and might be subject to noisy neighbor or other problems on the platform.
+#### Performance Efficiency in model deployments
 
-- Monitor [provision-managed utilization](/azure/ai-services/openai/how-to/monitoring) for provisioned throughput.
+- Decide if your application needs [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) or can use the shared (consumption) model. Provisioned throughput provides reserved capacity and predictable latency, which is important for production workloads with strict SLOs. The consumption model is best-effort and might be affected by noisy neighbor effects.
 
-#### Performance Efficiency in Machine Learning
+- Monitor [provision-managed utilization](/azure/ai-services/openai/how-to/monitoring) to ensure you are not over- or under-provisioned.
 
--- TODO --
+- Choose a conversational model that meets your latency requirements.
 
-If you deploy to Machine Learning online endpoints:
+- Deploy models in the same data region as your agents to minimize network latency.
 
-- Follow the guidance about how to [autoscale an online endpoint](/azure/machine-learning/how-to-autoscale-endpoints). Autoscaling helps you closely align with demand without overprovisioning, especially in low-usage periods.
+##### Azure AI Agent performance
 
-- Choose the appropriate VM SKU for the online endpoint to meet your performance targets. To find an optimal configuration, test the performance of both lower instance counts and larger SKUs versus larger instance counts and smaller SKUs.
+Azure AI Agents run on a serverless compute backend that doesn't support custom performance tuning. However, you can still improve performance through agent design:
+
+- Minimize the number of knowledge stores and tools connected to your chat agent. Each additional connection potentially increases the total execution time for an agent call, as the agent may invoke all configured resources per request.
+
+- Use Azure Monitor and Application Insights to track agent invocation times, tool/knowledge store latencies, and error rates. Regularly review this telemetry to identify slow knowledge or tool connections.
+
+- Design system prompts to guide the agent to use connections efficiently. For example, instruct the agent to query external knowledge stores only when needed, or to avoid redundant tool invocations.
+
+- Although serverless compute scales automatically, be aware of service limits or quotas that could affect peak load scenarios. Monitor for throttling (HTTP 429/503 responses).
 
 ## Deploy this scenario
 
