@@ -47,7 +47,7 @@ items:
       - name: Adopt IPv6
         items:
         - name: Prevent IPv4 exhaustion
-          href: guide/ipv4-exhaustion.yml
+          href: guide/ipv4-exhaustion.md
         - name: IPv6 hub-spoke network topology
           href: guide/ipv6-architecture.yml
         - name: Conceptual planning for IPv6 networking
