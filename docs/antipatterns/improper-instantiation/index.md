@@ -39,7 +39,7 @@ Many libraries provide abstractions of external resources. Internally, these cla
 - `Microsoft.Azure.Documents.Client.DocumentClient`. Connects to an Azure Cosmos DB instance.
 - `StackExchange.Redis.ConnectionMultiplexer`. Connects to Redis, including Azure Cache for Redis.
 
-These classes are intended to be instantiated once and reused throughout the lifetime of an application. However, it's a common misunderstanding that these classes should be acquired only as necessary and released quickly. (The ones listed here happen to be .NET libraries, but the pattern is not unique to .NET.) The following ASP.NET example creates an instance of `HttpClient` to communicate with a remote service. You can find the complete sample [here][sample-app].
+These classes are intended to be instantiated once and reused throughout the lifetime of an application. However, it's a common misunderstanding that these classes should be acquired only as necessary and released quickly. (The ones listed here happen to be .NET libraries, but the pattern is not unique to .NET.) The following ASP.NET example creates an instance of `HttpClient` to communicate with a remote service.
 
 ```csharp
 public class NewHttpClientInstancePerRequestController : ApiController
@@ -185,7 +185,6 @@ The next graph shows a similar load test using a shared instance of the `Expensi
 
 ![Graph showing a similar load test using a shared instance of the ExpensiveToCreateService object.][throughput-single-ExpensiveToCreateService-instance]
 
-[sample-app]: https://github.com/mspnp/performance-optimization/tree/main/ImproperInstantiation
 [service-bus-messaging]: /azure/service-bus-messaging/service-bus-performance-improvements
 [new-relic]: https://newrelic.com/products/application-monitoring
 [throughput-new-HTTPClient-instance]: ./_images/HttpClientInstancePerRequest.jpg
