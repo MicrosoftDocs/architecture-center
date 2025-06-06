@@ -1,6 +1,7 @@
 ---
 title: Data platform for mission-critical workloads on Azure
 description: Data decisions for the baseline reference architecture for a mission-critical workload on Azure.
+author: msimecek
 ms.author: msimecek
 ms.date: 01/30/2025
 ms.topic: reference-architecture
