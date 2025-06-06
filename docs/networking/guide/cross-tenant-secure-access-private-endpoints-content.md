@@ -24,7 +24,7 @@ This guide presents an architecture that uses the private endpoint option. The p
 
 ### Components
 
-- [App Service](https://learn.microsoft.com/azure/app-service/overview) and its Web Apps feature provide a framework for building, deploying, and scaling web apps.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) and its Web Apps feature provide a framework for building, deploying, and scaling web apps.
 - [Functions](https://azure.microsoft.com/products/functions) is an event-driven serverless compute platform.
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks through Virtual Network.
 - [Private Link](https://azure.microsoft.com/products/private-link) provides a private endpoint in a virtual network. You can use the private endpoint to connect to Azure PaaS services or to customer or partner services.
