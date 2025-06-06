@@ -46,10 +46,10 @@ SUSE provides support with:
 ### Components
 
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Azure Files](https://azure.microsoft.com/services/storage/files), [Azure Table Storage](https://azure.microsoft.com/services/storage/tables), and [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues). Azure Files is often an effective tool for migrating mainframe workloads.
-- [Azure Files](https://azure.microsoft.com/services/storage/files) offers simple, secure, and serverless enterprise-grade file shares in the cloud. The shares support access by the industry-standard Server Message Block (SMB) and Network File System (NFS) protocols. They can be mounted concurrently by cloud and on-premises deployments of Windows, Linux, and macOS.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) offers simple, secure, and serverless enterprise-grade file shares in the cloud. The shares support access by the industry-standard Server Message Block (SMB) and Network File System (NFS) protocols. They can be mounted concurrently by cloud and on-premises deployments of Windows, Linux, and macOS.
 - [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) is a layer 4 (TCP, UDP) load balancer. In this architecture, it provides load balancing options for Spring Apps and AKS.
-- [Linux virtual machines in Azure](https://azure.microsoft.com/services/virtual-machines/linux) are on-demand, scalable Linux computing resources that give you the flexibility of virtualization but eliminate the maintenance demands of physical hardware.
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is a secure private network in the cloud. It connects VMs to one another, to the internet, and to on-premises networks.
+- [Linux virtual machines in Azure](/azure/well-architected/service-guides/virtual-machines) are on-demand, scalable Linux computing resources that give you the flexibility of virtualization but eliminate the maintenance demands of physical hardware.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a secure private network in the cloud. It connects VMs to one another, to the internet, and to on-premises networks.
 
 ### Solution templates
 
