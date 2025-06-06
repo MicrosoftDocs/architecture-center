@@ -524,7 +524,7 @@ If you encounter bottlenecks that cannot be resolved through index server tuning
 
 - Deploy models in the same data region as your agents to minimize network latency.
 
-##### Azure AI Agent performance
+#### Azure AI Agent performance
 
 Azure AI Agents run on a serverless compute backend that doesn't support custom performance tuning. However, you can still improve performance through agent design:
 
