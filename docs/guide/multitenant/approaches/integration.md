@@ -6,12 +6,6 @@ ms.author: pnp
 ms.date: 07/22/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - azure-api-management
-  - azure-logic-apps
-categories:
-  - integration
 ms.custom:
   - guide
   - arb-saas

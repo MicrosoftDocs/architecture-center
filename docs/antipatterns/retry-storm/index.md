@@ -6,11 +6,6 @@ author: RobBagby
 ms.date: 08/06/2021
 ms.topic: design-pattern
 ms.subservice: best-practice
-products:
-  - azure
-categories:
-  - management-and-governance
-  - security
 ms.custom:
   - article
 ---

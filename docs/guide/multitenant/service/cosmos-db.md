@@ -6,11 +6,6 @@ ms.author: tarabhatia
 ms.date: 11/16/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - azure-cosmos-db
-categories:
-  - data
 ms.custom:
   - guide
   - arb-saas

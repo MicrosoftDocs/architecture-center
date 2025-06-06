@@ -8,14 +8,6 @@ ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: fcp
 keyword: Azure
-categories: databases
-products:
- - azure-sql-database
- - azure-cosmos-db
- - azure-database-mysql
- - azure-database-postgresql
- - azure-cache-redis
- - azure-time-series-insights
 ---
 
 # Review your data options

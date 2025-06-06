@@ -3,17 +3,9 @@ title: Busy Database antipattern
 description: Understand the Busy Database antipattern, which can cause performance and scalability problems by offloading processing to a database server.
 ms.author: pnp
 author: RobBagby
-categories: azure
 ms.date: 06/05/2017
 ms.topic: design-pattern
 ms.subservice: best-practice
-azureCategories:
-  - databases
-  - storage
-  - compute
-products:
-  - azure-sql-database
-  - azure-app-service
 ms.custom:
   - article
 ---

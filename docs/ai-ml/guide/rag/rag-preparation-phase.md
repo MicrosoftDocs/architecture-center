@@ -8,13 +8,6 @@ ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
-categories:
-  - ai-machine-learning
-products:
-  - ai-services
-  - azure-cognitive-search
-  - azure-openai
-  - azure-machine-learning
 ---
 
 # RAG preparation phase

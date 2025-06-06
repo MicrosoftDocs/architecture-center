@@ -11,15 +11,6 @@ ms.custom:
 ms.collection:
   - migration
   - aws-to-azure
-categories:
-  - containers
-  - networking
-products:
-  - azure-bastion
-  - azure-dns
-  - azure-kubernetes-service
-  - azure-private-link
-  - azure-virtual-network
 ---
 
 # Enhance network access security to Kubernetes

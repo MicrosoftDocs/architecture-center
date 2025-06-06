@@ -10,13 +10,6 @@ ms.custom:
   - design-pattern
 keywords:
   - Azure
-categories:
-  - devops
-  - management-and-governance
-  - security
-  - storage
-products:
-  - azure
 ---
 
 # Best practices in cloud applications

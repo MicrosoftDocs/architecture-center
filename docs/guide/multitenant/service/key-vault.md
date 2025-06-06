@@ -6,12 +6,6 @@ ms.author: pnp
 ms.date: 09/17/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - azure-key-vault
-categories:
-  - management-and-governance
-  - security
 ms.custom:
   - guide
   - arb-saas

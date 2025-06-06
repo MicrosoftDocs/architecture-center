@@ -11,16 +11,6 @@ ms.custom:
 ms.collection:
   - migration
   - aws-to-azure
-categories:
-  - containers
-  - storage
-  - networking
-products:
-  - azure-cost-management
-  - azure-kubernetes-service
-  - azure-managed-disks
-  - azure-storage
-  - azure-virtual-machines
 ---
 
 # Cost management for Kubernetes

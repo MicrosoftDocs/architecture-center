@@ -10,12 +10,6 @@ ms.subservice: architecture-guide
 ms.custom:
   - arb-aiml
   - arb-saas
-products:
-  - ai-services
-  - azure-openai
-  - azure-machine-learning
-categories:
-  - ai-machine-learning
 ---
 
 # Design a secure multitenant RAG inferencing solution

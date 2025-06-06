@@ -5,8 +5,6 @@ author: konabuta
 ms.author: yongl
 ms.reviewer: krmeht
 ms.subservice: architecture-guide
-products: azure-machine-learning
-categories: ai-machine-learning
 ms.topic: product-comparison
 ms.collection: ce-skilling-ai-copilot
 ms.custom: arb-aiml

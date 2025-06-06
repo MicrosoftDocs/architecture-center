@@ -3,14 +3,10 @@ title: Choose an Azure AI Targeted Language Processing Technology
 description: Learn about Azure AI services targeted language processing capabilities, including NLP, text analytics, translation, and document data extraction.
 author: ritesh-modi
 ms.author: rimod
-categories:
-- ai-machine-learning
 ms.date: 03/20/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
-products:
-  - ai-services
 ms.custom:
   - analytics
   - guide

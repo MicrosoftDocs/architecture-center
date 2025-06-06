@@ -6,10 +6,6 @@ author: RobBagby
 ms.date: 06/05/2017
 ms.topic: design-pattern
 ms.subservice: best-practice
-categories:
- - databases
-products:
-  - azure-event-hubs
 ms.custom:
   - article
 ---

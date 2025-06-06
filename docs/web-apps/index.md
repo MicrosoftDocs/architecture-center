@@ -6,14 +6,6 @@ ms.author: pnp
 ms.date: 06/14/2023
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-app-service
-  - azure-web-application-firewall
-  - azure-monitor
-  - azure-webapp-containers
-  - azure-signalr-service
-categories:
-  - web
 ms.custom: fcp
 ---
 

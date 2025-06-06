@@ -3,15 +3,10 @@ title: Choose Azure AI Image and Video Processing Technology
 description: Learn about Azure AI services for video and image processing, including optical character recognition (OCR), object detection, facial recognition, and image analysis.
 author: ritesh-modi
 ms.author: rimod
-categories:
-  - ai-machine-learning
-  - analytics
 ms.date: 03/20/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
-products:
-  - ai-services
 ms.custom:
   - analytics
   - guide

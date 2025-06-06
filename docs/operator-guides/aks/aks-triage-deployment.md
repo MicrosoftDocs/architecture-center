@@ -8,12 +8,6 @@ ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
-  - arb-containers
-azureCategories: compute
-categories: compute
-products:
-  - azure-kubernetes-service
-  - azure-monitor
 ---
 
 # Monitor workload deployments

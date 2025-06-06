@@ -5,11 +5,6 @@ author: ckittel
 ms.author: pnp
 ms.date: 07/25/2024
 ms.topic: conceptual
-ms.subservice: architecture-guide
-products:
-  - azure
-categories:
-  - management-and-governance
 ---
 
 # Design for self healing

@@ -3,25 +3,13 @@ title: Compare AWS and Azure Resource Management
 description: Compare resource management for Azure and AWS. Learn about the differences between Azure and AWS resource groups. Learn about Azure management interfaces.
 author: scaryghosts
 ms.author: adamcerini
-categories: azure
+
 ms.date: 01/03/2025
 ms.topic: conceptual
 ms.subservice: cloud-fundamentals
 ms.collection: 
  - migration
  - aws-to-azure
-azureCategories:
-  - analytics
-  - compute
-  - developer-tools
-  - devops
-  - networking
-  - web
-products:
-  - azure-devops
-  - azure-dev-tool-integrations
-  - azure-managed-applications
-  - azure-resource-manager
 ---
 
 # Compare AWS and Azure resource management
