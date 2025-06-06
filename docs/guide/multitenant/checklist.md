@@ -6,6 +6,7 @@ ms.author: arsenv
 ms.date: 04/17/2025
 ms.update-cycle: 1095-days
 ms.topic: conceptual
+ms.subservice: architecture-guide
 ms.custom:
   - checklist
   - guide
