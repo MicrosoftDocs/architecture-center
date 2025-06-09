@@ -79,13 +79,13 @@ When you use subnet peering to build landing zones with nonroutale subnets, you 
 
 - **Applications exposed via Layer-7 application delivery controllers:** These application delivery controllers include Azure Application Gateway or non-Microsoft network virtual appliances (NVAs). Only the application delivery controller's endpoint must be reachable from clients outside the landing zone. Therefore, the application delivery controller is the only front-end component that must reside in a routable subnet.
 
-- **Applications exposed via an Azure load balancer:** If the application uses an internal Azure Load Balancer, the virtual machines in the load balancer's back-end pool must reside in a routable subnet. You can deploy all other components to nonroutale subnets.
+- **Applications exposed via an Azure load balancer:** If the application uses an internal Azure load balancer, the virtual machines in the load balancer's back-end pool must reside in a routable subnet. You can deploy all other components to nonroutale subnets.
 
 The following diagram shows these patterns:
 
 - Landing zone A hosts a three-layer web application exposed through an application delivery controller, which is the only component in the routable subnet.
 
-- Landing zone B hosts a three-layer application exposed through an internal Azure Load Balancer.
+- Landing zone B hosts a three-layer application exposed through an internal Azure load balancer.
 
 :::image type="complex" source="./images/ipv4-exhaustion-deploying-apps.svg" alt-text="Diagram that shows how to deploy applications in landing zones that have routable and nonroutale address spaces." border="false" lightbox="./images/ipv4-exhaustion-deploying-apps.svg":::
 add long description
@@ -212,7 +212,7 @@ As a result, in Virtual WAN-based networks, the following guidance applies:
 
 To expose an application through Private Link, do the following steps:
 
-1. Add the application's endpoints to the back-end pool of an internal Azure Load Balancer with the Standard SKU.
+1. Add the application's endpoints to the back-end pool of an internal Azure load balancer with the Standard SKU.
 
 1. Associate the load balancer's front-end IP address with a [Private Link service resource](/azure/private-link/private-link-service-overview).
 1. On the client side, create a [private endpoint resource](/azure/private-link/private-endpoint-overview) and associate it with the server-side Private Link service.
