@@ -3,8 +3,8 @@ title: Scale out an Azure IoT Hub-based solution to support millions of devices
 description: Learn how to scale out your Azure IoT Hub-based solution to support millions of devices.
 author: MikeBazMSFT
 ms.author: micbaz
-ms.date: 02/09/2025
-ms.topic: conceptual
+ms.date: 06/09/2025
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-iot
 products:
@@ -58,8 +58,10 @@ Azure IoT Hub is a managed service hosted in the cloud that acts as a central me
 
 Azure IoT Hub scales based on the combination of functionality desired and the number of messages per day or data per day desired. Three inputs are used for selecting the scaling of an instance:
 
-- The [tier](/azure/iot-hub/iot-hub-scaling#basic-and-standard-tiers) – free, basic, or standard – determines what capabilities are available. A production instance doesn't use the free tier because it's limited in scale and intended for introduction development scenarios only. Most solutions use the standard tier to get the full capabilities of IoT Hub.
-- The [size](/azure/iot-hub/iot-hub-scaling#tier-editions-and-units) determines the message and data throughput base unit for device-to-cloud messages for the IoT hub. The maximum size for an instance of IoT hub is size 3, which supports 300 million messages per day and 1,114.4 GB of data per day, per unit.
+- The [tier](/azure/iot-hub/iot-hub-scaling#choose-your-features-basic-and-standard-tiers) – free, basic, or standard – determines what capabilities are available. A production instance doesn't use the free tier because it's limited in scale and intended for introduction development scenarios only. Most solutions use the standard tier to get the full capabilities of IoT Hub.
+
+- The [size](/azure/iot-hub/iot-hub-scaling#choose-your-size-editions-and-units) determines the message and data throughput base unit for device-to-cloud messages for the IoT hub. The maximum size for an instance of IoT hub is size 3, which supports 300 million messages per day and 1,114.4 GB of data per day, per unit.
+
 - The unit count determines the multiplier for the scale on size. For example, three units support three times the scale of one unit. The limit on size 1 or 2 hub instances is 200 units, and the limit on size 3 hub instances is 10 units.
 
 Other than the daily limits tied to the size and unit count, and the general functionality limits tied to the tier, there are per-second limits on throughput. And there's a limit of 1 million devices per IoT Hub instance as a [soft limit](/azure/azure-resource-manager/management/azure-subscription-service-limits#how-to-manage-limits). Although it's a soft limit, there's also a hard limit. Even if you intend to request a limit increase, you should design with the soft limit as your design limit to avoid issues in the future. The data exchange requirements help guide the solution here. For more information, see [other limits](/azure/iot-hub/iot-hub-devguide-quotas-throttling#other-limits).
@@ -101,13 +103,15 @@ Because of the "many devices booting at once" scenario, cloud service concerns c
 
 Beyond network and quota issues, it’s also necessary to consider Azure service outages. They could be service outages or regional outages. Whereas some services (such as IoT Hub) are geo-redundant, other services (such as DPS) store their data in a single region. Although it might seem like it restricts regional redundancy, it’s important to realize that you can link a single IoT hub to multiple DPS instances.
 
-If regional redundancy is a concern, use the [geode pattern](/azure/architecture/patterns/geodes), which is where you host a heterogeneous group of resources across different geographies. Similarly, a *deployment stamp* (also known as a *scale stamp*) applies this pattern to operate multiple workloads or tenants. For more information, see [Deployment stamp patterns](/azure/architecture/patterns/deployment-stamp).
+If regional redundancy is a concern, use the [geode pattern](/azure/architecture/patterns/geodes), which is where you host independent, grouped resources across different geographies. Similarly, a *deployment stamp* (also known as a *scale stamp*) applies this pattern to operate multiple workloads or tenants. For more information, see [Deployment stamp patterns](/azure/architecture/patterns/deployment-stamp).
 
-**Understand device location impact.** When architects select components, they must also understand that most Azure services are [regional](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#select-geography:~:text=Data%20storage%20for%20regional%20services), even the ones like DPS with global endpoints. [Exceptions](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#more-information:~:text=Data%20storage%20for%20non%2Dregional%20services) include Azure Traffic Manager and Microsoft Entra ID. So the decisions you make for device location, data location, and metadata location (data about data: for example, Azure resource groups) are important inputs in your design.
+**Understand device location impact.** When architects select components, they must also understand that most Azure services are [regional](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#:~:text=store%20it%20globally.-,Customer%20data%20in%20a%20single%20region,-Customers%20can%20configure), even the ones like DPS with global endpoints. [Exceptions](https://azure.microsoft.com/explore/global-infrastructure/data-residency/) include Azure Traffic Manager and Microsoft Entra ID. So the decisions you make for device location, data location, and metadata location (data about data: for example, Azure resource groups) are important inputs in your design.
 
 - *Device location*. The requirements for device location affect your regional selection because it affects transactional latency.
+
 - *Data location*. Data location is tied to device location, which is also subject to compliance concerns. For example, a solution storing data for a state in the United States might require data storage in the US [geography](https://azure.microsoft.com/explore/global-infrastructure/geographies). Data locality requirements might also drive this need.
-- *Metadata location*. Although device location doesn't usually affect metadata location, because devices are interacting with solution data and not solution metadata, compliance and cost concerns affect metadata location. In many cases, convenience dictates that the metadata location is the same as the data location for regional services.
+
+- *Metadata location*. Although device location doesn't usually affect metadata location because devices are interacting with solution *data* and not solution *metadata*, compliance and cost concerns affect metadata location. In many cases, convenience dictates that the metadata location is the same as the data location for regional services.
 
 The Azure Cloud Adoption Framework includes [guidance on regional selection](/azure/cloud-adoption-framework/migrate/azure-best-practices/multiple-regions).
 
@@ -249,12 +253,12 @@ Scaling up an IoT solution to support millions, or even tens or hundreds of mill
 
 Principal author:
 
-- [Michael C. Bazarewsky](https://www.linkedin.com/in/mikebaz/) | Senior Customer Engineer, Microsoft Azure CXP G&I
+- [Michael C. Bazarewsky](https://www.linkedin.com/in/mikebaz/) | Senior Customer Engineer, Microsoft Azure CXP
 
 Other contributors:
 
-- [David Crook](https://www.linkedin.com/in/drcrook/) | Principal Customer Engineer, Microsoft Azure CXP G&I
-- [Alberto Gorni](https://www.linkedin.com/in/gornialberto/) | Senior Customer Engineer
+- [David Crook](https://www.linkedin.com/in/drcrook/) | Principal Customer Engineer, Microsoft Azure CXP
+- [Alberto Gorni](https://www.linkedin.com/in/gornialberto/) | Former Senior Customer Engineer, Microsoft Azure CXP
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
