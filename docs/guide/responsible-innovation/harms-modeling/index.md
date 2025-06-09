@@ -7,8 +7,6 @@ categories: azure
 ms.date: 04/03/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.category:
-  - fcp
 products:
   - office-word
 ms.custom:

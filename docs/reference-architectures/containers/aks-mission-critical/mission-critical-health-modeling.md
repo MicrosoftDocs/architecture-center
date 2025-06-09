@@ -9,8 +9,6 @@ ms.topic: reference-architecture
 ms.subservice: reference-architecture
 ms.custom:
   - arb-containers
-ms.category:
-  - monitoring
 azureCategories:
   - monitoring  
 summary: Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources.

@@ -6,9 +6,6 @@ ms.author: jomore
 ms.date: 03/21/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.category:
-  - networking
-  - management-and-governance
 ms.custom:
   - networking
   - reference-architecture

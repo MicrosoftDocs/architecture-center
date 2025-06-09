@@ -9,10 +9,6 @@ ms.topic: reference-architecture
 ms.subservice: reference-architecture
 ms.custom:
   - arb-containers
-ms.category:
-  - devops
-  - deployment
-  - testing
 products:
   - azure-devops
   - azure-chaos-studio

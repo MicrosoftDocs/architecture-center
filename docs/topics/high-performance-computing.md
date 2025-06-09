@@ -10,9 +10,6 @@ products: azure
 categories: 
   - compute
   - storage
-ms.category:
-  - compute
-  - storage
 ms.custom:
   - fcp
 ---

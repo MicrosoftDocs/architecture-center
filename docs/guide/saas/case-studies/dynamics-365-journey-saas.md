@@ -11,8 +11,6 @@ products:
   - dynamics-365
 categories:
   - management-and-governance
-ms.category:
-  - fcp
 ms.custom:
   - guide
   - arb-saas

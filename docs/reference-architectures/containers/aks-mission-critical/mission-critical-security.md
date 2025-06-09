@@ -13,11 +13,6 @@ products:
   - azure-container-registry
   - azure-key-vault
   - azure-cosmos-db
-ms.category:
-  - containers
-  - networking
-  - database
-  - monitoring
 categories: featured
 ---
 

@@ -9,8 +9,6 @@ ms.subservice: architecture-guide
 ms.custom:
   - arb-containers
 categories: containers
-ms.category:
-  - containers
 products:
   - azure-kubernetes-service
 ---

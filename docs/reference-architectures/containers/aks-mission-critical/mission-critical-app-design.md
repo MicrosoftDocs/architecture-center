@@ -11,11 +11,6 @@ ms.custom:
 products:
   - azure-kubernetes-service
   - azure-front-door
-ms.category:
-  - containers
-  - networking
-  - database
-  - monitoring
 categories: featured
 ---
 
