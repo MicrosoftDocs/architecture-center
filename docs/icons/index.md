@@ -6,9 +6,6 @@ author: RobBagby
 ms.reviewer: chkittel
 ms.date: 03/28/2025
 ms.subservice: architecture-guide
-azureCategories: developer-tools
-categories: developer-tools
-products: azure
 ---
 
 # Download Azure icons to use in architecture diagrams and documentation

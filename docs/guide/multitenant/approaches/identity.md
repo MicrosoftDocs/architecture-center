@@ -6,12 +6,6 @@ ms.author: pnp
 ms.date: 05/16/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - entra-id
-  - entra-external-id
-categories:
-  - identity
 ms.custom:
   - guide
   - arb-saas

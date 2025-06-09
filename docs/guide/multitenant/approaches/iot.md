@@ -6,13 +6,6 @@ ms.author: micbaz
 ms.date: 12/13/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - azure-iot
-  - azure-iot-central
-  - azure-iot-hub
-categories:
-  - iot
 ms.custom:
   - guide
   - arb-saas

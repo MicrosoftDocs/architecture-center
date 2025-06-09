@@ -6,10 +6,7 @@ ms.author: pnp
 ms.reviewer: tozimmergren
 ms.date: 04/03/2025
 ms.topic: conceptual
-products: azure
 ms.subservice: architecture-guide
-azureCategories: developer-tools
-categories: developer-tools
 ms.custom:
   - guide
 keywords:

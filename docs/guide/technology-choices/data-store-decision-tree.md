@@ -6,9 +6,6 @@ ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
-azureCategories: developer-tools
-categories: developer-tools
-products: azure
 ms.custom:
   - guide
 ---

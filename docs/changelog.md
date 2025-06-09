@@ -5,10 +5,6 @@ author: RobBagby
 ms.date: 06/02/2025
 ms.topic: conceptual
 ms.author: pnp
-categories: 
-- management-and-governance
-products:
-- azure
 ---
 <!-- This page is automatically generated using a script. Do not edit by hand -->
 

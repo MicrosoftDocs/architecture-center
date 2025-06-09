@@ -3,14 +3,11 @@ title: Foundations of Assessing Harm
 description: Learn how to identify potential harms in your workload and create approaches to proactively address harms so that you can build trustworthy systems.
 author: RobBagby
 ms.author: pnp
-categories: azure
 ms.date: 04/03/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.category:
   - fcp
-products:
-  - office-word
 ms.custom:
   - guide
 ---

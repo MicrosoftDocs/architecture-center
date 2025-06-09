@@ -8,13 +8,6 @@ ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot  
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
-products:
-  - ai-services
-  - azure-cognitive-search
-  - azure-openai
-  - azure-machine-learning
-categories:
-  - ai-machine-learning
 ---
 
 # Design and develop a RAG solution

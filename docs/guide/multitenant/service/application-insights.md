@@ -6,10 +6,6 @@ ms.author: ranema
 ms.date: 08/13/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-monitor
-categories:
-  - analytics
 ms.custom:
   - arb-saas
 ---

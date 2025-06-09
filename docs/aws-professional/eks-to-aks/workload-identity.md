@@ -11,12 +11,6 @@ ms.custom:
 ms.collection:
   - migration
   - aws-to-azure
-categories:
-  - containers
-  - identity
-products:
-  - entra-id
-  - azure-kubernetes-service
 ---
 
 # Kubernetes workload identity and access

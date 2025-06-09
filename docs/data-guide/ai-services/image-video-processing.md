@@ -3,15 +3,10 @@ title: Azure AI Video Processing Guide
 description: Learn about Azure AI services for video processing and video generation. Understand and compare each service's capabilities and use cases.
 author: ritesh-modi
 ms.author: rimod
-categories:
-  - ai-machine-learning
-  - analytics
 ms.date: 03/20/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
-products:
-  - ai-services
 ms.custom:
   - analytics
   - guide

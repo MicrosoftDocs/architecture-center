@@ -3,16 +3,9 @@ title: Troubleshoot Databricks performance issues
 description: Use Grafana monitoring dashboards to troubleshoot performance bottlenecks in Apache Spark jobs on Azure Databricks.
 author: mssaperla
 ms.author: saperla
-categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
-azureCategories:
-  - management-and-governance
-  - databases
-products:
-  - azure-databricks
-  - azure-monitor
 ---
 
 <!-- cSpell:ignore Grafana -->

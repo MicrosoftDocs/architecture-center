@@ -6,24 +6,6 @@ ms.author: pnp
 ms.date: 09/19/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-machine-learning
-  - azure-stack-hub
-  - azure-kubernetes-service
-  - azure-iot-hub
-  - azure-iot-central
-categories:
-  - ai-machine-learning
-  - containers
-  - compute
-  - hybrid
-  - identity
-  - storage
-  - databases
-  - analytics
-  - networking
-  - iot
-  - mobile
 ms.custom: fcp
 ---
 

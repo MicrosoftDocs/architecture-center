@@ -7,12 +7,6 @@ ms.reviewer: dburkhardt
 ms.date: 02/19/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-traffic-manager
-  - azure-front-door
-  - azure-application-gateway
-categories:
-  - networking
 ms.custom:
   - checklist
   - guide

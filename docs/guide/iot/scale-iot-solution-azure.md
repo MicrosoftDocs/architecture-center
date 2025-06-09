@@ -7,12 +7,6 @@ ms.date: 06/09/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-iot
-products:
-- azure-iot
-- azure-iot-hub
-- azure-iot-sdk
-categories:
-- iot
 ---
 
 # Scale out an Azure IoT Hub solution to support millions of devices

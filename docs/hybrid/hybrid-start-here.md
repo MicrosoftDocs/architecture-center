@@ -6,16 +6,11 @@ ms.subservice: reference-architecture
 ms.topic: reference-architecture
 ms.date: 07/26/2022
 ms.author: pnp
-categories:
-  - hybrid
-  - management-and-governance
 ms.custom:
   - fcp
   - reference-architecture
   - e2e-hybrid
   - arb-hybrid
-products:
-  - azure
 ---
 
 # Hybrid architecture design

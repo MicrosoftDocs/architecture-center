@@ -6,11 +6,6 @@ ms.author: landonpierce
 ms.date: 07/15/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-categories:
-  - compute
-  - web
 ms.custom:
   - guide
   - arb-saas

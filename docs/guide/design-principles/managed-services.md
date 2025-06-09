@@ -8,11 +8,6 @@ ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
   - guide
-products:
-  - azure
-categories:
-  - developer-tools
-  - management-and-governance
 ---
 
 # Use platform as a service (PaaS) options

@@ -7,10 +7,6 @@ ms.date: 04/11/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: arb-data
-categories:
-  - analytics
-products:
-  - azure-analysis-services
 ---
 
 # Online analytical processing

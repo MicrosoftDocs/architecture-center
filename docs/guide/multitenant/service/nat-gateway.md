@@ -6,11 +6,6 @@ ms.author: pnp
 ms.date: 07/09/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - azure-virtual-network
-categories:
-  - networking
 ms.custom:
   - guide
   - arb-saas

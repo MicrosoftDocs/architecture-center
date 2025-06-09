@@ -3,13 +3,9 @@ title: Make all things redundant
 description: Use these recommendations to avoid having single points of failure, by building redundancy into your application.
 author: ckittel
 ms.author: pnp
-categories: azure
 ms.date: 07/30/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-load-balancer
-  - azure-sql-database
 ms.custom:
   - guide
 ---

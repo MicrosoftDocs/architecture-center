@@ -8,12 +8,6 @@ ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers
-products:
-  - azure-kubernetes-service
-  - azure-container-apps
-  - azure-app-service
-categories:
-  - containers
 ---
 
 # General architectural considerations for choosing an Azure container service

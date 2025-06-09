@@ -11,15 +11,6 @@ ms.collection:
  - aws-to-azure
 ms.custom:
   - arb-containers
-categories:
-  - containers
-  - storage
-products:
-  - azure-files
-  - azure-kubernetes-service
-  - azure-managed-disks
-  - azure-netapp-files
-  - azure-storage
 ---
 
 # Storage options for a Kubernetes cluster
