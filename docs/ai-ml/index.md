@@ -139,15 +139,15 @@ For more information, see the following resources:
 - [Machine Learning documentation](/azure/machine-learning/)
 - [What is Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
 
-#### Machine learning reference architectures for Azure
+#### AI and Machine learning reference architectures for Azure
 
-- [Azure OpenAI chat baseline architecture in an Azure landing zone](../ai-ml/architecture/azure-openai-baseline-landing-zone.yml)
-- [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
-- [Baseline OpenAI end-to-end chat reference architecture](../ai-ml/architecture/baseline-openai-e2e-chat.yml) is a reference architecture that describes how to build an end-to-end chat architecture by using OpenAI's GPT models.
+- [Azure AI Foundry chat architecture in an Azure landing zone](./architecture/azure-openai-baseline-landing-zone.yml)
+- [Batch scoring of Spark machine learning models on Azure Databricks](./architecture/batch-scoring-databricks.yml)
+- [Baseline Azure AI Foundry chat reference architecture](./architecture/baseline-openai-e2e-chat.yml) is a reference architecture that describes how to build an end-to-end chat architecture by using OpenAI's GPT models in Azure AI Foundry.
 
-    :::image type="complex" source="./_images/openai-end-to-end-aml-deployment.svg" border="false" lightbox="./_images/openai-end-to-end-aml-deployment.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture with OpenAI.":::
-    The diagram shows the Azure App Service baseline architecture with a private endpoint that connects to a managed online endpoint in a Machine Learning managed virtual network. The managed online endpoint is in front of a Machine Learning compute cluster. The diagram shows the Machine Learning workspace with a dotted line that points to the compute cluster. This arrow represents that the implementable flow is deployed to the compute cluster. The managed virtual network uses managed private endpoints that provide private connectivity to resources that the implementable flow requires, such as Azure Container Registry and Azure Storage. The diagram shows user-defined private endpoints that provide private connectivity to Azure OpenAI Service and Azure AI Search.
-    :::image-end:::
+  :::image type="complex" source="./architecture/_images/ai-foundry-end-to-end-baseline-deployment.svg" border="false" lightbox="./architecture/_images/ai-foundry-end-to-end-baseline-deployment.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Azure AI Foundry.":::
+      The diagram presents a comprehensive deployment architecture for an AI solution using Microsoft Azure. It begins at the top left with a user icon, representing the entry point into the system. From there, traffic flows through an Application Gateway, which manages incoming web requests and routes them into a virtual network. Within this network, Azure App Service serves as the core compute layer. The App Service application interacts with Azure AI Agent Service, which is the orchestration layer. The Azure AI Agent Service connects to multiple resources such as Blob Storage, Azure AI Search, and Cosmos DB. Monitoring and diagnostics are handled by Azure Monitor and Log Analytics, which are connected to various components to ensure observability and performance tracking. Arrows throughout the diagram indicate the direction of data and control flow.
+  :::image-end:::
 
 ### Automated machine learning
 
