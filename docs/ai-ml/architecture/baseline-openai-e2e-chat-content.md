@@ -333,7 +333,7 @@ You must configure DNS for the following three Azure AI Foundry FQDN API endpoin
 
 -- TODO Update image and long description --
 
-:::image type="complex" source="_images/openai-end-to-end-aml-flow-authoring.svg" border="false" lightbox="_images/openai-end-to-end-aml-flow-authoring.svg" alt-text="Diagram that shows a user connecting to a Machine Learning workspace through a jump box to author a flow OpenAI.":::
+:::image type="complex" source="_images/ai-foundry-end-to-end-chat-portal-access.svg" border="false" lightbox="_images/ai-foundry-end-to-end-chat-portal-access.svg" alt-text="Diagram that shows a user connecting to a Machine Learning workspace through a jump box to author a flow OpenAI.":::
     The diagram shows a user connecting to a jump box virtual machine through Azure Bastion. An arrow points from the jump box to a Machine Learning workspace private endpoint. Another arrow points from the private endpoint to the Machine Learning workspace. From the workspace, four arrows point to four private endpoints that connect to Container Registry, Storage, Azure OpenAI, and AI Search.
 :::image-end:::
 
