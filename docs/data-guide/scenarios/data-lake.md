@@ -5,6 +5,7 @@ author: PRASADA1207
 ms.author: prasada
 ms.date: 08/13/2024
 ms.topic: conceptual
+ms.subservice: architecture-guide
 ms.custom:
   - guide
 ---
