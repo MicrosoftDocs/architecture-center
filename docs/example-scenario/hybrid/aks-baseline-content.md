@@ -19,19 +19,15 @@ The architecture diagram above depicts the following components:
 
 - The components installed on the edge or on-premises are:
 
-  - One [Azure Local][] instance. A hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. An Azure Local instance is implemented as a 2-8 node cluster.
+  - One [Azure Local][] instance. A hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Linux and Windows workloads and their storage in a hybrid on-premises environment. An Azure Local instance is implemented as a 1-16 node cluster.
 
-  - One management cluster, an [Arc Resource Bridge][]. The management cluster in a highly available virtual machine (VM) running on Azure Local. The management cluster is responsible for deploying and managing multiple workload clusters.
+  - [Arc Resource Bridge][]. Arc Resource Bridge is a highly available virtual machine (VM) running on Azure Local. Arc Resource Bridge is responsible for deploying and managing multiple AKS clusters.
 
-  - [Azure Kubernetes Service (AKS) on Azure Local][]. An on-premises implementation of AKS, which automates running containerized applications at scale. This comprises of:
+  - [Azure Kubernetes Service (AKS) on Azure Local][]. An on-premises implementation of AKS, which automates running containerized applications at scale. An AKS on Azure Local cluster has highly available control plane nodes and worker nodes. Containerized applications run on  the worker nodes in an AKS cluster. To achieve application isolation, you can deploy up to 32 AKS clusters. The AKS cluster consists of the following components:
 
-    - **Workload clusters.** Implement highly available control plane components and worker node components. Containerized applications run on a workload cluster. To achieve application isolation, you can deploy up to eight workload clusters. The workload cluster consists of the following components:
+    - **Control plane.** Runs on Azure Linux operating system and contains API server components for interaction with Kubernetes API and a distributed key-value store, etcd, for storing all the configuration and data of the cluster.
 
-    - **Control plane.** Runs on a Linux distribution (Azure Linux) and contains API server components for interaction with Kubernetes API and a distributed key-value store, etcd, for storing all the configuration and data of the cluster.
-
-    - **Worker nodes.** Run on a Windows or Azure Linux operating system that hosts containerized applications.
-
-    - **Kubernetes resources.** Pods represent a single instance of your application, that usually has a 1:1 mapping with a container, but certain pods can contain multiple containers. Deployments represent one or more identical pods. Pods and deployments are logically grouped into a namespace that controls access to management of the resources.
+    - **Worker nodes.** Run on Azure Linux operating system or Windows Server operating system that hosts containerized applications in pods. Pods represent a single instance of your application, that usually has a 1:1 mapping with a container, but certain pods can contain multiple containers. Deployments represent one or more identical pods. Pods and deployments are logically grouped into a namespace that controls access to management of the resources.
 
 - The components installed on Azure are:
 
@@ -45,8 +41,6 @@ The architecture diagram above depicts the following components:
 
   - [Microsoft Defender for Cloud][]. A unified infrastructure security management system that strengthens the security posture of your data centers and provides advanced threat protection across your hybrid workloads in the cloud and on-premises.
 
-  - [Custom Location][]. An Azure resource representing the Azure Local deployment as a target location for AKS and Arc VM creation.
-
 ## Scenario details
 
 ### Potential use cases
@@ -59,19 +53,19 @@ The architecture diagram above depicts the following components:
 
 ### Certified hardware
 
-Use Azure Local-certified hardware, which provides Secure Boot, United Extensible Firmware Interface (UEFI), and Trusted Platform Module (TPM) settings out of the box. Compute requirements depend on the application and the number of worker nodes that run in AKS on the cluster. Use multiple physical nodes for deployment of Azure Local to achieve high availability. All servers require to be of the same manufacturer and model, using 64-bit Intel Nehalem grade, AMD EPYC grade, or later compatible processors with second-level address translation (SLAT).
+Use Azure Local-certified hardware, which provides Secure Boot, United Extensible Firmware Interface (UEFI), and Trusted Platform Module (TPM) settings out of the box. Compute requirements depend on the application and the total number of control plane nodes and worker nodes in all AKS clusters that run on Azure Local. Use multiple physical nodes for deployment of Azure Local to achieve high availability. All servers are required to be of the same manufacturer and model, using 64-bit Intel Nehalem grade, AMD EPYC grade, or later compatible processors with second-level address translation (SLAT).
 
 ### Network requirements
 
-Kubernetes provides an abstraction layer to virtual networking by connecting the Kubernetes nodes to the virtual network. It also provides inbound and outbound connectivity for pods through the *kube-proxy* component.
+Kubernetes provides an abstraction layer to networking by connecting the Kubernetes nodes to the virtual overlay network. It also provides inbound and outbound connectivity for pods through the *kube-proxy* component.
 
-The architecture uses a virtual network that allocates IP addresses by using static IP networking. Project Calico is used as the CNI provider in this architecture. Static IP networking requires pre-defined address pool for all the objects in the deployment. It adds extra benefit and guarantees that the workload and application are always reachable. A virtual IP pool is a range of reserved IP addresses used for allocating IP addresses to the Kubernetes cluster API server and for Kubernetes services.
+The architecture uses a virtual overlay network that allocates IP addresses by using static IP networking. Project Calico is used as the CNI provider in this architecture. Static IP networking requires pre-defined address pool for all the objects in the deployment. It adds extra benefit and guarantees that the workload and application are always reachable. A seperate IP pool is used for allocating IP addresses to Kubernetes services.
 
-The network specification are defined as [Logical Networks][] in Azure Local, see [network requirements][] and [ip address planning][] before creating the logical networks in Azure Local.
+The network specification are defined as [Logical Networks][] in Azure Local, see [network requirements][] and [IP address planning][] before creating the logical networks in Azure Local.
 
 ### Storage requirements
 
-For every server in the cluster, use the same types of drives that are the same size and model. Azure Local works with direct-attached Serial Advanced Technology Attachment (SATA), Serial Attached SCSI (SAS), Non-Volatile Memory Express (NVMe), or persistent memory drives that are physically attached to one server each. For cluster volumes, HCI uses software-defined storage technology (Storage Spaces Direct) to combine the physical drives in the storage pool for fault tolerance, scalability, and performance. Applications that run in Kubernetes on Azure Local often expect the following storage options to be available to them:
+For every server in the cluster, use the same types of drives that are the same size and model. Azure Local works with direct-attached Serial Advanced Technology Attachment (SATA), Serial Attached SCSI (SAS), Non-Volatile Memory Express (NVMe), or persistent memory drives that are physically attached to one server each. For cluster volumes, HCI uses software-defined storage technology (Storage Spaces Direct) to combine the physical drives in the storage pool for fault tolerance, scalability, and performance. Applications that run in AKS on Azure Local often expect the following storage options to be available to them:
 
 - **Volumes.** Represent a way to store, retrieve, and persist data across pods and through the application lifecycle.
 
@@ -81,23 +75,21 @@ Consider defining storage classes for different tiers and locations to optimize 
 
 ### Create and manage AKS on Azure Local
 
-You should create and manage AKS on Azure Local like any other Azure resource you manage. You can use the [Azure portal](/azure/aks/aksarc/aks-create-clusters-portal), [Azure CLI](/azure/aks/aksarc/aks-create-clusters-cli), [ARM templates](/azure/aks/aksarc/resource-manager-quickstart), or [Bicep](/azure/aks/aksarc/create-clusters-bicep). AKS on Azure Local has a provisioned cluster resource extension to the Arc-enabled Kubernetes service, to manage the cluster lifecycle operations (CRUD) from Azure.
+You should create and manage AKS on Azure Local like any other Azure resource you manage. You can use the [Azure portal](/azure/aks/aksarc/aks-create-clusters-portal), [Azure CLI](/azure/aks/aksarc/aks-create-clusters-cli), [ARM templates](/azure/aks/aksarc/resource-manager-quickstart), or [Bicep](/azure/aks/aksarc/create-clusters-bicep).
 
-The [Azure Arc–enabled Kubernetes Service][] provides Azure Resource Manager representation of AKS on Azure Local instance. You deploy Azure Arc–enabled agents in a Kubernetes namespace to collect logs and metrics, to gather cluster metadata, cluster version, and node count and ensure that agents are exhibiting optimal performance.
+The [Azure Arc–enabled Kubernetes Service][] provides Azure Resource Manager representation of AKS on Azure Local instance. When you create an AKS on Azure Local cluster, Azure Arc agents are automatically deployed in a Kubernetes namespace to collect logs and metrics, gather cluster metadata, Kubernetes version, and node count.
 
 ## Recommended services and extensions
 
 The following recommendations apply for most scenarios. Follow the recommendations unless you have a specific requirement that overrides them.
 
-- Use the [MetalLB extension][]. Deploys a MetalLB load balancer on the workload cluster to perform required type of load balancing.
+- Use the [MetalLB extension][]. Deploys a MetalLB load balancer on the AKS cluster to perform L2 load balancing.
 
-- Use [Azure RBAC][]. Use for role assignment and to manage access to the workload cluster.
+- Use [Azure RBAC][]. Use for role assignment and to manage access to the AKS cluster.
 
 - [Azure Monitor Container Insights.][] Monitors the performance of container workloads that are running on both Linux and Windows clusters. It collects memory and processor metrics, from controllers, nodes, and containers through the Metric API. With container insights, you can identify memory and processor utilization, detect overall pod's performance, understand the behavior of the cluster, and configure alerts for proactive monitoring.
 
 - Use available [Automation capabilities][]. AKS provides a wide range of automation capabilities, with OS updates combined with full-stack updates including firmware and drivers provided by Azure Local vendors and partners. You can run Windows PowerShell locally from one of the Azure Local machines or remotely from a management computer. Integration with [Azure Automation][] and Azure Arc facilitates a wide range of automation scenarios for [virtualized][] and [containerized][] workloads.
-
-- Use [Velero and Azure Blob Storage][] for stateful backups. Velero is an open-source tool that supports on-demand backup, scheduled backup, and restoration of all objects in the Kubernetes cluster for any resources defined and stored in an etcd database as a Kubernetes Custom Resource Definition (CRD). It provides backup of Kubernetes resources and volumes for an entire cluster or part of a cluster by using namespaces or label selectors. Store the backup set created with the Velero tool in an Azure storage account in a blob container.
 
 - Provide cluster resource governance through [Azure Policy][]. Deploy and enforce built-in security policies on AKS cluster using Azure Policy. You can also use custom policy definition to [enforce GitOps configuration][], which is the practice of declaring the desired state of Kubernetes configuration (deployments, namespaces, and so on) in a Git repository. 
 
@@ -111,9 +103,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- Implement a highly available VM for the management cluster, and multiple hosts in the Kubernetes cluster to meet the minimum level of availability for workloads.
-
-- Back up and restore workload clusters using Velero and Azure Blob Storage. Define availability and recovery targets to meet business requirements.
+- Implement 3-5 nodes for control plane, and multiple worker nodes in the Kubernetes cluster to meet the minimum level of availability for applications.
 
 - Review requirements for failover clustering. AKS deployments use failover clustering and live migration for high availability and fault tolerance. Live migration is a Hyper-V feature that allows you to transparently move running virtual machines from one Hyper-V host to another without perceived downtime.
 
@@ -141,23 +131,17 @@ Focus on the entire stack by securing both the host and its containers.
 
 - Use BitLocker Drive Encryption to encrypt Storage Spaces Direct volumes at rest.
 
-- Configure [Calico network policies][] to define network isolation rules between containers.
-
 - Use [Microsoft Defender for Cloud][], to manage security settings for servers and clusters. It provides threat protection for your Arc–enabled Kubernetes clusters. The Microsoft Defender for Cloud extension collects data from nodes in the cluster and sends it to the Azure Defender for Kubernetes backend in the cloud for further analysis.
 
 - Secure communication with certificates.
 
 - Rotate encryption keys of the Kubernetes secret store (etcd) using the Key Management Server (KMS) plug-in.
 
-- Use [SSH Access Restrictions][], to control/restrict access to AKS node VMs.
-
 - Use [Workload identity][] for securing and managing identities to access Azure resources from workload pods.
 
 #### Application security
 
 - Use [Azure Key Vault Secrets provider extension][] on your AKS on Azure Local to further protect your secrets that are used by different applications, by storing them in Azure Key Vault service.
-
-- Use [Istio][] to secure service-to-service communication by enabling mutual TLS (mTLS).
 
 - Use [Azure Policy for Kubernetes][] to enforce cluster security policies, for example no privileged pods.
 
@@ -183,7 +167,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-- **Infrastructure as a Code**. Use ARM templates/Bicep or Terraform to automate cluster deployment at scale. Use Azure portal experience to explore available/supported options for the cluster creation and export your choices as a template. Review [Azure verified modules][] for scale deployment option. The module for AKS, enabled by Arc is [hybrid-container-service github][].
+- **Infrastructure as a Code**. Use ARM templates/Bicep or Terraform to automate cluster deployment at scale. Use Azure portal experience to explore available/supported options for the cluster creation and export your choices as a template. Review [Azure verified modules][] for scale deployment option. The module for AKS on Azure Local is [hybrid-container-service github][].
 
 - [Azure Arc][]. Integrate with Azure Arc or a range of Azure services that provide additional management, maintenance, and resiliency capabilities (for example, Azure Monitor and Log analytics).
 
@@ -195,17 +179,13 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 - Use Azure Local-certified hardware for improved application uptime and performance, simplified management and operations, and lower total cost of ownership.
 
-- Understand the AKS on Azure Local limits. Microsoft supports AKS on Azure Local deployments with a maximum of eight physical servers per cluster, eight Kubernetes Clusters, and 200 VMs.
+- Understand the AKS on Azure Local limits. Microsoft supports AKS on Azure Local deployments with a maximum of 16 physical servers per cluster, 32 Kubernetes Clusters, and 200 VMs.
 
-- Scaling AKS on Azure Local depends on the number of worker nodes and target clusters. To properly dimension the hardware for the worker nodes, you need to anticipate the number of pods, containers, and worker nodes in a target cluster. You should ensure that at least 15% of Azure Local capacity is reserved for both planned and unplanned failure. For performance efficiency use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technologies evolve. The general rule is that if one node goes offline during maintenance, or during unplanned failure, the remaining nodes can have enough capacity to manage the increased load.
+- Scaling AKS on Azure Local depends on the number of control plane nodes, worker nodes and AKS clusters. To properly dimension the hardware, you need to anticipate the number of pods, containers, and worker nodes in an AKS cluster. You should ensure that at least 15% of Azure Local capacity is reserved for both planned and unplanned failure. For performance efficiency use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technologies evolve. The general rule is that if one node goes offline during maintenance, or during unplanned failure, the remaining nodes can have enough capacity to manage the increased load.
 
-- Consider increasing the size of the load balancer VM if you're running many Kubernetes services in each target cluster.
+- Review AKS node placement logic. AKS on Azure Local distributes the worker nodes for each node pool in an AKS cluster using Azure Local placement logic, the [Availability sets][].
 
-- Review AKS node placement logic. AKS on Azure Local distributes the worker nodes for each node pool in a target cluster using Azure Local placement logic, the [Availability sets][].
-
-- Plan IP address reservations to configure AKS hosts, workload clusters, Cluster API servers, Kubernetes Services, and Application services. Microsoft recommends reserving a minimum of 256 IP addresses for AKS deployment on Azure Local.
-
-- Consider implementing an ingress controller that works at Layer 7 and uses more intelligent rules to distribute application traffic.
+- Plan IP address reservations to configure AKS clusters and Kubernetes Services.
 
 - Implement network performance optimization for traffic bandwidth allocation.
 
