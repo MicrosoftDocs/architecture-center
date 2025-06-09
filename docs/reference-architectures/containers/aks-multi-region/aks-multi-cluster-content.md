@@ -248,7 +248,7 @@ When planning for a production cluster, use your organization's preferred method
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-#### Access control
+#### Cluster access control
 
 As discussed in the [AKS baseline reference architecture](../aks/baseline-aks.yml#integrate-microsoft-entra-id-for-the-cluster), we recommend that you use Microsoft Entra ID as the identity provider for your clusters. The Microsoft Entra groups can then be used to control access to cluster resources.
 
@@ -292,7 +292,7 @@ You can also configure your [AKS cluster diagnostic settings](/azure/aks/monitor
 
 To learn more about how to configure Azure Monitor workspaces in a multi-cluster environment, see [Azure Monitor](#azure-monitor).
 
-#### Monitor the fleet
+#### Monitor the fleet's operations
 
 When Fleets orchestrates an update run, you can monitor the progress of the run as it progresses across clusters. Data are stored in Azure Resource Graph and [can be exported to Azure Monitor for alerting and storage](/azure/kubernetes-fleet/howto-monitor-update-runs).
 
