@@ -48,6 +48,6 @@ The key difference between the two diagrams is the business model, which affects
 
 ## Related resources
 
-- [Plan your own journey to SaaS](../saas/plan-journey-saas.md)
 - [Understand how startups architect their solutions](../startups/startup-architecture.md)
 - [Learn about multitenant architectural approaches](../multitenant/overview.md)
+- [Software as a service (SaaS) Workload Documentation - Azure Well-Architected Framework](/azure/well-architected/saas/)
