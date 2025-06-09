@@ -7351,7 +7351,12 @@
     },
     {
       "source_path": "docs/guide/multitenant/service/azure-ad-b2c.md",
-      "redirect_url": "/azure/architecture//guide/multitenant/approaches/identity",
+      "redirect_url": "/azure/architecture/guide/multitenant/approaches/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/saas/plan-journey-saas.md",
+      "redirect_url": "/azure/well-architected/saas/",
       "redirect_document_id": false
     }
   ]
