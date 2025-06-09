@@ -6,6 +6,7 @@ ms.author: pnp
 ms.date: 08/11/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
+ms.collection: migration
 ---
 # Migration architecture design
 
