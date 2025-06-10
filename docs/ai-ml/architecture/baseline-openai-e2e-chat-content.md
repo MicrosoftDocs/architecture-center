@@ -8,7 +8,7 @@ Enterprise chat applications can empower employees through conversational intera
 
 - An orchestrator or agent that oversees the interactions between data sources, language models, and the end user.
 
-This article provides a baseline architecture to help you build and deploy enterprise chat applications with [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) that use [Azure OpenAI language models](/azure/ai-services/openai/concepts/models). The architecture uses a single agent, hosted in Azure AI Agent Service, to handle incoming queries from the users out to data stores to fetch grounding data for the language model.
+This article provides a baseline architecture to help you build and deploy enterprise chat applications with [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) that use [Azure OpenAI language models](/azure/ai-services/openai/concepts/models). The architecture uses a single agent, hosted in Azure AI Agent Service, to handle incoming messages from the users out to data stores to fetch grounding data for the language model.
 
 The Chat UI follows the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) guidance for how to deploy a secure, zone-redundant, and highly available web application on Azure App Service. In that architecture, App Service communicates to the Azure platform as a service (PaaS) solution through virtual network integration over private endpoints. In the chat UI architecture, App Service communicates with the agent over a private endpoint. Public access to Azure AI Foundry portal and agents are disabled.
 
@@ -396,7 +396,7 @@ When using the standard deployment, you are responsible for provisioning and man
   - Use a locally redundant storage (LRS) tier for the Storage account.
   - Configure Azure AI Search with a single replica instead of the recommended three.
   
-- Regularly delete unused agents and their associated threads using the SDK. Stale agents and threads continue to consume storage and can increase costs across Cosmos DB, Storage, and AI Search.
+- Regularly delete unused agents and their associated threads using the SDK or REST APIs. Stale agents and threads continue to consume storage and can increase costs across Cosmos DB, Storage, and AI Search.
 
 - Disable features on dependent resources that are not required for your workload. For example:
 
@@ -441,7 +441,7 @@ Model deployments in Azure AI Foundry use the models-as-a-service (MaaS) approac
 
 - **Use the right deployment type.** Use pay-as-you-go for unpredictable workloads, and switch to provisioned throughput when usage is stable and predictable. Combine both when you have a baseline established.
 
-- **Avoid unnecessary playground usage.** Restrict use of the Azure AI Foundry playground to preproduction environments to prevent unplanned production costs.
+- **Restrict playground usage.** Restrict use of the Azure AI Foundry playground to preproduction environments to prevent unplanned production costs.
 
 - **Fine-tuning and image generation.** Be aware that fine-tuning and image generation are billed differently (per hour or per batch). Plan usage to maximize value within billing intervals.
 
@@ -477,7 +477,7 @@ Be sure to monitor the usage of tokens against your model deployments. In this a
 
 Your jump boxes and build agent VMs are placed in a highly privileged location which gives those virtual machines, by design, network line of sight to the data plane of all components in your architecture. Ensure those VMs emit enough logs to understand when they are being used, by whom, and what actions they are performing.
 
-##### Agent versioning and lifecycle
+#### Agent versioning and lifecycle
 
 Treat each agent as an independently deployable unit within your chat workload, unless your application is specifically designed to dynamically create and delete agents at runtime. These agents have lifecycle management requirements similar to other microservices in your workload. Ensuring safe and controlled deployment of agents is critical to prevent service disruptions.
 
