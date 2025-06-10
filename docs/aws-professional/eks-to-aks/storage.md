@@ -1,8 +1,8 @@
 ---
 title: Storage Options for a Kubernetes Cluster
 description: Understand storage options for a Kubernetes cluster, and compare Amazon EKS and Azure Kubernetes Service (AKS) storage options.
-author: paolosalvatori
-ms.author: paolos
+author: francisnazareth
+ms.author: fnazaret
 ms.date: 01/28/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
@@ -11,15 +11,6 @@ ms.collection:
  - aws-to-azure
 ms.custom:
   - arb-containers
-categories:
-  - containers
-  - storage
-products:
-  - azure-files
-  - azure-kubernetes-service
-  - azure-managed-disks
-  - azure-netapp-files
-  - azure-storage
 ---
 
 # Storage options for a Kubernetes cluster

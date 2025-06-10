@@ -1,19 +1,13 @@
 ---
 title: AKS triage—Workload deployments
 description: Learn how to check whether workload deployments and DaemonSet features are running properly. This step is part of the triage practices for an AKS cluster.
-author: paolosalvatori
-ms.author: paolos
+author: francisnazareth
+ms.author: fnazaret
 ms.date: 01/20/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
-  - arb-containers
-azureCategories: compute
-categories: compute
-products:
-  - azure-kubernetes-service
-  - azure-monitor
 ---
 
 # Monitor workload deployments

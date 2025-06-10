@@ -8,8 +8,6 @@ ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
   - guide
-products: azure
-categories: featured
 ---
 
 # Architecture styles

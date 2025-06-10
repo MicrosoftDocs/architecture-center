@@ -7,13 +7,9 @@ ms.date: 01/31/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-products:
-  - azure-machine-learning
 ms.custom:
   - guide
   - arb-aiml
-categories:
-  - ai-machine-learning
 ---
 
 # AI architecture design
@@ -172,9 +168,9 @@ For more information, see [MLflow and Machine Learning](/azure/machine-learning/
 
 ### Generative AI tools
 
-- [Prompt flow](https://microsoft.github.io/promptflow/index.html) is a suite of development tools that you can use to streamline the end-to-end development cycle of generative AI applications, from ideation, prototyping, testing, and evaluation to production deployment and monitoring. It supports prompt engineering through expressing actions in a modular orchestration and flow engine.
+- [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. The [Azure AI Foundry portal](https://ai.azure.com?cid=learnDocs) provides access to Azure AI services, foundation models, a playground, and resources to help you fine-tune, evaluate, and deploy AI models and AI agents.
 
-- [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. The [Azure AI Foundry portal](https://ai.azure.com?cid=learnDocs) provides access to Azure AI services, foundation models, a playground, and resources to help you build, train, fine-tune, and deploy AI models. You can also evaluate model responses and orchestrate prompt application components with prompt flow for better performance.
+  [Azure AI Agent Service](/azure/ai-services/agents/overview) hosts no-code agents that you define, connected to a foundation model in the AI model catalog and optionally your own custom knowledge stores or APIs. This capability is hosted within Azure AI Foundry.
 
 - [Copilot Studio](/microsoft-copilot-studio/) extends Copilot in Microsoft 365. You can use Copilot Studio to build custom copilots for internal and external scenarios. Use a comprehensive authoring canvas to design, test, and publish copilots. You can easily create generative AI-enabled conversations, provide greater control of responses for existing copilots, and accelerate productivity by using automated workflows.
 
@@ -489,16 +485,11 @@ Prebuilt AI models are useful and increasingly flexible, but the best way to opt
 
 For more information, see [AI Foundry portal versus Machine Learning studio](/ai/ai-studio-experiences-overview).
 
-#### Prompt flow in AI Foundry portal
+#### Azure AI Agent Service in AI Foundry portal
 
-[Prompt flow in the AI Foundry portal](/azure/ai-foundry/how-to/prompt-flow) is a development tool that you can use to streamline the entire development cycle of AI applications that are powered by LLMs. Prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
+Azure AI Agent Service is a tool that use to create AI agents using a no-code and nondeterminsitic approach. The agents are exposed as microservices on the Azure AI Foundry account.
 
-- Prompt flow is a feature that you can use to generate, customize, or run a flow.
-
-- A flow is an instruction set that can implement AI logic. Create or run flows via tools, like a prebuilt canvas or LangChain. You can save iterations of a flow as assets. After you deploy a flow, it becomes an API. Not all flows are prompt flows. Prompt flow is one way to create a flow.
-- A prompt is a package of input that's sent to a model. It consists of the user input, system message, and any examples. User input is text that's submitted in the chat window. The system message is a set of instructions to the model that scopes its behaviors and functionality.
-- A sample flow is a simple, prebuilt orchestration flow that shows how flows work. You can customize a sample flow.
-- A sample prompt is a defined prompt for a specific scenario that you can copy from a library and use as-is or modify it in prompt design.
+Each agent connects to a foundation model from the Azure AI model catalog. Agents can optionally connect to your own custom private knowledge stores or public data. Likewise, agents can invoke tools to perform tasks to call into custom code.
 
 ### Custom AI code languages
 

@@ -1,18 +1,14 @@
 ---
 title: Azure Kubernetes Service (AKS) operations triage
 description: Learn about the five articles that describe the triage practices for AKS operations. Get an overview of the top-down triage approach.
-author: paolosalvatori
-ms.author: paolos
+author: francisnazareth
+ms.author: fnazaret
 ms.date: 01/20/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
   - arb-containers
-azureCategories: compute
-categories: compute
-products:
-  - azure-kubernetes-service
 ---
 
 # Triage practices for AKS operations

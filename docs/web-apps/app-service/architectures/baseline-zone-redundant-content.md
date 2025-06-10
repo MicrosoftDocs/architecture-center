@@ -45,7 +45,7 @@ The following are descriptions of the inbound flow of internet traffic to the Ap
 #### Inbound flow
 
 1. The user issues a request to the Application Gateway public IP. 
-2. The WAF rules are evaluated. WAF rules positively affect the system's reliability by protecting against various attacks, such as cross-site scripting (XSS) and SQL injection. Azure Application Gateway returns an error to the requester if a WAF rule is violated and processing stops. If no WAF rules are violated, Application Gateway routes the request to the backend pool, which in this case is the App Service default domain.
+2. The WAF rules are evaluated. WAF rules positively affect the system's reliability by protecting against various attacks, such as cross-site scripting (XSS) and SQL injection. Azure Application Gateway returns an error to the requestor if a WAF rule is violated and processing stops. If no WAF rules are violated, Application Gateway routes the request to the backend pool, which in this case is the App Service default domain.
 3. The private DNS zone `privatelink.azurewebsites.net` is linked to the virtual network. The DNS zone has an A record that maps the App Service default domain to the private IP address of the App Service private endpoint. This linked private DNS zone allows Azure DNS to resolve the default domain to the private endpoint IP address.
 4. The request is routed to an App Service instance through the private endpoint.
 
@@ -180,7 +180,7 @@ Consider the following recommendations when configuring data-in-transit encrypti
 
 - Create or upload your certificate to Key Vault. HTTPS encryption requires a certificate (X.509). You need a certificate from a trusted certificate authority for your custom domain.
 - Store the private key to the certificate in Key Vault.
-- Follow the guidance in [Grant permission to applications to access an Azure Key Vault using Azure RBAC](/azure/key-vault/general/rbac-guide) and [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview) to provide Application Gateway access to the certificate private key. Don't use Key Vault access policies to provide access. Access policies only let you grant broad permissions not just to specific values.
+- Follow the guidance in [Grant permission to applications to access an Azure Key Vault using Azure RBAC](/azure/key-vault/general/rbac-guide) and [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview) to provide Application Gateway access to the certificate private key. Don't use Key Vault access policies to provide access. Access policies only let you grant broad permissions not just to specific values.
 - [Enable end to end encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption). App Service is the backend pool for the application gateway. When you configure the backend setting for the backend pool, use the HTTPS protocol over the backend port 443.
 
 ##### Data at rest
@@ -216,7 +216,7 @@ The App Service baseline configures authentication and authorization for user id
 ##### Workload identities
 
 - Use managed identity for workload identities. Managed identity eliminates the need for developers to manage authentication credentials.
-- Use user-assigned managed identities. A system-assigned identity can cause infrastructure-as-code deployments to fail based on race conditions and order of operations. You can use user-assigned managed identities to avoid some of these deployment error scenarios. For more information, see [Managed identities](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
+- Use user-assigned managed identities. A system-assigned identity can cause infrastructure-as-code deployments to fail based on race conditions and order of operations. You can use user-assigned managed identities to avoid some of these deployment error scenarios. For more information, see [Managed identities](/entra/identity/managed-identities-azure-resources//managed-identity-best-practice-recommendations).
 
 ### Operational Excellence
 

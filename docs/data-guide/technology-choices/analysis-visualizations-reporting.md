@@ -3,15 +3,9 @@ title: Choose a Data Analytics and Reporting Technology in Azure
 description: Evaluate big data analytics technology options for Azure. Use key selection criteria and a capability matrix to help you choose a data analytics technology.
 author: RobBagby
 ms.author: pnp
-categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
-azureCategories:
-  - analytics
-products:
-  - power-bi
-  - azure-notebooks
 ms.custom:
   - data-analytics
   - guide
@@ -35,7 +29,7 @@ There are several options for analysis, visualizations, and reporting in Azure, 
 
 [Power BI](/power-bi/) is a suite of business analytics tools. It can [connect to hundreds of data sources](/power-bi/desktop-data-sources#connect-to-a-data-source), and you can use it for unplanned analysis. Use [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) to integrate Power BI within your own applications without requiring any extra licensing.
 
-Organizations can use Power BI to produce reports and publish them to the organization. Everyone can create personalized dashboards, with governance and [security built in](/power-bi/service-admin-power-bi-security). Power BI uses [Microsoft Entra ID](/azure/active-directory/) to authenticate users who sign in to the Power BI service. It uses the Power BI credentials when a user attempts to access resources that require authentication.
+Organizations can use Power BI to produce reports and publish them to the organization. Everyone can create personalized dashboards, with governance and [security built in](/power-bi/service-admin-power-bi-security). Power BI uses [Microsoft Entra ID](/entra/identity/) to authenticate users who sign in to the Power BI service. It uses the Power BI credentials when a user attempts to access resources that require authentication.
 
 ### Jupyter notebooks
 

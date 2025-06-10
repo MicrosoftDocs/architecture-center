@@ -8,10 +8,6 @@ ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
   - guide
-products:
-  - azure
-categories:
-  - management-and-governance
 ---
 
 # Azure application architecture fundamentals

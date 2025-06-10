@@ -4,7 +4,7 @@ metadata:
   description: Build a multitenant SaaS solution on Azure, designed for high availability, scalability, data security and isolation using the App Service and Azure Kubernetes Service.
   author: kyleburnsdev
   ms.author: kyburns
-  ms.date: 07/25/2022
+  ms.date: 06/06/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.category:

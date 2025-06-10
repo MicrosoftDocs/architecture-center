@@ -6,10 +6,6 @@ ms.author: pnp
 ms.date: 07/25/2023
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-app-service
-categories:
-  - management-and-governance
 ms.custom:
   - resiliency
   - checklist

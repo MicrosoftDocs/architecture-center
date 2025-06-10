@@ -2,11 +2,9 @@
 title: Choose an Azure service for vector search
 description: Learn how to use this information to decide which Azure service for vector search best suits your application.
 author: konabuta
-ms.author: yongl
+ms.author: keonabut
 ms.reviewer: krmeht
 ms.subservice: architecture-guide
-products: azure-machine-learning
-categories: ai-machine-learning
 ms.topic: product-comparison
 ms.collection: ce-skilling-ai-copilot
 ms.custom: arb-aiml
@@ -143,20 +141,18 @@ When implementing vector search, you can also consider linking with other Micros
 | ---------------------------------------- | ---------------------------------- | --------------------------------- | ----------------------------------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
 | Azure OpenAI Service - add your own data | No                                 | No                                | Yes <a href="#g1"><sup>1</sup></a>  | No                                   | Yes <a href="#g2"><sup>2</sup></a>   | No                                   |
 | Vector embedding with Azure OpenAI       | No                                 | No                                | No                                  | Yes <a href="#g3"><sup>3</sup></a>   | Yes <a href="#g4"><sup>4</sup></a>   | Yes <a href="#g5"><sup>5</sup></a>   |
-| Integration with prompt flow             | No                                 | No                                | No                                  | No                                   | Yes <a href="#g6"><sup>6</sup></a>   | No                                   |
-| Integration with Semantic Kernel         | Yes <a href="#g7"><sup>7</sup></a> | Yes<a href="#g8"><sup>8</sup></a> | Yes<a href="#g9"><sup>9</sup></a>   | Yes <a href="#g7"><sup>7</sup></a>   | Yes <a href="#g10"><sup>10</sup></a> | Yes <a href="#g11"><sup>11</sup></a> |
+| Integration with Semantic Kernel         | Yes <a href="#g6"><sup>6</sup></a> | Yes<a href="#g7"><sup>7</sup></a> | Yes<a href="#g8"><sup>8</sup></a>   | Yes <a href="#g6"><sup>6</sup></a>   | Yes <a href="#g9"><sup>9</sup></a> | Yes <a href="#g10"><sup>10</sup></a> |
 
 1. <span id="g1">Azure Cosmos DB for MongoDB (vCore) is [supported as a data source](/azure/ai-services/openai/concepts/use-your-data?tabs=mongo-db#supported-data-sources) for Azure OpenAI on Your Data.</span>
 2. <span id="g2">Azure AI Search is [supported as a data source](/azure/ai-services/openai/concepts/use-your-data?tabs=mongo-db#supported-data-sources) for Azure OpenAI on Your Data.</span>
 3. <span id="g3">[Azure AI Extension (preview)](/azure/postgresql/flexible-server/generative-ai-azure-openai) is available.</span>
 4. <span id="g4">Azure AI Search provides a skill to vectorize the chunked text.</span>
 5. <span id="g5">You can create a [stored procedure for your embedding model deployment](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications).</span>
-6. <span id="g6">Supported as a vector database in [Vector DB Lookup](https://microsoft.github.io/promptflow/reference/tools-reference/vector_db_lookup_tool.html#vector-db-lookup) tool.</span>
-7. <span id="g7">Supported as a memory connector, and a vector database connector ([C#](https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Connectors/Connectors.Memory.Postgres)).</span>
-8. <span id="g8">Supported as a memory connector, and a vector database connector ([C#](https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Connectors/Connectors.Memory.AzureCosmosDBNoSQL), [Python](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cosmosdb_no_sql)).</span>
-9. <span id="g9">Supported as a vector database connector ([C#](https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Connectors/Connectors.Memory.AzureCosmosDBMongoDB), [Python](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cosmosdb)).</span>
-10. <span id="g10">Supported as a memory connector, and a vector database connector ([C#](https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Connectors/Connectors.Memory.AzureAISearch), [Python](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cognitive_search)).</span>
-11. <span id="g11">Supported as a [memory connector](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications).</span>
+6. <span id="g6">Supported as a memory connector, and a vector database connector ([C#](https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Connectors/Connectors.Memory.Postgres)).</span>
+7. <span id="g7">Supported as a memory connector, and a vector database connector ([C#](https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Connectors/Connectors.Memory.AzureCosmosDBNoSQL), [Python](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cosmosdb_no_sql)).</span>
+8. <span id="g8">Supported as a vector database connector ([C#](https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Connectors/Connectors.Memory.AzureCosmosDBMongoDB), [Python](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cosmosdb)).</span>
+9. <span id="g9">Supported as a memory connector, and a vector database connector ([C#](https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Connectors/Connectors.Memory.AzureAISearch), [Python](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cognitive_search)).</span>
+10. <span id="g10">Supported as a [memory connector](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications).</span>
 
 ## Contributors
 

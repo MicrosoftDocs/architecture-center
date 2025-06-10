@@ -8,10 +8,6 @@ ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
-products:
-  - azure-machine-learning
-categories:
-  - ai-machine-learning
 ---
 
 # Generative AI operations for organizations with MLOps investments
@@ -97,7 +93,7 @@ The intent for the data in RAG solutions is to provide grounding data (or contex
 
 Data pipelines for chunking documents aren't part of DataOps in traditional MLOps, so you have to extend your architecture and operations. The data pipelines can read data from disparate sources that include both structured and unstructured data. They can also write the transformed data to different targets. You must extend your pipelines to include the data stores that you use for grounding data. Typical data stores for these patterns are vector stores like AI Search.
 
-Just like training and fine-tuning, Azure Machine Learning pipelines or other data pipelining tools can be used to orchestrate the stages of chunking. You can take advantage of prompt flows in Machine Learning pipelines to process and enrich your data in a consistent and reproducible way.
+Just like training and fine-tuning, Azure Machine Learning pipelines or other data pipelining tools can be used to orchestrate the stages of chunking.
 
 ##### Search index maintenance
 

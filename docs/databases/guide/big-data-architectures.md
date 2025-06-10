@@ -9,14 +9,6 @@ ms.subservice: architecture-guide
 ms.custom:
   - arb-iot
   - arb-data
-categories:
-  - ai-machine-learning
-products:
-  - azure-data-lake-analytics
-  - azure-databricks
-  - azure-iot-hub
-  - azure-machine-learning
-  - azure-synapse-analytics
 ---
 
 # Big data architectures

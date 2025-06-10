@@ -1,8 +1,8 @@
 ---
 title: Cost Management for Kubernetes
 description: Understand Kubernetes cluster and workload costs, learn how to optimize and govern costs, and compare AKS and Amazon EKS options.
-author: paolosalvatori
-ms.author: paolos
+author: francisnazareth
+ms.author: fnazaret
 ms.date: 01/28/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
@@ -11,16 +11,6 @@ ms.custom:
 ms.collection:
   - migration
   - aws-to-azure
-categories:
-  - containers
-  - storage
-  - networking
-products:
-  - azure-cost-management
-  - azure-kubernetes-service
-  - azure-managed-disks
-  - azure-storage
-  - azure-virtual-machines
 ---
 
 # Cost management for Kubernetes

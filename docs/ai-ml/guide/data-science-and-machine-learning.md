@@ -3,15 +3,10 @@ title: Overview of Microsoft Machine Learning Products and Technologies
 description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
 author: RobBagby
 ms.author: pnp
-categories: azure
 ms.date: 01/27/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-products:
-  - azure-machine-learning
-azureCategories: 
-   - ai-machine-learning
 ms.custom:
   - guide
   - arb-aiml
@@ -27,7 +22,7 @@ The following options are available for machine learning in the Azure cloud.
 
 | Cloud&nbsp;option | Description | Features and uses |
 |-|-|-|
-| [Azure&nbsp;Machine&nbsp;Learning](#azure-machine-learning) | Managed platform for machine learning  | Use a pretrained model, or train, deploy, and manage models on Azure by using Python and a CLI. Machine Learning includes features like automated machine learning (AutoML), prompt flow, model catalog, and MLflow integration. You can track and understand model performance during the production stage. |
+| [Azure&nbsp;Machine&nbsp;Learning](#azure-machine-learning) | Managed platform for machine learning  | Use a pretrained model, or train, deploy, and manage models on Azure by using Python and a CLI. Machine Learning includes features like automated machine learning (AutoML), model catalog, and MLflow integration. You can track and understand model performance during the production stage. |
 | [Microsoft Fabric](#microsoft-fabric) | Unified analytics platform | Manage the entire data lifecycle, from ingestion to insights, by using a comprehensive platform that integrates various services and tools for data professionals, including data engineers, data scientists, and business analysts. |
 | [Azure&nbsp;AI&nbsp;services](#azure-ai-services) | Prebuilt AI capabilities that are implemented through REST APIs and SDKs  | Build intelligent applications by using standard programming languages. These languages call APIs that provide inferencing. Although you should ideally have machine learning and data science expertise, engineering teams that don't have these skills can also adopt this platform. |
 | [Azure SQL Managed Instance machine learning services](#sql-machine-learning) | In-database machine learning for SQL | Train and deploy models inside SQL Managed Instance. |
@@ -123,9 +118,9 @@ The [Azure AI Foundry portal](https://ai.azure.com?cid=learnDocs) fosters collab
 |Azure AI Foundry feature|Description|
 |--------|-----------|
 |**Type**                   |Unified development environment for AI|
-|**Supported languages**    |Python only|
+|**Supported languages**    |Python and C#|
 |**Machine learning phases**|- Data preparation<br>- Deployment (Models as a service (MaaS))|
-|**Key benefits**           |- Facilitates collaboration and project management across various AI services<br/>- Provides comprehensive tools for building, training, and deploying AI models<br/>- Emphasizes responsible AI by providing tools for bias detection, interpretability, and privacy-preserving machine learning<br/>- Supports integration with popular open-source frameworks and tools<br/>- Includes prompt flow for creating and managing prompt-based workflows Prompt flow simplifies the development cycle of AI applications that are powered by language models|
+|**Key benefits**           |- Facilitates collaboration and project management across various AI services<br/>- Provides comprehensive tools for building, training, and deploying AI models<br/>- Emphasizes responsible AI by providing tools for bias detection, interpretability, and privacy-preserving machine learning<br/>- Supports integration with popular open-source frameworks and tools|
 
 ## Azure Machine Learning studio
 
@@ -140,15 +135,15 @@ The [Azure AI Foundry portal](https://ai.azure.com?cid=learnDocs) fosters collab
 
 For a comprehensive comparison of Machine Learning studio and the [Azure AI Foundry portal](https://ai.azure.com?cid=learnDocs), see [Azure AI Foundry portal or Machine Learning studio](/ai/ai-studio-experiences-overview). The following table summarizes the key differences between them:
 
-| Category             | Feature                         | Azure AI Foundry portal                                  | Machine Learning studio               |
+| Category             | Feature                         | Azure AI Foundry portal                         | Machine Learning studio               |
 |----------------------|---------------------------------|-------------------------------------------------|---------------------------------------------|
 | **Data storage**     | Storage solution                | No                                              | Yes (cloud filesystem, OneLake, Azure Storage) |
 | **Data preparation** | Data integration                | Yes (Azure Blob Storage, OneLake, Azure Data Lake Storage)               | Yes (copy and mount by using Azure storage accounts) |
 | **Development**      | Code-first tools                | Yes (VS Code)                                   | Yes (Notebooks, Jupyter, VS Code, R Studio) |
 | **Languages**        | Supported languages             | Python only                                     | Python, R, Scala, Java                      |
 | **Training**         | AutoML                          | No                                              | Yes (regression, classification, forecasting, CV, NLP) |
-| **Compute targets**  | Training compute                | Serverless (MaaS, prompt flow)                  | Spark clusters, machine learning clusters, Azure Arc            |
-| **Generative AI**    | Language model catalog                     | Yes (Azure OpenAI, Hugging Face, Meta)          | Yes (Azure OpenAI, Hugging Face, Meta)      |
+| **Compute targets**  | Training compute                | No                                              | Spark clusters, machine learning clusters, Azure Arc            |
+| **Generative AI**    | Language model catalog          | Yes (Azure OpenAI, Hugging Face, Meta)          | Yes (Azure OpenAI, Hugging Face, Meta)      |
 | **Deployment**       | Real-time and batch serving     | Real-time (MaaS)                                | Batch endpoints, Azure Arc                  |
 | **Governance**       | Responsible AI tools            | No                                              | Yes (Responsible AI dashboard)              |
 

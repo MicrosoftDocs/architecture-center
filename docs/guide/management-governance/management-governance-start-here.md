@@ -6,15 +6,6 @@ ms.author: pnp
 ms.date: 06/16/2023
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-attestation
-  - azure-purview
-  - azure-policy
-  - azure-stack
-  - azure-backup
-categories:
-  - management-and-governance
-  - hybrid
 ---
 
 # Management and governance architecture design
@@ -66,7 +57,6 @@ The following sections provide links to reference architectures in some key mana
 - [Integrate Azure ExpressRoute with disaster recovery for Azure VMs](/azure/site-recovery/azure-vm-disaster-recovery-with-expressroute)
 - [Move Azure VMs to another Azure region](/azure/site-recovery/azure-to-azure-move-overview)
 - [Business continuity and disaster recovery (BCDR) for Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery)
-- [Use Azure Local stretched clusters for disaster recovery](../../hybrid/azure-local-dr.yml)
 
 ### High availability
 

@@ -6,15 +6,6 @@ ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-virtual-network
-  - azure-virtual-wan
-  - azure-firewall
-  - azure-private-link
-  - azure-expressroute
-categories:
-  - networking
-  - hybrid
 ms.custom: fcp
 ---
 

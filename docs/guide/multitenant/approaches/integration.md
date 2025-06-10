@@ -6,12 +6,6 @@ ms.author: pnp
 ms.date: 07/22/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - azure-api-management
-  - azure-logic-apps
-categories:
-  - integration
 ms.custom:
   - guide
   - arb-saas
@@ -150,11 +144,11 @@ When you access data from a tenant's data stores, consider whether you need to u
 
 For example, suppose your multitenant service runs machine learning models over your tenants' data. You need to access each tenant's instances of services, like Azure Synapse Analytics, Azure Storage, Azure Cosmos DB, and others. Each tenant has their own Microsoft Entra directory. Your solution can be granted delegated access to the data store, so that you can retrieve the data that a specific user can access.
 
-Delegated access is easier if the data store supports Microsoft Entra authentication. [Many Azure services support Microsoft Entra identities](/azure/active-directory/managed-identities-azure-resources/services-azure-active-directory-support).
+Delegated access is easier if the data store supports Microsoft Entra authentication. [Many Azure services support Microsoft Entra identities](/entra/identity/managed-identities-azure-resources/managed-identities-status).
 
 For example, suppose that your multitenant web application and background processes need to access Azure Storage by using your tenants' user identities from Microsoft Entra ID. You might do the following steps:
 
-1. [Create a multitenant Microsoft Entra application registration](/azure/active-directory/develop/scenario-web-app-sign-user-overview) that represents your solution.
+1. [Create a multitenant Microsoft Entra application registration](/entra/identity-platform/scenario-web-app-sign-user-app-registration) that represents your solution.
 1. Grant the application [delegated permission to access Azure Storage as the signed-in user](/azure/storage/common/storage-auth-aad-app#grant-your-registered-app-permissions-to-azure-storage).
 1. Configure your application to authenticate users by using Microsoft Entra ID.
 

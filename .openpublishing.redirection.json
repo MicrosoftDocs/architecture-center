@@ -3451,6 +3451,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/solution-ideas/articles/sma-opcon-azure.yml",
+      "redirect_url": "/azure/architecture/example-scenario/integration/sma-opcon-azure",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/reference-architectures/enterprise-integration/ase-high-availability-deployment.yml",
       "redirect_url": "/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment",
       "redirect_document_id": true
@@ -5216,8 +5221,13 @@
     },
     {
       "source_path": "docs/hybrid/azure-stack-hci-dr.yml",
-      "redirect_url": "/azure/architecture/hybrid/azure-local-dr",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/hybrid/azure-local-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/azure-local-dr.yml",
+      "redirect_url": "/azure/architecture/hybrid/azure-local-baseline",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/iot/vertical-buy-online-pickup-in-store.yml",
@@ -7346,7 +7356,12 @@
     },
     {
       "source_path": "docs/guide/multitenant/service/azure-ad-b2c.md",
-      "redirect_url": "/azure/architecture//guide/multitenant/approaches/identity",
+      "redirect_url": "/azure/architecture/guide/multitenant/approaches/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/saas/plan-journey-saas.md",
+      "redirect_url": "/azure/well-architected/saas/",
       "redirect_document_id": false
     }
   ]

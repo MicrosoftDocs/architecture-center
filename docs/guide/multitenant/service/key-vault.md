@@ -1,23 +1,17 @@
 ---
-title: Azure Key Vault considerations for multitenancy
+title: Guidance for using Azure Key Vault in a multitenant solution
 description: This article describes the features of Azure Key Vault that are useful when you work with multitenanted systems, and it provides links to guidance for how to use Azure Key Vault in a multitenant solution.
 author: johndowns
 ms.author: pnp
 ms.date: 09/17/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - azure-key-vault
-categories:
-  - management-and-governance
-  - security
 ms.custom:
   - guide
   - arb-saas
 ---
 
-# Multitenancy and Azure Key Vault
+# Guidance for using Azure Key Vault in a multitenant solution
 
 Azure Key Vault is used to manage secure data for your solution, including secrets, encryption keys, and certificates. In this article, we describe some of the features of Azure Key Vault that are useful for multitenant solutions. We then provide links to the guidance that can help you, when you're planning how you're going to use Key Vault.
 

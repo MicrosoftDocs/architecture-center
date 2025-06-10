@@ -11,7 +11,6 @@ metadata:
 azureCategories:
   - databases
 products:
-  - azure-database-mariadb
   - azure-database-migration
   - azure-database-mysql
   - azure-database-postgresql
