@@ -2,12 +2,156 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2025-06-02T18:28:32.928Z</updated>
+    <updated>2025-06-09T22:51:23.189Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Implement SMA OpCon in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/integration/sma-opcon-azure</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/integration/sma-opcon-azure"/>
+        <updated>2025-06-04T21:18:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use SMA Technologies OpCon in a Kubernetes configuration to automate Azure and on-premises workloads that run on various servers across an enterprise.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cross-Region Resiliency for SQL TDE with Azure Key Vault Managed HSM]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module"/>
+        <updated>2025-06-05T21:13:11.000Z</updated>
+        <summary type="html"><![CDATA[This solution describes a secure and resilient deployment pattern for Azure SQL Managed Instance. It highlights how Azure Key Vault Managed HSM stores customer-managed TDE protector keys.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Basic Azure AI Foundry Chat Reference Architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat"/>
+        <updated>2025-06-02T21:34:31.000Z</updated>
+        <summary type="html"><![CDATA[Establish foundational knowledge for how to build and deploy enterprise chat applications by using Azure AI Foundry and Azure App Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose a Stream Processing Technology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/stream-processing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/stream-processing"/>
+        <updated>2025-06-05T21:48:10.000Z</updated>
+        <summary type="html"><![CDATA[Compare options for real-time message stream processing in Azure, with key selection criteria and a capability matrix.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Scale out an Azure IoT Hub-based solution to support millions of devices]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/scale-iot-solution-azure</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot/scale-iot-solution-azure"/>
+        <updated>2025-06-09T20:10:25.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to scale out your Azure IoT Hub-based solution to support millions of devices.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[IoT Hub-based Multitenant Solution Architectural Approaches]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/iot</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/iot"/>
+        <updated>2025-06-09T17:52:46.000Z</updated>
+        <summary type="html"><![CDATA[Learn about architectural approaches for Azure IoT Hub-based multitenant solutions to build scalable, secure, and efficient solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Overview of Microsoft Machine Learning Products and Technologies]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/data-science-and-machine-learning</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/data-science-and-machine-learning"/>
+        <updated>2025-06-03T18:31:14.000Z</updated>
+        <summary type="html"><![CDATA[Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose an Azure service for vector search]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/vector-search</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/vector-search"/>
+        <updated>2025-06-03T18:31:14.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use this information to decide which Azure service for vector search best suits your application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multiple forests with AD DS and Microsoft Entra ID]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/azure-virtual-desktop/multi-forest</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/azure-virtual-desktop/multi-forest"/>
+        <updated>2025-06-03T16:59:22.000Z</updated>
+        <summary type="html"><![CDATA[This article describes an example workload of creating multiple Active Directory forests by using Azure Virtual Desktop.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Enhanced-security hybrid messaging — client access]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/secure-hybrid-messaging-client</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/secure-hybrid-messaging-client"/>
+        <updated>2025-06-03T16:59:22.000Z</updated>
+        <summary type="html"><![CDATA[Enhance your security in a client access scenario by using Microsoft Entra multifactor authentication.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Enhanced-security hybrid messaging — mobile access]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/secure-hybrid-messaging-mobile</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/secure-hybrid-messaging-mobile"/>
+        <updated>2025-06-03T16:59:22.000Z</updated>
+        <summary type="html"><![CDATA[Enhance your security in a mobile access scenario by using Microsoft Entra multifactor authentication.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Enhanced-security hybrid messaging — web access]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/secure-hybrid-messaging-web</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/secure-hybrid-messaging-web"/>
+        <updated>2025-06-03T16:59:22.000Z</updated>
+        <summary type="html"><![CDATA[Enhance your security in a web access scenario by using Microsoft Entra multifactor authentication.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Identity architecture design]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/identity/identity-start-here</id>
+        <link href="https://learn.microsoft.com/azure/architecture/identity/identity-start-here"/>
+        <updated>2025-06-03T16:59:22.000Z</updated>
+        <summary type="html"><![CDATA[Control access to your apps and data by designing and implementing an identity solution. See resources with guidelines, best practices, and recommendations.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Microsoft Entra security for AWS]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security"/>
+        <updated>2025-06-03T16:59:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Microsoft Entra ID can help secure and protect Amazon Web Services (AWS) identity management and account access. Discover Microsoft security solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Integrate on-premises AD domains with Microsoft Entra ID]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad"/>
+        <updated>2025-06-03T16:59:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement a secure hybrid network architecture that integrates on-premises Active Directory domains with Microsoft Entra ID.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Microsoft Sentinel automated responses]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/microsoft-sentinel-automated-response</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/microsoft-sentinel-automated-response"/>
+        <updated>2025-06-03T16:59:22.000Z</updated>
+        <summary type="html"><![CDATA[Use Microsoft Sentinel playbooks to generate automated responses and deliver intelligent security analytics for enterprises.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cloud Design Patterns]]></title>
+        <id>https://learn.microsoft.com/azure/architecture//patterns</id>
+        <link href="https://learn.microsoft.com/azure/architecture//patterns"/>
+        <updated>2025-06-03T15:45:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn about design patterns for building reliable, scalable, and more secure applications in the cloud with examples based on Microsoft Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate IBM System i (AS/400) to Azure by Using Infinite i]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/ibm-system-i-azure-infinite-i</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/ibm-system-i-azure-infinite-i"/>
+        <updated>2025-06-02T22:20:19.000Z</updated>
+        <summary type="html"><![CDATA[Use Infinite i to easily migrate your IBM System i (AS/400) workloads to Azure. You can lower costs, improve performance, improve availability, and modernize.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Architectural considerations for identity in a multitenant solution]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/identity</id>
@@ -97,11 +241,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Basic AI Foundry chat reference architecture]]></title>
+        <title type="html"><![CDATA[Basic Azure AI Foundry Chat Reference Architecture]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat"/>
         <updated>2025-05-30T22:16:01.000Z</updated>
-        <summary type="html"><![CDATA[Establish foundational knowledge for how to build and deploy enterprise chat applications by using Azure AI Foundry, and Azure App Service.]]></summary>
+        <summary type="html"><![CDATA[Establish foundational knowledge for how to build and deploy enterprise chat applications by using Azure AI Foundry and Azure App Service.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -649,7 +793,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[IBM System i (AS/400) to Azure using Infinite i]]></title>
+        <title type="html"><![CDATA[Migrate IBM System i (AS/400) to Azure by Using Infinite i]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/ibm-system-i-azure-infinite-i</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/ibm-system-i-azure-infinite-i"/>
         <updated>2025-04-25T20:37:55.000Z</updated>
@@ -657,11 +801,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Choose Azure AI Image and Video Processing Technology]]></title>
+        <title type="html"><![CDATA[Azure AI Video Processing Guide]]></title>
         <id>https://learn.microsoft.com/azure/architecture/data-guide/ai-services/image-video-processing</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-guide/ai-services/image-video-processing"/>
         <updated>2025-04-25T18:23:24.000Z</updated>
-        <summary type="html"><![CDATA[Learn about Azure AI services for video and image processing, including optical character recognition (OCR), object detection, facial recognition, and image analysis.]]></summary>
+        <summary type="html"><![CDATA[Learn about Azure AI services for video processing and video generation. Understand and compare each service's capabilities and use cases.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -937,14 +1081,6 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[SMA OpCon in Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/sma-opcon-azure</id>
-        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/sma-opcon-azure"/>
-        <updated>2025-03-27T15:24:27.000Z</updated>
-        <summary type="html"><![CDATA[Use SMA Technologies OpCon in a Kubernetes configuration to automate Azure and on-premises workloads that run on various servers across an enterprise.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Networking architecture design]]></title>
         <id>https://learn.microsoft.com/azure/architecture//networking</id>
         <link href="https://learn.microsoft.com/azure/architecture//networking"/>
@@ -1029,7 +1165,7 @@
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/many-models-machine-learning-azure-machine-learning</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/many-models-machine-learning-azure-machine-learning"/>
         <updated>2025-03-12T22:10:27.000Z</updated>
-        <summary type="html"><![CDATA[Many machine learning problems are too complex for a single machine learning model to solve. Learn about many models machine learning at scale with Azure Machine Learning.]]></summary>
+        <summary type="html"><![CDATA[Learn how to manage and deploy a many-models architecture by using Azure Machine Learning and compute clusters to scale machine learning models.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
