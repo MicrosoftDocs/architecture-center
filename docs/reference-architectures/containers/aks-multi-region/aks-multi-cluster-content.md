@@ -94,15 +94,17 @@ Also, removing a cluster stamp from the deployment pipeline doesn't always decom
 
 #### Cluster bootstrapping
 
-After each Kubernetes instance or stamp has been deployed, cluster components such as ingress controllers, identity solutions, and workload components need to be deployed and configured. You also need to consider applying security, access, and governance policies across the cluster.
+After each Kubernetes instance or stamp has been deployed, cluster components such as ingress controllers, identity solutions, and workload components need to be deployed and configured. You might need to create Kubernetes namespaces, and you also need to consider applying security, access, and governance policies across the cluster. These operations are referred to as *bootstrapping* the cluster to prepare for workloads that will be deployed to it.
 
-Similar to deployment, these configurations can become challenging to manage across several Kubernetes instances manually. Azure Kubernetes Fleet Manager doesn't affect how you bootstrap your member cluster resources, and you should instead consider the following options for configuration and policy at scale.
+Similar to deployment, bootstrapping configurations can become challenging to manage across several Kubernetes instances manually. Azure Kubernetes Fleet Manager doesn't affect how you bootstrap your member clusters. You should instead consider one of the following options for configuration and policy at scale.
 
 ##### GitOps
 
-Instead of manually configuring Kubernetes components, it's recommended to use automated methods to apply configurations to a Kubernetes cluster, as these configurations are checked into a source repository. This process is often referred to as GitOps, and popular GitOps solutions for Kubernetes include Flux and Argo CD. For example, the Flux extension for AKS enables bootstrapping the clusters automatically and immediately after the clusters are deployed.
+Instead of manually configuring Kubernetes components on each cluster, it's recommended to use automated methods to apply configurations to a Kubernetes cluster, as these configurations are checked into a source repository. This process is often referred to as GitOps, and popular GitOps solutions for Kubernetes include Flux and Argo CD. For example, the Flux extension for AKS enables bootstrapping the clusters automatically and immediately after the clusters are deployed.
 
 GitOps is detailed in more depth in the [AKS baseline reference architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks#cluster-bootstrapping). By using a GitOps based approach to configuration, you ensure that each Kubernetes instance is configured similarly without bespoke effort. A streamlined configuration process becomes even more important as the size of your fleet grows.
+
+You can use a GitOps approach to deploy the base cluster configuration. You can enrol the cluster in the fleet to participate in fleet-wide activities like automated upgrade rollouts.
 
 You can also optionally use GitOps to deploy your workloads. To learn more, see the workload deployment section below.
 
@@ -120,6 +122,10 @@ When designing policy for multiple AKS clusters, consider the following items:
 - Place each regional cluster in its own resource group, which allows for region-specific policies to be applied to the resource group.
 
 See [Cloud Adoption Framework resource organization](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org) for materials that help you establish a policy management strategy.
+
+#### Fleet enrolment
+
+After a cluster is deployed and configured, you enrol it into the fleet as a *member cluster*. Each member cluster can be assigned to a *group*, which determines where it fits in the update sequence for that fleet. To learn more about cluster enrolment, groups, and update strategies, see [Define reusable update strategies using Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/update-create-update-strategy).
 
 #### Workload deployment
 
@@ -305,7 +311,7 @@ You can also collect [resource logs from the fleet resource](/azure/azure-monito
 
 #### Apply updates across the fleet
 
-In this reference architecture, the fleet applies Kubernetes version updates and node image updates across your fleet. You can specify upgrade policies (TODO confirm term) that roll out upgrades progressively across your clusters. Also, the fleet respects maintenance windows on each cluster, so it's a good practice to set the maintenance windows appropriate to each cluster. Maintenance windows on each cluster might be different when you use clusters across multiple geographies and therefore in different time zones.
+In this reference architecture, the fleet applies Kubernetes version updates and node image updates across your fleet. You can specify upgrade strategies that configure how upgrades are rolled out across your clusters. Also, the fleet respects maintenance windows on each cluster, so it's a good practice to set the maintenance windows appropriate to each cluster. Maintenance windows on each cluster might be different when you use clusters across multiple geographies and therefore in different time zones.
 
 For more information, see [Update Kubernetes and node images across multiple member clusters](/azure/kubernetes-fleet/concepts-update-orchestration).
 
