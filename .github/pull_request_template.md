@@ -86,7 +86,7 @@ Enter a meaningful title. We suggest using the keywords "New" or "Update" indica
 <details><summary>AFTER YOUR PR HAS BEEN CREATED, expand this section for tips and additional instructions.</summary>
 These are common guidelines for contributions across the repos managed by the Azure patterns & practices (PnP) content team. Some repositories may have additional specific requirements that are not listed here.
 
-## Guidance for all contributors  
+## Guidance for all contributors
   
 | Topic | Guidance |
 | ----------| ------------ |
