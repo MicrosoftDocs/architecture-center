@@ -283,9 +283,11 @@ If your workload utilizes a caching solution, ensure that you architect your cac
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-When you operate a multi-cluster environment with a fleet resource, monitoring becomes more challenging. Manual review of dashboards and logs can become difficult as the number of clusters increases, so consider how you'll systematically aggregate logs and metrics.
+When you operate a multi-cluster environment with a fleet resource, monitoring becomes more challenging. Similarly, consider how you'll coordinate updates to the AKS cluster components.
 
 #### Monitor clusters and workloads
+
+Manual review of dashboards and logs can become difficult as the number of clusters increases, so consider how you'll systematically aggregate logs and metrics.
 
 The Azure Monitor Container insights feature is the recommended tool to monitor and understand the performance and health of your cluster and container workloads. [Container insights](/azure/azure-monitor/containers/container-insights-overview) utilizes both a Log Analytics workspace for storing log data, and [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) to store numeric time-series data. Prometheus metrics can also be collected by Container Insights and the data can be sent to either [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) or [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs). For more information, see the [AKS baseline reference architecture](../aks/baseline-aks.yml#monitor-and-collect-metrics).
 
@@ -300,6 +302,12 @@ When Fleets orchestrates an update run, you can monitor the progress of the run 
 If you choose to use Fleets for workload propagation, you can monitor the rollout [by using the Azure portal or kubectl](/azure/kubernetes-fleet/quickstart-resource-propagation).
 
 You can also collect [resource logs from the fleet resource](/azure/azure-monitor/reference/supported-logs/microsoft-containerservice-fleets-logs) and forward them to a Log Analytics workspace.
+
+#### Apply updates across the fleet
+
+In this reference architecture, the fleet applies Kubernetes version updates and node image updates across your fleet. You can specify upgrade policies (TODO confirm term) that roll out upgrades progressively across your clusters. Also, the fleet respects maintenance windows on each cluster, so it's a good practice to set the maintenance windows appropriate to each cluster. Maintenance windows on each cluster might be different when you use clusters across multiple geographies and therefore in different time zones.
+
+For more information, see [Update Kubernetes and node images across multiple member clusters](/azure/kubernetes-fleet/concepts-update-orchestration).
 
 ### Cost Optimization
 
