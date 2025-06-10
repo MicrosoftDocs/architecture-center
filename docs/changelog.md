@@ -4,7 +4,6 @@ description: New and updated articles in Azure Architecture Center
 author: RobBagby
 ms.date: 06/09/2025
 ms.topic: whats-new
-ms.service: azure-architecture-center
 ms.author: pnp
 ---
 <!-- This page is automatically generated using a script. Do not edit by hand -->
