@@ -6,9 +6,6 @@ ms.author: pnp
 ms.date: 08/08/2022
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
-ms.category:
-  - compute
-  - storage
 ms.custom:
   - fcp
 ---

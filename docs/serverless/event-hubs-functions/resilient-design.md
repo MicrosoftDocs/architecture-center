@@ -6,8 +6,6 @@ ms.author: dabarkol
 ms.topic: conceptual
 ms.date: 07/03/2024
 ms.subservice: architecture-guide
-ms.category:
-  - compute
 ---
 
 # Resilient Event Hubs and Functions design
