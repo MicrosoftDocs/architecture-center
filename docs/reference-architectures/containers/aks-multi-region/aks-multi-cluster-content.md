@@ -264,11 +264,12 @@ For more information on managing AKS cluster access with Microsoft Entra ID, see
 
 #### Security of your fleet resources
 
-When you use a fleet to centralize aspects of your cluster management, it's important to protect the fleet resources to avoid misuse.
+When you use a fleet to centralize aspects of your cluster management, it's important to protect the fleet resources to avoid misuse. [Fleet resources use Azure role-based access control](/azure/kubernetes-fleet/concepts-rbac), and you can grant fleet permissions to a restricted set of administrators. Follow the principle of least privilege and grant the least possible access to the fleet resource (the *control plane* of the fleet).
 
-Fleet resources use Azure role-based access control, and you can grant fleet permissions to a restricted set of administrators.
+If your fleet uses a hub cluster, consider the following extra recommenations:
 
-If your fleet uses a hub cluster, consider implementing it as a private hub cluster to restrict internet connectivity. However, ensure your network architecture allows the member clusters to reach the hub cluster.
+- Evaluate the role assignments you create in your hub cluster (the *data plane* role assignments). These role assignments grant access to the Kubernetes resources that the fleet creates. Scope role assignments to an individual Kubernetes namespace where possible.
+- Use a private hub cluster to restrict internet connectivity. However, ensure your network architecture allows the member clusters to reach the hub cluster.
 
 ### Data, state, and cache
 
