@@ -326,10 +326,9 @@ You must configure DNS for the following three Azure AI Foundry FQDN API endpoin
 - `privatelink.openai.azure.com`
 - `privatelink.cognitiveservices.azure.com`
 
--- TODO Update image and long description --
-
 :::image type="complex" source="_images/ai-foundry-end-to-end-chat-portal-access.svg" border="false" lightbox="_images/ai-foundry-end-to-end-chat-portal-access.svg" alt-text="Diagram that shows a user connecting to a Machine Learning workspace through a jump box to author a flow OpenAI.":::
-    The diagram shows a user connecting to a jump box virtual machine through Azure Bastion. An arrow points from the jump box to a Machine Learning workspace private endpoint. Another arrow points from the private endpoint to the Machine Learning workspace. From the workspace, four arrows point to four private endpoints that connect to Container Registry, Storage, Azure OpenAI, and AI Search.
+    The diagram shows a user connecting to a jump box virtual machine through Azure Bastion. An arrow points from the jump box to an Azure AI Foundry (portal) private endpoint. Another arrow points from the private endpoint to the Azure AI Foundry project that contains the Azure AI Agent Service. From the Azure AI Foundry project, an arrow points to a virtual interface in the private virtual network. A final arrow points from the virtual interface to the Azure AI Agent Service dependencies private endpoints. Those dependencies are Azure AI Search, Azure Cosmos DB
+four arrows point to four private endpoints that connect to Container Registry, Storage, Azure OpenAI, and AI Search.
 :::image-end:::
 
 The diagram illustrates how an AI developer connects through Azure Bastion to a virtual machine (VM) jump box. From that jump box, the author can accesses the project in the AI Foundry portal through a private endpoint in the same network.
