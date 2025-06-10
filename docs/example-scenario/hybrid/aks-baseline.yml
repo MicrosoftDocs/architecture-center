@@ -15,7 +15,6 @@ products:
   - azure-kubernetes-service
   - azure-local
   - azure-arc
-  - windows-server
 name: Baseline architecture for AKS on Azure Local
 summary: Learn how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) running on Azure Local.
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-azure-local-baseline-v9.png
