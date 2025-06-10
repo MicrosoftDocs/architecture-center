@@ -22,8 +22,6 @@ The architecture uses [Azure AI Agent Service standard agent setup](/azure/ai-se
 
 ## Architecture
 
--- TODO -- Add numbers into the diagram
-
 :::image type="complex" source="_images/ai-foundry-end-to-end-baseline-deployment.svg" border="false" lightbox="_images/ai-foundry-end-to-end-baseline-deployment.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Azure AI Foundry.":::
     The diagram presents a comprehensive deployment architecture for an AI solution using Microsoft Azure. It begins at the top left with a user icon, representing the entry point into the system. From there, traffic flows through an Application Gateway, which manages incoming web requests and routes them into a virtual network. Within this network, Azure App Service serves as the core compute layer. The App Service application interacts with Azure AI Agent Service, which is the orchestration layer. The Azure AI Agent Service connects to multiple resources such as Blob Storage, Azure AI Search, and Cosmos DB. Monitoring and diagnostics are handled by Azure Monitor and Log Analytics, which are connected to various components to ensure observability and performance tracking. Arrows throughout the diagram indicate the direction of data and control flow.
 :::image-end:::
@@ -32,20 +30,17 @@ The architecture uses [Azure AI Agent Service standard agent setup](/azure/ai-se
 
 ### Workflow
 
-1. The development team deployed an agent in Azure AI Foundry during the last application release in this workload along with a new chat interface in their website.
+1. An application user interacts with a chat interface. The requests are routed through Azure Application Gateway. Azure Web Application Firewall inspects these requests before they're forwarded to the backend Azure App Service.
 
-   - That agent uses an Azure OpenAI language model using a model-as-a-service (MaaS) deployment within Azure AI Foundry.
-   - The agent is configured with connections to enterprise grounding data sources, such as Azure AI Search or various REST APIs.
-   - The agent is codeless, a system prompt defines how it should behave for all requests.
+1. Upon receiving a user's query or instruction, the web application invokes the purpose-built agent. Communication with the agent is performed with the Azure AI Agent SDK. The web application calls the agent over a private endpoint and authenticates to Azure AI Foundry using its managed identity.
 
-1. User interactions with the chat interface, hosted within the website, are routed through Azure Application Gateway. Azure Web Application Firewall inspects these requests before they're forwarded to the backend Azure App Service.
+1. The agent processes the user's request by following the instructions in its system prompt. The agent has a configured language model and connections to tools and knowledge stores it can use to fulfill the user's intent.
 
-1. Upon receiving a user's query or instruction, the web application invokes the purpose-built agent. Communication with the agent is performed with the Azure AI Agent SDK. The web application authenticates to Azure AI Foundry using its managed identity.
+1. The agent connects to the knowledge store, Azure AI Search in this case, within the private network via a private endpoint.
 
-1. The agent processes the user's request by following the instructions in its system prompt. It uses its configured language model and connections to knowledge stores and tools to fulfill the user's intent.
+1. Requests to external knowledge stores or tools, such as Wikipedia or Bing, traverse Azure Firewall for inspection and egress policy enforcement.
 
-   - Access to internal knowledge stores or tools (for example, Azure AI Search) within the private network occurs via their respective private endpoints.
-   - Requests to external knowledge stores or tools (for example, Wikipedia or Bing) traverse Azure Firewall for inspection and egress policy enforcement.
+1. The agent connects to its configured language model, passing relevant context.
 
 1. Before returning the response to the UI, the agent persists the request, its generated response, and a list of consulted knowledge stores into a dedicated 'memory' database. This database maintains the complete conversation history, enabling context-aware interactions and enabling users to resume conversations with the agent without losing prior context.
 
