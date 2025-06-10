@@ -6,14 +6,6 @@ author: RobBagby
 ms.date: 12/11/2024
 ms.topic: design-pattern
 ms.subservice: design-pattern
-products:
-  - azure
-categories:
-  - compute
-  - databases
-  - migration
-  - security
-  - web
 ---
 
 # Cloud design patterns

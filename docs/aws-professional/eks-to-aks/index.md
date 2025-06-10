@@ -11,11 +11,6 @@ ms.collection:
  - aws-to-azure
 ms.custom:
   - arb-containers
-categories:
-  - containers
-  - compute
-products:
-  - azure-kubernetes-service
 ---
 
 # AKS for Amazon EKS professionals

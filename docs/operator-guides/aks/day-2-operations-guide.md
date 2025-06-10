@@ -9,11 +9,6 @@ ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
   - arb-containers
-products:
-  - azure-kubernetes-service
-  - azure-monitor
-categories:
-  - compute
 ---
 
 # Azure Kubernetes Services (AKS) day-2 operations guide

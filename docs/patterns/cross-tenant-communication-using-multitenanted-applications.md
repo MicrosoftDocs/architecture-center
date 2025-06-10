@@ -6,14 +6,6 @@ ms.author: aulong
 ms.date: 04/24/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - active-directory
-  - azure-service-bus
-  - entra
-  - azure-functions
-categories:
-  - Identity
-  - Security
 ---
 
 # Implement cross-directory communication in Azure

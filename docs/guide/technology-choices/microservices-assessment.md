@@ -7,11 +7,6 @@ ms.date: 06/07/2024
 ms.topic: conceptual
 ms.reviewer: nasiddi 
 ms.subservice: architecture-guide
-products:
-  - azure-devops
-  - azure-api-management
-categories:
-  - devops
 ms.custom: fcp
 ---
 

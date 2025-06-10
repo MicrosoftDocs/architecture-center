@@ -7,10 +7,6 @@ ms.date: 01/30/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: mission-critical
-categories: azure
-products:
-- chaos-studio
-- load-testing
 ---
 
 # Continuous validation with Azure Load Testing and Azure Chaos Studio

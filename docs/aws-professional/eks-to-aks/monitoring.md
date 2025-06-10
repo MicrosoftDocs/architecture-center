@@ -11,13 +11,6 @@ ms.custom:
 ms.collection:
   - migration
   - aws-to-azure
-categories:
-  - containers
-  - management-and-governance
-products:
-  - azure-kubernetes-service
-  - azure-log-analytics
-  - azure-monitor
 ---
 
 # Kubernetes monitoring and logging

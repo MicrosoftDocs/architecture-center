@@ -6,23 +6,6 @@ ms.author: jatracey
 ms.date: 02/25/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-categories:
-  - management-and-governance
-  - devops
-  - networking
-  - security
-azureCategories:
-  - devops
-  - hybrid
-  - management-and-governance
-  - networking
-  - security
-products:
-  - azure
-  - azure-resource-manager
-  - azure-policy
-  - azure-rbac
-  - azure-virtual-network
 ---
 
 # Deploy Azure landing zones

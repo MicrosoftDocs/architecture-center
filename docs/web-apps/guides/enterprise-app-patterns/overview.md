@@ -7,14 +7,6 @@ ms.reviewer: ssumner
 ms.date: 10/15/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-azureCategories:
-    - web
-    - developer-tools
-    - devops
-products:
-  - azure
-categories:
-  - web
 ---
 
 # Enterprise web app patterns

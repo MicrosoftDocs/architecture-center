@@ -6,11 +6,6 @@ ms.author: landonpierce
 ms.date: 06/05/2024 
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - azure-event-hubs
-categories:
-  - analytics
 ms.custom:
   - arb-saas
 ---

@@ -8,10 +8,6 @@ ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers
-products:
-  - azure-kubernetes-service
-  - azure-front-door
-categories: featured
 ---
 
 # Application design considerations for mission-critical workloads

@@ -8,13 +8,6 @@ ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers
-products:
-  - azure-kubernetes-service
-  - azure-policy
-  - azure-backup
-categories:
-  - containers
-  - management-and-governance
 ---
 
 # Migrate from Amazon EKS to Azure Kubernetes Service

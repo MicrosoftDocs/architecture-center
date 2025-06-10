@@ -6,7 +6,7 @@ Microsoft Entra ID is a cloud-based directory and identity service. This referen
 
 :::image type="content" source="./images/azure-ad.png" alt-text="Diagram of a hybrid cloud identity architecture that uses Microsoft Entra ID." lightbox="./images/azure-ad.png" border="false" :::
 
-*Access the [Visio diagram](https://office.live.com/start/Visio.aspx?omkt=en-us&templatetitle=Integrating%20On-Prem%20AD%20domains%20with%20Azure%20AD&templateid=TM11735520) online, through Microsoft 365. Note that you must have a Visio license to access this diagram. Or, download a [Visio file][visio-download] of this architecture (see Visio tab "Microsoft Entra ID").*
+*Access the [Visio diagram](https://office.live.com/start/Visio.aspx?templatetitle=Integrating%20On-Prem%20AD%20domains%20with%20Azure%20AD&templateid=TM11735520) online, through Microsoft 365. Note that you must have a Visio license to access this diagram. Or, download a [Visio file][visio-download] of this architecture (see Visio tab "Microsoft Entra ID").*
 
 > [!NOTE]
 > For simplicity, this diagram only shows the connections directly related to Microsoft Entra ID, and not protocol-related traffic that may occur as part of authentication and identity federation. For example, a web application may redirect the web browser to authenticate the request through Microsoft Entra ID. Once authenticated, the request can be passed back to the web application, with the appropriate identity information.

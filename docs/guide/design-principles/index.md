@@ -6,10 +6,6 @@ ms.author: pnp
 ms.date: 07/19/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
-categories:
-  - management-and-governance
-products:
-  - azure
 ms.custom:
   - guide
 ---

@@ -6,12 +6,7 @@ ms.author: saperla
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
-categories:
-  - management-and-governance
-  - databases
-products:
-  - azure-databricks
-  - azure-monitor
+
 ---
 
 # Monitoring Azure Databricks

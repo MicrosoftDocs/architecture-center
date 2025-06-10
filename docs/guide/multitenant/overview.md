@@ -7,11 +7,6 @@ ms.date: 04/17/2025
 ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-categories:
-  - management-and-governance
-  - security
 ms.custom:
   - arb-saas
 ---

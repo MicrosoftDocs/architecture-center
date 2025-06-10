@@ -6,15 +6,6 @@ ms.author: bentrin
 ms.date: 03/17/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-- azure-expressroute
-- azure-sap
-- azure-virtual-machines
-- azure-virtual-network
-- azure-netapp-files
-categories:
-- databases
-- management-and-governance
 ---
 
 <!-- cSpell:ignore lbrader HANA Fiori -->

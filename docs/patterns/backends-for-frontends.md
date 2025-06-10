@@ -6,10 +6,6 @@ author: RobBagby
 ms.date: 03/19/2025
 ms.topic: design-pattern
 ms.subservice: design-pattern
-categories:
-  - integration  
-products:
-  - azure
 ---
 
 # Backends for Frontends pattern

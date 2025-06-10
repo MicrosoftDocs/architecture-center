@@ -6,11 +6,6 @@ ms.author: pnp
 ms.date: 06/27/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - azure-storage
-categories:
-  - storage
 ms.custom:
   - guide
   - arb-saas

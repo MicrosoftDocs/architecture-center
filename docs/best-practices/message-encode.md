@@ -6,10 +6,6 @@ author: RobBagby
 ms.date: 01/31/2025
 ms.topic: best-practice
 ms.subservice: best-practice
-categories:
-  - networking
-products:
-  - azure-encoding
 ---
 
 <!-- cSpell:ignore BSON CBOR -->

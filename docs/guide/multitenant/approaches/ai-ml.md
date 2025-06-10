@@ -7,12 +7,6 @@ ms.date: 08/20/2024
 ms.update-cycle: 180-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - ai-services
-  - azure-machine-learning
-categories:
-  - ai-machine-learning
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - guide

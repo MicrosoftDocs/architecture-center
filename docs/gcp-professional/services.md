@@ -6,11 +6,6 @@ ms.author: zriffle
 ms.date: 07/11/2024
 ms.topic: conceptual
 ms.subservice: cloud-fundamentals
-categories:
-  - containers
-products:
-  - azure-kubernetes-service
-  - azure-machine-learning
 ms.collection: 
  - migration
  - gcp-to-azure
