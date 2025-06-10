@@ -17,7 +17,7 @@ The architecture illustrates an implementation that deploys containerized applic
 
 1. An operator sets up an on-premises infrastructure on Azure Local hardware that's capable of hosting an AKS cluster.
 
-2. From the Azure portal, an administrator of Azure Local instance, deploys an AKS cluster on Azure Local, version 23H2.
+2. From the Azure portal, an administrator of Azure Local instance, deploys an AKS cluster on Azure Local.
 
 3. To enable GitOps, the administrator also deploys the Flux extension and its configuration to the AKS cluster. GitOps configurations facilitate IaC. These GitOps configurations represent the desired state of the AKS cluster and use the information provided by the local administration. The *local administration* refers to the management tools, interfaces, and practices that are provided by the AKS cluster that's deployed on Azure Local.
 
@@ -79,8 +79,6 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - **Understand encryption.** To help ensure data security, the cluster configuration service stores the Flux configuration resource data in an Azure Cosmos DB database and encrypts it at rest.
 
-- **Consider using private endpoints.** GitOps supports Azure Private Link for connectivity to Azure Arc–related services.
-
 #### Use Azure policies and Azure Arc
 
 Azure Arc extends the scope of resource management beyond Azure. The extended scope provides a range of benefits that apply to physical and virtual servers. In the context of AKS, these benefits include:
@@ -97,7 +95,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - **Use the automation** that GitOps provides to minimize your management and maintenance overhead. The simplified operational model requires less effort to maintain and results in reduced operational costs.
 
-- **Use AKS enabled by Arc.** AKS Arc provides built-in support for autoscaling the computing resources and increased workload density that's inherent to containerization. Autoscaling can help you right-size your physical infrastructure and speed up datacenter consolidation initiatives, which can help you save money.
+- **Use AKS on Azure Local** AKS on Azure Local provides built-in support for autoscaling the computing resources and increased workload density that's inherent to containerization. Autoscaling can help you right-size your physical infrastructure and speed up datacenter consolidation initiatives, which can help you save money.
 
 ### Operational Excellence
 
@@ -175,7 +173,7 @@ Cluster workloads benefit from the scalability and agility that's inherent to th
 
 - **Optimize your Kubernetes cluster and infrastructure** setup for your specific workloads. We recommend that you work with the application developer to determine the required settings.
 
-- **Use the autoscaling feature** in Kubernetes. For more information, see [Use autoscaler on AKS on Azure Local,version 23H2](/azure/aks/aksarc/auto-scale-aks-arc).
+- **Use the autoscaling feature** in Kubernetes. For more information, see [Use autoscaler on AKS on Azure Local](/azure/aks/aksarc/auto-scale-aks-arc).
 
 ## Contributors
 
@@ -196,7 +194,7 @@ Other contributors:
 
 ## Next steps
 
-- [Create an AKS Arc cluster from Azure portal](/azure/aks/aksarc/aks-create-clusters-portal) or [using ARM template](/azure/aks/aksarc/resource-manager-quickstart)
+- [Create an AKS on Azure Local cluster from Azure portal](/azure/aks/aksarc/aks-create-clusters-portal) or [using ARM template](/azure/aks/aksarc/resource-manager-quickstart)
 - [GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-gitops-flux2)
 - [Tutorial: Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or AKS clusters](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2)
 - [Tutorial: Implement CI/CD with GitOps (Flux v2)](/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd)
