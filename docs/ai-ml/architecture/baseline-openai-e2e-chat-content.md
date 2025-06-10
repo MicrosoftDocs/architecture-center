@@ -1,4 +1,5 @@
-Enterprise chat applications can empower employees through conversational interactions with AI agents. This point is especially true because of the continuous advancement of language models, such as OpenAI's GPT models and orchestration SDKs like Semantic Kernel. These chat applications typically consist of:
+Enterprise chat applications 
+can empower employees through conversational interactions with AI agents. This point is especially true because of the continuous advancement of language models, such as OpenAI's GPT models and orchestration SDKs like Semantic Kernel. These chat applications typically consist of:
 
 - A chat user interface (UI) that is integrated into a larger enterprise application, providing users with a conversational experience alongside other business functions.
 
@@ -84,7 +85,7 @@ This architecture includes multiple components that can be implemented with othe
 
 #### Chat orchestration
 
-**Current:** This architecture uses [Azure AI Agent Service](/azure/ai-services/agents/overview) to orchestrate chat flows, including fetching grounding data from your knowledge stores and invoking Azure OpenAI models. The AI Agent Service provides codeless, nondeterministic orchestration, handling chat requests, thread management, tool invocation, content safety, and integration with identity, networking, and observability. It provides a native memory database solution.
+**Current:** This architecture uses the [Azure AI Agent Service](/azure/ai-services/agents/overview) to orchestrate chat flows, including fetching grounding data from your knowledge stores and invoking Azure OpenAI models. The AI Agent Service provides codeless, nondeterministic orchestration, handling chat requests, thread management, tool invocation, content safety, and integration with identity, networking, and observability. It provides a native memory database solution.
 
 **Alternative:** You can self-host the orchestration layer using frameworks such as [Semantic Kernel](/semantic-kernel/overview/) or [LangChain](/azure/ai-foundry/how-to/develop/langchain). These frameworks allow you to implement deterministic, code-driven chat flows and custom orchestration logic. Consider this approach if you require:
 
@@ -93,7 +94,7 @@ This architecture includes multiple components that can be implemented with othe
 - Advanced client request routing, supporting experimentation or safe deployment practices.
 - You need a memory database solution that follows a different approach than the one provided by the AI Agent Service.
 
-However, self-hosting increases operational complexity, requires you to manage compute, scaling, and security.
+Self-hosting increases operational complexity and requires you to manage compute, scaling, and security.
 
 #### Application tier components
 
@@ -168,7 +169,7 @@ Be aware that the AI Foundry portal, its data plane APIs, nor the AI Agent capab
 
 Azure AI Foundry offers Models-as-a-Service (MaaS) hosting with several deployment options. These options are primarily designed for quota and throughput management, not for traditional high availability within a region. Standard model deployments are limited to a single region and do not support availability zones. To achieve multi-datacenter availability, you must use either a global or a data zone model deployment.
 
-For enterprise chat scenarios, deploy both a [Data zone provisioned](/azure/ai-foundry/model-inference/concepts/deployment-types#data-zone-provisioned) and [Data zone standard](/azure/ai-foundry/model-inference/concepts/deployment-types#data-zone-standard) model, and configure [spillover](/azure/ai-services/openai/how-to/spillover-traffic-management) to handle excess traffic or failures. If your workload is not constrained by geographic data residency and processing or latency, global deployment types provide the highest resilience and should be preferred.
+For enterprise chat scenarios, deploy both a [Data zone provisioned](/azure/ai-foundry/model-inference/concepts/deployment-types#data-zone-provisioned) and [Data zone standard](/azure/ai-foundry/model-inference/concepts/deployment-types#data-zone-standard) model, and configure [spillover](/azure/ai-services/openai/how-to/spillover-traffic-management) to handle excess traffic or failures. If your workload is not constrained by latency or  geographic data residency and processing, global deployment types provide the highest resilience and should be preferred.
 
 Be aware that Azure AI Foundry does not support advanced load balancing or failover mechanisms (such as round-robin or [circuit breaking](/azure/api-management/backends#circuit-breaker)) for model deployments. If you require granular redundancy and failover control within a region, you must host your model access logic outside of the managed service—using, for example, a custom gateway implemented in Azure API Management. This approach allows you to implement custom routing, health checks, and failover strategies, but increases operational complexity and shifts responsibility for reliability of that component to your team. You can also expose gateway-fronted models as custom API-based tools or knowledge stores for your agent. For more, see [Use a gateway in front of multiple Azure OpenAI deployments or instances](../guide/azure-openai-gateway-multi-backend.yml).
 
@@ -194,7 +195,7 @@ Monitor [SNAT port usage and firewall health](/azure/firewall/monitor-firewall#a
 
 #### Bulkhead Azure AI Agent dependencies from similar workload components
 
-To maximize reliability and minimize the blast radius of failures, strictly isolate the Azure AI Agent Service's dependencies from other workload components that are designed to use the same Azure services. Namely, don;t share Azure AI Search, Cosmos DB, or Azure Storage resources between the agent service and other application components. Instead, provision dedicated instances for the agent service's required dependencies. This separation enables you to:
+To maximize reliability and minimize the blast radius of failures, strictly isolate the Azure AI Agent Service's dependencies from other workload components that are designed to use the same Azure services. Namely, don't share Azure AI Search, Cosmos DB, or Azure Storage resources between the agent service and other application components. Instead, provision dedicated instances for the agent service's required dependencies. This separation enables you to:
 
 - Contain failures or performance degradation to a single workload segment, preventing cascading impacts across unrelated application features.
 
@@ -207,7 +208,7 @@ For example, if your chat UI application needs to store transactional state in C
 
 #### Multiple-region design
 
-This architecture is designed for high availability within a single Azure region using availability zones' it's not a multi-region solution. It lacks the following critical elements required for regional resiliency and disaster recovery:
+This architecture is designed for high availability within a single Azure region using availability zones. It's not a multi-region solution. It lacks the following critical elements required for regional resiliency and disaster recovery:
 
 - Global ingress and traffic routing
 - DNS management for failover
@@ -243,7 +244,7 @@ For Azure AI Agent Service, you must ensure that all dependencies can be recover
 
 - **Transactional consistency**: If your workload's own state store references Azure AI Agent identifiers (such as thread IDs or agent IDs), you must coordinate recovery across all relevant data stores. Restoring only a subset of dependencies can result in orphaned or inconsistent data. Design your DR processes to maintain referential integrity between your workload and the agent service's state.
 
-- **Agent definitions and configuration**: Define agents "as code"; store agent definitions, connections, system prompts, and parameters in source control. This practice enables you to redeploy agents from a known-good configuration in the event of a complete loss of the orchestration layer. Avoid making ad-hoc changes to agent configuration through the AI Foundry portal or data plane APIs that are not tracked in source control. This ensures that your deployed agents are reproducible.
+- **Agent definitions and configuration**: Define agents "as code". Store agent definitions, connections, system prompts, and parameters in source control. This practice enables you to redeploy agents from a known good configuration in the event of a complete loss of the orchestration layer. Avoid making ad-hoc changes to agent configuration through the AI Foundry portal or data plane APIs that are not tracked in source control. This ensures that your deployed agents are reproducible.
 
 Before going to production, invest time to build a recovery runbook that addresses failures in both application-owned state and agent agent-owned state.
 
@@ -272,7 +273,7 @@ This architecture primarily uses system-assigned managed identities for service-
 
 ##### Azure AI Foundry portal employee access
 
-When onboarding employees to Azure AI Foundry projects, assign the minimum set of permissions required for their role. Use Microsoft Entra ID groups and RBAC to enforce separation of duties (for example, distinguishing between agent developers from data scientists performing fine tuning). However, be aware of the following limitations and risks:
+When onboarding employees to Azure AI Foundry projects, assign the minimum set of permissions required for their role. Use Microsoft Entra ID groups and RBAC to enforce separation of duties. For example, distinguish agent developers from data scientists performing fine tuning. However, be aware of the following limitations and risks:
 
 Azure AI Foundry portal operates with the service's own identity, not the employee's, for many actions. This means that even employees with limited RBAC roles might have visibility into sensitive data such as chat threads, agent definitions, and configuration. This AI Foundry portal design can inadvertently bypass your desired access constraints, exposing more information than intended.
 
@@ -282,7 +283,7 @@ The ability to create new projects in an Azure AI Foundry account is a high-priv
 
 ##### Azure AI Foundry project role assignments and connections
 
-To use Azure AI Agent service in the standard mode, the project must have administrative permissions on the agent service's dependencies. Specifically, the project's managed identity must be granted elevated role assignments on the Azure Storage account, Azure AI Search, and Azure Cosmos DB account. These permissions provide nearly full access to these these resources, including the ability to read, write, modify, or delete data. These elevated permissions are another reason to isolate your workload resources from the Azure AI Agent Service's dependencies, keeping least privilege access.
+To use Azure AI Agent service in the standard mode, the project must have administrative permissions on the Azure AI Agent Service's dependencies. Specifically, the project's managed identity must be granted elevated role assignments on the Azure Storage account, Azure AI Search, and Azure Cosmos DB account. These permissions provide nearly full access to these these resources, including the ability to read, write, modify, or delete data. These elevated permissions are another reason to isolate your workload resources from the Azure AI Agent Service's dependencies, keeping least privilege access.
 
 Additionally, all agents within a single AI Foundry project share the same managed identity. If your workload uses multiple agents that require access to different sets of resources, the principle of least privilege requires you to create a separate Azure AI Foundry project for each distinct agent access pattern. This separation allows you to assign only the minimum required permissions to each project's managed identity, reducing the risk of excessive or unintended access.
 
@@ -318,7 +319,7 @@ Private endpoints are a critical security control in this architecture, suppleme
 
 In this architecture, public access to the Azure AI Foundry data plane is disabled through the use of [private link for Azure AI Foundry](/azure/ai-foundry/how-to/configure-private-link). Although much of the AI Foundry portal is accessible at <https://ai.azure.com>, all project-level functionality in the portal is unavailable unless the employee is connected from within the network. The portal relies on your AI Foundry account's data plane APIs, which are only reachable via private endpoints. As a result, developers and data scientists must access the portal through a jump box, a peered virtual network, or a site-to-site VPN/ExpressRoute connection.
 
-Similarly, all programmatic interactions with the agent data plane, such as from the web application or when invoking model inferencing from external orchestration code, must use these private endpoints. Private endpoints are defined at the account level, not the project level; therefore, all projects within the account are accessible from the same set of endpoints. Network segmentation at the project level is not possible, and all projects share the same network exposure.
+Similarly, all programmatic interactions with the agent data plane, such as from the web application or when invoking model inferencing from external orchestration code, must use these private endpoints. Private endpoints are defined at the account level, not the project level. Therefore, all projects within the account are accessible from the same set of endpoints. Network segmentation at the project level is not possible, and all projects share the same network exposure.
 
 You must configure DNS for the following three Azure AI Foundry FQDN API endpoints:
 
@@ -429,13 +430,13 @@ Model deployments in Azure AI Foundry use the models-as-a-service (MaaS) approac
 
   - Be approved. Avoid exposing the models in a way that supports free-for-all access.
 
-  - Be self controlled. Require agents to use the token-limiting constraints that API calls provide, such as max_tokens and max_completions. This is only possible in self-hosted orchestration approaches; Azure AI Agent service doesn't provide this limiting functionality.
+  - Be self controlled. Require agents to use the token-limiting constraints that API calls provide, such as max_tokens and max_completions. This is only possible in self-hosted orchestration approaches. Azure AI Agent service doesn't provide this limiting functionality.
 
   - Optimize prompt input and response length. Longer prompts consume more tokens, which increases cost. Prompts that lack sufficient context don't help the models produce good results. Create concise prompts that provide enough context to allow the model to generate a useful response. Ensure that you optimize the limit of the response length.
 
-    This is only possible in self-hosted orchestration approaches;, Azure AI Agent service doesn't provide enough configuration to control this.
+    This is only possible in self-hosted orchestration approaches. Azure AI Agent service doesn't provide enough configuration to control this.
 
-- **Choose the right model for the agent.** Select the least expensive model that meets your agent's requirements. Avoid overprovisioning with higher-cost models unless necessary. For example, the reference implementation uses GPT-4o instead a more expensive model and achieves sufficient results.
+- **Choose the right model for the agent.** Select the least expensive model that meets your agent's requirements. Avoid overprovisioning with higher-cost models unless necessary. For example, the reference implementation uses GPT-4o instead of a more expensive model and achieves sufficient results.
 
 - **Monitor and manage usage.** Use [Azure cost management](/azure/ai-services/openai/how-to/manage-costs) and model telemetry to track token usage, set budgets, and create alerts for anomalies. Regularly review usage patterns and adjust quotas or client access as needed. See, [Plan and manage costs for Azure AI Foundry](/azure/ai-foundry/how-to/costs-plan-manage).
 
@@ -461,7 +462,7 @@ This operational excellence guidance doesn't include the front-end application e
 
 Microsoft fully manages the serverless compute platform for Azure AI Agent REST APIs and the orchestration execution logic. If you self-host orchestration, as mentioned in the [alternatives](#alternatives), you gain more control over runtime characteristics and capacity however you'll be directly responsible for all day-2 operations relevant for that platform. You'll need to evaluate the constraints and responsibilities inherit in your selected approach to understand what day-2 operations need to be designed to support your orchestration layer.
 
-In both approaches, state storage (such as chat history and agent configuration) must be managed for durability, backup, and recovery.
+In both approaches, state storage, such as chat history and agent configuration must be managed for durability, backup, and recovery.
 
 #### Monitoring
 
@@ -516,7 +517,7 @@ If you encounter bottlenecks that cannot be resolved through index server tuning
 
 - Decide if your application needs [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) or can use the shared (consumption) model. Provisioned throughput provides reserved capacity and predictable latency, which is important for production workloads with strict SLOs. The consumption model is best-effort and might be affected by noisy neighbor effects.
 
-- Monitor [provision-managed utilization](/azure/ai-services/openai/how-to/monitoring) to ensure you are not over- or under-provisioned.
+- Monitor [provision-managed utilization](/azure/ai-services/openai/how-to/monitoring) to ensure you are not over or under-provisioned.
 
 - Choose a conversational model that meets your inference latency requirements.
 
