@@ -4,14 +4,8 @@ description: Learn about background tasks that run independently of the user int
 ms.author: pnp
 author: RobBagby
 ms.date: 10/18/2022
-categories: azure
 ms.topic: best-practice
 ms.subservice: best-practice
-azureCategories:
-  - compute
-  - security
-products:
-  - azure-virtual-machines
 ms.custom:
   - best-practice
 ---

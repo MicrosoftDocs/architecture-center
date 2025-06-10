@@ -2,11 +2,9 @@
 title: Choose an Azure service for vector search
 description: Learn how to use this information to decide which Azure service for vector search best suits your application.
 author: konabuta
-ms.author: yongl
+ms.author: keonabut
 ms.reviewer: krmeht
 ms.subservice: architecture-guide
-products: azure-machine-learning
-categories: ai-machine-learning
 ms.topic: product-comparison
 ms.collection: ce-skilling-ai-copilot
 ms.custom: arb-aiml

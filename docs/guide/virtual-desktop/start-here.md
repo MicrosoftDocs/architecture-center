@@ -6,11 +6,6 @@ ms.author: pnp
 ms.date: 08/29/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-virtual-desktop
-  - azure-lab-services
-categories:
-  - azure-virtual-desktop
 ---
 
 # Virtual desktop architecture design

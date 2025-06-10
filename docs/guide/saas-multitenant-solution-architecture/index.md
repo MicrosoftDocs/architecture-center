@@ -6,10 +6,6 @@ ms.author: dascottr
 ms.date: 04/29/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-categories:
-  - management-and-governance
 ms.custom:
   - arb-saas
 ---

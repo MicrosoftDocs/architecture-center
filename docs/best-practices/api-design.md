@@ -6,8 +6,6 @@ author: RobBagby
 ms.date: 03/27/2025
 ms.topic: best-practice
 ms.subservice: best-practice
-products:
-  - aspnet
 ms.custom:
   - best-practice
 keywords:
@@ -17,7 +15,6 @@ keywords:
   - "API design"
   - "RESTful web services"
   - "API standards"
-categories: featured
 ---
 
 <!-- cSpell:ignore HATEOAS -->

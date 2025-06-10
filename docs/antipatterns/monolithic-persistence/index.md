@@ -6,14 +6,6 @@ author: RobBagby
 ms.date: 06/05/2017
 ms.topic: design-pattern
 ms.subservice: design-pattern
-categories:
-  - analytics
-  - storage
-  - web
-  - azure
-products:
-  - aspnet
-  - azure-cache-redis
 ms.custom:
   - article
 ---

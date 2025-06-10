@@ -12,15 +12,6 @@ ms.category:
 ms.custom:
   - networking
   - reference-architecture
-categories:
-  - networking
-  - management-and-governance
-products:
-  - entra-id
-  - azure-firewall
-  - azure-functions
-  - azure-traffic-manager
-  - azure-virtual-machines
 ---
 
 # Deploy highly available NVAs

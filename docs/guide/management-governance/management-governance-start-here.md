@@ -6,15 +6,6 @@ ms.author: pnp
 ms.date: 06/16/2023
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-attestation
-  - azure-purview
-  - azure-policy
-  - azure-stack
-  - azure-backup
-categories:
-  - management-and-governance
-  - hybrid
 ---
 
 # Management and governance architecture design

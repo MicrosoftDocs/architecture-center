@@ -1,18 +1,11 @@
 ---
-title: Architectural approaches for IoT Hub-based multitenant solutions
-description: This article describes approaches for supporting multitenancy in your IoT Hub-based solution.
+title: IoT Hub-based Multitenant Solution Architectural Approaches
+description: Learn about architectural approaches for Azure IoT Hub-based multitenant solutions to build scalable, secure, and efficient solutions.
 author: MikeBazMSFT
 ms.author: micbaz
 ms.date: 12/13/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - azure-iot
-  - azure-iot-central
-  - azure-iot-hub
-categories:
-  - iot
 ms.custom:
   - guide
   - arb-saas
@@ -21,7 +14,7 @@ ms.custom:
 
 # Architectural approaches for IoT Hub-based multitenant solutions
 
-Multitenant IoT Hub-based solutions come in many different flavors and sizes. You might have many requirements and constraints, ranging from infrastructure ownership, to customer data isolation, to compliance. It can be challenging to define a pattern that meets all of these design constraints, and doing so often requires considering multiple dimensions. This article describes several approaches commonly used to solve multitenancy considerations for IoT Hub-based solutions.
+This article describes several approaches commonly used to solve multitenancy considerations for Azure IoT Hub-based solutions. Multitenant IoT Hub-based solutions come in many different flavors and sizes. You might have many requirements and constraints, ranging from infrastructure ownership, to customer data isolation, to compliance. It can be challenging to define a pattern that meets all of these design constraints, and doing so often requires considering multiple dimensions. 
 
 ## Key considerations and requirements
 
@@ -99,7 +92,7 @@ A typical aPaaS solution using [Azure IoT Central](/azure/iot-central/core/overv
 * [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) as a data analytics platform.
 * [Power BI](/power-bi/fundamentals/power-bi-overview) as a visualization and reporting platform.
 
-:::image type="content" source="media/iot/simple-saas.png" alt-text="An I O T architecture showing tenants sharing an I O T Central environment, Azure Data Explorer, Power B I, and Azure Logic Apps." border="false":::
+:::image type="content" source="media/iot/simple-saas.png" alt-text="Diagram of an IoT Hub-based multitenant architecture that shows tenants sharing an IoT Central environment, Data Explorer, Power BI, and Logic Apps." border="false":::
 
 In the previous diagram, the tenants share an IoT Central environment, Azure Data Explorer, Power BI, and Azure Logic Apps.
 
@@ -122,7 +115,7 @@ A PaaS-based approach might use the following Azure services:
 * [Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics) for analyzing hot path data from IoT devices.
 * [Azure IoT Edge](/azure/iot-edge/about-iot-edge) for running artificial intelligence (AI), non-Microsoft services, or your own business logic on IoT Edge devices.
 
-:::image type="content" source="media/iot/simple-paas-saas.png" alt-text="Diagram that shows an I O T solution. Each tenant connects to a shared web app, which receives data from I O T Hubs and a function app. Devices connect to the Device Provisioning Service and to I O T Hubs." border="false":::
+:::image type="content" source="media/iot/simple-paas-saas.png" alt-text="Diagram that shows an IoT solution. Each tenant connects to a shared web app, which receives data from hubs and a function app. Devices connect to the DPS and IoT Hub." border="false":::
 
 In the previous diagram, each tenant connects to a shared web app, which receives data from IoT Hubs and a function app. Devices connect to the Device Provisioning Service and to IoT Hubs.
 
@@ -145,7 +138,7 @@ The following table lists common patterns for multitenant IoT solutions. Each pa
 
 ### Simple SaaS
 
-:::image type="content" source="media/iot/simple-saas.png" alt-text="Diagram that shows an I O T architecture. Tenants share an I O T Central environment, Azure Data Explorer, Power B I, and Azure Logic Apps." border="false":::
+:::image type="content" source="media/iot/simple-saas.png" alt-text="Diagram that shows an IoT architecture. Tenants share an IoT Central environment, Data Explorer, Power BI, and Logic Apps." border="false":::
 
 | Deployment Target | Tenancy Model | Deployment Pattern |
 |---|---|---|
@@ -195,7 +188,7 @@ Within an IoT solution, there are many components that can be horizontally parti
 
 The following architectural example partitions IoT Central per end customer, which serves as the device management, device communications, and administrations portal. This partitioning is often done in such a way that the end customer who consumes the solution has full control over adding, removing, and updating their devices, without intervention from the software vendor. The rest of the solution follows a standard shared infrastructure pattern, which solves for hot path analysis, business integrations, SaaS management, and device analysis needs.
 
-:::image type="content" source="media/iot/horizontal-saas.png" alt-text="Diagram of an I O T solution. Each tenant has their own I O T Central organization, which sends telemetry to a shared function app and makes it available to the tenants' business users through a web app." border="false":::
+:::image type="content" source="media/iot/horizontal-saas.png" alt-text="Diagram of an IoT solution. Each tenant has their own IoT Central organization, which sends telemetry to a shared function app and makes it available to the tenants' business users through a web app." border="false":::
 
 Each tenant has their own IoT Central organization, which sends telemetry to a shared function app and makes it available to the tenants' business users through a web app.
 
@@ -240,7 +233,7 @@ By partitioning stream processing, you enable per-tenant customizations of the a
 
 A single-tenant automated approach is based on a similar decision process and design to an [enterprise solution](/azure/iot/iot-services-and-technologies).
 
-:::image type="content" source="media/iot/single-tenant-automated.png" alt-text="Diagram that shows an I O T architecture for three tenants. Each tenant has their own identical, isolated environment with an I O T Central organization and other components dedicated to them." border="false":::
+:::image type="content" source="media/iot/single-tenant-automated.png" alt-text="Diagram that shows an IoT architecture for three tenants. Each tenant has their own identical, isolated environment with an IoT Central organization and other dedicated components." border="false":::
 
 Each tenant has its own identical, isolated environment, with an IoT Central organization and other components dedicated to them.
 

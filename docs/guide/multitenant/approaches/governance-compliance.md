@@ -5,11 +5,6 @@ author: johndowns
 ms.author: pnp
 ms.date: 07/22/2024
 ms.topic: conceptual
-products:
-  - azure
-categories:
-  - management-and-governance
-  - security
 ms.subservice: architecture-guide
 ms.custom:
   - guide

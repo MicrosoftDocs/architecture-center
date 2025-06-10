@@ -6,12 +6,7 @@ ms.author: pnp
 ms.date: 08/11/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-migrate
-  - azure-database-migration
-  - azure-data-box-family
-categories:
-  - migration
+ms.collection: migration
 ---
 # Migration architecture design
 

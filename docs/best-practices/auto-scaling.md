@@ -6,11 +6,6 @@ author: RobBagby
 ms.date: 10/11/2022
 ms.topic: best-practice
 ms.subservice: best-practice
-categories:
-  - compute
-products:
-  - azure-vm-scalesets
-  - azure-monitor
 ms.custom:
   - best-practice
 ---

@@ -6,11 +6,6 @@ author: RobBagby
 ms.date: 02/20/2025
 ms.topic: design-pattern
 ms.subservice: design-pattern
-products:
-  - azure-storage
-categories:
-  - storage
-  - databases
 ---
 
 # CQRS pattern

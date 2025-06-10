@@ -3,13 +3,9 @@ title: Choose a Stream Processing Technology
 description: Compare options for real-time message stream processing in Azure, with key selection criteria and a capability matrix.
 author: pratimav0420
 ms.author: prvalava
-categories: azure
 ms.date: 06/06/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-databricks
-  - azure-app-service
 ms.custom:
   - guide
 ---

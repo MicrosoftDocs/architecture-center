@@ -6,11 +6,6 @@ ms.author: pnp
 ms.date: 04/17/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-categories:
-  - management-and-governance
-  - security
 ms.custom:
   - arb-saas
 ---

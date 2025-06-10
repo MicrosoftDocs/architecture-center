@@ -11,12 +11,6 @@ ms.collection:
  - aws-to-azure
 ms.custom:
   - arb-containers
-categories:
-  - containers
-  - management-and-governance
-products:
-  - azure-kubernetes-service
-  - azure-policy
 ---
 
 # Kubernetes cluster governance

@@ -2,7 +2,6 @@
 title: Deployment and testing for mission-critical workloads on Azure
 description: Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources - Deployment and Testing.
 author: asudbring
-categories: devops
 ms.author: allensu
 ms.date: 11/30/2023
 ms.topic: reference-architecture
@@ -13,9 +12,6 @@ ms.category:
   - devops
   - deployment
   - testing
-products:
-  - azure-devops
-  - azure-chaos-studio
 ---
 
 # Deployment and testing for mission-critical workloads on Azure

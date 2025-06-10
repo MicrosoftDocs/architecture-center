@@ -6,11 +6,6 @@ ms.author: dascottr
 ms.date: 05/30/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - entra-id
-categories:
-  - identity
 ms.custom:
   - guide
   - arb-saas

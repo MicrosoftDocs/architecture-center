@@ -6,12 +6,6 @@ ms.author: pnp
 ms.date: 06/27/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - azure-resource-manager
-categories:
-  - management-and-governance
-  - devops
 ms.custom:
   - guide
   - devx-track-arm-template

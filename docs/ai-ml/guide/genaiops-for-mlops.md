@@ -8,10 +8,6 @@ ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
-products:
-  - azure-machine-learning
-categories:
-  - ai-machine-learning
 ---
 
 # Generative AI operations for organizations with MLOps investments

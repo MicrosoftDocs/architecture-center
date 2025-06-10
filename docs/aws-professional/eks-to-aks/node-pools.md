@@ -12,12 +12,6 @@ ms.custom:
 ms.collection:
   - migration
   - aws-to-azure
-categories:
-  - containers
-  - compute
-products:
-  - azure-kubernetes-service
-  - azure-virtual-machines
 ---
 
 # Manage Kubernetes nodes and node pools
