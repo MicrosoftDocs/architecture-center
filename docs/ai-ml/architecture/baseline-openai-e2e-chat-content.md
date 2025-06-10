@@ -166,7 +166,7 @@ Be aware that the AI Foundry portal, its data plane APIs, nor the AI Agent capab
 
 Azure AI Foundry offers Models-as-a-Service (MaaS) hosting with several deployment options. These options are primarily designed for quota and throughput management, not for traditional high availability within a region. Standard model deployments are limited to a single region and do not support availability zones. To achieve multi-datacenter availability, you must use either a global or a data zone model deployment.
 
-For enterprise chat scenarios, deploy both a [Data zone provisioned](/azure/ai-foundry/model-inference/concepts/deployment-types#data-zone-provisioned) and [Data zone standard](/azure/ai-foundry/model-inference/concepts/deployment-types#data-zone-standard) model, and configure [spillover](/azure/ai-services/openai/how-to/spillover-traffic-management) to handle excess traffic or failures. If your workload is not constrained by geographic data residency or latency, global deployment types provide the highest resilience and should be preferred.
+For enterprise chat scenarios, deploy both a [Data zone provisioned](/azure/ai-foundry/model-inference/concepts/deployment-types#data-zone-provisioned) and [Data zone standard](/azure/ai-foundry/model-inference/concepts/deployment-types#data-zone-standard) model, and configure [spillover](/azure/ai-services/openai/how-to/spillover-traffic-management) to handle excess traffic or failures. If your workload is not constrained by geographic data residency and processing or latency, global deployment types provide the highest resilience and should be preferred.
 
 Be aware that Azure AI Foundry does not support advanced load balancing or failover mechanisms (such as round-robin or [circuit breaking](/azure/api-management/backends#circuit-breaker)) for model deployments. If you require granular redundancy and failover control within a region, you must host your model access logic outside of the managed service—using, for example, a custom gateway implemented in Azure API Management. This approach allows you to implement custom routing, health checks, and failover strategies, but increases operational complexity and shifts responsibility for reliability of that component to your team. You can also expose gateway-fronted models as custom API-based tools or knowledge stores for your agent. For more, see [Use a gateway in front of multiple Azure OpenAI deployments or instances](../guide/azure-openai-gateway-multi-backend.yml).
 
@@ -241,7 +241,7 @@ For Azure AI Agent Service, you must ensure that all dependencies can be recover
 
 - **Transactional consistency**: If your workload's own state store references Azure AI Agent identifiers (such as thread IDs or agent IDs), you must coordinate recovery across all relevant data stores. Restoring only a subset of dependencies can result in orphaned or inconsistent data. Design your DR processes to maintain referential integrity between your workload and the agent service's state.
 
-- **Agent definitions and configuration**: Always define agents "as code"; store agent definitions, connections, system prompts, and parameters in source control. This practice enables you to redeploy agents from a known-good configuration in the event of a complete loss of the orchestration layer. Avoid making ad-hoc changes to agent configuration through the AI Foundry portal or data plane APIs that are not tracked in source control. This ensures that your deployed agents are reproducible.
+- **Agent definitions and configuration**: Define agents "as code"; store agent definitions, connections, system prompts, and parameters in source control. This practice enables you to redeploy agents from a known-good configuration in the event of a complete loss of the orchestration layer. Avoid making ad-hoc changes to agent configuration through the AI Foundry portal or data plane APIs that are not tracked in source control. This ensures that your deployed agents are reproducible.
 
 Before going to production, invest time to build a recovery runbook that addresses failures in both application-owned state and agent agent-owned state.
 
@@ -519,7 +519,7 @@ If you encounter bottlenecks that cannot be resolved through index server tuning
 
 - Monitor [provision-managed utilization](/azure/ai-services/openai/how-to/monitoring) to ensure you are not over- or under-provisioned.
 
-- Choose a conversational model that meets your latency requirements.
+- Choose a conversational model that meets your inference latency requirements.
 
 - Deploy models in the same data region as your agents to minimize network latency.
 
