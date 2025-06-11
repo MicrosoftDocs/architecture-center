@@ -48,7 +48,7 @@ Deploy at least two VMs running AD DS as domain controllers and add them to diff
 
 ### Networking recommendations
 
-Configure the VM network interface (NIC) for each domain controller with a static private IP address instead of using Dynamic Host Configuration Protocol (DHCP). By assigning a static IP address directly to the VM, clients can continue to contact the domain controller even if the DHCP service is unavailable. For more information, see [How to set a static private IP address in the Azure portal][set-a-static-ip-address].
+Configure the VM network interface (NIC) for each domain controller with a static private IP address instead of using Dynamic Host Configuration Protocol (DHCP). By assigning a static IP address directly to the VM, clients can continue to contact the domain controller even if the DHCP service is unavailable. For more information, see [How to set a static private IP address on a NIC][set-a-static-ip-address].
 
 > [!NOTE]
 > Don't configure the VM NIC for any AD DS with a public IP address. See [Security considerations][security-considerations] for more details.
