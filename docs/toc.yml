@@ -1134,7 +1134,7 @@ items:
     - name: Guides
       items:
       - name: Windows 365 Azure network connection
-        href: guide/virtual-desktop/windows-365-azure-network-connection.yml
+        href: guide/virtual-desktop/windows-365-azure-network-connection.md
       - name: Multiregion BCDR for AVD
         href: example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml
     - name: Architectures
