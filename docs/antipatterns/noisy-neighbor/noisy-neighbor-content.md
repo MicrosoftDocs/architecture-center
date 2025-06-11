@@ -2,9 +2,9 @@ Multitenant systems share resources between two or more tenants. Because tenants
 
 ## Problem description
 
-When you build a service to be shared by multiple customers or tenants, you can build it to be *multitenanted*. A benefit of multitenant systems is that resources can be pooled and shared among tenants. This often results in lower costs and improved efficiency. However, if a single tenant uses a disproportionate amount of the resources available in the system, the overall performance of the system can suffer. The *noisy neighbor* problem occurs when one tenant's performance is degraded because of the activities of another tenant.
+When you build a service to be shared by multiple customers or *tenants*, you can build it to be *multitenanted*. A benefit of multitenant systems is that resources can be pooled and shared among tenants. This often results in lower costs and improved efficiency. However, if a single tenant uses a disproportionate amount of the resources available in the system, the overall performance of the system can suffer. The *noisy neighbor* problem occurs when one tenant's performance is degraded because of the activities of another tenant.
 
-Consider an example multitenant system with two tenants. Tenant A's usage patterns and tenant B's usage patterns coincide. At peak times, tenant A uses all of the system's resources, which means that any requests that tenant B makes fail. In other words, the total resource usage is higher than the capacity of the system:
+Consider an example multitenant system with two tenants. Tenant A's usage patterns and tenant B's usage patterns coincide. At peak times, tenant A uses all of the system's resources, which means that any requests that tenant B makes fail. In other words, the total resource demand is higher than the capacity of the system:
 
 ![Figure showing the resource usage of two tenants. Tenant A consumes the complete set of system resources, meaning tenant B experiences failures.](_images/noisy-neighbor-single.png)
 
@@ -23,8 +23,9 @@ Noisy neighbor problems are an inherent risk when you share a single resource, a
 ### Actions that clients can take
 
 - **Ensure your application handles [service throttling](../../patterns/throttling.yml)**, to reduce making unnecessary requests to the service. Ensure that your application follows good practices to [retry requests that received a transient failure response](../../patterns/retry.yml).
-- **Purchase reserved capacity, if available.** For example, when using Azure Cosmos DB, purchase [reserved throughput](/azure/cosmos-db/optimize-cost-throughput), and when using ExpressRoute, [provision separate circuits for environments that are sensitive to performance](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure).
-- **Migrate to a single-tenant instance of the service, or to a service tier with stronger isolation guarantees.** For example, when using Service Bus, [migrate to the premium tier](/azure/service-bus-messaging/service-bus-premium-messaging), and when using Azure Cache for Redis, [provision a standard or premium tier cache](/azure/azure-cache-for-redis/cache-best-practices#configuration-and-concepts).
+- **Purchase reserved capacity, if available.** For example, when using Azure Cosmos DB, purchase [reserved throughput](/azure/cosmos-db/optimize-cost-throughput).
+- **Migrate to a service tier with stronger isolation guarantees, if available.** For example, when using Service Bus, [migrate to the premium tier](/azure/service-bus-messaging/service-bus-premium-messaging), and when using Azure Cache for Redis, [provision a standard or premium tier cache](/azure/azure-cache-for-redis/cache-best-practices#configuration-and-concepts).
+- **Migrate to a single-tenant instance of the service.** For example, when using ExpressRoute, [provision separate circuits for environments that are sensitive to performance](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure).
 
 ### Actions that service providers can take
 
@@ -33,10 +34,10 @@ Noisy neighbor problems are an inherent risk when you share a single resource, a
 - **Provision more infrastructure.** This process might involve scaling up by upgrading some of your solution components, or it might involve scaling out by provisioning additional shards, if you follow the [Sharding pattern](../../patterns/sharding.yml), or stamps, if you follow the [Deployment Stamps pattern](../../patterns/deployment-stamp.yml).
 - **Enable tenants to purchase pre-provisioned or reserved capacity.** This capacity provides tenants with more certainty that your solution adequately handles their workload.
 - **Smooth out tenants' resource usage**. For example, you might try one of the following approaches:
-  - If you host multiple instances of your solution, consider rebalancing tenants across the instances or stamps. For example, consider placing tenants with predictable and similar usage patterns across multiple stamps, to flatten the peaks in their usage.
+  - If you host multiple instances of your solution, consider rebalancing tenants across the instances or stamps. For example, consider placing tenants with predictable and complementary usage patterns across multiple stamps, to flatten the peaks in their usage.
   - Consider whether you have background processes or resource-intensive workloads that aren't time-sensitive. Run these workloads asynchronously at off-peak times, to preserve your peak resource capacity for time-sensitive workloads.
 - **Check whether your downstream services provide controls to mitigate noisy neighbor problems.** For example, when using Kubernetes, [consider using pod limits](/azure/aks/developer-best-practices-resource-management), and when using Service Fabric, [consider using the built-in governance capabilities](/azure/service-fabric/service-fabric-resource-governance).
-- **Restrict the operations that tenants can perform.** For example, restrict tenants from executing operations that will run very large database queries, such as by specifying a maximum returnable record count or time limit on queries. This action mitigates the risk of tenants taking actions that might negatively impact other tenants.
+- **Restrict the operations that tenants can perform.** For example, restrict tenants from executing operations that will run very large database queries, such as by specifying a maximum returnable record count or time limit on queries. Or, change these operations to be asynchronous and schedule them to run at off-peak times. This action mitigates the risk of tenants taking actions that might negatively impact other tenants.
 - **Provide a Quality of Service (QoS) system.** When you apply QoS, you prioritize some processes or workloads ahead of others. By factoring QoS into your design and architecture, you can ensure that high-priority operations take precedence when there's pressure on your resources.
 
 ## Considerations
@@ -51,6 +52,8 @@ Regardless of the cause, it's important to treat these problems as resource gove
 ## How to detect the problem
 
 From a client's perspective, the noisy neighbor problem typically manifests as failed requests to the service, or as requests that take a long time to complete. In particular, if the same request succeeds at other times and appears to fail randomly, there might be a noisy neighbor issue. Client applications should record telemetry to track the success rate and performance of the requests to services, and the applications should also record baseline performance metrics for comparison purposes.
+
+For Azure-based services, review the [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits) to understand limits and quotas that apply to each Azure component in your solution.
 
 From a service's perspective, the noisy neighbor issue might appear in several ways:
 
