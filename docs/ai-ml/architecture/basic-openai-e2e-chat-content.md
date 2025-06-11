@@ -1,7 +1,7 @@
 This article provides a basic architecture to help you learn how to run chat applications by using [Azure AI Foundry](/azure/ai-foundry/what-is-ai-foundry) and [Azure OpenAI language models](/azure/ai-services/openai/concepts/models). The architecture includes a client user interface (UI) that runs in Azure App Service. To fetch grounding data for the language model, the UI uses an Azure AI agent to orchestrate the workflow from incoming prompts to data stores. The architecture is designed to operate out of a single region.
 
 > [!IMPORTANT]
-> This architecture isn't for production applications. It's an introductory architecture for learning and proof-of-concept (POC) purposes. When you design your production enterprise chat applications, use the [baseline Azure OpenAI end-to-end chat reference architecture](./baseline-openai-e2e-chat.yml), which adds production design decisions to this basic architecture.
+> This architecture isn't for production applications. It's an introductory architecture for learning and proof-of-concept (POC) purposes. When you design your production enterprise chat applications, use the [Baseline AI Foundry chat reference architecture](./baseline-openai-e2e-chat.yml), which adds production design decisions to this basic architecture.
 
 > [!IMPORTANT]
 > :::image type="icon" source="../../_images/github.svg"::: An [example implementation](https://github.com/Azure-Samples/openai-end-to-end-basic) supports this guidance. It includes deployment steps for a basic end-to-end chat implementation. You can use this implementation as a foundation for your POC to work with chat applications that use Azure AI Foundry agents.
@@ -71,7 +71,7 @@ The following list outlines critical reliability features that this architecture
 
 - This architecture uses the AI Search Basic tier, which doesn't support [Azure availability zones](/azure/reliability/availability-zones-overview). To achieve zonal redundancy, deploy the AI Search Standard pricing tier or higher in a region that supports availability zones, and deploy three or more replicas.
 
-For more information, see [Baseline Azure OpenAI end-to-end chat reference architecture](./baseline-openai-e2e-chat.yml).
+For more information, see [Baseline AI Foundry chat reference architecture](./baseline-openai-e2e-chat.yml).
 
 ### Security
 
@@ -123,7 +123,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 This basic architecture doesn't represent the costs for a production-ready solution. It also doesn't include controls to guard against cost overruns. The following considerations outline crucial features that this architecture doesn't include. These features affect cost.
 
-- This architecture assumes that the deployed Azure OpenAI model receives limited calls. So we recommend that you use the `Global Standard` deployment type for pay-as-you-go pricing instead of a provisioned throughput deployment type. As you move toward a production solution, follow the [Azure OpenAI cost optimization guidance](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#azure-openai) in the baseline architecture.
+- This architecture assumes that the deployed Azure OpenAI model receives limited calls. So we recommend that you use the `Global Standard` deployment type for pay-as-you-go pricing instead of a provisioned throughput deployment type. As you move toward a production solution, follow the [cost optimization guidance](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#azure-openai) in the baseline architecture.
 
 - Azure AI Agent Service incurs costs for files uploaded during chat interactions. Don't make file upload functionality available to application users if it's not part of the desired user experience. Extra knowledge connections, such as the [Grounding with Bing tool](https://www.microsoft.com/bing/apis/grounding-pricing), have their own pricing structures.
 
@@ -189,7 +189,7 @@ Architects should design AI and machine learning workloads, such as this one, wi
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Baseline Azure OpenAI end-to-end chat reference architecture](./baseline-openai-e2e-chat.yml)
+> [Baseline AI Foundry chat reference architecture](./baseline-openai-e2e-chat.yml)
 
 ## Related resources
 
