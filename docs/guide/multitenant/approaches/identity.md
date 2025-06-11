@@ -80,7 +80,6 @@ Authorization data can be stored in several places, including in the following l
 
 In most multitenant solutions, the customer or tenant manages role and permission assignments, and not the vendor of the multitenant system.
 
-For more information, see [Application roles](../../../multitenant-identity/app-roles.md).
 
 ### Add tenant identity and role information to tokens
 
