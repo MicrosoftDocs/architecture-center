@@ -1,9 +1,14 @@
 {
+    "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/refs/heads/main/cspell.schema.json",
     "version": "0.2",
+    "useGitignore": true,
     "language": "en",
     "enabled": true,
+    "features": {
+        "weighted-suggestions": true
+    },
     "import": [
-        ".\\docs\\cspell.json"
+        "./docs/cspell.json"
     ],
     "words": []
 }

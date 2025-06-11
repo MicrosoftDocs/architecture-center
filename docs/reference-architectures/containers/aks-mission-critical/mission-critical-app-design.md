@@ -8,11 +8,6 @@ ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers
-ms.category:
-  - containers
-  - networking
-  - database
-  - monitoring
 ---
 
 # Application design considerations for mission-critical workloads

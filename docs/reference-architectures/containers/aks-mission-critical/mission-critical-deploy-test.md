@@ -8,10 +8,6 @@ ms.topic: reference-architecture
 ms.subservice: reference-architecture
 ms.custom:
   - arb-containers
-ms.category:
-  - devops
-  - deployment
-  - testing
 ---
 
 # Deployment and testing for mission-critical workloads on Azure

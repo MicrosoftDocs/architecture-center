@@ -7,11 +7,6 @@ ms.date: 10/17/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: arb-containers
-ms.category:
-  - containers
-  - networking
-  - database
-  - monitoring
 ---
 
 # Security considerations for mission-critical workloads

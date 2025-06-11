@@ -8,8 +8,6 @@ ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers
-ms.category:
-  - containers
 ---
 
 # Choose a Kubernetes at the edge compute option
