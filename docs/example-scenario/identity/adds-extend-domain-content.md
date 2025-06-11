@@ -48,15 +48,15 @@ Deploy at least two VMs running AD DS as domain controllers and add them to diff
 
 ### Networking recommendations
 
-Configure the VM network interface (NIC) for each AD DS server with a static private IP address for full domain name service (DNS) support. For more information, see [How to set a static private IP address in the Azure portal][set-a-static-ip-address].
+Configure the VM network interface (NIC) for each domain controller with a static private IP address instead of using Dynamic Host Configuration Protocol (DHCP). By assigning a static IP address directly to the VM, clients can continue to contact the domain controller even if the DHCP service is unavailable. For more information, see [How to set a static private IP address on a NIC][set-a-static-ip-address].
 
 > [!NOTE]
 > Don't configure the VM NIC for any AD DS with a public IP address. See [Security considerations][security-considerations] for more details.
->
+
 
 The Active Directory subnet NSG requires rules to permit incoming traffic from on-premises and outgoing traffic to on-premises. For detailed information on the ports used by AD DS, see [Active Directory and Active Directory Domain Services Port Requirements][ad-ds-ports].
 
-If the new domain controller VMs also have the role of DNS servers, we recommend that you configure them as custom DNS servers at the virtual network level, as explained in [Change DNS servers](/azure/virtual-network/manage-virtual-network#change-dns-servers). This should be done for the virtual network hosting the new domain controllers and peered networks where other VMs must resolve Active Directory domain names. For more information on configuring hybrid DNS name resolution, see [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+If the new domain controller VMs also have the role of Domain Name System (DNS) servers, we recommend that you configure them as custom DNS servers at the virtual network level, as explained in [Change DNS servers](/azure/virtual-network/manage-virtual-network#change-dns-servers). This should be done for the virtual network hosting the new domain controllers and peered networks where other VMs must resolve Active Directory domain names. For more information on configuring hybrid DNS name resolution, see [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
 For initial configuration, you may need to adjust the Network Interface of one of your Domain Controllers in Azure, to point to a domain controller on-premises as the primary DNS source.
 
