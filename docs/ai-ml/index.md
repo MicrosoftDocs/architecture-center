@@ -139,7 +139,7 @@ For more information, see the following resources:
 
 - [Azure AI Foundry chat architecture in an Azure landing zone](./architecture/azure-openai-baseline-landing-zone.yml)
 - [Batch scoring of Spark machine learning models on Azure Databricks](./architecture/batch-scoring-databricks.yml)
-- [Baseline Azure AI Foundry chat reference architecture](./architecture/baseline-openai-e2e-chat.yml) is a reference architecture that describes how to build an end-to-end chat architecture by using OpenAI's GPT models in Azure AI Foundry. It incorporates grounding via enterprise data sources to enrich responses with contextual information.
+- [Baseline Azure AI Foundry chat reference architecture](./architecture/baseline-openai-e2e-chat.yml) describes how to build an end-to-end chat architecture by using OpenAI's GPT models in Azure AI Foundry. It incorporates grounding via enterprise data sources to enrich responses with contextual information.
 
   :::image type="complex" source="./architecture/_images/ai-foundry-end-to-end-baseline-deployment.svg" border="false" lightbox="./architecture/_images/ai-foundry-end-to-end-baseline-deployment.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Azure AI Foundry.":::
       The diagram presents a detailed Azure architecture for deploying an AI solution. On the left, a user connects through an Application Gateway with a web application firewall, which is part of a virtual network. This gateway is linked to private DNS zones and protected by DDoS Protection. Below the gateway, private endpoints connect to services such as App Service, Key Vault, and Storage, which are used for client app deployment. The App Service is managed with identity and spans three zones. Monitoring is provided by Application Insights and Azure Monitor, and authentication is handled by Microsoft Entra ID.
@@ -412,7 +412,7 @@ For more information, see the following resources:
 
 - [Customize a model with fine-tuning](/azure/ai-services/openai/how-to/fine-tuning)
 - [Tutorial: Azure OpenAI GPT-4o-mini fine-tuning](/azure/ai-services/openai/tutorials/fine-tune)
-- [Baseline OpenAI end-to-end chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat)
+- [Baseline AI Foundry chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat)
 
 ### Azure AI services for custom AI
 

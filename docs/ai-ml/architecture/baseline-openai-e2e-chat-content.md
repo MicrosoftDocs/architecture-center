@@ -1,5 +1,4 @@
-Enterprise chat applications 
-can empower employees through conversational interactions with AI agents. This point is especially true because of the continuous advancement of language models, such as OpenAI's GPT models and orchestration SDKs like Semantic Kernel. These chat applications typically consist of:
+Enterprise chat applications can empower employees through conversational interactions with AI agents. This point is especially true because of the continuous advancement of language models, such as OpenAI's GPT models and orchestration SDKs like Semantic Kernel. These chat applications typically consist of:
 
 - A chat user interface (UI) that is integrated into a larger enterprise application, providing users with a conversational experience alongside other business functions.
 
@@ -169,7 +168,7 @@ Be aware that the AI Foundry portal, its data plane APIs, nor the AI Agent capab
 
 Azure AI Foundry offers Models-as-a-Service (MaaS) hosting with several deployment options. These options are primarily designed for quota and throughput management, not for traditional high availability within a region. Standard model deployments are limited to a single region and don't support availability zones. To achieve multi-datacenter availability, you must use either a global or a data zone model deployment.
 
-For enterprise chat scenarios, deploy both a [Data zone provisioned](/azure/ai-foundry/model-inference/concepts/deployment-types#data-zone-provisioned) and [Data zone standard](/azure/ai-foundry/model-inference/concepts/deployment-types#data-zone-standard) model, and configure [spillover](/azure/ai-services/openai/how-to/spillover-traffic-management) to handle excess traffic or failures. If your workload isn't constrained by latency or  geographic data residency and processing, global deployment types provide the highest resilience and should be preferred.
+For enterprise chat scenarios, deploy both a [Data zone provisioned](/azure/ai-foundry/model-inference/concepts/deployment-types#data-zone-provisioned) and [Data zone standard](/azure/ai-foundry/model-inference/concepts/deployment-types#data-zone-standard) model, and configure [spillover](/azure/ai-services/openai/how-to/spillover-traffic-management) to handle excess traffic or failures. If your workload isn't constrained by latency or geographic data residency and processing, global deployment types provide the highest resilience and should be preferred.
 
 Be aware that Azure AI Foundry doesn't support advanced load balancing or failover mechanisms (such as round-robin or [circuit breaking](/azure/api-management/backends#circuit-breaker)) for model deployments. If you require granular redundancy and failover control within a region, you must host your model access logic outside of the managed service—using, for example, a custom gateway implemented in Azure API Management. This approach allows you to implement custom routing, health checks, and failover strategies, but increases operational complexity and shifts responsibility for reliability of that component to your team. You can also expose gateway-fronted models as custom API-based tools or knowledge stores for your agent. For more, see [Use a gateway in front of multiple Azure OpenAI deployments or instances](../guide/azure-openai-gateway-multi-backend.yml).
 
@@ -396,7 +395,7 @@ When using the standard deployment, you're responsible for provisioning and mana
 
   - Use a locally redundant storage (LRS) tier for the Storage account.
   - Configure Azure AI Search with a single replica instead of the recommended three.
-  
+
 - Regularly delete unused agents and their associated threads using the SDK or REST APIs. Stale agents and threads continue to consume storage and can increase costs across Cosmos DB, Storage, and AI Search.
 
 - Disable features on dependent resources that aren't required for your workload. For example:
