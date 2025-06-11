@@ -14,6 +14,15 @@ metadata:
     - example-scenario
     - arb-containers
     - arb-web
+azureCategories:
+  - containers
+  - web
+products:
+  - azure-container-apps
+  - dotnet
+  - azure-sql-database
+  - azure-cosmos-db
+  - azure-cache-redis
 name: Deploy microservices with Azure Container Apps and Dapr
 summary: Build a serverless microservices solution on Azure Container Apps using Distributed Application Runtime (Dapr) and Kubernetes Event-Driven Autoscaling (KEDA).
 thumbnailUrl: /azure/architecture/browse/thumbs/microservices-with-container-apps-dapr.png
