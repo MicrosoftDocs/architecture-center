@@ -120,7 +120,7 @@ The virtual network's system route table already includes a system route for des
 | 10.0.0.0/8   | VirtualNetworkAppliance | \<Hub router/firewall IP address\> |
 | 10.0.0.0/24  | VirtualNetworkAppliance | \<Hub router/firewall IP address\> |
 
-The second UDR with destination 10.0.0.0/24 ensures that connections to resources in the hub virtual network route through the hub firewall. Some applications might require more UDRs. If virtual machines in the landing zone need internet access through NVAs that are typically hosted in the hub, you must also define a default route of `0.0.0.0/0`.
+The second UDR with destination `10.0.0.0/24` ensures that connections to resources in the hub virtual network route through the hub firewall. Some applications might require more UDRs. If virtual machines in the landing zone need internet access through NVAs that are typically hosted in the hub, you must also define a default route of `0.0.0.0/0`.
 
 > [!NOTE]
 > Client-to-AD DS domain controller communication over NAT is supported. Domain controller-to-domain controller communication over NAT hasn't been tested and isn't supported. For more information, see [Support boundaries for Windows Server Active Directory over NAT](/troubleshoot/windows-server/active-directory/support-for-active-directory-over-nat). We recommend that you deploy Windows Server Active Directory domain controllers to routable subnets.
@@ -163,7 +163,7 @@ You can find non-Microsoft NVAs that have NAT capabilities in Azure Marketplace.
 
 When you use non-Microsoft NVAs, consider the following factors:
 
-- Deploy a cluster with at least two NVAs to ensure high availability.
+- Deploy a cluster that has at least two NVAs to ensure high availability.
 
 - Use a Standard SKU Azure load balancer to distribute connections from the nonroutale spoke virtual network to the NVAs. All connections must use SNAT regardless of the destination port, so you should use [high-availability load-balancing rules](/azure/load-balancer/manage-rules-how-to#high-availability-ports), also known as *any-port load-balancing rules*. 
 - Choose between single-arm and dual-arm configurations for NAT-capable NVAs. Single-arm configurations are simpler and generally recommended.
@@ -221,9 +221,9 @@ To consume the application, clients connect to the private endpoint. Azure trans
 
 You can use Private Link to help mitigate IPv4 exhaustion by assigning two virtual networks to each landing zone:
 
-- A virtual network with a routable address space, connected to the corporate network
+- A virtual network that has a routable address space, connected to the corporate network
 
-- An isolated virtual network, with an arbitrarily chosen address space, which might even overlap with the corporate network's address space
+- An isolated virtual network, that has an arbitrarily chosen address space, which might even overlap with the corporate network's address space
 
 Deploy applications and the Private Link services that expose their endpoints in the isolated virtual networks. Deploy the private endpoints, which connect to those services, in the routable virtual networks.
 
