@@ -184,7 +184,7 @@ The following new and updated articles have recently been published in the Azure
 ### Updated articles
 
 - [Networking architecture design](./networking/index.md)  ([#4d4330c7bb](https://github.com/MicrosoftDocs/architecture-center/commit/4d4330c7bb))
-- [Baseline OpenAI End-to-End Chat Reference Architecture](./ai-ml/architecture/baseline-openai-e2e-chat.yml)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))
+- [Baseline AI Foundry Chat Reference Architecture](./ai-ml/architecture/baseline-openai-e2e-chat.yml)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))
 - [Build and Deploy Custom Document Processing Models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))
 - [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))
 - [Choose a search data store](./data-guide/technology-choices/search-options.md)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))

@@ -161,7 +161,7 @@ You should use your existing MLOps investments, with some possible adjustments, 
 
 #### RAG and prompt engineering
 
-For RAG and prompt engineering, other considerations include orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in frameworks like prompt flow, Semantic Kernel, or LangChain. You can deploy the orchestrator to different compute resources, including resources that you might currently deploy custom models to. For more information about how to deploy prompt flow to online endpoints that Machine Learning manages or to Azure App Service, see [Azure OpenAI end-to-end chat architecture](../architecture/baseline-openai-e2e-chat.yml). To deploy to App Service, the Azure OpenAI chat architecture packages the flow and its dependencies as a container. This practice increases portability and consistency across different environments.
+For RAG and prompt engineering, other considerations include orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in frameworks like prompt flow, Semantic Kernel, or LangChain. You can deploy the orchestrator to different compute resources, including resources that you might currently deploy custom models to. For more information about how to deploy prompt flow to online endpoints that Machine Learning manages or to Azure App Service, see [Baseline AI Foundry chat reference architecture](../architecture/baseline-openai-e2e-chat.yml). To deploy to App Service, the Azure OpenAI chat architecture packages the flow and its dependencies as a container. This practice increases portability and consistency across different environments.
 
 Deployments of changes to database resources, like changes to data models or indexes, are new tasks that need to be handled in GenAIOps. A common practice when working with LLMs is to [use a gateway in front of the LLM](azure-openai-gateway-guide.yml).
 
@@ -242,5 +242,5 @@ As you start to extend your MLOps investments to include generative AI, it's imp
 ## Related resources
 
 - [Design and develop a RAG solution](rag/rag-solution-design-and-evaluation-guide.md)
-- [Baseline OpenAI end-to-end chat reference architecture](../architecture/baseline-openai-e2e-chat.yml)
+- [Baseline AI Foundry chat reference architecture](../architecture/baseline-openai-e2e-chat.yml)
 - [MLOps](machine-learning-operations-v2.md)
