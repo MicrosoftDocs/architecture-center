@@ -390,7 +390,7 @@
 		</g>
 	</g>
 	<g v:mID="82" v:index="5" v:groupContext="foregroundPage">
-		<title>Azure AI Foundry Compute</title>
+		<title>Azure AI Foundry compute</title>
 		<v:pageProperties v:drawingScale="1" v:pageScale="1" v:drawingUnits="19" v:shadowOffsetX="9" v:shadowOffsetY="-9"/>
 		<v:layer v:name="Connector" v:index="0"/>
 		<v:layer v:name="Container" v:index="1"/>
@@ -3845,7 +3845,7 @@
 		</g>
 		<g id="shape2033-1040" v:mID="2033" v:groupContext="shape" transform="translate(1331.06,-585.389)">
 			<title>Sheet.2033</title>
-			<desc>Azure AI Agent Service</desc>
+			<desc>Foundry Agent Service</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="28.7209" cy="806.063" width="57.45" height="19.125"/>
 			<rect x="0" y="796.5" width="57.4418" height="19.125" class="st9"/>
@@ -3994,11 +3994,11 @@
 		</g>
 		<g id="shape2061-1094" v:mID="2061" v:groupContext="shape" transform="translate(758.46,-553.912)">
 			<title>Sheet.2061</title>
-			<desc>Azure AI Agent integration subnet</desc>
+			<desc>AI agent integration subnet</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="67.5" cy="806.063" width="135" height="19.125"/>
 			<rect x="0" y="796.5" width="135" height="19.125" class="st9"/>
-			<text x="4" y="803.06" class="st13" v:langID="1033"><v:paragraph/><v:tabList/>Azure AI Agent integration <tspan x="4"
+			<text x="4" y="803.06" class="st13" v:langID="1033"><v:paragraph/><v:tabList/>AI agent integration <tspan x="4"
 						dy="1.2em" class="st25">subnet</tspan></text>		</g>
 		<g id="shape2082-1098" v:mID="2082" v:groupContext="shape" transform="translate(773.91,-382.302)">
 			<title>Rectangle.2082</title>
@@ -4866,11 +4866,11 @@
 		</g>
 		<g id="shape2286-1442" v:mID="2286" v:groupContext="shape" transform="translate(767.96,-193.5)">
 			<title>Sheet.2286</title>
-			<desc>Azure AI Agent Service dependencies</desc>
+			<desc>Foundry Agent Service dependencies</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="133.52" cy="806.063" width="267.04" height="19.125"/>
 			<rect x="0" y="796.5" width="267.04" height="19.125" class="st9"/>
-			<text x="51.38" y="809.06" class="st13" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure AI Agent Service dependencies</text>		</g>
+			<text x="51.38" y="809.06" class="st13" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Foundry Agent Service dependencies</text>		</g>
 		<g id="shape2287-1445" v:mID="2287" v:groupContext="shape" transform="translate(969.72,-642.819)">
 			<title>Rectangle.2287</title>
 			<v:userDefs>

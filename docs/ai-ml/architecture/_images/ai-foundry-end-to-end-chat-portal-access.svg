@@ -2210,7 +2210,7 @@
 		</g>
 		<g id="shape1824-372" v:mID="1824" v:groupContext="shape" transform="translate(945.212,-422.264)">
 			<title>Sheet.1824</title>
-			<desc>Azure AI Agent Service</desc>
+			<desc>Foundry Agent Service</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="28.7209" cy="652.187" width="57.45" height="19.125"/>
 			<rect x="0" y="642.625" width="57.4418" height="19.125" class="st6"/>
@@ -2663,11 +2663,11 @@
 		</g>
 		<g id="shape1908-568" v:mID="1908" v:groupContext="shape" transform="translate(513,-167.625)">
 			<title>Sheet.1908</title>
-			<desc>Azure AI Agent Service dependencies</desc>
+			<desc>Foundry Agent Service dependencies</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="133.52" cy="652.187" width="267.04" height="19.125"/>
 			<rect x="0" y="642.625" width="267.04" height="19.125" class="st6"/>
-			<text x="51.38" y="655.19" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure AI Agent Service dependencies</text>		</g>
+			<text x="51.38" y="655.19" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Foundry Agent Service dependencies</text>		</g>
 		<g id="shape1912-571" v:mID="1912" v:groupContext="shape" v:layerMember="0" transform="translate(438.931,-354.862)">
 			<title>Dynamic connector.1686</title>
 			<v:userDefs>
