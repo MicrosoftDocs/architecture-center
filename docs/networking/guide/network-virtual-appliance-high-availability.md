@@ -6,9 +6,6 @@ ms.author: jomore
 ms.date: 03/21/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - networking
-  - reference-architecture
 ---
 
 # Deploy highly available NVAs

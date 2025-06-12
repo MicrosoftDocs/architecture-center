@@ -6,8 +6,6 @@ author: RobBagby
 ms.date: 07/25/2022
 ms.topic: design-pattern
 ms.subservice: best-practice
-ms.custom:
-  - article
 keywords:
   - anti-pattern
   - antipattern

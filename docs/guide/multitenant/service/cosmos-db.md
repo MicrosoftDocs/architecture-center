@@ -6,9 +6,7 @@ ms.author: tarabhatia
 ms.date: 11/16/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Multitenancy and Azure Cosmos DB

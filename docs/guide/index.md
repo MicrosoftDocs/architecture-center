@@ -6,8 +6,6 @@ ms.author: pnp
 ms.date: 01/03/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
 ---
 
 # Azure application architecture fundamentals

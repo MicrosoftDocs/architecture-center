@@ -6,9 +6,7 @@ ms.author: dixitaro
 ms.date: 05/02/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Architectural approaches for compute in multitenant solutions

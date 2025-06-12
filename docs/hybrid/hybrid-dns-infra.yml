@@ -11,8 +11,6 @@ metadata:
     - hybrid
     - networking
   ms.custom:
-    - fcp
-    - reference-architecture
     - e2e-hybrid
     - arb-hybrid
 name: Design a hybrid Domain Name System solution with Azure

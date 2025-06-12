@@ -10,10 +10,7 @@ metadata:
   ms.category:
     - hybrid
     - storage
-  ms.custom:
-    - fcp
-    - reference-architecture
-    - e2e-hybrid
+  ms.custom: e2e-hybrid
 name: Use Azure file shares in a hybrid environment
 azureCategories:
   - hybrid

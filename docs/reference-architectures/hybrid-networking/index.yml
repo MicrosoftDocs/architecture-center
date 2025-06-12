@@ -11,10 +11,7 @@ metadata:
     - hybrid
     - networking
   ms.custom:
-    - networking
-    - reference-architecture
     - e2e-hybrid
-    - internal-intro
     - arb-hybrid
 name: Connect an on-premises network to Azure
 azureCategories:

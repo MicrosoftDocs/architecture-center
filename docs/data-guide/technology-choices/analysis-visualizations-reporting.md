@@ -6,10 +6,7 @@ ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - data-analytics
-  - guide
-  - internal-intro
+ms.custom: arb-data
 ---
 
 # Choose a data analytics and reporting technology in Azure

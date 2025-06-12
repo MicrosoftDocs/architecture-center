@@ -7,9 +7,7 @@ ms.date: 01/27/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - arb-aiml
+ms.custom: arb-aiml
 ---
 
 # Compare Microsoft machine learning products and technologies

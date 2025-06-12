@@ -11,8 +11,6 @@ metadata:
     - hybrid
     - storage
   ms.custom:
-    - fcp
-    - reference-architecture
     - e2e-hybrid
     - arb-hybrid
 name: Hybrid file services

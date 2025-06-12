@@ -6,8 +6,6 @@ author: RobBagby
 ms.date: 06/05/2017
 ms.topic: design-pattern
 ms.subservice: best-practice
-ms.custom:
-  - article
 keywords:
   - "Antipattern singleton"
   - "what is instantiation"

@@ -6,9 +6,6 @@ ms.author: pnp
 ms.date: 02/25/2019
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - microservices
-  - guide
 ---
 
 # Using domain analysis to model microservices

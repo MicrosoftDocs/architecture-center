@@ -6,9 +6,7 @@ ms.author: dascottr
 ms.date: 02/05/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Considerations for using Azure Container Apps in a multitenant solution

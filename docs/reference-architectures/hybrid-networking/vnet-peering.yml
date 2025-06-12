@@ -10,11 +10,7 @@ metadata:
   ms.category:
     - networking
     - integration
-  ms.custom:
-    - networking
-    - fcp
-    - reference-architecture
-    - e2e-hybrid
+  ms.custom: e2e-hybrid
 name: Choose between virtual network peering and VPN gateways
 azureCategories:
   - networking
