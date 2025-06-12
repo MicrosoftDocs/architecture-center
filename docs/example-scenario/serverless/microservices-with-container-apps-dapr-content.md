@@ -45,7 +45,7 @@ The following dataflow corresponds to the previous diagram:
 | Virtual worker | None | Service-to-service invocation <br> Binding: Cron | N/A |
 
 > [!NOTE]
-> You can also implement Bootstrapper in a container app. However, this service runs one time to perform the database creation, and then scales to zero after it creates the necessary objects in SQL Database.
+> You can also implement Bootstrapper in a container app. However, this service runs one time to perform the database creation, and then scales to zero after it creates the necessary objects in Azure SQL Database.
 
 ### Components
 
