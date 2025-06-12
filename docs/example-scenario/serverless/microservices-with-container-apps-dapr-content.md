@@ -38,10 +38,10 @@ The following dataflow corresponds to the previous diagram:
 | UI | Internal | Dapr not enabled | HTTP |
 | Virtual customer | None | Service-to-service invocation | N/A |
 | Order service | Internal | Publish-subscribe: Azure Service Bus | HTTP |
-| Accounting service | Internal | Publish-subscribe: Azure Service Bus | Azure Service Bus topic length, HTTP |
-| Receipt service | Internal | Publish-subscribe: Azure Service Bus <br> Binding: Azure Blob | Azure Service Bus topic length |
-| Loyalty service | Internal | Publish-subscribe: Azure Service Bus <br> State: Azure Cosmos DB | Azure Service Bus topic length |
-| Makeline service | Internal | Publish-subscribe: Azure Service Bus <br> State: Azure Redis | Azure Service Bus topic length, HTTP |
+| Accounting service | Internal | Publish-subscribe: Service Bus | Service Bus topic length, HTTP |
+| Receipt service | Internal | Publish-subscribe: Service Bus <br> Binding: Azure Blob | Service Bus topic length |
+| Loyalty service | Internal | Publish-subscribe: Service Bus <br> State: Azure Cosmos DB | Service Bus topic length |
+| Makeline service | Internal | Publish-subscribe: Service Bus <br> State: Azure Redis | Service Bus topic length, HTTP |
 | Virtual worker | None | Service-to-service invocation <br> Binding: Cron | N/A |
 
 > [!NOTE]
@@ -59,7 +59,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Azure Monitor](/azure/azure-monitor/overview) is a unified platform that enables you to collect, analyze, and act on customer content data from your Azure infrastructure environments. In this architecture, you use Azure Monitor with [Application Insights](/azure/well-architected/service-guides/application-insights) to view the container logs and collect metrics from the microservices.
 
-- [Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a fully managed enterprise message broker that has queues and publish-subscribe topics. In this architecture, you use Azure Service Bus for the Dapr publish-subscribe component implementation. Multiple services use this component. The order service publishes messages on the bus, and the Makeline, accounting, loyalty, and receipt services subscribe to these messages.
+- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a fully managed enterprise message broker that has queues and publish-subscribe topics. In this architecture, you use Service Bus for the Dapr publish-subscribe component implementation. Multiple services use this component. The order service publishes messages on the bus, and the Makeline, accounting, loyalty, and receipt services subscribe to these messages.
 
 - [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a fully managed, serverless container service used to build and deploy modern apps at scale. In this architecture, you host all 10 microservices on Container Apps and deploy them into a single Container Apps environment. This environment serves as a secure boundary around the system.
 
@@ -71,13 +71,13 @@ The following dataflow corresponds to the previous diagram:
 
 In this architecture, you deploy a Traefik proxy to enable path-based routing for the Vue.js API. There are many alternative open-source proxies that you can use for this purpose. Two other common projects are [NGINX](https://www.nginx.com) and [HAProxy](https://www.haproxy.com).
 
-All Azure infrastructure, except for SQL Database, uses Dapr components for interoperability. One benefit of Dapr is that you can swap all these components by changing the container apps deployment configuration. In this scenario, Azure Service Bus, Azure Cosmos DB, Cache for Redis, and Blob Storage showcase some of the available 70+ Dapr components. A list of alternative [publish-subscribe brokers](https://docs.dapr.io/reference/components-reference/supported-pubsub), [state stores](https://docs.dapr.io/reference/components-reference/supported-state-stores), and [output bindings](https://docs.dapr.io/reference/components-reference/supported-bindings) are available in the Dapr docs.
+All Azure infrastructure, except for SQL Database, uses Dapr components for interoperability. One benefit of Dapr is that you can swap all these components by changing the container apps deployment configuration. In this scenario, Service Bus, Azure Cosmos DB, Cache for Redis, and Blob Storage showcase some of the available 70+ Dapr components. A list of alternative [publish-subscribe brokers](https://docs.dapr.io/reference/components-reference/supported-pubsub), [state stores](https://docs.dapr.io/reference/components-reference/supported-state-stores), and [output bindings](https://docs.dapr.io/reference/components-reference/supported-bindings) are available in the Dapr docs.
 
 ## Scenario details
 
 Microservices are a widely adopted architectural style. They provide benefits such as scalability, agility, and independent deployments. You can use containers as a mechanism to deploy microservices applications, and then use a container orchestrator like Kubernetes to simplify operations. There are many factors to consider for large scale microservices architectures. Typically, the infrastructure platform requires significant understanding of complex technologies like the container orchestrators.
 
-[Container Apps](/azure/container-apps/overview) is a fully managed serverless container service for running modern applications at scale. It enables you to deploy containerized apps through abstraction of the underlying platform. With this method, you don't need to manage a complicated infrastructure. This architecture uses Container Apps integration with a managed version of the [Dapr](https://dapr.io/). Dapr is an open-source project that helps developers with the inherent challenges in distributed applications, like state management and service invocation. Container Apps also provides a managed version of [KEDA](https://keda.sh/). KEDA lets your containers autoscale based on incoming events from external services like Azure Service Bus and Azure Cache for Redis.
+[Container Apps](/azure/container-apps/overview) is a fully managed serverless container service for running modern applications at scale. It enables you to deploy containerized apps through abstraction of the underlying platform. With this method, you don't need to manage a complicated infrastructure. This architecture uses Container Apps integration with a managed version of the [Dapr](https://dapr.io/). Dapr is an open-source project that helps developers with the inherent challenges in distributed applications, like state management and service invocation. Container Apps also provides a managed version of [KEDA](https://keda.sh/). KEDA lets your containers autoscale based on incoming events from external services like Service Bus and Azure Cache for Redis.
 
 You can also enable HTTPS ingress in Container Apps without creating more Azure networking resources. You can use [Envoy proxy](https://www.envoyproxy.io/), which also allows traffic splitting scenarios.
 
