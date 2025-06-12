@@ -2,7 +2,7 @@
 title: Chatty I/O antipattern
 description: Learn about the cumulative effect of many I/O requests, which can have a significant impact on performance and responsiveness.
 ms.author: pnp
-author: RobBagby
+author: claytonsiemens77
 ms.date: 06/05/2017
 ms.topic: design-pattern
 ms.subservice: best-practice

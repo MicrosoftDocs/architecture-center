@@ -1,7 +1,7 @@
 ---
 title: Design to scale out
 description: Use these recommendations to design your applications for horizontal scaling, which is the ability to use as much capacity as the application needs.
-author: RobBagby
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 07/25/2023
 ms.topic: conceptual

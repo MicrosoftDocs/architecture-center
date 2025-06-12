@@ -2,7 +2,7 @@
 metadata:
   title: Monitor hybrid availability, performance
   description: Use Azure Monitor to monitor performance and availability for OS workloads running on-premises, in third-party cloud providers, and in Microsoft Azure.
-  author: RobBagby
+  author: claytonsiemens77
   ms.author: pnp
   ms.date: 08/26/2022
   ms.topic: reference-architecture

@@ -2,7 +2,7 @@
 metadata:
   title: AKS regulated cluster for PCI-DSS 3.2.1 - Network segmentation
   description: Best practices for setting up networking as per Requirement 1 and 2 of PCI-DSS 3.2.1.
-  author: RobBagby
+  author: claytonsiemens77
   ms.author: pnp
   ms.date: 06/20/2022
   ms.topic: reference-architecture

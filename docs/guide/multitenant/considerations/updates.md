@@ -15,10 +15,10 @@ One of the benefits of cloud technology is continuous improvement and evolution.
 
 When planning a strategy to update your solution, you need to:
 
-* Identify your tenants' requirements.
-* Clarify your own requirements to operate your service.
-* Find a balance that both you and your tenants can accept.
-* Communicate your strategy clearly to your tenants and other stakeholders.
+- Identify your tenants' requirements.
+- Clarify your own requirements to operate your service.
+- Find a balance that both you and your tenants can accept.
+- Communicate your strategy clearly to your tenants and other stakeholders.
 
 In this article, we provide guidance for technical decision-makers about the approaches you can consider to update your tenants' software, and the tradeoffs involved.
 
@@ -131,13 +131,13 @@ If your service exposes an external API, consider that any updates you apply mig
 
 Principal author:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 
- * [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
- * [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
- * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer, Azure Patterns & Practices
+- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford/) | Partner Technology Strategist
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

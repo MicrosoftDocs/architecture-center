@@ -2,7 +2,7 @@
 metadata:
   title: Baseline architecture for an AKS cluster
   description: Learn about the reference architecture for the recommended baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.
-  author: RobBagby
+  author: claytonsiemens77
   ms.author: pnp
   ms.date: 08/07/2024
   ms.topic: reference-architecture

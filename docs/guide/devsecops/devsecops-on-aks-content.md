@@ -272,7 +272,7 @@ Other contributors:
 
 - [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji/) | Program Manager 2
 - [Ahmed Bham](https://www.linkedin.com/in/ahmedbham-solutionsarchitect/) | Sr. Cloud Solution Architect
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
 - [John Poole](https://www.linkedin.com/in/johnrpoole/) | Sr. Cloud Solution Architect
 - [Bahram Rushenas](https://www.linkedin.com/in/bahram-rushenas-306b9b3/) | Sr. Solution Architect
 - [Abed Sau](https://www.linkedin.com/in/abed-sau/) | Sr. Cloud Solution Architect

@@ -2,7 +2,7 @@
 title: Cloud Design Patterns
 description: Learn about design patterns for building reliable, scalable, and more secure applications in the cloud with examples based on Microsoft Azure.
 ms.author: pnp
-author: RobBagby
+author: claytonsiemens77
 ms.date: 12/11/2024
 ms.topic: design-pattern
 ms.subservice: design-pattern
