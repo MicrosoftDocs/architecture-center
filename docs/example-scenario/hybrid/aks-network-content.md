@@ -3,7 +3,7 @@ This scenario illustrates how to design and implement network concepts for deplo
 This article includes recommendations for networking design for Kubernetes nodes and Kubernetes containers. It's part of an architectural baseline guidance set of two articles. See the [baseline architecture recommendations here](aks-baseline.yml).
 
 > [!IMPORTANT]
-> The information in this article applies to [AKS on Azure Stack HCI, version 22H2, and AKS-HCI on Windows Server](/azure/aks/hybrid/overview). The most recent version of AKS runs on Azure Stack HCI OS, version 23H2. For more information about the latest version, see the [AKS on Azure Stack HCI OS, version 23H2 documentation](/azure/aks/hybrid/aks-whats-new-23h2).
+> The information in this article applies to [AKS on Azure Local, and AKS on Windows Server](/azure/aks/aksarc/overview). The most recent version of AKS runs on the Azure Stack HCI OS, version 23H2. For more information about the latest version, see the [AKS on Azure Local documentation](/azure/aks/aksarc/aks-whats-new-23h2).
 
 ## Architecture
 
@@ -238,7 +238,7 @@ your Kubernetes cluster, and its services and applications.
   - IP addresses for horizontal scaling of worker and control plane nodes in target clusters
 - Your virtual IP pool should be large enough to support the deployment of the application services that require connectivity to the external router.
 - Implement Calico CNI to provide enhanced network policy for controlling the pod and application communication.
-- Ensure that the physical cluster nodes (HCI or Windows Server) are located in the same rack and connected to the same ToR switches.
+- Ensure that the physical cluster nodes (Azure Local or Windows Server) are located in the same rack and connected to the same ToR switches.
 - Disable IPv6 on all network adapters.
 - Ensure that the existing virtual switch and its name are the same across all cluster nodes.
 - Verify that all subnets you define for your cluster are routable among each other and to the Internet.
@@ -341,7 +341,6 @@ Other contributors:
 
 - [Baseline architecture for AKS on Azure Local](aks-baseline.yml)
 
-[Azure Stack HCI, version 22H2]: /azure-stack/hci/overview
 [Azure Kubernetes Service on Azure Local]: /azure/aks/hybrid/aks-hybrid-options-overview
 [Active Directory Domain Services]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview
 [Management cluster]: /azure/aks/hybrid/kubernetes-concepts#the-management-cluster
@@ -350,7 +349,7 @@ Other contributors:
 [Azure Policy]: /azure/governance/policy/overview
 [Azure Monitor]: /azure/azure-monitor/overview
 [Microsoft Defender for Cloud]: /azure/defender-for-cloud/defender-for-cloud-introduction
-[1]: https://azure.microsoft.com/products/azure-stack/hci/
+[1]: https://azure.microsoft.com/products/local/
 [Windows Server 2019/2022 datacenter failover cluster]: /windows-server/failover-clustering/failover-clustering-overview
 [Azure Kubernetes Service (AKS)]: /azure/well-architected/service-guides/azure-kubernetes-service
 [Windows Admin Center]: /windows-server/manage/windows-admin-center/overview
@@ -363,9 +362,8 @@ Other contributors:
 [Project Calico networking]: https://projectcalico.docs.tigera.io/security/calico-network-policy
 [Flannel overlay networking.]: https://techcommunity.microsoft.com/t5/networking-blog/introducing-kubernetes-overlay-networking-for-windows/ba-p/363082
 [Dynamic Virtual Machine Multi-Queue]: https://techcommunity.microsoft.com/t5/networking-blog/synthetic-accelerations-in-a-nutshell-windows-server-2019/ba-p/653976
-[Network ATC]: /azure-stack/hci/concepts/network-atc-overview
+[Network ATC]: /azure/azure-local/concepts/network-atc-overview
 [Azure Arc–enabled Kubernetes service]: /azure/azure-arc/kubernetes/
-[Microsoft Azure Well-Architected Framework]: /azure/well-architected/
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [cost optimization]: /azure/architecture/framework/cost/overview
 [Microsoft Azure Well-Architected Framework.]: /azure/well-architected/

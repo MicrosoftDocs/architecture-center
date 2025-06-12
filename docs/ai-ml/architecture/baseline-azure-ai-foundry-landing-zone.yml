@@ -2,7 +2,7 @@
 metadata:
   title: Azure OpenAI chat baseline architecture in an Azure landing zone
   description: Learn how to build on the Azure OpenAI chat baseline architecture to address changes and expectations when you deploy it in an Azure landing zone.
-  author: robbagby
+  author: claytonsiemens77
   ms.author: pnp
   ms.date: 11/22/2024
   ms.topic: reference-architecture

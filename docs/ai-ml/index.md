@@ -7,9 +7,7 @@ ms.date: 01/31/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - arb-aiml
+ms.custom: arb-aiml
 ---
 
 # AI architecture design

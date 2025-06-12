@@ -7,9 +7,6 @@ ms.reviewer: tozimmergren
 ms.date: 07/31/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - engagement-fy23
 ---
 
 # Choose a batch processing technology in Azure

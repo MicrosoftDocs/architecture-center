@@ -2,7 +2,7 @@
 metadata:
   title: Baseline Azure AI Foundry Chat Reference Architecture
   description: Use this baseline reference architecture to learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Azure AI Foundry, the Azure AI Agent Service, Azure OpenAI models, and Azure App Service.
-  author: robbagby
+  author: claytonsiemens77
   ms.author: pnp
   ms.date: 09/05/2025
   ms.topic: reference-architecture
