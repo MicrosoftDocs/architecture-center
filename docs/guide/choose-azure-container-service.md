@@ -3,7 +3,7 @@ title: Choose an Azure container service
 description: Understand how to evaluate which Azure container service is best suited to your specific workload scenarios and requirements.  
 author: cmaclaughlin
 ms.author: cmaclaughlin
-ms.date: 01/02/2024
+ms.date: 12/06/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
@@ -67,11 +67,11 @@ For a general introduction into the terminology and concepts around service mode
 
 ### Comparing the service models of Azure container solutions
 
-#### AKS
+#### Azure Kubernetes Service (AKS)
 
-As a hybrid of IaaS and PaaS, AKS prioritizes control over simplicity, leveraging the de facto standard for container orchestration: Kubernetes. Though AKS streamlines the management of the underlying core infrastructure, this VM-based platform is still exposed to your applications and requires appropriate guardrails and processes, like patching, to ensure security and business continuity. The compute infrastructure is supported by additional Azure resources that are hosted directly in your subscription, like Azure load balancers.
+As a hybrid of IaaS and PaaS, AKS prioritizes control over simplicity, leveraging the de facto standard for container orchestration: Kubernetes. Though AKS streamlines the management of the underlying core infrastructure, this VM-based platform is still exposed to your applications and requires appropriate guardrails and processes, like patching, to ensure security and business continuity. The compute infrastructure is supported by additional Azure resources that are hosted directly in your subscription, like Azure load balancers, container registries, or application gateways.
 
-AKS also provides access to the Kubernetes API server, which enables you to customize the container orchestration and thus deploy projects from the Cloud Native Computing Foundation (CNCF). Consequently, there's a significant learning curve for workload teams that are new to Kubernetes. If you're new to containerized solutions, this learning curve must be taken in consideration. The following PaaS solutions offer a lower barrier to entry. You can move to Kubernetes when your requirements dictate that move.
+AKS also provides access to the Kubernetes API server, which enables you to customize the container orchestration and thus deploy projects from the Cloud Native Computing Foundation (CNCF). Consequently, there's a significant learning curve for workload teams that are new to Kubernetes. If you're new to containerized solutions, this learning curve must be taken in consideration. The other PaaS solutions mentioned in this article offer a lower barrier to entry. You can move to Kubernetes when your requirements dictate that move.
 
 ##### AKS Automatic
 
@@ -171,6 +171,7 @@ Other contributors:
 - [Sonalika Roy](https://www.linkedin.com/in/sonalika-roy-27138319/) | Senior Customer Engineer
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) |  Principal Customer Engineer
 - [Victor Santana](https://www.linkedin.com/in/victorwelascosantana/) |  Principal Customer Engineer
+- [Carlos Mestre del Pino](https://www.linkedin.com/in/mestredelpino/) |  Cloud Solution Architect
 
 ## Next step
 
