@@ -3,7 +3,7 @@ This scenario illustrates how to design and implement a baseline architecture fo
 This article includes recommendations for networking, security, identity, management, and monitoring of the cluster based on an organization's business requirements. It's part of an architectural baseline guidance set of two articles. See the [recommendations for network design here](aks-network.yml).
 
 > [!IMPORTANT]
-> The information in this article applies to [AKS on Azure Stack HCI, version 22H2, and AKS-HCI on Windows Server](/azure/aks/hybrid/overview). The most recent version of AKS runs on Azure Stack HCI, version 23H2 Operating System. For more information about the latest version, see the [AKS on Azure Stack HCI OS, version 23H2 documentation](/azure/aks/hybrid/aks-whats-new-23h2).
+> The information in this article applies to [AKS on Azure Local and AKS on Windows Server](/azure/aks/aksarc/overview). The most recent version of AKS runs on the Azure Stack HCI, version 23H2 operating system. For more information about the latest version, see the [AKS on Azure Local documentation](/azure/aks/hybrid/aks-whats-new-23h2).
 
 ## Architecture
 
@@ -79,7 +79,7 @@ Use Project Calico for Kubernetes to get other network features, such as network
 
 ### Storage requirements
 
-For every server in the cluster, use the same types of drives that are the same size and model. Azure Local works with direct-attached Serial Advanced Technology Attachment (SATA), Serial Attached SCSI (SAS), Non-Volatile Memory Express (NVMe), or persistent memory drives that are physically attached to one server each. For cluster volumes, HCI uses software-defined storage technology (Storage Spaces Direct) to combine the physical drives in the storage pool for fault tolerance, scalability, and performance. Applications that run in Kubernetes on Azure Local often expect the following storage options to be available to them:
+For every server in the cluster, use the same types of drives that are the same size and model. Azure Local works with direct-attached Serial Advanced Technology Attachment (SATA), Serial Attached SCSI (SAS), Non-Volatile Memory Express (NVMe), or persistent memory drives that are physically attached to one server each. For cluster volumes, Azure Local uses software-defined storage technology (Storage Spaces Direct) to combine the physical drives in the storage pool for fault tolerance, scalability, and performance. Applications that run in Kubernetes on Azure Local often expect the following storage options to be available to them:
 
 - **Volumes.** Represent a way to store, retrieve, and persist data across pods and through the application lifecycle.
 - **Persistent Volumes.** A storage resource that's created and managed by Kubernetes API and can exist beyond the lifetime of an individual pod.
@@ -101,7 +101,7 @@ Integrate AKS on Azure Local or Windows Server Datacenter failover clusters with
 
 The following recommendations apply for most scenarios. Follow the recommendations unless you have a specific requirement that overrides them.
 
-### Integrate AKS on HCI deployments with Azure Arc
+### Integrate AKS on Azure Local deployments with Azure Arc
 
 To minimize the TCO, integrate AKS deployments with Azure Arc. Consider using the following Azure services:
 
@@ -212,7 +212,6 @@ Other contributors:
 
 - [AKS overview](/azure/aks/hybrid/overview)
 
-  [Azure Stack HCI, version 22H2]: /azure-stack/hci/overview
   [1]: /azure/azure-local/overview
   [Azure Kubernetes Service (AKS) on Azure Local]: /azure/aks/hybrid/aks-hybrid-options-overview
   [Windows Admin Center]: /windows-server/manage/windows-admin-center/overview
@@ -233,11 +232,11 @@ Other contributors:
   [Azure RBAC]: /azure/azure-arc/kubernetes/conceptual-azure-rbac
   [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
   [cost optimization]: /azure/architecture/framework/cost/overview
-  [Create Cluster Wizard in Windows Admin Center]: /azure-stack/hci/deploy/create-cluster
-  [Windows Admin Center simplifies the process of managing Azure Local VMs]: /azure-stack/hci/manage/vm
+  [Create Cluster Wizard in Windows Admin Center]: /azure/azure-local/deploy/create-cluster
+  [Windows Admin Center simplifies the process of managing Azure Local VMs]: /azure/azure-local/manage/vm
   [Open Service Mesh (OSM)]: https://docs.openservicemesh.io/
   [virtualization-based security (VBS)]: /windows-hardware/design/device-experiences/oem-vbs
-  [Azure Local solutions]: https://azure.microsoft.com/overview/azure-stack/hci
+  [Azure Local solutions]: https://azure.microsoft.com/products/local/
   [Calico network policies]: /azure/aks/hybrid/calico-networking-policy
   [2]: /azure/defender-for-cloud/defender-for-cloud-introduction
   [Azure Key Vault Secrets provider extension]: /azure/azure-arc/kubernetes/tutorial-akv-secrets-provider
