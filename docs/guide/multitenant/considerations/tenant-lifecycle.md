@@ -3,7 +3,7 @@ title: Tenant lifecycle considerations in a multitenant solution
 description: This article describes the different stages of a tenant lifecycle, and considerations for each stage.
 author: johndowns
 ms.author: pnp
-ms.date: 07/22/2024
+ms.date: 06/13/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: arb-saas
