@@ -32,7 +32,6 @@ The following dataflow corresponds to the previous diagram:
 
 1. **Virtual worker:** A *worker simulation* program that simulates the completion of customer orders.
 
-1. **Bootstrapper (not shown):** A service that uses Entity Framework Core to initialize the tables within Azure SQL Database for use with the accounting service.
 
 | Service | Ingress | Dapr components | KEDA scale rules |
 | :---| :---| :---| :---|
