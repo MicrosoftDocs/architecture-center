@@ -123,7 +123,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 This basic architecture doesn't represent the costs for a production-ready solution. It also doesn't include controls to guard against cost overruns. The following considerations outline crucial features that this architecture doesn't include. These features affect cost.
 
-- This architecture assumes that the deployed Azure OpenAI model receives limited calls. So we recommend that you use the `Global Standard` deployment type for pay-as-you-go pricing instead of a provisioned throughput deployment type. As you move toward a production solution, follow the [cost optimization guidance](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat#azure-openai) in the baseline architecture.
+- This architecture assumes that the deployed Azure OpenAI model receives limited calls. So we recommend that you use the `Global Standard` deployment type for pay-as-you-go pricing instead of a provisioned throughput deployment type. As you move toward a production solution, follow the [cost optimization guidance](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat#azure-openai-models) in the baseline architecture.
 
 - Foundry Agent Service incurs costs for files uploaded during chat interactions. Don't make file upload functionality available to application users if it's not part of the desired user experience. Extra knowledge connections, such as the [Grounding with Bing tool](https://www.microsoft.com/bing/apis/grounding-pricing), have their own pricing structures.
 
@@ -131,7 +131,7 @@ This basic architecture doesn't represent the costs for a production-ready solut
 
 - This architecture uses the App Service Basic pricing tier on a single instance, which doesn't provide protection from an availability zone outage. The [baseline App Service architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-service) recommends that you use Premium plans that have three or more worker instances for high availability. This approach affects your costs.
 
-- This architecture uses the AI Search Basic pricing tier with no added replicas. This topology can't withstand an Azure availability zone failure. The [baseline end-to-end chat architecture](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat#ai-search---reliability) recommends that you deploy your workload with the Standard pricing tier or higher and deploy three or more replicas. This approach can affect your costs as you move toward production.
+- This architecture uses the AI Search Basic pricing tier with no added replicas. This topology can't withstand an Azure availability zone failure. The [baseline end-to-end chat architecture](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat#reliability-in-ai-search-for-enterprise-knowledge) recommends that you deploy your workload with the Standard pricing tier or higher and deploy three or more replicas. This approach can affect your costs as you move toward production.
 
 - This architecture doesn't include cost governance or containment controls. Make sure that you guard against ungoverned processes or usage that might incur high costs for pay-as-you-go services like deployed models in Azure AI Foundry.
 
@@ -152,9 +152,9 @@ This integration enables monitoring of the following data:
 
 You can also [trace agents by using OpenTelemetry](/azure/ai-services/agents/concepts/tracing#trace-agents-using-opentelemetry-and-an-application-insights-resource).
 
-#### Language model operations
+#### Model operations
 
-This architecture is optimized for learning and isn't intended for production use, so operational guidance like GenAIOps is out of scope. When you move toward production, follow the [language model operations guidance](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat#language-model-operations) in the baseline architecture.
+This architecture is optimized for learning and isn't intended for production use, so operational guidance like GenAIOps is out of scope. When you move toward production, follow the [Azure AI Foundry model guidance](/azure/ai-services/openai/concepts/models).
 
 ##### Development
 
