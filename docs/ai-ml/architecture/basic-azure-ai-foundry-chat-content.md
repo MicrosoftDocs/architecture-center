@@ -1,7 +1,7 @@
 This article provides a basic architecture to help you learn how to run chat applications by using [Azure AI Foundry](/azure/ai-foundry/what-is-ai-foundry) and [Azure OpenAI language models](/azure/ai-services/openai/concepts/models). The architecture includes a client user interface (UI) that runs in Azure App Service. To fetch grounding data for the language model, the UI uses an Azure AI agent to orchestrate the workflow from incoming prompts to data stores. The architecture is designed to operate out of a single region.
 
 > [!IMPORTANT]
-> This architecture isn't for production applications. It's an introductory architecture for learning and proof-of-concept (POC) purposes. When you design your production enterprise chat applications, use the [Baseline AI Foundry chat reference architecture](./baseline-azure-ai-foundry-chat.yml), which adds production design decisions to this basic architecture.
+> This architecture isn't for production applications. It's an introductory architecture for learning and proof-of-concept (POC) purposes. When you design your production enterprise chat applications, use the [Baseline AI Foundry chat reference architecture](baseline-azure-ai-foundry-chat.yml), which adds production design decisions to this basic architecture.
 
 > [!IMPORTANT]
 > :::image type="icon" source="../../_images/github.svg"::: An [example implementation](https://github.com/Azure-Samples/openai-end-to-end-basic) supports this guidance. It includes deployment steps for a basic end-to-end chat implementation. You can use this implementation as a foundation for your POC to work with chat applications that use Azure AI Foundry agents.
@@ -62,7 +62,7 @@ The following list outlines critical reliability features that this architecture
 
 - This architecture doesn't enable autoscaling for the client UI. To prevent reliability problems because of inefficient compute resources, overprovision resources to always run with enough compute to handle maximum concurrent capacity.
 
-- This architecture deploys Foundry Agent Service as a fully Microsoft-hosted solution. In this configuration, Microsoft hosts an Azure Cosmos DB database, an Azure Storage account container, and an AI Search index on your behalf. Your subscription doesn't show these dependent resources. You don't have any control over the reliability of Foundry Agent Service or its dependencies. You can acquire control of these dependencies to do actions like implement a business continuity and disaster recovery strategy. For guidance about bringing your own dependencies, see the [baseline architecture](./baseline-azure-ai-foundry-chat.yml).
+- This architecture deploys Foundry Agent Service as a fully Microsoft-hosted solution. In this configuration, Microsoft hosts an Azure Cosmos DB database, an Azure Storage account container, and an AI Search index on your behalf. Your subscription doesn't show these dependent resources. You don't have any control over the reliability of Foundry Agent Service or its dependencies. You can acquire control of these dependencies to do actions like implement a business continuity and disaster recovery strategy. For guidance about bringing your own dependencies, see the [baseline architecture](baseline-azure-ai-foundry-chat.yml).
 
   > [!NOTE]
   > The AI Search instance in the components section and diagram is different from the instance that's a dependency of Foundry Agent Service. The instance in the components section stores your grounding data. The dependency does real-time chunking of files that are uploaded within a chat session.
@@ -71,7 +71,7 @@ The following list outlines critical reliability features that this architecture
 
 - This architecture uses the AI Search Basic tier, which doesn't support [Azure availability zones](/azure/reliability/availability-zones-overview). To achieve zonal redundancy, deploy the AI Search Standard pricing tier or higher in a region that supports availability zones, and deploy three or more replicas.
 
-For more information, see [Baseline AI Foundry chat reference architecture](./baseline-azure-ai-foundry-chat.yml).
+For more information, see [Baseline AI Foundry chat reference architecture](baseline-azure-ai-foundry-chat.yml).
 
 ### Security
 
@@ -107,15 +107,15 @@ To simplify the learning experience for building an end-to-end chat solution, th
 
 This architecture also doesn't restrict egress traffic. For example, an agent can be configured to connect to any public endpoint based on the endpoint's OpenAPI specification. So data exfiltration of private grounding data can't be prevented through network controls.
 
-For more information about network security as an extra perimeter in your architecture, see [Networking](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat#networking).
+For more information about network security as an extra perimeter in your architecture, see [Networking](baseline-azure-ai-foundry-chat.yml#networking).
 
 #### Defender
 
-For this basic architecture, you don't need to enable Microsoft Defender cloud workload protection plans for any services. When you move to production, follow the [security guidance in the baseline architecture](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat#security) for Microsoft Defender, which uses multiple plans to cover your workload.
+For this basic architecture, you don't need to enable Microsoft Defender cloud workload protection plans for any services. When you move to production, follow the [security guidance in the baseline architecture](baseline-azure-ai-foundry-chat.yml#security) for Microsoft Defender, which uses multiple plans to cover your workload.
 
 #### Governance through policy
 
-This architecture doesn't implement governance through Azure Policy. As you move toward production, follow the [governance recommendations in the baseline architecture](./baseline-azure-ai-foundry-chat.yml#governance-through-policy). Those recommendations add Azure Policy across your workload's components.
+This architecture doesn't implement governance through Azure Policy. As you move toward production, follow the [governance recommendations in the baseline architecture](baseline-azure-ai-foundry-chat.yml#governance-through-policy). Those recommendations add Azure Policy across your workload's components.
 
 ### Cost Optimization
 
@@ -123,7 +123,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 This basic architecture doesn't represent the costs for a production-ready solution. It also doesn't include controls to guard against cost overruns. The following considerations outline crucial features that this architecture doesn't include. These features affect cost.
 
-- This architecture assumes that the deployed Azure OpenAI model receives limited calls. So we recommend that you use the `Global Standard` deployment type for pay-as-you-go pricing instead of a provisioned throughput deployment type. As you move toward a production solution, follow the [cost optimization guidance](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat#azure-openai-models) in the baseline architecture.
+- This architecture assumes that the deployed Azure OpenAI model receives limited calls. So we recommend that you use the `Global Standard` deployment type for pay-as-you-go pricing instead of a provisioned throughput deployment type. As you move toward a production solution, follow the [cost optimization guidance](baseline-azure-ai-foundry-chat.yml#cost-optimization) in the baseline architecture.
 
 - Foundry Agent Service incurs costs for files uploaded during chat interactions. Don't make file upload functionality available to application users if it's not part of the desired user experience. Extra knowledge connections, such as the [Grounding with Bing tool](https://www.microsoft.com/bing/apis/grounding-pricing), have their own pricing structures.
 
@@ -131,7 +131,7 @@ This basic architecture doesn't represent the costs for a production-ready solut
 
 - This architecture uses the App Service Basic pricing tier on a single instance, which doesn't provide protection from an availability zone outage. The [baseline App Service architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-service) recommends that you use Premium plans that have three or more worker instances for high availability. This approach affects your costs.
 
-- This architecture uses the AI Search Basic pricing tier with no added replicas. This topology can't withstand an Azure availability zone failure. The [baseline end-to-end chat architecture](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat#reliability-in-ai-search-for-enterprise-knowledge) recommends that you deploy your workload with the Standard pricing tier or higher and deploy three or more replicas. This approach can affect your costs as you move toward production.
+- This architecture uses the AI Search Basic pricing tier with no added replicas. This topology can't withstand an Azure availability zone failure. The [baseline end-to-end chat architecture](baseline-azure-ai-foundry-chat.yml#reliability-in-ai-search-for-enterprise-knowledge) recommends that you deploy your workload with the Standard pricing tier or higher and deploy three or more replicas. This approach can affect your costs as you move toward production.
 
 - This architecture doesn't include cost governance or containment controls. Make sure that you guard against ungoverned processes or usage that might incur high costs for pay-as-you-go services like deployed models in Azure AI Foundry.
 
@@ -158,7 +158,7 @@ This architecture is optimized for learning and isn't intended for production us
 
 ##### Development
 
-For the basic architecture, you can create agents by using the browser-based experience in the Azure AI Foundry portal. When you move toward production, follow the [development and source control guidance](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat#development) in the baseline architecture. When you no longer need an agent, be sure to delete it. If the agent that you delete is the last one that uses a connection, also remove the connection.
+For the basic architecture, you can create agents by using the browser-based experience in the Azure AI Foundry portal. When you move toward production, follow the [development and source control guidance](baseline-azure-ai-foundry-chat.yml#development) in the baseline architecture. When you no longer need an agent, be sure to delete it. If the agent that you delete is the last one that uses a connection, also remove the connection.
 
 ##### Evaluation
 
@@ -166,7 +166,7 @@ You can evaluate your generative application in Azure AI Foundry. We recommend t
 
 ##### Deployment
 
-This basic architecture implements a single instance for the deployed orchestrator. When you deploy changes, the new deployment replaces the existing deployment. When you move toward production, read the [deployment flow](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat#deployment-flow) and [deployment guidance](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat#deployment-guidance) in the baseline architecture. This guidance helps you understand and implement more advanced deployment approaches, such as blue-green deployments.
+This basic architecture implements a single instance for the deployed orchestrator. When you deploy changes, the new deployment replaces the existing deployment. When you move toward production, read the [deployment flow](baseline-azure-ai-foundry-chat.yml#deployment-flow) and [deployment guidance](baseline-azure-ai-foundry-chat.yml#deployment-guidance) in the baseline architecture. This guidance helps you understand and implement more advanced deployment approaches, such as blue-green deployments.
 
 ### Performance Efficiency
 
@@ -189,7 +189,7 @@ Architects should design AI and machine learning workloads, such as this one, wi
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Baseline AI Foundry chat reference architecture](./baseline-azure-ai-foundry-chat.yml)
+> [Baseline AI Foundry chat reference architecture](baseline-azure-ai-foundry-chat.yml)
 
 ## Related resources
 
