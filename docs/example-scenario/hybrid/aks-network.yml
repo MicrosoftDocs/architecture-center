@@ -4,7 +4,7 @@ metadata:
   description: Learn how to design and implement network concepts for deploying Azure Kubernetes Service (AKS) nodes on AKS clusters.
   author: sethmanheim
   ms.author: sethm
-  ms.date: 06/12/2025
+  ms.date: 06/13/2024
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom: arb-hybrid
