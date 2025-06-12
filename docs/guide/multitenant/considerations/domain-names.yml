@@ -4,7 +4,7 @@ metadata:
   description: This article describes the considerations you need to give to domain names when building multitenant web applications.
   author: johndowns
   ms.author: pnp
-  ms.date: 07/18/2024
+  ms.date: 06/13/2025
   ms.topic: conceptual
   ms.subservice: architecture-guide
   ms.custom:
