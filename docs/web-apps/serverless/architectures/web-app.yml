@@ -2,7 +2,7 @@
 metadata:
   title: Serverless web application
   description: This reference architecture shows a serverless web application, which serves static content from Azure Blob Storage and implements an API using Azure Functions.
-  author: RobBagby
+  author: claytonsiemens77
   ms.author: pnp
   ms.date: 07/11/2022
   ms.topic: reference-architecture

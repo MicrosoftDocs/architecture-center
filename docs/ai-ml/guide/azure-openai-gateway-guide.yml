@@ -2,7 +2,7 @@
 metadata:
   title: Access Azure OpenAI and other Language Models through a Gateway
   description: Understand how implementing a gateway helps manage access to Azure OpenAI and other language models more securely and efficiently.
-  author: RobBagby
+  author: claytonsiemens77
   ms.author: pnp
   ms.date: 12/16/2024
   ms.topic: conceptual

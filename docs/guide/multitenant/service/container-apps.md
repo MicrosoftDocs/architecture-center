@@ -143,8 +143,8 @@ Principal authors:
 
 Other contributors:
 
-- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer, Microsoft
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer, Azure Patterns & Practices
 - [Xuhong Liu](https://www.linkedin.com/in/xuhong-l-5937159b/) | Senior Service Engineer, FastTrack for Azure
 - [Aarthi Murugan](https://www.linkedin.com/in/aarthimurugan/) | Senior Program Manager, CS Tech Strategy App Innovation
 - [Kendall Roden](https://www.linkedin.com/in/kendallroden/) | Senior Program Manager, Container Apps

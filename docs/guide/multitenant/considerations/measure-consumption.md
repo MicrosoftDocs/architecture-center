@@ -87,13 +87,13 @@ Some Azure services provide features that allow other methods of attribution of 
 
 Principal author:
 
-- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford/) | Partner Technology Strategist
 
 Other contributors:
 
-- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
-- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer, Azure Patterns & Practices
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

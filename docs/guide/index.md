@@ -1,7 +1,7 @@
 ---
 title: Azure Application Architecture Fundamentals
 description: Learn about structured approaches to designing scalable, resilient, and highly available applications on Azure. Follow best practices for cloud applications.
-author: RobBagby
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 01/03/2025
 ms.topic: conceptual

@@ -1,7 +1,7 @@
 ---
 title: Architecture styles
 description: Learn about architecture styles for cloud applications, including descriptions, recommendations, best practices, and recommended deployment with Azure services.
-author: RobBagby
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 07/26/2022
 ms.topic: conceptual

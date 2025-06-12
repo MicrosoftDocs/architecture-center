@@ -1,7 +1,7 @@
 ---
 title: Develop a RAG Solution - Large Language Model End-to-End Evaluation Phase
 description: Learn about how to evaluate your RAG solution from end to end by calculating and evaluating key large language model and similarity metrics.
-author: robbagby
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 01/29/2025 
 ms.topic: conceptual
@@ -196,7 +196,7 @@ The framework loads, chunks, and enriches text and images from MHTML files. It t
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 - [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/) | Software Engineer II
-- [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Architecture Center Content Lead
+- [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Content Developer - Azure Patterns & Practice
 - [Paul Butler](https://www.linkedin.com/in/paulfbutler2016/) | Software Engineer
 - [Prabal Deb](https://www.linkedin.com/in/prabaldeb/) | Principal Software Engineer
 - [Soubhi Hadri](https://www.linkedin.com/in/soubhihadri/) | Senior Data Scientist

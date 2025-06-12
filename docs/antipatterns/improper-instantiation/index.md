@@ -2,7 +2,7 @@
 title: Improper Instantiation antipattern
 description: Avoid continually creating new instances of an object that is meant to be created once and then shared.
 ms.author: pnp
-author: RobBagby
+author: claytonsiemens77
 ms.date: 06/05/2017
 ms.topic: design-pattern
 ms.subservice: best-practice

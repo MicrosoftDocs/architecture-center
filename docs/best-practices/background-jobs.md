@@ -2,7 +2,7 @@
 title: Background jobs guidance
 description: Learn about background tasks that run independently of the user interface, such as batch jobs, intensive processing tasks, and long-running processes.
 ms.author: pnp
-author: RobBagby
+author: claytonsiemens77
 ms.date: 10/18/2022
 ms.topic: best-practice
 ms.subservice: best-practice

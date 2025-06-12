@@ -1,7 +1,7 @@
 ---
 title: Management and governance architecture design
 description: Get an overview of Azure management and governance technologies, guidance offerings, solution ideas, and reference architectures.
-author: RobBagby
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 06/16/2023
 ms.topic: conceptual
