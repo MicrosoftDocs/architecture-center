@@ -6,8 +6,6 @@ author: RobBagby
 ms.date: 08/06/2021
 ms.topic: design-pattern
 ms.subservice: best-practice
-ms.custom:
-  - article
 ---
 
 # Retry Storm antipattern

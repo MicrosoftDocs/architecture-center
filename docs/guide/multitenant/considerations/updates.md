@@ -6,9 +6,7 @@ ms.author: pnp
 ms.date: 07/22/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Considerations for updating a multitenant solution

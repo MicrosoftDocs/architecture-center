@@ -10,10 +10,7 @@ metadata:
   ms.category:
     - identity
     - hybrid
-  ms.custom:
-    - identity
-    - reference-architecture
-    - e2e-hybrid
+  ms.custom: e2e-hybrid
 name: Create an AD DS resource forest in Azure
 azureCategories:
   - identity

@@ -6,8 +6,6 @@ ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
 ---
 
 <!-- cSpell:ignore Oozie HDFS SSMS -->

@@ -10,8 +10,6 @@ metadata:
   ms.category:
     - containers
   ms.custom:
-    - microservices
-    - reference-architecture
     - e2e-aks
     - arb-containers
 name: Microservices architecture on Azure Kubernetes Service

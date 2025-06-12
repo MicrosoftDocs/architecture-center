@@ -11,8 +11,6 @@ metadata:
     - hybrid
     - networking
   ms.custom:
-    - networking
-    - article
     - e2e-hybrid
     - arb-hybrid
 name: Troubleshoot a hybrid VPN connection

@@ -6,9 +6,6 @@ ms.author: nasiddi
 ms.date: 10/04/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - internal-intro
 ---
 
 <!-- cSpell:ignore VHDs HDFS WASB HMAC POSIX ACLs JDBC -->

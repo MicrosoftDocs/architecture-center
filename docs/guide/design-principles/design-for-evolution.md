@@ -6,8 +6,6 @@ ms.author: pnp
 ms.date: 08/30/2018
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
 ---
 
 # Design for evolution

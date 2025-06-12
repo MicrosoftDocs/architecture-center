@@ -11,10 +11,7 @@ metadata:
     - identity
     - hybrid
   ms.custom:
-    - identity
-    - reference-architecture
     - e2e-hybrid
-    - 2021-refresh
     - has-azure-ad-ps-ref
 name: Integrate on-premises Active Directory domains with Microsoft Entra ID
 azureCategories:

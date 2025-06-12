@@ -7,9 +7,7 @@ ms.date: 06/12/2025
 ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 --- 
 
 # Architectural approaches for control planes in multitenant solutions

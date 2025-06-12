@@ -10,11 +10,7 @@ metadata:
   ms.category:
     - web
     - developer-tools
-  ms.custom:
-    - serverless
-    - reference-architecture
-    - internal-intro
-    - arb-web
+  ms.custom: arb-web
 name: Serverless web application
 azureCategories:
   - web
