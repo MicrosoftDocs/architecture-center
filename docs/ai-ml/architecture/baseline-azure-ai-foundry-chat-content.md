@@ -50,7 +50,7 @@ This architecture uses the [Foundry Agent Service standard agent setup](/azure/a
 
 ### Components
 
-This architecture builds on the [basic Azure OpenAI end-to-end chat architecture](./basic-openai-e2e-chat.yml#components). It introduces more Azure services to address enterprise requirements for reliability, security, and operational control. Each of the following components plays a specific role in a production enterprise chat solution:
+This architecture builds on the [basic Azure OpenAI end-to-end chat architecture](./basic-azure-ai-foundry-chat.yml#components). It introduces more Azure services to address enterprise requirements for reliability, security, and operational control. Each of the following components plays a specific role in a production enterprise chat solution:
 
 - [Foundry Agent Service](/azure/ai-services/agents/overview) provides the orchestration layer for chat interactions. It hosts and manages agents that do the following tasks:
   - Process user requests
@@ -277,7 +277,7 @@ Before you move to production, build a recovery runbook that addresses failures 
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-This architecture extends the security foundation established in the [basic OpenAI end-to-end chat reference architecture](./basic-openai-e2e-chat.yml). The primary difference is the addition of a network security perimeter alongside the identity perimeter from the basic architecture. From a network perspective, Application Gateway is the only internet-exposed resource. It makes the chat UI application available to users. From an identity perspective, the chat UI should authenticate and authorize requests. Use managed identities when possible to authenticate applications to Azure services.
+This architecture extends the security foundation established in the [basic OpenAI end-to-end chat reference architecture](./basic-azure-ai-foundry-chat.yml). The primary difference is the addition of a network security perimeter alongside the identity perimeter from the basic architecture. From a network perspective, Application Gateway is the only internet-exposed resource. It makes the chat UI application available to users. From an identity perspective, the chat UI should authenticate and authorize requests. Use managed identities when possible to authenticate applications to Azure services.
 
 This section describes networking and security considerations for key rotation and Azure OpenAI model fine-tuning.
 
@@ -487,7 +487,7 @@ Model deployments in Azure AI Foundry use the MaaS approach. Costs depend primar
 
 This architecture requires Azure Firewall as an egress control point. To optimize costs, use the Basic tier of Azure Firewall unless the rest of your workload components require advanced features. Higher tiers add cost, so only use them if you need their capabilities.
 
-If your organization uses Azure landing zones, consider using shared firewall and distributed denial of service (DDoS) resources to defer or reduce costs. Workloads that have similar security and performance requirements can benefit from shared resources. Ensure that shared resources don't introduce security or operational risks. [This architecture deployed in an Azure landing zone](./azure-openai-baseline-landing-zone.yml) uses shared resources.
+If your organization uses Azure landing zones, consider using shared firewall and distributed denial of service (DDoS) resources to defer or reduce costs. Workloads that have similar security and performance requirements can benefit from shared resources. Ensure that shared resources don't introduce security or operational risks. [This architecture deployed in an Azure landing zone](./baseline-azure-ai-foundry-landing-zone.yml) uses shared resources.
 
 ### Operational Excellence
 
@@ -598,7 +598,7 @@ Other contributors:
 
 ## Next step
 
-[Azure AI Foundry chat baseline in an Azure landing zone](./azure-openai-baseline-landing-zone.yml)
+[Azure AI Foundry chat baseline in an Azure landing zone](./baseline-azure-ai-foundry-landing-zone.yml)
 
 ## Related resources
 

@@ -3850,7 +3850,7 @@
 		</g>
 		<g id="shape2033-1040" v:mID="2033" v:groupContext="shape" transform="translate(1331.06,-585.389)">
 			<title>Sheet.2033</title>
-			<desc>Azure AI Agent Service</desc>
+			<desc>Foundry Agent Service</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="28.7209" cy="806.063" width="57.45" height="19.125"/>
 			<rect x="0" y="796.5" width="57.4418" height="19.125" class="st9"/>
@@ -4761,11 +4761,11 @@
 		</g>
 		<g id="shape2286-1416" v:mID="2286" v:groupContext="shape" transform="translate(767.96,-193.5)">
 			<title>Sheet.2286</title>
-			<desc>Azure AI Agent Service dependencies</desc>
+			<desc>Foundry Agent Service dependencies</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="133.52" cy="806.063" width="267.04" height="19.125"/>
 			<rect x="0" y="796.5" width="267.04" height="19.125" class="st9"/>
-			<text x="51.38" y="809.06" class="st13" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure AI Agent Service dependencies</text>		</g>
+			<text x="51.38" y="809.06" class="st13" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Foundry Agent Service dependencies</text>		</g>
 		<g id="shape2287-1419" v:mID="2287" v:groupContext="shape" transform="translate(969.72,-642.819)">
 			<title>Rectangle.2287</title>
 			<v:userDefs>
@@ -5006,10 +5006,10 @@
 			<text x="7.74" y="812.25" class="st104" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>N</text>		</g>
 		<g id="shape2330-1495" v:mID="2330" v:groupContext="shape" transform="translate(475.212,-41.625)">
 			<title>Sheet.2330</title>
-			<desc>Azure AI Agent Service flow</desc>
+			<desc>Foundry Agent Service flow</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="122.394" cy="806.063" width="244.79" height="19.125"/>
 			<rect x="0" y="796.5" width="244.788" height="19.125" class="st9"/>
-			<text x="4" y="809.06" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>Azure AI Agent Service flow</text>		</g>
+			<text x="4" y="809.06" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>Foundry Agent Service flow</text>		</g>
 	</g>
 </svg>

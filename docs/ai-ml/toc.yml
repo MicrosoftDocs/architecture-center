@@ -30,12 +30,12 @@ items:
       items:
       - name: Chat bots
         items:
-        - name: Azure OpenAI chat basic architecture
-          href: architecture/basic-openai-e2e-chat.yml
-        - name: Azure OpenAI chat baseline architecture
-          href: architecture/baseline-openai-e2e-chat.yml
-        - name: Azure OpenAI chat baseline in an Azure landing zone
-          href: architecture/azure-openai-baseline-landing-zone.yml
+        - name: Basic Azure AI Foundry chat reference architecture
+          href: architecture/basic-azure-ai-foundry-chat.yml
+        - name: Baseline Azure AI Foundry chat reference architecture
+          href: architecture/baseline-azure-ai-foundry-chat.yml
+        - name: Baseline Azure AI Foundry chat architecture in an Azure landing zone
+          href: architecture/baseline-azure-ai-foundry-landing-zone.yml
       - name: Document processing
         items:
         - name: Automate document classification
@@ -110,12 +110,12 @@ items:
       items:
       - name: Design architectures
         items:
-        - name: Azure OpenAI chat basic architecture
-          href: architecture/basic-openai-e2e-chat.yml
-        - name: Azure OpenAI chat baseline architecture
-          href: architecture/baseline-openai-e2e-chat.yml
-        - name: Azure OpenAI chat baseline in an Azure landing zone
-          href: architecture/azure-openai-baseline-landing-zone.yml
+        - name: Basic Azure AI Foundry chat reference architecture
+          href: architecture/basic-azure-ai-foundry-chat.yml
+        - name: Baseline Azure AI Foundry chat reference architecture
+          href: architecture/baseline-azure-ai-foundry-chat.yml
+        - name: Baseline Azure AI Foundry chat architecture in an Azure landing zone
+          href: architecture/baseline-azure-ai-foundry-landing-zone.yml
         - name: Extract and analyze call center data
           href: openai/architecture/call-center-openai-analytics.yml
       - name: Apply guidance
