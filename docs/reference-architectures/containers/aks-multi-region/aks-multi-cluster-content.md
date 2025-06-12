@@ -18,14 +18,14 @@ Many components and Azure services are used in this multi-region AKS architectur
 - **Regional hub-spoke networks:** A [regional hub-spoke virtual network](/azure/architecture/networking/architecture/hub-spoke) is deployed for each regional AKS instance. [Azure Firewall Manager](/azure/firewall-manager/overview) policies are used to manage firewall policies across all regions.
 - **Regional key vault:** [Azure Key Vault](/azure/key-vault/general/overview) is provisioned in each region. Key vaults are used for storing sensitive values and keys specific to the AKS cluster and supporting services that are in that region.
 - **Multiple log workspaces:** Regional [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) workspaces are used for storing regional networking metrics and diagnostic logs. Additionally, a shared Log Analytics instance is used to store metrics and diagnostic logs for all AKS instances.
-- **AKS fleet:** An [Azure Kubernetes Fleet Manager resource](/azure/kubernetes-fleet/concepts-fleet) is deployed to coordinate both Kubernetes cluster version updates and node image version updates across each of the regional AKS clusters.
-- **Fleet hub cluster (Microsoft-managed):** *Optionally*, a single [Azure Kubernetes Fleet Manager hub cluster](/azure/kubernetes-fleet/concepts-fleet#what-are-hub-clusters) can be deployed to support specific features of fleets, such as workload propagation. The hub cluster is a regionally scoped Azure resource that helps to manage multiple member clusters. It's best to deploy the hub cluster as a private AKS cluster, which must be reachable from member clusters to support heartbeat signals and to perform configuration reconciliation processes.
+- **AKS fleet:** An [Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/concepts-fleet) is deployed to coordinate both Kubernetes cluster version updates and node image version updates across each of the regional AKS clusters.
+- **Fleet hub cluster (Microsoft-managed):** *Optionally*, a single [Azure Kubernetes Fleet Manager hub cluster](/azure/kubernetes-fleet/concepts-fleet#what-are-hub-clusters) can be deployed to support specific features of fleets, such as workload propagation. The hub cluster is a regionally scoped Azure resource that helps to manage workload propagation and load balancing across multiple member clusters. It's best to deploy the hub cluster as a private hub cluster, which must be reachable from member clusters to support heartbeat signals and to perform configuration reconciliation processes.
 - **Global Azure Front Door profile:** [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is used to load balance and route traffic to a regional Azure Application Gateway instance, which sits in front of each AKS cluster. Azure Front Door allows for layer 7 global routing, both of which are required for this architecture.
 - **Global container registry:** The container images for the workload are stored in a managed container registry. In this architecture, a single Azure Container Registry is used for all Kubernetes instances in the cluster. Geo-replication for [Azure Container Registry](/azure/container-registry/container-registry-intro) enables replicating images to the selected Azure regions and providing continued access to images even if a region is experiencing an outage.
 
 ## Alternatives
 
-This solution uses [Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/). Fleets enable a range of capabilities for managing multiple clusters, with a focus on streamlining day-2 operations by providing a control plane that can orchestrate activities across multiple clusters. The benefits of fleet manager typically improve as the number of clusters in your fleet increases.
+This solution uses [Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/). Fleets enable a range of capabilities for managing multiple clusters, with a focus on streamlining day-2 operations by providing a control plane that can orchestrate activities across multiple clusters. The benefits of Fleet Manager increase as the number of clusters in your fleet grows.
 
 In this solution, the fleet orchestrates Kubernetes version updates across multiple clusters, as well as node image version updates. These capabilities don't require a hub cluster to be deployed. You could choose to have each cluster perform Kubernetes version and node image updates independently, which doesn't require a fleet. However, if you do so, clusters are likely to get version updates at different times, and it can become difficult to validate your workload and configuration with multiple versions in your production environment simultaneously.
 
@@ -88,7 +88,7 @@ As new stamps are added or removed from the global cluster, the deployment pipel
 
 Another option would be to create business logic to create clusters based on a list of desired locations or other indicating data points. For instance, the deployment pipeline could contain a list of desired regions; a step within the pipeline could then loop through this list, deploying a cluster into each region found in the list. The disadvantage to this configuration is the complexity in deployment generalization and that each cluster stamp isn't explicitly detailed in the deployment pipeline. The positive benefit is that adding or removing cluster stamps from the pipeline becomes a simple update to the list of desired regions.
 
-Following the creation of a cluster, it needs to be enrolled into the fleet as a member cluster. This step can be completed by deploying a Resource Manager resource of type `Microsoft.ContainerService/fleets/members`, which references the member cluster's resource ID. After the member cluster is enrolled in the fleet, it participates in update runs and can use other fleet capabilities that you configure.
+Following the creation of a cluster, it needs to be enrolled into the fleet as a member cluster. This step can be completed by deploying a Resource Manager resource of type `Microsoft.ContainerService/fleets/members`, which references the member cluster's resource ID. After the member cluster is enrolled in the fleet, it can be added to update runs and use other fleet capabilities that you configure.
 
 Also, removing a cluster stamp from the deployment pipeline doesn't always decommission the stamp's resources. Depending on your deployment solution and configuration, you might need an extra step to decommission the AKS instances and other Azure resources. Consider using [deployment stacks](/azure/azure-resource-manager/bicep/deployment-stacks) to enable full lifecycle management of Azure resources, including cleanup when you don't need them anymore.
 
@@ -125,7 +125,7 @@ See [Cloud Adoption Framework resource organization](/azure/cloud-adoption-frame
 
 #### Fleet enrolment
 
-After a cluster is deployed and configured, you enrol it into the fleet as a *member cluster*. Each member cluster can be assigned to a *group*, which determines where it fits in the update sequence for that fleet. To learn more about cluster enrolment, groups, and update strategies, see [Define reusable update strategies using Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/update-create-update-strategy).
+After a cluster is deployed and configured, you enrol it into the fleet as a *member cluster*. Each member cluster can be assigned to a *update group*, which can be used as part of an update strategy to determine where in an update run the cluster is updated. To learn more about cluster enrolment, groups, and update strategies, see [Define reusable update strategies using Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/update-create-update-strategy).
 
 #### Workload deployment
 
@@ -303,15 +303,15 @@ To learn more about how to configure Azure Monitor workspaces in a multi-cluster
 
 #### Monitor the fleet's operations
 
-When Fleets orchestrates an update run, you can monitor the progress of the run as it progresses across clusters. Data are stored in Azure Resource Graph and [can be exported to Azure Monitor for alerting and storage](/azure/kubernetes-fleet/howto-monitor-update-runs).
+When Fleet Manager orchestrates an update run, you can monitor the progress of the run as it progresses across clusters. Data are stored in Azure Resource Graph and [can be exported to Azure Monitor for alerting and storage](/azure/kubernetes-fleet/howto-monitor-update-runs).
 
-If you choose to use Fleets for workload propagation, you can monitor the rollout [by using the Azure portal or kubectl](/azure/kubernetes-fleet/quickstart-resource-propagation).
+If you choose to use Fleet Manager for workload propagation, you can monitor the rollout [by using the Azure portal or kubectl](/azure/kubernetes-fleet/quickstart-resource-propagation).
 
 You can also collect [resource logs from the fleet resource](/azure/azure-monitor/reference/supported-logs/microsoft-containerservice-fleets-logs) and forward them to a Log Analytics workspace.
 
 #### Apply updates across the fleet
 
-In this reference architecture, the fleet applies Kubernetes version updates and node image updates across your fleet. You can specify upgrade strategies that configure how upgrades are rolled out across your clusters. Also, the fleet respects maintenance windows on each cluster, so it's a good practice to set the maintenance windows appropriate to each cluster. Maintenance windows on each cluster might be different when you use clusters across multiple geographies and therefore in different time zones.
+In this reference architecture, Fleet Manager applies Kubernetes version updates and node image updates across your fleet. You can specify upgrade strategies that configure how upgrades are rolled out across your clusters. Also, Fleet Manager respects maintenance windows on each cluster, so it's a good practice to set the maintenance windows appropriate to each cluster. Maintenance windows on each cluster might be different when you use clusters across multiple geographies and therefore in different time zones.
 
 For more information, see [Update Kubernetes and node images across multiple member clusters](/azure/kubernetes-fleet/concepts-update-orchestration).
 
