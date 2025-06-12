@@ -145,13 +145,13 @@ Whichever isolation model you choose, be sure to test your solution to verify th
 
 Principal author:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 
- * [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
- * [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
- * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer, Azure Patterns & Practices
+- [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

@@ -6,8 +6,6 @@ ms.author: prvalava
 ms.date: 06/06/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
 ---
 
 <!-- cSpell:ignore HDFS -->

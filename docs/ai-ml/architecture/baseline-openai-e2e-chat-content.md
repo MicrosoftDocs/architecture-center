@@ -544,16 +544,16 @@ To deploy and run this reference implementation, follow the deployment guide in 
 
 Principal authors:
 
-- [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Content Developer - Azure Patterns & Practices - Microsoft
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices - Microsoft
+- [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Content Developer - Azure Patterns & Practices
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
 
 Other contributors:
 
-- [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/) | Senior Software Engineer - Microsoft
-- [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) | Cloud Solution Architect - Microsoft
-- [Prabal Deb](https://www.linkedin.com/in/prabaldeb/) | Principal Software Engineer - Microsoft
-- [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/) | Principal Software Engineer - Microsoft
-- [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/) | Senior Technical Program Manager - Microsoft
+- [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/) | Senior Software Engineer
+- [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) | Cloud Solution Architect
+- [Prabal Deb](https://www.linkedin.com/in/prabaldeb/) | Principal Software Engineer
+- [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/) | Principal Software Engineer
+- [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/) | Senior Technical Program Manager
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

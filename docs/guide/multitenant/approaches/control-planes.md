@@ -1,14 +1,13 @@
 ---
 title: Architectural approaches for control planes in multitenant solutions
 description: Learn about approaches to designing and creating control planes for your multitenant solutions, including manual, low-code, and custom approaches.
-author: landonpierce 
-ms.author: landonpierce 
-ms.date: 07/15/2024
+author: johndowns 
+ms.author: pnp 
+ms.date: 06/12/2025
+ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 --- 
 
 # Architectural approaches for control planes in multitenant solutions

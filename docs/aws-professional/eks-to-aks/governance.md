@@ -91,14 +91,14 @@ After you install the Azure Policy add-on for AKS, you can apply individual poli
 
 Principal authors:
 
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
-- [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski) | Senior Service Engineer
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Service Engineer
+- [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski/) | Senior Service Engineer
 
 Other contributors:
 
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
-- [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
-- [Theano Petersen](https://www.linkedin.com/in/theanop) | Technical Writer
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
+- [Ed Price](https://www.linkedin.com/in/priceed/) | Senior Content Program Manager
+- [Theano Petersen](https://www.linkedin.com/in/theanop/) | Technical Writer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

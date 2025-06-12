@@ -6,9 +6,6 @@ ms.author: pnp
 ms.date: 07/25/2023
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - resiliency
-  - article
 ---
 
 # Failure mode analysis for Azure applications

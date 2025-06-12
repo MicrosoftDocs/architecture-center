@@ -7,7 +7,6 @@ ms.date: 06/11/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
-  - guide
   - devx-track-arm-template
   - arb-saas
 ---

@@ -1,7 +1,7 @@
 ---
 title: Design and Develop a RAG Solution
 description: Learn about what to consider when you design a large language model RAG solution, including each step of the development process and how to evaluate those steps.
-author: robbagby
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 12/9/2024
 ms.topic: conceptual
@@ -109,9 +109,9 @@ Because of the number of steps and variables, it's important that you follow a s
 Principal authors:
 
 - [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/) | Software Engineer II
-- [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Architecture Center Content Lead
+- [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Content Developer - Azure Patterns & Practices
 - [Prabal Deb](https://www.linkedin.com/in/prabaldeb/) | Principal Software Engineer
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
 - [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/) | Principal Engineer
 - [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/) | Senior Technical Program Manager
 - [Randy Thurman](https://www.linkedin.com/in/randy-thurman-2917549/) | Principal AI Cloud Solution Architect

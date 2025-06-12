@@ -2,7 +2,7 @@
 title: Edge Workload Configuration pattern
 description: Learn how to design your workload configuration processes to control the complexity of devices and systems on your shop floors.
 keywords: edge, workload, configuration
-author: RobBagby
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 10/12/2022
 ms.topic: design-pattern

@@ -7,10 +7,7 @@ ms.date: 3/20/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
-ms.custom:
-  - analytics
-  - guide
-  - arb-aiml
+ms.custom: arb-aiml
 ---
 
 # Choose an Azure AI speech recognition and generation technology
