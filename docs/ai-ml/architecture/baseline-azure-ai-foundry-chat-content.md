@@ -362,7 +362,7 @@ To support this configuration, set up DNS for the following Azure AI Foundry FQD
 The following diagram shows how an AI developer connects through Azure Bastion to a virtual machine (VM) jump box. From that jump box, the author can access the project in the Azure AI Foundry portal through a private endpoint in the same network.
 
 :::image type="complex" source="_images/baseline-azure-ai-foundry-portal-access.svg" border="false" lightbox="_images/baseline-azure-ai-foundry-portal-access.svg" alt-text="A diagram that shows how a user connects to a jump box VM through Azure Bastion.":::
-  An arrow points from an agent author, to Azure Bastion, to the jump box, to an Azure AI Foundry (portal) private endpoint, and then to the Azure AI Foundry project that contains Foundry Agent Service. From the Azure AI Foundry project, an arrow points to a virtual interface in the the Azure AI agent integration subnet. A final arrow points from the virtual interface to the three Foundry Agent Service dependency's private endpoints. Those dependencies are AI Search, Azure Cosmos DB, and Storage.
+  An arrow points from an agent author, to Azure Bastion, to the jump box, to an Azure AI Foundry (portal) private endpoint, and then to the Azure AI Foundry project that contains Foundry Agent Service. From the Azure AI Foundry project, an arrow points to a virtual interface in the Azure AI agent integration subnet. A final arrow points from the virtual interface to the three Foundry Agent Service dependency's private endpoints. Those dependencies are AI Search, Azure Cosmos DB, and Storage.
 :::image-end:::
 
 ##### Control traffic from the Azure AI Foundry agent subnet
