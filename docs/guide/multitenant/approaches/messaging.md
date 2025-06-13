@@ -6,9 +6,7 @@ ms.author: paolos
 ms.date: 11/27/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Architectural approaches for messaging in multitenant solutions

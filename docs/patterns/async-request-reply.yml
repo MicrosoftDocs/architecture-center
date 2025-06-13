@@ -3,7 +3,7 @@ metadata:
   title: Asynchronous Request-Reply pattern
   description: Allow decoupling of backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response.
   ms.author: pnp
-  author: RobBagby
+  author: claytonsiemens77
   ms.date: 07/28/2022
   ms.topic: design-pattern
   ms.subservice: design-pattern

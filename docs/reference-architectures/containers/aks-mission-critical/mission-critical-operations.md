@@ -146,13 +146,13 @@ Azure subscriptions have quota limits. Deployments can fail when these limits ar
 
 ## Contributors
 
-*Microsoft maintains this article. The following contributors wrote this article.* 
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal authors:
 
- - [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Content Developer
- - [Allen Sudbring](https://www.linkedin.com/in/allen-sudbring-9163171/) | Senior Content Developer
- 
+- [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Content Developer - Azure Patterns & Practices
+- [Allen Sudbring](https://www.linkedin.com/in/allen-sudbring-9163171/) | Senior Content Developer
+
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps

@@ -2,7 +2,7 @@
 metadata:
   title: Pipes and Filters pattern
   description: Break down a task that performs complex processing into a series of separate elements that can be reused or reordered.
-  author: robbagby
+  author: claytonsiemens77
   ms.author: pnp
   ms.date: 04/10/2024
   ms.topic: design-pattern

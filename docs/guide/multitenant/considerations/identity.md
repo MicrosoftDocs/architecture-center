@@ -6,9 +6,7 @@ ms.author: dascottr
 ms.date: 05/30/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Architectural considerations for identity in a multitenant solution

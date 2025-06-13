@@ -6,9 +6,7 @@ ms.author: dascottr
 ms.date: 07/18/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Guidance for using Azure Database for PostgreSQL in a multitenant solution

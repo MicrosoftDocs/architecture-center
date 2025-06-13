@@ -6,9 +6,7 @@ ms.author: pnp
 ms.date: 05/16/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Architectural approaches for identity in multitenant solutions

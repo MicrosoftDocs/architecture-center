@@ -8,9 +8,7 @@ ms.update-cycle: 180-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Architectural approaches for AI and ML in multitenant solutions

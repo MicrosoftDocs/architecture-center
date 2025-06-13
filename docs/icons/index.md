@@ -2,7 +2,7 @@
 title: Azure Icons
 description: Download official Azure icons, Azure logo files, and Azure architecture icons to create clear, professional cloud diagrams.
 ms.author: pnp
-author: RobBagby
+author: claytonsiemens77
 ms.reviewer: chkittel
 ms.date: 03/28/2025
 ms.subservice: architecture-guide

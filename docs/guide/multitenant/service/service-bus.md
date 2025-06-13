@@ -6,9 +6,7 @@ ms.author: dascottr
 ms.date: 05/02/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Azure Service Bus considerations for multitenancy
