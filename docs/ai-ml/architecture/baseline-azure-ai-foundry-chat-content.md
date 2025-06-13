@@ -55,12 +55,13 @@ This architecture uses the [Foundry Agent Service standard agent setup](/azure/a
 This architecture builds on the [basic Azure AI Foundry chat reference architecture](./basic-azure-ai-foundry-chat.yml#components). This architecture introduces more Azure services to address enterprise requirements for reliability, security, and operational control. Each of the following components plays a specific role in a production enterprise chat solution:
 
 - [Foundry Agent Service](/azure/ai-services/agents/overview) provides the orchestration layer for chat interactions. It hosts and manages agents that do the following tasks:
+
   - Process user requests
   - Coordinate calls to tools and other agents
   - Enforce content safety
   - Integrate with enterprise identity, networking, and observability
 
-  The [standard agent setup](/azure/ai-services/agents/concepts/standard-agent-setup) ensures network isolation and provides control over data storage. You supply dedicated Azure resources for agent state, chat history, and file storage, which Foundry Agent Service uses exclusively. Other application components in the workload shouldn't use these required resources.
+  The [standard agent setup](/azure/ai-services/agents/concepts/standard-agent-setup) ensures network isolation and provides control over data storage. You supply dedicated Azure resources for agent state, chat history, and file storage, which Foundry Agent Service manages exclusively. Other application components in the workload shouldn't use these required resources.
 
   - [Azure Cosmos DB for NoSQL](/azure/well-architected/service-guides/cosmos-db) hosts this workload's memory database, called `enterprise_memory`, within your subscription. This database stores the agent's operational state, including chat threads and agent definitions. This design ensures that chat history and agent configuration are isolated, auditable, and managed according to data governance requirements. Foundry Agent Service manages the database, its collections, and its data.
 
@@ -94,7 +95,7 @@ This architecture includes multiple components that you can substitute with othe
 
 **Alternative approach:** You can self-host the orchestration layer by using frameworks such as [Semantic Kernel](/semantic-kernel/overview/) or [LangChain](/azure/ai-foundry/how-to/develop/langchain). Use these frameworks to implement deterministic, code-driven chat flows and custom orchestration logic.
 
-Consider alternatives if your workload requires the following capabilities:
+Consider this alternative if your workload requires the following capabilities:
 
 - Fine-grained, deterministic control over the orchestration sequence, tool invocation, or prompt engineering
 
@@ -110,7 +111,7 @@ Self-hosted orchestration increases operational complexity and requires you to m
 
 **Alternative approach:** You can use other Azure-managed compute platforms, such as Azure Container Apps or Azure Kubernetes Service (AKS), to host the application tier.
 
-Consider alternatives if your workload meets any of the following conditions:
+Consider this alternative if your workload meets any of the following conditions:
 
 - Another compute platform better supports certain use cases, and colocating services on that platform can improve cost efficiency and simplify operations
 
@@ -124,7 +125,7 @@ App Service remains the preferred option for its simplicity in hosting web appli
 
 **Alternative approach:** You might use other data platforms for grounding knowledge, such as Azure Cosmos DB, Azure SQL Database, or other online transaction processing (OLTP) data stores. Your data platform depends on your existing data estate, data freshness requirements, and query requirements.
 
-Consider alternatives if your workload meets any of the following conditions:
+Consider this alternative if your workload meets any of the following conditions:
 
 - You already manage your grounding knowledge in an existing transactional or operational database
 
@@ -263,7 +264,7 @@ The following recommendations address DR for each service:
 
 - **AI Search:** AI Search lacks built-in restore capabilities and doesn't support direct index manipulation. If data loss or corruption occurs, you must contact Microsoft support for assistance with index restoration. This limitation can significantly affect your RTO. If your chat UI doesn't support file uploads and you don't have agents that use static files as knowledge, you might not need a DR plan for AI Search.
 
-  Maintain a separate, regularly updated source of truth for your knowledge base. This practice ensures that you can rebuild indexes when necessary.
+  Maintain a separate, regularly updated source of truth for your enterprise grounding knowledge. This practice ensures that you can rebuild indexes when necessary.
 
 - **Storage:** If you have a geo-redundant storage account, use [customer-managed failover](/azure/storage/common/storage-disaster-recovery-guidance#customer-managed-unplanned-failover) for blob containers that Foundry Agent Service uses. This setup allows you to initiate failover during a regional outage. If you use only zone-redundant storage, contact Microsoft support to restore data. This process might extend your RTO. As with AI Search, if your chat UI doesn't support file uploads and you don't have agents that use static files as knowledge, you might not need a DR plan for blob containers.
 
@@ -304,7 +305,7 @@ The Azure AI Foundry portal runs many actions by using the service's identity ra
 
 To mitigate the risk of undesired access, restrict portal usage in production environments to employees that have a clear operational need. For most employees, disable or block access to the Azure AI Foundry portal in production. Instead, use automated deployment pipelines and infrastructure as code (IaC) to manage agent and project configuration.
 
-Creating new projects in an Azure AI Foundry account grants high-level privileges. Projects created through the portal don't automatically inherit your established network security controls, such as private endpoints or network security groups (NSGs). And new agents in those projects bypass your intended security perimeter. Enforce project creation exclusively through your controlled, auditable IaC processes.
+Treat creating new projects in an Azure AI Foundry account as a privileged action. Projects created through the portal don't automatically inherit your established network security controls, such as private endpoints or network security groups (NSGs). And new agents in those projects bypass your intended security perimeter. Enforce project creation exclusively through your controlled, auditable IaC processes.
 
 ##### Azure AI Foundry project role assignments and connections
 
@@ -324,7 +325,7 @@ The network design includes the following safeguards:
 
 - A single, secure entry point for all chat UI traffic, which minimizes the attack surface
 
-- Filtered ingress and egress network traffic by using a combination of NSGs, web application firewalls, user-defined routes (UDRs), and Azure Firewall rules
+- Filtered ingress and egress network traffic by using a combination of NSGs, a web application firewall, user-defined routes (UDRs), and Azure Firewall rules
 - End-to-end encryption of data in transit by using TLS
 - Network privacy by using Private Link for all Azure PaaS service connections
 - Logical segmentation and isolation of network resources, with dedicated subnets for each major component grouping to support granular security policies
@@ -342,13 +343,13 @@ When the chat UI communicates with the agent deployed in Azure AI Foundry, the f
 1. The App Service-hosted chat UI initiates HTTPS requests through a private endpoint to the Azure AI Foundry data plane API endpoint.
 
 1. When the agent accesses Azure PaaS services, such as service dependencies, custom knowledge stores, or custom tools, it sends HTTPS requests from the delegated subnet to the private endpoints of those services.
-1. When the agent accesses resources outside the virtual network, including internet-based APIs or external services, it routes HTTPS requests from the delegated subnet through Azure Firewall.
+1. When the agent accesses resources outside the virtual network, including internet-based APIs or external services, it's forced to route those HTTPS requests from the delegated subnet through Azure Firewall.
 
 Private endpoints serve as a critical security control in this architecture by supplementing identity-based security.
 
 ##### Ingress to Azure AI Foundry
 
-This architecture disables public access to the Azure AI Foundry data plane by using a [private link for Azure AI Foundry](/azure/ai-foundry/how-to/configure-private-link). Although you can access much of the Azure AI Foundry portal through the [portal website](https://ai.azure.com), all project-level functionality requires network access. The portal relies on your AI Foundry account's data plane APIs, which are reachable only through private endpoints. As a result, developers and data scientists must access the portal through a jump box, a peered virtual network, or an ExpressRoute or site-to-site VPN connection.
+This architecture disables public access to the Azure AI Foundry data plane by only allowing traffic through a [private link for Azure AI Foundry](/azure/ai-foundry/how-to/configure-private-link). Although you can access much of the Azure AI Foundry portal through the [portal website](https://ai.azure.com), all project-level functionality requires network access. The portal relies on your AI Foundry account's data plane APIs, which are reachable only through private endpoints. As a result, developers and data scientists must access the portal through a jump box, a peered virtual network, or an ExpressRoute or site-to-site VPN connection.
 
 All programmatic interactions with the agent data plane, such as from the web application or from external orchestration code when invoking model inferencing, must also use these private endpoints. Private endpoints are defined at the account level, not the project level. Therefore, all projects within the account share the same set of endpoints. You can't segment network access at the project level, and all projects share the same network exposure.
 
@@ -374,7 +375,7 @@ The agent service uses the virtual network's DNS configuration to resolve privat
 
 The NSG attached to the agent egress subnet blocks all inbound traffic because no legitimate ingress should occur. Outbound NSG rules allow access only to private endpoint subnets within the virtual network and to Transmission Control Protocol (TCP) port 443 for internet-bound traffic. The NSG denies all other traffic.
 
-To further restrict internet traffic, this architecture applies a UDR to the subnet, which directs all HTTPS traffic through Azure Firewall. The firewall controls which FQDNs the agent can reach. For example, if the agent only needs to access the [Grounding with Bing](/azure/ai-services/agents/how-to/tools/bing-grounding) public APIs, configure Azure Firewall to allow traffic to `api.bing.microsoft.com` on port 443 from this subnet. Deny all other outbound destinations.
+To further restrict internet traffic, this architecture applies a UDR to the subnet, which directs all HTTPS traffic through Azure Firewall. The firewall controls which FQDNs the agent can reach through HTTPS connections. For example, if the agent only needs to access the [Grounding with Bing](/azure/ai-services/agents/how-to/tools/bing-grounding) public APIs, configure Azure Firewall to allow traffic to `api.bing.microsoft.com` on port 443 from this subnet. All other outbound destinations are denied.
 
 ##### Virtual network segmentation and security
 
