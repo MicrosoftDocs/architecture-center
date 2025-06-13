@@ -58,7 +58,7 @@ This scenario is a pull-based DevOps pipeline for a typical web application. The
 
 #### Dataflow for scenario 3
 
-In this scenario, the Kubernetes administrator can change Kubernetes configuration objects, such as secrets and ConfigMaps, and commit the changes directly to the GitHub repository.
+Argo CD can be [enabled as a cluster extension in AKS](/azure/azure-arc/kubernetes/tutorial-use-gitops-argocd). In this scenario, the Kubernetes administrator can change Kubernetes configuration objects, such as secrets and ConfigMaps, and commit the changes directly to the GitHub repository.
 
 The data flow for this scenario is:
 
@@ -212,7 +212,9 @@ Principal author:
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
-
+- [Deploy applications using GitOps with Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2)
+- [Deploy applications using GitOps with Argo CD](/azure/azure-arc/kubernetes/tutorial-use-gitops-argocd)
+- [Implement CI/CD with GitOps (Flux v2)](/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd)
 - [Argo CD documentation](https://argo-cd.readthedocs.io)
 - [Flux CD documentation](https://fluxcd.io)
 - [GitOps with Jenkins X](https://jenkins-x.io/v3/devops/gitops)
