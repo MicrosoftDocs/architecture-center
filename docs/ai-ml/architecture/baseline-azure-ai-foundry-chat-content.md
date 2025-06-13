@@ -30,7 +30,7 @@ This architecture uses the [Foundry Agent Service standard agent setup](/azure/a
     To the far right, a separate box represents Azure AI Foundry, which includes an account and a project. Managed identities are used to connect the Foundry Agent Service to the Azure AI Foundry project, which in turn accesses an Azure OpenAI model. The diagram uses numbered green circles to indicate the logical flow, showing how user requests traverse the network, interact with various endpoints, and ultimately connect to Azure AI services and storage, with dependencies clearly grouped and labeled.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/openai-end-to-end.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/baseline-azure-ai-foundry.vsdx) of this architecture.*
 
 ### Workflow
 
