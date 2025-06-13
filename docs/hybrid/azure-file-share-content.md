@@ -22,7 +22,7 @@ The architecture consists of the following components:
 
 Key technologies used to implement this architecture:
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is an enterprise identity service that provides single sign-on, multifactor authentication, and conditional access.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is an enterprise identity service that provides single sign-on, multifactor authentication, and Conditional Access.
 - [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in the cloud that are accessible by using the industry standard protocols.
 - [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.
 
