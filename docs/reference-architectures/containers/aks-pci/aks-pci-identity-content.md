@@ -329,9 +329,9 @@ This policy can be further hardened with additional policies. Here are some exam
 
 For more information, see:
 
-- [Conditional access: Require MFA for administrators](/entra/identity/conditional-access/howto-conditional-access-policy-admin-mfa)
-- [Conditional access: Require compliant devices](/entra/identity/conditional-access/how-to-policy-require-device-compliance)
-- [Conditional access: Sign-in risk-based multifactor authentication](/entra/identity/conditional-access/howto-conditional-access-policy-risk)
+- [Conditional Access: Require MFA for administrators](/entra/identity/conditional-access/howto-conditional-access-policy-admin-mfa)
+- [Conditional Access: Require compliant devices](/entra/identity/conditional-access/how-to-policy-require-device-compliance)
+- [Conditional Access: Sign-in risk-based multifactor authentication](/entra/identity/conditional-access/howto-conditional-access-policy-risk)
 
 ### Requirement 8.4
 
