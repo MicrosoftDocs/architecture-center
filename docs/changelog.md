@@ -27,7 +27,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
-- [Basic Azure AI Foundry Chat Reference Architecture](./ai-ml/architecture/basic-openai-e2e-chat.yml)  ([#49f9b377bb](https://github.com/MicrosoftDocs/architecture-center/commit/49f9b377bb))
+- [Basic Azure AI Foundry Chat Reference Architecture](./ai-ml/architecture/basic-azure-ai-foundry-chat.yml)  ([#49f9b377bb](https://github.com/MicrosoftDocs/architecture-center/commit/49f9b377bb))
 - [Choose a Stream Processing Technology](./data-guide/technology-choices/stream-processing.md)  ([#28af09d05c](https://github.com/MicrosoftDocs/architecture-center/commit/28af09d05c))
 - [Scale out an Azure IoT Hub-based solution to support millions of devices](./guide/iot/scale-iot-solution-azure.md)  ([#54c99a236d](https://github.com/MicrosoftDocs/architecture-center/commit/54c99a236d))
 - [IoT Hub-based Multitenant Solution Architectural Approaches](./guide/multitenant/approaches/iot.md)  ([#c92d3f1e02](https://github.com/MicrosoftDocs/architecture-center/commit/c92d3f1e02))
@@ -62,7 +62,7 @@ The following new and updated articles have recently been published in the Azure
 - [Considerations for Using Azure Container Apps in a Multitenant Solution](./guide/multitenant/service/container-apps.md)  ([#5998e0f989](https://github.com/MicrosoftDocs/architecture-center/commit/5998e0f989))
 - [Azure Service Bus Considerations for Multitenancy](./guide/multitenant/service/service-bus.md)  ([#5998e0f989](https://github.com/MicrosoftDocs/architecture-center/commit/5998e0f989))
 - [Generative AI Operations for Organizations with MLOps Investments](./ai-ml/guide/genaiops-for-mlops.md)  ([#a3f82db38d](https://github.com/MicrosoftDocs/architecture-center/commit/a3f82db38d))
-- [Basic Azure AI Foundry Chat Reference Architecture](./ai-ml/architecture/basic-openai-e2e-chat.yml)  ([#e70afb2615](https://github.com/MicrosoftDocs/architecture-center/commit/e70afb2615))
+- [Basic Azure AI Foundry Chat Reference Architecture](./ai-ml/architecture/basic-azure-ai-foundry-chat.yml)  ([#e70afb2615](https://github.com/MicrosoftDocs/architecture-center/commit/e70afb2615))
 - [Choose an Azure data service](./guide/technology-choices/data-options.md)  ([#30d024dc16](https://github.com/MicrosoftDocs/architecture-center/commit/30d024dc16))
 - [Mainframe File Replication and Sync on Azure](./solution-ideas/articles/mainframe-azure-file-replication.yml)  ([#e63f05ade9](https://github.com/MicrosoftDocs/architecture-center/commit/e63f05ade9))
 - [Build and Deploy Custom Document Processing Models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml)  ([#9be7ee44b0](https://github.com/MicrosoftDocs/architecture-center/commit/9be7ee44b0))
@@ -184,7 +184,7 @@ The following new and updated articles have recently been published in the Azure
 ### Updated articles
 
 - [Networking architecture design](./networking/index.md)  ([#4d4330c7bb](https://github.com/MicrosoftDocs/architecture-center/commit/4d4330c7bb))
-- [Baseline AI Foundry Chat Reference Architecture](./ai-ml/architecture/baseline-openai-e2e-chat.yml)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))
+- [Baseline AI Foundry Chat Reference Architecture](./ai-ml/architecture/baseline-azure-ai-foundry-chat.yml)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))
 - [Build and Deploy Custom Document Processing Models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))
 - [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))
 - [Choose a search data store](./data-guide/technology-choices/search-options.md)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))
