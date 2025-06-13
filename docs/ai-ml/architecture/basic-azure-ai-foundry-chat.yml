@@ -23,4 +23,4 @@ name: Basic Azure AI Foundry chat reference architecture
 summary: Establish foundational knowledge for how to build and deploy enterprise chat applications by using Azure AI Foundry and Azure App Service.
 thumbnailUrl: /azure/architecture/browse/thumbs/openai-end-to-end-basic.png
 content: |
-   [!INCLUDE[](basic-openai-e2e-chat-content.md)]
+   [!INCLUDE[](basic-azure-ai-foundry-chat-content.md)]

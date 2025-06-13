@@ -2446,6 +2446,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/ai-ml/architecture/baseline-openai-e2e-chat.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/basic-openai-e2e-chat.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/basic-azure-ai-foundry-chat",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/azure-openai-baseline-landing-zone.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-landing-zone",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/industries/manufacturing/predictive-maintenance-overview.yml",
       "redirect_url": "/industry/manufacturing/",
       "redirect_document_id": false
@@ -4836,7 +4851,7 @@
     },
     {
       "source_path": "docs/ai-ml/architecture/conversational-bot.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat",
       "redirect_document_id": false
     },
     {
@@ -6121,7 +6136,7 @@
     },
     {
       "source_path": "docs/ai-ml/openai/guide/language-model-pipelines.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat",
       "redirect_document_id": false
     },
     {

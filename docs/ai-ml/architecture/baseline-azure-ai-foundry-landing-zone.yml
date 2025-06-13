@@ -24,4 +24,4 @@ name: Azure OpenAI chat baseline architecture in an Azure landing zone
 summary: Learn how to build on the Azure OpenAI baseline architecture to address changes and expectations when you deploy it in an Azure landing zone.
 thumbnailUrl: ../../browse/thumbs/azure-openai-baseline-landing-zone.png
 content: |
-   [!INCLUDE[](azure-openai-baseline-landing-zone-content.md)]
+   [!INCLUDE[](baseline-azure-ai-foundry-landing-zone-content.md)]
