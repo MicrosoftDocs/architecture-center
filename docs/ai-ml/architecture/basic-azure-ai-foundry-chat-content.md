@@ -158,15 +158,11 @@ This architecture is optimized for learning and isn't intended for production us
 
 ##### Development
 
-For the basic architecture, you can create agents by using the browser-based experience in the Azure AI Foundry portal. When you move toward production, follow the [development and source control guidance](baseline-azure-ai-foundry-chat.yml#development) in the baseline architecture. When you no longer need an agent, be sure to delete it. If the agent that you delete is the last one that uses a connection, also remove the connection.
+For the basic architecture, you can create agents by using the browser-based experience in the Azure AI Foundry portal. When you move toward production, follow the [development and source control guidance](baseline-azure-ai-foundry-chat.yml#agent-versioning-and-life-cycle) in the baseline architecture. When you no longer need an agent, be sure to delete it. If the agent that you delete is the last one that uses a connection, also remove the connection.
 
 ##### Evaluation
 
 You can evaluate your generative application in Azure AI Foundry. We recommend that you learn how to [use evaluators to evaluate your generative AI applications](/azure/ai-foundry/concepts/evaluation-approach-gen-ai). This practice helps ensure that your chosen model meets customer and workload design requirements.
-
-##### Deployment
-
-This basic architecture implements a single instance for the deployed orchestrator. When you deploy changes, the new deployment replaces the existing deployment. When you move toward production, read the [deployment flow](baseline-azure-ai-foundry-chat.yml#deployment-flow) and [deployment guidance](baseline-azure-ai-foundry-chat.yml#deployment-guidance) in the baseline architecture. This guidance helps you understand and implement more advanced deployment approaches, such as blue-green deployments.
 
 ### Performance Efficiency
 
@@ -196,4 +192,4 @@ Architects should design AI and machine learning workloads, such as this one, wi
 - [A Well-Architected Framework perspective on AI workloads on Azure](/azure/well-architected/ai/get-started)
 - [Deploy AI models in the Azure AI Foundry portal](/azure/ai-foundry/concepts/deployments-overview)
 - [Explore Azure AI Foundry models](/azure/ai-foundry/concepts/foundry-models-overview)
-- [What is Azure AI Foundry Agent Service?](/azure/ai-services/agents/overview)
+- [What is Foundry Agent Service?](/azure/ai-services/agents/overview)
