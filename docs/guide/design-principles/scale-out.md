@@ -1,16 +1,11 @@
 ---
 title: Design to scale out
 description: Use these recommendations to design your applications for horizontal scaling, which is the ability to use as much capacity as the application needs.
-author: RobBagby
+author: claytonsiemens77
 ms.author: pnp
-categories: azure
 ms.date: 07/25/2023
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-devops
-ms.custom:
-  - guide
 ---
 
 # Design to scale out

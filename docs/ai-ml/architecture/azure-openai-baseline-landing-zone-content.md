@@ -1,4 +1,4 @@
-This article is part of a series that builds on the [Azure OpenAI Service end-to-end chat baseline architecture](baseline-openai-e2e-chat.yml). You should familiarize yourself with the baseline architecture so that you can understand the changes that you need to make when deploying the architecture in an Azure application landing zone subscription.
+This article is part of a series that builds on the [Baseline AI Foundry chat reference architecture](baseline-openai-e2e-chat.yml). You should familiarize yourself with the baseline architecture so that you can understand the changes that you need to make when deploying the architecture in an Azure application landing zone subscription.
 
 This article describes the architecture of a generative AI workload that deploys the same baseline chat application but uses resources that are outside the scope of the workload team. Those resources are shared among other workload teams and are centrally managed by the platform teams of an organization. Shared resources include networking resources for connecting to or from on-premises locations, identity access management resources, and policies. This guidance is for organizations that use Azure landing zones to ensure consistent governance and cost efficiency.
 
@@ -277,7 +277,7 @@ In this architecture, the platform team must ensure reliable and timely DNS host
 
 ## Data scientist and prompt flow authorship access
 
-Like the [baseline architecture](./baseline-openai-e2e-chat.yml#ingress-to-machine-learning), public ingress access to the Azure AI Foundry portal and other browser-based experiences are disabled. The baseline architecture deploys a jump box to provide a browser with a source IP address from the virtual network that's used by various workload roles.
+Like the [baseline architecture](./baseline-openai-e2e-chat.yml#ingress-to-azure-ai-foundry), public ingress access to the Azure AI Foundry portal and other browser-based experiences are disabled. The baseline architecture deploys a jump box to provide a browser with a source IP address from the virtual network that's used by various workload roles.
 
 When your workload is connected to an Azure landing zone, more options are available to your team for this access. Work with your platform team to see whether private access to the various browser-based AI studios can instead be achieved without the need to manage and govern a virtual machine (VM). This access might be accomplished through transitive access from an already-established ExpressRoute or VPN Gateway connection. Native workstation-based access requires cross-premises routing and DNS resolution, which the platform team can help provide. Make this requirement known in your subscription vending request.
 
@@ -505,7 +505,7 @@ A landing zone deployment for this reference architecture is available on GitHub
 
 Principal authors:
 
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Azure patterns & practices - Microsoft
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
 - [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) | Microsoft Cloud Solution Architect
 - [Bilal Amjad](https://www.linkedin.com/in/mbilalamjad/) | Microsoft Cloud Solution Architect
 

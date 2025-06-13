@@ -6,15 +6,6 @@ ms.author: bentrin
 ms.date: 03/17/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-- azure-expressroute
-- azure-sap
-- azure-virtual-machines
-- azure-virtual-network
-- azure-netapp-files
-categories:
-- databases
-- management-and-governance
 ---
 
 <!-- cSpell:ignore lbrader HANA Fiori -->
@@ -109,7 +100,7 @@ This architecture meets multiple requirements and assumes that you use the embed
 
 For more information about deployment options, see [SAP Fiori deployment options and system landscape recommendations](https://www.sap.com/documents/2018/02/f0148939-f27c-0010-82c7-eda71af511fa.html). For simplicity and performance, the software releases between the Fiori technology components and the S/4 applications are tightly coupled. This setup makes a hub deployment suitable for only a few, specific use cases.
 
-If you use the FES hub deployment, the FES is an add-on component to the classic SAP NetWeaver ABAP stack. Set up HA the same way that you protect a three-tier ABAP application stack that has clustered or multiple-host capability. Use a standby server database layer, a clustered ASCS layer with HA NFS for shared storage, and at least two application servers. Traffic is load balanced via a pair of Web Dispatcher instances that can be either clustered or parallel. For internet-facing Fiori apps, we recommend an [FES hub deployment](https://blogs.sap.com/2017/12/15/considerations-and-recommendations-for-internet-facing-fiori-apps) in the perimeter network. Use Azure Web Application Firewall on [Application Gateway](/azure/application-gateway) as a critical component to deflect threats. Use [Microsoft Entra ID with Security Assertion Markup Language](/azure/active-directory/saas-apps/sap-netweaver-tutorial) for user authentication and [single sign-on for SAP Fiori](/azure/active-directory/saas-apps/sap-fiori-tutorial).
+If you use the FES hub deployment, the FES is an add-on component to the classic SAP NetWeaver ABAP stack. Set up HA the same way that you protect a three-tier ABAP application stack that has clustered or multiple-host capability. Use a standby server database layer, a clustered ASCS layer with HA NFS for shared storage, and at least two application servers. Traffic is load balanced via a pair of Web Dispatcher instances that can be either clustered or parallel. For internet-facing Fiori apps, we recommend an [FES hub deployment](https://blogs.sap.com/2017/12/15/considerations-and-recommendations-for-internet-facing-fiori-apps) in the perimeter network. Use Azure Web Application Firewall on [Application Gateway](/azure/application-gateway) as a critical component to deflect threats. Use [Microsoft Entra ID with Security Assertion Markup Language](/entra/identity/saas-apps/sap-netweaver-tutorial) for user authentication and [single sign-on for SAP Fiori](/entra/identity/saas-apps/sap-fiori-tutorial).
 
 :::image type="complex" border="false" source="media/fiori.svg" alt-text="Architecture diagram that shows the data flow between the internet and two virtual networks, one with SAP Fiori and one with SAP S/4HANA." lightbox="media/fiori.svg":::
    The image shows two main sections enclosed in dotted rectangles that indicate that they're both virtual networks. There's an icon that represents the internet. This icon connects via a two-sided arrow to an icon that represents web navigation in the first section. This section has three rectangles. The first rectangle has icons that represent Azure Web Application Firewall and Azure Application Gateway. The second rectangle has icons that represent SAP Web Dispatcher instances. The third section has an icon that represents SAP Fiori. It also has text that reads Hub Fiori or central Fiori. Arrows point from the first box to the second box and then from the second box to the third box. A dotted arrow labeled Virtual network peering connects the two virtual networks. The second main section has an icon that represents SAP S/4HANA and contains text that reads Dedicated back end or embedded Fiori.
@@ -370,7 +361,7 @@ Use a centralized identity management system to control access to resources at a
 
 - Grant access to Azure VMs through Lightweight Directory Access Protocol, Microsoft Entra ID, Kerberos, or another system.
 
-- Support access within the apps themselves through the services that SAP provides, or use [OAuth 2.0 and Microsoft Entra ID](/azure/active-directory/develop/active-directory-protocols-oauth-code).
+- Support access within the apps themselves through the services that SAP provides, or use [OAuth 2.0 and Microsoft Entra ID](/entra/identity-platform/v2-oauth2-auth-code-flow).
 
 ### Monitoring
 

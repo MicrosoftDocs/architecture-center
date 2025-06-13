@@ -1,21 +1,11 @@
 ---
 title: Storage architecture
 description: Get an overview of Azure Storage technologies, guidance offerings, solution ideas, and reference architectures.  
-author: RobBagby
+author: claytonsiemens77
 ms.author: pnp 
 ms.date: 07/26/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
-categories:
-- storage
-- analytics
-- databases
-products:
-- azure-blob-storage
-- azure-files
-- azure-queue-storage
-- azure-table-storage
-- azure-disk-storage
 ms.custom: 
 - overview
 - fcp

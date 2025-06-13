@@ -10,9 +10,7 @@ metadata:
   ms.category:
     - management-and-governance
     - featured
-  ms.custom:
-    - reference-architecture
-    - arb-web
+  ms.custom: arb-web
 name: Enterprise deployment using Azure App Service Environment
 azureCategories:
   - management-and-governance
@@ -27,4 +25,4 @@ products:
   - azure-private-link
 thumbnailUrl: /azure/architecture/browse/thumbs/app-service-environment.png
 content: |
-   [!include[](ase-standard-deployment-content.md)]
+   [!INCLUDE[](ase-standard-deployment-content.md)]

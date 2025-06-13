@@ -1,9 +1,8 @@
 This article describes an architecture that you can use to replace the manual analysis of video footage with an automated, and frequently more accurate, machine learning process.
 
-
 ## Architecture
 
-:::image type="content" source="_images/analyze-video-content.png" alt-text="Diagram that shows an architecture for analyzing video content." lightbox="_images/analyze-video-content.png":::
+:::image type="content" source="_images/analyze-video-content.png" alt-text="Diagram that shows an architecture for automated video analysis by using video frames and custom code." lightbox="_images/analyze-video-content.png":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/analyze-video-content.pptx) of this architecture.*
 *The FFmpeg and Jupyter Notebook logos are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
@@ -34,7 +33,7 @@ This article describes an architecture that you can use to replace the manual an
 
 If there is no need to call a pre-trained Object Detection Custom Model, we can use the following architecture which relies on Azure AI Vision Video Retrieval. Using this service will omit the decomposition of video into frames and the use of custom code to parse through the ingestion process. This approach serves a more straightforward path if your use case relies on detecting common objects or entities in a video.
 
-:::image type="content" source="_images/analyze-video-content-video-retrieval-api.png" alt-text="Diagram that shows an architecture for analyzing video content." lightbox="_images/analyze-video-content-video-retrieval-api.png":::
+:::image type="content" source="_images/analyze-video-content-video-retrieval-api.png" alt-text="Diagram that shows an architecture for automated video analysis by using the Video Retrieval API." lightbox="_images/analyze-video-content-video-retrieval-api.png":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/analyze-video-content-2.pptx) of this architecture.*
 

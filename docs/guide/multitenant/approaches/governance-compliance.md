@@ -5,15 +5,8 @@ author: johndowns
 ms.author: pnp
 ms.date: 07/22/2024
 ms.topic: conceptual
-products:
-  - azure
-categories:
-  - management-and-governance
-  - security
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Architectural approaches for governance and compliance in multitenant solutions
@@ -92,7 +85,7 @@ Use [resource tags](cost-management-allocation.yml#allocate-costs-by-using-resou
 
 ### Access control
 
-Use [Azure RBAC](/azure/role-based-access-control/overview) to restrict access to the Azure resources that constitute the multitenant solution. Follow the RBAC [best practices](/azure/role-based-access-control/best-practices), such as applying role assignments to groups instead of users. Scope your role assignments so they provide the minimum permissions necessary. Avoid long-standing access to resources by using just-in-time access and features like [Microsoft Entra ID Privileged Access Management](/azure/active-directory/privileged-identity-management/pim-configure).
+Use [Azure RBAC](/azure/role-based-access-control/overview) to restrict access to the Azure resources that constitute the multitenant solution. Follow the RBAC [best practices](/azure/role-based-access-control/best-practices), such as applying role assignments to groups instead of users. Scope your role assignments so they provide the minimum permissions necessary. Avoid long-standing access to resources by using just-in-time access and features like [Microsoft Entra ID Privileged Access Management](/entra/id-governance/privileged-identity-management/pim-configure).
 
 ### Azure Resource Graph
 

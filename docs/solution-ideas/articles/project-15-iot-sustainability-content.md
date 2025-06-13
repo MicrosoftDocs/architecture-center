@@ -161,7 +161,7 @@ Principal authors:
 
 [API Apps]: https://azure.microsoft.com/services/app-service/api
 [App Service]: https://azure.microsoft.com/services/app-service
-[Azure AD]: /azure/active-directory/fundamentals/active-directory-whatis
+[Azure AD]: /entra/fundamentals/whatis
 [Azure Defender]: https://azure.microsoft.com/services/azure-defender
 [Azure Digital Twins]: https://azure.microsoft.com/services/digital-twins
 [Azure Maps]: https://azure.microsoft.com/services/azure-maps

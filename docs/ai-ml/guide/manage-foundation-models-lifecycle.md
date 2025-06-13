@@ -1,7 +1,7 @@
 ---
 title: Design to Support Foundation Model Life Cycles
 description: Learn about how to manage both new model versions and retired model versions in your generative AI application infrastructure.
-author: robbagby
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 05/13/2025
 ms.topic: conceptual
@@ -231,6 +231,6 @@ Your architecture should support updates to new or different models and any nece
 
 ## Related resources
 
-- [Baseline OpenAI end-to-end chat reference architecture](../architecture/baseline-openai-e2e-chat.yml)
+- [Baseline AI Foundry chat reference architecture](../architecture/baseline-openai-e2e-chat.yml)
 - [MLOps](machine-learning-operations-v2.md)
 - [GenAIOps for MLOps practitioners](genaiops-for-mlops.md)

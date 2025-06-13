@@ -6,23 +6,6 @@ ms.author: jatracey
 ms.date: 02/25/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-categories:
-  - management-and-governance
-  - devops
-  - networking
-  - security
-azureCategories:
-  - devops
-  - hybrid
-  - management-and-governance
-  - networking
-  - security
-products:
-  - azure
-  - azure-resource-manager
-  - azure-policy
-  - azure-rbac
-  - azure-virtual-network
 ---
 
 # Deploy Azure landing zones
@@ -102,7 +85,7 @@ It's possible for an architect to adapt a reference architecture that isn't desi
 | [Azure Arc for hybrid and multicloud scenarios](/azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone) | Guidance for servers, Kubernetes, and Azure SQL Managed Instance enabled by Azure Arc. |
 | [Azure Container Apps](/azure/cloud-adoption-framework/scenarios/app-platform/container-apps/landing-zone-accelerator) | Guidance that outlines the strategic design path and defines the target technical state for deploying Container Apps. A dedicated workload team owns and operates this platform. |
 | [Azure Data Factory](../databases/architecture/azure-data-factory-on-azure-landing-zones-baseline.yml) | Guidance about how to host a [medallion lakehouse](/azure/databricks/lakehouse/medallion) within an application landing zone. |
-| [Azure OpenAI Service chat workload](../ai-ml/architecture/azure-openai-baseline-landing-zone.yml) | Guidance about how to integrate a typical [Azure OpenAI chat application](../ai-ml/architecture/baseline-openai-e2e-chat.yml) within Azure landing zones to use centralized shared resources while adhering to governance and cost efficiency. It provides guidance for workload teams about deployment and management.|
+| [Azure AI Foundry chat workload](../ai-ml/architecture/azure-openai-baseline-landing-zone.yml) | Guidance about how to integrate a typical [Azure AI Foundry chat architecture](../ai-ml/architecture/baseline-openai-e2e-chat.yml) within Azure landing zones to use centralized shared resources while adhering to governance and cost efficiency. It provides guidance for workload teams about deployment and management.|
 | [AKS](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator) | Guidance and related IaC templates that represent the strategic design path and target technical state for an AKS deployment that runs within an application landing zone. |
 | [Azure Red Hat OpenShift](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator) | An open-source collection of Terraform templates that represent an optimal Azure Red Hat OpenShift deployment that includes Azure and Red Hat resources. |
 | [Azure Synapse Analytics](../example-scenario/analytics/synapse-analytics-landing-zone.yml) | An architectural approach to prepare application landing zones for a typical enterprise deployment of Azure Synapse Analytics. |

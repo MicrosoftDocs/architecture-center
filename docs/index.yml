@@ -6,7 +6,7 @@ metadata:
   ms.date: 12/09/2024
   ms.collection: collection
   ms.author: pnp
-  author: RobBagby
+  author: claytonsiemens77
   google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 
 title: Azure Architecture Center
@@ -97,7 +97,7 @@ conceptualContent:
   items:
     - title: Popular articles
       links:
-      - text: Baseline OpenAI end-to-end chat architecture
+      - text: AI Foundry chat baseline architecture
         url: ./ai-ml/architecture/baseline-openai-e2e-chat.yml
         itemType: architecture
       - text: Develop and optimize a RAG implementation
@@ -124,7 +124,7 @@ conceptualContent:
       - text: AI architecture design
         itemType: overview
         url: /azure/architecture/ai-ml/
-      - text: Azure OpenAI baseline architecture
+      - text: AI Foundry chat baseline architecture
         url: ./ai-ml/architecture/baseline-openai-e2e-chat.yml
         itemType: architecture
       - text: Build a generative AI gateway

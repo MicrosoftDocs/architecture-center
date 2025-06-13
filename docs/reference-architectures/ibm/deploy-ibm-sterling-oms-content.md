@@ -187,7 +187,7 @@ You should configure OAuth for Azure Red Hat OpenShift. For more information, se
 
 #### Protect your infrastructure
 
-Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with a Microsoft Entra tenant. Use [Azure role-based access control](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Be sure to audit all changes to infrastructure. For more information about auditing, see [Azure Monitor activity log](/azure/azure-resource-manager/resource-group-audit).
+Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/entra/fundamentals/how-subscriptions-associated-directory) with a Microsoft Entra tenant. Use [Azure role-based access control](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Be sure to audit all changes to infrastructure. For more information about auditing, see [Azure Monitor activity log](/azure/azure-resource-manager/resource-group-audit).
 
 ### Cost Optimization
 

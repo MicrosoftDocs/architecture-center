@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Use the Many-Models Approach to Scale Machine Learning Models
-  description: Many machine learning problems are too complex for a single machine learning model to solve. Learn about many models machine learning at scale with Azure Machine Learning.
+  description: Learn how to manage and deploy a many-models architecture by using Azure Machine Learning and compute clusters to scale machine learning models.
   author: james-tn
   ms.author: janguy
   ms.date: 01/28/2025
@@ -18,8 +18,8 @@ products:
   - azure-databricks
   - azure-machine-learning
   - azure-synapse-analytics
-name: Use the many-models approach to scale machine learning models
-summary: Many machine learning problems are too complex for a single machine learning model to solve. Learn about many models machine learning at scale with Azure Machine Learning.
+name: Use the many-models architecture approach to scale machine learning models
+summary: Learn how to manage and deploy a many-models architecture by using Azure Machine Learning and compute clusters to scale machine learning models.
 thumbnailUrl: /azure/architecture/browse/thumbs/many-models-machine-learning-azure-thumbnail.png
 content: |
   [!INCLUDE[](many-models-machine-learning-azure-machine-learning-content.md)]

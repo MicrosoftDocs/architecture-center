@@ -3,16 +3,10 @@ title: Tenant lifecycle considerations in a multitenant solution
 description: This article describes the different stages of a tenant lifecycle, and considerations for each stage.
 author: johndowns
 ms.author: pnp
-ms.date: 07/22/2024
+ms.date: 06/13/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-categories:
-  - management-and-governance
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Tenant lifecycle considerations in a multitenant solution
@@ -103,13 +97,13 @@ Deactivation is separate to offboarding in that it's intended to be a temporary 
 
 Principal author:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 
- * [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
- * [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
- * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer, Azure Patterns & Practices
+- [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

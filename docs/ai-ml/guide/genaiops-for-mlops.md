@@ -1,17 +1,13 @@
 ---
 title: Generative AI Operations for Organizations with MLOps Investments
 description: Extend existing MLOps investments to include generative AI operations. Learn where you can apply existing investments and where you need to extend those investments.
-author: robbagby
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 04/09/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
-products:
-  - azure-machine-learning
-categories:
-  - ai-machine-learning
 ---
 
 # Generative AI operations for organizations with MLOps investments
@@ -97,7 +93,7 @@ The intent for the data in RAG solutions is to provide grounding data (or contex
 
 Data pipelines for chunking documents aren't part of DataOps in traditional MLOps, so you have to extend your architecture and operations. The data pipelines can read data from disparate sources that include both structured and unstructured data. They can also write the transformed data to different targets. You must extend your pipelines to include the data stores that you use for grounding data. Typical data stores for these patterns are vector stores like AI Search.
 
-Just like training and fine-tuning, Azure Machine Learning pipelines or other data pipelining tools can be used to orchestrate the stages of chunking. You can take advantage of prompt flows in Machine Learning pipelines to process and enrich your data in a consistent and reproducible way.
+Just like training and fine-tuning, Azure Machine Learning pipelines or other data pipelining tools can be used to orchestrate the stages of chunking.
 
 ##### Search index maintenance
 
@@ -165,7 +161,7 @@ You should use your existing MLOps investments, with some possible adjustments, 
 
 #### RAG and prompt engineering
 
-For RAG and prompt engineering, other considerations include orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in frameworks like prompt flow, Semantic Kernel, or LangChain. You can deploy the orchestrator to different compute resources, including resources that you might currently deploy custom models to. For more information about how to deploy prompt flow to online endpoints that Machine Learning manages or to Azure App Service, see [Azure OpenAI end-to-end chat architecture](../architecture/baseline-openai-e2e-chat.yml). To deploy to App Service, the Azure OpenAI chat architecture packages the flow and its dependencies as a container. This practice increases portability and consistency across different environments.
+For RAG and prompt engineering, other considerations include orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in frameworks like prompt flow, Semantic Kernel, or LangChain. You can deploy the orchestrator to different compute resources, including resources that you might currently deploy custom models to. For more information about how to deploy prompt flow to online endpoints that Machine Learning manages or to Azure App Service, see [Baseline AI Foundry chat reference architecture](../architecture/baseline-openai-e2e-chat.yml). To deploy to App Service, the Azure OpenAI chat architecture packages the flow and its dependencies as a container. This practice increases portability and consistency across different environments.
 
 Deployments of changes to database resources, like changes to data models or indexes, are new tasks that need to be handled in GenAIOps. A common practice when working with LLMs is to [use a gateway in front of the LLM](azure-openai-gateway-guide.yml).
 
@@ -246,5 +242,5 @@ As you start to extend your MLOps investments to include generative AI, it's imp
 ## Related resources
 
 - [Design and develop a RAG solution](rag/rag-solution-design-and-evaluation-guide.md)
-- [Baseline OpenAI end-to-end chat reference architecture](../architecture/baseline-openai-e2e-chat.yml)
+- [Baseline AI Foundry chat reference architecture](../architecture/baseline-openai-e2e-chat.yml)
 - [MLOps](machine-learning-operations-v2.md)

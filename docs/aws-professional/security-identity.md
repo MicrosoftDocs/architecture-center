@@ -6,10 +6,6 @@ ms.author: gerhoads
 ms.date: 03/27/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-categories:
-  - identity
-products:
-  - entra-id
 ms.collection: 
  - migration
  - aws-to-azure

@@ -2,19 +2,10 @@
 title: Synchronous I/O antipattern
 description: Blocking the calling thread while I/O completes can reduce performance and affect vertical scalability.
 ms.author: pnp
-author: RobBagby
-categories: azure
+author: claytonsiemens77
 ms.date: 06/05/2017
 ms.topic: design-pattern
 ms.subservice: best-practice
-azureCategories:
-  - analytics
-  - storage
-  - web
-products:
-  - azure-blob-storage
-ms.custom:
-  - article
 ---
 
 <!-- cSpell:ignore uploadedfiles myblob -->
@@ -81,8 +72,6 @@ public class SyncController : ApiController
     }
 }
 ```
-
-You can find the complete code for both of these examples [here][sample-app].
 
 ## How to fix the problem
 
@@ -202,7 +191,6 @@ The next graph shows the results from load testing the asynchronous version of t
 
 Throughput is far higher. Over the same duration as the previous test, the system successfully handles a nearly tenfold increase in throughput, as measured in requests per second. Moreover, the average response time is relatively constant and remains approximately 25 times smaller than the previous test.
 
-[sample-app]: https://github.com/mspnp/performance-optimization/tree/main/SynchronousIO
 [async-wrappers]: https://blogs.msdn.microsoft.com/pfxteam/2012/03/24/should-i-expose-asynchronous-wrappers-for-synchronous-methods
 [performance-counters]: /azure/cloud-services/cloud-services-dotnet-diagnostics-performance-counters
 [web-sites-monitor]: /azure/app-service-web/web-sites-monitor

@@ -1,20 +1,13 @@
 ---
 title: Design and Develop a RAG Solution
 description: Learn about what to consider when you design a large language model RAG solution, including each step of the development process and how to evaluate those steps.
-author: robbagby
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 12/9/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot  
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
-products:
-  - ai-services
-  - azure-cognitive-search
-  - azure-openai
-  - azure-machine-learning
-categories:
-  - ai-machine-learning
 ---
 
 # Design and develop a RAG solution
@@ -42,7 +35,7 @@ The other articles in this series cover the following considerations:
 The following workflow describes a high-level flow for a RAG application.
 
 1. The user issues a query in an intelligent application user interface.
-1. The intelligent application makes an API call to an orchestrator. You can implement the orchestrator with tools or platforms like Semantic Kernel, Azure Machine Learning prompt flow, or LangChain.
+1. The intelligent application makes an API call to an orchestrator. You can implement the orchestrator with tools or platforms like Semantic Kernel, Azure AI Agent service, or LangChain.
 1. The orchestrator determines which search to perform on Azure AI Search and issues the query.
 1. The orchestrator packages the top *N* results from the query. It packages the top results and the query as context within a prompt and sends the prompt to the language model. The orchestrator returns the response to the intelligent application for the user to read.
 
@@ -116,9 +109,9 @@ Because of the number of steps and variables, it's important that you follow a s
 Principal authors:
 
 - [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/) | Software Engineer II
-- [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Architecture Center Content Lead
+- [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Content Developer - Azure Patterns & Practices
 - [Prabal Deb](https://www.linkedin.com/in/prabaldeb/) | Principal Software Engineer
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
 - [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/) | Principal Engineer
 - [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/) | Senior Technical Program Manager
 - [Randy Thurman](https://www.linkedin.com/in/randy-thurman-2917549/) | Principal AI Cloud Solution Architect

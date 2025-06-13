@@ -3,17 +3,10 @@ title: Architectural considerations for identity in a multitenant solution
 description: This article describes the considerations for managing identities in a multitenant solution.
 author: plagueho
 ms.author: dascottr
-ms.date: 06/25/2024
+ms.date: 05/30/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - entra-id
-categories:
-  - identity
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Architectural considerations for identity in a multitenant solution
@@ -190,16 +183,16 @@ As multitenant solutions grow, the number of users and sign-in requests that nee
 
 Principal authors:
 
- - [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
- - [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
- - [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 Other contributors:
 
- - [Jelle Druyts](https://linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
- - [Landon Pierce](https://www.linkedin.com/in/landon-pierce/) | Senior Customer Engineer
- - [Sander van den Hoven](https://linkedin.com/in/azurehero) | Senior Partner Technology Strategist
- - [Nick Ward](https://linkedin.com/in/nickward13) | Senior Cloud Solution Architect
+- [Jelle Druyts](https://linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
+- [Landon Pierce](https://www.linkedin.com/in/landon-pierce/) | Senior Customer Engineer
+- [Sander van den Hoven](https://linkedin.com/in/azurehero) | Senior Partner Technology Strategist
+- [Nick Ward](https://linkedin.com/in/nickward13) | Senior Cloud Solution Architect
 
 ## Next steps
 

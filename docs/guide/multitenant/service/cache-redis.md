@@ -6,15 +6,7 @@ ms.author: landonpierce
 ms.date: 07/09/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - azure-cache-redis
-categories:
-  - management-and-governance
-  - databases
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Multitenancy and Azure Cache for Redis

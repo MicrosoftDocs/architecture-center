@@ -7,13 +7,7 @@ ms.date: 01/31/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-products:
-  - azure-machine-learning
-ms.custom:
-  - guide
-  - arb-aiml
-categories:
-  - ai-machine-learning
+ms.custom: arb-aiml
 ---
 
 # AI architecture design
@@ -139,15 +133,17 @@ For more information, see the following resources:
 - [Machine Learning documentation](/azure/machine-learning/)
 - [What is Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
 
-#### Machine learning reference architectures for Azure
+#### AI and Machine learning reference architectures for Azure
 
-- [Azure OpenAI chat baseline architecture in an Azure landing zone](../ai-ml/architecture/azure-openai-baseline-landing-zone.yml)
-- [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
-- [Baseline OpenAI end-to-end chat reference architecture](../ai-ml/architecture/baseline-openai-e2e-chat.yml) is a reference architecture that describes how to build an end-to-end chat architecture by using OpenAI's GPT models.
+- [Azure AI Foundry chat architecture in an Azure landing zone](./architecture/azure-openai-baseline-landing-zone.yml)
+- [Batch scoring of Spark machine learning models on Azure Databricks](./architecture/batch-scoring-databricks.yml)
+- [Baseline Azure AI Foundry chat reference architecture](./architecture/baseline-openai-e2e-chat.yml) describes how to build an end-to-end chat architecture by using OpenAI's GPT models in Azure AI Foundry. It incorporates grounding via enterprise data sources to enrich responses with contextual information.
 
-    :::image type="complex" source="./_images/openai-end-to-end-aml-deployment.svg" border="false" lightbox="./_images/openai-end-to-end-aml-deployment.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture with OpenAI.":::
-    The diagram shows the Azure App Service baseline architecture with a private endpoint that connects to a managed online endpoint in a Machine Learning managed virtual network. The managed online endpoint is in front of a Machine Learning compute cluster. The diagram shows the Machine Learning workspace with a dotted line that points to the compute cluster. This arrow represents that the implementable flow is deployed to the compute cluster. The managed virtual network uses managed private endpoints that provide private connectivity to resources that the implementable flow requires, such as Azure Container Registry and Azure Storage. The diagram shows user-defined private endpoints that provide private connectivity to Azure OpenAI Service and Azure AI Search.
-    :::image-end:::
+  :::image type="complex" source="./architecture/_images/ai-foundry-end-to-end-baseline-deployment.svg" border="false" lightbox="./architecture/_images/ai-foundry-end-to-end-baseline-deployment.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Azure AI Foundry.":::
+      The diagram presents a detailed Azure architecture for deploying an AI solution. On the left, a user connects through an Application Gateway with a web application firewall, which is part of a virtual network. This gateway is linked to private DNS zones and protected by DDoS Protection. Below the gateway, private endpoints connect to services such as App Service, Key Vault, and Storage, which are used for client app deployment. The App Service is managed with identity and spans three zones. Monitoring is provided by Application Insights and Azure Monitor, and authentication is handled by Microsoft Entra ID.
+      Moving right, the virtual network contains several subnets: App Service integration, private endpoint, Azure AI Foundry integration, Azure AI Agent integration, Bastion, Jump box, Build agents, and Azure firewall. Each subnet hosts specific endpoints or services, such as storage, AI Foundry, AI Search, CosmosDB, and knowledge store, all connected via private endpoints. Outbound traffic from the network passes through the Azure Firewall to reach internet sources.
+      To the far right, a separate box represents Azure AI Foundry, which includes an account and a project. Managed identities are used to connect the Azure AI Agent Service to the Azure AI Foundry project, which in turn accesses an Azure OpenAI Model. The diagram uses numbered green circles to indicate the logical flow, showing how user requests traverse the network, interact with various endpoints, and ultimately connect to AI services and storage, with dependencies clearly grouped and labeled.
+  :::image-end:::
 
 ### Automated machine learning
 
@@ -172,9 +168,9 @@ For more information, see [MLflow and Machine Learning](/azure/machine-learning/
 
 ### Generative AI tools
 
-- [Prompt flow](https://microsoft.github.io/promptflow/index.html) is a suite of development tools that you can use to streamline the end-to-end development cycle of generative AI applications, from ideation, prototyping, testing, and evaluation to production deployment and monitoring. It supports prompt engineering through expressing actions in a modular orchestration and flow engine.
+- [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. The [Azure AI Foundry portal](https://ai.azure.com?cid=learnDocs) provides access to Azure AI services, foundation models, a playground, and resources to help you fine-tune, evaluate, and deploy AI models and AI agents.
 
-- [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. The [Azure AI Foundry portal](https://ai.azure.com?cid=learnDocs) provides access to Azure AI services, foundation models, a playground, and resources to help you build, train, fine-tune, and deploy AI models. You can also evaluate model responses and orchestrate prompt application components with prompt flow for better performance.
+  [Azure AI Agent Service](/azure/ai-services/agents/overview) hosts no-code agents that you define, connected to a foundation model in the AI model catalog and optionally your own custom knowledge stores or APIs. This capability is hosted within Azure AI Foundry.
 
 - [Copilot Studio](/microsoft-copilot-studio/) extends Copilot in Microsoft 365. You can use Copilot Studio to build custom copilots for internal and external scenarios. Use a comprehensive authoring canvas to design, test, and publish copilots. You can easily create generative AI-enabled conversations, provide greater control of responses for existing copilots, and accelerate productivity by using automated workflows.
 
@@ -414,7 +410,7 @@ For more information, see the following resources:
 
 - [Customize a model with fine-tuning](/azure/ai-services/openai/how-to/fine-tuning)
 - [Tutorial: Azure OpenAI GPT-4o-mini fine-tuning](/azure/ai-services/openai/tutorials/fine-tune)
-- [Baseline OpenAI end-to-end chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat)
+- [Baseline AI Foundry chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat)
 
 ### Azure AI services for custom AI
 
@@ -489,16 +485,11 @@ Prebuilt AI models are useful and increasingly flexible, but the best way to opt
 
 For more information, see [AI Foundry portal versus Machine Learning studio](/ai/ai-studio-experiences-overview).
 
-#### Prompt flow in AI Foundry portal
+#### Azure AI Agent Service in AI Foundry portal
 
-[Prompt flow in the AI Foundry portal](/azure/ai-foundry/how-to/prompt-flow) is a development tool that you can use to streamline the entire development cycle of AI applications that are powered by LLMs. Prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
+Azure AI Agent Service is a tool that use to create AI agents using a no-code and nondeterminsitic approach. The agents are exposed as microservices on the Azure AI Foundry account.
 
-- Prompt flow is a feature that you can use to generate, customize, or run a flow.
-
-- A flow is an instruction set that can implement AI logic. Create or run flows via tools, like a prebuilt canvas or LangChain. You can save iterations of a flow as assets. After you deploy a flow, it becomes an API. Not all flows are prompt flows. Prompt flow is one way to create a flow.
-- A prompt is a package of input that's sent to a model. It consists of the user input, system message, and any examples. User input is text that's submitted in the chat window. The system message is a set of instructions to the model that scopes its behaviors and functionality.
-- A sample flow is a simple, prebuilt orchestration flow that shows how flows work. You can customize a sample flow.
-- A sample prompt is a defined prompt for a specific scenario that you can copy from a library and use as-is or modify it in prompt design.
+Each agent connects to a foundation model from the Azure AI model catalog. Agents can optionally connect to your own custom private knowledge stores or public data. Likewise, agents can invoke tools to perform tasks to call into custom code.
 
 ### Custom AI code languages
 

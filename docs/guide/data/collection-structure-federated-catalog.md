@@ -6,11 +6,6 @@ ms.author: jucoriol
 ms.date: 05/28/2024 
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - microsoft-purview
-categories:
-  - databases
-  - analytics
 ---
 
 # Design a collection structure for a Microsoft Purview federated catalog
