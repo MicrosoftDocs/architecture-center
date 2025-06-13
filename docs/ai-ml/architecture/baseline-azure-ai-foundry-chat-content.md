@@ -23,7 +23,7 @@ This architecture uses the [Foundry Agent Service standard agent setup](/azure/a
 ## Architecture
 
 :::image type="complex" source="_images/baseline-azure-ai-foundry.svg" border="false" lightbox="_images/baseline-azure-ai-foundry.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Azure AI Foundry.":::
-    The diagram presents a detailed Azure architecture for deploying an AI solution. On the left, a user connects through an Application Gateway with a web application firewall, which is part of a virtual network. This gateway is linked to private DNS zones and protected by Azure DDoS Protection. Below the gateway, private endpoints connect to services such as App Service, Azure Key Vault, and Storage, which are used for client app deployment. The App Service is managed with identity and spans three zones. Monitoring is provided by Application Insights and Azure Monitor, and authentication is handled by Microsoft Entra ID.
+    The diagram presents a detailed Azure architecture for deploying an AI solution. On the left, a user connects through an Application Gateway with a web application firewall, which is part of a virtual network. This gateway is linked to private DNS zones and protected by Azure DDoS Protection. Below the gateway, private endpoints connect to services such as App Service, Azure Key Vault, and Storage, which are used for client app deployment. The App Service is managed with identity and spans three zones. Application Insights and Azure Monitor provide monitoring, and Microsoft Entra ID handles authentication.
     
     Moving right, the virtual network contains several subnets: App Service integration, private endpoint, Azure AI Foundry integration, Azure AI agent integration, Azure Bastion, jump box, build agents, and Azure firewall. Each subnet hosts specific endpoints or services, such as storage, Azure AI Foundry, AI Search, Azure Cosmos DB, and knowledge store, all connected via private endpoints. Outbound traffic from the network passes through the Azure Firewall to reach internet sources.
 
@@ -230,7 +230,7 @@ For example, if your chat UI application needs to store transactional state in A
 > [!IMPORTANT]
 > If you colocate workload-specific data with the agent's dependencies for cost or operational reasons, never interact directly with the system-managed data, such as collections, containers, or indexes, that Foundry Agent Service creates. These internal implementation details are undocumented and subject to change without notice. Direct access can break the agent service or result in data loss. Always use the Foundry Agent Service data plane APIs for data manipulation, and treat the underlying data as opaque and monitor-only.
 
-#### Multiple-region design
+#### Multi-region design
 
 This architecture uses availability zones for high availability within a single Azure region. It's not a multi-region solution. It lacks the following critical elements required for regional resiliency and disaster recovery (DR):
 
@@ -303,7 +303,7 @@ When you onboard employees to Azure AI Foundry projects, assign the minimum perm
 
 The Azure AI Foundry portal runs many actions by using the service's identity rather than the employee's identity. As a result, employees that have limited RBAC roles might have visibility into sensitive data, such as chat threads, agent definitions, and configuration. This AI Foundry portal design can inadvertently bypass your desired access constraints and expose more information than intended.
 
-To mitigate the risk of undesired access, restrict portal usage in production environments to employees that have a clear operational need. For most employees, disable or block access to the Azure AI Foundry portal in production. Instead, use automated deployment pipelines and infrastructure as code (IaC) to manage agent and project configuration.
+To mitigate the risk of unauthorized access, restrict portal usage in production environments to employees that have a clear operational need. For most employees, disable or block access to the Azure AI Foundry portal in production. Instead, use automated deployment pipelines and infrastructure as code (IaC) to manage agent and project configuration.
 
 Treat creating new projects in an Azure AI Foundry account as a privileged action. Projects created through the portal don't automatically inherit your established network security controls, such as private endpoints or network security groups (NSGs). And new agents in those projects bypass your intended security perimeter. Enforce project creation exclusively through your controlled, auditable IaC processes.
 
@@ -333,7 +333,7 @@ The network design includes the following safeguards:
 ##### Network flows
 
 :::image type="complex" source="_images/baseline-azure-ai-foundry-network-flow.svg" border="false" lightbox="_images/baseline-azure-ai-foundry-network-flow.svg" alt-text="Diagram that shows two networking flows from the baseline App Service web application architecture and the Foundry Agent Service networking flow.":::
-  The diagram resembles the baseline end-to-end chat architecture. It includes the Azure OpenAI architecture and three numbered network flows. The inbound flow and the flow from App Service to Azure PaaS services are copied from the baseline App Service web architecture. The Foundry Agent Service flow shows an arrow from the Azure AI Foundry private endpoint in the private virtual network that points to Foundry Agent Service. The second numbered arrow in the Foundry Agent Service flow shows calls from the Azure AI agent virtual interface in the private network flowing through private endpoints. The third numbered arrow shows an arrow from the virtual interface to an Azure Firewall box, indicating that all calls to the internet flow through that firewall.
+  The diagram resembles the baseline end-to-end chat architecture. It includes the Azure OpenAI architecture and three numbered network flows. The inbound flow and the flow from App Service to Azure PaaS services are copied from the baseline App Service web architecture. The Foundry Agent Service flow shows an arrow from the Azure AI Foundry private endpoint in the private virtual network that points to Foundry Agent Service. The second numbered arrow in the Foundry Agent Service flow shows calls from the Azure AI agent virtual interface in the private network flowing through private endpoints. The third numbered arrow shows an arrow from the virtual interface to an Azure Firewall box, which indicates that all calls to the internet flow through that firewall.
 :::image-end:::
 
 The [baseline App Service web application architecture](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) outlines the inbound flow from the user to the chat UI and the flow from App Service to [Azure PaaS services](../../web-apps/app-service/architectures/baseline-zone-redundant.yml#app-service-to-azure-paas-services-flow). This section focuses on agent interactions.
@@ -349,7 +349,7 @@ Private endpoints serve as a critical security control in this architecture by s
 
 ##### Ingress to Azure AI Foundry
 
-This architecture disables public access to the Azure AI Foundry data plane by only allowing traffic through a [private link for Azure AI Foundry](/azure/ai-foundry/how-to/configure-private-link). Although you can access much of the Azure AI Foundry portal through the [portal website](https://ai.azure.com), all project-level functionality requires network access. The portal relies on your AI Foundry account's data plane APIs, which are reachable only through private endpoints. As a result, developers and data scientists must access the portal through a jump box, a peered virtual network, or an ExpressRoute or site-to-site VPN connection.
+This architecture disables public access to the Azure AI Foundry data plane by only allowing traffic through a [private link for Azure AI Foundry](/azure/ai-foundry/how-to/configure-private-link). You can access much of the Azure AI Foundry portal through the [portal website](https://ai.azure.com), but all project-level functionality requires network access. The portal relies on your AI Foundry account's data plane APIs, which are reachable only through private endpoints. As a result, developers and data scientists must access the portal through a jump box, a peered virtual network, or an ExpressRoute or site-to-site VPN connection.
 
 All programmatic interactions with the agent data plane, such as from the web application or from external orchestration code when invoking model inferencing, must also use these private endpoints. Private endpoints are defined at the account level, not the project level. Therefore, all projects within the account share the same set of endpoints. You can't segment network access at the project level, and all projects share the same network exposure.
 
@@ -502,7 +502,7 @@ The following operational excellence guidance doesn't include the front-end appl
 
 #### Agent compute
 
-Microsoft fully manages the serverless compute platform for Azure AI Agent REST APIs and the orchestration implementation logic. A [self-hosted orchestration](#alternatives) provides more control over runtime characteristics and capacity, but you must directly manage the day-2 operations for that platform. Evaluate the constraints and responsibilities of your approach to understand what day-2 operations you must implement to support your orchestration layer.
+Microsoft fully manages the serverless compute platform for Azure AI Agent REST APIs and the orchestration implementation logic. A [self-hosted orchestration](#alternatives) provides more control over runtime characteristics and capacity, but you must directly manage the day-2 operations for that platform. Evaluate the constraints and responsibilities of your approach to understand which day-2 operations you must implement to support your orchestration layer.
 
 In both approaches, you must manage state storage, such as chat history and agent configuration for durability, backup, and recovery.
 
