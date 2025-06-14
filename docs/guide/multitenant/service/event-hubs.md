@@ -95,7 +95,7 @@ For more information, see [Resource governance with application groups](/azure/e
 
 <a name='azure-ad-authentication'></a>
 
-### Event Hub Premium Namespaces
+### Event Hubs Premium Namespace
 
 Event Hubs Premium namespaces provide reserved processing units that are not shared with other namespaces. This ensures predictable latency and throughput for each tenant and virtually eliminates noisy neighbor issues. Premium namespaces offer the highest level of performance isolation without requiring a dedicated cluster.
 
