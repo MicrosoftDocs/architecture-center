@@ -90,6 +90,12 @@ In application server pools and clusters, adjust the number of VMs based on your
 
 For more information about SAP support for Azure VM types and for throughput metrics, see [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533). To access SAP notes, you need an SAP Service Marketplace account. For a list of certified Azure VMs for the HANA database, see [SAP certified and supported SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/index.html).
 
+### Optimizing Network Bandwidth on Linux Virtual Machines (VMs)
+
+It is recommended to configure some specific parameters to achieve the best network consistency and performance on Azure Linux VMs.
+
+For more information about optimizing network bandwidth on Linux VMs on Azure, see [Optimize Network Bandwidth on Linux VMs on Azure](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
+
 ### SAP Web Dispatcher
 
 The Web Dispatcher component is used for load balancing SAP traffic among the SAP application servers. To achieve [HA of SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw74/7.4.16/48/9a9a6b48c673e8e10000000a42189b/content.htm?no_cache=true), Azure Load Balancer implements either a failover cluster or the parallel Web Dispatcher setup. For internet-facing communications, a stand-alone solution in the perimeter network is the recommended architecture to address security requirements. [Embedded Web Dispatcher on ASCS](https://help.sap.com/docs/SLTOOLSET/23fb4d5eb15b421fa17e60f444b4b0da/2e708e2d42134b4baabdfeae953b24c5.html?version=CURRENT_VERSION) is an advanced configuration. If you use this configuration, consider proper sizing because of the extra workload on ASCS.
