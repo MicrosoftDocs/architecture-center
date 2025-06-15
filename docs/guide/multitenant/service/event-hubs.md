@@ -93,7 +93,7 @@ Each application group can be scoped to a single Event Hubs namespace or to a si
 
 For more information, see [Resource governance with application groups](/azure/event-hubs/resource-governance-overview).
 
-### Event Hubs Premium Namespace
+### Event Hubs Premium namespaces
 
 Event Hubs Premium namespaces provide reserved processing units that are not shared with other namespaces. They ensure predictable latency and throughput for each namespace and avoid noisy neighbor problems. Premium namespaces offer the highest level of performance isolation without requiring a dedicated cluster.
 
