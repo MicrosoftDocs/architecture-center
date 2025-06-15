@@ -93,8 +93,6 @@ Each application group can be scoped to a single Event Hubs namespace or to a si
 
 For more information, see [Resource governance with application groups](/azure/event-hubs/resource-governance-overview).
 
-<a name='azure-ad-authentication'></a>
-
 ### Event Hubs Premium Namespace
 
 Event Hubs Premium namespaces provide reserved processing units that are not shared with other namespaces. They ensure predictable latency and throughput for each namespace and avoid noisy neighbor problems. Premium namespaces offer the highest level of performance isolation without requiring a dedicated cluster.
@@ -105,6 +103,7 @@ Premium features include reserved processing units, customer-managed keys, virtu
 
 For more information, see [Overview of Event Hubs Premium](/azure/event-hubs/event-hubs-premium-overview).
 
+<a name='azure-ad-authentication'></a>
 ### Microsoft Entra authentication
 
 Event Hubs is integrated with Microsoft Entra ID. Clients can authenticate to Event Hubs resources by using a managed identity with Microsoft Entra ID. Event Hubs defines a set of built-in roles that you can grant to your tenants to access Event Hubs entities. For example, by using Microsoft Entra authentication, you can grant a tenant access to an event hub that has the messages for that tenant. You can use this technique to isolate a tenant from other tenants.
