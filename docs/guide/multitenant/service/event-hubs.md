@@ -97,9 +97,9 @@ For more information, see [Resource governance with application groups](/azure/e
 
 ### Event Hubs Premium Namespace
 
-Event Hubs Premium namespaces provide reserved processing units that are not shared with other namespaces. This ensures predictable latency and throughput for each tenant and virtually eliminates noisy neighbor issues. Premium namespaces offer the highest level of performance isolation without requiring a dedicated cluster.
+Event Hubs Premium namespaces provide reserved processing units that are not shared with other namespaces. They ensure predictable latency and throughput for each namespace and avoid noisy neighbor problems. Premium namespaces offer the highest level of performance isolation without requiring a dedicated cluster.
 
-Premium is well suited for hostile multitenancy scenarios, where tenants operate independently and may have unpredictable workloads. Each tenant can use the full capacity of their namespace without affecting others, though this comes at a higher cost than the Standard tier.
+Premium namespaces are well suited for hostile multitenancy scenarios, where tenants operate independently and may have unpredictable workloads. Each tenant can use the full capacity of their premium namespace without affecting others, though this benefit comes at a higher price than the standard tier.
 
 Premium features include reserved processing units, customer-managed keys, virtual network integration, and enhanced message retention.
 
@@ -158,11 +158,11 @@ For more information, see:
 - [Network security for Azure Event Hubs](/azure/event-hubs/network-security)
 - [Allow access to Azure Event Hubs namespaces from specific IP addresses or ranges](/azure/event-hubs/event-hubs-ip-filtering)
 
-### Auto-inflate for Elastic Scaling
+### Auto-inflate for elastic scaling
 
 Standard Event Hubs namespaces support the Auto-inflate feature, which automatically increases the number of throughput units (TUs) during periods of high demand. Enabling auto-inflate on shared namespaces allows the platform to scale up capacity temporarily (up to a defined maximum) when one or more tenants experience traffic spikes. This elasticity helps prevent throttling and service errors during sudden load surges, maintaining stability for all tenants.
 
-Auto-inflate is especially useful in multitenant environments, as it absorbs noisy neighbor bursts by allocating additional resources rather than suppressing traffic. However, this can increase costs for the duration of the spike. For best results, combine auto-inflate with throttling policies to ensure that no single tenant can consume unbounded resources.
+Auto-inflate is especially useful in multitenant environments, as it absorbs noisy neighbor bursts by allocating additional resources rather than suppressing traffic. However, this increase in capacity can also increase costs for the duration of the spike. For best results, combine auto-inflate with throttling policies to ensure that no single tenant can consume unbounded resources.
 
 For more information, see [Auto-inflate Event Hubs throughput units](/azure/event-hubs/event-hubs-auto-inflate).
 
@@ -178,8 +178,8 @@ Other contributors:
 
 - [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer
 - [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer, FastTrack for Azure
-- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 - [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Solution Architect, Data & AI
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
