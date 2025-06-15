@@ -1,9 +1,9 @@
 ---
 title: Azure Cache for Redis considerations for multitenancy
 description: This article describes the features of Azure Cache for Redis that are useful when you work with multitenant systems, and it provides links to guidance for how to use Azure Cache for Redis in a multitenant solution.
-author: landonpierce
-ms.author: landonpierce
-ms.date: 07/09/2024
+author: johndowns
+ms.author: pnp
+ms.date: 06/16/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: arb-saas
