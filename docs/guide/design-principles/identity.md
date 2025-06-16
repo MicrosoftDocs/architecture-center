@@ -51,7 +51,7 @@ Users expect an identity system to have a range of advanced features, including:
 
 - Auditing, which tracks every event that happens in the identity platform, including successful, failed, and aborted sign-in attempts. Forensic examination of a sign-in attempt later requires these detailed logs.
 
-- Conditional Access, which creates a risk profile around a sign-in attempt that's based on various factors. The factors might include the user's identity, the location of the sign-in attempt, previous sign-in activity, and the sensitivity of the data or application that the user is attempting to access.
+- Conditional access, which creates a risk profile around a sign-in attempt that's based on various factors. The factors might include the user's identity, the location of the sign-in attempt, previous sign-in activity, and the sensitivity of the data or application that the user is attempting to access.
 
 - Just-in-time access control, which temporarily allows users to sign in based on an approval process, and then removes the authorization automatically.
 

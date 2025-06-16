@@ -57,7 +57,7 @@ In a multitenant solution, you need to consider where to store several types of 
 - Tenant-specific information, such as tenant roles and permissions. This information is used for authorization.
 
 > [!CAUTION]
-> We don't recommend building authentication processes yourself. Modern IdPs provide these authentication services to your application, and they also include other important features, such as MFA and Conditional Access. [Building your own identity provider is an antipattern](../approaches/identity.md#building-or-running-your-own-identity-system). We don't recommend it.
+> We don't recommend building authentication processes yourself. Modern IdPs provide these authentication services to your application, and they also include other important features, such as MFA and conditional access. [Building your own identity provider is an antipattern](../approaches/identity.md#building-or-running-your-own-identity-system). We don't recommend it.
 
 Consider the following options for storing identity information:
 
