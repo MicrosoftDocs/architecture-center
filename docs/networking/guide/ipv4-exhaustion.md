@@ -65,7 +65,7 @@ The following diagram includes these components:
 - Each landing zone spoke virtual network also contains one or more nonroutale subnets within the nonroutale range `10.57.0.0/16`. The address space of an Azure virtual network can include multiple IP address ranges.
 - These subnets are excluded from the peering relationship with the hub. Therefore, nonroutale subnets in different landing zone spokes can have the same or overlapping address ranges within `10.57.0.0/16`.
 
-:::image type="complex" source="./images/ipv4-exhaustion-hub-spoke-subnet-peering.svg" alt-text="Diagram that shows how to use subnet peering for landing zones that have routable and nonroutale address spaces." border="false" lightbox="./images/ipv4-exhaustion-hub-spoke-subnet-peering.svg":::
+:::image type="complex" source="./images/exhaustion-hub-spoke-subnet-peering.svg" alt-text="Diagram that shows how to use subnet peering for landing zones that have routable and nonroutale address spaces." border="false" lightbox="./images/exhaustion-hub-spoke-subnet-peering.svg":::
 This diagram contains a hub and two landing zone spokes in separate landing zones. The hub contains three routable subnets. Each landing zone spoke contains two routable subnets and two nonroutable subnets. The hub is connected to each landing zone via subnet peering. Only the routable subnets in the hub and spokes are included in the peering.
 :::image-end:::
 
@@ -87,7 +87,7 @@ The following diagram shows these patterns:
 
 - Landing zone B hosts a three-layer application exposed through an internal Azure load balancer.
 
-:::image type="complex" source="./images/ipv4-exhaustion-deploying-apps.svg" alt-text="Diagram that shows how to deploy applications in landing zones that have routable and nonroutale address spaces." border="false" lightbox="./images/ipv4-exhaustion-deploying-apps.svg":::
+:::image type="complex" source="./images/exhaustion-deploying-apps.svg" alt-text="Diagram that shows how to deploy applications in landing zones that have routable and nonroutale address spaces." border="false" lightbox="./images/exhaustion-deploying-apps.svg":::
 This diagram contains a hub and two landing zone spokes in separate landing zones. The hub contains three routable subnets. The landing zone A spoke contains an application delivery controller in a routable subnet and an HTTP front end, business logic, and data tier in separate nonroutable subnets. The landing zone B spoke contains a TCP/IP front end in a routable subnet and business logic and a data tier in separate nonroutable subnets. The hub is connected to the routable subnets in each spoke via subnet peering.
 :::image-end:::
 
@@ -99,7 +99,7 @@ An application's back-end components don't need to receive inbound connections f
 
 When resources in nonroutale subnets need to initiate connections to endpoints outside their landing zone, those connections must use source NAT (SNAT) behind a routable IP address. Therefore, you must deploy a NAT-capable NVA in a routable subnet in each landing zone. The following diagram shows this configuration.
 
-:::image type="complex" source="./images/ipv4-exhaustion-snat-nva.svg" alt-text="Diagram that shows how the custom route table forwards traffic to the SNAT device." border="false" lightbox="./images/ipv4-exhaustion-snat-nva.svg":::
+:::image type="complex" source="./images/exhaustion-snat-network-virtual-appliance.svg" alt-text="Diagram that shows how the custom route table forwards traffic to the SNAT device." border="false" lightbox="./images/exhaustion-network-virtual-appliance.svg":::
 This diagram contains a hub and two landing zone spokes in separate landing zones. The hub contains three routable subnets. The landing zone A spoke contains an application delivery controller and NAT in separate routable subnets. It also contains an HTTP front end, business logic, and data tier in separate nonroutable subnets. The application delivery controller points to three components in the HTTP front end subnet. The connection from a component goes through the firewall in the hub via SNAT. The landing zone B spoke contains a TCP/IP front end and NAT in separate routable subnets. It also contains business logic and a data tier in separate nonroutable subnets. The connection from a component in the business logic subnet goes through the firewall in the hub via SNAT. The hub is connected to each landing zone spoke.
 :::image-end:::
 
@@ -146,7 +146,7 @@ When you use Azure Firewall, consider the following factors:
 
 The following diagram shows a hub-and-spoke network where each spoke uses Azure Firewall to provide SNAT for connections from nonroutale subnets.
 
-:::image type="complex" source="./images/ipv4-exhaustion-snat-azure-firewall.svg" alt-text="Diagram that shows the SNAT implementation that uses Azure Firewall." border="false" lightbox="./images/ipv4-exhaustion-snat-azure-firewall.svg":::
+:::image type="complex" source="./images/exhaustion-azure-firewall.svg" alt-text="Diagram that shows the SNAT implementation that uses Azure Firewall." border="false" lightbox="./images/exhaustion-azure-firewall.svg":::
 This diagram contains a hub and two landing zone spokes in separate landing zones. The hub contains three routable subnets. The landing zone A spoke contains an application delivery controller and firewall in separate routable subnets. It also contains an HTTP front end, business logic, and data tier in separate nonroutable subnets. The application delivery controller points to three components in the HTTP front end subnet. The connection from a component goes through the firewall in the hub via SNAT. The landing zone B spoke contains a TCP/IP front end and firewall in separate routable subnets. It also contains business logic and a data tier in separate nonroutable subnets. The connection from a component in the business logic subnet goes through the firewall in the hub via SNAT. The hub is connected to each landing zone spoke.
 :::image-end:::
 
@@ -170,7 +170,7 @@ When you use non-Microsoft NVAs, consider the following factors:
 
 The following diagram shows now to implement SNAT in a hub-and-spoke network topology by using non-Microsoft NVAs.
 
-:::image type="complex" source="./images/ipv4-exhaustion-snat-non-microsoft-nva.svg" alt-text="Diagram that shows the SNAT implementation by using non-Microsoft NVAs." border="false" lightbox="./images/ipv4-exhaustion-snat-non-microsoft-nva.svg":::
+:::image type="complex" source="./images/exhaustion-non-microsoft-network-virtual-appliance.svg" alt-text="Diagram that shows the SNAT implementation by using non-Microsoft NVAs." border="false" lightbox="./images/exhaustion-non-microsoft-network-virtual-appliance.svg":::
 This diagram contains a hub and two landing zone spokes in separate landing zones. The hub contains three routable subnets. The landing zone A spoke contains an application delivery controller in a routable subnet and two NAT instances in a routable subnet. It also contains an HTTP front end, business logic, and data tier in separate nonroutable subnets. The application delivery controller points to three components in the HTTP front end subnet. The connection from a component goes through a NAT instance and then the firewall in the hub via SNAT. The landing zone B spoke contains a TCP/IP front end in a routable subnet and two NAT instances in a routable subnet. It also contains business logic and a data tier in separate nonroutable subnets. The connection from a component in the business logic subnet goes through a NAT instance and then the firewall in the hub via SNAT. The hub is connected to each landing zone spoke.
 :::image-end:::
 
@@ -186,7 +186,7 @@ Azure Virtual WAN doesn't support subnet peering. So you can't create landing zo
 
 The following diagram shows the resulting topology.
 
-:::image type="complex" source="./images/ipv4-exhaustion-virtual-wan.svg" alt-text="Diagram that shows an implementation that uses two peered virtual networks." border="false" lightbox="./images/ipv4-exhaustion-virtual-wan.svg":::
+:::image type="complex" source="./images/exhaustion-virtual-wan.svg" alt-text="Diagram that shows an implementation that uses two peered virtual networks." border="false" lightbox="./images/exhaustion-virtual-wan.svg":::
 This diagram contains a Virtual WAN hub and two landing zones. Landing zone A contains a landing zone routable spoke and a landing zone nonroutable spoke, which are connected via virtual network peering. The routable spoke contains an application delivery controller in a routable subnet. The nonroutable spoke contains an HTTP front end, business logic, and a data tier in separate nonroutable subnets. The application delivery controller connects to three components in the HTTP front end subnet. Landing zone B contains a landing zone routable spoke and a landing zone nonroutable spoke, which are connected via virtual network peering. The routable spoke contains a TCP/IP front end in a routable subnet. The nonroutable spoke contains business logic and a data tier in separate nonroutable subnets. The Virtual WAN hub is connected to each landing zone routable spoke.
 :::image-end:::
 
@@ -229,15 +229,16 @@ Deploy applications and the Private Link services that expose their endpoints in
 
 The following diagram shows two landing zones that use a large address space `10.0.0.0/16`, which overlaps with the corporate network's address space. Each landing zone assigns this space to an isolated virtual network. The applications are deployed in the isolated spoke virtual networks and associated with Private Link services. 
 
-:::image type="complex" source="./images/ipv4-exhaustion-private-link.svg" alt-text="Diagram that shows the landing zone topology that uses Private Link services to expose applications deployed in isolated virtual networks." border="false" lightbox="./images/ipv4-exhaustion-private-link.svg":::
+:::image type="complex" source="./images/exhaustion-private-link.svg" alt-text="Diagram that shows the landing zone topology that uses Private Link services to expose applications deployed in isolated virtual networks." border="false" lightbox="./images/exhaustion-private-link.svg":::
+This diagram contains a hub and two landing zones. The hub contains three routable subnets. Each landing zone contains a landing zone routable spoke and a landing zone isolated spoke. The routable spoke contains a private endpoint subnet and a routable subnet. The isolated spoke contains an application subnet and a Private Link service subnet that connects to the private endpoint in the routable spoke. The application subnet connects to the Private Link service subnet. The hub connects to each landing zone routable spoke via virtual network peering.
 :::image-end:::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-private-link.pptx) of this architecture.*
 
 Clients in the corporate network, including clients in other landing zones, consume the applications via private endpoints associated with Private Link services. The following diagram shows how these connections are established.
 
-:::image type="complex" source="./images/ipv4-exhaustion-private-link-connections.svg" alt-text="Diagram that shows the landing zone topology that uses Private Link services to expose applications deployed in isolated virtual networks and shows how connections are established." border="false" lightbox="./images/ipv4-exhaustion-private-link-connections.svg":::
-add long description
+:::image type="complex" source="./images/exhaustion-private-link-connections.svg" alt-text="Diagram that shows the landing zone topology that uses Private Link services to expose applications deployed in isolated virtual networks and shows how connections are established." border="false" lightbox="./images/exhaustion-private-link-connections.svg":::
+This diagram contains a hub and two landing zones. The hub contains three routable subnets. Each landing zone contains a landing zone routable spoke and a landing zone isolated spoke. The routable spoke contains a private endpoint subnet and a routable subnet. The isolated spoke contains an application subnet and a Private Link service subnet that connects to the private endpoint in the routable spoke. The application subnet connects to the Private Link service subnet. The hub connects to each landing zone routable spoke via virtual network peering. There are two flows. One flow goes from the routable subnet in landing zone A, to the firewall in a routable subnet in the hub, to the private endpoint subnet in landing zone B, to the Private Link service subnet in landing zone B, and finally to the application subnet in landing zone B. The second flow goes from routable subnet H3 in the hub, to the private endpoint subnet in landing zone A, to the Private Link service subnet in landing zone A, and finally to the application subnet in landing zone A.
 :::image-end:::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-private-link-connections.pptx) of this architecture.*
@@ -248,8 +249,8 @@ Applications in isolated virtual networks can't initiate connections to endpoint
 
 The following diagram shows how a Private Link service enables the application in the isolated virtual network in landing zone A to consume both a shared service in the hub virtual network and an application endpoint in landing zone B.
 
-:::image type="complex" source="./images/ipv4-exhaustion-private-link-outbound.svg" alt-text="Diagram that shows the architecture that uses a Private Link service for outbound dependencies." border="false" lightbox="./images/ipv4-exhaustion-private-link-outbound.svg":::
-add long description
+:::image type="complex" source="./images/exhaustion-private-link-outbound.svg" alt-text="Diagram that shows the architecture that uses a Private Link service for outbound dependencies." border="false" lightbox="./images/exhaustion-private-link-outbound.svg":::
+This diagram contains a hub and two landing zones. The hub contains two routable subnets, a shared service subnet, and a Private Link service subnet. The shared service subnet connects to the Private Link service subnet. Each landing zone contains a landing zone routable spoke and a landing zone isolated spoke. The routable spoke contains a private endpoint subnet and a routable subnet. The isolated spoke in landing zone A contains an application subnet, a Private Link service subnet that connects to the private endpoint in the routable spoke, and another private endpoint subnet. The application subnet connects to each private endpoint in the private endpoint subnet. One private endpoint (labeled 1) connects to the Private Link service subnet in the hub. Another private endpoint (labeled 2) connects to the Private Link service subnet in landing zone B. The isolated spoke in landing zone B contains the Private Link service subnet and an application subnet. Each application subnet connects to the Private Link service subnet in the same landing zone. The hub connects to each landing zone routable spoke.
 :::image-end:::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-private-link-outbound.pptx) of this architecture.*
@@ -263,10 +264,6 @@ Principal authors:
 - [Federico Guerrini](https://www.linkedin.com/in/federico-guerrini-phd-8185954) | Senior Cloud Solution Architect, EMEA Technical Lead Azure Networking
 - [Khush Kaviraj](https://www.linkedin.com/in/khushalkaviraj) | Cloud Solution Architect
 - [Jack Tracey](https://www.linkedin.com/in/jacktracey93) | Senior Cloud Solution Architect
-  
-Other contributors:
-
-- [Jodi Martis](https://www.linkedin.com/in/jodimartis) | Technical Writer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
