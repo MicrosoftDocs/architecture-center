@@ -208,7 +208,7 @@ Interestingly, this had the side effect of increasing the SU utilization in the 
 
 - Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues.
 
-- Consider using [Azure Monitor][azure-monitor] to analyze the performance of your stream processing pipeline. For more information, see [Monitoring Azure Databricks][databricks-monitoring].
+- Consider using [Azure Monitor][azure-monitor] to analyze the performance of your stream processing pipeline.
 
 For more information, see the operational excellence pillar in [Microsoft Azure Well-Architected Framework][AAF-devops].
 
@@ -259,4 +259,3 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 [azure-monitor]: https://azure.microsoft.com/services/monitor
 [github]: https://github.com/mspnp/azure-stream-analytics-data-pipeline
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[databricks-monitoring]: ../../databricks-monitoring/index.md
