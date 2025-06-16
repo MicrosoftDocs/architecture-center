@@ -148,6 +148,9 @@ In the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#networking),
 
 *Change from the baseline:* The workload is effectively split over two virtual networks. One network is for the workload components and one is for controlling internet and hybrid connectivity. The platform team determines how the workload's virtual network integrates with the organization's larger network architecture, which is usually with a hub-spoke topology.
 
+> [!IMPORTANT]
+> Due to constraints within Azure AI Foundry, the spoke virtual network must be in the same resource group as the Azure AI Foundry account resource group.
+
 :::image type="complex" source="./_images/ai-foundry-baseline-landing-zone-networking.png" lightbox="./_images/ai-foundry-baseline-landing-zone-networking.png" alt-text="Architecture diagram that focuses mostly on network ingress flows." border="false":::
     This architecture diagram has a blue box at the top labeled application landing zone subscription that contains a spoke virtual network. There are five boxes in the virtual network. The boxes are labeled snet-appGateway, snet-agents, snet-jumpbox, snet-appServicePlan, and snet-privateEndpoints. Each subnet has an NSG logo, and all but the snet-appGateway subnet has a UDR that says To hub. Ingress traffic from on-premises and off-premises users points to the application gateway. A data scientist user is connected to the VPN gateway or ExpressRoute in the bottom part of the diagram that's labeled connectivity subscription. The connectivity subscription contains private DNS zones for Private Link, DNS Private Resolver, and DDoS Protection. The hub virtual network that's contained in the connectivity subscription and the spoke virtual network are connected with a line labeled virtual network peering. There's text in the spoke virtual network that reads DNS provided by hub.
 :::image-end:::
@@ -454,6 +457,8 @@ This architecture greatly benefits from Azure landing zone [platform resources](
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+It is absolutly critical that DNS resolution resolves from within the Vnet before the capability host is deployed. For example, if you have DINE policies that are handling DNS private zones, we need to make sure those records for agent service dependencies are in place before the capability host is deployed.
 
 The workload team is still responsible for all of the operational excellence considerations covered in the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#operational-excellence), such as monitoring, GenAIOps, quality assurance, and safe deployment practices.
 
