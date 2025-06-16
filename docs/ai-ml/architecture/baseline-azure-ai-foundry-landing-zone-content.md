@@ -286,7 +286,7 @@ The Azure landing zone platform provides shared observability resources as part 
 
 The workload team provisions the monitoring resources, which include:
 
-- Application Insights as the application performance management (APM) service for the workload team. This feature is configured in the chat UI and prompt flow code.
+- Application Insights as the application performance management (APM) service for the workload team. This feature is configured in the chat UI, Azure AI Foundry Agent Service and models.
 
 - The Azure Monitor Logs workspace as the unified sink for all logs and metrics that are collected from workload-owned Azure resources.
 
@@ -300,7 +300,8 @@ The [baseline architecture](./baseline-azure-ai-foundry-chat.yml#governance-thro
 
 Expect the application landing zone subscription to have policies already applied, even before the workload is deployed. Some policies help organizational governance by auditing or blocking specific configurations in deployments. Here are some example policies that might lead to workload deployment complexities:
 
-- Policy: "Secrets [in Key Vault] should have the specified maximum validity period."
+<!--TODO: We need to replace the below examples with some relevant for the updated architecture
+ - Policy: "Secrets [in Key Vault] should have the specified maximum validity period."
 
     Complication: Azure AI Foundry manages secrets in the workload's Key Vault, and those secrets don't have an expiry date set.
 
@@ -314,7 +315,7 @@ Expect the application landing zone subscription to have policies already applie
 
 - Policy: "Azure Machine Learning workspaces should use user-assigned managed identity."
 
-    Complication: This architecture uses system-assigned managed identity to take advantage of system-managed role assignments.
+    Complication: This architecture uses system-assigned managed identity to take advantage of system-managed role assignments. -->
 
 Platform teams might apply DINE policies to handle automated deployments into an application landing zone subscription. Preemptively incorporate and test the platform-initiated restrictions and changes into your IaC templates. If the platform team uses Azure policies that conflict with the requirements of the application, you can negotiate a resolution with the platform team.
 
@@ -329,8 +330,8 @@ Workload and platform teams must communicate in an efficient and timely manner t
 In this architecture, the platform team manages the following resources. Changes to these resources can potentially affect the workload's reliability, security, operations, and performance targets. It's important to evaluate these changes before the platform team implements them to determine how they affect the workload.
 
 - **Azure policies:** Changes to Azure policies can affect workload resources and their dependencies. For example, there might be direct policy changes or movement of the landing zone into a new management group hierarchy. These changes might go unnoticed until there's a new deployment, so it's important to thoroughly test them.
-
-  *Example:* A policy no longer allows the deployment of Azure OpenAI instances that support API key access.
+<!-- TODO: Update the following with something relevant to this architecture
+  *Example:* A policy no longer allows the deployment of Azure OpenAI instances that support API key access. -->
 
 - **Firewall rules:** Modifications to firewall rules can affect the workload's virtual network or rules that apply broadly across all traffic. These modifications can result in blocked traffic and even silent process failures. These potential problems apply to both the egress firewall and Azure Virtual Network Manager-applied NSG rules.
 
@@ -338,7 +339,7 @@ In this architecture, the platform team manages the following resources. Changes
 
 - **Routing in the hub network:** Changes in the transitive nature of routing in the hub can potentially affect the workload functionality if a workload depends on routing to other virtual networks.
 
-  *Example:* Prevents prompt flow to access a vector store that's operated by another team or data science teams from accessing browser-based experiences in the AI portals from their workstations.
+  *Example:* Prevents Azure AI Foundry agents to access a vector store that's operated by another team or data science teams from accessing browser-based experiences in the AI portals from their workstations.
 
 - **Azure Bastion host:** Changes to the Azure Bastion host availability or configuration.
 
@@ -372,11 +373,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 This architecture aligns with the reliability guarantees in the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#reliability). There are no new reliability considerations for the core workload components.
 
-#### Reliability targets
-
-The maximum possible composite [service-level objective (SLO)](/azure/well-architected/reliability/metrics) for this architecture is lower than the baseline composite service-level objective (SLO) due to new components like egress network control. These components, common in landing zone environments, aren't unique to this architecture. The SLO is similarly reduced if the workload team directly controls these Azure services.
-
-##### Critical dependencies
+#### Critical dependencies
 
 View all functionality that the workload performs in the platform and application landing zone as dependencies. Incident response plans require that the workload team is aware of the point and method of contact information for these dependencies. Also include these dependencies in the workload's failure mode analysis (FMA).
 
@@ -386,7 +383,7 @@ For this architecture, consider the following workload dependencies:
 
 - **DNS resolution:** This architecture uses DNS provided by the platform team instead of directly interfacing with Azure DNS. This means that timely updates to DNS records for private endpoints and availability of DNS services are new dependencies.
 
-- **DINE policies:** DINE policies for Azure DNS private DNS zones, or any other platform-provided dependency, are *best effort*, with no SLA when you apply them. For example, a delay in DNS configuration for this architecture's private endpoints can cause delays in the readiness of the chat UI to handle traffic or prompt flow from completing queries.
+- **DINE policies:** DINE policies for Azure DNS private DNS zones, or any other platform-provided dependency, are *best effort*, with no SLA when you apply them. For example, a delay in DNS configuration for this architecture's private endpoints can cause delays in the readiness of the chat UI to handle traffic or agents from Azure AI Agent Service from completing queries.
 
 - **Management group policies:** Consistent policies among environments are key for reliability. Ensure that preproduction environments are similar to production environments to provide accurate testing and to prevent environment-specific deviations that can block a deployment or scale. For more information, see [Manage application development environments in Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-application-environments).
 
@@ -407,10 +404,10 @@ The following table shows examples of ingress controls in this architecture.
 | Source | Purpose | Workload control | Platform control |
 | :----- | :------ | :--------------- | :--------------- |
 | Internet | Application traffic flows | Funnels all workload requests through an NSG, a web application firewall, and routing rules before allowing public traffic to transition to private traffic for the chat UI. | None |
-| Internet | Azure AI Foundry portal access | Deny all through service-level configuration. | None |
+| Internet | Azure AI Foundry portal accesand data plane REST API access | Deny all through service-level configuration. | None |
 | Internet | Data plane access to all but Application Gateway | Deny all through NSG and service-level configuration. | None |
 | Azure Bastion | Jump box and build agent access | NSG on jump box subnet that blocks all traffic to remote access ports, unless it's sourced from the platform's designated Azure Bastion subnet | None |
-| Cross-premises | Azure AI Foundry portal access | Deny all. Unless jump box isn't used, then only allow workstations from authorized subnets for data scientist access. | Nontransitive routing or Azure Firewall if an Azure Virtual WAN secured hub is used |
+| Cross-premises | Azure AI Foundry portal access and data plane REST API access | Deny all. Unless jump box isn't used, then only allow workstations from authorized subnets for data scientist access. | Nontransitive routing or Azure Firewall if an Azure Virtual WAN secured hub is used |
 | Other spokes | None | Blocked via NSG rules. | Nontransitive routing or Azure Firewall if a Virtual WAN secured hub is used |
 
 #### Egress traffic control
@@ -423,11 +420,11 @@ The following table shows examples of egress in this architecture.
 
 | Endpoint | Purpose | Workload control | Platform control |
 | :------- | :------ | :---------- | :---------- |
-| Public internet sources | Prompt flow might require an internet search to complement an Azure OpenAI request | NSG on the prompt flow container host subnet or Azure AI Foundry-managed virtual network configuration | Firewall network rule allowance for the same as the workload control |
-| Azure OpenAI data plane | The compute hosting prompt flow calls to this API for prompt handling | *TCP/443* to the private endpoint subnet from the subnet that contains the prompt flow | None |
-| Key Vault | To access secrets from the chat UI or prompt flow host | *TCP/443* to the private endpoint subnet that contains Key Vault | None |
+| Public internet sources | Your agent might require internet search to complement an Azure OpenAI request | NSG on the agent integration subnet | Firewall application rules for external knowledge stores and tools |
+| Azure AI Foundry data plane | The chat UI involving the chat agent | *TCP/443* to the private endpoint subnet containing the AI foundry private endpoint from the app service integration subnet | None |
+| Azure Cosmos DB | To access the memory database from the Azure AI Foundry Agent Service | *TCP/443* to the private endpoint subnet that contains Cosmos DB | None |
 
-For traffic that leaves this architecture's virtual network, controls are best implemented at the workload level via NSGs and at the platform level via a hub network firewall. The NSGs provide initial, broad network traffic rules that are further narrowed down by specific firewall rules in the platform's hub network for added security. There's no expectation that east-west traffic within the workload's components, such as between the Azure AI Foundry portal and the Storage account in this architecture, should be routed through the hub.
+For traffic that leaves this architecture's virtual network, controls are best implemented at the workload level via NSGs and at the platform level via a hub network firewall. The NSGs provide initial, broad network traffic rules that are further narrowed down by specific firewall rules in the platform's hub network for added security. There's no expectation that east-west traffic within the workload's components, such as between the Azure AI Foundry Agent Service and its dependent Azure AI Search instance in this architecture, should be routed through the hub.
 
 #### DDoS Protection
 
@@ -449,7 +446,10 @@ Cost Optimization is about reducing unnecessary expenses and improving operation
 
 For the workload resources, all of the cost optimization strategies in the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#cost-optimization) also apply to this architecture.
 
-This architecture greatly benefits from Azure landing zone [platform resources](#platform-team-owned-resources). Even if you use those resources via a chargeback model, the added security and cross-premises connectivity are more cost-effective than self-managing those resources. Take advantage of other centralized offerings from your platform team to extend those benefits to your workload without compromising its SLO, recovery time objective (RTO), or recovery point objective (RPO).
+This architecture greatly benefits from Azure landing zone [platform resources](#platform-team-owned-resources). For example, resources such as Azure Firewall and Azure DDoS Network Protection move from workload to platform resources. Even if you use those resources via a chargeback model, the added security and cross-premises connectivity are more cost-effective than self-managing those resources. Take advantage of other centralized offerings from your platform team to extend those benefits to your workload without compromising its SLO, recovery time objective (RTO), or recovery point objective (RPO).
+
+> [!IMPORTANT]
+> Don't try to optimize costs by consolidating the Azure AI Foundry dependencies, such as Azure AI Search, Azure Cosmos DB, and Azure Storage, as platform resources. Keep them as workload resources.
 
 ### Operational Excellence
 
@@ -474,7 +474,7 @@ Many services in this architecture use private endpoints. Similar to the baselin
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-The performance efficiency considerations described in the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#performance-efficiency) also apply to this architecture. The workload team retains control over the resources used in demand flows, not the platform team. Scale the chat UI host, prompt flow host, language models, and others according to the workload and cost constraints. Depending on the final implementation of your architecture, consider the following factors when you measure your performance against performance targets.
+The performance efficiency considerations described in the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#performance-efficiency) also apply to this architecture. The workload team retains control over the resources used in the application flows, not the platform team. Scale the chat UI host, language models, and others according to the workload and cost constraints. Depending on the final implementation of your architecture, consider the following factors when you measure your performance against performance targets.
 
 - Egress and cross-premises latency
 - SKU limitations derived from cost containment governance
@@ -484,7 +484,7 @@ The performance efficiency considerations described in the [baseline architectur
 A landing zone deployment for this reference architecture is available on GitHub.
 
 > [!div class="nextstepaction"]
-> [Implementation: Azure OpenAI chat baseline in an application landing zone](https://github.com/Azure-Samples/azure-openai-chat-baseline-landing-zone)
+> [Implementation: Azure AI Foundry Agent service chat baseline reference implementation](https://github.com/Azure-Samples/azure-openai-chat-baseline-landing-zone)
 
 ## Contributors
 
