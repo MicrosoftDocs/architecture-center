@@ -5160,6 +5160,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/networking/guide/ipv4-exhaustion.md",
+      "redirect_url": "/azure/architecture/networking/guide/internet-protocol-version-4-exhaustion",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/reference-architectures/serverless/cloud-automation.yml",
       "redirect_url": "/azure/architecture/reference-architectures/serverless/event-processing",
       "redirect_document_id": false
