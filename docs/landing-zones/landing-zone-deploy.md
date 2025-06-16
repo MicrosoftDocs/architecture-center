@@ -24,7 +24,7 @@ The following platform deployment options provide an opinionated approach to dep
 
 Standard deployment options address typical enterprise Azure usage.
 
-| Azure platform landing zone deployment option | Description | Azure Public Cloud | Azure Sovereign Clouds (US Government, China, etc.) |
+| Azure platform landing zone deployment option | Description | Azure Public/Global/Commercial Cloud | Azure Sovereign Clouds (US Government, China, etc.) |
 | :-------------------------------------------- | :---------- | ------------------ | ------------------------------------------------------------ |
 | The ALZ Azure portal deployment accelerator | The Azure portal-based deployment provides a full implementation of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) and opinionated configurations for key components, such as management groups and policies. | Supported | Not supported. However, can be deployed via the Azure Portal in each of these clouds resource by resource, just not with the accelerator. |
 | [Bicep deployment](./bicep/landing-zone-bicep.md) | A modular deployment that's based on infrastructure as code (IaC), where each Bicep module encapsulates a core capability of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture). These modules can be deployed individually, but the design recommends that you use orchestrator modules to encapsulate the complexity of deploying different topologies with the modules. | Supported | Possible, with changes to code when deploying. See [Azure sovereign cloud deployments section](#azure-sovereign-cloud-deployments) |
