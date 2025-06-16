@@ -1,0 +1,18 @@
+
+metadata:
+  title: Multi-Agent-Custom-Automation-Engine-Solution-Accelerator
+  description: Learn how to build scalable automation pipelines where multiple AI agents collaborate through a central API orchestrator, with persistent learning capabilities and automated deployment processes for enterprise-grade task automation.
+  author: gpickett
+  ms.author: gpickett
+  ms.date: <Date of publish or last freshness pass, in mm/dd/yyyy format>
+  ms.topic: <Align with the template instructions for your content type.>
+  ms.subservice: <Align with the template instructions for your content type.>
+azureCategories:
+  - <List at least one category, as explained in the browser header template instructions.>
+products:
+  - <List 1 to 5 products, as explained in the browser header template instructions.>
+name: <Article title in sentence casing>
+summary: <Align with the browser header template instructions.>
+thumbnailUrl: /azure/architecture/browse/thumbs/<file-name>.png
+content: |
+  [!INCLUDE[](<file-name>-content.md)]
