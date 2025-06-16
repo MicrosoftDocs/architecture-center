@@ -4210,6 +4210,11 @@
       "redirect_url": "/azure/architecture/databases/architecture/profisee-master-data-management-purview",
       "redirect_document_id": true
     },
+        {
+      "source_path": "docs/reference-architectures/data/enterprise-bi-adf.yml",
+      "redirect_url": "/azure/architecture/databases/",
+      "redirect_document_id": false
+    },
     {
       "source_path": "docs/solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml",
       "redirect_url": "/azure/architecture/databases/idea/minimal-storage-change-feed-replicate-data",

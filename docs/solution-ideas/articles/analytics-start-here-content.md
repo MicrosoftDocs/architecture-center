@@ -32,7 +32,7 @@ To get started, consider the following example implementations:
 
 -   [Analytics end-to-end with Azure Synapse](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
 
--   [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
+-   [Databases architecture design](../../databases/index.yml)
 
 -   [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)
 
