@@ -94,7 +94,7 @@ The platform team owns and maintains these centralized resources. This architect
 
 - **Azure Policy-based governance constraints** and `DeployIfNotExists` (DINE) policies are part of the workload subscription. You can apply these policies at the platform team-owned management group level or apply them to the workload's subscription directly.
 
-  *Change from the baseline:* These policies are new in this architecture.
+  *Change from the baseline:* These policies are new in this architecture. Expect the platform team to apply policies that constrain your workload. Some of these policies might be duplicative of policies you've already applied to constrain your workload, or they might be new policies.
 
 - **Azure private DNS zones** host the `A` records for private endpoints. For more information, see [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale).
 
@@ -140,15 +140,7 @@ For this architecture, the workload team and platform team need to collaborate o
 
 ## Compute
 
-The compute that hosts the prompt flow and the chat UI remains the same as the [baseline architecture](./baseline-azure-ai-foundry-chat.yml).
-
-An organization might impose requirements on the workload team that mandates the use of a specific Azure AI Foundry runtime. For example, the requirement might be to avoid automatic runtimes or compute instance runtimes and instead favors a prompt flow container host that fulfills compliance, security, and observability mandates.
-
-The organization's governance might add more requirements for container base image maintenance and dependency package tracking than what the workload requirements indicate. Workload teams must ensure that the workload's runtime environment, the code deployed to it, and its operations align with these organizational standards.
-
-### Alternate approach to hosting the prompt flow code
-
-Instead of hosting the prompt flow code in an Azure AI Foundry runtime environment, you can host it in App Service. In this approach, egress traffic is controlled, when compared to Azure AI Foundry compute's managed virtual network. The logic itself doesn't change but the App Service instances need internet access.
+The orchestration layer and the chat UI hosting remains the same as the [baseline architecture](./baseline-azure-ai-foundry-chat.yml).
 
 ## Networking
 
@@ -170,11 +162,13 @@ Because of this management and ownership split, make sure that you clearly [comm
 
 > [!IMPORTANT]
 > **For the platform team:**
-> Unless specifically required by the workload, don't directly peer the spoke network to another spoke virtual network. This practice protects the segmentation goals of the workload. Unless the application landing zone teams have cross-connected with self-managed private endpoints, your team should facilitate all transitive virtual network connections. Have a good understanding of the resources used by this workload that are managed by teams outside the scope of this workload team. For example, understand the network connectivity between the prompt flow and a vector database that's managed by another team.
+> Unless specifically required by the workload, don't directly peer the spoke network to another spoke virtual network. This practice protects the segmentation goals of the workload. Unless the application landing zone teams have cross-connected with self-managed private endpoints, your team should facilitate all transitive virtual network connections. Have a good understanding of the resources used by this workload that are managed by teams outside the scope of this workload team. For example, understand the network connectivity between the chat agents and a grounding context vector database that's managed by another team.
+>
+> Due to an implementation detail of Foundry Agent Service, the virtual network resource must be deployed in the application landing zone, specifically in the same resource group that Azure AI Foundry will be deployed into. You'll need to get this information from the workload team.
 
 ### Virtual network subnets
 
-In the spoke virtual network, the workload team creates and allocates the subnets that are aligned with the requirements of the workload. Placing controls to restrict traffic in and out of the subnets helps provide segmentation. This architecture doesn't add any subnets beyond those subnets described the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#virtual-network-segmentation-and-security). The network architecture however no longer requires the `AzureBastionSubnet` subnet because the platform team hosts this service in their subscriptions.
+In the spoke virtual network, the workload team creates and allocates the subnets that are aligned with the requirements of the workload. Placing controls to restrict traffic in and out of the subnets helps provide segmentation. This architecture doesn't add any subnets beyond those subnets described the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#virtual-network-segmentation-and-security). The network architecture however no longer requires the `AzureBastionSubnet` subnet because the platform team likely hosts this capability in their subscriptions.
 
 You still have to implement local network controls when you deploy your workload in an Azure landing zone. Organizations might impose further network restrictions to safeguard against data exfiltration and ensure visibility for the central security operations center (SOC) and the IT network team.
 
