@@ -168,7 +168,7 @@ Because of this management and ownership split, make sure that you clearly [comm
 
 ### Virtual network subnets
 
-In the spoke virtual network, the workload team creates and allocates the subnets that are aligned with the requirements of the workload. Placing controls to restrict traffic in and out of the subnets helps provide segmentation. This architecture doesn't add any subnets beyond those subnets described the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#virtual-network-segmentation-and-security). The network architecture however no longer requires the `AzureBastionSubnet` subnet because the platform team likely hosts this capability in their subscriptions.
+In the spoke virtual network, the workload team creates and allocates the subnets that are aligned with the requirements of the workload. Placing controls to restrict traffic in and out of the subnets helps provide segmentation. This architecture doesn't add any subnets beyond those subnets described the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#virtual-network-segmentation-and-security). The network architecture however no longer requires the `AzureBastionSubnet` nor the `AzureFirewallSubnet` subnets because the platform team likely hosts this capability in their subscriptions.
 
 You still have to implement local network controls when you deploy your workload in an Azure landing zone. Organizations might impose further network restrictions to safeguard against data exfiltration and ensure visibility for the central security operations center (SOC) and the IT network team.
 
@@ -194,13 +194,10 @@ The workload components in this architecture get configured with DNS in the foll
 | :-------- | :---------------- |
 | Application Gateway | Inherited from virtual network. |
 | App Service (chat UI) | Inherited from virtual network. |
-| App Service (prompt flow) | Inherited from virtual network. |
 | AI Search | Can't be overridden, uses Azure DNS. |
-| Azure AI Foundry serverless compute | &#9642; Managed virtual network, can't be overridden, and uses Azure DNS. This architecture uses this approach.<br/> &#9642; Virtual network integration, inherited from virtual network. |
-| Azure AI Foundry compute cluster | &#9642; Managed virtual network, can't be overridden, and uses Azure DNS. This architecture uses this approach.<br/> &#9642; Virtual network integration, inherited from virtual network. |
-| Azure AI Foundry automatic runtime | &#9642; Managed virtual network, can't be overridden, uses Azure DNS.<br/><br/> &#9642; Virtual network integration, inherited from virtual network.<br/>This architecture doesn't use automatic runtime. |
-| Azure AI Foundry compute instance | &#9642; Managed virtual network, can't be overridden, uses Azure DNS. This architecture uses this approach.<br/> &#9642; Virtual network integration, inherited from virtual network. |
-| Azure OpenAI | Can't be overridden, uses Azure DNS. |
+| Azure AI Foundry | Can't be overridden, uses Azure DNS. |
+| Azure AI Foundry Agent Service | Inherited from virtual network. |
+| Azure Cosmos DB | Can't be overridden, uses Azure DNS. |
 | Jump box | Inherited from virtual network. |
 | Build agents | Inherited from virtual network. |
 
@@ -216,9 +213,11 @@ We recommend that you familiarize yourself with how the platform team manages DN
 
 ### Egress traffic
 
-In the baseline architecture, internet egress control is available only through the network configuration on the Azure AI Foundry hub and App Service, combined with using NSGs on the various subnets.
+In the baseline architecture, we routed all egress traffic to the internet through Azure Firewall.
 
-*Change from the baseline:* The egress controls are further augmented. All traffic that leaves the spoke virtual network is rerouted through the peered hub network via an egress firewall. Traffic that originates inside the managed virtual network for Azure AI Foundry computes isn't subject to this egress route.
+*Change from the baseline:* In this architecture, we expect the platform to provide a user-defined route (UDR) that points to an Azure Firewall it hosts. We will apply this UDR to the same subnets used in the baseline architecture.
+
+The egress controls are further augmented. All traffic that leaves the spoke virtual network is rerouted through the peered hub network via an egress firewall. Traffic that originates inside the managed virtual network for Azure AI Foundry computes isn't subject to this egress route.
 
 :::image type="complex" source="./_images/ai-foundry-baseline-landing-zone-networking-egress.png" lightbox="./_images/ai-foundry-baseline-landing-zone-networking-egress.png" alt-text="Architecture diagram that focuses mostly on network egress flows." border="false":::
     The top section of this architecture diagram is labeled application landing zone subscription and contains a spoke virtual network box and an Azure AI Foundry box. The Azure AI Foundry box contains private endpoints for Storage, Container Registry, AI Search, and Azure OpenAI. The spoke virtual network box contains five subnets: snet-appGateway,  snet-agents, snet-jumpbox, snet-appServicePlan, and snet-privateEndpoints. All of the subnets, except for snet-appGateway, have a dashed line leading from them to Azure Firewall, which is in the bottom box. The bottom box is labeled "Connectivity subscription." Azure Firewall has the same style line that points to the internet represented as a cloud. The Azure AI Foundry box has the same dashed line style that points from it to the internet cloud as well. The top box reads Where possible all workload-originated, internet-bound traffic flows through the hub due to the 0.0.0.0/0 UDR. The hub virtual network in the bottom box and the spoke virtual network in the top box are connected with a line that reads virtual network peering.
@@ -236,13 +235,8 @@ A route is attached to all of the possible subnets in the spoke network that dir
 | :-------- | :---------------- |
 | Application Gateway | None. Internet-bound traffic that originates from this service can't be forced through a platform team firewall. |
 | App Service (chat UI) | [Regional virtual network integration](/azure/app-service/configure-vnet-integration-enable) is enabled.<br/>[vnetRouteAllEnabled](/azure/app-service/configure-vnet-integration-routing#configure-application-routing) is enabled. |
-| App Service (prompt flow) | [Regional virtual network integration](/azure/app-service/configure-vnet-integration-enable) is enabled.<br/>[vnetRouteAllEnabled](/azure/app-service/configure-vnet-integration-routing#configure-application-routing) is enabled. |
 | AI Search | None. Traffic that originates from this service can't be forced through a firewall. This architecture doesn't use skills. |
-| Azure AI Foundry serverless compute | &#9642; Managed virtual network: Internet-bound traffic that originates from this service can't be forced through a platform team firewall. This architecture uses this approach.<br/> &#9642; Virtual network integration: Uses a UDR that's applied to the subnet that contains the compute cluster. |
-| Azure AI Foundry compute cluster | &#9642; Managed virtual network: Internet-bound traffic that originates from this service can't be forced through a platform team firewall. This architecture uses this approach.<br/> &#9642; Virtual network integration: Uses a UDR that's applied to the subnet that contains the compute cluster. |
-| Azure AI Foundry automatic runtime | &#9642; Managed virtual network: Internet-bound traffic that originates from this service can't be forced through a platform team firewall. <br/> &#9642; Virtual network integration: Uses a UDR that's applied to the subnet that contains the compute cluster.<br/><br/>This architecture doesn't use automatic runtime. |
-| Azure AI Foundry compute instance | &#9642; Managed virtual network: Internet-bound traffic that originates from this service can't be forced through a platform team firewall. This architecture uses this approach.<br/> &#9642; Virtual network integration: Uses a UDR that's applied to the subnet that contains the compute cluster. |
-| Azure OpenAI | None. Traffic that originates from this service, for example via the [on your data](/azure/ai-services/openai/concepts/use-your-data) feature, can't be forced through a firewall. This architecture doesn't use any of these features. |
+| Azure AI Foundry Agent Service | A UDR applied to the Azure AI Agent integration subnet. |
 | Jump box | Uses the UDR that's applied to snet-jumpbox. |
 | Build agents | Uses the UDR that's applied to snet-agents. |
 
@@ -252,7 +246,7 @@ For components or component features where egress control through hub routing is
 
 Apply the platform-provided internet route to all subnets, even if the subnet isn't expected to have outgoing traffic. This approach ensures that any unexpected deployments into that subnet are subjected to routine egress filtering. Ensure subnets that contain private endpoints have network policy enabled for full routing and NSG control.
 
-When you apply this route configuration to the architecture, all outbound connections from App Service, the Azure AI Foundry hub and its projects, or any other services that originated on the workload's virtual network are scrutinized and controlled.
+When you apply this route configuration to the architecture, all outbound connections from App Service, the Azure AI Foundry and its projects, or any other services that originated on the workload's virtual network are scrutinized and controlled.
 
 <a name='private-dns-zones'></a>
 
@@ -262,19 +256,17 @@ Architectures that use private endpoints for east-west traffic within their work
 
 *Change from the baseline:* The workload team is directly responsible for the private DNS zones in the baseline architecture. In the landing zone architecture, the platform team typically maintains private DNS zones. They might use another technology, but for this architecture, it's private DNS zone records. The workload team must clearly understand the platform team's requirements and expectations for the management of those private DNS zone records.
 
-In this architecture, the platform team must ensure reliable and timely DNS hosting for the following Private Link endpoints:
+In this architecture, the platform team must set up DNS for the following Azure AI Foundry FQDN API endpoints:
 
-- AI search
-- Azure OpenAI
-- Container Registry
-- Key Vault
-- Storage accounts
+- privatelink.services.ai.azure.com
+- privatelink.openai.azure.com
+- privatelink.cognitiveservices.azure.com
 
-## Data scientist and prompt flow authorship access
+## Data scientist and agent developer access
 
 Like the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#ingress-to-azure-ai-foundry), public ingress access to the Azure AI Foundry portal and other browser-based experiences are disabled. The baseline architecture deploys a jump box to provide a browser with a source IP address from the virtual network that's used by various workload roles.
 
-When your workload is connected to an Azure landing zone, more options are available to your team for this access. Work with your platform team to see whether private access to the various browser-based AI studios can instead be achieved without the need to manage and govern a virtual machine (VM). This access might be accomplished through transitive access from an already-established ExpressRoute or VPN Gateway connection. Native workstation-based access requires cross-premises routing and DNS resolution, which the platform team can help provide. Make this requirement known in your subscription vending request.
+When your workload is connected to an Azure landing zone, more options are available to your team for this access. Work with your platform team to see whether private access to the various browser-based AI Foundry portals can instead be achieved without the need to manage and govern a virtual machine (VM). This access might be accomplished through transitive access from an already-established ExpressRoute or VPN Gateway connection. Native workstation-based access requires cross-premises routing and DNS resolution, which the platform team can help provide. Make this requirement known in your subscription vending request.
 
 Providing native workstation-based access to these portals is a productivity enhancement over the baseline and can be simpler to maintain than VM jump boxes.
 
