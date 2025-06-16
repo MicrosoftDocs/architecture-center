@@ -3,7 +3,7 @@ title: Deploy Azure Landing Zones
 description: Learn about deployment options for both platform and application landing zones in Azure to help ensure governance and cost efficiency.
 author: jtracey93
 ms.author: jatracey
-ms.date: 06/16/2025
+ms.date: 02/25/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ---
