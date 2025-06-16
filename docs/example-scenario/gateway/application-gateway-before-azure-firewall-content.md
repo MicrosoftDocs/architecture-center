@@ -1,4 +1,4 @@
-This guide outlines a strategy for implementing [zero-trust][Zero trust definition] security for web apps for inspection and encryption. The zero-trust paradigm includes many other concepts, such as constant verification of the identity of the actors or reducing the size of the implicit trust areas to a minimum. This article refers to the encryption and inspection component of a zero-trust architecture for traffic inbound from the public Internet. Please read other [zero-trust documents][Zero trust definition] for more aspects of deploying your application securely, such as authentication. For the purpose of this article, a multilayered approach works best, where network security makes up one of the layers of the zero-trust model. In this layer, network appliances inspect packets to ensure that only legitimate traffic reaches applications.
+This guide outlines a strategy for implementing [zero-trust][Zero trust definition] security for web apps for inspection and end-to-end encryption. The zero-trust paradigm includes many other concepts, such as constant verification of the identity of the actors or reducing the size of the implicit trust areas to a minimum. This article refers to the encryption and inspection component of a zero-trust architecture for traffic inbound from the public Internet. Please read other [zero-trust documents][Zero trust definition] for further aspects of deploying your application securely, such as authentication and authorization. For the purpose of this article, a multilayered approach works best, where network security makes up one of the layers of the zero-trust model. In this layer, network appliances inspect packets to ensure that only legitimate traffic reaches applications.
 
 Typically, different types of network appliances inspect different aspects of network packets:
 
@@ -57,13 +57,15 @@ The following diagram shows the common names (CNs) and certificate authorities (
 
 :::image type="content" source="./images/application-gateway-before-azure-firewall-certificates.png" alt-text="Architecture diagram showing the common names and certificate authorities that a web app network uses when a load balancer is in front of a firewall." border="false":::
 
+The fact that Azure Firewall generates its own certificates on the fly is one of the main reasons why it is placed behind Application Gateway, since otherwise the application client would be confronted with these self-generated certificates that would be flagged as a security risk.
+
 ### TLS connections
 
 This architecture contains three distinct TLS connections. Digital certificates validate each one:
 
 #### From clients to Application Gateway
 
-In Application Gateway, you deploy the digital certificate that clients see. A well-known CA such as DigiCert or Let's Encrypt typically issues such a certificate.
+In Application Gateway, you deploy the digital certificate that clients see. A well-known CA such as DigiCert or Let's Encrypt typically issues such a certificate. Note how this mechanism is fundamentally different from how Azure Firewall dynamically generates digital certificates from a self-signed or internal PKI certificate authority.
 
 #### From Application Gateway to Azure Firewall Premium
 
@@ -85,8 +87,8 @@ Application Gateway and Azure Firewall Premium handle certificates differently f
 Routing will be slightly different depending on the topology of your network design, the following sections will detail the specifics of Hub and Spoke, Virtual WAN and Route Server topology examples. However, there are some aspects that are common to all topologies:
 
 - Azure Application Gateway always behaves as a proxy, and Azure Firewall Premium does as well when configured for TLS inspection: the TLS sessions from clients will be terminated by Application Gateway, and new TLS sessions will be built towards Azure Firewall. Azure Firewall will receive and terminate the TLS sessions sourced from the Application Gateway, and build new TLS sessions towards the workloads. This fact has implications for the IDPS configuration of Azure Firewall Premium, sections further below contain more details around this.
-- The workload will see connections coming from the Azure Firewall's subnet IP address. The original client IP address is preserved in the `X-Forwarded-For` HTTP header inserted by the Application Gateway.
-- Traffic from the Application Gateway to the workload is typically sent to the Azure Firewall using Azure routing mechanisms, either with User-Defined Routes configured in the Application Gateway's subnet or with routes injected by Azure Virtual WAN or Azure Route Server. Although explicitly defining the Azure Firewall's private IP address in the Application Gateway's backend pool is possible, it is technically not recommended since it takes away some of the functionality of Azure Firewall such as load balancing and stickiness.
+- The workload will see connections coming from the Azure Firewall's subnet IP address. The original client IP address is preserved in the `X-Forwarded-For` HTTP header inserted by the Application Gateway. Azure Firewall also supports injecting the source client IP address in the `X-Forwarded-For` header, in this case the application gateway's IP address.
+- Traffic from the Application Gateway to the workload is typically sent to the Azure Firewall using Azure routing mechanisms, either with User-Defined Routes configured in the Application Gateway's subnet or with routes injected by Azure Virtual WAN or Azure Route Server. Although explicitly defining the Azure Firewall's private IP address in the Application Gateway's backend pool is possible, it is technically not recommended since it takes away some of the native functionality of Azure Application Gateway such as load balancing and session stickiness.
 
 The following sections go into detail for some of the most common topologies used with Azure Firewall and Application Gateway.
 
