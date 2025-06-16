@@ -274,47 +274,54 @@ For more information, see [Optimize RDP connectivity for Windows 365](https://te
 
   - **Deployment option 1:** When customers primarily work in LOB apps, such as Microsoft 365 apps, this model reduces latency for those apps by placing the Cloud PC in the same region as the LOB apps (Geography B). This setup prioritizes performance for LOB access, even if the gateway is physically closer to the user in a different region (Geography A). The following diagram shows the possible traffic flow from the user to the LOB apps.
 
-    :::image type="complex" source="./images/windows-365-placement-diagrams-updated-8.svg" alt-text="A diagram of a flow chart, showing a possible traffic flow from users to apps." lightbox="./images/windows-365-placement-diagrams-updated-8.svg" border="false":::
-    The diagram has two sections, geography A and B. Geography A contains Azure region A and a user network, which connect to each other via the internet and a Virtual Desktop gateway. Geography B contains Azure region B and LOB apps. Azure region B contains Virtual Desktop and a virtual network. LOB apps connect to the virtual network via a VPN or Expressroute connection. A user flow goes from a user in Geography A, to a user network, to the internet, to the Virtual Desktop gateway, over the Azure backbone to Geography B, to Virtual Desktop, to a virtual network, and finally to the LOB apps.
+    :::image type="complex" source="./images/windows-365-placement-diagrams-updated-8.svg" alt-text="A diagram of a traffic flow from users to apps." lightbox="./images/windows-365-placement-diagrams-updated-8.svg" border="false":::
+    The diagram has two sections, geography A and B. Geography A contains Azure region A and a user network, which connect to each other via the internet and a Virtual Desktop gateway. Geography B contains Azure region B and LOB apps. Azure region B contains Virtual Desktop and a virtual network. LOB apps connect to the virtual network via a VPN or ExpressRoute connection. A user flow goes from a user in Geography A, to a user network, to the internet, to the Virtual Desktop gateway, over the Azure backbone to Geography B, to Virtual Desktop, to a virtual network, and finally to the LOB apps.
     :::image-end:::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/windows-365-placement-diagrams-updated-8.pptx) of this architecture.*
 
-  - **Deployment option 2:** If customers occasionally access the LOB apps in Geography B, then deploying a Cloud PC closer to the customers might be optimal because it optimizes the Cloud PC access latency over LOB apps access latency. The following diagram shows how the traffic might flow in such a scenario.
+  - **Deployment option 2:** If customers occasionally access LOB apps in Geography B, deploying a Cloud PC closer to the customers optimizes the Cloud PC access latency over LOB apps access latency. The following diagram shows potential traffic flow in this scenario.
 
-    :::image type="content" source="./images/windows-365-placement-diagrams-updated-9.svg" alt-text="A diagram of a flow chart that shows a possible traffic flow from users to apps." lightbox="./images/windows-365-placement-diagrams-updated-9.svg" border="false":::
+    :::image type="complex" source="./images/windows-365-placement-diagrams-updated-9.svg" alt-text="A diagram of a different traffic flow option from users to apps." lightbox="./images/windows-365-placement-diagrams-updated-9.svg" border="false":::
+    The diagram has two sections, geography A and B. Geography A contains Azure region A and a user network, which connect to each other via a Virtual Desktop gateway and a VPN or ExpressRoute connection. Geography B contains Azure region B and LOB apps. Azure region B contains a virtual network. LOB apps connect to the virtual network via a VPN or ExpressRoute connection. A user flow goes from a user in Geography A, to a user network, to the VPN or ExpressRoute connection, to the Virtual Desktop gateway, over the Azure backbone to Geography B, to a virtual network, and finally to the LOB apps.
+    :::image-end:::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/windows-365-placement-diagrams-updated-9.pptx) of this architecture.*
 
 ## AD DS recommendations
 
-In a Microsoft Entra hybrid join architecture, an on-premises AD DS infrastructure acts as the identity source of authority. Having a properly configured and healthy AD DS infrastructure is a crucial step to make the Windows 365 deployment successful.
+In a Microsoft Entra hybrid join architecture, an on-premises AD DS infrastructure serves as the identity source of authority. A properly configured and healthy AD DS infrastructure improves the success of a Windows 365 deployment.
 
-On-premises AD DS supports many configurations and varying levels of complexity, so the recommendations provided only cover the baseline best practices.
+On-premises AD DS supports many configurations and various levels of complexity. The following recommendations cover only the baseline best practices.
 
-- For Microsoft Entra hybrid join scenario, you can deploy AD DS in Azure VMs as described in the architecture reference in [Deploy AD DS in a virtual network](/azure/architecture/example-scenario/identity/adds-extend-domain?source=recommendations). You can also use a hybrid network connection to provide a direct line of sight to your on-premises Microsoft Entra domain controller. For more information, see [Implement a secure hybrid network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
+- For a Microsoft Entra hybrid join scenario, you can [deploy AD DS in Azure VMs](/azure/architecture/example-scenario/identity/adds-extend-domain?source=recommendations). You can also use a hybrid network connection to provide a direct line of sight to your on-premises Microsoft Entra domain controller. For more information, see [Implement a secure hybrid network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
 
-- For Microsoft Entra join deployment, follow the reference architecture in [Integrate on-premises Microsoft Entra domains with Microsoft Entra ID](/azure/architecture/reference-architectures/identity/azure-ad).
-- Windows 365 uses a watchdog service as part of automated testing that creates a test VM account. That account shows as disabled in the organizational unit specified in Azure network connection configuration. Don't delete this account.
-- Any Cloud PC that's decommissioned in the Microsoft Entra hybrid join model leaves behind a disabled computer account, which needs to be cleaned manually in AD DS.
-- Microsoft Entra Domain Services isn't supported as an identity source because it doesn't support Microsoft Entra hybrid join.
+- For Microsoft Entra join deployment, follow the [reference architecture that integrates on-premises Active Directory domains with Microsoft Entra ID](/azure/architecture/reference-architectures/identity/azure-ad).
+- Windows 365 uses a watchdog service as part of automated testing. The service creates a test VM account that shows as disabled in the organizational unit that the Azure network connection configuration specifies. Don't delete this account.
+- Decommissioned Cloud PC in the Microsoft Entra hybrid join model leave behind disabled computer accounts that require manual cleanup in AD DS.
+- Microsoft Entra Domain Services doesn't support Microsoft Entra hybrid join, so it can't function as the identity source in that setup.
 
 ## DNS recommendations
 
-In an Azure network connection deployment architecture, DNS servers or another DNS service used by an Azure virtual network is a crucial dependency. It's important to have a healthy infrastructure in place.
+In an Azure network connection deployment architecture, DNS servers or a DNS service in an Azure virtual network serve as crucial dependencies. A healthy infrastructure ensures reliable operation.
 
-- For a Microsoft Entra hybrid join configuration, DNS should be able to resolve the domain to which the Cloud PC needs to be joined. There are multiple configuration options available, the simplest of them being specifying your DNS server IP in the Azure virtual network configuration. For more information, see [Name resolution that uses your own DNS server](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
+- For a Microsoft Entra hybrid join configuration, DNS must resolve the domain that the Cloud PC joins. You have several configuration options. The simplest option is to specify your DNS server IP address in the Azure virtual network configuration. For more information, see [Name resolution that uses your own DNS server](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
 
-- Depending on the complexity of the infrastructure, such as a multi-region, multi-domain setup in Azure and on-premises environments, you should use a service like Azure DNS private zones or [Azure DNS Private Resolver](/azure/architecture/networking/architecture/azure-dns-private-resolver).
+- For complex infrastructures, such as a multi-region or multi-domain setups in Azure and on-premises environments, use a service like Azure DNS private zones or [Azure DNS Private Resolver](/azure/architecture/networking/architecture/azure-dns-private-resolver).
 
 ## Cloud PC connection recommendations
 
-Deployed Cloud PCs should be configured to allow uninterrupted connection flow to and from the Virtual Desktop gateway service. Consider the following recommendations when you deploy apps as part of a Windows operating system configuration:
+Set up deployed Cloud PCs to allow uninterrupted connection flow to and from the Virtual Desktop gateway service. When you deploy apps as part of a Windows OS configuration, consider the following recommendations:
 
-- Ensure that the VPS client doesn't launch when the user signs in because it can disconnect the session when the VPN tunnel establishes. The user would have to sign in a second time.
+- Ensure that the VPS client doesn't launch when the user signs in because it can disconnect the session when the VPN tunnel establishes. Then the user must sign in again.
 
-- Configure the VPN, proxy, firewall, and antivirus and antimalware apps to allow or bypass traffic bound for IP addresses 168.63.129.16 and 169.254.169.254. These IP addresses are used for communication with Azure platform services such as metadata and heartbeat. For more information, see [What is IP address 168.63.129.16?](/azure/virtual-network/what-is-ip-address-168-63-129-16), [Azure Instance Metadata Service for virtual machines](/azure/virtual-machines/instance-metadata-service?tabs=windows), and [Virtual Network FAQ](/azure/virtual-network/virtual-networks-faq).
-- Don't manually modify the IP addresses of Cloud PCs because it might result in permanent disconnection. IP addresses are assigned with an indefinite lease and managed throughout the life cycle of the Cloud PC by Azure networking services. For more information, see [Allocation methods](/azure/virtual-network/ip-services/virtual-network-network-interface-addresses?tabs=nic-address-portal#allocation-methods).
+- Configure the VPN, proxy, firewall, and antivirus and antimalware apps to allow or bypass traffic for IP addresses `168.63.129.16` and `169.254.169.254`. This architecture uses these IP addresses for communication with Azure platform services, such as metadata and heartbeat.
+
+  For more information, see the following resources:
+  - [IP address 168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16)
+  - [Azure Instance Metadata Service for virtual machines](/azure/virtual-machines/instance-metadata-service)
+  - [Virtual Network FAQ](/azure/virtual-network/virtual-networks-faq)
+- Don't manually modify the IP addresses of Cloud PCs because it might result in permanent disconnection. Azure networking services assign IP addresses with an indefinite lease and manage them throughout the Cloud PC life cycle. For more information, see [Allocation methods](/azure/virtual-network/ip-services/virtual-network-network-interface-addresses?tabs=nic-address-portal#allocation-methods).
 
 ## Contributors
 
@@ -346,4 +353,4 @@ Other contributors:
 
 ## Related resource
 
-[Web applications architecture design](/azure/architecture/web-apps/)
+- [Web applications architecture design](/azure/architecture/web-apps/)
