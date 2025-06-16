@@ -24,20 +24,22 @@ The following platform deployment options provide an opinionated approach to dep
 
 Standard deployment options address typical enterprise Azure usage.
 
-| Azure platform landing zone deployment option | Description |
-| :-------------------------------------------- | :---------- |
-| The Azure portal deployment | The Azure portal-based deployment provides a full implementation of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) and opinionated configurations for key components, such as management groups and policies. |
-| [Bicep deployment](./bicep/landing-zone-bicep.md) | A modular deployment that's based on infrastructure as code (IaC), where each Bicep module encapsulates a core capability of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture). These modules can be deployed individually, but the design recommends that you use orchestrator modules to encapsulate the complexity of deploying different topologies with the modules. |
-| [Terraform deployment](https://azure.github.io/Azure-Landing-Zones/terraform/) | An IaC-based deployment that uses Azure-verified modules for platform landing zones and provides a customizable way to deploy Azure landing zones with Terraform. |
+| Azure platform landing zone deployment option | Description | Azure Public Cloud | Azure Sovereign Clouds (US Government, China, etc.) |
+| :-------------------------------------------- | :---------- | ------------------ | ------------------------------------------------------------ |
+| The ALZ Azure portal deployment accelerator | The Azure portal-based deployment provides a full implementation of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) and opinionated configurations for key components, such as management groups and policies. | Supported | Not supported. However, can be deployed via the Azure Portal in each of these clouds resource by resource, just not with the accelerator. |
+| [Bicep deployment](./bicep/landing-zone-bicep.md) | A modular deployment that's based on infrastructure as code (IaC), where each Bicep module encapsulates a core capability of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture). These modules can be deployed individually, but the design recommends that you use orchestrator modules to encapsulate the complexity of deploying different topologies with the modules. | Supported | Possible, with changes to code when deploying. See [Azure sovereign cloud deployments section](#azure-sovereign-cloud-deployments) |
+| [Terraform deployment](https://azure.github.io/Azure-Landing-Zones/terraform/) | An IaC-based deployment that uses Azure-verified modules for platform landing zones and provides a customizable way to deploy Azure landing zones with Terraform. | Supported | Possible, with changes to code when deploying. See [Azure sovereign cloud deployments section](#azure-sovereign-cloud-deployments) |
 
-> [!IMPORTANT]
-> The above deployment options are supported for the Azure Public/Global/Commerical Cloud offering today. If you need to deploy into other Azure clouds (e.g. sovereign clouds), such as Azure Government (US Government) or Microsoft Azure operated by 21Vianet (Azure in China), they will require manual configuration changes, by the deploying persons. Today only the Bicep & Terraform deployment options can be altered to accomodate these changes listed below. The ALZ portal experience is **not** supported in these other clouds today.
->
-> - Azure Policy Definitions, Initiatives & Assignments - Not all Azure policies are available across all clouds as they are in public/global/commercial, so may need removing during deployment
-> - API versions for some resources - Certian API versions may not exist in some clouds as they do in public/global/commercial, so may need adjusting during deployment
-> - Removal of some resources - Some resources may not exist in some clouds, e.g. DDoS is not availablie in Azure in China, so may need disabling or removing during deployment
->
-> For clarity, the [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) is still valid and supported in all Azure clouds however, it is not provided as automated tooling or accelerators today from Microsoft. If you would like to see ALZ tooling support for these clouds please log a [GitHub Issue here](https://aka.ms/alz/repo).
+#### Azure sovereign cloud deployments
+The above deployment options are supported for the Azure Public/Global/Commerical Cloud offering today.
+
+If you need to deploy into other Azure clouds (e.g. sovereign clouds), such as Azure Government (US Government) or Microsoft Azure operated by 21Vianet (Azure in China), they will require manual configuration changes, by the deploying persons. Today only the ALZ Bicep & Terraform deployment options can be altered to handle these required changes listed below.
+
+- Azure Policy Definitions, Initiatives & Assignments - Not all Azure policies are available across all clouds as they are in public/global/commercial, so may need removing during deployment
+- API versions for some resources - Certian API versions may not exist in some clouds as they do in public/global/commercial, so may need adjusting during deployment
+- Removal of some resources - Some resources may not exist in some clouds, e.g. DDoS is not availablie in Azure in China, so may need disabling or removing during deployment
+
+For clarity, the [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) is still valid and supported in all Azure clouds however, it is not provided as automated tooling or accelerators today from Microsoft. If you would like to see ALZ tooling support for these clouds please log a [GitHub Issue here](https://aka.ms/alz/repo).
 
 ### Variants and specializations
 
