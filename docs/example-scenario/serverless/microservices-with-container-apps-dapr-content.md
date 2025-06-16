@@ -39,23 +39,23 @@ The following dataflow corresponds to the previous diagram:
 | Virtual customer | None | Service-to-service invocation | N/A |
 | Order service | Internal | Publish-subscribe: Azure Service Bus | HTTP |
 | Accounting service | Internal | Publish-subscribe: Service Bus | Service Bus topic length, HTTP |
-| Receipt service | Internal | Publish-subscribe: Service Bus <br> Binding: Azure Blob | Service Bus topic length |
+| Receipt service | Internal | Publish-subscribe: Service Bus <br> Binding: Azure Blob Storage | Service Bus topic length |
 | Loyalty service | Internal | Publish-subscribe: Service Bus <br> State: Azure Cosmos DB | Service Bus topic length |
-| Makeline service | Internal | Publish-subscribe: Service Bus <br> State: Azure Redis | Service Bus topic length, HTTP |
+| Makeline service | Internal | Publish-subscribe: Service Bus <br> State: Azure Cache for Redis | Service Bus topic length, HTTP |
 | Virtual worker | None | Service-to-service invocation <br> Binding: Cron | N/A |
 
 > [!NOTE]
-> You can also implement Bootstrapper in a container app. However, this service runs one time to perform the database creation, and then scales to zero after it creates the necessary objects in Azure SQL Database.
+> You can also implement Bootstrap in a container app. However, this service runs one time to perform the database creation and then scales to zero after it creates the necessary objects in Azure SQL Database.
 
 ### Components
 
 - [Application Insights](/azure/well-architected/service-guides/application-insights) is an extensible application performance management service that you can use to monitor live applications and automatically detect performance anomalies. In this architecture, you use Application Insights with Azure Monitor to view the container logs and collect metrics from the microservices.
 
-- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud-based solution for storing massive amounts of unstructured data like text or binary files. In this architecture, a receipt service uses Blob Storage via a Dapr output binding to store the order receipts.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud-based solution for storing massive amounts of unstructured data like text or binary files. In this architecture, a receipt service uses Blob Storage via a Dapr output binding to store the order receipts.
 
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is a distributed, in-memory, scalable managed Redis cache. In this architecture, it's used as a Dapr state store component for the Makeline Service to store data on the orders that are being processed.
+- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is a distributed, in-memory, scalable managed Redis cache. In this architecture, it's used as a Dapr state store component for the Makeline service to store data on the orders that are being processed.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a NoSQL, multi-model managed database service. In this architecture, it's used as a Dapr state store component for the loyalty service to store customers' loyalty data.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a NoSQL, multiple-model managed database service. In this architecture, it's used as a Dapr state store component for the loyalty service to store customers' loyalty data.
 
 - [Azure Monitor](/azure/azure-monitor/overview) is a unified platform that enables you to collect, analyze, and act on customer content data from your Azure infrastructure environments. In this architecture, you use Azure Monitor with [Application Insights](/azure/well-architected/service-guides/application-insights) to view the container logs and collect metrics from the microservices.
 
@@ -63,7 +63,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a fully managed, serverless container service used to build and deploy modern apps at scale. In this architecture, you host all 10 microservices on Container Apps and deploy them into a single Container Apps environment. This environment serves as a secure boundary around the system.
 
-- [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is an intelligent, scalable, relational database service built for the cloud. In this architecture, it serves as the data store for the accounting service, which uses [Entity Framework Core](/ef/core/) to interface with the database. The Bootstrapper service is responsible for setting up the SQL tables in the database, and then runs one time before it establishes the connection to the accounting service.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is an intelligent, scalable, relational database service built for the cloud. In this architecture, it serves as the data store for the accounting service, which uses [Entity Framework Core](/ef/core/) to interface with the database. The bootstrapper service is responsible for setting up the SQL tables in the database. Then it runs one time before it establishes the connection to the accounting service.
 
 - [Traefik](https://traefik.io/traefik) is a leading modern reverse proxy and load balancer that makes it easy to deploy microservices. In this architecture, use Traefik's dynamic configuration feature to do path-based routing from the UI, which is a Vue.js single-page application. This configuration also enables direct API calls to the back-end services for testing.
 
@@ -71,13 +71,17 @@ The following dataflow corresponds to the previous diagram:
 
 In this architecture, you deploy a Traefik proxy to enable path-based routing for the Vue.js API. There are many alternative open-source proxies that you can use for this purpose. Two other common projects are [NGINX](https://www.nginx.com) and [HAProxy](https://www.haproxy.com).
 
-All Azure infrastructure, except for SQL Database, uses Dapr components for interoperability. One benefit of Dapr is that you can swap all these components by changing the container apps deployment configuration. In this scenario, Service Bus, Azure Cosmos DB, Cache for Redis, and Blob Storage showcase some of the available 70+ Dapr components. A list of alternative [publish-subscribe brokers](https://docs.dapr.io/reference/components-reference/supported-pubsub), [state stores](https://docs.dapr.io/reference/components-reference/supported-state-stores), and [output bindings](https://docs.dapr.io/reference/components-reference/supported-bindings) are available in the Dapr docs.
+All Azure infrastructure, except for SQL Database, uses Dapr components for interoperability. One benefit of Dapr is that you can swap all these components by changing the container apps deployment configuration. In this scenario, Service Bus, Azure Cosmos DB, Azure Cache for Redis, and Blob Storage showcase some of the more than 70 available Dapr components. A list of alternative [publish-subscribe brokers](https://docs.dapr.io/reference/components-reference/supported-pubsub), [state stores](https://docs.dapr.io/reference/components-reference/supported-state-stores), and [output bindings](https://docs.dapr.io/reference/components-reference/supported-bindings) are available in the Dapr docs.
 
 ## Scenario details
 
-Microservices are a widely adopted architectural style. They provide benefits such as scalability, agility, and independent deployments. You can use containers as a mechanism to deploy microservices applications, and then use a container orchestrator like Kubernetes to simplify operations. There are many factors to consider for large scale microservices architectures. Typically, the infrastructure platform requires significant understanding of complex technologies like the container orchestrators.
+Microservices are a widely adopted architectural style. They provide benefits such as scalability, agility, and independent deployments. You can use containers as a mechanism to deploy microservices applications, and then use a container orchestrator like Kubernetes to simplify operations. There are many factors to consider for large-scale microservices architectures. Typically, the infrastructure platform requires a significant understanding of complex technologies like container orchestrators.
 
-[Container Apps](/azure/container-apps/overview) is a fully managed serverless container service for running modern applications at scale. It enables you to deploy containerized apps through abstraction of the underlying platform. With this method, you don't need to manage a complicated infrastructure. This architecture uses Container Apps integration with a managed version of the [Dapr](https://dapr.io/). Dapr is an open-source project that helps developers with the inherent challenges in distributed applications, like state management and service invocation. Container Apps also provides a managed version of [KEDA](https://keda.sh/). KEDA lets your containers autoscale based on incoming events from external services like Service Bus and Azure Cache for Redis.
+[Container Apps](/azure/container-apps/overview) is a fully managed serverless container service for running modern applications at scale. It enables you to deploy containerized apps through an abstraction of the underlying platform. By using this method, you don't need to manage a complicated infrastructure. 
+
+This architecture uses Container Apps integration with a managed version of the [Dapr](https://dapr.io/). Dapr is an open-source project that helps developers overcome the inherent challenges in distributed applications, like state management and service invocation. 
+
+Container Apps also provides a managed version of [KEDA](https://keda.sh/). KEDA lets your containers scale automatically based on incoming events from external services like Service Bus and Azure Cache for Redis.
 
 You can also enable HTTPS ingress in Container Apps without creating more Azure networking resources. You can use [Envoy proxy](https://www.envoyproxy.io/), which also allows traffic splitting scenarios.
 
@@ -111,9 +115,9 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 The following list outlines several security features that are omitted in this architecture, along with other recommendations and considerations:
 
-- This architecture doesn't use [private endpoints](/azure/private-link/private-link-overview), which allow secure, private connectivity to Azure services by assigning them an IP address from your virtual network. When private endpoints are used, public network access can be disabled. This approach keeps traffic on the Microsoft backbone and enhances security and compliance.
+- This architecture doesn't use [private endpoints](/azure/private-link/private-link-overview), which allow more secure, private connectivity to Azure services by assigning them an IP address from your virtual network. When private endpoints are used, public network access can be disabled. This approach keeps traffic on the Microsoft backbone and enhances security and compliance.
 
-- Network activity should be continuously monitored to detect and prevent abuse. You can achieve this approach by using an [Azure Firewall](/azure/firewall/) and route tables. The route tables enable traffic leaving a virtual network to be passed through the firewall first. This process is an important step in ensuring that your architecture isn't vulnerable to data exfiltration attacks.
+- Network activity should be continuously monitored to detect and prevent abuse. You can achieve this approach by using an [Azure Firewall](/azure/firewall/) and route tables. The route tables enable traffic that leaves a virtual network to be passed through the firewall first. This process is an important step in ensuring that your architecture isn't vulnerable to data exfiltration attacks.
 
 - Use a web application firewall (WAF) to protect against common vulnerabilities. Use Azure Front Door or Azure Application Gateway to [implement a WAF](/azure/web-application-firewall/) in this architecture.
 
@@ -131,7 +135,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-You can use Azure Monitor and Application Insights to monitor Container Apps. You can view container logs by navigating in the portal to the **Logs** pane in each container app, and then running the following Kusto query. This example shows logs for the Makeline service app.
+You can use Azure Monitor and Application Insights to monitor Container Apps. You can view container logs by navigating in the portal to the **Logs** pane in each container app and then running the following Kusto query. This example shows logs for the Makeline service app.
 
 ```kusto
 ContainerAppConsoleLogs_CL |
@@ -140,10 +144,10 @@ ContainerAppConsoleLogs_CL |
     order by _timestamp_d asc
 ```
 
-The application map in Application Insights also shows how the services communicate in real time. You can then use them for debugging scenarios. Navigate to the application map under the Application Insights resource to view something like the following.
+The application map in Application Insights also shows how the services communicate in real time. You can then use them for debugging scenarios. Navigate to the application map under the Application Insights resource to view something like the following map.
 
 :::image type="complex" border="false" source="./media/microservices-with-container-apps-dapr-appmap.png" alt-text="Screenshot that shows an application map in Application Insights." lightbox="./media/microservices-with-container-apps-dapr-appmap.png":::
-   The screenshot shows an application map in Application Insights. The image includes seven circles that represent instances. The names of the instances are virtual-customers, order-service, receipt-gen...ion-service, virtual-worker, make-line-service, loyalty-service, and accounting-service. Multiple curvy lines flow between these instances. The image also contains DAPR state and DAPR bindings.
+   The screenshot shows an application map in Application Insights. The image includes seven circles that represent instances. The names of the instances are virtual-customers, order-service, receipt-gen...ion-service, virtual-worker, make-line-service, loyalty-service, and accounting-service. Multiple curvy lines flow between these instances. The image also contains Dapr state and Dapr bindings.
 :::image-end:::
 
 For more information, see [Monitor an app in Container Apps](/azure/container-apps/monitor).
@@ -174,7 +178,7 @@ Other contributors:
 ## Next steps
 
 - [Container Apps docs](/azure/container-apps)
-- [Comparing container offerings in Azure](/azure/container-apps/compare-options)
+- [Compare Container Apps with other Azure container options](/azure/container-apps/compare-options)
 
 ## Related resources
 
