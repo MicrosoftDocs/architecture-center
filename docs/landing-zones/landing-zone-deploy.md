@@ -31,13 +31,13 @@ Standard deployment options address typical enterprise Azure usage.
 | [Terraform deployment](https://azure.github.io/Azure-Landing-Zones/terraform/) | An IaC-based deployment that uses Azure-verified modules for platform landing zones and provides a customizable way to deploy Azure landing zones with Terraform. | Supported | Possible, with changes to code when deploying. See [Azure sovereign cloud deployments section](#azure-sovereign-cloud-deployments) |
 
 #### Azure sovereign cloud deployments
-The above deployment options are supported for the Azure Public/Global/Commerical Cloud offering today.
+The above deployment options are supported for the Azure Public/Global/Commercial Cloud offering today.
 
 If you need to deploy into other Azure clouds (e.g. sovereign clouds), such as Azure Government (US Government) or Microsoft Azure operated by 21Vianet (Azure in China), they will require manual configuration changes, by the deploying persons. Today only the ALZ Bicep & Terraform deployment options can be altered to handle these required changes listed below.
 
 - Azure Policy Definitions, Initiatives & Assignments - Not all Azure policies are available across all clouds as they are in public/global/commercial, so may need removing during deployment
-- API versions for some resources - Certian API versions may not exist in some clouds as they do in public/global/commercial, so may need adjusting during deployment
-- Removal of some resources - Some resources may not exist in some clouds, e.g. DDoS is not availablie in Azure in China, so may need disabling or removing during deployment
+- API versions for some resources - Certain API versions may not exist in some clouds as they do in public/global/commercial, so may need adjusting during deployment
+- Removal of some resources - Some resources may not exist in some clouds, e.g. DDoS is not available in Azure in China, so may need disabling or removing during deployment
 
 For clarity, the [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) is still valid and supported in all Azure clouds however, it is not provided as automated tooling or accelerators today from Microsoft. If you would like to see ALZ tooling support for these clouds please log a [GitHub Issue here](https://aka.ms/alz/repo).
 
