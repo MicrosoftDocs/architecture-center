@@ -31,15 +31,13 @@ Standard deployment options address typical enterprise Azure usage.
 | [Terraform deployment](https://azure.github.io/Azure-Landing-Zones/terraform/) | An IaC-based deployment that uses Azure-verified modules for platform landing zones and provides a customizable way to deploy Azure landing zones with Terraform. |
 
 > [!IMPORTANT]
-> The above deployment options are supported for the Azure Public/Global/Commerical Cloud offering today. If you are required to deploy into other Azure clouds (e.g. sovereign clouds), such as Azure Government (US Government) or Microsoft Azure operated by 21Vianet (Azure in China), they will require manual configuration changes, by the deploying persons, in the following areas to ensure they can be deployed in these clouds.
+> The above deployment options are supported for the Azure Public/Global/Commerical Cloud offering today. If you need to deploy into other Azure clouds (e.g. sovereign clouds), such as Azure Government (US Government) or Microsoft Azure operated by 21Vianet (Azure in China), they will require manual configuration changes, by the deploying persons. Today only the Bicep & Terraform deployment options can be altered to accomodate these changes listed below. The ALZ portal experience is **not** supported in these other clouds today.
 >
-> Today only the Bicep & Terraform deployment options can be altered to accomodate these changes listed below. The ALZ portal experience is not supported in these other clouds.
+> - Azure Policy Definitions, Initiatives & Assignments - Not all Azure policies are available across all clouds as they are in public/global/commercial, so may need removing during deployment
+> - API versions for some resources - Certian API versions may not exist in some clouds as they do in public/global/commercial, so may need adjusting during deployment
+> - Removal of some resources - Some resources may not exist in some clouds, e.g. DDoS is not availablie in Azure in China, so may need disabling or removing during deployment
 >
-> - Azure Policy Definitions, Initiatives & Assignments - Not all Azure policies are available across all clouds as they are in public/global/commercial
-> - API versions for some resources - Certian API versions may not exist in some clouds as they do in public/global/commercial
-> - Removal of some resources - Some resources may not exist in some clouds, e.g. DDoS is not availablie in Azure in China, so may need disabling or removing when deploying
->
-> For clarity, the Azure landing zone architecture is still valid and supported in all Azure clouds however, it is not provided as automated tooling or accelerators today from Microsoft.
+> For clarity, the [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) is still valid and supported in all Azure clouds however, it is not provided as automated tooling or accelerators today from Microsoft. If you would like to see ALZ tooling support for these clouds please log a [GitHub Issue here](https://aka.ms/alz/repo).
 
 ### Variants and specializations
 
