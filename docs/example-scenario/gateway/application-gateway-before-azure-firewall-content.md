@@ -65,7 +65,7 @@ This architecture contains three distinct TLS connections. Digital certificates 
 
 #### From clients to Application Gateway
 
-In Application Gateway, you deploy the digital certificate that clients see. A well-known CA such as DigiCert or Let's Encrypt typically issues such a certificate. Note how this mechanism is fundamentally different from how Azure Firewall dynamically generates digital certificates from a self-signed or internal PKI certificate authority.
+In Application Gateway, you deploy the digital certificate that clients see. A well-known CA such as DigiCert or Let's Encrypt typically issues such a certificate. This mechanism is fundamentally different from how Azure Firewall dynamically generates digital certificates from a self-signed or internal PKI certificate authority.
 
 #### From Application Gateway to Azure Firewall Premium
 
