@@ -3,7 +3,7 @@ title: Microservices assessment and readiness
 description: Use this guide as a checklist of considerations to keep in mind when you move to a microservices architecture. 
 author: ovaismehboob 
 ms.author: ovmehboo
-ms.date: 06/07/2024
+ms.date: 16/06/2025
 ms.topic: conceptual
 ms.reviewer: nasiddi 
 ms.subservice: architecture-guide
@@ -21,9 +21,9 @@ This guide will help you understand some considerations to keep in mind when you
 To start evaluating a microservices architecture, you need to first understand the core priorities of your business. Core priorities might be related to agility, change adoption, or rapid development, for example. You need to analyze whether your architecture is a good fit for your core priorities. Keep in mind that business priorities can change over time. For example, innovation is a top priority for startups, but after a few years, the core priorities might be reliability and efficiency. 
 
 Here are some priorities to consider:  
-- Innovation
-- Reliability
-- Efficiency 
+- Innovation - fostering agility and experimentation
+- Reliability - ensuring high availability and fault tolerance
+- Efficiency - optimizing resources and productivity
 
 Document the SLAs that are aligned with various parts of your application to ensure an organizational commitment that can serve as a guide to your assessment. 
 
@@ -32,10 +32,13 @@ Document the SLAs that are aligned with various parts of your application to ens
 A microservices architecture helps teams become autonomous. Teams can make their own decisions about technologies, methodologies, and infrastructure components, for example. However, these choices should respect the formally agreed-upon principles known as shared governance, which express the agreement among teams on how to address the broader strategy for microservices.
 
 Consider these factors: 
-- Is shared governance in place?
-- Do you track decisions and their trade-offs in an architecture journal?
-- Can your team easily access your architecture journal?
-- Do you have a process for evaluating tools, technologies, and frameworks? 
+- Is shared governance in place to guide architecture decisions across teams?
+- Do you maintain Architecture Decision Records (ADRs) with clear rationale, trade-offs, and status?
+- Do you maintain an Architecture Journal to capture design explorations and evolving context?
+- Can your team easily access and search your ADRs and architecture journal?
+- Do you have a technology evaluation framework for assessing new tools and frameworks?
+- Are there established principles for technology selection and standardization?
+- Are architectural decisions reviewed and updated regularly as business and technical requirements evolve?
 
 ## Assess team composition
 
@@ -75,7 +78,8 @@ When you evaluate your DevOps capability for a microservices architecture, keep 
    - Is continuous deployment implemented?
    - Is continuous monitoring implemented?
    - Is [Infrastructure as Code (IaC)](/devops/deliver/what-is-infrastructure-as-code) in place?  
-- Do you use the right tools to support CI/CD? 
+- Do you use the right strategy and tools to automate builds and deployments? 
+- Do you use feature flags and progressive deployment strategies?
 - How is configuration of staging and production environments managed for the application?
 - Does the tool chain have community support and a support model and provide proper channels and documentation?
 
@@ -96,6 +100,7 @@ When you shift to a microservices architecture, infrastructure readiness is a cr
 
 Consider these factors when you evaluate your infrastructure readiness: 
 - Does the infrastructure ensure the scalability of the services deployed?
+- Do you have container infrastructure ready for microservices deployment?
 - Does the infrastructure support provisioning through scripts that can be automated via CI/CD?
 - Does the deployment infrastructure offer an SLA for availability? 
 - Do you have a disaster recovery (DR) plan and routine drill schedules?
@@ -129,7 +134,9 @@ Microservices are self-contained services that communicate with each other acros
 
 Take these factors into consideration:
 - Are you following an API-first approach, where APIs are treated as first-class citizens?
+- Have you evaluated high-performance protocols such as gRPC, HTTP/2, or asynchronous messaging (e.g., Kafka, NATS) for efficient service-to-service communication?
 - Do you have long-chain operations, where multiple services communicate in sequence over a synchronous communication protocol?
+- Do you use event streaming platforms for real-time data processing?
 - Have you considered asynchronous communication anywhere in the system?
 - Have you assessed the message broker technology and its capabilities?
 - Do you understand the throughput of messages that services receive and process?
@@ -146,6 +153,7 @@ An API gateway is one of the core components in a microservices architecture. Di
 Take these factors into consideration:
 - Are the services directly consumed by clients?
 - Is there an API gateway that acts as a facade for all the services?
+- Do you implement Backend for Frontend (BFF) patterns for different client types?
 - Can the API gateway set up policies like quota limits, mocking responses, and filtering of IP addresses?
 - Are you using multiple API gateways to address the needs of various types of clients, like mobile apps, web apps, and partners?
 - Does your API gateway provide a portal where clients can discover and subscribe to services, like a developer portal in [Azure API Management](https://azure.microsoft.com/services/api-management)?
@@ -158,9 +166,12 @@ Distributed transactions facilitate the execution of multiple operations as a si
 Take the following considerations into account:
 - How many distributed transactions are there in the system? 
 - What's your approach to handling distributed transactions? Evaluate the use of the [Saga pattern](/azure/architecture/reference-architectures/saga/saga) with orchestration or choreography.
+- Have you considered event sourcing for maintaining transaction history and state?
+- Do you implement Command Query Responsibility Segregation (CQRS) patterns?
 - How many transactions span multiple services?
 - Are you following an ACID or BASE transaction model to achieve data consistency and integrity?
 - Are you using long-chaining operations for transactions that span multiple services?
+- Do you have compensation patterns in place beyond Saga for transaction rollback?
 
 ## Assess your service development model
 
@@ -182,6 +193,7 @@ When you assess your deployment plan, consider these factors:
 - Are you using modern tools and technologies to deploy your services?
 - What kind of collaboration is required among teams when you deploy services?
 - Do you provision infrastructure by using Infrastructure as Code (IaC)?
+- Do you follow immutable infrastructure principles?
 - Do you use DevOps capabilities to automate deployments?
 - Do you propagate the same builds to multiple environments, as suggested by the Twelve-Factor app methodology? 
 
@@ -204,6 +216,7 @@ Monitoring is an important element of a microservices-based application. Because
 
 Consider these factors:
 - Do you monitor your deployed services?
+- Do you have Service Level Objectives (SLOs) defined?
 - Do you have a logging mechanism? What tools do you use?
 - Do you have a distributed tracing infrastructure in place?
 - Do you record exceptions?
@@ -211,6 +224,7 @@ Consider these factors:
 - Do you use health probes for services?
 - Do you use semantic logging? Have you implemented key metrics, thresholds, and indicators? 
 - Do you mask sensitive data during logging?
+- Do you monitor service dependencies and external integrations?
 
 ## Assess correlation token assignment
 
@@ -266,11 +280,15 @@ Security concerns are usually handled by the API gateway and the application fir
 
 Consider these factors: 
 - Are authentication and authorization required for the service?
+- Have you considered zero-trust architecture principles?
+- Do you have secrets management beyond key vaults (rotation, lifecycle management)?
 - Are you using an API gateway to validate tokens and incoming requests?
 - Are you using SSL or mTLS to provide security for service communication?
+- Do you implement container and image security scanning?
 - Do you have network security policies in place to allow the required communication among services?
 - Are you using firewalls (L4, L7) where applicable to provide security for internal and external communications?
 - Do you use security policies in API Gateway to control traffic?
+- Do you have runtime security monitoring for detecting anomalous behavior?
 
 ## Contributors
 
@@ -278,8 +296,8 @@ Consider these factors:
 
 Principal authors:
 
-- [Ovais Mehboob Ahmed Khan](https://www.linkedin.com/in/ovaismehboob) | Senior Cloud Solution Architect - Engineering
-- [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams) | Cloud Solution Architect - Digital & Application Innovation
+- [Ovais Mehboob Ahmed Khan](https://www.linkedin.com/in/ovaismehboob) | Senior Cloud Solution Architect - Digital & Application Innovation
+- [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams) | Technology Specialist - Digital & Application Innovation
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
