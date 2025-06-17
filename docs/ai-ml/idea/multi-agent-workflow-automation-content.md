@@ -84,16 +84,23 @@ Product Launch Coordination: Orchestrate design finalization, manufacturing setu
 Supplier Onboarding Process: Automate qualification assessments, contract negotiations, system integrations, and performance monitoring setup
 Quality Incident Management: Coordinate investigation, root cause analysis, corrective actions, and supplier communication for quality issues
 
+## Alternatives
 
-### Alternatives
+This architecture includes multiple components that you can substitute with other Azure services or approaches, depending on your workload's functional and nonfunctional requirements. Consider the following alternatives and trade-offs.
 
-If you don't require the full flexibility and control of self-hosted agent orchestration, you can implement Azure AI Foundry's managed agent services to benefit from reduced operational complexity. You could use Azure AI Foundry Agent Hub with pre-built orchestration templates that handle agent coordination automatically. The Container App API and Cosmos DB can use the same configurations as the original architecture.
+### Agent orchestration
 
-The benefits of using managed agent services include reduced development time and operational overhead. If you don't have specific business requirements for custom agent logic or complex integration patterns, use Azure AI Foundry's managed approach to eliminate the need for building custom orchestration frameworks. This approach also helps ensure that multi-agent workflows scale automatically and benefit from built-in monitoring capabilities.
+**Current approach:** This solution uses custom agent code, written with the Semantic Kernel SDK, to orchestrate agents and their interactions. Container Apps serve as the central orchestrator compute that runs the code which coordinates the multiple AI agents operating on active workflows. This approach is a code-first solution that provides maximum control over agent behavior, orchestration logic, and compute scale.
 
-Alternatively, if you require maximum control over agent behavior and have complex enterprise integration requirements, consider implementing self-hosted Semantic Kernel orchestration. This approach provides complete customization of agent logic, specialized plugin development, and the ability to integrate with legacy systems or proprietary protocols. While this increases development complexity, it offers greater flexibility for organizations with unique automation requirements or strict compliance needs.
+**Alternative approach:** Use Azure AI Foundry's Agent Service to define agents and connect them individually to relevant knowledge stores and tools. This approach is a no-code solution where you to define agent behavior and agent relationships through a system prompt. The agents are hosted on your behalf, and you have no control over the compute that runs the agents.
 
-For organizations with mixed requirements, a hybrid approach can be effective where standard workflows use Azure AI Foundry's managed services while critical or highly customized processes use self-hosted orchestration through the same Container App API interface.
+Consider this alternative if your workload has the following characteristics:
+
+- You don't require determisitic agent orchestration. You can sufficiently define agent behavior, including knowledge store access and tool use, through a system prompt.
+- You dont require full control of your agents' compute.
+- You only need HTTPS accessible tools and your knowledge stores are compatible with Foundry Agent Service.
+
+For organizations with mixed requirements, a hybrid approach can be effective where standard workflows use Foundry Agent Service while critical or highly customized processes use self-hosted orchestration on Container Apps.
 
 ## Cost Optimization
 
