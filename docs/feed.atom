@@ -2,12 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2025-06-09T22:51:23.189Z</updated>
+    <updated>2025-06-17T16:43:15.907Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Prevent IPv4 Exhaustion in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/internet-protocol-version-4-exhaustion</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/internet-protocol-version-4-exhaustion"/>
+        <updated>2025-06-16T17:16:45.000Z</updated>
+        <summary type="html"><![CDATA[Minimize private address space consumption when you build large networks in Azure. This article presents two methods to create more IPv4 address space.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline Azure AI Foundry Chat Reference Architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat"/>
+        <updated>2025-06-13T19:24:27.000Z</updated>
+        <summary type="html"><![CDATA[Use this baseline reference architecture to learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Azure AI Foundry, the Azure AI Agent Service, Azure OpenAI models, and Azure App Service.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Implement SMA OpCon in Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/integration/sma-opcon-azure</id>
@@ -25,11 +41,11 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Basic Azure AI Foundry Chat Reference Architecture]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-azure-ai-foundry-chat</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-azure-ai-foundry-chat"/>
-        <updated>2025-06-02T21:34:31.000Z</updated>
-        <summary type="html"><![CDATA[Establish foundational knowledge for how to build and deploy enterprise chat applications by using Azure AI Foundry and Azure App Service.]]></summary>
+        <title type="html"><![CDATA[AI Architecture Design]]></title>
+        <id>https://learn.microsoft.com/azure/architecture//ai-ml</id>
+        <link href="https://learn.microsoft.com/azure/architecture//ai-ml"/>
+        <updated>2025-06-13T19:24:27.000Z</updated>
+        <summary type="html"><![CDATA[Get started with AI. Use high-level architectural types, see Azure AI platform offerings, and find customer success stories.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -38,6 +54,150 @@
         <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/stream-processing"/>
         <updated>2025-06-05T21:48:10.000Z</updated>
         <summary type="html"><![CDATA[Compare options for real-time message stream processing in Azure, with key selection criteria and a capability matrix.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS baseline cluster for a PCI-DSS 3.2.1 workload - Access controls]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-identity</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-identity"/>
+        <updated>2025-06-16T20:00:32.000Z</updated>
+        <summary type="html"><![CDATA[Best practices for implementing access controls as per Requirement 7, 8, and 9 of PCI-DSS 3.2.1.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Azure Landing Zones]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy</id>
+        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy"/>
+        <updated>2025-06-16T18:04:32.000Z</updated>
+        <summary type="html"><![CDATA[Learn about deployment options for both platform and application landing zones in Azure to help ensure governance and cost efficiency.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Zero-trust network for web applications with Azure Firewall and Application Gateway]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall"/>
+        <updated>2025-06-16T17:22:12.000Z</updated>
+        <summary type="html"><![CDATA[Protect web apps by implementing zero-trust security in virtual networks. Use Azure Firewall and Azure Application Gateway in networks to maximize protection.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Patterns for inter-spoke networking]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/spoke-to-spoke-networking</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/spoke-to-spoke-networking"/>
+        <updated>2025-06-16T16:52:49.000Z</updated>
+        <summary type="html"><![CDATA[Learn about options and best practices for spoke-to-spoke communication in Azure Virtual Network designs.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Guidance for using Azure Event Hubs in a multitenant solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/event-hubs</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/event-hubs"/>
+        <updated>2025-06-15T20:58:18.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Azure Event Hubs features and isolation models that you can use to implement an event-driven architecture for a multitenant system.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Storage considerations for multitenancy]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/storage</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/storage"/>
+        <updated>2025-06-15T20:58:18.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure Storage that are useful when working with multitenant systems. It provides links to guidance and examples for how to use Azure Storage in a multitenant solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Guidance for using Azure NAT Gateway in a multitenant solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/nat-gateway</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/nat-gateway"/>
+        <updated>2025-06-12T22:47:48.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of NAT Gateway that are useful when you work with multitenanted systems. It also provides links to guidance and examples for how to use NAT Gateway in a multitenant solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Kubernetes Monitoring and Logging]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/monitoring</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/monitoring"/>
+        <updated>2025-06-12T18:36:20.000Z</updated>
+        <summary type="html"><![CDATA[Understand monitoring and logging for an Azure Kubernetes Service (AKS) cluster and workloads, and compare Amazon EKS and AKS monitoring and logging.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Enhance Network Access Security to Kubernetes]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/private-clusters</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/private-clusters"/>
+        <updated>2025-06-12T18:36:20.000Z</updated>
+        <summary type="html"><![CDATA[Understand networking options to help securely access the Kubernetes API server, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Kubernetes Workload Identity and Access]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/workload-identity</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/workload-identity"/>
+        <updated>2025-06-12T18:36:20.000Z</updated>
+        <summary type="html"><![CDATA[Understand how Kubernetes pods handle identity and access, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Pricing models for a multitenant solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/pricing-models</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/pricing-models"/>
+        <updated>2025-06-12T18:36:20.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the considerations for planning pricing models for a multitenant solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Considerations for updating a multitenant solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/updates</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/updates"/>
+        <updated>2025-06-12T18:36:20.000Z</updated>
+        <summary type="html"><![CDATA[This article describes considerations for updating your multitenant solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Guidance for using Azure Kubernetes Service (AKS) in a multitenant solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/aks"/>
+        <updated>2025-06-12T18:36:20.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the features of Azure Kubernetes Service (AKS) that you can use when you work with multitenant systems. See guidance and examples for how to use AKS in a multitenant solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Application Insights]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/application-insights</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/application-insights"/>
+        <updated>2025-06-12T18:36:20.000Z</updated>
+        <summary type="html"><![CDATA[Learn about tenancy models that you can use with Application Insights and features that are useful when you use this service in multitenant systems.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Messaging Bridge pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/messaging-bridge</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/messaging-bridge"/>
+        <updated>2025-06-12T18:36:20.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use the Messaging Bridge pattern to integrate disparate systems built on top of different messaging infrastructures.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Kubernetes Service (AKS) baseline architecture for AKS on Azure Local]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-baseline</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-baseline"/>
+        <updated>2025-06-12T17:38:21.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) running on Azure Local.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural Approaches for Identity in Multitenant Solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/identity</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/identity"/>
+        <updated>2025-06-11T16:23:48.000Z</updated>
+        <summary type="html"><![CDATA[This article covers identity management strategies for multitenant solutions, including authentication, authorization, federation, and security considerations.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Noisy Neighbor antipattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor</id>
+        <link href="https://learn.microsoft.com/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor"/>
+        <updated>2025-06-11T03:58:51.000Z</updated>
+        <summary type="html"><![CDATA[Learn how the activity of one tenant can affect the performance of other tenants in a multitenant system.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -201,11 +361,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Architectural approaches for identity in multitenant solutions]]></title>
+        <title type="html"><![CDATA[Architectural Approaches for Identity in Multitenant Solutions]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/identity</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/identity"/>
         <updated>2025-05-19T07:04:44.000Z</updated>
-        <summary type="html"><![CDATA[This article describes the approaches for managing identities in a multitenant solution.]]></summary>
+        <summary type="html"><![CDATA[This article covers identity management strategies for multitenant solutions, including authentication, authorization, federation, and security considerations.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -238,14 +398,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops"/>
         <updated>2025-05-09T17:11:59.000Z</updated>
         <summary type="html"><![CDATA[Extend existing MLOps investments to include generative AI operations. Learn where you can apply existing investments and where you need to extend those investments.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Basic Azure AI Foundry Chat Reference Architecture]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-azure-ai-foundry-chat</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-azure-ai-foundry-chat"/>
-        <updated>2025-05-30T22:16:01.000Z</updated>
-        <summary type="html"><![CDATA[Establish foundational knowledge for how to build and deploy enterprise chat applications by using Azure AI Foundry and Azure App Service.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1086,14 +1238,6 @@
         <link href="https://learn.microsoft.com/azure/architecture//networking"/>
         <updated>2025-03-24T21:19:15.000Z</updated>
         <summary type="html"><![CDATA[Learn about sample architectures, solutions, and guides that can help you explore the various networking services in Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Baseline OpenAI End-to-End Chat Reference Architecture]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat"/>
-        <updated>2025-03-20T16:50:14.000Z</updated>
-        <summary type="html"><![CDATA[Use this baseline reference architecture to learn how to build network-secured, highly available, and zone-redundant enterprise chat applications on Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
