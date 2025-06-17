@@ -7,7 +7,7 @@ The architecture demonstrates how to build scalable automation pipelines where m
 ## Architecture
 
 :::image type="complex" border="false" source="./_images/multi-agent-workflow-automation.png" alt-text="Diagram that shows a typical multi-agent architecture." lightbox="./_images/multi-agent-workflow-automation.png":::
-   <Long description that ends with a period.>
+   TODO - Add long description
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/multi-agent-workflow-automation.vsdx) of this architecture.*
