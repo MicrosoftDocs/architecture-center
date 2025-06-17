@@ -3836,6 +3836,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/big-data-azure-data-explorer.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml",
       "redirect_url": "/purview/register-scan-adls-gen2?tabs=MI",
       "redirect_document_id": false

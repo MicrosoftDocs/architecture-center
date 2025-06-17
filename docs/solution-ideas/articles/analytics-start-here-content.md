@@ -80,8 +80,6 @@ A hybrid approach might include mainframe and midrange systems as a data source 
 
 Here are a few sample implementations of analytics on Azure to consider:
 
--   [Big data analytics with Azure Data Explorer](./big-data-azure-data-explorer.yml)
-
 -   [IoT analytics with Azure Data Explorer](./iot-azure-data-explorer.yml)
 
 -   [Modern analytics architecture with Azure Databricks](./azure-databricks-modern-analytics-architecture.yml)
