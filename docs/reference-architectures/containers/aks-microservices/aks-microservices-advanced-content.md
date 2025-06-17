@@ -84,7 +84,10 @@ The example [Fabrikam Drone Delivery Shipping App](https://github.com/mspnp/aks-
 
 ### Potential use cases
 
-This solution is ideal for the aircraft, aerospace, and aviation industries.
+Adopt the best practices from the scenario and reference architecture to architect complex microservices-based applications in AKS:
+
+- Complex web applications
+- Business logic developed by using microservice design principles
 
 ## Recommendations
 
@@ -148,6 +151,13 @@ spec:
 ```
 
 For more information on Kubernetes network policies and additional examples of potential default policies, see [Network Policies in the Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/network-policies).
+
+Azure provides three Network Policy engines for [enforcing network policies](/azure/aks/use-network-policies):
+- [Cilium for AKS clusters](/azure/aks/azure-cni-powered-by-cilium) that use Azure CNI Powered by Cilium
+- Azure Network Policy Manager.
+- Calico, an open-source network and network security solution 
+
+Cilium is our recommended Network Policy engine.
 
 ### Resource quotas
 
