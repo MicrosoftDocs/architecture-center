@@ -1,20 +1,20 @@
-
+### YamlMime:Architecture
 metadata:
-  title: Multi-agent workflow automation
+  title: Build a Multi-agent Workflow Automation Solution with Semantic Kernel
   description: Learn how to build scalable automation pipelines where multiple AI agents collaborate through a central API orchestrator, with persistent learning capabilities and automated deployment processes for enterprise-grade task automation.
   author: gpickett
   ms.author: gpickett
   ms.date: 6/16/2025
-  ms.topic: conceptual
-  ms.subservice: ai-ml
+  ms.topic: solution-idea
+  ms.collection: ce-skilling-ai-copilot
+  ms.subservice: solution-idea
 azureCategories:
-  - AI agents
+  - ai-machine-learning
 products:
-  - Semantic Kernel
-  - Azure Foundry
-  - Azure Cosmos DB
-name: Multi-agent workflow automation
+  - ai-services
+  - azure-cosmos-db
+name: Build a multi-agent workflow automation solution with Semantic Kernel
 summary: Learn how to build scalable automation pipelines where multiple AI agents collaborate through a central API orchestrator, with persistent learning capabilities and automated deployment processes for enterprise-grade task automation.
-thumbnailUrl: /azure/architecture/browse/thumbs/Multi-agent-workflow-automation.png
+thumbnailUrl: /azure/architecture/browse/thumbs/multi-agent-workflow-automation.png
 content: |
   [!INCLUDE[](Multi-agent-workflow-automation-content.md)]
