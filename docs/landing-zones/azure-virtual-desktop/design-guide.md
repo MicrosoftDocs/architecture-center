@@ -121,10 +121,10 @@ The architecture is based on multiple subscriptions, each dedicated to specific 
 
 #### Benefits of using this reference implementation
 
-- **Scalability**: The accelerator helps set up an architecture that can scale with your organization's needs.
-- **Security**: Implements enterprise-grade security, compliance, and governance controls to protect your environment.
-- **Faster deployment**: Predefined templates, configurations, and best practices ensure faster and more reliable deployments.
-- **Best practices compliance**: The architecture follows the best practices outlined in the Cloud Adoption Framework.
+- **Scalability**: The implementation is designed to scale with your organization's needs.
+- **Security**: The implementation uses enterprise-grade security, compliance, and governance controls to protect your environment.
+- **Faster deployment**: The predefined templates, configurations, and best practices provide you a fast and reliable deployment.
+- **Best practices compliance**: The implementation follows the best practices designed in the architecture.
 
 
 #### Accelerator overview
