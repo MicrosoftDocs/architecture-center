@@ -50,7 +50,7 @@ The AKS infrastructure features used in this architecture include:
 
 **[Azure Private Link](/azure/private-link/private-link-overview)** allocates specific private IP addresses to access Azure Container Registry and Key Vault from [Private Endpoints](/azure/private-link/private-endpoint-overview) within the AKS system and user node pool subnet.
 
-**[Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller (AGIC)](https://github.com/Azure/application-gateway-kubernetes-ingress) as the Kubernetes ingress controller.
+**[Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) as the Kubernetes ingress controller.
 
 **[Azure Bastion](/azure/bastion/bastion-overview)** provides secure remote desktop protocol (RDP) and secure shell (SSH) access to VMs in the virtual networks by using a secure socket layer (SSL), without the need to expose the VMs through public IP addresses.
 
@@ -74,9 +74,9 @@ The AKS infrastructure features used in this architecture include:
 
 **[Helm](https://helm.sh/)**, a package manager for Kubernetes that bundles Kubernetes objects into a single unit that you can publish, deploy, version, and update.
 
-**[Azure Key Vault Secret Store CSI provider](https://github.com/Azure/secrets-store-csi-driver-provider-azure)** gets secrets stored in Azure Key Vault and uses the [Secret Store CSI driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) interface to mount them into Kubernetes pods.
+**[Azure Key Vault Secret Store CSI provider](/azure/aks/csi-secrets-store-driver)** The Azure Key Vault provider for Secrets Store CSI Driver allows for the integration of an Azure Key Vault as a secret store with an Azure Kubernetes Service (AKS) cluster via a [CSI volume](https://kubernetes-csi.github.io/docs/).
 
-**[Flux](https://fluxcd.io)**, an open and extensible continuous delivery solution for Kubernetes, powered by the GitOps Toolkit.
+**[Flux](/azure/azure-arc/kubernetes/conceptual-gitops-flux2)**, an open and extensible continuous delivery solution for Kubernetes, enabling [GitOps in AKS](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks).
 
 ## Scenario details
 
@@ -107,7 +107,7 @@ External ingress controllers simplify traffic ingestion into AKS clusters, impro
 
 Application Gateway has built-in autoscaling capabilities, unlike in-cluster ingress controllers that must be scaled out if they consume an undesired amount of compute resources. Application Gateway can perform layer-7 routing and SSL termination and has end-to-end Transport Layer Security (TLS) integrated with a built-in *web application firewall (WAF)*.
 
-For the [AGIC](https://azure.github.io/application-gateway-kubernetes-ingress/) ingress option, you must enable [CNI networking](/azure/aks/configure-azure-cni) when you configure the AKS cluster because Application Gateway is deployed into a subnet of the AKS virtual network. Multitenant workloads, or a single cluster that supports development and testing environments, could require more ingress controllers.
+For the [AGIC](/azure/application-gateway/ingress-controller-overview) ingress option, you must enable [CNI networking](/azure/aks/configure-azure-cni) when you configure the AKS cluster because Application Gateway is deployed into a subnet of the AKS virtual network. Multitenant workloads, or a single cluster that supports development and testing environments, could require more ingress controllers.
 
 ### Zero-trust network policies
 
@@ -190,13 +190,13 @@ For more information about resource quotas, see:
 
 ### Autoscaling
 
-Kubernetes supports *autoscaling* to increase the number of pods allocated to a deployment or increase the nodes in the cluster to increase the total compute resources available. Autoscaling is a self-correcting autonomous feedback system. Although you can scale pods and nodes manually, autoscaling minimizes the chances of services becoming resource-starved at high loads. An autoscaling strategy must take both pods and nodes into account.
+Kubernetes supports *autoscaling* to increase the number of pods allocated to a deployment or increase the nodes in the cluster to increase the total compute resources available. Autoscaling is a self-correcting autonomous feedback system. Although you can scale pods and nodes manually, autoscaling minimizes the chances of services becoming resource-starved at high loads. An autoscaling strategy must take both pods and nodes into account. 
 
 #### Cluster autoscaling
 
 The *cluster autoscaler (CA)* scales the number of nodes. Suppose pods can't be scheduled because of resource constraints; the cluster autoscaler provisions more nodes. You define a minimum number of nodes to keep the AKS cluster and your workloads operational and a maximum number of nodes for heavy traffic. The CA checks every few seconds for pending pods or empty nodes and scales the AKS cluster appropriately.
 
-The following example shows the CA configuration from the ARM template:
+The following example shows the CA configuration from the Bicep template:
 
 ```json
 "autoScalerProfile": {
@@ -217,7 +217,7 @@ The following example shows the CA configuration from the ARM template:
     "ok-total-unready-count": "3"
 },
 ```
-The following lines in the ARM template set example minimum and maximum nodes for the CA:
+The following lines in the Bicep template set example minimum and maximum nodes for the cluster autoscaler:
 
 ```json
 "minCount": 2,
@@ -253,14 +253,19 @@ spec:
 
 HPA looks at actual resources consumed or other metrics from running pods, but the CA provisions nodes for pods that aren't scheduled yet. Therefore, CA looks at the requested resources, as specified in the pod spec. Use load testing to fine-tune these values.
 
+Please refer to [/azure/aks/concepts-scale](scaling options for applications in AKS) for more information on autoscaling options in AKS.
+
 ### Health probes
 
 Kubernetes load balances traffic to pods that match a label selector for a service. Only pods that started successfully and are healthy receive traffic. If a container crashes, Kubernetes removes the pod and schedules a replacement.
 
-In Kubernetes, a pod can expose two types of health probe:
+Kubernetes defines three types of health probes that a pod can expose:
 
-- The *liveness probe* tells Kubernetes whether a pod started successfully and is healthy.
-- The *readiness probe* tells Kubernetes whether a pod is ready to accept requests.
+- Readiness probe: Tells Kubernetes whether the pod is ready to accept requests.
+
+- Liveness probe: Tells Kubernetes whether a pod should be removed and a new instance started.
+
+- Startup probe: Tells Kubernetes whether the pod is started.
 
 The liveness probes handle pods that are still running but are unhealthy and should be recycled. For example, if a container serving HTTP requests hangs, the container doesn't crash, but it stops serving requests. The HTTP liveness probe stops responding, which informs Kubernetes to restart the pod.
 
@@ -279,7 +284,7 @@ Application Insights:
 - Includes an operation ID in traces, so you can match all traces for a particular operation.
 - Often includes additional contextual information in traces.
 
-To contextualize services telemetry with the Kubernetes world, integrate Azure Monitor telemetry with AKS to collect metrics from controllers, nodes, and containers, as well as container and node logs. If you're using .NET, the [Application Insights for Kubernetes](https://github.com/microsoft/ApplicationInsights-Kubernetes) library enriches Application Insights telemetry with image, container, node, pod, label, and replica set information.
+To contextualize services telemetry with the Kubernetes world, integrate Azure Monitor telemetry with AKS to collect metrics from controllers, nodes, and containers, as well as container and node logs. Application insights can be integrated with Azure Kubernetes Service [without code changes](/azure/azure-monitor/app/kubernetes-codeless).  
 
 The following diagram shows an example of the application dependency map that Application Insights generates for an AKS microservices telemetry trace:
 
@@ -303,11 +308,11 @@ Consider the following points when planning for security.
 
 - Each service in the microservice application should be assigned a unique workload identity to facilitate least-privileged RBAC assignments. You should only assign identities to services that require them.
 
-- In cases where an application component requires Kubernetes API access, ensure that application pods are configured to use a service account with appropriately scoped API access. For more information on configuring and managing Kubernetes service account, see [Managing Kubernetes Service Accounts](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/).
+- In cases where an application component requires Kubernetes API access, ensure that application pods are configured to use a service account with appropriately scoped API access. For more information on configuring and managing Kubernetes service account, see [Managing Kubernetes Service Accounts](/azure/aks/concepts-identity#kubernetes-service-accounts).
 
 - Not all Azure services support data plane authentication using Microsoft Entra ID. To store credentials or application secrets for those services, for third-party services, or for API keys, use Azure Key Vault. Azure Key Vault provides centralized management, access control, encryption at rest, and auditing of all keys and secrets.
 
-- In AKS, you can mount one or more secrets from Key Vault as a volume. The pod can then read the Key Vault secrets just like a regular volume. For more information, see the [secrets-store-csi-driver-provider-azure](https://github.com/Azure/secrets-store-csi-driver-provider-azure) project on GitHub.
+- In AKS, you can mount one or more secrets from Key Vault as a volume. The pod can then read the Key Vault secrets just like a regular volume. For more information, see [secrets-store-csi-driver-provider-azure](/azure/aks/csi-secrets-store-driver)
 
 ### Cost Optimization
 
