@@ -1,10 +1,9 @@
 # Multi-Agent-Custom-Automation-Engine-Solution-Accelerator Architecture
-<span style="background-color:rgba(240, 240, 240, 0.09); padding: 4px 8px; margin: 2px; border-radius: 4px; font-size: 14px;">Azure IoT Hub</span>
+<span style="background-color:rgba(240, 240, 240, 0.09); padding: 4px 8px; margin: 2px; border-radius: 4px; font-size: 14px;">Azure OpenAI</span>
+<span style="background-color:rgba(240, 240, 240, 0.09); padding: 4px 8px; margin: 2px; border-radius: 4px; font-size: 14px;">Azure Container Instances</span>
 
 
-Azure Container Instances
-
-This reference architecture shows a multi-agent AI automation system deployed using Azure container services and AI platforms. It describes a foundational configuration that leverages specialized AI agents to coordinate and execute complex organizational tasks automatically. This article assumes that you have a basic understanding of containerized applications and AI orchestration concepts. The article primarily highlights the infrastructure and DevOps aspects of how to manage multi-agent systems on Azure, including continuous integration, data persistence, and agent coordination. For more information about designing AI agent architectures, see Multi-agent systems design patterns.
+This architecture shows a multi-agent AI automation system deployed using Azure container services and AI platforms. It describes a foundational configuration that leverages specialized AI agents to coordinate and execute complex organizational tasks automatically. This article assumes that you have a basic understanding of containerized applications and AI orchestration concepts. The article primarily highlights the infrastructure and DevOps aspects of how to manage multi-agent systems on Azure, including continuous integration, data persistence, and agent coordination. For more information about designing AI agent architectures, see Multi-agent systems design patterns.
 The architecture demonstrates how to build scalable automation pipelines where multiple AI agents collaborate through a central API orchestrator, with persistent learning capabilities and automated deployment processes for enterprise-grade task automation.
 
 > 
@@ -17,16 +16,16 @@ The architecture demonstrates how to build scalable automation pipelines where m
 
 
 
-:::image type="complex" border="false" source="./images/<file-name-and-extension>" 
+:::image type="complex" border="false" source="./images/Multi-agent-workflow-automation" 
 alt-text="Diagram that shows the <solution name> architecture." lightbox="./images/
 <file-name-and-extension>":::
    <Long description that ends with a period.>
 :::image-end:::
 
 
-![Diagram that shows the Multi-Agent Custom Automation Engine Solution Accelerator architecture.](./multi-agent-architecture.png)
+![Diagram that shows the Multi-Agent Custom Automation Engine Solution Accelerator architecture.](./Multi-agent-workflow-automation.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/<file-name>.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/Multi-agent-workflow-automation.vsdx) of this architecture.*
 
 *Download a [Visio file](https://microsoft-my.sharepoint.com/:u:/p/gpickett/EXwTbbT_LFtLhb087-xEQNsBOFI-AqvNu6yuSPRG6NS1jw?e=1aapbb
 ) of this architecture.*
@@ -103,17 +102,27 @@ Product Launch Coordination: Orchestrate design finalization, manufacturing setu
 Supplier Onboarding Process: Automate qualification assessments, contract negotiations, system integrations, and performance monitoring setup
 Quality Incident Management: Coordinate investigation, root cause analysis, corrective actions, and supplier communication for quality issues
 
-Technology & Innovation
 
-Software Development Lifecycle: Automate code review, testing coordination, deployment planning, and release management across development teams
-Vendor Integration Projects: Coordinate technical assessments, security reviews, contract negotiations, and implementation planning for new technology partnerships
-Digital Transformation Initiatives: Orchestrate stakeholder alignment, resource allocation, timeline management, and change management across multiple business units
+### Alternatives
 
-Education & Training
+If you don't require the full flexibility and control of self-hosted agent orchestration, you can implement Azure AI Foundry's managed agent services to benefit from reduced operational complexity. You could use Azure AI Foundry Agent Hub with pre-built orchestration templates that handle agent coordination automatically. The Container App API and Cosmos DB can use the same configurations as the original architecture.
 
-Curriculum Development: Coordinate subject matter expert input, instructional design, content creation, and quality assurance across academic departments
-Student Success Interventions: Automate early warning systems, resource allocation, counselor assignment, and progress tracking for at-risk students
-Accreditation Preparation: Coordinate evidence collection, self-study preparation, stakeholder interviews, and compliance documentation across institutional departments
+The benefits of using managed agent services include reduced development time and operational overhead. If you don't have specific business requirements for custom agent logic or complex integration patterns, use Azure AI Foundry's managed approach to eliminate the need for building custom orchestration frameworks. This approach also helps ensure that multi-agent workflows scale automatically and benefit from built-in monitoring capabilities.
+
+Alternatively, if you require maximum control over agent behavior and have complex enterprise integration requirements, consider implementing self-hosted Semantic Kernel orchestration. This approach provides complete customization of agent logic, specialized plugin development, and the ability to integrate with legacy systems or proprietary protocols. While this increases development complexity, it offers greater flexibility for organizations with unique automation requirements or strict compliance needs.
+
+For organizations with mixed requirements, a hybrid approach can be effective where standard workflows use Azure AI Foundry's managed services while critical or highly customized processes use self-hosted orchestration through the same Container App API interface.
+
+
+
+### Cost Optimization
+Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see Design review checklist for Cost Optimization.
+
+For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/86d0eefbe4dd4a23981c1d3d4f6fe7ed).
+
+
+Pricing varies per region and usage, so it isn't possible to predict exact costs for your usage. The majority of the Azure resources used in this infrastructure are on usage-based pricing tiers. However, Azure Container Registry has a fixed cost per registry per day.
+
 
 ## Deploy this scenario
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo](https://github.com/microsoft/Multi-Agent-Custom-Automation-Engine-Solution-Accelerator).
@@ -124,17 +133,18 @@ To deploy the reference implementation for this architecture, follow the steps i
 
 Principal authors:
 
-- [Author 1 Name](https://www.linkedin.com/in/ProfileURL/) | Title, such as "Cloud Solution Architect"
-- [Author 2 Name](https://www.linkedin.com/in/ProfileURL/) | Title, such as "Cloud Solution Architect"
+- [Solomon Pickett](https://www.linkedin.com/in/ProfileURL/) | Software Engineer II
+
 
 Other contributors:
 
-- [Contributor 1 Name](https://www.linkedin.com/in/ProfileURL/) | Title, such as "Cloud Solution Architect"
-- [Contributor 2 Name](https://www.linkedin.com/in/ProfileURL/) | Title, such as "Cloud Solution Architect"
+- [Mark Taylor](https://www.linkedin.com/in/mark-taylor-5043351) | Principal Software Engineer
+
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-## Related resources
+- [Overview of Agent Architecture](https://learn.microsoft.com/en-us/semantic-kernel/frameworks/agent/agent-architecture?pivots=programming-language-csharp)
+
 
