@@ -6,7 +6,7 @@ The architecture demonstrates how to build scalable automation pipelines where m
 
 ## Architecture
 
-:::image type="complex" border="false" source="./_images/Multi-agent-workflow-automation.png" alt-text="Diagram that shows a typical multi-agent architecture." lightbox="./_images/Multi-agent-workflow-automation.png":::
+:::image type="complex" border="false" source="./_images/multi-agent-workflow-automation.png" alt-text="Diagram that shows a typical multi-agent architecture." lightbox="./_images/multi-agent-workflow-automation.png":::
    <Long description that ends with a period.>
 :::image-end:::
 
@@ -105,7 +105,7 @@ Pricing varies per region and usage, so it isn't possible to predict exact costs
 
 ## Deploy this scenario
 
-To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo](https://github.com/microsoft/Multi-Agent-Custom-Automation-Engine-Solution-Accelerator).
+To deploy an implementation of this architecture, follow the steps in the [GitHub repo](https://github.com/microsoft/Multi-Agent-Custom-Automation-Engine-Solution-Accelerator).
 
 ## Contributors
 
