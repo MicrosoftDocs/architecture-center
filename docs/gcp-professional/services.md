@@ -50,7 +50,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Architecture | Description |
 |----|----|
-| [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with Azure Synapse Analytics. |
+| [Databases architecture design](/azure/architecture/databases) | Overview of the Azure database solutions described in Azure Architecture Center. |
 
 [view all](../browse/index.yml?azure_categories=databases)
 
@@ -90,7 +90,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Architecture | Description |
 |----|----|
-| [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, and transform (ELT) workflow in Azure by using Azure Data Factory with Azure Synapse Analytics. |
+| [Databases architecture design](/azure/architecture/databases) | Overview of the Azure database solutions described in Azure Architecture Center. |
 
 [view all](../browse/index.yml?azure_categories=analytics)
 
