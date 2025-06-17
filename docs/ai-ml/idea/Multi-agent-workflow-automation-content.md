@@ -23,7 +23,7 @@ alt-text="Diagram that shows the <solution name> architecture." lightbox="./imag
 :::image-end:::
 
 
-![Diagram that shows the Multi-Agent Custom Automation Engine Solution Accelerator architecture.](./Multi-agent-workflow-automation.png)
+![Diagram that shows the Multi-Agent Custom Automation Engine Solution Accelerator architecture.](./_images/Multi-agent-workflow-automation.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/Multi-agent-workflow-automation.vsdx) of this architecture.*
 
