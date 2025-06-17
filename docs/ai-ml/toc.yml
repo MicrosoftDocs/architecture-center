@@ -22,6 +22,10 @@ items:
           href: idea/orchestrate-machine-learning-azure-databricks.yml
         - name: Many models with Machine Learning
           href: idea/many-models-machine-learning-azure-machine-learning.yml
+      - name: Workflow automation
+        items:
+        - name: Build a multi-agent workflow automation solution with Semantic Kernel
+          href: idea/multi-agent-workflow-automation.yml
       - name: Document processing
         items:
         - name: Extract text using Power Automate
